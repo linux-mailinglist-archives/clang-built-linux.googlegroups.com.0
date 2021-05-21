@@ -1,136 +1,127 @@
-Return-Path: <clang-built-linux+bncBCN674663MOBBQPITWCQMGQEWCYJE3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRB47KTWCQMGQEEYK22MA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x938.google.com (mail-ua1-x938.google.com [IPv6:2607:f8b0:4864:20::938])
-	by mail.lfdr.de (Postfix) with ESMTPS id ADB9738C244
-	for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 10:50:10 +0200 (CEST)
-Received: by mail-ua1-x938.google.com with SMTP id b8-20020ab026c80000b029020f97f38cfcsf6486236uap.3
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 01:50:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621587009; cv=pass;
+Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0961138C255
+	for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 10:55:17 +0200 (CEST)
+Received: by mail-qk1-x73a.google.com with SMTP id p133-20020a37428b0000b02902de31dd8da3sf15602372qka.1
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 01:55:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621587315; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nKJDOlPPDBlGzf9nmKxSzgDsQVTRVtuoP6G/IxpHpkvHve6UMoCD0ZvB0rooiI2js6
-         /YcACkl9wYyxkbYWIvbx5DflzDQD+VS0xwiFtK9FsMDhIOn/zr4Nokurz4UObxlVVcj2
-         mrcARmJNt3ZEx7o8wxe1zV03xwH26ljDICmjMEkt86j0Suj9eWC7WHVMStgFohDKSjvq
-         8W8BjWltTmzkEvus85tX0c2KW+xvdQI2D4CXwKn8wjVun+ZiDcENL4rQgy/cm4975JfA
-         sQoxmJhuihyFygTDnVhwKMJAP36p3gReE4y6GaHwK+wCwhypdoFburjBczzPjPlAVoQe
-         0IDA==
+        b=NXJ0jGnzWQwZoE41GbFsiBdaSisQAsd1IeGv+XumeX06JIYFsGo9CIsLSYPT2wOVpk
+         HOc96K2LSKI8394NPORN1yvcNG+i48SPiYCMGHVTDja1Xi3UWU4lcRTWFxNA/e3R9QnI
+         RRIkirPN4y7zDFPglut7WrtS9tmMy0L9tIBt97eNy6VqIxIyiExSxf8rit3du5cOGY0l
+         8zJME+sQzb3KZLWp4JPPw6mA1QYbAEBWU3IFaP+BBqBO5VJ8hiFVm/Tck8BilszBzRtf
+         CzGZsMPxPahjPAj7FeyuuMH9/bayyf3FLMmHazQ9KQz4Yr5OAwp+Yo+yEPNADwXBT3Cm
+         a3gw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=zRppYYq5CpEY8dbPTcnFiCTmjNkq79ffxR7+usy6UgE=;
-        b=GbL+oD4SKEuT0qGnJMy3i6WfSrYsMBm702OdeL0D6cV8WV0kGLgA+gUP+pLa8MPrbc
-         7mEnPaxsCBBq0ATFIjUlZnt9vBb8oKulRuNHLLCJYeH7qC1GLpxAOsa5M/lestlfebba
-         fXiGEXQ8mFlfTt11MYftOSvcAUMHCL48YVKoCGznEoJE50j+XjFYm3dwyv6uV/gdhtW8
-         dzv874/WMWUmwm5pEpUXiY+rYmRHl5WbHnE7/hUIpdawozYgh7A46w7gqUjm+YoaflZ1
-         yF36SIfMC/8Z7kVWUNeAywlZ+LIUK+gc5i/wuP9AlHYOFMZ82h+vScfOThrlezDoeXwk
-         iNrQ==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=SaQtJFc2XM83AaPfHieTTAC8rgI/WTxPXe4SywF36fg=;
+        b=O+0kNCBqdnNSnJESqYZ0vXwuISiccqQiYlLRBIWcB+NSA0j9H76jvHFlGeEo5svdLF
+         HGOJWCVje5ARLuF/GoyREbpGmiZkOxhIubqN++1cdnHA1SA9NHlL8Tfb9tt3vmb1fc8K
+         v80ATb6Nyf2VuDHSmCo4QiJ+ikZtasTAmrI8UnAZnwuW61TcFvE7CtYS2V3ceTkUgN5h
+         6iTCvktQwVYA7rhb89lW1UDvToKttOqKvGc7IMYDhRFHDvsr2yZkfe93jqZMCS/kOJzP
+         f1f7+xKrURlmywwQgYOUwfPxpUZZKbtjOPCLavesssKESg/27RX0JjVwXdmTyOimN+D9
+         JKkQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=QqKzCjwO;
-       spf=pass (google.com: domain of liumartin@google.com designates 2607:f8b0:4864:20::1031 as permitted sender) smtp.mailfrom=liumartin@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=XKgUKi+c;
+       spf=neutral (google.com: 2607:f8b0:4864:20::102e is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=zRppYYq5CpEY8dbPTcnFiCTmjNkq79ffxR7+usy6UgE=;
-        b=W453hOZYCHX81WxRSsD7sytfXuBDsUGhRq351Ie6Avyn5lFhF7dv5w7VZEwNS2xmAJ
-         ukfR+PkomDCP928FOahy3t4No9jFvDbQR2UZB/lTo2nvBD/QnSpBl/yCBbNwrQViINk1
-         SbU8ZN77TfGQMr7cPR3sw8yC9TdFITVXG+MvXGzJu6zfbvDnBHcIBTcy0LsHZJkv+//4
-         g3LHs4HF4WmsOS1blOvUHYRJaJX3VoaH0keEtl8Rq9CF8w/q3JaobSzWmL3xWuQX+rqC
-         SZA04e/ceo2noaHHJlsYMvETZd+2vR0n/Et8OVIBGHcpIwVJXcX9mAfA+YnwLssU0J/a
-         rYCg==
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=SaQtJFc2XM83AaPfHieTTAC8rgI/WTxPXe4SywF36fg=;
+        b=CA1YY+TXBIKgIbjvLvs3IMUGaK2FrSt2PNz4qmiTf64XzOh4UlT1nolDZAnZYU9ov7
+         qi84X1F41bMBm5fgD4+eRlzp3bkYgkXcGrJd9aOOpJ+OJ6Y+QJIaMLCm7RUQBIx/88NV
+         4rxHSZR8+I9O+eVheSH6znPy1jsDoL7512XnpRpcYz7isjc9Py75ZxrDlada7R2r2FKm
+         cg90D1PMQ3teOa5sYzea2f4N891TNSpN5WweezHSxdV/DKGxVHJYl/r+6sciZPhiqSSC
+         Cc7DdhFWXy2eU6HHm6tn6RpGSggcvvAW0BVP983oh8atrxnwUT/+Tr+WBq2ZMOXvW9CD
+         K+jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=zRppYYq5CpEY8dbPTcnFiCTmjNkq79ffxR7+usy6UgE=;
-        b=h0HysoHuVxLnfQncFVGBnRrgDtALfKkg3PZYE6z8WEi4pBHFn+83I5kdZQ3bU+ocKO
-         LQ6S50/Q9NfbaIF8NiQkwO/CfPBtP+lIdKU9UMIXLNjUMQRjsgmY6/E7cUa6XRSyfDIj
-         TLehkYFmaOPzumkeK9Z+6GdZ50ygyBEJydvE0tMFOp3aygv3/b/7Ji5k9JM6+iPbBeim
-         OHdSEiRaUawZj5FGw8aX8GA97GyVQNUrDdRBwdyTad6Kb5D+0sQ8ls1TgiPQwTXLmYP6
-         3ooJFpj+u4Q5dyZlHfhodzsbFO7eg92VDOBQXEhNvi3xITfXoPGYmS0s4Lmb3AU7i1QN
-         NjJA==
-X-Gm-Message-State: AOAM531YCIYnDaa9WlE4Jpsxib0MAXjYJZNfXnYFTRQjJbrX4fRTbqd1
-	RNV6rYSqEBH2e0SP3+JK38k=
-X-Google-Smtp-Source: ABdhPJxfwhRKUc7yIrSpEx+rETt47/ixgwWJYy825yymkTS54RxXnNtW45VnkdvC7W3aj+NtpIdu3Q==
-X-Received: by 2002:a67:878a:: with SMTP id j132mr9165294vsd.18.1621587009533;
-        Fri, 21 May 2021 01:50:09 -0700 (PDT)
+        bh=SaQtJFc2XM83AaPfHieTTAC8rgI/WTxPXe4SywF36fg=;
+        b=YlqferGe5C2JWPmLJPE1zLoq0xIb55KDunEgQDP1XfHVpsKTMJkfI7WkjZAWOaPcl2
+         5/hTUKGup/W+H9X7ycXq1rZ1Ezlw7tphB7fkcG/FDB/aaX25+MRDyPL6H2rqfi//r+E8
+         yszV85fOJ4i7I9YzSiDhtUZ9P0JBZIvEgyiZJzkajqX4uKvfjjMa+dW506sRgdDDNdiG
+         Cty97roxrCoIoSwIbSwkTRfiqGUnosWpJZzIXTT9PaovsDkLVgWHXTWfwsAcyyJlbVCp
+         9rbDz8DUF6HIr8KdC26VZ/Zl6sQQYrXoIQDrf7jHzjIxlrMIb5+JKPHmG6Uj1B5yv0gO
+         EjNw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530FmsLV5UYYgqi6R9x8OClC34q3Mv5a24L11wzAraY5nZYP50ER
+	pmIEAlG4Nwtt9KUvjscFQT4=
+X-Google-Smtp-Source: ABdhPJymdMbFiVeN9U4LeoPqWGQy7yey5cuqE4tcNjLeEa8NLEwt9wIK+pahfVa2W73FhhZVL4jYZw==
+X-Received: by 2002:a05:6214:1708:: with SMTP id db8mr11191417qvb.5.1621587315730;
+        Fri, 21 May 2021 01:55:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac5:cdf2:: with SMTP id v18ls438087vkn.9.gmail; Fri, 21 May
- 2021 01:50:09 -0700 (PDT)
-X-Received: by 2002:a05:6122:1799:: with SMTP id o25mr9144675vkf.23.1621587009048;
-        Fri, 21 May 2021 01:50:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621587009; cv=none;
+Received: by 2002:ac8:544a:: with SMTP id d10ls2611480qtq.9.gmail; Fri, 21 May
+ 2021 01:55:15 -0700 (PDT)
+X-Received: by 2002:a05:622a:2cb:: with SMTP id a11mr10077912qtx.12.1621587314905;
+        Fri, 21 May 2021 01:55:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621587314; cv=none;
         d=google.com; s=arc-20160816;
-        b=VN+gQBJ2iAbRkxmTn+bRbLdRVqCwwZwFN21hiQhoH1+TrhsJ385cax0nE8re4DqM5q
-         QcJHmWmoW/cnjeeiw0gWXzMQ4IR7bOCfD+WatT4oHbkKENYz2TbLsnh0TC6xbEfpBjot
-         Vf3AB9+24BVInW10ax7axGms1+rzjCReHK3lbI2F5WsWfBM201/1T2xz7KpGFD6BOJ9k
-         e8aAwO7dBb0UAjR6SRrnHpntIaMCXPfDATE8pHM8RKF5O3uqlYrBTmy4kDLvcTth+THe
-         v7sHhsOjP2j0pGA+gi3NcsgBrUarJ241sEAyLv/owVd6HNAYnQLTRGiTFPflKyxlTO+1
-         uRYg==
+        b=SZIt8nkPsy5F3LCssAbRFuhmX+EtGWsTG4Ryn/vry3HJQrhw3qSTbilTQAJewaChhy
+         YACMFqNcBMudcltdy57GCp6aIE1loAP0dr1s0pX3pB++G2UOhbXiFdi/QbVK88Zdm7tg
+         ufM2DneBkOY2RumTXJZZynBMoTMwO0clNtk4yiLFRI31phYJNnW0tNH0r3GZW3eNFafp
+         /xzut3qKncCS30erx9ebnA9i1sB3PFmC3bf1Y5a2rR8GyLW6b+KbeMEiXZhgbBAzMMfh
+         2/L89hHF4eyl2HdP+RNzlfyzRK2/IzhlkcCG42MA7uC0JEKqb9+9J4iWrQlau/q8rI8z
+         Vhwg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=Z+pNd8iiKn7fyjmLzbAXru7lbppAXi9Y4DYZJ4cZYbI=;
-        b=vH9ayyg8bd6r2c6UxO2YG4LldpwtBU3FeHQq9dmSkMN7rT1oRfcklv0gPKbKLalvMi
-         lcQo6Wy1AeLGv4D843QBfEMa/enM1SGXueuyMaF4dbCFq+UCKIKuHApGaMieWYD3cB0S
-         5T5hR2A500LLJk3ZPRqCxhfpz66kk5CNs/ayifw3xIfUmRCeHDv1ORX6wIlIhKAdGkBF
-         YywztddbHDl6RDR5el7b0cNS12qfIN+KRf8IztKfC7ci8PIKD3QKvSwZYQ+WU+4YHOyT
-         rkfbkQfvkuOJzhoeEJpc/Yr/6iImxX7Xd0VIIlGkFIHhK8bagJ0gSxH0/kERgdESuc/y
-         q10Q==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=VWG2Xmfqr8TDA2+NgmCMMZ+Q/rj1FhZ5r3MDebjg1+A=;
+        b=kwWcGRQ6y5xKkkuTJuZA+cAQe+tgg0Kvrc/C4OZzRCyoSGGOgylqlgAm1oX6GxQNkP
+         nCJkm1SB5KthL1DolnEGwighKgfrs6rK6k+vgNdJooYF0MFlb7fQF9OWBWjG+bKcmErJ
+         p26NWj8JQSysqJq93oGThIASyD7YOM0vE0L7K9eIXJpjqqFyZU/TzyUTrJ0Jc9h0+v5/
+         xBZ2SbWDgiKl+5KH7QGCYZnXgf8q9S/jVkZMQFey3DDUeST88YrvSoEaZLttf4is8ZIm
+         RSGXehno9vBjJKxFRBEO82wXXDnEIgRS4a7+95hHJgrn1Jug+3Ee1Py5oWBEmzvVXtwH
+         9P+g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=QqKzCjwO;
-       spf=pass (google.com: domain of liumartin@google.com designates 2607:f8b0:4864:20::1031 as permitted sender) smtp.mailfrom=liumartin@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1031.google.com (mail-pj1-x1031.google.com. [2607:f8b0:4864:20::1031])
-        by gmr-mx.google.com with ESMTPS id h7si661156uad.1.2021.05.21.01.50.09
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=XKgUKi+c;
+       spf=neutral (google.com: 2607:f8b0:4864:20::102e is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pj1-x102e.google.com (mail-pj1-x102e.google.com. [2607:f8b0:4864:20::102e])
+        by gmr-mx.google.com with ESMTPS id o4si667402qtm.3.2021.05.21.01.55.14
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 May 2021 01:50:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of liumartin@google.com designates 2607:f8b0:4864:20::1031 as permitted sender) client-ip=2607:f8b0:4864:20::1031;
-Received: by mail-pj1-x1031.google.com with SMTP id g6-20020a17090adac6b029015d1a9a6f1aso6742989pjx.1
-        for <clang-built-linux@googlegroups.com>; Fri, 21 May 2021 01:50:09 -0700 (PDT)
-X-Received: by 2002:a17:903:30c4:b029:ef:82f1:cb28 with SMTP id s4-20020a17090330c4b02900ef82f1cb28mr10984611plc.19.1621587008404;
-        Fri, 21 May 2021 01:50:08 -0700 (PDT)
-Received: from google.com ([2401:fa00:fc:202:f654:3898:11e:aa15])
-        by smtp.gmail.com with ESMTPSA id f13sm3796911pfa.207.2021.05.21.01.50.06
+        Fri, 21 May 2021 01:55:14 -0700 (PDT)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::102e is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::102e;
+Received: by mail-pj1-x102e.google.com with SMTP id g24so10609966pji.4
+        for <clang-built-linux@googlegroups.com>; Fri, 21 May 2021 01:55:14 -0700 (PDT)
+X-Received: by 2002:a17:90b:19d3:: with SMTP id nm19mr9979565pjb.215.1621587311081;
+        Fri, 21 May 2021 01:55:11 -0700 (PDT)
+Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id 3sm3763076pff.132.2021.05.21.01.55.10
+        for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 May 2021 01:50:07 -0700 (PDT)
-Date: Fri, 21 May 2021 16:50:00 +0800
-From: "'Martin Liu' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Petr Mladek <pmladek@suse.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tejun Heo <tj@kernel.org>, minchan@google.com, www@google.com,
-	davidchao@google.com, jenhaochen@google.com,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] kthread: Fix kthread_mod_delayed_work vs
- kthread_cancel_delayed_work_sync race
-Message-ID: <YKd0OBB7dPoAYX7J@google.com>
-References: <20210513065458.941403-1-liumartin@google.com>
- <20210520144845.52755f3af700a902e07e2ee7@linux-foundation.org>
- <YKddXqLh6+Pj7wFW@alley>
-MIME-Version: 1.0
+        Fri, 21 May 2021 01:55:10 -0700 (PDT)
+Message-ID: <60a7756e.1c69fb81.1d486.d526@mx.google.com>
+Date: Fri, 21 May 2021 01:55:10 -0700 (PDT)
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <YKddXqLh6+Pj7wFW@alley>
-X-Original-Sender: liumartin@google.com
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Tree: next
+X-Kernelci-Kernel: next-20210521
+X-Kernelci-Branch: master
+X-Kernelci-Report-Type: build
+Subject: next/master build: 215 builds: 14 failed, 201 passed, 35 errors,
+ 1742 warnings (next-20210521)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=QqKzCjwO;       spf=pass
- (google.com: domain of liumartin@google.com designates 2607:f8b0:4864:20::1031
- as permitted sender) smtp.mailfrom=liumartin@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Martin Liu <liumartin@google.com>
-Reply-To: Martin Liu <liumartin@google.com>
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=XKgUKi+c;       spf=neutral (google.com: 2607:f8b0:4864:20::102e is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,31 +134,5444 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, May 21, 2021 at 09:12:30AM +0200, Petr Mladek wrote:
-> On Thu 2021-05-20 14:48:45, Andrew Morton wrote:
-> > On Thu, 13 May 2021 14:54:57 +0800 Martin Liu <liumartin@google.com> wrote:
-> > 
-> > > We encountered a system hang issue while doing the tests. The callstack
-> > > is as following
-> > >
-> > > ...
-> > >
-> > > Fixes: 37be45d49dec2 ("kthread: allow to cancel kthread work")
-> > 
-> > Thanks.  I added a cc:stable to this and shall hold it in -mm for a
-> > couple of weeks to get exposure and testing before sending it to Linus
-> > for 5.13.
-> 
-> Sounds good to me. Thanks for taking care of it.
-> 
-> Best Regards,
-> Petr
+next/master build: 215 builds: 14 failed, 201 passed, 35 errors, 1742 warni=
+ngs (next-20210521)
 
-Hi Petr, Andrew
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20210521/
 
-Thanks for your help! :)
+Tree: next
+Branch: master
+Git Describe: next-20210521
+Git Commit: 8dca2cd055ffb78b37f52f0bf0bd20c249619c4d
+Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
+t
+Built: 7 unique architectures
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YKd0OBB7dPoAYX7J%40google.com.
+Build Failures Detected:
+
+arc:
+    allnoconfig: (gcc-8) FAIL
+    haps_hs_smp_defconfig+kselftest: (gcc-8) FAIL
+    nsimosci_hs_smp_defconfig: (gcc-8) FAIL
+
+arm:
+    allmodconfig: (clang-10) FAIL
+    allmodconfig: (clang-12) FAIL
+    allmodconfig: (gcc-8) FAIL
+    multi_v7_defconfig+kselftest: (gcc-8) FAIL
+
+i386:
+    allmodconfig: (clang-10) FAIL
+    allmodconfig: (clang-12) FAIL
+    i386_defconfig+kselftest: (gcc-8) FAIL
+
+mips:
+    32r2el_defconfig+kselftest: (gcc-8) FAIL
+    decstation_64_defconfig: (gcc-8) FAIL
+    lemote2f_defconfig: (gcc-8) FAIL
+    nlm_xlr_defconfig: (gcc-8) FAIL
+
+Errors and Warnings Detected:
+
+arc:
+    allnoconfig (gcc-8): 8 errors
+    axs103_defconfig (gcc-8): 1 warning
+    axs103_smp_defconfig (gcc-8): 1 warning
+    haps_hs_smp_defconfig+kselftest (gcc-8): 1 error, 2 warnings
+    hsdk_defconfig (gcc-8): 1 warning
+    nsimosci_hs_smp_defconfig (gcc-8): 8 errors
+    vdk_hs38_defconfig (gcc-8): 1 warning
+    vdk_hs38_smp_defconfig (gcc-8): 1 warning
+
+arm64:
+    allmodconfig (clang-10): 15 warnings
+    allmodconfig (clang-12): 10 warnings
+    defconfig (gcc-8): 1 warning
+    defconfig (clang-12): 2 warnings
+    defconfig (clang-10): 3 warnings
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (gcc-8): 1 warning
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-12): 2 warnings
+    defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 1 warning
+    defconfig+CONFIG_RANDOMIZE_BASE=3Dy (gcc-8): 1 warning
+
+arm:
+    allmodconfig (gcc-8): 2 errors, 2 warnings
+    allmodconfig (clang-10): 2 errors, 41 warnings
+    allmodconfig (clang-12): 2 errors, 41 warnings
+    assabet_defconfig (gcc-8): 1 warning
+    axm55xx_defconfig (gcc-8): 1 warning
+    badge4_defconfig (gcc-8): 1 warning
+    bcm2835_defconfig (gcc-8): 1 warning
+    cerfcube_defconfig (gcc-8): 1 warning
+    cm_x300_defconfig (gcc-8): 1 warning
+    colibri_pxa270_defconfig (gcc-8): 1 warning
+    colibri_pxa300_defconfig (gcc-8): 1 warning
+    corgi_defconfig (gcc-8): 1 warning
+    dove_defconfig (gcc-8): 1 warning
+    ep93xx_defconfig (gcc-8): 1 warning
+    eseries_pxa_defconfig (gcc-8): 1 warning
+    exynos_defconfig (gcc-8): 1 warning
+    ezx_defconfig (gcc-8): 1 warning
+    footbridge_defconfig (gcc-8): 1 warning
+    gemini_defconfig (gcc-8): 1 warning
+    h3600_defconfig (gcc-8): 1 warning
+    h5000_defconfig (gcc-8): 1 warning
+    hackkit_defconfig (gcc-8): 1 warning
+    hisi_defconfig (gcc-8): 1 warning
+    imote2_defconfig (gcc-8): 1 warning
+    imx_v6_v7_defconfig (gcc-8): 1 warning
+    integrator_defconfig (gcc-8): 1 warning
+    iop32x_defconfig (gcc-8): 1 warning
+    ixp4xx_defconfig (gcc-8): 1 warning
+    jornada720_defconfig (gcc-8): 1 warning
+    lart_defconfig (gcc-8): 1 warning
+    lpc32xx_defconfig (gcc-8): 1 warning
+    lpd270_defconfig (gcc-8): 1 warning
+    lubbock_defconfig (gcc-8): 1 warning
+    magician_defconfig (gcc-8): 1 warning
+    mainstone_defconfig (gcc-8): 1 warning
+    milbeaut_m10v_defconfig (gcc-8): 1 warning
+    mini2440_defconfig (gcc-8): 1 warning
+    mmp2_defconfig (gcc-8): 1 warning
+    multi_v4t_defconfig (gcc-8): 1 warning
+    multi_v5_defconfig (clang-12): 2 warnings
+    multi_v5_defconfig (gcc-8): 1 warning
+    multi_v5_defconfig (clang-10): 2 warnings
+    multi_v7_defconfig (gcc-8): 1 warning
+    multi_v7_defconfig (clang-10): 4 warnings
+    multi_v7_defconfig (clang-12): 4 warnings
+    multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 1 warning
+    multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (gcc-8): 1 warnin=
+g
+    multi_v7_defconfig+CONFIG_SMP=3Dn (gcc-8): 1 warning
+    multi_v7_defconfig+kselftest (gcc-8): 2 errors, 1 warning
+    mvebu_v5_defconfig (gcc-8): 1 warning
+    mvebu_v7_defconfig (gcc-8): 1 warning
+    mxs_defconfig (gcc-8): 1 warning
+    neponset_defconfig (gcc-8): 1 warning
+    netwinder_defconfig (gcc-8): 1 warning
+    omap1_defconfig (gcc-8): 2 warnings
+    omap2plus_defconfig (gcc-8): 1 warning
+    orion5x_defconfig (gcc-8): 1 warning
+    oxnas_v6_defconfig (gcc-8): 1 warning
+    palmz72_defconfig (gcc-8): 1 warning
+    pxa168_defconfig (gcc-8): 1 warning
+    pxa255-idp_defconfig (gcc-8): 1 warning
+    pxa3xx_defconfig (gcc-8): 1 warning
+    pxa910_defconfig (gcc-8): 1 warning
+    pxa_defconfig (gcc-8): 1 warning
+    qcom_defconfig (gcc-8): 1 warning
+    rpc_defconfig (gcc-8): 1 warning
+    s3c2410_defconfig (gcc-8): 1 warning
+    s3c6400_defconfig (gcc-8): 1 warning
+    s5pv210_defconfig (gcc-8): 1 warning
+    shannon_defconfig (gcc-8): 1 warning
+    shmobile_defconfig (gcc-8): 1 warning
+    simpad_defconfig (gcc-8): 1 warning
+    socfpga_defconfig (gcc-8): 1 warning
+    spear13xx_defconfig (gcc-8): 1 warning
+    spear3xx_defconfig (gcc-8): 1 warning
+    spear6xx_defconfig (gcc-8): 1 warning
+    spitz_defconfig (gcc-8): 1 warning
+    sunxi_defconfig (gcc-8): 1 warning
+    tegra_defconfig (gcc-8): 1 warning
+    trizeps4_defconfig (gcc-8): 1 warning
+    versatile_defconfig (gcc-8): 1 warning
+    vexpress_defconfig (gcc-8): 1 warning
+    vt8500_v6_v7_defconfig (gcc-8): 1 warning
+    zeus_defconfig (gcc-8): 1 warning
+
+i386:
+    allmodconfig (clang-12): 2 errors, 34 warnings
+    allmodconfig (clang-10): 2 errors, 32 warnings
+    i386_defconfig+kselftest (gcc-8): 2 errors
+
+mips:
+    32r2el_defconfig (gcc-8): 2 warnings
+    32r2el_defconfig+kselftest (gcc-8): 2 errors, 2 warnings
+    ar7_defconfig (gcc-8): 1 warning
+    ath25_defconfig (gcc-8): 1 warning
+    ath79_defconfig (gcc-8): 1 warning
+    bcm47xx_defconfig (gcc-8): 1 warning
+    bigsur_defconfig (gcc-8): 1 warning
+    capcella_defconfig (gcc-8): 1 warning
+    cavium_octeon_defconfig (gcc-8): 1 warning
+    ci20_defconfig (gcc-8): 2 warnings
+    cobalt_defconfig (gcc-8): 1 warning
+    cu1000-neo_defconfig (gcc-8): 2 warnings
+    cu1830-neo_defconfig (gcc-8): 2 warnings
+    db1xxx_defconfig (gcc-8): 2 warnings
+    decstation_64_defconfig (gcc-8): 1 warning
+    decstation_defconfig (gcc-8): 1 warning
+    decstation_r4k_defconfig (gcc-8): 1 warning
+    e55_defconfig (gcc-8): 1 warning
+    gcw0_defconfig (gcc-8): 1 warning
+    gpr_defconfig (gcc-8): 1 warning
+    ip22_defconfig (gcc-8): 1 warning
+    ip32_defconfig (gcc-8): 1 warning
+    jazz_defconfig (gcc-8): 1 warning
+    jmr3927_defconfig (gcc-8): 1 warning
+    loongson1b_defconfig (gcc-8): 1 warning
+    loongson1c_defconfig (gcc-8): 1 warning
+    loongson2k_defconfig (gcc-8): 2 warnings
+    loongson3_defconfig (gcc-8): 1 warning
+    malta_defconfig (gcc-8): 1 warning
+    malta_kvm_defconfig (gcc-8): 1 warning
+    malta_qemu_32r6_defconfig (gcc-8): 2 warnings
+    maltaaprp_defconfig (gcc-8): 1 warning
+    maltasmvp_defconfig (gcc-8): 1 warning
+    maltasmvp_eva_defconfig (gcc-8): 1 warning
+    maltaup_defconfig (gcc-8): 1 warning
+    maltaup_xpa_defconfig (gcc-8): 1 warning
+    mpc30x_defconfig (gcc-8): 1 warning
+    mtx1_defconfig (gcc-8): 1 warning
+    nlm_xlp_defconfig (gcc-8): 1 warning
+    nlm_xlr_defconfig (gcc-8): 2 errors, 1 warning
+    omega2p_defconfig (gcc-8): 2 warnings
+    pic32mzda_defconfig (gcc-8): 1 warning
+    pistachio_defconfig (gcc-8): 1 warning
+    qi_lb60_defconfig (gcc-8): 1 warning
+    rb532_defconfig (gcc-8): 1 warning
+    rbtx49xx_defconfig (gcc-8): 1 warning
+    rm200_defconfig (gcc-8): 2 warnings
+    rs90_defconfig (gcc-8): 1 warning
+    rt305x_defconfig (gcc-8): 1 warning
+    sb1250_swarm_defconfig (gcc-8): 1 warning
+    tb0219_defconfig (gcc-8): 1 warning
+    tb0226_defconfig (gcc-8): 1 warning
+    tb0287_defconfig (gcc-8): 1 warning
+    vocore2_defconfig (gcc-8): 2 warnings
+    workpad_defconfig (gcc-8): 1 warning
+
+riscv:
+    defconfig (gcc-8): 1 warning
+    defconfig+CONFIG_EFI=3Dn (clang-12): 2 warnings
+    defconfig+kselftest (gcc-8): 1 warning
+    nommu_k210_defconfig (gcc-8): 630 warnings
+    nommu_k210_sdcard_defconfig (gcc-8): 750 warnings
+    rv32_defconfig (gcc-8): 7 warnings
+
+x86_64:
+    x86_64_defconfig (clang-10): 2 warnings
+
+Errors summary:
+
+    6    ERROR: modpost: "__divdi3" [fs/btrfs/btrfs.ko] undefined!
+    5    ERROR: modpost: "__udivdi3" [fs/btrfs/btrfs.ko] undefined!
+    4    ERROR: modpost: "__aeabi_uldivmod" [fs/btrfs/btrfs.ko] undefined!
+    4    ERROR: modpost: "__aeabi_ldivmod" [fs/btrfs/btrfs.ko] undefined!
+    2    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `=
+__softirqentry_text_end'
+    2    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `=
+__softirqentry_text_start'
+    2    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `=
+__irqentry_text_end'
+    2    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `_=
+_softirqentry_text_end'
+    2    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `_=
+_softirqentry_text_start'
+    2    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `_=
+_irqentry_text_end'
+    1    stackdepot.c:(.text+0x4ac): undefined reference to `__irqentry_tex=
+t_start'
+    1    stackdepot.c:(.text+0x4): undefined reference to `__irqentry_text_=
+start'
+    1    arc-elf32-ld: stackdepot.c:(.text+0x4ac): undefined reference to `=
+__irqentry_text_start'
+    1    arc-elf32-ld: stackdepot.c:(.text+0x4): undefined reference to `__=
+irqentry_text_start'
+
+Warnings summary:
+
+    690  include/asm-generic/uaccess.h:48:3: warning: statement with no eff=
+ect [-Wunused-value]
+    690  include/asm-generic/uaccess.h:48:16: warning: left-hand operand of=
+ comma expression has no effect [-Wunused-value]
+    140  mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 de=
+fined but not used [-Wunused-function]
+    49   1 warning generated.
+    16   2 warnings generated.
+    12   mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=
+=99 defined but not used [-Wunused-function]
+    6    sound/firewire/amdtp-stream.c:672:7: warning: variable 'err' is us=
+ed uninitialized whenever 'if' condition is false [-Wsometimes-uninitialize=
+d]
+    6    sound/firewire/amdtp-stream.c:655:9: note: initialize the variable=
+ 'err' to silence this warning
+    6    drivers/md/persistent-data/dm-space-map-metadata.c:435:6: warning:=
+ variable 'r2' is used uninitialized whenever 'if' condition is true [-Wsom=
+etimes-uninitialized]
+    6    drivers/md/persistent-data/dm-space-map-metadata.c:431:11: note: i=
+nitialize the variable 'r2' to silence this warning
+    6    drivers/md/persistent-data/dm-space-map-metadata.c:418:7: warning:=
+ variable 'r2' is used uninitialized whenever 'if' condition is false [-Wso=
+metimes-uninitialized]
+    6    drivers/md/persistent-data/dm-space-map-metadata.c:412:11: note: i=
+nitialize the variable 'r2' to silence this warning
+    5    mm/swapfile.c:1039:22: warning: unused function 'scan_swap_map' [-=
+Wunused-function]
+    4    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implici=
+t conversion from 'unsigned long long' to 'unsigned long' changes value fro=
+m 5000000000 to 705032704 [-Wconstant-conversion]
+    4    drivers/gpu/drm/amd/amdgpu/amdgpu_device.c:333:1: warning: unused =
+label 'exit' [-Wunused-label]
+    4    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least=
+ version 4.6 of GCC [-W#warnings]
+    4    4 warnings generated.
+    4    #warning This code requires at least version 4.6 of GCC
+    3    mm/mmap_lock.c:157:20: warning: unused function 'get_mm_memcg_path=
+' [-Wunused-function]
+    2    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
+e of 1332 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
+=3D]
+    2    drivers/staging/rtl8723bs/core/rtw_security.c:93:6: warning: stack=
+ frame size of 1096 bytes in function 'rtw_wep_decrypt' [-Wframe-larger-tha=
+n=3D]
+    2    drivers/staging/rtl8723bs/core/rtw_security.c:535:5: warning: stac=
+k frame size of 1144 bytes in function 'rtw_tkip_decrypt' [-Wframe-larger-t=
+han=3D]
+    2    drivers/staging/rtl8723bs/core/rtw_security.c:37:6: warning: stack=
+ frame size of 1144 bytes in function 'rtw_wep_encrypt' [-Wframe-larger-tha=
+n=3D]
+    2    drivers/staging/fbtft/fbtft-core.c:902:12: warning: stack frame si=
+ze of 1080 bytes in function 'fbtft_init_display_from_property' [-Wframe-la=
+rger-than=3D]
+    2    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame si=
+ze of 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack fra=
+me size of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13:=
+ warning: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_tt=
+u' [-Wframe-larger-than=3D]
+    2    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6:=
+ warning: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-la=
+rger-than=3D]
+    2    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame=
+ size of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
+    2    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
+ib/modules/5.13.0-rc2-next-20210521/kernel/drivers/media/tuners/tuner-types=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    2    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    2    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    1    {standard input}:39: Warning: macro instruction expanded into mult=
+iple instructions
+    1    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
+e of 1392 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
+=3D]
+    1    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
+e of 1384 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
+=3D]
+    1    include/uapi/linux/byteorder/big_endian.h:32:50: warning: cast fro=
+m pointer to integer of different size [-Wpointer-to-int-cast]
+    1    drivers/staging/rtl8723bs/core/rtw_security.c:93:6: warning: stack=
+ frame size of 1084 bytes in function 'rtw_wep_decrypt' [-Wframe-larger-tha=
+n=3D]
+    1    drivers/staging/rtl8723bs/core/rtw_security.c:93:6: warning: stack=
+ frame size of 1080 bytes in function 'rtw_wep_decrypt' [-Wframe-larger-tha=
+n=3D]
+    1    drivers/staging/rtl8723bs/core/rtw_security.c:535:5: warning: stac=
+k frame size of 1108 bytes in function 'rtw_tkip_decrypt' [-Wframe-larger-t=
+han=3D]
+    1    drivers/staging/rtl8723bs/core/rtw_security.c:535:5: warning: stac=
+k frame size of 1100 bytes in function 'rtw_tkip_decrypt' [-Wframe-larger-t=
+han=3D]
+    1    drivers/staging/rtl8723bs/core/rtw_security.c:462:5: warning: stac=
+k frame size of 1168 bytes in function 'rtw_tkip_encrypt' [-Wframe-larger-t=
+han=3D]
+    1    drivers/staging/rtl8723bs/core/rtw_security.c:462:5: warning: stac=
+k frame size of 1160 bytes in function 'rtw_tkip_encrypt' [-Wframe-larger-t=
+han=3D]
+    1    drivers/staging/rtl8723bs/core/rtw_security.c:462:5: warning: stac=
+k frame size of 1116 bytes in function 'rtw_tkip_encrypt' [-Wframe-larger-t=
+han=3D]
+    1    drivers/staging/rtl8723bs/core/rtw_security.c:462:5: warning: stac=
+k frame size of 1112 bytes in function 'rtw_tkip_encrypt' [-Wframe-larger-t=
+han=3D]
+    1    drivers/staging/rtl8723bs/core/rtw_security.c:37:6: warning: stack=
+ frame size of 1100 bytes in function 'rtw_wep_encrypt' [-Wframe-larger-tha=
+n=3D]
+    1    drivers/staging/rtl8723bs/core/rtw_security.c:37:6: warning: stack=
+ frame size of 1092 bytes in function 'rtw_wep_encrypt' [-Wframe-larger-tha=
+n=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3312 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 1828 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 1804 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/staging/fbtft/fbtft-core.c:992:5: warning: stack frame siz=
+e of 1216 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    1    drivers/staging/fbtft/fbtft-core.c:992:5: warning: stack frame siz=
+e of 1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    1    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame =
+size of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=
+=3D]
+    1    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame =
+size of 1056 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=
+=3D]
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_relocate_parse_slow()+0x427: stack state mismatch: cfa1=3D4+120 cfa2=3D-=
+1+0
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_copy_relocations()+0x1d5: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
+    1    drivers/gpu/drm/amd/amdgpu/amdgpu_device.c:333:1: warning: label =
+=E2=80=98exit=E2=80=99 defined but not used [-Wunused-label]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
+alc.c:997:6: warning: stack frame size of 1196 bytes in function 'dml1_rq_d=
+lg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
+alc.c:997:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_d=
+lg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_=
+calc_30.c:981:13: warning: stack frame size of 1036 bytes in function 'dml_=
+rq_dlg_get_dlg_params' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:3393:6: warning: stack frame size of 1516 bytes in function 'dml21_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:3393:6: warning: stack frame size of 1468 bytes in function 'dml21_M=
+odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:1463:13: warning: stack frame size of 1148 bytes in function 'DISPCL=
+KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
+' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
+a_21.c:1463:13: warning: stack frame size of 1132 bytes in function 'DISPCL=
+KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
+' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20=
+v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:3393:6: warning: stack frame size of 1420 bytes in function 'dml20=
+v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml2=
+0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
+alculation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20v2.c:1145:13: warning: stack frame size of 1164 bytes in function 'dml2=
+0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
+alculation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_=
+DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
+lation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
+a_20.c:1085:13: warning: stack frame size of 1180 bytes in function 'dml20_=
+DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
+lation' [-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
+warning: stack frame size of 5560 bytes in function 'calculate_bandwidth' [=
+-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
+warning: stack frame size of 5536 bytes in function 'calculate_bandwidth' [=
+-Wframe-larger-than=3D]
+    1    drivers/block/paride/bpck.c:32: warning: "PC" redefined
+    1    crypto/wp512.c:782:13: warning: stack frame size of 1192 bytes in =
+function 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in =
+function 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_g=
+piod_table=E2=80=99 defined but not used [-Wunused-variable]
+    1    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98am=
+s_delta_camera_power=E2=80=99 defined but not used [-Wunused-function]
+    1    arch/arc/include/asm/perf_event.h:91:27: warning: =E2=80=98arc_pmu=
+_ev_hw_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
+    1    arch/arc/include/asm/perf_event.h:126:23: warning: =E2=80=98arc_pm=
+u_cache_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
+ib/modules/5.13.0-rc2-next-20210521/kernel/sound/soc/intel/boards/snd-soc-i=
+ntel-hda-dsp-common.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
+ib/modules/5.13.0-rc2-next-20210521/kernel/drivers/clk/keystone/pll.ko: uns=
+upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
+ib/modules/5.13.0-rc2-next-20210521/kernel/drivers/clk/keystone/gate.ko: un=
+supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
+ib/modules/5.13.0-rc2-next-20210521/kernel/crypto/cast_common.ko: unsupport=
+ed GNU_PROPERTY_TYPE (5) type: 0x  STRIP   /tmp/kci/linux/build/_modules_/l=
+ib/modules/5.13.0-rc2-next-20210521/kernel/crypto/chacha20poly1305.ko
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 2 warnin=
+gs, 0 section mismatches
+
+Errors:
+    ERROR: modpost: "__udivdi3" [fs/btrfs/btrfs.ko] undefined!
+    ERROR: modpost: "__divdi3" [fs/btrfs/btrfs.ko] undefined!
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 2 warnings, 0 section m=
+ismatches
+
+Errors:
+    ERROR: modpost: "__aeabi_ldivmod" [fs/btrfs/btrfs.ko] undefined!
+    ERROR: modpost: "__aeabi_uldivmod" [fs/btrfs/btrfs.ko] undefined!
+
+Warnings:
+    drivers/gpu/drm/amd/amdgpu/amdgpu_device.c:333:1: warning: label =E2=80=
+=98exit=E2=80=99 defined but not used [-Wunused-label]
+    include/uapi/linux/byteorder/big_endian.h:32:50: warning: cast from poi=
+nter to integer of different size [-Wpointer-to-int-cast]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (i386, clang-12) =E2=80=94 FAIL, 2 errors, 34 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    ERROR: modpost: "__divdi3" [fs/btrfs/btrfs.ko] undefined!
+    ERROR: modpost: "__udivdi3" [fs/btrfs/btrfs.ko] undefined!
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1332 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    sound/firewire/amdtp-stream.c:672:7: warning: variable 'err' is used un=
+initialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+    sound/firewire/amdtp-stream.c:655:9: note: initialize the variable 'err=
+' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/amdgpu_device.c:333:1: warning: unused label=
+ 'exit' [-Wunused-label]
+    1 warning generated.
+    drivers/md/persistent-data/dm-space-map-metadata.c:418:7: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is false [-Wsometim=
+es-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:412:11: note: initia=
+lize the variable 'r2' to silence this warning
+    drivers/md/persistent-data/dm-space-map-metadata.c:435:6: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is true [-Wsometime=
+s-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:431:11: note: initia=
+lize the variable 'r2' to silence this warning
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
+ing: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
+Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
+:997:6: warning: stack frame size of 1196 bytes in function 'dml1_rq_dlg_ge=
+t_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/staging/rtl8723bs/core/rtw_security.c:37:6: warning: stack fram=
+e size of 1092 bytes in function 'rtw_wep_encrypt' [-Wframe-larger-than=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:93:6: warning: stack fram=
+e size of 1080 bytes in function 'rtw_wep_decrypt' [-Wframe-larger-than=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:462:5: warning: stack fra=
+me size of 1112 bytes in function 'rtw_tkip_encrypt' [-Wframe-larger-than=
+=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:535:5: warning: stack fra=
+me size of 1100 bytes in function 'rtw_tkip_decrypt' [-Wframe-larger-than=
+=3D]
+    4 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:1085:13: warning: stack frame size of 1180 bytes in function 'dml20_DISPC=
+LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
+n' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:1145:13: warning: stack frame size of 1164 bytes in function 'dml20v2_D=
+ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
+ation' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:1463:13: warning: stack frame size of 1132 bytes in function 'DISPCLKDPPC=
+LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
+frame-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:3393:6: warning: stack frame size of 1420 bytes in function 'dml20v2_Mo=
+deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:3393:6: warning: stack frame size of 1468 bytes in function 'dml21_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_calc_=
+30.c:981:13: warning: stack frame size of 1036 bytes in function 'dml_rq_dl=
+g_get_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 1804 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, clang-10) =E2=80=94 FAIL, 2 errors, 41 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ERROR: modpost: "__aeabi_ldivmod" [fs/btrfs/btrfs.ko] undefined!
+    ERROR: modpost: "__aeabi_uldivmod" [fs/btrfs/btrfs.ko] undefined!
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1392 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame size=
+ of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    crypto/wp512.c:782:13: warning: stack frame size of 1192 bytes in funct=
+ion 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1 warning generated.
+    sound/firewire/amdtp-stream.c:672:7: warning: variable 'err' is used un=
+initialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+    sound/firewire/amdtp-stream.c:655:9: note: initialize the variable 'err=
+' to silence this warning
+    1 warning generated.
+    drivers/md/persistent-data/dm-space-map-metadata.c:418:7: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is false [-Wsometim=
+es-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:412:11: note: initia=
+lize the variable 'r2' to silence this warning
+    drivers/md/persistent-data/dm-space-map-metadata.c:435:6: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is true [-Wsometime=
+s-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:431:11: note: initia=
+lize the variable 'r2' to silence this warning
+    2 warnings generated.
+    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack frame si=
+ze of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame size of=
+ 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/amdgpu_device.c:333:1: warning: unused label=
+ 'exit' [-Wunused-label]
+    1 warning generated.
+    drivers/staging/rtl8723bs/core/rtw_security.c:37:6: warning: stack fram=
+e size of 1144 bytes in function 'rtw_wep_encrypt' [-Wframe-larger-than=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:93:6: warning: stack fram=
+e size of 1096 bytes in function 'rtw_wep_decrypt' [-Wframe-larger-than=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:462:5: warning: stack fra=
+me size of 1160 bytes in function 'rtw_tkip_encrypt' [-Wframe-larger-than=
+=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:535:5: warning: stack fra=
+me size of 1144 bytes in function 'rtw_tkip_decrypt' [-Wframe-larger-than=
+=3D]
+    4 warnings generated.
+    drivers/staging/fbtft/fbtft-core.c:992:5: warning: stack frame size of =
+1216 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    drivers/staging/fbtft/fbtft-core.c:902:12: warning: stack frame size of=
+ 1080 bytes in function 'fbtft_init_display_from_property' [-Wframe-larger-=
+than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
+version from 'unsigned long long' to 'unsigned long' changes value from 500=
+0000000 to 705032704 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame size =
+of 1056 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6: warn=
+ing: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-larger-=
+than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
+ng: stack frame size of 5536 bytes in function 'calculate_bandwidth' [-Wfra=
+me-larger-than=3D]
+    2 warnings generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (i386, clang-10) =E2=80=94 FAIL, 2 errors, 32 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    ERROR: modpost: "__divdi3" [fs/btrfs/btrfs.ko] undefined!
+    ERROR: modpost: "__udivdi3" [fs/btrfs/btrfs.ko] undefined!
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1332 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    sound/firewire/amdtp-stream.c:672:7: warning: variable 'err' is used un=
+initialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+    sound/firewire/amdtp-stream.c:655:9: note: initialize the variable 'err=
+' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/amdgpu_device.c:333:1: warning: unused label=
+ 'exit' [-Wunused-label]
+    1 warning generated.
+    drivers/md/persistent-data/dm-space-map-metadata.c:418:7: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is false [-Wsometim=
+es-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:412:11: note: initia=
+lize the variable 'r2' to silence this warning
+    drivers/md/persistent-data/dm-space-map-metadata.c:435:6: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is true [-Wsometime=
+s-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:431:11: note: initia=
+lize the variable 'r2' to silence this warning
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
+ing: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
+Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/staging/rtl8723bs/core/rtw_security.c:37:6: warning: stack fram=
+e size of 1100 bytes in function 'rtw_wep_encrypt' [-Wframe-larger-than=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:93:6: warning: stack fram=
+e size of 1084 bytes in function 'rtw_wep_decrypt' [-Wframe-larger-than=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:462:5: warning: stack fra=
+me size of 1116 bytes in function 'rtw_tkip_encrypt' [-Wframe-larger-than=
+=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:535:5: warning: stack fra=
+me size of 1108 bytes in function 'rtw_tkip_decrypt' [-Wframe-larger-than=
+=3D]
+    4 warnings generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 1828 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
+:997:6: warning: stack frame size of 1180 bytes in function 'dml1_rq_dlg_ge=
+t_dlg_params' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:1085:13: warning: stack frame size of 1196 bytes in function 'dml20_DISPC=
+LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
+n' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:1145:13: warning: stack frame size of 1196 bytes in function 'dml20v2_D=
+ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
+ation' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:1463:13: warning: stack frame size of 1148 bytes in function 'DISPCLKDPPC=
+LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
+frame-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
+c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
+2.c:3393:6: warning: stack frame size of 1436 bytes in function 'dml20v2_Mo=
+deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
+c:3393:6: warning: stack frame size of 1516 bytes in function 'dml21_ModeSu=
+pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
+    2 warnings generated.
+    2 warnings generated.
+    2 warnings generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 15 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    sound/firewire/amdtp-stream.c:672:7: warning: variable 'err' is used un=
+initialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+    sound/firewire/amdtp-stream.c:655:9: note: initialize the variable 'err=
+' to silence this warning
+    1 warning generated.
+    drivers/md/persistent-data/dm-space-map-metadata.c:418:7: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is false [-Wsometim=
+es-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:412:11: note: initia=
+lize the variable 'r2' to silence this warning
+    drivers/md/persistent-data/dm-space-map-metadata.c:435:6: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is true [-Wsometime=
+s-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:431:11: note: initia=
+lize the variable 'r2' to silence this warning
+    2 warnings generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
+dules/5.13.0-rc2-next-20210521/kernel/crypto/cast_common.ko: unsupported GN=
+U_PROPERTY_TYPE (5) type: 0x  STRIP   /tmp/kci/linux/build/_modules_/lib/mo=
+dules/5.13.0-rc2-next-20210521/kernel/crypto/chacha20poly1305.ko
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
+dules/5.13.0-rc2-next-20210521/kernel/drivers/clk/keystone/gate.ko: unsuppo=
+rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
+dules/5.13.0-rc2-next-20210521/kernel/drivers/clk/keystone/pll.ko: unsuppor=
+ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
+dules/5.13.0-rc2-next-20210521/kernel/drivers/media/tuners/tuner-types.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
+dules/5.13.0-rc2-next-20210521/kernel/sound/soc/intel/boards/snd-soc-intel-=
+hda-dsp-common.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-12) =E2=80=94 PASS, 0 errors, 10 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    sound/firewire/amdtp-stream.c:672:7: warning: variable 'err' is used un=
+initialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+    sound/firewire/amdtp-stream.c:655:9: note: initialize the variable 'err=
+' to silence this warning
+    1 warning generated.
+    drivers/md/persistent-data/dm-space-map-metadata.c:418:7: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is false [-Wsometim=
+es-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:412:11: note: initia=
+lize the variable 'r2' to silence this warning
+    drivers/md/persistent-data/dm-space-map-metadata.c:435:6: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is true [-Wsometime=
+s-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:431:11: note: initia=
+lize the variable 'r2' to silence this warning
+    2 warnings generated.
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3312 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, clang-12) =E2=80=94 FAIL, 2 errors, 41 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ERROR: modpost: "__aeabi_ldivmod" [fs/btrfs/btrfs.ko] undefined!
+    ERROR: modpost: "__aeabi_uldivmod" [fs/btrfs/btrfs.ko] undefined!
+
+Warnings:
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1384 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame size=
+ of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
+    1 warning generated.
+    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in funct=
+ion 'wp512_process_buffer' [-Wframe-larger-than=3D]
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    sound/firewire/amdtp-stream.c:672:7: warning: variable 'err' is used un=
+initialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+    sound/firewire/amdtp-stream.c:655:9: note: initialize the variable 'err=
+' to silence this warning
+    1 warning generated.
+    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack frame si=
+ze of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/amdgpu_device.c:333:1: warning: unused label=
+ 'exit' [-Wunused-label]
+    1 warning generated.
+    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame size of=
+ 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/md/persistent-data/dm-space-map-metadata.c:418:7: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is false [-Wsometim=
+es-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:412:11: note: initia=
+lize the variable 'r2' to silence this warning
+    drivers/md/persistent-data/dm-space-map-metadata.c:435:6: warning: vari=
+able 'r2' is used uninitialized whenever 'if' condition is true [-Wsometime=
+s-uninitialized]
+    drivers/md/persistent-data/dm-space-map-metadata.c:431:11: note: initia=
+lize the variable 'r2' to silence this warning
+    2 warnings generated.
+    drivers/staging/rtl8723bs/core/rtw_security.c:37:6: warning: stack fram=
+e size of 1144 bytes in function 'rtw_wep_encrypt' [-Wframe-larger-than=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:93:6: warning: stack fram=
+e size of 1096 bytes in function 'rtw_wep_decrypt' [-Wframe-larger-than=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:462:5: warning: stack fra=
+me size of 1168 bytes in function 'rtw_tkip_encrypt' [-Wframe-larger-than=
+=3D]
+    drivers/staging/rtl8723bs/core/rtw_security.c:535:5: warning: stack fra=
+me size of 1144 bytes in function 'rtw_tkip_decrypt' [-Wframe-larger-than=
+=3D]
+    4 warnings generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
+version from 'unsigned long long' to 'unsigned long' changes value from 500=
+0000000 to 705032704 [-Wconstant-conversion]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6: warn=
+ing: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-larger-=
+than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
+ng: stack frame size of 5560 bytes in function 'calculate_bandwidth' [-Wfra=
+me-larger-than=3D]
+    2 warnings generated.
+    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame size =
+of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/staging/fbtft/fbtft-core.c:992:5: warning: stack frame size of =
+1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
+    drivers/staging/fbtft/fbtft-core.c:902:12: warning: stack frame size of=
+ 1080 bytes in function 'fbtft_init_display_from_property' [-Wframe-larger-=
+than=3D]
+    2 warnings generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 FAIL, 8 errors, 0 warnings, 0 section mi=
+smatches
+
+Errors:
+    stackdepot.c:(.text+0x4ac): undefined reference to `__irqentry_text_sta=
+rt'
+    arc-elf32-ld: stackdepot.c:(.text+0x4ac): undefined reference to `__irq=
+entry_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `__irq=
+entry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `__irq=
+entry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `__sof=
+tirqentry_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `__sof=
+tirqentry_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `__sof=
+tirqentry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `__sof=
+tirqentry_text_end'
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cu1830-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning,=
+ 0 section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-12) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: unused function 'get_mm_memcg_path' [-W=
+unused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
+ mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: unused function 'get_mm_memcg_path' [-W=
+unused-function]
+    1 warning generated.
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
+dules/5.13.0-rc2-next-20210521/kernel/drivers/media/tuners/tuner-types.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 error=
+s, 1 warning, 0 section mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-12) =E2=80=94 PASS, 0 er=
+rors, 2 warnings, 0 section mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: unused function 'get_mm_memcg_path' [-W=
+unused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 1 warning, 0 section mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_EFI=3Dn (riscv, clang-12) =E2=80=94 PASS, 0 errors, 2 warn=
+ings, 0 section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: unused function 'scan_swap_map' [-Wunus=
+ed-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 1 warning, 0 section mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig+kselftest (arc, gcc-8) =E2=80=94 FAIL, 1 error, 2 war=
+nings, 0 section mismatches
+
+Errors:
+    ERROR: modpost: "__divdi3" [fs/btrfs/btrfs.ko] undefined!
+
+Warnings:
+    arch/arc/include/asm/perf_event.h:126:23: warning: =E2=80=98arc_pmu_cac=
+he_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
+    arch/arc/include/asm/perf_event.h:91:27: warning: =E2=80=98arc_pmu_ev_h=
+w_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 FAIL, 2 errors, 0 warnings=
+, 0 section mismatches
+
+Errors:
+    ERROR: modpost: "__udivdi3" [fs/btrfs/btrfs.ko] undefined!
+    ERROR: modpost: "__divdi3" [fs/btrfs/btrfs.ko] undefined!
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+loongson2k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warning=
+s, 0 section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+    {standard input}:39: Warning: macro instruction expanded into multiple =
+instructions
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: unused function 'scan_swap_map' [-Wunus=
+ed-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: unused function 'scan_swap_map' [-Wunus=
+ed-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 4 warnings, 0 =
+section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: unused function 'scan_swap_map' [-Wunus=
+ed-function]
+    1 warning generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
+version from 'unsigned long long' to 'unsigned long' changes value from 500=
+0000000 to 705032704 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 4 warnings, 0 =
+section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: unused function 'scan_swap_map' [-Wunus=
+ed-function]
+    1 warning generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
+version from 'unsigned long long' to 'unsigned long' changes value from 500=
+0000000 to 705032704 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 1 warning, 0 section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 1 warning, 0 section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 =
+warning, 0 section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 1 warni=
+ng, 0 section mismatches
+
+Errors:
+    ERROR: modpost: "__aeabi_ldivmod" [fs/btrfs/btrfs.ko] undefined!
+    ERROR: modpost: "__aeabi_uldivmod" [fs/btrfs/btrfs.ko] undefined!
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 1 warning, 0 sect=
+ion mismatches
+
+Errors:
+    ERROR: modpost: "__udivdi3" [fs/btrfs/btrfs.ko] undefined!
+    ERROR: modpost: "__divdi3" [fs/btrfs/btrfs.ko] undefined!
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 630 warnings,=
+ 0 section mismatches
+
+Warnings:
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_sdcard_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 750 wa=
+rnings, 0 section mismatches
+
+Warnings:
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+    include/asm-generic/uaccess.h:48:16: warning: left-hand operand of comm=
+a expression has no effect [-Wunused-value]
+    include/asm-generic/uaccess.h:48:3: warning: statement with no effect [=
+-Wunused-value]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 FAIL, 8 errors, 0 warnings=
+, 0 section mismatches
+
+Errors:
+    stackdepot.c:(.text+0x4): undefined reference to `__irqentry_text_start=
+'
+    arc-elf32-ld: stackdepot.c:(.text+0x4): undefined reference to `__irqen=
+try_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `__irqe=
+ntry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `__irqe=
+ntry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `__soft=
+irqentry_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `__soft=
+irqentry_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `__soft=
+irqentry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `__soft=
+irqentry_text_end'
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    arch/arm/mach-omap1/board-h2.c:347:34: warning: =E2=80=98isp1301_gpiod_=
+table=E2=80=99 defined but not used [-Wunused-variable]
+    arch/arm/mach-omap1/board-ams-delta.c:462:12: warning: =E2=80=98ams_del=
+ta_camera_power=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+    drivers/block/paride/bpck.c:32: warning: "PC" redefined
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+rs90_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
+ined but not used [-Wunused-function]
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_re=
+locate_parse_slow()+0x427: stack state mismatch: cfa1=3D4+120 cfa2=3D-1+0
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
+py_relocations()+0x1d5: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+x86_chromebook (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0=
+ warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+x86_kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 =
+warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    mm/swapfile.c:1039:22: warning: =E2=80=98scan_swap_map=E2=80=99 defined=
+ but not used [-Wunused-function]
+
+---
+For more info write to <info@kernelci.org>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/60a7756e.1c69fb81.1d486.d526%40mx.google.com.
