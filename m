@@ -1,133 +1,152 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBLXJUGCQMGQEJEGHZ5Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDF4B3EXYABRBU7OUKCQMGQEQYMM4NY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9241238D330
-	for <lists+clang-built-linux@lfdr.de>; Sat, 22 May 2021 05:04:15 +0200 (CEST)
-Received: by mail-ot1-x33a.google.com with SMTP id x2-20020a9d62820000b02902e4ff743c4csf14392959otk.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 May 2021 20:04:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621652654; cv=pass;
+Received: from mail-ed1-x53f.google.com (mail-ed1-x53f.google.com [IPv6:2a00:1450:4864:20::53f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6DC6538D444
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 May 2021 09:48:35 +0200 (CEST)
+Received: by mail-ed1-x53f.google.com with SMTP id h18-20020a05640250d2b029038cc3938914sf12606049edb.17
+        for <lists+clang-built-linux@lfdr.de>; Sat, 22 May 2021 00:48:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621669715; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Y/cijiYlFYuSlJk8nOoeeDyvRwFVheEFuWTC+xGFIPyd46mpctWO6cfxfdVJTDh0/L
-         ZkrNhUxy605jEM7A0kjtFE+DttF1ugtKu+XGYgm+HOV1eNPD0j/5/zpvItUEhBTuZkla
-         AxjmBSDuoEAX4RvIvVtXtGDm+GBWnrOfe589JjgCrxs4Tu40E80905CLW+kECP6mgr9B
-         qgJwb0pYOZgXGDfabzUjeAmndfIznaSql/KdSsL4SxysiO6xaMff3TqXYO5Mk65joD3c
-         Srn9RCbeddlj3Ny3gJAHDDJjoT2tCsmce81GVpLfHEbyYlNIy3r9C3/VkgRb/yJgXiRI
-         bBCw==
+        b=F8+Vh8UJaQUKbcR7WV6uLx+/l7V+C8lJUWhR6Tg85lAs55Hq+xPBd2UXuIg6qP5Ekw
+         Hosw7rgoTw84s5ic+eGIG4uns0yRCBYzsVPpZvobjXqTxff9JGzWU89/7QBA2+hLTKs5
+         wXIUMeeconepfcHmaIY8FiTNg+kM4Rf3zu6eUQ1TIumfUhAmBZvPcBWhc0A8iSE/tyZL
+         v5oYDE8h+0eQHoUfxRncNJREq99oWTHJZFCxOYD+/dcLfEUhN5yZTzayeZxdQ8SsYUEs
+         hrg05PxfBEoR/vKCr+07NyV3w1kgFBVFH2n4DIj/bkU2YzWN719EcrhWCjsVxCv3odfW
+         dfKQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature
          :dkim-signature;
-        bh=UaSNnA5AkcblenitsFShD8B6edlv4mElAZQHQ9rIaBE=;
-        b=zWazJx+dMLDoKHDyQgV7a+o8p9wamCu4CAoamq4tsPo6H3e8Dvf/tOrND3G5qSrqCn
-         SgKoXnE850XytYHf+m8fWyLdZNoJ8A/wgzjo4zb48BjDe03DitkBCf3cVT36N/oRrnuS
-         FuU48EQDwVyRvrZD6tdZqOkDmyVCXzDz7RMGgOrnuJ3dexUNy5aj3cduscQMwLiIgkxk
-         PjdlfsPHFwM0N8lmCFit0YGwF1O+IQ/Zt4aJeWiBx9/Sa+pyELkt26RCzU0xC0KVAqKE
-         b7cKNPfAyRj53/C1d3ZwZh6egKeKzUzDF4NdueY3yTYLazxgxQvriQyglg4586VUd7Qn
-         hZJA==
+        bh=xmS+Nnml2D5mRuLQPaIAjRXPk23xYUbJeWrG2BOSI1w=;
+        b=YwohZAmxgCr0Nc93cFxffk1zRT3fYzQ4wRmcW0HGcm8wjm1PgxfddzeiB5cBMi7ixc
+         GGg/9wI+zxPMGKLP5hKBH/1zhACqFM4M4rTCQZdRpM29tlpp33Yv7TX2Iz5pG/EzF+b1
+         SRfPSWf/aAIO2GnqgjQEUB9quIEF9huvbD+9/xUTG+9jRA72t8L4fTfXcqYUmw/jttZq
+         ENINjjcY591jADcP9Ty22Ncxu2WC864HerjqFxlbBTILJnQCjYdfvLcv8UlzseCRH5Y8
+         DwE7vDom0U2I4IgQyjW1bwOlInFA5wTv/yEWME0ZkXespCncRMHAxLWFE3+l+saQyzBx
+         s9bA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ytBNA3gG;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SHK7mIjE;
+       spf=pass (google.com: domain of fabioaiuto83@gmail.com designates 2a00:1450:4864:20::62d as permitted sender) smtp.mailfrom=fabioaiuto83@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=UaSNnA5AkcblenitsFShD8B6edlv4mElAZQHQ9rIaBE=;
-        b=jF637Umpr8ts5fbVZs7vmFOu3j4PAR11M89TSlXKQWfMsS8C5zstvnP/hPNw0/U04q
-         Rp2/+cYKu9pk7kVnUCPl7y5x7xEi3xTGODlZ+5R7Dh6NORUh2LE99rcz4nEbD8jBFIUi
-         jiLUfWCs69Q1JkCIyCLXzzeSJg19d9B49XE1u/mjAhTrLahqU4tjj2CMm6a1d8Fir9bu
-         BA62HK7HH6Ur4DurJ+h8BHFJvDpWiVHlkMmhmzgmhiYVrN9iX+t9VBb9LU+gI45C21Db
-         lFZykKlZSzNTPWBjxvQvpHgLW5yq0EQY/aG+xXxfJxZ2qjvFCbS774sc4F6+PTepq7rQ
-         FJVQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xmS+Nnml2D5mRuLQPaIAjRXPk23xYUbJeWrG2BOSI1w=;
+        b=XOYyFTDJLdvbIkxjSab+/G7oJ55wWQfi88VNNkdITL4uAoTm2p4AL0uaWIKFeEx4Xt
+         s7v4nLjoXfZLgpf740IYKNFyB+uEjgv75Hnab7azuMj7jZbEmMiXKOVzT84RWp/g5JuS
+         AbVOspUQpYXm3vHzoDLqXj8S6tFsnxYnAbdAo91tY7Tn8ARy1TPrjGsbWOtsqNLdf7JR
+         SCsQXJZJZCv/9UPjd1gRaYaw15vskNHYygw813T7k0lLjnBfd6tjLqjjO+7nmnO5vDbX
+         DO+ClzTz/we2Zg4DQC4Sz+7XYrdFpIOg221V3lUO2G4gsGTReWqcPDzdhXYkDLEVY50v
+         k2PQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xmS+Nnml2D5mRuLQPaIAjRXPk23xYUbJeWrG2BOSI1w=;
+        b=i59bQmXhoGbb17ln3TfSfkFOqvDdrEx7ypprQ/23TU2tbwHxc3gtOVvTusecV7HQMo
+         fIlgNyjgCKiX+sNI5FIwq9shy9TON24D2TqQux8KbFPceuQ11R898hvZAgEgSJZsXRFX
+         pg9szHQmr7FuzB6q1m2rZGB06J2ZRyBfqEBTRAUMP/w1p+4juC5SIr/Bee72n9cXjGgm
+         11YJdJAUjtsrT+N6CQQV3138LZ6cJeZTz6dygF3xIPjNl9qTKarw/hkpOpo8IstqWp5P
+         mZooa4DmmXtwINMUhBwRZdTgHsVFJuPo4QdGnKMTYN2bMee9qSLNPX/n2dVivhBu0b2l
+         dfyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UaSNnA5AkcblenitsFShD8B6edlv4mElAZQHQ9rIaBE=;
-        b=s5hr3SjxzbZxVXRAw95hIz0336kcKwJhkMRGic6CFOc6I6hc5NrV2mqpvuQh7ivHkk
-         ZW/ilZIRo72zUAVwz2NenCdcpk2Fx5Sl1WuOrSoK9oMyJ4r78O2DMbnlmmWHF9NlWdbz
-         Ro1grx6vcT2YprId9R0BdSg/eK/UBOs7oE5BBkS+HEnk9HwV349UX19EHC7fp6dECyAM
-         KAJmEegSJoamXVVJ7pTa7/74hW+ddyjjQUjOfS5Pde8waYKkZx2A2Xb1e2/I6yYsMKHV
-         HXFjKm3IZYeXT9r93N+N0C1uXdA6qiRU64fZWCwCuGKdff7UtHVjBeRpV/5iYTtkYDr9
-         Ip4w==
+        bh=xmS+Nnml2D5mRuLQPaIAjRXPk23xYUbJeWrG2BOSI1w=;
+        b=s9U+LzYWucCnlSf6qa3zc+na+y/MWD2j3I95NUsSUh9x1e7TU25HiPuKEvfyJs3h04
+         sj6bxhTlADBb6kbzIIykmcdDhDu+rM++nE/h033mErJRF5E2aJt5fWMKXLu6V0ayQX95
+         nW0mNgBYjl4PaoSPe2O9UikW1sPOkZDG9kGs3S9zJzVtacIgvc5X4wO/7QTVSRHFAKO3
+         Izja1JmCnRnlMBMhgros6+IIfHrhHMxCtGtEsvUt7R1duGpCLHbSRgkinmrbrWMO+yut
+         d7RW2OkyzdQ0cydnUwsEHWbDeOVvgUJeHl15KCpWqtTbRfziRWWbY+fvr4Iv9WxLfQXb
+         HHtg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533I+Ga6dN/kjK7xYP8NQzkiwd/AwUqXRqloSxHbIxEWC2tlBS2E
-	C6rhCxZwLrYaGRG0LxBcFYI=
-X-Google-Smtp-Source: ABdhPJxGb7HtuP1otmr4bLCnaZxiFs20zUTGxOISwtw4Kpx9AvCzwONEAVMVHo5tzAXZAZHog2Vk1Q==
-X-Received: by 2002:aca:c207:: with SMTP id s7mr4211634oif.9.1621652654195;
-        Fri, 21 May 2021 20:04:14 -0700 (PDT)
+X-Gm-Message-State: AOAM530bywuZbjMpSg1XDk1sMVcrZbG/SRqo/Xe88lFRlLdstXve508G
+	RyvvX/LG29tdvLUxtR5ICJw=
+X-Google-Smtp-Source: ABdhPJwVnGC5KpwwL7dLG6YlqDX0eF0R7+kv/lORCvUTtg1UTWOwjzw2rL+yxDL9rHERT2DdPpqO5Q==
+X-Received: by 2002:a17:907:c04:: with SMTP id ga4mr2144990ejc.83.1621669715201;
+        Sat, 22 May 2021 00:48:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:b102:: with SMTP id a2ls2620135oif.5.gmail; Fri, 21 May
- 2021 20:04:13 -0700 (PDT)
-X-Received: by 2002:a05:6808:a02:: with SMTP id n2mr4214869oij.104.1621652653832;
-        Fri, 21 May 2021 20:04:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621652653; cv=none;
+Received: by 2002:a50:e046:: with SMTP id g6ls2038999edl.3.gmail; Sat, 22 May
+ 2021 00:48:34 -0700 (PDT)
+X-Received: by 2002:a05:6402:2317:: with SMTP id l23mr15304231eda.265.1621669714364;
+        Sat, 22 May 2021 00:48:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621669714; cv=none;
         d=google.com; s=arc-20160816;
-        b=tV1RxqradQsxpn8mKwkxtsKjALNGXXbnWuPHcK4Sx6jAd0nVRZFtHHZMRFfwzH2TYc
-         Re0sgBE1Up9YIap7IivtvMoNDgxP9H2xvbCi1BNmao3huE2K18EaMid5ro2yx69ol4iC
-         ODMw0Hesxgrra6n9s00nFIWMTgXHwmUzUDiGlrkERY7avyvLKTTSXyxYEw3BJkjSmLlP
-         QHp885WgclX7DJ+CttZxUHI2eO4B0bj0dmuGUvlkavlebkvuXVW2EjjxOg1IAma2pX6k
-         hZZDzo1vdfTF/awxqCpiTcpHNMAI9TzQ8M7nfgZYXJ/LuNn7HRWlp3MeZF2OXJVshRIl
-         TDUA==
+        b=sKiY7P7hGl+bgFmil4aeoRmSdA8++1aCUVKXG7lIHPSGQdhFBp25AkxVGws/UCFDbB
+         Gdize2tFgTn2uXZCdXTET+/crrhEEvQAg3BDhvpoqgr883zvcJzpShV1ayUktddm9NRm
+         +NCJrOY82DzO8HUwMAbkVAaeyRbT7vnriqH46r/9Q0Zmo+6Yss96mM7exPlKP6B54L8O
+         D11SUgMqHDvZqYaMFVjzH0CJlkmVkK4NUWzFLXtSw6JLEEUynnCteL/y+kCYtfQBCVS4
+         ZRrNG646sW8f5Om+Y0FnHJIJh4bkc98o9RfCimNFlIJBjuorDvwE0sakVQNjL4B/BAtt
+         2Fjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=YGP0GO/05S1q3RgfS4gVurm0s0DX3V4DOhOSb9eSQmM=;
-        b=Bb1mCHoX6WUgEJl0tAjQ0qGwFp2w3WDJJApfJ0fIFSqPA6Pyy5ZCo/B+WrSDEZxizh
-         x7BR/2XjjqBqm9r2dOdK0L117XJystzMOKzKATeGrwnqU9ufY9GQSclhXA8PZOD8nNmX
-         fd2Wk6JNyGiEydEOCpt9OmXSUSDGopvvF+TM6eInHus4qjJjigqKUxubeIsSKz63CLvU
-         SGjoMGWJQwhvjBqHF/i2biBde+R5EZYb+GlXZXluGEnND9Oy10gJrTGXw0SGaxehOFq/
-         k0Ml4mWU2fZELadvzaPqXGK/QVUXHPHkYATyqg8MGNd1od+GuVCbqk8KlyAhi7HnE52A
-         W0iQ==
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=f6rySvgRlBN/T31lzxGz/WWM84gEGemugwmSK+NtGuk=;
+        b=pcq0hH3VkloWDbVf9e8MG+2ZWXaepY2C6Eco9iQ0D8gH2t3EelfCJHEWbNJNzFfXzB
+         Po0/iyfs2bGOomSkhNnGFxSCPe/F+riIpZjLxD56NTbAZAmqKHuX/C317iAT7SDjDo19
+         77rdxaRtgFGHtg7rXq9nNijbqNVzuGnzE0KCPrfi5/SyQQziw6aRLLah2M0ZY/4gPzJe
+         jy29kJcrYRtZt78slVx++RrSsoMFN8An7Wxj3f+rFIfE1Pl3edWb5M5R2giw/w+tzfS5
+         cDTBKZ3MtuTSmKBVwRkrl/wyCpJ1vMoIDorUw818j5SSdh5tRFlWju9UXS9aQBv15uW/
+         7kMQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ytBNA3gG;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-02.nifty.com (conssluserg-02.nifty.com. [210.131.2.81])
-        by gmr-mx.google.com with ESMTPS id o7si1486717otk.1.2021.05.21.20.04.13
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SHK7mIjE;
+       spf=pass (google.com: domain of fabioaiuto83@gmail.com designates 2a00:1450:4864:20::62d as permitted sender) smtp.mailfrom=fabioaiuto83@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ej1-x62d.google.com (mail-ej1-x62d.google.com. [2a00:1450:4864:20::62d])
+        by gmr-mx.google.com with ESMTPS id b25si426184edr.3.2021.05.22.00.48.34
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 21 May 2021 20:04:13 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) client-ip=210.131.2.81;
-Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180]) (authenticated)
-	by conssluserg-02.nifty.com with ESMTP id 14M33vuo020976
-	for <clang-built-linux@googlegroups.com>; Sat, 22 May 2021 12:03:58 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-02.nifty.com 14M33vuo020976
-X-Nifty-SrcIP: [209.85.215.180]
-Received: by mail-pg1-f180.google.com with SMTP id l70so15704324pga.1
-        for <clang-built-linux@googlegroups.com>; Fri, 21 May 2021 20:03:57 -0700 (PDT)
-X-Received: by 2002:a05:6a00:158d:b029:2e0:6ae2:17b1 with SMTP id
- u13-20020a056a00158db02902e06ae217b1mr12708778pfk.76.1621652637185; Fri, 21
- May 2021 20:03:57 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 22 May 2021 00:48:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of fabioaiuto83@gmail.com designates 2a00:1450:4864:20::62d as permitted sender) client-ip=2a00:1450:4864:20::62d;
+Received: by mail-ej1-x62d.google.com with SMTP id i7so15905617ejc.5
+        for <clang-built-linux@googlegroups.com>; Sat, 22 May 2021 00:48:34 -0700 (PDT)
+X-Received: by 2002:a17:907:3f1d:: with SMTP id hq29mr9163475ejc.163.1621669714210;
+        Sat, 22 May 2021 00:48:34 -0700 (PDT)
+Received: from agape.jhs ([5.171.81.18])
+        by smtp.gmail.com with ESMTPSA id f7sm6273997edd.5.2021.05.22.00.48.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 22 May 2021 00:48:33 -0700 (PDT)
+Date: Sat, 22 May 2021 09:48:31 +0200
+From: Fabio Aiuto <fabioaiuto83@gmail.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: kernel test robot <lkp@intel.com>, devel@driverdev.osuosl.org,
+	clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [staging:staging-next 201/268]
+ drivers/staging/rtl8723bs/core/rtw_security.c:89:6: warning: stack frame
+ size of 1120 bytes in function 'rtw_wep_encrypt'
+Message-ID: <20210522074830.GA1523@agape.jhs>
+References: <202105201711.QuzeTqRK-lkp@intel.com>
+ <20210521142656.GA1409@agape.jhs>
+ <YKgHy7ZNNxv/KMl8@archlinux-ax161>
 MIME-Version: 1.0
-References: <20210520231821.12272-1-maciej.falkowski9@gmail.com>
- <20210520231821.12272-2-maciej.falkowski9@gmail.com> <CAKwvOd=32_yNvAWRjyczOoEjsWje9SfaB=S1s9kS1bRFZhuU8g@mail.gmail.com>
-In-Reply-To: <CAKwvOd=32_yNvAWRjyczOoEjsWje9SfaB=S1s9kS1bRFZhuU8g@mail.gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Sat, 22 May 2021 12:03:20 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAQtnX6x1AWUU8+7MtUo4OkCrhKjoP=w0-cbH08u__wGWg@mail.gmail.com>
-Message-ID: <CAK7LNAQtnX6x1AWUU8+7MtUo4OkCrhKjoP=w0-cbH08u__wGWg@mail.gmail.com>
-Subject: Re: [PATCH 2/2] Makefile: clang-tools: Omit printing stack trace when
- KeyboardInterrupt is raised
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Maciej Falkowski <maciej.falkowski9@gmail.com>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <YKgHy7ZNNxv/KMl8@archlinux-ax161>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: fabioaiuto83@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=ytBNA3gG;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20161025 header.b=SHK7mIjE;       spf=pass
+ (google.com: domain of fabioaiuto83@gmail.com designates 2a00:1450:4864:20::62d
+ as permitted sender) smtp.mailfrom=fabioaiuto83@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,117 +159,125 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, May 22, 2021 at 2:18 AM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> On Thu, May 20, 2021 at 4:18 PM Maciej Falkowski
-> <maciej.falkowski9@gmail.com> wrote:
-> >
-> > When user terminates the script (also implicitly through for example
-> > `make clang-analyzer`) by using
-> > Ctrl+C (or sending SIGINT more generally) the KeyboardInterrupt
-> > is raised printing stack trace of the execution as shown below:
-> >
-> > $ ./scripts/clang-tools/run-clang-tools.py clang-tidy ./compile_commands.json
-> > ^CTraceback (most recent call last):
-> >   File "./scripts/clang-tools/run-clang-tools.py", line 74, in <module>
-> >     main()
-> >   File "./scripts/clang-tools/run-clang-tools.py", line 70, in main
-> >     pool.map(run_analysis, datastore)
-> >   File "/usr/lib64/python3.8/multiprocessing/pool.py", line 364, in map
-> >     return self._map_async(func, iterable, mapstar, chunksize).get()
-> >   File "/usr/lib64/python3.8/multiprocessing/pool.py", line 765, in get
-> >     self.wait(timeout)
-> >   File "/usr/lib64/python3.8/multiprocessing/pool.py", line 762, in wait
-> >     self._event.wait(timeout)
-> >   File "/usr/lib64/python3.8/threading.py", line 558, in wait
-> > Process ForkPoolWorker-6:
-> > Process ForkPoolWorker-1:
-> > Process ForkPoolWorker-5:
-> > Process ForkPoolWorker-7:
-> > Process ForkPoolWorker-2:
-> > Process ForkPoolWorker-3:
-> > Process ForkPoolWorker-4:
-> > Process ForkPoolWorker-8:
-> >     signaled = self._cond.wait(timeout)
-> >   File "/usr/lib64/python3.8/threading.py", line 302, in wait
-> >     waiter.acquire()
-> > KeyboardInterrupt
->
-> With this applied,
-> $ make LLVM=1 LLVM_IAS=1 -j72 clang-analyzer
-> ^C
-> Process ForkPoolWorker-5:
-> make: *** [Makefile:1902: clang-analyzer] Error 130
->
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
->
-> Thanks for the patch!
+Hello Nathan,
 
+On Fri, May 21, 2021 at 12:19:39PM -0700, Nathan Chancellor wrote:
+> Hi Fabio,
+>=20
+> On Fri, May 21, 2021 at 04:26:57PM +0200, Fabio Aiuto wrote:
+> > Hi robot,
+> >=20
+> > On Thu, May 20, 2021 at 05:03:14PM +0800, kernel test robot wrote:
+> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/stagin=
+g.git staging-next
+> > > head:   b9f38e913a926b455e5048a95f53a993b515509f
+> > > commit: 1b11e893eda0907fc9b28696271e2d9c4337e42d [201/268] staging: r=
+tl8723bs: replace private arc4 encryption with in-kernel one
+> > > config: powerpc64-randconfig-r011-20210520 (attached as .config)
+> > > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project =
+bf9ef3efaa99c02e7bfc4c57207301b8de39a278)
+> > > reproduce (this is a W=3D1 build):
+> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master=
+/sbin/make.cross -O ~/bin/make.cross
+> > >         chmod +x ~/bin/make.cross
+> > >         # install powerpc64 cross compiling tool for clang build
+> > >         # apt-get install binutils-powerpc64-linux-gnu
+> > >         # https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/stag=
+ing.git/commit/?id=3D1b11e893eda0907fc9b28696271e2d9c4337e42d
+> > >         git remote add staging https://git.kernel.org/pub/scm/linux/k=
+ernel/git/gregkh/staging.git
+> > >         git fetch --no-tags staging staging-next
+> > >         git checkout 1b11e893eda0907fc9b28696271e2d9c4337e42d
+> > >         # save the attached .config to linux build tree
+> > >         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cros=
+s ARCH=3Dpowerpc64=20
+> >=20
+> > can't compile this, I get the following error:
+> >=20
+> > make CONFIG_OF_ALL_DTBS=3Dy CONFIG_DTC=3Dy HOSTCC=3D/home/fabio/0day/cl=
+ang/bin/clang CC=3D/home/fabio/0day/clang/bin/clang LD=3D/home/fabio/0day/c=
+lang/bin/ld.lld HOSTLD=3D/home/fabio/0day/clang/bin/ld.lld AR=3D/home/fabio=
+/0day/clang/bin/llvm-ar NM=3D/home/fabio/0day/clang/bin/llvm-nm STRIP=3D/ho=
+me/fabio/0day/clang/bin/llvm-strip OBJDUMP=3D/home/fabio/0day/clang/bin/llv=
+m-objdump OBJSIZE=3D/home/fabio/0day/clang/bin/llvm-size READELF=3D/home/fa=
+bio/0day/clang/bin/llvm-readelf HOSTCXX=3D/home/fabio/0day/clang/bin/clang+=
++ HOSTAR=3D/home/fabio/0day/clang/bin/llvm-ar CROSS_COMPILE=3Dpowerpc-linux=
+-gnu- --jobs=3D8 LLVM_IAS=3D1 ARCH=3Dpowerpc drivers/staging/rtl8723bs/
+> >   CC      scripts/mod/empty.o
+> > clang: error: unsupported argument '-me500' to option 'Wa,'
+> > make[1]: *** [scripts/Makefile.build:272: scripts/mod/empty.o] Error 1
+> > make[1]: *** Attesa per i processi non terminati....
+> > make: *** [Makefile:1226: prepare0] Error 2
+> >=20
+> > moreover I had to add LLVM_IAS=3D1, and ARCH=3Dpowerpc64 is not a valid=
+ architecture (used powerpc instead).
+> >=20
+> > Could you help me?
+> >=20
+>=20
+> This is not a clang specific issue, I would not bother with trying to
+> use the bot's reproducer steps.
+>=20
+> I can reproduce it with GCC 11.1.0 using the following commands:
+>=20
+> $ make -skj"$(nproc)" ARCH=3Di386 defconfig
+>=20
+> $ scripts/config -e MMC -e STAGING -m RTL8723BS
+>=20
+> $ make -skj"$(nproc)" ARCH=3Di386 olddefconfig drivers/staging/rtl8723bs/
+> drivers/staging/rtl8723bs/core/rtw_security.c: In function =E2=80=98rtw_w=
+ep_encrypt=E2=80=99:
+> drivers/staging/rtl8723bs/core/rtw_security.c:91:1: warning: the frame si=
+ze of 1084 bytes is larger than 1024 bytes [-Wframe-larger-than=3D]
+>    91 | }
+>       | ^
+> drivers/staging/rtl8723bs/core/rtw_security.c: In function =E2=80=98rtw_w=
+ep_decrypt=E2=80=99:
+> drivers/staging/rtl8723bs/core/rtw_security.c:128:1: warning: the frame s=
+ize of 1060 bytes is larger than 1024 bytes [-Wframe-larger-than=3D]
+>   128 | }
+>       | ^
+> drivers/staging/rtl8723bs/core/rtw_security.c: In function =E2=80=98rtw_t=
+kip_encrypt=E2=80=99:
+> drivers/staging/rtl8723bs/core/rtw_security.c:531:1: warning: the frame s=
+ize of 1112 bytes is larger than 1024 bytes [-Wframe-larger-than=3D]
+>   531 | }
+>       | ^
+> drivers/staging/rtl8723bs/core/rtw_security.c: In function =E2=80=98rtw_t=
+kip_decrypt=E2=80=99:
+> drivers/staging/rtl8723bs/core/rtw_security.c:633:1: warning: the frame s=
+ize of 1084 bytes is larger than 1024 bytes [-Wframe-larger-than=3D]
+>   633 | }
+>       | ^
 
-I am not a python expert, but is
-"Let's suppress back-trace when a user presses an interrupt"
-the common coding style?
+I could not get these warnings in a x86_64 build, so I tried
+to reproduce exactly what the robot says. I should have tried
+simply an i386 build :)
 
-If really so, do we need to do something similar in all python scripts?
-I do not know what is special about run-clang-tools.py.
+>=20
+> Your commit introduced this because the size of the arc4_ctx structure
+> is 1032 bytes so allocating it on the stack will cause it to go over the
+> 32-bit limit of 1024 bytes. The previous arc4context was only 264 bytes.
+> For that large of structure, I would recommend allocating it on the heap
+> with kzalloc() and freeing with kfree_sensitive().
 
-For example, if I press Ctrl-C while building Clang
-by using tc-build, I see a back-trace.
-I have never thought back-tracing was annoying.
+I have already I fixed it by putting two arc4_ctx field in security_priv st=
+ruct without
+locally allocating each time encryption-decryption functions are called.
+Hope this is good...
 
-The exit code is 130 regardless of this patch.
+>=20
+> Cheers,
+> Nathan
 
+thank you for help,
 
-BTW, I prefer not having "Makefile:" in the patch subject
-since this is not touching Makefile at all.
+fabio
 
-I rather like "clang-tools:" or "scripts/clang-tools:".
-
-
-
-
-
-
-
-> > The patch handles the raise of the KeyboardInterrupt and exits when occurred
-> > with code 130 as documented in: https://tldp.org/LDP/abs/html/exitcodes.html
-> >
-> > Signed-off-by: Maciej Falkowski <maciej.falkowski9@gmail.com>
-> > ---
-> >  scripts/clang-tools/run-clang-tools.py | 5 ++++-
-> >  1 file changed, 4 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/scripts/clang-tools/run-clang-tools.py b/scripts/clang-tools/run-clang-tools.py
-> > index 38fc311d2e03..eb0e0ecfce24 100755
-> > --- a/scripts/clang-tools/run-clang-tools.py
-> > +++ b/scripts/clang-tools/run-clang-tools.py
-> > @@ -77,4 +77,7 @@ def main():
-> >
-> >
-> >  if __name__ == "__main__":
-> > -    main()
-> > +    try:
-> > +        main()
-> > +    except KeyboardInterrupt:
-> > +        sys.exit(130)
-> > --
-> > 2.26.3
-> >
->
->
-> --
-> Thanks,
-> ~Nick Desaulniers
-
-
-
---
-Best Regards
-Masahiro Yamada
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAQtnX6x1AWUU8%2B7MtUo4OkCrhKjoP%3Dw0-cbH08u__wGWg%40mail.gmail.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20210522074830.GA1523%40agape.jhs.
