@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBVGRV6CQMGQEQZH6IKI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBTHBV6CQMGQEVCAFZFQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe38.google.com (mail-vs1-xe38.google.com [IPv6:2607:f8b0:4864:20::e38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 375E838F2A5
-	for <lists+clang-built-linux@lfdr.de>; Mon, 24 May 2021 19:56:38 +0200 (CEST)
-Received: by mail-vs1-xe38.google.com with SMTP id a25-20020a0561020159b029024067c780c1sf1925179vsr.20
-        for <lists+clang-built-linux@lfdr.de>; Mon, 24 May 2021 10:56:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621878997; cv=pass;
+Received: from mail-ua1-x93b.google.com (mail-ua1-x93b.google.com [IPv6:2607:f8b0:4864:20::93b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1926238F302
+	for <lists+clang-built-linux@lfdr.de>; Mon, 24 May 2021 20:30:38 +0200 (CEST)
+Received: by mail-ua1-x93b.google.com with SMTP id y10-20020ab025ca0000b0290221adb2995asf3911105uan.8
+        for <lists+clang-built-linux@lfdr.de>; Mon, 24 May 2021 11:30:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621881037; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zODPv+PHAYngqOPZYtcCZx8bwqspT6Ft1JiGi48AdYYa9OhUOlHcND3iteRUSeoikF
-         eICjeraiOv1MHrkKJctJ1bx4XnO3lKyQfH9yEGfgB0Lk0f6xDsAhIzDfgjXcuojjgLX2
-         xAP8YLKIsnpIhOH0AnKu+lNuY1zEIFlMICiYGBZIGUPxSNy4lOYHviLOdVqNF5zHMd+7
-         4LKqkaQOg1ZJ/Epq9O0NJfDhzFO5nwkAeQ3P92dLQjCGWPA3KIKQw8RXMpmE4eC/UjDX
-         xK0tHeNas2aAD3cQgdQGuDbRe+keakIx/cVynW5LnRCWjaAkQ2ZpuiNmavv4UjjpG3Kj
-         qw0w==
+        b=sp7YFFRQ4psSr7HP78JahSV+xN5AvxJaBDVoUrWzEBx/BOqb9p1NvbbvXJh5brChH1
+         qjSks/1SQWw6a4PJaTI6F8yU34PfKL//AGjwtkEgQPR8YWlnITTHi5p0CJZSqQtRJMau
+         dEneUaSkL6fzP1Uu6wuv8SzUQmRRrySD0dlQ77XDoTglajn7jE0iYEavbILZ4aFcjxD+
+         SwW5msWY3ZNG1SOAot/RIOKrNlD6RseqW5slZdoPz5VXbQ66B5heo+X81K8WNfIV49zg
+         rt8aD4IlXMmQZZ5j5ScR7PmX9bcC7YLERZq5vhj5mUKA6bVC0DJRpcD4saCj1jilATMq
+         eEPQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=6rpUOp9kk6uptt1Ema+WbuGOd/B8lOd9gNfLaPH3AoA=;
-        b=VY7XSLPKE9rvG7j71xwzxjJY/YiaxAnbMGGFU+suw9TnKrviUXLsrK/kR3Mr5FPLPY
-         IGmbEU/qyjK+UBU9bm6+7Cb5N/Z9cF0ic4sJZg72EVlM9eyAEcpGNQ8whyXWoCPOEJYv
-         w5wztmwgu/fKT+Gtsuzx69xI6Hw5yLg1W4SxZHq/sEEuANZXNap1RoI3xSfNEwGgwc5R
-         f6O2WNIaP5cogdL9TT8GK4JCj76KPc2CoBW0TaCfw3CgdOgTMaVO1KkydOhTcq5oBg+v
-         coMeuV2O+x6A4YmOzvpLsAV4RhrPHXo472/sbQOTCwkf0ZhHBDRV85e/k5dzCLeWHQZB
-         wZCA==
+        bh=mJhihjqCypYPhD+WSQYAHAjswFyIRrhJIjSjCivZeN4=;
+        b=n9OqCRtCVqv/2kimRl3lk4M888iuHTV5DRD9xvo0h9Ni6IxgKroUgiDbZq9CNKFhK3
+         0tHvmj7fNSm7+8uzfnJprPv4rAlVxtxxp30eG6Zokl6prC3kc3f0JxHipviYsqg+mRTQ
+         H0QBeMli1ZoEIn2LG8nhs7h9E0jOyl5pu75iHJkrv0i2nbGMsGk0KKFfX1cDT0pQVl9Y
+         yRzDvb4DbRz8Uhvf5eLE5RqpshQpqJet4V8ZBflBP74qijzc5wH2XDSLC/tqtejqlcHg
+         SK7ApzDVps5Hq1FfytNWmafCrJvEh0D74zQ0XVzzjxUCNa5I9CzsHTpKUf/ryMlZXzOq
+         So1A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=6rpUOp9kk6uptt1Ema+WbuGOd/B8lOd9gNfLaPH3AoA=;
-        b=At6h0jiYmoiohTv5k8Hvbqodeaan+jQcfEwdEcNL83ivOXuk3eQKTc7KpjT6RlLRgm
-         QBehc88e7MZhsvYblM5B8iIPux+xjNxrBj2jF3jlOgnCV/51xy9bXwKUbuv2QGdA0zQx
-         +7iX27iQHM6uxecFJoROylzsA3oXt/PPLjeJZf6tQd8mSXypApiGLzW/XCjwbcoBiskL
-         ndGqi7hVlOmxsHQmgoI4ITh7uVJk7Q1K6lZH/aXIzb2e8To/r8HN9/kYZw7wZWO4tUTU
-         0OJYoQO42SqTSrTZFjTUfILJtkeX5Mwy4CrezvKQRiwDskrkJUij1Tw7kyRIDIxJ8Jpa
-         zOIA==
+        bh=mJhihjqCypYPhD+WSQYAHAjswFyIRrhJIjSjCivZeN4=;
+        b=TVQrAZGvcpbseMAll+dl+B6UL0l/L7z/3iSJtvstaKV0KXQElI/qCamnP9nkh5LDFi
+         46UXJBvfDskqn1VCLuptgD5tEvzc5ua7CLeelXtZNjhpcKQWDTG9cUEw52TtzeQKybP0
+         X7c6IWPS7htL9rX6ERJA34oYCipup1Wf3IWJ0HjvHROQUyZNDcpJDonUXM80tX6JzSLM
+         bxHhO4SXSQptdihicTDYIHsoLyvRq4OkPZPkgKj9ydgnMBSnKaUroYV1VbXOL9Moueen
+         x6QU/7hCzFtFtTwF92SwLpbBGkPMO/B256NvA+ZDHbtt272q3bfek37UF4SSwknubOdE
+         ixiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,83 +49,82 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=6rpUOp9kk6uptt1Ema+WbuGOd/B8lOd9gNfLaPH3AoA=;
-        b=eJdrQuI65+PTnZiD5X1k6Qv+j871wbaRfarNw5IxtPCDBHnNxEvI/npm4J7vSxmUxX
-         3nLqUpesHJkZREoeOyxZXLYyDvjqCNsSn9R9NjEXY3CmA9yn09PkXgdKuq0gUBmseWLC
-         e8lXEbx2ZIdknCw9GSP3mQ4tkYNTEyRCjPCg9WxvfkVcjGzFYNe1/CyamK8rZOfrdM2N
-         Fz6B1qD+DZA9CPCm5a4zwys5cHBVCkIG10B0Ph7hPnQCETr5PLhPnZD/aKq1O0JNKnrH
-         zZuEimccUrBaygQXO+GSm3VeegXtBlnbVtz5lQ4YeKlHUUPk52w63QIXSAkbAa0VYBap
-         wuCg==
+        bh=mJhihjqCypYPhD+WSQYAHAjswFyIRrhJIjSjCivZeN4=;
+        b=I6CZGDmgG+ajiqoYkhUTKu9UK3RJdNWKIQTms959yXH4utjOsi4WheMWNPMwYqfklz
+         4ZsaEWj7PQGweFwPMykG1ZHwrJmBwxJu/PBrd8U/X7QnQggPUZqrzWwZDEfHcYg2doEb
+         hxRHrxdLdshW71pWyaVpShFNWxr24axNt7k25NNIsBuUQn8VkqxdKc0DfGhbzv8oDhcU
+         TjPsDN8/oxGh7KyK3Mta3qndglDkRNUig5vZtQSO7VGTszvZ5BecPcPoBzsjAqhQhqNX
+         Sdgu/ukHSDrpOXnzvHFwctU0+oWCpKN0acndIPgmQ0qngI+Q7afNjYXi9U5EktSFUUkd
+         od6Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530zWkfjPfs12prZ2PrJtqEhIUr98yvr6aJ8/u3HAvtxcc7XOzvM
-	ydmnw2m038xUpv+x/xtFohc=
-X-Google-Smtp-Source: ABdhPJwc7WNa5pWwxo/xXCzslhZ0XJ2ieOzBbMKbno3y+w8ZkBmOBmJ6kq5eh6Htcg32ON36Q+DFNA==
-X-Received: by 2002:a67:c08a:: with SMTP id x10mr22726720vsi.57.1621878997012;
-        Mon, 24 May 2021 10:56:37 -0700 (PDT)
+X-Gm-Message-State: AOAM531hOAJpGsnyRPvDv2/O4EGgbeYKDU4eUQgwPiTg0OPOTeGnlzGm
+	DB+lAjOnyJYv3u4EZyqasEo=
+X-Google-Smtp-Source: ABdhPJy2z+TGPOk9v9Rg+kuvtxvOtcFFHXtyyuGvh9qT3C+kV1eGfMZHffyUzckB5E9RKbHxFHR0eA==
+X-Received: by 2002:ab0:3811:: with SMTP id x17mr24212098uav.69.1621881037050;
+        Mon, 24 May 2021 11:30:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:9cc9:: with SMTP id f192ls1108126vke.1.gmail; Mon, 24
- May 2021 10:56:36 -0700 (PDT)
-X-Received: by 2002:a05:6122:1799:: with SMTP id o25mr22562130vkf.23.1621878996268;
-        Mon, 24 May 2021 10:56:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621878996; cv=none;
+Received: by 2002:a1f:b243:: with SMTP id b64ls1119536vkf.0.gmail; Mon, 24 May
+ 2021 11:30:36 -0700 (PDT)
+X-Received: by 2002:ac5:c8b2:: with SMTP id o18mr22292647vkl.15.1621881036304;
+        Mon, 24 May 2021 11:30:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621881036; cv=none;
         d=google.com; s=arc-20160816;
-        b=PNL0/g3EhuF8+LRDXW5v0B1RiYdr475V/LOAJoGykwq8Jdo8INr9pMnVokiAI65wxV
-         HPQlLSjqt822LNbM6RT+C3+ICaZhYuS8tC55GLzafxxjTq+x2eOSseiZPSJw83Xr1bo7
-         ZgULBIOdgHGu6akUzZi9x/v7PZtVV9ojAizPKKnBo5YvjGmyZRzaqaMuhLafobHwe7n5
-         HPSP9hu76VRH2mAuoOhIoOPk/q7gCuDrIcnTh0hOK7hdfgWcLDkVadLy7vRoRFDhMeQ1
-         x6UIcODGMA9AQ9CjmDtv3NR33ucKY2zUr3CabSRc4U41sv2g3aJbpDITmO/y0vW8cw+/
-         xdow==
+        b=ZYmB73lvQaCMAxvgVgFH+Gfbr3GIl8yFXVNo1CCc/LctShL8ZX1XHpwBPlirEp3vAF
+         dQpEJ3AilFtG/WBKw/GxoqrhKfie9VR4RdYmzdU6CuAWl2QCKBOW4QNX5t2uoXN4cApZ
+         KQopUYTIAfClxGYf5gmJDif4I5WwTHW8aMM4EhGAcNME4zp+olZd04fs9+2MtjcblQm4
+         p+IgS2fS03dKfxecIdbXP9FnfID+z0I5B39IQaR5z5fGizsnzxePsE1m+/ULPnE34Q03
+         SQmzp2vSeeEwWxDdTrxhJ1EeOS2U/pviPK5Twnw5Akw+fvdr8V2VtnP6Klh4sMjlOCJe
+         QAoQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=PH6MjpFgH2aIlXgDcq0yZs2oj+6c+I6Dl24f/SBerPw=;
-        b=sktEtymBudPSXc6/idwksf3gq8IVewc2kw6L354JqhBh7R+bkG2B5+sG5S4/sLur4I
-         YG4Hp4Q2bYFWAG5hA97qUcqUjyYi+MhtzdKUjDNjadYlvbIy9+qOXZo+k5PcR6760QQK
-         u4zqMIQiz+P5UHGgKOOjvFaOKHLGTO/h7YGC7MN1+yhR7ixgbfwnPJ3bT4i+q/HQ5RCO
-         7CPShJItEBotmpV3ygjs4M1kXsHFrnPT3wRT1Mu7RqpKlCFi91JrEwYwsJu4zarifuQl
-         W8Hi7y8k+/QEm5cXeCUkw4c2SNUR7DbIsPufQYs+F5TZz8dwWPBn8iSuEEZAhZOg4I9T
-         C8og==
+        bh=kbei+hzT1ydFJHJlpuJG8E0W6xu7pegnbvYdniG81WU=;
+        b=FkjvzHpW+IkifGZj593m3re18ELRHkqaOwIZiGOp12zkmpbrGvfEJENqLpPmWLgGCn
+         YbR7xuvifFjHnk4LKGA3y4f2pHhdjGNvofYQfYbeG+35X3Jf9NPFCdz8fJXCuI8wsyEd
+         30leA1DQL3qdjHc/dQlYV1qmbDqSuP3B0ZeNBiEX5nw6A2TxN1r3KiOyQObIfsgzxhwH
+         bNLXGre4Icdiarswj//m9WhiFrrbzZHG+BOtGd2tOR5/bLkAJdjFEfP9dRLEgANlWEKf
+         EIoEbJjzXf5Ce48kraFZ6jmN2SwnpmZS5nNSIYYqYFD7w7PzJNtfbYlhYes7iA36YbQc
+         /qkg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id p6si1265248vkm.2.2021.05.24.10.56.35
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id p6si1274159vkm.2.2021.05.24.11.30.35
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 24 May 2021 10:56:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
-IronPort-SDR: bN9zkwxZPRhNVZVC81bzGRF+k/TZmmXfs/6SAnnZkHf6KEuxlSAJcxrpYW+CFI4s40ErzYfh+W
- RoNhDUWOer1Q==
-X-IronPort-AV: E=McAfee;i="6200,9189,9993"; a="189115437"
+        Mon, 24 May 2021 11:30:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+IronPort-SDR: jqwRuK+mLePARhBwSo/zMWKsG1a+lpuliuQEU+c1SOVKsjTw892EIDwqy372w6DcDolzZ3BlAK
+ 8t5D+UMeHegQ==
+X-IronPort-AV: E=McAfee;i="6200,9189,9993"; a="263211431"
 X-IronPort-AV: E=Sophos;i="5.82,325,1613462400"; 
-   d="gz'50?scan'50,208,50";a="189115437"
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 May 2021 10:56:32 -0700
-IronPort-SDR: NSIA15pfRBvMGEiEFRkd5//uqDkgNW9AuGspx4Bd44TmVFry/rdFQBWHPdpxIaV2WM0/hN1IsL
- kZXpkU0t87ww==
+   d="gz'50?scan'50,208,50";a="263211431"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 May 2021 11:30:32 -0700
+IronPort-SDR: 2omy44j2ZtLveQkU/mTVgRpNxiP+4AYTSf+HS2UAzAJvubnPItiS3ILi6KJVk5nIu89g2Y3RGB
+ LCtcvnOzhAaA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.82,325,1613462400"; 
-   d="gz'50?scan'50,208,50";a="614188831"
+   d="gz'50?scan'50,208,50";a="442940117"
 Received: from lkp-server02.sh.intel.com (HELO 1ec8406c5392) ([10.239.97.151])
-  by orsmga005.jf.intel.com with ESMTP; 24 May 2021 10:56:30 -0700
+  by fmsmga008.fm.intel.com with ESMTP; 24 May 2021 11:30:28 -0700
 Received: from kbuild by 1ec8406c5392 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1llEoV-0001Ix-Ce; Mon, 24 May 2021 17:56:27 +0000
-Date: Tue, 25 May 2021 01:55:59 +0800
+	id 1llFLP-0001JO-Nf; Mon, 24 May 2021 18:30:27 +0000
+Date: Tue, 25 May 2021 02:29:57 +0800
 From: kernel test robot <lkp@intel.com>
 To: Jens Wiklander <jens.wiklander@linaro.org>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [jens.wiklander:optee_ffa 3/5] drivers/tee/optee/call.c:196:6:
- warning: variable 'rc' is used uninitialized whenever 'if' condition is
- false
-Message-ID: <202105250151.XPcNzAJB-lkp@intel.com>
+Subject: [jens.wiklander:optee_ffa 5/5] ld.lld: error: duplicate symbol:
+ ffa_dev_ops_get
+Message-ID: <202105250251.NFQMdtqU-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="5vNYLRcllDrimb99"
+Content-Type: multipart/mixed; boundary="OXfL5xGRrasGEqWY"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -141,13 +140,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---5vNYLRcllDrimb99
+--OXfL5xGRrasGEqWY
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.linaro.org/people/jens.wiklander/linux-tee.git optee_ffa
 head:   636bcfec71bba4457710dc447883d013efca34cd
-commit: 5eb0b29b029730e189f336063775a6d52feb6a5d [3/5] optee: refactor driver with internal callbacks
+commit: 636bcfec71bba4457710dc447883d013efca34cd [5/5] optee: add FF-A support
 config: arm64-randconfig-r026-20210524 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 93d1e5822ed64abd777eb94ea9899e96c4c39fbe)
 reproduce (this is a W=1 build):
@@ -157,83 +156,89 @@ reproduce (this is a W=1 build):
         # apt-get install binutils-aarch64-linux-gnu
         git remote add jens.wiklander https://git.linaro.org/people/jens.wiklander/linux-tee.git
         git fetch --no-tags jens.wiklander optee_ffa
-        git checkout 5eb0b29b029730e189f336063775a6d52feb6a5d
+        git checkout 636bcfec71bba4457710dc447883d013efca34cd
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All warnings (new ones prefixed by >>):
+All error/warnings (new ones prefixed by >>):
 
->> drivers/tee/optee/call.c:196:6: warning: variable 'rc' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-           if (IS_ERR(ma)) {
-               ^~~~~~~~~~
-   drivers/tee/optee/call.c:205:6: note: uninitialized use occurs here
-           if (rc) {
-               ^~
-   drivers/tee/optee/call.c:196:2: note: remove the 'if' if its condition is always true
-           if (IS_ERR(ma)) {
-           ^~~~~~~~~~~~~~~~
-   drivers/tee/optee/call.c:186:8: note: initialize the variable 'rc' to silence this warning
-           int rc;
-                 ^
-                  = 0
-   drivers/tee/optee/call.c:661:6: warning: variable 'rc' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+   In file included from drivers/tee/optee/core.c:9:
+>> include/linux/arm_ffa.h:74:27: warning: no previous prototype for function 'ffa_dev_ops_get' [-Wmissing-prototypes]
+   const struct ffa_dev_ops *ffa_dev_ops_get(struct ffa_device *dev)
+                             ^
+   include/linux/arm_ffa.h:74:7: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   const struct ffa_dev_ops *ffa_dev_ops_get(struct ffa_device *dev)
+         ^
+   static 
+   1 warning generated.
+--
+   In file included from drivers/tee/optee/call.c:6:
+>> include/linux/arm_ffa.h:74:27: warning: no previous prototype for function 'ffa_dev_ops_get' [-Wmissing-prototypes]
+   const struct ffa_dev_ops *ffa_dev_ops_get(struct ffa_device *dev)
+                             ^
+   include/linux/arm_ffa.h:74:7: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   const struct ffa_dev_ops *ffa_dev_ops_get(struct ffa_device *dev)
+         ^
+   static 
+   drivers/tee/optee/call.c:668:6: warning: variable 'rc' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
            if (optee->ops->do_call_with_arg(ctx, shm) ||
                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/tee/optee/call.c:665:9: note: uninitialized use occurs here
+   drivers/tee/optee/call.c:672:9: note: uninitialized use occurs here
            return rc;
                   ^~
-   drivers/tee/optee/call.c:661:2: note: remove the 'if' if its condition is always true
+   drivers/tee/optee/call.c:668:2: note: remove the 'if' if its condition is always true
            if (optee->ops->do_call_with_arg(ctx, shm) ||
            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/tee/optee/call.c:650:8: note: initialize the variable 'rc' to silence this warning
+   drivers/tee/optee/call.c:657:8: note: initialize the variable 'rc' to silence this warning
            int rc;
                  ^
                   = 0
    2 warnings generated.
-
-
-vim +196 drivers/tee/optee/call.c
-
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  182  
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  183  static struct tee_shm *get_msg_arg(struct tee_context *ctx, size_t num_params,
-5eb0b29b029730 Jens Wiklander 2021-03-25  184  				   struct optee_msg_arg **msg_arg)
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  185  {
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  186  	int rc;
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  187  	struct tee_shm *shm;
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  188  	struct optee_msg_arg *ma;
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  189  
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  190  	shm = tee_shm_alloc(ctx, OPTEE_MSG_GET_ARG_SIZE(num_params),
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  191  			    TEE_SHM_MAPPED);
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  192  	if (IS_ERR(shm))
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  193  		return shm;
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  194  
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  195  	ma = tee_shm_get_va(shm, 0);
-4fb0a5eb364d23 Jens Wiklander 2015-04-14 @196  	if (IS_ERR(ma)) {
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  197  		rc = PTR_ERR(ma);
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  198  		goto out;
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  199  	}
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  200  
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  201  	memset(ma, 0, OPTEE_MSG_GET_ARG_SIZE(num_params));
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  202  	ma->num_params = num_params;
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  203  	*msg_arg = ma;
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  204  out:
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  205  	if (rc) {
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  206  		tee_shm_free(shm);
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  207  		return ERR_PTR(rc);
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  208  	}
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  209  
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  210  	return shm;
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  211  }
-4fb0a5eb364d23 Jens Wiklander 2015-04-14  212  
-
-:::::: The code at line 196 was first introduced by commit
-:::::: 4fb0a5eb364d239722e745c02aef0dbd4e0f1ad2 tee: add OP-TEE driver
-
-:::::: TO: Jens Wiklander <jens.wiklander@linaro.org>
-:::::: CC: Jens Wiklander <jens.wiklander@linaro.org>
+--
+>> ld.lld: error: duplicate symbol: ffa_dev_ops_get
+   >>> defined at core.c
+   >>> drivers/tee/optee/core.o:(ffa_dev_ops_get)
+   >>> defined at call.c
+   >>> drivers/tee/optee/call.o:(.text+0x0)
+--
+>> ld.lld: error: duplicate symbol: ffa_dev_ops_get
+   >>> defined at core.c
+   >>> drivers/tee/optee/core.o:(ffa_dev_ops_get)
+   >>> defined at rpc.c
+   >>> drivers/tee/optee/rpc.o:(.text+0x0)
+--
+   In file included from drivers/tee/optee/call.c:6:
+>> include/linux/arm_ffa.h:74:27: warning: no previous prototype for function 'ffa_dev_ops_get' [-Wmissing-prototypes]
+   const struct ffa_dev_ops *ffa_dev_ops_get(struct ffa_device *dev)
+                             ^
+   include/linux/arm_ffa.h:74:7: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   const struct ffa_dev_ops *ffa_dev_ops_get(struct ffa_device *dev)
+         ^
+   static 
+   In file included from drivers/tee/optee/call.c:21:
+   In file included from drivers/tee/optee/optee_trace.h:67:
+   include/trace/define_trace.h:95:10: fatal error: './optee_trace.h' file not found
+   #include TRACE_INCLUDE(TRACE_INCLUDE_FILE)
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:90:32: note: expanded from macro 'TRACE_INCLUDE'
+   # define TRACE_INCLUDE(system) __TRACE_INCLUDE(system)
+                                  ^~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:87:34: note: expanded from macro '__TRACE_INCLUDE'
+   # define __TRACE_INCLUDE(system) __stringify(TRACE_INCLUDE_PATH/system.h)
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/stringify.h:10:27: note: expanded from macro '__stringify'
+   #define __stringify(x...)       __stringify_1(x)
+                                   ^~~~~~~~~~~~~~~~
+   include/linux/stringify.h:9:29: note: expanded from macro '__stringify_1'
+   #define __stringify_1(x...)     #x
+                                   ^~
+   <scratch space>:49:1: note: expanded from here
+   "./optee_trace.h"
+   ^~~~~~~~~~~~~~~~~
+   1 warning and 1 error generated.
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -242,14 +247,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202105250151.XPcNzAJB-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202105250251.NFQMdtqU-lkp%40intel.com.
 
---5vNYLRcllDrimb99
+--OXfL5xGRrasGEqWY
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICDXkq2AAAy5jb25maWcAnDzZcuO2su/5Ctbk5dyHZLR5u6f8AJGghIgkaICUbL+wNLZm
+H4sICMzsq2AAAy5jb25maWcAnDzZcuO2su/5Ctbk5dyHZLR5u6f8AJGghIgkaICUbL+wNLZm
 4hsvc2R5kvn72w1wAUBQdp2pVGaEbgCNRqPRG/jrL78G5O3w8rQ9PNxtHx9/Bt92z7v99rC7
 D74+PO7+HUQ8yHgR0IgVvwNy8vD89s/n7f7pdBac/D6e/j76bX83CVa7/fPuMQhfnr8+fHuD
 /g8vz7/8+kvIs5gtqjCs1lRIxrOqoNfF5ae7x+3zt+DHbv8KeAGO8vso+Ne3h8P/fv4M/396
@@ -822,4 +827,4 @@ BtUErorKVAibTmAhrEFVgb3ICDtiCDHUA8cgmb4C0452Fd4ZsLdoSIlXt1WLjhfuFYxGwr4g
 QMrp7IOn/8xO4X9kwwF9QqnC0HelLMicj39vfDBBArj74wDwoxzwazAIhaDv/v8PjQ09UVXV
 AQA=
 
---5vNYLRcllDrimb99--
+--OXfL5xGRrasGEqWY--
