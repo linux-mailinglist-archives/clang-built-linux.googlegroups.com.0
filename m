@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB4XSV2CQMGQEDKHDWZI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB74PV6CQMGQE5UOBBVQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0974138E8CC
-	for <lists+clang-built-linux@lfdr.de>; Mon, 24 May 2021 16:34:28 +0200 (CEST)
-Received: by mail-ot1-x340.google.com with SMTP id h8-20020a9d6a480000b02902edb9406104sf19912789otn.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 24 May 2021 07:34:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621866867; cv=pass;
+Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id E0E5C38ED6A
+	for <lists+clang-built-linux@lfdr.de>; Mon, 24 May 2021 17:36:32 +0200 (CEST)
+Received: by mail-io1-xd3c.google.com with SMTP id i13-20020a5e9e0d0000b029042f7925649esf27799764ioq.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 24 May 2021 08:36:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621870591; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mUW2Pbn0ybK+KUDMb0XQFiwmMrE7CFJUKwJVzHFCHHv3kA0KRB0QWC+3AYWfeb0xZz
-         cq1SmdV701VoV/6FIltpd29wgM3zxZ4YunCUSVG8IFi9WkK80C0rYVbNkTNYsU44ip9a
-         D/kTTZQtPOyZWnQaH1d78ITZcWuCulVhItMfGon5v4Ld/YuZvPgwC0ykamA7vcz+wD1Z
-         aYgjQbZBJ52NaAMA7W+9jw0gRrXlXUIaKJkO6e8Ry8tbZGV/c9Uc18O8wHbw6bLvDImx
-         /dZ6eIFoTQrKv4zN3Qslj8u5wQGPATf7Osgzre2ibXEx0Npw9GD49Eck/wV7uxm9Bioy
-         t71A==
+        b=QBCaEUDfVfY96gxbYXa2jMIoWpUXqoTmWpKBF+pc7fnKCiPS/e9yCfPhBnszgZS/5S
+         0MKi61kIi7LEh9peTHRbzT62cyEk4MWL3f6y8I++CpHZYwvTZN7gSZkRGOwrhwazHgD9
+         prQk97wzvxAuCvYK4wvAWTYlbmopsaG7WncMh6zkwOTCKY2Zj+zOLPv4k21uRER16+51
+         RTnY6jKhk8DoeN/1uzrre2+aKyLBRAjjY5S1VpoJ7CepcpFqwgdg++3V5MlB0PCfLvB+
+         iWaCta9PVx19e74bQiqCgvbSv31F5tRBIgGLd/7EVMPK9o52e+CeuamWdRAvDuFeaNNo
+         NAug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=tbNSiYwIlQmgs4s2kcL1sFRkYUOGztSBS4a0wHEjky8=;
-        b=hxAJAX0C1beTaHLqBRzg1vw4ikPPsphToPoUtylJZ06tWtYRKo9zcLSlqbOoahuLmD
-         l3LgJPMtQdiUuQwma5djB7598xxLd09k2oi+iieo0E3O+de4NCNFa0JsN4LSOE8lZNRk
-         rpy94mRsegn2dw88+DY1r093+so2u+GkKXZIoEi6mETb8MgWyS/NHLIVSC0NTQ4W84Oq
-         HCxmcgyjE4cAh6V9O9aah6gwn0eMiEzG4XLJa0ZtrWQAA5XDsut9KVfeHpBVO5zpizWR
-         4wOYjSM+LFy6LeV+k+WKHdbKBFFO/s2w2ueeXC0P4F1QG4qempeoPwrhKXmfuM/XuM4o
-         dZzg==
+        bh=Pg3j2s/IMOiHOsT9CPWrvGcQy/Wi/qiVh2J8HBtz+Ks=;
+        b=FAxPev//Dh1vP8zPGK8CAswtqxhbPbzbBfy6+VYHCLQLDcdJyXJzqmSJdpGDBO/Foi
+         NUEQsIcnw1gTrkEcW2UgqovsG+8eitV5rkvALNP+P/N8It/ASl6pCGuO2cAYB5EwFVcM
+         qexQkpwwJQZD9N7mmHJvRuWo0ZCHd8uVd5zSGJni4SjGMwGo7UPkbJcM5xBKkkhue052
+         2i2gOE5bVGlcgN8bmVCCyKE16wY2yhlgM5KsaoPzO6aXGUJxGEQZqN6PLSjFf1Dd1ahr
+         gyceyt/sbpOx0U8n9+oMiZKQtU4eeKHQi489ymNh8ThJRtHfNTd2FJqVDs0a5wmdZO8e
+         2Hxg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tbNSiYwIlQmgs4s2kcL1sFRkYUOGztSBS4a0wHEjky8=;
-        b=HiHUdEFqu3Ga8diFd2MrgDjyDsbmH6Ut+ZG2bG3NYSVTMu6bjAJtQy7XOrOMcCHMzS
-         pmXolQTaBQap0PuJSPyLpPSAYsnDdsJTcDhtSspQlkiXRk5aeXJkvTaxDJ/PCbHvQvAB
-         X6VK8ZA2mOL/CLEq7z20KIUanvODM1nxNGUlLnUXh3YXwBRSI36VjZVrANY2lLl6tlKu
-         A55hWJY+pOmCXtvgJuWlCqANT92Bk16JUT6HH7mZTGR6p3i1PUR36Tiv8r3/BonArC9Q
-         wnvSjoM3MQuUxX5YmbEy11OkZq/ruPbWAeRzlKM+PvKM2N3B3NvNAf977TXulUXeNrJ6
-         +5eA==
+        bh=Pg3j2s/IMOiHOsT9CPWrvGcQy/Wi/qiVh2J8HBtz+Ks=;
+        b=mWl4WnLBKsJNkqD8K8t0KFcBxI8ytLj5MdOZEtZNp1WNPpc+Knx8XrV0aVdBsa+8fn
+         7T917riT6WCraCUMpTnp2hzwcQdx2tsuW2Ml8E8Mn9i2ctG1gaI7mLxSwX3mEJ2fB7cD
+         RDiXlw6c1GqQRsER/Xpupbt+62T41Ub7vb06eov70a608bfcKZaq4sWgHKCTHWe93NF8
+         YgeZqwRa8mx7MsUDYTHmGwKQArVo67cM6j5maE6KIRgJitck2JK/57lcP7KMLC+C1x3l
+         jjGB2yH+NGlucbeRY1lV5S80v7tEcK4DCLiSpMNeu5qZfcQ8ewUqM+Az11MbUNAJbEcN
+         boPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -51,82 +51,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tbNSiYwIlQmgs4s2kcL1sFRkYUOGztSBS4a0wHEjky8=;
-        b=EV/KOtkFKJvbCSwTbkix574hwfwVqs0yY5WLo+y9ADvLCVofP3RaX6O5FRKbNAY+mX
-         Myzg6bLtJ+7FSl4evUertlQxIJF5BM90REl156wKmwEMT7b7QzOp+sXye7OwDBvWKmOc
-         DTSMDaQ2u0fWtGoifBMpb4SxAf/QYNx5CzXLUz3c4aVWk0+VYPHv1wzWMdjZHDVlCzzv
-         T8zFfn0vOJJhsU68AwUuXpeD7YXp1wlWAqDWm5TQCsboX3TjqH8XURoFpV++D/wg6jTR
-         XR/BGRFn1fq9mselZ1j6sBF7On1MsPxdhBEBqODiYvhP/qOvdDd9Q6Kig2iS7iPeR2M6
-         TDIQ==
+        bh=Pg3j2s/IMOiHOsT9CPWrvGcQy/Wi/qiVh2J8HBtz+Ks=;
+        b=s4OBh6qKTxZvU4GItQb3+Ey8gKemfsBnskN69b6Sc5Hgw7ES+/GGv/BD63lh31JeT7
+         2YYcqw5Z7LR1h990LnInbYrkocWy3rFjDQGvkl0nhhfz/t9jAQePv/njJ71Pnx5t6h63
+         esOaYDhfL+Yunc5LA4gDDPizY0JDvzw4ixtK4u2m1u4ylDi0XtTw8fY/dwALu8J8AnHM
+         vZeANf2pnYrJRoqpT/CwtRj4KpxPTRfy5LC4fcArS2IRkJlY6vsVGJnhXAYvjUHfZgJ8
+         8ceAY4/8vhoozPPBGJt8HNcj/Ksb/Z2hMpe4U83+rlVxUyIg6BUZbX70mgzLTMBcDrkZ
+         lwEg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531I5uUqFhMgoVUamEu/zEd2Utg96s9LUZWOQpeuzE2LTe7ylm40
-	TN9NX6nFlFOa8l9IYJWz61I=
-X-Google-Smtp-Source: ABdhPJwJLz2d+TewS0zXywV/ul0wGx2wvG7RZ0muUS9eQ2n6sBF3MxXECeuwCzF+v7ujj34Qbf03Nw==
-X-Received: by 2002:a05:6830:1359:: with SMTP id r25mr17005991otq.331.1621866866801;
-        Mon, 24 May 2021 07:34:26 -0700 (PDT)
+X-Gm-Message-State: AOAM531mmvZc6dSBlNGdv0EzFbdeBOFTZXMB8iL43jH3UGII874ZcMNm
+	8jIbaDbmWatqTSpuZ3hjTCM=
+X-Google-Smtp-Source: ABdhPJyBSsZRcTye58C+23DZvecIPhMpmg7ce8VaPr1W0TDm7u0mtM9K1Z/O+E02zdveVu71Q+mxFw==
+X-Received: by 2002:a02:cc8d:: with SMTP id s13mr23671276jap.17.1621870591515;
+        Mon, 24 May 2021 08:36:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:168c:: with SMTP id k12ls1231582otr.8.gmail; Mon,
- 24 May 2021 07:34:26 -0700 (PDT)
-X-Received: by 2002:a9d:ea2:: with SMTP id 31mr19806717otj.200.1621866866041;
-        Mon, 24 May 2021 07:34:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621866866; cv=none;
+Received: by 2002:a05:6602:c8:: with SMTP id z8ls2187197ioe.6.gmail; Mon, 24
+ May 2021 08:36:31 -0700 (PDT)
+X-Received: by 2002:a6b:630c:: with SMTP id p12mr15234602iog.124.1621870590940;
+        Mon, 24 May 2021 08:36:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621870590; cv=none;
         d=google.com; s=arc-20160816;
-        b=YG+cuqMb68BgeSIDJ5cl2eqE+wfNUmTebdmFSAu70mX8hAIv49lDRvcDT5zEYIN2qH
-         pv0BB9AwnmvwCJXaLTBSJ+yWRvWDUXZZ5Xm1I5RHhb+CrKyKZxyhOpmPU12lwKUvCw/L
-         reqFqdVO30zcHWED+I3aKHhw5DrNYQ4Fy6bt2bbwdN1TxLsU+wy1GAQIloRPGbUhQRgA
-         0h2fvvMIXpVb3uDEXiNt9fDsoUWzO4Ohlu8Fh2qNdnxsYSCX8zFkXAZPC7RMpOwlAyzP
-         O+7NpBPAcuXELuuEI5SELsMkIK3akmA5uZiv8JxHejn5wX1ueDzQ1VWQJRNksrmgr8lx
-         FyJw==
+        b=g1reRwcCx9LV3WUhggiMSFf5CTbUqzUpeelELbqOHjJQ2bjhtEQEORwPI6sbwVdIVq
+         ThjjMGsM6cIOGLqvrG14P0e83fa0ibyZ2wbmfD+HzxWHmnGiNQjjSfQmq5ym9PGtFbzo
+         jDeEhuz4nPyGAGzIAeRfor4AttwdHlwJnrBPlEF3oDMfoBFFKNpPVaEapnssP1jONWyF
+         mFp3nuhH05AY2egaffLZU6MOh705P5OMRU9qmfu3KSEoX1h00sC1FQH6ybKu36vLyTfg
+         kqmTZ+eESGe5WzX1b6oiKqh/Z0ZWlMjR/JxmVUu92okVOLEQEwaUfsqQjFKaMad8mwFN
+         jPEA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
-        bh=i+OGFrtbRSBxJQ/TUKBQW0PPGUKbmZt46mB6A5bJwtw=;
-        b=AM6nxpjvXgOm1OTUejLBT7H/2Ff3tRmK9aNe4eBL2V2urwNcB2DTTWNYolMzGWQ/Rh
-         fz0CRyeb3p0opE+A0ixpFF91vzIS2udykVxF5V8sVgHw707INL/OahEcDh90aREe9T6/
-         jhp1VqC06R553zbzT9tqlRXDMhIUuQHPLJQnYFCXN+ZizMbW4Vo0V/3ZtjXBV6Kl/2jY
-         RAWt+c6GEZYrzVqq7zw3K9ELF1ZpA5wpgNvys20lp/zxlyFGMLhFAUcOHmZYm2IpE1Bk
-         Mij2hIxt8C7L35pqL6st/AGz/PLSpvW7xgvLiYA39VQhqe1PJu0RFs+faxwEo2OVhEVn
-         WS/w==
+        bh=l2/EgRIk37GxAtIs6L/72DGI3G9Zao7oYuDOo3fttaU=;
+        b=lDoWessewOfHsORyNO9uihQeZHF2GE3DH3elWmKVTs4MvhaNvdtd+SGVPcRWZXNyIo
+         FwVSwBRNV7EKWWcs1r2GUSAo2UBHe0DoDhP0NRfMkeXAB6Gl+ms4tLo2QvCjbGUt6qE1
+         m5J791TSNMVj8RV+ZG/SA9TLG8eC6oQiJtdMTCmSjnfeiui5OK9lC5bhAvn51U+W2f/x
+         WKgKPjaP9bbuDMgyXCaqJ2rlXeTyPAyngIv5uICSKpTM66aoaTiBvlMjLzSoJTT9dVNd
+         h2h7uTu8AEvKTqYnqENUdiSArK8XhNxL7H/ugz+J55oYM/+k+zwp0llj0G9j3XsUUum9
+         bGBQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
-        by gmr-mx.google.com with ESMTPS id s3si965590otd.5.2021.05.24.07.34.25
+        by gmr-mx.google.com with ESMTPS id l7si1479722ilg.1.2021.05.24.08.36.30
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 24 May 2021 07:34:25 -0700 (PDT)
+        Mon, 24 May 2021 08:36:30 -0700 (PDT)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
-IronPort-SDR: i4C7TRNDUtWqSwKdv0N/ImjsC1oyhKUacRiq34YhcEqo/yIPCkN83/mGPLF6NsiW/Tx57UtNvC
- JV7K2RTj0yIg==
-X-IronPort-AV: E=McAfee;i="6200,9189,9993"; a="181584754"
+IronPort-SDR: BRjNFjmpx2QY3rdLaSEjYbfe82gVgWsa5fl3rJlLCH82f9JlNSb9LZwbcrxNPwCkAcuwvuqQSM
+ vX+0ziC7VRMw==
+X-IronPort-AV: E=McAfee;i="6200,9189,9993"; a="181597893"
 X-IronPort-AV: E=Sophos;i="5.82,325,1613462400"; 
-   d="gz'50?scan'50,208,50";a="181584754"
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 May 2021 07:34:24 -0700
-IronPort-SDR: F/pwZX3wWArgzIbeaTO7NwAyvCayzhzdBwN8sRdfNXLzzOYzuXOZnhd9ML0/jZqT4apVWB9Ft6
- KhLtfSJLeXDQ==
+   d="gz'50?scan'50,208,50";a="181597893"
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 May 2021 08:36:26 -0700
+IronPort-SDR: VebWRafFxnehiuI3auhxN77QSlhnaYDf3yt/5F8gPpnoUcOIduz6EbXfk0KEsMOGK+QD3+GNxh
+ HbsRLy/EvKpw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.82,325,1613462400"; 
-   d="gz'50?scan'50,208,50";a="413613399"
+   d="gz'50?scan'50,208,50";a="546398427"
 Received: from lkp-server02.sh.intel.com (HELO 1ec8406c5392) ([10.239.97.151])
-  by orsmga002.jf.intel.com with ESMTP; 24 May 2021 07:34:21 -0700
+  by orsmga004.jf.intel.com with ESMTP; 24 May 2021 08:36:22 -0700
 Received: from kbuild by 1ec8406c5392 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1llBeu-0001Fy-OM; Mon, 24 May 2021 14:34:20 +0000
-Date: Mon, 24 May 2021 22:34:16 +0800
+	id 1llCcv-0001H5-8x; Mon, 24 May 2021 15:36:21 +0000
+Date: Mon, 24 May 2021 23:35:40 +0800
 From: kernel test robot <lkp@intel.com>
-To: Maxim Kochetkov <fido_max@inbox.ru>, linux-kernel@vger.kernel.org
+To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+	iommu@lists.linux-foundation.org
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	broonie@kernel.org, gregkh@linuxfoundation.org, rafael@kernel.org,
-	Maxim Kochetkov <fido_max@inbox.ru>
-Subject: Re: [PATCH v2 1/1] regmap-irq: Introduce inverted status registers
- support
-Message-ID: <202105242207.w05Ea1Nd-lkp@intel.com>
-References: <20210524045837.8398-1-fido_max@inbox.ru>
+	linuxarm@huawei.com, lorenzo.pieralisi@arm.com, joro@8bytes.org,
+	robin.murphy@arm.com, wanghuiqiang@huawei.com, guohanjun@huawei.com,
+	steven.price@arm.com
+Subject: Re: [PATCH v5 2/8] iommu/dma: Introduce generic helper to retrieve
+ RMR info
+Message-ID: <202105242322.fq0MIzRD-lkp@intel.com>
+References: <20210524110222.2212-3-shameerali.kolothum.thodi@huawei.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="SUOF0GtieIMvvwua"
+Content-Type: multipart/mixed; boundary="cWoXeonUoKmBZSoM"
 Content-Disposition: inline
-In-Reply-To: <20210524045837.8398-1-fido_max@inbox.ru>
+In-Reply-To: <20210524110222.2212-3-shameerali.kolothum.thodi@huawei.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
@@ -146,22 +149,23 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---SUOF0GtieIMvvwua
+--cWoXeonUoKmBZSoM
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
-Hi Maxim,
+Hi Shameer,
 
-Thank you for the patch! Yet something to improve:
+Thank you for the patch! Perhaps something to improve:
 
-[auto build test ERROR on regmap/for-next]
-[also build test ERROR on linux/master linus/master v5.13-rc3 next-20210524]
+[auto build test WARNING on iommu/next]
+[also build test WARNING on pm/linux-next arm64/for-next/core linus/master v5.13-rc3 next-20210524]
+[cannot apply to xlnx/master arm/for-next soc/for-next]
 [If your patch is applied to the wrong git tree, kindly drop us a note.
 And when submitting patch, we suggest to use '--base' as documented in
 https://git-scm.com/docs/git-format-patch]
 
-url:    https://github.com/0day-ci/linux/commits/Maxim-Kochetkov/regmap-irq-Introduce-inverted-status-registers-support/20210524-125907
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regmap.git for-next
+url:    https://github.com/0day-ci/linux/commits/Shameer-Kolothum/ACPI-IORT-Support-for-IORT-RMR-node/20210524-190633
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/joro/iommu.git next
 config: x86_64-randconfig-a013-20210524 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 93d1e5822ed64abd777eb94ea9899e96c4c39fbe)
 reproduce (this is a W=1 build):
@@ -169,340 +173,48 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        # https://github.com/0day-ci/linux/commit/0592cd096312150d005b37a78a5a1fa1763561b5
+        # https://github.com/0day-ci/linux/commit/2c046e03beb7d64e0f7182d01a7dc63dce79c882
         git remote add linux-review https://github.com/0day-ci/linux
-        git fetch --no-tags linux-review Maxim-Kochetkov/regmap-irq-Introduce-inverted-status-registers-support/20210524-125907
-        git checkout 0592cd096312150d005b37a78a5a1fa1763561b5
+        git fetch --no-tags linux-review Shameer-Kolothum/ACPI-IORT-Support-for-IORT-RMR-node/20210524-190633
+        git checkout 2c046e03beb7d64e0f7182d01a7dc63dce79c882
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
->> drivers/base/regmap/regmap-irq.c:808:8: error: member reference base type 'struct regmap_irq_chip_data *' is not a structure or union
-                           data->status_buf[i] = ~data->status_buf[i];
-                           ~~~~^ ~~~~~~~~~~
-   drivers/base/regmap/regmap-irq.c:808:31: error: member reference base type 'struct regmap_irq_chip_data *' is not a structure or union
-                           data->status_buf[i] = ~data->status_buf[i];
-                                                  ~~~~^ ~~~~~~~~~~
-   2 errors generated.
+   In file included from drivers/vfio/vfio_iommu_type1.c:41:
+>> include/linux/dma-iommu.h:90:5: warning: no previous prototype for function 'iommu_dma_get_rmrs' [-Wmissing-prototypes]
+   int iommu_dma_get_rmrs(struct fwnode_handle *iommu, struct list_head *list)
+       ^
+   include/linux/dma-iommu.h:90:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   int iommu_dma_get_rmrs(struct fwnode_handle *iommu, struct list_head *list)
+   ^
+   static 
+>> include/linux/dma-iommu.h:95:6: warning: no previous prototype for function 'iommu_dma_put_rmrs' [-Wmissing-prototypes]
+   void iommu_dma_put_rmrs(struct fwnode_handle *iommu, struct list_head *list)
+        ^
+   include/linux/dma-iommu.h:95:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   void iommu_dma_put_rmrs(struct fwnode_handle *iommu, struct list_head *list)
+   ^
+   static 
+   2 warnings generated.
 
 
-vim +808 drivers/base/regmap/regmap-irq.c
+vim +/iommu_dma_get_rmrs +90 include/linux/dma-iommu.h
 
-   610	
-   611	/**
-   612	 * regmap_add_irq_chip_fwnode() - Use standard regmap IRQ controller handling
-   613	 *
-   614	 * @fwnode: The firmware node where the IRQ domain should be added to.
-   615	 * @map: The regmap for the device.
-   616	 * @irq: The IRQ the device uses to signal interrupts.
-   617	 * @irq_flags: The IRQF_ flags to use for the primary interrupt.
-   618	 * @irq_base: Allocate at specific IRQ number if irq_base > 0.
-   619	 * @chip: Configuration for the interrupt controller.
-   620	 * @data: Runtime data structure for the controller, allocated on success.
-   621	 *
-   622	 * Returns 0 on success or an errno on failure.
-   623	 *
-   624	 * In order for this to be efficient the chip really should use a
-   625	 * register cache.  The chip driver is responsible for restoring the
-   626	 * register values used by the IRQ controller over suspend and resume.
-   627	 */
-   628	int regmap_add_irq_chip_fwnode(struct fwnode_handle *fwnode,
-   629				       struct regmap *map, int irq,
-   630				       int irq_flags, int irq_base,
-   631				       const struct regmap_irq_chip *chip,
-   632				       struct regmap_irq_chip_data **data)
-   633	{
-   634		struct regmap_irq_chip_data *d;
-   635		int i;
-   636		int ret = -ENOMEM;
-   637		int num_type_reg;
-   638		u32 reg;
-   639		u32 unmask_offset;
-   640	
-   641		if (chip->num_regs <= 0)
-   642			return -EINVAL;
-   643	
-   644		if (chip->clear_on_unmask && (chip->ack_base || chip->use_ack))
-   645			return -EINVAL;
-   646	
-   647		for (i = 0; i < chip->num_irqs; i++) {
-   648			if (chip->irqs[i].reg_offset % map->reg_stride)
-   649				return -EINVAL;
-   650			if (chip->irqs[i].reg_offset / map->reg_stride >=
-   651			    chip->num_regs)
-   652				return -EINVAL;
-   653		}
-   654	
-   655		if (chip->not_fixed_stride) {
-   656			for (i = 0; i < chip->num_regs; i++)
-   657				if (chip->sub_reg_offsets[i].num_regs != 1)
-   658					return -EINVAL;
-   659		}
-   660	
-   661		if (irq_base) {
-   662			irq_base = irq_alloc_descs(irq_base, 0, chip->num_irqs, 0);
-   663			if (irq_base < 0) {
-   664				dev_warn(map->dev, "Failed to allocate IRQs: %d\n",
-   665					 irq_base);
-   666				return irq_base;
-   667			}
-   668		}
-   669	
-   670		d = kzalloc(sizeof(*d), GFP_KERNEL);
-   671		if (!d)
-   672			return -ENOMEM;
-   673	
-   674		if (chip->num_main_regs) {
-   675			d->main_status_buf = kcalloc(chip->num_main_regs,
-   676						     sizeof(unsigned int),
-   677						     GFP_KERNEL);
-   678	
-   679			if (!d->main_status_buf)
-   680				goto err_alloc;
-   681		}
-   682	
-   683		d->status_buf = kcalloc(chip->num_regs, sizeof(unsigned int),
-   684					GFP_KERNEL);
-   685		if (!d->status_buf)
-   686			goto err_alloc;
-   687	
-   688		d->mask_buf = kcalloc(chip->num_regs, sizeof(unsigned int),
-   689				      GFP_KERNEL);
-   690		if (!d->mask_buf)
-   691			goto err_alloc;
-   692	
-   693		d->mask_buf_def = kcalloc(chip->num_regs, sizeof(unsigned int),
-   694					  GFP_KERNEL);
-   695		if (!d->mask_buf_def)
-   696			goto err_alloc;
-   697	
-   698		if (chip->wake_base) {
-   699			d->wake_buf = kcalloc(chip->num_regs, sizeof(unsigned int),
-   700					      GFP_KERNEL);
-   701			if (!d->wake_buf)
-   702				goto err_alloc;
-   703		}
-   704	
-   705		num_type_reg = chip->type_in_mask ? chip->num_regs : chip->num_type_reg;
-   706		if (num_type_reg) {
-   707			d->type_buf_def = kcalloc(num_type_reg,
-   708						  sizeof(unsigned int), GFP_KERNEL);
-   709			if (!d->type_buf_def)
-   710				goto err_alloc;
-   711	
-   712			d->type_buf = kcalloc(num_type_reg, sizeof(unsigned int),
-   713					      GFP_KERNEL);
-   714			if (!d->type_buf)
-   715				goto err_alloc;
-   716		}
-   717	
-   718		if (chip->num_virt_regs) {
-   719			/*
-   720			 * Create virt_buf[chip->num_extra_config_regs][chip->num_regs]
-   721			 */
-   722			d->virt_buf = kcalloc(chip->num_virt_regs, sizeof(*d->virt_buf),
-   723					      GFP_KERNEL);
-   724			if (!d->virt_buf)
-   725				goto err_alloc;
-   726	
-   727			for (i = 0; i < chip->num_virt_regs; i++) {
-   728				d->virt_buf[i] = kcalloc(chip->num_regs,
-   729							 sizeof(unsigned int),
-   730							 GFP_KERNEL);
-   731				if (!d->virt_buf[i])
-   732					goto err_alloc;
-   733			}
-   734		}
-   735	
-   736		d->irq_chip = regmap_irq_chip;
-   737		d->irq_chip.name = chip->name;
-   738		d->irq = irq;
-   739		d->map = map;
-   740		d->chip = chip;
-   741		d->irq_base = irq_base;
-   742	
-   743		if (chip->irq_reg_stride)
-   744			d->irq_reg_stride = chip->irq_reg_stride;
-   745		else
-   746			d->irq_reg_stride = 1;
-   747	
-   748		if (chip->type_reg_stride)
-   749			d->type_reg_stride = chip->type_reg_stride;
-   750		else
-   751			d->type_reg_stride = 1;
-   752	
-   753		if (!map->use_single_read && map->reg_stride == 1 &&
-   754		    d->irq_reg_stride == 1) {
-   755			d->status_reg_buf = kmalloc_array(chip->num_regs,
-   756							  map->format.val_bytes,
-   757							  GFP_KERNEL);
-   758			if (!d->status_reg_buf)
-   759				goto err_alloc;
-   760		}
-   761	
-   762		mutex_init(&d->lock);
-   763	
-   764		for (i = 0; i < chip->num_irqs; i++)
-   765			d->mask_buf_def[chip->irqs[i].reg_offset / map->reg_stride]
-   766				|= chip->irqs[i].mask;
-   767	
-   768		/* Mask all the interrupts by default */
-   769		for (i = 0; i < chip->num_regs; i++) {
-   770			d->mask_buf[i] = d->mask_buf_def[i];
-   771			if (!chip->mask_base)
-   772				continue;
-   773	
-   774			reg = sub_irq_reg(d, d->chip->mask_base, i);
-   775	
-   776			if (chip->mask_invert)
-   777				ret = regmap_irq_update_bits(d, reg,
-   778						 d->mask_buf[i], ~d->mask_buf[i]);
-   779			else if (d->chip->unmask_base) {
-   780				unmask_offset = d->chip->unmask_base -
-   781						d->chip->mask_base;
-   782				ret = regmap_irq_update_bits(d,
-   783						reg + unmask_offset,
-   784						d->mask_buf[i],
-   785						d->mask_buf[i]);
-   786			} else
-   787				ret = regmap_irq_update_bits(d, reg,
-   788						 d->mask_buf[i], d->mask_buf[i]);
-   789			if (ret != 0) {
-   790				dev_err(map->dev, "Failed to set masks in 0x%x: %d\n",
-   791					reg, ret);
-   792				goto err_alloc;
-   793			}
-   794	
-   795			if (!chip->init_ack_masked)
-   796				continue;
-   797	
-   798			/* Ack masked but set interrupts */
-   799			reg = sub_irq_reg(d, d->chip->status_base, i);
-   800			ret = regmap_read(map, reg, &d->status_buf[i]);
-   801			if (ret != 0) {
-   802				dev_err(map->dev, "Failed to read IRQ status: %d\n",
-   803					ret);
-   804				goto err_alloc;
-   805			}
-   806	
-   807			if (chip->status_invert)
- > 808				data->status_buf[i] = ~data->status_buf[i];
-   809	
-   810			if (d->status_buf[i] && (chip->ack_base || chip->use_ack)) {
-   811				reg = sub_irq_reg(d, d->chip->ack_base, i);
-   812				if (chip->ack_invert)
-   813					ret = regmap_write(map, reg,
-   814						~(d->status_buf[i] & d->mask_buf[i]));
-   815				else
-   816					ret = regmap_write(map, reg,
-   817						d->status_buf[i] & d->mask_buf[i]);
-   818				if (chip->clear_ack) {
-   819					if (chip->ack_invert && !ret)
-   820						ret = regmap_write(map, reg,
-   821							(d->status_buf[i] &
-   822							 d->mask_buf[i]));
-   823					else if (!ret)
-   824						ret = regmap_write(map, reg,
-   825							~(d->status_buf[i] &
-   826							  d->mask_buf[i]));
-   827				}
-   828				if (ret != 0) {
-   829					dev_err(map->dev, "Failed to ack 0x%x: %d\n",
-   830						reg, ret);
-   831					goto err_alloc;
-   832				}
-   833			}
-   834		}
-   835	
-   836		/* Wake is disabled by default */
-   837		if (d->wake_buf) {
-   838			for (i = 0; i < chip->num_regs; i++) {
-   839				d->wake_buf[i] = d->mask_buf_def[i];
-   840				reg = sub_irq_reg(d, d->chip->wake_base, i);
-   841	
-   842				if (chip->wake_invert)
-   843					ret = regmap_irq_update_bits(d, reg,
-   844								 d->mask_buf_def[i],
-   845								 0);
-   846				else
-   847					ret = regmap_irq_update_bits(d, reg,
-   848								 d->mask_buf_def[i],
-   849								 d->wake_buf[i]);
-   850				if (ret != 0) {
-   851					dev_err(map->dev, "Failed to set masks in 0x%x: %d\n",
-   852						reg, ret);
-   853					goto err_alloc;
-   854				}
-   855			}
-   856		}
-   857	
-   858		if (chip->num_type_reg && !chip->type_in_mask) {
-   859			for (i = 0; i < chip->num_type_reg; ++i) {
-   860				reg = sub_irq_reg(d, d->chip->type_base, i);
-   861	
-   862				ret = regmap_read(map, reg, &d->type_buf_def[i]);
-   863	
-   864				if (d->chip->type_invert)
-   865					d->type_buf_def[i] = ~d->type_buf_def[i];
-   866	
-   867				if (ret) {
-   868					dev_err(map->dev, "Failed to get type defaults at 0x%x: %d\n",
-   869						reg, ret);
-   870					goto err_alloc;
-   871				}
-   872			}
-   873		}
-   874	
-   875		if (irq_base)
-   876			d->domain = irq_domain_create_legacy(fwnode, chip->num_irqs,
-   877							     irq_base, 0,
-   878							     &regmap_domain_ops, d);
-   879		else
-   880			d->domain = irq_domain_create_linear(fwnode, chip->num_irqs,
-   881							     &regmap_domain_ops, d);
-   882		if (!d->domain) {
-   883			dev_err(map->dev, "Failed to create IRQ domain\n");
-   884			ret = -ENOMEM;
-   885			goto err_alloc;
-   886		}
-   887	
-   888		ret = request_threaded_irq(irq, NULL, regmap_irq_thread,
-   889					   irq_flags | IRQF_ONESHOT,
-   890					   chip->name, d);
-   891		if (ret != 0) {
-   892			dev_err(map->dev, "Failed to request IRQ %d for %s: %d\n",
-   893				irq, chip->name, ret);
-   894			goto err_domain;
-   895		}
-   896	
-   897		*data = d;
-   898	
-   899		return 0;
-   900	
-   901	err_domain:
-   902		/* Should really dispose of the domain but... */
-   903	err_alloc:
-   904		kfree(d->type_buf);
-   905		kfree(d->type_buf_def);
-   906		kfree(d->wake_buf);
-   907		kfree(d->mask_buf_def);
-   908		kfree(d->mask_buf);
-   909		kfree(d->status_buf);
-   910		kfree(d->status_reg_buf);
-   911		if (d->virt_buf) {
-   912			for (i = 0; i < chip->num_virt_regs; i++)
-   913				kfree(d->virt_buf[i]);
-   914			kfree(d->virt_buf);
-   915		}
-   916		kfree(d);
-   917		return ret;
-   918	}
-   919	EXPORT_SYMBOL_GPL(regmap_add_irq_chip_fwnode);
-   920	
+    89	
+  > 90	int iommu_dma_get_rmrs(struct fwnode_handle *iommu, struct list_head *list)
+    91	{
+    92		return -ENODEV;
+    93	}
+    94	
+  > 95	void iommu_dma_put_rmrs(struct fwnode_handle *iommu, struct list_head *list)
+    96	{
+    97	}
+    98	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -511,14 +223,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202105242207.w05Ea1Nd-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202105242322.fq0MIzRD-lkp%40intel.com.
 
---SUOF0GtieIMvvwua
+--cWoXeonUoKmBZSoM
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICHOcq2AAAy5jb25maWcAjDxLl9wms/v8ij7OJt8i8bw8tu89s6Al1E1aEgqgfsxGpz2j
+H4sICMy1q2AAAy5jb25maWcAjDxLl9wms/v8ij7OJt8i8bw8tu89s6Al1E1aEgqgfsxGpz2j
 ceZmHv56ZpL4398qQBIg1IkXtkUVUEC9KfrHH36ckbfX58f96/3N/uHh++xr+9Qe9q/t7ezu
 /qH931nKZyVXM5oy9Qsg5/dPb3+///vTZXN5Mfvwy+n5Lyc/H27OZqv28NQ+zJLnp7v7r28w
 wP3z0w8//pDwMmOLJkmaNRWS8bJRdKuu3t087J++zv5sDy+AN8NRfjmZ/fT1/vV/3r+Hvx/v
@@ -1231,4 +943,4 @@ WVPsRMR1Q60nCsLN4qEO4J55qtg2J/pJneKDOwlUwSxKGeDbCMuQ2LKPj++7pEiRcj4tEOpZ
 gwrUJAUShb8VKbxdNBah4n+ySOAeN7OjlVFZfCeT0X8WNg9K9t80vWlFpkUx/GKFr2z10Wjt
 DgW7MzEB/EhkrIDg6Eop8wGG2aoSOqqcY0xpU5eZOnq9UfRjnimTuf8DU344j7NpAgA=
 
---SUOF0GtieIMvvwua--
+--cWoXeonUoKmBZSoM--
