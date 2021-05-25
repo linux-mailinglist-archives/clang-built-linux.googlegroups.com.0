@@ -1,119 +1,117 @@
-Return-Path: <clang-built-linux+bncBCQPVKWLVAIRBZVAWKCQMGQEMKQRFDQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDUNBGN3R4KRB7XLWKCQMGQEUZZWX6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf38.google.com (mail-qv1-xf38.google.com [IPv6:2607:f8b0:4864:20::f38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 693BE38FA43
-	for <lists+clang-built-linux@lfdr.de>; Tue, 25 May 2021 07:51:35 +0200 (CEST)
-Received: by mail-qv1-xf38.google.com with SMTP id b24-20020a0cb3d80000b02901e78b82d74asf29518022qvf.20
-        for <lists+clang-built-linux@lfdr.de>; Mon, 24 May 2021 22:51:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1621921894; cv=pass;
+Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E70C38FCDC
+	for <lists+clang-built-linux@lfdr.de>; Tue, 25 May 2021 10:31:59 +0200 (CEST)
+Received: by mail-wm1-x338.google.com with SMTP id g206-20020a1c39d70000b029016ac627fbe9sf4543996wma.9
+        for <lists+clang-built-linux@lfdr.de>; Tue, 25 May 2021 01:31:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1621931518; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oFB9eRf8i/jOCWOB8jN5p+IR3juaspB0rBkYquabGgbxeIBqMSBhQNNyZTofAbrfoO
-         JW22j+OTOX8qTmThbr9ppwtJekqNsfYnfMW+sQKz3HjScMu+eKfdsIufQONifSFs5cbz
-         YGYpVXbCA5dlC9SRDI6LZW9cxfw+E9M8qw2N2GpQ9KRy5n66TCM5Ja7JBMY2uoBXZA+u
-         RT3TBIjkCvIoIVhvzepa+g4IvNYGEJr4qHov9x7X1NXjen/BmxXqKIY6QelczoHfx78P
-         0l1+EKN5smpSsMXRxXbMwmS1gaOkOcLoEutRxCwb9L2J5BB2mdxPIWEJRKmhq8aKv2Db
-         lkjQ==
+        b=yKb7zZ5Bd+rcchFFB+NlukwfrfpjdqLAlVZCAlYcZw2QiWeYz2AHzkYQhaCWrygUBH
+         uo3jWpNkeAFd3omeq07k+nCrq+qsfBUK2MhMoCccwkRpFrl5CHUIn+0dzv2xH1BgwnXC
+         eSdszu8Xkjczgy0C+bRrAAmMzxGuT2miSYQDB8q0BgMK7Po+vtvx8653Cy1kQfy8xQUG
+         KP6J0WmGt4Dh3nryE+/NdQ16HFPCCJYwNE3q5olTOYKPjMOkNhd8PUXR1d9agiEtrxhR
+         5Z3LeI06A9CntBuI3Dapuit3da6UL/E7N6wmDoR7xKrp1yB+JlD44nrmcpgQO4MrsLfC
+         tFHQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=RmXY57Ox/FrAfh+uEvdSjI1bGG0Iw93WLpoBj49eusg=;
-        b=Op5vmgJqnMkxvgnlrTHbnOMfwPFzTUELDRLDuEnXVmmsXBh01LsN/XwrfMrwbsDLd1
-         0C2HL+YOgBGZhLJVWv7mNSY7/5pcBKYhw2npir28btvreFH3CTWtPDfdoIrScmttH+m/
-         OEKL4USjyApk6Y3e3R17kinaCSN5/+SuMHOjsZC7BzHomI+1E/i9vK2jGSZACOPIn4iA
-         LN2HDHGKMm5S7PS04GQiNxl73f5jALlZPYb5VWQ3BXY7NDmrsPW1Q6Wb95JwgoBVgekf
-         mNEO3zPpa/+Zr/1NabCcyRKqRpmILhs8ohTEZtd6PqEf5WrRUqlehBwKBLqe9PyoYZVt
-         UpSw==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=l1TzNsmp3YhkETjZBoMVwtRfTZdDvS6UuP2vCt5Nynk=;
+        b=aLmoZGPgt4xOQqTwaYa3TDXopy9UeQoHk4z007kWUP47y8QcUWFZuRV/qgEamADfUG
+         k2HVgvVpCQWWCf7vX44J472P1SWs7kKTbOfmQxA1oIL6/7Vf5gzB8NPMLTmj7Kl/x9fl
+         HmRLtakhhtVuIHWt+bEN+TKGyMfNv8w8+1m0X4mhGdz7r3hIN9V6UupXAbrCtWdqaDH6
+         ONEPYyj+M5Ag7tPFWW9iOhkP+V9XGIq78qau4ksPTO/t7yJaRGFBvgqhAMSwprtVRt1w
+         Z7fV6tmEUzqKBadP3KIA55q680wcluD9UL4SgT48A+VYHBnxPKXvEcUY4DNTP9JrQsKl
+         izYQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) smtp.mailfrom=tony@atomide.com
+       spf=pass (google.com: best guess record for domain of hch@lst.de designates 213.95.11.211 as permitted sender) smtp.mailfrom=hch@lst.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RmXY57Ox/FrAfh+uEvdSjI1bGG0Iw93WLpoBj49eusg=;
-        b=mOKXOFjEfIeJzWj6bKMhlHWV1EiNPe31hZ4gazzERFol8/fdV4n2IOi7oe8kpwwFBX
-         +bM+y66bmkPT264YZX0s84Becmio0f5qa4HSQdiqBsd0JgG6tvxapmUD0m6VV3kRM4uH
-         twg3JaXy30nj8NQVkSRLNOytufxUmIe7Di0TYZZzad8J6ZQXZ5oTuRm1NyG/xZsiCq1u
-         0QvD5NCEeK6XWb7p8g+y5LRFZakoRg0q6jDXjThpvuLRy+EeONBW+ySV4UzJeg8QF/RA
-         eT2na6/kAomKt9kcYe5lEJe/Au/+NfylcL6fH2Dp/8CIlTV7wbwHGQfpn7wH+R/Dcb/U
-         yaIQ==
+        bh=l1TzNsmp3YhkETjZBoMVwtRfTZdDvS6UuP2vCt5Nynk=;
+        b=KBPGyQ0qlQIUYQC3bmhBnh3LRa7P4RqMi9io1GBRpFMQdpI6WoG5SZGegch7UVX3ZB
+         XOGOHiHCDKQi9xkYZ+W6HfmqZrM94Jveqdht3ANa1xvcV8FNYG9lELV+lpZWbLX0TpIN
+         F/S7u3gPn21LxxerwSo9uIgtGqeMgW2jwudUin1i9y5AZtFf6wrV70NjIjJIFSUgxO4q
+         0vqPRgE0iYqlRWR5l3/Aw8JW3FeMp5by87A3rwj/0o3BChCicQJHvwSuvQ9UUTZYVD+7
+         wlrL9maXbCDR9rpY4y7pInoRoacXiSQ+H7MbpDICvevpLfxj5KRJ4hiIvJm4IFb/X732
+         CHXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=RmXY57Ox/FrAfh+uEvdSjI1bGG0Iw93WLpoBj49eusg=;
-        b=uYsZfTc1klhXCrC/HF2+htktjeZOz+vMmSgqoMHkIGlD7sTC4XmNviPLVHmY9s/gHL
-         vCyn48WCs4GBulS/SbZxTpTTxy5zX+9UrwdWTcaGl+8PVRYPU0S+Qp95fgDZW1HFGhbG
-         fXFJryLvuBo8K046OKkWn9+dSKZ7vfBquRQPeZgu17pYNGrHZoLV332gRILdXMdT0dq8
-         xaMwKUj/GLY6zrY8w+8M/JfXfszZVZejEamBQZebCodFobkO2Ofc0mlBxOdpqFx+RAyT
-         oZDzT5kAnMot2CP6/uCkMrK18Ohp134wKFBVNJnjAtghRk+r4axq0VKgpg6OW4Qy6VdT
-         MnVg==
+        bh=l1TzNsmp3YhkETjZBoMVwtRfTZdDvS6UuP2vCt5Nynk=;
+        b=KsXVkh7G37u8DIelRyeA0f95DSMgKnWLkpkwm8BWeKRi5Yrf8RHJW4Vja17HSY6Nig
+         AjSHjDoI517FMFcFp/e+xq7gZ7DxSuGpD0SkN8Hk8QdGCBKd6N22DFVVVlfkNvZZcJ4Q
+         lIxrmIz2unZagETplvzuW+CNG9UjqTF5NbcvjEUfhmePgvO42q44axp6XHfX6n/6LpK7
+         uTdrD6Y3KoI2Hid6/bMwyAwzOQVkt3CwNi8Jn29HsiW4qtm4a5cuJYQFYXHcbk9yn7kg
+         ZyDHvJ4yMYebSphji3stG4C9tFYpLdSVdclKgGzFBZPVXw2mqI7dWPEkalPZDOMb/1yu
+         XG7g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531FSCscTxd1TXIGuVJMpocofgGjAoy35xkc8+1h7qk7enMTZ9N5
-	rJb6q3D3xvuHcln6KBBVFcE=
-X-Google-Smtp-Source: ABdhPJx4tOHyu0FIXJLWN7MCLHxstfUrj90Ine8GFpCix0CwqFMRdnWhs7cKhw1Po1Rb+uWopjCMvg==
-X-Received: by 2002:a05:620a:2093:: with SMTP id e19mr33637505qka.247.1621921894345;
-        Mon, 24 May 2021 22:51:34 -0700 (PDT)
+X-Gm-Message-State: AOAM533ja0UZtyY/9n+eAAZ5aCFM1EPlPFycrSSP7ef9jWExD5Bgke2M
+	gkkb38QrLixr2NLjZlWz0ZI=
+X-Google-Smtp-Source: ABdhPJy7Nre53+USemwd4REmI3zznnNpAaPQAuOjnuWhcuwyJKoxdNhxep5Rfde1+rH4K/m7iKsLbA==
+X-Received: by 2002:a5d:64a6:: with SMTP id m6mr26275159wrp.425.1621931518835;
+        Tue, 25 May 2021 01:31:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:8d02:: with SMTP id r2ls5056008qvb.1.gmail; Mon, 24 May
- 2021 22:51:34 -0700 (PDT)
-X-Received: by 2002:a05:6214:d06:: with SMTP id 6mr13901390qvh.56.1621921893944;
-        Mon, 24 May 2021 22:51:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1621921893; cv=none;
+Received: by 2002:a05:600c:1909:: with SMTP id j9ls943694wmq.3.canary-gmail;
+ Tue, 25 May 2021 01:31:57 -0700 (PDT)
+X-Received: by 2002:a05:600c:2cd2:: with SMTP id l18mr22646465wmc.142.1621931517910;
+        Tue, 25 May 2021 01:31:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1621931517; cv=none;
         d=google.com; s=arc-20160816;
-        b=HhtLqkuIt8xTvHJKaE8vZEl7iptByW9awlqKx1OQAD23HnUsciszuuCNKdsBippsDb
-         BHvKHUvsMbyvzdormw5+JvG7PuGnwFeVvieSd7pC2KTBlRTNoasVAPOO2tJ4XTK1Z/3g
-         vcRSid5eZeTo86pzFAd2NR558EBjWa4rPofdhpjseg/4wsOfyfVRLC11i1oSxfUCraKq
-         L15cPX2vCYzcWa1TR0HvpC5PpZiyntZYNdM7ABD0bcAiBOKbHAUJH9MUqyIkvaHZ3RJ+
-         I7+U1j2BbqHO3DoDSoqU0Tz5W4x87thPl5PEPLmT/VpdlRGwud/SCfwtJVM0S+dq8h2K
-         stHQ==
+        b=jaBHgpac7aqpA8fPQO8nl0Zptbi0BLXufzqoKPRtyr1gJXFJ5OVeo34iqFH3tDr5DJ
+         eEED1S8kR9SmagS6M/bouJCHjJ0LiiLzUwbhbKanbK/8/T4ApEgzzkhsQK2QP/IavxLC
+         W3Z3AML/VwO/IqlfjDOZW0QzXY/grCMJz9nCBd4pUqcAD+4OqhjuybC+3xkpCgq4Te9j
+         qiQHSu5KvZVScki8ajMog9+uZZJV2nKUKoFiXRzggi9UOnSXPVFPfFgMHSLUPm3WR+05
+         0byWXIcnJm0/eeE7tVAsM3JnugvxrEMTfusPDcdwYhwvvm+htkQAIJW+xNAh4I1PIMXf
+         7cmg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date;
-        bh=5w/zIRePYrJZmaXE2hcDjzUfRlVPAHGiDOXvEWCLgo8=;
-        b=eNSUjidoKcg175C/HK8qR3hL8pjG1wcSGgXa9Vau+LYRf06vlp/17M0XTzqaxoz+eV
-         DSDQ6Mk8hJ1YuhWD+3M20r5PGcc9f6jLzHB3dnihySw6uoVKisVx3xAG3AB/5kbb3LeZ
-         bCoWQHDKfs3xDRVTfJG9+TqnHviBwG1SWLRD3Tw3TmizRx3wLo9hiOkN8J1Nfk1qjG52
-         2CyOXmmwpyTreCExliJB7Tu2YY2K/ceTl2vcHTaan3UNh4nvWR04e5tV5cSiRkDUJuhW
-         ggEPDqIJUZ04EN1Yvhqwm7DCXO0bJF2DapIcPsZOEdGm7ef4sB8vHQfFlAYgCOHS3dK4
-         CFpA==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=veC9VfH3g2HQ9m0K31enZMa2MDUmq80HCx1U9hr1/wY=;
+        b=oClYfLetPYmOdWzC5a/Xqfz4lIZiw+gE8HRiJbgeT+TFpAfbSl1yWTBPIuIRIQAwvN
+         U9jHUWSv554wp6nxs83GOkGkCwHinZrTlJZ15AXWM0Rtuw6cWDTmVowPOvYvzydo+5zy
+         KodUmGhGRckfoqlqclmB99/mq6MWSTkFZ/w6C6d3c3PGjpFe+jioOjrUkelY095bgVcP
+         QUrDbosI+ViU8V2OYJ8nQZeQJQgzDJH+d3N8spYvbHCB8adGCY/RwA+3NiLc1Cqc6ZCt
+         zt4xbTOmi5N6IBMipFFc2XVguDgDOBZi+NUuCIN2z1+ZkVHRfpsVJblduo05tGQ+Ckao
+         4H8A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) smtp.mailfrom=tony@atomide.com
-Received: from muru.com (muru.com. [72.249.23.125])
-        by gmr-mx.google.com with ESMTP id 142si1920581qko.4.2021.05.24.22.51.33
-        for <clang-built-linux@googlegroups.com>;
-        Mon, 24 May 2021 22:51:33 -0700 (PDT)
-Received-SPF: neutral (google.com: 72.249.23.125 is neither permitted nor denied by best guess record for domain of tony@atomide.com) client-ip=72.249.23.125;
-Received: from atomide.com (localhost [127.0.0.1])
-	by muru.com (Postfix) with ESMTPS id 5A79C807E;
-	Tue, 25 May 2021 05:51:38 +0000 (UTC)
-Date: Tue, 25 May 2021 08:51:29 +0300
-From: Tony Lindgren <tony@atomide.com>
-To: kernel test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	Linux Memory Management List <linux-mm@kvack.org>
-Subject: Re: [linux-next:master 2881/4780] drivers/bus/ti-sysc.c:1398:13:
- warning: variable 'error' is used uninitialized whenever 'if' condition is
- false
-Message-ID: <YKyQYWsKsO/28uy5@atomide.com>
-References: <202105241750.2S5ZpIyU-lkp@intel.com>
- <YKyNo2Nf4Z03gfaf@atomide.com>
- <YKyPi2aXpnQZDnw/@atomide.com>
+       spf=pass (google.com: best guess record for domain of hch@lst.de designates 213.95.11.211 as permitted sender) smtp.mailfrom=hch@lst.de
+Received: from verein.lst.de (verein.lst.de. [213.95.11.211])
+        by gmr-mx.google.com with ESMTPS id g18si246650wmc.0.2021.05.25.01.31.57
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 25 May 2021 01:31:57 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of hch@lst.de designates 213.95.11.211 as permitted sender) client-ip=213.95.11.211;
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id 3623567357; Tue, 25 May 2021 10:31:56 +0200 (CEST)
+Date: Tue, 25 May 2021 10:31:56 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Yang Li <yang.lee@linux.alibaba.com>
+Cc: jlbec@evilplan.org, hch@lst.de, nathan@kernel.org,
+	ndesaulniers@google.com, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] configfs: Remove redundant initialization of 'len'
+Message-ID: <20210525083156.GB19018@lst.de>
+References: <1620811079-105280-1-git-send-email-yang.lee@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <YKyPi2aXpnQZDnw/@atomide.com>
-X-Original-Sender: tony@atomide.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 72.249.23.125 is neither permitted nor denied by best guess
- record for domain of tony@atomide.com) smtp.mailfrom=tony@atomide.com
+In-Reply-To: <1620811079-105280-1-git-send-email-yang.lee@linux.alibaba.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
+X-Original-Sender: hch@lst.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of hch@lst.de designates
+ 213.95.11.211 as permitted sender) smtp.mailfrom=hch@lst.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -126,91 +124,10 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-* Tony Lindgren <tony@atomide.com> [210525 08:47]:
-> * Tony Lindgren <tony@atomide.com> [210525 08:39]:
-> > * kernel test robot <lkp@intel.com> [210524 10:00]:
-> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > > head:   674dc447b09fb668976c6ab1356b11e02ff209ed
-> > > commit: ec527f23e06a0521cd5b043aa31a4ccdf6cea549 [2881/4780] bus: ti-sysc: Fix am335x resume hang for usb otg module
-> > > config: arm-randconfig-r035-20210524 (attached as .config)
-> > > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 93d1e5822ed64abd777eb94ea9899e96c4c39fbe)
-> > > reproduce (this is a W=1 build):
-> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > >         chmod +x ~/bin/make.cross
-> > >         # install arm cross compiling tool for clang build
-> > >         # apt-get install binutils-arm-linux-gnueabi
-> > >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=ec527f23e06a0521cd5b043aa31a4ccdf6cea549
-> > >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-> > >         git fetch --no-tags linux-next master
-> > >         git checkout ec527f23e06a0521cd5b043aa31a4ccdf6cea549
-> > >         # save the attached .config to linux build tree
-> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm 
-> > > 
-> > > If you fix the issue, kindly add following tag as appropriate
-> > > Reported-by: kernel test robot <lkp@intel.com>
-> > > 
-> > > All warnings (new ones prefixed by >>):
-> > > 
-> > > >> drivers/bus/ti-sysc.c:1398:13: warning: variable 'error' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-> > >            } else if (ddata->needs_resume) {
-> > >                       ^~~~~~~~~~~~~~~~~~~
-> > >    drivers/bus/ti-sysc.c:1406:9: note: uninitialized use occurs here
-> > >            return error;
-> > >                   ^~~~~
-> > >    drivers/bus/ti-sysc.c:1398:9: note: remove the 'if' if its condition is always true
-> > >            } else if (ddata->needs_resume) {
-> > >                   ^~~~~~~~~~~~~~~~~~~~~~~~~
-> > >    drivers/bus/ti-sysc.c:1386:11: note: initialize the variable 'error' to silence this warning
-> > >            int error;
-> > >                     ^
-> > >                      = 0
-> > >    1 warning generated.
-> > > 
-> > > 
-> > > vim +1398 drivers/bus/ti-sysc.c
-> > > 
-> > >   1382	
-> > >   1383	static int __maybe_unused sysc_noirq_resume(struct device *dev)
-> > >   1384	{
-> > >   1385		struct sysc *ddata;
-> > >   1386		int error;
-> > >   1387	
-> > >   1388		ddata = dev_get_drvdata(dev);
-> > >   1389	
-> > >   1390		if (ddata->cfg.quirks &
-> > >   1391		    (SYSC_QUIRK_LEGACY_IDLE | SYSC_QUIRK_NO_IDLE))
-> > >   1392			return 0;
-> > >   1393	
-> > >   1394		if (ddata->cfg.quirks & SYSC_QUIRK_REINIT_ON_RESUME) {
-> > >   1395			error = sysc_reinit_module(ddata, ddata->needs_resume);
-> > >   1396			if (error)
-> > >   1397				dev_warn(dev, "noirq_resume failed: %i\n", error);
-> > > > 1398		} else if (ddata->needs_resume) {
-> > >   1399			error = sysc_runtime_resume(dev);
-> > >   1400			if (error)
-> > >   1401				dev_warn(dev, "noirq_resume failed: %i\n", error);
-> > >   1402		}
-> > >   1403	
-> > >   1404		ddata->needs_resume = 0;
-> > >   1405	
-> > >   1406		return error;
-> > >   1407	}
-> > >   1408	
-> > 
-> > Thanks for the report, I'll update the patch to init error = 0 here.
-> 
-> Oh this was already fixed in v2 version of this patch:
-> 
-> [PATCHv2] bus: ti-sysc: Fix am335x resume hang for usb otg module
-
-Sorry nope, error still needs to be initialized to 0. Only noirq_suspend()
-changed in v2, while noirq_resume() did not change. Will send out v3.
-
-Regards,
-
-Tony
+Thanks, but this isn't needed anymore with the patch from Bart that
+implements ->read_iter instead of ->read.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YKyQYWsKsO/28uy5%40atomide.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210525083156.GB19018%40lst.de.
