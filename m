@@ -1,127 +1,133 @@
-Return-Path: <clang-built-linux+bncBDT6TV45WMPRBJGVXWCQMGQE764FOWQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBVPDX2CQMGQEFTVMNKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf40.google.com (mail-qv1-xf40.google.com [IPv6:2607:f8b0:4864:20::f40])
-	by mail.lfdr.de (Postfix) with ESMTPS id D587E392B15
-	for <lists+clang-built-linux@lfdr.de>; Thu, 27 May 2021 11:47:17 +0200 (CEST)
-Received: by mail-qv1-xf40.google.com with SMTP id j14-20020a0cf30e0000b02902142ba51ef2sf958149qvl.10
-        for <lists+clang-built-linux@lfdr.de>; Thu, 27 May 2021 02:47:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622108836; cv=pass;
+Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
+	by mail.lfdr.de (Postfix) with ESMTPS id A4428393172
+	for <lists+clang-built-linux@lfdr.de>; Thu, 27 May 2021 16:51:03 +0200 (CEST)
+Received: by mail-pj1-x103d.google.com with SMTP id w12-20020a17090a528cb029015d7f990752sf2769357pjh.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 27 May 2021 07:51:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622127062; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GT2S68hfFD4n4w+TikObkXqsxeP58kHZbIDerNjz3CnFkdvHFGeOhTUoOgwCP3yk4j
-         sWDlfFGLKA0x00McHKpuxwqm4cozEgJp3MVdW4bu+4ryqeF52C7sZmaz6FzCLq9H7Cfi
-         gyoBAL6gz2HbNqvMoqQw6SvncJn/+/CYRsOGttBOFmTGiuSITXA9vvY0f6WKEuiHjSYx
-         1M0j7iN+g/Qd05nqcUoaedr6M5Up73qSGRslJ7KgPCq9cGxWVYGg6gtFWftDhnCVBC+G
-         /BIetW8THYUw0sF9cgxAw+X38VuzwCRzE4qNJdm94AXU13ed4kiRUIeOaSe7OW/D+EGg
-         x2qQ==
+        b=U3lVwIgyUTrlAmTIEDRwEXIlMgdRM1rIw/YDxI9RINuEN5JQXUER6hASRA362/y0kC
+         B5peP1TYY3Zmqvf08w8o0Y9ruX4Qnru6P7MKFaNci/tY4ZokBryUnS9SzSFK8DSnwr0w
+         VXdr079WbxTCW/l8KRV7cSLHReLLHvfYywff1K8CABPZpJ0C8KIJ2SToty4qHKxUGakT
+         hpbvRMUqDfHOfEWrBmcC+Xn23dMO4tfuh0pkg92F1TPz9u5c/KfZBoK0HVwuaQ6fXXpr
+         i8NBBcHRPZaorE6kHuUNkDRLrHCKKtIVsOIHKTRLfQzcTzBhB7ZJKRxoiFaqNsbxAdvv
+         OmkQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:from:to:subject
-         :content-transfer-encoding:mime-version:date:message-id:sender
-         :dkim-signature;
-        bh=RuGHFp0F+sRn7zP7l/Lf5eJiCbY83b5Ezt/MfYOP+t8=;
-        b=Qyz8bLHeJIgRV5Xy1al7nTobA1zB7tBTXagJxn3aM5D4TOU52i6hhXL4YBIYJpP/gb
-         /MaLGWyvxsVcSWFtUumNIWBe5+T8MVJ0BCw1DKw6VJ8TwIwYTyodPkdMNxLhyO8EAQXP
-         FrWaIJoZ/k4vGaAQqAiPx0HC6Pjsnvj2WNQM1R0hgkRc/RDXmMVOf+XpKizOTlLnM4tc
-         UKwgH3LTKEdWSrgZO9WK3jmq7jquOsD0gbudubrEDFfmrAHu7M9P8GSB8JUgPD4Ucxx8
-         A4YWgQuHZLYMx+f+Laam1sg0pXG4ZvN8s6RFIrCgscrUvMFQn7DzHgmw94MuU46rBLsI
-         oolg==
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
+         :ironport-sdr:sender:dkim-signature;
+        bh=ONngYhKaTObRafYR/ZEAaI//MSE/AEjUo7qs1FdYgZM=;
+        b=Clby5nUG+O9FGgKQrA4LDJnQBpDJdT6k8ipuAremCxEboEWaU+8BtBnTvGANdcBBI9
+         vDza2sTwwf2HHn5e1aXbPMnDQqSBQdKMi8PNwQYgh7bFHiXSX/uTUWpTbeUAshtCbAE4
+         9Oy/Q34EwrVYjp/E6U2raCLrTWTD80iGmb/P+nKnpWaqdYW+AJAfvyKDhQrZ54VQieyK
+         2FIzGAWzDN+cYrBsLH6ZKxb5aCQvTvlmHRmXda0S6BeazrxCqCAm2oUHfu5djZQYV74v
+         QR1BPb9bkCGLfFkCfSkqIDWK3EKhzJrZndAEa68sw6kNKKg6Va3TtGgJ5qybekJAVjrC
+         lnAg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=okP+aMeP;
-       spf=neutral (google.com: 2607:f8b0:4864:20::636 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:date:mime-version:content-transfer-encoding
-         :subject:to:from:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=RuGHFp0F+sRn7zP7l/Lf5eJiCbY83b5Ezt/MfYOP+t8=;
-        b=jlg2FzVh6HIxJz+sA1t8pqxbEU8KDjQZKuxNW2QSJLAIH5TkxIcK5TRQ0+YL6UVeEY
-         xjSU+rr5u4h5vzsmdtpgcuI7D0jrtTrximkJ1yzDw3dSQy5tOxcC912H5ZAQCLvw3pPt
-         RCVchB0jyGZgNzyH5bkdGzkfTRMxb+SqxaLb3gNsz5MrZ/87ADYtBnA1cxxPaeg7pPaK
-         oUOWKm29diamkzdHdoD5B33PkfMjxKw+eYGQH5Yd8EEtSHkU0aDr26AmNQWqZE4yQCgj
-         yHdXBO7DDYmskOCEfGvAG+e0ZkZcCSbmoJMzbiq4rh9fkbG+WOH6cGnopLbsgQdqoP87
-         N4+Q==
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :mime-version:content-disposition:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ONngYhKaTObRafYR/ZEAaI//MSE/AEjUo7qs1FdYgZM=;
+        b=GFxESf/RayVclY00Bq7BLrqckPufXIFRvqmEA4jAXarlv0fBg153xqgmZUNdc35jj+
+         iKDg5HMI7hxG6l105CTPL3T72JTc2aq25qrIt7qInkobPJqwa2GLiADf+2PGNTTJLayZ
+         7PxGHlAz7rQj36wLjnGYJ9CRshldCc9uE8SQk/7U2W3A0WusqeBt4YnvQgugWG7krlXc
+         ZlX9UJozraxpeNOKPSXKj8/ayQxarCZwyrvUSo/jUSkNkbOPpo9sKrDQnLYyX6nDrjCq
+         OrKUlwy+vV1hebTFYMDYGaHhZA4GbCiU8reZqYWaPhdUBTHmVcmHWt6o/ayA0GpHXc+L
+         3/TQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:date:mime-version
-         :content-transfer-encoding:subject:to:from:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=RuGHFp0F+sRn7zP7l/Lf5eJiCbY83b5Ezt/MfYOP+t8=;
-        b=E4hBcLQb5UYJ7KZpJY97YawAxGPg4Dewfclnw30g6vyon9WciTUpc7gUMAGVMiziyN
-         0JwFbFDiy0f3pdHV0e75ntFoetFqyQaYuwElNB4FwK1K9v0MecQ0PE0kumVYwy5N198S
-         313vDTS/DCS5CAOamP06qorGjhsYZCw+HFuF2ujn4SViAD+a6ZqYpI/tun0z5vHVB2A+
-         qBboivG9rSqqBmmsO8jIXfaOQtrb9XC9/yLI5zyT7UVVan+ODDOjICYFmo/dOLQr/4yd
-         roLfW2A6/2Nts33l5yFhTHnlDwadFyBCpA8bs8S34kaD0nUbuiIXSx56j7tyzXzYO1DM
-         BHzw==
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:mime-version:content-disposition:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ONngYhKaTObRafYR/ZEAaI//MSE/AEjUo7qs1FdYgZM=;
+        b=GVe4DPbMiZ3EI4nbTqX/Y3bnz/KuBnqo22YpuMZvzDtJQWz5OGz6QAgqWCCElSrDf7
+         KmiclqrKJGe521kGpntPgY9wHO+tnEVRSy4zsDkJ1Vn5/OzaP7HieEG7kIRHIL8FOs+9
+         cjrKP7J1qQTAQ12GmZN1v19SsLqbPx8pU8oJMuBSYoOs0l849oLs9xWlkwBT5keB193d
+         jTe0LgMcG5f+ewKpYxxwrXtrX3KvZoAf3ndzZ0+maPX2POHz5FVIMrpw7XoFxaTZ0ZZe
+         KvDhy14bY78juEd7MpiShpHulFXzRjRNdfJLi9ZE/OMzC+ZAq/zUhpZwGzMbJTZt+Are
+         QvDw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Ia7NBtiCsfJlnVYyJvHUZaKd9H46VQiiN5+H3c4nIDdF7p5q6
-	udR2aC9EHNYqkJ7jjoWuD0I=
-X-Google-Smtp-Source: ABdhPJwSvieZR0rRT8BlVycIxJUXGsOfW3ApmjyRjOMvUSf1893ZJ8Xqi2R/dwKgYjXFBqpL5d/m2Q==
-X-Received: by 2002:ac8:7dc9:: with SMTP id c9mr2264454qte.169.1622108836700;
-        Thu, 27 May 2021 02:47:16 -0700 (PDT)
+X-Gm-Message-State: AOAM530zmgk2VlZzKLqyMXFnar5VYVsEg5NE2U4V8esT/Ged8NY4f6Zi
+	3tUvXRnpKs4bEdDgGY2Yn+s=
+X-Google-Smtp-Source: ABdhPJz9QB9CS1elf/iF2QBs4O5XTHK+1M6u0FzOFhZ3uucKnNEiQzEkg0VDm5B1aCEFJsn2/XKNkA==
+X-Received: by 2002:a17:903:189:b029:f1:d67a:5168 with SMTP id z9-20020a1709030189b02900f1d67a5168mr3530550plg.82.1622127061748;
+        Thu, 27 May 2021 07:51:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:5881:: with SMTP id t1ls1266665qta.5.gmail; Thu, 27 May
- 2021 02:47:16 -0700 (PDT)
-X-Received: by 2002:ac8:1188:: with SMTP id d8mr2269873qtj.218.1622108836094;
-        Thu, 27 May 2021 02:47:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622108836; cv=none;
+Received: by 2002:a63:cd47:: with SMTP id a7ls1723314pgj.1.gmail; Thu, 27 May
+ 2021 07:51:01 -0700 (PDT)
+X-Received: by 2002:a62:8803:0:b029:2d9:180d:c2c4 with SMTP id l3-20020a6288030000b02902d9180dc2c4mr4076113pfd.62.1622127060909;
+        Thu, 27 May 2021 07:51:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622127060; cv=none;
         d=google.com; s=arc-20160816;
-        b=tNgrDJkaABflhwSCiMZR+xGuIU6p2C6T/8Cfrqnv7Zir/lwP5bnaNjsQu/GBORHqYa
-         DaduWjiaeGBi7DEFOiwAaHNlgyMialZ079bwicCc3+DhtpbXbPmncdj1U8e+GCYUpq28
-         s6z+Y7SjEBpVptoP1FVZAlmROyZslHSq1TpHJiIP4YlOTEncHx5onw7FtI8pAlz6p3HH
-         S1tTHo+1i8gYA2l0XOuLhdvIWlmmXt2AHtXdD0s4MVXDXLOuXvZyI9jy+KXCFvTHLXYZ
-         Vr7SEQ92aRSxDq5FxqThhbIKLKeTgD5Iw7nyResZvwKakJxjYQ1hvwEFQwLYIz7vKzZ4
-         p51A==
+        b=sutacdfBQ+YOutKt/5/zI+/JBysVoKEJRuKu+B818j8q8bCkdcMvpvnvKwzOon0mgm
+         LjvoIq84I5ScFJ48/MwKtqvUxshpT80y3xQphgP9A7zYFxCkYkaBMCAMS0p4wM1p+107
+         a+FJsdjNscBq9U+NBOCUsj+nytxygRbpMr5XEEr7IBgc3PDpPE1s32gfzfjBHdZLgg5p
+         HecooYYzq4YofjaxQ2EOtJTK6f6LPRcyS4GMdR9u3qcIu7sqS1Jf9+Wf+ocRRXx+0Kl6
+         eSOVU+oOTUmaWfhlbmHZGKQ9Hez9NlPD9r+BBYsm4LDcrJ5MEK8L58A4jqzZxwFyr9s2
+         9atQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:dkim-signature;
-        bh=xKtSBbrS3GyGEdenPerOSiXCfOMo2w/YqUADD5I0DVQ=;
-        b=J6z/nRX3r4MfaIAEDCBCUkdl9A+HkkXiOPBTR8vX7zXpzmUYvB/Y0sIIi550i9QcP7
-         8DGIfGJ6BF+v/8zJa9ao4JjMmrVH/jPKR0oRIhsBHS8LjFAJY3J5oKzjP51bWp4Jzxpl
-         cGMNcBw5lWHsjJJNZR9vVM+2bCVNTeENArJoxVt468VIvENLXmbBUxx2awiQGbeQaBIh
-         hncJu4ddGN/ZSCfMkBDJU5XE6LzPBcQcaAVvrD1rbc4RGcmWJ1qTSF8EFtuyQciTkLiT
-         czVjDcpfRcOdO+opx93gl+tv35JeSE9m7GEM7VjIWEcPnqyaxA159esNNFEFKtKsDqIb
-         VVXQ==
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr;
+        bh=KWpGHLmpnSUEHdsBnbKVUMU5Z8oaQyTPnpROsIb0MwY=;
+        b=cPqEcd9Vrb9MUYi0ZqGShltQlCumDdeqm0xf8aE1lh9hXfisbA0Ta8uU/ml05pb1N6
+         CEm5G7ErOabVRH/F2X8asDcsa529fEQNEuvwa3DsOJntL5Lotjjp1hojtzD3d6PtVwJz
+         EEnc313NQm6kuI/kfmcouw1sfziBT6QUMcDswOGIlLrxvT8EBozb6tt+sh9syzfo6TVI
+         PD3H9LqqLl5cG39LVUSzrdD2MjpGFt8WWdqgVmew7mBlbx18+8knKHKV/9CneCyzoTfQ
+         /dxE6PtykLiwSWZxLysTQUZMA4BmgQ4fIhREZM+aXyNezb+vqjO3OT4MPUIRst2jasxH
+         y9ug==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=okP+aMeP;
-       spf=neutral (google.com: 2607:f8b0:4864:20::636 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
-Received: from mail-pl1-x636.google.com (mail-pl1-x636.google.com. [2607:f8b0:4864:20::636])
-        by gmr-mx.google.com with ESMTPS id p5si199802qkj.2.2021.05.27.02.47.15
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
+        by gmr-mx.google.com with ESMTPS id mu6si263220pjb.0.2021.05.27.07.51.00
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 May 2021 02:47:16 -0700 (PDT)
-Received-SPF: neutral (google.com: 2607:f8b0:4864:20::636 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::636;
-Received: by mail-pl1-x636.google.com with SMTP id t21so2075997plo.2
-        for <clang-built-linux@googlegroups.com>; Thu, 27 May 2021 02:47:15 -0700 (PDT)
-X-Received: by 2002:a17:90a:bb06:: with SMTP id u6mr2725262pjr.201.1622108833772;
-        Thu, 27 May 2021 02:47:13 -0700 (PDT)
-Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
-        by smtp.gmail.com with ESMTPSA id q24sm1402990pgk.32.2021.05.27.02.47.12
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 May 2021 02:47:13 -0700 (PDT)
-Message-ID: <60af6aa1.1c69fb81.86f70.5336@mx.google.com>
-Date: Thu, 27 May 2021 02:47:13 -0700 (PDT)
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 27 May 2021 07:51:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+IronPort-SDR: b3VklLUl1jWJK9XEvG3K/UWt2W9sHjbYo9MzF0k5lOG0hXIoqC2hewvVH269woHsJht//8RDBv
+ SOZ6Owtt4VVg==
+X-IronPort-AV: E=McAfee;i="6200,9189,9996"; a="189868453"
+X-IronPort-AV: E=Sophos;i="5.82,334,1613462400"; 
+   d="gz'50?scan'50,208,50";a="189868453"
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 May 2021 07:51:00 -0700
+IronPort-SDR: LuKVcu0K+bducCYxvg1SryFRiYhk64DSqmxJYfyJJg7hW42/9pbb1trSml5PAfsARObGaE3a6G
+ Ky+fDejgjWtg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.82,334,1613462400"; 
+   d="gz'50?scan'50,208,50";a="436574347"
+Received: from lkp-server02.sh.intel.com (HELO 1ec8406c5392) ([10.239.97.151])
+  by orsmga007.jf.intel.com with ESMTP; 27 May 2021 07:50:57 -0700
+Received: from kbuild by 1ec8406c5392 with local (Exim 4.92)
+	(envelope-from <lkp@intel.com>)
+	id 1lmHLd-0002qm-1y; Thu, 27 May 2021 14:50:57 +0000
+Date: Thu, 27 May 2021 22:50:31 +0800
+From: kernel test robot <lkp@intel.com>
+To: Johannes Berg <johannes.berg@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	linux-wireless@vger.kernel.org
+Subject: [mac80211-next:iosm 18/19] error: include/uapi/linux/wwan.h: missing
+ "WITH Linux-syscall-note" for SPDX-License-Identifier
+Message-ID: <202105272228.h8faeeWd-lkp@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Kernelci-Tree: next
-X-Kernelci-Kernel: next-20210527
-X-Kernelci-Branch: master
-X-Kernelci-Report-Type: build
-Subject: next/master build: 194 builds: 24 failed, 170 passed, 46 errors,
- 135 warnings (next-20210527)
-To: clang-built-linux@googlegroups.com
-From: "kernelci.org bot" <bot@kernelci.org>
-X-Original-Sender: bot@kernelci.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
- header.b=okP+aMeP;       spf=neutral (google.com: 2607:f8b0:4864:20::636 is
- neither permitted nor denied by best guess record for domain of
- bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Content-Type: multipart/mixed; boundary="jI8keyz6grp/JLjh"
+Content-Disposition: inline
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,1706 +140,766 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-next/master build: 194 builds: 24 failed, 170 passed, 46 errors, 135 warnin=
-gs (next-20210527)
 
-Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
-xt-20210527/
-
-Tree: next
-Branch: master
-Git Describe: next-20210527
-Git Commit: d975636c274169a218816c8e69d8215fd6a11791
-Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
-t
-Built: 7 unique architectures
-
-Build Failures Detected:
-
-arc:
-    allnoconfig: (gcc-8) FAIL
-    nsimosci_hs_smp_defconfig: (gcc-8) FAIL
-
-arm64:
-    allmodconfig: (clang-10) FAIL
-    allmodconfig: (clang-12) FAIL
-    allmodconfig: (gcc-8) FAIL
-
-arm:
-    allmodconfig: (clang-12) FAIL
-    allmodconfig: (gcc-8) FAIL
-    davinci_all_defconfig: (gcc-8) FAIL
-    pxa_defconfig: (gcc-8) FAIL
-
-i386:
-    allmodconfig: (clang-12) FAIL
-
-mips:
-    ath25_defconfig: (gcc-8) FAIL
-    cobalt_defconfig: (gcc-8) FAIL
-    decstation_64_defconfig: (gcc-8) FAIL
-    lemote2f_defconfig: (gcc-8) FAIL
-    loongson1b_defconfig: (gcc-8) FAIL
-    loongson1c_defconfig: (gcc-8) FAIL
-    mpc30x_defconfig: (gcc-8) FAIL
-    mtx1_defconfig: (gcc-8) FAIL
-    rm200_defconfig: (gcc-8) FAIL
-    tb0219_defconfig: (gcc-8) FAIL
-    tb0287_defconfig: (gcc-8) FAIL
-
-riscv:
-    rv32_defconfig: (gcc-8) FAIL
-
-x86_64:
-    allmodconfig: (clang-10) FAIL
-    allmodconfig: (clang-12) FAIL
-
-Errors and Warnings Detected:
-
-arc:
-    allnoconfig (gcc-8): 8 errors
-    haps_hs_smp_defconfig+kselftest (gcc-8): 2 warnings
-    nsimosci_hs_smp_defconfig (gcc-8): 8 errors
-
-arm64:
-    allmodconfig (clang-12): 7 warnings
-    allmodconfig (clang-10): 12 warnings
-    defconfig (gcc-8): 1 warning
-    defconfig (clang-10): 3 warnings
-    defconfig (clang-12): 2 warnings
-    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (gcc-8): 1 warning
-    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-12): 2 warnings
-    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-10): 3 warnings
-    defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 1 warning
-    defconfig+CONFIG_RANDOMIZE_BASE=3Dy (gcc-8): 1 warning
-
-arm:
-    allmodconfig (clang-12): 31 warnings
-    multi_v7_defconfig (clang-12): 2 warnings
-
-i386:
-    allmodconfig (clang-12): 26 warnings
-
-mips:
-    32r2el_defconfig (gcc-8): 1 warning
-    ci20_defconfig (gcc-8): 1 warning
-    cu1000-neo_defconfig (gcc-8): 1 warning
-    cu1830-neo_defconfig (gcc-8): 1 warning
-    db1xxx_defconfig (gcc-8): 1 warning
-    loongson1b_defconfig (gcc-8): 2 errors
-    loongson1c_defconfig (gcc-8): 2 errors
-    loongson2k_defconfig (gcc-8): 1 warning
-    mpc30x_defconfig (gcc-8): 2 errors
-    mtx1_defconfig (gcc-8): 2 errors
-    omega2p_defconfig (gcc-8): 1 warning
-    rm200_defconfig (gcc-8): 2 errors
-    tb0219_defconfig (gcc-8): 2 errors
-    tb0287_defconfig (gcc-8): 2 errors
-    vocore2_defconfig (gcc-8): 1 warning
-
-riscv:
-    rv32_defconfig (gcc-8): 16 errors, 11 warnings
-
-x86_64:
-    allmodconfig (clang-10): 7 warnings
-    allmodconfig (clang-12): 13 warnings
-    x86_64_defconfig (clang-10): 2 warnings
-
-Errors summary:
-
-    8    arch/riscv/include/asm/pgtable.h:518:9: error: incompatible types =
-when returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =
-=E2=80=98struct <anonymous>=E2=80=99} was expected
-    8    arch/riscv/include/asm/pgtable.h:518:9: error: implicit declaratio=
-n of function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=
-=80=99? [-Werror=3Dimplicit-function-declaration]
-    4    mips-linux-gnu-ld: (.text+0x194): undefined reference to `usb_hid_=
-driver'
-    4    (.text+0x190): undefined reference to `usb_hid_driver'
-    2    mips-linux-gnu-ld: (.text+0x228): undefined reference to `usb_hid_=
-driver'
-    2    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `=
-__softirqentry_text_end'
-    2    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `=
-__softirqentry_text_start'
-    2    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `=
-__irqentry_text_end'
-    2    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `_=
-_softirqentry_text_end'
-    2    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `_=
-_softirqentry_text_start'
-    2    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `_=
-_irqentry_text_end'
-    2    (.text+0x220): undefined reference to `usb_hid_driver'
-    1    stackdepot.c:(.text+0x4ac): undefined reference to `__irqentry_tex=
-t_start'
-    1    stackdepot.c:(.text+0x4): undefined reference to `__irqentry_text_=
-start'
-    1    mips-linux-gnu-ld: (.text+0x198): undefined reference to `usb_hid_=
-driver'
-    1    arc-elf32-ld: stackdepot.c:(.text+0x4ac): undefined reference to `=
-__irqentry_text_start'
-    1    arc-elf32-ld: stackdepot.c:(.text+0x4): undefined reference to `__=
-irqentry_text_start'
-    1    (.text+0x194): undefined reference to `usb_hid_driver'
-
-Warnings summary:
-
-    24   1 warning generated.
-    12   mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=
-=99 defined but not used [-Wunused-function]
-    12   2 warnings generated.
-    8    cc1: some warnings being treated as errors
-    6    drivers/net/phy/motorcomm.c:83:2: warning: variable 'ge' is used u=
-ninitialized whenever switch default is taken [-Wsometimes-uninitialized]
-    6    drivers/net/phy/motorcomm.c:58:6: warning: variable 'ret' is used =
-uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-    6    drivers/net/phy/motorcomm.c:54:9: note: initialize the variable 'r=
-et' to silence this warning
-    6    drivers/net/phy/motorcomm.c:53:17: note: initialize the variable '=
-ge' to silence this warning
-    4    mm/mmap_lock.c:157:20: warning: unused function 'get_mm_memcg_path=
-' [-Wunused-function]
-    3    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
-ib/modules/5.13.0-rc3-next-20210527/kernel/drivers/media/tuners/tuner-types=
-.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    2    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implici=
-t conversion from 'unsigned long long' to 'unsigned long' changes value fro=
-m 5000000000 to 705032704 [-Wconstant-conversion]
-    2    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least=
- version 4.6 of GCC [-W#warnings]
-    2    #warning This code requires at least version 4.6 of GCC
-    1    sound/soc/intel/boards/snd-soc-sof_rt5682.mod.c:95:44: warning: il=
-legal character encoding in string literal [-Winvalid-source-encoding]
-    1    lib/strncpy_from_user.o: warning: objtool: strncpy_from_user()+0x1=
-73: call to do_strncpy_from_user() with UACCESS enabled
-    1    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
-e of 1384 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
-=3D]
-    1    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
-e of 1332 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
-=3D]
-    1    fs/reiserfs/lbalance.o: warning: objtool: leaf_copy_items_entirely=
-()+0x832: stack state mismatch: cfa1=3D4+224 cfa2=3D4+216
-    1    fs/reiserfs/do_balan.o: warning: objtool: balance_leaf_when_delete=
-()+0x120d: stack state mismatch: cfa1=3D4+184 cfa2=3D4+176
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 3312 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 3288 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
-ame size of 1804 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
-rger-than=3D]
-    1    drivers/staging/fbtft/fbtft-core.c:992:5: warning: stack frame siz=
-e of 1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
-    1    drivers/staging/fbtft/fbtft-core.c:902:12: warning: stack frame si=
-ze of 1080 bytes in function 'fbtft_init_display_from_property' [-Wframe-la=
-rger-than=3D]
-    1    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame si=
-ze of 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
-    1    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame =
-size of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=
-=3D]
-    1    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack fra=
-me size of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
-eb_relocate_parse_slow()+0x427: stack state mismatch: cfa1=3D4+120 cfa2=3D-=
-1+0
-    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
-eb_copy_relocations()+0x1d5: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_c=
-alc.c:997:6: warning: stack frame size of 1196 bytes in function 'dml1_rq_d=
-lg_get_dlg_params' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_=
-calc_30.c:981:13: warning: stack frame size of 1036 bytes in function 'dml_=
-rq_dlg_get_dlg_params' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
-a_21.c:3393:6: warning: stack frame size of 1468 bytes in function 'dml21_M=
-odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vb=
-a_21.c:1463:13: warning: stack frame size of 1132 bytes in function 'DISPCL=
-KDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation=
-' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20v2.c:3393:6: warning: stack frame size of 1420 bytes in function 'dml20=
-v2_ModeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20v2.c:1145:13: warning: stack frame size of 1164 bytes in function 'dml2=
-0v2_DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceC=
-alculation' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20.c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_M=
-odeSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vb=
-a_20.c:1085:13: warning: stack frame size of 1180 bytes in function 'dml20_=
-DISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcu=
-lation' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13:=
- warning: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_tt=
-u' [-Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
-warning: stack frame size of 5560 bytes in function 'calculate_bandwidth' [=
--Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6:=
- warning: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-la=
-rger-than=3D]
-    1    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame=
- size of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
-    1    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in =
-function 'wp512_process_buffer' [-Wframe-larger-than=3D]
-    1    arch/arc/include/asm/perf_event.h:91:27: warning: =E2=80=98arc_pmu=
-_ev_hw_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
-    1    arch/arc/include/asm/perf_event.h:126:23: warning: =E2=80=98arc_pm=
-u_cache_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
-    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
-ib/modules/5.13.0-rc3-next-20210527/kernel/sound/soc/intel/boards/snd-soc-i=
-ntel-hda-dsp-common.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
-ib/modules/5.13.0-rc3-next-20210527/kernel/drivers/clk/keystone/pll.ko: uns=
-upported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
-ib/modules/5.13.0-rc3-next-20210527/kernel/drivers/clk/keystone/gate.ko: un=
-supported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
-ib/modules/5.13.0-rc3-next-20210527/kernel/crypto/cast_common.ko: unsupport=
-ed GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    1    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [=
--Wcpp]
-    1    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [=
--Wcpp]
-    1    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemente=
-d [-Wcpp]
-    1    ./usr/include/linux/bcache.h:355:2: warning: field '' with variabl=
-e sized type 'union jset::(anonymous at ./usr/include/linux/bcache.h:355:2)=
-' not at the end of a struct or class is a GNU extension [-Wgnu-variable-si=
-zed-type-not-at-end]
-    1    ./usr/include/linux/bcache.h:354:2: warning: field '' with variabl=
-e sized type 'union jset::(anonymous at ./usr/include/linux/bcache.h:354:2)=
-' not at the end of a struct or class is a GNU extension [-Wgnu-variable-si=
-zed-type-not-at-end]
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-
-Detailed per-defconfig build reports:
-
----------------------------------------------------------------------------=
------
-32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnin=
-gs, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm, clang-12) =E2=80=94 FAIL, 0 errors, 31 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
-1384 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame size=
- of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
-    1 warning generated.
-    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
-ion 4.6 of GCC [-W#warnings]
-    #warning This code requires at least version 4.6 of GCC
-    1 warning generated.
-    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
-ion 4.6 of GCC [-W#warnings]
-    #warning This code requires at least version 4.6 of GCC
-    1 warning generated.
-    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in funct=
-ion 'wp512_process_buffer' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack frame si=
-ze of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/net/phy/motorcomm.c:58:6: warning: variable 'ret' is used unini=
-tialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:54:9: note: initialize the variable 'ret' t=
-o silence this warning
-    drivers/net/phy/motorcomm.c:83:2: warning: variable 'ge' is used uninit=
-ialized whenever switch default is taken [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:53:17: note: initialize the variable 'ge' t=
-o silence this warning
-    2 warnings generated.
-    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame size of=
- 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3041:6: warn=
-ing: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-larger-=
-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
-ng: stack frame size of 5560 bytes in function 'calculate_bandwidth' [-Wfra=
-me-larger-than=3D]
-    2 warnings generated.
-    drivers/staging/fbtft/fbtft-core.c:992:5: warning: stack frame size of =
-1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
-    drivers/staging/fbtft/fbtft-core.c:902:12: warning: stack frame size of=
- 1080 bytes in function 'fbtft_init_display_from_property' [-Wframe-larger-=
-than=3D]
-    2 warnings generated.
-    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame size =
-of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
-version from 'unsigned long long' to 'unsigned long' changes value from 500=
-0000000 to 705032704 [-Wconstant-conversion]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, clang-12) =E2=80=94 FAIL, 0 errors, 7 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    drivers/net/phy/motorcomm.c:58:6: warning: variable 'ret' is used unini=
-tialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:54:9: note: initialize the variable 'ret' t=
-o silence this warning
-    drivers/net/phy/motorcomm.c:83:2: warning: variable 'ge' is used uninit=
-ialized whenever switch default is taken [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:53:17: note: initialize the variable 'ge' t=
-o silence this warning
-    2 warnings generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 3312 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-allmodconfig (x86_64, clang-10) =E2=80=94 FAIL, 0 errors, 7 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    drivers/net/phy/motorcomm.c:58:6: warning: variable 'ret' is used unini=
-tialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:54:9: note: initialize the variable 'ret' t=
-o silence this warning
-    drivers/net/phy/motorcomm.c:83:2: warning: variable 'ge' is used uninit=
-ialized whenever switch default is taken [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:53:17: note: initialize the variable 'ge' t=
-o silence this warning
-    2 warnings generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 3304 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, clang-10) =E2=80=94 FAIL, 0 errors, 12 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    drivers/net/phy/motorcomm.c:58:6: warning: variable 'ret' is used unini=
-tialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:54:9: note: initialize the variable 'ret' t=
-o silence this warning
-    drivers/net/phy/motorcomm.c:83:2: warning: variable 'ge' is used uninit=
-ialized whenever switch default is taken [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:53:17: note: initialize the variable 'ge' t=
-o silence this warning
-    2 warnings generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 3328 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
-dules/5.13.0-rc3-next-20210527/kernel/crypto/cast_common.ko: unsupported GN=
-U_PROPERTY_TYPE (5) type: 0xc0000000
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
-dules/5.13.0-rc3-next-20210527/kernel/drivers/clk/keystone/gate.ko: unsuppo=
-rted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
-dules/5.13.0-rc3-next-20210527/kernel/drivers/clk/keystone/pll.ko: unsuppor=
-ted GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
-dules/5.13.0-rc3-next-20210527/kernel/drivers/media/tuners/tuner-types.ko: =
-unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
-dules/5.13.0-rc3-next-20210527/kernel/sound/soc/intel/boards/snd-soc-intel-=
-hda-dsp-common.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-allmodconfig (x86_64, clang-12) =E2=80=94 FAIL, 0 errors, 13 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    ./usr/include/linux/bcache.h:354:2: warning: field '' with variable siz=
-ed type 'union jset::(anonymous at ./usr/include/linux/bcache.h:354:2)' not=
- at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-t=
-ype-not-at-end]
-    ./usr/include/linux/bcache.h:355:2: warning: field '' with variable siz=
-ed type 'union jset::(anonymous at ./usr/include/linux/bcache.h:355:2)' not=
- at the end of a struct or class is a GNU extension [-Wgnu-variable-sized-t=
-ype-not-at-end]
-    2 warnings generated.
-    lib/strncpy_from_user.o: warning: objtool: strncpy_from_user()+0x173: c=
-all to do_strncpy_from_user() with UACCESS enabled
-    fs/reiserfs/do_balan.o: warning: objtool: balance_leaf_when_delete()+0x=
-120d: stack state mismatch: cfa1=3D4+184 cfa2=3D4+176
-    fs/reiserfs/lbalance.o: warning: objtool: leaf_copy_items_entirely()+0x=
-832: stack state mismatch: cfa1=3D4+224 cfa2=3D4+216
-    drivers/net/phy/motorcomm.c:58:6: warning: variable 'ret' is used unini=
-tialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:54:9: note: initialize the variable 'ret' t=
-o silence this warning
-    drivers/net/phy/motorcomm.c:83:2: warning: variable 'ge' is used uninit=
-ialized whenever switch default is taken [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:53:17: note: initialize the variable 'ge' t=
-o silence this warning
-    2 warnings generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 3288 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (i386, clang-12) =E2=80=94 FAIL, 0 errors, 26 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
-1332 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/net/phy/motorcomm.c:58:6: warning: variable 'ret' is used unini=
-tialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:54:9: note: initialize the variable 'ret' t=
-o silence this warning
-    drivers/net/phy/motorcomm.c:83:2: warning: variable 'ge' is used uninit=
-ialized whenever switch default is taken [-Wsometimes-uninitialized]
-    drivers/net/phy/motorcomm.c:53:17: note: initialize the variable 'ge' t=
-o silence this warning
-    2 warnings generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dcn_calcs.c:450:13: warn=
-ing: stack frame size of 1564 bytes in function 'dcn_bw_calc_rq_dlg_ttu' [-=
-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
-ize of 1804 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dml1_display_rq_dlg_calc.c=
-:997:6: warning: stack frame size of 1196 bytes in function 'dml1_rq_dlg_ge=
-t_dlg_params' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
-c:1085:13: warning: stack frame size of 1180 bytes in function 'dml20_DISPC=
-LKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculatio=
-n' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20.=
-c:3286:6: warning: stack frame size of 1420 bytes in function 'dml20_ModeSu=
-pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    2 warnings generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_calc_=
-30.c:981:13: warning: stack frame size of 1036 bytes in function 'dml_rq_dl=
-g_get_dlg_params' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
-c:1463:13: warning: stack frame size of 1132 bytes in function 'DISPCLKDPPC=
-LKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalculation' [-W=
-frame-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.=
-c:3393:6: warning: stack frame size of 1468 bytes in function 'dml21_ModeSu=
-pportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
-2.c:1145:13: warning: stack frame size of 1164 bytes in function 'dml20v2_D=
-ISPCLKDPPCLKDCFCLKDeepSleepPrefetchParametersWatermarksAndPerformanceCalcul=
-ation' [-Wframe-larger-than=3D]
-    2 warnings generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn20/display_mode_vba_20v=
-2.c:3393:6: warning: stack frame size of 1420 bytes in function 'dml20v2_Mo=
-deSupportAndSystemConfigurationFull' [-Wframe-larger-than=3D]
-    2 warnings generated.
-    sound/soc/intel/boards/snd-soc-sof_rt5682.mod.c:95:44: warning: illegal=
- character encoding in string literal [-Winvalid-source-encoding]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allnoconfig (arc, gcc-8) =E2=80=94 FAIL, 8 errors, 0 warnings, 0 section mi=
-smatches
-
-Errors:
-    stackdepot.c:(.text+0x4ac): undefined reference to `__irqentry_text_sta=
-rt'
-    arc-elf32-ld: stackdepot.c:(.text+0x4ac): undefined reference to `__irq=
-entry_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `__irq=
-entry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `__irq=
-entry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `__sof=
-tirqentry_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `__sof=
-tirqentry_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `__sof=
-tirqentry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `__sof=
-tirqentry_text_end'
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-ath25_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-cobalt_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
-ection mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-cu1830-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
-ection mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-davinci_all_defconfig (arm, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-decstation_64_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
-, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
-matches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
- mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: unused function 'get_mm_memcg_path' [-W=
-unused-function]
-    1 warning generated.
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
-dules/5.13.0-rc3-next-20210527/kernel/drivers/media/tuners/tuner-types.ko: =
-unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, clang-12) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: unused function 'get_mm_memcg_path' [-W=
-unused-function]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 error=
-s, 1 warning, 0 section mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-12) =E2=80=94 PASS, 0 er=
-rors, 2 warnings, 0 section mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: unused function 'get_mm_memcg_path' [-W=
-unused-function]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-10) =E2=80=94 PASS, 0 er=
-rors, 3 warnings, 0 section mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: unused function 'get_mm_memcg_path' [-W=
-unused-function]
-    1 warning generated.
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
-dules/5.13.0-rc3-next-20210527/kernel/drivers/media/tuners/tuner-types.ko: =
-unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
-, 1 warning, 0 section mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_EFI=3Dn (riscv, clang-12) =E2=80=94 PASS, 0 errors, 0 warn=
-ings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
-, 1 warning, 0 section mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-haps_hs_smp_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 wa=
-rnings, 0 section mismatches
-
-Warnings:
-    arch/arc/include/asm/perf_event.h:126:23: warning: =E2=80=98arc_pmu_cac=
-he_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
-    arch/arc/include/asm/perf_event.h:91:27: warning: =E2=80=98arc_pmu_ev_h=
-w_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
-
----------------------------------------------------------------------------=
------
-hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
-, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-lemote2f_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-loongson1b_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 =
-section mismatches
-
-Errors:
-    (.text+0x220): undefined reference to `usb_hid_driver'
-    mips-linux-gnu-ld: (.text+0x228): undefined reference to `usb_hid_drive=
-r'
-
----------------------------------------------------------------------------=
------
-loongson1c_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 =
-section mismatches
-
-Errors:
-    (.text+0x220): undefined reference to `usb_hid_driver'
-    mips-linux-gnu-ld: (.text+0x228): undefined reference to `usb_hid_drive=
-r'
-
----------------------------------------------------------------------------=
------
-loongson2k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
-ection mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
-s, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
-0 section mismatches
-
----------------------------------------------------------------------------=
------
-mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-mpc30x_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 sect=
-ion mismatches
-
-Errors:
-    (.text+0x190): undefined reference to `usb_hid_driver'
-    mips-linux-gnu-ld: (.text+0x194): undefined reference to `usb_hid_drive=
-r'
-
----------------------------------------------------------------------------=
------
-mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-mtx1_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 sectio=
-n mismatches
-
-Errors:
-    (.text+0x194): undefined reference to `usb_hid_driver'
-    mips-linux-gnu-ld: (.text+0x198): undefined reference to `usb_hid_drive=
-r'
-
----------------------------------------------------------------------------=
------
-multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:975:48: warning: implicit con=
-version from 'unsigned long long' to 'unsigned long' changes value from 500=
-0000000 to 705032704 [-Wconstant-conversion]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
- errors, 0 warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
-=94 PASS, 0 errors, 0 warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 =
-warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warni=
-ngs, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 FAIL, 8 errors, 0 warnings=
-, 0 section mismatches
-
-Errors:
-    stackdepot.c:(.text+0x4): undefined reference to `__irqentry_text_start=
-'
-    arc-elf32-ld: stackdepot.c:(.text+0x4): undefined reference to `__irqen=
-try_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `__irqe=
-ntry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `__irqe=
-ntry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `__soft=
-irqentry_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `__soft=
-irqentry_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `__soft=
-irqentry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `__soft=
-irqentry_text_end'
-
----------------------------------------------------------------------------=
------
-omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pxa_defconfig (arm, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-rm200_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 secti=
-on mismatches
-
-Errors:
-    (.text+0x190): undefined reference to `usb_hid_driver'
-    mips-linux-gnu-ld: (.text+0x194): undefined reference to `usb_hid_drive=
-r'
-
----------------------------------------------------------------------------=
------
-rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-rs90_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-rv32_defconfig (riscv, gcc-8) =E2=80=94 FAIL, 16 errors, 11 warnings, 0 sec=
-tion mismatches
-
-Errors:
-    arch/riscv/include/asm/pgtable.h:518:9: error: implicit declaration of =
-function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
- [-Werror=3Dimplicit-function-declaration]
-    arch/riscv/include/asm/pgtable.h:518:9: error: incompatible types when =
-returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
-=80=98struct <anonymous>=E2=80=99} was expected
-    arch/riscv/include/asm/pgtable.h:518:9: error: implicit declaration of =
-function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
- [-Werror=3Dimplicit-function-declaration]
-    arch/riscv/include/asm/pgtable.h:518:9: error: incompatible types when =
-returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
-=80=98struct <anonymous>=E2=80=99} was expected
-    arch/riscv/include/asm/pgtable.h:518:9: error: implicit declaration of =
-function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
- [-Werror=3Dimplicit-function-declaration]
-    arch/riscv/include/asm/pgtable.h:518:9: error: incompatible types when =
-returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
-=80=98struct <anonymous>=E2=80=99} was expected
-    arch/riscv/include/asm/pgtable.h:518:9: error: implicit declaration of =
-function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
- [-Werror=3Dimplicit-function-declaration]
-    arch/riscv/include/asm/pgtable.h:518:9: error: incompatible types when =
-returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
-=80=98struct <anonymous>=E2=80=99} was expected
-    arch/riscv/include/asm/pgtable.h:518:9: error: implicit declaration of =
-function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
- [-Werror=3Dimplicit-function-declaration]
-    arch/riscv/include/asm/pgtable.h:518:9: error: incompatible types when =
-returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
-=80=98struct <anonymous>=E2=80=99} was expected
-    arch/riscv/include/asm/pgtable.h:518:9: error: implicit declaration of =
-function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
- [-Werror=3Dimplicit-function-declaration]
-    arch/riscv/include/asm/pgtable.h:518:9: error: incompatible types when =
-returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
-=80=98struct <anonymous>=E2=80=99} was expected
-    arch/riscv/include/asm/pgtable.h:518:9: error: implicit declaration of =
-function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
- [-Werror=3Dimplicit-function-declaration]
-    arch/riscv/include/asm/pgtable.h:518:9: error: incompatible types when =
-returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
-=80=98struct <anonymous>=E2=80=99} was expected
-    arch/riscv/include/asm/pgtable.h:518:9: error: implicit declaration of =
-function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
- [-Werror=3Dimplicit-function-declaration]
-    arch/riscv/include/asm/pgtable.h:518:9: error: incompatible types when =
-returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
-=80=98struct <anonymous>=E2=80=99} was expected
-
-Warnings:
-    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
-]
-    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
-cpp]
-    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    cc1: some warnings being treated as errors
-    cc1: some warnings being treated as errors
-    cc1: some warnings being treated as errors
-    cc1: some warnings being treated as errors
-    cc1: some warnings being treated as errors
-    cc1: some warnings being treated as errors
-    cc1: some warnings being treated as errors
-    cc1: some warnings being treated as errors
-
----------------------------------------------------------------------------=
------
-s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-tb0219_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 sect=
-ion mismatches
-
-Errors:
-    (.text+0x190): undefined reference to `usb_hid_driver'
-    mips-linux-gnu-ld: (.text+0x194): undefined reference to `usb_hid_drive=
-r'
-
----------------------------------------------------------------------------=
------
-tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-tb0287_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 sect=
-ion mismatches
-
-Errors:
-    (.text+0x190): undefined reference to `usb_hid_driver'
-    mips-linux-gnu-ld: (.text+0x194): undefined reference to `usb_hid_drive=
-r'
-
----------------------------------------------------------------------------=
------
-tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
-matches
-
----------------------------------------------------------------------------=
------
-tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    mm/mmap_lock.c:157:20: warning: =E2=80=98get_mm_memcg_path=E2=80=99 def=
-ined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
- section mismatches
-
-Warnings:
-    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_re=
-locate_parse_slow()+0x427: stack state mismatch: cfa1=3D4+120 cfa2=3D-1+0
-    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
-py_relocations()+0x1d5: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
-ings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+x86_chromebook (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0=
- warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+x86_kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 =
-warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
+--jI8keyz6grp/JLjh
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/jberg/mac80211-next.git iosm
+head:   400a4588283d05861c0b8ab54c8ab195f7752e6c
+commit: b2913413846a522ef137f08358570f45e8f59606 [18/19] wwan: skeleton code for rtnetlink support
+config: riscv-randconfig-r024-20210526 (attached as .config)
+compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 6505c630407c5feec818f0bb1c284f9eeebf2071)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # install riscv cross compiling tool for clang build
+        # apt-get install binutils-riscv64-linux-gnu
+        # https://git.kernel.org/pub/scm/linux/kernel/git/jberg/mac80211-next.git/commit/?id=b2913413846a522ef137f08358570f45e8f59606
+        git remote add mac80211-next https://git.kernel.org/pub/scm/linux/kernel/git/jberg/mac80211-next.git
+        git fetch --no-tags mac80211-next iosm
+        git checkout b2913413846a522ef137f08358570f45e8f59606
+        # save the attached .config to linux build tree
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv 
+
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kernel test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+>> error: include/uapi/linux/wwan.h: missing "WITH Linux-syscall-note" for SPDX-License-Identifier
+   make[2]: *** [scripts/Makefile.headersinst:63: usr/include/linux/wwan.h] Error 1
+   make[2]: Target '__headers' not remade because of errors.
+   make[1]: *** [Makefile:1333: headers] Error 2
+   make[1]: Target 'headers_install' not remade because of errors.
+   make: *** [Makefile:215: __sub-make] Error 2
+   make: Target 'headers_install' not remade because of errors.
 
 ---
-For more info write to <info@kernelci.org>
+0-DAY CI Kernel Test Service, Intel Corporation
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/60af6aa1.1c69fb81.86f70.5336%40mx.google.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202105272228.h8faeeWd-lkp%40intel.com.
+
+--jI8keyz6grp/JLjh
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+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
+
+--jI8keyz6grp/JLjh--
