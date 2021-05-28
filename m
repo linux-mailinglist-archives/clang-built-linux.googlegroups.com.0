@@ -1,144 +1,139 @@
-Return-Path: <clang-built-linux+bncBCT4VV5O2QKBBSNTYWCQMGQE3TWEBQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBMNYYWCQMGQE7T2KXRI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id E02AE394818
-	for <lists+clang-built-linux@lfdr.de>; Fri, 28 May 2021 22:59:54 +0200 (CEST)
-Received: by mail-pg1-x53e.google.com with SMTP id 139-20020a6304910000b029021636f6732asf2621603pge.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 28 May 2021 13:59:54 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622235593; cv=pass;
+Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
+	by mail.lfdr.de (Postfix) with ESMTPS id F0503394826
+	for <lists+clang-built-linux@lfdr.de>; Fri, 28 May 2021 23:10:10 +0200 (CEST)
+Received: by mail-pg1-x53f.google.com with SMTP id 30-20020a630a1e0000b029021a63d9d4cdsf2650784pgk.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 28 May 2021 14:10:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622236209; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qJOZHCd/cO9+W2dFk0T6NG+LnUqDeJ/Ca516oYlCmwQDCCvxL/Q5+WfX2lArx031Co
-         JAe23L2tWU89ewaNc3uHZ/pOWZ0w09xiq+1E3j9KLEYwAzRRpqQ+MnOwmnDqA01fZaZt
-         /90qRuzzE11mfGi7BPWoyrRUBqCqKMeqDCGvGwuXa3qFrVXGNbg/lNKcEWlR+b5EN44s
-         AJ7pMG+a0hx+OphVER32MDHF+IP5Fr6gbu4R+nVlXFQwhfvNzJnLOBcHgars7mmiDGDV
-         hNS08kffJhNr4jrITsCiQHX1efEVRRsXj8hfsytN/SpfzRC/DVVABPpWAv095v24RJRp
-         e5Zg==
+        b=BeXnN06wLsQ6c6ySFi7Fog0CCg3XaYXQK1GNTZ3M8GA+ep00THs7FSzxwlEJKzB+M6
+         ouDFRH7rtXdep5wi7paiHnNWoYe4LPhjXsB7mh82iEX87MGsrOwujNiA30HfS1reske5
+         Nesnl0cCXRGAAPlJ7m2RnKeVXkKGZUJFvdKPg+sWfShavDFCXRd3jIph7exzogXZfr2x
+         A0vNgo7gnVPdSwOR2h9YpqHYyL4F+uFYiHKRLbRHCVzvdfNdMEE+vmdHt5OJiwmLN4uR
+         m61i4nTVxAEZVZeJTcIt4hbXRIiPtIfa3sCFE14NjbQrf+ziif2b8sWnNBYeO44z4qx9
+         hzGA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :references:in-reply-to:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=dSXMn4QsQx6871Q9OvXumycEnIlLXji/lFHN4xfo0MI=;
-        b=RB3sfvvbrQKFHM7N+gEvv5PgmbqJOMDUF5LMLT9t5QVO9v8MTCnEvG8MbLZ25F8V6P
-         InQo0m/WicyQPqf07VC0+eomFkhIX79wlnigyDHeWi/J2j7JbwuaI18oEYyS422y9Muh
-         JQ3T8dl5dxoSnXaYmQQYQolIeBq3hGrM9vNCgZRurQYO1ncqrdJ/CS8St6DOINLn6+8A
-         Dt17PBzjTRR2j/pjAwBI7xqMQQeVG2eHzLb6f5yVhJXL2BAy37ZJqp1TaaYhX988y7Uc
-         C0bmcNpbbjyYfYhb1GrQ4xWShDyNggRh3daFbAIY2uTarkixep6c1PR/VOPKykBvxfHm
-         VtXA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:sender:dkim-signature;
+        bh=GxKRPfFUtB0Whrvbix4Oetc+xU61Npot50IsGfbEMtE=;
+        b=lat2Cv3uPhT1sq1YDi3/Yc35f9LxawtLXMXLnqSgonwRdw8acKX5HNqtOceG3RlpCR
+         eZttA7eFC9ty9GmvRYh3gDGZA8fbpkx1oyKfNTGBWp4f5p9HhtTX/nkh1ArGI/O2MsQi
+         2+VXllNYY5HmLF61/AbOCl6v1Zmr2sZl+sM6TFoWlXjP5UDV/EHp1BzmNfrC+4MYJxm9
+         6C6VnIEJ4uoLayKiQLX5RFNTT5ONfM+dKbdICEuRc2OwHDx0MrAOdANUySUBsbQtYK70
+         sin59ouII4ir9mdwiq+9JhOCENUTks21sGN3pOaHclroBwOi1uq8mkhvYR9lB/cCCA9K
+         18cQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=oTPRquv1;
-       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=neutral (google.com: 216.40.44.150 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:in-reply-to:references:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=dSXMn4QsQx6871Q9OvXumycEnIlLXji/lFHN4xfo0MI=;
-        b=iBjWIwaYDl3QcW6YN2pxbk6ENW+MD3lNaNDruDmh94IbOkcr2oWM60/LHu1PIElJxE
-         +z/6Hq1fqCquE6teaFLlQ/wo8RiZiN0GuE2qA2XGmHDZNQ86gn1li3umOUIF3/XR5Snv
-         ULOqw4WHy2nS647MSBBKwHgSejF+t47VceUPN4XybXyZkLwgM4egmreA/IoodqNaaaDc
-         jQDEJnMdAhuhjE2QWYM7PP4i2qfd8T8YpQMnRLP8wpb34Ezn3odqOS8tnwPEvcxY468g
-         rQsZFoHcl5M+mP07TCdOLVZ4k9CCczcYH62yGo2dl1CrpsST+LkRmi7bzULaeK1SuVBh
-         qrxw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:in-reply-to:references:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=dSXMn4QsQx6871Q9OvXumycEnIlLXji/lFHN4xfo0MI=;
-        b=AtQM/F05AwuAuh9lYblymZfECdaJGYF+NLZ6rEVSY459/ALV+Veqo+6Zzinqfpk1CR
-         csIZ6Rm0hEp8onaWghLJD02mxsZwHO89oy+Im7NxVG8KNJGsTLfYUn+zHb6nTzdRlFOW
-         QKff4Cy5A7KYOnHoy3sBPgsFcEEAx5Z+PVLeJuWx9L2XjY82AFHpemZbs+a6nu2v9NnD
-         Tfve4DM8RsU1Bj2ELbSe7y0GfQ/3lvgSmlMl8uu7fKvM7xlP+oLM/kXNIDnlP6yzJoV7
-         Dc+4h/a+bPqBpgm3TtejnJYJ9mhTspBXrg8zO9vWw7LotPkFpgUKC6R82i1mW2EzXtlf
-         OMkQ==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=GxKRPfFUtB0Whrvbix4Oetc+xU61Npot50IsGfbEMtE=;
+        b=QL8eH7e2HHSE1NthRjxSuTJXyd2X6jiOvi3MButAE+5cg083e9/3ZUPVpoxRfMOb82
+         vwmWk+rgyfq5L8fEBqnuyhRX3AxaVkwUP4r3PJMOlhj+ouLQLzdmWf9FkpGfhezz1QA+
+         pRCCJlQEpAA9pWPZcvPQPqNB0ayVsrIQEQnIQVJZXuZkPJxxvIUz1Qrmix75sJHdP2Cm
+         sOOK5/Uyph94kS2tcuD/w1b9JeSInM+iercyBiJ/deGMWWuN66UU2sS/kRZlXbX9agkn
+         V2vlMQfQ/HSmRI03ZzUCkp/F3PFH0Kwhxs2yADBOFWWtdIvLUlt2+LwggH/A5+EggbmH
+         IbRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:in-reply-to:references:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version
+         :content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dSXMn4QsQx6871Q9OvXumycEnIlLXji/lFHN4xfo0MI=;
-        b=YUFFR0jrF+/LvYjaq8gVdu3+sV2MonK7H2XlvTtqsWzNbu3COJGZ92LfHjjJp2qn2U
-         ZOjYDl9Y6EKESq2JYsw7x63TI2tsMO7DMrLlCyDg0b3h5odss8QSIyLH0dA9aBN87q8s
-         J03Nv8HLXhMy8goOaAJ37ucQYbxaXUp+mhW3UWTUvIVfNjGUshXsnvH7g/bYqSbUYoGx
-         nw8MH0wPMsH0BAJoqtpzhaX1WWVVym00NPdv+25LRKa8/4nyo79EYzdzpRLpG3DuMu3r
-         sMdRYI1O4gtO/3fuMWL3Av+2dGq9B5HZphLarIoD2cJqaxJ1TaBuTBKPYR+eEINm1Cc+
-         9hlw==
+        bh=GxKRPfFUtB0Whrvbix4Oetc+xU61Npot50IsGfbEMtE=;
+        b=chhERCIYOzF/n8syDGSS6ReV0ibaYKxjVXhwE/wxwLBzSnOc57sG8MBRCLhYEuvBzb
+         tNQRXIey7VKD0eWVpPJhuqDIH52aUSds2Ehc5+NDAB4t8hVDZC99Za4e9xyUEFQX2sC4
+         HDMvEByuNij1xb1Dl/yC1r9MXVcvE58xH8uOU2vlDc2UfZLdUmiXhvHm+PO5QISxyer6
+         GxU34EbpbUoqyuODEot6hbsXbI2J5pTuInXgcAJNKIirRGUbS6GVBT2fiVecynjPRtDC
+         uF/+5YYCgnoPz6wvoeIqiwqtv6WlvvhTxhl9GlwL/894cMLEkhAgvpFFYG7F+LN9YQ0l
+         FQ+A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530rknq/3C3VAbggECwT+2CSXYlUoBRsnvzOAuKysD80ZPQsZIxt
-	lfFMMVKIQ8lP/ZujyDYq4bs=
-X-Google-Smtp-Source: ABdhPJyqVWMIfRmAOx4CzDdqyIsQPBy/g+uYe0+TKuowVK3yQP+Kvgg3FTWDa1Wr3kcgwtchkgchIw==
-X-Received: by 2002:a62:7fc5:0:b029:2de:5813:8890 with SMTP id a188-20020a627fc50000b02902de58138890mr5681534pfd.60.1622235593384;
-        Fri, 28 May 2021 13:59:53 -0700 (PDT)
+X-Gm-Message-State: AOAM5331PEUgTtBgW7aZzprIuFzrXKDJCF91PFII3V01SvOxrUNoRO1v
+	C2iKdHWKWYej8GJNT+r34UY=
+X-Google-Smtp-Source: ABdhPJz1Yu83J0Oew81FeIAKYhpiRQWzPy6kz3td3CSVbnBQanY1r/4cpwl4H6ZXEpZ7Ozi5Ffj31w==
+X-Received: by 2002:a17:90a:e388:: with SMTP id b8mr6565932pjz.128.1622236209647;
+        Fri, 28 May 2021 14:10:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:903:31d7:: with SMTP id v23ls2034466ple.9.gmail; Fri, 28
- May 2021 13:59:52 -0700 (PDT)
-X-Received: by 2002:a17:90a:1c02:: with SMTP id s2mr6363707pjs.172.1622235592682;
-        Fri, 28 May 2021 13:59:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622235592; cv=none;
+Received: by 2002:a63:5013:: with SMTP id e19ls3744428pgb.2.gmail; Fri, 28 May
+ 2021 14:10:09 -0700 (PDT)
+X-Received: by 2002:a63:6c08:: with SMTP id h8mr10835150pgc.226.1622236209107;
+        Fri, 28 May 2021 14:10:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622236209; cv=none;
         d=google.com; s=arc-20160816;
-        b=sDBh8SUtPvBpxXFcQdWdkw3wuhv09Ua+GKZzPUkPzg5a6XSiqABdqAS/GFis+pcVB3
-         wRGwIo4GSE97nALSZ8AL07o38uN7r3D1PK9bc3PtadXMx52vWTnLFBohH+sncl8EGRne
-         4VFq0SBsMDRPVi1waN0D9ziYGuKRAxXp6JXGPOHuGbVf94kJyLedTtAMMvx+Zm+OTkeE
-         XjlFaGcnF3M7SZYEQSUPxnlLSl658gOz8Q5hSKjcw/1g6P/A3AfmdzGrYVKA2S2MKYV5
-         CV4u46J18ZQ/YU4NgIhdQMKtOC+L7d82VibKb1fBvexoPwufQ7i3MSnbzWH1KCYHQJPk
-         dcVg==
+        b=h8zx9EfPi9YEgBbXLReFLH8QA1/ruxqNDx1wgk0h8O3zCmVKnooWnyyD8hqqrpXJ2k
+         9UWe7AS6ppKBSZARJudngJPmu9e+OZEiA+dCKlZ3+txq9nWPNxZ86OF3WXZ4PxKeNrgz
+         Yw8h0qqAMLvlRaB2vZg14CJrnHM+8u+PunDxAVc2eqYx55ZpFbKzz1diwlzZlnt9am7d
+         1vLs26WTJcgJFaiwJfFL5/zsCZ4DoQcHfi2R2635Y0p+mMc17ofSIDbP8OZcnRsAFrwH
+         Vq3OU073aVfoRD5Tu5ZZfSzEMRRe7phmOjyJLpNGjzYEPUocnRTBeNG3hb2ZD+BfYLFo
+         S/Cg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:references:in-reply-to
-         :mime-version:dkim-signature;
-        bh=6qvv2oQYT91e1amYp+o1mu2V/X3rorvTOJW4xfpUOHY=;
-        b=naPzilfTWf3t78OGoXvVANYhHSVSmqfRj9yWeAVkvwgifUDMqKndAu4cQYEF72dQ9k
-         ZC+/1zlGkuB4Xz21FPLxo6ApkrdlPpH5ZdGq2+nU/YhBuntIjbupHl10/cVLUmmuPNIk
-         a5nJtASop9DJnX067FmvCjE8l8feGCLinsyWOaRy5cCW2oGAu9SgMWk5KwmF/86AXeUi
-         Ly1gZz+wLpCfDrDTAfCayoqo8yDTPfi4WL+IJOiBhfZ6QGqix69l5+3QZiuku6+nkGjr
-         upQfbGQxg6M97+p/nGWZRdvso/J2R73k9t+q+A1M4tMrx3y9l3NtxKkOAbEGY9eegyoD
-         qOUw==
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=OvJNJ7Sx8yHc2xCji7KEYVjRv5OoIu+RxTe4lv2pNvg=;
+        b=wSWJQivJXxex2FSR0bWGDP2J33FMqhk8/ypfVap1giSmlwzXYPdUyG2b7A0g0UMy4S
+         BqPyuR7kScLe/d2lQ/936Wl72BW2wq/5ILgQTzwT71yLQ0H3mArypUhMTBdW3d0sVjtH
+         oLO8I/Uf+VLZHaDrXgTWlJyhQVWHpMYVFfWq7rxYlPDURy3avIEVI3o8/R6URAWlZDX9
+         No/8mNsd3wpKXvvOnW5JEhnjxes3sUjPkAZbY75x3Kvkr8Q7aMEILKhaH5FzsSI/NvbX
+         cjKUkaVbDTFqL4cW0PHclcGG/DlF5IeZbq8jkxWAXqma/xblOa7S976vx4I/zcCpjGQs
+         Fcsw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=oTPRquv1;
-       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pj1-x102c.google.com (mail-pj1-x102c.google.com. [2607:f8b0:4864:20::102c])
-        by gmr-mx.google.com with ESMTPS id j17si575205pfc.5.2021.05.28.13.59.52
+       spf=neutral (google.com: 216.40.44.150 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0150.hostedemail.com. [216.40.44.150])
+        by gmr-mx.google.com with ESMTPS id gt12si715040pjb.3.2021.05.28.14.10.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 28 May 2021 13:59:52 -0700 (PDT)
-Received-SPF: pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::102c as permitted sender) client-ip=2607:f8b0:4864:20::102c;
-Received: by mail-pj1-x102c.google.com with SMTP id g6-20020a17090adac6b029015d1a9a6f1aso7841565pjx.1
-        for <clang-built-linux@googlegroups.com>; Fri, 28 May 2021 13:59:52 -0700 (PDT)
-X-Received: by 2002:a17:90a:af8b:: with SMTP id w11mr6445458pjq.228.1622235592187;
- Fri, 28 May 2021 13:59:52 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:a17:90a:c002:0:0:0:0 with HTTP; Fri, 28 May 2021 13:59:51
- -0700 (PDT)
-In-Reply-To: <644a711e4d2639a23bfc50dffa180ad184a4acb1.camel@perches.com>
-References: <20210514135927.2926482-1-arnd@kernel.org> <7afc367b-8103-9d48-1bfe-d505d86553b9@kernel.org>
- <20210516103628.2cf899a0@jic23-huawei> <644a711e4d2639a23bfc50dffa180ad184a4acb1.camel@perches.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Fri, 28 May 2021 23:59:51 +0300
-Message-ID: <CAHp75Vc72vMbj311P3xnxh6ExxzD1=enoETj6wY8dHn+xBJ4+w@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 May 2021 14:10:08 -0700 (PDT)
+Received-SPF: neutral (google.com: 216.40.44.150 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.150;
+Received: from omf01.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay07.hostedemail.com (Postfix) with ESMTP id BA90A181D337B;
+	Fri, 28 May 2021 21:10:07 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf01.hostedemail.com (Postfix) with ESMTPA id 74EA217275;
+	Fri, 28 May 2021 21:10:05 +0000 (UTC)
+Message-ID: <fc3afc8e74ee9eda0b4eaff9a4d9ad32f1c461c4.camel@perches.com>
 Subject: Re: [PATCH] iio: si1133: fix format string warnings
-To: Joe Perches <joe@perches.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Arnd Bergmann <arnd@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, 
-	=?UTF-8?Q?Maxime_Roussin=2DB=C3=A9langer?= <maxime.roussinbelanger@gmail.com>, 
-	Jean-Francois Dagenais <jeff.dagenais@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Lars-Peter Clausen <lars@metafoo.de>, Alexandru Ardelean <alexandru.ardelean@analog.com>, 
-	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
-Content-Type: multipart/alternative; boundary="00000000000038d29c05c36a28e7"
-X-Original-Sender: andy.shevchenko@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=oTPRquv1;       spf=pass
- (google.com: domain of andy.shevchenko@gmail.com designates
- 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+From: Joe Perches <joe@perches.com>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, Nathan Chancellor
+ <nathan@kernel.org>,  Arnd Bergmann <arnd@kernel.org>, Nick Desaulniers
+ <ndesaulniers@google.com>, Maxime =?ISO-8859-1?Q?Roussin-B=E9langer?=
+ <maxime.roussinbelanger@gmail.com>, Jean-Francois Dagenais
+ <jeff.dagenais@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Lars-Peter
+ Clausen <lars@metafoo.de>, Alexandru Ardelean
+ <alexandru.ardelean@analog.com>,  "linux-iio@vger.kernel.org"
+ <linux-iio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "clang-built-linux@googlegroups.com"
+ <clang-built-linux@googlegroups.com>
+Date: Fri, 28 May 2021 14:10:04 -0700
+In-Reply-To: <CAHp75Vc72vMbj311P3xnxh6ExxzD1=enoETj6wY8dHn+xBJ4+w@mail.gmail.com>
+References: <20210514135927.2926482-1-arnd@kernel.org>
+	 <7afc367b-8103-9d48-1bfe-d505d86553b9@kernel.org>
+	 <20210516103628.2cf899a0@jic23-huawei>
+	 <644a711e4d2639a23bfc50dffa180ad184a4acb1.camel@perches.com>
+	 <CAHp75Vc72vMbj311P3xnxh6ExxzD1=enoETj6wY8dHn+xBJ4+w@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+User-Agent: Evolution 3.38.1-1
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Spam-Status: No, score=-1.40
+X-Stat-Signature: 5acgrz7aqqahef7j4xfkx1oihty81c8i
+X-Rspamd-Server: rspamout04
+X-Rspamd-Queue-Id: 74EA217275
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Session-ID: U2FsdGVkX19u0+cg/CvkDoccaPXMZBb1xXuLYIiXf/A=
+X-HE-Tag: 1622236205-755196
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.150 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,67 +146,70 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---00000000000038d29c05c36a28e7
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Fri, 2021-05-28 at 23:59 +0300, Andy Shevchenko wrote:
+> On Thursday, May 27, 2021, Joe Perches <joe@perches.com> wrote:
+> > On Sun, 2021-05-16 at 10:36 +0100, Jonathan Cameron wrote:
+> > > On Fri, 14 May 2021 10:45:02 -0700
+> > > Nathan Chancellor <nathan@kernel.org> wrote:
+> > > > On 5/14/2021 6:59 AM, Arnd Bergmann wrote:
+> > > > > From: Arnd Bergmann <arnd@arndb.de>
+> > > > >=20
+> > > > > clang complains about multiple instances of printing an integer
+> > > > > using the %hhx format string:
+> > > > >=20
+> > > > > drivers/iio/light/si1133.c:982:4: error: format specifies type
+> > 'unsigned char' but the argument has type 'unsigned int' [-Werror,-Wfor=
+mat]
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0part_id, rev_id, mfr_id);
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0^~~~~~~
+> > > > >=20
+> > > > > Print them as a normal integer instead, leaving the "#02"
+> > > > > length modifier.
+> > []
+> > > > > diff --git a/drivers/iio/light/si1133.c b/drivers/iio/light/si113=
+3.c
+> > []
+> > > > > @@ -978,11 +978,11 @@ static int si1133_validate_ids(struct iio_d=
+ev
+> > *iio_dev)
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0return err;
+> > > > >=20
+> > > > >=20
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0dev_i=
+nfo(&iio_dev->dev,
+> > > > > -          "Device ID part %#02hhx rev %#02hhx mfr %#02hhx\n",
+> > > > > +          "Device ID part %#02x rev %#02x mfr %#02x\n",
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0part_id, rev_id, mfr_id)=
+;
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (p=
+art_id !=3D SI1133_PART_ID) {
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0dev_err(&iio_dev->dev,
+> > > > > -                 "Part ID mismatch got %#02hhx, expected %#02x\n=
+",
+> > > > > +                 "Part ID mismatch got %#02x, expected %#02x\n",
+> >=20
+> > which is almost certainly wrong.
+> > the length specification includes the # which is already 2 bytes.
+> >=20
+> > Likely these should be 0x%02x
+>=20
+> What=E2=80=99s the difference (except printing 0)?
 
-On Thursday, May 27, 2021, Joe Perches <joe@perches.com> wrote:
+(assuming the argument is unsigned char/u8)
 
-> On Sun, 2021-05-16 at 10:36 +0100, Jonathan Cameron wrote:
-> > On Fri, 14 May 2021 10:45:02 -0700
-> > Nathan Chancellor <nathan@kernel.org> wrote:
-> > > On 5/14/2021 6:59 AM, Arnd Bergmann wrote:
-> > > > From: Arnd Bergmann <arnd@arndb.de>
-> > > >
-> > > > clang complains about multiple instances of printing an integer
-> > > > using the %hhx format string:
-> > > >
-> > > > drivers/iio/light/si1133.c:982:4: error: format specifies type
-> 'unsigned char' but the argument has type 'unsigned int' [-Werror,-Wforma=
-t]
-> > > >                   part_id, rev_id, mfr_id);
-> > > >                   ^~~~~~~
-> > > >
-> > > > Print them as a normal integer instead, leaving the "#02"
-> > > > length modifier.
-> []
-> > > > diff --git a/drivers/iio/light/si1133.c b/drivers/iio/light/si1133.=
-c
-> []
-> > > > @@ -978,11 +978,11 @@ static int si1133_validate_ids(struct iio_dev
-> *iio_dev)
-> > > >                   return err;
-> > > >
-> > > >
-> > > >           dev_info(&iio_dev->dev,
-> > > > -          "Device ID part %#02hhx rev %#02hhx mfr %#02hhx\n",
-> > > > +          "Device ID part %#02x rev %#02x mfr %#02x\n",
-> > > >                    part_id, rev_id, mfr_id);
-> > > >           if (part_id !=3D SI1133_PART_ID) {
-> > > >                   dev_err(&iio_dev->dev,
-> > > > -                 "Part ID mismatch got %#02hhx, expected %#02x\n",
-> > > > +                 "Part ID mismatch got %#02x, expected %#02x\n",
->
-> which is almost certainly wrong.
-> the length specification includes the # which is already 2 bytes.
->
-> Likely these should be 0x%02x
+%#02x will always emit more than the specified length (3 or 4 chars)
+values < 16 are 0x<hexdigit>, values >=3D 16 are 0x<hexdigit><hexdigit>
 
+0x%02x will always emit 4 chars
 
+It's very likely the writer didn't know the difference and assumed
+that the # did not count in the specified width.
 
-What=E2=80=99s the difference (except printing 0)?
-
-
-
->
-> > > >                           part_id, SI1133_PART_ID);
->
->
->
-
---=20
-With Best Regards,
-Andy Shevchenko
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -219,94 +217,5 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAHp75Vc72vMbj311P3xnxh6ExxzD1%3DenoETj6wY8dHn%2BxBJ4%2Bw=
-%40mail.gmail.com.
-
---00000000000038d29c05c36a28e7
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<br><br>On Thursday, May 27, 2021, Joe Perches &lt;<a href=3D"mailto:joe@pe=
-rches.com">joe@perches.com</a>&gt; wrote:<br><blockquote class=3D"gmail_quo=
-te" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"=
->On Sun, 2021-05-16 at 10:36 +0100, Jonathan Cameron wrote:<br>
-&gt; On Fri, 14 May 2021 10:45:02 -0700<br>
-&gt; Nathan Chancellor &lt;<a href=3D"mailto:nathan@kernel.org">nathan@kern=
-el.org</a>&gt; wrote:<br>
-&gt; &gt; On 5/14/2021 6:59 AM, Arnd Bergmann wrote:<br>
-&gt; &gt; &gt; From: Arnd Bergmann &lt;<a href=3D"mailto:arnd@arndb.de">arn=
-d@arndb.de</a>&gt;<br>
-&gt; &gt; &gt; <br>
-&gt; &gt; &gt; clang complains about multiple instances of printing an inte=
-ger<br>
-&gt; &gt; &gt; using the %hhx format string:<br>
-&gt; &gt; &gt; <br>
-&gt; &gt; &gt; drivers/iio/light/si1133.c:<wbr>982:4: error: format specifi=
-es type &#39;unsigned char&#39; but the argument has type &#39;unsigned int=
-&#39; [-Werror,-Wformat]<br>
-&gt; &gt; &gt; =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0part_id, rev_id, mfr_id);<b=
-r>
-&gt; &gt; &gt; =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0^~~~~~~<br>
-&gt; &gt; &gt; <br>
-&gt; &gt; &gt; Print them as a normal integer instead, leaving the &quot;#0=
-2&quot;<br>
-&gt; &gt; &gt; length modifier.<br>
-[]<br>
-&gt; &gt; &gt; diff --git a/drivers/iio/light/si1133.c b/drivers/iio/light/=
-si1133.c<br>
-[]<br>
-&gt; &gt; &gt; @@ -978,11 +978,11 @@ static int si1133_validate_ids(struct =
-iio_dev *iio_dev)<br>
-&gt; &gt; &gt; =C2=A0=C2=A0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 return err;<br>
-&gt; &gt; &gt; =C2=A0=C2=A0<br>
-&gt; &gt; &gt; <br>
-&gt; &gt; &gt; =C2=A0=C2=A0=C2=A0 =C2=A0 =C2=A0 =C2=A0 dev_info(&amp;iio_de=
-v-&gt;dev,<br>
-&gt; &gt; &gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 &quot;Device ID part %#0=
-2hhx rev %#02hhx mfr %#02hhx\n&quot;,<br>
-&gt; &gt; &gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 &quot;Device ID part %#0=
-2x rev %#02x mfr %#02x\n&quot;,<br>
-&gt; &gt; &gt; =C2=A0=C2=A0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0part_id, rev_id, mfr_id);<br>
-&gt; &gt; &gt; =C2=A0=C2=A0=C2=A0 =C2=A0 =C2=A0 =C2=A0 if (part_id !=3D SI1=
-133_PART_ID) {<br>
-&gt; &gt; &gt; =C2=A0=C2=A0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 dev_err(&amp;iio_dev-&gt;dev,<br>
-&gt; &gt; &gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0&quot;Part ID mismatch got %#02hhx, expected %#02x\n&quot;,<br>
-&gt; &gt; &gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0&quot;Part ID mismatch got %#02x, expected %#02x\n&quot;,<br>
-<br>
-which is almost certainly wrong.<br>
-the length specification includes the # which is already 2 bytes.<br>
-<br>
-Likely these should be 0x%02x</blockquote><div><br></div><div><br></div><di=
-v>What=E2=80=99s the difference (except printing 0)?</div><div><br></div><d=
-iv>=C2=A0</div><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex=
-;border-left:1px #ccc solid;padding-left:1ex">
-<br>
-&gt; &gt; &gt; =C2=A0=C2=A0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 part_id, SI1133_PART_ID);<br>
-<br>
-<br>
-</blockquote><br><br>-- <br>With Best Regards,<br>Andy Shevchenko<br><br><b=
-r>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CAHp75Vc72vMbj311P3xnxh6ExxzD1%3DenoETj6wY8dHn=
-%2BxBJ4%2Bw%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https:=
-//groups.google.com/d/msgid/clang-built-linux/CAHp75Vc72vMbj311P3xnxh6ExxzD=
-1%3DenoETj6wY8dHn%2BxBJ4%2Bw%40mail.gmail.com</a>.<br />
-
---00000000000038d29c05c36a28e7--
+clang-built-linux/fc3afc8e74ee9eda0b4eaff9a4d9ad32f1c461c4.camel%40perches.=
+com.
