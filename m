@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCQ45GVI5EFBBHGAZCCQMGQEPPHEPWQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQ45GVI5EFBBHWAZCCQMGQESYXWUFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id D5DA6394BE0
-	for <lists+clang-built-linux@lfdr.de>; Sat, 29 May 2021 13:06:05 +0200 (CEST)
-Received: by mail-qv1-xf3e.google.com with SMTP id w14-20020a056214012eb02901f3a4388530sf4723914qvs.17
-        for <lists+clang-built-linux@lfdr.de>; Sat, 29 May 2021 04:06:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622286364; cv=pass;
+Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id 272A5394BE2
+	for <lists+clang-built-linux@lfdr.de>; Sat, 29 May 2021 13:06:08 +0200 (CEST)
+Received: by mail-pg1-x538.google.com with SMTP id 28-20020a63135c0000b029021b78388f01sf3540498pgt.23
+        for <lists+clang-built-linux@lfdr.de>; Sat, 29 May 2021 04:06:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622286366; cv=pass;
         d=google.com; s=arc-20160816;
-        b=i1hx6MOxJJDtelMijz31LcPs2v1AosgFDtnWGU9rLbt5Zghznmsb5hpwxFaSLOg8lO
-         /EYxgaS7ORvPqckfdyUlG5idht9F4hwB7FzT1iuhkV5xDDpQcdaNJrCg/391eztvI6x3
-         ir7/oqGzCt4a5fUikFj2zF7o6EoKGL7JVR8ZZmfcTU3ViD8P7FKJb4OcKC5MCuNGny8R
-         uJuX+ixKwqyVO+G10Qk9qCbUlQ+ptq8dYtyZsNixB82UE0UymCWUIk5jhLhm1rPCNf+W
-         rGpTl2tetP/apXkP6x/TONUysfjmx3+ye0SWtXesme9TaioqjC6uI05kqhnySPH+d5bc
-         3iyg==
+        b=ahgjW7KhtVd2C9IY6Hs7uis3PpQB7IkdFbpan59iOt+tWwz4XMPEqzL8IGrfDnPUvZ
+         zQUqx0vs6UqiyqL0YWK/HNfqBi0zYdCNluqrFVwritHe0MOBeBSZveNFQFkWjec7M7fZ
+         1RyplsbTRDuELkWVQOUKYyVyiBoC5BhS2M39vsIXe5RvKQQNNflJ7d9UtuCyrucqOETd
+         49ysr4TpFlNKMi4iBoFVSikycrOBwnGCmNAGQDb6jGFrUq2/KT5XGtJO1k6yJKZmCwY1
+         nWjOzO7cQ1fMJq16IlS7zIyyxrKlFATK2zVY2J5GOvuQDm9a+wS6Wz2s7OSJD13lPXVS
+         zB7w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature
          :dkim-signature;
-        bh=IeQJMhOrkHbXIuIHoulDItNZoh+le1944Cn6B1mSwSs=;
-        b=UUEqdeKqjCZnF80snzDu8bSY+YQJ/1Qcx9M73wDrII073I5SbVIL2dFQVzs0jzg813
-         1GE7Lujnr/Yv8RNeRElTskRAcqHB008dofc4dg3L16K86FFqNmKC4/1URj6aJqg0vAc0
-         uam954lTTkREsJqqHeZWMGG8QTAGnAQKL7O7GxXzoRg+r9ks7QL68jREA+Pr/taZ8wvg
-         wNzN0V76J0DnEPVo1xli6F/qyzuNAUBqhrrhSTTipvVXbXg+VkFc3TgT2N93/yNz7t45
-         +1XUvLMnF6KHcq3pswyoupj35A3hssxox6xI369EaWaHKA65Fu0z13Htosx9DELOBM0I
-         535w==
+        bh=S2wNbG6cjcnOlCXiq4e6vYs96g2wRh3Bm6/TljR8reU=;
+        b=Pc7Qi5g4KOV4zhxE2jgVoLDqGJ48bd8nDACrfosZa3JyvWzbiVxDkm9VzigGEW7gD7
+         i1AbtfdMPKU/wQO/Qh2F7MEQlcAsvekAvKi+40fZ/ZRbNQkrXksbmWW8NtnHKDcEcx56
+         DlqE9cUVabWJShQRFG0aPu9zvxZdhZlL6G0cPyY2jWyIlT8X9IvtC7WJxpsy+txHzGo2
+         kfFUaX/+w8LhFgyoQJo6Zz5jc81HIyd8E0DbcwOK6abRzLvSvCWb+Qlzx4ZeNRSr0LKn
+         N07GqksXC91mdxb5Hqb7Fe09tp6uOc7XfsiR5CcPiYkbgBM6yJL0TZppfC2Cm2qjNWHe
+         BsaQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=GBm7RPfW;
-       spf=pass (google.com: domain of pgwipeout@gmail.com designates 2607:f8b0:4864:20::f32 as permitted sender) smtp.mailfrom=pgwipeout@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=N5ZoH3UL;
+       spf=pass (google.com: domain of pgwipeout@gmail.com designates 2607:f8b0:4864:20::72a as permitted sender) smtp.mailfrom=pgwipeout@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IeQJMhOrkHbXIuIHoulDItNZoh+le1944Cn6B1mSwSs=;
-        b=jnwpCptlxidE4cpTvSazdmtDCkFPWfdliWR2o3InEMGTyOI2aaHGfJ8F2H9ILpm025
-         EzscQVRHGCTsWXAqeXwjomQZcJ2z1tT0EaYrTHnkP0CdkpbpnU7bV3Gr5AWgm4Vj2XSr
-         HvkGDFVu9NLPViuaS5U0jUGVO3xaVluNP7v9VdktmTx1nrdp+gzGLnRULsIWKOkwmqxL
-         ls7zV5oZgmaHbBdBmS2RdF8YR7kv1OfKOZbgHjHtZWK3MLgRrKSaG76BtIhkgdQVmIx6
-         Pe0IjQnu6J5OKRtLZmktci7NygEcbab8PyFFrGPtN/SnbOHGMGP2c/DWwgxw5mejhhi+
-         hpdg==
+        bh=S2wNbG6cjcnOlCXiq4e6vYs96g2wRh3Bm6/TljR8reU=;
+        b=H5XfSQBUSwrlr1+n+tKmK70wdJWrrJS9TS5KBPWtgn6h0cobP35muU/isAtN1Mt8l7
+         vUiyepaWqk96vyDvQ/pxuqbufo8KWnjbZLcGhgg8AB41KXcriQSVtQ4E10bB9k9zDA4C
+         GXIrREZeMvkWvmKUyE1DrqhVg4pAMPRJgCiJsSZPnVA8pUA30AJf1UOH+Q0C14o99yHq
+         nB4TtzRPLqfXy2y0IRoENY1ujIoAfVQEYR1jC135eQezN50Erd5UBME194eiXZHYD5B7
+         49yVUBsI7JcrQyPGgjulNwourDKvlAbpCCBmIdjUsLur91G+RH5fC7k4eip8U3hA1Ec4
+         CnqQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IeQJMhOrkHbXIuIHoulDItNZoh+le1944Cn6B1mSwSs=;
-        b=acjHHmmyovKYa0gQFXUtOcFe+dtdCloiWeGRBx3Y1G7lranSL/rw5o/HWZ6Mvwbq+A
-         CyMxanLbrvf8+0RntQhLYJ3RVH3/72dADjBAeYaN2nCmBuzqgX0EtFMyxOcS87ESZRm3
-         BNkFDqAnBL5qvmDT315O0ms4nj7nQTpsUI3zxVxkptITfv3YgKPfMQYdDD0tcSNESqIe
-         Yp+OYaZ8aVMyS6ExbpiRNjED4er3b3i7NyDwd1BdE9SKHMCiE1NZUhIWWpuNlZ+fIxuZ
-         fPDg8HEafSveC/eAeHz6N5s11MDKazZVAuvCwk7FYnzr5htpbNlKo340mm63sJNESUfJ
-         q56Q==
+        bh=S2wNbG6cjcnOlCXiq4e6vYs96g2wRh3Bm6/TljR8reU=;
+        b=bv3HsT1gIf/9qNE6NSfMsFD8N/03YruzuDtx5HS2S+93CNY0JivHCeNYUhB3focoRJ
+         bFqou4xrhkUdV8Kvg92Smwlb/X4Idb7PNNmNEunIzmHpDrlZKC4lBaCan8Vr7dFrvk1F
+         0XzFY6ZdqI/2Matf6t/mgZ9QlgycmPfrrrDFWQFcHreC6IoKGyx8cz04bTKjbRKGJ2dG
+         14KwjaUlwIMDc8bY8H+VaS+N9gy4eRKNwmv975/1Nct0qvaYm8MHrJcrfLP2STQ9hO8v
+         XBowuFf/2x8QQs/Z9F67QlZh2IjtqYnV7wYzccxpSZl5U7ImddYX0Ne0pGQeX3IlfWHv
+         pFQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -63,60 +63,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IeQJMhOrkHbXIuIHoulDItNZoh+le1944Cn6B1mSwSs=;
-        b=U1OBq1Hj4m0xFAJQQuFwUkp9LXmp7QXCgj0YfuhVUdBfkDVxntFcZjh/ATioE+TyHL
-         hNHxnkbCoeJHxaS0LESFneYyregpgRG72DdIq69VjUw0Gf1AITLFQm2R7Kyejv07I5Ka
-         ncrGJLZgIGuk4sj3d4NZTzjT+OK8GNy8jGLOFr3+qvJjY4Ak/+lnqPQtL76n956/bI+Q
-         PnhzLbx+uQDH7d2AGiI3uNn2JLkP1phR3BxSYvMkRhwBFbJzhmx/ktTcJ/9RH82NmTVl
-         kBs0G2SH/PW2i0igFVRZ0sWWwpcnwBtobTUM+LMjDf0QbcAGtn9stsijwtBeg6ux8ZjR
-         5sTg==
+        bh=S2wNbG6cjcnOlCXiq4e6vYs96g2wRh3Bm6/TljR8reU=;
+        b=LnGdnZZrthmRfnJS80YHNJ1RJpZylyzmUKbBb747s7f25AIsAhaWGufMLi0WHGLMez
+         K3w9oj3XIuk9NnapOTIz6oqpptHMOD3i5xBF4+dYN9PyjCYLHnzXaxkn0sWKSdrS8kWE
+         4BFk5b4JjmC2VKlPDlkxwiBKyKpT3SE+BVd1d1uOxke8eSQ8b686NlZdObieShnThuax
+         B39+KBMD8b/xWVS96mD4heo1wcxFjWR+t76p0bg1pYysMaivyt06PLIvh8Rz7MHAB3ff
+         T/UOUrQ/D1J22OM5gDtAmiJZl9uIV3RaSajmlamoSiCBkEQVI0BwEfYfZUoR7mRNcR0C
+         ofsw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533FNAjkXeD7DKiqVqqwt6860RNMhP7nvxyUH0r1sWlXVs4xpeBG
-	K7QV/KDvNxLcoxEbYlJG2y8=
-X-Google-Smtp-Source: ABdhPJwZXMIYX7lgld7jZdwGb6kC1Ts6sIs/OWzp+X6An3HZtBjVZfnQG2/0IAi8xMEC11yWqI+ezQ==
-X-Received: by 2002:a05:620a:2093:: with SMTP id e19mr8034456qka.247.1622286364730;
-        Sat, 29 May 2021 04:06:04 -0700 (PDT)
+X-Gm-Message-State: AOAM532Uffv6WIkx1oEJyfZTWJPuX+NOa3MnLjHUo2pa8wK/kfPqXdsB
+	iWmf/0yo/1gQLpEzklULIy4=
+X-Google-Smtp-Source: ABdhPJz3D9IuOD0F4uZCkwEZpRFa8k9JZd1r01uCb81ZFbUJRXqAu1FMOxXKTLjZMkeK4LmMzza/HA==
+X-Received: by 2002:a63:1559:: with SMTP id 25mr13742182pgv.384.1622286366476;
+        Sat, 29 May 2021 04:06:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:3d51:: with SMTP id u17ls4295200qtf.10.gmail; Sat, 29
- May 2021 04:06:04 -0700 (PDT)
-X-Received: by 2002:ac8:7f42:: with SMTP id g2mr7181024qtk.73.1622286364309;
-        Sat, 29 May 2021 04:06:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622286364; cv=none;
+Received: by 2002:a62:5209:: with SMTP id g9ls4157604pfb.3.gmail; Sat, 29 May
+ 2021 04:06:05 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1487:b029:2d8:d602:c4 with SMTP id v7-20020a056a001487b02902d8d60200c4mr8195783pfu.23.1622286365522;
+        Sat, 29 May 2021 04:06:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622286365; cv=none;
         d=google.com; s=arc-20160816;
-        b=RPH+9uX7PrXCNwqRUDpaJ8aGPiwuLbs0oL9spH5EesEM+RSlmh17nEiSuTYalINmI+
-         4+d1nOOQ7tRa38gWl71Sjmqx4hFrciBVc5dWLE/vOul6gop2TowUj6q8YWGwExY9ZrN1
-         vF626zwX2OUZc+52AB1hoOy+fG7l3aM6nIEH8+urGs8PuLDwMIPCHou+eK1rOxEGUTty
-         jKzRfCpb9fy25SHKVamp/CbIW4TRzvOobgsGGqCd1jWOJwATZnRwQzp1FU6u2kHx/3r3
-         yrnicAFhdi74cC4t/dYuTxCKp3NU20Hx51P8IipVWgMdFZbMRzf4bUR1gB52sru+GMz3
-         Nkew==
+        b=IlDnXevS8bjX+fc5Ek91y6VHQqORa5axenqRgz3RV4Z75SXTVKFXBczAJxh29tInJJ
+         B+5hZLZIBU//0VeFHrkTaaA3nv0114K1wGq5dl2xzjYkuxf1Sqg35uLkvp/z+rSjf2ny
+         haK4FmFtQkhY8wDbPwHPNMy6DPuE36ir20Tx7HiNQZZi3H6kwyZ8xZjtEPcLc8p6oyOw
+         dsdJxHmwJabisE7XSd2DJL5ufxvkMlSR+Ave/HH7xap+OF1xIHxZ+pB+e4JEGZC2QFbj
+         LAzxhpEUCkIxDYwkwblu8TJge/PiplV37b5uKMmzc1vi9bWMKh1knI9CE9kAVNXFA/el
+         VwuA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=BHAPU9WEhe/IzLMZhMUy9J1dZ6fQXj5w6gD2AFHDUxk=;
-        b=XeWdvVLd35pivzXGR+yKr/4VPsva+PEvlfxYjEGaYT5/YHav+4sjYaFP8ve6QLehlR
-         kDJ+tiBdl+QVRSo8Dw6LzRYFRatNAJcRgkMoFzwL+AL9r8lb/xJyKHTH1FFqs6j4513K
-         Yq8sRhSzXA0RY8YNOB3mZ/U8XWJ+Fqw+aXr5Tvp5HYOdM4Y3AWcOKh7JM/NkN9rfs0i9
-         el5pdDn3N6VHxroTcEdXMeoqb43QuxboIczrexWp6jU6CSK0zoiwdrwom16uoBAD2FgY
-         OV5IKOTwrvvgMhac/ACcDPxapiFtEDrNoCK8LescPSYsAAqyUqTvyXN4kFrVin20R+La
-         Eyrg==
+        bh=qK+54IGHwuQkuGGrspkW6kXX3D+Ib9Q7t9lsF0kQMyQ=;
+        b=S/dn8+/93RqgrD8SJkmPToE6vp7ct05CyEHtZaPXbeFIoB2xU5VO+w94/vJ/nS6o5U
+         hvsdGNdUscj1TNb+t4BVtACSFtYjtxTCz/GIo1dTy1yWCwGw3k1X5tt4xc788FeDYcMG
+         kSJlvFYCrD1R3nV9HCslEWfvqV5KddWcXutmCr7F2C4bUFqfzMZFejxhwfnhCaFxT9Nh
+         smNyDx2aDsdNiWjjkr6+DWzR8vJWWlpDoDVYQifqIl3zmaB+OL1PdWIIiPuyehuu5ORP
+         zM1NY+pcQiVFgYNSSBzyubOVv4nNG5KMp2eWOZKgPx8/skZE6SrsfXMmQNonpcLi8OY4
+         JVdw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=GBm7RPfW;
-       spf=pass (google.com: domain of pgwipeout@gmail.com designates 2607:f8b0:4864:20::f32 as permitted sender) smtp.mailfrom=pgwipeout@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=N5ZoH3UL;
+       spf=pass (google.com: domain of pgwipeout@gmail.com designates 2607:f8b0:4864:20::72a as permitted sender) smtp.mailfrom=pgwipeout@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qv1-xf32.google.com (mail-qv1-xf32.google.com. [2607:f8b0:4864:20::f32])
-        by gmr-mx.google.com with ESMTPS id y24si789111qtm.0.2021.05.29.04.06.04
+Received: from mail-qk1-x72a.google.com (mail-qk1-x72a.google.com. [2607:f8b0:4864:20::72a])
+        by gmr-mx.google.com with ESMTPS id hk5si796873pjb.1.2021.05.29.04.06.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 29 May 2021 04:06:04 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pgwipeout@gmail.com designates 2607:f8b0:4864:20::f32 as permitted sender) client-ip=2607:f8b0:4864:20::f32;
-Received: by mail-qv1-xf32.google.com with SMTP id k2so3210603qvc.5
-        for <clang-built-linux@googlegroups.com>; Sat, 29 May 2021 04:06:04 -0700 (PDT)
-X-Received: by 2002:a0c:e40e:: with SMTP id o14mr8188188qvl.30.1622286364041;
+        Sat, 29 May 2021 04:06:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pgwipeout@gmail.com designates 2607:f8b0:4864:20::72a as permitted sender) client-ip=2607:f8b0:4864:20::72a;
+Received: by mail-qk1-x72a.google.com with SMTP id q10so6678291qkc.5
+        for <clang-built-linux@googlegroups.com>; Sat, 29 May 2021 04:06:05 -0700 (PDT)
+X-Received: by 2002:a37:5d46:: with SMTP id r67mr7738243qkb.72.1622286364728;
         Sat, 29 May 2021 04:06:04 -0700 (PDT)
 Received: from master-laptop.sparksnet ([2601:153:980:85b1:5af:2aab:d2d5:7c9a])
-        by smtp.gmail.com with ESMTPSA id t137sm5328991qke.50.2021.05.29.04.06.03
+        by smtp.gmail.com with ESMTPSA id t137sm5328991qke.50.2021.05.29.04.06.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 May 2021 04:06:03 -0700 (PDT)
+        Sat, 29 May 2021 04:06:04 -0700 (PDT)
 From: Peter Geis <pgwipeout@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Heiner Kallweit <hkallweit1@gmail.com>,
@@ -129,17 +129,17 @@ Cc: netdev@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Peter Geis <pgwipeout@gmail.com>,
 	kernel test robot <lkp@intel.com>
-Subject: [PATCH v3 1/2] net: phy: fix yt8511 clang uninitialized variable warning
-Date: Sat, 29 May 2021 07:05:55 -0400
-Message-Id: <20210529110556.202531-2-pgwipeout@gmail.com>
+Subject: [PATCH v3 2/2] net: phy: abort loading yt8511 driver in unsupported modes
+Date: Sat, 29 May 2021 07:05:56 -0400
+Message-Id: <20210529110556.202531-3-pgwipeout@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210529110556.202531-1-pgwipeout@gmail.com>
 References: <20210529110556.202531-1-pgwipeout@gmail.com>
 MIME-Version: 1.0
 X-Original-Sender: pgwipeout@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=GBm7RPfW;       spf=pass
- (google.com: domain of pgwipeout@gmail.com designates 2607:f8b0:4864:20::f32
+ header.i=@gmail.com header.s=20161025 header.b=N5ZoH3UL;       spf=pass
+ (google.com: domain of pgwipeout@gmail.com designates 2607:f8b0:4864:20::72a
  as permitted sender) smtp.mailfrom=pgwipeout@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
@@ -155,38 +155,72 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-clang doesn't preinitialize variables. If phy_select_page failed and
-returned an error, phy_restore_page would be called with `ret` being
+While investigating the clang `ge` uninitialized variable report, it was
+discovered the default switch would have unintended consequences. Due to
+the switch to __phy_modify, the driver would modify the ID values in the
+default scenario.
+
+Fix this by promoting the interface mode switch and aborting when the
+mode is not a supported RGMII mode.
+
+This prevents the `ge` and `fe` variables from ever being used
 uninitialized.
-Even though phy_restore_page won't use `ret` in this scenario,
-initialize `ret` to silence the warning.
 
 Fixes: 48e8c6f1612b ("net: phy: add driver for Motorcomm yt8511 phy")
 Reported-by: kernel test robot <lkp@intel.com>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Signed-off-by: Peter Geis <pgwipeout@gmail.com>
 ---
- drivers/net/phy/motorcomm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/phy/motorcomm.c | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
-index 796b68f4b499..68cd19540c67 100644
+index 68cd19540c67..7e6ac2c5e27e 100644
 --- a/drivers/net/phy/motorcomm.c
 +++ b/drivers/net/phy/motorcomm.c
-@@ -50,8 +50,8 @@ static int yt8511_write_page(struct phy_device *phydev, int page)
- 
- static int yt8511_config_init(struct phy_device *phydev)
- {
-+	int oldpage, ret = 0;
+@@ -53,15 +53,10 @@ static int yt8511_config_init(struct phy_device *phydev)
+ 	int oldpage, ret = 0;
  	unsigned int ge, fe;
--	int ret, oldpage;
  
- 	/* set clock mode to 125mhz */
+-	/* set clock mode to 125mhz */
  	oldpage = phy_select_page(phydev, YT8511_EXT_CLK_GATE);
+ 	if (oldpage < 0)
+ 		goto err_restore_page;
+ 
+-	ret = __phy_modify(phydev, YT8511_PAGE, 0, YT8511_CLK_125M);
+-	if (ret < 0)
+-		goto err_restore_page;
+-
+ 	/* set rgmii delay mode */
+ 	switch (phydev->interface) {
+ 	case PHY_INTERFACE_MODE_RGMII:
+@@ -80,14 +75,20 @@ static int yt8511_config_init(struct phy_device *phydev)
+ 		ge = YT8511_DELAY_RX | YT8511_DELAY_GE_TX_EN;
+ 		fe = YT8511_DELAY_FE_TX_EN;
+ 		break;
+-	default: /* leave everything alone in other modes */
+-		break;
++	default: /* do not support other modes */
++		ret = -EOPNOTSUPP;
++		goto err_restore_page;
+ 	}
+ 
+ 	ret = __phy_modify(phydev, YT8511_PAGE, (YT8511_DELAY_RX | YT8511_DELAY_GE_TX_EN), ge);
+ 	if (ret < 0)
+ 		goto err_restore_page;
+ 
++	/* set clock mode to 125mhz */
++	ret = __phy_modify(phydev, YT8511_PAGE, 0, YT8511_CLK_125M);
++	if (ret < 0)
++		goto err_restore_page;
++
+ 	/* fast ethernet delay is in a separate page */
+ 	ret = __phy_write(phydev, YT8511_PAGE_SELECT, YT8511_EXT_DELAY_DRIVE);
+ 	if (ret < 0)
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210529110556.202531-2-pgwipeout%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210529110556.202531-3-pgwipeout%40gmail.com.
