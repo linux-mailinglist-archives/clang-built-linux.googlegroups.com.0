@@ -1,123 +1,134 @@
-Return-Path: <clang-built-linux+bncBCA6RCEUQQFBBIUY2OCQMGQETMFBKAA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUO3AHUWUIRBV5H2OCQMGQEVAHJPSQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x437.google.com (mail-wr1-x437.google.com [IPv6:2a00:1450:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id AA9C63959D9
-	for <lists+clang-built-linux@lfdr.de>; Mon, 31 May 2021 13:44:34 +0200 (CEST)
-Received: by mail-wr1-x437.google.com with SMTP id k25-20020a5d52590000b0290114dee5b660sf2174145wrc.16
-        for <lists+clang-built-linux@lfdr.de>; Mon, 31 May 2021 04:44:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622461474; cv=pass;
+Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1F52E395A47
+	for <lists+clang-built-linux@lfdr.de>; Mon, 31 May 2021 14:17:29 +0200 (CEST)
+Received: by mail-yb1-xb3b.google.com with SMTP id u7-20020a259b470000b02904dca50820c2sf13528213ybo.11
+        for <lists+clang-built-linux@lfdr.de>; Mon, 31 May 2021 05:17:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622463448; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pymdKFcBW3DAvHiCpkqdB0plzXpDm3L5pTkssEbM+ZOOBk34upNc4h8Jz6ZXxjBx8A
-         fyUXA+vWNL1N0U3jkUrAzIuwq7hU/uP+HiwMcixrcc0zYQeq27UaHP/307siiB77g9vM
-         ABt//BFFVahFfmZWx034q4JQKV5B7y1JMRwyxt/Kr8xaRiJYduh6dnkr7xSJB39Bq0fP
-         19yvHK0sKZMMIKt5/7guGxNcelWGHMNzqSYMOWszaaNJMpHuCFA5ehdXmrjeDzZ6NZLE
-         yBzOn9e8Mx/iar2G8V92Rvvq4XlTaXei2oKHQOs6Z8fRylu8zQtQofPHc4QlXkFDZCKG
-         xd5g==
+        b=ZZP6W7cYQAHxEuMXR9aYAzBPlkvGya29/bsjlMVQWNpEoqF6z8+ewUSICr27C5vUOL
+         G6qIc/l+rTQmFYhQXvrZjJW5Na5jQq2dCpXt5ClqnRDgUZXvGYIrAzK0C8ErD/rzOXb0
+         ee3PRYgW5Xr6U9ngzb/500ywaU9MJrCih0HW2I9o6reX3DPk+Yb5TSk94ehDNSRPWKI2
+         WXf+tPXA3M8AruXxNgZ+EsbZqTSE8G20C5Gyl05CnDvFTkFEnpLDybsEuUgAzxdecFTw
+         7V7Ac9Se9HmCdmZ9O8TIo4MZLWr5v0sFPidycq33UfLNwIrHEaya95J4DERzSrjnZHij
+         5PQg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=v+0kKQ5xSc6rJ+ri85+aeVytV1bDzRVnqfYT64/RbZk=;
-        b=0n8CtUGjrRVDE/c9eOKX6YH/GpNcd30uxxCZhcK6xDv7anY7LEl8Ucq2idA9LyHn1F
-         pHiIWYobpYKrUHwPFU6+9pKtoVE74KUkSfn8S4bO1N8uDaTzSvfM2GC+NXMM+0cTz78X
-         TKbvxs61BiOfvyxQaP8BnSnwLBNENTl2JdSQIAkgG8Rv3/2lre6wUC8QODGkA2OxV9ey
-         1yp40FClhTvcHqaNPvkZ510Zn+hMrTINi9Zqh+YVbMYggpbAcVuxs6vgN3903InSE385
-         Ir8YLjWYoinmPK1iWqCUOQQpKvCinQQiBzmyz8iZg0e0DpF5H/vwsAycHnJEZY4HrFDn
-         Rz/A==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=g33TC3EzGbvu/FbuUflEleAncTCO3bcpDhvdk90yNuA=;
+        b=rBhzAuRhUaSoShHVgAFWUVnSvFnSSKaxXrksVVDEQglHeJv/2OIZ/F18FBMrEJBLWH
+         rmqY2PoWPhK4iLbX/Jny1p9JfzbsNMIPeAywKdwoaY9ZsRKLq3c11EcFvhHyesDpardq
+         QHfFqvw8IIVIze6ESZRbsj8xI8esjlavuHlVSUb45xuPaESDbExlqSAvYuPfney3uR4n
+         XeE2d/54sb8Mcq2IUaeeGesBWi3o9GtFIX52sE7amtnz+yzTduWIw7DyttMJ1e/84Z2m
+         uvsuuZZivm8fU4FwiVLare7zPuB5hOaE00VorLfHwvYWSi9/6LDtKrCl40GK2sKu1cDt
+         gVaw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ionos.com header.s=google header.b=CaGMSsuQ;
-       spf=pass (google.com: domain of jinpu.wang@ionos.com designates 2a00:1450:4864:20::636 as permitted sender) smtp.mailfrom=jinpu.wang@ionos.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ionos.com
+       dkim=pass header.i=@ziepe.ca header.s=google header.b=iWnUCg71;
+       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::731 as permitted sender) smtp.mailfrom=jgg@ziepe.ca
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=v+0kKQ5xSc6rJ+ri85+aeVytV1bDzRVnqfYT64/RbZk=;
-        b=HWMZ9nF0vDRxhHZnhOaEoVUxMn+5fDNt+j37O4yQgsRnRzQWMd2ecH6P4IFV8P4avV
-         Rb0b4F6cwr9t79UybcHnThcuk/Vu5Gg141v1OwmcRXbTC879HX16yaxqSXtiX57YnCNJ
-         fULHUWWzZn4UMheheM/5OsQxIxb5kgIZKLgVqN9eOWVmPRv/PPcOJHllpC2h32MrvZFn
-         U2QeUMQNPFxMBTa1XkYjalpFRnGFSXGqhjHx+KA/HW1C6HMVWFxIWZgavgCODzxWZzTe
-         ZZJqSe8aVtEaszyhNeXn6g1/kgDjhRdU0VFtgVQKkmmf7SWm10ySD0eJGjQPooPf+lnJ
-         /aBg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=g33TC3EzGbvu/FbuUflEleAncTCO3bcpDhvdk90yNuA=;
+        b=DvJQIuSDJKUrIRlKhAVky4zGiwodXQbnSEclGTEab4T4FzierBYLZ598DRhayBVp2M
+         Rz3ckDD+LDOwY2KELSdePq1SErZCuQOHW21TCg/GBFZG0cGJCt11LzC2FDnci5yENN9U
+         3xjSHFD/HwgRDML5n0YU8XhY8GABcxpEtYxse+IeEgKn2nIEIKLCRtCUirArJrl6Ru7P
+         LakJCuMBTe1CuvschBs/LfCI+KOdki+rq4RloV6kqJP+aGTzX7MCB+ZD2iZW74oJdTxb
+         B/ZG6NlYIys6D/MPuJIMIQBXlH4o0HmOnyCdhBUa9TV1w5MU0z9bU2rhuJCt5BkC/Uih
+         S6NQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=v+0kKQ5xSc6rJ+ri85+aeVytV1bDzRVnqfYT64/RbZk=;
-        b=oiQHOIIHJEMma3j6PGIS758gsQYPLzlGK1y1YPntz83Rtv/IKWunHQKeh5bcreOznw
-         OfcCrx3A8LEkDE4fDs3Ldn74sio1gqWCv6oD/uf+7CtIQprtfchwVoxlG9IhQHfTHS2Q
-         Rzk9NP+FLEan7ADFi33B8XOoDSetTvGgBrynR6tbIe+7P3NUQecWa5RERj+RfFsoIsWf
-         GMdDCEFlqSnOfWjaqh+sVVGysWKw4EZKQX3EfvzMyQSz0PpWgwVQN03L8Wm7nvraUHdN
-         NP8jngzL/ohukhHJRh0A6/Kb1bzWA/Ox/fxelitv2RdINYWNoEHwidU3TYt4VhZg4kIc
-         6A1g==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=g33TC3EzGbvu/FbuUflEleAncTCO3bcpDhvdk90yNuA=;
+        b=oq50RfP7hikRVe/Z+fS8W0nMcYgT2JyaVMVc6RjcENr+RuJ8iHdO/QQKcBchmPA4Ir
+         Kf3BphPzeZmjOYXFx0Q+O6Uy36KJp8ybt+XcVvopfT/9ab09mrl/FIJ5TGI2/XUlqrc0
+         eRQ7sXIuVS3sh6/C7DtSKxE8NYXMTVTrQx+3Pd2zPh7XUfj9cCFNb9Yra7o9tkGW9Y07
+         xKj8Iu1GdBuMYqwcuAenhYJ5w8tnKGIIDKWYoAldoraXUUTXH0NPge4tetVnuGiqKwyF
+         AeYP2dh9O6rjVptGdJkEdJ1XBc6PnAnHCqdYR9wMHz4rXvrlzGazQeaAmR5buAZb19xM
+         BRnw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531ltNX6GIaqPFOLt4PLuiHhjuhkyNtQwYhr7Pou3HBIGXcqEYWv
-	Qbs60+9jWWbtP/to7x24sYE=
-X-Google-Smtp-Source: ABdhPJx217ga3pl2Xz8yCUXRR39kqVe1jLDY/uF7H710rDO0wu6jazqNUb4toi2Lq3hz+2E8adjzKg==
-X-Received: by 2002:a05:600c:2054:: with SMTP id p20mr26422119wmg.165.1622461474497;
-        Mon, 31 May 2021 04:44:34 -0700 (PDT)
+X-Gm-Message-State: AOAM530R7MELM4XL5UtYv8soBHUzAGFDRFMMzmCxUNaod0Zfu7QfMoEY
+	6Q/ImQmNQpiFzd7h5SEP4vo=
+X-Google-Smtp-Source: ABdhPJxQCx/hfN4cvZlokC4+f610njxZHCKeC1a/BY52LbYHJcXb2SDJXG1HnSMPGro8vVouxAnSEw==
+X-Received: by 2002:a25:31c3:: with SMTP id x186mr29113073ybx.382.1622463448148;
+        Mon, 31 May 2021 05:17:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:600c:4f52:: with SMTP id m18ls5507876wmq.0.canary-gmail;
- Mon, 31 May 2021 04:44:33 -0700 (PDT)
-X-Received: by 2002:a1c:b783:: with SMTP id h125mr12950848wmf.182.1622461473660;
-        Mon, 31 May 2021 04:44:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622461473; cv=none;
+Received: by 2002:a25:38d6:: with SMTP id f205ls1365572yba.1.gmail; Mon, 31
+ May 2021 05:17:27 -0700 (PDT)
+X-Received: by 2002:a25:e6c7:: with SMTP id d190mr23307890ybh.215.1622463447655;
+        Mon, 31 May 2021 05:17:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622463447; cv=none;
         d=google.com; s=arc-20160816;
-        b=VFqhLu/1u6gpWGAERLdsdabAvNOLcho17HYjHOzE7CNK1LqzyvZUh8KyxTMkQsrg8v
-         845Emahvn9zwOxZhsnzhHzygDuRkFlYdmhc4b12bpGnuWukO/ja94dNR1REmroPbTBFc
-         yiDUVlPuq0aO6GCjEWPd0TLfGWU6qPZeea5a4cL68BNkMi3gWT8d4R9xrS2oc77/WSxO
-         bjwaPV3Nh+uLZiMhuk62fCB/2gaq0ptL2MBPHnjvnCxX8d8xqrrP+ZKbuX8SVnKOUeh6
-         DhJ8NDNW7zSN/eksXXVq0ONwRD8yWga84jV4mseVpAeF6/DVMrkPaYjRF263GyXXyKiQ
-         gx9g==
+        b=nw9YEx/vEPmFZ9CIvVObFiMPdTNppGlk1421qVubiqfAlzOieK/TJ815OFdR7rhbF7
+         ic6CX2+gXR6yPBRxWSlYDvuq9tXfIAfyR7kn9j4qbNeocKmFIi1BbIECAZZcxsKAkOt/
+         OJRmhsq90UXwvn9wUZ+RlKL1D/lWn0M7XL4OpTAktOf9iMb3jbmA2YjKKD1bcjTLADDi
+         olF9PGHoaUPAd2tsueGhTPFuPQDBT5ojX8A5I7Xfuz98Pt2y3hvfnrmJPj0ZmuGCA7xy
+         dwc8UH04g+sARW7oufEFUNaiw4oJkh5BoW9qHvBHWBjMYDxK425GkHPSjggmzpR5BcLc
+         +ALA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=EydTfNejvnx1MWte5xgg5ijqPKeq9Yb+Ijh5yt3VAL8=;
-        b=pteWmXbVr1ZmrQVjbRG/DyNqMl+u3KpixDd/B9WDthFBzJCoALLqPAnSFgsWCsdqkn
-         OubUyOTwgyuOMyn4CYALgenOJrgB6fwH3GXhRMGAvzL7BSBjEyhN0dwpdRYJ1FJh5s0/
-         CzZ5DKmISI58ibptSAlg2hXpwfq9pjZMGNxY9qUO4Iyjjh1rLvYmL0hyYnmZZ8M0kswh
-         4OidDDmMou9lwEHk9le0rx0NlPQlXPp0miYSfW++jszZSOjCJ6Zlq0k7tsj1c0w5MmnQ
-         idcGHJCgVG5qdZfhr5hmrcAPMVVq3R8otcxG8YuMH7pK5CVvXxEOjI0Td5lzKyqV3rjX
-         f61Q==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=dgNT90eNSG1wBt4tIaS2Vs12DhN1M5IN2OPueQvLpUg=;
+        b=dGWVAy5uIwwVFmctjYFghFxEWqjH8txOG+MdfOWmYD6v34qsKz0iBeyhJs/6wW5JTM
+         GQ7fFhojS8eYMCJqpuETYzEqnp3MSSleIrqEGuyPNd4kgwTGL3C7/X9MVHARKs/r/9ad
+         PXLe9cIcRcq4M0RRkQohw8HXUd45jF8upBeM0cUKZlQK6SBLfPWuGCEc4xm8v2abi2A+
+         MDAAP32EC7fgKfMX/eRYYweI9SK7CsP836zdeIOTZgIdOaqgcQS/+M8OzNDrnlL4qolu
+         ND5rQG3H0YNFx0CcWsimZdBZU9v7TsqDwBiIQfk8jecVgbeNfkezmc6STulUgOa3XxaT
+         Y9kw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ionos.com header.s=google header.b=CaGMSsuQ;
-       spf=pass (google.com: domain of jinpu.wang@ionos.com designates 2a00:1450:4864:20::636 as permitted sender) smtp.mailfrom=jinpu.wang@ionos.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ionos.com
-Received: from mail-ej1-x636.google.com (mail-ej1-x636.google.com. [2a00:1450:4864:20::636])
-        by gmr-mx.google.com with ESMTPS id p65si645294wmp.0.2021.05.31.04.44.33
+       dkim=pass header.i=@ziepe.ca header.s=google header.b=iWnUCg71;
+       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::731 as permitted sender) smtp.mailfrom=jgg@ziepe.ca
+Received: from mail-qk1-x731.google.com (mail-qk1-x731.google.com. [2607:f8b0:4864:20::731])
+        by gmr-mx.google.com with ESMTPS id q11si912934ybu.0.2021.05.31.05.17.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 31 May 2021 04:44:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jinpu.wang@ionos.com designates 2a00:1450:4864:20::636 as permitted sender) client-ip=2a00:1450:4864:20::636;
-Received: by mail-ej1-x636.google.com with SMTP id gb17so16218127ejc.8
-        for <clang-built-linux@googlegroups.com>; Mon, 31 May 2021 04:44:33 -0700 (PDT)
-X-Received: by 2002:a17:907:7b9e:: with SMTP id ne30mr7915454ejc.389.1622461473395;
- Mon, 31 May 2021 04:44:33 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210528113018.52290-6-jinpu.wang@ionos.com> <202105290002.LSBHvezM-lkp@intel.com>
-In-Reply-To: <202105290002.LSBHvezM-lkp@intel.com>
-From: Jinpu Wang <jinpu.wang@ionos.com>
-Date: Mon, 31 May 2021 13:44:22 +0200
-Message-ID: <CAMGffEnoYGoNwXe75KcP8WCTXAYBKkhJ=cx3aC=4mm77stWzUA@mail.gmail.com>
-Subject: Re: [PATCHv3 for-next 05/20] RDMA/rtrs: Change MAX_SESS_QUEUE_DEPTH
-To: kernel test robot <lkp@intel.com>, Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>
-Cc: RDMA mailing list <linux-rdma@vger.kernel.org>, kbuild-all@lists.01.org, 
-	clang-built-linux@googlegroups.com, Bart Van Assche <bvanassche@acm.org>, 
-	Doug Ledford <dledford@redhat.com>, Haris Iqbal <haris.iqbal@ionos.com>, 
+        Mon, 31 May 2021 05:17:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::731 as permitted sender) client-ip=2607:f8b0:4864:20::731;
+Received: by mail-qk1-x731.google.com with SMTP id i5so10950828qkf.12
+        for <clang-built-linux@googlegroups.com>; Mon, 31 May 2021 05:17:27 -0700 (PDT)
+X-Received: by 2002:a37:aa58:: with SMTP id t85mr9883705qke.387.1622463447356;
+        Mon, 31 May 2021 05:17:27 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-47-55-113-94.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.113.94])
+        by smtp.gmail.com with ESMTPSA id v17sm7967714qta.77.2021.05.31.05.17.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 May 2021 05:17:26 -0700 (PDT)
+Received: from jgg by mlx with local (Exim 4.94)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1lngrF-00H5Ro-OZ; Mon, 31 May 2021 09:17:25 -0300
+Date: Mon, 31 May 2021 09:17:25 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Jinpu Wang <jinpu.wang@ionos.com>
+Cc: kernel test robot <lkp@intel.com>, Leon Romanovsky <leon@kernel.org>,
+	RDMA mailing list <linux-rdma@vger.kernel.org>,
+	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	Bart Van Assche <bvanassche@acm.org>,
+	Doug Ledford <dledford@redhat.com>,
+	Haris Iqbal <haris.iqbal@ionos.com>,
 	Gioh Kim <gi-oh.kim@cloud.ionos.com>
+Subject: Re: [PATCHv3 for-next 05/20] RDMA/rtrs: Change MAX_SESS_QUEUE_DEPTH
+Message-ID: <20210531121725.GK1096940@ziepe.ca>
+References: <20210528113018.52290-6-jinpu.wang@ionos.com>
+ <202105290002.LSBHvezM-lkp@intel.com>
+ <CAMGffEnoYGoNwXe75KcP8WCTXAYBKkhJ=cx3aC=4mm77stWzUA@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jinpu.wang@ionos.com
+Content-Disposition: inline
+In-Reply-To: <CAMGffEnoYGoNwXe75KcP8WCTXAYBKkhJ=cx3aC=4mm77stWzUA@mail.gmail.com>
+X-Original-Sender: jgg@ziepe.ca
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ionos.com header.s=google header.b=CaGMSsuQ;       spf=pass
- (google.com: domain of jinpu.wang@ionos.com designates 2a00:1450:4864:20::636
- as permitted sender) smtp.mailfrom=jinpu.wang@ionos.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=ionos.com
+ header.i=@ziepe.ca header.s=google header.b=iWnUCg71;       spf=pass
+ (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::731 as
+ permitted sender) smtp.mailfrom=jgg@ziepe.ca
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,54 +141,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, May 28, 2021 at 6:20 PM kernel test robot <lkp@intel.com> wrote:
->
-> Hi Jack,
->
-> Thank you for the patch! Perhaps something to improve:
->
-> [auto build test WARNING on rdma/for-next]
-> [also build test WARNING on v5.13-rc3 next-20210528]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
->
-> url:    https://github.com/0day-ci/linux/commits/Jack-Wang/RTRS-update-for-5-14/20210528-193313
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/rdma/rdma.git for-next
-> config: x86_64-randconfig-a012-20210526 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 6505c630407c5feec818f0bb1c284f9eeebf2071)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # https://github.com/0day-ci/linux/commit/66f95f659060028d1f0f91473ad1c16a6595fcac
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review Jack-Wang/RTRS-update-for-5-14/20210528-193313
->         git checkout 66f95f659060028d1f0f91473ad1c16a6595fcac
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
-> >> drivers/infiniband/ulp/rtrs/rtrs-clt.c:1786:19: warning: result of comparison of constant 'MAX_SESS_QUEUE_DEPTH' (65536) with expression of type 'u16' (aka 'unsigned short') is always false [-Wtautological-constant-out-of-range-compare]
->                    if (queue_depth > MAX_SESS_QUEUE_DEPTH) {
->                        ~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~
- Thanks for the reporting.
+On Mon, May 31, 2021 at 01:44:22PM +0200, Jinpu Wang wrote:
+> On Fri, May 28, 2021 at 6:20 PM kernel test robot <lkp@intel.com> wrote:
+> >
+> > Hi Jack,
+> >
+> > Thank you for the patch! Perhaps something to improve:
+> >
+> > [auto build test WARNING on rdma/for-next]
+> > [also build test WARNING on v5.13-rc3 next-20210528]
+> > [If your patch is applied to the wrong git tree, kindly drop us a note.
+> > And when submitting patch, we suggest to use '--base' as documented in
+> > https://git-scm.com/docs/git-format-patch]
+> >
+> > url:    https://github.com/0day-ci/linux/commits/Jack-Wang/RTRS-update-for-5-14/20210528-193313
+> > base:   https://git.kernel.org/pub/scm/linux/kernel/git/rdma/rdma.git for-next
+> > config: x86_64-randconfig-a012-20210526 (attached as .config)
+> > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 6505c630407c5feec818f0bb1c284f9eeebf2071)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # install x86_64 cross compiling tool for clang build
+> >         # apt-get install binutils-x86-64-linux-gnu
+> >         # https://github.com/0day-ci/linux/commit/66f95f659060028d1f0f91473ad1c16a6595fcac
+> >         git remote add linux-review https://github.com/0day-ci/linux
+> >         git fetch --no-tags linux-review Jack-Wang/RTRS-update-for-5-14/20210528-193313
+> >         git checkout 66f95f659060028d1f0f91473ad1c16a6595fcac
+> >         # save the attached .config to linux build tree
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+> >
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
+> >
+> > All warnings (new ones prefixed by >>):
+> >
+> > >> drivers/infiniband/ulp/rtrs/rtrs-clt.c:1786:19: warning: result of comparison of constant 'MAX_SESS_QUEUE_DEPTH' (65536) with expression of type 'u16' (aka 'unsigned short') is always false [-Wtautological-constant-out-of-range-compare]
+> >                    if (queue_depth > MAX_SESS_QUEUE_DEPTH) {
+> >                        ~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~~~
+>  Thanks for the reporting.
+> 
+> As the check is checking against u16 max,I think we should reduce
+> MAX_SESS_QUEUE_DEPTH to 65535, and drop the check in line rtrs-clt:
+> 1786
+> 
+> Jason, you mentioned v3 is applied in for-next, I guess I'll wait when
+> you push it out, and send the patch to fix this. is it ok?
 
-As the check is checking against u16 max,I think we should reduce
-MAX_SESS_QUEUE_DEPTH to 65535, and drop the check in line rtrs-clt:
-1786
+Send me a fix right away and I'll fix the original patch
 
-Jason, you mentioned v3 is applied in for-next, I guess I'll wait when
-you push it out, and send the patch to fix this. is it ok?
-
-Thanks!
+Jason
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMGffEnoYGoNwXe75KcP8WCTXAYBKkhJ%3Dcx3aC%3D4mm77stWzUA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210531121725.GK1096940%40ziepe.ca.
