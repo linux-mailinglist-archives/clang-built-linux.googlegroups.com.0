@@ -1,129 +1,126 @@
-Return-Path: <clang-built-linux+bncBCX7JJ6OTQGBBYGM26CQMGQEOZX7N6Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD66FMGZA4INHXOXQUDBUBBTNFOMI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x537.google.com (mail-ed1-x537.google.com [IPv6:2a00:1450:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id 53135396E31
-	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Jun 2021 09:48:49 +0200 (CEST)
-Received: by mail-ed1-x537.google.com with SMTP id w1-20020aa7da410000b029038d323eeee3sf7417530eds.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Jun 2021 00:48:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622533729; cv=pass;
+Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5CE1C396EDF
+	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Jun 2021 10:24:52 +0200 (CEST)
+Received: by mail-wr1-x439.google.com with SMTP id z13-20020adfec8d0000b0290114cc6b21c4sf4150718wrn.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Jun 2021 01:24:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622535892; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ItXuJWu713M5tBNoBM3cAEfNYdHU6ywdOL4tKo818dptuXd6K30mIitOa9o6zvH4WJ
-         6G+kMCffZdstx/HFxsQcLeInj4dNV5mDgXI9jqS7Up7EqyZxDc12Pu6z+eEI6GbBnFqR
-         T5QIqeX+wPH+niMYEDRtdRbA1jD9BeA0FVmTDS6AO/SsHbuAbIfqKmq93XeC4+8bMXw5
-         dUI+9y4umWv9Utvdtx0DSzNOlwYmrHNP0AxCzCrZfaB2Aq/5vJkwOyPcwYUzNDI3+/+r
-         T3ugapxnQDGQDYGqSwEk4/rrgqtmeutK0V8EADKiyDdJfGwX9LzN7ibj6T5gCS/cueUZ
-         JS/w==
+        b=CRc6Z/YyP7WoSc5K8E4upldQqzWf3pgrwMO6v3+xgjq+qUn0FNMpJFvLl5ZigJ6nYR
+         enwBS6+whcWJ5k/fBUs/YXJJCAYsXSWQPJkGUBu7y0wNPjep2VA8eJXkXsaL04YKsjp/
+         rTBe11VDbkDLTW4us6btIET/7pJd5XVhgtv6vIGC7P+BPxn/k+64ySIb98tF31rxeVgc
+         byHbWB4lG/jVyf1aPaLkUrHHXhWtC5ilfRH4Bt0Wh3crdfrEpL6rHDabDeLFc3thGr1N
+         2Dn2HiD2d2UGyUETs0rTFn1zPxarP/Y4t7D3pDnf5HBFHRTocNlwQxOu0cpXwC3D0PnZ
+         Y0cg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=ee2zTTX8gaHAG85n35WwEO9PCAkUnE4df2GjcksWyE8=;
-        b=QBq/Z74xQGLVRrMBTD28EgF+H4IrnN1VHKGQzeq3+rPD4v/ASTeSs4GnYrwuA56U1q
-         ZnQ+wSaNn8q6eFtSbO5Fy2StaE+NvtyjrcqRitkBWjGSjrWhx0EZly7CbDb384S/+nwm
-         YC7AMg9m6RT05t4/eie3ZM/FkxIcdAm/w875xT0eCzssX4bjIgaxA8soBDShACw7iz4b
-         N8PdHvNuGbDIOYPyuYIb1xa6SECi6VKvBBMChIWKoUk+V+vdED5YSsdYVPFVGt213JV+
-         u14kVQv6MtxZA05Oj2Sd30NFCPnFGko2j4Giod6FUhuf3Tjmn19vqzJiKA2nAB9iDKj2
-         22OA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=bgg+efxMuGg71pVhlSWL13jN/aOi6uV8+Kyz5gXZu7E=;
+        b=xGnF+5INJP84oVi/WMUaWOKTMs1b5VgOb98PybXPXGpNZIvzqxDumWXpSg636vnCze
+         bhfrez/BLQsFQiIbdxZ/sp1ZJqMsr4BkzH+DMoD/91HdGbhVVN4arYletKl2BCHd/9Ms
+         PnLlS515hPAQpIGtmWx4DkjX75SJQ9+sGwBAvO8dqgwkUCoauMA2+7A13kvCYpbPdK4L
+         aQEBeZx4zSPb+xtp5EDD1V/I1ruBw4ugsB6zcMF1RPzS1rx5RI4IBXpNGJ36dAEg1L+4
+         9BYUgUDYqQXHeOSVwIwh4NAw/7AaT9zBPLfJi15Wvtec2BVoUywKL38sKRMCED6lm66O
+         obag==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=ZiKgNokI;
-       dkim=neutral (no key) header.i=@suse.de;
-       spf=pass (google.com: domain of mgorman@suse.de designates 195.135.220.15 as permitted sender) smtp.mailfrom=mgorman@suse.de
+       dkim=pass header.i=@google.com header.s=20161025 header.b=JxNSuwOn;
+       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::52c as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ee2zTTX8gaHAG85n35WwEO9PCAkUnE4df2GjcksWyE8=;
-        b=hcHH3nIpl++XJjPuQ/6tVpMdELat86WFu76e1Gbi8i2JzG2pqrC6PfYeU+iOIxu2oK
-         xzM14Mp2b0e8IGfMqkBF3Oiznk/9ptbuSg9ycaSsS4ZoPnomz/l07eHzngPZP1Ub+UHl
-         PS3L0cDP9r+F09jIrIj3ZlU+E2NLZ31HMBCmvZbsboizy1Ec9+4oZNLsUFoGC7diCcAW
-         TQJXPL1h7FNdAfP+wHh8c/7fJv45mQQ9RRsmoPGjpZ7dbfLX6hvXtbMAFY66N8QPKZDI
-         npnsEQ5YSDpBn5f8IxQMDc74I2KzVoYxa/c1rbdPZaclAc5dDaQ4Rkrfd6VcH9u4cCxp
-         tFFw==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=bgg+efxMuGg71pVhlSWL13jN/aOi6uV8+Kyz5gXZu7E=;
+        b=WrX0gwC/lKqrOzFbEI100FZ6W97/WDhKmrTQB61BHjLlhXXP7t0DNyGzhnwGWSOXpQ
+         kdubawG/rQprtLZftIpeG1LdCKQfLkUox2Ii6R2Lgp5p1EX5rW62Vmlsegka1LB5UuRh
+         YXcbB6p3tNnI/IUA6qYCwpTcUyxqmUuDtm5BCsftj2PXRJl8cST4zEaXKgMWxYz0JKsY
+         53T0nOVyJR8E+hFVafsVaB/ApC3/e7TAQhyH0KLSAfuS6LoI9VdRMIDnYMvF2UARkXsA
+         Yrcfzdc6CWYe0v2WL7Cq61r2e4070G4/M8je/O+u/JnqJaOJY/CnbUYnAE61AYhLuqk4
+         Jt2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=ee2zTTX8gaHAG85n35WwEO9PCAkUnE4df2GjcksWyE8=;
-        b=jYO1vh7At8yFxi/S77urMfh5l7ebAPUyV+5V1pmQAEDSRJUbfwjn/O9omOpojoBo76
-         MQlkplE/hvc+Rbd8SUW26+9gJ/KIMz70g0VGbIbHWNBafSa/5wPmbkYVn+XmFh5HB/BC
-         kfQMKd1kaFe8PxR4wOE5z8qs3rN/NiGdkaxmLImhmxHecJJA2Tv/TJ/XDNWhl7gMwT4p
-         Pd0AisNa37vzfFv3onHNwMYP1DMTjUMNNB7CW+KRJ/ng39P/LWCIuPhneF8THPBkPqwy
-         TjutxFPZlBNUQt5xtcQd4ZPH0jSHzWhHdrVMa+9UuYE9gOxviCLaKFkNCHXqRkwH6h41
-         SCBA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531llnNZCT6SOD+Lu5EeK4k8NWEWAI+iFdFxSD2ZfXqhRkOrm3yC
-	0NGUy90YctUUx0SSY3WsiTk=
-X-Google-Smtp-Source: ABdhPJzwl/DCYMiS5A44GuBPuefhu/8o0pYufXcUT+KScfs1FuKyUpm8Iy8N65x/ohZ9ZBrHK1E3PQ==
-X-Received: by 2002:a17:906:3b10:: with SMTP id g16mr28444632ejf.232.1622533729036;
-        Tue, 01 Jun 2021 00:48:49 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=bgg+efxMuGg71pVhlSWL13jN/aOi6uV8+Kyz5gXZu7E=;
+        b=JLLLGxDaHsIeZgqjXvaUZstInrmV45eG34F5ACt+aEpdNY84/zpWribKPCf/WsN91g
+         SPk8uxzZwzR1cPhnvnuuoW1DEDNyu6ggfjrFL+Uhie07Hbvx2ip+it4TAJJeWu+AhMQf
+         7mYP0OPKP1YgB1suS6nXDIpSNg/oeloDEBh78Zn0L0wUAbjVoLCggJET6JI733GMpkqc
+         v1Qyky3ahQq/snysgJw/FI8UuzUdIeaRJO7XkJ3S8ZDe5zg9eRXbm3I/wYpTMm0PC99d
+         8il6rZ+IqfT8j0j5Qg+D+RN2mgD1kCL5ZT1D2ESd/GqlmgTZNH8cnmRiEZbqxoU9+AWu
+         F/ug==
+X-Gm-Message-State: AOAM5317wD+RESuBt6G3EUKomr+U5Q3Jo0zn7Jk6YdGqkcXFRkiw7Es9
+	w0TH75V1jOkKl+DYUCs6pUQ=
+X-Google-Smtp-Source: ABdhPJxbjRUjtPMVTzGNzdBRkuQYzLTKtHBuKH0Rv9Ek8QEK3NxbRqxouQu/kHPP7rAqdm4GtI32kw==
+X-Received: by 2002:a5d:6952:: with SMTP id r18mr15771402wrw.392.1622535892133;
+        Tue, 01 Jun 2021 01:24:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6402:1510:: with SMTP id f16ls4841671edw.1.gmail; Tue,
- 01 Jun 2021 00:48:48 -0700 (PDT)
-X-Received: by 2002:aa7:d905:: with SMTP id a5mr7293623edr.387.1622533728211;
-        Tue, 01 Jun 2021 00:48:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622533728; cv=none;
+Received: by 2002:a05:6000:2a8:: with SMTP id l8ls660495wry.1.gmail; Tue, 01
+ Jun 2021 01:24:51 -0700 (PDT)
+X-Received: by 2002:adf:de91:: with SMTP id w17mr1903519wrl.352.1622535891345;
+        Tue, 01 Jun 2021 01:24:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622535891; cv=none;
         d=google.com; s=arc-20160816;
-        b=SOX7Wnl+TaO+nMyES+U5pSa5UxAh3iY5f4gf1f1mHORqsFDWVOI8PzqvVVayu8ZaGu
-         iD6BsvFPNU9wr9famANoL3G+0VhTfnwbgmAKOehouwf8Y9mJ3/jvX1BD1qEDd8lMUTY9
-         1u0Rf52AO6+BJ9X5fq5SiYRxNQ2y/+PYssnBQFZe6ww/LUamKDvnk3dW4EMhoMG2VqOy
-         22aWS20iX03Qfu+z6vgPt4IH7rEN5kSyGd2PsMulH2zpoMEklUHE4jkJcfQykVSbs8Jn
-         8bhwXlGZmoEmh2m6begpUS3180omSrdHGObkWMtRKImySRSWE1iAnWtSjGIk7Nu2Vm4R
-         BITg==
+        b=a5fFK1S+adA5PhXMnYv9RWVUu/W9vXlFlz8AGXmSq6hpdaVxOjlP3VDF4Z10n2hQxD
+         MTO/yCtU01fCueAHrbC8Ha+hYxYuNhhHU7DNgr40Z1xWWrI6rzCVqGjT1oU4gfVwOVHu
+         pw8JJQY3I83OVqK7cjhq9z7xPzBe+iEDWKWPeSpDySi3MXMSM246+xZRmxXohm2cn7Lr
+         HItGYOZ2BfuxAOjLOhuPBfyiIgVVydM+tEFF59lapI3fevdTSDenQ4ef23A3UgDaDZHG
+         LCqsBW1ddjyyK6CjGyHAxBcY6FvqzLmWJLLYX6NBV1YItyOyI+I4+5E2XFR/wxqd1cmy
+         2XhQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature:dkim-signature;
-        bh=S9prk+2gwg2DZFavGRu09bQUFIZZIRW16iZ1cNuKSr4=;
-        b=YX+lnyIxk/l2TzkXFnGJPh7B3QmgPwO4QQjTiqOwQee5sG1aJ/Na3F1vQCIWFewMyv
-         36OHCcJNmFh4qiOtGdDSJVAUytFkcVrHYXtImUOVT8meQjR57mKWsqE6EU6/7KtvRty/
-         gNqluyC/WM0kf2htoa7JXvjkS1mc+kRyBnq5v6kVSP2+P3If8vShdQL73uW7AwLeQ6Se
-         Q1VMZLyQ+cCbtO5m9W5yRmk0rlZ9qBP6k6otYxW4p4lXahUCI8YewBxDuYZDEogOBcP0
-         3QVwRESZWhpWIWegChElCrvXBHgBpkAXNFm/ya2SrBKoOeCNuPN4OCKB3qPPSXFXRGF5
-         3p0w==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=k2z10kHvXwh0VlWb//vEH7qdG2w+rH+BOKMSkAeptuo=;
+        b=U427nDxLP+b8hRMBGfffNGWJTjM6kZfur0CHjVMfaXgUK2/6uATrl/HK1GWIxObjzh
+         7GthkefZH3/qymDmr0oT58KSUE2c6215Hb7HBoyEa93dMW7eoBqCm+leA9+tMJw2jE/z
+         wdD/jVEY/mwoW3apkPdsewflbVfLe57dTvY9XYyxuLppkbxK79Z2b2Fja3u/LAOzZtXz
+         VZ9K4oIaRV/tsp3DH19cIcweFVdXMUlFlWvEp2yjKHWhYBHrC8o9HPK++eeKA80XMUVU
+         IIR8fCLcSjtnYs+J08pvBlX+G17lY9K58P3eLk3HF1tA09SjuS8pCPLKwYHrAeee2QrV
+         YC2g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=ZiKgNokI;
-       dkim=neutral (no key) header.i=@suse.de;
-       spf=pass (google.com: domain of mgorman@suse.de designates 195.135.220.15 as permitted sender) smtp.mailfrom=mgorman@suse.de
-Received: from mx2.suse.de (mx2.suse.de. [195.135.220.15])
-        by gmr-mx.google.com with ESMTPS id e26si235591edj.1.2021.06.01.00.48.48
+       dkim=pass header.i=@google.com header.s=20161025 header.b=JxNSuwOn;
+       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::52c as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-ed1-x52c.google.com (mail-ed1-x52c.google.com. [2a00:1450:4864:20::52c])
+        by gmr-mx.google.com with ESMTPS id g18si904768wmc.0.2021.06.01.01.24.51
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 01 Jun 2021 00:48:48 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mgorman@suse.de designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.221.27])
-	by mx2.suse.de (Postfix) with ESMTP id B10CDAB6D;
-	Tue,  1 Jun 2021 07:48:47 +0000 (UTC)
-Date: Tue, 1 Jun 2021 08:48:45 +0100
-From: Mel Gorman <mgorman@suse.de>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	Yang Shi <shy828301@gmail.com>
-Subject: Re: [linux-next:master 5596/5886]
- arch/x86/include/asm/fixmap.h:103:48: error: use of undeclared identifier
- 'NR_CPUS'
-Message-ID: <20210601074845.GO3672@suse.de>
-References: <202105301909.iEwOXNWt-lkp@intel.com>
- <20210531093917.GL3672@suse.de>
- <20210531150554.bb7769cdedb4fd9bf471b891@linux-foundation.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 01 Jun 2021 01:24:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::52c as permitted sender) client-ip=2a00:1450:4864:20::52c;
+Received: by mail-ed1-x52c.google.com with SMTP id j10so16212848edw.8
+        for <clang-built-linux@googlegroups.com>; Tue, 01 Jun 2021 01:24:51 -0700 (PDT)
+X-Received: by 2002:aa7:c584:: with SMTP id g4mr11564961edq.335.1622535890905;
+ Tue, 01 Jun 2021 01:24:50 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210531202044.426578-1-morbo@google.com> <e22afde4-e312-4589-cf2e-3c35219d7249@kernel.org>
+In-Reply-To: <e22afde4-e312-4589-cf2e-3c35219d7249@kernel.org>
+From: "'Bill Wendling' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 1 Jun 2021 01:24:39 -0700
+Message-ID: <CAGG=3QVdXxLf0T9+n9FidrRcfdWY36m-i=4kPRJjOojWhjiywg@mail.gmail.com>
+Subject: Re: [PATCH] pgo: rename the raw profile file to vmlinux.profraw
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Kees Cook <keescook@google.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Linux Doc Mailing List <linux-doc@vger.kernel.org>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Nick Desaulniers <ndesaulniers@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210531150554.bb7769cdedb4fd9bf471b891@linux-foundation.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: mgorman@suse.de
+X-Original-Sender: morbo@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@suse.de header.s=susede2_rsa header.b=ZiKgNokI;       dkim=neutral
- (no key) header.i=@suse.de;       spf=pass (google.com: domain of
- mgorman@suse.de designates 195.135.220.15 as permitted sender) smtp.mailfrom=mgorman@suse.de
+ header.i=@google.com header.s=20161025 header.b=JxNSuwOn;       spf=pass
+ (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::52c as
+ permitted sender) smtp.mailfrom=morbo@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Bill Wendling <morbo@google.com>
+Reply-To: Bill Wendling <morbo@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,52 +133,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, May 31, 2021 at 03:05:54PM -0700, Andrew Morton wrote:
-> On Mon, 31 May 2021 10:39:17 +0100 Mel Gorman <mgorman@suse.de> wrote:
-> 
-> > On Sun, May 30, 2021 at 07:58:14PM +0800, kernel test robot wrote:
-> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > > head:   3e029760e6f8ce90c122c267a039ae73b3f1f5a4
-> > > commit: 366e9aec4a22d77b869f1b7641a74fdd96f02b4c [5596/5886] mm/early_ioremap: add prototype for early_memremap_pgprot_adjust
-> > > config: x86_64-randconfig-a006-20210530 (attached as .config)
-> > > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project bc6799f2f79f0ae87e9f1ebf9d25ba799fbd25a9)
-> > > reproduce (this is a W=1 build):
-> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > >         chmod +x ~/bin/make.cross
-> > >         # install x86_64 cross compiling tool for clang build
-> > >         # apt-get install binutils-x86-64-linux-gnu
-> > >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=366e9aec4a22d77b869f1b7641a74fdd96f02b4c
-> > >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-> > >         git fetch --no-tags linux-next master
-> > >         git checkout 366e9aec4a22d77b869f1b7641a74fdd96f02b4c
-> > >         # save the attached .config to linux build tree
-> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
-> > > 
-> > 
-> > Hi Andrew,
-> > 
-> > Can you please drop the patch
-> > mm-early_ioremap-add-prototype-for-early_memremap_pgprot_adjust.patch?
-> 
-> Didn't I fix this with
-> mm-early_ioremap-add-prototype-for-early_memremap_pgprot_adjust-fix.patch?
-> 
-> This fix is lame - x86's fixmap.h should be standalone.  But this gets us
-> moving ahead with the MM changes for now.
-> 
+On Mon, May 31, 2021 at 1:29 PM Nathan Chancellor <nathan@kernel.org> wrote:
+>
+> On 5/31/2021 1:20 PM, Bill Wendling wrote:
+> > Future PGO features may create other files in /sys/kernel/debug/pgo. So
+> > rename the kernel's raw profile data file to "vmlinux.profraw" to make
+> > which part of the kernel the file is for more explicit.
+> >
+> > Note that future files in /sys/kernel/debug/pgo should follow a similar
+> > naming convention.
+> >
+> > Signed-off-by: Bill Wendling <morbo@google.com>
+>
+> Guess this clears up my confusion around the module patches :)
+>
+To clarify, Jarmo did those patches on his own. I just wanted to
+clarify the naming convention. :-)
 
-I think you did fix it but I was surprised by the level
-of fallout from this patch and then there were objections
-to adding header dependencies unnecessarily such as this
-https://lore.kernel.org/lkml/YK3vrIB7cWop+UIW@gmail.com/ .  That was
-specific to modifying the x86 headers so your fix should not hit the same
-objection but still, as you said, x86 fixmap should be standalone.
+-bw
 
--- 
-Mel Gorman
-SUSE Labs
+> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+>
+> > ---
+> >   Documentation/dev-tools/pgo.rst | 6 +++---
+> >   kernel/pgo/Kconfig              | 7 ++++---
+> >   kernel/pgo/fs.c                 | 2 +-
+> >   3 files changed, 8 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/Documentation/dev-tools/pgo.rst b/Documentation/dev-tools/pgo.rst
+> > index b7f11d8405b7..0200449c4843 100644
+> > --- a/Documentation/dev-tools/pgo.rst
+> > +++ b/Documentation/dev-tools/pgo.rst
+> > @@ -76,7 +76,7 @@ The PGO kernel support creates the following files in debugfs:
+> >   ``/sys/kernel/debug/pgo/reset``
+> >       Global reset file: resets all coverage data to zero when written to.
+> >
+> > -``/sys/kernel/debug/profraw``
+> > +``/sys/kernel/debug/pgo/vmlinux.profraw``
+> >       The raw PGO data that must be processed with ``llvm_profdata``.
+> >
+> >
+> > @@ -108,7 +108,7 @@ using the result to optimize the kernel:
+> >
+> >      .. code-block:: sh
+> >
+> > -      $ cp -a /sys/kernel/debug/pgo/profraw /tmp/vmlinux.profraw
+> > +      $ cp -a /sys/kernel/debug/pgo/vmlinux.profraw /tmp/vmlinux.profraw
+> >
+> >   5) (Optional) Download the raw profile data to the HOST machine.
+> >
+> > @@ -120,7 +120,7 @@ using the result to optimize the kernel:
+> >
+> >      Note that multiple raw profile data files can be merged during this step.
+> >
+> > -7) Rebuild the kernel using the profile data (PGO disabled)
+> > +7) Rebuild the kernel using the processed profile data (PGO disabled)
+> >
+> >      .. code-block:: sh
+> >
+> > diff --git a/kernel/pgo/Kconfig b/kernel/pgo/Kconfig
+> > index 76a640b6cf6e..d2053df1111c 100644
+> > --- a/kernel/pgo/Kconfig
+> > +++ b/kernel/pgo/Kconfig
+> > @@ -17,10 +17,11 @@ config PGO_CLANG
+> >
+> >         Run a representative workload for your application on a kernel
+> >         compiled with this option and download the raw profile file from
+> > -       /sys/kernel/debug/pgo/profraw. This file needs to be processed with
+> > -       llvm-profdata. It may be merged with other collected raw profiles.
+> > +       /sys/kernel/debug/pgo/vmlinux.profraw. This file needs to be
+> > +       processed with llvm-profdata. It may be merged with other collected
+> > +       raw profiles.
+> >
+> > -       Copy the resulting profile file into vmlinux.profdata, and enable
+> > +       Copy the processed profile file into vmlinux.profdata, and enable
+> >         KCFLAGS=-fprofile-use=vmlinux.profdata to produce an optimized
+> >         kernel.
+> >
+> > diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
+> > index 449f16beb2cf..ef985159dad3 100644
+> > --- a/kernel/pgo/fs.c
+> > +++ b/kernel/pgo/fs.c
+> > @@ -365,7 +365,7 @@ static int __init pgo_init(void)
+> >       if (!directory)
+> >               goto err_remove;
+> >
+> > -     if (!debugfs_create_file("profraw", 0600, directory, NULL,
+> > +     if (!debugfs_create_file("vmlinux.profraw", 0600, directory, NULL,
+> >                                &prf_fops))
+> >               goto err_remove;
+> >
+> >
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210601074845.GO3672%40suse.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGG%3D3QVdXxLf0T9%2Bn9FidrRcfdWY36m-i%3D4kPRJjOojWhjiywg%40mail.gmail.com.
