@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBAABB5MC3CCQMGQETFXND3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBSUF3CCQMGQE35IB34I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 41FCF397084
-	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Jun 2021 11:44:23 +0200 (CEST)
-Received: by mail-qv1-xf3e.google.com with SMTP id n12-20020a0c8c0c0000b02901edb8963d4dsf11035925qvb.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Jun 2021 02:44:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622540662; cv=pass;
+Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7B0AF397090
+	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Jun 2021 11:50:04 +0200 (CEST)
+Received: by mail-ot1-x33c.google.com with SMTP id i25-20020a9d4a990000b0290304f00e3e3asf8377235otf.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Jun 2021 02:50:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622541003; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LpsHWGtnie7OKGh/A4iWK+L4GUzg2t/rN0iv0aCD9EM16OhMjyy9/qCZq6g1pvmah/
-         gaK8kSKPDqrTFkYnABXZ8ulPgY4ykZW6wAyDf7T212IemFDBIJCrzbNlBDDpaZfTHVeo
-         KVj0qrIbmjqWN0aenV+3zXFKQAfjCtWvFa3nq2MKFuiPcgwutqxq7Q1WNdV5zJa/KpDn
-         uH0ziUsIkG5/SNj/48iARGD99TgIX44xA3zV0h0L21GwPc27zRanUzCiV+fpITfqzDT5
-         95KfcpWRuSXO0BMOpV/1+BmtEOPeGdJ6TB849Fx++VJfsRVI5VzY+fn+o7mfVy4QQCNx
-         0/Rw==
+        b=mnBA+bE7d2L+eSm3JB2J0PFkarShB3FGvI0WQjUvsvTBvkYbSaQLQ8TxjlGPqsxe0T
+         Q+kuA9SyM+69rSlMbMOKQ7XeEPD/juO6Yz+13m8bklr0vhuuDeIamWMoiGeGQY5vh05r
+         k6AQ1V+SztecKSuRr6M3e4EOMr00DjehdxM7uSj4rxzZM8hB7YZLttDAE5wMajNC5ylg
+         K5FTgrGX9ZT30KTp1sQKeYcVS7Rf5iDDDdLzieZMmZ3B8SUQhqUo8E6tIq9bYDVM24vV
+         KvJhynSSlzdz3BndqVPYf73IbtzThGkHfIrhKDqxlh+r7RKgvLNq0ovcYLABvHsq1b2r
+         zNWg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
          :mime-version:sender:dkim-signature;
-        bh=DoDtQVZVmYM1dBdtbXY3YQfuI5oshjFhMlr0tmD9mfI=;
-        b=DEpIUimZkHDqkHBsqchLylQ+btcM2LX39CKr1xndq4OhYb/XXpgw7HF/CJxToskolQ
-         /FJL4enMG7iPyWIqtkTwJOX8+mBKlHRER8biJprV5WBuYN5CT+l8cOyX6sOKGRBUnaby
-         6C/ERg8uPzbItqQPZA7yJJnpGr+DujoNjc+Yn70DoyTX3JX7DlvgcS5ExijYqcEjuvNJ
-         B1daYLpB1RJmRqDku1c1vTR7PD+y6ZSCRRrSCyLXYaCmbkpejIqRMbthqYoE7QHWYksI
-         8PibRrHtbrQz7BCmg9dnLyTJdpJS+/5V8MEtXwrv0QTAOXqMPQvKoR+4ukhbPrkNiHOZ
-         460Q==
+        bh=BRO2vL7gAkLWfQOpp15ONBUpZ9I82J5AUcqniPTV+DM=;
+        b=OYzr/QICVtUhw9wjE0XZLhuj0r8K8oBeI7m9ljq169kMN+Ux2HiBkpDswS+kIIPDps
+         2XuiDffoXP0qfzdAZQIB2UsUplBst0uLFFl37EVGC98Oc50Au1W26lBmuJ7J01ONO2YE
+         tblOrGUfghIK/GHOtmhm0R6bzdUVL+CO71TvmPDhOJ8QJ4wYfHGWiv2XLW61btcMyVuK
+         CQMfgGdD0ISW6I7Ad7FDxaVCM5p3W5yhhEp8eNdq4Yr03MbQ5m2SmF/Al3S5TbijSrcr
+         CF2b/fTM2WLp9WpNtmva9NOXqd6vxvBv/Vf75nSgbmbZWZ0ScxdUDimKokKnViy+EMG1
+         KFsg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.43 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
+       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.130 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -34,87 +34,88 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=DoDtQVZVmYM1dBdtbXY3YQfuI5oshjFhMlr0tmD9mfI=;
-        b=keLUsEcE5j4tWRXR9wJcVpysWUVVrWnGaxQQwzNTC4VrRJ5ApbO6CzvZpmaFGMmV47
-         tCnXkxLiRJ3qc3wr0Ex8U1DoCO/DP6/7nCvtvXfYPCsYBmN477l+roC+siU3iIOWC1+D
-         yWeUoYpZLPqJE5WR1C2bevClNinuekAvpT23qINq2QlPu37Fhq0LdfzjyeCk2vKeJCnI
-         autDxZuGirYRnbw8z/gcfvRoOCYVo4LVoE05qkXOd2aZgEYHpMeU47PTXbr/IwDSj0K2
-         4u4dlD/fvkbkW/em72Fz547gteMtue5rMjyS3OrWCddMD8VWZeerHb+QEDy7ZUMVd7qt
-         ZyoA==
+        bh=BRO2vL7gAkLWfQOpp15ONBUpZ9I82J5AUcqniPTV+DM=;
+        b=GagFS7LZr5QaukyWE1UJyKbytm515AqNNZ57I3lfM6ovXu01zbwxlvqEFxV5kNZlYX
+         46GLfSm04XaTWKnnY0MKJCfHoBK6v+MeTh+FEhl4HWNfWVoR69uLiwqIL2NNpyDjBNa1
+         79krdtP5g6IOEB6N0ZL9AAK2sfNvSD8p689AJf1Wirg6huB4iBqbPPfMtZry9IduK6Yn
+         QjDYvwWQhGQAZ/sggF97rNrwLY8zCH7028FyWSPcdXo1srOoA+Csox5c1wIKXxTRt2M4
+         lKtB2TUC7LwRUZTiTKraxAaHWs/LV5qTbLqJzYqYEFmVva1AQnSVkPVbJc23QuAsKTG2
+         GeYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
          :message-id:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=DoDtQVZVmYM1dBdtbXY3YQfuI5oshjFhMlr0tmD9mfI=;
-        b=pUDNCCz/0yo/rAy9i9uqMY0Gq2GlsRL6Lk87YlyTB/q4p8ZET0oT/Oe2YJ8wOJq7Dw
-         1bdyO1LHf9xrdyP+G6NxCcCzDH8QTHsFNh5fnziWUJx90vBOqnMEoXpctRJu7ojh+uFz
-         a1o5UqMuFGhF8CjAFlveNOQeIOqT3LCXkoEjf/knu41pZ9nfZtVjp+yhkoGUBgje4Gu2
-         QuPV+A8GgvgvNWgaWVyOEXILcJgCc/YN7Ig6Vid/KJc/6wo5ZZFAnGVJX0RNUUg0leCe
-         wBfP8aWXdy3NucxZlUAcXCaYCxKAnM74pE4EWxSvul4xUgPWanklGvBAy+Oybj3yzPPo
-         fb7A==
+        bh=BRO2vL7gAkLWfQOpp15ONBUpZ9I82J5AUcqniPTV+DM=;
+        b=JOqMhraNCpwyKKJUVGrpM+dTAXbm/SDvqmFAvzp0btC9+NyvlmrihfADeEG1AH7egi
+         aUDgmR/YkcWYS/7h/CM68O3hik/JSjA9MpI/yDfxrtuyteM7Z/VON/gByogNEwCNztHq
+         nwMzi0ZNJMIXq60YLLv7S4JvuaZCeYqnGDiNISguwLytvbsQ4KyBid9d525Y48hDTMm2
+         KhrOKjforUlNJxj+dcKpHpW0bjCIxFLnqO3mjFUALyLz32oijyqZuFVI/pDU7y2Lps8E
+         /anvOwKhS/kqcCL+afLg3ELINANL41/mYQqnaZRc1m8TiAGf5NmpPO6VYFESntjO43Hn
+         5RoQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5301eU1VHQmMq2PnE9Crp3wmqzfJQA+zR+XZV1P4XOiiV5NQxL1i
-	8bMUOVJh1RvsopcLUt94dMc=
-X-Google-Smtp-Source: ABdhPJyrajNWZ3wlJAXkdBfvABz4a3AIkhgLVMJlcah6X15cgt/cQOxoWUqgPEcf3+gyXDowT66S9Q==
-X-Received: by 2002:ac8:7348:: with SMTP id q8mr18370687qtp.55.1622540661948;
-        Tue, 01 Jun 2021 02:44:21 -0700 (PDT)
+X-Gm-Message-State: AOAM5312cPEtw4jR2kMcp57dSt2of1ND1htVFTdevXRrstf7kmk/QAAy
+	RRJ7qsf1vP81VILoWtWd49M=
+X-Google-Smtp-Source: ABdhPJxAPOCQWUEf3hg9GAgJBPSQxUAgSNSR5mFqyVHF+8kQQu4TVgRRREg64CklG+Aerv7kgKV3eA==
+X-Received: by 2002:a05:6830:1c3d:: with SMTP id f29mr822825ote.248.1622541003062;
+        Tue, 01 Jun 2021 02:50:03 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:84b:: with SMTP id dg11ls5446522qvb.8.gmail; Tue,
- 01 Jun 2021 02:44:21 -0700 (PDT)
-X-Received: by 2002:a05:6214:848:: with SMTP id dg8mr6132247qvb.2.1622540661595;
-        Tue, 01 Jun 2021 02:44:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622540661; cv=none;
+Received: by 2002:a9d:5a18:: with SMTP id v24ls5197490oth.1.gmail; Tue, 01 Jun
+ 2021 02:50:02 -0700 (PDT)
+X-Received: by 2002:a9d:3436:: with SMTP id v51mr21479629otb.346.1622541002768;
+        Tue, 01 Jun 2021 02:50:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622541002; cv=none;
         d=google.com; s=arc-20160816;
-        b=jmB9e8WK4pi5aRmc+2nyOAo/WiIoaFtAEGy/t1v2grrel2bZvZjzFqnRMcTApLS2gC
-         ACsQq3qqohPH6rDKWNZAdj8GaqKuYZVvNHS9TnmiLwgIjJ969Cxm21H0x9QRgfsgxGq1
-         GXtFNfEZ1uNGfSUnyMlOti8oz1PpkvOXxPailVpGoNgl7qS6QTaK2Y6FZS1+f0RxctDO
-         xblJQ+vxjhv/szwkZSMVALUkyGnAiS4bB0L5Nyc+PlADs9/zyJTGXfk6bO+6SHVKbxmJ
-         0jz1dcYchSNhSe1SVdNoH+aHIUnSfvKl86DMQv7ARl5PRsGuUdcL5aiWlWafgmFyhuuA
-         yFUg==
+        b=AVcXGriDIMhUWnkCYYhzxwtpM2QLWnJVyd79UqCfNecSI/l3b+wvFdVQr3Z3uKpL1X
+         xlTgv77bx7nQgsz1id7FbHCnfS1ssU195+umxviqvcq5cwN5XipZWNST4rUC8rAuQKH+
+         nl4WJKLtRWWZcwSkmNyhiGxtp6C6jAoibKbijE0QW3nCV6yGTiK1EA6oGYeWtFJnVkTX
+         Co2Eolnmc6/jx9xJXaJJPi/DPreEorr6W2kr3F3OnihX70Om68kUBtI301N94jBSPzQp
+         ElgiQYz7mjX/YhoGT+s+per/2zBmZcuoD6Qsvh7vCtoXNxK/YP9pxbuOI7Tbyq+4uAUs
+         oKGg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=message-id:date:subject:cc:to:from;
-        bh=CiSFeMdRMWyyQkmJjKE0OLiQeFzd1KQW6OpnimNR00c=;
-        b=HqKCyiX2v8jxKw8RmgOlG8vVgySs3COQ1x39Z7Sz2huDmWxd4Wd5xCb+cefPe4EqmW
-         CuKe1JPuQhevoGfZjTfYMj4p0aP7YCuYCOMVEUc0JY8n0jbF8ih+4uOV1vY4cDT4vaLl
-         hX43VE3jR0MJtOYdiusM+Lvld9Zf38S6hLA2Ao1EXP3/WKfvo3Z6FLeMUxPzwZUld5U8
-         3hU5SiDoPVBRBpGB/jl29ZVuKa/XBXVFduEjW320WsCzDTVyy+Ppo8zfqTTbaQZ7nXVO
-         kHPuPqsZGXjWcZGe7VeHPrieAqQ6jUjR6+W2W8RkUvuHvXvbI03Ao1us/H42/98uMbw3
-         3Ppw==
+        bh=ShOR4gnxLw2xlx63yccQBStxigEa11Yazb0CdEn0k0w=;
+        b=uQQ7crqlMWR2NN3ZQRq4PsxoEuD11ULck7cYZm/UeafAhk8qZjEE2zThTlkHEUtioW
+         jytFSOc9yaVPnNNgTkCsVWrNGDf2YSDuFvqVmmDB/x84VP+ncTOLAltqa0t/aDsD/r/r
+         txt/NWBUiZsaz3vNPQEC/iT7tAXi708cY0Aq73H3SjeZw5XWPwpGCx8fAS5le4ZrbJBi
+         fmV1ZMzHCCdxs/DKueYfaaIPhk9g+VShpKGEwAbQ7LEJWqFVux5wD2/ecqMvEnZEGXuI
+         iFdgJ2WILMUTQ4dvwLGddi+kyezsjMJZofpM4ensLOnMfPcwYyK2xMddaxpF9ErmKcNJ
+         8ZwQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.43 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
+       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.130 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
-Received: from out30-43.freemail.mail.aliyun.com (out30-43.freemail.mail.aliyun.com. [115.124.30.43])
-        by gmr-mx.google.com with ESMTPS id p16si1009450qkp.7.2021.06.01.02.44.20
+Received: from out30-130.freemail.mail.aliyun.com (out30-130.freemail.mail.aliyun.com. [115.124.30.130])
+        by gmr-mx.google.com with ESMTPS id t15si900554oiw.4.2021.06.01.02.50.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 01 Jun 2021 02:44:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.43 as permitted sender) client-ip=115.124.30.43;
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R691e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e04426;MF=yang.lee@linux.alibaba.com;NM=1;PH=DS;RN=9;SR=0;TI=SMTPD_---0Uat98i9_1622540656;
-Received: from j63c13417.sqa.eu95.tbsite.net(mailfrom:yang.lee@linux.alibaba.com fp:SMTPD_---0Uat98i9_1622540656)
+        Tue, 01 Jun 2021 02:50:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.130 as permitted sender) client-ip=115.124.30.130;
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e04394;MF=yang.lee@linux.alibaba.com;NM=1;PH=DS;RN=10;SR=0;TI=SMTPD_---0UaupMjV_1622540997;
+Received: from j63c13417.sqa.eu95.tbsite.net(mailfrom:yang.lee@linux.alibaba.com fp:SMTPD_---0UaupMjV_1622540997)
           by smtp.aliyun-inc.com(127.0.0.1);
-          Tue, 01 Jun 2021 17:44:17 +0800
+          Tue, 01 Jun 2021 17:49:59 +0800
 From: Yang Li <yang.lee@linux.alibaba.com>
-To: paul.walmsley@sifive.com
-Cc: mturquette@baylibre.com,
-	sboyd@kernel.org,
+To: krzysztof.kozlowski@canonical.com
+Cc: davem@davemloft.net,
+	kuba@kernel.org,
 	nathan@kernel.org,
 	ndesaulniers@google.com,
-	linux-clk@vger.kernel.org,
+	linux-nfc@lists.01.org,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Yang Li <yang.lee@linux.alibaba.com>
-Subject: [PATCH] clk: analogbits: Fix kernel-doc
-Date: Tue,  1 Jun 2021 17:44:11 +0800
-Message-Id: <1622540651-99141-1-git-send-email-yang.lee@linux.alibaba.com>
+Subject: [PATCH] NFC: nci: Remove redundant assignment to len
+Date: Tue,  1 Jun 2021 17:49:50 +0800
+Message-Id: <1622540990-102660-1-git-send-email-yang.lee@linux.alibaba.com>
 X-Mailer: git-send-email 1.8.3.1
 X-Original-Sender: yang.lee@linux.alibaba.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.43 as
- permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+ (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.130
+ as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -128,36 +129,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Fix function name in wrpll-cln28hpc.c kernel-doc comment
-to remove a warning found by clang(make W=1 LLVM=1).
+Variable 'len' is set to conn_info->max_pkt_payload_len but this
+value is never read as it is overwritten with a new value later on,
+hence it is a redundant assignment and can be removed.
 
-drivers/clk/analogbits/wrpll-cln28hpc.c:227: warning: expecting
-prototype for wrpll_configure(). Prototype was for
-wrpll_configure_for_rate() instead.
+Clean up the following clang-analyzer warning:
+
+net/nfc/nci/hci.c:164:3: warning: Value stored to 'len' is never read
+[clang-analyzer-deadcode.DeadStores]
 
 Reported-by: Abaci Robot <abaci@linux.alibaba.com>
 Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
 ---
- drivers/clk/analogbits/wrpll-cln28hpc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ net/nfc/nci/hci.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/drivers/clk/analogbits/wrpll-cln28hpc.c b/drivers/clk/analogbits/wrpll-cln28hpc.c
-index 776ead3..3b19475 100644
---- a/drivers/clk/analogbits/wrpll-cln28hpc.c
-+++ b/drivers/clk/analogbits/wrpll-cln28hpc.c
-@@ -198,7 +198,7 @@ static int __wrpll_update_parent_rate(struct wrpll_cfg *c,
- }
+diff --git a/net/nfc/nci/hci.c b/net/nfc/nci/hci.c
+index 9686514..d6732e5 100644
+--- a/net/nfc/nci/hci.c
++++ b/net/nfc/nci/hci.c
+@@ -161,8 +161,6 @@ static int nci_hci_send_data(struct nci_dev *ndev, u8 pipe,
+ 	*(u8 *)skb_push(skb, 1) = data_type;
  
- /**
-- * wrpll_configure() - compute PLL configuration for a target rate
-+ * wrpll_configure_for_rate() - compute PLL configuration for a target rate
-  * @c: ptr to a struct wrpll_cfg record to write into
-  * @target_rate: target PLL output clock rate (post-Q-divider)
-  * @parent_rate: PLL input refclk rate (pre-R-divider)
+ 	do {
+-		len = conn_info->max_pkt_payload_len;
+-
+ 		/* If last packet add NCI_HFP_NO_CHAINING */
+ 		if (i + conn_info->max_pkt_payload_len -
+ 		    (skb->len + 1) >= data_len) {
 -- 
 1.8.3.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1622540651-99141-1-git-send-email-yang.lee%40linux.alibaba.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1622540990-102660-1-git-send-email-yang.lee%40linux.alibaba.com.
