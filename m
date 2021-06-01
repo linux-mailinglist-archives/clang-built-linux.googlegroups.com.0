@@ -1,123 +1,136 @@
-Return-Path: <clang-built-linux+bncBD66FMGZA4IPRYOXQUDBUBB5VTWBC@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBYHE26CQMGQEYF2ETRQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43f.google.com (mail-wr1-x43f.google.com [IPv6:2a00:1450:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 553E4396F00
-	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Jun 2021 10:34:01 +0200 (CEST)
-Received: by mail-wr1-x43f.google.com with SMTP id x9-20020adfffc90000b02901178add5f60sf531827wrs.5
-        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Jun 2021 01:34:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622536441; cv=pass;
+Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 452CF396F20
+	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Jun 2021 10:40:02 +0200 (CEST)
+Received: by mail-pj1-x103d.google.com with SMTP id r91-20020a17090a1864b029015da4ff1c12sf8453005pja.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Jun 2021 01:40:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622536800; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ag4mpQXAwM26kRZwazWj/xprEOXuYXEjSj31QRaKT8E1TWiKohSOrnhRUvQH7ukQyT
-         htR3roWrGdPK50K9iRBloHokVbe/jQ2NZzLJRj3tjFFc+2KDWQCa2fZIGt3/0JfN9i4f
-         gD5ndzb4Ja1IJ2s9SlnjgcyB3jW8ys0DDfMgR1wAVmXPnT0kdSJQ3nNVInffjNUkDjx0
-         wC9Y1z4Inq9AMgpjsSq4Lym149vU6m+wMJteGOAM1k8qn2ZgKsM9P1GmqUM7jz3neQRV
-         Se58oj+KaDy2MHy7pBlJJEMw+579bBavz7gWk2KJdNOoSzkZ1dOS3CzEii8X9OouHk30
-         WeTQ==
+        b=eH9fxzEgzi3Tdu45dZKxsB6uFcRdbs5Nvuym7MXG7TlRrnlH2gS2pA7vlXTg9IUJwn
+         F6Va3N/Nm9752MLhIqhNg53LCdzm/s7hqFbgUlFmta2X/rdTOBnraI9Ps/FduBb1CCkG
+         YIBuU5daeOv3uc1O2jPij7MLd6/+LRw9IOGThdXLRyJ+cw7qW1NSXQej9pjqbVvJUbFg
+         dNuSJ8hQPON4yXWtiiwWmVQdldK3YYXk+KZtrYiOpCJ0uriKZ5+YnZfhLLVtojewpFQN
+         yFKPcrvWA+Fevd/mFShRhYbn0iGN7SWO8CiRY7QRvCdHOLU+4VYYhI/9RYrKSvkhbOAt
+         xVrg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=8WeM4VFLZRxKlkQUX/UHBFVyBKHe5MwuOPD4HxdrTY0=;
-        b=XdA4R7bA6jyhydC3z5jA05wyowcXVg/hs/XcTqGevHbnICv0oCgY3ahmjqev1GT2J4
-         n7+H0BbD86YEGTJ1jXCEDwmvRp7rrLi98yElMR9/8r17RVGs8pH80tfX7fGClLfQa/+x
-         3/iBXWhb4mXZK/Jvp2os5teVIjiM9mnhnfJJa9sPzWt7SWAQOWDGujNojX0cjRK7sf4t
-         QHCjfhuuRoH16IPjrQJbBopIeqJPDaENtzp2UPR6VLgpI5QTx9IS41veY6OjIY/K6Cyd
-         Ja+SgCujKyGM+AlTdX2AD8+lLIUJMgnpgWjYqHFWJVZUq8Kmw7Ux2ENbydaE2KNQNtD4
-         YzYQ==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:message-id:date:subject:to:from:sender:dkim-signature;
+        bh=uB3XS2hz9mAHRAfffAm0qURjhZq8E4icfUxZJrZYZQY=;
+        b=Z/PzjC7UAAHgFUxyhK/wAU4J+2JVeNLXSpJa0Yz4FrUFuO0GVOXoOz7cbk8CASW4x1
+         DoNqEyt9nenfS6SxKi4nI+1KrEDrzj3acTX6TrCbWz/cQr15miO6jEP2Llpd9z4t3fiP
+         LToEsHgw/c5RgRY6hICbOHTh55fWjrto5LGszsWPhAC/S4BJsaKagb+0lHdAtR94PB/m
+         Or2QbPqR3Ru5dSa5DiRY0I+ryGS7ONLDPM5M66c7GcKcCC+cFVaLovfWJVOoapftpyJI
+         0pDYEoABgfPDWokCxwqy/R1rgKcRbjNN4UXq/5KvQJ9By0gofT5p2eYbzburpj0C0Xu+
+         yhwQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=A7UfRu3q;
-       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::62e as permitted sender) smtp.mailfrom=morbo@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of wanjiabing@vivo.com designates 115.236.121.144 as permitted sender) smtp.mailfrom=wanjiabing@vivo.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vivo.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=8WeM4VFLZRxKlkQUX/UHBFVyBKHe5MwuOPD4HxdrTY0=;
-        b=X1Un1Hbs58jvXpoLV76pOosTKPBjDYAkfyOeTOnL28viAjpUaGj320ouEIk3m/8ije
-         6wKYavkv04QiLx9Vv/6U10inUFrlN1YJCOqqGc8/B+bjjc7Vt0zVV454KaMyc6NFQEfP
-         9bMu7++GiZIqpMfvznDY5ieQpaVuKnxpB7iWLiGO/wppDIcHptcL0kkWBS4RURyxgYFn
-         kOKUGGa06GvTkgweJ9xKiHGmMI34j7zYXw/VLF90Tjwasox6vPtF6blGdZdAgntWvjCs
-         S7nKIbKjU3KgdSkIbVDyCJ+pQVefIdgjrwMfGHBSAsHPScI+Mgde215APVCbzB7anm+7
-         rq2A==
+        h=sender:from:to:subject:date:message-id:mime-version
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=uB3XS2hz9mAHRAfffAm0qURjhZq8E4icfUxZJrZYZQY=;
+        b=I7lwMRJMukerR0gZHYROrzk3UqYGloXIS7cFb+zN9DUyFEjAadnzDIzmf/FW+phwgL
+         7c2hvuQNSWaVABfKxBUN4Maru6CNTwGOqgm+LMOE9jg7SdV1ZiiYI9N4mSh68loIGJIz
+         ZAqpl2jYRDynEsdLnZDiCX8RslamUi2qnkFHYAUd2v8gE9D4sNNJ7q0rKc60uStGavT6
+         n/6FMGqCo+7iI1lcYsvtB+XLfgF/nNtekJlCnn/hyfcFG+6RlxLZMSjQnrNwb+Tlcb9c
+         pn5IeNLqQR1C/Vc8J0yFHhysBy/QLOBG0IBM5t+TT7XVWWSdh7oDRUTOUtQl2dASHwkv
+         DQBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:from:to:subject:date:message-id
+         :mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8WeM4VFLZRxKlkQUX/UHBFVyBKHe5MwuOPD4HxdrTY0=;
-        b=oDtwKed4OVW9/D9UCHIcHDE5JrHciuZudZceA+E5Vyt4JGZhp8Je3JNRghA1kFcGwl
-         fFqE2h0Fla6r60ietY0pHOQDOHPT4viCmDqP34f6Ki/gY+OZucA8ysB5MC39rkiy6On2
-         vLtlEeV+f/Ynoe6aQ5zeLlcu6CurhonVP1k5XZniVcNCk5WPOnZJjvAwIzN7AT5bFtzl
-         nRhNlQwDnO21xYbQRr0/KwA4BJCnP7gxMtH0u5uM9Pc3W9JsXUlFPN5dtOW9n0W7kihN
-         PTYmBAnNwmf3QbGmAJjRmJD9tLDSOgLjwU49gN/tgRhRqRixU/2yMpX026GTlDmSlY9S
-         A5Bg==
-X-Gm-Message-State: AOAM532EFzTJUsx9PEQts9MLyJtCfCeYZrutL7lRSgyKToGAYkXyaXE7
-	4XEb1SyiUNCGKSuKWckvAwU=
-X-Google-Smtp-Source: ABdhPJzu2xy304LZKfHfabzk4ZQEWHjzvDFn+LJVw04fISUJxikyYEpa0d41zZ/oKnCsn7lhieASgA==
-X-Received: by 2002:adf:8bd4:: with SMTP id w20mr13665273wra.310.1622536441093;
-        Tue, 01 Jun 2021 01:34:01 -0700 (PDT)
+        bh=uB3XS2hz9mAHRAfffAm0qURjhZq8E4icfUxZJrZYZQY=;
+        b=tGDwQ+C0Vt+xZ1bkpvPzqZlLD7yLLVTTyLI/ZrVtjnbsGOW+z18xKuE7Utl4W7/THg
+         3wTSyaJvK5u/M30HeuxR1Evu++Xihc5hnGiSImuT67kbUer+8YM2gQit2wpcROPE+Tok
+         eICqsfMfLAOsjEPQeYA7IG3hrMLK8WrtKxhTwOl7fyf2eIE6vbtQ7dmNu34u+ZsOXlIe
+         wUtIvzrY014CQNr+wQYWSvvtOYu398vXwbSUhKl4xJNR/1OyVH8wUXc5VY+I89gG3A7u
+         yXOPiMQLvtwoOtpSDnw1hDVdeTGBKSDSHSJPmtGN7PaCfIPFysLYzAH05z+8l0qo8VfW
+         Zf/A==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5326+V1xIt0zWJ2wdpDOfKCw9NrsJiZrKpUF81pHm7kiiWXcHVze
+	2pUSHnicr6X4p42Ggf9Nu1Y=
+X-Google-Smtp-Source: ABdhPJzZ7A7K7m6rj7aQnePsU15Bj3KsYK9coG5m1gL5fbDZW+BNiu4LxnDKgT8EaCYeZ0pTTCnV+g==
+X-Received: by 2002:aa7:8426:0:b029:2e9:bc0e:5c3f with SMTP id q6-20020aa784260000b02902e9bc0e5c3fmr13073493pfn.22.1622536800500;
+        Tue, 01 Jun 2021 01:40:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6000:2a8:: with SMTP id l8ls699704wry.1.gmail; Tue, 01
- Jun 2021 01:34:00 -0700 (PDT)
-X-Received: by 2002:adf:f642:: with SMTP id x2mr25975728wrp.323.1622536440363;
-        Tue, 01 Jun 2021 01:34:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622536440; cv=none;
+Received: by 2002:a17:902:b282:: with SMTP id u2ls4497560plr.10.gmail; Tue, 01
+ Jun 2021 01:40:00 -0700 (PDT)
+X-Received: by 2002:a17:90a:8c97:: with SMTP id b23mr23774193pjo.74.1622536800055;
+        Tue, 01 Jun 2021 01:40:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622536800; cv=none;
         d=google.com; s=arc-20160816;
-        b=vop2aefp6ghcpKa3kZKV37Rml4V/ID19iNwj0vlgJyvehCf7SLpbXS0OHWgvRfcDb0
-         Aq8I0ppAqR7NKg+z9oLQyNamtHe9pykZbwUA0HYglDiMlX7iQMt9hknAjSFAf/mCwxsZ
-         3dNRzlCNj0PZ2nMcikdM86//3qg8G3tGgcPoBNxVZ+GqkXObf2W6Xe1qSqpz6sLmF8n8
-         T6l98oMP/+l/ayOagidYPb+bfUubgJBI63/ZP2NFGk7AnRGub/4bYOLkSghx8xT9kcB/
-         wxxBgIY8fEGns18AUw2m1K7tfD2HSkqNMRaLc0JC2sq1bbfQ7SWyJw9NYuWR8Q4oL8DJ
-         KiOQ==
+        b=Lb3ti2wMDLdwIm5Nw7pxc7JtCNhutnZs9WeG0T4rP+oCi35lr5C46jLsY42N8VA2VY
+         tU0eNcGGQXVSixvo9OP5LXI+J//i2lYSQplTu4Zp0oYxifghUX8luEBTwQesSoG5R0Yz
+         LeMgpbP2JESlxLrhZJXQ1vZtaldRORIO30f/aNKEtc/RTv6q0WjIWsdZjjNOnagTdp8y
+         NqEukaJBkFJqPSxQnBVLTG1UN1lf7vjwPmaql9NIKP+30/tFrVl/lidqTSmPMhOxeYO7
+         nYd2x1OXEs2RCwqDixFnQ8s2+ClX8RsJ7owMYP4MByrBkvJvg2rYPmTproTZtmhqf6pz
+         PCIw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Xc4n9XmoNCDNr0ZZajgmxSpPRpnP9fadGEn7vmxH+5o=;
-        b=XgJpTZfNS1xUfkEnVj4SxmRtwMXUhpJ2yP2Vba82EX8oaG7Egw8TUrsr2OUU2Oy78W
-         4tB9SaQxr5WsDQl9iGdqGQrX1RE36mcB+sS7v+Wg6TsvAKSntv3gbyePvvYvuo+ISwb4
-         MK2ZVbuQUE1Hc1OeVVB9PQE/NADJXgCeHHfp8TlBSSlStAZyCzUDiutxof7rqhw4TLOK
-         eZdNvcqxBMbYW0kXlsw6+AVJvjUpr5biW4Xl595hc9RztP2qRfJlOIDE/N2E99iyyDH7
-         i2Do/VXClQCikCNboiuOTw1xlFnzuGMed++HjiSxuHNaCDRI2iEv0aRqvfDJnLiVnbPp
-         virA==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from;
+        bh=Iaf8NSipfvkc+9a518ETZGQ+PesP0OvLF3US9WKEiqw=;
+        b=zkm0lxO8TrYad4OrHdu1d69KNMypD6llzffy32TaaynAW5FQHyBLPaA3yxKU/Sms93
+         /csMeios4TPVTRii1KJVsDxNvpWtKbEEr0D9gZ3tfEi85ohAtcZE92Q1PJrFhSZBw9xR
+         Z5cR3zdK1q3YVdHi5xhnpFMVe5gRccZuSBdfxNjf5RJKlBDfNI8CemuQEnjlLio2RCft
+         US3kUpLXywbzfkxZVyaGcZjkAU2BPEAmbrzEP9JFVEvlvcfgxKVmFjRqbKKRv2G1NPir
+         9G6Nm/veGv/0ckKkJ0bKJZfEAlLQfnpxwKZAeUzmwTH9SgyqrHXwTmuPpCycZ1rkRBWZ
+         p4WQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=A7UfRu3q;
-       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::62e as permitted sender) smtp.mailfrom=morbo@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ej1-x62e.google.com (mail-ej1-x62e.google.com. [2a00:1450:4864:20::62e])
-        by gmr-mx.google.com with ESMTPS id t1si143596wrn.4.2021.06.01.01.34.00
+       spf=pass (google.com: domain of wanjiabing@vivo.com designates 115.236.121.144 as permitted sender) smtp.mailfrom=wanjiabing@vivo.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vivo.com
+Received: from mail-m121144.qiye.163.com (mail-m121144.qiye.163.com. [115.236.121.144])
+        by gmr-mx.google.com with ESMTPS id f3si225582pjs.3.2021.06.01.01.39.59
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 01 Jun 2021 01:34:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::62e as permitted sender) client-ip=2a00:1450:4864:20::62e;
-Received: by mail-ej1-x62e.google.com with SMTP id g8so11975860ejx.1
-        for <clang-built-linux@googlegroups.com>; Tue, 01 Jun 2021 01:34:00 -0700 (PDT)
-X-Received: by 2002:a17:906:f9db:: with SMTP id lj27mr16059235ejb.421.1622536439789;
- Tue, 01 Jun 2021 01:33:59 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Tue, 01 Jun 2021 01:40:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of wanjiabing@vivo.com designates 115.236.121.144 as permitted sender) client-ip=115.236.121.144;
+Received: from vivo-HP-ProDesk-680-G4-PCI-MT.vivo.xyz (unknown [58.251.74.232])
+	by mail-m121144.qiye.163.com (Hmail) with ESMTPA id E073DAC0397;
+	Tue,  1 Jun 2021 16:39:53 +0800 (CST)
+From: Wan Jiabing <wanjiabing@vivo.com>
+To: Alex Shi <alexs@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Wu XiangCheng <bobwxc@email.cn>,
+	Bernard Zhao <bernard@vivo.com>,
+	Wan Jiabing <wanjiabing@vivo.com>,
+	Fangrui Song <maskray@google.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH] docs/zh_CN: add translations in zh_CN/dev-tools/kasan
+Date: Tue,  1 Jun 2021 16:38:26 +0800
+Message-Id: <1622536714-2669-1-git-send-email-wanjiabing@vivo.com>
+X-Mailer: git-send-email 2.7.4
 MIME-Version: 1.0
-References: <20210528200821.459214-1-jarmo.tiitto@gmail.com> <YLU0VAoWG7qa7u24@Ryzen-9-3900X.localdomain>
-In-Reply-To: <YLU0VAoWG7qa7u24@Ryzen-9-3900X.localdomain>
-From: "'Bill Wendling' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 1 Jun 2021 01:33:48 -0700
-Message-ID: <CAGG=3QXtisfabaiVP6y_3sjGsM7cQmPhur8Zqor4qkGrbiXpBA@mail.gmail.com>
-Subject: Re: [PATCH 3/6] pgo: modules Add module profile data export machinery.
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Jarmo Tiitto <jarmo.tiitto@gmail.com>, Sami Tolvanen <samitolvanen@google.com>, wcw@google.com, 
-	Nick Desaulniers <ndesaulniers@google.com>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: morbo@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=A7UfRu3q;       spf=pass
- (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::62e as
- permitted sender) smtp.mailfrom=morbo@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Bill Wendling <morbo@google.com>
-Reply-To: Bill Wendling <morbo@google.com>
+Content-Transfer-Encoding: base64
+X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgYFAkeWUFZS1VLWVdZKFlBSE83V1ktWUFJV1kPCR
+	oVCBIfWUFZQ0hKTFZLHh9PTx1ISB9KSEtVEwETFhoSFyQUDg9ZV1kWGg8SFR0UWUFZT0tIVUpKS0
+	hKTFVLWQY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ok06Qxw4GT8TKxAjSh4zGi0N
+	GB4wCStVSlVKTUlJTkhNTEJOS0JNVTMWGhIXVQwaFRESGhkSFRw7DRINFFUYFBZFWVdZEgtZQVlO
+	Q1VJTkpVTE9VSUhJWVdZCAFZQUlITkpDNwY+
+X-HM-Tid: 0a79c6bab15bb039kuuue073dac0397
+X-Original-Sender: wanjiabing@vivo.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of wanjiabing@vivo.com designates 115.236.121.144 as
+ permitted sender) smtp.mailfrom=wanjiabing@vivo.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=vivo.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,676 +143,394 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, May 31, 2021 at 12:09 PM Nathan Chancellor <nathan@kernel.org> wrote:
->
-> On Fri, May 28, 2021 at 11:08:21PM +0300, Jarmo Tiitto wrote:
-> > PGO profile data is exported from the kernel by
-> > creating debugfs files: pgo/<module>.profraw for each module.
->
-> Again, I do not really have many comments on the actual code as I am not
-> super familiar with it.
->
-> However, fs_mod.c duplicates a lot of the functions in fs.c, which makes
-> maintaining this code even more difficult, especially against LLVM PGO
-> profile data format changes. I just want to make sure I understand this:
-> does PGO currently not work with modules? Or does this patch series just
-> make it so that each module has its own .profraw file so individual
-> modules can be optimized?
->
-> If it is the latter, what is the point? Why would you want to optimize
-> just a module and not the entire kernel, if you already have to go
-> through the profiling steps?
->
-> If it is the former, there has to be a better way to share more of the
-> machinery between fs.c and fs_mod.c than basically duplicating
-> everything because there are some parameters and logic that have to
-> change. I do not have a ton of time to outline exactly what that might
-> look like but for example, prf_fill_header and prf_module_fill_header
-> are basically the same thing aside from the mod parameter and the
-> prf_..._count() calls. It seems like if mod was NULL, you would call the
-> vmlinux versions of the functions.
->
-Functions definitely shouldn't be duplicated with only minor changes.
-We should determine a way to combine them.
-
-As for whether the original PGO patch supports profiling in modules,
-the answer is "it depends". :-) I believe that clang inserts profiling
-hooks into all code that's compiled with the "-fprofile..." flags.
-This would include the modules of course. In GCOV, it's possible to
-retrieve profiling information for a single file. Jarmo, is that the
-intention of your patches?
-
--bw
-
-> > Modules are register into the profiler via module notifier callback
-> > similiar to gcov/base.c. Note that if module does not have __llvm_prf_xxx
-> > sections required the module ignored.
-> >
-> > Also there is no "reset" support for yet for these files.
-> >
-> > Signed-off-by: Jarmo Tiitto <jarmo.tiitto@gmail.com>
-> > ---
-> >  kernel/pgo/Makefile     |   2 +-
-> >  kernel/pgo/fs.c         |  54 ++++--
-> >  kernel/pgo/fs_mod.c     | 415 ++++++++++++++++++++++++++++++++++++++++
-> >  kernel/pgo/instrument.c |  12 +-
-> >  kernel/pgo/pgo.h        |  11 +-
-> >  5 files changed, 466 insertions(+), 28 deletions(-)
-> >  create mode 100644 kernel/pgo/fs_mod.c
-> >
-> > diff --git a/kernel/pgo/Makefile b/kernel/pgo/Makefile
-> > index 41e27cefd9a4..662b7dfdfbe9 100644
-> > --- a/kernel/pgo/Makefile
-> > +++ b/kernel/pgo/Makefile
-> > @@ -2,4 +2,4 @@
-> >  GCOV_PROFILE := n
-> >  PGO_PROFILE  := n
-> >
-> > -obj-y        += fs.o instrument.o
-> > +obj-y        += fs.o fs_mod.o instrument.o
-> > diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
-> > index 575142735273..5471d270a5bb 100644
-> > --- a/kernel/pgo/fs.c
-> > +++ b/kernel/pgo/fs.c
-> > @@ -227,15 +227,15 @@ static unsigned long prf_buffer_size(void)
-> >   * Serialize the profiling data into a format LLVM's tools can understand.
-> >   * Note: caller *must* hold pgo_lock.
-> >   */
-> > -static int prf_serialize(struct prf_private_data *p)
-> > +static int prf_serialize(struct prf_private_data *p, unsigned long *buf_size)
-> >  {
-> >       int err = 0;
-> >       void *buffer;
-> >
-> > -     p->size = prf_buffer_size();
-> > -     p->buffer = vzalloc(p->size);
-> > +     /* re-check buffer size */
-> > +     *buf_size = prf_buffer_size();
-> >
-> > -     if (!p->buffer) {
-> > +     if (p->size < *buf_size || !p->buffer) {
-> >               err = -ENOMEM;
-> >               goto out;
-> >       }
-> > @@ -262,7 +262,8 @@ static int prf_open(struct inode *inode, struct file *file)
-> >  {
-> >       struct prf_private_data *data;
-> >       unsigned long flags;
-> > -     int err;
-> > +     unsigned long buf_size;
-> > +     int err = 0;
-> >
-> >       data = kzalloc(sizeof(*data), GFP_KERNEL);
-> >       if (!data) {
-> > @@ -270,18 +271,41 @@ static int prf_open(struct inode *inode, struct file *file)
-> >               goto out;
-> >       }
-> >
-> > +     /* estimate amount of memory needed:
-> > +      * can't vzalloc() while prf_lock() is held:
-> > +      * CONFIG_DEBUG_ATOMIC_SLEEP complains.
-> > +      * So first get buffer size, release the lock,
-> > +      * vzalloc(), re-lock and try serialize.
-> > +      */
-> >       flags = prf_lock();
-> > +     buf_size = prf_buffer_size();
-> >
-> > -     err = prf_serialize(data);
-> > -     if (unlikely(err)) {
-> > -             kfree(data);
-> > -             goto out_unlock;
-> > -     }
-> > +     do {
-> > +             prf_unlock(flags);
-> >
-> > -     file->private_data = data;
-> > +             /* resize buffer */
-> > +             if (data->size < buf_size && data->buffer) {
-> > +                     vfree(data->buffer);
-> > +                     data->buffer = NULL;
-> > +             }
-> > +
-> > +             if (!data->buffer) {
-> > +                     data->size = buf_size;
-> > +                     data->buffer = vzalloc(data->size);
-> >
-> > -out_unlock:
-> > +                     if (!data->buffer) {
-> > +                             err = -ENOMEM;
-> > +                             goto out;
-> > +                     }
-> > +             }
-> > +             /* try serialize */
-> > +             flags = prf_lock();
-> > +     } while (prf_serialize(data, &buf_size));
-> >       prf_unlock(flags);
-> > +
-> > +     data->size = buf_size;
-> > +     file->private_data = data;
-> > +
-> >  out:
-> >       return err;
-> >  }
-> > @@ -363,6 +387,8 @@ static const struct file_operations prf_reset_fops = {
-> >  /* Create debugfs entries. */
-> >  static int __init pgo_init(void)
-> >  {
-> > +     pr_notice("Clang PGO profile data available.");
-> > +
-> >       directory = debugfs_create_dir("pgo", NULL);
-> >       if (!directory)
-> >               goto err_remove;
-> > @@ -375,6 +401,8 @@ static int __init pgo_init(void)
-> >                                &prf_reset_fops))
-> >               goto err_remove;
-> >
-> > +     prf_modules_init();
-> > +
-> >       return 0;
-> >
-> >  err_remove:
-> > @@ -385,6 +413,8 @@ static int __init pgo_init(void)
-> >  /* Remove debugfs entries. */
-> >  static void __exit pgo_exit(void)
-> >  {
-> > +     prf_modules_exit();
-> > +
-> >       debugfs_remove_recursive(directory);
-> >  }
-> >
-> > diff --git a/kernel/pgo/fs_mod.c b/kernel/pgo/fs_mod.c
-> > new file mode 100644
-> > index 000000000000..0808d44227f1
-> > --- /dev/null
-> > +++ b/kernel/pgo/fs_mod.c
-> > @@ -0,0 +1,415 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (C) 2021 Jarmo Tiitto
-> > + *
-> > + * Author:
-> > + *   Jarmo Tiitto <jarmo.tiitto@gmail.com>
-> > + *
-> > + * Based on the clang PGO kernel patch by:
-> > + *  Sami Tolvanen <samitolvanen@google.com>
-> > + *
-> > + * This software is licensed under the terms of the GNU General Public
-> > + * License version 2, as published by the Free Software Foundation, and
-> > + * may be copied, distributed, and modified under those terms.
-> > + *
-> > + * This program is distributed in the hope that it will be useful,
-> > + * but WITHOUT ANY WARRANTY; without even the implied warranty of
-> > + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-> > + * GNU General Public License for more details.
-> > + *
-> > + */
-> > +
-> > +#define pr_fmt(fmt)  "pgo: " fmt
-> > +
-> > +#include <linux/kernel.h>
-> > +#include <linux/debugfs.h>
-> > +#include <linux/fs.h>
-> > +#include <linux/module.h>
-> > +#include <linux/slab.h>
-> > +#include <linux/vmalloc.h>
-> > +#include "pgo.h"
-> > +
-> > +/*
-> > + * PGO profile data reporting for modules:
-> > + * We maintain one debugfs pgo/<module>.profraw file per module.
-> > + */
-> > +
-> > +
-> > +DEFINE_MUTEX(prf_mod_lock);
-> > +LIST_HEAD(prf_mod_list);
-> > +
-> > +struct prf_mod_data {
-> > +     void *buffer;
-> > +     unsigned long size;
-> > +};
-> > +
-> > +/* these are trivial, but each one differs a bit */
-> > +static inline unsigned long prf_mod_data_size(struct module *mod)
-> > +{
-> > +     return mod->prf_data_size;
-> > +}
-> > +
-> > +static inline unsigned long prf_mod_data_count(struct module *mod)
-> > +{
-> > +     return mod->prf_data_size / sizeof(struct llvm_prf_data);
-> > +}
-> > +
-> > +static inline unsigned long prf_mod_cnts_size(struct module *mod)
-> > +{
-> > +     return mod->prf_cnts_num * sizeof(mod->prf_cnts[0]);
-> > +}
-> > +
-> > +static inline unsigned long prf_mod_cnts_count(struct module *mod)
-> > +{
-> > +     return mod->prf_cnts_num;
-> > +}
-> > +
-> > +static inline unsigned long prf_mod_names_size(struct module *mod)
-> > +{
-> > +     return mod->prf_names_num * sizeof(mod->prf_names[0]);
-> > +}
-> > +
-> > +static inline unsigned long prf_mod_names_count(struct module *mod)
-> > +{
-> > +     return mod->prf_names_num;
-> > +}
-> > +
-> > +static inline unsigned long prf_mod_vnds_size(struct module *mod)
-> > +{
-> > +     return mod->prf_vnds_size;
-> > +}
-> > +
-> > +static inline unsigned long prf_mod_vnds_count(struct module *mod)
-> > +{
-> > +     return mod->prf_vnds_size / sizeof(struct llvm_prf_value_node);
-> > +}
-> > +
-> > +/*
-> > + * Raw profile data format:
-> > + *
-> > + *   - llvm_prf_header
-> > + *   - __llvm_prf_data
-> > + *   - __llvm_prf_cnts
-> > + *   - __llvm_prf_names
-> > + *   - zero padding to 8 bytes
-> > + *   - for each llvm_prf_data in __llvm_prf_data:
-> > + *           - llvm_prf_value_data
-> > + *                   - llvm_prf_value_record + site count array
-> > + *                           - llvm_prf_value_node_data
-> > + *                           ...
-> > + *                   ...
-> > + *           ...
-> > + */
-> > +
-> > +static void prf_module_fill_header(struct module *mod, void **buffer)
-> > +{
-> > +     struct llvm_prf_header *header = *(struct llvm_prf_header **)buffer;
-> > +
-> > +#ifdef CONFIG_64BIT
-> > +     header->magic = LLVM_INSTR_PROF_RAW_MAGIC_64;
-> > +#else
-> > +     header->magic = LLVM_INSTR_PROF_RAW_MAGIC_32;
-> > +#endif
-> > +     header->version = LLVM_VARIANT_MASK_IR_PROF | LLVM_INSTR_PROF_RAW_VERSION;
-> > +     header->data_size = prf_mod_data_count(mod);
-> > +     header->padding_bytes_before_counters = 0;
-> > +     header->counters_size = prf_mod_cnts_count(mod);
-> > +     header->padding_bytes_after_counters = 0;
-> > +     header->names_size = prf_mod_names_count(mod);
-> > +     header->counters_delta = (u64)mod->prf_cnts;
-> > +     header->names_delta = (u64)mod->prf_names;
-> > +     header->value_kind_last = LLVM_INSTR_PROF_IPVK_LAST;
-> > +
-> > +     *buffer += sizeof(*header);
-> > +}
-> > +
-> > +/*
-> > + * Copy the source into the buffer, incrementing the pointer into buffer in the
-> > + * process.
-> > + */
-> > +static void prf_copy_to_buffer(void **buffer, const void *src, unsigned long size)
-> > +{
-> > +     memcpy(*buffer, src, size);
-> > +     *buffer += size;
-> > +}
-> > +
-> > +/* extern u32 __prf_get_value_size(struct llvm_prf_data *p, u32 *value_kinds) */
-> > +
-> > +static u32 prf_module_get_value_size(struct module *mod)
-> > +{
-> > +     u32 size = 0;
-> > +     struct llvm_prf_data *p;
-> > +     struct llvm_prf_data *start = mod->prf_data;
-> > +     struct llvm_prf_data *end = start + prf_mod_data_count(mod);
-> > +
-> > +     for (p = start; p < end; p++)
-> > +             size += __prf_get_value_size(p, NULL);
-> > +
-> > +     return size;
-> > +}
-> > +
-> > +/* Serialize the profiling's value.
-> > + * extern void prf_serialize_value(struct llvm_prf_data *p, void **buffer)
-> > + */
-> > +
-> > +static void prf_module_serialize_values(struct module *mod, void **buffer)
-> > +{
-> > +     struct llvm_prf_data *p;
-> > +     struct llvm_prf_data *start = mod->prf_data;
-> > +     struct llvm_prf_data *end = start + prf_mod_data_count(mod);
-> > +
-> > +     for (p = start; p < end; p++)
-> > +             prf_serialize_value(p, buffer);
-> > +}
-> > +
-> > +static inline unsigned long prf_get_padding(unsigned long size)
-> > +{
-> > +     return 7 & (sizeof(u64) - size % sizeof(u64));
-> > +}
-> > +
-> > +static unsigned long prf_module_buffer_size(struct module *mod)
-> > +{
-> > +     return sizeof(struct llvm_prf_header) +
-> > +                     prf_mod_data_size(mod)  +
-> > +                     prf_mod_cnts_size(mod) +
-> > +                     prf_mod_names_size(mod) +
-> > +                     prf_get_padding(prf_mod_names_size(mod)) +
-> > +                     prf_module_get_value_size(mod);
-> > +}
-> > +
-> > +/*
-> > + * Serialize the profiling data into a format LLVM's tools can understand.
-> > + * Note: caller *must* hold pgo_lock and hold reference to the module.
-> > + */
-> > +static int prf_module_serialize(struct module *mod, struct prf_mod_data *p, unsigned long *buf_size)
-> > +{
-> > +     int err = 0;
-> > +     void *buffer;
-> > +
-> > +     /* re-check buffer size */
-> > +     *buf_size = prf_module_buffer_size(mod);
-> > +
-> > +     if (p->size < *buf_size || !p->buffer) {
-> > +             err = -ENOMEM;
-> > +             goto out;
-> > +     }
-> > +
-> > +     buffer = p->buffer;
-> > +
-> > +     prf_module_fill_header(mod, &buffer);
-> > +     prf_copy_to_buffer(&buffer, mod->prf_data,  prf_mod_data_size(mod));
-> > +     prf_copy_to_buffer(&buffer, mod->prf_cnts,  prf_mod_cnts_size(mod));
-> > +     prf_copy_to_buffer(&buffer, mod->prf_names, prf_mod_names_size(mod));
-> > +     buffer += prf_get_padding(prf_mod_names_size(mod));
-> > +
-> > +     prf_module_serialize_values(mod, &buffer);
-> > +
-> > +out:
-> > +     return err;
-> > +}
-> > +
-> > +/* open() implementation for module PGO. */
-> > +static int prf_module_open(struct inode *inode, struct file *file)
-> > +{
-> > +     struct prf_mod_private_data *data;
-> > +     struct prf_mod_data *pinfo;
-> > +     struct module *mod;
-> > +     unsigned long flags;
-> > +     unsigned long buf_size = 0;
-> > +     int err = 0;
-> > +
-> > +     mutex_lock(&prf_mod_lock);
-> > +     data = inode->i_private; /* see: pgo_module_notifier() */
-> > +
-> > +     BUG_ON(!data);
-> > +
-> > +     /* grab the module */
-> > +     mod = READ_ONCE(data->mod);
-> > +     if (mod && try_module_get(mod)) {
-> > +             // Is it live?
-> > +             if (mod->state != MODULE_STATE_LIVE) {
-> > +                     err = -EAGAIN;
-> > +                     goto put_unlock;
-> > +             }
-> > +
-> > +             pinfo = kzalloc(sizeof(*pinfo), GFP_KERNEL);
-> > +             if (!pinfo) {
-> > +                     err = -ENOMEM;
-> > +                     goto put_unlock;
-> > +             }
-> > +
-> > +             mutex_unlock(&prf_mod_lock);
-> > +
-> > +             /* estimate amount of memory needed:
-> > +              * can't vzalloc() while prf_lock() is held
-> > +              * and prf_module_buffer_size() only works while it is held..
-> > +              */
-> > +             flags = prf_lock();
-> > +             buf_size = prf_module_buffer_size(mod);
-> > +             do {
-> > +                     prf_unlock(flags);
-> > +
-> > +                     /* resize buffer */
-> > +                     if (pinfo->size < buf_size && pinfo->buffer) {
-> > +                             vfree(pinfo->buffer);
-> > +                             pinfo->buffer = NULL;
-> > +                     }
-> > +
-> > +                     if (!pinfo->buffer) {
-> > +                             pinfo->size = buf_size;
-> > +                             pinfo->buffer = vzalloc(pinfo->size);
-> > +
-> > +                             if (!pinfo->buffer) {
-> > +                                     err = -ENOMEM;
-> > +                                     goto out;
-> > +                             }
-> > +                     }
-> > +
-> > +                     /* try serialize */
-> > +                     flags = prf_lock();
-> > +
-> > +             } while (prf_module_serialize(mod, pinfo, &buf_size));
-> > +
-> > +             prf_unlock(flags);
-> > +
-> > +             /* success! */
-> > +             pinfo->size = buf_size;
-> > +             file->private_data = pinfo;
-> > +
-> > +             module_put(mod);
-> > +             return err;
-> > +     }
-> > +
-> > +put_unlock:
-> > +     module_put(mod);
-> > +     mutex_unlock(&prf_mod_lock);
-> > +out:
-> > +     return err;
-> > +}
-> > +
-> > +/* read() implementation for PGO. */
-> > +static ssize_t prf_module_read(struct file *file, char __user *buf, size_t count,
-> > +                     loff_t *ppos)
-> > +{
-> > +     struct prf_mod_data *pinfo = file->private_data;
-> > +
-> > +     BUG_ON(!pinfo);
-> > +
-> > +     return simple_read_from_buffer(buf, count, ppos, pinfo->buffer,
-> > +                                        pinfo->size);
-> > +}
-> > +
-> > +/* release() implementation for PGO. Release resources allocated by open(). */
-> > +static int prf_module_release(struct inode *inode, struct file *file)
-> > +{
-> > +     struct prf_mod_data *pinfo = file->private_data;
-> > +
-> > +     if (pinfo) {
-> > +             vfree(pinfo->buffer);
-> > +             kfree(pinfo);
-> > +             file->private_data = 0;
-> > +     }
-> > +     return 0;
-> > +}
-> > +
-> > +static const struct file_operations prf_mod_fops = {
-> > +     .owner          = THIS_MODULE,
-> > +     .open           = prf_module_open,
-> > +     .read           = prf_module_read,
-> > +     .llseek         = default_llseek,
-> > +     .release        = prf_module_release
-> > +};
-> > +
-> > +static void prf_module_free(struct rcu_head *rcu)
-> > +{
-> > +     struct prf_mod_private_data *data;
-> > +
-> > +     data = container_of(rcu, struct prf_mod_private_data, rcu);
-> > +
-> > +     debugfs_remove(data->file);
-> > +
-> > +     kfree(data);
-> > +}
-> > +
-> > +static int pgo_module_notifier(struct notifier_block *nb, unsigned long event,
-> > +                             void *pdata)
-> > +{
-> > +     struct module *mod = pdata;
-> > +     struct prf_mod_private_data *data;
-> > +     char fsname[MODULE_NAME_LEN + 9]; // +strlen(".profraw")
-> > +
-> > +     if (event == MODULE_STATE_LIVE) {
-> > +             /* does the module have profiling info? */
-> > +             if (mod->prf_data
-> > +                       && mod->prf_cnts
-> > +                       && mod->prf_names
-> > +                       && mod->prf_vnds) {
-> > +                     /* add module prf_mod_private_data entry */
-> > +                     data = kzalloc(sizeof(*data), GFP_KERNEL);
-> > +
-> > +                     fsname[0] = 0;
-> > +                     snprintf(fsname, sizeof(fsname), "%s.profraw", mod->name);
-> > +
-> > +                     mutex_lock(&prf_mod_lock);
-> > +
-> > +                     data->file = debugfs_create_file(fsname, 0600, directory, data, &prf_mod_fops);
-> > +                     if (!data->file) {
-> > +                             pr_err("Failed setup module pgo: %s", fsname);
-> > +                             kfree(data);
-> > +                             mutex_unlock(&prf_mod_lock);
-> > +                             return NOTIFY_OK;
-> > +                     }
-> > +
-> > +                     WRITE_ONCE(data->mod, mod);
-> > +
-> > +                     list_add_tail_rcu(&data->link, &prf_mod_list);
-> > +                     mutex_unlock(&prf_mod_lock);
-> > +             }
-> > +     }
-> > +     if (event == MODULE_STATE_GOING) {
-> > +             /* remove module from the list */
-> > +             rcu_read_lock();
-> > +             list_for_each_entry_rcu(data, &prf_mod_list, link) {
-> > +                     if (strcmp(data->mod->name, mod->name) == 0) {
-> > +
-> > +                             mutex_lock(&prf_mod_lock);
-> > +                             /* remofe from profiled modules */
-> > +                             list_del_rcu(&data->link);
-> > +                             /* mark it stale */
-> > +                             WRITE_ONCE(data->mod, NULL);
-> > +                             mutex_unlock(&prf_mod_lock);
-> > +                             call_rcu(&data->rcu, prf_module_free);
-> > +                             break;
-> > +                     }
-> > +             }
-> > +             rcu_read_unlock();
-> > +     }
-> > +
-> > +     return NOTIFY_OK;
-> > +}
-> > +
-> > +static struct notifier_block pgo_module_nb = {
-> > +     .notifier_call = pgo_module_notifier
-> > +};
-> > +
-> > +void prf_modules_init(void)
-> > +{
-> > +     register_module_notifier(&pgo_module_nb);
-> > +}
-> > +
-> > +void prf_modules_exit(void)
-> > +{
-> > +     struct prf_mod_private_data *p;
-> > +
-> > +     /* unsubscribe the notifier and do cleanup. */
-> > +     unregister_module_notifier(&pgo_module_nb);
-> > +
-> > +     rcu_read_lock();
-> > +     list_for_each_entry_rcu(p, &prf_mod_list, link) {
-> > +             /* delete nodes */
-> > +             list_del(&p->link);
-> > +             WRITE_ONCE(p->mod, NULL);
-> > +             call_rcu(&p->rcu, prf_module_free);
-> > +     }
-> > +     rcu_read_unlock();
-> > +}
-> > \ No newline at end of file
-> > diff --git a/kernel/pgo/instrument.c b/kernel/pgo/instrument.c
-> > index 464b3bc77431..98cfa11a7b76 100644
-> > --- a/kernel/pgo/instrument.c
-> > +++ b/kernel/pgo/instrument.c
-> > @@ -139,11 +139,11 @@ EXPORT_SYMBOL(__llvm_profile_instrument_target);
-> >
-> >  /* Counts the number of times a range of targets values are seen. */
-> >  void __llvm_profile_instrument_range(u64 target_value, void *data,
-> > -                                  u32 index, s64 precise_start,
-> > -                                  s64 precise_last, s64 large_value);
-> > +                                      u32 index, s64 precise_start,
-> > +                                      s64 precise_last, s64 large_value);
-> >  void __llvm_profile_instrument_range(u64 target_value, void *data,
-> > -                                  u32 index, s64 precise_start,
-> > -                                  s64 precise_last, s64 large_value)
-> > +                                      u32 index, s64 precise_start,
-> > +                                      s64 precise_last, s64 large_value)
-> >  {
-> >       if (large_value != S64_MIN && (s64)target_value >= large_value)
-> >               target_value = large_value;
-> > @@ -176,9 +176,9 @@ static u64 inst_prof_get_range_rep_value(u64 value)
-> >   * defined in compiler-rt/include/profile/InstrProfData.inc.
-> >   */
-> >  void __llvm_profile_instrument_memop(u64 target_value, void *data,
-> > -                                  u32 counter_index);
-> > +                                      u32 counter_index);
-> >  void __llvm_profile_instrument_memop(u64 target_value, void *data,
-> > -                                  u32 counter_index)
-> > +                                      u32 counter_index)
-> >  {
-> >       u64 rep_value;
-> >
-> > diff --git a/kernel/pgo/pgo.h b/kernel/pgo/pgo.h
-> > index a9ff51abbfd5..2840da63c7cd 100644
-> > --- a/kernel/pgo/pgo.h
-> > +++ b/kernel/pgo/pgo.h
-> > @@ -212,17 +212,13 @@ struct prf_mod_private_data {
-> >       struct list_head link;
-> >       struct rcu_head rcu;
-> >
-> > -     void *buffer;
-> > -     unsigned long size;
-> > -
-> > -     char mod_name[MODULE_NAME_LEN];
-> >       struct module *mod;
-> >       struct dentry *file;
-> >
-> >       int current_node;
-> >  };
-> >
-> > -/* Mutex protecting the prf_mod_list and entries */
-> > +/* Mutex protecting the prf_mod_list */
-> >  extern struct mutex prf_mod_lock;
-> >
-> >  /* List of modules profiled */
-> > @@ -231,10 +227,7 @@ extern struct list_head prf_mod_list;
-> >  extern void prf_modules_init(void);
-> >  extern void prf_modules_exit(void);
-> >
-> > -/* Update each modules snapshot of the profiling data. */
-> > -extern int prf_modules_snapshot(void);
-> > -
-> > -/* below funcs are required by prf_modules_snapshot() */
-> > +/* below funcs are required by prf_modules */
-> >  extern u32 __prf_get_value_size(struct llvm_prf_data *p, u32 *value_kinds);
-> >
-> >  extern void prf_serialize_value(struct llvm_prf_data *p, void **buffer);
-> > --
-> > 2.31.1
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGG%3D3QXtisfabaiVP6y_3sjGsM7cQmPhur8Zqor4qkGrbiXpBA%40mail.gmail.com.
+QWRkIG5ldyB6aCB0cmFuc2xhdGlvbnMNCiogemhfQ04vZGV2LXRvb2xzL2thc2FuLnJzdA0KYW5k
+IGxpbmsgaXQgdG8gemhfQ04vZGV2LXRvb2xzL2luZGV4LnJzdA0KDQpTaWduZWQtb2ZmLWJ5OiBX
+YW4gSmlhYmluZyA8d2FuamlhYmluZ0B2aXZvLmNvbT4NCi0tLQ0KIC4uLi90cmFuc2xhdGlvbnMv
+emhfQ04vZGV2LXRvb2xzL2luZGV4LnJzdCAgICAgICAgIHwgICAyICstDQogLi4uL3RyYW5zbGF0
+aW9ucy96aF9DTi9kZXYtdG9vbHMva2FzYW4ucnN0ICAgICAgICAgfCA0MTAgKysrKysrKysrKysr
+KysrKysrKysrDQogMiBmaWxlcyBjaGFuZ2VkLCA0MTEgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlv
+bigtKQ0KIGNyZWF0ZSBtb2RlIDEwMDY0NCBEb2N1bWVudGF0aW9uL3RyYW5zbGF0aW9ucy96aF9D
+Ti9kZXYtdG9vbHMva2FzYW4ucnN0DQoNCmRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL3RyYW5z
+bGF0aW9ucy96aF9DTi9kZXYtdG9vbHMvaW5kZXgucnN0IGIvRG9jdW1lbnRhdGlvbi90cmFuc2xh
+dGlvbnMvemhfQ04vZGV2LXRvb2xzL2luZGV4LnJzdA0KaW5kZXggZmQ3M2M0Ny4uZTZjOTlmMiAx
+MDA2NDQNCi0tLSBhL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL2Rldi10b29scy9p
+bmRleC5yc3QNCisrKyBiL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL2Rldi10b29s
+cy9pbmRleC5yc3QNCkBAIC0xOSwxMyArMTksMTMgQEANCiAgICA6bWF4ZGVwdGg6IDINCiANCiAg
+ICBnY292DQorICAga2FzYW4NCiANCiBUb2RvbGlzdDoNCiANCiAgLSBjb2NjaW5lbGxlDQogIC0g
+c3BhcnNlDQogIC0ga2Nvdg0KLSAtIGthc2FuDQogIC0gdWJzYW4NCiAgLSBrbWVtbGVhaw0KICAt
+IGtjc2FuDQpkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi90cmFuc2xhdGlvbnMvemhfQ04vZGV2
+LXRvb2xzL2thc2FuLnJzdCBiL0RvY3VtZW50YXRpb24vdHJhbnNsYXRpb25zL3poX0NOL2Rldi10
+b29scy9rYXNhbi5yc3QNCm5ldyBmaWxlIG1vZGUgMTAwNjQ0DQppbmRleCAwMDAwMDAwLi44ZWI5
+ZWM5DQotLS0gL2Rldi9udWxsDQorKysgYi9Eb2N1bWVudGF0aW9uL3RyYW5zbGF0aW9ucy96aF9D
+Ti9kZXYtdG9vbHMva2FzYW4ucnN0DQpAQCAtMCwwICsxLDQxMCBAQA0KKy4uIFNQRFgtTGljZW5z
+ZS1JZGVudGlmaWVyOiBHUEwtMi4wDQorDQorLi4gaW5jbHVkZTo6IC4uL2Rpc2NsYWltZXItemhf
+Q04ucnN0DQorDQorOk9yaWdpbmFsOiBEb2N1bWVudGF0aW9uL2Rldi10b29scy9rYXNhbi5yc3QN
+Cis6VHJhbnNsYXRvcjog5LiH5a625YW1IFdhbiBKaWFiaW5nIDx3YW5qaWFiaW5nQHZpdm8uY29t
+Pg0KKw0KK+WGheaguOWcsOWdgOa2iOavkuWJgiAoS0FTQU4pDQorPT09PT09PT09PT09PT09PT09
+PT09PQ0KKw0KK+amgui/sA0KKy0tLS0NCisNCitLZXJuZWxBZGRyZXNzU0FOaXRpemVyIChLQVNB
+TinmmK/kuIDnp43liqjmgIHlhoXlrZjlronlhajplJnor6/mo4DmtYvlt6XlhbfvvIwNCivkuLvo
+poHlip/og73mmK/mo4Dmn6XlhoXlrZjotornlYzorr/pl67lkozkvb/nlKjlt7Lph4rmlL7lhoXl
+rZjnmoTpl67popjjgIJLQVNBTuacieS4ieenjeaooeW8jzoNCisNCisxLiDpgJrnlKhLQVNBTiDv
+vIjkuI7nlKjmiLfnqbrpl7TnmoRBU2Fu57G75Ly877yJDQorMi4g5Z+65LqO6L2v5Lu25qCH562+
+55qES0FTQU4g77yI5LiO55So5oi356m66Ze055qESFdBU2Fu57G75Ly877yJDQorMy4g5Z+65LqO
+56Gs5Lu25qCH562+55qES0FTQU4g77yI5Z+65LqO56Gs5Lu25YaF5a2Y5qCH562+77yJDQorDQor
+55Sx5LqO6YCa55SoIEtBU0FOIOeahOWGheWtmOW8gOmUgOi+g+Wkp++8jOmAmueUqCBLQVNBTiDk
+uLvopoHnlKjkuo7osIPor5XjgIINCivln7rkuo7ova/ku7bmoIfnrb7nmoQgS0FTQU4g5Y+v55So
+5LqOIGRvZ2Zvb2Qg5rWL6K+V77yM5Zug5Li65a6D5YW35pyJ6L6D5L2O55qE5YaF5a2Y5byA6ZSA
+77yM5bm25YWB6K645bCG5YW255So5LqO5a6e6ZmF5bel5L2c6YeP44CCDQor5Z+65LqO56Gs5Lu2
+5qCH562+55qEIEtBU0FOIOWFt+aciei+g+S9jueahOWGheWtmOWSjOaAp+iDveW8gOmUgO+8jOWb
+oOatpOWPr+eUqOS6jueUn+S6p+OAgg0KK+WQjOaXtuWPr+eUqOS6juajgOa1i+eOsOWcuuWGheWt
+mOmXrumimOaIluS9nOS4uuWuieWFqOe8k+ino+aOquaWveOAgg0KKw0KK+i9r+S7tiBLQVNBTiDm
+qKHlvI/vvIgjMSDlkowgIzLvvInkvb/nlKjnvJbor5Hml7blt6XlhbflnKjmr4/mrKHlhoXlrZjo
+rr/pl67kuYvliY3mj5LlhaXmnInmlYjmgKfmo4Dmn6XvvIwNCivlm6DmraTpnIDopoHkuIDkuKrm
+lK/mjIHlroPnmoTnvJbor5HlmajniYjmnKzjgIINCisNCivpgJrnlKggS0FTQU4g5ZyoIEdDQyDl
+kowgQ2xhbmcg5Y+X5pSv5oyB44CCR0ND6ZyA6KaBIDguMy4wIOaIluabtOmrmOeJiOacrOOAgg0K
+K+S7u+S9leWPl+aUr+aMgeeahCBDbGFuZyDniYjmnKzpg73mmK/lhbzlrrnnmoTvvIzkvYbku44g
+Q2xhbmcgMTEg5omN5byA5aeL5pSv5oyB5qOA5rWL5YWo5bGA5Y+Y6YeP55qE6LaK55WM6K6/6Zeu
+44CCDQorDQor5Z+65LqO6L2v5Lu25qCH562+55qES0FTQU7mqKHlvI/ku4XlnKhDbGFuZ+S4reWP
+l+aUr+aMgeOAgg0KKw0KK+ehrOS7tiBLQVNBTiDmqKHlvI8gKCMzKSDkvp3otZbnoazku7bmnaXm
+iafooYzmo4Dmn6XvvIzkvYbku43pnIDopoHmlK/mjIHlhoXlrZjmoIfnrb7mjIfku6TnmoTnvJbo
+r5HlmajniYjmnKzjgIINCitHQ0MgMTArIOWSjCBDbGFuZyAxMSsg5pSv5oyB5q2k5qih5byP44CC
+DQorDQor5Lik56eN6L2v5Lu2IEtBU0FOIOaooeW8j+mDvemAgueUqOS6jiBTTFVCIOWSjCBTTEFC
+IOWGheWtmOWIhumFjeWZqO+8jA0KK+iAjOWfuuS6juehrOS7tuagh+etvueahCBLQVNBTiDnm67l
+iY3ku4XmlK/mjIEgU0xVQuOAgg0KKw0KK+ebruWJjXg4Nl82NOOAgWFybeOAgWFybTY044CBeHRl
+bnNh44CBczM5MOOAgXJpc2N25p625p6E5pSv5oyB6YCa55SoS0FTQU7mqKHlvI/vvIwNCivku4Vh
+cm02NOaetuaehOaUr+aMgeWfuuS6juagh+etvueahEtBU0FO5qih5byP44CCDQorDQor55So5rOV
+DQorLS0tLQ0KKw0KK+imgeWQr+eUqCBLQVNBTu+8jOivt+S9v+eUqOS7peS4i+WRveS7pOmFjee9
+ruWGheaguDo6DQorDQorCSAgQ09ORklHX0tBU0FOPXkNCisNCivlkIzml7blnKggYGBDT05GSUdf
+S0FTQU5fR0VORVJJQ2BgICjlkK/nlKjpgJrnlKggS0FTQU4g5qih5byPKe+8jA0KK2BgQ09ORklH
+X0tBU0FOX1NXX1RBR1NgYCAo5ZCv55So5Z+65LqO56Gs5Lu25qCH562+55qEIEtBU0FOIOaooeW8
+jynvvIwNCivlkowgYGBDT05GSUdfS0FTQU5fSFdfVEFHU2BgICjlkK/nlKjln7rkuo7noazku7bm
+oIfnrb7nmoQgS0FTQU4g5qih5byPKSDkuYvpl7Tov5vooYzpgInmi6njgIINCisNCivlr7nkuo7o
+va/ku7bmqKHlvI/vvIzov5jlj6/ku6XlnKggYGBDT05GSUdfS0FTQU5fT1VUTElORWBgIOWSjCBg
+YENPTkZJR19LQVNBTl9JTkxJTkVgYCDkuYvpl7Tov5vooYzpgInmi6njgIINCitvdXRsaW5l5ZKM
+aW5saW5l5piv57yW6K+R5Zmo5qOA5rWL57G75Z6L44CC5YmN6ICF5Lqn55Sf6L6D5bCP55qE5LqM
+6L+b5Yi25paH5Lu277yM6ICM5ZCO6ICF5b+rIDEuMS0yIOWAjeOAgg0KKw0KK+imgeWwhuWPl+W9
+seWTjeeahCBzbGFiIOWvueixoeeahCBhbGxvYyDlkowgZnJlZSDloIbmoIjot5/ouKrljIXlkKvl
+iLDmiqXlkYrkuK3vvIzor7flkK/nlKggYGBDT05GSUdfU1RBQ0tUUkFDRWBgIOOAgg0KK+imgeWM
+heaLrOWPl+W9seWTjeeJqeeQhumhtemdoueahOWIhumFjeWSjOmHiuaUvuWghuagiOi3n+i4quea
+hOivne+8jA0KK+ivt+WQr+eUqCBgYENPTkZJR19QQUdFX09XTkVSYGAg5bm25L2/55SoIGBgcGFn
+ZV9vd25lcj1vbmBgIOi/m+ihjOW8leWvvOOAgg0KKw0KK+mUmeivr+aKpeWRig0KK35+fn5+fn5+
+DQorDQor5YW45Z6L55qEIEtBU0FOIOaKpeWRiuWmguS4i+aJgOekujo6DQorDQorICAgID09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PQ0KKyAgICBCVUc6IEtBU0FOOiBzbGFiLW91dC1vZi1ib3VuZHMgaW4ga21hbGxvY19vb2Jf
+cmlnaHQrMHhhOC8weGJjIFt0ZXN0X2thc2FuXQ0KKyAgICBXcml0ZSBvZiBzaXplIDEgYXQgYWRk
+ciBmZmZmODgwMWY0NGVjMzdiIGJ5IHRhc2sgaW5zbW9kLzI3NjANCisNCisgICAgQ1BVOiAxIFBJ
+RDogMjc2MCBDb21tOiBpbnNtb2QgTm90IHRhaW50ZWQgNC4xOS4wLXJjMysgIzY5OA0KKyAgICBI
+YXJkd2FyZSBuYW1lOiBRRU1VIFN0YW5kYXJkIFBDIChpNDQwRlggKyBQSUlYLCAxOTk2KSwgQklP
+UyAxLjEwLjItMSAwNC8wMS8yMDE0DQorICAgIENhbGwgVHJhY2U6DQorICAgICBkdW1wX3N0YWNr
+KzB4OTQvMHhkOA0KKyAgICAgcHJpbnRfYWRkcmVzc19kZXNjcmlwdGlvbisweDczLzB4MjgwDQor
+ICAgICBrYXNhbl9yZXBvcnQrMHgxNDQvMHgxODcNCisgICAgIF9fYXNhbl9yZXBvcnRfc3RvcmUx
+X25vYWJvcnQrMHgxNy8weDIwDQorICAgICBrbWFsbG9jX29vYl9yaWdodCsweGE4LzB4YmMgW3Rl
+c3Rfa2FzYW5dDQorICAgICBrbWFsbG9jX3Rlc3RzX2luaXQrMHgxNi8weDcwMCBbdGVzdF9rYXNh
+bl0NCisgICAgIGRvX29uZV9pbml0Y2FsbCsweGE1LzB4M2FlDQorICAgICBkb19pbml0X21vZHVs
+ZSsweDFiNi8weDU0Nw0KKyAgICAgbG9hZF9tb2R1bGUrMHg3NWRmLzB4ODA3MA0KKyAgICAgX19k
+b19zeXNfaW5pdF9tb2R1bGUrMHgxYzYvMHgyMDANCisgICAgIF9feDY0X3N5c19pbml0X21vZHVs
+ZSsweDZlLzB4YjANCisgICAgIGRvX3N5c2NhbGxfNjQrMHg5Zi8weDJjMA0KKyAgICAgZW50cnlf
+U1lTQ0FMTF82NF9hZnRlcl9od2ZyYW1lKzB4NDQvMHhhOQ0KKyAgICBSSVA6IDAwMzM6MHg3Zjk2
+NDQzMTA5ZGENCisgICAgUlNQOiAwMDJiOjAwMDA3ZmZjZjBiNTFiMDggRUZMQUdTOiAwMDAwMDIw
+MiBPUklHX1JBWDogMDAwMDAwMDAwMDAwMDBhZg0KKyAgICBSQVg6IGZmZmZmZmZmZmZmZmZmZGEg
+UkJYOiAwMDAwNTVkYzNlZTUyMWEwIFJDWDogMDAwMDdmOTY0NDMxMDlkYQ0KKyAgICBSRFg6IDAw
+MDA3Zjk2NDQ1Y2ZmODggUlNJOiAwMDAwMDAwMDAwMDU3YTUwIFJESTogMDAwMDdmOTY0NDk5MjAw
+MA0KKyAgICBSQlA6IDAwMDA1NWRjM2VlNTEwYjAgUjA4OiAwMDAwMDAwMDAwMDAwMDAzIFIwOTog
+MDAwMDAwMDAwMDAwMDAwMA0KKyAgICBSMTA6IDAwMDA3Zjk2NDQzMGNkMGEgUjExOiAwMDAwMDAw
+MDAwMDAwMjAyIFIxMjogMDAwMDdmOTY0NDVjZmY4OA0KKyAgICBSMTM6IDAwMDA1NWRjM2VlNTEw
+OTAgUjE0OiAwMDAwMDAwMDAwMDAwMDAwIFIxNTogMDAwMDAwMDAwMDAwMDAwMA0KKw0KKyAgICBB
+bGxvY2F0ZWQgYnkgdGFzayAyNzYwOg0KKyAgICAgc2F2ZV9zdGFjaysweDQzLzB4ZDANCisgICAg
+IGthc2FuX2ttYWxsb2MrMHhhNy8weGQwDQorICAgICBrbWVtX2NhY2hlX2FsbG9jX3RyYWNlKzB4
+ZTEvMHgxYjANCisgICAgIGttYWxsb2Nfb29iX3JpZ2h0KzB4NTYvMHhiYyBbdGVzdF9rYXNhbl0N
+CisgICAgIGttYWxsb2NfdGVzdHNfaW5pdCsweDE2LzB4NzAwIFt0ZXN0X2thc2FuXQ0KKyAgICAg
+ZG9fb25lX2luaXRjYWxsKzB4YTUvMHgzYWUNCisgICAgIGRvX2luaXRfbW9kdWxlKzB4MWI2LzB4
+NTQ3DQorICAgICBsb2FkX21vZHVsZSsweDc1ZGYvMHg4MDcwDQorICAgICBfX2RvX3N5c19pbml0
+X21vZHVsZSsweDFjNi8weDIwMA0KKyAgICAgX194NjRfc3lzX2luaXRfbW9kdWxlKzB4NmUvMHhi
+MA0KKyAgICAgZG9fc3lzY2FsbF82NCsweDlmLzB4MmMwDQorICAgICBlbnRyeV9TWVNDQUxMXzY0
+X2FmdGVyX2h3ZnJhbWUrMHg0NC8weGE5DQorDQorICAgIEZyZWVkIGJ5IHRhc2sgODE1Og0KKyAg
+ICAgc2F2ZV9zdGFjaysweDQzLzB4ZDANCisgICAgIF9fa2FzYW5fc2xhYl9mcmVlKzB4MTM1LzB4
+MTkwDQorICAgICBrYXNhbl9zbGFiX2ZyZWUrMHhlLzB4MTANCisgICAgIGtmcmVlKzB4OTMvMHgx
+YTANCisgICAgIHVtaF9jb21wbGV0ZSsweDZhLzB4YTANCisgICAgIGNhbGxfdXNlcm1vZGVoZWxw
+ZXJfZXhlY19hc3luYysweDRjMy8weDY0MA0KKyAgICAgcmV0X2Zyb21fZm9yaysweDM1LzB4NDAN
+CisNCisgICAgVGhlIGJ1Z2d5IGFkZHJlc3MgYmVsb25ncyB0byB0aGUgb2JqZWN0IGF0IGZmZmY4
+ODAxZjQ0ZWMzMDANCisgICAgIHdoaWNoIGJlbG9uZ3MgdG8gdGhlIGNhY2hlIGttYWxsb2MtMTI4
+IG9mIHNpemUgMTI4DQorICAgIFRoZSBidWdneSBhZGRyZXNzIGlzIGxvY2F0ZWQgMTIzIGJ5dGVz
+IGluc2lkZSBvZg0KKyAgICAgMTI4LWJ5dGUgcmVnaW9uIFtmZmZmODgwMWY0NGVjMzAwLCBmZmZm
+ODgwMWY0NGVjMzgwKQ0KKyAgICBUaGUgYnVnZ3kgYWRkcmVzcyBiZWxvbmdzIHRvIHRoZSBwYWdl
+Og0KKyAgICBwYWdlOmZmZmZlYTAwMDdkMTNiMDAgY291bnQ6MSBtYXBjb3VudDowIG1hcHBpbmc6
+ZmZmZjg4MDFmNzAwMTY0MCBpbmRleDoweDANCisgICAgZmxhZ3M6IDB4MjAwMDAwMDAwMDAwMTAw
+KHNsYWIpDQorICAgIHJhdzogMDIwMDAwMDAwMDAwMDEwMCBmZmZmZWEwMDA3ZDExZGMwIDAwMDAw
+MDFhMDAwMDAwMWEgZmZmZjg4MDFmNzAwMTY0MA0KKyAgICByYXc6IDAwMDAwMDAwMDAwMDAwMDAg
+MDAwMDAwMDA4MDE1MDAxNSAwMDAwMDAwMWZmZmZmZmZmIDAwMDAwMDAwMDAwMDAwMDANCisgICAg
+cGFnZSBkdW1wZWQgYmVjYXVzZToga2FzYW46IGJhZCBhY2Nlc3MgZGV0ZWN0ZWQNCisNCisgICAg
+TWVtb3J5IHN0YXRlIGFyb3VuZCB0aGUgYnVnZ3kgYWRkcmVzczoNCisgICAgIGZmZmY4ODAxZjQ0
+ZWMyMDA6IGZjIGZjIGZjIGZjIGZjIGZjIGZjIGZjIGZiIGZiIGZiIGZiIGZiIGZiIGZiIGZiDQor
+ICAgICBmZmZmODgwMWY0NGVjMjgwOiBmYiBmYiBmYiBmYiBmYiBmYiBmYiBmYiBmYyBmYyBmYyBm
+YyBmYyBmYyBmYyBmYw0KKyAgICA+ZmZmZjg4MDFmNDRlYzMwMDogMDAgMDAgMDAgMDAgMDAgMDAg
+MDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDAgMDMNCisgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF4NCisgICAgIGZmZmY4
+ODAxZjQ0ZWMzODA6IGZjIGZjIGZjIGZjIGZjIGZjIGZjIGZjIGZiIGZiIGZiIGZiIGZiIGZiIGZi
+IGZiDQorICAgICBmZmZmODgwMWY0NGVjNDAwOiBmYiBmYiBmYiBmYiBmYiBmYiBmYiBmYiBmYyBm
+YyBmYyBmYyBmYyBmYyBmYyBmYw0KKyAgICA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0NCisNCivmiqXlkYrmoIfpopjmgLvn
+u5Pkuoblj5HnlJ/nmoTplJnor6/nsbvlnovku6Xlj4rlr7zoh7Tor6XplJnor6/nmoTorr/pl67n
+sbvlnovjgILntKfpmo/lhbblkI7nmoTmmK/plJnor6/orr/pl67nmoTloIbmoIjot5/ouKrjgIEN
+CivmiYDorr/pl67lhoXlrZjliIbphY3kvY3nva7nmoTloIbmoIjot5/ouKrvvIjlr7nkuo7orr/p
+l67kuoYgc2xhYiDlr7nosaHnmoTmg4XlhrXvvInku6Xlj4rlr7nosaHooqvph4rmlL7nmoTkvY3n
+va7nmoTloIbmoIjot5/ouKoNCivvvIjlr7nkuo7orr/pl67lt7Lph4rmlL7lhoXlrZjnmoTpl67p
+opjmiqXlkYrvvInjgILmjqXkuIvmnaXmmK/lr7norr/pl67nmoRzbGFi5a+56LGh55qE5o+P6L+w
+5Lul5Y+K5YWz5LqO6K6/6Zeu55qE5YaF5a2Y6aG155qE5L+h5oGv44CCDQorDQor5pyA5ZCO77yM
+5oql5ZGK5bGV56S65LqG6K6/6Zeu5Zyw5Z2A5ZGo5Zu055qE5YaF5a2Y54q25oCB44CC5Zyo5YaF
+6YOo77yMS0FTQU4g5Y2V54us6Lef6Liq5q+P5Liq5YaF5a2Y6aKX57KS55qE5YaF5a2Y54q25oCB
+77yMDQor5qC55o2uIEtBU0FOIOaooeW8j+WIhuS4uiA4IOaIliAxNiDkuKrlr7npvZDlrZfoioLj
+gIINCivmiqXlkYrnmoTlhoXlrZjnirbmgIHpg6jliIbkuK3nmoTmr4/kuKrmlbDlrZfpg73mmL7n
+pLrkuoblm7Tnu5Xorr/pl67lnLDlnYDnmoTlhbbkuK3kuIDkuKrlhoXlrZjpopfnspLnmoTnirbm
+gIHjgIINCisNCivlr7nkuo7pgJrnlKggS0FTQU4g77yM5q+P5Liq5YaF5a2Y6aKX57KS55qE5aSn
+5bCP5Li6IDgg5Liq5a2X6IqC44CC5q+P5Liq6aKX57KS55qE54q25oCB6KKr57yW56CB5Zyo5LiA
+5Liq5b2x5a2Q5a2X6IqC5Lit44CCDQor6L+ZOOS4quWtl+iKguWPr+S7peaYr+WPr+iuv+mXruea
+hO+8jOmDqOWIhuiuv+mXrueahO+8jOW3sumHiuaUvueahOaIluaIkOS4uiBSZWR6b25lICDnmoTk
+uIDpg6jliIbjgIINCitLQVNBTiDlr7nmr4/kuKrlvbHlrZDlrZfoioLkvb/nlKjku6XkuIvnvJbn
+oIE6MDAg6KGo56S65a+55bqU5YaF5a2Y5Yy65Z+f55qE5omA5pyJIDgg5Liq5a2X6IqC6YO95Y+v
+5Lul6K6/6Zeu77ybDQor5pWw5a2XIE4gKDEgPD0gTiA8PSA3KSDooajnpLrliY0gTiDkuKrlrZfo
+ioLlj6/orr/pl67vvIzlhbbku5YgKDggLSBOKSDkuKrlrZfoioLkuI3lj6/orr/pl67vvJsNCivk
+u7vkvZXotJ/lgLzpg73ooajnpLrml6Dms5Xorr/pl67mlbTkuKogOCDlrZfoioLjgIJLQVNBTiDk
+vb/nlKjkuI3lkIznmoTotJ/lgLzmnaXljLrliIbkuI3lkIznsbvlnovnmoTkuI3lj6/orr/pl67l
+hoXlrZjvvIwNCivlpoIgcmVkem9uZXMg5oiW5bey6YeK5pS+55qE5YaF5a2Y77yI5Y+C6KeBIG1t
+L2thc2FuL2thc2FuLmjvvInjgIINCisNCivlnKjkuIrpnaLnmoTmiqXlkYrkuK3vvIznrq3lpLTm
+jIflkJHlvbHlrZDlrZfoioIgYGAwM2Bg77yM6KGo56S66K6/6Zeu55qE5Zyw5Z2A5piv6YOo5YiG
+5Y+v6K6/6Zeu55qE44CCDQorDQor5a+55LqO5Z+65LqO5qCH562+55qES0FTQU7mqKHlvI/vvIzm
+iqXlkYrmnIDlkI7nmoTpg6jliIbmmL7npLrkuoborr/pl67lnLDlnYDlkajlm7TnmoTlhoXlrZjm
+oIfnrb4o5Y+C6ICDIGDlrp7mlr3nu4bliJlgXyDnq6DoioIp44CCDQorDQor6K+35rOo5oSP77yM
+S0FTQU4g6ZSZ6K+v5qCH6aKY77yI5aaCIGBgc2xhYi1vdXQtb2YtYm91bmRzYGAg5oiWIGBgdXNl
+LWFmdGVyLWZyZWVgYCDvvInmmK/lsL3ph4/mjqXov5HnmoQ6DQorS0FTQU4g5qC55o2u5YW25oul
+5pyJ55qE5pyJ6ZmQ5L+h5oGv5omT5Y2w5Ye65pyA5Y+v6IO955qE6ZSZ6K+v57G75Z6L44CC6ZSZ
+6K+v55qE5a6e6ZmF57G75Z6L5Y+v6IO95Lya5pyJ5omA5LiN5ZCM44CCDQorDQor6YCa55SoIEtB
+U0FOIOi/mOaKpeWRiuS4pOS4qui+heWKqeiwg+eUqOWghuagiOi3n+i4quOAgg0KK+i/meS6m+Wg
+huagiOi3n+i4quaMh+WQkeS7o+eggeS4reS4juWvueixoeS6pOS6kuS9huS4jeebtOaOpeWHuueO
+sOWcqOmUmeivr+iuv+mXruWghuagiOi3n+i4quS4reeahOS9jee9ruOAgg0KK+ebruWJje+8jOi/
+meWMheaLrCBjYWxsX3JjdSgpIOWSjOaOkumYn+eahOW3peS9nOmYn+WIl+OAgg0KKw0KK+WQr+WK
+qOWPguaVsA0KK35+fn5+fn5+DQorDQorS0FTQU4g5Y+X6YCa55SoIGBgcGFuaWNfb25fd2FybmBg
+IOWRveS7pOihjOWPguaVsOeahOW9seWTjeOAgg0KK+WQr+eUqOivpeWKn+iDveWQju+8jEtBU0FO
+5Zyo5omT5Y2w6ZSZ6K+v5oql5ZGK5ZCO5Lya5byV6LW35YaF5qC45oGQ5oWM44CCDQorDQor6buY
+6K6k5oOF5Ya15LiL77yMS0FTQU4g5Y+q5Li656ys5LiA5qyh5peg5pWI5YaF5a2Y6K6/6Zeu5omT
+5Y2w6ZSZ6K+v5oql5ZGK44CC5L2/55SoIGBga2FzYW5fbXVsdGlfc2hvdGBgIO+8jA0KK0tBU0FO
+5Lya6ZKI5a+55q+P5Liq5peg5pWI6K6/6Zeu5omT5Y2w5oql5ZGK44CC6L+Z5pyJ5pWI5Zyw56aB
+55So5LqGIEtBU0FOIOaKpeWRiueahCBgYHBhbmljX29uX3dhcm5gYOOAgg0KKw0KK+WfuuS6jueh
+rOS7tuagh+etvueahCBLQVNBTiDmqKHlvI/vvIjor7flj4LpmIXkuIvpnaLmnInlhbPlkITnp43m
+qKHlvI/nmoTpg6jliIbvvInml6jlnKjlnKjnlJ/kuqfkuK3nlKjkvZzlronlhajnvJPop6Pmjqrm
+lr3jgIINCivlm6DmraTvvIzlroPmlK/mjIHlhYHorrjnpoHnlKggS0FTQU4g5oiW5o6n5Yi25YW2
+5Yqf6IO955qE5byV5a+85Y+C5pWw44CCDQorDQorLSBgYGthc2FuPW9mZmBgIOaIliBgYD1vbmBg
+IOaOp+WItktBU0FO5piv5ZCm5ZCv55SoICjpu5jorqQ6IGBgb25gYCAp44CCDQorDQorLSBgYGth
+c2FuLm1vZGU9c3luY2BgIOaIliBgYD1hc3luY2BgIOaOp+WItiBLQVNBTiDmmK/lkKbphY3nva7k
+uLrlkIzmraXmiJblvILmraXmiafooYzmqKHlvI8gKOm7mOiupDogYGBzeW5jYGAgKeOAgg0KKyAg
+5ZCM5q2l5qih5byP77ya5b2T5qCH562+5qOA5p+l6ZSZ6K+v5Y+R55Sf5pe277yM56uL5Y2z5qOA
+5rWL5Yiw6ZSZ6K+v6K6/6Zeu44CCDQorICDlvILmraXmqKHlvI/vvJrlu7bov5/plJnor6/orr/p
+l67mo4DmtYvjgILlvZPmoIfnrb7mo4Dmn6XplJnor6/lj5HnlJ/ml7bvvIzkv6Hmga/lrZjlgqjl
+nKjnoazku7bkuK3vvIjlnKhhcm02NOeahFRGU1JfRUwx5a+E5a2Y5Zmo5Lit77yJ44CCDQorICDl
+hoXmoLjkvJrlrprmnJ/mo4Dmn6Xnoazku7bvvIzlubbkuJTku4XlnKjov5nkupvmo4Dmn6XmnJ/p
+l7TmiqXlkYrmoIfnrb7plJnor6/jgIINCisNCistIGBga2FzYW4uc3RhY2t0cmFjZT1vZmZgYCDm
+iJYgYGA9b25gYCDnpoHnlKjmiJblkK/nlKggYWxsb2Mg5ZKMIGZyZWUg5aCG5qCI6Lef6Liq5pS2
+6ZuGICjpu5jorqQ6IGBgb25gYCAp44CCDQorDQorLSBgYGthc2FuLmZhdWx0PXJlcG9ydGBgIOaI
+liBgYD1wYW5pY2BgIOaOp+WItuaYr+WPquaJk+WNsCBLQVNBTiDmiqXlkYrov5jmmK/lkIzml7bk
+vb/lhoXmoLjmgZDmhYwNCisgICjpu5jorqQ6IGBgcmVwb3J0YGAgKeOAguWNs+S9v+WQr+eUqOS6
+hiBgYGthc2FuX211bHRpX3Nob3RgYO+8jOS5n+S8muWPkeeUn+WGheaguOaBkOaFjOOAgg0KKw0K
+K+WunuaWvee7huWImQ0KKy0tLS0tLS0tLQ0KKw0KK+mAmueUqCBLQVNBTg0KK35+fn5+fn5+fn4N
+CisNCivova/ku7YgS0FTQU4g5qih5byP5L2/55So5b2x5a2Q5YaF5a2Y5p2l6K6w5b2V5q+P5Liq
+5YaF5a2Y5a2X6IqC5piv5ZCm5Y+v5Lul5a6J5YWo6K6/6Zeu77yMDQor5bm25L2/55So57yW6K+R
+5pe25bel5YW35Zyo5q+P5qyh5YaF5a2Y6K6/6Zeu5LmL5YmN5o+S5YWl5b2x5a2Q5YaF5a2Y5qOA
+5p+l44CCDQorDQor6YCa55SoIEtBU0FOIOWwhiAxLzgg55qE5YaF5qC45YaF5a2Y5LiT55So5LqO
+5YW25b2x5a2Q5YaF5a2Y77yIMTZUQiDku6Xopobnm5YgeDg2XzY0IOS4iueahCAxMjhUQu+8ie+8
+jA0KK+W5tuS9v+eUqOWFt+acieavlOS+i+WSjOWBj+enu+mHj+eahOebtOaOpeaYoOWwhOWwhuWG
+heWtmOWcsOWdgOi9rOaNouS4uuWFtuebuOW6lOeahOW9seWtkOWcsOWdgOOAgg0KKw0KK+i/meaY
+r+WwhuWcsOWdgOi9rOaNouS4uuWFtuebuOW6lOW9seWtkOWcsOWdgOeahOWHveaVsDo6DQorDQor
+ICAgIHN0YXRpYyBpbmxpbmUgdm9pZCAqa2FzYW5fbWVtX3RvX3NoYWRvdyhjb25zdCB2b2lkICph
+ZGRyKQ0KKyAgICB7DQorCXJldHVybiAodm9pZCAqKSgodW5zaWduZWQgbG9uZylhZGRyID4+IEtB
+U0FOX1NIQURPV19TQ0FMRV9TSElGVCkNCisJCSsgS0FTQU5fU0hBRE9XX09GRlNFVDsNCisgICAg
+fQ0KKw0KK+WcqOi/memHjCBgYEtBU0FOX1NIQURPV19TQ0FMRV9TSElGVCA9IDNgYOOAgg0KKw0K
+K+e8luivkeaXtuW3peWFt+eUqOS6juaPkuWFpeWGheWtmOiuv+mXruajgOafpeOAgue8luivkeWZ
+qOWcqOavj+asoeiuv+mXruWkp+Wwj+S4uiAx44CBMuOAgTTjgIE4IOaIliAxNiDnmoTlhoXlrZjk
+uYvliY3mj5LlhaXlh73mlbDosIPnlKgNCisoYGBfX2FzYW5fbG9hZCooYWRkcilgYCwgYGBfX2Fz
+YW5fc3RvcmUqKGFkZHIpYGAp44CCDQor6L+Z5Lqb5Ye95pWw6YCa6L+H5qOA5p+l55u45bqU55qE
+5b2x5a2Q5YaF5a2Y5p2l5qOA5p+l5YaF5a2Y6K6/6Zeu5piv5ZCm5pyJ5pWI44CCDQorDQor5L2/
+55SoaW5saW5l5qOA5rWL77yM57yW6K+R5Zmo5LiN6L+b6KGM5Ye95pWw6LCD55So77yM6ICM5piv
+55u05o6l5o+S5YWl5Luj56CB5p2l5qOA5p+l5b2x5a2Q5YaF5a2Y44CCDQor5q2k6YCJ6aG55pi+
+6JGX5Zyw5aKe5aSn5LqG5YaF5qC45L2T56ev77yM5L2G5LiOb3V0bGluZeajgOa1i+WGheaguOeb
+uOavlO+8jOWug+aPkOS+m+S6hiB4MS4xLXgyIOeahOaAp+iDveaPkOWNh+OAgg0KKw0KK+mAmueU
+qCBLQVNBTiDmmK/llK/kuIDkuIDnp43pgJrov4fpmpTnprvlu7bov5/ph43mlrDkvb/nlKjlt7Lp
+h4rmlL7lr7nosaHnmoTmqKHlvI8NCivvvIjlj4Lop4EgbW0va2FzYW4vcXVhcmFudGluZS5jIOS7
+peS6huino+WunueOsO+8ieOAgg0KKw0KK+WfuuS6jui9r+S7tuagh+etvueahCBLQVNBTiDmqKHl
+vI8NCit+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4NCisNCivln7rkuo7ova/ku7bmoIfnrb7n
+moQgS0FTQU4g5L2/55So6L2v5Lu25YaF5a2Y5qCH562+5pa55rOV5p2l5qOA5p+l6K6/6Zeu5pyJ
+5pWI5oCn44CCDQor55uu5YmN5LuF6ZKI5a+5IGFybTY0IOaetuaehOWunueOsOOAgg0KKw0KK+Wf
+uuS6jui9r+S7tuagh+etvueahCBLQVNBTiDkvb/nlKggYXJtNjQgQ1BVIOeahOmhtumDqOWtl+iK
+guW/veeVpSAoVEJJKSDnibnmgKflnKjlhoXmoLjmjIfpkojnmoTpobbpg6jlrZfoioLkuK3lrZjl
+gqjkuIDkuKrmjIfpkojmoIfnrb7jgIINCivlroPkvb/nlKjlvbHlrZDlhoXlrZjmnaXlrZjlgqjk
+uI7mr4/kuKogMTYg5a2X6IqC5YaF5a2Y5Y2V5YWD55u45YWz55qE5YaF5a2Y5qCH562+KOWboOat
+pO+8jOWug+WwhuWGheaguOWGheWtmOeahCAxLzE2IOS4k+eUqOS6juW9seWtkOWGheWtmCnjgIIN
+CisNCivlnKjmr4/mrKHlhoXlrZjliIbphY3ml7bvvIzln7rkuo7ova/ku7bmoIfnrb7nmoQgS0FT
+QU4g6YO95Lya55Sf5oiQ5LiA5Liq6ZqP5py65qCH562+77yM55So6L+Z5Liq5qCH562+5qCH6K6w
+5YiG6YWN55qE5YaF5a2Y77yMDQor5bm25bCG55u45ZCM55qE5qCH562+5bWM5YWl5Yiw6L+U5Zue
+55qE5oyH6ZKI5Lit44CCDQorDQor5Z+65LqO6L2v5Lu25qCH562+55qEIEtBU0FOIOS9v+eUqOe8
+luivkeaXtuW3peWFt+WcqOavj+asoeWGheWtmOiuv+mXruS5i+WJjeaPkuWFpeajgOafpeOAgg0K
+K+i/meS6m+ajgOafpeehruS/neato+WcqOiuv+mXrueahOWGheWtmOeahOagh+etvuetieS6jueU
+qOS6juiuv+mXruivpeWGheWtmOeahOaMh+mSiOeahOagh+etvuOAgg0KK+WmguaenOagh+etvuS4
+jeWMuemFje+8jOWfuuS6jui9r+S7tuagh+etvueahCBLQVNBTiDkvJrmiZPljbDplJnor6/miqXl
+kYrjgIINCisNCivln7rkuo7ova/ku7bmoIfnrb7nmoQgS0FTQU4g5Lmf5pyJ5Lik56eN5qOA5rWL
+5qih5byP77yIb3V0bGluZe+8jOWPkeWHuuWbnuiwg+adpeajgOafpeWGheWtmOiuv+mXru+8m2lu
+bGluZe+8jA0KK+aJp+ihjOWGheiBlOeahOW9seWtkOWGheWtmOajgOafpe+8ieOAguS9v+eUqG91
+dGxpbmXmo4DmtYvmqKHlvI/vvIzkvJrku47miafooYzorr/pl67mo4Dmn6XnmoTlh73mlbDmiZPl
+jbDplJnor6/miqXlkYrjgIINCivkvb/nlKhpbmxpbmXmo4DmtYvvvIznvJbor5HlmajkvJrlj5Hl
+h7ogYGBicmtgYCDmjIfku6TvvIzlubbkvb/nlKjkuJPnlKjnmoQgYGBicmtgYCDlpITnkIbnqIvl
+uo/mnaXmiZPljbDplJnor6/miqXlkYrjgIINCisNCivln7rkuo7ova/ku7bmoIfnrb7nmoQgS0FT
+QU4g5L2/55SoIDB4RkYg5L2c5Li65Yy56YWN5omA5pyJ5oyH6ZKI5qCH562+77yI5LiN5qOA5p+l
+6YCa6L+H5bim5pyJIDB4RkYg5oyH6ZKI5qCH562+55qE5oyH6ZKI6L+b6KGM55qE6K6/6Zeu77yJ
+44CCDQor5YC8IDB4RkUg5b2T5YmN5L+d55WZ55So5LqO5qCH6K6w5bey6YeK5pS+55qE5YaF5a2Y
+5Yy65Z+f44CCDQorDQor5Z+65LqO6L2v5Lu25qCH562+55qES0FTQU7nm67liY3ku4XmlK/mjIHl
+r7kgU2xhYiDlkowgcGFnZV9hbGxvYyDlhoXlrZjov5vooYzmoIforrDjgIINCisNCivln7rkuo7n
+oazku7bmoIfnrb7nmoQgS0FTQU4g5qih5byPDQorfn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+
+fg0KKw0KK+WfuuS6juehrOS7tuagh+etvueahCBLQVNBTiDlnKjmpoLlv7XkuIrnsbvkvLzkuo7o
+va/ku7bmqKHlvI/vvIwNCivkvYblroPmmK/kvb/nlKjnoazku7blhoXlrZjmoIfnrb7kvZzkuLrm
+lK/mjIHogIzkuI3mmK/nvJbor5Hlmajmo4DmtYvlkozlvbHlrZDlhoXlrZjjgIINCisNCivln7rk
+uo7noazku7bmoIfnrb7nmoQgS0FTQU4g55uu5YmN5LuF6ZKI5a+5IGFybTY0IOaetuaehOWunueO
+sO+8jA0KK+W5tuS4lOWfuuS6jiBBUk12OC41IOaMh+S7pOmbhuaetuaehOS4reW8leWFpeeahCBh
+cm02NCDlhoXlrZjmoIforrDmianlsZUgKE1URSkg5ZKM5pyA6auY5a2X6IqC5b+955WlIChUQkkp
+44CCDQorDQor54m55q6K55qEIGFybTY0IOaMh+S7pOeUqOS6juS4uuavj+asoeWGheWtmOWIhumF
+jeaMh+WumuWGheWtmOagh+etvuOAguebuOWQjOeahOagh+etvuiiq+aMh+Wumue7meaMh+WQkei/
+meS6m+WIhumFjeeahOaMh+mSiOOAgg0KK+WcqOavj+asoeWGheWtmOiuv+mXruaXtu+8jOehrOS7
+tuehruS/neato+WcqOiuv+mXrueahOWGheWtmOeahOagh+etvuetieS6jueUqOS6juiuv+mXruiv
+peWGheWtmOeahOaMh+mSiOeahOagh+etvuOAgg0KK+WmguaenOagh+etvuS4jeWMuemFje+8jOWI
+meS8mueUn+aIkOaVhemanOW5tuaJk+WNsOaKpeWRiuOAgg0KKw0KK+WfuuS6juehrOS7tuagh+et
+vueahCBLQVNBTiDkvb/nlKggMHhGRiDkvZzkuLrljLnphY3miYDmnInmjIfpkojmoIfnrb7vvIjk
+uI3mo4Dmn6XpgJrov4fluKbmnIkgMHhGRiDmjIfpkojmoIfnrb7nmoTmjIfpkojov5vooYznmoTo
+rr/pl67vvInjgIINCivlgLwgMHhGRSDlvZPliY3kv53nlZnnlKjkuo7moIforrDlt7Lph4rmlL7n
+moTlhoXlrZjljLrln5/jgIINCisNCivln7rkuo7noazku7bmoIfnrb7nmoQgS0FTQU4g55uu5YmN
+5LuF5pSv5oyB5a+5IFNsYWIg5ZKMIHBhZ2VfYWxsb2Mg5YaF5a2Y6L+b6KGM5qCH6K6w44CCDQor
+DQor5aaC5p6c56Gs5Lu25LiN5pSv5oyBIE1URe+8iEFSTXY4LjUg5LmL5YmN77yJ77yM5YiZ5LiN
+5Lya5ZCv55So5Z+65LqO56Gs5Lu25qCH562+55qEIEtBU0FO44CCDQor5Zyo6L+Z56eN5oOF5Ya1
+5LiL77yM5omA5pyJIEtBU0FOIOW8leWvvOWPguaVsOmDveWwhuiiq+W/veeVpeOAgg0KKw0KK+iv
+t+azqOaEj++8jOWQr+eUqCBDT05GSUdfS0FTQU5fSFdfVEFHUyDlp4vnu4jkvJrlr7zoh7TlkK/n
+lKjlhoXmoLjkuK3nmoQgVEJJ44CCDQor5Y2z5L2/5o+Q5L6b5LqGIGBga2FzYW4ubW9kZT1vZmZg
+YCDmiJbnoazku7bkuI3mlK/mjIEgTVRF77yI5L2G5pSv5oyBIFRCSe+8ieOAgg0KKw0KK+WfuuS6
+juehrOS7tuagh+etvueahCBLQVNBTiDlj6rmiqXlkYrnrKzkuIDkuKrlj5HnjrDnmoTplJnor6/j
+gILkuYvlkI7vvIxNVEUg5qCH562+5qOA5p+l5bCG6KKr56aB55So44CCDQorDQor5b2x5a2Q5YaF
+5a2YDQorLS0tLS0tLS0NCisNCivlhoXmoLjlsIblhoXlrZjmmKDlsITliLDlnLDlnYDnqbrpl7Tn
+moTlh6DkuKrkuI3lkIzpg6jliIbjgILlhoXmoLjomZrmi5/lnLDlnYDnmoTojIPlm7TlvojlpKfv
+vJoNCivmsqHmnInotrPlpJ/nmoTnnJ/lrp7lhoXlrZjmnaXmlK/mjIHlhoXmoLjlj6/ku6Xorr/p
+l67nmoTmr4/kuKrlnLDlnYDnmoTnnJ/lrp7lvbHlrZDljLrln5/jgIINCivlm6DmraTvvIxLQVNB
+TiDlj6rkuLrlnLDlnYDnqbrpl7TnmoTmn5Dkupvpg6jliIbmmKDlsITnnJ/lrp7nmoTlvbHlrZDj
+gIINCisNCivpu5jorqTooYzkuLoNCit+fn5+fn5+fg0KKw0KK+m7mOiupOaDheWGteS4i++8jOS9
+k+ezu+e7k+aehOS7heWwhuWunumZheWGheWtmOaYoOWwhOWIsOeUqOS6jue6v+aAp+aYoOWwhOea
+hOmYtOW9seWMuuWfn++8iOS7peWPiuWPr+iDveeahOWFtuS7luWwj+WMuuWfn++8ieOAgg0KK+Wv
+ueS6juaJgOacieWFtuS7luWMuuWfnyDigJTigJQg5L6L5aaCIHZtYWxsb2Mg5ZKMIHZtZW1tYXAg
+56m66Ze0IOKAlOKAlCDkuIDkuKrlj6ror7vpobXpnaLooqvmmKDlsITliLDpmLTlvbHljLrln5/k
+uIrjgIINCivov5nkuKrlj6ror7vnmoTlvbHlrZDpobXpnaLlo7DmmI7miYDmnInlhoXlrZjorr/p
+l67pg73mmK/lhYHorrjnmoTjgIINCisNCivov5nnu5nmqKHlnZfluKbmnaXkuobkuIDkuKrpl67p
+opjvvJrlroPku6zkuI3lrZjlnKjkuo7nur/mgKfmmKDlsITkuK3vvIzogIzmmK/lrZjlnKjkuo7k
+uJPnlKjnmoTmqKHlnZfnqbrpl7TkuK3jgIINCivpgJrov4fov57mjqXmqKHlnZfliIbphY3lmajv
+vIxLQVNBTiDkuLTml7bmmKDlsITnnJ/lrp7nmoTlvbHlrZDlhoXlrZjku6Xopobnm5blroPku6zj
+gIINCivkvovlpoLvvIzov5nlhYHorrjmo4DmtYvlr7nmqKHlnZflhajlsYDlj5jph4/nmoTml6Dm
+lYjorr/pl67jgIINCisNCivov5nkuZ/pgKDmiJDkuobkuI4gYGBWTUFQX1NUQUNLYGAg55qE5LiN
+5YW85a6577ya5aaC5p6c5aCG5qCI5L2N5LqOIHZtYWxsb2Mg56m66Ze05Lit77yM5a6D5bCG6KKr
+5YiG6YWN5Y+q6K+76aG16Z2i55qE5b2x5a2Q5YaF5a2Y77yMDQor5bm25LiU5YaF5qC45Zyo5bCd
+6K+V5Li65aCG5qCI5Y+Y6YeP6K6+572u5b2x5a2Q5pWw5o2u5pe25Lya5Ye66ZSZ44CCDQorDQor
+Q09ORklHX0tBU0FOX1ZNQUxMT0MNCit+fn5+fn5+fn5+fn5+fn5+fn5+fg0KKw0KK+S9v+eUqCBg
+YENPTkZJR19LQVNBTl9WTUFMTE9DYGAg77yMS0FTQU4g5Y+v5Lul5Lul5pu05aSn55qE5YaF5a2Y
+5L2/55So5Li65Luj5Lu36KaG55uWIHZtYWxsb2Mg56m66Ze044CCDQor55uu5YmN77yM6L+Z5Zyo
+IHg4NuOAgXJpc2N244CBczM5MCDlkowgcG93ZXJwYyDkuIrlj5fmlK/mjIHjgIINCisNCivov5np
+gJrov4fov57mjqXliLAgdm1hbGxvYyDlkowgdm1hcCDlubbliqjmgIHliIbphY3nnJ/lrp7nmoTl
+vbHlrZDlhoXlrZjmnaXmlK/mjIHmmKDlsITjgIINCisNCit2bWFsbG9jIOepuumXtOS4reeahOWk
+p+WkmuaVsOaYoOWwhOmDveW+iOWwj++8jOmcgOimgeS4jeWIsOS4gOaVtOmhteeahOmYtOW9seep
+uumXtOOAgg0KK+WboOatpO+8jOS4uuavj+S4quaYoOWwhOWIhumFjeS4gOS4quWujOaVtOeahOW9
+seWtkOmhtemdouWwhuaYr+S4gOenjea1qui0ueOAgg0KK+atpOWklu+8jOS4uuS6huehruS/neS4
+jeWQjOeahOaYoOWwhOS9v+eUqOS4jeWQjOeahOW9seWtkOmhtemdou+8jOaYoOWwhOW/hemhu+S4
+jiBgYEtBU0FOX0dSQU5VTEVfU0laRSAqIFBBR0VfU0laRWBgIOWvuem9kOOAgg0KKw0KK+ebuOWP
+je+8jEtBU0FOIOi3qOWkmuS4quaYoOWwhOWFseS6q+WQjuWkh+epuumXtOOAguW9kyB2bWFsbG9j
+IOepuumXtOS4reeahOaYoOWwhOS9v+eUqOW9seWtkOWMuuWfn+eahOeJueWumumhtemdouaXtu+8
+jA0KK+Wug+S8muWIhumFjeS4gOS4quWQjuWkh+mhtemdouOAguatpOmhtemdoueojeWQjuWPr+S7
+peeUseWFtuS7liB2bWFsbG9jIOaYoOWwhOWFseS6q+OAgg0KKw0KK0tBU0FOIOi/nuaOpeWIsCB2
+bWFwIOWfuuehgOaetuaehOS7peaHkua4heeQhuacquS9v+eUqOeahOW9seWtkOWGheWtmOOAgg0K
+Kw0KK+S4uuS6humBv+WFjeS6pOaNouaYoOWwhOeahOWbsOmavu+8jEtBU0FOIOmihOa1i+imhueb
+liB2bWFsbG9jIOepuumXtOeahOmYtOW9seWMuuWfn+mDqOWIhuWwhuS4jeS8muiiq+aXqeacn+ea
+hOmYtOW9semhtemdouimhueblu+8jA0KK+S9huaYr+WwhuS4jeS8muiiq+aYoOWwhOOAgui/meWw
+humcgOimgeabtOaUueeJueWumuS6jiBhcmNoIOeahOS7o+eggeOAgg0KKw0KK+i/meWFgeiuuOWc
+qCB4ODYg5LiK5pSv5oyBIGBgVk1BUF9TVEFDS2BgIO+8jOW5tuS4lOWPr+S7peeugOWMluWvueay
+oeacieWbuuWumuaooeWdl+WMuuWfn+eahOaetuaehOeahOaUr+aMgeOAgg0KKw0KK+WvueS6juW8
+gOWPkeiAhQ0KKy0tLS0tLS0tLS0NCisNCivlv73nlaXorr/pl64NCit+fn5+fn5+fg0KKw0KK+i9
+r+S7tiBLQVNBTiDmqKHlvI/kvb/nlKjnvJbor5Hlmajmo4DmtYvmnaXmj5LlhaXmnInmlYjmgKfm
+o4Dmn6XjgIINCivmraTnsbvmo4DmtYvlj6/og73kuI7lhoXmoLjnmoTmn5Dkupvpg6jliIbkuI3l
+hbzlrrnvvIzlm6DmraTpnIDopoHnpoHnlKjjgIINCisNCivlhoXmoLjnmoTlhbbku5bpg6jliIbl
+j6/og73kvJrorr/pl67lt7LliIbphY3lr7nosaHnmoTlhYPmlbDmja7jgILpgJrluLjvvIxLQVNB
+TiDkvJrmo4DmtYvlubbmiqXlkYrmraTnsbvorr/pl67vvIwNCivkvYblnKjmn5Dkupvmg4XlhrXk
+uIvvvIjkvovlpoLvvIzlnKjlhoXlrZjliIbphY3lmajkuK3vvInvvIzov5nkupvorr/pl67mmK/m
+nInmlYjnmoTjgIINCisNCivlr7nkuo7ova/ku7YgS0FTQU4g5qih5byP77yM6KaB56aB55So54m5
+5a6a5paH5Lu25oiW55uu5b2V55qE5qOA5rWL77yMDQor6K+35bCG4oCL4oCLIGBgS0FTQU5fU0FO
+SVRJWkVgYCDmt7vliqDliLDnm7jlupTnmoTlhoXmoLggTWFrZWZpbGUg5LitOg0KKw0KKy0g5a+5
+5LqO5Y2V5Liq5paH5Lu2ICjkvovlpoLvvIwgbWFpbi5vKTo6DQorDQorICAgIEtBU0FOX1NBTklU
+SVpFX21haW4ubyA6PSBuDQorDQorLSDlr7nkuo7kuIDkuKrnm67lvZXkuIvnmoTmiYDmnInmlofk
+u7Y6Og0KKw0KKyAgICBLQVNBTl9TQU5JVElaRSA6PSBuDQorDQor5a+55LqO6L2v5Lu2IEtBU0FO
+IOaooeW8j++8jOimgeWcqOavj+S4quWHveaVsOeahOWfuuehgOS4iuemgeeUqOajgOa1i++8jA0K
+K+ivt+S9v+eUqCBLQVNBTiDnibnlrprnmoQgYGBfX25vX3Nhbml0aXplX2FkZHJlc3NgYCDlh73m
+lbDlsZ7mgKfmiJbmn5DkuKrpgJrnlKjnmoQgYGBub2luc3RyYGAg44CCDQorDQor6K+35rOo5oSP
+77yM56aB55So57yW6K+R5Zmo5qOA5rWL77yI5Z+65LqO5q+P5Liq5paH5Lu25oiW5q+P5Liq5Ye9
+5pWw77yJ5Lya5L2/IEtBU0FOIOW/veeVpeWcqOi9r+S7tiBLQVNBTiDmqKHlvI/nmoTku6PnoIHk
+uK3nm7TmjqXlj5HnlJ/nmoTorr/pl67jgIINCivlvZPorr/pl67mmK/pl7TmjqXlj5HnlJ/nmoTv
+vIjpgJrov4fosIPnlKjmo4DmtYvlh73mlbDvvInmiJbkvb/nlKjmsqHmnInnvJbor5Hlmajmo4Dm
+tYvnmoTln7rkuo7noazku7bmoIfnrb7nmoTmqKHlvI/ml7bvvIzlroPmsqHmnInluK7liqnjgIIN
+CisNCivlr7nkuo7ova/ku7YgS0FTQU4g5qih5byP77yM6KaB5Zyo5b2T5YmN5Lu75Yqh55qE5LiA
+6YOo5YiG5YaF5qC45Luj56CB5Lit56aB55SoIEtBU0FOIOaKpeWRiu+8jA0KK+ivt+S9v+eUqCBg
+YGthc2FuX2Rpc2FibGVfY3VycmVudCgpYGAvYGBrYXNhbl9lbmFibGVfY3VycmVudCgpYGAg6YOo
+5YiG5rOo6YeK6L+Z6YOo5YiG5Luj56CB44CCDQor6L+Z5Lmf5Lya56aB55So6YCa6L+H5Ye95pWw
+6LCD55So5Y+R55Sf55qE6Ze05o6l6K6/6Zeu55qE5oql5ZGK44CCDQorDQor5a+55LqO5Z+65LqO
+5qCH562+55qEIEtBU0FOIOaooeW8j++8iOWMheaLrOehrOS7tuaooeW8j++8ie+8jOimgeemgeeU
+qOiuv+mXruajgOafpe+8jA0KK+ivt+S9v+eUqCBgYGthc2FuX3Jlc2V0X3RhZygpYGAg5oiWIGBg
+cGFnZV9rYXNhbl90YWdfcmVzZXQoKWBg44CCDQor6K+35rOo5oSP77yM6YCa6L+HIGBgcGFnZV9r
+YXNhbl90YWdfcmVzZXQoKWBgIOS4tOaXtuemgeeUqOiuv+mXruajgOafpemcgOimgemAmui/hw0K
+K2BgcGFnZV9rYXNhbl90YWdgYC9gYHBhZ2Vfa2FzYW5fdGFnX3NldGBgIOS/neWtmOWSjOaBouWk
+jeavj+mhtSBLQVNBTiDmoIfnrb7jgIINCisNCivmtYvor5UNCit+fn5+DQorDQor5pyJ5LiA5Lqb
+IEtBU0FOIOa1i+ivleWPr+S7pemqjOivgSBLQVNBTiDmmK/lkKbmraPluLjlt6XkvZzlubblj6/k
+u6Xmo4DmtYvmn5DkupvnsbvlnovnmoTlhoXlrZjmjZ/lnY/jgIINCivmtYvor5XnlLHkuKTpg6jl
+iIbnu4TmiJA6DQorDQorMS4g5LiOIEtVbml0IOa1i+ivleahhuaetumbhuaIkOeahOa1i+ivleOA
+guS9v+eUqCBgYENPTkZJR19LQVNBTl9LVU5JVF9URVNUYGAg5ZCv55So44CCDQor6L+Z5Lqb5rWL
+6K+V5Y+v5Lul6YCa6L+H5Yeg56eN5LiN5ZCM55qE5pa55byP6Ieq5Yqo6L+Q6KGM5ZKM6YOo5YiG
+6aqM6K+B77yb6K+35Y+C6ZiF5LiL6Z2i55qE6K+05piO44CCDQorDQorMi4g5LiOIEtVbml0IOS4
+jeWFvOWuueeahOa1i+ivleOAguS9v+eUqCBgYENPTkZJR19LQVNBTl9NT0RVTEVfVEVTVGBgIOWQ
+r+eUqOW5tuS4lOWPquiDveS9nOS4uuaooeWdl+i/kOihjOOAgg0KK+i/meS6m+a1i+ivleWPquiD
+vemAmui/h+WKoOi9veWGheaguOaooeWdl+W5tuajgOafpeWGheaguOaXpeW/l+S7peiOt+WPliBL
+QVNBTiDmiqXlkYrmnaXmiYvliqjpqozor4HjgIINCisNCivlpoLmnpzmo4DmtYvliLDplJnor6/v
+vIzmr4/kuKogS1VuaXQg5YW85a6555qEIEtBU0FOIOa1i+ivlemDveS8muaJk+WNsOWkmuS4qiBL
+QVNBTiDmiqXlkYrkuYvkuIDvvIznhLblkI7mtYvor5XmiZPljbDlhbbnvJblj7flkoznirbmgIHj
+gIINCisNCivlvZPmtYvor5XpgJrov4c6Og0KKw0KKyAgICAgICAgb2sgMjggLSBrbWFsbG9jX2Rv
+dWJsZV9remZyZWUNCisNCivlvZPnlLHkuo4gYGBrbWFsbG9jYGAg5aSx6LSl6ICM5a+86Ie05rWL
+6K+V5aSx6LSl5pe2OjoNCisNCisgICAgICAgICMga21hbGxvY19sYXJnZV9vb2JfcmlnaHQ6IEFT
+U0VSVElPTiBGQUlMRUQgYXQgbGliL3Rlc3Rfa2FzYW4uYzoxNjMNCisgICAgICAgIEV4cGVjdGVk
+IHB0ciBpcyBub3QgbnVsbCwgYnV0IGlzDQorICAgICAgICBub3Qgb2sgNCAtIGttYWxsb2NfbGFy
+Z2Vfb29iX3JpZ2h0DQorDQor5b2T55Sx5LqO57y65bCRIEtBU0FOIOaKpeWRiuiAjOWvvOiHtOa1
+i+ivleWksei0peaXtjo6DQorDQorICAgICAgICAjIGttYWxsb2NfZG91YmxlX2t6ZnJlZTogRVhQ
+RUNUQVRJT04gRkFJTEVEIGF0IGxpYi90ZXN0X2thc2FuLmM6NjI5DQorICAgICAgICBFeHBlY3Rl
+ZCBrYXNhbl9kYXRhLT5yZXBvcnRfZXhwZWN0ZWQgPT0ga2FzYW5fZGF0YS0+cmVwb3J0X2ZvdW5k
+LCBidXQNCisgICAgICAgIGthc2FuX2RhdGEtPnJlcG9ydF9leHBlY3RlZCA9PSAxDQorICAgICAg
+ICBrYXNhbl9kYXRhLT5yZXBvcnRfZm91bmQgPT0gMA0KKyAgICAgICAgbm90IG9rIDI4IC0ga21h
+bGxvY19kb3VibGVfa3pmcmVlDQorDQor5pyA5ZCO5omT5Y2w5omA5pyJIEtBU0FOIOa1i+ivleea
+hOe0r+enr+eKtuaAgeOAguaIkOWKnzo6DQorDQorICAgICAgICBvayAxIC0ga2FzYW4NCisNCivm
+iJbogIXvvIzlpoLmnpzlhbbkuK3kuIDpobnmtYvor5XlpLHotKU6Og0KKw0KKyAgICAgICAgbm90
+IG9rIDEgLSBrYXNhbg0KKw0KK+acieWHoOenjeaWueazleWPr+S7pei/kOihjOS4jiBLVW5pdCDl
+hbzlrrnnmoQgS0FTQU4g5rWL6K+V44CCDQorDQorMS4g5Y+v5Yqg6L295qih5Z2XDQorDQorICAg
+5ZCv55SoIGBgQ09ORklHX0tVTklUYGAg5ZCO77yMS0FTQU4tS1VuaXQg5rWL6K+V5Y+v5Lul5p6E
+5bu65Li65Y+v5Yqg6L295qih5Z2X77yMDQorICAg5bm26YCa6L+H5L2/55SoIGBgaW5zbW9kYGAg
+5oiWIGBgbW9kcHJvYmVgYCDliqDovb0gYGB0ZXN0X2thc2FuLmtvYGAg5p2l6L+Q6KGM44CCDQor
+DQorMi4g5YaF572uDQorDQorICAg6YCa6L+H5YaF572uIGBgQ09ORklHX0tVTklUYGAg77yM5Lmf
+5Y+v5Lul5YaF572uIEtBU0FOLUtVbml0IOa1i+ivleOAgg0KKyAgIOWcqOi/meenjeaDheWGteS4
+i++8jOa1i+ivleWwhuWcqOWQr+WKqOaXtuS9nOS4uuWQjuacn+WIneWni+WMluiwg+eUqOi/kOih
+jOOAgg0KKw0KKzMuIOS9v+eUqCBrdW5pdF90b29sDQorDQorICAg6YCa6L+H5YaF572uIGBgQ09O
+RklHX0tVTklUYGAg5ZKMIGBgQ09ORklHX0tBU0FOX0tVTklUX1RFU1RgYCDvvIwNCisgICDov5jl
+j6/ku6Xkvb/nlKggYGBrdW5pdF90b29sYGAg5Lul5pu05piT6K+755qE5pa55byP5p+l55yLIEtV
+bml0IOa1i+ivleeahOe7k+aenOOAgg0KKyAgIOi/meS4jeS8muaJk+WNsOmAmui/h+a1i+ivleea
+hCBLQVNBTiDmiqXlkYrjgILmnInlhbMgYGBrdW5pdF90b29sYGAg55qE5pu05aSa5pyA5paw5L+h
+5oGv77yMDQorICAg6K+35Y+C6ZiFIGBLVW5pdOaWh+ahoyA8aHR0cHM6Ly93d3cua2VybmVsLm9y
+Zy9kb2MvaHRtbC9sYXRlc3QvZGV2LXRvb2xzL2t1bml0L2luZGV4Lmh0bWw+YF8g44CCDQorDQor
+Li4gX0tVbml0OiBodHRwczovL3d3dy5rZXJuZWwub3JnL2RvYy9odG1sL2xhdGVzdC9kZXYtdG9v
+bHMva3VuaXQvaW5kZXguaHRtbA0KLS0gDQoyLjcuNA0KDQotLSAKWW91IHJlY2VpdmVkIHRoaXMg
+bWVzc2FnZSBiZWNhdXNlIHlvdSBhcmUgc3Vic2NyaWJlZCB0byB0aGUgR29vZ2xlIEdyb3VwcyAi
+Q2xhbmcgQnVpbHQgTGludXgiIGdyb3VwLgpUbyB1bnN1YnNjcmliZSBmcm9tIHRoaXMgZ3JvdXAg
+YW5kIHN0b3AgcmVjZWl2aW5nIGVtYWlscyBmcm9tIGl0LCBzZW5kIGFuIGVtYWlsIHRvIGNsYW5n
+LWJ1aWx0LWxpbnV4K3Vuc3Vic2NyaWJlQGdvb2dsZWdyb3Vwcy5jb20uClRvIHZpZXcgdGhpcyBk
+aXNjdXNzaW9uIG9uIHRoZSB3ZWIgdmlzaXQgaHR0cHM6Ly9ncm91cHMuZ29vZ2xlLmNvbS9kL21z
+Z2lkL2NsYW5nLWJ1aWx0LWxpbnV4LzE2MjI1MzY3MTQtMjY2OS0xLWdpdC1zZW5kLWVtYWlsLXdh
+bmppYWJpbmclNDB2aXZvLmNvbS4K
