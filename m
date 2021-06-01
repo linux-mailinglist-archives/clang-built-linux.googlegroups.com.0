@@ -1,128 +1,139 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB6GB3KCQMGQEV2VGWUY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC53FPW2UIOBBS6S3KCQMGQEO6CHBRA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id 79737397B86
-	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Jun 2021 23:04:57 +0200 (CEST)
-Received: by mail-lj1-x238.google.com with SMTP id f13-20020a2eb5ad0000b02900f990d6bf16sf4806570ljn.4
-        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Jun 2021 14:04:57 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622581497; cv=pass;
+Received: from mail-lj1-x23a.google.com (mail-lj1-x23a.google.com [IPv6:2a00:1450:4864:20::23a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7354A397BD0
+	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Jun 2021 23:40:28 +0200 (CEST)
+Received: by mail-lj1-x23a.google.com with SMTP id m3-20020a2ea5830000b0290109369442e2sf4818851ljp.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Jun 2021 14:40:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622583628; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LXJoiHFNL39sgFfIYQnUJrJ4NRoeQD6HLVHtdGAmXyBg2CI29DaHFSOH8TIkI9OqYL
-         +Dbgnz1MWQN6TY3YxuruM/iKG/OjLqnX/NRqWaUNVek2vXzuJaMKmyTDea58jWJ11tHX
-         vrh+CbTq/5UnlF9N401Mnbd1H/rkQ7s+9P9Rs3yBnJ5jdAX1mZJa5TnU3ECIVsJOrt3R
-         K+7dIsNXztyVTlJyP+xmgYRe4eBxYxwauMNjrf4GkWF1pX9tuZB5sMR9AIePupzPXKof
-         KA3qmP0em0lyVYCTzvtJJ7Cg249YrU+A+Hfq5udHiRBp3dKMaKV3xVmMt0LRlK7Nf+bn
-         9YDQ==
+        b=Cv1cG1IEJQHXgYHnApYCh6OCLAEy0Uq7tHA9lgbhRr9Aw+CrrojIv3oY7ZTqOUq1ZW
+         zQjQO75n3Ckjms9WgORUI7AGgK1HGDdHePwpgB+E5zxU5H7HCjE1kmoV634erYCa1BIG
+         Eg0Yvt4AbxwNb7VA916PnNtPAl3U92W3Cs5leqp+zTNCTFjR7kk7HUZNN00JcwiX4vXz
+         V6PFxHjl0m+9iOmGFi0fRHMyprNB/LidqV2TzdVZdPeyP76QEj2wwrmhSMfe4ymAfEpU
+         lozBojWjL7gFf7DK9S6Uvqt1P2WtZ1CWX3EB91r7qCf3HN5V/ih/Sw29b8GtowUTDA+K
+         WmXA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=zYiaG+Sg3XBfR+u0hveOcM5GStheWahk5xgnt+mmIJQ=;
-        b=yRQfdH8aq3QXEEHRpIfB/+G2CXnjyfFwcrJ+TYPDFF3v59SZyCTGNpbuiD2PapNo/E
-         nzqYapSdJtOoDTjj0OG6bjGr80bu8kUbIt5KEI5N89PDlOXiVsc4jWjmNdsI6XTIsEuR
-         cAePYggEOPRD7Rvymb5Mw9gEeoH8iFnGUFwIdLHpf5xtS5j0ojUVG3g4mYHne1XH1pne
-         Nm4Bjl2tYey1I3sW2x78PTdD1dmRwkA2fQhkdZzak3rVTDHA/wAzUEry1YTFia2LCxjk
-         9d1SqBhqBNe22Z/kuuKgDc/MF52GmbpVwoKc2RRh1TyS57kq35cyqiFBnfxdqR6ZodiA
-         u6cg==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:sender:dkim-signature:dkim-signature;
+        bh=hDXCQ2kkEjLinjwJlcILB8+sYtGSb19ARkpwyjZPJIc=;
+        b=BjHskDJ/tQSY5FCc4HeZbAA4aeF7Xu8zNHh5Bin9h+IZ0KGPYSVG6gIlL/WYy9Kfh+
+         m7FOqiny31nK9CeL1RJkpIUG1p1OEZK8KHdmniOrrk4bGMJM6qQl88VsjaW1cCjXnP1Q
+         uHb5eW3tulerY3ozBQz5b7lNCr1Q5akActkILdLqYa8718oB4E1t6iuECLyQpHC84pTN
+         9ZHIpTADHSD04E8B2PI+hYm4fU+LZkFfIHuk1rCsg0Tzl8falwGLXo+zTmtCZQc2cxRo
+         OY60L+7CSnvWVYS7W71AkL3FDTGVMAW/SY+omsKZikVOwpQtM7B3ptdmE2LqRzTZukS9
+         K/Sw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=t0eflJF8;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=og8bAN+l;
+       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=zYiaG+Sg3XBfR+u0hveOcM5GStheWahk5xgnt+mmIJQ=;
-        b=Eqx2sUMuZhqKsTz8UrGoVhbHvL0jQZCHBKSu27Z5N0d+kIpTMvzMvYczPMVMcZS92M
-         DiPbDIVBdsfMqvO+ou+3iVK/wOkNEMVlyGoqyf/BjDEWiQXHrzQEQEBVfks1QAULDmVH
-         Iy87/Un3+7xfNx9n8Ft/3h9MLj1bWeqmI3Z4tc7GDHZ0v07n4+eJ547yvStMO93lVm3B
-         iuS0z3mo068b6V3HUwOUxQMVz5dEPmfP0MmZH2MnpM/+fZcRcK0mJ7SaMkyB6bAfUvu+
-         xlBXQ4cvj6HBYmypI8GIKllVnC2ybcpMPzp5tc4UUgysxxdtLEceq4Bbm+7ghk6taPfS
-         KjXw==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=hDXCQ2kkEjLinjwJlcILB8+sYtGSb19ARkpwyjZPJIc=;
+        b=Tz3pxGmHn1uEoiRk2vhC5hsHRlW5Y5C7N1Jaj8E262qHyBvtMac5wLpjTxEeGYQjsK
+         FydNczKrBxFeGQWv8YQN8Ob1MoVX0cUECajrPSCkKnzXGOmpGbZWY29mJ/t1AQvOMj4U
+         YZLaHJ1VWTq+/BpiwsrsKJzL6ZUS1ba9N+JXPJdXjXq98Bb+CqdtSLQ2GwVljw8dKHLP
+         wHaqwnznwIo4xj+R66Y4KtC1+YFVAzHq3HqkO/mqVglQX98qdaebnPWgGesGQIUlLlN5
+         8j71ZIZ+0Ba3zQQuSaH4+iwVXP3u6aNMfQvQIacZG5DE+m6O5T3QXEgGKdMisnQ3bV7K
+         meyQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=hDXCQ2kkEjLinjwJlcILB8+sYtGSb19ARkpwyjZPJIc=;
+        b=thppbzeG3oy7yuupvvD0oDBk3Zhx0hiHC8+Xwu67uPRNJy7pCtBnW6UEG79bvUoWZt
+         H1j4oPiaYjXnpNhoBtnev0b+wB3ocLimUfXFSPulmpZGwTxISQ6jhmrcBYy/0y7GtyV2
+         YAv1CS5qQ1RkHJvbaOR49sOpGafafkGWHMtFb8Z/1F/TS0ZopsDLqhtIjnZTYNSKPEU4
+         0VXY94LYEZBPWwN7JmX5C0U0YeXVCD06U8aMFYH9myLe1pBrITII048yGbUyZCvUgD7v
+         LWzdRx3srbaO3oaaK0dczn3wY+C8xA+rxKl3CEQo0R1YJAuVbw5xMS+PYcUGCvMhD/xk
+         k17w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=zYiaG+Sg3XBfR+u0hveOcM5GStheWahk5xgnt+mmIJQ=;
-        b=pmoVUJbt50Sc29KE3ZAvlKqwtym5bryOTQnoAoMJTo4C0qVRplu+GB4xrU7K1jZX4+
-         3gIB8F4t9QHhrQ+iGNCv4DPsxJB/CZM1TuLZvObfJZLU1B7I/nML5nUFzGLT/3774PGm
-         UdA2f5w3aQJeD3bPzm61ejDAzX1dxe2eCBf6IjfBLLsmQM97kaNJwubm150KnfjWT5NH
-         TSrKUZJ1UQtDgc4+g3k+oqjuSYf+jENI5cNZl0e1CrOMlo6m4F366YzCr9aDBbbN9q29
-         XOMFRrRtVLJCCK7QbjVHIGzCgz9eiFX2yJOWQvcF0YfNKKCadAcxIp2dImw6j911mlDk
-         uBAg==
-X-Gm-Message-State: AOAM533IK0ESNVEDxEx8ZYVDO1ml+r4zGZfiR5PqiTDc5CRGMVG2PzVH
-	awNyTAVgKhRKxDpkV/qfiv4=
-X-Google-Smtp-Source: ABdhPJxKZI6dQJEm07kwkDs4AVCJRW6HLHJt2LAUDv9caKI0F5rN04a3na6pEomlN+/hJIUeJVR+Wg==
-X-Received: by 2002:a05:6512:332c:: with SMTP id l12mr8624098lfe.454.1622581497032;
-        Tue, 01 Jun 2021 14:04:57 -0700 (PDT)
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=hDXCQ2kkEjLinjwJlcILB8+sYtGSb19ARkpwyjZPJIc=;
+        b=f0A2IEZEU7rhnp9x3N+8JLiaZ3WaFRtwpfHmP3fNuYMbxVLJ3RDskfIDjvn9P+eslw
+         0lMIKANMPxMOBJJSg+N7zdOYFEfZNv7nxZmWjO4UuQDoWb5F18pl7+k3+zvyHiE8XP1p
+         B7qQdBCJvFAEBq8eZuLlLAL/lrpXJPKEptoSAaJ/mR3Isu6QhliGsf4X/5ezYqfEulfF
+         pfnxPItQg1yoeQx2vp8Vm4Wj8KX+WrCHeLUmhGRB9voxkYkslWpZedqBoIbLob+IlAak
+         FP8zZNLcuADl+y0jKjiL4l3w1QLDUc2PDYBnzzSQDJZMS5rJDMl/o/8JmUPcWYicymHt
+         TPow==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532dGSDRUEmQEUsWB751Yswgr/xIvQ1RdoNZQY9oK2+SRPpiOlR2
+	r2BsS+HDsHXNABEfB1cZyS8=
+X-Google-Smtp-Source: ABdhPJwXqKNV8mb6OobmKSUPMcruF/8wwQFg57A2G0bB5/Xs0xTkEIi2qpcFQad3r29KAc7uVcVWQQ==
+X-Received: by 2002:a05:6512:3f9f:: with SMTP id x31mr19584644lfa.248.1622583628062;
+        Tue, 01 Jun 2021 14:40:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:1409:: with SMTP id u9ls3597278lje.1.gmail; Tue, 01
- Jun 2021 14:04:56 -0700 (PDT)
-X-Received: by 2002:a2e:bc06:: with SMTP id b6mr22590839ljf.342.1622581496025;
-        Tue, 01 Jun 2021 14:04:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622581496; cv=none;
+Received: by 2002:a2e:9806:: with SMTP id a6ls3604618ljj.10.gmail; Tue, 01 Jun
+ 2021 14:40:27 -0700 (PDT)
+X-Received: by 2002:a2e:3c08:: with SMTP id j8mr4187601lja.481.1622583627065;
+        Tue, 01 Jun 2021 14:40:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622583627; cv=none;
         d=google.com; s=arc-20160816;
-        b=okQKaDEbA9gjiAZior9G1hrhvsnRqwYgx7/XkpTuwUtm5lcc2FJVBNMdovFYhlDag/
-         gc6wTo9ietlcIitgnEwl9lPPndKh8cTZ22pWezAojOEyzb9SqjHBc4tlO6QM9O0Ezuid
-         jIkQjgwlRVWWWZcp53NSm14TdXMR/GN4IfX41OVerqTa6+OgB8zhdH0V5Czg/mfvSc8g
-         ES+8lot0Wr/96pkZLjbCMauZFT/BIQ9PTYMIjgzA8c+rHIF9XfzoCrZzaXIlrSfH9HGn
-         T24H1oiUqk1lPGMlXET10Tct7mA2ik09Zm9B7o38IrtnGsgV0bssri9qpk1vEaLW/PzM
-         C1rA==
+        b=KAvOkwZVzSqK1RD7zwBNlEIGJwyWaUA1Y6OyTHO/FSWCJrC7CbN34OtFA6HzZosH0W
+         /L0iOji8PCAurLoNwtMlfjNJM1w5UoPimzGpDl2deu9woAyQQX3hubrFQGhaDFKuL84e
+         mC7rM5MBzwLeOFNmjpKvddtsAXqBw4hzJF2eZIjDGPlbQKfPY3+6q192XhSjeOdzoc8E
+         5TxZufh8LljATaxUvZXWiPXO3c5keir6279ZazDgynd6a7jy7Oz3WU6uebNsTfD/QblJ
+         FrAGOLE1zmiXac9zukSG3er5fZ5Lei9PjWXOvECVdzD1HGzh6bopFJ6/yhn+qH1lvINJ
+         L3CA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1xBq/yJQb1ctA6qRFIUGU27xyMZ75sBIbNTD9efPBik=;
-        b=Q6QAEdqLZ1A0iT8fDc1yH4AdJb5/Xd4CKVL3YTxyqZx/vSzbNlng0/7lYv/lFZCmzC
-         NI3cDrTD7YyeIOP5h62j1whkRbz+W9V5A/hdiLRsEnEzMbWlKXjYoKBAFrKhpxtkd7sT
-         lDjy6oVp0mMAODQQmPtNa9HEnJZyyjGQ5kESqbAHN5OTIEhX4dskBGEA8shBRUpzIZWn
-         X5WveriJYy1q30G8AHTaKddFuz7eiW8ZxWIGLzHJX9w/Hc7oreN1KjfECaSnFSCJrPqS
-         +kRS/jLm/n8UK2tJ7spfY7cBfsbDsaIEnjMdP+n1cVaKU3EUxozAIKvCuvVdnYJJF1Cb
-         UwRA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=3GJ4iW9ne/KKSp4HSYBLS3JGEPYqPP2i6X+oTP0z2Ns=;
+        b=hk2PMTiB4c+6ARDeZIHFX1NMrldg9zQkN0YH2GLjysgHZfmddUUc2//ENswm9zwPZP
+         sg6N8IUz34lqQO8RHVMPGuUVDLIHJuZP0HVxDiL/mjVr/dTmE0QxIHhxT7g1YlqdK8O6
+         bVBEJO7oUcFXFT9N6mxtoF/PBC4Bl+QrKZcmk6D9y4cwtPLUoyJfGbewHg5SrWHwfpWD
+         JSxjcyT1+gbf6QgzGob5M4f71IWUplSiOiyCedIpR4mRciULuJar2CBVydL8Bl11sFAM
+         W4LUe1PM7g41ZTtt+qIEJq8C0Q112+1bCau7UrYx/VKTsu8iHYa1/nL2IGJNIz9rtcCO
+         d6oQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=t0eflJF8;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x133.google.com (mail-lf1-x133.google.com. [2a00:1450:4864:20::133])
-        by gmr-mx.google.com with ESMTPS id w26si864852ljw.8.2021.06.01.14.04.56
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=og8bAN+l;
+       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-lf1-x12d.google.com (mail-lf1-x12d.google.com. [2a00:1450:4864:20::12d])
+        by gmr-mx.google.com with ESMTPS id z25si890498lfu.6.2021.06.01.14.40.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 01 Jun 2021 14:04:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133 as permitted sender) client-ip=2a00:1450:4864:20::133;
-Received: by mail-lf1-x133.google.com with SMTP id w33so23958929lfu.7
-        for <clang-built-linux@googlegroups.com>; Tue, 01 Jun 2021 14:04:56 -0700 (PDT)
-X-Received: by 2002:a19:f706:: with SMTP id z6mr5933873lfe.122.1622581495442;
- Tue, 01 Jun 2021 14:04:55 -0700 (PDT)
+        Tue, 01 Jun 2021 14:40:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::12d as permitted sender) client-ip=2a00:1450:4864:20::12d;
+Received: by mail-lf1-x12d.google.com with SMTP id x38so24078146lfa.10
+        for <clang-built-linux@googlegroups.com>; Tue, 01 Jun 2021 14:40:27 -0700 (PDT)
+X-Received: by 2002:a05:6512:46c:: with SMTP id x12mr6130853lfd.203.1622583626848;
+        Tue, 01 Jun 2021 14:40:26 -0700 (PDT)
+Received: from hyperiorarchmachine.localnet (dcx7x4yb9bh06yk5jm2qt-3.rev.dnainternet.fi. [2001:14ba:14f7:3c00:3d09:bda0:2327:559b])
+        by smtp.gmail.com with ESMTPSA id p9sm626662lfo.276.2021.06.01.14.40.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Jun 2021 14:40:26 -0700 (PDT)
+From: jarmo.tiitto@gmail.com
+To: Bill Wendling <morbo@google.com>, Kees Cook <keescook@chromium.org>, LKML <linux-kernel@vger.kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, Andrew Morton <akpm@linux-foundation.org>, Nick Desaulniers <ndesaulniers@google.com>, Jarmo Tiitto <jarmo.tiitto@gmail.com>, Sami Tolvanen <samitolvanen@google.com>
+Subject: Re: [PATCH] pgo: rename the raw profile file to vmlinux.profraw
+Date: Wed, 02 Jun 2021 00:40:25 +0300
+Message-ID: <5615959.Mqr2uNrfH2@hyperiorarchmachine>
+In-Reply-To: <202106011210.B5A8881214@keescook>
+References: <20210531202044.426578-1-morbo@google.com> <CAGG=3QVdXxLf0T9+n9FidrRcfdWY36m-i=4kPRJjOojWhjiywg@mail.gmail.com> <202106011210.B5A8881214@keescook>
 MIME-Version: 1.0
-References: <20210528200821.459214-1-jarmo.tiitto@gmail.com>
- <2450763.S1xdTQMYLV@hyperiorarchmachine> <CAKwvOdmk34yQQow_kMLeF32OpfcP4O0SrPx3gMO3KQvgE8uZ9Q@mail.gmail.com>
- <3233714.pFP5IgcPq9@hyperiorarchmachine>
-In-Reply-To: <3233714.pFP5IgcPq9@hyperiorarchmachine>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 1 Jun 2021 14:04:43 -0700
-Message-ID: <CAKwvOdnN+Cv5e1D5O18GkE6hjqaSAOKQHywDnJ7GzjPNMAsy_g@mail.gmail.com>
-Subject: Re: [PATCH 3/6] pgo: modules Add module profile data export machinery.
-To: jarmo.tiitto@gmail.com
-Cc: Bill Wendling <morbo@google.com>, Sami Tolvanen <samitolvanen@google.com>, 
-	LKML <linux-kernel@vger.kernel.org>, Kees Cook <keescook@chromium.org>, 
-	Nathan Chancellor <nathan@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: ndesaulniers@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: Jarmo.Tiitto@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=t0eflJF8;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=og8bAN+l;       spf=pass
+ (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::12d
+ as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,77 +146,106 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jun 1, 2021 at 1:46 PM <jarmo.tiitto@gmail.com> wrote:
->
-> Kirjoitit tiistaina 1. kes=C3=A4kuuta 2021 20.27.01 EEST:
->
-> > Hi Jarmo,
-> > Thanks for the series! Would you mind including the above in a cover le=
-tter
-> > in a v2? (You can use --cover-letter command line arg to `git format-pa=
-tch`
-> > to generate a stub).  The please explicitly cc
-> > Sami Tolvanen <samitolvanen@google.com>
-> > Bill Wendling <morbo@google.com>
-> > on the series? Finally, please specify the cover letter and all patch f=
-iles
-> > to git send-email in one command, so that the individual patch files ar=
-e
-> > linked on lore.kernel.org. This makes it significantly easier to review=
- and
-> > test.
-> >
->
-> Hello,
->
-> Yeah, I realized afterwards that I screwed up at the git send-mail/messag=
-e
-> threading task. Sorry about that. I will correct all of it in my next v2
-> patch. Make mistakes, and learn new things.
+Kees Cook wrote tiistaina 1. kes=C3=A4kuuta 2021 22.13.21 EEST:
+> On Tue, Jun 01, 2021 at 01:24:39AM -0700, 'Bill Wendling' via Clang Built=
+=20
+Linux wrote:
+> > On Mon, May 31, 2021 at 1:29 PM Nathan Chancellor <nathan@kernel.org>=
+=20
+wrote:
+> > > On 5/31/2021 1:20 PM, Bill Wendling wrote:
+> > > > Future PGO features may create other files in /sys/kernel/debug/pgo=
+.
+> > > > So
+> > > > rename the kernel's raw profile data file to "vmlinux.profraw" to m=
+ake
+> > > > which part of the kernel the file is for more explicit.
+> > > >=20
+> > > > Note that future files in /sys/kernel/debug/pgo should follow a
+> > > > similar
+> > > > naming convention.
+> > > >=20
+> > > > Signed-off-by: Bill Wendling <morbo@google.com>
+> > >=20
+> > > Guess this clears up my confusion around the module patches :)
+> >=20
+> > To clarify, Jarmo did those patches on his own. I just wanted to
+> > clarify the naming convention. :-)
+>=20
+> Is the expectation that there would be 1 file per module in
+> /sys/kernel/debug/pgo/ after the modules patch?
+>=20
+> > -bw
+> >=20
+> > > Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+> > >=20
+> > > > ---
+> > > >=20
+> > > >   Documentation/dev-tools/pgo.rst | 6 +++---
+> > > >   kernel/pgo/Kconfig              | 7 ++++---
+> > > >   kernel/pgo/fs.c                 | 2 +-
+> > > >   3 files changed, 8 insertions(+), 7 deletions(-)
+> > > >=20
+> > > > diff --git a/Documentation/dev-tools/pgo.rst
+> > > > b/Documentation/dev-tools/pgo.rst index b7f11d8405b7..0200449c4843
+> > > > 100644
+> > > > --- a/Documentation/dev-tools/pgo.rst
+> > > > +++ b/Documentation/dev-tools/pgo.rst
+> > > >=20
+> > > > @@ -76,7 +76,7 @@ The PGO kernel support creates the following file=
+s in=20
+debugfs:
+> > > >   ``/sys/kernel/debug/pgo/reset``
+> > > >  =20
+> > > >       Global reset file: resets all coverage data to zero when writ=
+ten
+> > > >       to.
+> > > >=20
+> > > > -``/sys/kernel/debug/profraw``
+> > > > +``/sys/kernel/debug/pgo/vmlinux.profraw``
+> > > >=20
+> > > >       The raw PGO data that must be processed with ``llvm_profdata`=
+`.
+> > > >=20
+> > > > @@ -108,7 +108,7 @@ using the result to optimize the kernel:
+> > > >      .. code-block:: sh
+> > > >=20
+> > > > -      $ cp -a /sys/kernel/debug/pgo/profraw /tmp/vmlinux.profraw
+> > > > +      $ cp -a /sys/kernel/debug/pgo/vmlinux.profraw
+> > > > /tmp/vmlinux.profraw
+>=20
+> And if so, these instructions would change (in the future) to something
+> like:
+>=20
+>      $ cp -a /sys/kernel/debug/pgo/*.profraw /tmp/prof/
+>=20
+> ?
+>=20
+> -Kees
 
-No worries; best way to learn to swim is to jump in the pool!
-(Well...I might not actually recommend that to kids, but you catch the
-drift; maybe "sink or swim" is the better expression?).  Also, you
-should use text/plain for your email; you're probably getting
-automated responses from LKML about that. In gmail, you can click the
-vertical ellipses in the bottom right of a reply; make sure to check
-"Plain Text."
+Hi,
 
-> I will post new v2 patch once I'm done writing and testing it. Based on t=
-he
-> feed back here I will try keep it simple and unify the vmlinux + modules =
-code
-> such that there is no fs_mod.c source any more nor necessary code duplica=
-tion.
->
-> Basically it will be an rewrite on my part but I'm just excited to do it.
+To be clear the mucked up patches I sent are more like of RFC to get in=20
+contact with the development.
+Back to the code:
 
-Better to rewrite it now rather than later, I suppose.
+Yes, my future intention is that there will be one *.profraw file per modul=
+e.
+And curiously I would also have renamed the current profile data file to=20
+"vmlinux.profraw" to disambiguate it from what part of kernel generated it.
 
-> I feel this first attempt was more like of RFC/prototype such that I coul=
-d get
-> in contact with you guys.
+I already wrote an small fix up that I think should be part of the upstream=
+=20
+code so that profiling the vmlinux works better.
+It filters out any module originated content from vmlinux.profraw.
 
-Yep, that's common for v1 of patches.  If you're interested in Clang
-Built Linux generally, send me your github account name and I'll add
-you to our org on github.
-https://github.com/ClangBuiltLinux
+Above will be probably a good exercise for me.
 
-> Just one question about copyrights: do I need to add my statement to the
-> sources, if yes, then how should I proceed ?
+Next, my future v2 module profiling machinery
+would probably follow on top of your work.
 
-Sure, you can add them to the top level of each source file you touch
-(we don't do this for Makefiles I think).  I think the signed-off-by
-tag is enough though, which implies agreement with the Developer's
-Certificate of Origin:
-https://www.kernel.org/doc/html/v4.17/process/submitting-patches.html#devel=
-oper-s-certificate-of-origin-1-1.
-For instance, I don't think I ever have added my name/copyright to the
-top of a file, but that also has to do with my employment agreement I
-have with my employer. IANAL
---=20
-Thanks,
-~Nick Desaulniers
+-Jarmo
+
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -213,5 +253,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOdnN%2BCv5e1D5O18GkE6hjqaSAOKQHywDnJ7GzjPNMAsy_g%40m=
-ail.gmail.com.
+clang-built-linux/5615959.Mqr2uNrfH2%40hyperiorarchmachine.
