@@ -1,124 +1,130 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHPM32CQMGQERSYSSGA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB2UA36CQMGQEU4ITXAA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x538.google.com (mail-ed1-x538.google.com [IPv6:2a00:1450:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6636239904C
-	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Jun 2021 18:47:26 +0200 (CEST)
-Received: by mail-ed1-x538.google.com with SMTP id s18-20020a0564020372b029038febc2d475sf1763327edw.3
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Jun 2021 09:47:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622652446; cv=pass;
+Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 778093991B6
+	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Jun 2021 19:31:23 +0200 (CEST)
+Received: by mail-yb1-xb3f.google.com with SMTP id s8-20020a5b04480000b029049fb35700b9sf4026096ybp.5
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Jun 2021 10:31:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622655082; cv=pass;
         d=google.com; s=arc-20160816;
-        b=u7F4CVCAsqkbfo4BSiSnnThgXk/4yn4ELrJMmL/6v1D/NEQGhJCRUvbubp1ORozKOT
-         W3kAMrrDT4/r29MikPKjWXfqYUxEY4vztCGw8G+ypXw6vsQ8qj9r/8QipE1+Rvh6DmYg
-         rf0IcvDXAzhXBmpwXzadpfVjl0My8zYZ0cmlHHc5EnM7mT2s9YjsrrNpdtNwy9GRgV/T
-         uUwVoRLI4UUCRflPDjvbOJ2yCY/nirvapmvq80AssO65xYxFbUd+0648QEsmD2oDAliQ
-         5x85kwms8b0ordItZvRTF+YxRRaJ8gzdtzC1GAUXsvSwTvcD+51jnNPKLMAbGsbr7aog
-         YxXA==
+        b=0dhHmql7d49oXrua+1OTItVtD6E5MaKuCf10+kevXpfn8HHwGHHlL8vcYz0s28XiQL
+         NAk5rbO2P/jW+lTl/dEUsei/i/EXQ8djhuHmVWvUypzaCaTzKjNBhwvk8VBZehztOy+1
+         tv54fPqes8I/HtgoNLca2xAWOLkSIvBCTdfQNg9BcXHkmSdkPTpCLjITFvgLDcnEqRnB
+         1vnRLXQgNbxWWySNMGZMhNeEY8BUTm+kB2Ynx5N5e3M5NtfYwGpLgPd33bQj8T0g38Ld
+         QSmbKEnkqj/SDisDlxKkNyfZmdVBNatqpQO1W6Xf8CfyVwIlypn/S2SxfIampJc85/Lt
+         JEnA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=4WmZYEVz2i6mhsq4p7XPHGj8iCEnMzbUrZBpmj05es0=;
-        b=ihXyJ1roRYTNjRNfsa58Jb+5bBdnG+ax+7mwVO5h/fQSB482pBuo0cIbJAWIBk8XEj
-         8xVFvBnCg7J2TM8ARnn3aBzx2IvJqEjiJy9Q8CpsqlfxWrqv0npJRhN4cRf7Tsa947wx
-         8bQyjSb4iPPgw18/mxhOwU4wvuKqRBhQN24850Pv2dMT5KmarUHOwLNpTySqURWC3tIn
-         S07sipFZ2/Leu7l2+fB2ZGQ1/WHrx89zIGqCfg7Fit9Edp2fCDH+LTOk9wm/VsBMVqt0
-         eUZ59TQKCKzvZalwKZRiKxSD+vgQ5758uFHEcwZPoZRuhOp5GV7h2iMjmaBqweV+RI0L
-         Ptag==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=/vFOSVKI+AN4D+LwnqsuIRBx3Cynl+AzIQsFAUrJ1Vk=;
+        b=nKQndu08+zUdOrs3jEPprttMNHJIAijflvJyCVgI2nzbuTqRbXQI1EW76qZdMhxIdp
+         5uFGUAtOgN3vkxHY6oeHpNKcCI0dSTTTkKOtHEf3ITdA/8kaGKh3jkNCVjRu0XKN2DyQ
+         GlTTv1CkP2QzXHM5h3rghtKAcDSBGv0NX/YO8NtOWnwSsrxJGBrxV9JEz3ogoWjJpJ4L
+         avEJJ+L5VdhVMv0fiqV0QcQxSxpmeeONGXNQ40QDo6KnJIgD5s6MRuwGvhnoggnZaLfL
+         gOlgAujVhG2ze1OTHl0CKGgMKrqYcGYv4XLLIxt5EiM0nZnOpvQgX16DVZMyrs5g+n3U
+         ElZA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=YwuTlqMN;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=c4XGCHVJ;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1035 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=4WmZYEVz2i6mhsq4p7XPHGj8iCEnMzbUrZBpmj05es0=;
-        b=M/JdURwbolv4gKpEpD+2QXbsSK/H2xMV3yI8ejCEIBN7CDHn7yxxVb9vzFtA/4Ovhl
-         XCF00Rpqpn17T/GvKqQ92GRu9TP/INlJRx1RjI2aDxzM0o+Y5CQZIBIoa3ORNiMFQaIE
-         wm3Vhp7twR4fQSaEghxgwDjup8Acf6K24WkatGmFyH47FOUUaulV32ZIPfj7U/A0kbqs
-         bB6IzKpyNJlGQEvPOO4GrpXCZW2THVDZ7HMU28O2i2Grw4JcEVP/cb79XKPd5XzV5mPh
-         r1EMT0SGko41AYlsbHgVWozWSNk27Ayx+dxtKMQ3ObekmHi4+0sLi89IcV1zFjTqx14q
-         31kQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=/vFOSVKI+AN4D+LwnqsuIRBx3Cynl+AzIQsFAUrJ1Vk=;
+        b=HSJ49+jzM54Ln6YsF1ODLB9ESVyGX6pAw7DgjqYh+m+ab7rULM5oYUMBrKEdRFKred
+         Z9AxRJDRMQ9FDw0VpA1poHCwt5gb+/Bapw0CNDyP9Eazwu1uI8ceLymUEZaaziPThLo2
+         LbxpauhoyyGs7yp7Lxfeo4GBfBAW2TXTWBwrHD+7LO7D2byGEcNFwZwgq/LjggTuaV6W
+         NLFAot+aKSV9fNmOoNlfKPEUoM/aVad3+5WYeJwiw5B6+PVaeK+I/MoWwlnsZUr5EkZa
+         eyOChkkIcb8UgnaWO6HMttdqXb4Z9gCSyinVzJXaxCpqduFeJ/eNqhBCSzlQm5JY4qIw
+         P0Kw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=4WmZYEVz2i6mhsq4p7XPHGj8iCEnMzbUrZBpmj05es0=;
-        b=NmsuRG06Dmnku1W5PPyFBw5I4HKMMbwnrUeoxh1E2nm2qzdelDLYfSk/aWYWQn2/mo
-         UlrM+3xcBSlLsin9W354DS6SYSgphZ4l7ebmLYZgsHMPoBEy62exrHzNlhGuZurMsPkI
-         6KUMAbLq6Js27SRI2b3CI3I1xNTCexHqoqpYzbde/cr4/GWi8YSfEKGFSs02bJDGb/Hq
-         +uo+mJuYXTbBgIBj8sxBIt50CoahzAczMyxtHgQe+iF4J/Zz4rNg49/dnTFG1YFn2Des
-         ivpa/4P9bPgSlr7sZnt2T4BPI6saDNhnm6JC4hCPexstaJNymKz1JuOjP9ZVwkDRUIQ0
-         yM4w==
-X-Gm-Message-State: AOAM531PTXTC6I6FBJP4HJKWzO31MTxt4zOknFm/Ya1eVcCquFKwII4h
-	GzIoUcZNcw4sbwvoCLys/Uo=
-X-Google-Smtp-Source: ABdhPJwrAV6HBWhZtDW33mJ6n3b9zD7OeftF91KwFtGp7FwlLcw/Cos8ZsYnZWbL6wFsBLXaqxfWwg==
-X-Received: by 2002:a17:906:af7b:: with SMTP id os27mr20431243ejb.154.1622652446161;
-        Wed, 02 Jun 2021 09:47:26 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=/vFOSVKI+AN4D+LwnqsuIRBx3Cynl+AzIQsFAUrJ1Vk=;
+        b=RCLUw96l3ARM/X2c/zAg+cU73tbhENXMOV00XJKilFzGePXRt0Jh1xdeY0lVEowM23
+         CChulJvFsJUm5iOYMGUni+VZZgFnC04cm0R9+Ir356Iez11u+qMI6tmBSZ1tSkJx1fBJ
+         OqgN1IkiCjBB0m+DpaJS5t/1QW6qd4kz26do2C0bjOd35d0/3NoVY3Ufq54lMR4wznMp
+         BYa0ycNnWt7l1qdCECyFkEeVDDIAJi0WcW10/sp0A1B6kcsWYAIBm45A1zqHwVA7bAkR
+         DevckT43vjjZdQieEv+2kv4lyUUlfXQbQgrJCubaJ8/nTsw7xQUjgO/fSPWnAHa49qEa
+         0EFQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532iTwVYHLJot9bYhncTWPyzWqfF/2DrqeqVqui9Ya7tMyUh+EC8
+	7DoTW5P1j3tEQbf7XNk1HEc=
+X-Google-Smtp-Source: ABdhPJzPuBzo8Ot+0t+WtMC4HUJ7X3Wrofh6m503Cym8qp5qeRwWy89jM+mUqA9LRWcibsgw9fuK1A==
+X-Received: by 2002:a25:c045:: with SMTP id c66mr11928395ybf.296.1622655082388;
+        Wed, 02 Jun 2021 10:31:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:907:94d4:: with SMTP id dn20ls191262ejc.6.gmail; Wed, 02
- Jun 2021 09:47:25 -0700 (PDT)
-X-Received: by 2002:a17:906:f298:: with SMTP id gu24mr16654172ejb.452.1622652445275;
-        Wed, 02 Jun 2021 09:47:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622652445; cv=none;
+Received: by 2002:a25:3c45:: with SMTP id j66ls232983yba.0.gmail; Wed, 02 Jun
+ 2021 10:31:21 -0700 (PDT)
+X-Received: by 2002:a25:1988:: with SMTP id 130mr51278829ybz.458.1622655081916;
+        Wed, 02 Jun 2021 10:31:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622655081; cv=none;
         d=google.com; s=arc-20160816;
-        b=xKx0LRywlknzqXJyEriNAb3IEwyhCgLe75T6WV10S5IWstVteIOXOUnl0AlInzcpjC
-         sZR467Oa9SgnNzzH0h8QJ+cNsroFma857hijLvKOTMp0bwiaLbXLKaHaNcZz6zFkJndh
-         FJ/pKi/M7wJSxPNZtp7pCcIfmmva9+oyzDmVQt1eqg9rj7ZSnUQR6lOSUaBHiD9xqVJn
-         SuYalmB39YuYS0X9SnsZEaSLfTJB66qrP2Z1Y01Rc0EWKCtSkwRKWOZhh/VJ3rg0IUTd
-         UEXD2xziRveawn2ohcX+UQEz1TN23MiG6r9puiLfWGlvEq/rGJN+wWfvwL01RrJso3Zk
-         0HZw==
+        b=L7GuaDBjk/Gri4rIqoFRIh8Aa160IgzezGeZyOTAuu7kr8Le3FOPptcZZ8K4WHwAzG
+         J7Xj+ahanvj4G5RlIy32e+eaJKX5etHTM/4hEQGTEANFuiPey5BUD02EZkiODEs4ZUcL
+         lL1IixlqT1qMoQAWpa72r5YdmWakpjQv5SQXGSSB1nbTL15MF3y6bM90DmE1q6ldhHl8
+         3Fvn7ZyO2TRb37OpKIsIhmfVQf9gAa4IGcXP6MclgBwkzdJN+s6spWBjYt1+o/cdF10T
+         /AcNS2sHI4ZfO82XY5R7ilzYAmN7YxN8H+4O9yy5MIahl3TIbl1uugSF5FWLuXdS7FI7
+         JtOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=MK1rB1Nu3kFxcK1GfwF5vMS0Up2k4DnL/CR4vainsR0=;
-        b=H/QsbqreOqLywDw2BixkjUyuKyU5nIoKIGnekgrkqKzfwjvQIdQAECwRFY2/USEUCR
-         n2GLQx5UWOR3NOuAjcBHkolul8qr/vMUGxAUMlz6uAtKUEJI8nfPer2WpsQ4q3RUQO/9
-         jhEO5JmBYR4EK5CG9PXcKxw3TIhCq3biXMivL5v1dQB59jIWIJf9NKATSce1ZCrFMW3L
-         ZnihREgjMMbkw2761eSFQlZ7pgiSks3s/qxokeHwL0/OSj0W0XnBqT2ZOxMpU3XXQLAR
-         WAG4TAdZo3gh7odjOzCjzEPpOn937C0lamBotRyMi2twtJAnCgZ2Q5Pk61vfGE6F9HAy
-         0oGA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=tt4Knbco8jltVFuXBy6keGgbL9Kdul7C1y1WYAEE+Cc=;
+        b=im0gIRrSliq1YdPtsdnOQ2cEYV8vRJvsuNNkpbwgScJaTPAHuWfz5cc3UqmEApGBKV
+         WmtWl+6DE8BGB8FFHWhOyYC/ADIA0yC/sjopjQz9OePpYZlKF1k3EvHCxQQvp32OcPDP
+         ix/Zezwuj5/Nqu+qsf5O8TZ6D0BhugLRtZ4yNa+1t+r+BuMuGMUbpP28xPV+JIMlr8E2
+         OHLBTa0YN9ch4zq8erjQmVi6CuvwD0BYXw4tqG/OLd7qieqm//z0zi/QjBLvYOgw/WXj
+         kMrkpdP3kYrUy5BpYHKdG1yxk+GPV1MUPlC0e3XAxnHUW46Khqbs81KePMl/Tcnv7QKY
+         bcwQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=YwuTlqMN;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x12e.google.com (mail-lf1-x12e.google.com. [2a00:1450:4864:20::12e])
-        by gmr-mx.google.com with ESMTPS id m7si28546edq.5.2021.06.02.09.47.25
+       dkim=pass header.i=@chromium.org header.s=google header.b=c4XGCHVJ;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1035 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pj1-x1035.google.com (mail-pj1-x1035.google.com. [2607:f8b0:4864:20::1035])
+        by gmr-mx.google.com with ESMTPS id r9si89321ybb.1.2021.06.02.10.31.21
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Jun 2021 09:47:25 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e as permitted sender) client-ip=2a00:1450:4864:20::12e;
-Received: by mail-lf1-x12e.google.com with SMTP id r198so1060123lff.11
-        for <clang-built-linux@googlegroups.com>; Wed, 02 Jun 2021 09:47:25 -0700 (PDT)
-X-Received: by 2002:a19:f706:: with SMTP id z6mr8965054lfe.122.1622652444730;
- Wed, 02 Jun 2021 09:47:24 -0700 (PDT)
+        Wed, 02 Jun 2021 10:31:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1035 as permitted sender) client-ip=2607:f8b0:4864:20::1035;
+Received: by mail-pj1-x1035.google.com with SMTP id d5-20020a17090ab305b02901675357c371so3531852pjr.1
+        for <clang-built-linux@googlegroups.com>; Wed, 02 Jun 2021 10:31:21 -0700 (PDT)
+X-Received: by 2002:a17:90a:ae11:: with SMTP id t17mr6591604pjq.85.1622655081153;
+        Wed, 02 Jun 2021 10:31:21 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id y1sm236817pfn.13.2021.06.02.10.31.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Jun 2021 10:31:20 -0700 (PDT)
+Date: Wed, 2 Jun 2021 10:31:19 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Jarmo Tiitto <jarmo.tiitto@gmail.com>
+Cc: Sami Tolvanen <samitolvanen@google.com>, Bill Wendling <wcw@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
+	morbo@google.com
+Subject: Re: [PATCH 1/1] pgo: Fix sleep in atomic section in prf_open()
+Message-ID: <202106021009.A556DFB7F2@keescook>
+References: <20210602162640.170752-1-jarmo.tiitto@gmail.com>
 MIME-Version: 1.0
-References: <202106021822.Do0Ih08d-lkp@intel.com> <CAMhs-H8qyOKQmPtChYO+jfC+Zmj8U9yGeZJORUx14MzyLeT5QA@mail.gmail.com>
-In-Reply-To: <CAMhs-H8qyOKQmPtChYO+jfC+Zmj8U9yGeZJORUx14MzyLeT5QA@mail.gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 2 Jun 2021 09:47:13 -0700
-Message-ID: <CAKwvOd=3ootX9j=1mY3dpmGHw_7yhZkFnmgFCRQqJUaLMZqvZQ@mail.gmail.com>
-Subject: Re: [linux-next:master 1932/6331] drivers/phy/ralink/phy-mt7621-pci.c:341:34:
- warning: unused variable 'mt7621_pci_phy_ids'
-To: Sergio Paracuellos <sergio.paracuellos@gmail.com>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Linux Memory Management List <linux-mm@kvack.org>, Vinod Koul <vkoul@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <20210602162640.170752-1-jarmo.tiitto@gmail.com>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=YwuTlqMN;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@chromium.org header.s=google header.b=c4XGCHVJ;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1035
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,98 +137,202 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jun 2, 2021 at 3:38 AM Sergio Paracuellos
-<sergio.paracuellos@gmail.com> wrote:
->
-> Hi,
->
-> On Wed, Jun 2, 2021 at 12:27 PM kernel test robot <lkp@intel.com> wrote:
-> >
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > head:   ed5d0667a6540293c9485dd95babb5f1e241226a
-> > commit: 28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a [1932/6331] phy: ralink: Kconfig: enable COMPILE_TEST on mt7621-pci-phy driver
-> > config: x86_64-randconfig-r016-20210602 (attached as .config)
+On Wed, Jun 02, 2021 at 07:26:40PM +0300, Jarmo Tiitto wrote:
+> In prf_open() the required buffer size can be so large that
+> vzalloc() may sleep thus triggering bug:
+> 
+> ======
+>  BUG: sleeping function called from invalid context at include/linux/sched/mm.h:201
+>  in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 337, name: cat
+>  CPU: 1 PID: 337 Comm: cat Not tainted 5.13.0-rc2-24-hack+ #154
+>  Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 0.0.0 02/06/2015
+>  Call Trace:
+>   dump_stack+0xc7/0x134
+>   ___might_sleep+0x177/0x190
+>   __might_sleep+0x5a/0x90
+>   kmem_cache_alloc_node_trace+0x6b/0x3a0
+>   ? __get_vm_area_node+0xcd/0x1b0
+>   ? dput+0x283/0x300
+>   __get_vm_area_node+0xcd/0x1b0
+>   __vmalloc_node_range+0x7b/0x420
+>   ? prf_open+0x1da/0x580
+>   ? prf_open+0x32/0x580
+>   ? __llvm_profile_instrument_memop+0x36/0x50
+>   vzalloc+0x54/0x60
+>   ? prf_open+0x1da/0x580
+>   prf_open+0x1da/0x580
+>   full_proxy_open+0x211/0x370
+>   ....
+> ======
 
-^ randconfig
+Ah-ha; nice catch!
 
-> > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project db26cd30b6dd65e88d786e97a1e453af5cd48966)
-> > reproduce (this is a W=1 build):
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # install x86_64 cross compiling tool for clang build
-> >         # apt-get install binutils-x86-64-linux-gnu
-> >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a
-> >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-> >         git fetch --no-tags linux-next master
-> >         git checkout 28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a
-> >         # save the attached .config to linux build tree
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
-> >
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kernel test robot <lkp@intel.com>
-> >
-> > All warnings (new ones prefixed by >>):
-> >
-> >    drivers/phy/ralink/phy-mt7621-pci.c:277:4: warning: cast to smaller integer type 'unsigned int' from 'void *' [-Wvoid-pointer-to-int-cast]
-> >                     (unsigned int)mt7621_phy->port_base, mt7621_phy->has_dual_port);
-> >                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> >    include/linux/dev_printk.h:118:33: note: expanded from macro 'dev_info'
-> >            _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
->
-> Already fixed in:
-> https://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/commit/drivers/phy/ralink/phy-mt7621-pci.c?h=next&id=652a6a2e3824ce2ebf79a2d5326940d05c4db036
->
-> >                                           ^~~~~~~~~~~
-> > >> drivers/phy/ralink/phy-mt7621-pci.c:341:34: warning: unused variable 'mt7621_pci_phy_ids' [-Wunused-const-variable]
-> >    static const struct of_device_id mt7621_pci_phy_ids[] = {
-> >                                     ^
->
-> Mmmm... This one is used through MODULE_DEVICE_TABLE macro... Am I
-> missing something??
+> 
+> This patch avoids holding the prf_lock() while calling
+> vzalloc(). Problem with that is prf_buffer_size()
+> *must* be called with prf_lock() held and the buffer
+> size may change while we call vzalloc()
+> 
+> So first get buffer size, release the lock and allocate.
+> Then re-lock and call prf_serialize() that now checks if
+> the buffer is big enough. If not, the code loops.
+> 
+> Signed-off-by: Jarmo Tiitto <jarmo.tiitto@gmail.com>
+> ---
+>  kernel/pgo/fs.c | 45 +++++++++++++++++++++++++++++++++++----------
+>  1 file changed, 35 insertions(+), 10 deletions(-)
+> 
+> diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
+> index ef985159dad3..e8ac07637423 100644
+> --- a/kernel/pgo/fs.c
+> +++ b/kernel/pgo/fs.c
+> @@ -227,16 +227,15 @@ static unsigned long prf_buffer_size(void)
+>   * Serialize the profiling data into a format LLVM's tools can understand.
+>   * Note: caller *must* hold pgo_lock.
+>   */
+> -static int prf_serialize(struct prf_private_data *p)
+> +static int prf_serialize(struct prf_private_data *p, unsigned long *buf_size)
+>  {
+>  	int err = 0;
+>  	void *buffer;
+>  
+> -	p->size = prf_buffer_size();
+> -	p->buffer = vzalloc(p->size);
+> +	*buf_size = prf_buffer_size();
+>  
+> -	if (!p->buffer) {
+> -		err = -ENOMEM;
+> +	if (p->size < *bufsize) {
 
-Pretty sure there's a config in MODULE_DEVICE_TABLE that's being
-disabled by the randconfig; the definition of mt7621_pci_phy_ids
-should also be behind preprocessor checks for that.
+Nit: please change prf_private_data::size to size_t while you're
+touching this code.
 
->
-> >    2 warnings generated.
-> >
-> >
-> > vim +/mt7621_pci_phy_ids +341 drivers/phy/ralink/phy-mt7621-pci.c
-> >
-> > d87da32372a03c Sergio Paracuellos 2020-11-21  340
-> > d87da32372a03c Sergio Paracuellos 2020-11-21 @341  static const struct of_device_id mt7621_pci_phy_ids[] = {
-> > d87da32372a03c Sergio Paracuellos 2020-11-21  342       { .compatible = "mediatek,mt7621-pci-phy" },
-> > d87da32372a03c Sergio Paracuellos 2020-11-21  343       {},
-> > d87da32372a03c Sergio Paracuellos 2020-11-21  344  };
-> > 8145dcb07d0c8b Sergio Paracuellos 2020-12-01  345  MODULE_DEVICE_TABLE(of, mt7621_pci_phy_ids);
-> > d87da32372a03c Sergio Paracuellos 2020-11-21  346
-> >
-> > :::::: The code at line 341 was first introduced by commit
-> > :::::: d87da32372a03ce121fc65ccd2c9a43edf56b364 phy: ralink: Add PHY driver for MT7621 PCIe PHY
-> >
-> > :::::: TO: Sergio Paracuellos <sergio.paracuellos@gmail.com>
-> > :::::: CC: Vinod Koul <vkoul@kernel.org>
-> >
-> > ---
-> > 0-DAY CI Kernel Test Service, Intel Corporation
-> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->
-> Best regards,
->     Sergio Paracuellos
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMhs-H8qyOKQmPtChYO%2BjfC%2BZmj8U9yGeZJORUx14MzyLeT5QA%40mail.gmail.com.
+> +		err = -EAGAIN;
+>  		goto out;
+>  	}
+>  
+> @@ -259,6 +258,7 @@ static int prf_open(struct inode *inode, struct file *file)
+>  {
+>  	struct prf_private_data *data;
+>  	unsigned long flags;
+> +	unsigned long buf_size;
+>  	int err;
+>  
+>  	data = kzalloc(sizeof(*data), GFP_KERNEL);
+> @@ -267,14 +267,39 @@ static int prf_open(struct inode *inode, struct file *file)
+>  		goto out;
+>  	}
+>  
+> +	/* note: vzalloc() can be used in atomic section.
+> +	 * However to get the buffer size prf_lock() *must*
+> +	 * be taken. So take lock, get buffer size, release
+> +	 * the lock and allocate.
+> +	 * prf_serialize() then checks if buffer has enough space.
+> +	 */
+>  	flags = prf_lock();
+> +	buf_size = prf_buffer_size();
+>  
+> -	err = prf_serialize(data);
+> -	if (unlikely(err)) {
+> -		kfree(data);
+> -		goto out_unlock;
+> -	}
+> +	do {
+> +		prf_unlock(flags);
+> +
+> +		/* resize buffer */
+> +		if (data->size < buf_size && data->buffer) {
+> +			vfree(data->buffer);
+> +			data->buffer = NULL;
+> +		}
+> +
+> +		if (!data->buffer) {
+> +			data->size = buf_size;
+> +			data->buffer = vzalloc(data->size);
+> +
+> +			if (!data->buffer) {
+> +				err = -ENOMEM;
+> +				kfree(data);
+> +				goto out;
+> +			}
+> +		}
+> +		/* try serialize */
+> +		flags = prf_lock();
+> +	} while (prf_serialize(data, &buf_size));
+
+I'm not a fan of loops where it's hard to answer the question "how do we
+know this loop will always terminate?"
+
+Given that vmalloc allocates PAGE_SIZE-granular regions, how about
+rounding up to likely avoid multiple passes and put the growth explicitly
+in the loop, rather than just looking at "any" prf_serialize() failure.
+
+e.g.:
+
+	struct prf_private_data *data;
+	int err = -ENOMEM;
+
+	data = kzalloc(sizeof(*data), GFP_KERNEL);
+	if (!data)
+		goto out_free;
+
+	do {
+		unsigned long flags;
+		size_t size;
+
+		size = PAGE_ALIGN(prf_buffer_size());
+		/* Required buffer size must be growing with each loop. */
+		if (WARN_ON_ONCE(size <= data->size)) {
+			err = -ENOMEM;
+			goto out_free;
+		}
+
+		if (data->buf)
+			vfree(data->buf);
+		data->buf = vzalloc(size);
+		if (!data->buf) {
+			err = -ENOMEM;
+			goto out_free;
+		}
+		data->size = size;
+
+		flags = prf_lock();
+		err = prf_serialize(data);
+		prf_unlock(flags);
+	} while (err == -EAGAIN);
+
+	if (err)
+		goto out_free;
+
+	file->private_data = data;
+	return 0;
+
+out_free:
+	if (data)
+		vfree(data->buf);
+	kfree(data);
+	return err;
 
 
+>  
+> +	data->size = buf_size;
+>  	file->private_data = data;
+>  
+>  out_unlock:
+> 
+> base-commit: e1af496cbe9b4517428601a4e44fee3602dd3c15
+> prerequisite-patch-id: fccc1bd89bbd33af13a4ce9bc3c913e6e3cdecee
+> prerequisite-patch-id: a2e53c0b44ad39c78ed7bc7aad40d133548a13b5
+> prerequisite-patch-id: 12f0e468a3d0ff12c7f5bc640f213be3b5dd261b
+> prerequisite-patch-id: 707b836b1969958b5131dfa1b9f044eae5f4a76a
+> -- 
+> 2.31.1
+> 
 
 -- 
-Thanks,
-~Nick Desaulniers
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3D3ootX9j%3D1mY3dpmGHw_7yhZkFnmgFCRQqJUaLMZqvZQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106021009.A556DFB7F2%40keescook.
