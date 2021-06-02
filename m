@@ -1,141 +1,124 @@
-Return-Path: <clang-built-linux+bncBC53FPW2UIOBB6XC32CQMGQEZF6OBFA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHPM32CQMGQERSYSSGA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id C4FB8398FEC
-	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Jun 2021 18:27:38 +0200 (CEST)
-Received: by mail-lf1-x13a.google.com with SMTP id u4-20020a05651206c4b02902e62b2589a8sf1241784lff.10
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Jun 2021 09:27:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622651258; cv=pass;
+Received: from mail-ed1-x538.google.com (mail-ed1-x538.google.com [IPv6:2a00:1450:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6636239904C
+	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Jun 2021 18:47:26 +0200 (CEST)
+Received: by mail-ed1-x538.google.com with SMTP id s18-20020a0564020372b029038febc2d475sf1763327edw.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Jun 2021 09:47:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622652446; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FwNWSy+c0gvNtCyjkmjw6am0hs0o6Vsohcl94hTvkirmwjP9IMHyWppyE/1CWYDw1i
-         aDlqgJ6a9uq3gFfBNHxHh4SCgzrKhAu5v6CqzyHuEPeCuLcZL+fzy+5MHGHtbV7E5kWZ
-         xbGIT4ruS5ybDfMnZyXu13oMQwm1PgQhjzeLK8m7cuaXbD8N1J4fl3hlSJt4zjXpr1/0
-         QQWtkEW5FE2Wt7sKLDDmjETgU8vXdVlz8ySmRa5lw4OTJNDgYuNPo1ZhnfIHak1qGhj3
-         h10TDNKCwPwir9WDefFjk/Aq7jDpgiQwbhgohnBXSp2KkB39I/dWgnyGYFNCM5PKajo5
-         Wcww==
+        b=u7F4CVCAsqkbfo4BSiSnnThgXk/4yn4ELrJMmL/6v1D/NEQGhJCRUvbubp1ORozKOT
+         W3kAMrrDT4/r29MikPKjWXfqYUxEY4vztCGw8G+ypXw6vsQ8qj9r/8QipE1+Rvh6DmYg
+         rf0IcvDXAzhXBmpwXzadpfVjl0My8zYZ0cmlHHc5EnM7mT2s9YjsrrNpdtNwy9GRgV/T
+         uUwVoRLI4UUCRflPDjvbOJ2yCY/nirvapmvq80AssO65xYxFbUd+0648QEsmD2oDAliQ
+         5x85kwms8b0ordItZvRTF+YxRRaJ8gzdtzC1GAUXsvSwTvcD+51jnNPKLMAbGsbr7aog
+         YxXA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=sd4GDe4hLU0EyPyz9ReP9PyM1X7zCWNE87HEjybBjaM=;
-        b=L5iAz1tLL6J4qYWMsjXHOiuO3pE3FeaiB4erD+SbW3FTy4TJ8DbaUfPW5NcZWmBEnc
-         kmmOKHXQDBdGySkL2nqawCWLW7VIthK4MjuOC1+9/kCVeGEW58fi2m6pHuryYxxNL3JF
-         JMJJXZj0e84WXsOW2i69Q30FSKETBwuTw1Jdm/fedqJLqwKNUAxQANUqspkq88XGsPLQ
-         qD1/Y0tlsZiRzdgMozmKU8lrXPwvu6NSHqwRHA/Hej/Hoo6mSyjMoy/2xmbImce1qA70
-         okNSQIo1BxpvITpAq/YxS9Y1BCWPCXCpMR6i5q9cqoU7uR7Ks7Y8/VSL2g3sawbGOuz/
-         KMxg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=4WmZYEVz2i6mhsq4p7XPHGj8iCEnMzbUrZBpmj05es0=;
+        b=ihXyJ1roRYTNjRNfsa58Jb+5bBdnG+ax+7mwVO5h/fQSB482pBuo0cIbJAWIBk8XEj
+         8xVFvBnCg7J2TM8ARnn3aBzx2IvJqEjiJy9Q8CpsqlfxWrqv0npJRhN4cRf7Tsa947wx
+         8bQyjSb4iPPgw18/mxhOwU4wvuKqRBhQN24850Pv2dMT5KmarUHOwLNpTySqURWC3tIn
+         S07sipFZ2/Leu7l2+fB2ZGQ1/WHrx89zIGqCfg7Fit9Edp2fCDH+LTOk9wm/VsBMVqt0
+         eUZ59TQKCKzvZalwKZRiKxSD+vgQ5758uFHEcwZPoZRuhOp5GV7h2iMjmaBqweV+RI0L
+         Ptag==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=I0ITGUCw;
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::230 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YwuTlqMN;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=sd4GDe4hLU0EyPyz9ReP9PyM1X7zCWNE87HEjybBjaM=;
-        b=mds/qYwcwvHr5p9X6VVlVlILwhuIv7I/IWsAmvcb4zQ+9HErVBdmLrvEf9DtuqD9iE
-         E1thBdOn/Zpre6IMevoaCAxuIkAkjpx///z7G73axo/XWr4GIlclVyD+ZqWiUxEC6n5L
-         CZ2tGSmtjek1KiS/gKFnrY+OTK13hrXxlz+6YQqKwi4R4f8p4l23CPy8q4iLxDSXO37s
-         n3S8xggr9pBYzVTuW4T1U3NF9cKBOyOReKPPDXv30sdkosNTFUeMv3GcApSo4HAlXICu
-         Fm8jnbUagy0nFV2m/cZIvEG+iiN8DgntK6VoZcFb3jb/EBlTLj1e70FDpIubGdTL7r/6
-         8HHA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=sd4GDe4hLU0EyPyz9ReP9PyM1X7zCWNE87HEjybBjaM=;
-        b=R0lIMC49qCikfLGtvKcdEeicrq6rUQdAO5ampy/zALbP7utC37kWMe1ZZlADPxQ+U5
-         AH/UCO+BMg2YziWj5F/8/rPTKFoMcLernJMtZcCD7xS8nVuR4lG/j2qZXtw4Yf2GBjPt
-         TB2W/RprsaZF9hG31FLR+qGzNAwiuT44/gymQ2GuCkLxRuWjfATsCBPGq+hOVs/AeQ5/
-         Hc53u7pyusjLWVGbMAzwOto3UpmLP0+msPQFfFuP8iUp0crqq1aw1zdoy2XUQ+0z9euG
-         AaRk1rGZgcdcTEg4OzKXai0bztqFP2zti1ofx4FdDxifkkqIvGwG28pBVVHqkuOVjehD
-         09lg==
+        bh=4WmZYEVz2i6mhsq4p7XPHGj8iCEnMzbUrZBpmj05es0=;
+        b=M/JdURwbolv4gKpEpD+2QXbsSK/H2xMV3yI8ejCEIBN7CDHn7yxxVb9vzFtA/4Ovhl
+         XCF00Rpqpn17T/GvKqQ92GRu9TP/INlJRx1RjI2aDxzM0o+Y5CQZIBIoa3ORNiMFQaIE
+         wm3Vhp7twR4fQSaEghxgwDjup8Acf6K24WkatGmFyH47FOUUaulV32ZIPfj7U/A0kbqs
+         bB6IzKpyNJlGQEvPOO4GrpXCZW2THVDZ7HMU28O2i2Grw4JcEVP/cb79XKPd5XzV5mPh
+         r1EMT0SGko41AYlsbHgVWozWSNk27Ayx+dxtKMQ3ObekmHi4+0sLi89IcV1zFjTqx14q
+         31kQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=sd4GDe4hLU0EyPyz9ReP9PyM1X7zCWNE87HEjybBjaM=;
-        b=Kkqgg4BY2sEQU/Q8edV2zUCbslmfOkPgHan/4wHT4VFFVOy2ynVCLeFj1lcXQ8GrtO
-         FhzoT/wIWu55MEFMnrqIUsyHzw8TZXL6HCX3C9d2rwmX/efqkk+K+VhMXZGvvPD0/06o
-         Wkr+yG/WpjBH9K56N017qWCGKRoKwbHY1pPcNF0dUJX5OwSuZ/hApOBoXqglV5zahkTR
-         Xp2MF8Q/Ig1vl4sFyojtLMfsHxFxdjxvLirSToY97EqWzQehTHilJLXpU76fxQ6HmCvA
-         Np4fEALTtMMYF3n58dioskwnGEtxl//obvcz8iH5snazYUrp3Yufsh/E54VIdWbjYy5s
-         89EA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531TtdJc0aIeLUUBKTNZZOVyX0R4UapLRrn3kd2XVfSkCy7B2lcx
-	uSay5ANcVKNj2SOmK2RB9W4=
-X-Google-Smtp-Source: ABdhPJygEBb+zd+H5Fi07YxaK4klwPIX2jJyCzBQ8r/4cKQq2KMS3csLO87nFpcTw3qC1TNa9aFSOg==
-X-Received: by 2002:a2e:894e:: with SMTP id b14mr3088613ljk.112.1622651258308;
-        Wed, 02 Jun 2021 09:27:38 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=4WmZYEVz2i6mhsq4p7XPHGj8iCEnMzbUrZBpmj05es0=;
+        b=NmsuRG06Dmnku1W5PPyFBw5I4HKMMbwnrUeoxh1E2nm2qzdelDLYfSk/aWYWQn2/mo
+         UlrM+3xcBSlLsin9W354DS6SYSgphZ4l7ebmLYZgsHMPoBEy62exrHzNlhGuZurMsPkI
+         6KUMAbLq6Js27SRI2b3CI3I1xNTCexHqoqpYzbde/cr4/GWi8YSfEKGFSs02bJDGb/Hq
+         +uo+mJuYXTbBgIBj8sxBIt50CoahzAczMyxtHgQe+iF4J/Zz4rNg49/dnTFG1YFn2Des
+         ivpa/4P9bPgSlr7sZnt2T4BPI6saDNhnm6JC4hCPexstaJNymKz1JuOjP9ZVwkDRUIQ0
+         yM4w==
+X-Gm-Message-State: AOAM531PTXTC6I6FBJP4HJKWzO31MTxt4zOknFm/Ya1eVcCquFKwII4h
+	GzIoUcZNcw4sbwvoCLys/Uo=
+X-Google-Smtp-Source: ABdhPJwrAV6HBWhZtDW33mJ6n3b9zD7OeftF91KwFtGp7FwlLcw/Cos8ZsYnZWbL6wFsBLXaqxfWwg==
+X-Received: by 2002:a17:906:af7b:: with SMTP id os27mr20431243ejb.154.1622652446161;
+        Wed, 02 Jun 2021 09:47:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:7008:: with SMTP id l8ls69874ljc.4.gmail; Wed, 02 Jun
- 2021 09:27:37 -0700 (PDT)
-X-Received: by 2002:a2e:85c9:: with SMTP id h9mr7071957ljj.355.1622651257169;
-        Wed, 02 Jun 2021 09:27:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622651257; cv=none;
+Received: by 2002:a17:907:94d4:: with SMTP id dn20ls191262ejc.6.gmail; Wed, 02
+ Jun 2021 09:47:25 -0700 (PDT)
+X-Received: by 2002:a17:906:f298:: with SMTP id gu24mr16654172ejb.452.1622652445275;
+        Wed, 02 Jun 2021 09:47:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622652445; cv=none;
         d=google.com; s=arc-20160816;
-        b=UMnPMPopFN2aRFucqWFOKi6dSw0MerAyTr/feCaoLHoCX55sPCLZa8wxwRylAHSpII
-         L0X8X7DEnHRB5JqHXpyh5mafOw5YUXNZqnfFydc0rHAJRq6OfLWC9QpYdqLHjZn8rIXR
-         hv9CyuQcD5eVhdk4Iniuqrk+rgtMRZNajxMYKAeD163t3rvk3JhaPnSBtg1YPkmajhzV
-         iI+9ISU3JZCds/EUUSN6HL+QdBTvbiUe1bNInZW5efbGyqjnYOittxNxLuDCTj5019Qd
-         sdZCiOs8hry2j0g95B9gnr1rpNIbD/cL5GxDP/aLfysztu+TsicMMV6/Si86G+Y6qZ+h
-         EUTg==
+        b=xKx0LRywlknzqXJyEriNAb3IEwyhCgLe75T6WV10S5IWstVteIOXOUnl0AlInzcpjC
+         sZR467Oa9SgnNzzH0h8QJ+cNsroFma857hijLvKOTMp0bwiaLbXLKaHaNcZz6zFkJndh
+         FJ/pKi/M7wJSxPNZtp7pCcIfmmva9+oyzDmVQt1eqg9rj7ZSnUQR6lOSUaBHiD9xqVJn
+         SuYalmB39YuYS0X9SnsZEaSLfTJB66qrP2Z1Y01Rc0EWKCtSkwRKWOZhh/VJ3rg0IUTd
+         UEXD2xziRveawn2ohcX+UQEz1TN23MiG6r9puiLfWGlvEq/rGJN+wWfvwL01RrJso3Zk
+         0HZw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=2zl14KJtnHBMJGbvmOb00o5AylAgishMt24fY3YGZ1U=;
-        b=oQyazOFciYmqutKGSWZuI/Y40XjRUOCCDIiXS6NqqENDak7zQ/iZdsB53DEHMoQOj1
-         Znry8bhZljcya2i3ZOzqhrKeZXj6+T3oMNrAsMOMg35LXNZ5eJZwgS1Z8UUEsHekuXzV
-         Scwpz/FErdKCQkxxyexwrZCrtGigk7JQ78xXBHsOBI9h95yTFnnEeHVUH5tZW4TToKcG
-         Az4ym3y7rPXh7aP5at8BI8yJ63aJ67Uq96kRQfZFi7Ao/iR2by/xnmGZ5dnU6fDA1Yx3
-         8il7kLyrTL6soqcihkIeMZFo3mtvirMA54BapezWIAHGVNtyXJPcy97ANlyWEWZpqY3D
-         3Bsw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=MK1rB1Nu3kFxcK1GfwF5vMS0Up2k4DnL/CR4vainsR0=;
+        b=H/QsbqreOqLywDw2BixkjUyuKyU5nIoKIGnekgrkqKzfwjvQIdQAECwRFY2/USEUCR
+         n2GLQx5UWOR3NOuAjcBHkolul8qr/vMUGxAUMlz6uAtKUEJI8nfPer2WpsQ4q3RUQO/9
+         jhEO5JmBYR4EK5CG9PXcKxw3TIhCq3biXMivL5v1dQB59jIWIJf9NKATSce1ZCrFMW3L
+         ZnihREgjMMbkw2761eSFQlZ7pgiSks3s/qxokeHwL0/OSj0W0XnBqT2ZOxMpU3XXQLAR
+         WAG4TAdZo3gh7odjOzCjzEPpOn937C0lamBotRyMi2twtJAnCgZ2Q5Pk61vfGE6F9HAy
+         0oGA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=I0ITGUCw;
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::230 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lj1-x230.google.com (mail-lj1-x230.google.com. [2a00:1450:4864:20::230])
-        by gmr-mx.google.com with ESMTPS id h23si19812ljj.1.2021.06.02.09.27.37
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YwuTlqMN;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lf1-x12e.google.com (mail-lf1-x12e.google.com. [2a00:1450:4864:20::12e])
+        by gmr-mx.google.com with ESMTPS id m7si28546edq.5.2021.06.02.09.47.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Jun 2021 09:27:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::230 as permitted sender) client-ip=2a00:1450:4864:20::230;
-Received: by mail-lj1-x230.google.com with SMTP id e2so3366985ljk.4
-        for <clang-built-linux@googlegroups.com>; Wed, 02 Jun 2021 09:27:37 -0700 (PDT)
-X-Received: by 2002:a2e:2d11:: with SMTP id t17mr25330956ljt.56.1622651256972;
-        Wed, 02 Jun 2021 09:27:36 -0700 (PDT)
-Received: from HyperiorArchMachine.bb.dnainternet.fi (dcx7x4ycc2b7s--vdqzfy-3.rev.dnainternet.fi. [2001:14ba:14f7:3c00:42b0:76ff:fe23:6d08])
-        by smtp.gmail.com with ESMTPSA id i21sm37274lfc.65.2021.06.02.09.27.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Jun 2021 09:27:36 -0700 (PDT)
-From: Jarmo Tiitto <jarmo.tiitto@gmail.com>
-To: Sami Tolvanen <samitolvanen@google.com>,
-	Bill Wendling <wcw@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org
-Cc: Jarmo Tiitto <jarmo.tiitto@gmail.com>,
-	morbo@google.com
-Subject: [PATCH 1/1] pgo: Fix sleep in atomic section in prf_open()
-Date: Wed,  2 Jun 2021 19:26:40 +0300
-Message-Id: <20210602162640.170752-1-jarmo.tiitto@gmail.com>
-X-Mailer: git-send-email 2.31.1
+        Wed, 02 Jun 2021 09:47:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e as permitted sender) client-ip=2a00:1450:4864:20::12e;
+Received: by mail-lf1-x12e.google.com with SMTP id r198so1060123lff.11
+        for <clang-built-linux@googlegroups.com>; Wed, 02 Jun 2021 09:47:25 -0700 (PDT)
+X-Received: by 2002:a19:f706:: with SMTP id z6mr8965054lfe.122.1622652444730;
+ Wed, 02 Jun 2021 09:47:24 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: Jarmo.Tiitto@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=I0ITGUCw;       spf=pass
- (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::230
- as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+References: <202106021822.Do0Ih08d-lkp@intel.com> <CAMhs-H8qyOKQmPtChYO+jfC+Zmj8U9yGeZJORUx14MzyLeT5QA@mail.gmail.com>
+In-Reply-To: <CAMhs-H8qyOKQmPtChYO+jfC+Zmj8U9yGeZJORUx14MzyLeT5QA@mail.gmail.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 2 Jun 2021 09:47:13 -0700
+Message-ID: <CAKwvOd=3ootX9j=1mY3dpmGHw_7yhZkFnmgFCRQqJUaLMZqvZQ@mail.gmail.com>
+Subject: Re: [linux-next:master 1932/6331] drivers/phy/ralink/phy-mt7621-pci.c:341:34:
+ warning: unused variable 'mt7621_pci_phy_ids'
+To: Sergio Paracuellos <sergio.paracuellos@gmail.com>
+Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Linux Memory Management List <linux-mm@kvack.org>, Vinod Koul <vkoul@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=YwuTlqMN;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,135 +131,98 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-In prf_open() the required buffer size can be so large that
-vzalloc() may sleep thus triggering bug:
+On Wed, Jun 2, 2021 at 3:38 AM Sergio Paracuellos
+<sergio.paracuellos@gmail.com> wrote:
+>
+> Hi,
+>
+> On Wed, Jun 2, 2021 at 12:27 PM kernel test robot <lkp@intel.com> wrote:
+> >
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> > head:   ed5d0667a6540293c9485dd95babb5f1e241226a
+> > commit: 28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a [1932/6331] phy: ralink: Kconfig: enable COMPILE_TEST on mt7621-pci-phy driver
+> > config: x86_64-randconfig-r016-20210602 (attached as .config)
 
-======
- BUG: sleeping function called from invalid context at include/linux/sched/mm.h:201
- in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 337, name: cat
- CPU: 1 PID: 337 Comm: cat Not tainted 5.13.0-rc2-24-hack+ #154
- Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 0.0.0 02/06/2015
- Call Trace:
-  dump_stack+0xc7/0x134
-  ___might_sleep+0x177/0x190
-  __might_sleep+0x5a/0x90
-  kmem_cache_alloc_node_trace+0x6b/0x3a0
-  ? __get_vm_area_node+0xcd/0x1b0
-  ? dput+0x283/0x300
-  __get_vm_area_node+0xcd/0x1b0
-  __vmalloc_node_range+0x7b/0x420
-  ? prf_open+0x1da/0x580
-  ? prf_open+0x32/0x580
-  ? __llvm_profile_instrument_memop+0x36/0x50
-  vzalloc+0x54/0x60
-  ? prf_open+0x1da/0x580
-  prf_open+0x1da/0x580
-  full_proxy_open+0x211/0x370
-  ....
-======
+^ randconfig
 
-This patch avoids holding the prf_lock() while calling
-vzalloc(). Problem with that is prf_buffer_size()
-*must* be called with prf_lock() held and the buffer
-size may change while we call vzalloc()
+> > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project db26cd30b6dd65e88d786e97a1e453af5cd48966)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # install x86_64 cross compiling tool for clang build
+> >         # apt-get install binutils-x86-64-linux-gnu
+> >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a
+> >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+> >         git fetch --no-tags linux-next master
+> >         git checkout 28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a
+> >         # save the attached .config to linux build tree
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+> >
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
+> >
+> > All warnings (new ones prefixed by >>):
+> >
+> >    drivers/phy/ralink/phy-mt7621-pci.c:277:4: warning: cast to smaller integer type 'unsigned int' from 'void *' [-Wvoid-pointer-to-int-cast]
+> >                     (unsigned int)mt7621_phy->port_base, mt7621_phy->has_dual_port);
+> >                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> >    include/linux/dev_printk.h:118:33: note: expanded from macro 'dev_info'
+> >            _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
+>
+> Already fixed in:
+> https://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/commit/drivers/phy/ralink/phy-mt7621-pci.c?h=next&id=652a6a2e3824ce2ebf79a2d5326940d05c4db036
+>
+> >                                           ^~~~~~~~~~~
+> > >> drivers/phy/ralink/phy-mt7621-pci.c:341:34: warning: unused variable 'mt7621_pci_phy_ids' [-Wunused-const-variable]
+> >    static const struct of_device_id mt7621_pci_phy_ids[] = {
+> >                                     ^
+>
+> Mmmm... This one is used through MODULE_DEVICE_TABLE macro... Am I
+> missing something??
 
-So first get buffer size, release the lock and allocate.
-Then re-lock and call prf_serialize() that now checks if
-the buffer is big enough. If not, the code loops.
+Pretty sure there's a config in MODULE_DEVICE_TABLE that's being
+disabled by the randconfig; the definition of mt7621_pci_phy_ids
+should also be behind preprocessor checks for that.
 
-Signed-off-by: Jarmo Tiitto <jarmo.tiitto@gmail.com>
----
- kernel/pgo/fs.c | 45 +++++++++++++++++++++++++++++++++++----------
- 1 file changed, 35 insertions(+), 10 deletions(-)
+>
+> >    2 warnings generated.
+> >
+> >
+> > vim +/mt7621_pci_phy_ids +341 drivers/phy/ralink/phy-mt7621-pci.c
+> >
+> > d87da32372a03c Sergio Paracuellos 2020-11-21  340
+> > d87da32372a03c Sergio Paracuellos 2020-11-21 @341  static const struct of_device_id mt7621_pci_phy_ids[] = {
+> > d87da32372a03c Sergio Paracuellos 2020-11-21  342       { .compatible = "mediatek,mt7621-pci-phy" },
+> > d87da32372a03c Sergio Paracuellos 2020-11-21  343       {},
+> > d87da32372a03c Sergio Paracuellos 2020-11-21  344  };
+> > 8145dcb07d0c8b Sergio Paracuellos 2020-12-01  345  MODULE_DEVICE_TABLE(of, mt7621_pci_phy_ids);
+> > d87da32372a03c Sergio Paracuellos 2020-11-21  346
+> >
+> > :::::: The code at line 341 was first introduced by commit
+> > :::::: d87da32372a03ce121fc65ccd2c9a43edf56b364 phy: ralink: Add PHY driver for MT7621 PCIe PHY
+> >
+> > :::::: TO: Sergio Paracuellos <sergio.paracuellos@gmail.com>
+> > :::::: CC: Vinod Koul <vkoul@kernel.org>
+> >
+> > ---
+> > 0-DAY CI Kernel Test Service, Intel Corporation
+> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+>
+> Best regards,
+>     Sergio Paracuellos
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMhs-H8qyOKQmPtChYO%2BjfC%2BZmj8U9yGeZJORUx14MzyLeT5QA%40mail.gmail.com.
 
-diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
-index ef985159dad3..e8ac07637423 100644
---- a/kernel/pgo/fs.c
-+++ b/kernel/pgo/fs.c
-@@ -227,16 +227,15 @@ static unsigned long prf_buffer_size(void)
-  * Serialize the profiling data into a format LLVM's tools can understand.
-  * Note: caller *must* hold pgo_lock.
-  */
--static int prf_serialize(struct prf_private_data *p)
-+static int prf_serialize(struct prf_private_data *p, unsigned long *buf_size)
- {
- 	int err = 0;
- 	void *buffer;
- 
--	p->size = prf_buffer_size();
--	p->buffer = vzalloc(p->size);
-+	*buf_size = prf_buffer_size();
- 
--	if (!p->buffer) {
--		err = -ENOMEM;
-+	if (p->size < *bufsize) {
-+		err = -EAGAIN;
- 		goto out;
- 	}
- 
-@@ -259,6 +258,7 @@ static int prf_open(struct inode *inode, struct file *file)
- {
- 	struct prf_private_data *data;
- 	unsigned long flags;
-+	unsigned long buf_size;
- 	int err;
- 
- 	data = kzalloc(sizeof(*data), GFP_KERNEL);
-@@ -267,14 +267,39 @@ static int prf_open(struct inode *inode, struct file *file)
- 		goto out;
- 	}
- 
-+	/* note: vzalloc() can be used in atomic section.
-+	 * However to get the buffer size prf_lock() *must*
-+	 * be taken. So take lock, get buffer size, release
-+	 * the lock and allocate.
-+	 * prf_serialize() then checks if buffer has enough space.
-+	 */
- 	flags = prf_lock();
-+	buf_size = prf_buffer_size();
- 
--	err = prf_serialize(data);
--	if (unlikely(err)) {
--		kfree(data);
--		goto out_unlock;
--	}
-+	do {
-+		prf_unlock(flags);
-+
-+		/* resize buffer */
-+		if (data->size < buf_size && data->buffer) {
-+			vfree(data->buffer);
-+			data->buffer = NULL;
-+		}
-+
-+		if (!data->buffer) {
-+			data->size = buf_size;
-+			data->buffer = vzalloc(data->size);
-+
-+			if (!data->buffer) {
-+				err = -ENOMEM;
-+				kfree(data);
-+				goto out;
-+			}
-+		}
-+		/* try serialize */
-+		flags = prf_lock();
-+	} while (prf_serialize(data, &buf_size));
- 
-+	data->size = buf_size;
- 	file->private_data = data;
- 
- out_unlock:
 
-base-commit: e1af496cbe9b4517428601a4e44fee3602dd3c15
-prerequisite-patch-id: fccc1bd89bbd33af13a4ce9bc3c913e6e3cdecee
-prerequisite-patch-id: a2e53c0b44ad39c78ed7bc7aad40d133548a13b5
-prerequisite-patch-id: 12f0e468a3d0ff12c7f5bc640f213be3b5dd261b
-prerequisite-patch-id: 707b836b1969958b5131dfa1b9f044eae5f4a76a
+
 -- 
-2.31.1
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210602162640.170752-1-jarmo.tiitto%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3D3ootX9j%3D1mY3dpmGHw_7yhZkFnmgFCRQqJUaLMZqvZQ%40mail.gmail.com.
