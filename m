@@ -1,134 +1,138 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBN4M36CQMGQEXC466KI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDA63QVIYMOBBQUS36CQMGQEI7ZTAIA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3b.google.com (mail-vs1-xe3b.google.com [IPv6:2607:f8b0:4864:20::e3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B32063991FF
-	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Jun 2021 19:56:08 +0200 (CEST)
-Received: by mail-vs1-xe3b.google.com with SMTP id m14-20020a67fe4e0000b0290255df7450besf915886vsr.8
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Jun 2021 10:56:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622656567; cv=pass;
+Received: from mail-oo1-xc38.google.com (mail-oo1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
+	by mail.lfdr.de (Postfix) with ESMTPS id E666C399234
+	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Jun 2021 20:09:07 +0200 (CEST)
+Received: by mail-oo1-xc38.google.com with SMTP id w11-20020a4ad02b0000b029023970099d97sf1979612oor.0
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Jun 2021 11:09:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622657346; cv=pass;
         d=google.com; s=arc-20160816;
-        b=T0de3GXXpf/68yS7ET2luQ70reNpq9XOBqf2sj3vN4klm8JM38mhkD+L8engmfF1Be
-         dI4qc8/+IsHSNIcuKwmpxhQ0nIr/jMP/ZEV82EOmu5EDasZyKM987PUylmt4cl55TRKh
-         FG8TyeLZkFEJlXwWYck06whJY98xABpG4cXQR5pDjYcKto8eLo6MxqpmlFde+pkpNl23
-         HnJzK7A75UhN6s0l1VngQ0BdthDfAI86NeKLxKFqWLRfHIEkoBGvQIDq7h6jgZHp2tiB
-         Z182IzKOhkmu/hAtj5RDFzKhuQrSurk/aS8itpEA3x2q8ad4Hh1cvwIRTrYIitTQ2XrL
-         sAiQ==
+        b=eucTYifb2mIP6V18XMnvjCw40qT4nQmUkjw3TPsI8Drv5GL4+q6+SLvE+gWtpAku8I
+         J9PC+7W0KXjs2GNXwcWuG3LJrIXVzkoA2JmAtQrgsg0X7XMjxOEXzuq9aIbQCZk0uT1c
+         4s93vQZlA7J6coTIdD1psp4mGb3hGyehNl93s4FtFqGt3L8COo0stWZ0M83kBddoBbbY
+         KRWxq2FOfZkFtThPVURM8kThqdOGgfZ5zYDx9vdbWdh+wyCTwEDCLXCdo3Cq+fHXK4Nw
+         NA09WeZyK3lN5Ni7cnaHLcXBVlU/d0zUktSVR1zF7GVJH8E89R5fA3p4bvq513pKYamZ
+         +8qg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=ff/2qRr6+oI5Mw/EpnR7PXedPlaV8AkAklNUDbuGj0o=;
-        b=YUnMTGq4FMTndZJTaogaDf6Ttcc2Y2OoUkLDlHRied6hXsF+Ru2xdISmzJ9ldsRb6X
-         ULimTEkMYk/QoOUd4oP1DlFSclDxdHYETB/b2OMT/DKkFMqAqHKp1cRBFV/y/3l5GWsA
-         PYb2/mPYm+5EkrkwW5inp9NZ+VrtnyVVAXnsunBzmaC0meNy4kCR06u0Vc/MB6Ef2C8O
-         NnDiQjrQaYevV4kCar0UpsmYG848+JF7k0zu8bTz3gB/aEOa52VplU127l514/YA8oeJ
-         4/IqhngOSeL6Wy5Q5Tki84uNDdV0fUYPVv+q+CoMbpaxOSVAXgXQcvaWN0SF2eKs2kB7
-         47ug==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=geWJyc26MphI7ipnEsC0OxW3csZn2cqFsvhM0/9itWA=;
+        b=Dz5lU4sqFQe2hhqr1dDtnS0dq/3LGqqPm82Edkt4DIzntDLxc4o7XlDIxhnPW76PRl
+         u8FHFuxu2+RSpO9TdJPE5CDrDyXoKY3oWWv5l9LChbp2WqPdp6FtRUZhc9S0FNe938hf
+         krya4QErfj2CgSddW41c+jDG3/bE4750Y0dnCQV5ce7Zjy2UsiYHb7badkRQRaOCx76O
+         iIdk1TTBCt1wKGapsgXun28QK1wEUMrejB+rtQeHUga0Gs4JtqB27Da1wwLSrD9poJcv
+         kUAnoiHQs1fBN5D/cu6cLV3wFMOCD2wOTWbxmpH3nctPgP1qpS0AHhlECWnVQkUpv5TX
+         l/3g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=t5cJqRiU;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Q5fFXrhc;
+       spf=pass (google.com: domain of sergio.paracuellos@gmail.com designates 2607:f8b0:4864:20::334 as permitted sender) smtp.mailfrom=sergio.paracuellos@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ff/2qRr6+oI5Mw/EpnR7PXedPlaV8AkAklNUDbuGj0o=;
-        b=HYPs/GC+1+x1Kt71oHaSWZvfKt4y1yzaRiedr1Jd2wweafYHoZYHOayQcrwRThqL4d
-         Mon40vUheXgAIjVpnY6Uy47XQg7Hw92bvkabcIqBPyyhMsnw4pd5zqR2hTcTXdRdDzvL
-         qhja/MkszCRXorGVt18j70C1+H/otmg70xQBFuG1M4pgjjQ5X3CQkfawiTtvKvBWzhC/
-         V6PKjP2kZD1+soIpSkp0Zi+Y9WDjqEDsphxYbd1hbDtkRg1uih1YDq4Vd2ZL80/x89y2
-         +VMsDt3W02M83Ca+8CLHPnoWKdAIvauwtCdupe7PYDfqUANwKDMaGsC7KOIv45x7oi+4
-         L+gg==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=geWJyc26MphI7ipnEsC0OxW3csZn2cqFsvhM0/9itWA=;
+        b=eEeAva2IZ3SjXGomBAl1freTZUcSGupsg9418myKahp107HWrg/ixNRNR/Jlc4Mf3F
+         DcBcEp5/7MfC/zGOWvr4BUL6rcCXQob79QRJSXFygOyH4ypItG+B8U5a/6s+JJIsUJ6J
+         a3JZ0BL9xnCdtO9s8FsI/jXt4AQ5vAcwK0rej9r/AcP/R/+GzZO16ku8Z/Su74fmwu7D
+         12e6q9v7ANVkpBIVSppOPp/qWeN6bJHIqDsE3hImjruCbRsUiQcDSSKiHGTIQZHTy9jy
+         w3dWyn/70zBPfUKYKq4tog1YXMQrn914ElKlNHcp+OCdEu49n5+gkZcDIbwLbtWXaX/I
+         XDDg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=geWJyc26MphI7ipnEsC0OxW3csZn2cqFsvhM0/9itWA=;
+        b=rCU131tENi3ZXdqKEmXc++zfdIV6FltJtaVxRtXjg6vRwc7LQy7L3N4deTCqAZ0zKV
+         /1V1pU3MTda7RcDsNnK7rdgSvUYL7DP94U+AQ4aJgFJ7T/4Yy2wC9nCNgua4M7utMytx
+         u0ee/A2dbKJ1ClpfWNt/1xiIHl5xRbxErFbmcgRxeoTm/bAOyckA5i3aksj02vsNcHu2
+         IG2sArrlbqoPMgUc+keC/pnayal0AFUwLvZ53agcK0YJ8oi+zgjNxZJZ57Z9aa+/l6Ct
+         GcArjrl/iDRIQWT/BOuQ1+0rLQNH3yancOwQfVQAXtp/SWnTW97lGlq/QYsCZmmdy2F8
+         tgsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=ff/2qRr6+oI5Mw/EpnR7PXedPlaV8AkAklNUDbuGj0o=;
-        b=Ik5s23Z9DwLoppRdl4vsyOk4P1JuKT2AyxfpsZMc6q/9LYrx0Y0EO/cs8va+X/t3Tr
-         wackzoYtjH2B8+R1EntcgWIMfr/h1c4Xn9KQKIdsVYNHFDFwtB/CgXWKkujF+kW8sAct
-         78to7j/Ae/GcHvH/xIkA/yluIetSuLtiYOew3RXd4YhGZ9Dc4f39dJPN/2TbRivO3Bpw
-         mow/LmT5qPd0d06DtyZVs/l1+4iDJwmaxl6cmPpz99EYkG8f6hhl5Oi6WWSXedGqoYQQ
-         J2eQjTrjT8bf1ND0eskGvXBTDbzPCsOeJIz/ZtVyGUSH4MwnOv8GlXBLMBaK5Yca381N
-         nKDQ==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=geWJyc26MphI7ipnEsC0OxW3csZn2cqFsvhM0/9itWA=;
+        b=Wfz5O516m5DryAOoOEEej03MRdFUF6wqDGQj16tiQ6Lv2aSQT3wjH4UYxTanAjTXiw
+         dmrtp9Xv6VZfEPV2yRsh3j4AKffN87+Z/RW/C1s2BZJJ8vu3k8o8LdRupRa4PP2IUZ43
+         NajeCjUH5V7j8kD9W+7Tlf3uwUi9SI13jk6s3PebPzBffaT5Ue4cTqGGdc9kKQy9iTVq
+         OIsX4Bj59x2zF5WRBDo4962iHCsp1AkgKjSp6whh3CsGGQtnf48aVJkFOZjxdAJz0zgs
+         G50PqOfTVpimkQTVQsnVnrKxkfvgSnfMlpiqI5QHEa6wMGqS8iTfEn0MaEjGbeafoMzq
+         4thA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533kbMKDStdm7+39iYlTvsZhYM8Wnkz5gfgMKH4E+7bMSxYXFtcP
-	16AZ+7AFcgBs7PRT4/qGlNE=
-X-Google-Smtp-Source: ABdhPJwony+q545W5TQauyFuvpYGDWCyCkdsq2Pp6ed1jUCGMC22jRDISxOgRob4F8koX73RMNFmrA==
-X-Received: by 2002:a67:d09a:: with SMTP id s26mr26348400vsi.7.1622656567620;
-        Wed, 02 Jun 2021 10:56:07 -0700 (PDT)
+X-Gm-Message-State: AOAM533At29+ao8JArXY7Zt1HcIyQram5Ob83/T0iA88e0dv37W1GkXt
+	fvF+484fMAmNMSgw+WaAQNU=
+X-Google-Smtp-Source: ABdhPJwrsU05bD4hKbq9zqRE2lkTS2CFHVyVBV8K9EAR4QTBV38fiSimEdBp1jjVIIfiH0WnG6r6xg==
+X-Received: by 2002:a05:6830:1e37:: with SMTP id t23mr26358043otr.318.1622657346604;
+        Wed, 02 Jun 2021 11:09:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:cc14:: with SMTP id q20ls237597vsl.2.gmail; Wed, 02 Jun
- 2021 10:56:07 -0700 (PDT)
-X-Received: by 2002:a67:ea50:: with SMTP id r16mr25757090vso.11.1622656567145;
-        Wed, 02 Jun 2021 10:56:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622656567; cv=none;
+Received: by 2002:a4a:b814:: with SMTP id g20ls60187oop.9.gmail; Wed, 02 Jun
+ 2021 11:09:06 -0700 (PDT)
+X-Received: by 2002:a4a:6765:: with SMTP id j37mr20421262oof.57.1622657346159;
+        Wed, 02 Jun 2021 11:09:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622657346; cv=none;
         d=google.com; s=arc-20160816;
-        b=cFR+cvkBt+aQwKbIgFCaZkv0AjUAvFA7e/KnoeLPvZ+99+xHFZRtuGnDW6ZNq4IpJ3
-         stijAS2ayoDQvbf+SPe0/07EtjOFn3gfpDYsAGDZNSw/hzgsTyojoZ8kAPUrC8dS5ODg
-         8+VhJ3XDBAfKFcYrkAXnJ+Not1wmgm73WZInZF1gnGMAliv0FLq6TJDZz9a/F7u1JrMX
-         CZF9gErL9mi1JPeuw2VUTlB6+cz5V9VpeQeKahxXtsH2HYbny19QHzG0UcKbc6xgc+XE
-         UPLAM00+c/BEeHbNzw9dlk73XSYWJvx0AOojwkTcjLX2j/QipbIEQq186vqjukLss3cC
-         8W5w==
+        b=v7TEIIBszww8elflj4LaJpvIoCnhfjMpYStdiuHRQocI+VsDfxVVbNYqGTU2hSF6pD
+         FZ4XzJGg+c2tOKJXofa4jbrbD4W0KeOBpnA018p43Al+on4VR9Ovd8OZETLen0tRFb09
+         1kw/mGKFrEm8/tQsjMN8xBtxwC1caU8tO2KLM+rWByi+rjHb1sDktELktEKvGtZ72VpC
+         XVZcX91zU6GrNzBWEqUK4UsNDBIpesQ4Np8c95R7goG+y4StdPaEBTtIkUfzFC2FMCzT
+         4m2ideDO+mBIvv4WQBD3zh5m/UPLJ7w/cknBe41Cat970L/kp4mzx6E1zoAToZr0RryM
+         8CrA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=2P/ck6k7OrZN2b4Og9UOKBapOCxhfzO/etbw9mrWLVA=;
-        b=lAk5BrLbKbx+MIU6jprcUx9SwWPf/VDyfZQxkcnmw8Qa7/0c/PhQvJaMhlUTMUGDSF
-         QRergoqm2dyyklz35TU3MlA3Ew3UUdpcoA+NUsix3Pc0lQEU4+95X82RB4nXz1YN9Epn
-         wNz6in9HXGds9gOGH8OljJ4OAJWvl4y+gxIqfgAdAY4uIRPgRSqrgfY57WdpAluCC/pT
-         sIlBd0aH72vr6XRaXrWaiYPlnrFlQFVwdrDOPOodUSUo5ltCRS+UO2cmgWGQ2gSP1IKR
-         3XhcXC7dA/ShJbizZ0UoyfDXGZAMHgQKqaTL23U5KUbCwwueuNpm6O3+o0kLy4WkB5sv
-         XpJw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ZhGtSb18ge2sD/kgR/xLamgIUWfRdZt+iX2nxECTX1s=;
+        b=DfXRKPW4ECl0CXoWL8HzWXRtqwZ+qCOTBl1FHT4AwDGTf+KXyfOZz673pg3rtxqHOd
+         XRWzRCJl7BOmYfZ3bt2uRYcBAEQl95bGLY+C3QzSMptPXnOiduppRiCzG9X28RHLJFPy
+         mSFdtLoDQ1TXf85oGSsg/lXdbiVjj6OjUq7k7f1rqTFoVdenmEqvFYajl9I8z5BqcLT+
+         pTDsrt46DwFuZ6LWciYlQyvMdy0XnZw8KLsYtoOOX4E9wyud+/3Y0Vx1FGKgde/Auehp
+         rWumHA8cVlol6PE3TgXgts9+CV/tD7e0wee5ssMjS9d826Tcu8+dliSp5ORTVLibPhIn
+         nLnA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=t5cJqRiU;
-       spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id n185si63093vkg.5.2021.06.02.10.56.07
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Q5fFXrhc;
+       spf=pass (google.com: domain of sergio.paracuellos@gmail.com designates 2607:f8b0:4864:20::334 as permitted sender) smtp.mailfrom=sergio.paracuellos@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ot1-x334.google.com (mail-ot1-x334.google.com. [2607:f8b0:4864:20::334])
+        by gmr-mx.google.com with ESMTPS id c9si73879ots.4.2021.06.02.11.09.06
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 02 Jun 2021 10:56:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 5793661DA5;
-	Wed,  2 Jun 2021 17:56:03 +0000 (UTC)
-Date: Wed, 2 Jun 2021 18:55:59 +0100
-From: Will Deacon <will@kernel.org>
-To: Douglas Anderson <dianders@chromium.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Seth LaForge <sethml@google.com>,
-	Ricky Liang <jcliang@chromium.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@redhat.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	clang-built-linux@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH 0/3] arm64: perf: Make compat tracing better
-Message-ID: <20210602175559.GC31957@willie-the-truck>
-References: <20210507205513.640780-1-dianders@chromium.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 02 Jun 2021 11:09:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sergio.paracuellos@gmail.com designates 2607:f8b0:4864:20::334 as permitted sender) client-ip=2607:f8b0:4864:20::334;
+Received: by mail-ot1-x334.google.com with SMTP id c31-20020a056830349fb02903a5bfa6138bso3254279otu.7
+        for <clang-built-linux@googlegroups.com>; Wed, 02 Jun 2021 11:09:06 -0700 (PDT)
+X-Received: by 2002:a9d:4f19:: with SMTP id d25mr1304290otl.72.1622657345719;
+ Wed, 02 Jun 2021 11:09:05 -0700 (PDT)
 MIME-Version: 1.0
+References: <202106021822.Do0Ih08d-lkp@intel.com> <CAMhs-H8qyOKQmPtChYO+jfC+Zmj8U9yGeZJORUx14MzyLeT5QA@mail.gmail.com>
+ <CAKwvOd=3ootX9j=1mY3dpmGHw_7yhZkFnmgFCRQqJUaLMZqvZQ@mail.gmail.com>
+In-Reply-To: <CAKwvOd=3ootX9j=1mY3dpmGHw_7yhZkFnmgFCRQqJUaLMZqvZQ@mail.gmail.com>
+From: Sergio Paracuellos <sergio.paracuellos@gmail.com>
+Date: Wed, 2 Jun 2021 20:08:54 +0200
+Message-ID: <CAMhs-H-3AiKsc+d2NcjetMJX0XYeHKVs5Hu+Zhn_BTGMDnKc7g@mail.gmail.com>
+Subject: Re: [linux-next:master 1932/6331] drivers/phy/ralink/phy-mt7621-pci.c:341:34:
+ warning: unused variable 'mt7621_pci_phy_ids'
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Linux Memory Management List <linux-mm@kvack.org>, Vinod Koul <vkoul@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210507205513.640780-1-dianders@chromium.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: will@kernel.org
+X-Original-Sender: sergio.paracuellos@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=t5cJqRiU;       spf=pass
- (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20161025 header.b=Q5fFXrhc;       spf=pass
+ (google.com: domain of sergio.paracuellos@gmail.com designates
+ 2607:f8b0:4864:20::334 as permitted sender) smtp.mailfrom=sergio.paracuellos@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,58 +145,134 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Doug,
+Hi Nick,
 
-Thanks for posting this, and sorry for the delay in getting to it.
+On Wed, Jun 2, 2021 at 6:47 PM Nick Desaulniers <ndesaulniers@google.com> wrote:
+>
+> On Wed, Jun 2, 2021 at 3:38 AM Sergio Paracuellos
+> <sergio.paracuellos@gmail.com> wrote:
+> >
+> > Hi,
+> >
+> > On Wed, Jun 2, 2021 at 12:27 PM kernel test robot <lkp@intel.com> wrote:
+> > >
+> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> > > head:   ed5d0667a6540293c9485dd95babb5f1e241226a
+> > > commit: 28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a [1932/6331] phy: ralink: Kconfig: enable COMPILE_TEST on mt7621-pci-phy driver
+> > > config: x86_64-randconfig-r016-20210602 (attached as .config)
+>
+> ^ randconfig
+>
+> > > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project db26cd30b6dd65e88d786e97a1e453af5cd48966)
+> > > reproduce (this is a W=1 build):
+> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> > >         chmod +x ~/bin/make.cross
+> > >         # install x86_64 cross compiling tool for clang build
+> > >         # apt-get install binutils-x86-64-linux-gnu
+> > >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a
+> > >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+> > >         git fetch --no-tags linux-next master
+> > >         git checkout 28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a
+> > >         # save the attached .config to linux build tree
+> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+> > >
+> > > If you fix the issue, kindly add following tag as appropriate
+> > > Reported-by: kernel test robot <lkp@intel.com>
+> > >
+> > > All warnings (new ones prefixed by >>):
+> > >
+> > >    drivers/phy/ralink/phy-mt7621-pci.c:277:4: warning: cast to smaller integer type 'unsigned int' from 'void *' [-Wvoid-pointer-to-int-cast]
+> > >                     (unsigned int)mt7621_phy->port_base, mt7621_phy->has_dual_port);
+> > >                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > >    include/linux/dev_printk.h:118:33: note: expanded from macro 'dev_info'
+> > >            _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
+> >
+> > Already fixed in:
+> > https://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/commit/drivers/phy/ralink/phy-mt7621-pci.c?h=next&id=652a6a2e3824ce2ebf79a2d5326940d05c4db036
+> >
+> > >                                           ^~~~~~~~~~~
+> > > >> drivers/phy/ralink/phy-mt7621-pci.c:341:34: warning: unused variable 'mt7621_pci_phy_ids' [-Wunused-const-variable]
+> > >    static const struct of_device_id mt7621_pci_phy_ids[] = {
+> > >                                     ^
+> >
+> > Mmmm... This one is used through MODULE_DEVICE_TABLE macro... Am I
+> > missing something??
+>
+> Pretty sure there's a config in MODULE_DEVICE_TABLE that's being
+> disabled by the randconfig; the definition of mt7621_pci_phy_ids
+> should also be behind preprocessor checks for that.
 
-On Fri, May 07, 2021 at 01:55:10PM -0700, Douglas Anderson wrote:
-> The goal for this series is to improve "perf" behavior when 32-bit
-> userspace code is involved. This turns out to be fairly important for
-> Chrome OS which still runs 32-bit userspace for the time being (long
-> story there).
+So, the driver uses 'mt7621_pci_phy_ids' in two places :
 
-Watch out, your days are numbered! See [1].
+static const struct of_device_id mt7621_pci_phy_ids[] = {
+    { .compatible = "mediatek,mt7621-pci-phy" },
+    {},
+};
+MODULE_DEVICE_TABLE(of, mt7621_pci_phy_ids);
+^
+This one is inside the 'MODULE' preprocessor directive.
 
-> I won't repeat everything said in the individual patches since since
-> they are wordy enough as it is.
-> 
-> Please enjoy and I hope this isn't too ugly/hacky for inclusion in
-> mainline.
-> 
-> Thanks to Nick Desaulniers for his early review of these patches and
-> to Ricky for the super early prototype that some of this is based on.
+static struct platform_driver mt7621_pci_phy_driver = {
+    .probe = mt7621_pci_phy_probe,
+    .driver = {
+        .name = "mt7621-pci-phy",
+        .of_match_table = of_match_ptr(mt7621_pci_phy_ids),
+                                     ^
+                                     This one is inside 'CONFIG_OF'
+    },
+};
 
-I can see that you've put a lot of effort into this, but I'm not thrilled
-with the prospect of maintaining these heuristics in the kernel. The
-callchain behaviour is directly visible to userspace, and all we'll be able
-to do is throw more heuristics at it if faced with any regression reports.
-Every assumption made about userspace behaviour results in diminishing
-returns where some set of programs no longer fall into the "supported"
-bucket and, on balance, I don't think the trade-off is worth it.
+randconfig is not setting 'CONFIG_OF' nor defining MODULE. I've been
+looking into different drivers code and all of them follow the same
+pattern and nothing is behind preprocessor checks at all. So I wonder
+if this is really something that needs to be fixed.
 
-If we were to do this in the kernel, then I'd like to see a spec for how
-frame-pointer based unwinding should work for Thumb and have it agreed
-upon and implemented by both GCC and LLVM. That way, we can implement
-the unwinder according to that spec and file bug reports against the
-compiler if it goes wrong.
+Thanks in advance for clarifications.
 
-In lieu of that, I think we must defer to userspace to unwind using DWARF.
-Perf supports this via PERF_SAMPLE_STACK_USER and PERF_SAMPLE_REGS_USER,
-which allows libunwind to be used to create the callchain. You haven't
-mentioned that here, so I'd be interested to know why not.
+Best regards,
+    Sergio Paracuellos
 
-Finally, you've probably noticed that our unwinding code for compat tasks
-is basically identical to the code in arch/arm/. If the functionality is
-going to be extended, it should be done there first and then we will follow
-to be compatible.
 
-Cheers,
-
-Will
-
-[1] https://lore.kernel.org/lkml/20210602164719.31777-20-will@kernel.org/T/#u
+>
+> >
+> > >    2 warnings generated.
+> > >
+> > >
+> > > vim +/mt7621_pci_phy_ids +341 drivers/phy/ralink/phy-mt7621-pci.c
+> > >
+> > > d87da32372a03c Sergio Paracuellos 2020-11-21  340
+> > > d87da32372a03c Sergio Paracuellos 2020-11-21 @341  static const struct of_device_id mt7621_pci_phy_ids[] = {
+> > > d87da32372a03c Sergio Paracuellos 2020-11-21  342       { .compatible = "mediatek,mt7621-pci-phy" },
+> > > d87da32372a03c Sergio Paracuellos 2020-11-21  343       {},
+> > > d87da32372a03c Sergio Paracuellos 2020-11-21  344  };
+> > > 8145dcb07d0c8b Sergio Paracuellos 2020-12-01  345  MODULE_DEVICE_TABLE(of, mt7621_pci_phy_ids);
+> > > d87da32372a03c Sergio Paracuellos 2020-11-21  346
+> > >
+> > > :::::: The code at line 341 was first introduced by commit
+> > > :::::: d87da32372a03ce121fc65ccd2c9a43edf56b364 phy: ralink: Add PHY driver for MT7621 PCIe PHY
+> > >
+> > > :::::: TO: Sergio Paracuellos <sergio.paracuellos@gmail.com>
+> > > :::::: CC: Vinod Koul <vkoul@kernel.org>
+> > >
+> > > ---
+> > > 0-DAY CI Kernel Test Service, Intel Corporation
+> > > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> >
+> > Best regards,
+> >     Sergio Paracuellos
+> >
+> > --
+> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMhs-H8qyOKQmPtChYO%2BjfC%2BZmj8U9yGeZJORUx14MzyLeT5QA%40mail.gmail.com.
+>
+>
+>
+> --
+> Thanks,
+> ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210602175559.GC31957%40willie-the-truck.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMhs-H-3AiKsc%2Bd2NcjetMJX0XYeHKVs5Hu%2BZhn_BTGMDnKc7g%40mail.gmail.com.
