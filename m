@@ -1,140 +1,122 @@
-Return-Path: <clang-built-linux+bncBC53FPW2UIOBBM7W4OCQMGQELEB2HPQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB5MU4SCQMGQEH2ZO2YQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x539.google.com (mail-ed1-x539.google.com [IPv6:2a00:1450:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id C6BA739A50E
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Jun 2021 17:54:27 +0200 (CEST)
-Received: by mail-ed1-x539.google.com with SMTP id j26-20020aa7ca5a0000b029038ffacf1cafsf3485676edt.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Jun 2021 08:54:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622735667; cv=pass;
+Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4237239A67C
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Jun 2021 18:59:35 +0200 (CEST)
+Received: by mail-pj1-x1039.google.com with SMTP id v2-20020a17090a9602b029015b0bb8b2b9sf4106158pjo.3
+        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Jun 2021 09:59:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622739573; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WY/0IQkhzC8MMC1TLknYRJ0tZT9ELQrj1/I+NSHDQR3hofuM2F/JtyiVkRWgV11Cv+
-         SCpepIKdyNklGam4ChdaaIwfyQS7Up2JGEG/D/eKUSYhEPyAS9fwhTPlmjsc4f179y6L
-         bMau7FMGyhsDkmWOttbqFG/ShL7ZQDZ6U7HDUu1YPZr11eMzVCAeiBzRjUTeeV5WOHHN
-         c57g9QtdZ7I7TtUVDmRaGf0/Hin0XqI5t6GK0y95XPJfk+qchj6ZKlwsHEOVg3SWpUUl
-         Wnl8hgWPYGUar/BojP4K5dmaDoqj2T6h1jyMg5F5hNW2NwnoM/XZZhv+PzdD1jISiud4
-         f42w==
+        b=kfJv0UOvMikKl+XbOXjM3LyiSXRqw7btiQ9MnVA6Wjb1DU1iQR4sG+DnFvPW1wM2p6
+         HMMmMTLgkPwmEh7xVuBUp1rIBOyFtiAzEq7kV0MUZbTvBohMX3cGR2pbtcausceMCwpY
+         XA3CEJXnvcZ+yYP9NnYIR4KfaDkhvn46nOHAUuqkJ09U+zxsNOdORuCWVAklBziFMdPc
+         du1g+GpvP4FlWSTZ6tvrDF9PZfbO3HFH8Z0yQb9IphPXKVohPpBGI4Ajpb/PiEmZajHC
+         0gEqPwlXXGagTK58eXgntCkWmSuy+hlffsdTkCEJhKT5fNOREr63FiDPr0iF1t6qG5+u
+         M96Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=QlUvXNx0Yq/MYJZkuypo0TEipMD4tJwsgJemKdOpsAs=;
-        b=gcoGE6DiErNaLWfD+1z1Sa58WgNNWyZyVlgdp5IJ1sXkv+o1V/NNT6plP0Wa5xaRlK
-         Xdk1GEwk3fIyFfkqH1h/iFUKkbSNAtg4p3mzjUYy0cXjgoVIu91TF1L2y8+IxtmWrwmE
-         MYF2UVySl3jefkD3bQJQDZ+cGrTVYD5ERN0b16grannh1inztLtZwrOxO+YlkxJXKMvn
-         uGHH5ykV6/Od5+3hB6DytpvRbWzrcjBuGgoYIZ+WiZKkhQ/4EnbcqUtH5kj+RymvojYF
-         3WqbUi7OjJIsOkzwADj7S97QwlRAAE5+sdGJnThLQIAlLlBHg5cU06gLyzLC/oqck4Vd
-         icxg==
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=imcmiBEkjPSGteIiRFUIrQEnS1+Zc53liZK+99ynpRQ=;
+        b=GyT412qLQQV+0fzep5CZXzo3IVSZCApr3mPPW15ZafB0KA7jfjn9CQmp2gtYm0Q5qv
+         OVrSDpCTYl8yaL6oxOj9fVVE5wPEKCIgI9jEhGWtLWOEXz05xNsQrfB8Y1vuDx9L0Lnv
+         bQqcZzOE8odTpaAmljlqXZ+R47j28HT2JHu/YAIRpAaaaxkom4qKLpFMZcj2jPZM2khh
+         ZVwDJjeYXjNghAL6V6EkdmZxYgs0cRHiUPJCPQpVXKAl2vcu8IcjUSqzI1v9GBD6nzGo
+         AcIehBStAmh+HU647CFcaZuBb1gr86jer6GV1TKTVLagoqLoroGvroBTfrf2OYzTSb9M
+         +pBA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=QXKKkyGM;
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::231 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=fV5pSS4u;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QlUvXNx0Yq/MYJZkuypo0TEipMD4tJwsgJemKdOpsAs=;
-        b=WN1IkGoL0zncm/B7I3xwVEQuGtFX2SMc0uE5NdHQgCQjA2mEr9CfQv3/Ql6Lkz3Pj+
-         1brmUJRo3s9MnJy9KZu4oj8nxTp7aVgi+SytFJblJV6Om9+hHUL0iJ2h9nlCSJbCCf24
-         +W5I6ac6xpr6b64TZN6DRSDxBl3qS7sZF+NI9kgUgf+vUfg4I2Smv+Oj01tTAMiFJcpH
-         WtbieGFfe3VZtXaFvwja47d/VZUif5DyEcO805b00Jg2NDR7nERNhga0u2VJGFrJeiS6
-         gOx3++f+Wz7IF0y8tVF6Kjwph5HIn5ATmwB/pYa27rGVuifgnAhK2+ouN9BW3AkjZtLv
-         kw+g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=QlUvXNx0Yq/MYJZkuypo0TEipMD4tJwsgJemKdOpsAs=;
-        b=iuMRUUnpgwu80HQFywFWNj45hvIYSarWkKrA/Jyt8/pYd5D416yMfUy84iBra5sPho
-         5zklK/WJIEof6W5uGD3yJJq8r+2C71bQcfapnx2yJqqtzUI3awPNxWT9EVNnUyPLXMpF
-         5MtKnrI1P6KkYpVDAU2yfM5qNndZ1YfLZ/jTwVwJEJ2LRyIwNhuIvmOFYhDyKSxC7OIM
-         fhKh32epNcGs8oS+wpVc3s1O/oYjL9cgh1veKOWb0EnbTufuENad8qZUTA/4DehntZms
-         gsSyYM8FXQvOlJDEQgJX+poeDWH+c1cHuZVWdLNXWY7gQR0bKM6+uQOucWCQiZtxJapy
-         L6Mw==
+        bh=imcmiBEkjPSGteIiRFUIrQEnS1+Zc53liZK+99ynpRQ=;
+        b=jYpYYMmjsMnEeliZdtiQBDhFVNy8bjBVVCQTgLqHOEX5TuozmVhWq9Je1MEDxlZ17e
+         adWwvxjgJrB9k/6pEM+nYTw3ZC+16GvKA9ER4PV5gpiyHDM0rfoul2ntIJJVHilJkO46
+         /4UPSVW7tpk4Ye9euzAhAGguY3KjVYAYnGn3fqJwgLilUZ47GqWSO2/JWplSxWZ5TcAP
+         FC6K1ZnR1ng30o5bRGvH5aw3JvmDlyzK6av1XYoyN006altnhoePSwLqGq8XPRTTls9D
+         9k+q0Jqcp8iA7MrRvgVC4sik+LMR/ma5IJw9UqskzD+4UGEV1OISb+j7crXy4MzgGiiH
+         f5Zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=QlUvXNx0Yq/MYJZkuypo0TEipMD4tJwsgJemKdOpsAs=;
-        b=umD+78NAf2HO8vxR5rkmhfjt6DVCPnZUdb517n1JVDR/rUbrnBdsu+3QccUbxya28C
-         CwMqw6CzjGLIt7+6Wi0hBuOZsQOzCr5lSs1hFzedhUMpHwZFmvy3Qss5AbDf6MKWgbSU
-         ETUTV1zQ8A7psUxMlmrR1HfuUfm1qk1xN/kuBBSgs3HWnb30gk+PtFG2j+S2Wlu9gHXK
-         uu3DscITEPwV7ZikNoHNJTDreDWxcQFWLZ4KgnZyODWU8cuw+VgOhuQ9iUY7wjg4jRGQ
-         zUdE+fsCRm2EOYy/KUfKP/6wgonzaVJdETNmvwYWs7UsBKPkW3lnTNyl5a2KKs7TDvUm
-         mIJQ==
+        bh=imcmiBEkjPSGteIiRFUIrQEnS1+Zc53liZK+99ynpRQ=;
+        b=VdP837AiT1iu6hdNwJfvMf2xLuc2h9tpgJhyXR08pCsMvX71MzXpPyLZs2dTIqGvNy
+         30I5Rs3K9VHZ0QXN1F815nghaAe+Dm+0c/MYw9FiCZcKiwayOkN3rNEc6hVb8V0uSdFd
+         mV0y6hHDs0YeuBF8hRmly346CKh6eCK8+FfBUTnUi3/ANwCeg9P5T+x8ji32pKKWPOKW
+         ErqXv0d3L3tEmT6xstzELs39N9mxcp+7FHsLYe/AmAHsBVjrJtUXXcwcF0M0VCL5srkR
+         QizTjzCRJ4cRzv7rPwYT4yb2ZOR8kYjM22EUT3BrmREkdm1BGlTWKRYXfWvDJA5XGDQm
+         WfJA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530DjBnfMPi8FuUpAgTus9auA1W5cA89g7tPfxI3Vi7fwKvXg+lr
-	rq2ZnqFF1+wmzxWoNqHWZKM=
-X-Google-Smtp-Source: ABdhPJwC6wD5Ea1NQjWMKOPAiZ13jhdEfn/DutOCMZtFQ3aUucQKHL0W61NeRxempZ21+uBJX4WaTg==
-X-Received: by 2002:aa7:de10:: with SMTP id h16mr192342edv.154.1622735667233;
-        Thu, 03 Jun 2021 08:54:27 -0700 (PDT)
+X-Gm-Message-State: AOAM530YWxZStTuawpovOeCbDSZLE1zgWEVIT0T5BPIfgQnnWR6Q38bg
+	jt0PWgWIZ0S5SPsm+Z6jNUE=
+X-Google-Smtp-Source: ABdhPJx/G241z2kwkKYFiyjfvzBtu7JZn9V5VBMr9lphDxUmYQsTP90KXfc9Ts2k072asiwcNsErdA==
+X-Received: by 2002:a17:90a:8c97:: with SMTP id b23mr200073pjo.74.1622739573651;
+        Thu, 03 Jun 2021 09:59:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6402:1c97:: with SMTP id cy23ls3226394edb.0.gmail; Thu,
- 03 Jun 2021 08:54:26 -0700 (PDT)
-X-Received: by 2002:a05:6402:b6f:: with SMTP id cb15mr159790edb.25.1622735666295;
-        Thu, 03 Jun 2021 08:54:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622735666; cv=none;
+Received: by 2002:a17:90a:6788:: with SMTP id o8ls2156653pjj.1.gmail; Thu, 03
+ Jun 2021 09:59:33 -0700 (PDT)
+X-Received: by 2002:a17:90a:19c6:: with SMTP id 6mr158515pjj.125.1622739573067;
+        Thu, 03 Jun 2021 09:59:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622739573; cv=none;
         d=google.com; s=arc-20160816;
-        b=vNPoI+lthNswzLiP9jy9yiyJflX7yvuN1Ajil3MawwERZl4dGofClg+3cicMRNyjdL
-         VKLzzaGJPs+zQkUYSmdH6+z1nvjPfAIFkt7SLXiRaQoVIcenJhdiDPDB/SSpCvGqFde8
-         N8Tiy8m/zQD3h8ZBf2CZezoo+NsS/7qy6d27oIJo/JoroBoof9X6jLt33OiAu5iY0F1m
-         IwTHgLr6xGFlz+Jwm8AqtFPXX7F6gtwgiRMYjaDvIhwrnC0GRzWZqxxTHYVRyDkFxo03
-         tGVb/bkXZgvMBuRh6f6Aty3m8H1sywxZlJNEJfEyfsbLGOGLXu2MEMOkEF4veKNpkM55
-         DFlw==
+        b=Ea8XTEyxKBMVtyPVeES6mIxQRFJk/AvcpWPq5DUQ8yr8eDphFrRbF7suDfj3bNfx3p
+         JBAn2Ow8ZXAnMAEvApHNfNeYBhaZedL2UHO+y0riG1XgJzTtl1OjOQT1DKO0T6GQLBJr
+         Wh6D/VEmtUzivANhl50n/P/ce9gcTzZ+tq5hf3Nunoq8VRtyjWMAAHPsfOUpFozJsNBN
+         BYsXAfAoLtCTpPm9rt+ffdbEoFXdIZzomk3plKb+sAQgO3/j9bmyIeYE9qKkcQJbKX3A
+         iy9FLt6XvClYnwPNW5L9muF4xqS9zmHlae4b++BMUvcxtPK6njSf1N8Twc6roiUj2lQM
+         D6xg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:dkim-signature;
-        bh=KnUxfFc49U1kaTX0xn6lq4EXnbOa1XnWH3SflMbe0J0=;
-        b=h0E26+TolcjkxAoJttPxdwud9cXC2XzPODK4uqAlAt8PTj+ajThARAQFISG6jENmk/
-         QYeJT19YaLu4sU+IyUlBqi8KQmgltg4iSr/pLfWlCokz+1Ag75UMiKkBHVFtJb5DHWJj
-         yvImOr23xWaWq8ghizKwX0fEN8mspCDwhGYFTQadY5jcJ5SSqQVQIaVp7xZ8rJe6yRy9
-         oTAOLgPYD65caLc3zLrnr6xAkG/xwJcYItllJpIKUo0SlI0JM8SAosdo8Nwsj4MksRUz
-         NS/RZp4NE5svkITuLgbt4d8+LkdR495svw1F5IkaDRCmw77WChDoEoCi59tWbsf6e3ji
-         pDOA==
+        bh=68OGOqCVta7u2JgklG0rkKIqSrW+EMioWHiggHWxag8=;
+        b=TtXC2iNz7cMg6Y/J0RMV2dJ69cpz5+dEQXHGb5j0CrRaxTKXQN0YUc+KZMg5mSRsDK
+         2xyWPzTmxE63yur7g7pVHq8FmYDpYvptCKGWWjSAzjRzwyQhlrDzRk3aENtXunqkhJA3
+         unrCFlcGThPCLPswivt3GwWSQFAWktBdJ+cQD4/IrnT1b5MI+pn5a4LbVFfvIRIWS2jf
+         4Kn/vrxog9d//7gxh3ZdBR/fDlDhAEFmI13CX2OBMyBn5RY4h7G0xqvZm3cdQMxYJGc+
+         c4liwf+xGFiYSLa/tDHuIhisFulGkkupIZQDaSnrhdAXNpzkqSk1/x26UaQA/WmdUXXv
+         Bouw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=QXKKkyGM;
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::231 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lj1-x231.google.com (mail-lj1-x231.google.com. [2a00:1450:4864:20::231])
-        by gmr-mx.google.com with ESMTPS id f16si192467edy.0.2021.06.03.08.54.26
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=fV5pSS4u;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id b24si333317pfd.3.2021.06.03.09.59.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 03 Jun 2021 08:54:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::231 as permitted sender) client-ip=2a00:1450:4864:20::231;
-Received: by mail-lj1-x231.google.com with SMTP id bn21so7792635ljb.1
-        for <clang-built-linux@googlegroups.com>; Thu, 03 Jun 2021 08:54:26 -0700 (PDT)
-X-Received: by 2002:a05:651c:50f:: with SMTP id o15mr57865ljp.452.1622735666031;
-        Thu, 03 Jun 2021 08:54:26 -0700 (PDT)
-Received: from HyperiorArchMachine.bb.dnainternet.fi (dcx7x4yb9bh06yk5jm2qt-3.rev.dnainternet.fi. [2001:14ba:14f7:3c00:3d09:bda0:2327:559b])
-        by smtp.gmail.com with ESMTPSA id a20sm401857ljn.94.2021.06.03.08.54.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Jun 2021 08:54:25 -0700 (PDT)
-From: Jarmo Tiitto <jarmo.tiitto@gmail.com>
-To: Sami Tolvanen <samitolvanen@google.com>,
-	Bill Wendling <wcw@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 03 Jun 2021 09:59:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 44AA461159;
+	Thu,  3 Jun 2021 16:59:31 +0000 (UTC)
+From: Nathan Chancellor <nathan@kernel.org>
+To: "David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>,
 	Nick Desaulniers <ndesaulniers@google.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org
-Cc: Jarmo Tiitto <jarmo.tiitto@gmail.com>,
-	morbo@google.com
-Subject: [PATCH v2 1/1] pgo: Fix sleep in atomic section in prf_open()
-Date: Thu,  3 Jun 2021 18:53:17 +0300
-Message-Id: <20210603155318.46346-1-jarmo.tiitto@gmail.com>
-X-Mailer: git-send-email 2.31.1
+	Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH net-next] net: ks8851: Make ks8851_read_selftest() return void
+Date: Thu,  3 Jun 2021 09:56:13 -0700
+Message-Id: <20210603165612.2088040-1-nathan@kernel.org>
+X-Mailer: git-send-email 2.32.0.rc0
 MIME-Version: 1.0
-X-Original-Sender: Jarmo.Tiitto@gmail.com
+X-Patchwork-Bot: notify
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=QXKKkyGM;       spf=pass
- (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::231
- as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@kernel.org header.s=k20201202 header.b=fV5pSS4u;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -148,171 +130,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-In prf_open() the required buffer size can be so large that
-vzalloc() may sleep thus triggering bug:
+clang points out that ret in ks8851_read_selftest() is set but unused:
 
-======
- BUG: sleeping function called from invalid context at include/linux/sched/mm.h:201
- in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 337, name: cat
- CPU: 1 PID: 337 Comm: cat Not tainted 5.13.0-rc2-24-hack+ #154
- Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 0.0.0 02/06/2015
- Call Trace:
-  dump_stack+0xc7/0x134
-  ___might_sleep+0x177/0x190
-  __might_sleep+0x5a/0x90
-  kmem_cache_alloc_node_trace+0x6b/0x3a0
-  ? __get_vm_area_node+0xcd/0x1b0
-  ? dput+0x283/0x300
-  __get_vm_area_node+0xcd/0x1b0
-  __vmalloc_node_range+0x7b/0x420
-  ? prf_open+0x1da/0x580
-  ? prf_open+0x32/0x580
-  ? __llvm_profile_instrument_memop+0x36/0x50
-  vzalloc+0x54/0x60
-  ? prf_open+0x1da/0x580
-  prf_open+0x1da/0x580
-  full_proxy_open+0x211/0x370
-  ....
-======
+drivers/net/ethernet/micrel/ks8851_common.c:1028:6: warning: variable
+'ret' set but not used [-Wunused-but-set-variable]
+        int ret = 0;
+            ^
+1 warning generated.
 
-Since we can't vzalloc while holding pgo_lock,
-split the code into steps:
-* First get buffer size via prf_buffer_size()
-  and release the lock.
-* Round up to the page size and allocate the buffer.
-* Finally re-acquire the pgo_lock and call prf_serialize().
-  prf_serialize() will now check if the buffer is large enough
-  and returns -EAGAIN if it is not.
+The return code of this function has never been checked so just remove
+ret and make the function return void.
 
-New in this v2 patch:
-The -EAGAIN case was determined to be such rare event that
-running following in a loop:
-
-$cat /sys/kernel/debug/pgo/vmlinux.profraw > vmlinux.profdata;
-
-Didn't trigger it, and I don't know if it ever may occur at all.
-
-Signed-off-by: Jarmo Tiitto <jarmo.tiitto@gmail.com>
+Fixes: 3ba81f3ece3c ("net: Micrel KS8851 SPI network driver")
+Suggested-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
- kernel/pgo/fs.c | 52 ++++++++++++++++++++++++++++++++++++-------------
- 1 file changed, 38 insertions(+), 14 deletions(-)
+ drivers/net/ethernet/micrel/ks8851_common.c | 15 ++++-----------
+ 1 file changed, 4 insertions(+), 11 deletions(-)
 
-diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
-index ef985159dad3..9afd6f001a1b 100644
---- a/kernel/pgo/fs.c
-+++ b/kernel/pgo/fs.c
-@@ -24,13 +24,14 @@
- #include <linux/module.h>
- #include <linux/slab.h>
- #include <linux/vmalloc.h>
-+#include <linux/mm.h>
- #include "pgo.h"
- 
- static struct dentry *directory;
- 
- struct prf_private_data {
- 	void *buffer;
--	unsigned long size;
-+	size_t size;
- };
- 
- /*
-@@ -213,6 +214,7 @@ static inline unsigned long prf_get_padding(unsigned long size)
- 	return 7 & (sizeof(u64) - size % sizeof(u64));
- }
- 
-+/* Note: caller *must* hold pgo_lock */
- static unsigned long prf_buffer_size(void)
- {
- 	return sizeof(struct llvm_prf_header) +
-@@ -225,18 +227,21 @@ static unsigned long prf_buffer_size(void)
- 
- /*
-  * Serialize the profiling data into a format LLVM's tools can understand.
-+ * Note: p->buffer must point into vzalloc()'d
-+ * area of at least prf_buffer_size() in size.
-  * Note: caller *must* hold pgo_lock.
+diff --git a/drivers/net/ethernet/micrel/ks8851_common.c b/drivers/net/ethernet/micrel/ks8851_common.c
+index 13eef6e9bd2d..831518466de2 100644
+--- a/drivers/net/ethernet/micrel/ks8851_common.c
++++ b/drivers/net/ethernet/micrel/ks8851_common.c
+@@ -1022,30 +1022,23 @@ static int ks8851_mdio_write(struct mii_bus *bus, int phy_id, int reg, u16 val)
+  *
+  * Read and check the TX/RX memory selftest information.
   */
--static int prf_serialize(struct prf_private_data *p)
-+static int prf_serialize(struct prf_private_data *p, size_t buf_size)
+-static int ks8851_read_selftest(struct ks8851_net *ks)
++static void ks8851_read_selftest(struct ks8851_net *ks)
  {
- 	int err = 0;
- 	void *buffer;
+ 	unsigned both_done = MBIR_TXMBF | MBIR_RXMBF;
+-	int ret = 0;
+ 	unsigned rd;
  
-+	/* get buffer size, again. */
- 	p->size = prf_buffer_size();
--	p->buffer = vzalloc(p->size);
+ 	rd = ks8851_rdreg16(ks, KS_MBIR);
  
--	if (!p->buffer) {
--		err = -ENOMEM;
-+	/* check for unlikely overflow. */
-+	if (p->size > buf_size) {
-+		err = -EAGAIN;
- 		goto out;
+ 	if ((rd & both_done) != both_done) {
+ 		netdev_warn(ks->netdev, "Memory selftest not finished\n");
+-		return 0;
++		return;
  	}
  
-@@ -259,27 +264,46 @@ static int prf_open(struct inode *inode, struct file *file)
- {
- 	struct prf_private_data *data;
- 	unsigned long flags;
--	int err;
-+	size_t buf_size;
-+	int err = 0;
+-	if (rd & MBIR_TXMBFA) {
++	if (rd & MBIR_TXMBFA)
+ 		netdev_err(ks->netdev, "TX memory selftest fail\n");
+-		ret |= 1;
+-	}
  
- 	data = kzalloc(sizeof(*data), GFP_KERNEL);
- 	if (!data) {
- 		err = -ENOMEM;
--		goto out;
-+		goto out_free;
- 	}
- 
-+	/* get buffer size */
- 	flags = prf_lock();
-+	buf_size = prf_buffer_size();
-+	prf_unlock(flags);
- 
--	err = prf_serialize(data);
--	if (unlikely(err)) {
--		kfree(data);
--		goto out_unlock;
-+	/* allocate, round up to page size. */
-+	buf_size = PAGE_ALIGN(buf_size);
-+	data->buffer = vzalloc(buf_size);
-+
-+	if (!data->buffer) {
-+		err = -ENOMEM;
-+		goto out_free;
- 	}
- 
-+	/* try serialize and get actual
-+	 * data length in data->size
-+	 */
-+	flags = prf_lock();
-+	err = prf_serialize(data, buf_size);
-+	prf_unlock(flags);
-+
-+	if (err)
-+		goto out_free;
-+
- 	file->private_data = data;
-+	return 0;
- 
--out_unlock:
--	prf_unlock(flags);
--out:
-+out_free:
-+	if (data)
-+		vfree(data->buffer);
-+	kfree(data);
- 	return err;
+-	if (rd & MBIR_RXMBFA) {
++	if (rd & MBIR_RXMBFA)
+ 		netdev_err(ks->netdev, "RX memory selftest fail\n");
+-		ret |= 2;
+-	}
+-
+-	return 0;
  }
  
+ /* driver bus management functions */
 
-base-commit: 5d0cda65918279ada060417c5fecb7e86ccb3def
+base-commit: 270d47dc1fc4756a0158778084a236bc83c156d2
 -- 
-2.31.1
+2.32.0.rc0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210603155318.46346-1-jarmo.tiitto%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210603165612.2088040-1-nathan%40kernel.org.
