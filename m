@@ -1,136 +1,131 @@
-Return-Path: <clang-built-linux+bncBAABBFN74GCQMGQEK5SEADY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDA67XESXUKBBQ4I4KCQMGQENT5D3II@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
-	by mail.lfdr.de (Postfix) with ESMTPS id D6A3339995A
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Jun 2021 06:50:30 +0200 (CEST)
-Received: by mail-pl1-x637.google.com with SMTP id x7-20020a1709027c07b02900e6489d6231sf2121535pll.6
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Jun 2021 21:50:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622695829; cv=pass;
+Received: from mail-ed1-x537.google.com (mail-ed1-x537.google.com [IPv6:2a00:1450:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id B2D05399B8B
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Jun 2021 09:26:59 +0200 (CEST)
+Received: by mail-ed1-x537.google.com with SMTP id f12-20020a056402150cb029038fdcfb6ea2sf2802265edw.14
+        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Jun 2021 00:26:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622705219; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EiHjBb4JCgTJ/u+E9hOXsp64iq+KPuuLnPk2glOYHu/uuLefSX3ZA/lD72eE+CzJ4I
-         a1RXrmvrytWZy7xxFbzabIsv00eyI+wotNTOpnvvehM1nTJ6SF04t6SzCjf8YThDbST/
-         KFtOqVQVOCrnPbGyRecio57ZPNyyIWAsotkX8Ivzi6XNUXnOWMG4HiOFVdn7+fUx54V0
-         xAbGOhN0hJM4wy/XQyziMIXwyRki9Y/ul1I28iG4MWZJQaS2nBQu+dyfjqZSRW1ZCbvY
-         FKB4KfHprFTsQBnuAe8t59V8DrGynNzESrU0EtzftvEBlkvw2XAloCf6W4im3H2vGc4Z
-         9L3g==
+        b=f7xf5r4/ljIhTtMmwmmD1RwZG1jEJj2IPsnS9Q2XT/lDPNc9WWNFcLoRa0yBf8Xv42
+         kiI61Fwsg9Zukq1GaEMie5gXEKpWcF204C8C1AMD8bDY95Fx081aM9QrOq4JrrlwhTTv
+         0I6e4wSuksGSQhP/3EscWByPnf/az1HO5c5NgAVQws0aGrlSbUg1Cvg8QLREWiChn2AW
+         +pIQVSHI84nDXwryOuWD4PXd/QZ615ZL21hkIH6P0X2YUh8+WuMZs9+EoKW/AznunWwR
+         K7/7DLMrX29tIV4E3I3PGWBmfvamNT+txjBxrLzp7VBbuSEGHgAtbzbV7PQL0p7cscgS
+         dcBw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:date:from:mime-version:in-reply-to
-         :subject:cc:to:message-id:content-transfer-encoding:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=SWETMFpoLxTfMz3iJWomIjQUXjmI9ppkN/4yztTKq2M=;
-        b=yr8VZ7TNoj/b5vH6xnq6mbpTOqkyBKjMk5wkSMCRqMWRlT44ELmUQBCipifpZ327es
-         lfqUb5CcrFbhrvzvPWd/2ZBnhvffAFkPum0XtpgRYDfUfulAcetCZqgLUGfpykEtsqx5
-         4pJQX8KH6WmMFrO90Es76r7YWSiRm4OjiX/+WklQ+n+DK7+tfKM1FDFO/GG1G3puOkVy
-         9Bu5nEjb9LCjHWYDiJRkLkocLn31lwi50yYBfzpNLFCQyBQiNBYd108NoJU25tcbr7i/
-         NffKgCiCPVJQLCScfNs6pUTZQS0LQQxkJYzlVu9lkmSwAYduS0NvZ6uJDwVyqCBVBSEI
-         fC0g==
+        bh=4nt+Vb+dQChNBsjcGVkoS2ZRo5bBHJ4SuJ5bL6c3jHE=;
+        b=INv5A/+WUJBplytolf0vgHzvO3Kd/luig2E37Iucmdmg+bZe8SIFjAFB6W1CO/T13l
+         OCiv3iJ2YIzL/shCzwEIp3qaJl7+VcmKuJrQ2tdHMUhc3XDVSj8AImFlPU8XvNiK5G4k
+         Oo4WO+XtrOk2Er4QMq/BYvIgw7h0ixjQJylhkHIqu6FaGiZ4Y1F5/w/MFnGQ9Efo69be
+         zYpEkMOqCl2jJTRCPoXph13PkXtbMcxbP3aGx+NXrwcg3RoH+0Hh1YQzWzUunYQFm9a6
+         XFGi7YlFagXKNFitr3NJhO8Qb9eo2dTesIRZfr/NoFVmiCXzZN+xJ/H1qoO/7KH+6TVj
+         axdw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of wanjiabing@vivo.com designates 59.111.176.41 as permitted sender) smtp.mailfrom=wanjiabing@vivo.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vivo.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=gqAljoVq;
+       spf=pass (google.com: domain of jean-philippe@linaro.org designates 2a00:1450:4864:20::435 as permitted sender) smtp.mailfrom=jean-philippe@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:content-transfer-encoding:message-id:to:cc:subject
-         :in-reply-to:mime-version:from:date:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=SWETMFpoLxTfMz3iJWomIjQUXjmI9ppkN/4yztTKq2M=;
-        b=f5s1NE40iroZwgxELH37ajF0DaQdRLRKykgPyp4mQD8SqpxnvTwkLNAHpeoY/4iIKA
-         eIQ++0OBChAJ+kezRyOkE5b5GTnPYF/TWXZaJEGJVKcAUpbg34phh6YraYio1MjCKxvM
-         QPTTQ782avNcFFc1EaMiuRkgTiZic/J2UGEa3fHXRE4xOfjS37EkwMBlywn0ay6CPt/F
-         IcHAFVgIapi9xRIk6R+s03kHcUW2O1Ot3kL2o6S1xZgqiGKSYpv1rKF+Vm0/K4/09B0s
-         +EAuBr5jq40zSfG193XgBBQYo8cor9UbH+wArf+IwV1XD5JAnKV9jL7Q9CXwQJK75IGq
-         wVGw==
+        bh=4nt+Vb+dQChNBsjcGVkoS2ZRo5bBHJ4SuJ5bL6c3jHE=;
+        b=GItouIoPElLDvuGfeNQT18oZww/DAdW2xKPP6D7OOfUQhxsA2lM3QBl0rxntl0VWGc
+         LdNHkf3AYcTr0sAG7X+jrfhXF2nbyKzQF76mYECopjqaaM5JxrbmnTvA91qR4rnHU4Ha
+         NtYSHNDBLIlBbV20CC/XJwL9QRMs1Fl2B/MgpUOBlgAHFVL1z6M1kf87F5bUgUzjm6RA
+         yy8oHqu0IKMbYlzMXfNOW18PAwSmyDCzekGclquXXdb3hbyLd5ybHccljmJgsDhbFb1y
+         4RnlFWuc3BEpuAHJhC+pdlGZG45NEgD0J6vl///UliH59bCzjhSNLLCwTK5j2htbToJw
+         fvqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:content-transfer-encoding:message-id:to
-         :cc:subject:in-reply-to:mime-version:from:date:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=SWETMFpoLxTfMz3iJWomIjQUXjmI9ppkN/4yztTKq2M=;
-        b=aUSKVxRhbQ0EXr4xBN/2Qn9mDnlQczzLv9G65xZo7GxrEN6PQHcGHAlEtwyLXUx6Q4
-         Qcamts3fKXdDaIunbLjxu/inn/G8CeZftpa3tLFdMJEwdqC5qHjhUHUaGQ6sOnzyfFC+
-         69SZ2OrXKWO4VhVRI1cmbEummcF6kV5pFJTg8Dy6Iidf9zdhc06Sy85ZnF4NkXnB+jOj
-         bUBTuYjcS/+M0wuzkAL0uMGxbZTGaD1TaXJHSQEn+nbA1eZtfU1ESgSZn8bc/cO4uNaP
-         vsIP/OGcNaNsb0x0pHdnhpnjZhzSp0My9wg6HcuugrimErkfuMzZlqQWkb/3uMUgk9FS
-         aUxA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=4nt+Vb+dQChNBsjcGVkoS2ZRo5bBHJ4SuJ5bL6c3jHE=;
+        b=YfzIGXbCRNDZ/81W+k0xQ3/gJb0j5DuyakAN9opuZUn/cbl6PbhkjeP/HuNsaMsXcY
+         d8Mff/eUf720G9rWk7fk6N8C1iGnmsXo/DtoPTstSdhUwSkUJ0Eb0XKPpvv3G5xzH9c9
+         137BVLWhdnCqUy2uuD2rHUrBAyRIpQGpF9byELJQaAgisDrWtYtdu7f2+YtgmXy2bIcP
+         Qrebsc62SRoQbnt8mf4cOkz4Q7q/1rhZFLqnoXjkzmnzxdMUonOA/XHuS9VTr1LQ4E4B
+         qLpbKgALEhJrUt488PMFYkNRZbMmb9T0vFp3KAtnP5dmkMUernjhRDyKXM73U59nGqL4
+         JwAA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531TlxNCKIm16cphK62iJJknQxH5Av+pLRKW1VlQXnmbs633E2Rh
-	Gpyvso5YHNZghIyHzsEpKa8=
-X-Google-Smtp-Source: ABdhPJxQYwJPOU7RAAxFOO2T4DBXu0cHKm4sLbPEDUgkpIOKrLigxVmdJ0Hu1F8buqNTwNgQUC4DUQ==
-X-Received: by 2002:a17:90b:f01:: with SMTP id br1mr21592104pjb.93.1622695829567;
-        Wed, 02 Jun 2021 21:50:29 -0700 (PDT)
+X-Gm-Message-State: AOAM530ypEQtHIHwO43FHXcYJVWs7Y3fxRU1bta941TUYDkoDIHvYWiH
+	AZbS9nQ2HaWbDquyXme50U0=
+X-Google-Smtp-Source: ABdhPJwA57imJl9hrLBQzlL6qe4gA3/KjsMHAksDOz8UYRGcqHIurXzmd8xANizqwFfOl7PPjWTe1Q==
+X-Received: by 2002:a05:6402:1d85:: with SMTP id dk5mr24805219edb.289.1622705219422;
+        Thu, 03 Jun 2021 00:26:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:4186:: with SMTP id a6ls1297570pgq.6.gmail; Wed, 02 Jun
- 2021 21:50:29 -0700 (PDT)
-X-Received: by 2002:a62:5288:0:b029:2e3:fd7d:267a with SMTP id g130-20020a6252880000b02902e3fd7d267amr30860291pfb.21.1622695829144;
-        Wed, 02 Jun 2021 21:50:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622695829; cv=none;
+Received: by 2002:a05:6402:1510:: with SMTP id f16ls1731759edw.1.gmail; Thu,
+ 03 Jun 2021 00:26:58 -0700 (PDT)
+X-Received: by 2002:a50:d54c:: with SMTP id f12mr42050008edj.301.1622705218522;
+        Thu, 03 Jun 2021 00:26:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622705218; cv=none;
         d=google.com; s=arc-20160816;
-        b=PGhTVdMTsW70NqV08bzpZpZL1vScMtOsP83on2zWTifT6BlfRZ4/XsH+vWaWvPUdh6
-         B/5gdDmKc61ftSha4WXiJeIhp87jmQKJlKZqrZLIA/8mDNGai9/EG7RtrqZAea2P6f1v
-         SuftGvbxf8JT+0KVz6+kKhy0GoKb7zDCWbrC0Qx4XNljFuDcdWM79H68u2E/XlL1bZaZ
-         9YqgvaUx/hPJ8s1CPXQBbeCIlGOS6TIeDDoGh0gYQot7Hlj45psJ7l/2jQcuFgX2FvpJ
-         Uxm4qIUAH3VcSFHNNx0woYMN30MyaT2TbYtns7uD4dghphdyTP3P8qrUYZsChqQASs2m
-         VIYQ==
+        b=EktDcgORL7zqViSCurOmawv2f1ZYaP7T6uEvo1mM7X5eUrtcE6sekYPdahCNh9QqVx
+         W1/H3db/9yZ9Hqr8OMwtt5K/JCZnqTMxzSzF+KxfKRYtwvE1STc+9kF42QyG0LYHytqp
+         X8Qxru8RZ/SlnXnj6B0LBveuiyITMS+LsL4On2vaXzkxsn24cbFe57cRpS0rJ/YCRNyv
+         QgSzccuZyPzOaxyy+iyBAGGdKML8NDlhybWgXjDv7246q+v4fw6SQrLTC7p6qAt2Ktjn
+         2XCDpWJrMO8EbAwH/OhgKMUTs/3zn1tk07TG4oNXFSeOkzsVmT0na9HU2/HIb25/dJuk
+         jpYQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=date:from:mime-version:in-reply-to:subject:cc:to:message-id
-         :content-transfer-encoding;
-        bh=4y1CRG/U8bO2rAT4YIfq6jQE+HvyWG22Wxd62t/3/1Q=;
-        b=mAg+9rr3zSDe65nodnBFIMYwtkVQPEw+ye6GxVyAcTbwCxSr1aXSGDTTxcu4veuPNu
-         1BypeTFUagsD99pdWwu2HN7Bz9+I0C+TTNh6huXS77QL1YB9lwivB+YkIhKJUCd+vnAS
-         pqwug3jzciG7gMigkFlEp8xDUpkOExXyrpgDQkyvJxu55F+TgXXhN7AIgdqFWzCUcIvP
-         42kSWn+j0ZA80mB+i+ql7Renl8YtTcITIaY0iKFCrXHhCsinIJmJV2B1SuqlDLN0sUA5
-         bmwzlXhbJYqr3xB1z4g5NNFTiLzcr2k69MDWinRjWT5pC7AKzKmQ9vExmCuAa6mhQ/2a
-         xIYw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=LjHtr3gTuVS3B9K5gbkiLkfbQy+nc18Icq13dk6Hd1w=;
+        b=MZuGXvpBEtH/Vy6fw437Mgn8Yej4hzI0ugKgsA3A2oLpiV5pTvRO3AhZJeGSop2ogE
+         k1FJ3ES1Dt6iivLj+7QqstwqCesDtnsCvuSI4+iHkqkD3dmPXmKzEHQX5yr9E1QOOTep
+         Qe+acM/Kj5a/MOl/RBMpidHVhy4PVDzxg/aMidNQxw2tiKPCakvI7Tcl7vdl6LAZu8zu
+         5VrIqcJc9m3vxHkMO0Dzk6yPn9D9WEldN3/fXPlVr2ngAvWVllZpxR4e7LDdo6rlI+Wo
+         cz3Htg7wzL+ReP9uV1kGg5CUBvd3Qm+pKTkFbg75a+ff/qk5pvs5OYlQfS0Fy9i3nNt5
+         J+nQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of wanjiabing@vivo.com designates 59.111.176.41 as permitted sender) smtp.mailfrom=wanjiabing@vivo.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vivo.com
-Received: from mail-m17641.qiye.163.com (mail-m17641.qiye.163.com. [59.111.176.41])
-        by gmr-mx.google.com with ESMTPS id t15si113791plr.0.2021.06.02.21.50.28
+       dkim=pass header.i=@linaro.org header.s=google header.b=gqAljoVq;
+       spf=pass (google.com: domain of jean-philippe@linaro.org designates 2a00:1450:4864:20::435 as permitted sender) smtp.mailfrom=jean-philippe@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wr1-x435.google.com (mail-wr1-x435.google.com. [2a00:1450:4864:20::435])
+        by gmr-mx.google.com with ESMTPS id v19si129513edw.2.2021.06.03.00.26.58
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Wed, 02 Jun 2021 21:50:29 -0700 (PDT)
-Received-SPF: pass (google.com: domain of wanjiabing@vivo.com designates 59.111.176.41 as permitted sender) client-ip=59.111.176.41;
-Received: from vivo.com (localhost [127.0.0.1])
-	by mail-m17641.qiye.163.com (Hmail) with ESMTP id 431786012C;
-	Thu,  3 Jun 2021 12:50:26 +0800 (CST)
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-Message-ID: <AEkAVwCrDqnnn92uf85TYapl.3.1622695826260.Hmail.wanjiabing@vivo.com>
-To: Fangrui Song <maskray@google.com>
-Cc: Alex Shi <alexs@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, 
-	Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, 
-	Wu XiangCheng <bobwxc@email.cn>, Bernard Zhao <bernard@vivo.com>, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, clang-built-linux@googlegroups.com
-Subject: =?UTF-8?B?UmU6UmU6IFtQQVRDSF0gW3YyXSBkb2NzL3poX0NOOiBhZGQgdHJhbnNsYXRpb25zIGluIHpoX0NOL2Rldi10b29scy9rYXNhbg==?=
-X-Priority: 3
-X-Mailer: HMail Webmail Server V2.0 Copyright (c) 2016-163.com
-X-Originating-IP: 58.213.83.158
-In-Reply-To: <20210603034545.oe675lrtvtsvbedb@google.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 03 Jun 2021 00:26:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jean-philippe@linaro.org designates 2a00:1450:4864:20::435 as permitted sender) client-ip=2a00:1450:4864:20::435;
+Received: by mail-wr1-x435.google.com with SMTP id l2so4757354wrw.6
+        for <clang-built-linux@googlegroups.com>; Thu, 03 Jun 2021 00:26:58 -0700 (PDT)
+X-Received: by 2002:adf:fd90:: with SMTP id d16mr8109626wrr.35.1622705218314;
+        Thu, 03 Jun 2021 00:26:58 -0700 (PDT)
+Received: from myrica (adsl-84-226-111-173.adslplus.ch. [84.226.111.173])
+        by smtp.gmail.com with ESMTPSA id n2sm2121259wmb.32.2021.06.03.00.26.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Jun 2021 00:26:57 -0700 (PDT)
+Date: Thu, 3 Jun 2021 09:26:39 +0200
+From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+To: kernel test robot <lkp@intel.com>
+Cc: rjw@rjwysocki.net, lenb@kernel.org, joro@8bytes.org, mst@redhat.com,
+	kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	will@kernel.org, catalin.marinas@arm.com, baolu.lu@linux.intel.com,
+	dwmw2@infradead.org, linux-acpi@vger.kernel.org,
+	iommu@lists.linux-foundation.org
+Subject: Re: [PATCH v3 2/6] ACPI: Move IOMMU setup code out of IORT
+Message-ID: <YLiELyo+KLuYqA24@myrica>
+References: <20210602154444.1077006-3-jean-philippe@linaro.org>
+ <202106030417.97asL7dA-lkp@intel.com>
 MIME-Version: 1.0
-Received: from wanjiabing@vivo.com( [58.213.83.158) ] by ajax-webmail ( [127.0.0.1] ) ; Thu, 3 Jun 2021 12:50:26 +0800 (GMT+08:00)
-From: Jiabing Wan <wanjiabing@vivo.com>
-Date: Thu, 3 Jun 2021 12:50:26 +0800 (GMT+08:00)
-X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgYFAkeWUFZS1VLWVdZKFlBSE83V1ktWUFJV1kPCR
-	oVCBIfWUFZGh9PTFZCQxkYTx0ZTEwfSU9VEwETFhoSFyQUDg9ZV1kWGg8SFR0UWUFZT0tIVUpKS0
-	hKQ1VLWQY+
-X-HM-Sender-Digest: e1kJHlYWEh9ZQU1PS0lLTkhLTUxCN1dZDB4ZWUEPCQ4eV1kSHx4VD1lB
-	WUc6PhA6LQw4CT8KFRUVQkkOHUNOLyIaCxdVSFVKTUlJTUJOQ0lNTkJDVTMWGhIXVQwaFRESGhkS
-	FRw7DRINFFUYFBZFWVdZEgtZQVlOQ1VJSkhVQ0hVSk5DWVdZCAFZQUhOTEo3Bg++
-X-HM-Tid: 0a79d035536bd997kuws431786012c
-X-Original-Sender: wanjiabing@vivo.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of wanjiabing@vivo.com designates 59.111.176.41 as
- permitted sender) smtp.mailfrom=wanjiabing@vivo.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=vivo.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <202106030417.97asL7dA-lkp@intel.com>
+X-Original-Sender: jean-philippe@linaro.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@linaro.org header.s=google header.b=gqAljoVq;       spf=pass
+ (google.com: domain of jean-philippe@linaro.org designates
+ 2a00:1450:4864:20::435 as permitted sender) smtp.mailfrom=jean-philippe@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,24 +138,74 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-IAo+UmU6IFtQQVRDSF0gW3YyXSBkb2NzL3poX0NOOiBhZGQgdHJhbnNsYXRpb25zIGluIHpoX0NO
-L2Rldi10b29scy9rYXNhbj4KPiBUaGFua3MhIFdpdGggYSBmZXcgc3VnZ2VzdGlvbnMsPgo+UmV2
-aWV3ZWQtYnk6IEZhbmdydWkgU29uZyA8bWFza3JheUBnb29nbGUuY29tPgoKWWVz77yMbW9yZSBl
-YXNpZXIgdG8gdW5kZXJzdGFuZC4KSSBhZ3JlZSB3aXRoIHlvdSBhbmQgd2lsbCBmaXggdGhlbSBp
-biB2My4KCj4+K+WGheaguOeahOWFtuS7lumDqOWIhuWPr+iDveS8muiuv+mXruW3suWIhumFjeWv
-ueixoeeahOWFg+aVsOaNruOAgumAmuW4uO+8jEtBU0FO5Lya5qOA5rWL5bm25oql5ZGK5q2k57G7
-6K6/6Zeu77yMCj4+K+S9huWcqOafkOS6m+aDheWGteS4i++8iOS+i+Wmgu+8jOWcqOWGheWtmOWI
-humFjeWZqOS4re+8ie+8jOi/meS6m+iuv+mXruaYr+acieaViOeahOOAggo+PisKPj4r5a+55LqO
-6L2v5Lu2S0FTQU7mqKHlvI/vvIzopoHnpoHnlKjnibnlrprmlofku7bmiJbnm67lvZXnmoTmo4Dm
-tYvvvIwKPj4r6K+35bCGIGBgS0FTQU5fU0FOSVRJWkVgYCDmt7vliqDliLDnm7jlupTnmoTlhoXm
-oLhNYWtlZmlsZeS4rToKPgo+RGVsZXRlIFplcm8gV2lkdGggU3BhY2UgY2hhcmFjdGVycyBvbiB0
-aGlzIGxpbmUuCj4KWWVzLCBJIHVzZSB2aW0gYW5kIGZpbmQgaXQsIHRvby4KCkJUVywgSSB1c2Vk
-IHZzY29kZSByZW1vdGUgZXh0ZW50aW9uIHRvIHRyYW5zbGF0ZS4KSXQgc2VlbWVkIHRvIGJlIGEg
-YmFkIGlkZWEuCgpUaGFua3MsCkppYWJpbmcKCgoKCg0KDQotLSAKWW91IHJlY2VpdmVkIHRoaXMg
-bWVzc2FnZSBiZWNhdXNlIHlvdSBhcmUgc3Vic2NyaWJlZCB0byB0aGUgR29vZ2xlIEdyb3VwcyAi
-Q2xhbmcgQnVpbHQgTGludXgiIGdyb3VwLgpUbyB1bnN1YnNjcmliZSBmcm9tIHRoaXMgZ3JvdXAg
-YW5kIHN0b3AgcmVjZWl2aW5nIGVtYWlscyBmcm9tIGl0LCBzZW5kIGFuIGVtYWlsIHRvIGNsYW5n
-LWJ1aWx0LWxpbnV4K3Vuc3Vic2NyaWJlQGdvb2dsZWdyb3Vwcy5jb20uClRvIHZpZXcgdGhpcyBk
-aXNjdXNzaW9uIG9uIHRoZSB3ZWIgdmlzaXQgaHR0cHM6Ly9ncm91cHMuZ29vZ2xlLmNvbS9kL21z
-Z2lkL2NsYW5nLWJ1aWx0LWxpbnV4L0FFa0FWd0NyRHFubm45MnVmODVUWWFwbC4zLjE2MjI2OTU4
-MjYyNjAuSG1haWwud2FuamlhYmluZyU0MHZpdm8uY29tLgo=
+On Thu, Jun 03, 2021 at 04:06:18AM +0800, kernel test robot wrote:
+> >> drivers/acpi/scan.c:1540:26: error: no member named 'ops' in 'struct iommu_fwspec'
+>            return fwspec ? fwspec->ops : NULL;
+>                            ~~~~~~  ^
+> >> drivers/acpi/scan.c:1564:9: error: implicit declaration of function 'iommu_probe_device' [-Werror,-Wimplicit-function-declaration]
+>                    err = iommu_probe_device(dev);
+>                          ^
+
+These are only defined when CONFIG_IOMMU_API is set. IORT uses them inside
+an #ifdef, I can do the same. Maybe moving these two functions to a new
+drivers/acpi/iommu.c would be nicer, though.
+
+Thanks,
+Jean
+
+>    2 errors generated.
+> 
+> 
+> vim +1540 drivers/acpi/scan.c
+> 
+>   1535	
+>   1536	static inline const struct iommu_ops *acpi_iommu_fwspec_ops(struct device *dev)
+>   1537	{
+>   1538		struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
+>   1539	
+> > 1540		return fwspec ? fwspec->ops : NULL;
+>   1541	}
+>   1542	
+>   1543	static const struct iommu_ops *acpi_iommu_configure_id(struct device *dev,
+>   1544							       const u32 *id_in)
+>   1545	{
+>   1546		int err;
+>   1547		const struct iommu_ops *ops;
+>   1548	
+>   1549		/*
+>   1550		 * If we already translated the fwspec there is nothing left to do,
+>   1551		 * return the iommu_ops.
+>   1552		 */
+>   1553		ops = acpi_iommu_fwspec_ops(dev);
+>   1554		if (ops)
+>   1555			return ops;
+>   1556	
+>   1557		err = iort_iommu_configure_id(dev, id_in);
+>   1558	
+>   1559		/*
+>   1560		 * If we have reason to believe the IOMMU driver missed the initial
+>   1561		 * add_device callback for dev, replay it to get things in order.
+>   1562		 */
+>   1563		if (!err && dev->bus && !device_iommu_mapped(dev))
+> > 1564			err = iommu_probe_device(dev);
+>   1565	
+>   1566		/* Ignore all other errors apart from EPROBE_DEFER */
+>   1567		if (err == -EPROBE_DEFER) {
+>   1568			return ERR_PTR(err);
+>   1569		} else if (err) {
+>   1570			dev_dbg(dev, "Adding to IOMMU failed: %d\n", err);
+>   1571			return NULL;
+>   1572		}
+>   1573		return acpi_iommu_fwspec_ops(dev);
+>   1574	}
+>   1575	
+> 
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YLiELyo%2BKLuYqA24%40myrica.
