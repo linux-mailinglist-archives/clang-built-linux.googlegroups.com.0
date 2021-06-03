@@ -1,138 +1,125 @@
-Return-Path: <clang-built-linux+bncBCZ35CE25UGBBNVD4SCQMGQEJSFGE7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBKNF4SCQMGQES5N7UNI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3d.google.com (mail-oo1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id B21A739A936
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Jun 2021 19:30:31 +0200 (CEST)
-Received: by mail-oo1-xc3d.google.com with SMTP id f5-20020a4ab0050000b029023e3bd79e80sf3943886oon.10
-        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Jun 2021 10:30:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622741430; cv=pass;
+Received: from mail-pf1-x43b.google.com (mail-pf1-x43b.google.com [IPv6:2607:f8b0:4864:20::43b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 17D4C39A947
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Jun 2021 19:34:35 +0200 (CEST)
+Received: by mail-pf1-x43b.google.com with SMTP id j206-20020a6280d70000b02902e9e02e1654sf3886593pfd.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Jun 2021 10:34:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622741673; cv=pass;
         d=google.com; s=arc-20160816;
-        b=I29DXo8cYop0QpnzG2AbnC1elMnLdg7QXI0hVBNCnvAKEh4IS8kJqhsx5wJsRRdnAs
-         2Rx7bYPgaLqJazeSpvhPmBj5S9LHupFC3/pg0s4dUO0+2HZW3bTcq+aOBqFovhqygeKq
-         g7SOf2zC2kUWeDszIbdYm4fstRuIWR5uKU2n9gA/eegGGPNf0C6OpgdezZo/SHcGgkaJ
-         f657PJ5WQ2Pp4E34oiEUZq2PzJ8HfkLywdBVIsCyQhUF1CEZaw6XNhV6hhxt6HcXcseo
-         8hIXFWzU0ANAK6YbJQQnscVTpXYi63JKIGrPR9e2vx+ePHbuLAYUZRanregyVcpnMWe3
-         kXGA==
+        b=d70bj2KsooCDgo7qlhME/AZ6ZaZwTagoDOSDbk3iqrYYv0UqLJ0Y8FrYUM7e2Yz1cm
+         De6YzatdsrzdLCm/YhS1s6I6ySD5refNrOXKPnfqbygLp9D8IYxc688wWcFgJOTY4o8O
+         NhTuK8yWqcpjmXALXSd2w3tPX1RJdK9OWfrYTMiq1dl2VEL3xLva3gvsZ6X6VSAv5cV3
+         zHAf9y+WL2YzlGyaC3ACCtv1oSvnpR6IP2s+Io1QYTGdHXy0NMgbjekXli18rWj5cr2y
+         J+Qrv83mCkOGJ6c/zcV86v3D9vYKWiA75nuYUxAnpHWBl+CXAU1kLhlhhXyOGAElAi2C
+         Y9ng==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:references:in-reply-to:message-id:subject:cc:to:from
-         :date:sender:dkim-signature;
-        bh=k8GU6UsThdau337Rcyr1CkGXswlt9sGX6GGpbTrdczU=;
-        b=0AJ+20rv+vrsM+ojBRLKT0Lr3O7wzNiBKWd1eW0BQIT9F0NeM/1nq5VDLu7HgUIymw
-         Dxy/HaWiCMNLKfvdXzOrwCjlirSrIno6X+U0SWis/1ZThdJ+5TSMm/kLROOHc0RedWu3
-         oTclGNMUNRzJ0aZLPZhnxnmcV+lbGQkv2KTDPmKK7xnB1djWQG4WQTaZd65Ie8iQw16X
-         2FJvbSkiyZqQ6ZGf6FZ0q16eLIVZVlP3f7D3u1B1T0O7Og06xzPKtI8gpeCBOERtp63b
-         p4d18DWaBRpop25RhrKac+qf3VaCym5frQgHlkIYuGWmyGE+yXL0ZXYi5z0U3UOqFTBt
-         xRNg==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=oAt95uGTwKtluqwO+pdwQggEGeNGaEyk/vAxCU7d0qs=;
+        b=otlM/iIajM7MaJ9UcxM8F5SaNAjE7lU9wAkpsJmP1fQErs1G1wm/qb+z4sUmKFY66S
+         C6r2ru13HcDh5Q7/5PsHD6gaAs50P9qSINci6AfKAVmr9NBRuwrJ7iBUOJ6GX1MKkZPg
+         sbzH58I26cdtWRoEYUAhmiu9+uNPO/eNYbHyIHQeKfkeeP4eMS8DoWbIin94P9tR1Sd3
+         GfHiGne00igtnfyflJxs42+hfidsjYATkwvLYfny1Q2RTre+AkgO5MROJeEZ9nBGc9S4
+         C3EDtLJa6IQ8gaBLkSqxFKMl/04I2WaSRwZT+1hQlzKp2BZ4KVkeCHrQDKY8z+Vpuetl
+         hitg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of jic23@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=jic23@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=O0zvkdiE;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=k8GU6UsThdau337Rcyr1CkGXswlt9sGX6GGpbTrdczU=;
-        b=oPgZRg8DkWNnoSQcg8UDig9eCauhb21xlvrDWn5QDuvs0A1dbXqIBj59FkdJUrEF4j
-         O0Faxcd4OTliMitxfKBiNYFT+AYTYmDTvCEoS/qrnulrGn0eZS7JOWTuncuIU6ctj4QA
-         O4XIsQF8bAhIQ3PC6ozh/npNA7Hxi+RCWRsbDakMas53Lgj4qA4JmpGbfNulIH0dAZll
-         eCfEYU1x1S3OHaD5x4McZZeDknG8HeNz5APcv76hY5L7A6wJuDZFTtH4fi3NjbzubB1L
-         HDF28+x+tAu6J38LDL81tujAxb0KBa2LUopxMDWC8rJs6b6wl6kGu7ehkaKt8Sqandqr
-         o8mQ==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=oAt95uGTwKtluqwO+pdwQggEGeNGaEyk/vAxCU7d0qs=;
+        b=fnrJzMAO4Z1wscTamrk2ZeOegAC6FDtHSUeyE+W38izTEq0oEf3b+4ycQ16J8KXu9a
+         tOtKrXciOyR7XAV0reV9HRUOrEdp7sN60V8NcImcaYV0GTCsbHTmqwmlODuOrIdz1T8V
+         AhTLdU6RSpuptIFSEvnYdR+hh3U3hPLAj2cv0WBiMCj035kmY2spM9aW4wGgNIDMJ2z+
+         rfICl3Zh+AqhpHAbsGb0pHmsY3PpIsWKkKhavfw1lY6/54Tr2VJVgz/nfJw40wziHGjU
+         OYmaw1nADb4FXMh0fL6iGo98gFeGe+ppJIXMcf6VXjjyQWiw6SVqva11ySVQMUyWb0pr
+         577w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:mime-version:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=k8GU6UsThdau337Rcyr1CkGXswlt9sGX6GGpbTrdczU=;
-        b=H1MUVMCGCgj3rX4tuNCcPo3sg8XcBfBbJY4Xy5p8LibVKXI9zms7SeRWtr2jKsoAbn
-         VFV669vNHxSNRcCwACRMI7iP7E+OqsfNE6y1S37a9YRATeLLYSpx5NCZc1v8JK1pdcMS
-         TdzO8GH3oYj/8OcuhqeIZ7H3i4+8wH5vV2mQptHh02vW0KCseEWliFV6AE9cctex5sdT
-         RMJOQvdmkYY07C9Kisin02kx3TkQV+UXQCzoV8iyLf/sPRLriyoJBQu8+PA/dxrkFLBX
-         Q3xUmLOLmlW9kuk2FMELdd49Jqlcd+5R9Z4SV6B6IK53ghK3ukn39k4rzf7cOF5DKefb
-         5YxA==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=oAt95uGTwKtluqwO+pdwQggEGeNGaEyk/vAxCU7d0qs=;
+        b=XO+fhkJ4mgOvHoqZmz/P12x9qXz8rz8ogM7nsnWVN5anfgm4pontYeNBSkeHr+NeCn
+         oCI/yvPWyDl7AiK25iJD/fI5UyOrX9fCCdmeTt4S0YoOipIVy0bBKpkJ13fuReTXYbtI
+         mhHo9xN1A47CKrJkdE6h21Yv63sStioSYhCefTfCoT3j4QjCYJgMPCPbmCPTiBaVbhUW
+         UPU1Tq2jTasQD/4Pe5k3C2FP+LGLPH+CzRfDCux7tTwn9rH/ke2VNLAshzOWmIKT9RDP
+         BqkMNbP9qRYgCY6AIl9KVgkuzMEVdwjR+JBh1f81pOiI53tGkx7kB6Q57WJYZbOjUWcZ
+         zyYA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531RjHh23F778U2c5NQpyD/5QAtTnmiQmDZh6ZbyMCa9h5OhTqFl
-	IyRtpl8OhjDrR+FrVpU2rQo=
-X-Google-Smtp-Source: ABdhPJwID5LebQqY1Hg5il6gXQUQ5HQGh4EnEIi+kymlsKhBDKdbj9uKda5f8hIHUsA+i4uR571qjg==
-X-Received: by 2002:aca:4d07:: with SMTP id a7mr8288727oib.106.1622741430243;
-        Thu, 03 Jun 2021 10:30:30 -0700 (PDT)
+X-Gm-Message-State: AOAM533ZjepLsN5AaSTjg9noJ4CbnHQiAtW1y0zBtPzklqZ/NsKUNiIm
+	QzKyrl7FLHeLgCuMVp7Phl8=
+X-Google-Smtp-Source: ABdhPJwvMlQKlxOT0EUfeKYLC3k+914RRCiBvNEJlh/FzsTkG7z/mgaW2joaDQGsFa/W/EHxnKnmNw==
+X-Received: by 2002:a62:7915:0:b029:2e9:c33e:e6be with SMTP id u21-20020a6279150000b02902e9c33ee6bemr188104pfc.18.1622741673243;
+        Thu, 03 Jun 2021 10:34:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:51c6:: with SMTP id d6ls913461oth.7.gmail; Thu, 03 Jun
- 2021 10:30:29 -0700 (PDT)
-X-Received: by 2002:a9d:6c47:: with SMTP id g7mr326480otq.67.1622741429888;
-        Thu, 03 Jun 2021 10:30:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622741429; cv=none;
+Received: by 2002:a17:90a:2848:: with SMTP id p8ls3777666pjf.0.canary-gmail;
+ Thu, 03 Jun 2021 10:34:32 -0700 (PDT)
+X-Received: by 2002:a17:90a:a106:: with SMTP id s6mr347049pjp.170.1622741672787;
+        Thu, 03 Jun 2021 10:34:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622741672; cv=none;
         d=google.com; s=arc-20160816;
-        b=ejH27PgMY1fgIBWiXuRvqiq9G6qsTVvPaYC9bIFfaWwmGWV+3340HDC5NQVZ1VsSTf
-         hI5O0214l7+whssgdPSKOCvBxzZTTXF6h5UFQzKhBxUpRKYFhWSCrb7CmIj1gJJsWvVl
-         xzgCX4DJm39HLSJCeVXi/r7bY0cuqdWys0VoCocEpb9I5ShEYgjI3HUPg7Xm9x+gkT5F
-         bOp9zHJX14+pL8eO46hybmzBo+5EXtE9nAW8ypTjoYXmk1IMwjeZdibD0Y+ZwVRaypG8
-         vtJuidkWYO4MA8zw+NkLCx8ny+i5iPeJatXp+wu5gMjeupnOKW7wZXC13dnpFMsnj3Hk
-         PLBA==
+        b=G5bYFmi2PU+3uO7Ec25WGFmXuFi36wxaxoZ6DEyMToSMoOWWx8iSQgaHyTEdbTrhJj
+         XBNGEif8+y17Hup95ZMD7WS1Z/9BQBqM518QJJMm4jvr4xz/X0FKT40Qu+o1ZX1DoV2Q
+         u6w56Fu0orAPgNYURdfnvQbngn3d4YwWNFZrd4V07Rpz/cVmOKgBnT4r7XMNe3GRM2wY
+         i1futFNl+dO5HAKsDDkpQZh+LEJm9TgMnF4qKCKgHqKipsbZB1ujih0dI05Vrcg5e3Ic
+         8ecM6Jflc++si1etpFQuzEfgZHA/uIZhHzUvRM0lNSFs6gfYdm4ocJEJLCRmC7MOEjnv
+         dY4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date;
-        bh=RHRlqU2sN8mAVYqWf7YvHVH7LP9LmztMnaPwXaI5vMY=;
-        b=OTeTFKHT4t16uPpGpuEArUqK7LMXi6WC3UWWJ1Q9g0hU5O+JbCvrH0D74iy06xxr66
-         colY2QzH/5AHDsLfyFMaoKp7wSaZmFS5+xq53JvxbQn0KGIbD5x1MBqoJqM+xQH4YlXM
-         0QJqUZbTr09y0KFZE5bIQKaLoNqLjVf7ORBGBcB6Oeyq1Iy+w7AIrGhdlEYNUx9qK/HG
-         bQlrXepgpDP/nrgGh6qUgBDSuiX7n/Nd36UC8UAeH6JmqH5BWtRQMoZSDCYftcZOqWHe
-         IS5Ix9wCWstqP7GY2piAgTMvS6LE35y7jomKjolmSJ6O9YZAzBCWUMuUzp/0+DebEGt5
-         AQ8w==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=9iI2u4zLx2PrgxUifpKo5pdKQYHV1Wz5V4RXAWrbCr0=;
+        b=MsV85ypyozbo/PePlyj7mIXeuoQoSUBgKaXMExFRMgicGd6ebV6MP4R5pf1kxn9bqR
+         69M9FmvebTKCBgmZ34FJcxWzv8fKnBncyTOO/qGiAUAsYXdf8pElclUJEtyKS5okWBgb
+         Vy+5LEPVO2W4oZrMl8ZOTloXCd/ONhFRi+dPNXlUMQHEX0j0Qe4RGYbDaTGyfQQr6v5l
+         yh/8kwRVA3ox7/Ve5byf23US6fdnhE97cOrpNIOslYnlysEYweLXvyOd/WHhNlikT73t
+         PPNAZ69PpZi+Wf/0wQOgUhh7ZNGpTYt272m2+WbSigYVwVC+K7GbKMT3jCyIzGjj6lgH
+         HUEw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of jic23@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=jic23@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=O0zvkdiE;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c9si391639ots.4.2021.06.03.10.30.29
+        by gmr-mx.google.com with ESMTPS id f3si293221pjs.3.2021.06.03.10.34.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 03 Jun 2021 10:30:29 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jic23@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from jic23-huawei (cpc108967-cmbg20-2-0-cust86.5-4.cable.virginm.net [81.101.6.87])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id C47106108E;
-	Thu,  3 Jun 2021 17:30:24 +0000 (UTC)
-Date: Thu, 3 Jun 2021 18:32:06 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Joe Perches <joe@perches.com>, Nathan Chancellor <nathan@kernel.org>,
- Arnd Bergmann <arnd@kernel.org>, Nick Desaulniers
- <ndesaulniers@google.com>, Maxime =?UTF-8?B?Um91c3Npbi1Cw6lsYW5nZXI=?=    
-     <maxime.roussinbelanger@gmail.com>, Jean-Francois Dagenais
- <jeff.dagenais@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Lars-Peter
- Clausen <lars@metafoo.de>, Alexandru Ardelean
- <alexandru.ardelean@analog.com>, "linux-iio@vger.kernel.org"
- <linux-iio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "clang-built-linux@googlegroups.com\"     
-    <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH] iio: si1133: fix format string warnings
-Message-ID: <20210603183207.4f76ecf3@jic23-huawei>
-In-Reply-To: <CAHp75Vf2ZO-5XEQtzdN2ABLLC3KLDmQxGps2uD1z06Rs7L2z=w@mail.gmail.com>
-References: <20210514135927.2926482-1-arnd@kernel.org>
-	<7afc367b-8103-9d48-1bfe-d505d86553b9@kernel.org>
-	<20210516103628.2cf899a0@jic23-huawei>
-	<644a711e4d2639a23bfc50dffa180ad184a4acb1.camel@perches.com>
-	<CAHp75Vc72vMbj311P3xnxh6ExxzD1=enoETj6wY8dHn+xBJ4+w@mail.gmail.com>
-	<fc3afc8e74ee9eda0b4eaff9a4d9ad32f1c461c4.camel@perches.com>
-	<CAHp75VeQdFoJrPhXU2fYdrhLUwvM4NEoPn=Z4WBPkhOa4xK+ig@mail.gmail.com>
-	<cfdbe504c7ed3964bef22c551f0c78c048ce3d2d.camel@perches.com>
-	<CAHp75Vf2ZO-5XEQtzdN2ABLLC3KLDmQxGps2uD1z06Rs7L2z=w@mail.gmail.com>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+        Thu, 03 Jun 2021 10:34:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 9D983613D2;
+	Thu,  3 Jun 2021 17:34:30 +0000 (UTC)
+From: Nathan Chancellor <nathan@kernel.org>
+To: Subash Abhinov Kasiviswanathan <subashab@codeaurora.org>,
+	Sean Tranchetti <stranche@codeaurora.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Sharath Chandra Vurukala <sharathv@codeaurora.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH net-next] net: ethernet: rmnet: Restructure if checks to avoid uninitialized warning
+Date: Thu,  3 Jun 2021 10:34:10 -0700
+Message-Id: <20210603173410.310362-1-nathan@kernel.org>
+X-Mailer: git-send-email 2.32.0.rc3
 MIME-Version: 1.0
+X-Patchwork-Bot: notify
+X-Original-Sender: nathan@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=k20201202 header.b=O0zvkdiE;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: jic23@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of jic23@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=jic23@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,62 +132,87 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, 29 May 2021 10:52:44 +0300
-Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+Clang warns that proto in rmnet_map_v5_checksum_uplink_packet() might be
+used uninitialized:
 
-> On Sat, May 29, 2021 at 12:35 AM Joe Perches <joe@perches.com> wrote:
-> > On Sat, 2021-05-29 at 00:16 +0300, Andy Shevchenko wrote: =20
-> > > On Saturday, May 29, 2021, Joe Perches <joe@perches.com> wrote: =20
->=20
-> ...
->=20
-> > > > > > Likely these should be 0x%02x =20
-> > > > >
-> > > > > What=E2=80=99s the difference (except printing 0)? =20
-> > > >
-> > > > (assuming the argument is unsigned char/u8)
-> > > >
-> > > > %#02x will always emit more than the specified length (3 or 4 chars=
-)
-> > > > values < 16 are 0x<hexdigit>, values >=3D 16 are 0x<hexdigit><hexdi=
-git> =20
-> > >
-> > > 0 will be 0, btw. =20
-> >
-> > Hey Andy.  Right.
-> > =20
-> > > > 0x%02x will always emit 4 chars =20
-> > >
-> > > *Minimum* or at least 4 characters. There is an upper limit of sizeof=
-(int)
-> > > * 2 + 2. =20
-> >
-> > I did write assuming the argument is unsigned char/u8.
-> > For the general unsigned int arg case, you are of course correct. =20
->=20
-> Signed char also.  Basically for all signed types and unsigned int cases.
->=20
-This was near enough the top of my tree, I decided to rebase and pull it ou=
-t.
-Will amend as Joe suggested.
+drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c:283:14: warning:
+variable 'proto' is used uninitialized whenever 'if' condition is false
+[-Wsometimes-uninitialized]
+                } else if (skb->protocol == htons(ETH_P_IPV6)) {
+                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c:295:36: note:
+uninitialized use occurs here
+                check = rmnet_map_get_csum_field(proto, trans);
+                                                 ^~~~~
+drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c:283:10: note:
+remove the 'if' if its condition is always true
+                } else if (skb->protocol == htons(ETH_P_IPV6)) {
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c:270:11: note:
+initialize the variable 'proto' to silence this warning
+                u8 proto;
+                        ^
+                         = '\0'
+1 warning generated.
 
-I considered %#04x but that looses readability.
+This is technically a false positive because there is an if statement
+above this one that checks skb->protocol for not being either
+ETH_P_IP{,V6}. However, it is more obvious to sink that into the if
+statement as an else branch, which makes the code clearer and fixes the
+warning.
 
-I'll send this along with 3 patches from my recent series that have the
-same 'problem'.
+At the same time, move the "IS_ENABLED(CONFIG_IPV6)" into the else if
+condition so that the else branch of the preprocessor conditional can
+be shared, since there is no build failure with CONFIG_IPV6 disabled.
 
-Nathan, given it's not a totally trivial change, I'll drop your tags.
+Fixes: b6e5d27e32ef ("net: ethernet: rmnet: Add support for MAPv5 egress packets")
+Link: https://github.com/ClangBuiltLinux/linux/issues/1390
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ .../net/ethernet/qualcomm/rmnet/rmnet_map_data.c    | 13 +++----------
+ 1 file changed, 3 insertions(+), 10 deletions(-)
 
-Thanks,
+diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c b/drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c
+index 6492ec5bdec4..cecf72be5102 100644
+--- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c
++++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c
+@@ -269,27 +269,20 @@ static void rmnet_map_v5_checksum_uplink_packet(struct sk_buff *skb,
+ 		void *trans;
+ 		u8 proto;
+ 
+-		if (skb->protocol != htons(ETH_P_IP) &&
+-		    skb->protocol != htons(ETH_P_IPV6)) {
+-			priv->stats.csum_err_invalid_ip_version++;
+-			goto sw_csum;
+-		}
+-
+ 		if (skb->protocol == htons(ETH_P_IP)) {
+ 			u16 ip_len = ((struct iphdr *)iph)->ihl * 4;
+ 
+ 			proto = ((struct iphdr *)iph)->protocol;
+ 			trans = iph + ip_len;
+-		} else if (skb->protocol == htons(ETH_P_IPV6)) {
+-#if IS_ENABLED(CONFIG_IPV6)
++		} else if (IS_ENABLED(CONFIG_IPV6) &&
++			   skb->protocol == htons(ETH_P_IPV6)) {
+ 			u16 ip_len = sizeof(struct ipv6hdr);
+ 
+ 			proto = ((struct ipv6hdr *)iph)->nexthdr;
+ 			trans = iph + ip_len;
+-#else
++		} else {
+ 			priv->stats.csum_err_invalid_ip_version++;
+ 			goto sw_csum;
+-#endif /* CONFIG_IPV6 */
+ 		}
+ 
+ 		check = rmnet_map_get_csum_field(proto, trans);
 
-Jonathan
+base-commit: 270d47dc1fc4756a0158778084a236bc83c156d2
+-- 
+2.32.0.rc3
 
-
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20210603183207.4f76ecf3%40jic23-huawei.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210603173410.310362-1-nathan%40kernel.org.
