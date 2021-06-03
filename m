@@ -1,129 +1,137 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBB5N34GCQMGQEJWQRDOY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBCF74GCQMGQE2Q72GWY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
-	by mail.lfdr.de (Postfix) with ESMTPS id B8D6D399945
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Jun 2021 06:43:34 +0200 (CEST)
-Received: by mail-pl1-x639.google.com with SMTP id o9-20020a1709026b09b0290102b8314d05sf2108170plk.8
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Jun 2021 21:43:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622695413; cv=pass;
+Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id 07F38399955
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Jun 2021 06:50:18 +0200 (CEST)
+Received: by mail-pg1-x537.google.com with SMTP id s14-20020a63450e0000b029021f631b8861sf3200528pga.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Jun 2021 21:50:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622695816; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zQtJs0Q027n455es7EeIg8NKCqwghRLpn9EnQrjhXgt7nKfnninWqnziTr+Un4JHDN
-         WJ4TD//unwQKUI2yNvjsZ6cPlmpWwd/dfmYsFb2Ai8Zv46HURjByQcC1HaSveQbqrNxB
-         thhqnZExR/iPS43Yzp09c9w15Z9UXs876SdsCtW1BJNS8/JNcyxpLIsooMhWrDYOmK/M
-         CQRp+lJV8tfwESGYyzD13es0CYwe09trP/NAx/E/zzaf3JRks9tWyAsf8spbLMk+gD3Z
-         lYg9Z33LMT/2tJxK7YAL0KCdYDak/2y5c0qw71lo3aGV2U1FdOnmeyWNgylH+KUMrNEy
-         XpDg==
+        b=s2sTB05Vp1a5dib2quzMDqteOC5klwVR/Jr2g0ldtPA01cuelo61mP2q9euFkKti9c
+         tDpP2+96JzwgbUKG2R4ulDG6JiVigR42Isc8KQlHuk7UrJEl8235h6WT+Aywg2cWLLmP
+         Fz5PXvfdgvUJJZieUKhHKmrKTmvjAV/SIqc+AlPDcMh6ZMTdaUtnIKmISZ1nNIpVIe1M
+         evWxmdE0AGxsNXa4jvtHWDr1ERTYqd1uOFpIykB4qtt2NeW7+xWjkl2ngRMdcdHkSE1T
+         nDvdSqSP48z1bwDatrTAdE1rGosOE/ED0TxBpJwsj1+75oWDc4t8CDoxFFOPVselVq8Q
+         jTJg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:date:from:mime-version:in-reply-to
+         :subject:to:message-id:content-transfer-encoding:sender
          :dkim-signature;
-        bh=5uB3OslbivSll6r8a28WzqE2WBCC6nnE0eNdUvh7/aY=;
-        b=nBGzhBnRY7TZ7q6H+qRYa0M5YM0MzyJ5+a8Xx8yFqN2vT71LJJA4zo+6puMDERGgZf
-         J1QTZYPc6QvvcENFaRDoeC/XAj6z2fPpFHkaWowCxPmi/bUot2AJkGyj3X+R1A1yx2Sj
-         i8qetKNA3tF21vdPeiOLorydbGtlMQuSO0Pm3cBMctbXyX3zFialbI+TdEfHVU7b4zmt
-         dbZSHEn5QDOQuICBMFJ4B+dkivCIxCPtUhB5C83V5gImmgA+OUJASANrcC+ILvN8HzI1
-         lWIJrpg6GNWVgCxmO31X1YPoGV/HASy3eEE5xITR0+bCB0nFL2f3s7dh2u9j9SBUIFT6
-         zHgA==
+        bh=m2h5aUnwXojFy6gVagiC2fiuZm10crQTzpj4DAlV8zs=;
+        b=oPhtfc8veKyClTMZYbfJ8nRBMdYI2qMTmWVb1K7R0K1V/9zF67kfFt7GgEZ5xk+JXT
+         rdKhi1zxbQuSVRi8ctgpqz/GTTQUpy2BAn9h1lxetdTCTSjFSdg3Jgih4WyeQn9FeWSz
+         gJgpO+O0U9PzaEiNKMzylCjimt8cUeic+UCOb+uHBASnRzjsYWLdHY2JJHe2vMvjwqHt
+         IEjlJQTE9dFGj9rJt6/Yaxjaxs6/kvzXFclLFJGJQdN+EgdNkAody5rZkiu5W2p5c4oB
+         Jdji1vFT4NWKg4CrQLyEebhV4b6eLMa31+PitWhZmzQBJyzDe3M9m9JCZ3y/CIrG3PdJ
+         sPxA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="AH/gyS9T";
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       spf=pass (google.com: domain of wanjiabing@vivo.com designates 59.111.176.41 as permitted sender) smtp.mailfrom=wanjiabing@vivo.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vivo.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:content-transfer-encoding:message-id:to:subject:in-reply-to
+         :mime-version:from:date:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5uB3OslbivSll6r8a28WzqE2WBCC6nnE0eNdUvh7/aY=;
-        b=eKaUrvfniexJIJgWhLNjIrNQhMNkrFx1I2gzdDFasTFCrbkkCSYsC/fRMejb5LVb+R
-         Mi14Vsr1FbhegJTsDhICqYL66+erkAN9T133vycjboussn0FhNuQI2L44dvovY6dzJHt
-         7shKgRxcblTdtljLAht3RIU9xq3mqH5L79j0LSWhL1DRqx9T4lp+9f8FlNA0jLRnWSGp
-         dhxoqPN7vaTE4nsuUSo0xH/m70v+ItwBrDikJUlT8mNllwfrcLx5aEDAhen+vFK35C74
-         /UoTzLsOHstNy4+/Ncbp/WvQow78cEyD+J47ERk9IPmq1i6nj0MTpIaBsZCpW7WPNEjM
-         3JsA==
+        bh=m2h5aUnwXojFy6gVagiC2fiuZm10crQTzpj4DAlV8zs=;
+        b=WJpJimmatlat4NrlggwHNsq0ZEl9RCI8c3I9CC9iL121JzLliEhtKWqleiY2+uLHJ7
+         NJso2GuLIEtcq06kgdzLR0YPKYn5Q5n3tZwO0bnyC+2DrEv1LXzZ43T8v6X5GTBajyJx
+         LHqvrihqdPqVZK/C8eXXre6htKdaDf5MhKFMlB6a3MmZQiCl46lcnwRjQYuXt9ccMSn8
+         2AIcpHzIpuZXLS42KwwJUetT9uqJtVq3Tn1JWbMz5prpBKipJjL17c+UaHecLbauNaF5
+         yTjHxgp441+KlcVs/QQZJAS7v2m6SXc7JHGLyq8CpHQBdXzDQKeL4X+uyMBOn32qhC+M
+         uAuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=5uB3OslbivSll6r8a28WzqE2WBCC6nnE0eNdUvh7/aY=;
-        b=O9jv3dhlx0h+Yz+Mj7y6hqiJ+W8+c1ob7lbBN4vR6zaluGXst0lLDq6qfNXhKr85UM
-         XhS9u56oiNDhJz24oPbnTzLXWADavHGAu1FMR4WfjpZ6g8snhSktb8gDPgR7fAhbN5Gr
-         zJ3kb0xrtaR7BtP9wbWuqWkgwOMnvU0/nCLm9BwIPQrEyXRValZzHeG1JrXmsycOPT31
-         LO42vAgLOXL+cBlYFnP3za00iOWvjDV06e9UhI6ZcC2JrPZ08oteAe5NOSE1bu8Ii1/S
-         lElTFP/I3lOBNuBVYnjMoIM2aZr2xdvzBSa+JWgOhiU4Kzw5yya1yHnZu2hAIw2QugHC
-         pJBw==
+        h=sender:x-gm-message-state:content-transfer-encoding:message-id:to
+         :subject:in-reply-to:mime-version:from:date:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=m2h5aUnwXojFy6gVagiC2fiuZm10crQTzpj4DAlV8zs=;
+        b=p/0imzWFaPsC7gVgdHzoC4/Mcm/SPLhb8Pc7ssL2yiFtAelLUMoKX6yxhWG25TdTrc
+         2n6Us2anYSzgpyiOpT/z5t5hFtXugtKMfdQHe5h3TTjuZKN3cx8aXET6Ip9ypHFxarop
+         bZRDVFBAFlPJdmsP6r5ZgJsC9YndcdWR9gRqaJJNqN7mYV3jRKAoojEo1fb0mJSlIwJo
+         5mbXEVJkOif4Pr0RIO9TU3C9ixQLpsaS2l3a8RrCmGn1J3i4WQ5MlFl4bbPIzuLmS6aY
+         SEYU1FasU3FVsNwaUJSnnN4RAI7/qkchpJFdDRxPBHs0klYECuLM78p7i5dpm1RnbPGE
+         nQ5w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530nKY/Sp7ZpNAxSEiDjoftViJw9WG7rppeyNYz5O6o4XeIrQo9j
-	spEN3MnYbRyc6M3qNB6hJNA=
-X-Google-Smtp-Source: ABdhPJxSgdWi6jSUB009W1C2grcjXPNYG2QyJeyyzyyJ/o54/mdjfdfJkEHOH7Z8ttoH+GB41VltNw==
-X-Received: by 2002:a63:e114:: with SMTP id z20mr37640967pgh.207.1622695413224;
-        Wed, 02 Jun 2021 21:43:33 -0700 (PDT)
+X-Gm-Message-State: AOAM531rFAdI4SDVdhOsFRMPVmUp+wCS5jdzZgEcyxaojYzoMtDY1rlO
+	w26gU0njBLVBss0QYFEcj+w=
+X-Google-Smtp-Source: ABdhPJy1tEArUEDT6MT8JJEPHb3ZrepOnXEV2nSMYvNXMa2b/mTOZ1gX3VSUlr2o9m7S8/+KxCoUKQ==
+X-Received: by 2002:a17:90a:de09:: with SMTP id m9mr33327549pjv.41.1622695816314;
+        Wed, 02 Jun 2021 21:50:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:764d:: with SMTP id r74ls607561pfc.6.gmail; Wed, 02 Jun
- 2021 21:43:32 -0700 (PDT)
-X-Received: by 2002:a63:540d:: with SMTP id i13mr8012567pgb.360.1622695412489;
-        Wed, 02 Jun 2021 21:43:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622695412; cv=none;
+Received: by 2002:a62:1dd4:: with SMTP id d203ls1019195pfd.2.gmail; Wed, 02
+ Jun 2021 21:50:15 -0700 (PDT)
+X-Received: by 2002:a63:1c52:: with SMTP id c18mr37999761pgm.258.1622695815851;
+        Wed, 02 Jun 2021 21:50:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622695815; cv=none;
         d=google.com; s=arc-20160816;
-        b=DvcIlDL7JqwszzPtf6cEuSSnKTt3NQju/9SYVqEYgQAI9zDIU1QjYg48wOhqOrs1R+
-         dylEt1gOnWFARvXrfGBV/0mZZ1+7PRYf/Utpr+ga8lJUt1nuxNg9BaQCB7quJi9Lsv38
-         G2w/mEmT3XqD6oyhGtkCy/Tf/GosA2oHlpnLPKLborRvl2LkeViF1gsCL/GxQYVA26n4
-         yjQXdy8Jr5Qa+Gd5wEBLzbbhOJQj6ekn6TcZYb2YEumzSa6Ta1iHFParh85uToHx4LOo
-         Gb5nZsDJ31DiLBbMpkGCRNpdnFxV/+pcN/vXjWyC8w9iLKmmP3YY5xkPOc+3Y/3nYTEN
-         oTrw==
+        b=EJ1MWHOJD3lglLgSNIWYmNMNo7X8KgPuw6h+87Eizfn7F6+c9e0tOk9tyFlJhBsE8a
+         zYqn/mM6ecdOMLIaEvmVIiE75aJrQayRdJdGUiuvZ4HY0g0nqMZtzKeDXHVxDemJELmV
+         BsRHUpIuk3kcCAlQZbMNctfdUX2RZqvQ9N/HwNP9W4zvxZYiKZI+Ji/MgF1DCgcL5jaD
+         9xyOfE9E703+1flPWFI+xCrNxDr8/znL+FtKBzTztx4NuIaXuucDsDjeC50g9K68fOhV
+         w8NpVP8XueBr55eMnc2rsotgw51fXoqNa59EgzFDIyhU6AUVXBsXJJ2UqbQrP1Dhy4EA
+         qJHQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=CUmamgVPWC8t/6q/thxwT1RMwcukOkFztCjOcqqsVho=;
-        b=Oq137gL68VS4cIR1U7N3aovoS4ccwVz37+1XgfCaeW95CqG3bpqI/K215SJgW0s01v
-         QeI+Q505gNhvDIMYPjGE0qIJi2mbRcE3oXQt+EVVqj7AR2Uz17fXT3PAr/73djQRGx0L
-         q74ZFRt4U2UNP15JsEKmuDjyIwzNDRFusv/mhrZfRofmvWgoHgXr7AXPgYkDSBfmMto+
-         uJwFPTatpLdzy86nncVJW9tFczAt81zGicLLX8AnEnL8HzQnnjLcnFGGcWXvUdPZy6g6
-         GiWYQwSOe65h+vansQtF1Xlabp7Z8VqD/XkElsqmNuP2mCN+FJdeeI8RAXwQ/OMIH8Yg
-         gczw==
+        h=date:from:mime-version:in-reply-to:subject:to:message-id
+         :content-transfer-encoding;
+        bh=/qgce8GfTRMncwigbX+ocpuFR6i6+4/2SZce1Wsi8Hs=;
+        b=G66pX/qYWawZW3DHjrhpdLgL9IEK7KOfhc3S60XYtLrzJ5i08nOThJnEMGNx8A2Ya1
+         Q5wYH7FN3xXa6e1LLEp2g557CgBxQfwkl/sY8Elao3zsHqC1jmfhAtyrK7X6l8F4AEXV
+         Ddh29i8geBGaaSHPfdJGo7uQldZAATZGbQLbuTvxaUclE6RuaiyFZbg0/SUC3WB2mtke
+         oAlMKHhJUROPL13L7o9XaoVbP+KlqBptvE++iVR3wmcfTpFvhYizM+vILn4Yzh5yqGTD
+         3gEPwig/C5kYd2878dUfK/pM7CG65mCxTgWU0DZDA2m/tmQj2JDjBFcRJsqRcrnQuZeO
+         RHOw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="AH/gyS9T";
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id i10si292600pgn.2.2021.06.02.21.43.32
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 02 Jun 2021 21:43:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 46328613BA;
-	Thu,  3 Jun 2021 04:43:31 +0000 (UTC)
-Date: Thu, 3 Jun 2021 06:43:28 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Kurt Manucredo <fuzzybritches0@gmail.com>
-Cc: syzbot+bed360704c521841c85d@syzkaller.appspotmail.com,
-	andrii@kernel.org, ast@kernel.org, bpf@vger.kernel.org,
-	daniel@iogearbox.net, davem@davemloft.net, hawk@kernel.org,
-	john.fastabend@gmail.com, kafai@fb.com, kpsingh@kernel.org,
-	kuba@kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, songliubraving@fb.com,
-	syzkaller-bugs@googlegroups.com, yhs@fb.com, nathan@kernel.org,
-	ndesaulniers@google.com, clang-built-linux@googlegroups.com,
-	linux-kernel-mentees@lists.linuxfoundation.org,
-	skhan@linuxfoundation.org
-Subject: Re: [PATCH v3] bpf: core: fix shift-out-of-bounds in ___bpf_prog_run
-Message-ID: <YLhd8BL3HGItbXmx@kroah.com>
-References: <000000000000c2987605be907e41@google.com>
- <20210602212726.7-1-fuzzybritches0@gmail.com>
-MIME-Version: 1.0
+       spf=pass (google.com: domain of wanjiabing@vivo.com designates 59.111.176.41 as permitted sender) smtp.mailfrom=wanjiabing@vivo.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=vivo.com
+Received: from mail-m17641.qiye.163.com (mail-m17641.qiye.163.com. [59.111.176.41])
+        by gmr-mx.google.com with ESMTPS id mm4si154953pjb.2.2021.06.02.21.50.15
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Wed, 02 Jun 2021 21:50:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of wanjiabing@vivo.com designates 59.111.176.41 as permitted sender) client-ip=59.111.176.41;
+Received: from vivo.com (localhost [127.0.0.1])
+	by mail-m17641.qiye.163.com (Hmail) with ESMTP id C5B696012C;
+	Thu,  3 Jun 2021 12:50:12 +0800 (CST)
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210602212726.7-1-fuzzybritches0@gmail.com>
-X-Original-Sender: gregkh@linuxfoundation.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b="AH/gyS9T";
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates
- 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <ACYAbADLDo5nvv4af7zOLqqA.3.1622695812793.Hmail.wanjiabing@vivo.com>
+To: Alex Shi <seakeel@gmail.com>, Alex Shi <alexs@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, 
+	Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, 
+	Wu XiangCheng <bobwxc@email.cn>, Fangrui Song <maskray@google.com>, 
+	Bernard Zhao <bernard@vivo.com>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	clang-built-linux@googlegroups.com
+Subject: =?UTF-8?B?UmU6UmU6IFtQQVRDSF0gW3YyXSBkb2NzL3poX0NOOiBhZGQgdHJhbnNsYXRpb25zIGluIHpoX0NOL2Rldi10b29scy9rYXNhbg==?=
+X-Priority: 3
+X-Mailer: HMail Webmail Server V2.0 Copyright (c) 2016-163.com
+X-Originating-IP: 58.213.83.158
+In-Reply-To: <69008e54-003a-eeb5-75f8-96e03f37d2df@gmail.com>
+MIME-Version: 1.0
+Received: from wanjiabing@vivo.com( [58.213.83.158) ] by ajax-webmail ( [127.0.0.1] ) ; Thu, 3 Jun 2021 12:50:12 +0800 (GMT+08:00)
+From: Jiabing Wan <wanjiabing@vivo.com>
+Date: Thu, 3 Jun 2021 12:50:12 +0800 (GMT+08:00)
+X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgYFAkeWUFZS1VLWVdZKFlBSE83V1ktWUFJV1kPCR
+	oVCBIfWUFZQh1IHlYYSE9PHRlKTRlPTRhVEwETFhoSFyQUDg9ZV1kWGg8SFR0UWUFZT0tIVUpKS0
+	hKQ1VLWQY+
+X-HM-Sender-Digest: e1kJHlYWEh9ZQU1PS0lLTkJJT01MN1dZDB4ZWUEPCQ4eV1kSHx4VD1lB
+	WUc6OCI6GTo*Nz8UThUNDU8aHUwBNDcKCjpVSFVKTUlJTUJOQ0pISUlDVTMWGhIXVQwaFRESGhkS
+	FRw7DRINFFUYFBZFWVdZEgtZQVlOQ1VJSkhVQ0hVSk5DWVdZCAFZQU9DTkw3Bg++
+X-HM-Tid: 0a79d0351ed6d997kuwsc5b696012c
+X-Original-Sender: wanjiabing@vivo.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of wanjiabing@vivo.com designates 59.111.176.41 as
+ permitted sender) smtp.mailfrom=wanjiabing@vivo.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=vivo.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,19 +144,77 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jun 02, 2021 at 09:27:26PM +0000, Kurt Manucredo wrote:
-> UBSAN: shift-out-of-bounds in kernel/bpf/core.c:1414:2
-> shift exponent 248 is too large for 32-bit type 'unsigned int'
+=20
+> Re: [PATCH] [v2] docs/zh_CN: add translations in zh_CN/dev-tools/kasan>>H=
+i Jiabing,
+>
+>Thanks for translation! The contents are generally fine.=20
+>I tried the patch with scripts/checkpatch.pl found there are lots errors
 
-I'm sorry, but I still do not understand what this changelog text means.
+Hi,Alex,
 
-Please be very descriptive about what you are doing and why you are
-doing it.  All that is here is a message from a random tool :(
+Oh, that is strange.
 
-thanks,
-greg k-h
+In my ubuntu server, I ran scripts/checkpatch.pl and got:
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YLhd8BL3HGItbXmx%40kroah.com.
+When Documentation/translations/zh_CN/dev-tools/kasan.rst
+"total: 0 errors, 0 warnings, 431 lines checked"
+
+When 0001-v2-docs-zh_CN-add-translations-in-zh_CN-dev-tools-ka.patch.
+"WARNING: added, moved or deleted file(s), does MAINTAINERS need updating?
+#41:=20
+new file mode 100644
+total: 0 errors, 1 warnings, 445 lines checked"
+
+No errors and just one warning.
+So I think there was a problem with your platform or downloading?
+
+If there were no problem, I would check my email client again ;)
+
+>---
+>...
+>ERROR: DOS line endings
+>#552: FILE: Documentation/translations/zh_CN/dev-tools/kasan.rst:430:
+>+^M$
+>
+>ERROR: trailing whitespace
+>#553: FILE: Documentation/translations/zh_CN/dev-tools/kasan.rst:431:
+>+.. _KUnit: https://www.kernel.org/doc/html/latest/dev-tools/kunit/index.h=
+tml^M$
+>
+>total: 432 errors, 1 warnings, 445 lines checked
+>---
+>
+>and the lines in the patch are not aligned on 80 chars, (40 chars for Chin=
+ese,
+>since one Chinese char could take 2 positions. )
+>Thanks
+>Alex
+
+OK, great tips for me.
+I'll fix them in v3.
+
+Thanks,
+Jiabing
+
+>
+>On 2021/6/2 =E4=B8=8B=E5=8D=888:56, Wan Jiabing wrote:
+>> Add new zh translations
+>> * zh_CN/dev-tools/kasan.rst
+>> and link it to zh_CN/dev-tools/index.rst
+>>=20
+>> Signed-off-by: Wan Jiabing <wanjiabing@vivo.com>
+>> ---
+>> Changelog:
+>> v2:
+>> - Delete spaces surround with English words.
+>> ---
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/ACYAbADLDo5nvv4af7zOLqqA.3.1622695812793.Hmail.wanjiabing=
+%40vivo.com.
