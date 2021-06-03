@@ -1,139 +1,129 @@
-Return-Path: <clang-built-linux+bncBDA63QVIYMOBBKVQ4GCQMGQEXXPFW3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBB5N34GCQMGQEJWQRDOY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id EF4E93998EE
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Jun 2021 06:18:51 +0200 (CEST)
-Received: by mail-il1-x13f.google.com with SMTP id s5-20020a056e021a05b02901e07d489107sf3226034ild.3
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Jun 2021 21:18:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622693931; cv=pass;
+Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
+	by mail.lfdr.de (Postfix) with ESMTPS id B8D6D399945
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Jun 2021 06:43:34 +0200 (CEST)
+Received: by mail-pl1-x639.google.com with SMTP id o9-20020a1709026b09b0290102b8314d05sf2108170plk.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Jun 2021 21:43:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622695413; cv=pass;
         d=google.com; s=arc-20160816;
-        b=J8KP8rplt0syt5P0ypoBzUFKnIRoHonn/QqGXnZNsujj0G5lb7ghV0n4JlAgPzfbeg
-         aecXPQ+PTSkaF4DCw6AYch3AJPeF6YLVdjZBNf15bWw40TjvqhgmVk9dA0u2zll3atAb
-         OnJdkYj2yjYbgjJdo5cDMpNoasQfbyQMoPBl6EAjzyLbkFz1ZzKtAAUFSbEIGnaBJGWP
-         5aTkmNgTZQ/LLBXmLUbYO0q+GI9AMRH3VU/wgslGIGQBhygP9hgWKOaMiDqqYbaUQgvs
-         yUN+HIj3YBsSfsZRtiG0SOh1YBkPTZwUZGqKzs9VS8HsrpJMlhf4ZU1vPdFc2RJri/Tn
-         OudA==
+        b=zQtJs0Q027n455es7EeIg8NKCqwghRLpn9EnQrjhXgt7nKfnninWqnziTr+Un4JHDN
+         WJ4TD//unwQKUI2yNvjsZ6cPlmpWwd/dfmYsFb2Ai8Zv46HURjByQcC1HaSveQbqrNxB
+         thhqnZExR/iPS43Yzp09c9w15Z9UXs876SdsCtW1BJNS8/JNcyxpLIsooMhWrDYOmK/M
+         CQRp+lJV8tfwESGYyzD13es0CYwe09trP/NAx/E/zzaf3JRks9tWyAsf8spbLMk+gD3Z
+         lYg9Z33LMT/2tJxK7YAL0KCdYDak/2y5c0qw71lo3aGV2U1FdOnmeyWNgylH+KUMrNEy
+         XpDg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=8PqUGMiJy5bHMt3mEk5FN4MHvlYNMG/xWOPNNxMcOEo=;
-        b=aysvDOyKNdREfAPBjEoo6oPnmkwOkzWxxntrmcsKpJXpibUpTBtAW8zjnzJK992iUT
-         IELXD0zhcNRpc+EmTe/OiyajTzGgFTQZrFstq9hKsAY2C4gK0DIaVCROBdo9pGjb7E8x
-         dghYFHxCDxWQidz5PGLYBpwPkMYRcuJ1cHHPFjp5NLlQYQFpMxAHOtr1eycqNZQHJzGK
-         rl9kEdfVc+0zVjCobC7yEV60eNi6XKLhglBNduq8NgZ+FmSkPA+cy2b0RZGmoRNeOdr3
-         9TSnj27mqyqV8dIWtFHTEDnSl7mgoBXuYEy34iRljAxlx6FnUmA0UtA414BaB7fiZGiI
-         vvNg==
+        bh=5uB3OslbivSll6r8a28WzqE2WBCC6nnE0eNdUvh7/aY=;
+        b=nBGzhBnRY7TZ7q6H+qRYa0M5YM0MzyJ5+a8Xx8yFqN2vT71LJJA4zo+6puMDERGgZf
+         J1QTZYPc6QvvcENFaRDoeC/XAj6z2fPpFHkaWowCxPmi/bUot2AJkGyj3X+R1A1yx2Sj
+         i8qetKNA3tF21vdPeiOLorydbGtlMQuSO0Pm3cBMctbXyX3zFialbI+TdEfHVU7b4zmt
+         dbZSHEn5QDOQuICBMFJ4B+dkivCIxCPtUhB5C83V5gImmgA+OUJASANrcC+ILvN8HzI1
+         lWIJrpg6GNWVgCxmO31X1YPoGV/HASy3eEE5xITR0+bCB0nFL2f3s7dh2u9j9SBUIFT6
+         zHgA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=HhwAkONV;
-       spf=pass (google.com: domain of sergio.paracuellos@gmail.com designates 2607:f8b0:4864:20::233 as permitted sender) smtp.mailfrom=sergio.paracuellos@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="AH/gyS9T";
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=8PqUGMiJy5bHMt3mEk5FN4MHvlYNMG/xWOPNNxMcOEo=;
-        b=cNF/BQYxmkM9dQxHmnSRHCY4MMfZaR6o5VCaIMTFAf4NmM+0QmKDm2auA83e55pVc7
-         HyKKuXPQ2bPP2Atg/WNzFstrSMzN08WeVXm8WkGPe4exYGM24ZYG1PXpewQSjJlKfL1c
-         WESvhc3ai2l01MdUDwFG4LcpRQoZcNVxnyDBaOzJqWDtWYghcD0DMQAJoXzBW9qZIPFw
-         46uYMu9DtjO8quSCmzRgoXwekT2/DzkKcFzEWG7XWFTHBecDa+375fG4VvoSMYLQlSkI
-         8CQojGfxwWFo4cbiX9gjJdMkethkchBcA3Zef9gqqk/YWzS3JXxxcB3BDz2U00XYjv9h
-         Gpug==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=8PqUGMiJy5bHMt3mEk5FN4MHvlYNMG/xWOPNNxMcOEo=;
-        b=krHKQFXoru5wyt3Qkw0V1vONZZK6RnvzHjL2WQn6bR2DBShIykjxhoYo1qlvMImXsJ
-         oufw/tKEkEM6Kqmkhsm+o1UntfCzatO4lNUn0esw86X29aA6mxeboa2luywJi7eMBib/
-         XVNTg4wWheIaRO4kFRuqRtZrpIeWfHb+IhXLZses9IfcdW8+4eaKUud4YuPdLKhqEp3N
-         EB4fOxq6ClQNo0cF6hxViWqmG4wAW7UmMYl8mEJOa5uhy5+NQFKtPLGKFLXDA8MWio4j
-         LlvpryZ2klpgOZUpxUYT/BKNH6/70JiUWW6mAJXJLHD0NYHzR2pg9f7EN2xzhBMKIvOw
-         kwHA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=5uB3OslbivSll6r8a28WzqE2WBCC6nnE0eNdUvh7/aY=;
+        b=eKaUrvfniexJIJgWhLNjIrNQhMNkrFx1I2gzdDFasTFCrbkkCSYsC/fRMejb5LVb+R
+         Mi14Vsr1FbhegJTsDhICqYL66+erkAN9T133vycjboussn0FhNuQI2L44dvovY6dzJHt
+         7shKgRxcblTdtljLAht3RIU9xq3mqH5L79j0LSWhL1DRqx9T4lp+9f8FlNA0jLRnWSGp
+         dhxoqPN7vaTE4nsuUSo0xH/m70v+ItwBrDikJUlT8mNllwfrcLx5aEDAhen+vFK35C74
+         /UoTzLsOHstNy4+/Ncbp/WvQow78cEyD+J47ERk9IPmq1i6nj0MTpIaBsZCpW7WPNEjM
+         3JsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=8PqUGMiJy5bHMt3mEk5FN4MHvlYNMG/xWOPNNxMcOEo=;
-        b=UGpgjoaVOHbB4ndslC4G5Ri/CfrE8mRMw3XnMjl+PbQuO34skf8BMtj1y5brNw0pQm
-         zn3SRnfq8F92H9loFqLnLWTLjcsy+cGiZ3BnsqzjHbmSerdnwmn9KuXko56TxkUuKyK6
-         jYQPfen/U18MeVlPjAMWVk09Kj6ECRg2rYjGnQIs3P7B+JGTgbq2r2fnbnoz/KWs8/jc
-         OsYpijzNDamu/kkmN3VU1+zOBSCZ0anHn//lnIohGLdqT1g1I+nt4On36LZV9jjCAWQ/
-         zck6sWi0QgUpzr+7lvrJsmTtDRPBdBJwHtULipBjkueuJdEy1L9wrtpenCN1Wq+nTQSn
-         zPAA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=5uB3OslbivSll6r8a28WzqE2WBCC6nnE0eNdUvh7/aY=;
+        b=O9jv3dhlx0h+Yz+Mj7y6hqiJ+W8+c1ob7lbBN4vR6zaluGXst0lLDq6qfNXhKr85UM
+         XhS9u56oiNDhJz24oPbnTzLXWADavHGAu1FMR4WfjpZ6g8snhSktb8gDPgR7fAhbN5Gr
+         zJ3kb0xrtaR7BtP9wbWuqWkgwOMnvU0/nCLm9BwIPQrEyXRValZzHeG1JrXmsycOPT31
+         LO42vAgLOXL+cBlYFnP3za00iOWvjDV06e9UhI6ZcC2JrPZ08oteAe5NOSE1bu8Ii1/S
+         lElTFP/I3lOBNuBVYnjMoIM2aZr2xdvzBSa+JWgOhiU4Kzw5yya1yHnZu2hAIw2QugHC
+         pJBw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532h59RB9sYCjVKKe3LMT6ceNLbx8VwICYTSKbqayU5yAkjNKKmV
-	5B4Cu2dExcMzcNeAu/N3Qk8=
-X-Google-Smtp-Source: ABdhPJzeWTGTd7Bc0qIiBnPc6jKit+AeTy0JltMAO3YGw74KvYO2Icrwj8dIv4nv+HcQVM/1JGc0GA==
-X-Received: by 2002:a92:2c02:: with SMTP id t2mr28766405ile.233.1622693930993;
-        Wed, 02 Jun 2021 21:18:50 -0700 (PDT)
+X-Gm-Message-State: AOAM530nKY/Sp7ZpNAxSEiDjoftViJw9WG7rppeyNYz5O6o4XeIrQo9j
+	spEN3MnYbRyc6M3qNB6hJNA=
+X-Google-Smtp-Source: ABdhPJxSgdWi6jSUB009W1C2grcjXPNYG2QyJeyyzyyJ/o54/mdjfdfJkEHOH7Z8ttoH+GB41VltNw==
+X-Received: by 2002:a63:e114:: with SMTP id z20mr37640967pgh.207.1622695413224;
+        Wed, 02 Jun 2021 21:43:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:ecb:: with SMTP id i11ls636967ilk.0.gmail; Wed, 02
- Jun 2021 21:18:50 -0700 (PDT)
-X-Received: by 2002:a05:6e02:eac:: with SMTP id u12mr29331517ilj.177.1622693930645;
-        Wed, 02 Jun 2021 21:18:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622693930; cv=none;
+Received: by 2002:a62:764d:: with SMTP id r74ls607561pfc.6.gmail; Wed, 02 Jun
+ 2021 21:43:32 -0700 (PDT)
+X-Received: by 2002:a63:540d:: with SMTP id i13mr8012567pgb.360.1622695412489;
+        Wed, 02 Jun 2021 21:43:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622695412; cv=none;
         d=google.com; s=arc-20160816;
-        b=wZNysMKpv4TKRRNoqhGnkBANttKMUrTWRGbisU0nX1fCOLwiLwvZziEHiQ9kN9+WvY
-         6F5gvrtMaY9gmxDO4mYQuA6P1b4Q0jXFJg3GZ1n1yKlpXl9QAmFCxsSeg85JZBkM6Sk7
-         7+SxE0/4CeTaRxxBrfQJovN7IMlStZzSY0rx3wMs4mtXsuyLrdqhAR2r5fLti+9IT68m
-         9/n6uCw8Z85fKBSuBtVv+2mp6qfZjjh0WgYggQPdNDGHHSkIrb8wYE95bK5doSiIEmNT
-         LUIhECo15Jfo/dRH+/KEgLeAaXSAfOVAeu00rwY43v+gKTGH2haZqKEVFxAo2o1KUKnA
-         OywA==
+        b=DvcIlDL7JqwszzPtf6cEuSSnKTt3NQju/9SYVqEYgQAI9zDIU1QjYg48wOhqOrs1R+
+         dylEt1gOnWFARvXrfGBV/0mZZ1+7PRYf/Utpr+ga8lJUt1nuxNg9BaQCB7quJi9Lsv38
+         G2w/mEmT3XqD6oyhGtkCy/Tf/GosA2oHlpnLPKLborRvl2LkeViF1gsCL/GxQYVA26n4
+         yjQXdy8Jr5Qa+Gd5wEBLzbbhOJQj6ekn6TcZYb2YEumzSa6Ta1iHFParh85uToHx4LOo
+         Gb5nZsDJ31DiLBbMpkGCRNpdnFxV/+pcN/vXjWyC8w9iLKmmP3YY5xkPOc+3Y/3nYTEN
+         oTrw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=23qUvFEybs5ImEGPrUMvy9mMOYc+i6Y2SflWzXrEu1U=;
-        b=eLQqvbwDJLa8IzbjlqC/2ja2vpwPQS//sQwas8++ViRrNxhkkqYrwn0gcrF5vrRA2w
-         4b0CfibkAxg2rsUx+lDA58r2Q+5JxrG77aKjLIGtYPza8R+hUzbxFasXLg8QhSQFCNc5
-         5PjVSrlbZ5H4/1iLj4djCkrLRJe3YlMTdDtVsf/krIkcLs/0Pt+/kZS0QcLWBmAbk/5n
-         4JdzHXpXnlIC+vJrDdv48i3WGovWsjNevsYdUtBvKgVCbAN7gHn6IKsr7pQA8pEFLQOR
-         FDKQF1vmnzV1Z5pEnT/loVUJcXhoHkuxrEchDqrdAffJSUv4FYLLOMxwAAsTaOxvLIDT
-         LEcw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=CUmamgVPWC8t/6q/thxwT1RMwcukOkFztCjOcqqsVho=;
+        b=Oq137gL68VS4cIR1U7N3aovoS4ccwVz37+1XgfCaeW95CqG3bpqI/K215SJgW0s01v
+         QeI+Q505gNhvDIMYPjGE0qIJi2mbRcE3oXQt+EVVqj7AR2Uz17fXT3PAr/73djQRGx0L
+         q74ZFRt4U2UNP15JsEKmuDjyIwzNDRFusv/mhrZfRofmvWgoHgXr7AXPgYkDSBfmMto+
+         uJwFPTatpLdzy86nncVJW9tFczAt81zGicLLX8AnEnL8HzQnnjLcnFGGcWXvUdPZy6g6
+         GiWYQwSOe65h+vansQtF1Xlabp7Z8VqD/XkElsqmNuP2mCN+FJdeeI8RAXwQ/OMIH8Yg
+         gczw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=HhwAkONV;
-       spf=pass (google.com: domain of sergio.paracuellos@gmail.com designates 2607:f8b0:4864:20::233 as permitted sender) smtp.mailfrom=sergio.paracuellos@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oi1-x233.google.com (mail-oi1-x233.google.com. [2607:f8b0:4864:20::233])
-        by gmr-mx.google.com with ESMTPS id l7si250815ilg.1.2021.06.02.21.18.50
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Jun 2021 21:18:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sergio.paracuellos@gmail.com designates 2607:f8b0:4864:20::233 as permitted sender) client-ip=2607:f8b0:4864:20::233;
-Received: by mail-oi1-x233.google.com with SMTP id z3so5024431oib.5
-        for <clang-built-linux@googlegroups.com>; Wed, 02 Jun 2021 21:18:50 -0700 (PDT)
-X-Received: by 2002:aca:d905:: with SMTP id q5mr3530614oig.149.1622693930208;
- Wed, 02 Jun 2021 21:18:50 -0700 (PDT)
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="AH/gyS9T";
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id i10si292600pgn.2.2021.06.02.21.43.32
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 02 Jun 2021 21:43:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 46328613BA;
+	Thu,  3 Jun 2021 04:43:31 +0000 (UTC)
+Date: Thu, 3 Jun 2021 06:43:28 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Kurt Manucredo <fuzzybritches0@gmail.com>
+Cc: syzbot+bed360704c521841c85d@syzkaller.appspotmail.com,
+	andrii@kernel.org, ast@kernel.org, bpf@vger.kernel.org,
+	daniel@iogearbox.net, davem@davemloft.net, hawk@kernel.org,
+	john.fastabend@gmail.com, kafai@fb.com, kpsingh@kernel.org,
+	kuba@kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, songliubraving@fb.com,
+	syzkaller-bugs@googlegroups.com, yhs@fb.com, nathan@kernel.org,
+	ndesaulniers@google.com, clang-built-linux@googlegroups.com,
+	linux-kernel-mentees@lists.linuxfoundation.org,
+	skhan@linuxfoundation.org
+Subject: Re: [PATCH v3] bpf: core: fix shift-out-of-bounds in ___bpf_prog_run
+Message-ID: <YLhd8BL3HGItbXmx@kroah.com>
+References: <000000000000c2987605be907e41@google.com>
+ <20210602212726.7-1-fuzzybritches0@gmail.com>
 MIME-Version: 1.0
-References: <202106021822.Do0Ih08d-lkp@intel.com> <CAMhs-H8qyOKQmPtChYO+jfC+Zmj8U9yGeZJORUx14MzyLeT5QA@mail.gmail.com>
- <CAKwvOd=3ootX9j=1mY3dpmGHw_7yhZkFnmgFCRQqJUaLMZqvZQ@mail.gmail.com>
- <CAMhs-H-3AiKsc+d2NcjetMJX0XYeHKVs5Hu+Zhn_BTGMDnKc7g@mail.gmail.com> <CAKwvOdkkBqnaAG4AF3vcAviCMixUKXvnXD+uP-VS_065Jsu-2w@mail.gmail.com>
-In-Reply-To: <CAKwvOdkkBqnaAG4AF3vcAviCMixUKXvnXD+uP-VS_065Jsu-2w@mail.gmail.com>
-From: Sergio Paracuellos <sergio.paracuellos@gmail.com>
-Date: Thu, 3 Jun 2021 06:18:39 +0200
-Message-ID: <CAMhs-H_5tPGpLa6+gaTCvowa0_tvA5pkLVzbg=xMWp=_8J-m+Q@mail.gmail.com>
-Subject: Re: [linux-next:master 1932/6331] drivers/phy/ralink/phy-mt7621-pci.c:341:34:
- warning: unused variable 'mt7621_pci_phy_ids'
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Linux Memory Management List <linux-mm@kvack.org>, Vinod Koul <vkoul@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: sergio.paracuellos@gmail.com
+Content-Disposition: inline
+In-Reply-To: <20210602212726.7-1-fuzzybritches0@gmail.com>
+X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=HhwAkONV;       spf=pass
- (google.com: domain of sergio.paracuellos@gmail.com designates
- 2607:f8b0:4864:20::233 as permitted sender) smtp.mailfrom=sergio.paracuellos@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@linuxfoundation.org header.s=korg header.b="AH/gyS9T";
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates
+ 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,167 +136,19 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Nick,
+On Wed, Jun 02, 2021 at 09:27:26PM +0000, Kurt Manucredo wrote:
+> UBSAN: shift-out-of-bounds in kernel/bpf/core.c:1414:2
+> shift exponent 248 is too large for 32-bit type 'unsigned int'
 
-On Wed, Jun 2, 2021 at 8:18 PM Nick Desaulniers <ndesaulniers@google.com> wrote:
->
-> On Wed, Jun 2, 2021 at 11:09 AM Sergio Paracuellos
-> <sergio.paracuellos@gmail.com> wrote:
-> >
-> > Hi Nick,
-> >
-> > On Wed, Jun 2, 2021 at 6:47 PM Nick Desaulniers <ndesaulniers@google.com> wrote:
-> > >
-> > > On Wed, Jun 2, 2021 at 3:38 AM Sergio Paracuellos
-> > > <sergio.paracuellos@gmail.com> wrote:
-> > > >
-> > > > Hi,
-> > > >
-> > > > On Wed, Jun 2, 2021 at 12:27 PM kernel test robot <lkp@intel.com> wrote:
-> > > > >
-> > > > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > > > > head:   ed5d0667a6540293c9485dd95babb5f1e241226a
-> > > > > commit: 28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a [1932/6331] phy: ralink: Kconfig: enable COMPILE_TEST on mt7621-pci-phy driver
-> > > > > config: x86_64-randconfig-r016-20210602 (attached as .config)
-> > >
-> > > ^ randconfig
-> > >
-> > > > > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project db26cd30b6dd65e88d786e97a1e453af5cd48966)
-> > > > > reproduce (this is a W=1 build):
-> > > > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > > > >         chmod +x ~/bin/make.cross
-> > > > >         # install x86_64 cross compiling tool for clang build
-> > > > >         # apt-get install binutils-x86-64-linux-gnu
-> > > > >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a
-> > > > >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-> > > > >         git fetch --no-tags linux-next master
-> > > > >         git checkout 28dcfba1a0d622b0330ae3f4a9d7c7f2c245de7a
-> > > > >         # save the attached .config to linux build tree
-> > > > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
-> > > > >
-> > > > > If you fix the issue, kindly add following tag as appropriate
-> > > > > Reported-by: kernel test robot <lkp@intel.com>
-> > > > >
-> > > > > All warnings (new ones prefixed by >>):
-> > > > >
-> > > > >    drivers/phy/ralink/phy-mt7621-pci.c:277:4: warning: cast to smaller integer type 'unsigned int' from 'void *' [-Wvoid-pointer-to-int-cast]
-> > > > >                     (unsigned int)mt7621_phy->port_base, mt7621_phy->has_dual_port);
-> > > > >                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> > > > >    include/linux/dev_printk.h:118:33: note: expanded from macro 'dev_info'
-> > > > >            _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
-> > > >
-> > > > Already fixed in:
-> > > > https://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/commit/drivers/phy/ralink/phy-mt7621-pci.c?h=next&id=652a6a2e3824ce2ebf79a2d5326940d05c4db036
-> > > >
-> > > > >                                           ^~~~~~~~~~~
-> > > > > >> drivers/phy/ralink/phy-mt7621-pci.c:341:34: warning: unused variable 'mt7621_pci_phy_ids' [-Wunused-const-variable]
-> > > > >    static const struct of_device_id mt7621_pci_phy_ids[] = {
-> > > > >                                     ^
-> > > >
-> > > > Mmmm... This one is used through MODULE_DEVICE_TABLE macro... Am I
-> > > > missing something??
-> > >
-> > > Pretty sure there's a config in MODULE_DEVICE_TABLE that's being
-> > > disabled by the randconfig; the definition of mt7621_pci_phy_ids
-> > > should also be behind preprocessor checks for that.
-> >
-> > So, the driver uses 'mt7621_pci_phy_ids' in two places :
-> >
-> > static const struct of_device_id mt7621_pci_phy_ids[] = {
-> >     { .compatible = "mediatek,mt7621-pci-phy" },
-> >     {},
-> > };
-> > MODULE_DEVICE_TABLE(of, mt7621_pci_phy_ids);
-> > ^
-> > This one is inside the 'MODULE' preprocessor directive.
-> >
-> > static struct platform_driver mt7621_pci_phy_driver = {
-> >     .probe = mt7621_pci_phy_probe,
-> >     .driver = {
-> >         .name = "mt7621-pci-phy",
-> >         .of_match_table = of_match_ptr(mt7621_pci_phy_ids),
-> >                                      ^
-> >                                      This one is inside 'CONFIG_OF'
-> >     },
-> > };
-> >
-> > randconfig is not setting 'CONFIG_OF' nor defining MODULE. I've been
->
-> ^ yeah gating the definition on CONFIG_OF would resolve this.
->
-> > looking into different drivers code and all of them follow the same
-> > pattern and nothing is behind preprocessor checks at all. So I wonder
->
-> They are starting to when they get these warnings from 0day bot;
-> there's a lot of drivers though.
+I'm sorry, but I still do not understand what this changelog text means.
 
-I see. Thanks for clarification. I will search for a driver already
-fixing this and send a similar patch to silence this one also.
+Please be very descriptive about what you are doing and why you are
+doing it.  All that is here is a message from a random tool :(
 
->
-> > if this is really something that needs to be fixed.
->
-> It's a W=1 build as well; fix it or don't.  I'm a sign, not a cop.
->
-
-Thank you very much for your help.
-
-Best regards,
-    Sergio Paracuellos
-
-> >
-> > Thanks in advance for clarifications.
-> >
-> > Best regards,
-> >     Sergio Paracuellos
-> >
-> >
-> > >
-> > > >
-> > > > >    2 warnings generated.
-> > > > >
-> > > > >
-> > > > > vim +/mt7621_pci_phy_ids +341 drivers/phy/ralink/phy-mt7621-pci.c
-> > > > >
-> > > > > d87da32372a03c Sergio Paracuellos 2020-11-21  340
-> > > > > d87da32372a03c Sergio Paracuellos 2020-11-21 @341  static const struct of_device_id mt7621_pci_phy_ids[] = {
-> > > > > d87da32372a03c Sergio Paracuellos 2020-11-21  342       { .compatible = "mediatek,mt7621-pci-phy" },
-> > > > > d87da32372a03c Sergio Paracuellos 2020-11-21  343       {},
-> > > > > d87da32372a03c Sergio Paracuellos 2020-11-21  344  };
-> > > > > 8145dcb07d0c8b Sergio Paracuellos 2020-12-01  345  MODULE_DEVICE_TABLE(of, mt7621_pci_phy_ids);
-> > > > > d87da32372a03c Sergio Paracuellos 2020-11-21  346
-> > > > >
-> > > > > :::::: The code at line 341 was first introduced by commit
-> > > > > :::::: d87da32372a03ce121fc65ccd2c9a43edf56b364 phy: ralink: Add PHY driver for MT7621 PCIe PHY
-> > > > >
-> > > > > :::::: TO: Sergio Paracuellos <sergio.paracuellos@gmail.com>
-> > > > > :::::: CC: Vinod Koul <vkoul@kernel.org>
-> > > > >
-> > > > > ---
-> > > > > 0-DAY CI Kernel Test Service, Intel Corporation
-> > > > > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> > > >
-> > > > Best regards,
-> > > >     Sergio Paracuellos
-> > > >
-> > > > --
-> > > > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> > > > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > > > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMhs-H8qyOKQmPtChYO%2BjfC%2BZmj8U9yGeZJORUx14MzyLeT5QA%40mail.gmail.com.
-> > >
-> > >
-> > >
-> > > --
-> > > Thanks,
-> > > ~Nick Desaulniers
->
->
->
-> --
-> Thanks,
-> ~Nick Desaulniers
+thanks,
+greg k-h
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMhs-H_5tPGpLa6%2BgaTCvowa0_tvA5pkLVzbg%3DxMWp%3D_8J-m%2BQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YLhd8BL3HGItbXmx%40kroah.com.
