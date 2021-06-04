@@ -1,120 +1,135 @@
-Return-Path: <clang-built-linux+bncBDJ7DEXEZ4LRBPP74WCQMGQE7RTUYSI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDCPJMFX2IOBBG4H42CQMGQEEYP5SWY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
-	by mail.lfdr.de (Postfix) with ESMTPS id E159139AF92
-	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Jun 2021 03:19:58 +0200 (CEST)
-Received: by mail-oi1-x23a.google.com with SMTP id l1-20020a5441010000b02901ecd2ee1861sf3874048oic.13
-        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Jun 2021 18:19:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622769597; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id AA1EB39AFED
+	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Jun 2021 03:36:28 +0200 (CEST)
+Received: by mail-pg1-x539.google.com with SMTP id a10-20020a65418a0000b029021b78388f57sf4965525pgq.15
+        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Jun 2021 18:36:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622770587; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eXOYJjrMggIohQMTN9P95k8aeOxkHLDxSIQ0T9k6ZlDN1gXH8r3DYV56/VJhbUVgi8
-         wsvWKszTtvs8velo0SGVJ4m5MPAc7qXVw6Z6/agE7rDuH4hoN21cVlu8C5KuS+vi5bJc
-         NIDLflCG17vymJLEjeiQMP3aH4iobFn8soBCP4Dnt87BaqXPhUH135OnJrjx3iZQaD8F
-         Jg7nppKoq7IvkMljDTuEOKaAdXTQ+T7854KokPb+4F9moW4dyrRvRi5gek6ng0OWj55n
-         0hW95vYPDBSCiiZdEdI9BLM1NxSxFc8Zg5sjzL6Qy7zmHy5LoVQ1nxcPLS+WdagHKTHI
-         ViUw==
+        b=Vn1X0wJsOImKF6zs4ogmdjbiA10aCtFYDsRcegPKueZHm8T9QUkBfrgDtTJPjBqedF
+         32Mb5QmerSnTcUJJSQYYAeK+xpU7OnbHt7hlkSR4fcpwpUXyfZGoyp8VoEywMy9IWjRR
+         LaAfbgUFjPQ06EneTRdRQt3D8zaWlXVTctmRexSkAlC1ifgWrG67PF53G5QBcZdCK72/
+         2tAzxyzUiNqvdIpBMpcG6leTwzA3Y5BdhpRw7/PvVRZ7p81yCQW/LVMxuVaR5+dtmwNI
+         7bO8MTXpI3TTmgtWcktetebQVBYXOQ0Mm3YxuB2yQLNwLxSssWjsKGMmhqnNvUzC9Im5
+         l6jw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:message-id:date:to:cc
-         :from:subject:references:in-reply-to:mime-version:sender
-         :dkim-signature;
-        bh=1Tal8RfVod4sD41sLgGqvBekMGQZ0qrAxeYxHRVJre0=;
-        b=DSbc0KIimbZJvaB7qR9Xl52qiKAvTxiqCJVsSIm485+2fWyNHq2NwHp8E7NCBLgVb6
-         PAkpeW36eSMeypKx2Di4i6B+23CY0U8hG5uqABAl5vM+an4KmD0by7D01WbNsLHQqLmF
-         WQetEFoc4LG7Azz/UFJiUJumW63E+8oeLvfDwRK+3DQ04ny5rUv1DqwScdpJd5N1cmQ8
-         IR2nS2LhZof/0ebde9gVNPAhdPI+iCeAcJEHuW/0K3dIjlJOmvZPt1KU9eR0jwkYeUbD
-         r4qkbilncd00YEgf5vm50UlYnkaM+QmRcHyQbaHtls/4t884WlxW7d46egnd/Jt25uOT
-         FYyg==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :in-reply-to:mime-version:user-agent:date:message-id:from:references
+         :cc:to:subject:sender:dkim-signature;
+        bh=U/wZlK/scCt2hmFzMi6SyAgp7wvR2ufuo86gUVhG9As=;
+        b=DMN1R0ztOt/MsktDr4jM/YxBAAeIbxCadVnON1oMUg8amwDYVQ1+UiCc2fpJABpyOL
+         TTukr3eNtizDOm+9gzBr8H/1sf3K/5IGSzoTiGqcSnsgDfw9jyBsZ6gv3wncBfor8D7Z
+         cTsPoP0HJSQrwvSo6HAkYLOlms3fsUp7WnG8R+phcjnvY/0vWOyCNcUAiKWJ4lymANv8
+         N4HYOvsnA144SGloo8Cp5mneJcv1ZYgXXVWorA1oLW87QU+mj7K6sDxhKQtDTBcWKo2X
+         S/MTmSyQFaNlVgKHPUA0Woxj5uXRCIAIyEl7LMpdA1lWNEi3ZYFPQz31Cnwrcbr0GQk2
+         7nBA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=qMsYQOZS;
-       spf=pass (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sboyd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of luomeng12@huawei.com designates 45.249.212.255 as permitted sender) smtp.mailfrom=luomeng12@huawei.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=huawei.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:in-reply-to:references:subject:from:cc:to:date
-         :message-id:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=1Tal8RfVod4sD41sLgGqvBekMGQZ0qrAxeYxHRVJre0=;
-        b=oItlbtBEMzdMiBeG4C+WOKnZmL7pHktOL/pcd/s6nisQ2JG1a1uoBkUgYjoHL14qEy
-         SngwrFsK5YsY92AK2P93+DHywhHEfSThlFV9uwvHMGNGGYQ961eAIVWoJEFA1yyCdwi3
-         QkI0WWkChmobaDQkzEfii+C5tQi1V9wRT+Yxw/xnu3tu7C3VBeCMKxEzTzlZezX8WYSs
-         QYAVjNJKI2fT4JduVLMN1mnhoLDx54ZHrgrqkhwutnQC/rDJdEXtdZVNVUrJIL32lx5I
-         aTuSwNUApehR7G3gGm0ORX4cl0Af8E9fAN3k9/rWrJWmFGrAt6qg48ohGfyfnQGBbfKU
-         Wc0w==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=U/wZlK/scCt2hmFzMi6SyAgp7wvR2ufuo86gUVhG9As=;
+        b=KcLjh6/7ZBzOZahiBdVrrT3QI8ewHBrWJ9QwW1g3dAxFTfonWPqTMS9xKNexqC6GkD
+         9U9BrLlLRP3eynsquBhAPD//3/7YLPTwYVEnilmd9RiBpr14XOGlkuZGDSJkfv6N1ZFA
+         3moAm0C4yo1F2VqsJuEPTj/ViWsoQsJhEos8zZuOT9q9vdUt22QCIm4Ygv2HMLyFkCt0
+         kjeBLDGlFyrpS9eBohcaaI322d1uOwOvWlw1YMHo4njekNX0Chrfs/zv4BPsM9fIPyOs
+         N0wVIQLmI2kDU0w5spa2Y2cl2GiL6gYlA/+Wyv4mb451pjts13uwWmLgM9AlpPNCU6hb
+         7ERA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:in-reply-to:references
-         :subject:from:cc:to:date:message-id:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=1Tal8RfVod4sD41sLgGqvBekMGQZ0qrAxeYxHRVJre0=;
-        b=oE9FHZgGUGo7JQd8Pmg4+nW7uk2AmdQvNqBj2QX//fLNowY5w3E6m1HgX1BDun+mcV
-         kcMjL9Z2UmJSsi25IAagtyCXaYFeknbZ6qTyRGTpzdI6HPjWGv8Cirovm1QNZ9LGMF7j
-         1xMqi5UIVvkun8PhhLyEvWTYXX3fAZkvmkvwY+oMfZZqQQp8U+8JxKBgyf3NiiAqa/W+
-         gnyoyZHw+/lUYr+PskLHI8+g24SD3nCF0XuF7CSU0weI3xveJMoEj5WyGdep8i/vbAW9
-         wsirvYJXkPPyifyE2Ke1Zk6rU7PUBUr1MYzNHE60YWrtyNBUHq2umKlCypyw2fLZPC+W
-         6d8w==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=U/wZlK/scCt2hmFzMi6SyAgp7wvR2ufuo86gUVhG9As=;
+        b=VRCmvK3U2nRbgAmSuQ6xrp35uNrrZC0SaLCDaEpZswbH/yqu8Dk9ZD14Nkj4fP4F7Y
+         2IPFKiBJtEhJf7JMXRkYi9R94cdyixJ5r0YXw/PZKUQR/lafnOS8qle3ZCe2z+fD6QQE
+         Qyp3h6/1CuiqjmITWZk9AzQGZOZLPzYqVXMwbI5sLZ9ZMeVN1qnBRl6YlKJPCxsHPg43
+         Wsit8GQjVIp77kADykD3aab51ea1MdCenjLHQzTozQd12Uk+EPyntwEuLtP1/pKXDp4P
+         LfTGxNajL1DEn0jbASA/UCZNGUedt0z/3JPPXA66pZkLhoYlAdw3mWYd8X95B7jpuv6U
+         bkZw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5331pAX2U0mSmksHcSwDnSAtFEcH+mVjgC3Ob2PRg0SX9piBsCFd
-	apyXkRF9mXK2cDT6UFJzmGY=
-X-Google-Smtp-Source: ABdhPJyXIfpzQYdTrCWVwaTumlyJ6amfOXOhDpIFDkl9v+bSjCQdsxYjkB3UXTFTpshYtsj8PJIC1A==
-X-Received: by 2002:a05:6808:10d0:: with SMTP id s16mr1393290ois.10.1622769597423;
-        Thu, 03 Jun 2021 18:19:57 -0700 (PDT)
+X-Gm-Message-State: AOAM532S3+JY8R+vHzI8ViyDv5gma1Vpvup5+9xYJTqXvMoBuy+9JzPO
+	qxM0rojlSNj+mH9pwGZED6g=
+X-Google-Smtp-Source: ABdhPJwybYQkB6+mJJ/ID3L/rltQq7PBFqjaGUOYSfg6vU7K0LIEX8UFTiPylf1T6T2UmrRouoKu3g==
+X-Received: by 2002:a62:5306:0:b029:2de:6ce0:5526 with SMTP id h6-20020a6253060000b02902de6ce05526mr1880651pfb.13.1622770587213;
+        Thu, 03 Jun 2021 18:36:27 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:230b:: with SMTP id e11ls1624676oie.11.gmail; Thu, 03
- Jun 2021 18:19:57 -0700 (PDT)
-X-Received: by 2002:a05:6808:2d3:: with SMTP id a19mr9438606oid.133.1622769597106;
-        Thu, 03 Jun 2021 18:19:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622769597; cv=none;
+Received: by 2002:a17:902:c211:: with SMTP id 17ls354379pll.11.gmail; Thu, 03
+ Jun 2021 18:36:26 -0700 (PDT)
+X-Received: by 2002:a17:902:b288:b029:101:fa49:3fd5 with SMTP id u8-20020a170902b288b0290101fa493fd5mr1926888plr.34.1622770586680;
+        Thu, 03 Jun 2021 18:36:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622770586; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ot6+/P1sfZnNiy+BKPi5D8UNJtFWuKphVly9nMeVsUI9uO6L9DY7L5WCGvd/X8GTnq
-         2O6vuQmXeGlFHNL5YYQO/+Nw2XdMgNj4y5N2sB5RnCxPDau0+vGv8brBPAaduYvGsGbZ
-         IdEGXEzD+5dX1RGHE5PhO977MYnitdRALsQYYhCGPtS8rjgAGrDKKL2Pxih5r1fG/bpc
-         ogIes15tcUAJQPPA1xHOIwkR9EGj+m40mnAb0ZqXmtQS5RlouvIc+IY4F3v0Y8qosLsk
-         f+LlDSaWj5fS3a7PNgxuD5bXpgUtfg7fyDz35QoPlDpATNIZyPTZV1w+aNnq9TIR30c6
-         EWKA==
+        b=N7sKa46qHkVUJmMbcpuVSsMD53GjSPMU07Zue/vxg6yuSiPKKyYWtEaR/fpioxoJ77
+         mHdePTh2Boj2m4biBVMrogb4hLVbk8HiCvAdvQzaH1elij5HKZ3NvKkuBaKQlk09wwMo
+         xCEMrQXUWYnXREC+FvCVDssd0G27pHpl8GQ0uGIXA1o0pl/OU9MqvSQLAwhdQsCf/bnQ
+         +FFghHD63zPdlsIxFvO4hScjoYibaN6loAqQmE3Br9baIxPgPiP059VWmyR2i70h8Z/K
+         Irhj6MNjlKD/dIUNmB5KU8+iMe7OVGUbkgROqgBTODDthOuJ98JC6k3Q8LX5sYzhNs0i
+         Uxiw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:message-id:date:to:cc:from:subject:references
-         :in-reply-to:content-transfer-encoding:mime-version:dkim-signature;
-        bh=tE+iMABtiHm5eikhYmaTCy5GtD1s7h8QhsnOnr8PmSo=;
-        b=RBPcU85hesk81SZuDOWfojmd18hHxw6EiXtEUWejexZ95n6m2DtqYr5MZk6zdtgkvt
-         1nAFYXVTEPutCWdGqchpzPeJGmmhdw99X65PRvWVQUAvUM5YNwuvVXCorQHqQJW5+kRy
-         oLcBvU2S4XZtuPEDfUbPjke50R4gb5uf2H5UQKl2AzBST7Sa0kPqjxY1L78OBKI7gR5O
-         +ZCnZ6iTd6hHn4NVzEIW9gH5zmFFOoPGgDx45WT4SCU+W3Vm5gezPeXyYAv32PAq+Sq5
-         H7Tlv6YMbkFZaB5SOgye0Gk2+Y0wq/Xn2FS1e8NAop5PdTybvXyCCQqVHnFRGBJhYiyc
-         eLKg==
+        h=content-transfer-encoding:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject;
+        bh=YWuExiLszhwL10lW/TPtG9v3DL9ow4mcYioAYuyTnL8=;
+        b=TzjPuyrCr/9vqrepXSlHkeY9CqFfxtCpabRAbibv9Y0nhIjpzROeILDyVPDwCnmiXm
+         5hh6qYs7Btxq4nVsxyjFd+uHpJrYYLjssr2d2APnnFRqQs09crlwT8aBQKATaIbKNULk
+         DRyvAm5gTSDCX8Z6XyECQQhsm2gK2/nVz3GMivnUSreGkTGJZrQJkHmpTp5aZDQSyzI1
+         8+kufQBY28fpqhc0PMaGFyEzEGCgO4xMj/6HibIQzmApopenrV4O5nKx5F9A537j8iK6
+         qKQobVzuso10xYWZ8YZ717E5ZnH7aj1jc5efGwYWQ2RNvGZWP4y5zULm5wxZHOZ5MnII
+         xiGg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=qMsYQOZS;
-       spf=pass (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sboyd@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id b17si46314ooq.2.2021.06.03.18.19.57
+       spf=pass (google.com: domain of luomeng12@huawei.com designates 45.249.212.255 as permitted sender) smtp.mailfrom=luomeng12@huawei.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=huawei.com
+Received: from szxga08-in.huawei.com (szxga08-in.huawei.com. [45.249.212.255])
+        by gmr-mx.google.com with ESMTPS id w3si282187plz.2.2021.06.03.18.36.26
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 03 Jun 2021 18:19:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 51F2A61168;
-	Fri,  4 Jun 2021 01:19:56 +0000 (UTC)
-Content-Type: text/plain; charset="UTF-8"
+        Thu, 03 Jun 2021 18:36:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of luomeng12@huawei.com designates 45.249.212.255 as permitted sender) client-ip=45.249.212.255;
+Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.54])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Fx4wX1YN7z1BHWF;
+	Fri,  4 Jun 2021 09:31:08 +0800 (CST)
+Received: from dggpeml500006.china.huawei.com (7.185.36.76) by
+ dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Fri, 4 Jun 2021 09:35:52 +0800
+Received: from [10.174.176.127] (10.174.176.127) by
+ dggpeml500006.china.huawei.com (7.185.36.76) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Fri, 4 Jun 2021 09:35:51 +0800
+Subject: Re: [PATCH] clocksource/drivers/pistachio: remove unused variable
+To: Kees Cook <keescook@chromium.org>
+CC: <daniel.lezcano@linaro.org>, <tglx@linutronix.de>, <nathan@kernel.org>,
+	<ndesaulniers@google.com>, <clang-built-linux@googlegroups.com>
+References: <20210529033335.1962230-1-luomeng12@huawei.com>
+ <202106011223.AE45E4FD3@keescook>
+From: luomeng <luomeng12@huawei.com>
+Message-ID: <3962c7ab-214a-aed3-5178-5dacdf054644@huawei.com>
+Date: Fri, 4 Jun 2021 09:35:39 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.8.1
 MIME-Version: 1.0
-In-Reply-To: <202106031129.hK4xvnxz-lkp@intel.com>
-References: <202106031129.hK4xvnxz-lkp@intel.com>
-Subject: Re: [clk:clk-qcom 5/10] drivers/clk/qcom/gcc-mdm9607.c:37:32: warning: unused variable 'gcc_xo_sleep_map'
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-To: Konrad Dybcio <konrad.dybcio@somainline.org>, kernel test robot <lkp@intel.com>
-Date: Thu, 03 Jun 2021 18:19:55 -0700
-Message-ID: <162276959506.1835121.3197175655380445671@swboyd.mtv.corp.google.com>
-User-Agent: alot/0.9.1
-X-Original-Sender: sboyd@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=qMsYQOZS;       spf=pass
- (google.com: domain of sboyd@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=sboyd@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+In-Reply-To: <202106011223.AE45E4FD3@keescook>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Originating-IP: [10.174.176.127]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpeml500006.china.huawei.com (7.185.36.76)
+X-CFilter-Loop: Reflected
+X-Original-Sender: luomeng12@huawei.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of luomeng12@huawei.com designates 45.249.212.255 as
+ permitted sender) smtp.mailfrom=luomeng12@huawei.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=huawei.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,30 +142,67 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Quoting kernel test robot (2021-06-02 20:25:31)
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-qcom
-> head:   ec7e22abec97b6bd577027380077ec395864a3c5
-> commit: 48b7253264eadc05a3d84db9ea11eef528a0108a [5/10] clk: qcom: Add MDM9607 GCC driver
-> config: arm64-randconfig-r001-20210603 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project d8e0ae9a76a62bdc6117630d59bf9967ac9bb4ea)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install arm64 cross compiling tool for clang build
->         # apt-get install binutils-aarch64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git/commit/?id=48b7253264eadc05a3d84db9ea11eef528a0108a
->         git remote add clk https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git
->         git fetch --no-tags clk clk-qcom
->         git checkout 48b7253264eadc05a3d84db9ea11eef528a0108a
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
 
-Thanks. I think we'll just have to delete them.
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/162276959506.1835121.3197175655380445671%40swboyd.mtv.corp.google.com.
+=E5=9C=A8 2021/6/2 3:23, Kees Cook =E5=86=99=E9=81=93:
+> On Sat, May 29, 2021 at 11:33:35AM +0800, Luo Meng wrote:
+>> Fix the following clang warning:
+>> drivers/clocksource/timer-pistachio.c:74:15:
+>> warning: variable =E2=80=98overflow=E2=80=99 set but not used [-Wunused-=
+but-set-variable]
+>>
+>> Signed-off-by: Luo Meng <luomeng12@huawei.com>
+>=20
+> Is removing this correct? Should something report or record the
+> overflow?
+>=20
+Thanks for your reply.
+After my check, there is no other place to use 'int overflow' in this=20
+function.
+>> ---
+>>   drivers/clocksource/timer-pistachio.c | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/clocksource/timer-pistachio.c b/drivers/clocksource=
+/timer-pistachio.c
+>> index 6f37181a8c63..42b4cacd2fd5 100644
+>> --- a/drivers/clocksource/timer-pistachio.c
+>> +++ b/drivers/clocksource/timer-pistachio.c
+>> @@ -71,7 +71,7 @@ static u64 notrace
+>>   pistachio_clocksource_read_cycles(struct clocksource *cs)
+>>   {
+>>   	struct pistachio_clocksource *pcs =3D to_pistachio_clocksource(cs);
+>> -	u32 counter, overflow;
+>> +	u32 counter;
+>>   	unsigned long flags;
+>>  =20
+>>   	/*
+>> @@ -80,7 +80,7 @@ pistachio_clocksource_read_cycles(struct clocksource *=
+cs)
+>>   	 */
+>>  =20
+>>   	raw_spin_lock_irqsave(&pcs->lock, flags);
+>> -	overflow =3D gpt_readl(pcs->base, TIMER_CURRENT_OVERFLOW_VALUE, 0);
+>> +	gpt_readl(pcs->base, TIMER_CURRENT_OVERFLOW_VALUE, 0);
+>>   	counter =3D gpt_readl(pcs->base, TIMER_CURRENT_VALUE, 0);
+>>   	raw_spin_unlock_irqrestore(&pcs->lock, flags);
+>>  =20
+>> --=20
+>> 2.25.4
+>>
+>> --=20
+>> You received this message because you are subscribed to the Google Group=
+s "Clang Built Linux" group.
+>> To unsubscribe from this group and stop receiving emails from it, send a=
+n email to clang-built-linux+unsubscribe@googlegroups.com.
+>> To view this discussion on the web visit https://groups.google.com/d/msg=
+id/clang-built-linux/20210529033335.1962230-1-luomeng12%40huawei.com.
+>=20
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/3962c7ab-214a-aed3-5178-5dacdf054644%40huawei.com.
