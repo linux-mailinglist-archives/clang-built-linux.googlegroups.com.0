@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBFPO5GCQMGQE6D5OP4A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB7HQ5GCQMGQEF53THHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 68ED039BFEF
-	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Jun 2021 20:55:18 +0200 (CEST)
-Received: by mail-wm1-x33d.google.com with SMTP id n20-20020a05600c4f94b029017f371265fesf4868495wmq.5
-        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Jun 2021 11:55:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622832918; cv=pass;
+Received: from mail-ej1-x640.google.com (mail-ej1-x640.google.com [IPv6:2a00:1450:4864:20::640])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5633F39C00E
+	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Jun 2021 21:01:17 +0200 (CEST)
+Received: by mail-ej1-x640.google.com with SMTP id p20-20020a1709064994b02903cd421d7803sf1022070eju.22
+        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Jun 2021 12:01:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622833277; cv=pass;
         d=google.com; s=arc-20160816;
-        b=t9P3QUZOFYU9+2p+xLtus0teil3Ueg7EykvHbRD1E7UHpZjR41vTO2VBywXfWAeElF
-         rEUKNt141DDzIyufNO5CYTFjI3C5C6yMFJvfPdURRga2BBUU7a7t2ojUS4W+Tu4e0TJN
-         2TzKxiP+/DceGwwngvKWxQI4xMOSBIIv15/EzMOTfZLCIJVqcFgmU0UuoKacNAmDQBD7
-         WBabdgEDYaIsmJI7iBHs1HxkfJoF7QUw4bzb+e5JKlSupLbm/EDkyJUA8rc6MFoXamzx
-         mY6v+2iODESZZfd6VIBONM7rxd23CvYzwrxkS6wv9LZqNC0RCAG7UK4abCShJ6Jly3sG
-         OdNw==
+        b=SITfEwdtqmTmuHO5OtMWqxgan0gD+lL4N5oDvxRfmUFpRhdPKSdYPWCN6V98HOGY3X
+         1G8F0ISTtDTzonaRqRW2SlqX8LKhRJ5p0ZawndPw8tsOfLuEWSFMsmlhaYakMDRipaKo
+         DwnGZ5z9bCNBjPdDANGGpoBogDydRq3ORLYGB+3spi/mTKQRPwp7m5GSSKtky5QAXKBT
+         lK5iBMVl2VT8VtBlcjr1+yea/5ONR+zmB4gRAPVscWzEhjBUfO/VWmRs74F1pkTkHoaZ
+         JouNTvzk8SbHZDwc5uZGW+BeG2r6wPZ6Wohgo49VMVEi2vvd6tQiNNUFKIDwMrBtwZUh
+         8oeA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=MpTZCgNM+5VQYHXvFYi6H/aN7H4LdyZvjA6wCuRKeoU=;
-        b=MiX7/ilCys6qlHykn+G9vWGk4cvIOX9wq1ipXo2k839nvFGdgNUxUQUHURhz/+cr1G
-         KwN1nfIpjoDNGVnjMyDwP8fWRmC3G6YW0cvByQcyB4dfl95REFXSyXph6u69MzqD4Ukz
-         5eLUdHt8JTE1gEwXGT8oUg5jHwEaf3QsBS9cdDjnYA7OVOJmUhLNCJapVvMDa3cIHBFr
-         LqAcjdWmyGiUsjGK7caXkhH1rGJEorQvjpejvFI/bko4wmeXLJU/54ICbYJnMCPbX1iw
-         EzJmIf0Cp3+enP3RzL1EZOMN89wR9ITG1fSAwn9H6hbkjG0WOCU5IKC+BFKgTV/8E2LA
-         1JRg==
+        bh=Vg7pKk0WQorAc9b20+jIWWxIDeAluQaKAdcFY4rMbGg=;
+        b=uC9WtIJ9PuPG644QcEGLNbymSGPsSZhefzNBI9ky4mUFoCRcUqTlxYdCnMLzN42FYb
+         Anutnw8uiLrC/lZTVnP76dBZVJ5fZe3+ZIjcYAGJRFeGz2V9dYjYNpzzwvdodT7ctA6Z
+         mJDYHA5eVcvRqegHs1Qs6UEj+UrcP7zHEJR0DXcbbyi7rxWzD5WiVfZUtFocoxG0gUyj
+         fSaufGfOtPsJ7HbVTM3D7u/K5PSBZFBHUA5esmizS7xPGQlEsVjpHm7gyhJTB2L73giN
+         zWkqkGOHQgC4Dcdz9+FiOuJ0Jlj6DhWvW2Smdo6e7A6C76nR2R00wRY+TTemMH7l/AMF
+         o22Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="ILKJc/Ma";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CmwRJrhn;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MpTZCgNM+5VQYHXvFYi6H/aN7H4LdyZvjA6wCuRKeoU=;
-        b=NhYBJgmA1HkGJjp7wEvGtsvQkPpvQ8/2G4P1eE4XUGPe5IHkjSoBXqDNGhOCZH5YNS
-         Rt2UQJyZk3LAltvfc/bId5fSuRvaIfXHUcJZ2s8S/PWKLYRlanuYNnA0VPStXklmA/94
-         Jzo6hMBtkyrsiKQ2jt+LrTLYlDrXS+00akQR4ATQrOneJ4+md1fdTKekOhX8gS1FmyJA
-         ZyxLGxehf241Tn9z2qouxBMArRGU30Nkxm8pb/7uNreTQq8XFRNkIKhxani6ce/Qk0V4
-         r1oTRy05jo7l5uXa3ryu/+KXAmh+dcN5Ck1jeUwtGFsoKM4p05jBqx8WneOzUu4Omqy3
-         am/w==
+        bh=Vg7pKk0WQorAc9b20+jIWWxIDeAluQaKAdcFY4rMbGg=;
+        b=o8pSsxJ8nSbFpjWRVcWgoZuGiRXsPwLTyh2qJLEZpXEFXjZCbRcEUyMks9cQBE33/W
+         2xnAzrbwG4CptQO2CfE39Ebn0fdTknltRmMBQcDkOnOuBZPdvuLDJZXUXckIC1ibfFI3
+         THll8DlOETgDUSNaj1n1dJRIxbcZSW1ZJBSDi2/81lZmC/BbnHaic2R5IKDxWFCfAM0c
+         C4ugbGwxbpyQbfUYj1qwxbxmdsmtihBPRlI1gzTGU5baslGdYx/poqbd8+AKlYp4KUGP
+         ya2SZ9rLDViSTmVM/gDoakKSMK1/JHCiWlcMpPltrOPjumtSx5IFQ1mYGmykYfF0Xogl
+         A2IA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,77 +49,72 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MpTZCgNM+5VQYHXvFYi6H/aN7H4LdyZvjA6wCuRKeoU=;
-        b=idHDTqKWqvi86QZ0LRStnA89xu21RdUXdy96sEYfrgC6yCkC2ElwcKSwN8ajop1J7v
-         6JGBev2tTyD75Q2ss94dH/YuTz3HNzYwBfHncmCN1xhihklELcnTY9g/lyfyvTVeRvf2
-         T/ele6fTVnpxviesdDavyEaj1HJ5YIRIpPgleuUF7RzAxKDLIWZVJCeGkOyzAI9RuU3y
-         mELy/ol7GlA1s63fw7VnMWam2/TgEuJr8DTUFVp/HBIXbDALZ9HGNhFucgCnahh2/UX1
-         QXNF8QkK8CKTuMetaAE9FQH1MqorASrlsbXre8MxKyEMVJiN+NiVdu54DelsVcCLVINU
-         qckQ==
-X-Gm-Message-State: AOAM532KB0g9ovTDggMqgQaS4qgjenCaxQz3z7aG50Y8azBcmmSsbcWh
-	QOOXIOgF/MQ9eFhp+4dAz4Y=
-X-Google-Smtp-Source: ABdhPJwkYxaW7m3c7HWX4EMqPlMrNl50KPwauwEd8zTWIwBGxdnVoO8fIhYfjZvh47E1Mwep7bneeg==
-X-Received: by 2002:adf:fc90:: with SMTP id g16mr5314288wrr.183.1622832918101;
-        Fri, 04 Jun 2021 11:55:18 -0700 (PDT)
+        bh=Vg7pKk0WQorAc9b20+jIWWxIDeAluQaKAdcFY4rMbGg=;
+        b=qDDHdprn6a9XAUZYpwIdlMGAgB9YcDsmlsA4UoqzvIiJXj5EYoVUclnP+3IOiAb5RR
+         QiwlMyzAMH0V4K1LWZePaOscXbeQSDmlPncDVRHt07jPA+vlfIH4k10g7ZUXUfw5AvBm
+         mcAuSk2Qe627wviZqsEF01qu8Kg1IRPJ5Sew59gkgpCeHvneHkB7ucxLA9Ets5+eUXVl
+         p4vjWXn8lCVEgZQmbe/jX8ygg/JlThhBXPRmGRiA2oPShaPJwm6lG+hCzvREkGpv2AoH
+         J8kJlWvJMsYaDwkQlmcOMgyj3GNflS9E1XlrR1u/B+0J2p4NNSqF4IQmxnsV19XzRZsk
+         9w2g==
+X-Gm-Message-State: AOAM533Hlr/NNjcZbx9V3t+vy5VgZ7yiGnVJ3OTtiD1X1VbkYkOKHiYh
+	oUvmMRC4jaF8D+3AulNnv+s=
+X-Google-Smtp-Source: ABdhPJy2zUtwRq1acHxkGMHt6paBA37CcYt+n+hcU5vawaLTju9/xKupPD2sJ4SjnjkmRRaW2iG0Dg==
+X-Received: by 2002:a50:cb85:: with SMTP id k5mr6354984edi.170.1622833276932;
+        Fri, 04 Jun 2021 12:01:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:f603:: with SMTP id w3ls2808162wmc.2.canary-gmail; Fri,
- 04 Jun 2021 11:55:17 -0700 (PDT)
-X-Received: by 2002:a7b:c10b:: with SMTP id w11mr5040458wmi.186.1622832917286;
-        Fri, 04 Jun 2021 11:55:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622832917; cv=none;
+Received: by 2002:a05:6402:1510:: with SMTP id f16ls6878417edw.1.gmail; Fri,
+ 04 Jun 2021 12:01:16 -0700 (PDT)
+X-Received: by 2002:aa7:da94:: with SMTP id q20mr6324247eds.310.1622833276068;
+        Fri, 04 Jun 2021 12:01:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622833276; cv=none;
         d=google.com; s=arc-20160816;
-        b=oSYngJW/+jJV7k3Nq2K87UHMmk+V990w+1BQb/+aP5lQAFnfVffTmpyvTAymayRIe5
-         cIon5E6aSe6S06lMb+VtFBPth78/E4AI21O2ImJMC67YKRNAUs+0rabxhhb/wH26RMtW
-         7WuqyHR4pEeznTgEbQ8QIHbVahiiWJ3TZBrm56s5pugcKmkBRfDSd4q5JnvPuGgjLhMn
-         h9vbsBcjpcH5rqwE4IS5/9VBElQra0my95/J8jnV+Flyi88cZRmYAsEmflYtwzuDmEQN
-         kbOxi0FrdaakLu8xD/zv/b0H3Hyj054sWKO5PvI5BaBRSo48HNp/9A2h62mszqulLEgk
-         h3yw==
+        b=E6SwSOh6fOUPqDu6hV7MI3qacUDuWT3AxQHE4joGlNXULrL3c6lEdUbno9YvkUTY/Z
+         wRBZqAzei9Zl/emcxqvm5TQhGrCWM/Yqmi6W7SgeleJo9vkCC4pQ2Z5yXPhrygjHZ6d1
+         ZUuA/1aZm39g04RB8ESkDEpTt5HO2GBKVhhq3mHlSvUUAxCX94V0ipX3X0HQ+XCWFBB8
+         uZpUfR1gHohvaPQIe7cU8rMYeRKbctXVy/gZfWHmzD42lTPpyeFDp5a2mk0LlOSkkBFz
+         Zk+UKAiFMFLDc6y2Ii7UX6YJ90QbhkqC55qfablcDFJW3y7GjmN2AB68aBbRAjIW9cQ8
+         4THg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=MAY7KM/K0wP2g2AnxgxdYeWiUARA3nmMx/CzXqNh5J8=;
-        b=JCaAcXZ5+ZWM0kkkewIdx0GKDlQtT7m7hAL2p8Zt1YSF2dmTb+Ip1OEtTzD42wIoEJ
-         djD2Ijk1SaKtKBoHWRORQl70gDp95n4zUCj+1mZz4qysJ77GxGuON9lt53wGH1/WSLCj
-         ii0To5KT9dcG7e/5/icYr1EQeua3ztncU924r0kNPlNLGm+ouotZCoVnS/RXpsVYSiHl
-         R2hDBf2y5Hvj7kV7t/1KiMEg12ej6DoBIsLHGL18Y0mLPmbv5cEdBktTxsWcKkuEvMsn
-         M11awF6aMAgvalSwesG6lPIGN82oU/XFR2bvirKdqzxA/AaQVqVxwpmWUb8/vzDmI1kE
-         es9g==
+        bh=qK8khhSK3ODo4qNQu6WnywimRyy3KGbrWle9HlDDwdk=;
+        b=GnZG/xTujOFtkf9Besba4mWrw6JGSjqB3IkwKYbCEVS4z5OxqZhboxVlD/zXC7rKPz
+         RKqzKqt0//vyO13e2/Ob+Hp//acCCSRSnAnaOiTJGpUNLN0QCQ8zrVDAkAiALF1T29Fe
+         DfLPrrrFPiQN2gLyQd/biZehMftyNTx3GMlwuaBC2WOJT50FnU4cHTL+6J6URFkzNdp1
+         1A6vbxz/lf9Oj6hOwazHmmy2ed1zRj0uT/33+VhgMBN1/Qusv9XCFRq+njW7WivEYYPf
+         00ig4bohiGdv2vB1+x9vkUToeM6PuuKxqM7pcL70hOTXtKyoIgNqJorN9F7P+EpmQ9nR
+         g6xQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="ILKJc/Ma";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CmwRJrhn;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lj1-x22e.google.com (mail-lj1-x22e.google.com. [2a00:1450:4864:20::22e])
-        by gmr-mx.google.com with ESMTPS id k18si598279wmj.0.2021.06.04.11.55.17
+Received: from mail-lj1-x22a.google.com (mail-lj1-x22a.google.com. [2a00:1450:4864:20::22a])
+        by gmr-mx.google.com with ESMTPS id s9si145135edw.4.2021.06.04.12.01.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 04 Jun 2021 11:55:17 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22e as permitted sender) client-ip=2a00:1450:4864:20::22e;
-Received: by mail-lj1-x22e.google.com with SMTP id a4so12815451ljq.9
-        for <clang-built-linux@googlegroups.com>; Fri, 04 Jun 2021 11:55:17 -0700 (PDT)
-X-Received: by 2002:a2e:b6d2:: with SMTP id m18mr4278071ljo.233.1622832916471;
- Fri, 04 Jun 2021 11:55:16 -0700 (PDT)
+        Fri, 04 Jun 2021 12:01:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a as permitted sender) client-ip=2a00:1450:4864:20::22a;
+Received: by mail-lj1-x22a.google.com with SMTP id e11so12818541ljn.13
+        for <clang-built-linux@googlegroups.com>; Fri, 04 Jun 2021 12:01:16 -0700 (PDT)
+X-Received: by 2002:a2e:b5b5:: with SMTP id f21mr2761935ljn.479.1622833275556;
+ Fri, 04 Jun 2021 12:01:15 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAK7LNAS_LpZnweujqVwZ1kL0eDYR726k35U_yx1djqNE0bk6Rw@mail.gmail.com>
- <20210522012626.2811297-1-ndesaulniers@google.com> <20210526170904.GB19831@willie-the-truck>
-In-Reply-To: <20210526170904.GB19831@willie-the-truck>
+References: <60b96a82.DVmXvEgPcq+AUh8E%lkp@intel.com> <YLp2Bynq6yffiev5@smile.fi.intel.com>
+ <YLp2q+unmvu4pPcz@smile.fi.intel.com>
+In-Reply-To: <YLp2q+unmvu4pPcz@smile.fi.intel.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 4 Jun 2021 11:55:04 -0700
-Message-ID: <CAKwvOd=Ah8LL2XDXQE9=t1hGNTxfeGEmVkVdhUBoQ5P_9eAWhA@mail.gmail.com>
-Subject: Re: [PATCH v2] Makefile: fix GDB warning with CONFIG_RELR
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, Lee Jones <lee.jones@linaro.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Fangrui Song <maskray@google.com>, 
-	Elliot Berman <eberman@quicinc.com>, Sami Tolvanen <samitolvanen@google.com>, 
-	Peter Collingbourne <pcc@google.com>, Michal Marek <michal.lkml@markovi.net>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>
+Date: Fri, 4 Jun 2021 12:01:03 -0700
+Message-ID: <CAKwvOdn2PRKsK+hTnB=B9ritp5X0j2J-=of2gxBmzpGkUg+zfg@mail.gmail.com>
+Subject: Re: [BUILD SUCCESS WITH WARNING] LAST PATCH: [PATCH v1 2/2] gpio:
+ dwapb: Switch to use fwnode_irq_get()
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Chen Rong <rong.a.chen@intel.com>
+Cc: kernel test robot <lkp@intel.com>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Arnd Bergmann <arnd@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="ILKJc/Ma";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22e
+ header.i=@google.com header.s=20161025 header.b=CmwRJrhn;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -136,70 +131,91 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, May 26, 2021 at 10:09 AM Will Deacon <will@kernel.org> wrote:
+On Fri, Jun 4, 2021 at 11:53 AM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
 >
-> On Fri, May 21, 2021 at 06:26:24PM -0700, Nick Desaulniers wrote:
-> > GDB produces the following warning when debugging kernels built with
-> > CONFIG_RELR:
+> On Fri, Jun 04, 2021 at 09:50:47PM +0300, Andy Shevchenko wrote:
+> > On Fri, Jun 04, 2021 at 07:49:22AM +0800, kernel test robot wrote:
+> > > url:    https://github.com/0day-ci/linux/commits/Andy-Shevchenko/gpio-dwapb-Drop-redundant-check-in-dwapb_irq_set_type/20210602-002311
+> > > base:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-gpio.git for-next
+> > >
+> > > [If your patch is applied to the wrong git tree, kindly drop us a note.
+> > > And when submitting patch, we suggest to use '--base' as documented in
+> > > https://git-scm.com/docs/git-format-patch]
+> > >
+> > >
+> > > Warning in current branch:
+> > >
+> > > drivers/gpio/gpio-dwapb.c:17:1: iwyu: warning: superfluous #include <linux/of.h>
+> > > drivers/gpio/gpio-dwapb.c:20:1: iwyu: warning: superfluous #include <linux/of_irq.h>
+
+Interesting; this is the first report I've ever seen of 0day bot
+running IWYU.  We've definitely tried to run it on the kernel sources
+before, but I think we very quickly reached the conclusion that it
+doesn't work well with the kernel's use of Kconfig, since it's common
+to always include a header for definitions that might only ever be
+used conditionally on some preprocessor guard of a config that may or
+may not be set (exacerbated by randconfig).
+
+It's definitely interesting and worth pursuing, but unless we care to
+put #includes behind config guards, I don't think the kernel is ready
+for IWYU quite yet.  Reports from it are likely just to annoy folks at
+the moment.
+
 > >
-> > BFD: /android0/linux-next/vmlinux: unknown type [0x13] section `.relr.dyn'
+> > While in general it's a good warning, the reported headers are wrong.
 > >
-> > when loading a kernel built with CONFIG_RELR into GDB. It can also
-> > prevent debugging symbols using such relocations.
+> > See more here: https://lore.kernel.org/linux-gpio/20210604185013.86662-1-andriy.shevchenko@linux.intel.com/T/#u
 > >
-> > Peter sugguests:
-> >   [That flag] means that lld will use dynamic tags and section type
-> >   numbers in the OS-specific range rather than the generic range. The
-> >   kernel itself doesn't care about these numbers; it determines the
-> >   location of the RELR section using symbols defined by a linker script.
-> >
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/1057
-> > Suggested-by: Peter Collingbourne <pcc@google.com>
-> > Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-> > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> > ---
-> > Changes V1 -> V2:
-> > * rebase
-> > * pick up Nathan's reviewed by tag.
-> >
-> >  Makefile                      | 2 +-
-> >  scripts/tools-support-relr.sh | 3 ++-
-> >  2 files changed, 3 insertions(+), 2 deletions(-)
+> > I think Clang should handle this on the preprocessor level (to collect all
+> > functions that might be in use independently on current ifdeffery).
 >
-> Does lld support RELR relocations for any architectures other than arm64? If
+> Basically the rule of thumb is to include the headers the code is direct user of.
+> Compiler mustn't report the mysterious ways of the rest, actually it should do
+> other way around, i.e. report possible circles and implicit inclusions (when
+> there is no guarantee that header A is included by header B). I dunno how it
+> can be done in project-independent manner.
+>
+>
+> > > Warning ids grouped by kconfigs:
+> > >
+> > > clang_recent_errors
+> > > |-- x86_64-randconfig-b001-20210601
+> > > |   |-- drivers-gpio-gpio-dwapb.c:iwyu:warning:superfluous-include-linux-of.h
+> > > |   `-- drivers-gpio-gpio-dwapb.c:iwyu:warning:superfluous-include-linux-of_irq.h
+> > > |-- x86_64-randconfig-b001-20210602
+> > > |   |-- drivers-gpio-gpio-dwapb.c:iwyu:warning:superfluous-include-linux-of.h
+> > > |   `-- drivers-gpio-gpio-dwapb.c:iwyu:warning:superfluous-include-linux-of_irq.h
+> > > `-- x86_64-randconfig-b001-20210603
+> > >     `-- drivers-gpio-gpio-dwapb.c:iwyu:warning:superfluous-include-linux-of_irq.h
+> >
+> > ...
+> >
+> > > clang tested configs:
+> > > x86_64               randconfig-b001-20210601
+> > > x86_64               randconfig-b001-20210603
+> > > x86_64               randconfig-b001-20210602
+> > > x86_64               randconfig-a002-20210603
+> > > x86_64               randconfig-a004-20210603
+> > > x86_64               randconfig-a003-20210603
+> > > x86_64               randconfig-a006-20210603
+> > > x86_64               randconfig-a005-20210603
+> > > x86_64               randconfig-a001-20210603
+> > > x86_64               randconfig-a002-20210601
+> > > x86_64               randconfig-a004-20210601
+> > > x86_64               randconfig-a003-20210601
+> > > x86_64               randconfig-a006-20210601
+> > > x86_64               randconfig-a005-20210601
+> > > x86_64               randconfig-a001-20210601
+> > > x86_64               randconfig-a015-20210602
+> > > x86_64               randconfig-a011-20210602
+> > > x86_64               randconfig-a012-20210602
+> > > x86_64               randconfig-a014-20210602
+> > > x86_64               randconfig-a016-20210602
+> > > x86_64               randconfig-a013-20210602
 
-Yes; from what I can tell it's not an architecture specific relocation
-type. Combing through LLVM's sources, it seems Fuchsia sets it always
-(at least when using lld) and I'm pretty sure they support x86.  At
-least I don't get any errors out of LLD when building with
---pack-dyn-relocs=relr on x86.
-
-I can force on RELR for x86 kernel builds with:
-```
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 0045e1b44190..513272c77827 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -2117,6 +2117,7 @@ config PHYSICAL_START
-
- config RELOCATABLE
-        bool "Build a relocatable kernel"
-+       select ARCH_HAS_RELR
-        default y
-        help
-          This builds a kernel image that retains relocation information
-```
-That builds (it won't boot because we don't have the machinery in the
-kernel to self relocate that type, yet).
-
-> so, is the "--use-android-relr-tags" option supported on all of those as
-> well?
-
-I believe so; no issues building with this patch and with the above
-diff applied on x86. All that flag does is change the elf section type
-from SHT_RELR to SHT_ANDROID_RELR.
-
-pcc@ can correct me if I'm wrong.
+Did the bot run IWYU on a bunch of randconfigs, and report only the
+warnings that appear every time?
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -207,4 +223,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DAh8LL2XDXQE9%3Dt1hGNTxfeGEmVkVdhUBoQ5P_9eAWhA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdn2PRKsK%2BhTnB%3DB9ritp5X0j2J-%3Dof2gxBmzpGkUg%2Bzfg%40mail.gmail.com.
