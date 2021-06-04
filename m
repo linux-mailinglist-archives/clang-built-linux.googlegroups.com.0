@@ -1,133 +1,143 @@
-Return-Path: <clang-built-linux+bncBDIYTLXUW4BRB35246CQMGQERH2DSBA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM2L4NMRYHRBIW546CQMGQETXFIURA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0CF2239B474
-	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Jun 2021 09:59:44 +0200 (CEST)
-Received: by mail-lf1-x13b.google.com with SMTP id h82-20020a1985550000b0290298192a54edsf3364948lfd.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Jun 2021 00:59:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622793583; cv=pass;
+Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id B941739B59F
+	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Jun 2021 11:13:07 +0200 (CEST)
+Received: by mail-lf1-x13e.google.com with SMTP id u23-20020a1979170000b02901d2e8dd801dsf3444324lfc.6
+        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Jun 2021 02:13:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622797987; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LLmSMIeJOK01z4pA2tbD9KSM/s2XTIUqi/qHpMTG77CblMFHCyvZ4WEmkABqgh9hFV
-         vmvpz5qtnP6hAPuOjg4HR0WJmAN+rSm20eCzkdhjkNFdG19FV5BB9S+Ix9OB033nqmfz
-         Ijyzpg0RFidPPR3uhd1XwSoU+Mocc8jFztqgbt2T9BjU/2WrC7imwt+gDdaEGN64Y1HV
-         w1+cdTQRhs2GUOs/hw2JU9dKywbedd98XdfRf2Kf/l2sVXniM+RFmTDmLqQvkMQ9YGdm
-         7/IaaSlRhEJOrMDWBSble4V3TV2BOM4OR2SARyV8TILN6YD6irliMKL7Odnh674jfe/T
-         s21Q==
+        b=Jkk+7paWB2vqbW4d+tnjL0Zck1WxZ5S7tyIhXxRW6noaND+5PzWZTugFRH/5AbnVOq
+         16lH7VqNWzNYI0wG2wmJRCYZ7RO5z2SacjeESIcXpizVblI8g0/9mBE3ZoayCtSDW75H
+         7c7cEDnN6lQMHHbonzImXs3DeNgg7vEVuJzzEa4Z73nrx72b8AumRF5ig1wZHO+LHJmL
+         h8RjoGAcJl8oPqA+68DvvGzoxZzCAk7tbUpaP4whgZJqseeSOLH0zgI6e+o+Dz7jlxxC
+         /8ry10mtF5ITop0KeIW/7e52d4IsC/2e4JufnlYJLFuE/K7lIgZxUiBI6j1qKd/8cjvq
+         EdfQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
          :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:from:cc:references:to:subject:sender:dkim-signature;
-        bh=5n0N2406qz6GlqCLlUQ7+p3rnReevqT+HfDNwv/yPzA=;
-        b=Mb6lMA5Ms4x/XJ1OC9lw8ps2RvfnkAt512PfFQ779HOrk/5IXfBsr8/M5ENaYCKoyZ
-         XCQIJnubXPmG00hwQIfeHXSf7Siz1exQXQP3VDttc/r7TBbxUdSE7v+CA4dAowlmfPBv
-         30Th0eQPJU1QuPg/XQpdMVUAXRvM1TkEEyjU2BMb1+ku9Q2wMLKwVqdccGZJe2ISLb4D
-         fxpBXOHX3WuETFXDDGkzpLVkgN/CKASERMQp6quBC1RTfb1V5yoyaAASMSk8rTtHkyTo
-         6zxMQ0DU3qxocwXyza1yIeR6mHhzUpvEghMYYsKvM8D+k9zahsdCHW5MCrStbGthvWWw
-         1fgw==
+         :message-id:from:references:cc:to:subject:dkim-signature;
+        bh=y9R8NaxXtjB56fWXeeqc2maFI85rCZ6IeN+LmUEpgow=;
+        b=UrjB5qTO5k/C9czHcK13XJmicms7zfc0SZr2zbq6H/Org+gL1PJbScBqT438SFEiZz
+         apuSeEIaxk8YcZS4bf5ApOmDMEKR39NHz9l36rX6fSPnd9s/+ro+ajoVXL7ZtPIIvT0H
+         07j6uYST9Fa4WcSHqdMlRtBCf+ELqOgjewKG3pLPLPWJRnv6BklKBDI5nPgqc3Qqcc4t
+         BZ8ExxsI//FmR2K3V2MgV1I8Zw906W8LPBTyE75axAwI7h1IsRBfHgZXq3pEr5v6oUDJ
+         WNWExoNEng4GKXUoea43LSJMDxOkMFhBXWzqsNZjt1R3k3EXUpHdvioV2Z/ed2yE7jw3
+         UGDQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=zrHqaJhY;
-       spf=pass (google.com: domain of daniel.lezcano@linaro.org designates 2a00:1450:4864:20::431 as permitted sender) smtp.mailfrom=daniel.lezcano@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=iF94tEeb;
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=iF94tEeb;
+       spf=pass (google.com: domain of nborisov@suse.com designates 195.135.220.28 as permitted sender) smtp.mailfrom=nborisov@suse.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:references:cc:from:message-id:date:user-agent
+        h=subject:to:cc:references:from:message-id:date:user-agent
          :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5n0N2406qz6GlqCLlUQ7+p3rnReevqT+HfDNwv/yPzA=;
-        b=DUopCy1gJrmH3ZTN6RuOWdrFsnerhkjsxdsVfmQr4kysQyWjdtax5EPB8GK/w+WYi0
-         mwiAlixCA/gCaLyn1O0DyHyVqPUU+D8WTPC0v0lIOnlOZ1lzwoVZ7/f0MOLlvuahAUZ3
-         XYpyS7flqyDA0Ioqe4PfqZLmGcUZocinyVyAqpq+pPsJa1N7u/GmPz0uRwZ87I9CqZqk
-         xJHYV/LFL9hXL0YyL/KjPsXv2gAAgMhl0aZ0Zn1aIYWVV2dHJRTl4p9gujtKtG2Nacjd
-         AqmazStyutUqbvsk5pEsYFhPO2XgAyybTtUTZfniAN3RF2xn1Q6mDrR5PDkFy6hp8b2T
-         mgvA==
+        bh=y9R8NaxXtjB56fWXeeqc2maFI85rCZ6IeN+LmUEpgow=;
+        b=fEyUMvi8yisHHvgzYHkoDevZykfsTVnYlcJ6wb/LEd1qEdk/Xil/9quo7imP7S9IN+
+         soTjLcw1XIRMM/UfgGDdLIVl7/6cPspWS2hDef8n6a3f93j/7Up/7jUPopi5/cxbiqMw
+         FvHvTCE973z90yGXr4+JUbDbsLWTbfTjGOwvZpfzrk5FmHvuXDHCQ4o/KWfb2Tb9USYk
+         Cm0ryrocEceo1XE6HSH80XiZZtclQHkXLIdkftN+UlSrf8GTDqt5iIKIV3hRAMmTB14H
+         jh8rt7ymYlbcMaQiwMdMFyjZ8WxsQfZkF9ArvS9ryRi3GCMGJ+YrHGuuuaDQqk9o22sl
+         aKXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:references:cc:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
          :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5n0N2406qz6GlqCLlUQ7+p3rnReevqT+HfDNwv/yPzA=;
-        b=XsqQAfP+U0nvTTK8Xc6Z3f3kRHddcZTWq8D99VvC9vzmi9bzpdJpk1rB6EdSoLFBTc
-         2o3ORzUIBM9hBV22eb1KJuoP94N3aSffHIdp07YT+F8R9ISELz9ZBthiTsBG2/jOjtFF
-         xpsYKrWcusp+iePtVUSq4dTZcc+5q7fhGYdxkwhPmjvs/DFiXrBzSsgc/tOHb8EBcHiW
-         bqfrqZ/CrJPFiLKYsfWyG2berq2K8aeLCNTMDZjvLRLbu9tQKGAqZL/+iN1u+f5lVidg
-         6YkOfy7lzzx8Zpmup1IJASQmfHlLm6nRvifXWo6Va4rRIfpg8JFbeJ+NSN52oy6shQ/D
-         kVYg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533sI4UJadsvIQ3ipl8WMkrnNR7Ayg/BJwhFvZ1JzwOZEGtTKBHQ
-	Y6dbnTc8Cls/wewMdw1LvSY=
-X-Google-Smtp-Source: ABdhPJy9BJ5mb6zmPXv3Xyh3olB30txRurIdN29FYkf2Gcq2zo6RCarMaWOVP/mLWz6mjbfC8s9AKw==
-X-Received: by 2002:a2e:8e78:: with SMTP id t24mr2518240ljk.499.1622793583370;
-        Fri, 04 Jun 2021 00:59:43 -0700 (PDT)
+        bh=y9R8NaxXtjB56fWXeeqc2maFI85rCZ6IeN+LmUEpgow=;
+        b=N8KlEpVnXEPB2690G9uMskCys8rINYA8T5/QEf6Fa+T7d+9QYvgetnnkEzucjRyvK+
+         aQgN6Bxfn7jSB1yuwxia3poGrSrCydfpBdNmEo/4P0wSjBm6GyMoxqyhgc8r6NNYdd7W
+         qHblxrVXithAV/k7adxTNowG86mlWmaWUgz2Almc2Fzrv/j8qNSqGic9WESkDM4gQHnz
+         8EojgiAQOJCC+hz8no/9l+eMc4Ss0eV3wAvH9G5qdcxtgijv8ZfQaKhmpOpcuos5Wlta
+         8ZhJkmZB4yLjifN8S1ttG9W4cvY7AoXzRpar6xt1gONHkfknSYb2nEZ9AZGfccKcCQVk
+         JcXA==
+X-Gm-Message-State: AOAM530YKuhwBKXpNjCNCRbvq+22CVdEIsz2/4Po92R41mHABBvqZZkx
+	aKZ7s2sVBOQWwBntP9CLBX8=
+X-Google-Smtp-Source: ABdhPJwxqWcRRxOBEjG4MlANEurIfII15kOWNbEYGsR+kqBiusLfcP82gkK4MS0hSUmehI5gVneaWg==
+X-Received: by 2002:a19:cd8:: with SMTP id 207mr2175931lfm.322.1622797987141;
+        Fri, 04 Jun 2021 02:13:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9617:: with SMTP id v23ls1431748ljh.7.gmail; Fri, 04 Jun
- 2021 00:59:42 -0700 (PDT)
-X-Received: by 2002:a2e:b5d8:: with SMTP id g24mr2574075ljn.115.1622793582287;
-        Fri, 04 Jun 2021 00:59:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622793582; cv=none;
+Received: by 2002:a05:651c:1199:: with SMTP id w25ls113446ljo.1.gmail; Fri, 04
+ Jun 2021 02:13:06 -0700 (PDT)
+X-Received: by 2002:a2e:a71e:: with SMTP id s30mr2785174lje.93.1622797986091;
+        Fri, 04 Jun 2021 02:13:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622797986; cv=none;
         d=google.com; s=arc-20160816;
-        b=PpG0d9qZ+eq4zSocTUL5HoMaCT9JYkTMDFAbQCL9BbMCdIgmd8xtc4sd2LJJjuhLRV
-         2ih5C3Pi4Nbp8eeAYqC/VK650w9mWL77C7w4gK4SAzQyy25cE2Pf3nRC0WxBDnZmDwox
-         Iz6h40EUIaJPTVCt1VId6DnQczYk6RXFADnmC6SnfmeW4zzfWAKxAO1HcfEEXov2oKRa
-         pnjYkdhkM/WodZW8ISjTRMN4vEyFi4a6T8egWLEAgevJiHc1zBriB+V6v7dD3yP0RWFI
-         5ge9O92Q1T/ctzYGyWjJ68w6kM0jpbtw+Rt0p9B6QRCc4f4Z/lINH/sQG9YoktofmZjA
-         skcQ==
+        b=LkVoKIPRppNWHpET2jkWvbVyx0Mx0Ze2oezHfUG4UrWfv7dOIemnqvR6t1ms5VecYu
+         w1fNQBHvyBRVuAXq+cLZ78qJ8IF5fUvNfqRNIP63NU8Z8gacFD0UostEfmxq848Nis4E
+         2eiivPhFkbd9ItoTXQU5lncE1aijbk813kNHTmZTdCn7f2um9z2EL5T/xyJEQc+zyj7U
+         f7mPS8YYI1PSeaSL93vG2zlHoVj6v3LSHNLyloEo1l6wHFq0Q3lSkvRJaYpyMjtC6PA+
+         5wIerSNeeA/iLO/T4OsvsrtQ0XLjT+zmjsTQy38G3jMcMYawBcHJ26ik5GK+M5FPuVw5
+         DMvQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:cc:references:to:subject
-         :dkim-signature;
-        bh=EP+mw274f60QgeLEw0mZAERkBn33Pom9+hVObcy6zfM=;
-        b=dmbc6u883CmxyE20/viIu0emqcYbhqm1fpccozgtxxSZH96pQaMDXPlTJMmG4OzpMF
-         lBlp9VypA0HOgiV+ZsyMlewpK0vQUOVK0VK/6U/aiK2kx0/hMtt35Y/eEzek7yjXqks+
-         UW3xupoFIob8/laxlTc/8O/eLohzl3uNCzl2uladfPY3EyuRohiBqAOx3OvwjeVTWoOy
-         4iyEibW6y8Gp6bJOBMydQIYjXNl1spLXdmHwMqWP3G6cQGkuU5WvQIs4cclW1brCFJj5
-         O7W2axBPCIpaToTGnEjfCJWkgSy3fbW2mB9alYNEHgiFBQWtLNprRb714CLR4eGjsKfs
-         z4PA==
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature:dkim-signature;
+        bh=zg82xsskpBEPuu/jfxoQjwLs+XWcFGem7XD7XTLcm0c=;
+        b=zrh8yPfgo5SmWIU+iKTOooeAWcnkJInOz7TtXCTxKyDlI8GzmZNvfqQJiLvIX0+4Ss
+         mjeJs50IzmHrvyjrMd7C179W0KH3xHUPiL3LTF8v+GV17wdLMqACNs9VoT+5L2itgdbw
+         9DE13WGG0D29l73sv87+9XQzwr9Wsyqfu7o9+DFDHPDdEX03e9V1I8NuwOPROOwn5zEt
+         OrFQDWodBfyxk112G1flHQ/1IPGLT9e9WBD3JEmLhN036O/im73gQl2ZrAQ0JMz9d1J2
+         F5SDOK3/7iBMF5ilTr0GIeNQW0vsUXfchoLlu3bbMRSjYbyO75UhnQLZ3NXDM5zIuenZ
+         7QVg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=zrHqaJhY;
-       spf=pass (google.com: domain of daniel.lezcano@linaro.org designates 2a00:1450:4864:20::431 as permitted sender) smtp.mailfrom=daniel.lezcano@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x431.google.com (mail-wr1-x431.google.com. [2a00:1450:4864:20::431])
-        by gmr-mx.google.com with ESMTPS id d7si209188lfn.7.2021.06.04.00.59.42
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=iF94tEeb;
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=iF94tEeb;
+       spf=pass (google.com: domain of nborisov@suse.com designates 195.135.220.28 as permitted sender) smtp.mailfrom=nborisov@suse.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
+Received: from smtp-out1.suse.de (smtp-out1.suse.de. [195.135.220.28])
+        by gmr-mx.google.com with ESMTPS id w26si209464ljw.8.2021.06.04.02.13.05
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 04 Jun 2021 00:59:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of daniel.lezcano@linaro.org designates 2a00:1450:4864:20::431 as permitted sender) client-ip=2a00:1450:4864:20::431;
-Received: by mail-wr1-x431.google.com with SMTP id a20so8387491wrc.0
-        for <clang-built-linux@googlegroups.com>; Fri, 04 Jun 2021 00:59:42 -0700 (PDT)
-X-Received: by 2002:a5d:50ca:: with SMTP id f10mr2347004wrt.411.1622793581797;
-        Fri, 04 Jun 2021 00:59:41 -0700 (PDT)
-Received: from ?IPv6:2a01:e34:ed2f:f020:70d3:6c26:978:999d? ([2a01:e34:ed2f:f020:70d3:6c26:978:999d])
-        by smtp.googlemail.com with ESMTPSA id h46sm6642757wrh.44.2021.06.04.00.59.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 04 Jun 2021 00:59:41 -0700 (PDT)
-Subject: Re: [PATCH] clocksource/drivers/pistachio: remove unused variable
-To: Luo Meng <luomeng12@huawei.com>, tglx@linutronix.de, nathan@kernel.org,
- ndesaulniers@google.com, clang-built-linux@googlegroups.com
-References: <20210529033335.1962230-1-luomeng12@huawei.com>
-Cc: Ezequiel Garcia <ezequiel@collabora.com>
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-Message-ID: <9d805b82-c4d6-4a49-3422-0630be34ad01@linaro.org>
-Date: Fri, 4 Jun 2021 09:59:40 +0200
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 04 Jun 2021 02:13:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nborisov@suse.com designates 195.135.220.28 as permitted sender) client-ip=195.135.220.28;
+Received: from imap.suse.de (imap-alt.suse-dmz.suse.de [192.168.254.47])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 4939E219F5;
+	Fri,  4 Jun 2021 09:13:05 +0000 (UTC)
+Received: from imap3-int (imap-alt.suse-dmz.suse.de [192.168.254.47])
+	by imap.suse.de (Postfix) with ESMTP id D8CA9118DD;
+	Fri,  4 Jun 2021 09:13:04 +0000 (UTC)
+Received: from director2.suse.de ([192.168.254.72])
+	by imap3-int with ESMTPSA
+	id KvW1MqDuuWDBZgAALh3uQQ
+	(envelope-from <nborisov@suse.com>); Fri, 04 Jun 2021 09:13:04 +0000
+Subject: Re: [PATCH] btrfs: Remove total_data_size variable in
+ btrfs_batch_insert_items()
+To: Nathan Chancellor <nathan@kernel.org>, Chris Mason <clm@fb.com>,
+ Josef Bacik <josef@toxicpanda.com>, David Sterba <dsterba@suse.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, linux-btrfs@vger.kernel.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+References: <20210603174311.1008645-1-nathan@kernel.org>
+From: "'Nikolay Borisov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Message-ID: <123f5904-9f0a-aef2-3c9a-ce36dd85b571@suse.com>
+Date: Fri, 4 Jun 2021 12:13:04 +0300
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.8.1
 MIME-Version: 1.0
-In-Reply-To: <20210529033335.1962230-1-luomeng12@huawei.com>
+In-Reply-To: <20210603174311.1008645-1-nathan@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Language: en-US
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: daniel.lezcano@linaro.org
+X-Original-Sender: nborisov@suse.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=zrHqaJhY;       spf=pass
- (google.com: domain of daniel.lezcano@linaro.org designates
- 2a00:1450:4864:20::431 as permitted sender) smtp.mailfrom=daniel.lezcano@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@suse.com header.s=susede1 header.b=iF94tEeb;       dkim=pass
+ header.i=@suse.com header.s=susede1 header.b=iF94tEeb;       spf=pass
+ (google.com: domain of nborisov@suse.com designates 195.135.220.28 as
+ permitted sender) smtp.mailfrom=nborisov@suse.com;       dmarc=pass
+ (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
+X-Original-From: Nikolay Borisov <nborisov@suse.com>
+Reply-To: Nikolay Borisov <nborisov@suse.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,56 +151,25 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
-[Cc'ed Ezequiel]
 
-On 29/05/2021 05:33, Luo Meng wrote:
-> Fix the following clang warning:
-> drivers/clocksource/timer-pistachio.c:74:15:
-> warning: variable =E2=80=98overflow=E2=80=99 set but not used [-Wunused-b=
-ut-set-variable]
+On 3.06.21 =D0=B3. 20:43, Nathan Chancellor wrote:
+> clang warns:
 >=20
-> Signed-off-by: Luo Meng <luomeng12@huawei.com>
-> ---
->  drivers/clocksource/timer-pistachio.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> fs/btrfs/delayed-inode.c:684:6: warning: variable 'total_data_size' set
+> but not used [-Wunused-but-set-variable]
+>         int total_data_size =3D 0, total_size =3D 0;
+>             ^
+> 1 warning generated.
 >=20
-> diff --git a/drivers/clocksource/timer-pistachio.c b/drivers/clocksource/=
-timer-pistachio.c
-> index 6f37181a8c63..42b4cacd2fd5 100644
-> --- a/drivers/clocksource/timer-pistachio.c
-> +++ b/drivers/clocksource/timer-pistachio.c
-> @@ -71,7 +71,7 @@ static u64 notrace
->  pistachio_clocksource_read_cycles(struct clocksource *cs)
->  {
->  	struct pistachio_clocksource *pcs =3D to_pistachio_clocksource(cs);
-> -	u32 counter, overflow;
-> +	u32 counter;
->  	unsigned long flags;
-> =20
->  	/*
-> @@ -80,7 +80,7 @@ pistachio_clocksource_read_cycles(struct clocksource *c=
-s)
->  	 */
-> =20
->  	raw_spin_lock_irqsave(&pcs->lock, flags);
-> -	overflow =3D gpt_readl(pcs->base, TIMER_CURRENT_OVERFLOW_VALUE, 0);
-> +	gpt_readl(pcs->base, TIMER_CURRENT_OVERFLOW_VALUE, 0);
-
-Why not remove the entire line ?
-
->  	counter =3D gpt_readl(pcs->base, TIMER_CURRENT_VALUE, 0);
->  	raw_spin_unlock_irqrestore(&pcs->lock, flags);
-> =20
+> This variable's value has been unused since commit fc0d82e103c7 ("btrfs:
+> sink total_data parameter in setup_items_for_insert"). Eliminate it.
 >=20
+> Fixes: fc0d82e103c7 ("btrfs: sink total_data parameter in setup_items_for=
+_insert")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1391
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
-
---=20
-<http://www.linaro.org/> Linaro.org =E2=94=82 Open source software for ARM =
-SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+Reviewed-by: Nikolay Borisov <nborisov@suse.com>
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -198,4 +177,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/9d805b82-c4d6-4a49-3422-0630be34ad01%40linaro.org.
+clang-built-linux/123f5904-9f0a-aef2-3c9a-ce36dd85b571%40suse.com.
