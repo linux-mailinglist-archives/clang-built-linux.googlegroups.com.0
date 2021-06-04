@@ -1,136 +1,141 @@
-Return-Path: <clang-built-linux+bncBD5JZUMX6AHBBA435CCQMGQE2PUDLSY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIJL6NQQ4CRB4NX5CCQMGQEM2D4DEA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33f.google.com (mail-wm1-x33f.google.com [IPv6:2a00:1450:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5750F39B7CF
-	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Jun 2021 13:24:52 +0200 (CEST)
-Received: by mail-wm1-x33f.google.com with SMTP id w3-20020a1cf6030000b0290195fd5fd0f2sf2298853wmc.4
-        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Jun 2021 04:24:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622805892; cv=pass;
+Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 510CD39B8FC
+	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Jun 2021 14:26:26 +0200 (CEST)
+Received: by mail-lf1-x13e.google.com with SMTP id q14-20020a19f20e0000b02901daf8ea9b7asf3670526lfh.2
+        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Jun 2021 05:26:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622809586; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RKkGHv12a9mAPDPXpzdMAv0XsKb62KfJ1MVl5RW/7TQ2LRFEcx6/88ZVIjXXusHBqp
-         8Ekp0MvmJOKM2+AC9dd2wHj9F+sPVQqfjzPKZsBO7d4v6vOmhNWdxVMkN5eojFEIiTg6
-         5sl5deamIjL1iGoa5UmViMBJzGhxr2XINTmx+w9JmK+FyHJ8I40I2Ux8t8vkWD2GfH7f
-         Wrz+DagofsPmxk3rmLPFct3CYcdN8SvlxmayEADVScVuYwr5NNySi26TVPsAcuwlDirk
-         t+zzgvAfNOsvsbDF2vIP893qQOUFA1ATSVlCeKr5WSBD6fUi2omyzxhSf/aaB3M5bYLC
-         o6jA==
+        b=uhPrIk3FVuDkP+/S17XAVraF9ZGZd2bdk3lwT/W1myPGf8YMk1/OXOFhWiI6eEsxVr
+         nwR8P5Wg/zrShbdByWgcDMj/FUH1Am66tcVWslyD4BB5YY3C0GYgBkb2fqB2BQToS/xF
+         lKR+C9HGLOrBnCjVmDW5kEi5LdsK/uA4EJ7mtsKV1uuxOIqLLVGF4iQN5f4A7S+KUFMy
+         LJOSROOFFDMVW9JlWDvziEI0TDt5cd9ep+FOOZRE9VoOZuaLP3FlhHnYP1pr9YofgNun
+         KmdpZrkm9ySwkmL6VfaxBHQS7+geI2hbgvJML7lhyQegQwQc1h1tf74soQ1hH1e5uAD4
+         3FGQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=iiEmtN8AzycKPAgAgS+hoU0tYKMTM303IsBWZW8M5mQ=;
-        b=l95qcpOrhsXAz93TLlVX4IaWKaiq5LC/f54y83CymyNGSn3+aHrSwtaqaGz7jmlWIq
-         3wBU60dobaF2VHg+G3/MBQD6BDQEkMgSQkrvzYqYdi9uif8vBYjabTDDexYokwZO62VN
-         amvG72hLU33mcsCtl6uouw12+19k6/ioUNWObE/4tZ9RMzbgWnE+ViF5/pvIwnhD4TUl
-         8zJ84/rD7kvlWdaTFvoDsnAfg+ivzsJ2GM6L08llFVVWk9Bx/H2PoQBwSWUb7zW4THuf
-         MEj/4GYDB4srfZRas99jK6X3cxbIV3os7b/MjIJ8bM2+mel5qaix+8jPzQNn0pJwhRDs
-         0RaA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:mail-followup-to
+         :reply-to:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=u5mtVdEZCsUGCpcUqxS6Vps4SE/iWkgtUI5dDELsdWY=;
+        b=srQUwS29OePzOB0gRaVvBqjmPVHq7HxXKHuidWF3js+TbcJQoBIe3Zrzhuk6qKiKbC
+         KYZwxcDs+Ak4/qpeWCAkKvZHI0itxhfwDYoJjDc1EwJDlyYIeDxHnhmADYeApCTqNpkK
+         lPh5zNOSzhF1qhWSRrrV4Hs0aRjk9D/hVT0Nl9ybOHcNx1aqFuHsL1k43hJSwqNTDhT4
+         VSB2sWtWSgmz9Yda1U7BsosDGo+B1PhnfjSqUQLtN81dQEx3ROdOPSQTPpE0OUx6FpwD
+         0iTyBjm09qTnO2XqD855i7NcrURkqKT7SYkCugIfwfVCIPa9tS3da0bW/laxfDHEbGu3
+         /fUg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b="Elr/q18V";
-       dkim=neutral (no key) header.i=@suse.de header.b=hRjuEO3z;
-       spf=pass (google.com: domain of msuchanek@suse.de designates 195.135.220.29 as permitted sender) smtp.mailfrom=msuchanek@suse.de
+       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=MWGFWkeS;
+       dkim=neutral (no key) header.i=@suse.cz header.b=mMXZlvJT;
+       spf=pass (google.com: domain of dsterba@suse.cz designates 195.135.220.28 as permitted sender) smtp.mailfrom=dsterba@suse.cz
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:date:from:to:cc:subject:message-id:reply-to:mail-followup-to
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=iiEmtN8AzycKPAgAgS+hoU0tYKMTM303IsBWZW8M5mQ=;
-        b=sBso4l6DyXBt2scmrgpGLyH9picoePMwCVroPPFov2Wk4ncwPilVowZuXwUi7ppF5G
-         0CHZXgrI/r3kMSssyUb1+ooDa7CrLCYkoBjymSFej1Lo+MY47uhEJ5TM9OtgQXk0o6kF
-         wMulvr6L42aIb2aHUZWO01Z7Tnif8lhcf9ogIEz6le/TCAistTOTcKsmH6aoi4+oD3pM
-         KSsYa6GJjbwNy//MI0Xd5CKwQkECZ9YstkM9fqaOqTQDO4iPebjAa3SjNAmvb5yIod+f
-         UuBEjX4VnwWf/ACw/1btBgggYfIPRkll6PwSNLpXj9LgrFhq08RiKMZHHyyIP2gkaxDT
-         XIVg==
+        bh=u5mtVdEZCsUGCpcUqxS6Vps4SE/iWkgtUI5dDELsdWY=;
+        b=C3jYvT5/FrwJwjXXGCpoyupsdutT1SeU8luM0vjypaPS6EKxR8erFspcMwUdsnnknp
+         JXPvnPgEkKAyE1udJPF85XWgA7T46fE2yHODLDrip9mBP1IZs3Ai+iX56dLLs5ajDNJ0
+         igIWoEGekUEN61QsTYnQE82RcxUF+TMuNySK2mQAc2Qvfb8geMWH47zc3VbWPPyrFEFD
+         zEBfd+nu5W/BEv9/ygugveC+f6ajDlGfXHYd/UVJCgr1EhrWBwe87ZIUC2o8+epAVDQh
+         XLJBNQfoYT+L59MAt5WTJ6zjlU1BBNXzpPgd15iqDxMFn3M6s51y6b0b8PQ+bf4x7ME2
+         RruQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :reply-to:mail-followup-to:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=iiEmtN8AzycKPAgAgS+hoU0tYKMTM303IsBWZW8M5mQ=;
-        b=JjmWPyth9QTy+y8EyQrBl8l4D24YR9vO2HgtQwHqviJonEpz65n5CErvmYO890BQcy
-         9rljmtirm+yjzqN+RBgsTrbueV0TgwdCEpyXcFKQHGO4g8MIFtryFEaRx6X/zY3heUAW
-         bHT1/iaWhHNlqpruIokjFu7veS4SWJodIFcFlTVj3pDbKLbprdJhNNm3snOkHGh/Uwoi
-         TJmeLfih5x05QSBdCNzWI41rRkrU0zxwg1TcyeRy7D3TEaCdQ2uMnX4EC2DdIIwsIpo4
-         kp6mVMU/XUbAlBNmni01lk3GzYhv9e20cngAPBGnVWcov0vJ44oR3U346TLnwr29pWvk
-         SpWg==
+        bh=u5mtVdEZCsUGCpcUqxS6Vps4SE/iWkgtUI5dDELsdWY=;
+        b=OuINhMorrkG8VuLAiMQK9Qq2SEwbvpmCmASOljP3iW8LYnBjwP0hvwJCWoFAYJw9BO
+         9wGqR41rBFL5dmb3Sa5ONOUXZ0EVppBFLRWCorttqO7ElFv8TvfX4IXjel9XVNnViIIa
+         niUVtegsuEZIOg2w6SpOb3bEHyhA9TNymEmr06Tl9Vk4i4PiJRlQpy4Naj9xBcdshbUs
+         W5mE3i1swblE1LSDTV68BRGvdXth5dVAUSx7hetbF6OJyovFGN1qZAOwqUmTKzJLnZ2p
+         JqTtcFZTs0/TCzBus+2aOPEAUi3CPUE4B440mkZJtPNT4Jw4cJE+V6IFKMcPs9hW13Ep
+         6oyw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531+CrmoJh1SNqFC9U9Wu/TY/84IGeTH4S4RHqtrbccxitEsUMAl
-	Lco+vgfWibtGDExDloRCs+g=
-X-Google-Smtp-Source: ABdhPJxN1k2mbjEzhWpSr5KPgtDaYXeLeLAOHiz1rzMx5/wYn3SSgvchpc2/ihb56udSuEbzw7Scug==
-X-Received: by 2002:adf:d1e3:: with SMTP id g3mr3386516wrd.21.1622805892021;
-        Fri, 04 Jun 2021 04:24:52 -0700 (PDT)
+X-Gm-Message-State: AOAM531ivMBryzNhKLqcqcHZ/Ip9qm8nU31lWxljijdm78mBgDASFbxC
+	XxEkafyddt92gFpyBlNrShk=
+X-Google-Smtp-Source: ABdhPJzl0HIxta6KJBN3wMPqB4yFJnVHfi33GZnaBfei9an8G+/k/sF9izVNlepQXy/9FSPn3ISa8w==
+X-Received: by 2002:a05:6512:603:: with SMTP id b3mr2482553lfe.376.1622809585909;
+        Fri, 04 Jun 2021 05:26:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:5988:: with SMTP id n130ls2152641wmb.2.gmail; Fri, 04
- Jun 2021 04:24:51 -0700 (PDT)
-X-Received: by 2002:a05:600c:3586:: with SMTP id p6mr3249502wmq.48.1622805891204;
-        Fri, 04 Jun 2021 04:24:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622805891; cv=none;
+Received: by 2002:a2e:a371:: with SMTP id i17ls1571563ljn.11.gmail; Fri, 04
+ Jun 2021 05:26:24 -0700 (PDT)
+X-Received: by 2002:a2e:9c05:: with SMTP id s5mr3185721lji.208.1622809584913;
+        Fri, 04 Jun 2021 05:26:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622809584; cv=none;
         d=google.com; s=arc-20160816;
-        b=hqbONL58l8w/SKkt9++UByoW5Y1QXJsbxqayloHVAac1ML/4g886rZ0MpKed67Q4qn
-         tV+Vwfr9UzzBv5f727V/7f1yRa95AKtGk2e3Tcc0NmEUEx9fgnkaBCqipEJ+9NusoNAi
-         ZMbLHQbiP8SuCK/0mREnaxgdmPCyk2z1GQPQOm5AFxOq7zt6dlDzf4+M2qF0D7CEzLdD
-         sXofZLdY09yRgpIkySsFkHMcl17/MEn2CKUipTNsSXA4aexuMz5ObheVMuyuGmjae/KS
-         L9ei2S4ucuCgMsnGZzxN+7zQyqFJA/QILnsNLYwbhjdyRTi93Itw8he2dbOiiCTPyr3D
-         IVJg==
+        b=Vn7Dnyc30iQhYPVVx5F1kQJpaepiOXL/SY+i2WlA1JO2tulmq7E4x/91NeXJtsFREk
+         GNT30VbxpL+VT/GvGzmKBEIEG+EcUHbmLiBQEzgYt7fuBlAOlaM6HREEEC6L0pGIe8/x
+         6Hvs7qXUIo25Bb8v6ZzMGsySPw4ZTHEVP40Tg7ru6LJid2VwqVT1N+ZzXAiJrROOOWhV
+         6ZpyOz2Eb6jxUBzSh28xvJ/aqJmpcG6WVYR6ovBQQUazsLGW3kdX+dhYu05xJsY3ILAt
+         WK4msEQHkTSlG/ITUfiNc++qr9RGoRS5pUxGfUZaBsZitgciMf5AmknI36CTl0NbcO8+
+         qJjQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:dkim-signature;
-        bh=KvwB2iX6N3U8dsxrAx26cUnRKNUIXsfqg7dJXyh1/xw=;
-        b=FGy6itQo7Zwzbvp8wF2mvojnMbk6Wk3/tWsURd8U4SlySY+V+swGcXSwPNXRv6gDLb
-         Zp7evit34zSC41Gyx/phMLVR4oiD4uWkMk6aUB+jPCyAwatNmWyErtmxSuAdQ4qwumo2
-         HslM4uOtDAIaG7PRALHbL/icLVZxXp3S9F2W2ap/Lrad4XBFWbuWZ9qJ2yOHJuOr3U+t
-         Uhn415M3bZ6TfEt5eoRMUsQquaa59SiQKE9UnaqNjkBUu2JEyRCfDtDZmiVIitSYrxMf
-         C6hJeTUGn8lmK2pG4KLmqzXeOiGFQvXUN446/Oe0eyzNKNq9yAwJr/xDXzZYyZR8Mkka
-         kmVQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:reply-to:message-id:subject:cc:to:from:date
+         :dkim-signature:dkim-signature;
+        bh=68aSFdxQrCcgu3e4kaM9HdB6LJTQPLk85xJqiAjeVBA=;
+        b=syAPNAMkSO8u+Km+HgbONriDU7sMZVte3OWuPm74eRkNDZMvaJP8rXSQ7efmJuHBTm
+         pqN95qQ4nIQE93Xi7eA61SRvAF44ZvM3ASpMm5UsFP7+GVmV7pA5NrkID4nfaBXukJX1
+         9W4y1I/aWEwFlLMMKOAUu0RTO6bdeEkzzMqFIDvK9Y3Md/kWvYpuLWVOCkzVqDnkkhcr
+         BReRg+r5cfxhO+lkhrnApm3Ocl6XvCnGJKKpAkZEoCeHHRLH2gbZv109M1D5qi74O4qf
+         tKbkrAaKm/Njl0LLOWFzgtSGwU3yMdJ1cVdas79kQwsXhMoM9SU2Ma7YEYiG+IirBdUN
+         d0HA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b="Elr/q18V";
-       dkim=neutral (no key) header.i=@suse.de header.b=hRjuEO3z;
-       spf=pass (google.com: domain of msuchanek@suse.de designates 195.135.220.29 as permitted sender) smtp.mailfrom=msuchanek@suse.de
-Received: from smtp-out2.suse.de (smtp-out2.suse.de. [195.135.220.29])
-        by gmr-mx.google.com with ESMTPS id h20si145186wmp.2.2021.06.04.04.24.51
+       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=MWGFWkeS;
+       dkim=neutral (no key) header.i=@suse.cz header.b=mMXZlvJT;
+       spf=pass (google.com: domain of dsterba@suse.cz designates 195.135.220.28 as permitted sender) smtp.mailfrom=dsterba@suse.cz
+Received: from smtp-out1.suse.de (smtp-out1.suse.de. [195.135.220.28])
+        by gmr-mx.google.com with ESMTPS id d10si76780ljl.5.2021.06.04.05.26.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Jun 2021 04:24:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of msuchanek@suse.de designates 195.135.220.29 as permitted sender) client-ip=195.135.220.29;
+        Fri, 04 Jun 2021 05:26:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dsterba@suse.cz designates 195.135.220.28 as permitted sender) client-ip=195.135.220.28;
 Received: from relay2.suse.de (unknown [149.44.160.134])
-	by smtp-out2.suse.de (Postfix) with ESMTP id D49701FD4A;
-	Fri,  4 Jun 2021 11:24:50 +0000 (UTC)
-Received: from kitsune.suse.cz (kitsune.suse.cz [10.100.12.127])
-	by relay2.suse.de (Postfix) with ESMTP id 98516A3B85;
-	Fri,  4 Jun 2021 11:24:50 +0000 (UTC)
-From: Michal Suchanek <msuchanek@suse.de>
-To: bpf@vger.kernel.org
-Cc: Michal Suchanek <msuchanek@suse.de>,
-	Networking <netdev@vger.kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <kafai@fb.com>,
-	Song Liu <songliubraving@fb.com>,
-	Yonghong Song <yhs@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
+	by smtp-out1.suse.de (Postfix) with ESMTP id 211A221A28;
+	Fri,  4 Jun 2021 12:26:24 +0000 (UTC)
+Received: from ds.suse.cz (ds.suse.cz [10.100.12.205])
+	by relay2.suse.de (Postfix) with ESMTP id EBE66A3B81;
+	Fri,  4 Jun 2021 12:26:23 +0000 (UTC)
+Received: by ds.suse.cz (Postfix, from userid 10065)
+	id 85E78DB225; Fri,  4 Jun 2021 14:23:42 +0200 (CEST)
+Date: Fri, 4 Jun 2021 14:23:42 +0200
+From: David Sterba <dsterba@suse.cz>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Chris Mason <clm@fb.com>, Josef Bacik <josef@toxicpanda.com>,
+	David Sterba <dsterba@suse.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	open list <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: [PATCH bpf-next] libbpf: fix pr_warn type warnings on 32bit
-Date: Fri,  4 Jun 2021 13:24:48 +0200
-Message-Id: <20210604112448.32297-1-msuchanek@suse.de>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <CAEf4BzbgJPgVmdS32nnzd8mBj3L=mib7D8JyP09Gq4bGdYpTyg@mail.gmail.com>
-References: <CAEf4BzbgJPgVmdS32nnzd8mBj3L=mib7D8JyP09Gq4bGdYpTyg@mail.gmail.com>
+	Nikolay Borisov <nborisov@suse.com>, linux-btrfs@vger.kernel.org,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] btrfs: Remove total_data_size variable in
+ btrfs_batch_insert_items()
+Message-ID: <20210604122342.GB31483@suse.cz>
+Reply-To: dsterba@suse.cz
+Mail-Followup-To: dsterba@suse.cz, Nathan Chancellor <nathan@kernel.org>,
+	Chris Mason <clm@fb.com>, Josef Bacik <josef@toxicpanda.com>,
+	David Sterba <dsterba@suse.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nikolay Borisov <nborisov@suse.com>, linux-btrfs@vger.kernel.org,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+References: <20210603174311.1008645-1-nathan@kernel.org>
 MIME-Version: 1.0
-X-Original-Sender: msuchanek@suse.de
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@suse.de header.s=susede2_rsa header.b="Elr/q18V";
-       dkim=neutral (no key) header.i=@suse.de header.b=hRjuEO3z;
-       spf=pass (google.com: domain of msuchanek@suse.de designates
- 195.135.220.29 as permitted sender) smtp.mailfrom=msuchanek@suse.de
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20210603174311.1008645-1-nathan@kernel.org>
+User-Agent: Mutt/1.5.23.1-rc1 (2014-03-12)
+X-Original-Sender: dsterba@suse.cz
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@suse.cz header.s=susede2_rsa header.b=MWGFWkeS;       dkim=neutral
+ (no key) header.i=@suse.cz header.b=mMXZlvJT;       spf=pass (google.com:
+ domain of dsterba@suse.cz designates 195.135.220.28 as permitted sender) smtp.mailfrom=dsterba@suse.cz
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,41 +148,27 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The printed value is ptrdiff_t and is formatted wiht %ld. This works on
-64bit but produces a warning on 32bit. Fix the format specifier to %td.
+On Thu, Jun 03, 2021 at 10:43:11AM -0700, Nathan Chancellor wrote:
+> clang warns:
+> 
+> fs/btrfs/delayed-inode.c:684:6: warning: variable 'total_data_size' set
+> but not used [-Wunused-but-set-variable]
+>         int total_data_size = 0, total_size = 0;
+>             ^
+> 1 warning generated.
+> 
+> This variable's value has been unused since commit fc0d82e103c7 ("btrfs:
+> sink total_data parameter in setup_items_for_insert"). Eliminate it.
+> 
+> Fixes: fc0d82e103c7 ("btrfs: sink total_data parameter in setup_items_for_insert")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1391
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
-Fixes: 67234743736a ("libbpf: Generate loader program out of BPF ELF file.")
-Signed-off-by: Michal Suchanek <msuchanek@suse.de>
----
- tools/lib/bpf/libbpf.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/tools/lib/bpf/libbpf.c b/tools/lib/bpf/libbpf.c
-index ef6600688f10..5e13c9d8d3f5 100644
---- a/tools/lib/bpf/libbpf.c
-+++ b/tools/lib/bpf/libbpf.c
-@@ -4584,7 +4584,7 @@ static int init_map_slots(struct bpf_object *obj, struct bpf_map *map)
- 		targ_map = map->init_slots[i];
- 		fd = bpf_map__fd(targ_map);
- 		if (obj->gen_loader) {
--			pr_warn("// TODO map_update_elem: idx %ld key %d value==map_idx %ld\n",
-+			pr_warn("// TODO map_update_elem: idx %td key %d value==map_idx %td\n",
- 				map - obj->maps, i, targ_map - obj->maps);
- 			return -ENOTSUP;
- 		} else {
-@@ -6208,7 +6208,7 @@ static int bpf_core_apply_relo(struct bpf_program *prog,
- 		return -EINVAL;
- 
- 	if (prog->obj->gen_loader) {
--		pr_warn("// TODO core_relo: prog %ld insn[%d] %s %s kind %d\n",
-+		pr_warn("// TODO core_relo: prog %td insn[%d] %s %s kind %d\n",
- 			prog - prog->obj->programs, relo->insn_off / 8,
- 			local_name, spec_str, relo->kind);
- 		return -ENOTSUP;
--- 
-2.26.2
+Added to misc-next, thanks. I've removed the Fixes: tag, we've been
+using this is for patches that should be backported or otherwise point
+to a patch that causes a real bug.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210604112448.32297-1-msuchanek%40suse.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210604122342.GB31483%40suse.cz.
