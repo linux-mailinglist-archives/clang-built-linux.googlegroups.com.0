@@ -1,186 +1,141 @@
-Return-Path: <clang-built-linux+bncBCSPFHXUVMKBBIPV52CQMGQECU2ZR7Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC53FPW2UIOBBAUH56CQMGQEGWYA73I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 535F339CA51
-	for <lists+clang-built-linux@lfdr.de>; Sat,  5 Jun 2021 19:55:47 +0200 (CEST)
-Received: by mail-pg1-x538.google.com with SMTP id n22-20020a6372160000b0290220c022078csf4436674pgc.17
-        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Jun 2021 10:55:47 -0700 (PDT)
+Received: from mail-wr1-x43b.google.com (mail-wr1-x43b.google.com [IPv6:2a00:1450:4864:20::43b])
+	by mail.lfdr.de (Postfix) with ESMTPS id F05D439CA83
+	for <lists+clang-built-linux@lfdr.de>; Sat,  5 Jun 2021 20:33:38 +0200 (CEST)
+Received: by mail-wr1-x43b.google.com with SMTP id e11-20020a056000178bb0290119c11bd29esf982071wrg.2
+        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Jun 2021 11:33:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622918018; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=mghFo3acjSxrQWT9J/HNBJ6X7QY1rVfApEjdCwY68rByQYmMcStl4jTBEK+51qE5Mu
+         KqvHNIr/9e9Qd4h8V2SaRcm+qu1Nu/rx1w1EIX5sSMjpm5iH0VAJRRi/WukE6QyuQoGm
+         SrwWZCYSTVQJUP6SieUbl9mT5x2tleK1m0io++sFV+YI74uS3oblyRMO59ZlRvU92GYI
+         V+BxU1PWzl3Q7yDlJ6ync0rT3XuQZ4fF/vJyQBI7nqq9Q+cWVpdHn4bL33mKeDcchh51
+         J7wXxevhXrHrDbB7rdP+wtwikfaxJ2n4WsMh6BcnSeXSBbdlO0KlvlgepYGfVtTi+o1V
+         vNRg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
+        bh=z0THb7pUp1SxR/oXRjNHNoKHYakM6FSccVtaXdPKflI=;
+        b=P7iHeIHOvpNiye0AouNDtKK822t0I03fhUw6qYiiWkuzG7U0hltc8KuoI5CVdjTEsl
+         RZsmkRpm8GksnJN9cUUbK+Y/rR7/ZlASq7DFHUJsjPBRDn7464KUARtRae76D284OBDO
+         BQUgKBCy4mOePS1tOFcMWTAl2BTyv8MxUw7585bVI+1YXI6EDMhQXtFQKax5NEQeOe+4
+         MSyjnvbZLOfXW2nT9dftmN/Jzz+gGue1DVaykNQBUc3nw2VNQn3ZqnmjtSOcxryDolaK
+         nU6qsNpzYbtKLpBMKZQcddxRKVT9/nGgkAoa84+Nw3wE4nTnmNdktgxvGciYiCYFprwd
+         Wp8w==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SHZMwxLg;
+       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::22b as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:user-agent
-         :in-reply-to:content-language:mime-version:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=vwae11HaemrLOz/kTHywQ8LNRliR+N9hKdmwiPt2eCY=;
-        b=pdyg3w/YGzWA3UobrI4FS/tb9CYRxnKkHqOy0/TbgmWyq1e4CHLC7KknyS8OpsLfDU
-         6V2SQ1lAPRYGIbYju9zcEfaNkkmzUt8hQCUDJJZdE9dWRiIdWhXdo8c65O5MHPqzyDvI
-         OVnrLzYBA5AvR2O9qjW9ray2XP01Tqvlx3AwOmmyz82QWS8ZAMlBUs/ovH3EtzXX/HMq
-         MAN0HMYDxhAcCy7JJMtFQ5SEaehlRlr9b5dPLasDXY4FdAJL7eo9Y1/1erh3yoEb+m8P
-         AEB79Y3Y7hUj0eIwIrZvnPyai9qWU14UGDo6bxzBT0JW2fvYgnnEtxCfxvESYKor03PG
-         s8/A==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=z0THb7pUp1SxR/oXRjNHNoKHYakM6FSccVtaXdPKflI=;
+        b=W2dDAQhnQxvznlxCopWb8AalX83Xai5/5I6Zlheg/7eoo8/dIq3u6v+ZG+IJXoQXLZ
+         NUhK4o6EI6hBpr0yR818qWy5mqcpc9XyNRhcIy4jsye8b+otKv1+2Q7Lx7BhlLUcKjXr
+         W5pi1V8Fvpp1IW9KNSApgqDLQgwMsFbog3kIE1bQS59qIhew/HhpbsLdhIuAwLwMS1zg
+         KTVIt4wK0kitHDJZCG7owjKg93VnKMZ3nD2kXQJg7RPqN3Y3dMvBqzllFEvPrEKq6v6G
+         IAqSD87qeiaM4McfLCz+JRSSd/RAiGkGQJmZTX3k7Lf0p6vWvfUIjN6YsQXOLs14TR3x
+         BODw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=z0THb7pUp1SxR/oXRjNHNoKHYakM6FSccVtaXdPKflI=;
+        b=osqfBdvafVkBwI4gj1Ye9DTGwKAOXmZvdxBu935+WkNDs3B6ANcib1/QOSLqT4G/Lg
+         S+h6GsymXOp19e86Y6ZmBF1knUNOaNmVeOOIKEvbvPOGN7CFTLd+LW2+I9Gc649OzXoe
+         hgEENEcJLFu1pt+JH4xWv6aLpX6JFf4ONE8icDw7dOt2AEGcoXUjExNTKIsiR0VBPqjd
+         1G6rLd6lzR9XVtY50nEmZfJZuEHNN1Yym0FMfkk3aa2RWY60EUfhdfbOMGXouYrwgqdO
+         ydzeBf3X2eLNtQYRc0Ye9nG6ZuNB/SE1oDT9dO8w/5QMuDJoC1WCE1cPkGSpMNm9O5/b
+         U3Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
-         :user-agent:in-reply-to:content-language:mime-version
-         :x-original-sender:x-original-authentication-results:reply-to
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vwae11HaemrLOz/kTHywQ8LNRliR+N9hKdmwiPt2eCY=;
-        b=Ah/eFvGx/xmw7LHgnqyxitjzbnRVVUdP0e6DI+1CPHQLY9uir+5SokcZzHEQNsS5RV
-         NEYC0VTxGyZlE2fNzpokmF/RFn9Etmxrlec6PfrA8jPBkHGan857Vgn4+99c+APFY3kL
-         SPz+HSszoEbM8EzYS5yJi6HUX+5x9r5qfjGBYeZGE2WvlVtm2QAmwEskpMxKUcuZCTvj
-         gvF7kwfotERUT9wVjFjgGInAS3pXPkjErRiejg7wVxn1uOCcPUN/bxfk8WHtHTM80kVX
-         wIS7xwwu/EITzWvoFfCQIOkfUp5MRdQpTAIEiYd/BIe314p6rNsCwCHardUCM/es8EnM
-         l1Dw==
-X-Gm-Message-State: AOAM532weC6bPx6hcksUHw6VNPTe2sgDwj5dYhQ3TsGJ2h6kI/YiKDyb
-	mV/Dr6fPSbnbMKFixfR31bQ=
-X-Google-Smtp-Source: ABdhPJzvNssIRGO6VyhOfCjMv84S4q7PYVKCwUTFwUz0XjzeWWiUSQOMuG6njeGkA6x7hNB6fGFIOg==
-X-Received: by 2002:a17:902:e891:b029:10e:8977:8d68 with SMTP id w17-20020a170902e891b029010e89778d68mr10103907plg.39.1622915745791;
-        Sat, 05 Jun 2021 10:55:45 -0700 (PDT)
+        bh=z0THb7pUp1SxR/oXRjNHNoKHYakM6FSccVtaXdPKflI=;
+        b=hQeHX/9RHzsxSdxZOKXeITyAnMPGMQpBiLKNyvV9J8UoeuOI6InPdxXLkXlydJAyFh
+         SohCjcL1NsyZJYkVMLOMyA7s5al/3h6/98e0n7+kqDhbqEy7DJxV0I1qhyiL/mXrhVbW
+         n6ShlEUYWEmizgZM7cv2FDRnohWSNtU6hzFOsPTagEpk8JvrVRVWqSKsoGIGh5mk+B7W
+         c2fH7p188W1I2oRcyuZJixmZsvhOlpRO8jDsGKRT5mRnx1SNRzn2y0Os0wr0fpsiDfcS
+         3iazl8Y9ElnDxn/S7SkQAZze+lUlz7k5dEBK59p4I8pOw/5rZ4XRGRicXj5dcuxQfabg
+         a7Mg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533+CDju9UazMEBqEryDAz7GaB5Fz1TcfiVgT/760tuO9ItGJbWh
+	X9i9VDvwIaEp8hIK/uhIkAM=
+X-Google-Smtp-Source: ABdhPJyCSXKxtyyNcoGZZLxh7QHn2W+xbqd1FCPQqzVc3lzXb73UmslRXexGumrqN1mB2j7wS2c1MQ==
+X-Received: by 2002:adf:fed0:: with SMTP id q16mr9357919wrs.426.1622918018351;
+        Sat, 05 Jun 2021 11:33:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:cd47:: with SMTP id a7ls5375312pgj.1.gmail; Sat, 05 Jun
- 2021 10:55:45 -0700 (PDT)
-X-Received: by 2002:a63:4c08:: with SMTP id z8mr10551545pga.130.1622915745282;
-        Sat, 05 Jun 2021 10:55:45 -0700 (PDT)
-Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com. [67.231.145.42])
-        by gmr-mx.google.com with ESMTPS id b13si667439pgs.3.2021.06.05.10.55.45
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 05 Jun 2021 10:55:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of prvs=57907a0fe2=yhs@fb.com designates 67.231.145.42 as permitted sender) client-ip=67.231.145.42;
-Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 155HtaNo029541;
-	Sat, 5 Jun 2021 10:55:38 -0700
-Received: from maileast.thefacebook.com ([163.114.130.16])
-	by mx0a-00082601.pphosted.com with ESMTP id 3906ym1g59-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Sat, 05 Jun 2021 10:55:38 -0700
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (100.104.31.183)
- by o365-in.thefacebook.com (100.104.36.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Sat, 5 Jun 2021 10:55:29 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=jeMILDwF8BTadNmrcDYsl/5IDibQhuu9ih/Sw462BnQs2iChvsTlTWY4mwi0LHHRoObovXqV2Fjx7paXZ3KNaWv9LsDR5ZCpLTEIJ23NmxShHYGTUWiXq9iTbKWAakH8aZ41ISQToKXGeegQuiA/fN37fXOOHSuGvh0t0tc0Qy6coTFLuwlCwIQn/i/g0DVNRPxKkrsYcgpWTqyDRDpZ017XnVcrdWIxHbgdfsAXn/i0cMSWmNkxWBUKpWzs+Qg+unzmpvxIxEGl2rNwzFF8e8TZTLkHt0XJoubr3yZ/Kd0Y3qbKkiFmJgLwZHc/qyWQylddf2uiQnUwyT9kt1MkDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/yESyUHqextMhjf13phnhUwzuU3SOWj8kyeX3a3SAhk=;
- b=oRIHp3YjhFFvsArWEVQeHkM13TGjOoD7Mpw+ga6CjDoJI2rUVm00L8Kn8lLvg+IFETQrh4aLmvHigp5F3rn+Qh33+vMDSGeCqhErY+91vMuDy/Wk/j0UVmlq1wxincstPjjfUKeVisky50lopSql9vALTHuhIio7tH49fjbqHPKVFbhrvcJDTb/z/t2c4ypOoO8R1r3iMyasqpoQfD7ZXlI1Rx0QLQY4D0yZoQpFu53eG6l4jvB603tVU1BGy5INBSJz8EPh7K3rjvItA/0jS20adpG2qhAEmA5mL/JhU/hJ3lgRzssnuGQb4D0wQzxCoUq8lzMZwLkp5IFIIHWxzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
- header.d=fb.com; arc=none
-Received: from SN6PR1501MB2064.namprd15.prod.outlook.com (2603:10b6:805:d::27)
- by SN6PR15MB2336.namprd15.prod.outlook.com (2603:10b6:805:26::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4195.22; Sat, 5 Jun
- 2021 17:55:28 +0000
-Received: from SN6PR1501MB2064.namprd15.prod.outlook.com
- ([fe80::d886:b658:e2eb:a906]) by SN6PR1501MB2064.namprd15.prod.outlook.com
- ([fe80::d886:b658:e2eb:a906%5]) with mapi id 15.20.4195.026; Sat, 5 Jun 2021
- 17:55:28 +0000
-Subject: Re: [PATCH v4] bpf: core: fix shift-out-of-bounds in ___bpf_prog_run
-To: Kurt Manucredo <fuzzybritches0@gmail.com>,
-        <syzbot+bed360704c521841c85d@syzkaller.appspotmail.com>
-CC: <andrii@kernel.org>, <ast@kernel.org>, <bpf@vger.kernel.org>,
-        <daniel@iogearbox.net>, <davem@davemloft.net>, <hawk@kernel.org>,
-        <john.fastabend@gmail.com>, <kafai@fb.com>, <kpsingh@kernel.org>,
-        <kuba@kernel.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <songliubraving@fb.com>,
-        <syzkaller-bugs@googlegroups.com>, <nathan@kernel.org>,
-        <ndesaulniers@google.com>, <clang-built-linux@googlegroups.com>,
-        <linux-kernel-mentees@lists.linuxfoundation.org>,
-        <skhan@linuxfoundation.org>, <gregkh@linuxfoundation.org>
-References: <000000000000c2987605be907e41@google.com>
- <20210602212726.7-1-fuzzybritches0@gmail.com> <YLhd8BL3HGItbXmx@kroah.com>
- <87609-531187-curtm@phaethon>
-From: "'Yonghong Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Message-ID: <6a392b66-6f26-4532-d25f-6b09770ce366@fb.com>
-Date: Sat, 5 Jun 2021 10:55:25 -0700
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
- Gecko/20100101 Thunderbird/78.11.0
-In-Reply-To: <87609-531187-curtm@phaethon>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Originating-IP: [2620:10d:c090:400::5:80b3]
-X-ClientProxiedBy: SJ0PR13CA0077.namprd13.prod.outlook.com
- (2603:10b6:a03:2c4::22) To SN6PR1501MB2064.namprd15.prod.outlook.com
- (2603:10b6:805:d::27)
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from [IPv6:2620:10d:c085:21c1::1a79] (2620:10d:c090:400::5:80b3) by SJ0PR13CA0077.namprd13.prod.outlook.com (2603:10b6:a03:2c4::22) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4219.10 via Frontend Transport; Sat, 5 Jun 2021 17:55:27 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 3c308d3f-51d7-4cc4-1a39-08d9284b1aa3
-X-MS-TrafficTypeDiagnostic: SN6PR15MB2336:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <SN6PR15MB233634E970F8DEE1A933681CD33A9@SN6PR15MB2336.namprd15.prod.outlook.com>
-X-FB-Source: Internal
-X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: uLHoAxorF9+anzhzuSowV2GWbtOGKUvMSrU9dr0QQVEzG2PvaHXxI/jov5AyUo+AJMa86etCj/9dbcbFQh8lewOK5blfp4RsNpRf2pMrEOzLk2PHqMGrXl5iEcEpVFFoWAgv3PY9QNGadzyEULYWqd5c6ZNq3Gd4nMVogDJ6XFPcAEAbrJh1hIwlvb9K1/Pei9PE2iugHBLSNc9kH0QYsmqtvlbtk8Hgl0OAq15TI2QUdfAT6qfaqRZYSaCFzuHbJibQMOlZqkAFdphnhmpc6X5ZOxgqyF12sUuFqLKDDeEPlR0+kYToxiaoVsXtyFZ1CJ47LbqN5XtaLp76zM31f6HOahCJXkM9h2dLjbajMnXbs6GSVQOPNSFRan/agr/YHzBNjynFMc8et0OYMRFdJGShLLwYT/Gxu3NL7v1L5iKgOJrt8aZrqCWc0ngWDT9uJ1cyhoufdoR4raMGO053UvWPWuKS9+KWAkle+l9SJBLhJZsR5LyB3HFbzSe79pslprDUH5BYKpzeJ191U4BrJEpaNnMByZu1t1FYtRU/Pg6Qbj2SVM2XUDfvk44e267QDC3zsuDqIzvWwHdYgg1G717hdwFaqFTbUaB0xHeJ+n7nB/Iv4Jw/D4LTffOKIF3RRo7mdRwCd6MqrgJjkp2S7nPYXWCPlnwMEJP2liGDG9DUoTs0KfGy8dp9Uz8pUGriHIxpWQmw+YejJTlXZJ75aAjkc9HKLf5Spo21yhHhITUKqWzcX5vegMEWdSfG4dULhwz0zLvwLbdUZTmBDxF1zDpawbfsSmA2KrJMfHClQhNsAn61Dbw1Jxb2+RQJ/5WBumQu5Kzw02VjTQzdXEIl5iSFxzlpFyfb5803my3NvXs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR1501MB2064.namprd15.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(396003)(136003)(366004)(39860400002)(376002)(346002)(966005)(478600001)(38100700002)(36756003)(316002)(8676002)(7416002)(186003)(4326008)(86362001)(53546011)(8936002)(2906002)(2616005)(31696002)(83380400001)(66556008)(66946007)(66476007)(52116002)(5660300002)(16526019)(6486002)(31686004)(101420200003)(99710200001)(45980500001)(43740500002);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData: =?utf-8?B?c0F3akZRaSszZUhyUkU1MjVzaEVRMXMxNFJvakZZODI3OXhRMlBjQndiRjFt?=
- =?utf-8?B?WmRPWFhJbHRJSzBpTmQrTk9PeTkzZU05NVZCdEg5MnFZN1NjbkdCeXFDZlNX?=
- =?utf-8?B?d2dBRFlLeE5NcWVtN3dpU0hhN0M2cDhBd0w5ZG9DTEkwOW5mNzhJbTZ1QWxV?=
- =?utf-8?B?OGJHTkNLT1k2ekFGNzkxay80Vkk4ZDhqNXlmZXJ3VWl6dlhQMGU3Z0hoRUhB?=
- =?utf-8?B?emhKUTRjRThVay9TV0Z4cUQ3MUZnUStvZkljVStzbFBXSWVEc0VtRTdnaTNQ?=
- =?utf-8?B?QnZxdzdRQ3JQY3Q1UTRDMk5pSUh4N0FoS3NodmdHeXlURDlHRVkrUGRISGZw?=
- =?utf-8?B?Y1pXN0FwTEtFNmcxR2c1d2Y2UnZneUFENUovNi9TMTJCZWJUWUJnQ1F5cDQx?=
- =?utf-8?B?Q3hvZk85bU5nNTRMYkpDN1RHa3FBKzNJYlZtc09VUmZnOXpSUHVqVjJDR09X?=
- =?utf-8?B?WkFTYWlPdHJZODhyTVRuaGljbm9JWS9EbVpEbFN3c0R4RGp4L2EwVGJENm8r?=
- =?utf-8?B?SzQ1WXgrRTlJRkZvY3RuMW5IOXo0U01BL3RCYVh0YVluUFV2bTl5d3Vza1Vu?=
- =?utf-8?B?WVM4RTZmaVB5UXpkSTlPVzFhKy9aZ1ZMdXFLQjB0ZUYwT2poemlMMThIMHUw?=
- =?utf-8?B?T0ZlQWlVQ0t1UzRxRXNVN0dKMUdmS2hrUkxPYWVMQk01OWxQNE1MUXFMS0ZM?=
- =?utf-8?B?aU1WSnNhaTBYMnBqT09Nc1lTY2ZsY28vU2hadUVWZmdEOVdPNkhYT3NSNkQ4?=
- =?utf-8?B?d2lMSXliNmtGVHNUb3Z0Z2NObGlmNXh5V1A0ZW9lK1N0NjlucDU1aVVHR3oy?=
- =?utf-8?B?b3dtQnJMV1Zzc0h6aHByTCtqM3FmQWN5MTMvTTM5bDV6YUVycjB0aC9vdDdN?=
- =?utf-8?B?Vzh1ME1Uc2s0cE9NaVJyMTB4VGV6ckVwaVpjbW9tdEs5ZTFBTEtqWGszT1dw?=
- =?utf-8?B?Rmp6ZHhnUWI3VE5jL0YrU3ROZmo3cStrU0l2a25QMEFlUTllYzhhcDRGcU5n?=
- =?utf-8?B?dDdmMEdVZGZQWDJpcE1OeFZmSk5QYlZlQXlEOWI5V0lNMk95QXVBQ2xZZXN6?=
- =?utf-8?B?eUVVUkdTcmJscVRHZTVQYU8yY2NTaTV0WllDQndkR1U1aWNIdXc2bDdUbDk2?=
- =?utf-8?B?ODBCK2NJVGo2RUpXbUhxUEZZS2l3RVRDYmZsaElvN1JRcHF6RFBNN0ViYklj?=
- =?utf-8?B?V3duTDgwVVZaTEdBeHVzMUptSTkrT2laVHhLZEFrL3VodVA5ZXBEdU94WTlp?=
- =?utf-8?B?MFVDU21idmF4VlBqQktUeVFiTjlIL2pBdXpVbGhHRWFRMHBSS0E2TnRoYTc0?=
- =?utf-8?B?QWs0dXBQK2ZKQ25xOVZNNHN3Y3VHOWFLcmQxamhGR1NHWVpTQlNVVWxqTjY0?=
- =?utf-8?B?eWVCaWoyak9XeHdrbFpjdm9qV3Q0VWhJMlNTbTl0ZmNrQWtUVjVDbnppNXEx?=
- =?utf-8?B?cFVjTnZCalZESTdRZ25LVVcvQXFKNkxGNk5qQmV5aC9HTGkvYXN1YU40bEQ1?=
- =?utf-8?B?cm1hZkNNTWF6VndOOU1vUDFYWGNIeW9XVE5UZzVzY0gyQzJmYjZpUURXSFZy?=
- =?utf-8?B?L0tZY0Fka0M5cXlseWl3eUdoc1VKRTZOZHBSalN4SU1IdTdCR3IzdmIvSDdI?=
- =?utf-8?B?VnNyckxhQ1lka0licm80QmxZNkRPSnU3SHFPeExRWmtQNHBRTWloQ29MNWRO?=
- =?utf-8?B?TEtLY1VhRkRUZitjcStHV1o4MzAvUzFyeHhVbzdYb0pSVjRxb0hxYWYwOGMy?=
- =?utf-8?B?WGJRbjN5bk5RWkRXeVQ4VjFic1JyU3pNZVVwQWMwdi9lZi9qVHJOb2Ezd3Fh?=
- =?utf-8?Q?IFOAii9v5A35ODIiO+C988HKvhD4daVakCzEU=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3c308d3f-51d7-4cc4-1a39-08d9284b1aa3
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR1501MB2064.namprd15.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2021 17:55:28.5839
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: y8FjyzWEki3XuoRbLmQqTGZD3AT895mzmST/jHKvMPddvsx0Aq/VJL6H1clHNxYy
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN6PR15MB2336
-X-OriginatorOrg: fb.com
-X-Proofpoint-ORIG-GUID: ZT7ZsTvVozpnJ51ooHPU1tr5PAuuPRNX
-X-Proofpoint-GUID: ZT7ZsTvVozpnJ51ooHPU1tr5PAuuPRNX
-X-Proofpoint-UnRewURL: 1 URL was un-rewritten
+Received: by 2002:adf:eac1:: with SMTP id o1ls1689436wrn.2.gmail; Sat, 05 Jun
+ 2021 11:33:37 -0700 (PDT)
+X-Received: by 2002:adf:9dd1:: with SMTP id q17mr9380882wre.402.1622918017462;
+        Sat, 05 Jun 2021 11:33:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622918017; cv=none;
+        d=google.com; s=arc-20160816;
+        b=V6BI+fZlBxgP67xLYr3N4TYxkmd11ZM0IMSjaBr3UajXqvdpgF0Pl5OIyY4RiH7Iz2
+         gqTqXuwxGKRXzBlcxgdds1NZQZQpncVR84AaO1FaZ8oz7+2lZPF8pRsdALuYXDVAQKn9
+         CfRL3VhZoetGFEqI3kGPStLdOYL8F2+KwSHPJ7Eigr/VrMnW70enNqLjeFHv0pJ99Nt2
+         Ic0sKiPYuDxkIBpJUZq1Va7upHZxRbuD2ZAncYxoxb8Qnrvsxv/GWZxd+Uw6SsuJ9/7B
+         n19At5ss6wxRXQCd03CUNz4IrvGAFzHhOwgJXplbkpjI+W/lPYhEOVaV7ozoiNkngg0h
+         i/IQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=Pd7tf3i2pnO2Ok9Tv/vp503TcTB5cBTB11RLxlS7Uv8=;
+        b=Katw7C88su2lam1UpczHkeX4Z4y34HtwXu5YHEX0xoM9AkbnrR8ZdaSBZUiH6KD9MN
+         G5Biy1HiY7yYpxhUwQkZ6Q++1ij348jE/Vdciqvd5jA/Y6HbHZszXXp8un5DdWKmnt3m
+         ZhBWzqldcd2uiw/qdz6drZFn7R1TBrfw1bcsXTmnisKyYzlbnoi0D328zvw3CZRXGRbN
+         XtrQ9vaNlLLdFEMrDyUZF4cgWfXzGbG2F8MH2cjjCpeR0rFkLbMoM+UwKJWAXhJB91XK
+         ZnaDgFU15FYGR0Lpb7VAnhxLqkYMqMpi7QT1cYT34eFaHFfiMC2NcjiGa1wa1SrVD1td
+         Q7wA==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SHZMwxLg;
+       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::22b as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-lj1-x22b.google.com (mail-lj1-x22b.google.com. [2a00:1450:4864:20::22b])
+        by gmr-mx.google.com with ESMTPS id h7si672936wml.3.2021.06.05.11.33.37
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 05 Jun 2021 11:33:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::22b as permitted sender) client-ip=2a00:1450:4864:20::22b;
+Received: by mail-lj1-x22b.google.com with SMTP id e2so16069946ljk.4
+        for <clang-built-linux@googlegroups.com>; Sat, 05 Jun 2021 11:33:37 -0700 (PDT)
+X-Received: by 2002:a2e:2c0a:: with SMTP id s10mr8116155ljs.171.1622918017098;
+        Sat, 05 Jun 2021 11:33:37 -0700 (PDT)
+Received: from HyperiorArchMachine.bb.dnainternet.fi (dcx7x4ybp09ts--z5-7ry-3.rev.dnainternet.fi. [2001:14ba:14f7:3c00:2cf7:60ff:fe99:fedc])
+        by smtp.gmail.com with ESMTPSA id r28sm1142441ljn.96.2021.06.05.11.33.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 05 Jun 2021 11:33:36 -0700 (PDT)
+From: Jarmo Tiitto <jarmo.tiitto@gmail.com>
+To: Sami Tolvanen <samitolvanen@google.com>,
+	Bill Wendling <wcw@google.com>,
+	Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com,
+	linux-kernel@vger.kernel.org
+Cc: Jarmo Tiitto <jarmo.tiitto@gmail.com>,
+	morbo@google.com
+Subject: [PATCH v3 1/1] pgo: Fix sleep in atomic section in prf_open() v3
+Date: Sat,  5 Jun 2021 21:31:29 +0300
+Message-Id: <20210605183128.129614-1-jarmo.tiitto@gmail.com>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.761
- definitions=2021-06-05_11:2021-06-04,2021-06-05 signatures=0
-X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 adultscore=0 spamscore=0
- lowpriorityscore=0 bulkscore=0 clxscore=1011 impostorscore=0
- mlxlogscore=999 mlxscore=0 malwarescore=0 phishscore=0 priorityscore=1501
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2104190000 definitions=main-2106050131
-X-FB-Internal: deliver
-X-Original-Sender: yhs@fb.com
+X-Original-Sender: Jarmo.Tiitto@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@fb.com header.s=facebook header.b=UjhsI8fD;       arc=fail (body
- hash mismatch);       spf=pass (google.com: domain of prvs=57907a0fe2=yhs@fb.com
- designates 67.231.145.42 as permitted sender) smtp.mailfrom="prvs=57907a0fe2=yhs@fb.com";
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
-X-Original-From: Yonghong Song <yhs@fb.com>
-Reply-To: Yonghong Song <yhs@fb.com>
+ header.i=@gmail.com header.s=20161025 header.b=SHZMwxLg;       spf=pass
+ (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::22b
+ as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -193,128 +148,184 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+In prf_open() the required buffer size can be so large that
+vzalloc() may sleep thus triggering bug:
 
+======
+ BUG: sleeping function called from invalid context at include/linux/sched/mm.h:201
+ in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 337, name: cat
+ CPU: 1 PID: 337 Comm: cat Not tainted 5.13.0-rc2-24-hack+ #154
+ Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 0.0.0 02/06/2015
+ Call Trace:
+  dump_stack+0xc7/0x134
+  ___might_sleep+0x177/0x190
+  __might_sleep+0x5a/0x90
+  kmem_cache_alloc_node_trace+0x6b/0x3a0
+  ? __get_vm_area_node+0xcd/0x1b0
+  ? dput+0x283/0x300
+  __get_vm_area_node+0xcd/0x1b0
+  __vmalloc_node_range+0x7b/0x420
+  ? prf_open+0x1da/0x580
+  ? prf_open+0x32/0x580
+  ? __llvm_profile_instrument_memop+0x36/0x50
+  vzalloc+0x54/0x60
+  ? prf_open+0x1da/0x580
+  prf_open+0x1da/0x580
+  full_proxy_open+0x211/0x370
+  ....
+======
 
-On 6/5/21 8:01 AM, Kurt Manucredo wrote:
-> Syzbot detects a shift-out-of-bounds in ___bpf_prog_run()
-> kernel/bpf/core.c:1414:2.
+Since we can't vzalloc while holding pgo_lock,
+split the code into steps:
+* First get initial buffer size via prf_buffer_size()
+  and release the lock.
 
-This is not enough. We need more information on why this happens
-so we can judge whether the patch indeed fixed the issue.
+* Round up to the page size and allocate the buffer.
 
-> 
-> I propose: In adjust_scalar_min_max_vals() move boundary check up to avoid
-> missing them and return with error when detected.
-> 
-> Reported-and-tested-by: syzbot+bed360704c521841c85d@syzkaller.appspotmail.com
-> Signed-off-by: Kurt Manucredo <fuzzybritches0@gmail.com>
-> ---
-> 
-> https://syzkaller.appspot.com/bug?id=edb51be4c9a320186328893287bb30d5eed09231
-> 
-> Changelog:
-> ----------
-> v4 - Fix shift-out-of-bounds in adjust_scalar_min_max_vals.
->       Fix commit message.
-> v3 - Make it clearer what the fix is for.
-> v2 - Fix shift-out-of-bounds in ___bpf_prog_run() by adding boundary
->       check in check_alu_op() in verifier.c.
-> v1 - Fix shift-out-of-bounds in ___bpf_prog_run() by adding boundary
->       check in ___bpf_prog_run().
-> 
-> thanks
-> 
-> kind regards
-> 
-> Kurt
-> 
->   kernel/bpf/verifier.c | 30 +++++++++---------------------
->   1 file changed, 9 insertions(+), 21 deletions(-)
-> 
-> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-> index 94ba5163d4c5..ed0eecf20de5 100644
-> --- a/kernel/bpf/verifier.c
-> +++ b/kernel/bpf/verifier.c
-> @@ -7510,6 +7510,15 @@ static int adjust_scalar_min_max_vals(struct bpf_verifier_env *env,
->   	u32_min_val = src_reg.u32_min_value;
->   	u32_max_val = src_reg.u32_max_value;
->   
-> +	if ((opcode == BPF_LSH || opcode == BPF_RSH || opcode == BPF_ARSH) &&
-> +			umax_val >= insn_bitness) {
-> +		/* Shifts greater than 31 or 63 are undefined.
-> +		 * This includes shifts by a negative number.
-> +		 */
-> +		verbose(env, "invalid shift %lld\n", umax_val);
-> +		return -EINVAL;
-> +	}
+* Finally re-acquire the pgo_lock and call prf_serialize().
+  prf_serialize() will now check if the buffer is large enough
+  and returns -EAGAIN if it is not.
 
-I think your fix is good. I would like to move after
-the following code though:
+Note that prf_buffer_size() walks linked lists that
+are modified by __llvm_profile_instrument_target(),
+so we have to "guess" the buffer size ahead of time.
+prf_serialize() will then return the actual data length.
 
-         if (!src_known &&
-             opcode != BPF_ADD && opcode != BPF_SUB && opcode != BPF_AND) {
-                 __mark_reg_unknown(env, dst_reg);
-                 return 0;
-         }
+Signed-off-by: Jarmo Tiitto <jarmo.tiitto@gmail.com>
+---
+v3: Go back the loop solution.
+    Explained why prf_buffer_size() need pgo_lock.
+    Cleanup the code a bit.
+v2: Loopless attempt.
+---
+ kernel/pgo/fs.c | 62 +++++++++++++++++++++++++++++++++++++------------
+ 1 file changed, 47 insertions(+), 15 deletions(-)
 
-> +
->   	if (alu32) {
->   		src_known = tnum_subreg_is_const(src_reg.var_off);
->   		if ((src_known &&
-> @@ -7592,39 +7601,18 @@ static int adjust_scalar_min_max_vals(struct bpf_verifier_env *env,
->   		scalar_min_max_xor(dst_reg, &src_reg);
->   		break;
->   	case BPF_LSH:
-> -		if (umax_val >= insn_bitness) {
-> -			/* Shifts greater than 31 or 63 are undefined.
-> -			 * This includes shifts by a negative number.
-> -			 */
-> -			mark_reg_unknown(env, regs, insn->dst_reg);
-> -			break;
-> -		}
+diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
+index ef985159dad3..0ce0dc9caf7a 100644
+--- a/kernel/pgo/fs.c
++++ b/kernel/pgo/fs.c
+@@ -24,13 +24,14 @@
+ #include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/vmalloc.h>
++#include <linux/mm.h>
+ #include "pgo.h"
+ 
+ static struct dentry *directory;
+ 
+ struct prf_private_data {
+ 	void *buffer;
+-	unsigned long size;
++	size_t size;
+ };
+ 
+ /*
+@@ -213,6 +214,7 @@ static inline unsigned long prf_get_padding(unsigned long size)
+ 	return 7 & (sizeof(u64) - size % sizeof(u64));
+ }
+ 
++/* Note: caller *must* hold pgo_lock */
+ static unsigned long prf_buffer_size(void)
+ {
+ 	return sizeof(struct llvm_prf_header) +
+@@ -225,18 +227,22 @@ static unsigned long prf_buffer_size(void)
+ 
+ /*
+  * Serialize the profiling data into a format LLVM's tools can understand.
++ * Returns actual buffer size in p->size.
++ * Note: p->buffer must point into vzalloc()'d
++ * area of at least prf_buffer_size() in size.
+  * Note: caller *must* hold pgo_lock.
+  */
+-static int prf_serialize(struct prf_private_data *p)
++static int prf_serialize(struct prf_private_data *p, size_t buf_size)
+ {
+ 	int err = 0;
+ 	void *buffer;
+ 
++	/* get buffer size, again. */
+ 	p->size = prf_buffer_size();
+-	p->buffer = vzalloc(p->size);
+ 
+-	if (!p->buffer) {
+-		err = -ENOMEM;
++	/* check for unlikely overflow. */
++	if (p->size > buf_size) {
++		err = -EAGAIN;
+ 		goto out;
+ 	}
+ 
+@@ -259,27 +265,53 @@ static int prf_open(struct inode *inode, struct file *file)
+ {
+ 	struct prf_private_data *data;
+ 	unsigned long flags;
+-	int err;
++	size_t buf_size;
++	int err = 0;
+ 
+ 	data = kzalloc(sizeof(*data), GFP_KERNEL);
+ 	if (!data) {
+ 		err = -ENOMEM;
+-		goto out;
++		goto out_free;
+ 	}
+ 
++	/* get initial buffer size */
+ 	flags = prf_lock();
++	data->size = prf_buffer_size();
++	prf_unlock(flags);
+ 
+-	err = prf_serialize(data);
+-	if (unlikely(err)) {
+-		kfree(data);
+-		goto out_unlock;
+-	}
++	do {
++		if (data->buffer)
++			vfree(data->buffer);
++
++		/* allocate, round up to page size. */
++		buf_size = PAGE_ALIGN(data->size);
++		data->buffer = vzalloc(buf_size);
++
++		if (!data->buffer) {
++			err = -ENOMEM;
++			goto out_free;
++		}
++
++		/*
++		 * try serialize and get actual
++		 * data length in data->size
++		 */
++		flags = prf_lock();
++		err = prf_serialize(data, buf_size);
++		prf_unlock(flags);
++		/* in unlikely case, try again. */
++	} while (err == -EAGAIN);
++
++	if (err)
++		goto out_free;
+ 
+ 	file->private_data = data;
++	return 0;
+ 
+-out_unlock:
+-	prf_unlock(flags);
+-out:
++out_free:
++	if (data)
++		vfree(data->buffer);
++	kfree(data);
+ 	return err;
+ }
+ 
 
-I think this is what happens. For the above case, we simply
-marks the dst reg as unknown and didn't fail verification.
-So later on at runtime, the shift optimization will have wrong
-shift value (> 31/64). Please correct me if this is not right
-analysis. As I mentioned in the early please write detailed
-analysis in commit log.
-
-Please also add a test at tools/testing/selftests/bpf/verifier/.
-
-
->   		if (alu32)
->   			scalar32_min_max_lsh(dst_reg, &src_reg);
->   		else
->   			scalar_min_max_lsh(dst_reg, &src_reg);
->   		break;
->   	case BPF_RSH:
-> -		if (umax_val >= insn_bitness) {
-> -			/* Shifts greater than 31 or 63 are undefined.
-> -			 * This includes shifts by a negative number.
-> -			 */
-> -			mark_reg_unknown(env, regs, insn->dst_reg);
-> -			break;
-> -		}
->   		if (alu32)
->   			scalar32_min_max_rsh(dst_reg, &src_reg);
->   		else
->   			scalar_min_max_rsh(dst_reg, &src_reg);
->   		break;
->   	case BPF_ARSH:
-> -		if (umax_val >= insn_bitness) {
-> -			/* Shifts greater than 31 or 63 are undefined.
-> -			 * This includes shifts by a negative number.
-> -			 */
-> -			mark_reg_unknown(env, regs, insn->dst_reg);
-> -			break;
-> -		}
->   		if (alu32)
->   			scalar32_min_max_arsh(dst_reg, &src_reg);
->   		else
-> 
+base-commit: 46773f32ddf1d49a84eca5f19126d6dfaf08e8d9
+-- 
+2.31.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/6a392b66-6f26-4532-d25f-6b09770ce366%40fb.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210605183128.129614-1-jarmo.tiitto%40gmail.com.
