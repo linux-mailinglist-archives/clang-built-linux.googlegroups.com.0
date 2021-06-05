@@ -1,138 +1,131 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBK5756CQMGQE5HGERSQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBIOI56CQMGQE5AFULJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
-	by mail.lfdr.de (Postfix) with ESMTPS id 74A8439CAED
-	for <lists+clang-built-linux@lfdr.de>; Sat,  5 Jun 2021 22:33:49 +0200 (CEST)
-Received: by mail-pl1-x638.google.com with SMTP id k6-20020a1709027606b0290104f319bb01sf5218443pll.13
-        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Jun 2021 13:33:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622925228; cv=pass;
+Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
+	by mail.lfdr.de (Postfix) with ESMTPS id B6EDE39CB0F
+	for <lists+clang-built-linux@lfdr.de>; Sat,  5 Jun 2021 22:52:50 +0200 (CEST)
+Received: by mail-il1-x140.google.com with SMTP id h6-20020a92c0860000b02901e0cde08c7fsf8960305ile.11
+        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Jun 2021 13:52:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622926369; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SK0cjk88DwKnhJeOs17M7lmu09fDwRzJhHIomjDe3t8upvbpC6Nzt0cwxzQCl+fTKi
-         HKLEH6U71SNyFhRDekXiVySvMf0dksMUKR0TvcNxX544x7eMrEjUESonoWNL69GzF3Xe
-         B0eMiMnHD5W7zqVUbUUHhQAWblQYv6maG5ltTSyN2pkyUkF3yzUjP6xUSyIN9IlMqYyl
-         iNXBTq9nE/GRIUCeK5vm1Yvx8R3ds9BdD9UN1Id9XgNlVlkr12Jdq1Tm3EtX3rpXLsQ6
-         LkbnEFMdpvNIinCDjWEr00iDpcW/JooHtL42jDcqPtVzEHAQD7dNQiDN1YSHn2HA0vwM
-         Vb/w==
+        b=ebrEtQ+c4oweBfqQSq00P1Hhe6gZMHmSKxr0ErpZhZSpZVBfovsRdbnDV/vMRlfEFu
+         fMX72dSYXvKg8upPHK6cBjtGWaNrr6ZI4LmZnIfDn6m1Z4oxAzxg3+B9KeCp3v1EJ9zK
+         XcM/oCinxJeKnh/Z/qun+HqK664UJ8s69AGreoiwA/EWY5whjSHQeQeRcqos7XEDkxQo
+         QSdQU+j9hcAUwAJSAuZqBICh7iYwb0/3xYkc2WeGYFG5b9zbgY8Kq41cSsBGAlSuB+81
+         k/u83WVYsgvayR0JFNdxCHSYpzlEbi5boUIBGA6wMrdhN/9xOYaT9JzG27is+7cbgxMP
+         RkIg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent
-         :content-transfer-encoding:content-disposition:mime-version
-         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr:sender
-         :dkim-signature;
-        bh=DHLBihOOQDxgV8V0eMg9r9AMlMsGdNpwssTzxp2K0Nw=;
-        b=gU5Ld8tvJ9FvQnbYvDcFRnEBRveRtF1lJVqlGu0zujbQcAGugB9IxmAlD+t4G7sVgM
-         8I18X2ygSS9qbJbxRouqQnDFlqrYKMUvxGKrByfWe+R9/28toE5lhh6rQdCRwRZVId19
-         e7IrLvvvwWj+IsJ/fEiOBCURwVRxGGqMlqh1IWg9JgP4uavbXEvrSoWIbIC+KMLbb0zt
-         jsQtkY/zX9gv/S5btoAkvJu8XzPIWl5mAW8NXc9WAWYWu8AYPfChIfwpuAq9VG8n+bK1
-         mZj8hbh2bjVK+ybgG8lmyxHCblkhw+Un/+1lviOyQezg20WrI3HRPOQWrTff2mkknpj7
-         UtEA==
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
+         :ironport-sdr:sender:dkim-signature;
+        bh=Jk6Pq6vXznqOr9JnAol8xCf9Y5jXFIefQF0aqcS66E0=;
+        b=DkV+r/zqAcDcTLr+/hL3aZ+Rr2FpOlWSG2eh9eFvk8hOZaojTK6dfjNGr4B22uM1ey
+         hPSKbRPWI71rFpBHACe8XGhiaKFc5xUhd8KvpY3B0aGiRTCWuxvvxMQZ0WYFRt7/Btba
+         A/MlZMkc9rFDWbBaZ94zEZYAPdBbBZWgwPWC504Au5X4Ze+RO7mz8NIIO413z06ba75V
+         B1NYFtN+dBjZIdCauqyxQ7R88BxWSSq4/X8qfCrk2L8ez0u3F0h9TvlTbvxQqqfafoBa
+         cNnYjU3VMlYbjZenmjBYHKDfxFlQ2zdCfkSyl4ANIB2A9fjgk5IoFOI1sqxkrHJ89Qfs
+         iAwg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:content-transfer-encoding
-         :user-agent:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=DHLBihOOQDxgV8V0eMg9r9AMlMsGdNpwssTzxp2K0Nw=;
-        b=qCxJgPd+iu3tLp63qljx4dujIgUr83S24dcJyflyaZ/RWWGO/TBoQ3qrVJJKjimVLb
-         cXV/0uIHYfSc1vdE0NwgRVN39HdcX1yGqTDGKwdeSb4U60sbb0jz0eMcBQd1PUyylU/d
-         sLithJaDOZX6NhKtSlcwgQgUiAj5RvmVlZ2PNM3B4hI9fDv4XSnKhVIM2NJtncYggq0S
-         IcPi1AknZIWMENGUuVQsfVuz/QBM7h1OcSm5WhrUYdf3ajzUmFqmOzoP07ELvwkNJ/gn
-         OUv9GeXKM+8mhQcFDy7hX0pr+z1xv1VACgF1PR7DXyQzzR9XS4tLmvmZYqXdnJWKvBKb
-         Y+Eg==
+         :mime-version:content-disposition:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Jk6Pq6vXznqOr9JnAol8xCf9Y5jXFIefQF0aqcS66E0=;
+        b=TTVGX5oUQid0efz/sKzBNBW4wmhAWJEWgUR3DEh2m/SznotX58gLN7IwRYiDG5VcWo
+         w4w83d7zP05o/WLOp9XROsywSTTyc5nYLLnOcyvlFFxcNBrjrlFQFfGrWQrfJW70A1Gj
+         5mjQz6wvvnXCnzAkFY14eIDS5siDKMDwBOf72Zw27xUuEtyIar02jkYrCzA01dajvpKQ
+         QvWl+mmJrW7Ty5CcPkxrHg/08nRH2JbAnBosrxKp/XPGODoF5FrgMoRjTtmkcdDfTd/l
+         4cfXvMBcC8v7p44C4ju5M6D16iF0312t9BjEtUL7kXLgqbmbjfdxcuxckb9F+uiZf338
+         cfNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
-         :subject:message-id:mime-version:content-disposition
-         :content-transfer-encoding:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=DHLBihOOQDxgV8V0eMg9r9AMlMsGdNpwssTzxp2K0Nw=;
-        b=hCsAs7icvkDB3IlVz+b0GuhKnDMg2BOzUrj8gD/PdxZZwfKN3nRBY8hfRoe+uxMuzL
-         PRjzeW3dkPPn0zpfb9GIm3NZ3QdCGy2d4+0856/hXMdLRBZ/zUUqGcxVetYhG2AYnN86
-         S+BJzDYszOacxEWDyYFracjiBgvSC5MP3HUMBxAW6DFoCbXCLQUEdAZG6OPS8jSvr1KH
-         haJ6vuJ6ebpP/yoUR1fRDPYqHIsw99hCs9jjzWMP3g5yAwzH+faBUhNPjkC1uaicQLdb
-         coM9K86orcG56uIifpZsoJSMy68NYBe8uUWXpkrOTmob+gB81nwzhXkRosUQN/k7uato
-         fynw==
+         :subject:message-id:mime-version:content-disposition:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Jk6Pq6vXznqOr9JnAol8xCf9Y5jXFIefQF0aqcS66E0=;
+        b=RhQYtqAvybZJP41iwKG0DStwa3AQ0fBtTR8+Jln0zyiWMfwcJpxgvtgLCW4DncAzjR
+         rYT5136q0O4umc0y9TDae/buQHyAXJ6N/GQ7O/567zSDg1c6nh+/C6ORsmTOs5+Op/BO
+         AkevVvx+V8ZJ6d6X0GofP8nceOQl3q4OR1u1blz9RD34SmzUWvsyT43jfi0VCreOfQ7M
+         qakhVO2YRvimz82gzoqMP9xnImpj4R39tiUJPrOJ8VzPLub4bY3ZlNvkejpXabV82Roz
+         veCS4pGTdJr8xJCej1tmJDTgbxuaTvgrDX1A1fn08vj+A92f6YfDY0+q7T6hVFtntaTf
+         qjsw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531nq8i40Fi6HRpBfSsmmHT3CE2lv1vEKOljRQtixn+ka+fv+OmY
-	Rv4qyR942XqBgKJMJ/UpvzM=
-X-Google-Smtp-Source: ABdhPJxNMFM/AtEMl5+UaI69GohVbrJBhSeqGbrWqdrtFJlEFMWx2TvhL6/2BJQqMDGm3vLGBa+JSg==
-X-Received: by 2002:a17:903:1243:b029:107:eca4:d5bf with SMTP id u3-20020a1709031243b0290107eca4d5bfmr10343248plh.15.1622925227800;
-        Sat, 05 Jun 2021 13:33:47 -0700 (PDT)
+X-Gm-Message-State: AOAM532rLzhH1WU7i0Hk/n5uo4U/RfSKQjH1X9EjRtz/kGOpYUtl3MfT
+	Uehe0Kad9GcGsDEr2k59DAI=
+X-Google-Smtp-Source: ABdhPJwlmo5SdUKIyBG/DfbnV0bStTLH0FcWUEKkP1x6/e8sD3Aj6gJkPQPVn1M5BSch1LRCrdDAdw==
+X-Received: by 2002:a92:364f:: with SMTP id d15mr9388769ilf.26.1622926369187;
+        Sat, 05 Jun 2021 13:52:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:6445:: with SMTP id y66ls4890123pfb.7.gmail; Sat, 05 Jun
- 2021 13:33:47 -0700 (PDT)
-X-Received: by 2002:a63:fa51:: with SMTP id g17mr11149436pgk.340.1622925226990;
-        Sat, 05 Jun 2021 13:33:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622925226; cv=none;
+Received: by 2002:a6b:8d50:: with SMTP id p77ls1453467iod.4.gmail; Sat, 05 Jun
+ 2021 13:52:48 -0700 (PDT)
+X-Received: by 2002:a6b:8b51:: with SMTP id n78mr8997473iod.143.1622926368598;
+        Sat, 05 Jun 2021 13:52:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622926368; cv=none;
         d=google.com; s=arc-20160816;
-        b=PkD3dtpDkevynV0fqWHo5b0djyx+x7Tmtlv+W4N7A/FCuCt2QX1GpjgfYo27xGJg7S
-         xxdsunSSWL+Qhe0rOIBFAtHuJaNAVX7Xx0yY/yBbEAAcw7b0oFvKCt8/6JNt2n1LuZhY
-         NibJtqW5nn0RTltto0oUlriFxUsaSUyt4TlcsLdkw1pCCImSUlrcSlhwUVWGtr9oMaNp
-         jAZZtsVpm7yGv6DMW6sVOM9xHig/Hn5dhJunUmp93RIb0Uwr8MMGMCAV5l0A+iJjFKVW
-         QssV9Ugmzo9pCWgl2R7G1KXSMKD/c6RijYB7dABwzAqeGEJg98nXrA8eNDP4TAhRgyZb
-         wRog==
+        b=nr3Qup3i8OLfI76hd/hp9COoxA2fzVvRWgGgJIht11o1QWQ0Er7MpZK1KBPdzaCAF/
+         3fep++2VAUK82wYtqOplEaZihr2a08bec4SH6YBX61cK5jUfJu/TpXarpM5lw0wLCRn9
+         7pfLRWtWXLQARY90t0GrY/ZAhpkTXH1h2+/L0TTEgxJqCI98WRoAPcqckA3KSHdmJV5o
+         /fnkYS+ZWjsNePVD+RhRDH9dox6Kpjl5yiMZ/Dda+bF76EXV41Mkp9Qb2jqg6A6rR/zl
+         d3EJIbBqLcm4zLMKJMUhAF3p2wuayREkrqSo8B1XJe8VF5tbQllGQcIhI2PXcPZVzM+S
+         edrg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-transfer-encoding:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
-         :ironport-sdr;
-        bh=1W7A64srEbwZaIDXqJ9Cbx0b3d4nLPrzJBPwa7lVJ9o=;
-        b=D7+hNKAS3KFSkLLJnv9A8zsiEeaFfqfpb3qNYwedYLpHeWc5k+DKlm1LC5+8/X9MHI
-         81qzq5Yuum9KHvwAv/jZ5VRAKPobjVCuTgroJsGiUp/+19qHnkVtvDzfOIu3bewCThyK
-         XQkWhXANjwcEx5ou+p3kMnAa/dyTfL9hWlBAzF4ctGz+zrndq9OZuGx5ys1V6Ugwa+7n
-         HUB7WqRtfYxMpXRkHF4EThcv23vrYpSQZYxQXTqKwnZosXa0zn+HepWEytZr4IFOVPwu
-         TTEfRwoHqsHuhONxxyO8Mln+jGZzcxlH7psDYfLJkvZADMnPUVpyQLT5tGAqQL/Fd0tR
-         QZdQ==
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr;
+        bh=qv1CI4MY8jFePcQfEwl4tpdXtTDXdXUrpRvGDDOgjYc=;
+        b=ox8fBX4RZxSUNlU0Hte0kJZarlRNUJe089Wkl6Eeva9QMSCcD/6pvZa7EHhkflIto2
+         0LbsINHmO53nyu4UwEbTEnBegyvhyIqOogRfUUNepfa02AnHOskX3m2ZP5aSRLHZV6kv
+         3POC/UubpnW+PW1wmjiKs2n7w7V2WPJ6UwSeYAo7ubPz2Z+ciKzDpu6O8b6PuEFL1+1X
+         DORX4o1tApzGFRAejtrdHfynlBVglCKw6DULSLSjMPCsQsY6s64RTdKato5ZLYSJZTdO
+         PEfEZRVm6MkyWSroAeMK/fqQn+lFSWSckGwYx124/AKbxdY7V+9UJOlh6cRSZze/KUrW
+         xWIw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
-        by gmr-mx.google.com with ESMTPS id c23si862422pjv.2.2021.06.05.13.33.46
+Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
+        by gmr-mx.google.com with ESMTPS id a7si996666iod.4.2021.06.05.13.52.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 05 Jun 2021 13:33:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
-IronPort-SDR: pNZc181D3lqMLA2wT25yjt9R1q02eETDlkjFiHL4DYp3uS6IT8IKOeas6aKLm+Vbra15+hjIDe
- wnMe+FmBcLfQ==
-X-IronPort-AV: E=McAfee;i="6200,9189,10006"; a="204484622"
+        Sat, 05 Jun 2021 13:52:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+IronPort-SDR: eq7nsxZItB1VcCjVNpHjXu0Csp/XuPzzVct4shm0RjuFsWUlqai1eZG6uy78lqL9IbzRn8P3uN
+ yQNnD3/eHVFQ==
+X-IronPort-AV: E=McAfee;i="6200,9189,10006"; a="290087079"
 X-IronPort-AV: E=Sophos;i="5.83,252,1616482800"; 
-   d="gz'50?scan'50,208,50";a="204484622"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jun 2021 13:33:45 -0700
-IronPort-SDR: 0X3WpX4HW7CL+XTKXH0Mt9PLNjTFJWekUAA0cDXIAB/UAvlwSNpNgCSmhu/3m3dygtqK0UTxT3
- Vf4RFk6HZeLg==
+   d="gz'50?scan'50,208,50";a="290087079"
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jun 2021 13:52:44 -0700
+IronPort-SDR: lMi/8hrXpmxvt5e+zYnI7LqpHSgQFoZDUqEz6Kt3riwnQ7l5N6PRNIeO23MwKxdg1ce5mEFSc8
+ FG8g98XkKtmA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.83,252,1616482800"; 
-   d="gz'50?scan'50,208,50";a="475803738"
+   d="gz'50?scan'50,208,50";a="618592482"
 Received: from lkp-server02.sh.intel.com (HELO 1ec8406c5392) ([10.239.97.151])
-  by FMSMGA003.fm.intel.com with ESMTP; 05 Jun 2021 13:33:41 -0700
+  by orsmga005.jf.intel.com with ESMTP; 05 Jun 2021 13:52:42 -0700
 Received: from kbuild by 1ec8406c5392 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lpczF-0007cE-BA; Sat, 05 Jun 2021 20:33:41 +0000
-Date: Sun, 6 Jun 2021 04:33:21 +0800
+	id 1lpdHd-0007cf-K3; Sat, 05 Jun 2021 20:52:41 +0000
+Date: Sun, 6 Jun 2021 04:52:33 +0800
 From: kernel test robot <lkp@intel.com>
-To: Shyam Prasad N <sprasad@microsoft.com>
+To: Steve French <stfrench@microsoft.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	linux-cifs@vger.kernel.org, samba-technical@lists.samba.org,
-	Steve French <stfrench@microsoft.com>
-Subject: [cifs:for-next 7/9] fs/cifs/smb2transport.c:429:15: warning: format
- specifies type 'unsigned int' but the argument has type 'size_t' (aka
- 'unsigned long')
-Message-ID: <202106060414.nUJaN0vr-lkp@intel.com>
+	linux-cifs@vger.kernel.org, samba-technical@lists.samba.org
+Subject: [cifs:for-next 9/9] fs/cifs/connect.c:254:14: warning: variable
+ 'ses' is uninitialized when used here
+Message-ID: <202106060423.xck9tGGo-lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="M9NhX3UHpAaciwkO"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -151,362 +144,196 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 --M9NhX3UHpAaciwkO
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
 tree:   git://git.samba.org/sfrench/cifs-2.6.git for-next
 head:   52834f2e3fd972647736d6cfad34fa2f1aedb51c
-commit: 7ec35cb4e9a7a8bd791a4202c88304154210fed0 [7/9] cifs: some minor war=
-nings identified by kernel bots fixed
+commit: 52834f2e3fd972647736d6cfad34fa2f1aedb51c [9/9] cifs: fix minor build problems with the previous patch
 config: x86_64-randconfig-r013-20210606 (attached as .config)
-compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 8ec9aa=
-236e325fd4629cfeefac2919302e14d61a)
-reproduce (this is a W=3D1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
-make.cross -O ~/bin/make.cross
+compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 8ec9aa236e325fd4629cfeefac2919302e14d61a)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
         git remote add cifs git://git.samba.org/sfrench/cifs-2.6.git
         git fetch --no-tags cifs for-next
-        git checkout 7ec35cb4e9a7a8bd791a4202c88304154210fed0
+        git checkout 52834f2e3fd972647736d6cfad34fa2f1aedb51c
         # save the attached .config to linux build tree
-        COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross ARCH=
-=3Dx86_64=20
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:77:36: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(once, type, fmt, ##__VA_ARGS__);          =
-\
-                                             ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:66:23: note: expanded from macro 'cifs_dbg_func'
-                                         __FILE__, ##__VA_ARGS__);         =
-\
-                                                     ^~~~~~~~~~~
-   include/linux/printk.h:497:38: note: expanded from macro 'pr_debug_once'
-           no_printk(KERN_DEBUG pr_fmt(fmt), ##__VA_ARGS__)
-                                       ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:140:17: note: expanded from macro 'no_printk'
-                   printk(fmt, ##__VA_ARGS__);             \
-                          ~~~    ^~~~~~~~~~~
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:77:36: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(once, type, fmt, ##__VA_ARGS__);          =
-\
-                                             ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:68:38: note: expanded from macro 'cifs_dbg_func'
-                   pr_err_ ## ratefunc("VFS: " fmt, ##__VA_ARGS__);        =
-\
-                                               ~~~    ^~~~~~~~~~~
-   include/linux/printk.h:474:38: note: expanded from macro 'pr_err_once'
-           printk_once(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
-                                       ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:445:17: note: expanded from macro 'printk_once'
-                   printk(fmt, ##__VA_ARGS__);                     \
-                          ~~~    ^~~~~~~~~~~
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:77:36: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(once, type, fmt, ##__VA_ARGS__);          =
-\
-                                             ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:70:32: note: expanded from macro 'cifs_dbg_func'
-                   pr_debug_ ## ratefunc(fmt, ##__VA_ARGS__);              =
-\
-                                         ~~~    ^~~~~~~~~~~
-   include/linux/printk.h:497:38: note: expanded from macro 'pr_debug_once'
-           no_printk(KERN_DEBUG pr_fmt(fmt), ##__VA_ARGS__)
-                                       ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:140:17: note: expanded from macro 'no_printk'
-                   printk(fmt, ##__VA_ARGS__);             \
-                          ~~~    ^~~~~~~~~~~
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:79:43: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(ratelimited, type, fmt, ##__VA_ARGS__);   =
-\
-                                                    ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:66:23: note: expanded from macro 'cifs_dbg_func'
-                                         __FILE__, ##__VA_ARGS__);         =
-\
-                                                     ^~~~~~~~~~~
-   include/linux/printk.h:562:38: note: expanded from macro 'pr_debug_ratel=
-imited'
-           no_printk(KERN_DEBUG pr_fmt(fmt), ##__VA_ARGS__)
-                                       ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:140:17: note: expanded from macro 'no_printk'
-                   printk(fmt, ##__VA_ARGS__);             \
-                          ~~~    ^~~~~~~~~~~
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:79:43: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(ratelimited, type, fmt, ##__VA_ARGS__);   =
-\
-                                                    ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:68:38: note: expanded from macro 'cifs_dbg_func'
-                   pr_err_ ## ratefunc("VFS: " fmt, ##__VA_ARGS__);        =
-\
-                                               ~~~    ^~~~~~~~~~~
-   include/linux/printk.h:526:45: note: expanded from macro 'pr_err_ratelim=
-ited'
-           printk_ratelimited(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
-                                              ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:512:17: note: expanded from macro 'printk_ratelim=
-ited'
-                   printk(fmt, ##__VA_ARGS__);                             =
-\
-                          ~~~    ^~~~~~~~~~~
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:79:43: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(ratelimited, type, fmt, ##__VA_ARGS__);   =
-\
-                                                    ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:70:32: note: expanded from macro 'cifs_dbg_func'
-                   pr_debug_ ## ratefunc(fmt, ##__VA_ARGS__);              =
-\
-                                         ~~~    ^~~~~~~~~~~
-   include/linux/printk.h:562:38: note: expanded from macro 'pr_debug_ratel=
-imited'
-           no_printk(KERN_DEBUG pr_fmt(fmt), ##__VA_ARGS__)
-                                       ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:140:17: note: expanded from macro 'no_printk'
-                   printk(fmt, ##__VA_ARGS__);             \
-                          ~~~    ^~~~~~~~~~~
-   6 warnings generated.
---
-   In file included from fs/cifs/smb2transport.c:35:
-   fs/cifs/smb2pdu.h:28:10: error: 'cifsacl.h' file not found with <angled>=
- include; use "quotes" instead
-   #include <cifsacl.h>
-            ^~~~~~~~~~~
-            "cifsacl.h"
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:77:36: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(once, type, fmt, ##__VA_ARGS__);          =
-\
-                                             ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:66:23: note: expanded from macro 'cifs_dbg_func'
-                                         __FILE__, ##__VA_ARGS__);         =
-\
-                                                     ^~~~~~~~~~~
-   include/linux/printk.h:497:38: note: expanded from macro 'pr_debug_once'
-           no_printk(KERN_DEBUG pr_fmt(fmt), ##__VA_ARGS__)
-                                       ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:140:17: note: expanded from macro 'no_printk'
-                   printk(fmt, ##__VA_ARGS__);             \
-                          ~~~    ^~~~~~~~~~~
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:77:36: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(once, type, fmt, ##__VA_ARGS__);          =
-\
-                                             ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:68:38: note: expanded from macro 'cifs_dbg_func'
-                   pr_err_ ## ratefunc("VFS: " fmt, ##__VA_ARGS__);        =
-\
-                                               ~~~    ^~~~~~~~~~~
-   include/linux/printk.h:474:38: note: expanded from macro 'pr_err_once'
-           printk_once(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
-                                       ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:445:17: note: expanded from macro 'printk_once'
-                   printk(fmt, ##__VA_ARGS__);                     \
-                          ~~~    ^~~~~~~~~~~
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:77:36: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(once, type, fmt, ##__VA_ARGS__);          =
-\
-                                             ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:70:32: note: expanded from macro 'cifs_dbg_func'
-                   pr_debug_ ## ratefunc(fmt, ##__VA_ARGS__);              =
-\
-                                         ~~~    ^~~~~~~~~~~
-   include/linux/printk.h:497:38: note: expanded from macro 'pr_debug_once'
-           no_printk(KERN_DEBUG pr_fmt(fmt), ##__VA_ARGS__)
-                                       ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:140:17: note: expanded from macro 'no_printk'
-                   printk(fmt, ##__VA_ARGS__);             \
-                          ~~~    ^~~~~~~~~~~
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:79:43: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(ratelimited, type, fmt, ##__VA_ARGS__);   =
-\
-                                                    ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:66:23: note: expanded from macro 'cifs_dbg_func'
-                                         __FILE__, ##__VA_ARGS__);         =
-\
-                                                     ^~~~~~~~~~~
-   include/linux/printk.h:562:38: note: expanded from macro 'pr_debug_ratel=
-imited'
-           no_printk(KERN_DEBUG pr_fmt(fmt), ##__VA_ARGS__)
-                                       ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:140:17: note: expanded from macro 'no_printk'
-                   printk(fmt, ##__VA_ARGS__);             \
-                          ~~~    ^~~~~~~~~~~
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:79:43: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(ratelimited, type, fmt, ##__VA_ARGS__);   =
-\
-                                                    ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:68:38: note: expanded from macro 'cifs_dbg_func'
-                   pr_err_ ## ratefunc("VFS: " fmt, ##__VA_ARGS__);        =
-\
-                                               ~~~    ^~~~~~~~~~~
-   include/linux/printk.h:526:45: note: expanded from macro 'pr_err_ratelim=
-ited'
-           printk_ratelimited(KERN_ERR pr_fmt(fmt), ##__VA_ARGS__)
-                                              ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:512:17: note: expanded from macro 'printk_ratelim=
-ited'
-                   printk(fmt, ##__VA_ARGS__);                             =
-\
-                          ~~~    ^~~~~~~~~~~
->> fs/cifs/smb2transport.c:429:15: warning: format specifies type 'unsigned=
- int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
-                            __func__, chan_index);
-                                      ^~~~~~~~~~
-   fs/cifs/cifs_debug.h:79:43: note: expanded from macro 'cifs_dbg'
-                   cifs_dbg_func(ratelimited, type, fmt, ##__VA_ARGS__);   =
-\
-                                                    ~~~    ^~~~~~~~~~~
-   fs/cifs/cifs_debug.h:70:32: note: expanded from macro 'cifs_dbg_func'
-                   pr_debug_ ## ratefunc(fmt, ##__VA_ARGS__);              =
-\
-                                         ~~~    ^~~~~~~~~~~
-   include/linux/printk.h:562:38: note: expanded from macro 'pr_debug_ratel=
-imited'
-           no_printk(KERN_DEBUG pr_fmt(fmt), ##__VA_ARGS__)
-                                       ~~~     ^~~~~~~~~~~
-   include/linux/printk.h:140:17: note: expanded from macro 'no_printk'
-                   printk(fmt, ##__VA_ARGS__);             \
-                          ~~~    ^~~~~~~~~~~
-   6 warnings and 1 error generated.
+>> fs/cifs/connect.c:254:14: warning: variable 'ses' is uninitialized when used here [-Wuninitialized]
+           mutex_lock(&ses->session_mutex);
+                       ^~~
+   include/linux/mutex.h:165:44: note: expanded from macro 'mutex_lock'
+   #define mutex_lock(lock) mutex_lock_nested(lock, 0)
+                                              ^~~~
+   fs/cifs/connect.c:189:22: note: initialize the variable 'ses' to silence this warning
+           struct cifs_ses *ses;
+                               ^
+                                = NULL
+   1 warning generated.
 
 
-vim +429 fs/cifs/smb2transport.c
+vim +/ses +254 fs/cifs/connect.c
 
-373512ec5c105e Steve French           2015-12-18  403 =20
-373512ec5c105e Steve French           2015-12-18  404  static int
-373512ec5c105e Steve French           2015-12-18  405  generate_smb3signing=
-key(struct cifs_ses *ses,
-9f970434e908cf Shyam Prasad N         2021-06-02  406  			struct TCP_Server=
-_Info *server,
-373512ec5c105e Steve French           2015-12-18  407  			const struct deri=
-vation_triplet *ptriplet)
-373512ec5c105e Steve French           2015-12-18  408  {
-373512ec5c105e Steve French           2015-12-18  409  	int rc;
-9f970434e908cf Shyam Prasad N         2021-06-02  410  	size_t chan_index;
-373512ec5c105e Steve French           2015-12-18  411 =20
-d70e9fa5588476 Aurelien Aptel         2019-09-20  412  	/*
-d70e9fa5588476 Aurelien Aptel         2019-09-20  413  	 * All channels use=
- the same encryption/decryption keys but
-d70e9fa5588476 Aurelien Aptel         2019-09-20  414  	 * they have their =
-own signing key.
-d70e9fa5588476 Aurelien Aptel         2019-09-20  415  	 *
-d70e9fa5588476 Aurelien Aptel         2019-09-20  416  	 * When we generate=
- the keys, check if it is for a new channel
-d70e9fa5588476 Aurelien Aptel         2019-09-20  417  	 * (binding) in whi=
-ch case we only need to generate a signing
-d70e9fa5588476 Aurelien Aptel         2019-09-20  418  	 * key and store it=
- in the channel as to not overwrite the
-d70e9fa5588476 Aurelien Aptel         2019-09-20  419  	 * master connectio=
-n signing key stored in the session
-d70e9fa5588476 Aurelien Aptel         2019-09-20  420  	 */
-d70e9fa5588476 Aurelien Aptel         2019-09-20  421 =20
-9f970434e908cf Shyam Prasad N         2021-06-02  422  	if (!CIFS_ALL_CHANS=
-_NEED_RECONNECT(ses)) {
-9f970434e908cf Shyam Prasad N         2021-06-02  423  		chan_index =3D cif=
-s_ses_get_chan_index(ses, server);
-373512ec5c105e Steve French           2015-12-18  424  		rc =3D generate_ke=
-y(ses, ptriplet->signing.label,
-d70e9fa5588476 Aurelien Aptel         2019-09-20  425  				  ptriplet->sign=
-ing.context,
-9f970434e908cf Shyam Prasad N         2021-06-02  426  				  ses->chans[cha=
-n_index].signkey,
-373512ec5c105e Steve French           2015-12-18  427  				  SMB3_SIGN_KEY_=
-SIZE);
-7ec35cb4e9a7a8 Shyam Prasad N         2021-06-05  428  		cifs_dbg(FYI, "%s:=
- Generated key for chan %u\n",
-aed2a5f0a2bf7b Shyam Prasad N         2021-05-22 @429  			 __func__, chan_i=
-ndex);
-373512ec5c105e Steve French           2015-12-18  430  		if (rc)
-373512ec5c105e Steve French           2015-12-18  431  			return rc;
-d70e9fa5588476 Aurelien Aptel         2019-09-20  432  	} else {
-d70e9fa5588476 Aurelien Aptel         2019-09-20  433  		rc =3D generate_ke=
-y(ses, ptriplet->signing.label,
-d70e9fa5588476 Aurelien Aptel         2019-09-20  434  				  ptriplet->sign=
-ing.context,
-d70e9fa5588476 Aurelien Aptel         2019-09-20  435  				  ses->smb3signi=
-ngkey,
-373512ec5c105e Steve French           2015-12-18  436  				  SMB3_SIGN_KEY_=
-SIZE);
-373512ec5c105e Steve French           2015-12-18  437  		if (rc)
-373512ec5c105e Steve French           2015-12-18  438  			return rc;
-ff6b6f3f916097 Paulo Alcantara (SUSE  2019-11-22  439)=20
-ff6b6f3f916097 Paulo Alcantara (SUSE  2019-11-22  440) 		memcpy(ses->chans[=
-0].signkey, ses->smb3signingkey,
-ff6b6f3f916097 Paulo Alcantara (SUSE  2019-11-22  441) 		       SMB3_SIGN_K=
-EY_SIZE);
-ff6b6f3f916097 Paulo Alcantara (SUSE  2019-11-22  442)=20
-d70e9fa5588476 Aurelien Aptel         2019-09-20  443  		rc =3D generate_ke=
-y(ses, ptriplet->encryption.label,
-d70e9fa5588476 Aurelien Aptel         2019-09-20  444  				  ptriplet->encr=
-yption.context,
-d70e9fa5588476 Aurelien Aptel         2019-09-20  445  				  ses->smb3encry=
-ptionkey,
-45a4546c6167a2 Shyam Prasad N         2021-03-25  446  				  SMB3_ENC_DEC_K=
-EY_SIZE);
-d38de3c6156b97 Aur=C3=A9lien Aptel         2017-05-24  447  		rc =3D genera=
-te_key(ses, ptriplet->decryption.label,
-373512ec5c105e Steve French           2015-12-18  448  				  ptriplet->decr=
-yption.context,
-d70e9fa5588476 Aurelien Aptel         2019-09-20  449  				  ses->smb3decry=
-ptionkey,
-45a4546c6167a2 Shyam Prasad N         2021-03-25  450  				  SMB3_ENC_DEC_K=
-EY_SIZE);
-d70e9fa5588476 Aurelien Aptel         2019-09-20  451  		if (rc)
-d70e9fa5588476 Aurelien Aptel         2019-09-20  452  			return rc;
-d70e9fa5588476 Aurelien Aptel         2019-09-20  453  	}
-d38de3c6156b97 Aur=C3=A9lien Aptel         2017-05-24  454 =20
-d38de3c6156b97 Aur=C3=A9lien Aptel         2017-05-24  455  	if (rc)
-d38de3c6156b97 Aur=C3=A9lien Aptel         2017-05-24  456  		return rc;
-d38de3c6156b97 Aur=C3=A9lien Aptel         2017-05-24  457 =20
+^1da177e4c3f41 Linus Torvalds         2005-04-16  199  
+aed2a5f0a2bf7b Shyam Prasad N         2021-05-22  200  	/* If server is a channel, select the primary channel */
+aed2a5f0a2bf7b Shyam Prasad N         2021-05-22  201  	pserver = CIFS_SERVER_IS_CHAN(server) ? server->primary_server : server;
+aed2a5f0a2bf7b Shyam Prasad N         2021-05-22  202  
+^1da177e4c3f41 Linus Torvalds         2005-04-16  203  	spin_lock(&GlobalMid_Lock);
+93d5cb517db39e Paulo Alcantara        2018-11-14  204  	server->nr_targets = 1;
+93d5cb517db39e Paulo Alcantara        2018-11-14  205  #ifdef CONFIG_CIFS_DFS_UPCALL
+61cabc7b0a5cf0 Ronnie Sahlberg        2019-06-14  206  	spin_unlock(&GlobalMid_Lock);
+bacd704a95ad0b Paulo Alcantara (SUSE  2020-02-20  207) 	sb = cifs_get_tcp_super(server);
+8354d88efdab72 Paulo Alcantara (SUSE  2019-11-22  208) 	if (IS_ERR(sb)) {
+8354d88efdab72 Paulo Alcantara (SUSE  2019-11-22  209) 		rc = PTR_ERR(sb);
+93d5cb517db39e Paulo Alcantara        2018-11-14  210  		cifs_dbg(FYI, "%s: will not do DFS failover: rc = %d\n",
+93d5cb517db39e Paulo Alcantara        2018-11-14  211  			 __func__, rc);
+8354d88efdab72 Paulo Alcantara (SUSE  2019-11-22  212) 		sb = NULL;
+93d5cb517db39e Paulo Alcantara        2018-11-14  213  	} else {
+8354d88efdab72 Paulo Alcantara (SUSE  2019-11-22  214) 		cifs_sb = CIFS_SB(sb);
+baf3f08ef4083b Paulo Alcantara        2020-05-19  215  		rc = reconn_setup_dfs_targets(cifs_sb, &tgt_list);
+a52930353eaf44 Paulo Alcantara        2020-07-21  216  		if (rc) {
+a52930353eaf44 Paulo Alcantara        2020-07-21  217  			cifs_sb = NULL;
+a52930353eaf44 Paulo Alcantara        2020-07-21  218  			if (rc != -EOPNOTSUPP) {
+afe6f65353b644 Ronnie Sahlberg        2019-08-28  219  				cifs_server_dbg(VFS, "%s: no target servers for DFS failover\n",
+93d5cb517db39e Paulo Alcantara        2018-11-14  220  						__func__);
+a52930353eaf44 Paulo Alcantara        2020-07-21  221  			}
+93d5cb517db39e Paulo Alcantara        2018-11-14  222  		} else {
+93d5cb517db39e Paulo Alcantara        2018-11-14  223  			server->nr_targets = dfs_cache_get_nr_tgts(&tgt_list);
+93d5cb517db39e Paulo Alcantara        2018-11-14  224  		}
+93d5cb517db39e Paulo Alcantara        2018-11-14  225  	}
+93d5cb517db39e Paulo Alcantara        2018-11-14  226  	cifs_dbg(FYI, "%s: will retry %d target(s)\n", __func__,
+93d5cb517db39e Paulo Alcantara        2018-11-14  227  		 server->nr_targets);
+61cabc7b0a5cf0 Ronnie Sahlberg        2019-06-14  228  	spin_lock(&GlobalMid_Lock);
+93d5cb517db39e Paulo Alcantara        2018-11-14  229  #endif
+469ee614aaa367 Jeff Layton            2008-10-16  230  	if (server->tcpStatus == CifsExiting) {
+^1da177e4c3f41 Linus Torvalds         2005-04-16  231  		/* the demux thread will exit normally
+^1da177e4c3f41 Linus Torvalds         2005-04-16  232  		next time through the loop */
+^1da177e4c3f41 Linus Torvalds         2005-04-16  233  		spin_unlock(&GlobalMid_Lock);
+8354d88efdab72 Paulo Alcantara (SUSE  2019-11-22  234) #ifdef CONFIG_CIFS_DFS_UPCALL
+8354d88efdab72 Paulo Alcantara (SUSE  2019-11-22  235) 		dfs_cache_free_tgts(&tgt_list);
+bacd704a95ad0b Paulo Alcantara (SUSE  2020-02-20  236) 		cifs_put_tcp_super(sb);
+8354d88efdab72 Paulo Alcantara (SUSE  2019-11-22  237) #endif
+e2e87519bd72e2 Stefan Metzmacher      2020-02-24  238  		wake_up(&server->response_q);
+^1da177e4c3f41 Linus Torvalds         2005-04-16  239  		return rc;
+^1da177e4c3f41 Linus Torvalds         2005-04-16  240  	} else
+^1da177e4c3f41 Linus Torvalds         2005-04-16  241  		server->tcpStatus = CifsNeedReconnect;
+^1da177e4c3f41 Linus Torvalds         2005-04-16  242  	spin_unlock(&GlobalMid_Lock);
+^1da177e4c3f41 Linus Torvalds         2005-04-16  243  	server->maxBuf = 0;
+aa24d1e9692411 Pavel Shilovsky        2011-12-27  244  	server->max_read = 0;
+^1da177e4c3f41 Linus Torvalds         2005-04-16  245  
+6e4d3bbe92120f Steve French           2018-09-22  246  	cifs_dbg(FYI, "Mark tcp session as need reconnect\n");
+6d82c27ae5d048 Shyam Prasad N         2021-02-03  247  	trace_smb3_reconnect(server->CurrentMid, server->conn_id, server->hostname);
+^1da177e4c3f41 Linus Torvalds         2005-04-16  248  
+^1da177e4c3f41 Linus Torvalds         2005-04-16  249  	/* before reconnecting the tcp session, mark the smb session (uid)
+^1da177e4c3f41 Linus Torvalds         2005-04-16  250  		and the tid bad so they are not used until reconnected */
+f96637be081141 Joe Perches            2013-05-04  251  	cifs_dbg(FYI, "%s: marking sessions and tcons for reconnect\n",
+f96637be081141 Joe Perches            2013-05-04  252  		 __func__);
+c40805fedca942 Shyam Prasad N         2021-06-05  253  
+c40805fedca942 Shyam Prasad N         2021-06-05 @254  	mutex_lock(&ses->session_mutex);
+3f9bcca7820a67 Suresh Jayaraman       2010-10-18  255  	spin_lock(&cifs_tcp_ses_lock);
+aed2a5f0a2bf7b Shyam Prasad N         2021-05-22  256  	list_for_each(tmp, &pserver->smb_ses_list) {
+96daf2b09178d8 Steve French           2011-05-27  257  		ses = list_entry(tmp, struct cifs_ses, smb_ses_list);
+aed2a5f0a2bf7b Shyam Prasad N         2021-05-22  258  
+aed2a5f0a2bf7b Shyam Prasad N         2021-05-22  259  		cifs_chan_set_need_reconnect(ses, server);
+aed2a5f0a2bf7b Shyam Prasad N         2021-05-22  260  
+aed2a5f0a2bf7b Shyam Prasad N         2021-05-22  261  		/* If all channels need reconnect, then tcon needs reconnect */
+aed2a5f0a2bf7b Shyam Prasad N         2021-05-22  262  		if (!CIFS_ALL_CHANS_NEED_RECONNECT(ses))
+52834f2e3fd972 Steve French           2021-06-05  263  			continue;
+aed2a5f0a2bf7b Shyam Prasad N         2021-05-22  264  
+f1987b44f642e9 Jeff Layton            2008-11-15  265  		list_for_each(tmp2, &ses->tcon_list) {
+96daf2b09178d8 Steve French           2011-05-27  266  			tcon = list_entry(tmp2, struct cifs_tcon, tcon_list);
+3b7952109361c6 Steve French           2008-11-13  267  			tcon->need_reconnect = true;
+^1da177e4c3f41 Linus Torvalds         2005-04-16  268  		}
+b327a717e50698 Aurelien Aptel         2018-01-24  269  		if (ses->tcon_ipc)
+b327a717e50698 Aurelien Aptel         2018-01-24  270  			ses->tcon_ipc->need_reconnect = true;
+^1da177e4c3f41 Linus Torvalds         2005-04-16  271  	}
+3f9bcca7820a67 Suresh Jayaraman       2010-10-18  272  	spin_unlock(&cifs_tcp_ses_lock);
+c40805fedca942 Shyam Prasad N         2021-06-05  273  	mutex_unlock(&ses->session_mutex);
+2b84a36c5529da Jeff Layton            2011-01-11  274  
+^1da177e4c3f41 Linus Torvalds         2005-04-16  275  	/* do not want to be sending data on a socket we are freeing */
+f96637be081141 Joe Perches            2013-05-04  276  	cifs_dbg(FYI, "%s: tearing down socket\n", __func__);
+72ca545b2d83ac Jeff Layton            2008-12-01  277  	mutex_lock(&server->srv_mutex);
+1d2a4f57cebdab Long Li                2019-05-13  278  	if (server->ssocket) {
+1d2a4f57cebdab Long Li                2019-05-13  279  		cifs_dbg(FYI, "State: 0x%x Flags: 0x%lx\n",
+1d2a4f57cebdab Long Li                2019-05-13  280  			 server->ssocket->state, server->ssocket->flags);
+1d2a4f57cebdab Long Li                2019-05-13  281  		kernel_sock_shutdown(server->ssocket, SHUT_WR);
+1d2a4f57cebdab Long Li                2019-05-13  282  		cifs_dbg(FYI, "Post shutdown state: 0x%x Flags: 0x%lx\n",
+1d2a4f57cebdab Long Li                2019-05-13  283  			 server->ssocket->state, server->ssocket->flags);
+1d2a4f57cebdab Long Li                2019-05-13  284  		sock_release(server->ssocket);
+1d2a4f57cebdab Long Li                2019-05-13  285  		server->ssocket = NULL;
+1d2a4f57cebdab Long Li                2019-05-13  286  	}
+1d2a4f57cebdab Long Li                2019-05-13  287  	server->sequence_number = 0;
+1d2a4f57cebdab Long Li                2019-05-13  288  	server->session_estab = false;
+1d2a4f57cebdab Long Li                2019-05-13  289  	kfree(server->session_key.response);
+1d2a4f57cebdab Long Li                2019-05-13  290  	server->session_key.response = NULL;
+1d2a4f57cebdab Long Li                2019-05-13  291  	server->session_key.len = 0;
+1d2a4f57cebdab Long Li                2019-05-13  292  	server->lstrp = jiffies;
+^1da177e4c3f41 Linus Torvalds         2005-04-16  293  
+2b84a36c5529da Jeff Layton            2011-01-11  294  	/* mark submitted MIDs for retry and issue callback */
+3c1105df699188 Jeff Layton            2011-05-22  295  	INIT_LIST_HEAD(&retry_list);
+f96637be081141 Joe Perches            2013-05-04  296  	cifs_dbg(FYI, "%s: moving mids to private list\n", __func__);
+^1da177e4c3f41 Linus Torvalds         2005-04-16  297  	spin_lock(&GlobalMid_Lock);
+2b84a36c5529da Jeff Layton            2011-01-11  298  	list_for_each_safe(tmp, tmp2, &server->pending_mid_q) {
+2b84a36c5529da Jeff Layton            2011-01-11  299  		mid_entry = list_entry(tmp, struct mid_q_entry, qhead);
+abe57073d08c13 Pavel Shilovsky        2019-10-22  300  		kref_get(&mid_entry->refcount);
+7c9421e1a9ce8d Pavel Shilovsky        2012-03-23  301  		if (mid_entry->mid_state == MID_REQUEST_SUBMITTED)
+7c9421e1a9ce8d Pavel Shilovsky        2012-03-23  302  			mid_entry->mid_state = MID_RETRY_NEEDED;
+3c1105df699188 Jeff Layton            2011-05-22  303  		list_move(&mid_entry->qhead, &retry_list);
+abe57073d08c13 Pavel Shilovsky        2019-10-22  304  		mid_entry->mid_flags |= MID_DELETED;
+3c1105df699188 Jeff Layton            2011-05-22  305  	}
+3c1105df699188 Jeff Layton            2011-05-22  306  	spin_unlock(&GlobalMid_Lock);
+1d2a4f57cebdab Long Li                2019-05-13  307  	mutex_unlock(&server->srv_mutex);
+3c1105df699188 Jeff Layton            2011-05-22  308  
+f96637be081141 Joe Perches            2013-05-04  309  	cifs_dbg(FYI, "%s: issuing mid callbacks\n", __func__);
+3c1105df699188 Jeff Layton            2011-05-22  310  	list_for_each_safe(tmp, tmp2, &retry_list) {
+3c1105df699188 Jeff Layton            2011-05-22  311  		mid_entry = list_entry(tmp, struct mid_q_entry, qhead);
+2b84a36c5529da Jeff Layton            2011-01-11  312  		list_del_init(&mid_entry->qhead);
+2b84a36c5529da Jeff Layton            2011-01-11  313  		mid_entry->callback(mid_entry);
+abe57073d08c13 Pavel Shilovsky        2019-10-22  314  		cifs_mid_q_entry_release(mid_entry);
+^1da177e4c3f41 Linus Torvalds         2005-04-16  315  	}
+^1da177e4c3f41 Linus Torvalds         2005-04-16  316  
+1d2a4f57cebdab Long Li                2019-05-13  317  	if (cifs_rdma_enabled(server)) {
+1d2a4f57cebdab Long Li                2019-05-13  318  		mutex_lock(&server->srv_mutex);
+214bab448476db Long Li                2019-04-05  319  		smbd_destroy(server);
+214bab448476db Long Li                2019-04-05  320  		mutex_unlock(&server->srv_mutex);
+1d2a4f57cebdab Long Li                2019-05-13  321  	}
+214bab448476db Long Li                2019-04-05  322  
+7fdbaa1b8daa10 Jeff Layton            2011-06-10  323  	do {
+6c3d8909d85b2c Steve French           2006-07-31  324  		try_to_freeze();
+a9f1b85e5ba805 Pavel Shilovsky        2010-12-13  325  
+73e216a8a42c0e Jeff Layton            2013-09-05  326  		mutex_lock(&server->srv_mutex);
+121d947d4fe15b Samuel Cabrero         2020-11-30  327  
+121d947d4fe15b Samuel Cabrero         2020-11-30  328  
+b7fd0fa0eac701 Aurelien Aptel         2021-04-09  329  		if (!cifs_swn_set_server_dstaddr(server)) {
+aaa3aef34d3ab9 Paulo Alcantara        2020-05-19  330  #ifdef CONFIG_CIFS_DFS_UPCALL
+4e456b30f78c42 Shyam Prasad N         2021-03-31  331  		if (cifs_sb && cifs_sb->origin_fullpath)
+93d5cb517db39e Paulo Alcantara        2018-11-14  332  			/*
+93d5cb517db39e Paulo Alcantara        2018-11-14  333  			 * Set up next DFS target server (if any) for reconnect. If DFS
+93d5cb517db39e Paulo Alcantara        2018-11-14  334  			 * feature is disabled, then we will retry last server we
+93d5cb517db39e Paulo Alcantara        2018-11-14  335  			 * connected to before.
+93d5cb517db39e Paulo Alcantara        2018-11-14  336  			 */
+7d397a034d5c45 Paulo Alcantara        2020-07-21  337  			reconn_set_next_dfs_target(server, cifs_sb, &tgt_list, &tgt_it);
+4e456b30f78c42 Shyam Prasad N         2021-03-31  338  		else {
+4e456b30f78c42 Shyam Prasad N         2021-03-31  339  #endif
+4e456b30f78c42 Shyam Prasad N         2021-03-31  340  			/*
+4e456b30f78c42 Shyam Prasad N         2021-03-31  341  			 * Resolve the hostname again to make sure that IP address is up-to-date.
+4e456b30f78c42 Shyam Prasad N         2021-03-31  342  			 */
+4e456b30f78c42 Shyam Prasad N         2021-03-31  343  			rc = reconn_set_ipaddr_from_hostname(server);
+4e456b30f78c42 Shyam Prasad N         2021-03-31  344  			if (rc) {
+4e456b30f78c42 Shyam Prasad N         2021-03-31  345  				cifs_dbg(FYI, "%s: failed to resolve hostname: %d\n",
+4e456b30f78c42 Shyam Prasad N         2021-03-31  346  						__func__, rc);
+4e456b30f78c42 Shyam Prasad N         2021-03-31  347  			}
+4e456b30f78c42 Shyam Prasad N         2021-03-31  348  
 
-:::::: The code at line 429 was first introduced by commit
-:::::: aed2a5f0a2bf7bf6190712bf35ac53e571824a02 cifs: changes to support mu=
-ltichannel during channel reconnect
+:::::: The code at line 254 was first introduced by commit
+:::::: c40805fedca942c90cd81c095828077e6b1b289e cifs: lock session_mutex before trying to lock cifs_tcp_ses_lock
 
 :::::: TO: Shyam Prasad N <sprasad@microsoft.com>
 :::::: CC: Steve French <stfrench@microsoft.com>
@@ -515,20 +342,17 @@ ltichannel during channel reconnect
 0-DAY CI Kernel Test Service, Intel Corporation
 https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/202106060414.nUJaN0vr-lkp%40intel.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106060423.xck9tGGo-lkp%40intel.com.
 
 --M9NhX3UHpAaciwkO
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICD7cu2AAAy5jb25maWcAjDzLdtu4kvv+Cp30pu+iE7/iSWaOFxAJiohIgg2AenjDo7bl
+H4sICKPfu2AAAy5jb25maWcAjDzLdtu4kvv+Cp30pu+iE7/iSWaOFxAJiohIgg2AenjDo7bl
 tOf6kZHtvsnfTxUAkgAIKp1FEqEKr0K9UeCvv/w6I2+vz4+71/ub3cPDj9nX/dP+sHvd387u
 7h/2/zNL+aziakZTpt4DcnH/9Pb9w/dPl+3lxezj+9Pz9ye/H24uZsv94Wn/MEuen+7uv77B
 APfPT7/8+kvCq4wt2iRpV1RIxqtW0Y26enfzsHv6Ovt7f3gBvBmO8v5k9tvX+9f//vAB/n68
