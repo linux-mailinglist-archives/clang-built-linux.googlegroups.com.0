@@ -1,139 +1,186 @@
-Return-Path: <clang-built-linux+bncBC53FPW2UIOBBM7C52CQMGQET7NVBWA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSPFHXUVMKBBIPV52CQMGQECU2ZR7Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id B4F9439CA24
-	for <lists+clang-built-linux@lfdr.de>; Sat,  5 Jun 2021 19:15:32 +0200 (CEST)
-Received: by mail-lj1-x238.google.com with SMTP id b35-20020a2ebc230000b02900e586a5ceaesf5877801ljf.13
-        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Jun 2021 10:15:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622913332; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=yeOIBz6xr7ZtuAS8AaQpToY5puYRUpQyzLaVRMIFuRiP296SNBMLspsHPRO9uBaNUp
-         oOe/XvAiM3kgEPlLtWQhYPtK8uRYT2OF1A0Kw325SdTY9rdaPZscM3Pq832GzILWigP/
-         V5OogRU6mti5AUj/PKiqDTnA58kEu2ZugZ+OehOsfj/0QWmWLwbjNYCnt8yF6Zav87w1
-         WxzXG5uCQQuj8VW7e4NmansYffYMxjk61WW7PqLmJW88UL9HwrstNJj5vyhtcqqTv8XL
-         6iB0IYroCO3ephywWqf/T4tuHZTuMfl2zrys3xjcth7W8GjQxvcxEv4fPqI7ZTIr8Fe0
-         6ccQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:sender:dkim-signature:dkim-signature;
-        bh=DCQWHMMQfsNqY2569H6nXP9QzFQ2qfU7sn3B7nSCeSA=;
-        b=fVW8em+y51NW3GuA1MRpYwDToOJSUuWK9ytEckh75To25TyuVobBWrZ+Bm+426foBl
-         fFXWY64btv4rArwNYsMh5VtoqzxPEgJNIc6DyzIsaoslWwGPDyQAcgKaMBzQ2Gqz/Udm
-         gyxRprwGJVa62FyRpzWIgasxjXC4nNLz32WXXHGBN8FEXxfefVxBiSrymtxRUzRDC9pE
-         hMj/g6/A+qouy1o13MJMa8oz/jxgmezGxZZOAbadY279ZQAOADkAEFKgYWmSnebzD/RD
-         9FjLEUC1GUNmDlu+AgJy3MlHHeKBQ/KNnE3SVsTpHYTcGIitloP9x+jiCJNYtHdkV+9O
-         QLHw==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MqZfknYt;
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::234 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id 535F339CA51
+	for <lists+clang-built-linux@lfdr.de>; Sat,  5 Jun 2021 19:55:47 +0200 (CEST)
+Received: by mail-pg1-x538.google.com with SMTP id n22-20020a6372160000b0290220c022078csf4436674pgc.17
+        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Jun 2021 10:55:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=DCQWHMMQfsNqY2569H6nXP9QzFQ2qfU7sn3B7nSCeSA=;
-        b=bpLi3sx1bm3jMVabHP+UuwjQ8cEJudY3HSiTddilk2V5supWAs071wI1CPBADWvco0
-         3ZymFtDcYXJ/q/lLh2H/dLbRpdIgPdo2qwoNml/ZhipHhUzUuo/gvmmP/n+uVI2FSdoA
-         rp+lUsQH/uLKhEoAoo9jBxzlPLBvX7xvfQVqsyCjAob5uAqoo1/y8nXzBALzD4upAw/b
-         vEzyN4JUQQ50GvrbKNiKlpi5XNMDtxaN7xr/DDTca1r0e2IsjgyDRfW4R6r0RlRPqp7z
-         zGJB+Y0Tl8f3Yf7SFO3AKSlO2ug+3wjvgneNXFvGp5efivKMn+qo5l7isHUBsk8VGkn0
-         ywhg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=DCQWHMMQfsNqY2569H6nXP9QzFQ2qfU7sn3B7nSCeSA=;
-        b=o8fdNCV83PrExTZPOH91i4vcYsbTGGnwi4SgNbDrPm3WTNekTON3KyxZh0vg1d6WYR
-         pmCFNEytJWgxXNe4cFDgVeHDBD4eBQlcwxKkK/idi2JKyyQBt5BrUX2bidlN7D2UJ9x5
-         zXXruAPCOAdLqVKecr3kCotxf2cVLDRCAIS5E8NX5tBqgyb4Kw3Ko1MvoVGamTOVxXSA
-         NbWnP9BaM+oFNCGf9oHPoz83clX4T145QSkyeK7ajV34Yb6WgOpc6RTVimPaLHOomSJp
-         UMPlZmQEU5rJEGMSUL73jtDX7cHo/Kd/7xmQRhUJlaSIVnJL7Vul+dfUrQA826b/njGS
-         v74Q==
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :in-reply-to:content-language:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=vwae11HaemrLOz/kTHywQ8LNRliR+N9hKdmwiPt2eCY=;
+        b=pdyg3w/YGzWA3UobrI4FS/tb9CYRxnKkHqOy0/TbgmWyq1e4CHLC7KknyS8OpsLfDU
+         6V2SQ1lAPRYGIbYju9zcEfaNkkmzUt8hQCUDJJZdE9dWRiIdWhXdo8c65O5MHPqzyDvI
+         OVnrLzYBA5AvR2O9qjW9ray2XP01Tqvlx3AwOmmyz82QWS8ZAMlBUs/ovH3EtzXX/HMq
+         MAN0HMYDxhAcCy7JJMtFQ5SEaehlRlr9b5dPLasDXY4FdAJL7eo9Y1/1erh3yoEb+m8P
+         AEB79Y3Y7hUj0eIwIrZvnPyai9qWU14UGDo6bxzBT0JW2fvYgnnEtxCfxvESYKor03PG
+         s8/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=DCQWHMMQfsNqY2569H6nXP9QzFQ2qfU7sn3B7nSCeSA=;
-        b=ATuAGzFjduuP4FsDfbC/ABAh4YGTJlschIMJkf8lZdqT/xUnnptyVtrPI+gCpf8rsE
-         CBRQH6+eX5mAHWn7AVcsaqM3jT13a7nRJzlg/JbsWsi9DSbWLVn/P/xEFNLMNgSzTnoy
-         AOmZYaaiBVrjN3haMtjMdHTk0k/6svdIHfI6T2YAPNqMFEj/dO1c/iZqlvAe2yfMNbgD
-         8IFi7jtOP3xDudCOQMCzAbu9EbYtQSwoCaS+48BrXpea2H30VaO7AcqAt5h/N2b+1BfZ
-         pphG8hi3UCUspgnjrW5R1EyuBtCeI1x+FHc6F3D+wH8plui4Kxu5u+u8gPYh1GzTUzV8
-         76PA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533HepUTq+sVhRWms1QzBlhTc+lH43u3/GHfh1v3yMqFePq6z4KC
-	BgSKP4grC7ABy0ajGrkOAVM=
-X-Google-Smtp-Source: ABdhPJzDJV8kUg/GCedhZMsbkFSsQ9sTAHmSDfSrLsjnXihX66MJOEyIUFw0btDN4K14u4CJJ67fEQ==
-X-Received: by 2002:a2e:7f16:: with SMTP id a22mr8211103ljd.360.1622913332215;
-        Sat, 05 Jun 2021 10:15:32 -0700 (PDT)
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :user-agent:in-reply-to:content-language:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=vwae11HaemrLOz/kTHywQ8LNRliR+N9hKdmwiPt2eCY=;
+        b=Ah/eFvGx/xmw7LHgnqyxitjzbnRVVUdP0e6DI+1CPHQLY9uir+5SokcZzHEQNsS5RV
+         NEYC0VTxGyZlE2fNzpokmF/RFn9Etmxrlec6PfrA8jPBkHGan857Vgn4+99c+APFY3kL
+         SPz+HSszoEbM8EzYS5yJi6HUX+5x9r5qfjGBYeZGE2WvlVtm2QAmwEskpMxKUcuZCTvj
+         gvF7kwfotERUT9wVjFjgGInAS3pXPkjErRiejg7wVxn1uOCcPUN/bxfk8WHtHTM80kVX
+         wIS7xwwu/EITzWvoFfCQIOkfUp5MRdQpTAIEiYd/BIe314p6rNsCwCHardUCM/es8EnM
+         l1Dw==
+X-Gm-Message-State: AOAM532weC6bPx6hcksUHw6VNPTe2sgDwj5dYhQ3TsGJ2h6kI/YiKDyb
+	mV/Dr6fPSbnbMKFixfR31bQ=
+X-Google-Smtp-Source: ABdhPJzvNssIRGO6VyhOfCjMv84S4q7PYVKCwUTFwUz0XjzeWWiUSQOMuG6njeGkA6x7hNB6fGFIOg==
+X-Received: by 2002:a17:902:e891:b029:10e:8977:8d68 with SMTP id w17-20020a170902e891b029010e89778d68mr10103907plg.39.1622915745791;
+        Sat, 05 Jun 2021 10:55:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:1025:: with SMTP id w5ls2324262ljm.0.gmail; Sat, 05
- Jun 2021 10:15:31 -0700 (PDT)
-X-Received: by 2002:a05:651c:157:: with SMTP id c23mr7718761ljd.393.1622913331068;
-        Sat, 05 Jun 2021 10:15:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1622913331; cv=none;
-        d=google.com; s=arc-20160816;
-        b=fl2ZjK1/dPuT+9iy7KvkKQqVmUoe1xbpMqyFhMJN0dorirIV/+a+Mp0ljmQXTeKNQA
-         QYjZ2hxkvFNsl8gKpSw9TlqaHbKVpkvcwUTYHpADXdWWsiWqlOfoQhRd/h6o/SIqgMoV
-         Tap4smeit0nK3eSaLvb7DOcq/j4XU8Qr4ouLL4ORM45+fnXbO53LFhJcf2Fpk1ClCkCd
-         Bxu/t5UutgijxKjlEYv6fCR1ICVX8Q+3eth9TAzhpXz6XN926szAwZczaa1OCQWiZs5Z
-         dqmIMGwO0xN5FBPP+foxNQ2iEbqjynik0dT+dR0WBSNOB+hrE3Es9bWTTB9nqpQMVQHU
-         Oxjg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=3r8c/PTMZwMqkgH83feAIels2f8yAyQNtEiVpRoaizw=;
-        b=VNxckDT4g1u6Alv+KVCPEAplupGNAPXnPfibMCGTNyPdaQxBacczEWC5p4HpgYO7K5
-         WWpUovA7ZfdGJbl6+VSWXoz2zOSOG28tycVH/1dv04eLrdqa14YLzmHuYqWQOwx2v+Rv
-         ov6JpXNmcycpanDOZEda8vVbgsPZgKHZUgLyX3M+tUuTTjJtEnmOojpuqLNot57wrWPd
-         lSGze0pdJ17FUN15bOkg/5NNevVpvchwsh7Kq60oo9TD/++bFE9Nw+c+XvC2ikBoHJus
-         b+LNKJenZ8/BtX9XzZJ6SRjSXfDftxe7ZOUQ2erW6McTkm/Dy2Eaz/TNwzdH4lJPjrcm
-         bY1Q==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MqZfknYt;
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::234 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lj1-x234.google.com (mail-lj1-x234.google.com. [2a00:1450:4864:20::234])
-        by gmr-mx.google.com with ESMTPS id d11si444045lfs.2.2021.06.05.10.15.31
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 05 Jun 2021 10:15:31 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::234 as permitted sender) client-ip=2a00:1450:4864:20::234;
-Received: by mail-lj1-x234.google.com with SMTP id 131so15864001ljj.3
-        for <clang-built-linux@googlegroups.com>; Sat, 05 Jun 2021 10:15:31 -0700 (PDT)
-X-Received: by 2002:a2e:bf14:: with SMTP id c20mr8081405ljr.57.1622913330897;
-        Sat, 05 Jun 2021 10:15:30 -0700 (PDT)
-Received: from hyperiorarchmachine.localnet (dcx7x4ybp09ts--z5-7ry-3.rev.dnainternet.fi. [2001:14ba:14f7:3c00:2cf7:60ff:fe99:fedc])
-        by smtp.gmail.com with ESMTPSA id d40sm99630lfv.102.2021.06.05.10.15.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 05 Jun 2021 10:15:30 -0700 (PDT)
-From: Jarmo Tiitto <jarmo.tiitto@gmail.com>
-To: Jarmo Tiitto <jarmo.tiitto@gmail.com>, Kees Cook <keescook@chromium.org>
-Cc: Sami Tolvanen <samitolvanen@google.com>, Bill Wendling <wcw@google.com>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org, morbo@google.com
-Subject: Re: [PATCH v3 1/1] pgo: Fix allocate_node() v2
-Date: Sat, 05 Jun 2021 20:15:29 +0300
-Message-ID: <2268220.EOMg9uvDZY@hyperiorarchmachine>
-In-Reply-To: <202106041104.929FFB3@keescook>
-References: <20210604165819.7947-1-jarmo.tiitto@gmail.com> <202106041104.929FFB3@keescook>
+Received: by 2002:a63:cd47:: with SMTP id a7ls5375312pgj.1.gmail; Sat, 05 Jun
+ 2021 10:55:45 -0700 (PDT)
+X-Received: by 2002:a63:4c08:: with SMTP id z8mr10551545pga.130.1622915745282;
+        Sat, 05 Jun 2021 10:55:45 -0700 (PDT)
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com. [67.231.145.42])
+        by gmr-mx.google.com with ESMTPS id b13si667439pgs.3.2021.06.05.10.55.45
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 05 Jun 2021 10:55:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of prvs=57907a0fe2=yhs@fb.com designates 67.231.145.42 as permitted sender) client-ip=67.231.145.42;
+Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 155HtaNo029541;
+	Sat, 5 Jun 2021 10:55:38 -0700
+Received: from maileast.thefacebook.com ([163.114.130.16])
+	by mx0a-00082601.pphosted.com with ESMTP id 3906ym1g59-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Sat, 05 Jun 2021 10:55:38 -0700
+Received: from NAM11-BN8-obe.outbound.protection.outlook.com (100.104.31.183)
+ by o365-in.thefacebook.com (100.104.36.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2176.2; Sat, 5 Jun 2021 10:55:29 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=jeMILDwF8BTadNmrcDYsl/5IDibQhuu9ih/Sw462BnQs2iChvsTlTWY4mwi0LHHRoObovXqV2Fjx7paXZ3KNaWv9LsDR5ZCpLTEIJ23NmxShHYGTUWiXq9iTbKWAakH8aZ41ISQToKXGeegQuiA/fN37fXOOHSuGvh0t0tc0Qy6coTFLuwlCwIQn/i/g0DVNRPxKkrsYcgpWTqyDRDpZ017XnVcrdWIxHbgdfsAXn/i0cMSWmNkxWBUKpWzs+Qg+unzmpvxIxEGl2rNwzFF8e8TZTLkHt0XJoubr3yZ/Kd0Y3qbKkiFmJgLwZHc/qyWQylddf2uiQnUwyT9kt1MkDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/yESyUHqextMhjf13phnhUwzuU3SOWj8kyeX3a3SAhk=;
+ b=oRIHp3YjhFFvsArWEVQeHkM13TGjOoD7Mpw+ga6CjDoJI2rUVm00L8Kn8lLvg+IFETQrh4aLmvHigp5F3rn+Qh33+vMDSGeCqhErY+91vMuDy/Wk/j0UVmlq1wxincstPjjfUKeVisky50lopSql9vALTHuhIio7tH49fjbqHPKVFbhrvcJDTb/z/t2c4ypOoO8R1r3iMyasqpoQfD7ZXlI1Rx0QLQY4D0yZoQpFu53eG6l4jvB603tVU1BGy5INBSJz8EPh7K3rjvItA/0jS20adpG2qhAEmA5mL/JhU/hJ3lgRzssnuGQb4D0wQzxCoUq8lzMZwLkp5IFIIHWxzg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
+ header.d=fb.com; arc=none
+Received: from SN6PR1501MB2064.namprd15.prod.outlook.com (2603:10b6:805:d::27)
+ by SN6PR15MB2336.namprd15.prod.outlook.com (2603:10b6:805:26::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4195.22; Sat, 5 Jun
+ 2021 17:55:28 +0000
+Received: from SN6PR1501MB2064.namprd15.prod.outlook.com
+ ([fe80::d886:b658:e2eb:a906]) by SN6PR1501MB2064.namprd15.prod.outlook.com
+ ([fe80::d886:b658:e2eb:a906%5]) with mapi id 15.20.4195.026; Sat, 5 Jun 2021
+ 17:55:28 +0000
+Subject: Re: [PATCH v4] bpf: core: fix shift-out-of-bounds in ___bpf_prog_run
+To: Kurt Manucredo <fuzzybritches0@gmail.com>,
+        <syzbot+bed360704c521841c85d@syzkaller.appspotmail.com>
+CC: <andrii@kernel.org>, <ast@kernel.org>, <bpf@vger.kernel.org>,
+        <daniel@iogearbox.net>, <davem@davemloft.net>, <hawk@kernel.org>,
+        <john.fastabend@gmail.com>, <kafai@fb.com>, <kpsingh@kernel.org>,
+        <kuba@kernel.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <songliubraving@fb.com>,
+        <syzkaller-bugs@googlegroups.com>, <nathan@kernel.org>,
+        <ndesaulniers@google.com>, <clang-built-linux@googlegroups.com>,
+        <linux-kernel-mentees@lists.linuxfoundation.org>,
+        <skhan@linuxfoundation.org>, <gregkh@linuxfoundation.org>
+References: <000000000000c2987605be907e41@google.com>
+ <20210602212726.7-1-fuzzybritches0@gmail.com> <YLhd8BL3HGItbXmx@kroah.com>
+ <87609-531187-curtm@phaethon>
+From: "'Yonghong Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Message-ID: <6a392b66-6f26-4532-d25f-6b09770ce366@fb.com>
+Date: Sat, 5 Jun 2021 10:55:25 -0700
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.11.0
+In-Reply-To: <87609-531187-curtm@phaethon>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Originating-IP: [2620:10d:c090:400::5:80b3]
+X-ClientProxiedBy: SJ0PR13CA0077.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c4::22) To SN6PR1501MB2064.namprd15.prod.outlook.com
+ (2603:10b6:805:d::27)
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from [IPv6:2620:10d:c085:21c1::1a79] (2620:10d:c090:400::5:80b3) by SJ0PR13CA0077.namprd13.prod.outlook.com (2603:10b6:a03:2c4::22) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4219.10 via Frontend Transport; Sat, 5 Jun 2021 17:55:27 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 3c308d3f-51d7-4cc4-1a39-08d9284b1aa3
+X-MS-TrafficTypeDiagnostic: SN6PR15MB2336:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <SN6PR15MB233634E970F8DEE1A933681CD33A9@SN6PR15MB2336.namprd15.prod.outlook.com>
+X-FB-Source: Internal
+X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: uLHoAxorF9+anzhzuSowV2GWbtOGKUvMSrU9dr0QQVEzG2PvaHXxI/jov5AyUo+AJMa86etCj/9dbcbFQh8lewOK5blfp4RsNpRf2pMrEOzLk2PHqMGrXl5iEcEpVFFoWAgv3PY9QNGadzyEULYWqd5c6ZNq3Gd4nMVogDJ6XFPcAEAbrJh1hIwlvb9K1/Pei9PE2iugHBLSNc9kH0QYsmqtvlbtk8Hgl0OAq15TI2QUdfAT6qfaqRZYSaCFzuHbJibQMOlZqkAFdphnhmpc6X5ZOxgqyF12sUuFqLKDDeEPlR0+kYToxiaoVsXtyFZ1CJ47LbqN5XtaLp76zM31f6HOahCJXkM9h2dLjbajMnXbs6GSVQOPNSFRan/agr/YHzBNjynFMc8et0OYMRFdJGShLLwYT/Gxu3NL7v1L5iKgOJrt8aZrqCWc0ngWDT9uJ1cyhoufdoR4raMGO053UvWPWuKS9+KWAkle+l9SJBLhJZsR5LyB3HFbzSe79pslprDUH5BYKpzeJ191U4BrJEpaNnMByZu1t1FYtRU/Pg6Qbj2SVM2XUDfvk44e267QDC3zsuDqIzvWwHdYgg1G717hdwFaqFTbUaB0xHeJ+n7nB/Iv4Jw/D4LTffOKIF3RRo7mdRwCd6MqrgJjkp2S7nPYXWCPlnwMEJP2liGDG9DUoTs0KfGy8dp9Uz8pUGriHIxpWQmw+YejJTlXZJ75aAjkc9HKLf5Spo21yhHhITUKqWzcX5vegMEWdSfG4dULhwz0zLvwLbdUZTmBDxF1zDpawbfsSmA2KrJMfHClQhNsAn61Dbw1Jxb2+RQJ/5WBumQu5Kzw02VjTQzdXEIl5iSFxzlpFyfb5803my3NvXs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR1501MB2064.namprd15.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(396003)(136003)(366004)(39860400002)(376002)(346002)(966005)(478600001)(38100700002)(36756003)(316002)(8676002)(7416002)(186003)(4326008)(86362001)(53546011)(8936002)(2906002)(2616005)(31696002)(83380400001)(66556008)(66946007)(66476007)(52116002)(5660300002)(16526019)(6486002)(31686004)(101420200003)(99710200001)(45980500001)(43740500002);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData: =?utf-8?B?c0F3akZRaSszZUhyUkU1MjVzaEVRMXMxNFJvakZZODI3OXhRMlBjQndiRjFt?=
+ =?utf-8?B?WmRPWFhJbHRJSzBpTmQrTk9PeTkzZU05NVZCdEg5MnFZN1NjbkdCeXFDZlNX?=
+ =?utf-8?B?d2dBRFlLeE5NcWVtN3dpU0hhN0M2cDhBd0w5ZG9DTEkwOW5mNzhJbTZ1QWxV?=
+ =?utf-8?B?OGJHTkNLT1k2ekFGNzkxay80Vkk4ZDhqNXlmZXJ3VWl6dlhQMGU3Z0hoRUhB?=
+ =?utf-8?B?emhKUTRjRThVay9TV0Z4cUQ3MUZnUStvZkljVStzbFBXSWVEc0VtRTdnaTNQ?=
+ =?utf-8?B?QnZxdzdRQ3JQY3Q1UTRDMk5pSUh4N0FoS3NodmdHeXlURDlHRVkrUGRISGZw?=
+ =?utf-8?B?Y1pXN0FwTEtFNmcxR2c1d2Y2UnZneUFENUovNi9TMTJCZWJUWUJnQ1F5cDQx?=
+ =?utf-8?B?Q3hvZk85bU5nNTRMYkpDN1RHa3FBKzNJYlZtc09VUmZnOXpSUHVqVjJDR09X?=
+ =?utf-8?B?WkFTYWlPdHJZODhyTVRuaGljbm9JWS9EbVpEbFN3c0R4RGp4L2EwVGJENm8r?=
+ =?utf-8?B?SzQ1WXgrRTlJRkZvY3RuMW5IOXo0U01BL3RCYVh0YVluUFV2bTl5d3Vza1Vu?=
+ =?utf-8?B?WVM4RTZmaVB5UXpkSTlPVzFhKy9aZ1ZMdXFLQjB0ZUYwT2poemlMMThIMHUw?=
+ =?utf-8?B?T0ZlQWlVQ0t1UzRxRXNVN0dKMUdmS2hrUkxPYWVMQk01OWxQNE1MUXFMS0ZM?=
+ =?utf-8?B?aU1WSnNhaTBYMnBqT09Nc1lTY2ZsY28vU2hadUVWZmdEOVdPNkhYT3NSNkQ4?=
+ =?utf-8?B?d2lMSXliNmtGVHNUb3Z0Z2NObGlmNXh5V1A0ZW9lK1N0NjlucDU1aVVHR3oy?=
+ =?utf-8?B?b3dtQnJMV1Zzc0h6aHByTCtqM3FmQWN5MTMvTTM5bDV6YUVycjB0aC9vdDdN?=
+ =?utf-8?B?Vzh1ME1Uc2s0cE9NaVJyMTB4VGV6ckVwaVpjbW9tdEs5ZTFBTEtqWGszT1dw?=
+ =?utf-8?B?Rmp6ZHhnUWI3VE5jL0YrU3ROZmo3cStrU0l2a25QMEFlUTllYzhhcDRGcU5n?=
+ =?utf-8?B?dDdmMEdVZGZQWDJpcE1OeFZmSk5QYlZlQXlEOWI5V0lNMk95QXVBQ2xZZXN6?=
+ =?utf-8?B?eUVVUkdTcmJscVRHZTVQYU8yY2NTaTV0WllDQndkR1U1aWNIdXc2bDdUbDk2?=
+ =?utf-8?B?ODBCK2NJVGo2RUpXbUhxUEZZS2l3RVRDYmZsaElvN1JRcHF6RFBNN0ViYklj?=
+ =?utf-8?B?V3duTDgwVVZaTEdBeHVzMUptSTkrT2laVHhLZEFrL3VodVA5ZXBEdU94WTlp?=
+ =?utf-8?B?MFVDU21idmF4VlBqQktUeVFiTjlIL2pBdXpVbGhHRWFRMHBSS0E2TnRoYTc0?=
+ =?utf-8?B?QWs0dXBQK2ZKQ25xOVZNNHN3Y3VHOWFLcmQxamhGR1NHWVpTQlNVVWxqTjY0?=
+ =?utf-8?B?eWVCaWoyak9XeHdrbFpjdm9qV3Q0VWhJMlNTbTl0ZmNrQWtUVjVDbnppNXEx?=
+ =?utf-8?B?cFVjTnZCalZESTdRZ25LVVcvQXFKNkxGNk5qQmV5aC9HTGkvYXN1YU40bEQ1?=
+ =?utf-8?B?cm1hZkNNTWF6VndOOU1vUDFYWGNIeW9XVE5UZzVzY0gyQzJmYjZpUURXSFZy?=
+ =?utf-8?B?L0tZY0Fka0M5cXlseWl3eUdoc1VKRTZOZHBSalN4SU1IdTdCR3IzdmIvSDdI?=
+ =?utf-8?B?VnNyckxhQ1lka0licm80QmxZNkRPSnU3SHFPeExRWmtQNHBRTWloQ29MNWRO?=
+ =?utf-8?B?TEtLY1VhRkRUZitjcStHV1o4MzAvUzFyeHhVbzdYb0pSVjRxb0hxYWYwOGMy?=
+ =?utf-8?B?WGJRbjN5bk5RWkRXeVQ4VjFic1JyU3pNZVVwQWMwdi9lZi9qVHJOb2Ezd3Fh?=
+ =?utf-8?Q?IFOAii9v5A35ODIiO+C988HKvhD4daVakCzEU=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3c308d3f-51d7-4cc4-1a39-08d9284b1aa3
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR1501MB2064.namprd15.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2021 17:55:28.5839
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: y8FjyzWEki3XuoRbLmQqTGZD3AT895mzmST/jHKvMPddvsx0Aq/VJL6H1clHNxYy
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN6PR15MB2336
+X-OriginatorOrg: fb.com
+X-Proofpoint-ORIG-GUID: ZT7ZsTvVozpnJ51ooHPU1tr5PAuuPRNX
+X-Proofpoint-GUID: ZT7ZsTvVozpnJ51ooHPU1tr5PAuuPRNX
+X-Proofpoint-UnRewURL: 1 URL was un-rewritten
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: Jarmo.Tiitto@gmail.com
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.761
+ definitions=2021-06-05_11:2021-06-04,2021-06-05 signatures=0
+X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 adultscore=0 spamscore=0
+ lowpriorityscore=0 bulkscore=0 clxscore=1011 impostorscore=0
+ mlxlogscore=999 mlxscore=0 malwarescore=0 phishscore=0 priorityscore=1501
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2104190000 definitions=main-2106050131
+X-FB-Internal: deliver
+X-Original-Sender: yhs@fb.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=MqZfknYt;       spf=pass
- (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::234
- as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@fb.com header.s=facebook header.b=UjhsI8fD;       arc=fail (body
+ hash mismatch);       spf=pass (google.com: domain of prvs=57907a0fe2=yhs@fb.com
+ designates 67.231.145.42 as permitted sender) smtp.mailfrom="prvs=57907a0fe2=yhs@fb.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
+X-Original-From: Yonghong Song <yhs@fb.com>
+Reply-To: Yonghong Song <yhs@fb.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,48 +193,128 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> Kees Cook wrote perjantaina 4. kes=C3=A4kuuta 2021 21.06.37 EEST:
-> >=20
-> > I grep -R'd where the memory_contains() can be found and it is only
-> > found in #include <asm-generic/sections.h>
->=20
-> That's true, but the way to use "asm-generic" is to include the
-> top-level "asm" file, so that architectures can override things as
-> needed.
->=20
-Thanks, I didn't know that.
-
-> > I cross my fingers and await if this is my first accepted patch. :-)
->=20
-> I tweaked it a bit and applied it (see the separate email).
->=20
-> Thank you!
->=20
-> -Kees
->=20
-> --=20
-> Kees Cook
->=20
-
-Whoa!=20
-Thanks, I'm glad it worked out. :-)
-
-Btw. I have almost forgotten that I once wrote code=20
-(that I didn't send) for the GCC gcov subsystem that also enabled=20
--fprofile-generate/use for the kernel.
-However the Clang PGO looks much more approachable and
-easier to hack on since the profile data format is simpler.
-
-So starting to work on this felt just natural to me. :-)
-
--Jarmo
 
 
+On 6/5/21 8:01 AM, Kurt Manucredo wrote:
+> Syzbot detects a shift-out-of-bounds in ___bpf_prog_run()
+> kernel/bpf/core.c:1414:2.
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/2268220.EOMg9uvDZY%40hyperiorarchmachine.
+This is not enough. We need more information on why this happens
+so we can judge whether the patch indeed fixed the issue.
+
+> 
+> I propose: In adjust_scalar_min_max_vals() move boundary check up to avoid
+> missing them and return with error when detected.
+> 
+> Reported-and-tested-by: syzbot+bed360704c521841c85d@syzkaller.appspotmail.com
+> Signed-off-by: Kurt Manucredo <fuzzybritches0@gmail.com>
+> ---
+> 
+> https://syzkaller.appspot.com/bug?id=edb51be4c9a320186328893287bb30d5eed09231
+> 
+> Changelog:
+> ----------
+> v4 - Fix shift-out-of-bounds in adjust_scalar_min_max_vals.
+>       Fix commit message.
+> v3 - Make it clearer what the fix is for.
+> v2 - Fix shift-out-of-bounds in ___bpf_prog_run() by adding boundary
+>       check in check_alu_op() in verifier.c.
+> v1 - Fix shift-out-of-bounds in ___bpf_prog_run() by adding boundary
+>       check in ___bpf_prog_run().
+> 
+> thanks
+> 
+> kind regards
+> 
+> Kurt
+> 
+>   kernel/bpf/verifier.c | 30 +++++++++---------------------
+>   1 file changed, 9 insertions(+), 21 deletions(-)
+> 
+> diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+> index 94ba5163d4c5..ed0eecf20de5 100644
+> --- a/kernel/bpf/verifier.c
+> +++ b/kernel/bpf/verifier.c
+> @@ -7510,6 +7510,15 @@ static int adjust_scalar_min_max_vals(struct bpf_verifier_env *env,
+>   	u32_min_val = src_reg.u32_min_value;
+>   	u32_max_val = src_reg.u32_max_value;
+>   
+> +	if ((opcode == BPF_LSH || opcode == BPF_RSH || opcode == BPF_ARSH) &&
+> +			umax_val >= insn_bitness) {
+> +		/* Shifts greater than 31 or 63 are undefined.
+> +		 * This includes shifts by a negative number.
+> +		 */
+> +		verbose(env, "invalid shift %lld\n", umax_val);
+> +		return -EINVAL;
+> +	}
+
+I think your fix is good. I would like to move after
+the following code though:
+
+         if (!src_known &&
+             opcode != BPF_ADD && opcode != BPF_SUB && opcode != BPF_AND) {
+                 __mark_reg_unknown(env, dst_reg);
+                 return 0;
+         }
+
+> +
+>   	if (alu32) {
+>   		src_known = tnum_subreg_is_const(src_reg.var_off);
+>   		if ((src_known &&
+> @@ -7592,39 +7601,18 @@ static int adjust_scalar_min_max_vals(struct bpf_verifier_env *env,
+>   		scalar_min_max_xor(dst_reg, &src_reg);
+>   		break;
+>   	case BPF_LSH:
+> -		if (umax_val >= insn_bitness) {
+> -			/* Shifts greater than 31 or 63 are undefined.
+> -			 * This includes shifts by a negative number.
+> -			 */
+> -			mark_reg_unknown(env, regs, insn->dst_reg);
+> -			break;
+> -		}
+
+I think this is what happens. For the above case, we simply
+marks the dst reg as unknown and didn't fail verification.
+So later on at runtime, the shift optimization will have wrong
+shift value (> 31/64). Please correct me if this is not right
+analysis. As I mentioned in the early please write detailed
+analysis in commit log.
+
+Please also add a test at tools/testing/selftests/bpf/verifier/.
+
+
+>   		if (alu32)
+>   			scalar32_min_max_lsh(dst_reg, &src_reg);
+>   		else
+>   			scalar_min_max_lsh(dst_reg, &src_reg);
+>   		break;
+>   	case BPF_RSH:
+> -		if (umax_val >= insn_bitness) {
+> -			/* Shifts greater than 31 or 63 are undefined.
+> -			 * This includes shifts by a negative number.
+> -			 */
+> -			mark_reg_unknown(env, regs, insn->dst_reg);
+> -			break;
+> -		}
+>   		if (alu32)
+>   			scalar32_min_max_rsh(dst_reg, &src_reg);
+>   		else
+>   			scalar_min_max_rsh(dst_reg, &src_reg);
+>   		break;
+>   	case BPF_ARSH:
+> -		if (umax_val >= insn_bitness) {
+> -			/* Shifts greater than 31 or 63 are undefined.
+> -			 * This includes shifts by a negative number.
+> -			 */
+> -			mark_reg_unknown(env, regs, insn->dst_reg);
+> -			break;
+> -		}
+>   		if (alu32)
+>   			scalar32_min_max_arsh(dst_reg, &src_reg);
+>   		else
+> 
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/6a392b66-6f26-4532-d25f-6b09770ce366%40fb.com.
