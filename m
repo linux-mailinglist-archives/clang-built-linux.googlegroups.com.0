@@ -1,192 +1,129 @@
-Return-Path: <clang-built-linux+bncBAABBSNO6GCQMGQE4ZVDK3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC447XVYUEMRBO7Q6GCQMGQEKH6Q7HI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id D9FAF39CD5A
-	for <lists+clang-built-linux@lfdr.de>; Sun,  6 Jun 2021 07:04:10 +0200 (CEST)
-Received: by mail-ot1-x33e.google.com with SMTP id i25-20020a9d4a990000b0290304f00e3e3asf8709159otf.15
-        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Jun 2021 22:04:10 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1622955849; cv=pass;
+Received: from mail-wm1-x33b.google.com (mail-wm1-x33b.google.com [IPv6:2a00:1450:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id CCFEC39CDDF
+	for <lists+clang-built-linux@lfdr.de>; Sun,  6 Jun 2021 09:24:43 +0200 (CEST)
+Received: by mail-wm1-x33b.google.com with SMTP id v2-20020a7bcb420000b0290146b609814dsf3078006wmj.0
+        for <lists+clang-built-linux@lfdr.de>; Sun, 06 Jun 2021 00:24:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1622964283; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gRxH7RcXv91oBPkdTRbKTlBM5IPQtcsKPAXE534M9/YTgMKJrVYMNUmENFTyborFCl
-         kWZSI5+2Tk7klqNiwOZVebNc3UlbYDlNTNsLQraM5VXEz/nfSDUkrJOS3t6K3RRzXS8c
-         IpMIe2EoZs2XfaDwPCvYmi6Bh3BLOHHrKuJXFUDWonFG5VHXoQSgt/c/NzY8wVnwPzzu
-         fABARiEhJwdjyfqNj7welryWt3yg/ctLxKvjFZvmn713QlSeMGEN4D/zhbzOYbhpz7jN
-         YSt3yZO/8+WCi58vMRPmcu9+WAklZrY2oVgo3TbFkAV9BCow8gW+4IComTr3JdsCkcVq
-         WwEg==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=oX7FWvRyxvIRlrqaBFH12q9xY3B8yAJuMYBqysEynW+WOvwx5Pv+cWQieKMWRWdWK2
+         iDdvCmoj6yoKoZ69gp0E81TdfX5ajer+DmvpelTItL2GGo1U/m2Tz9qWupGrd/jUIoGB
+         bi8DBELbsnYTrer/ENVCQo5UbEEBp6j0IM8qBa05PMrvuaG03ntbymlcWbzE61rLtqky
+         gzPHgVAdOPQ+VDehQvDOxhPFsuJPSgwXdKNZZxVe9fekt+/2wtMKQqBBLSHaYs/Fu/wJ
+         IYZZL1m9KEWewiQC4vj7C+KUgyw8z1B+/FnvrLDicdhs3VfC3Cuo/3RFLPjmdOrEM/ps
+         Z+zw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:in-reply-to
-         :content-disposition:references:message-id:subject:cc:to:from:date
-         :sender:dkim-signature;
-        bh=sgAigxw4Sh3GXbJHxt4MYa/pw2ZH3GPrA8OkXpYEx1M=;
-        b=D7tjcrpQueoVsvQ+UICTsR/M/qTIJoX/sey9OV8TxOviH5pQfsPrfjJJCoLet0EsSd
-         E+yHpkReuh3YbGs4Fn2hhCEt84EpQDzfTs/p3diK2HblvOkAopsU2MXEocwza6lUtKaj
-         sUC80QKZfrXOYp+UQccAFFijup3kborY5DM4ZuoILnW14SVAK/pE8KhBlHzt2n6K0Zhd
-         r1UFAWEZaU8ZFbJBckMJT/DlEAZ2pYe2JZHyPbk0tJAgAn9e0zv/0iHioyX6t3kmqQym
-         V7BVxCpYJYVErvqlDsa+O+tq9qM94R6Swvzw4rowyt83XieqZ4y7YHQwBNCDibt4frPr
-         5iFA==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@NETORG5796793.onmicrosoft.com header.s=selector1-NETORG5796793-onmicrosoft-com header.b=nQr+iUGn;
-       arc=pass (i=1 spf=pass spfdomain=labundy.com dkim=pass dkdomain=labundy.com dmarc=pass fromdomain=labundy.com);
-       spf=pass (google.com: domain of jeff@labundy.com designates 40.107.93.63 as permitted sender) smtp.mailfrom=jeff@labundy.com
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:sender:dkim-signature;
+        bh=lcVrHaP159LZfCO//kaNuMUrPtDBLm3Kgg3nG/vyqh4=;
+        b=njX2BKWhfU1jVOYSzUUkHKOmHZdo2QW4JjlwP6cKe0hxsiz/OW2yyRwwPHZ1rsG807
+         NUrp5/0mkt6vtH7Ypwrwp1O0taX78XrtldQbJfNqhzNHnsi5gOEgAEtiPQYOgnxV2+CM
+         dUvY5315PA+2SVWD6TIZ+oxklGQ92pPJMhmyx8mXl7E8h207vaL4quJDV4JeglB7Bwl1
+         W/cnQs5+d7Y7r4rrmBT1IDa9ircU6KJ3usqn3Uywd1MUmT0WP4mDNl2IH9McdyMGsDa4
+         +3QHd4/2cFqp9Z0op2srmq/ze2B6lgReJn2JuUNZauz3Qq5oQBky3ncL1RfxKyCOrLZy
+         MVmw==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       spf=neutral (google.com: 217.70.183.198 is neither permitted nor denied by best guess record for domain of alex@ghiti.fr) smtp.mailfrom=alex@ghiti.fr
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references
-         :content-disposition:in-reply-to:user-agent:mime-version
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=sgAigxw4Sh3GXbJHxt4MYa/pw2ZH3GPrA8OkXpYEx1M=;
-        b=o0IAPgky5OH4Ul9+cxooW8noX8n3KEFWY7UTNZqdrcFf32+s5P1dUJUA4IfbuLhieb
-         W+2oRPFfzrjqCUUIafeRjFMrRGRQG17s5bHuZYVB2IFqLeIVeomoJrd7P3/eB8J2vqoN
-         iFVYEkHSSeKDAjWqIGZYZ86qufOh42QgS8KcT7uEU2zXEhAIhLAKKrJmFnzTOCKC/37D
-         Bd1qpVdOzm9bN+Opak+Lqx350Te6n+d7gf35s+arv3y11byHh53LJinOiCai8jGSks9o
-         y1BP2kZK8qMSFR4P+bZBE3QFGrIiIYkV+Pck4wxzoGkMvFEWpKTTGLKC7dYTgP+mDAPi
-         hfLg==
+        bh=lcVrHaP159LZfCO//kaNuMUrPtDBLm3Kgg3nG/vyqh4=;
+        b=rN/5phptq9e64THa6tmOYX+3uTu0kkImTBHA4w2lmEbLOzHc0e2CjVyQyvlZWeEOLy
+         plFVke9pRhCrCszm5eo/prChI3wtQ7vi5l8GJ/TZ9oAwjUg3TEWokcZNz3Le6ANvyNq7
+         /ZC5uLNWTcR3doLqpmEj2Z57qgTfhf0h7NLGPVKllxUxzRRu4Vl3x3bl+KHrn07c6Xo+
+         CrZXrc3UCMw+V5Eh1uxw5ouZ5QoqlCSdTGM4HbyhhFvq3lHAcs0BhsPfOVSPeR6sGrvC
+         tQTQDkLeoFtndc4L2NV0AH0TkBw5s7Y4I1GeDuXqokYpn7Jmaj4pMmDYtoP+b9kTBu49
+         1NqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:content-disposition:in-reply-to:user-agent:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=sgAigxw4Sh3GXbJHxt4MYa/pw2ZH3GPrA8OkXpYEx1M=;
-        b=UphvL9MDxRGChQKiXv8EshxaW6bdleGskE/2UcY2s0Eie92c4Y8XhUAQ4T7k5pLHDk
-         e8jYOr573qMtv4TuTzKfyqbmhXGdMvDnxunl93WM7M32qjSfaqb9GvsfuH8XQLVhqrzn
-         6kthWVSPAG91pdcFal/IVKwewISMqZ6Xn7Sd7XWWCARbRyFxCpVjHhpEHsah+jBE5YaH
-         3fLSxcVYlP449+g3Gm0DHurUSS+cpYwMnrlGNPjei/hbvmhuPoOTPVcXcHjLjZTiFEUC
-         pzxFmM+aWz6bweSMTZk08jHVoEXyjGBf7p8A01D7sX8L8zza9E1+dOq1qcna6p2GKlbe
-         EJIg==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=lcVrHaP159LZfCO//kaNuMUrPtDBLm3Kgg3nG/vyqh4=;
+        b=pXqMPNAwh36ZkbVXieG37bWeDl8cnnXHMrpClik20PYQjhSqOil4Evv18kPEhqV53k
+         SCWCf6oe+YBwuhNPYNTQsXIawidwJx9uNCOsQUt5MxnS6FO+3j4MTM2kVCSOFHTh9+5J
+         3MLzrUSBuJlWtOt4rF3U0BYqMPOzWvj1XOhbqxNP9+YqLHG/fV7B05eiKnB6/xpD/0Ze
+         MJt1BOZd+QCtCZZiKBs+uDOHUoaf/DffMMTjx7Gnf0MD7q5qHJAY1hE/RW3ybNV9YPFj
+         o8Q2H199vtDvsKwy2vYjG6sF1lG9D6TKZaBx/afwNdPBGfvgEePQHsRlssXA8MoTw9/R
+         379A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532usum9GS1Dv5KW7wO90oTlAYo9E6o9MuG08HxlAimRkqhgJUi9
-	io93sjvbz1Xe9OSvVpD7x1A=
-X-Google-Smtp-Source: ABdhPJyIIrfFkQ/ktWfw5MY2W/HbX+Y6lM6xa40JvqM7Tx552Y2ZVKCQV5N3UuRyjRN1Yh0S7c9ZCw==
-X-Received: by 2002:a05:6830:457:: with SMTP id d23mr6214549otc.64.1622955849821;
-        Sat, 05 Jun 2021 22:04:09 -0700 (PDT)
+X-Gm-Message-State: AOAM533Ks0pdEk2ZtkgKjDzpWBCMXa1LzYizaibSWtPeN4SlYfw+iBFQ
+	d+ce8zWYMehcXUb8PxwiJOc=
+X-Google-Smtp-Source: ABdhPJw49PzSBuqaEn06WmQVok+HeTvrQ71kcWcDbMggei3VU2cjNPnDXGjp6ys+v4SdntDw6KxOQg==
+X-Received: by 2002:a7b:c417:: with SMTP id k23mr11008632wmi.71.1622964283486;
+        Sun, 06 Jun 2021 00:24:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:fdd2:: with SMTP id b201ls2758185oii.8.gmail; Sat, 05
- Jun 2021 22:04:09 -0700 (PDT)
-X-Received: by 2002:a05:6808:244:: with SMTP id m4mr15827035oie.37.1622955849468;
-        Sat, 05 Jun 2021 22:04:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1622955849; cv=pass;
+Received: by 2002:a05:600c:1d0e:: with SMTP id l14ls658727wms.1.canary-gmail;
+ Sun, 06 Jun 2021 00:24:42 -0700 (PDT)
+X-Received: by 2002:a1c:2985:: with SMTP id p127mr11349275wmp.165.1622964282571;
+        Sun, 06 Jun 2021 00:24:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1622964282; cv=none;
         d=google.com; s=arc-20160816;
-        b=UJK4Kfex5cJOx3e+Pus3l1CuTN+V1qdhmQXknngnJmX31mY6iF5nQzCJwLkmLq+20h
-         J54MtTbv0Xk+fCRMA9xGq8WPmG9PfCAvD6Ha0vK1U24lToAo+IvTAzz9nqVC4CU/LGiV
-         UOVVAc16x58Jh4m+goQeYRrtRNhc2zhamCn2eFnQw9LnGMSu+jt9csZ6lG/blzHzhkqM
-         rOpBoZEB1vvke/9let0SHCKqsLAvCcZb8NvFSthBnt0jQBs5cTzvbr5mavQGDgdAtTyk
-         2vAC7WePVmvRUP/B2DxumrdZRPELVNuU21HEFuzRvx+quBLZm98uLMK4jaD2SB9QAHy1
-         WTtg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:in-reply-to:content-disposition:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=nwGis/H5hZxCFOr9FcY4q1kL4GN9jqzOVq+D4NhFgz8=;
-        b=ILUeCz7x9S1Yb+aOd84FLIpONsn+mAZQQfuYrkHalKaeg06xt319CdTK0D27lXZUFr
-         htBFxAFDvQoK9ytcfoLxRAmuVZ75bQD8/HKeqndzR0RaYdORXznHSMEVsR6QmQIGFd7i
-         MdsBX8T1pukzddcNauuisnhj18Mp3af46YBu9iTTnYZEq4JrkKVVj21+TbRtewGH50kl
-         BoVMOFhakIuKkAXzUnS04Ra0CCP5a99M37SSgZStyXrmbZmDtGeibzWpavXimDoNbYL/
-         IIeHTl2PvF5Q3ITNcHvFq01eEk/8hXB94FNkXPzwNW9AR1Ih3QAKWz65Nz/B47k3aRCY
-         8mDg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@NETORG5796793.onmicrosoft.com header.s=selector1-NETORG5796793-onmicrosoft-com header.b=nQr+iUGn;
-       arc=pass (i=1 spf=pass spfdomain=labundy.com dkim=pass dkdomain=labundy.com dmarc=pass fromdomain=labundy.com);
-       spf=pass (google.com: domain of jeff@labundy.com designates 40.107.93.63 as permitted sender) smtp.mailfrom=jeff@labundy.com
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (mail-dm6nam10on2063.outbound.protection.outlook.com. [40.107.93.63])
-        by gmr-mx.google.com with ESMTPS id d13si195285oti.0.2021.06.05.22.04.09
+        b=zzq78XA1WsPDwgv+YHufeQFNZJJOyAs0TTgyg/ZgRObtr9Sfh4/XrMhAH2+9LzKNWG
+         FZT68VfA5GRCwlZn3UHgK2WPC5xwzoGuJ0/ZTJ6d5kPj9dmlBjI3hhtZ/NEwacobhN1T
+         b9H5sPddrOQ3ZnoFV4aFKFOnblat0aciYpWiQNnh2ymiIWhcyiTKjHRFgyUJ5hx0k/Z6
+         6OksLrMFxkmJWKiaFX+JCAV646nhDCVyXZ8/Q+xR6AoVQ89kOPlri/jKbZIzJfdROy5P
+         JTHkr8OEiqyUmiKD1yUp1PgUojOwjHkCefJPyrOoOXXw0hrx/8PLWWtmu1iTjPepNbNT
+         Y5wQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=zAu7t3/v10mGGTm0vFigwtrdxv4H0CLoUZoNAB+sqS0=;
+        b=Wj2GAJ8/7VT7Zbo5oBtR6FgzWBd2dk/ym0ySq8ZkNXh/W61PBqdMjr1rJTNlNXoPq6
+         /MBB8+O9CFia755lQt1og3pHgtcdx/qntXPdumz9RGq5ZNjpp+5GXNNhYDFIU1OAqkc4
+         TUJ0GwspmYUfe0si2/xjAk5huc0TRcWDJSOQZo7xmbkPmwuthe2UOUQpg9/V2+f8fcS4
+         u7o7FRxVZISOYYlqcSlZ2+jd4XbClYUCrHfftZBIK+C3peWRtAtiw4TAKMI5WHglGCtA
+         bY1HsGqsewb2Ro7NZmbSnlY5MzsUO8iyNU4xLOL1ySD16WwQoZrJYLWx5goHMZU/KMkI
+         282w==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=neutral (google.com: 217.70.183.198 is neither permitted nor denied by best guess record for domain of alex@ghiti.fr) smtp.mailfrom=alex@ghiti.fr
+Received: from relay6-d.mail.gandi.net (relay6-d.mail.gandi.net. [217.70.183.198])
+        by gmr-mx.google.com with ESMTPS id r26si431199wra.1.2021.06.06.00.24.42
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 05 Jun 2021 22:04:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jeff@labundy.com designates 40.107.93.63 as permitted sender) client-ip=40.107.93.63;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=FAVcGhqwevcrKPWv3tgPilataLQ4A5GtFOlpEzNSiqpzrRxfW4IRi5UcOj8KwyMx/n+WJwGfre6EB0G+lixd7NP4oDGi449WypHp3c34/uNkhKFA524rHkxsUpfCJE3AiG9O6/dSht9QfYJC7bdFy4zHijwkuyETcm0BbZxg2usuMZqY6j4r7xsHhYQmWhrzdUFOQC8RICB5A8Kuqguoqonxodc8z5JEb1WvXoLNQxsqwITpmDRfkun3ixFnr83X5j6aRSqBAHk4Uv1czWQRjOC61O+EC3/aYYRdDH2c39c3sx/IzTF8XENGgSNLdw7f9/UL6MnNl2dI2i6sIYr5aw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nwGis/H5hZxCFOr9FcY4q1kL4GN9jqzOVq+D4NhFgz8=;
- b=FnqVoduUQjleRSCXIGvAGNZJYKcnFsV3ZZ5A08GCLHu9Fv2YAyU2DvlH0xXI0B3xe0pGIs615lAEIpEtDX7eaV5TjSo7h5u7fR+fIXPi8L5xgipnLRcaaD6Y1WnbfP54KiTxV2BamBK28Vg+H1gyo5RY8Cj15L6LrRc289oKX8StVh48ckBlwStSuRoMIvE3xV2JeUY/uY4jausE19PzbiuusHdaKmz4hUJXx/1GTxj3ctvF/x2VdFAivJUjhwW23wtht2TI2OstTZtKIUd1cnBByBUodHQYtfMoLwEAotbDiXj/SWwrw2sGXCXE9uXFTioGHItcDUGiwQvShlPJAQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=labundy.com; dmarc=pass action=none header.from=labundy.com;
- dkim=pass header.d=labundy.com; arc=none
-Received: from SJ0PR08MB6544.namprd08.prod.outlook.com (2603:10b6:a03:2d3::16)
- by BYAPR08MB4279.namprd08.prod.outlook.com (2603:10b6:a02:f2::26) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4195.29; Sun, 6 Jun
- 2021 05:04:06 +0000
-Received: from SJ0PR08MB6544.namprd08.prod.outlook.com
- ([fe80::8437:f5f6:48e:f5d8]) by SJ0PR08MB6544.namprd08.prod.outlook.com
- ([fe80::8437:f5f6:48e:f5d8%8]) with mapi id 15.20.4195.029; Sun, 6 Jun 2021
- 05:04:06 +0000
-Date: Sun, 6 Jun 2021 00:04:01 -0500
-From: Jeff LaBundy <jeff@labundy.com>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Subject: Re: drivers/input/misc/iqs626a.c:1645:12: warning: stack frame size
- of 2560 bytes in function 'iqs626_probe'
-Message-ID: <20210606050401.GA5335@labundy.com>
-References: <202106061241.dpaJ49Wc-lkp@intel.com>
- <YLxSgsTrnFSUP4Fq@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <YLxSgsTrnFSUP4Fq@google.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Originating-IP: [136.49.90.243]
-X-ClientProxiedBy: SA0PR13CA0014.namprd13.prod.outlook.com
- (2603:10b6:806:130::19) To SJ0PR08MB6544.namprd08.prod.outlook.com
- (2603:10b6:a03:2d3::16)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Sun, 06 Jun 2021 00:24:42 -0700 (PDT)
+Received-SPF: neutral (google.com: 217.70.183.198 is neither permitted nor denied by best guess record for domain of alex@ghiti.fr) client-ip=217.70.183.198;
+Received: (Authenticated sender: alex@ghiti.fr)
+	by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id 2F580C0003;
+	Sun,  6 Jun 2021 07:24:02 +0000 (UTC)
+Subject: Re: [PATCH] riscv: mm: init: Consolidate vars, functions
+To: Jisheng Zhang <jszhang3@mail.ustc.edu.cn>,
+ Nathan Chancellor <nathan@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+References: <20210516211556.43c00055@xhacker>
+ <YLaWseLdg5JYElVx@Ryzen-9-3900X.localdomain>
+ <20210602231226.0e45524b@xhacker> <20210602235851.001a0d41@xhacker>
+ <YLfiADFHMyXst55Y@Ryzen-9-3900X.localdomain>
+ <20210603082714.6e524f4c@xhacker> <20210603195418.21fded50@xhacker>
+ <20210605010918.7424a0aa@xhacker>
+From: Alex Ghiti <alex@ghiti.fr>
+Message-ID: <b90a6bcb-22c4-e500-2586-d54cd881e02e@ghiti.fr>
+Date: Sun, 6 Jun 2021 09:23:45 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.2
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from labundy.com (136.49.90.243) by SA0PR13CA0014.namprd13.prod.outlook.com (2603:10b6:806:130::19) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4219.9 via Frontend Transport; Sun, 6 Jun 2021 05:04:05 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 646aee10-638a-479e-35c6-08d928a882bc
-X-MS-TrafficTypeDiagnostic: BYAPR08MB4279:
-X-Microsoft-Antispam-PRVS: <BYAPR08MB4279EEE66766AC28279BA56DD3399@BYAPR08MB4279.namprd08.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:10000;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: WJPyFX99ZeenECuY+ZYgKEpbLqvn5qSyJCCnEzXMmEArwf4U1wfXZddUapEu+U0WYTVJnarb8Ts+RFqaSu+55P4byoYehJBVP9lI9f/Fx1fYQQ/0bNEqktM2lk12JloAJqTuIgV0UKgWojd/9WZYA50VOCmJeQfcggUfsLWca65sjvxDKpGZsud3FlpRqzKnCN1JoP5kJHMMPO4oIxxxyLrFQ+fLfoox6bUP2Ohmd7wM7Crrn8joowPsoR2SzpSvtbpfuxoYFdWDc26g2xNtzMXrCNMW7XCaH+MNJ/PxrNB5f6hdyStUKSA0x60dTwmIjps3+WUPgx4M44Y7/KDUeVHzqbdR/LoWCDC5mh0g9FaoOw2Qz5cPMohBVtoEE1hkvOLwtZCp078CP4s+tMXKsdSxfjruFtR87TVtEKETehhE7foUelKoY+acHTPu5ZEv7YCe8e8yHvYENa5iyz7uCb5gTPTJnX+uEzWIpPyXXjmLrOgvopNYEMgrYBn8b0yNm946/3OO7bPeV6YTC2V+7iL31pvrfCTdyTEWj8bFLL236WzWDP/TJmnpK8aReGMhBJ/M1CQFUSIPKBRx57yhcauIvj6ieXU4kkswM78RhEtW3JeXt7yK5368OSrjEPEdVqrN5e7Y1KaY4P6PMR6JTFVjeG6sSvb5N4iO1I3UEk8d2Km+JAFP0O3MiSBfugiQA1Bxu5vWTyc2ldx7D3SoQV9W7jgfC6OWP8lPE2EcLjOVRNUSyq1RRQw0sWwvR0Va9X2d1wx6w+16UQQK1XDLUg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR08MB6544.namprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(396003)(39830400003)(376002)(366004)(346002)(136003)(4326008)(55016002)(316002)(38350700002)(8676002)(2616005)(2906002)(956004)(83380400001)(36756003)(7696005)(52116002)(86362001)(186003)(478600001)(33656002)(16526019)(6666004)(26005)(5660300002)(1076003)(66556008)(6916009)(66946007)(8936002)(966005)(38100700002)(66476007)(8886007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?aAkJY2k4zYDopfhfRlX6qS8F84LVUs/WKN/LNhVMU2RwhWyXMtr/MLVn1isc?=
- =?us-ascii?Q?dXE7Y1+iqKi924ajw75yEFCkzEdT2YCPVAgUzMaKloc2IwJ/GsaM/wUWxcqP?=
- =?us-ascii?Q?JLA5KR42YEzSOiKHp6TrLWUTCoqqycso4SjCU2GWNjx92nTv3/bdkbDammOZ?=
- =?us-ascii?Q?9pNDmRxi0tVQ53tB1ma7pfTdCOZp9nNTwtkWgg8qa6DQbRtTVuG9VeywU+V0?=
- =?us-ascii?Q?hJOQyyVDAaIihKWHWRSHINXkzqaUk/JZhl6IP3lyU77niRgerEZTUZnhaoCz?=
- =?us-ascii?Q?QErgyAwVy4SwoIAiK5qT3x0ALDw7U1qITSC4HXrE8zYXs2XYJbTJez4rDqdH?=
- =?us-ascii?Q?1ACoN/8lFOSOW54lMmxVDkyTj0unSbI2RddlSZuk4fpJBv1Ig8xwMNeNR7al?=
- =?us-ascii?Q?SBgNl50b0Ca4aMgEracYe9uUESkBgsrfUiPjZbNxVIqFDlw1XeFE6Qpt89hN?=
- =?us-ascii?Q?5JEykc6+LowmUGhW3zu0zdhv11azVCOTUWHz2K7AwKfvmeIcU+x3xD+JHdiW?=
- =?us-ascii?Q?fqCw37c1S33NqN7hHEa4GtS1I8CpNix5mNBpKFdISSkonxdRv9z24Q9CuhQe?=
- =?us-ascii?Q?m2awM8UeU3fiyTCKijSy96n0ARomkoaPfUnThBGAc8tsWs+acuIczlPnwEOl?=
- =?us-ascii?Q?biSTxTsjzXHVC4f/9wcSoZaNwQUidDFvUDvnwCk/32nR98Vs7lL5O+d4+r34?=
- =?us-ascii?Q?fFVRKTVwF+lfhqmZOoapsGhlbs02j42gHQiEShb1aMCZg9AiYfSrn4jJUzf7?=
- =?us-ascii?Q?0y+1pUyLqw0AocpCVHYyJW8FIxsFLRug9ZTkDlXLRazy9gCwcDBsrNTqohL1?=
- =?us-ascii?Q?v6imrFa37QZyd9GEdHcW6cROiiBsBRVVbGsm4SNF1neBFDdG7b8mPnuPqknD?=
- =?us-ascii?Q?rQM3hIBYo4jSYuz0QlxL0QyfZdADCSi69qh0WpjhRVTLkyAd3qN3pM6jKq2a?=
- =?us-ascii?Q?Ei6Dei3Pph45jSYjZTIk5LGZl4FXP6jCGU7+Z+R4neMuha1oXA58MnBFW4hM?=
- =?us-ascii?Q?J9bpjvBk4JbpQfNIcUTZVz/0DPioOjCgfAnayNC5fmXozFcqHsfkYULNiT2h?=
- =?us-ascii?Q?kkdSCJKjuctDE6QFGhxu5vity/k2QdB8TOlQHB5C34/Gtf6+GZS3Nwyz59Ca?=
- =?us-ascii?Q?swPCfvF6nUAy03CFtxcA1C3FQIwM+k0YaH3xtcq9IFASh5XDDrq3IMX4ui7k?=
- =?us-ascii?Q?j1Ezz6ImpVpJ8ZWLQ6ZvopEESgrD1echFZATrzZKwa4dwkVZE3r+MpAsqkzo?=
- =?us-ascii?Q?IBdVUA7yOAuh+M1Fb5ss5f7NojYxxUAlRsFgzLDdrswMPqU0XXetab04Da2B?=
- =?us-ascii?Q?BQyKJmFVMmH5xviVBeMuxyZc?=
-X-OriginatorOrg: labundy.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 646aee10-638a-479e-35c6-08d928a882bc
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR08MB6544.namprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jun 2021 05:04:06.4128
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 00b69d09-acab-4585-aca7-8fb7c6323e6f
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3JlvXYfqwvQu8K013MJSGltv+NaF2SBVUVKMv6NCaYPzCtmevrtRYNbnVmO46vacRkA23xGuyLuD3wW3G5VvQg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR08MB4279
-X-Original-Sender: jeff@labundy.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@NETORG5796793.onmicrosoft.com header.s=selector1-NETORG5796793-onmicrosoft-com
- header.b=nQr+iUGn;       arc=pass (i=1 spf=pass spfdomain=labundy.com
- dkim=pass dkdomain=labundy.com dmarc=pass fromdomain=labundy.com);
-       spf=pass (google.com: domain of jeff@labundy.com designates
- 40.107.93.63 as permitted sender) smtp.mailfrom=jeff@labundy.com
+In-Reply-To: <20210605010918.7424a0aa@xhacker>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: fr
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: alex@ghiti.fr
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 217.70.183.198 is neither permitted nor denied by best guess
+ record for domain of alex@ghiti.fr) smtp.mailfrom=alex@ghiti.fr
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -199,113 +136,456 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Dmitry,
+Hi Jisheng,
 
-On Sat, Jun 05, 2021 at 09:43:46PM -0700, Dmitry Torokhov wrote:
-> On Sun, Jun 06, 2021 at 12:37:43PM +0800, kernel test robot wrote:
-> > Hi Jeff,
-> > 
-> > FYI, the error/warning still remains.
-> 
-> I have no idea how it happens... 
-> 
-> > > 1645	static int iqs626_probe(struct i2c_client *client)
-> >   1646	{
-> >   1647		struct iqs626_ver_info ver_info;
-> 
-> This is 4 bytes.
-> 
-> >   1648		struct iqs626_private *iqs626;
-> 
-> This is 4 or 8.
-> 
-> >   1649		int error;
-> 
-> And another 4. And that is it. The bloat must be coming from elsewhere.
+Le 4/06/2021 =C3=A0 19:09, Jisheng Zhang a =C3=A9crit=C2=A0:
+> On Thu, 3 Jun 2021 19:54:18 +0800
+> Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
+>=20
+>> On Thu, 3 Jun 2021 08:27:14 +0800
+>> Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
+>>
+>>> On Wed, 2 Jun 2021 12:54:40 -0700
+>>> Nathan Chancellor <nathan@kernel.org> wrote:
+>>>   =20
+>>>> On Wed, Jun 02, 2021 at 11:58:51PM +0800, Jisheng Zhang wrote:
+>>>>> On Wed, 2 Jun 2021 23:12:26 +0800
+>>>>> Jisheng Zhang <jszhang3@mail.ustc.edu.cn> wrote:
+>>>>>       =20
+>>>>>> On Tue, 1 Jun 2021 13:21:05 -0700
+>>>>>> Nathan Chancellor <nathan@kernel.org> wrote:
+>>>>>>       =20
+>>>>>>> Hi Jisheng,
+>>>>>>
+>>>>>> Hi Nathan,
+>>>>>>       =20
+>>>>>>>
+>>>>>>> On Sun, May 16, 2021 at 09:15:56PM +0800, Jisheng Zhang wrote:
+>>>>>>>> From: Jisheng Zhang <jszhang@kernel.org>
+>>>>>>>>
+>>>>>>>> Consolidate the following items in init.c
+>>>>>>>>
+>>>>>>>> Staticize global vars as much as possible;
+>>>>>>>> Add __initdata mark if the global var isn't needed after init
+>>>>>>>> Add __init mark if the func isn't needed after init
+>>>>>>>> Add __ro_after_init if the global var is read only after init
+>>>>>>>>
+>>>>>>>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+>>>>>>>> ---
+>>>>>>>>   arch/riscv/include/asm/set_memory.h |  2 +-
+>>>>>>>>   arch/riscv/mm/init.c                | 36 +++++++++++++++--------=
+------
+>>>>>>>>   2 files changed, 20 insertions(+), 18 deletions(-)
+>>>>>>>>
+>>>>>>>> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/incl=
+ude/asm/set_memory.h
+>>>>>>>> index 086f757e8ba3..9d4d455726d4 100644
+>>>>>>>> --- a/arch/riscv/include/asm/set_memory.h
+>>>>>>>> +++ b/arch/riscv/include/asm/set_memory.h
+>>>>>>>> @@ -27,7 +27,7 @@ static inline int set_memory_rw_nx(unsigned long=
+ addr, int numpages) { return 0;
+>>>>>>>>   #endif
+>>>>>>>>  =20
+>>>>>>>>   #if defined(CONFIG_64BIT) && defined(CONFIG_STRICT_KERNEL_RWX)
+>>>>>>>> -void protect_kernel_linear_mapping_text_rodata(void);
+>>>>>>>> +void __init protect_kernel_linear_mapping_text_rodata(void);
+>>>>>>>>   #else
+>>>>>>>>   static inline void protect_kernel_linear_mapping_text_rodata(voi=
+d) {}
+>>>>>>>>   #endif
+>>>>>>>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+>>>>>>>> index 4c4c92ce0bb8..eac2d5c27b3e 100644
+>>>>>>>> --- a/arch/riscv/mm/init.c
+>>>>>>>> +++ b/arch/riscv/mm/init.c
+>>>>>>>> @@ -53,7 +53,7 @@ struct pt_alloc_ops {
+>>>>>>>>   #endif
+>>>>>>>>   };
+>>>>>>>>  =20
+>>>>>>>> -static phys_addr_t dma32_phys_limit __ro_after_init;
+>>>>>>>> +static phys_addr_t dma32_phys_limit __initdata;
+>>>>>>>>  =20
+>>>>>>>>   static void __init zone_sizes_init(void)
+>>>>>>>>   {
+>>>>>>>> @@ -184,7 +184,7 @@ extern char _sdata[], _edata[];
+>>>>>>>>   #endif /* CONFIG_XIP_KERNEL */
+>>>>>>>>  =20
+>>>>>>>>   #ifdef CONFIG_MMU
+>>>>>>>> -static struct pt_alloc_ops _pt_ops __ro_after_init;
+>>>>>>>> +static struct pt_alloc_ops _pt_ops __initdata;
+>>>>>>>>  =20
+>>>>>>>>   #ifdef CONFIG_XIP_KERNEL
+>>>>>>>>   #define pt_ops (*(struct pt_alloc_ops *)XIP_FIXUP(&_pt_ops))
+>>>>>>>> @@ -200,13 +200,13 @@ EXPORT_SYMBOL(va_pa_offset);
+>>>>>>>>   #endif
+>>>>>>>>   /* Offset between kernel mapping virtual address and kernel load=
+ address */
+>>>>>>>>   #ifdef CONFIG_64BIT
+>>>>>>>> -unsigned long va_kernel_pa_offset;
+>>>>>>>> +unsigned long va_kernel_pa_offset __ro_after_init;
+>>>>>>>>   EXPORT_SYMBOL(va_kernel_pa_offset);
+>>>>>>>>   #endif
+>>>>>>>>   #ifdef CONFIG_XIP_KERNEL
+>>>>>>>>   #define va_kernel_pa_offset    (*((unsigned long *)XIP_FIXUP(&va=
+_kernel_pa_offset)))
+>>>>>>>>   #endif
+>>>>>>>> -unsigned long va_kernel_xip_pa_offset;
+>>>>>>>> +unsigned long va_kernel_xip_pa_offset __ro_after_init;
+>>>>>>>>   EXPORT_SYMBOL(va_kernel_xip_pa_offset);
+>>>>>>>>   #ifdef CONFIG_XIP_KERNEL
+>>>>>>>>   #define va_kernel_xip_pa_offset        (*((unsigned long *)XIP_F=
+IXUP(&va_kernel_xip_pa_offset)))
+>>>>>>>> @@ -216,7 +216,7 @@ EXPORT_SYMBOL(pfn_base);
+>>>>>>>>  =20
+>>>>>>>>   pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+>>>>>>>>   pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+>>>>>>>> -pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
+>>>>>>>> +static pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
+>>>>>>>>  =20
+>>>>>>>>   pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE)=
+;
+>>>>>>>>  =20
+>>>>>>>> @@ -253,7 +253,7 @@ static inline pte_t *__init get_pte_virt_fixma=
+p(phys_addr_t pa)
+>>>>>>>>   	return (pte_t *)set_fixmap_offset(FIX_PTE, pa);
+>>>>>>>>   }
+>>>>>>>>  =20
+>>>>>>>> -static inline pte_t *get_pte_virt_late(phys_addr_t pa)
+>>>>>>>> +static inline pte_t *__init get_pte_virt_late(phys_addr_t pa)
+>>>>>>>>   {
+>>>>>>>>   	return (pte_t *) __va(pa);
+>>>>>>>>   }
+>>>>>>>> @@ -272,7 +272,7 @@ static inline phys_addr_t __init alloc_pte_fix=
+map(uintptr_t va)
+>>>>>>>>   	return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
+>>>>>>>>   }
+>>>>>>>>  =20
+>>>>>>>> -static phys_addr_t alloc_pte_late(uintptr_t va)
+>>>>>>>> +static phys_addr_t __init alloc_pte_late(uintptr_t va)
+>>>>>>>>   {
+>>>>>>>>   	unsigned long vaddr;
+>>>>>>>>  =20
+>>>>>>>> @@ -296,10 +296,10 @@ static void __init create_pte_mapping(pte_t =
+*ptep,
+>>>>>>>>  =20
+>>>>>>>>   #ifndef __PAGETABLE_PMD_FOLDED
+>>>>>>>>  =20
+>>>>>>>> -pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
+>>>>>>>> -pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
+>>>>>>>> -pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
+>>>>>>>> -pmd_t early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE)=
+;
+>>>>>>>> +static pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
+>>>>>>>> +static pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
+>>>>>>>> +static pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SI=
+ZE);
+>>>>>>>> +static pmd_t early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAG=
+E_SIZE);
+>>>>>>>>  =20
+>>>>>>>>   #ifdef CONFIG_XIP_KERNEL
+>>>>>>>>   #define trampoline_pmd ((pmd_t *)XIP_FIXUP(trampoline_pmd))
+>>>>>>>> @@ -319,7 +319,7 @@ static pmd_t *__init get_pmd_virt_fixmap(phys_=
+addr_t pa)
+>>>>>>>>   	return (pmd_t *)set_fixmap_offset(FIX_PMD, pa);
+>>>>>>>>   }
+>>>>>>>>  =20
+>>>>>>>> -static pmd_t *get_pmd_virt_late(phys_addr_t pa)
+>>>>>>>> +static pmd_t *__init get_pmd_virt_late(phys_addr_t pa)
+>>>>>>>>   {
+>>>>>>>>   	return (pmd_t *) __va(pa);
+>>>>>>>>   }
+>>>>>>>> @@ -336,7 +336,7 @@ static phys_addr_t __init alloc_pmd_fixmap(uin=
+tptr_t va)
+>>>>>>>>   	return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
+>>>>>>>>   }
+>>>>>>>>  =20
+>>>>>>>> -static phys_addr_t alloc_pmd_late(uintptr_t va)
+>>>>>>>> +static phys_addr_t __init alloc_pmd_late(uintptr_t va)
+>>>>>>>>   {
+>>>>>>>>   	unsigned long vaddr;
+>>>>>>>>  =20
+>>>>>>>> @@ -454,14 +454,16 @@ asmlinkage void __init __copy_data(void)
+>>>>>>>>   #error "setup_vm() is called from head.S before relocate so it s=
+hould not use absolute addressing."
+>>>>>>>>   #endif
+>>>>>>>>  =20
+>>>>>>>> -uintptr_t load_pa, load_sz;
+>>>>>>>> +static uintptr_t load_pa __initdata;
+>>>>>>>
+>>>>>>> Making load_pa static causing clang built kernels to no longer boot=
+,
+>>>>>>> hanging after just a few lines of output in the console:
+>>>>>>>
+>>>>>>> https://github.com/ClangBuiltLinux/continuous-integration2/runs/271=
+7606254?check_suite_focus=3Dtrue
+>>>>>>>
+>>>>>>> I am not sure why that would make a difference nor why GCC is okay =
+with
+>>>>>>> it. If it is a clang bug, it appears to be there for a while, given=
+ that
+>>>>>>> it reproduces back to clang-11.
+>>>>>>
+>>>>>> I can reproduce the issue. Here are my findindings:
+>>>>>>
+>>>>>> * gcc + binutils can't reproduce it
+>>>>>> * clang + llvm-utils + ias can reproduce it
+>>>>>> * clang + binutils can reproduce it
+>>>>
+>>>> Yes, this seems like something strictly related to clang so that is wh=
+at
+>>>> I have been testing with.
+>>>>     =20
+>>>>>> All below tests are done with clang + binutils.
+>>>>>>
+>>>>>> Then I applied below modification:
+>>>>>>
+>>>>>> -static uintptr_t load_pa __initdata;
+>>>>>> +uintptr_t load_pa __initdata;
+>>>>>>
+>>>>>> I got below panic log:
+>>>>>> [    0.015418] Unable to handle kernel paging request at virtual add=
+ress fffffffffffffff9
+>>>>>> [    0.016432] Oops [#1]
+>>>>>> [    0.016679] Modules linked in:
+>>>>>> [    0.017103] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.13.0-rc1+=
+ #5
+>>>>>> [    0.017711] Hardware name: riscv-virtio,qemu (DT)
+>>>>>> [    0.018201] epc : trace_hardirqs_on+0x60/0xb2
+>>>>>> [    0.018582]  ra : restore_all+0xe/0x66
+>>>>>> [    0.018879] epc : ffffffff800cb09a ra : ffffffff800027b8 sp : fff=
+fffff80c03dd0
+>>>>>> [    0.019376]  gp : ffffffff80d001c8 tp : ffffffff80c0c180 t0 : 000=
+0000000000020
+>>>>>> [    0.019870]  t1 : ffffffff80006e40 t2 : ffffffff800d2e0a s0 : fff=
+fffff80c03e00
+>>>>>> [    0.020346]  s1 : 0000000000000001 a0 : 0000000000000001 a1 : 000=
+0000000000001
+>>>>>> [    0.020800]  a2 : 0000000000000001 a3 : 0000000000000000 a4 : 000=
+0000000000000
+>>>>>> [    0.021243]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 000=
+0000054494d45
+>>>>>> [    0.021717]  s2 : ffffffff800027b8 s3 : ffffffff80d35968 s4 : fff=
+fffff8061e1d8
+>>>>>> [    0.022179]  s5 : ffffffff80c0c180 s6 : ffffffe000e34b50 s7 : 000=
+00000800130f0
+>>>>>> [    0.022674]  s8 : 000000000000007f s9 : 0000000080012010 s10: 000=
+0000000000000
+>>>>>> [    0.023176]  s11: 0000000000000000 t3 : ffffffff80d00108 t4 : fff=
+fffff80006e40
+>>>>>> [    0.023693]  t5 : ffffffff80006e40 t6 : ffffffff800d2e0a
+>>>>>> [    0.024153] status: 0000000000000100 badaddr: fffffffffffffff9 ca=
+use: 000000000000000d
+>>>>>> [    0.025367] Call Trace:
+>>>>>> [    0.025749] [<ffffffff800cb09a>] trace_hardirqs_on+0x60/0xb2
+>>>>>> [    0.026402] [<ffffffff800027b8>] restore_all+0xe/0x66
+>>>>>> [    0.027261] Unable to handle kernel paging request at virtual add=
+ress fffffffffffffffa
+>>>>>> [    0.027827] Oops [#2]
+>>>>>> [    0.028013] Modules linked in:
+>>>>>> [    0.028321] CPU: 0 PID: 0 Comm: swapper/0 Tainted: G      D      =
+     5.13.0-rc1+ #5
+>>>>>> [    0.028839] Hardware name: riscv-virtio,qemu (DT)
+>>>>>> [    0.029166] epc : trace_hardirqs_on+0x60/0xb2
+>>>>>> [    0.029505]  ra : restore_all+0xe/0x66
+>>>>>> [    0.029785] epc : ffffffff800cb09a ra : ffffffff800027b8 sp : fff=
+fffff80c03a80
+>>>>>> [    0.030266]  gp : ffffffff80d001c8 tp : ffffffff80c0c180 t0 : 000=
+0000000000020
+>>>>>> [    0.030748]  t1 : ffffffff80006e40 t2 : ffffffff800d2e0a s0 : fff=
+fffff80c03ab0
+>>>>>> [    0.031227]  s1 : 0000000000000001 a0 : 0000000000000002 a1 : 000=
+0000000000002
+>>>>>> [    0.031717]  a2 : 0000000000000001 a3 : 0000000000000000 a4 : 000=
+0000000000000
+>>>>>> [    0.032199]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 000=
+0000054494d45
+>>>>>> [    0.032680]  s2 : ffffffff800027b8 s3 : ffffffff80d35968 s4 : fff=
+fffff8061e1d8
+>>>>>> [    0.033160]  s5 : ffffffff80c0c180 s6 : ffffffe000e34b50 s7 : 000=
+00000800130f0
+>>>>>> [    0.033642]  s8 : 000000000000007f s9 : 0000000080012010 s10: 000=
+0000000000000
+>>>>>> [    0.034123]  s11: 0000000000000000 t3 : ffffffff80d00108 t4 : fff=
+fffff80006e40
+>>>>>> [    0.034601]  t5 : ffffffff80006e40 t6 : ffffffff800d2e0a
+>>>>>> [    0.034965] status: 0000000000000100 badaddr: fffffffffffffffa ca=
+use: 000000000000000d
+>>>>>> [    0.035492] Call Trace:
+>>>>>> [    0.035682] [<ffffffff800cb09a>] trace_hardirqs_on+0x60/0xb2
+>>>>>> [    0.036077] [<ffffffff800027b8>] restore_all+0xe/0x66
+>>>>>> [    0.036545] ---[ end trace 7f4fbff09d927668 ]---
+>>>>>> [    0.037188] Kernel panic - not syncing: Attempted to kill the idl=
+e task!
+>>>>>> [    0.038107] ---[ end Kernel panic - not syncing: Attempted to kil=
+l the idle task! ]---
+>>>>>>
+>>>>>> Then I checked 5.13-rc1, above panic log can be reproduced too. So t=
+he issue
+>>>>>> should exist there for a while. I never tried clang with riscv, did =
+you remember
+>>>>>> which last commit or version clang works, I may try to bisect.
+>>>> V> >
+>>>>>
+>>>>> More findings:
+>>>>>
+>>>>> *The above panic issue can also be seen from 5.12-rc2. If disable FTR=
+ACE, then
+>>>>> the panic disappears, kernel can boot
+>>>>>
+>>>>> *so I retested riscv next tree w/ FTRACE disabled, kernel can boot w/=
+ below
+>>>>> modification:
+>>>>
+>>>> Yeah, I do not enable CONFIG_FTRACE because it is not enabled in
+>>>> ARCH=3Driscv defconfig by default.
+>>>>     =20
+>>>>> -static uintptr_t load_pa __initdata;
+>>>>> +uintptr_t load_pa __initdata;
+>>>>>
+>>>>> This is a weird issue. Any clue is appreciated.
+>>>>
+>>>> Unfortunately, this is outside of my realm of expertise, as I am
+>>>> unfamiliar with RISC-V at this level. Maybe Palmer has some ideas. I
+>>>> would think that changing this variable to static would be fine given
+>>>> that the symbol is only used in this translation unit but clearly not.=
+ I
+>>>> have attempted to debug this in gdb but that does not really get me
+>>>> anywhere: I cannot break on start_kernel() for whatever reason and the
+>>>> kernel never gets to my breakpoint in setup_vm().
+>>>>
+>>>> I did decide to through a BUG() around arch/riscv/mm/init.c to see
+>>>> exactly which statement causes everything to hang. I landed on:
+>>>>
+>>>> csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) | SATP_MODE)=
+;
+>>>>
+>>>> in setup_vm_final(). No idea how that is relevant to this.
+>>>>
+>>>> Some people in the ClangBuiltLinux bi-weekly meeting today pointed out
+>>>> that since load_pa is assigned to the linker defined symbol _start,
+>>>> there could be some optimization that goes awry here. I have keyed tha=
+t
+>>>
+>>> Thanks for the inspiration. Below patch fixes the hang issue, but I did=
+n't
+>>> go through all necessary WRITE_ONCE convertions.
+>>>
+>>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+>>> index ae32f78207f0..fa9336a2583f 100644
+>>> --- a/arch/riscv/mm/init.c
+>>> +++ b/arch/riscv/mm/init.c
+>>> @@ -504,7 +504,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>>>  =20
+>>>          va_kernel_xip_pa_offset =3D kernel_virt_addr - xiprom;
+>>>   #else
+>>> -       load_pa =3D (uintptr_t)(&_start);
+>>> +       WRITE_ONCE(load_pa, (uintptr_t)(&_start));
+>>>          load_sz =3D (uintptr_t)(&_end) - load_pa;
+>>>   #endif
+>>>   =20
+>>
+>> I think I found the root cause, but I dunno whether this is clang bug or
+>> we need WRITE_ONCE patch.
+>> W/O WRITE_ONCE, the setup_vm() is compiled to
+>>
+>> ffffffff8040472a <setup_vm>:
+>> ffffffff8040472a:       1101                    addi    sp,sp,-32
+>> ffffffff8040472c:       ec06                    sd      ra,24(sp)
+>> ffffffff8040472e:       e822                    sd      s0,16(sp)
+>> ffffffff80404730:       e426                    sd      s1,8(sp)
+>> ffffffff80404732:       e04a                    sd      s2,0(sp)
+>> ffffffff80404734:       1000                    addi    s0,sp,32
+>> ffffffff80404736:       892a                    mv      s2,a0
+>> ffffffff80404738:       001fd517                auipc   a0,0x1fd
+>> ffffffff8040473c:       8c850513                addi    a0,a0,-1848 # ff=
+ffffff80601000 <load_pa>
+>> ffffffff80404740:       4585                    li      a1,1
+>> ffffffff80404742:       00b50023                sb      a1,0(a0)     // =
+BUG!
+>> ffffffff80404746:       001fd517                auipc   a0,0x1fd
+>> ffffffff8040474a:       8c250513                addi    a0,a0,-1854 # ff=
+ffffff80601008 <load_sz>
+>> ffffffff8040474e:       00b50023                sb      a1,0(a0)     // =
+BUG!
+>> ffffffff80404752:       ffbfc517                auipc   a0,0xffbfc
+>> ffffffff80404756:       8ae50513                addi    a0,a0,-1874 # ff=
+ffffff80000000 <_start>
+>> ffffffff8040475a:       55fd                    li      a1,-1
+>> ffffffff8040475c:       02559613                slli    a2,a1,0x25
+>> ffffffff80404760:       83018593                addi    a1,gp,-2000 # ff=
+ffffff80ca6428 <kernel_virt_addr>
+>> ffffffff80404764:       618c                    ld      a1,0(a1)
+>> ffffffff80404766:       8e09                    sub     a2,a2,a0
+>> ...
+>>
+>> It seems load_pa and load_sz are stored with 1, this is obviously not wh=
+at the
+>> code expected.
+>>
+>>
+>> W/ WRITE_ONCE, the setup_vm() is compiled to:
+>>
+>> ffffffff8040472a <setup_vm>:
+>> ffffffff8040472a:       1101                    addi    sp,sp,-32
+>> ffffffff8040472c:       ec06                    sd      ra,24(sp)
+>> ffffffff8040472e:       e822                    sd      s0,16(sp)
+>> ffffffff80404730:       e426                    sd      s1,8(sp)
+>> ffffffff80404732:       e04a                    sd      s2,0(sp)
+>> ffffffff80404734:       1000                    addi    s0,sp,32
+>> ffffffff80404736:       892a                    mv      s2,a0
+>> ffffffff80404738:       001fd597                auipc   a1,0x1fd
+>> ffffffff8040473c:       8c858593                addi    a1,a1,-1848 # ff=
+ffffff80601000 <load_pa>
+>> ffffffff80404740:       ffbfc517                auipc   a0,0xffbfc
+>> ffffffff80404744:       8c050513                addi    a0,a0,-1856 # ff=
+ffffff80000000 <_start>
+>> ffffffff80404748:       e188                    sd      a0,0(a1)
+>> ffffffff8040474a:       001fd597                auipc   a1,0x1fd
+>> ffffffff8040474e:       8be58593                addi    a1,a1,-1858 # ff=
+ffffff80601008 <load_sz>
+>> ffffffff80404752:       4605                    li      a2,1
+>> ffffffff80404754:       00c58023                sb      a2,0(a1)
+>> ffffffff80404758:       55fd                    li      a1,-1
+>> ffffffff8040475a:       02559613                slli    a2,a1,0x25
+>> ffffffff8040475e:       83018593                addi    a1,gp,-2000 # ff=
+ffffff80ca6428 <kernel_virt_addr>
+>> ffffffff80404762:       618c                    ld      a1,0(a1)
+>> ffffffff80404764G       8e09                    sub     a2,a2,a0
+>> ...
+>>
+>> This is what the code expected.
+>=20
+> This issue can also be solved by avoiding global vars: load_pa and load_s=
+z.
+>=20
+> Hi Alexandre,
+>=20
+> IMHO, the load_pa and load_sz can be removed, I have one patch to remove
+> them, it works. I'm not sure whether will the two vars be used in your
+> future patches?
+>=20
 
-Agreed; in fact I am suspicious if this is part of some fallout from a recent
-change in Clang. There seems to be a smattering of similar warnings as in [1]
-which are preceded by the same warning about __lwsync().
+More or less, I want to move all the address conversion macros to inline=20
+functions as suggested by Christoph, and there I will need load_sz and=20
+load_pa. But I'm not sure it is really necessary.
 
-I see there is a patch [2] to address the issue with __lwsync(); perhaps this
-is related.
+Anyway, that would "solve" this issue, but I think we all agree the real=20
+problem should be solved at clang level.
 
-[1] https://lkml.org/lkml/2021/6/6/7
-[2] https://lkml.org/lkml/2021/5/28/690
 
-> 
-> >   1650	
-> >   1651		iqs626 = devm_kzalloc(&client->dev, sizeof(*iqs626), GFP_KERNEL);
-> >   1652		if (!iqs626)
-> >   1653			return -ENOMEM;
-> >   1654	
-> >   1655		i2c_set_clientdata(client, iqs626);
-> >   1656		iqs626->client = client;
-> >   1657	
-> >   1658		iqs626->regmap = devm_regmap_init_i2c(client, &iqs626_regmap_config);
-> >   1659		if (IS_ERR(iqs626->regmap)) {
-> >   1660			error = PTR_ERR(iqs626->regmap);
-> >   1661			dev_err(&client->dev, "Failed to initialize register map: %d\n",
-> >   1662				error);
-> >   1663			return error;
-> >   1664		}
-> >   1665	
-> >   1666		init_completion(&iqs626->ati_done);
-> >   1667	
-> >   1668		error = regmap_raw_read(iqs626->regmap, IQS626_VER_INFO, &ver_info,
-> >   1669					sizeof(ver_info));
-> >   1670		if (error)
-> >   1671			return error;
-> >   1672	
-> >   1673		if (ver_info.prod_num != IQS626_VER_INFO_PROD_NUM) {
-> >   1674			dev_err(&client->dev, "Unrecognized product number: 0x%02X\n",
-> >   1675				ver_info.prod_num);
-> >   1676			return -EINVAL;
-> >   1677		}
-> >   1678	
-> >   1679		error = iqs626_parse_prop(iqs626);
-> >   1680		if (error)
-> >   1681			return error;
-> >   1682	
-> >   1683		error = iqs626_input_init(iqs626);
-> >   1684		if (error)
-> >   1685			return error;
-> >   1686	
-> >   1687		error = devm_request_threaded_irq(&client->dev, client->irq,
-> >   1688						  NULL, iqs626_irq, IRQF_ONESHOT,
-> >   1689						  client->name, iqs626);
-> >   1690		if (error) {
-> >   1691			dev_err(&client->dev, "Failed to request IRQ: %d\n", error);
-> >   1692			return error;
-> >   1693		}
-> >   1694	
-> >   1695		if (!wait_for_completion_timeout(&iqs626->ati_done,
-> >   1696						 msecs_to_jiffies(2000))) {
-> >   1697			dev_err(&client->dev, "Failed to complete ATI\n");
-> >   1698			return -ETIMEDOUT;
-> >   1699		}
-> >   1700	
-> >   1701		/*
-> >   1702		 * The keypad may include one or more switches and is not registered
-> >   1703		 * until ATI is complete and the initial switch states are read.
-> >   1704		 */
-> >   1705		error = input_register_device(iqs626->keypad);
-> >   1706		if (error)
-> >   1707			dev_err(&client->dev, "Failed to register keypad: %d\n", error);
-> >   1708	
-> >   1709		return error;
-> >   1710	}
-> >   1711	
-> 
-> Thanks.
-> 
-> -- 
-> Dmitry
+> Thanks in advance,
+> Jisheng
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>=20
 
-Kind regards,
-Jeff LaBundy
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210606050401.GA5335%40labundy.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/b90a6bcb-22c4-e500-2586-d54cd881e02e%40ghiti.fr.
