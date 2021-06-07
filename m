@@ -1,214 +1,72 @@
-Return-Path: <clang-built-linux+bncBCN77QHK3UIBBGE37CCQMGQELWL2U3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYNZRF55MFBBBVD7CCQMGQEUMFZW5I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3b.google.com (mail-vs1-xe3b.google.com [IPv6:2607:f8b0:4864:20::e3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B3EE339DC04
-	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 14:14:17 +0200 (CEST)
-Received: by mail-vs1-xe3b.google.com with SMTP id u129-20020a672e870000b029025ee4624bbbsf1343613vsu.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 05:14:17 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1623068056; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=s2b9lByNQf0JeO4W1GDUQ/W/tezASd47vYqB02ApvqnDN+Y4hynK3PoE3MaWkcLQld
-         wh0Qx+XSB+Fa0f6F4bz0RBHSQQ1C9U+uZgFj1kFVfHtzobuzM0FLevqRmNjki7w5Gjhg
-         qBKbt0CVc9iBKJOP8qtUj4opLCUooEFc46YfUwX4UJgFdFqS6+Gf666FjV0P0EZdRk01
-         /UDW9T/hkU6mvn73t4VALInScOrVZ2HzTirw0JP1E5L5Gos/3anUyMnMwhTBFplamQal
-         u6z6x+oB5kMVxDqi3leqcov/7BRJ+zULs0NiJhZ+RWPpOxwTP0EvQajRQtfaLPcxwGRa
-         oZDA==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:in-reply-to
-         :content-disposition:references:message-id:subject:cc:to:from:date
-         :sender:dkim-signature;
-        bh=GRaMt1846GZYS84tdEPb58SoktyyoXXf1wFRiHnTViA=;
-        b=YpYThkkDzN/zaONaW7uCSAS1cb8lBirF3y9Gq/8+TMsx8SQC1GWALht+kMqPeUCYG5
-         3DWxohbHwYhfnTQf5dJbXesHGPP0nbKR63WFFM/pW+FtMpVrq86yDHXRHxMZsxezpmF1
-         gucpNCe7sszigCfEl6khYjUur5+BuZc5TAr0tqu4dS/44WuxPLIPvVz1UXy5DU5E8H5c
-         +Qi7Dr28W5/Nsg7oAYkFMGds8GuQ2u+kwqV6IiX8m4Cx7OUDlMLcHQvBZVspwjOpXiVb
-         233M7y2uzxyQRsVki4dYQMt2YQ7uDl0axxUcrwvhLPImdpsDVmJhVhwUKxMFHp4jqfOq
-         Rr8A==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=E2k+UnQV;
-       arc=pass (i=1 spf=pass spfdomain=nvidia.com dkim=pass dkdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
-       spf=pass (google.com: domain of jgg@nvidia.com designates 40.107.236.73 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
+Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E9DC39DC6A
+	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 14:31:04 +0200 (CEST)
+Received: by mail-ot1-x33f.google.com with SMTP id f7-20020a9d5e870000b02902f479dba730sf11343400otl.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 05:31:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references
-         :content-disposition:in-reply-to:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
+        h=sender:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GRaMt1846GZYS84tdEPb58SoktyyoXXf1wFRiHnTViA=;
-        b=nleS4anOM1a+8bloiJeJ/Ll2ApQcFGU9wsr+B+e7g59+IBMWtZZG6XIPHcnoEd8oj8
-         rTQqzEklBVT1umhbRV1hr5Gwx9/25N0J9lLPzPtY7NR3HuZfo6iNv+Q4jWKCbcAisSYw
-         Jh5tXVzS2PkhADmfVLUObyn8ueyYmA7NpqzptioevJNySh68oe0iq7MrD8MKJUvytvt8
-         FKcgFmHdWb+TbdIETA+5ER9sIWpfGquVSC8l6Ls3IFKI45qWREMtnUml5yNV+f/85K8e
-         PpN11HRftY6OkWAPArOx2dMviphJZCVMRF2UI8TLy035Nz2+3Yh2+G0orjr6IBZ9kyo8
-         dPGg==
+        bh=ahgmk42QdhFrPISe3+m8eaNA+MTLEVfmcmc/EVaz080=;
+        b=k3ne3GsG9+qZQW+FcEWxh9dLiA8O3AUvf9Hvr5eVt1i7GLmssEX6I+5Bq3BVBRzVxi
+         VCL2qN7qdcT0WjXMcccRJdtuj75OPn9UjwbRicHZvTKZnY0k3XzEB8g+OV64mrqSGR//
+         Hg4S+jpOc0qOyKNUovUv5yyavuEAudr+VDhBgCKw6G4EXceQCsnNN2ydwlwOm8+zCzRt
+         PAf5TaF0i2w2fDb0X0DFA8lu792Lhx4o/LWtgadH1eiHOWQObizWW4n8m2N3k1sqxuSY
+         YCljS+jCfKPSyTQwPyBSu9GcLO8NAT8IQD6f3i6UoMxYvGBFZVDCLEGytqp1xVIc8Tnn
+         QOLg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:message-id:in-reply-to:references:subject:mime-version
+         :x-original-sender:precedence:mailing-list:list-id:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ahgmk42QdhFrPISe3+m8eaNA+MTLEVfmcmc/EVaz080=;
+        b=hWZgigj4AOQw8BsHAL1Slx+2nnxj2vp3cJl+w1xIaGOTVQjWtZOk6EqIoko2IqJHdZ
+         q/ce24bV2jRoyQeXAUdBUadpTcz7GuUqpDLlyHgjJ6JXmgZ4le9pDCK+1GUiB8hsa19I
+         QM8pYkeonBy57ohZfUqBemKhIVSCZoR5B8/o++wTusEyE7uXuzfJN5tGmg4EXJ1laeEx
+         1Xzom03ZNJOa8ncZcY2s4Lt0bUFzyXzmn8UH6oTFmfzf66JdO2smInDy/uomvPXLhnEF
+         +Sm/pie5wAooBONQcXyZgkS803utKqUSOIOEnZ7yhSU5i2t50rtQMW2M3/+WEYD187u5
+         p2aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:content-disposition:in-reply-to:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
+        h=sender:x-gm-message-state:date:from:to:message-id:in-reply-to
+         :references:subject:mime-version:x-original-sender:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=GRaMt1846GZYS84tdEPb58SoktyyoXXf1wFRiHnTViA=;
-        b=kl9g1Y9AtDOFqc0WvUNZGdZWUOAcF/Ujzw79a4JfDuQ/qbbxehRftwSX+E0HuwR3TW
-         4pSdwPwr2ECWmV+uy7NL1PUS4875csSzca9t6SaN/jm601oXF3AgXwIfRkDxfVgyZuqi
-         ZRBkSjQu9hM9EUTWFdzY7C30kyv56tXW4wdmphRCiLeaaLnVylxagmHMXmDlR7YU5eCk
-         +tvF7Z42OpE+f6j1/VlbZDb3/NGJaIu48DFFjST+BiKUcawYRQsNNN/l2rWsW9SRSSBN
-         BbY7iClnzLuIs2vABQo6dtL3o1eifWvSr5P9giwJNyPFvang4rafGY0OXJZAWUwSYX+N
-         utNw==
+        bh=ahgmk42QdhFrPISe3+m8eaNA+MTLEVfmcmc/EVaz080=;
+        b=ldcsBPNJTUBK8Vyrnywbir1WHBUECuNmDmkUtOn9eUdSUKjV5x9oskgInDc65IJC/Q
+         T0essUC/CToCaxxqmAT+xzs92KSscfgBMuuslnfKLgUAEhn3LQ/vaNXn30NM9rWt8jXv
+         pe2IOcyuIodbqw6G1+vG0YnzdOccztieRj3tWC0AfEYYpiXVEuF963gpSHuoxQKVpAbb
+         snFGGrjCbRb4IKVZEECovKVMk//pp2WKjKEOIblgfN0chJTyC+RC0PDbITy0YW2Yhcm/
+         xBPTIuGXGIdeBaMgFNnWbG/1U7a7MRd4EACNCDFJKKmKlMh9Pk/kH3QMBaDwggX/a1AG
+         2nMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532GBXMdQAqS2SSr9iI2ob2O1uOE3tLUXqohVnr9dOQfk6DArffn
-	lMZ+JfykMzN4zg6g0f4Zbow=
-X-Google-Smtp-Source: ABdhPJxWRUiYK+2MjUfN647qZYY/QkT/ScgzqD2qgKbGTPuIO9qup+LA4zIZpOE3qjOKzHG+8veszA==
-X-Received: by 2002:ab0:4042:: with SMTP id h60mr9058150uad.133.1623068056763;
-        Mon, 07 Jun 2021 05:14:16 -0700 (PDT)
+X-Gm-Message-State: AOAM530NxY3QomonK3TeUZixdE6YeqlwtuJIUHbx+227shjoYqv1ov0F
+	HrXCN3YRUCh+HTOtbndmKGE=
+X-Google-Smtp-Source: ABdhPJyJLNm4zw/FfuCCdaMalMuHY0wqfD4WfNhSF2bNUk1eVxsjBTwpu+xbkhaE7yGZdGOeDYg1YQ==
+X-Received: by 2002:a4a:8241:: with SMTP id t1mr12773765oog.17.1623069062948;
+        Mon, 07 Jun 2021 05:31:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:7050:: with SMTP id v16ls1808238ual.10.gmail; Mon, 07
- Jun 2021 05:14:16 -0700 (PDT)
-X-Received: by 2002:ab0:7199:: with SMTP id l25mr9246943uao.6.1623068056235;
-        Mon, 07 Jun 2021 05:14:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623068056; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=wFtzVE/lLo1wq3mxUUz9VU1TeiPPL5abCtF3L/59d55aZDepawzvtcII7fF5kVOsQV
-         vZvgVJMJC/xQfsubIa7TtKHFn112F7yb2YKYK/po9q1VzxPReqDhrB5RZF+e2OEPNdYs
-         y3a2buZb9TQWymVlc364JX/IxK4QLVWBA7Rud4LwZ5gpJ93N8Ml5hofvHUoDwAGNjTUt
-         Leskk8fohcDgob2czMadaiZb6ooKjFZQnFcGC3gf4lXjYDm/OTYsLaQUYFydTlcQmoai
-         SxgwidoBHK4UsKav7howPjiMFUmUTcEl26CEi7HUt1+Ch4x3GYCX/MWNFjvq9Dxv3ZaM
-         R7vA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:in-reply-to:content-disposition:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=6GlhoFvrBgvEEpTTJB56ttHNxbEle3s9e54BpEp6W+k=;
-        b=bMH80CSzEuVcnIa/+Ayyhs6CHWV5XS4gaoNQh0UsvMwq3OOM82gRMXii+gRmGrQXoi
-         D6AOavOPH/jiafFIw6n4CQ8kl2JUSEklMU6r8nsHgVG9DiPKRvslxfYvnR2ku9/Jj/fG
-         bwSTs6cLjS8NQItOYte8TuhZ+NA11S5lHG/ivW4QMO0iKEOkkTzafYfGf1balJvPmdiC
-         poXROmsoHjefsV9kZgmLnkBR65xKxvhEQbqEH3TBU1qZCqcq3KR12nqpOEZElNZefKJp
-         9gTd/o9PrRGhx19wPaaMCo0+sDw9LNpTUCEIis6LHHp3kJOxgSbtwbkPGicSEOKGcLD5
-         +DCw==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=E2k+UnQV;
-       arc=pass (i=1 spf=pass spfdomain=nvidia.com dkim=pass dkdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
-       spf=pass (google.com: domain of jgg@nvidia.com designates 40.107.236.73 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (mail-bn8nam11on2073.outbound.protection.outlook.com. [40.107.236.73])
-        by gmr-mx.google.com with ESMTPS id f7si1333176vsh.2.2021.06.07.05.14.16
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 07 Jun 2021 05:14:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jgg@nvidia.com designates 40.107.236.73 as permitted sender) client-ip=40.107.236.73;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cVIVNJdM2DUfIZ+ykQsx+qzxdvDlDvwxTQ/AMRkrLI7WqxkdNTGFYRHLMFXq4QK3t3epobedYpYdfl/x8iHNP647KqCYRDtMIeYvgmzx6Ps0cLkXpWc/aANcqNIOh1zHeEy0Q258gWNYf84tolsplVu4lVctpTFWj0U44w69FD6G79TUmASm/3Y73AfhO2HD4ZMaXrJhcrx8Mv6NjSFCypMnoF2H6j8FGkyZUTEB4+WQ4q8AiYyHWRkdbDpV8RX48/Zarjs19B9s+nH7vibmnxbDseSDK0M/p5hgQ7qgBskMrk9Fp9/9e7Q8X8RszIp1wJSkmcy0mGFX/ecfst38Zg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6GlhoFvrBgvEEpTTJB56ttHNxbEle3s9e54BpEp6W+k=;
- b=Q5rrbBM00SeTrCnmpB1g3qQIXe12EwnaJZVXHSY3Xi6oX7DLVCalX00cxJ05dAfb/hbESuxWu3asyyxlAd0yHMgfp7OGPctCyME+grPoXNELBZ3Hqsrj2cmdcY7F3QH7v7cRXIi4AsYqNRECpRegE3eiY4qmBAFfvfLioDQPjMPSHOBkhGmpjCDfjNHGV7jEXkQ1ceYcHls6y/5IPo1wKfGNzhgrLWnjBChLfZkgUOb5sdvszgS02Sic94qA+80rd5WIcE+U0EIRmLGXV61hZpTqh1Q0mXz1Dcgx7ZSvCdR8LB/XVSCRHLZHuZeIvvk9kdtLVQThkil4yE4sFg0urw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-Received: from BL0PR12MB5506.namprd12.prod.outlook.com (2603:10b6:208:1cb::22)
- by BL1PR12MB5047.namprd12.prod.outlook.com (2603:10b6:208:31a::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4195.23; Mon, 7 Jun
- 2021 12:14:15 +0000
-Received: from BL0PR12MB5506.namprd12.prod.outlook.com
- ([fe80::3d51:a3b9:8611:684e]) by BL0PR12MB5506.namprd12.prod.outlook.com
- ([fe80::3d51:a3b9:8611:684e%6]) with mapi id 15.20.4195.030; Mon, 7 Jun 2021
- 12:14:13 +0000
-Date: Mon, 7 Jun 2021 09:14:11 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: Leon Romanovsky <leon@kernel.org>, Doug Ledford <dledford@redhat.com>,
-	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Adit Ranadive <aditr@vmware.com>, Ariel Elior <aelior@marvell.com>,
-	Christian Benvenuti <benve@cisco.com>,
-	clang-built-linux@googlegroups.com,
-	Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>,
-	Devesh Sharma <devesh.sharma@broadcom.com>,
-	Gal Pressman <galpress@amazon.com>, linux-kernel@vger.kernel.org,
-	linux-rdma@vger.kernel.org, Michal Kalderon <mkalderon@marvell.com>,
-	Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
-	Mustafa Ismail <mustafa.ismail@intel.com>,
-	Naresh Kumar PBS <nareshkumar.pbs@broadcom.com>,
-	Nelson Escobar <neescoba@cisco.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Potnuri Bharat Teja <bharat@chelsio.com>,
-	Selvin Xavier <selvin.xavier@broadcom.com>,
-	Shiraz Saleem <shiraz.saleem@intel.com>,
-	VMware PV-Drivers <pv-drivers@vmware.com>,
-	Yishai Hadas <yishaih@nvidia.com>,
-	Zhu Yanjun <zyjzyj2000@gmail.com>
-Subject: Re: [PATCH rdma-next v1 10/15] RDMA/cm: Use an attribute_group on
- the ib_port_attribute intead of kobj's
-Message-ID: <20210607121411.GC1002214@nvidia.com>
-References: <cover.1623053078.git.leonro@nvidia.com>
- <00e578937f557954d240bc0856f45b3f752d6cba.1623053078.git.leonro@nvidia.com>
- <YL3z/xpm5EYHFuZs@kroah.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <YL3z/xpm5EYHFuZs@kroah.com>
-X-Originating-IP: [47.55.113.94]
-X-ClientProxiedBy: BLAPR03CA0139.namprd03.prod.outlook.com
- (2603:10b6:208:32e::24) To BL0PR12MB5506.namprd12.prod.outlook.com
- (2603:10b6:208:1cb::22)
+Received: by 2002:aca:6285:: with SMTP id w127ls1755311oib.4.gmail; Mon, 07
+ Jun 2021 05:31:02 -0700 (PDT)
+X-Received: by 2002:a05:6808:1448:: with SMTP id x8mr11150103oiv.148.1623069062198;
+        Mon, 07 Jun 2021 05:31:02 -0700 (PDT)
+Date: Mon, 7 Jun 2021 05:31:01 -0700 (PDT)
+From: Mathieu Acher <mathieu.acher@gmail.com>
+To: Clang Built Linux <clang-built-linux@googlegroups.com>
+Message-Id: <ac2dae6b-a855-4b30-bd95-7b40e5cab4ccn@googlegroups.com>
+In-Reply-To: <CAK8P3a1BsNEy_Jf18-oxSjU24DPwrwzeLaT7zeujdvpW0B-0Kg@mail.gmail.com>
+References: <26f81a61-e2eb-47e9-b6e0-3989582bb955n@googlegroups.com>
+ <CAKwvOdmSV34MqtU+3xLSp-7gx4fnnirbsqDCenCXx=f=Tp-2tA@mail.gmail.com>
+ <CAK8P3a1BsNEy_Jf18-oxSjU24DPwrwzeLaT7zeujdvpW0B-0Kg@mail.gmail.com>
+Subject: Re: Building an existing .config (provided for gcc) with clang?
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from mlx.ziepe.ca (47.55.113.94) by BLAPR03CA0139.namprd03.prod.outlook.com (2603:10b6:208:32e::24) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4195.22 via Frontend Transport; Mon, 7 Jun 2021 12:14:12 +0000
-Received: from jgg by mlx with local (Exim 4.94)	(envelope-from <jgg@nvidia.com>)	id 1lqE8x-003GId-TF; Mon, 07 Jun 2021 09:14:11 -0300
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: a48c6dc1-5813-4368-1ac5-08d929adc318
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5047:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <BL1PR12MB5047DAA0C4C12CA108776FB1C2389@BL1PR12MB5047.namprd12.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:1122;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 6O7NDsNbqlKiyWmp36wHnBrocCbTvDBpuRcAoKOya/S2R+/8icgLWs6us+tMnkJNqZJ7puxPccSwUrwr1ozs6mg3ALSijGVmG3PK7hk2qc1faDnckmFlGEUDDs16u9+c06siLrfMAstHqd/4BUEPh8UogMVbI+v6PBHib3Hi0RTcPNHgxs6g3IQ42BHUtJkPoaqKhr3ARv4XaVjdUO2bkmtRInopNXfHz0U5t91f/+s/1YyfSDIDXG+FQgovLGcm2csMMAjcXsDx4K8tJiKyNxHlnoh28EugH6WjJskpaJQD7TS3haXM6erkKX0hyXa1eyVe/08AzwPsfc3tU76u5sd99HAn91QJ2iZAM7sk7BUGDTZHekCMxq5JGxx1ZZVuFPBjwHosP6UAErzHSoDXFJES/ypfHeG7FicCHSobHyJceYdydwr+te8+kUQWSobDcgI8hBJhDvkVFS9NaTU8mEkVlRvFJeFpWYJZphIbSuDKwwXPSDTRDA7Ufag9a5nN2tWO5YVoCzTxV6sfpBdVS/vaXW9BrmVgrJc3g8+gisP1ivL7UzQ/Cy7HTm7TfCTS3rGY4XFEgvHdzCrbiuK5eg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR12MB5506.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(39860400002)(346002)(376002)(136003)(366004)(396003)(8936002)(8676002)(4744005)(6916009)(478600001)(83380400001)(5660300002)(426003)(38100700002)(2616005)(1076003)(7416002)(26005)(316002)(186003)(66476007)(86362001)(36756003)(33656002)(54906003)(66946007)(66556008)(4326008)(9746002)(9786002)(2906002);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?u6zhcPsbzJF60/EsNTYg1Ek+HDGsrnolvkHsfxTAu81LvoD0JYsw6r5J5xjq?=
- =?us-ascii?Q?8M6Rd+6vtLGUrVo5d4/flbASLWPjGxL8P50MT2Da8/kB38WQAWAv9xXuOhZN?=
- =?us-ascii?Q?aBW9lplRxtYLCv1ufmAb+Cj7FcJqCIQKaJOrt31/uxvF59QyKLodrpVi57p+?=
- =?us-ascii?Q?Iulf4fUCyB78LNxCoki4AwNy6BVtuPQEGp1nsvds6vwzTcH7W6MCokf8QL8G?=
- =?us-ascii?Q?4JZKOuMhFd9o39D7qmOvSBZOO3pAnkIEwTMts/+Sazkirqck06VsI+EnSCBa?=
- =?us-ascii?Q?u2+4ePnmg4JrvypACPCbAgkzSsCD/uXrDxrRj5uQCwFdKX0TpZdFU63Z3M0N?=
- =?us-ascii?Q?3NQu/8wlpGEyhyCH7fDXPzn0Ma5XtsSZmn7LWhZVNCTQFpJesObQ58hkl+kT?=
- =?us-ascii?Q?Zbef39RwSPqAYUg5Q4hiel2YmkDA1GZFJ1vU2c61uQjlIdX79bEFzXKHI6oX?=
- =?us-ascii?Q?WwZKxqXlTaZGtUPvFxWOna7O2u8759YEiYvSzBMTV3EELgBm2ffSqoV1sy5M?=
- =?us-ascii?Q?MhLziThFuxgw7iQpwhcPgilWHHEHGgUMha1WXXJ+XlgyJPys88qcGqeS30q1?=
- =?us-ascii?Q?CkTtQ6YJEeaN0fRucHwpZotiI4Kj0zrz2gs3DLKBBFkpDho2nYkF61qtKFDN?=
- =?us-ascii?Q?sDBt2UHsyIaZlHWnLiVmhTPshF+PUfLwKu491yYQA+q871hvCuaPU//veG7s?=
- =?us-ascii?Q?dlm6pOS4ZtsM74MmoDOL9/6yBq4vfMQNr1YuvrAKvVbDla3mUUrcZPZMQJwk?=
- =?us-ascii?Q?e211/xDAK1FX3t3ZKxnPz5/dxdWtzi1dOBd6jPfPytFVMNVAD+D/IkNUEVoy?=
- =?us-ascii?Q?XMxppbxuAZhIaUcCQsbE3VDpzNpq569O/NA0jzanb0S20aoC31L0TUQZhxP3?=
- =?us-ascii?Q?8+jaenlopwKUJ9FVeZXQ8OBvENRg5m2Opc4DuFktfAUJG3geUdSr/0cOYjHs?=
- =?us-ascii?Q?YpIYn1bN/ELezvkHz9/ecr9Eb03GUaKE0wuaGB0ly1D1ftgHLQhko1MiwUCy?=
- =?us-ascii?Q?LJ70HPW6bzJ7rDeCLwOeaPQJ/M4JU4T7OP8SGS1TZ90fhD7dz/kSYRQy7joV?=
- =?us-ascii?Q?h5//wcZh/ZjD1LrvkjEZAeKgQKVrItBxl6m9rfobg9URMDgIhqsDwAAtvd9T?=
- =?us-ascii?Q?uq2Ro+KBlLH3MkRTvKft5dAO2j6rw7Ad0vqCG0AiN6kXi/yQtq2MaP8+ACpB?=
- =?us-ascii?Q?+X5DW8vcaxn2Eg9kNnGSC8VD3cFPXYMHnW2jGIUn9Qr4G5zPiacchh8pBLzc?=
- =?us-ascii?Q?IaK3dDwR3iAfX4XD7GiNHreRYF+o4Jfa9OLhj4IegPEZzuwvQ0CLCdUfsEXU?=
- =?us-ascii?Q?oEeSWnOTE0b36iZTXFP/a4Qr?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a48c6dc1-5813-4368-1ac5-08d929adc318
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR12MB5506.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jun 2021 12:14:13.1014
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 85v1dMoRgRsG4fTYChQWHxsnjY0VHN1N5zuFX2Kj5VqX5XalML9F05BWE0mKD8t1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5047
-X-Original-Sender: jgg@nvidia.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@Nvidia.com header.s=selector2 header.b=E2k+UnQV;       arc=pass
- (i=1 spf=pass spfdomain=nvidia.com dkim=pass dkdomain=nvidia.com dmarc=pass
- fromdomain=nvidia.com);       spf=pass (google.com: domain of jgg@nvidia.com
- designates 40.107.236.73 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_488_749094677.1623069061407"
+X-Original-Sender: mathieu.acher@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -221,33 +79,418 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 07, 2021 at 12:25:03PM +0200, Greg KH wrote:
-> On Mon, Jun 07, 2021 at 11:17:35AM +0300, Leon Romanovsky wrote:
-> > From: Jason Gunthorpe <jgg@nvidia.com>
-> > 
-> > This code is trying to attach a list of counters grouped into 4 groups to
-> > the ib_port sysfs. Instead of creating a bunch of kobjects simply express
-> > everything naturally as an ib_port_attribute and add a single
-> > attribute_groups list.
-> > 
-> > Remove all the naked kobject manipulations.
-> 
-> Much nicer.
-> 
-> But why do you need your counters to be atomic in the first place?  What
-> are they counting that requires this?  
+------=_Part_488_749094677.1623069061407
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_489_2135695115.1623069061407"
 
-The write side of the counter is being updated from concurrent kernel
-threads without locking, so this is an atomic because the write side
-needs atomic_add().
+------=_Part_489_2135695115.1623069061407
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Making them a naked u64 will cause significant corruption on the write
-side, and packet counters that are not accurate after quiescence are
-not very useful things.
+Thanks for your insights and advices Nick and Arnd.=20
 
-Jason
+ > (even different versions of the same compiler can have differences)
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210607121411.GC1002214%40nvidia.com.
+indeed, and it's even worth than that!=20
+We just experimented with Aaron Randrianaina that the same gcc version=20
+(6.3) can lead olddefconfig to override some original values for .config.=
+=20
+Specifically, +GCC_PLUGINS y (and related options) as well as -KASAN n=20
+
+Why? The reason was that gcc-6-plugin-dev was present in the original build=
+=20
+environment (Debian-based image), but not the new one!=20
+Looking=20
+at https://github.com/torvalds/linux/blob/master/scripts/gcc-plugins/Kconfi=
+g#L12=20
+and gcc-plugins.sh, and retrospectively, it makes sense.=20
+I am even tempting to say "it's obvious", but I won't since I spend a=20
+couple of times to understand it ;)
+
+tldr; controlling in a fine-grained way the build environment is very=20
+important for reproducible build=20
+
+Le mercredi 2 juin 2021 =C3=A0 20:50:20 UTC+2, Arnd Bergmann a =C3=A9crit :
+
+> On Wed, Jun 2, 2021 at 8:31 PM 'Nick Desaulniers' via Clang Built
+> Linux <clang-bu...@googlegroups.com> wrote:
+> > On Wed, Jun 2, 2021 at 3:13 AM Mathieu Acher <mathie...@gmail.com>=20
+> wrote:
+> > >
+> > > tldr; some "fixes" seem needed to build an arbitrary .config with gcc=
+=20
+> *and* clang
+> > >
+> > > I'm investigating a build scenario where I already have a .config=20
+> typically generated with randconfig and originally set up for building wi=
+th=20
+> gcc...
+> > > And I want to use clang instead to build it.
+> > > My experience so far is that the --syncconfig Kconfig asks me to fix=
+=20
+> some options' values
+> > > first, to choose between INIT_STACK_NONE and INIT_STACK_ALL... and=20
+> then to choose KCSAN: dynamic data race detector (KCSAN) or not...
+> >
+> > Hi Professor,
+> > It's a good question, one I don't really have a satisfactory answer for=
+.
+> >
+> > I think it's impossible (but would love to be corrected) to reuse
+> > exactly the same .config with two different compilers (even different
+> > versions of the same compiler can have differences). This is because
+> > KConfig also encodes not just various kernel drivers and features, but
+> > whether the toolchain supports certain features. So you can't force
+> > one compiler to claim to support some compiler flag, then actually use
+> > it. If at Kconfig time we detect the compiler has support for say a
+> > -fsanitize=3D flag, we encode that in the .config, then during the
+> > actual build just look that up in the .config and use the -fsanitze=3D
+> > flag.
+> >
+> > Probably the closest to what you're trying to do is the `olddefconfig`
+> > make target.
+>
+> Agreed. In particular, there is no guarantee of ABI compatibility between
+> kernel modules that are built in a different environment, whether that is
+> a different compiler (version) or different configuration.
+>
+> For the purpose of build testing, it is better to run the same commands f=
+or
+> configuring the kernel (defconfig, tinyconfig, allmodconfig, randconfig,=
+=20
+> ...)
+> rather than relying on an imported .config file.
+>
+> > > Two examples below, on Linux kernel 5.8.
+> > >
+> > > First, with tinyconfig
+> > >
+> > > make CC=3Dgcc tinyconfig
+> > > gcc --version
+> > > gcc (Debian 10.2.1-6) 10.2.1 20210110
+> > >
+> > > make CC=3Dclang-11
+> > > scripts/kconfig/conf --syncconfig Kconfig
+>
+> side note: when build testing, I would recommend using the '-s' flag to=
+=20
+> make
+> in order to have more readable output (no output on success), and using
+> separate object directories per target/compiler/config tuple.
+>
+> > > * Restart config...
+> > > *
+> > > *
+> > > * Memory initialization
+> > > *
+> > > Initialize kernel stack variables at function entry
+> > > > 1. no automatic initialization (weakest) (INIT_STACK_NONE)
+> > > 2. 0xAA-init everything on the stack (strongest) (INIT_STACK_ALL) (NE=
+W)
+> > > choice[1-2?]: 2
+> > > Enable heap memory zeroing on allocation by default=20
+> (INIT_ON_ALLOC_DEFAULT_ON) [N/y/?] n
+> > > Enable heap memory zeroing on free by default=20
+> (INIT_ON_FREE_DEFAULT_ON) [N/y/?] n
+> > >
+> > > and then the build proceeds...
+> > >
+> > > Maybe it's my setup/build environment, but I got errors:
+> > > CC arch/x86/events/amd/core.o
+> > > In file included from arch/x86/events/amd/core.c:12:
+> > > arch/x86/events/amd/../perf_event.h:854:21: error: invalid output siz=
+e=20
+> for constraint '=3Dq'
+> > > u64 disable_mask =3D __this_cpu_read(cpu_hw_events.perf_ctr_virt_mask=
+);
+> > > ^
+> > > ./include/linux/percpu-defs.h:446:2: note: expanded from macro=20
+> '__this_cpu_read'
+> > > raw_cpu_read(pcp); \
+> > > ^
+> > > ./include/linux/percpu-defs.h:420:28: note: expanded from macro=20
+> 'raw_cpu_read'
+> > > #define raw_cpu_read(pcp) __pcpu_size_call_return(raw_cpu_read_, pcp)
+> > > ^
+> > > ./include/linux/percpu-defs.h:321:23: note: expanded from macro=20
+> '__pcpu_size_call_return'
+> > > case 1: pscr_ret__ =3D stem##1(variable); break; \
+> > > ^
+>
+> This is a known bug that has since been fixed.
+>
+> > > Can we envision to have a generic procedure that would "fix" a .confi=
+g=20
+> (gcc oriented) in such a way clang can be used?
+> > > if it's "just" taking a .config and fixing INIT_STACK and KCSAN, I'm=
+=20
+> fine :)
+> >
+> > I think if you run `make CC=3Dclang olddefconfig` that will reuse as
+> > much as possible from the previous .config, no matter which toolchain
+> > it was built with.
+>
+> Yes, this should always result in a clean kernel build, if it does
+> not, that is a bug
+> we have to fix.
+>
+> However, this does not necessarily result in the intended kernel: a=20
+> 'tinyconfig'
+> may be larger, and an 'allmodconfig' or 'randconfig' may produce less bui=
+ld
+> coverage because it builds only the common subset of the available option=
+s.
+>
+>
+> > -CC_HAS_ASM_GOTO_OUTPUT y
+>
+> This was added in gcc-11
+>
+> > -CC_HAS_AUTO_VAR_INIT y
+> > -CC_HAS_KASAN_SW_TAGS y
+> > -INIT_STACK_ALL y
+> > INIT_STACK_NONE n -> y
+> > -HAVE_KCSAN_COMPILER y
+> > -KCSAN n
+> These depend on the compiler version as well as the target architecture
+>
+> > -CC_IS_CLANG y
+> > +CC_IS_GCC y
+> > CC_VERSION_TEXT "Debian clang version 11.0.1-2" -> "gcc (Debian=20
+> 10.2.1-6) 10.2.1 20210110"
+> > CLANG_VERSION 110001 -> 0
+> > GCC_VERSION 0 -> 100201
+>
+> These are obviously unavoidable
+>
+> > LD_VERSION 235020000 -> 235010000
+>
+> This one could be avoided by using the same binutils
+>
+> > KASAN_STACK 0 -> 1
+>
+> This is a workaround for known problems in some compilers
+>
+> Arnd
+>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/ac2dae6b-a855-4b30-bd95-7b40e5cab4ccn%40googlegroups.com.
+
+------=_Part_489_2135695115.1623069061407
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Thanks for your insights and advices Nick and Arnd.&nbsp;<div><br></div><di=
+v><div>&nbsp;&gt; (even different versions of the same compiler can have di=
+fferences)</div><div><br></div><div>indeed, and it's even worth than that!&=
+nbsp;</div><div>We just experimented with Aaron Randrianaina that the same =
+gcc version (6.3) can lead olddefconfig to override some original values fo=
+r .config.&nbsp;<br></div><div>Specifically,&nbsp;+GCC_PLUGINS y (and relat=
+ed options) as well as&nbsp;-KASAN n&nbsp;</div><div><br></div><div>Why? Th=
+e reason was that&nbsp;gcc-6-plugin-dev was present in the original build e=
+nvironment (Debian-based image), but not the new one!&nbsp;</div><div>Looki=
+ng at&nbsp;https://github.com/torvalds/linux/blob/master/scripts/gcc-plugin=
+s/Kconfig#L12 and gcc-plugins.sh, and retrospectively, it makes sense.&nbsp=
+;</div><div>I am even tempting to say "it's obvious", but I won't since I s=
+pend a couple of times to understand it ;)</div><div><br></div><div>tldr; c=
+ontrolling in a fine-grained way the build environment is very important fo=
+r reproducible build&nbsp;</div><br></div><div class=3D"gmail_quote"><div d=
+ir=3D"auto" class=3D"gmail_attr">Le mercredi 2 juin 2021 =C3=A0 20:50:20 UT=
+C+2, Arnd Bergmann a =C3=A9crit=C2=A0:<br/></div><blockquote class=3D"gmail=
+_quote" style=3D"margin: 0 0 0 0.8ex; border-left: 1px solid rgb(204, 204, =
+204); padding-left: 1ex;">On Wed, Jun 2, 2021 at 8:31 PM &#39;Nick Desaulni=
+ers&#39; via Clang Built
+<br>Linux &lt;<a href data-email-masked rel=3D"nofollow">clang-bu...@google=
+groups.com</a>&gt; wrote:
+<br>&gt; On Wed, Jun 2, 2021 at 3:13 AM Mathieu Acher &lt;<a href data-emai=
+l-masked rel=3D"nofollow">mathie...@gmail.com</a>&gt; wrote:
+<br>&gt; &gt;
+<br>&gt; &gt; tldr; some &quot;fixes&quot; seem needed to build an arbitrar=
+y .config with gcc *and* clang
+<br>&gt; &gt;
+<br>&gt; &gt; I&#39;m investigating a build scenario where I already have a=
+ .config typically generated with randconfig and originally set up for buil=
+ding with gcc...
+<br>&gt; &gt; And I want to use clang instead to build it.
+<br>&gt; &gt; My experience so far is that the --syncconfig Kconfig asks me=
+ to fix some options&#39; values
+<br>&gt; &gt; first, to choose between INIT_STACK_NONE and INIT_STACK_ALL..=
+. and then to choose KCSAN: dynamic data race detector (KCSAN)  or not...
+<br>&gt;
+<br>&gt; Hi Professor,
+<br>&gt; It&#39;s a good question, one I don&#39;t really have a satisfacto=
+ry answer for.
+<br>&gt;
+<br>&gt; I think it&#39;s impossible (but would love to be corrected) to re=
+use
+<br>&gt; exactly the same .config with two different compilers (even differ=
+ent
+<br>&gt; versions of the same compiler can have differences).  This is beca=
+use
+<br>&gt; KConfig also encodes not just various kernel drivers and features,=
+ but
+<br>&gt; whether the toolchain supports certain features.  So you can&#39;t=
+ force
+<br>&gt; one compiler to claim to support some compiler flag, then actually=
+ use
+<br>&gt; it.  If at Kconfig time we detect the compiler has support for say=
+ a
+<br>&gt; -fsanitize=3D flag, we encode that in the .config, then during the
+<br>&gt; actual build just look that up in the .config and use the -fsanitz=
+e=3D
+<br>&gt; flag.
+<br>&gt;
+<br>&gt; Probably the closest to what you&#39;re trying to do is the `oldde=
+fconfig`
+<br>&gt; make target.
+<br>
+<br>Agreed. In particular, there is no guarantee of ABI compatibility betwe=
+en
+<br>kernel modules that are built in a different environment, whether that =
+is
+<br>a different compiler (version) or different configuration.
+<br>
+<br>For the purpose of build testing, it is better to run the same commands=
+ for
+<br>configuring the kernel (defconfig, tinyconfig, allmodconfig, randconfig=
+, ...)
+<br>rather than relying on an imported .config file.
+<br>
+<br>&gt; &gt; Two examples below, on Linux kernel 5.8.
+<br>&gt; &gt;
+<br>&gt; &gt; First, with tinyconfig
+<br>&gt; &gt;
+<br>&gt; &gt; make CC=3Dgcc tinyconfig
+<br>&gt; &gt; gcc --version
+<br>&gt; &gt; gcc (Debian 10.2.1-6) 10.2.1 20210110
+<br>&gt; &gt;
+<br>&gt; &gt; make CC=3Dclang-11
+<br>&gt; &gt; scripts/kconfig/conf  --syncconfig Kconfig
+<br>
+<br>side note: when build testing, I would recommend using the &#39;-s&#39;=
+ flag to make
+<br>in order to have more readable output (no output on success), and using
+<br>separate object directories per target/compiler/config tuple.
+<br>
+<br>&gt; &gt; * Restart config...
+<br>&gt; &gt; *
+<br>&gt; &gt; *
+<br>&gt; &gt; * Memory initialization
+<br>&gt; &gt; *
+<br>&gt; &gt; Initialize kernel stack variables at function entry
+<br>&gt; &gt; &gt; 1. no automatic initialization (weakest) (INIT_STACK_NON=
+E)
+<br>&gt; &gt;   2. 0xAA-init everything on the stack (strongest) (INIT_STAC=
+K_ALL) (NEW)
+<br>&gt; &gt; choice[1-2?]: 2
+<br>&gt; &gt; Enable heap memory zeroing on allocation by default (INIT_ON_=
+ALLOC_DEFAULT_ON) [N/y/?] n
+<br>&gt; &gt; Enable heap memory zeroing on free by default (INIT_ON_FREE_D=
+EFAULT_ON) [N/y/?] n
+<br>&gt; &gt;
+<br>&gt; &gt; and then the build proceeds...
+<br>&gt; &gt;
+<br>&gt; &gt; Maybe it&#39;s my setup/build environment, but I got errors:
+<br>&gt; &gt; CC      arch/x86/events/amd/core.o
+<br>&gt; &gt; In file included from arch/x86/events/amd/core.c:12:
+<br>&gt; &gt; arch/x86/events/amd/../perf_event.h:854:21: error: invalid ou=
+tput size for constraint &#39;=3Dq&#39;
+<br>&gt; &gt;         u64 disable_mask =3D __this_cpu_read(cpu_hw_events.pe=
+rf_ctr_virt_mask);
+<br>&gt; &gt;                            ^
+<br>&gt; &gt; ./include/linux/percpu-defs.h:446:2: note: expanded from macr=
+o &#39;__this_cpu_read&#39;
+<br>&gt; &gt;         raw_cpu_read(pcp);                                   =
+           \
+<br>&gt; &gt;         ^
+<br>&gt; &gt; ./include/linux/percpu-defs.h:420:28: note: expanded from mac=
+ro &#39;raw_cpu_read&#39;
+<br>&gt; &gt; #define raw_cpu_read(pcp)               __pcpu_size_call_retu=
+rn(raw_cpu_read_, pcp)
+<br>&gt; &gt;                                         ^
+<br>&gt; &gt; ./include/linux/percpu-defs.h:321:23: note: expanded from mac=
+ro &#39;__pcpu_size_call_return&#39;
+<br>&gt; &gt;         case 1: pscr_ret__ =3D stem##1(variable); break;     =
+             \
+<br>&gt; &gt;                              ^
+<br>
+<br>This is a known bug that has since been fixed.
+<br>
+<br>&gt; &gt; Can we envision to have a generic procedure that would &quot;=
+fix&quot; a .config (gcc oriented) in such a way clang can be used?
+<br>&gt; &gt; if it&#39;s &quot;just&quot; taking a .config and fixing INIT=
+_STACK and KCSAN, I&#39;m fine :)
+<br>&gt;
+<br>&gt; I think if you run `make CC=3Dclang olddefconfig` that will reuse =
+as
+<br>&gt; much as possible from the previous .config, no matter which toolch=
+ain
+<br>&gt; it was built with.
+<br>
+<br>Yes, this should always result in a clean kernel build, if it does
+<br>not, that is a bug
+<br>we have to fix.
+<br>
+<br>However, this does not necessarily result in the intended kernel: a &#3=
+9;tinyconfig&#39;
+<br>may be larger, and an &#39;allmodconfig&#39; or &#39;randconfig&#39; ma=
+y produce less build
+<br>coverage because it builds only the common subset of the available opti=
+ons.
+<br>
+<br>
+<br>&gt; -CC_HAS_ASM_GOTO_OUTPUT y
+<br>
+<br>This was added in gcc-11
+<br>
+<br>&gt; -CC_HAS_AUTO_VAR_INIT y
+<br>&gt; -CC_HAS_KASAN_SW_TAGS y
+<br>&gt; -INIT_STACK_ALL y
+<br>&gt;  INIT_STACK_NONE n -&gt; y
+<br>&gt; -HAVE_KCSAN_COMPILER y
+<br>&gt; -KCSAN n
+<br>These depend on the compiler version as well as the target architecture
+<br>
+<br>&gt; -CC_IS_CLANG y
+<br>&gt; +CC_IS_GCC y
+<br>&gt;  CC_VERSION_TEXT &quot;Debian clang version 11.0.1-2&quot; -&gt; &=
+quot;gcc (Debian 10.2.1-6) 10.2.1 20210110&quot;
+<br>&gt;  CLANG_VERSION 110001 -&gt; 0
+<br>&gt;  GCC_VERSION 0 -&gt; 100201
+<br>
+<br>These are obviously unavoidable
+<br>
+<br>&gt;  LD_VERSION 235020000 -&gt; 235010000
+<br>
+<br>This one could be avoided by using the same binutils
+<br>
+<br>&gt;  KASAN_STACK 0 -&gt; 1
+<br>
+<br>This is a workaround for known problems in some compilers
+<br>
+<br>       Arnd
+<br></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/ac2dae6b-a855-4b30-bd95-7b40e5cab4ccn%40google=
+groups.com?utm_medium=3Demail&utm_source=3Dfooter">https://groups.google.co=
+m/d/msgid/clang-built-linux/ac2dae6b-a855-4b30-bd95-7b40e5cab4ccn%40googleg=
+roups.com</a>.<br />
+
+------=_Part_489_2135695115.1623069061407--
+
+------=_Part_488_749094677.1623069061407--
