@@ -1,132 +1,127 @@
-Return-Path: <clang-built-linux+bncBCJZRXGY5YJBBDHS7CCQMGQEDNXHKEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5JXFXXVEGRB54K7GCQMGQEWEWKRFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0962439E01D
-	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 17:19:42 +0200 (CEST)
-Received: by mail-oi1-x23b.google.com with SMTP id l1-20020a5441010000b02901ecd2ee1861sf7178110oic.13
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 08:19:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623079180; cv=pass;
+Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1A09839E195
+	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 18:12:41 +0200 (CEST)
+Received: by mail-qk1-x73c.google.com with SMTP id o5-20020a05620a22c5b02903aa5498b6f8sf7172953qki.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 09:12:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623082360; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0p0Ht/RGzXDhQP2igBnJkRoRBuk+ggDXNe0nrhrv0BRyTdmU44j3PirpNXnHGKfY5L
-         exiJC/TOhHylg9GyrFkQxeDQGymuC0SvXYgnYeIqp2p08r0z+8pTVSbqq0Ce+bBxY5id
-         HAIjXFg4jZDjfx8i4Xfirdowg9rp+71GBt/n4TG0zzCl3Y/+euYFIJ77wZvhZ16NCuT9
-         6/QSTKRwPhfShhAVsnt6Q5Ey4se+6iNIZuazNpNv+u6auieFJX8iXXAUsZfH1mBC+27I
-         Am+CQPQRsqgrBd0pA9cZJZARnOR+zhU6rNGGTu0uRtxC+oYaMK9lJ+nrkoI4N5hVozcJ
-         rZmw==
+        b=wloruXRJgiH9Vvqwfk0HS0YO3BhWMgtglT3dDzEQiJtOe1711/gp8rogAzY87vTxDD
+         Usc+tjjOw2Zw0+A9Fc0DIf8aSqlpY0Y/DXkdaKm/vu6l8haZPrT8a3XN9zp3oI4TktNk
+         3TKxllUWwrMISBmB2Ejccclk6yKIMIxZ2D9qp7IiD9ND2m3TeTFV2BNJrmoNWfl242xH
+         99JQJWIofjgqdsKDhk2efL0otAIK82nauJRR7xHo/HnrluSUY3mdNiFWYxSsyB0/1nOj
+         LMnJGTReit/hZgRkcniHqLVWY6BPgvV3DyeckQSmui8hePL6Vji7lHdqGfGljioLuiHu
+         ndOw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:reply-to:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=crhuD/eDEHNC+1Gklc1eER0ijCzhqf89RjKqv1ljQ1U=;
-        b=AUWWy+9n7/gKpXKnQomWpzgBuYnNl1EWvsIO6LkKSC/qUOCM1R9ZpESkp9Ty/A4FyA
-         TL45nHrrgKHK1iudRmXE9JjOQvoEkeTiBdYrr+d1pSq+HBe7tKluigGBNS2MlT6VY8Re
-         Nzg2UKCbADRt8/OiGXZVCWsBEdFVMJlY5vPl144ogOXLYaaUCbNSI7fpW/RCC/4JqvcB
-         hDm8hwLWmpGF7yXHt5XBYfUT0A1vSoJ+PYWsj8Ch7NuayMB/OABeOGn1fcystcUYLdF6
-         zqK99FlPZkpdtbIPr+aRBOeVnkvAqRiHVSc80SahLsrdq31sbY+iCYCdFiC3vjKi5are
-         evuA==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=ao0xN9HuZC5Tl91baZs5iVMJhMbTATuxQTntFvkUuyQ=;
+        b=tPQGhTumJuAV1XvFk+c926PxhZb7T0WOJeZaflcNreAPSvXC7FnCvaGiOy1fNwjsLL
+         E01QlnV1eaQ3XRsmunFdI1vIq6Wj8FEMy4QrH16HL97i+8VV91XHbQDaIgCOOLwTiF8X
+         vnZaPYatvMCiisjqsRnqiOS7Riorf8xeUHJQIpqYCb/IUHMS78uT2vWG7Yhhr+LX9hjd
+         M0UHlvhsJ4FfBlH4Odpq73OeF2SU8sNNfn4LTX1n4dtbAIgDe1KtBG5nciWNeDC9n6Yh
+         r/f361UAKGOKoLKkhRjTKHE3LH/yOpZwvoo3kz2sp1Y6pGR+hTxK/khFOmLU134eICyr
+         Q0lQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ZIPoT4F7;
-       spf=pass (google.com: domain of srs0=f9+n=lb=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=f9+N=LB=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=egYDQ0EE;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:reply-to:references
-         :mime-version:content-disposition:content-transfer-encoding
-         :in-reply-to:x-original-sender:x-original-authentication-results
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=crhuD/eDEHNC+1Gklc1eER0ijCzhqf89RjKqv1ljQ1U=;
-        b=UyLBX8GmRf7pTVV24ke2A/VSykITxmvcOPmXTBlPRUlJ0SP6raJWzAUnKaYbPqyb9J
-         rOmZp6rGf3y8CB0ttRKwqjqGZYsE08KITplLIR+vS17kcpsAJLV7gKV21PNJ5VuemL7D
-         iidvYjRz+bVowE2SSMElbNmeah/uDDcGKmi9JdT5zHrhbr/rfEDQvQ/uw7v2xVkStpzh
-         r/igs6rKKqjBTnWPyRWTw+lt3VlhVFxSjG1RFpQQ5t31Xq2haMD/KI3svlfrBh7XAEhR
-         hJ5PTHD4RFXT/QQqn730m5odCIoxswCsuTuFh2SYrvDV59xo30OnPfzg4aleKVE/AqTN
-         QF7g==
+        bh=ao0xN9HuZC5Tl91baZs5iVMJhMbTATuxQTntFvkUuyQ=;
+        b=BfowgfIFH6AKiZH9VBhGIR3JwYeXTse0IcPHUkIKCrg+EtzBSRHHOjS+PGLbw4vhgD
+         F2xZw+QM011j0T1NoqYNxYtCZS//yqy92RRF2fg+03Zssz1FlL4jXjh2gKI7ni6EFL0S
+         jbcc4swDN7n/DG/fg9RhfQeJd3NZgrSnlQmxCWmmcqMN8IRSNzrfhkZUBnXcvxlaljSL
+         Vh/AfKnVtHx9isOpKgmUidKwiRkrnBIIuJMS9i3VYnbUAD9bt2RyENi28LK6keRdU1mg
+         /87K2nROdMJk16CihP2u8oqKAj/8MAOqHW8TpPriTVtvT7nG/ucdm48Uh6+GNs552ktU
+         fJSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :reply-to:references:mime-version:content-disposition
-         :content-transfer-encoding:in-reply-to:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=crhuD/eDEHNC+1Gklc1eER0ijCzhqf89RjKqv1ljQ1U=;
-        b=nQG8kTFbMqb3JOrux191Y3+1kFmv0PdJX0EJa3QvXtqkaIDBrjwQ74KEfaxWW+KEAm
-         sKf7lYyk0AmRrORkBGov9BYztOV1StYXmkyW6Y00DoY0CvhiK9QVEBpl08CIiagwMRT2
-         gg9vLTcLVvQAVBr3JPmxrNLyWjGDMTaswqVSmehqWnbl4N2WgrefZ5e9y8CpsJJRsElF
-         sqIOFH0if99UsiNqFBXq1Io6L5hXMVRuicIjMDyE1EHSLPSqK/MJqb923X/QuMrjG1wd
-         7CusMNK5Y3PfuHQHlDrtZy95qb1xZXVtHO4mTIMwJBiuN5ziIS2B6VSC34a9yDt43PaP
-         B+Tg==
+        bh=ao0xN9HuZC5Tl91baZs5iVMJhMbTATuxQTntFvkUuyQ=;
+        b=ILVQQyGfk0I5pGE54hjQ/0JoJYhBD+9Y3PzaDaHvirFFDE3bk8CgJdkIxMQADZ+/Zx
+         qJgcIkcTB29sf2IiQJg5doZqDuzrPiK1AbzHzKlEPjuww/SVkjkguDvvO8XghSogyI3i
+         GeVbxgmLbP1okDV+meVnQbIOE8e70ukQtDrOmKyiNuslcVa6Ra9MxMDnq3BtPOmT2Ff9
+         /xh6Z968W52JWr+FceJf7DllyGGn2lPn1bGIr1EGo4kGgQercoKe1AQbm0sPMb6VxYjj
+         NRL8FJc6GpPYdRg8ktln7i6VtvzF9mcY/3nMkxTvBVgPNqEbKg0T3rl4Vgg9xJHDWX+s
+         Fsmw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531mzkjnYy5oUvcdzmlePscz/hYBWBPr8YV1IlB18jpBcL2dFIsU
-	TJxBwK3eaef9LN81PqwYo3E=
-X-Google-Smtp-Source: ABdhPJy5xAzO9RG5exBNfZCRmaaoQpp/tUEgI43k+LD9V6Kk/G6mtKGci845yo0CC3CAkJdFzqZp8g==
-X-Received: by 2002:a05:6830:1dda:: with SMTP id a26mr13343596otj.213.1623079180804;
-        Mon, 07 Jun 2021 08:19:40 -0700 (PDT)
+X-Gm-Message-State: AOAM530cGRR3T5+Rh8nae5b9ZIp3bIqyEp9LHWZiJwGoK/L1CNh5L6Su
+	11EfnRHKVwgTviGE0aU3UqU=
+X-Google-Smtp-Source: ABdhPJwzUdKpv3+XnBdOYglbNgHYkgHvQyeI2IgqBrLxFs+VWQIUBQsb7qUmId7nN0TCFtju7IE8XQ==
+X-Received: by 2002:ac8:647:: with SMTP id e7mr17003675qth.156.1623082359921;
+        Mon, 07 Jun 2021 09:12:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:310c:: with SMTP id b12ls5047865ots.9.gmail; Mon,
- 07 Jun 2021 08:19:40 -0700 (PDT)
-X-Received: by 2002:a05:6830:124d:: with SMTP id s13mr11953341otp.241.1623079180476;
-        Mon, 07 Jun 2021 08:19:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623079180; cv=none;
+Received: by 2002:a0c:be8d:: with SMTP id n13ls4779287qvi.4.gmail; Mon, 07 Jun
+ 2021 09:12:39 -0700 (PDT)
+X-Received: by 2002:a0c:9a43:: with SMTP id q3mr18936111qvd.30.1623082359462;
+        Mon, 07 Jun 2021 09:12:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623082359; cv=none;
         d=google.com; s=arc-20160816;
-        b=xtIek5aJ7LiVO6LYqmgRfdOWM5QCCRO2GzCWgBnAK8RMQ3u06hA8LT81VVim9TOJ2s
-         wV11bW6KnsGak14KSa0JS075qG9qouyiQwWX/jdcV3sI7o43Tkx0cU4fmgZ2uT2tulwO
-         X3AuAonEqmeMO9ooJNNvsTNuejHzt9DtK/xDJ+6JchxA6yFnxSn3uEBZL55nJd1zbM4a
-         3+1DH9O0Q+3gYAAsyzPsA+ca+cxZng97nlwNUwXu2KZ1a3uxpRqcVhGv8YIeD6qTAo76
-         1pk8X4/WVwbl5UBCKCZ/MQ414i9CooM2qnh4h4KQv65zJDRoh/WriH/e3Q6XU5CAqWR1
-         gsFQ==
+        b=yH+MPcBGvdlZLzVertXO/Lx1YKl1bnKGq0fdz4EcQ94fCyVWR6RhvKtHTKs0Rx7Fx4
+         oRXLPL7agBoJjCtIvmAMlFZrR+lggwN55ha61CFtO+tjUTG99To0/pf6syu7g/AMYCas
+         vI51IP4y+FcqBEjWYEmCdO5rV4TnGqzqQ0I7D5pSyfdYaKeDP+fk5AqOWuHmq95UKS9d
+         qOAT4wPfJoUqmO4KUnye9NIpaxD7dp9riKrRSLTj3A6iYAIS1t0fas5X6JIZbBhP6oi7
+         pQg6ciqK6Qf+WCPxa2dbElffMEZXFtjKlLP5XC1mXm5kyy5K/lkGD7sEFtmFpAGxM4b4
+         J8Ng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:reply-to:message-id:subject:cc:to:from:date
-         :dkim-signature;
-        bh=0K1W9LgoJwGPhiUg95dolULdtCtpdNxlaD7DaQG5JnM=;
-        b=PFV/woy/4PY6nudAW1FM56Gq/RG3Fm5OPa/Qg8ItQ+UlJuoznS9lQ+mIyGb3AzyMWa
-         kOrGsYO9EqpWwwwoBNDtbCHkgT/KLKnjTxGDYqs13t3JfY2T46xIWxHtCUdIZ33B8YDE
-         +wFJBStwKPVqOJjbxxZmeIDr8zQguby7O0YkKwh0yVV+mVSJE3PfYbdEZDIJwQOIbxbJ
-         B5ZK+TFpPDhsudfWDlxdn7qYTDYVhmAeZWS1ynFEXoibOjSEOwSVPrNmfryUa0U9Gac1
-         AUZev/zfkrIT3m0IAltjEaSSssYon5UzeyZFmepjfG0n3gbzEXbsObfPnU8BXGrfBraS
-         EgyA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=BagPSeknGnfdN3dtlke+JSnRZ1iGuwQ9ZWGsfgkRQ6g=;
+        b=rgGjpd3VYw9B8B0n/aQa5MeceWfyZR12rh5EFn3ySFi2JtVOLG0lE20D1TgcXT4It+
+         1cTMeUK+vdbPLPCVoQnlZzUF2D1hFpnSSYqTtVjYQxboGv7pFPxkLOg0uWtJ2oGc8pKM
+         PTxktP7SgB15W8T4lgfaoOgbQ9taObyhBi+XTDI0F9SmiagBfM893mtfqlvslMiqo8xC
+         kT7o9xonCOftUFgXg/+etZeQ/ZFTUnf6NNUc7rksadZcgNeTWZwd/1uQN4F43/UQJA3f
+         7pzuoKUtA+C9XnJHZkriyP6Mr9GpZtI5YGlEHGtEhvXQclGU2cRjJFJib9bR4Ou1DBU3
+         ItRA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ZIPoT4F7;
-       spf=pass (google.com: domain of srs0=f9+n=lb=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=f9+N=LB=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=egYDQ0EE;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c22si1231421oiy.1.2021.06.07.08.19.40
+        by gmr-mx.google.com with ESMTPS id d10si597062qtg.3.2021.06.07.09.12.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 07 Jun 2021 08:19:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of srs0=f9+n=lb=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 95C6460C3D;
-	Mon,  7 Jun 2021 15:19:39 +0000 (UTC)
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 5EE645C0395; Mon,  7 Jun 2021 08:19:39 -0700 (PDT)
-Date: Mon, 7 Jun 2021 08:19:39 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Rong Chen <rong.a.chen@intel.com>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Subject: Re: [kbuild-all] Re: kernel/rcu/tree.c:2073:23: warning: stack frame
- size of 2704 bytes in function 'rcu_gp_kthread'
-Message-ID: <20210607151939.GP4397@paulmck-ThinkPad-P17-Gen-1>
-Reply-To: paulmck@kernel.org
-References: <202106061253.0X2QKyyI-lkp@intel.com>
- <20210606044926.GJ4397@paulmck-ThinkPad-P17-Gen-1>
- <4696fe3d-a7ad-acae-686e-6295ca327737@intel.com>
+        Mon, 07 Jun 2021 09:12:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id C19E0613C7;
+	Mon,  7 Jun 2021 16:12:37 +0000 (UTC)
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Maciej Falkowski <maciej.falkowski9@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Sasha Levin <sashal@kernel.org>,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH AUTOSEL 5.12 18/49] ARM: OMAP1: Fix use of possibly uninitialized irq variable
+Date: Mon,  7 Jun 2021 12:11:44 -0400
+Message-Id: <20210607161215.3583176-18-sashal@kernel.org>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210607161215.3583176-1-sashal@kernel.org>
+References: <20210607161215.3583176-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <4696fe3d-a7ad-acae-686e-6295ca327737@intel.com>
-X-Original-Sender: paulmck@kernel.org
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=ZIPoT4F7;       spf=pass
- (google.com: domain of srs0=f9+n=lb=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org
- designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=f9+N=LB=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@kernel.org header.s=k20201202 header.b=egYDQ0EE;       spf=pass
+ (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,107 +134,72 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 07, 2021 at 05:18:21PM +0800, Rong Chen wrote:
->=20
->=20
-> On 6/6/21 12:49 PM, Paul E. McKenney wrote:
-> > On Sun, Jun 06, 2021 at 12:19:57PM +0800, kernel test robot wrote:
-> > > Hi Paul,
-> > >=20
-> > > FYI, the error/warning still remains.
-> > >=20
-> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linu=
-x.git master
-> > > head:   f5b6eb1e018203913dfefcf6fa988649ad11ad6e
-> > > commit: 7dffe01765d9309b8bd5505503933ec0ec53d192 rcu: Add lockdep_ass=
-ert_irqs_disabled() to raw_spin_unlock_rcu_node() macros
-> > > date:   5 months ago
-> > > config: powerpc-randconfig-r023-20210606 (attached as .config)
-> > > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project =
-551a697c5cf33275b66add4fc467fcf59084cffb)
-> > > reproduce (this is a W=3D1 build):
-> > >          wget https://raw.githubusercontent.com/intel/lkp-tests/maste=
-r/sbin/make.cross -O ~/bin/make.cross
-> > >          chmod +x ~/bin/make.cross
-> > >          # install powerpc cross compiling tool for clang build
-> > >          # apt-get install binutils-powerpc-linux-gnu
-> > >          # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/l=
-inux.git/commit/?id=3D7dffe01765d9309b8bd5505503933ec0ec53d192
-> > >          git remote add linus https://git.kernel.org/pub/scm/linux/ke=
-rnel/git/torvalds/linux.git
-> > >          git fetch --no-tags linus master
-> > >          git checkout 7dffe01765d9309b8bd5505503933ec0ec53d192
-> > >          # save the attached .config to linux build tree
-> > >          COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cro=
-ss ARCH=3Dpowerpc
-> > >=20
-> > > If you fix the issue, kindly add following tag as appropriate
-> > > Reported-by: kernel test robot <lkp@intel.com>
-> > >=20
-> > > All warnings (new ones prefixed by >>):
-> > >=20
-> > >     In file included from kernel/rcu/tree.c:21:
-> > >     In file included from include/linux/kernel.h:12:
-> > >     In file included from include/linux/bitops.h:29:
-> > >     In file included from arch/powerpc/include/asm/bitops.h:62:
-> > >     arch/powerpc/include/asm/barrier.h:49:9: warning: '__lwsync' macr=
-o redefined [-Wmacro-redefined]
-> > >     #define __lwsync()      __asm__ __volatile__ (stringify_in_c(LWSY=
-NC) : : :"memory")
-> > >             ^
-> > >     <built-in>:310:9: note: previous definition is here
-> > >     #define __lwsync __builtin_ppc_lwsync
-> > >             ^
-> > > > > kernel/rcu/tree.c:2073:23: warning: stack frame size of 2704 byte=
-s in function 'rcu_gp_kthread' [-Wframe-larger-than=3D]
-> > >     static int __noreturn rcu_gp_kthread(void *unused)
-> > Does -rcu commit 2f20de99a63b ("rcu: Make rcu_gp_cleanup() be noinline
-> > for tracing") help?
->=20
-> Hi Paul,
->=20
-> The stack frame size decreased to 2256 bytes:
->=20
-> =C2=A0 kernel/rcu/tree.c:2129:23: warning: stack frame size of 2256 bytes=
- in
-> function 'rcu_gp_kthread' [-Wframe-larger-than=3D]
+From: Maciej Falkowski <maciej.falkowski9@gmail.com>
 
-Very good, thank you!  Does the following patch (in addition to that
-commit) also help?
+[ Upstream commit 3c4e0147c269738a19c7d70cd32395600bcc0714 ]
 
-							Thanx, Paul
+The current control flow of IRQ number assignment to `irq` variable
+allows a request of IRQ of unspecified value,
+generating a warning under Clang compilation with omap1_defconfig on
+linux-next:
 
-------------------------------------------------------------------------
+arch/arm/mach-omap1/pm.c:656:11: warning: variable 'irq' is used
+uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+        else if (cpu_is_omap16xx())
+                 ^~~~~~~~~~~~~~~~~
+./arch/arm/mach-omap1/include/mach/soc.h:123:30: note: expanded from macro
+'cpu_is_omap16xx'
+                                        ^~~~~~~~~~~~~
+arch/arm/mach-omap1/pm.c:658:18: note: uninitialized use occurs here
+        if (request_irq(irq, omap_wakeup_interrupt, 0, "peripheral wakeup",
+                        ^~~
+arch/arm/mach-omap1/pm.c:656:7: note: remove the 'if' if its condition is
+always true
+        else if (cpu_is_omap16xx())
+             ^~~~~~~~~~~~~~~~~~~~~~
+arch/arm/mach-omap1/pm.c:611:9: note: initialize the variable 'irq' to
+silence this warning
+        int irq;
+               ^
+                = 0
+1 warning generated.
 
-diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
-index 13bd8eee62bf..ef435aeac993 100644
---- a/kernel/rcu/tree.c
-+++ b/kernel/rcu/tree.c
-@@ -1737,7 +1737,7 @@ static void rcu_strict_gp_boundary(void *unused)
- /*
-  * Initialize a new grace period.  Return false if no grace period require=
-d.
-  */
--static bool rcu_gp_init(void)
-+static noinline bool rcu_gp_init(void)
- {
- 	unsigned long firstseq;
- 	unsigned long flags;
-@@ -1931,7 +1931,7 @@ static void rcu_gp_fqs(bool first_time)
- /*
-  * Loop doing repeated quiescent-state forcing until the grace period ends=
-.
-  */
--static void rcu_gp_fqs_loop(void)
-+static noinline void rcu_gp_fqs_loop(void)
- {
- 	bool first_gp_fqs;
- 	int gf =3D 0;
+The patch provides a default value to the `irq` variable
+along with a validity check.
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20210607151939.GP4397%40paulmck-ThinkPad-P17-Gen-1.
+Signed-off-by: Maciej Falkowski <maciej.falkowski9@gmail.com>
+Link: https://github.com/ClangBuiltLinux/linux/issues/1324
+Signed-off-by: Tony Lindgren <tony@atomide.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm/mach-omap1/pm.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm/mach-omap1/pm.c b/arch/arm/mach-omap1/pm.c
+index 2c1e2b32b9b3..a745d64d4699 100644
+--- a/arch/arm/mach-omap1/pm.c
++++ b/arch/arm/mach-omap1/pm.c
+@@ -655,9 +655,13 @@ static int __init omap_pm_init(void)
+ 		irq = INT_7XX_WAKE_UP_REQ;
+ 	else if (cpu_is_omap16xx())
+ 		irq = INT_1610_WAKE_UP_REQ;
+-	if (request_irq(irq, omap_wakeup_interrupt, 0, "peripheral wakeup",
+-			NULL))
+-		pr_err("Failed to request irq %d (peripheral wakeup)\n", irq);
++	else
++		irq = -1;
++
++	if (irq >= 0) {
++		if (request_irq(irq, omap_wakeup_interrupt, 0, "peripheral wakeup", NULL))
++			pr_err("Failed to request irq %d (peripheral wakeup)\n", irq);
++	}
+ 
+ 	/* Program new power ramp-up time
+ 	 * (0 for most boards since we don't lower voltage when in deep sleep)
+-- 
+2.30.2
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210607161215.3583176-18-sashal%40kernel.org.
