@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDMMLW4BXYHBBPHU66CQMGQET2WDU6A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDMMLW4BXYHBBT7Y66CQMGQEPGAVRWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103a.google.com (mail-pj1-x103a.google.com [IPv6:2607:f8b0:4864:20::103a])
-	by mail.lfdr.de (Postfix) with ESMTPS id B44DD39DA1F
-	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 12:51:41 +0200 (CEST)
-Received: by mail-pj1-x103a.google.com with SMTP id y3-20020a17090abd03b029016be80ed24esf7860184pjr.1
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 03:51:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623063100; cv=pass;
+Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5480839DA7B
+	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 13:00:33 +0200 (CEST)
+Received: by mail-pg1-x53d.google.com with SMTP id 30-20020a630a1e0000b029021a63d9d4cdsf10020613pgk.11
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 04:00:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623063632; cv=pass;
         d=google.com; s=arc-20160816;
-        b=A2K5qmOEdVj97UVHBBFj05Awb46JW9QLhuXIgtgXbP8Ak2e7c/KrzDGhsUSNZhZn1n
-         gx/SmcnEnoaqxo8yXvgq5kQnSfPe5AHjBTxKBwKf4g3/f6gCKQBm6aU/3+pS0723K8DK
-         lElP8l1odTgAWNqxcML9b0/rtxzYhoARS5N3orKhsNsjJJAV6OIgwL1/D5Up6YBUt+4f
-         PB6kekXnZ4KlUGBmjMVZIhyuSQYYOnDX1dmucXQ3FHML+pKv5tDDxm1OHLS42cAGapBZ
-         vbYdc4D/PBE40KCWk+8DKe2yWajVeNQVkG6egc/EIs0tlqgwxTj7emXEW/RxDrCxrCM6
-         b57Q==
+        b=f5DQqbzExjd/1wFbsrFGxAorBJO9jUsPuor+6jtXWiCtgSYgfo/yUvWQQlXIOqysCp
+         9QqhQMmGZ1bNy3Dd0Ehu/Y0mwLawjFmF/23/F4sg/B0ZvA2M6K8+bYlVHD/x8SNfvr76
+         2U3vsNUEZ18IrSEzQagoMOD3kYMy42GFchQFz1ZC+PH50UOpl5d/qh5JCJUk4tuRMXR4
+         mByoT00QPDFORmyeg5QwYmuEl2NTmSr84oCBhO7wZOK2bndxIP5LOBqV09aI1ofBJ9f0
+         DXenVN9tMHUr6tIpUUyhW5CEtTWzx7nUryRBGGANx3esh5lD/xc/5BXG130P2bRPbEsu
+         JV3w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=nh2B7KW4qQACQL+7Pj/1liXAkYEDVMPfLR+w8ZVrhAw=;
-        b=W1nqogWjVKE8YUJxWFMpdlPiKSlgXgNtYGt2Ld2CGMgcj06b/6cDgzETCZyeGrdiG1
-         ewLnt/PP03K6D/2uw62fLY66n6nL0KSmaBZcb/qM4rJFnFpGEWHcmL31zD5WS/cFV4Ha
-         fvLbdbJ8yO2Tq9+6jz0pwbZ+43J4NhjPfUsv/UB0hbB6DpZ6odsLrDrql8IqDuSRUv9e
-         kSBXN8zw//JUt5/ILlPjdII0S8FldmYSSALXTUyogzNeE4t1M30se9s5vetxlP61sTu8
-         sFluMx2zqQKMm2UWhf4loXWIYjFxT0Ucuua/2eYWmxAKb5QR/mKViPwYe4lNFYW2B4Pf
-         cP8A==
+        bh=8m7/K1nCCtQUFRtXKg69uVcRmAEkLWt0WWKoXzg8suU=;
+        b=VgadTHC9WGSIk+pBj3+68zOlS5z0vHGC8X6W1MFLV1f/v1ZkD5VQvnVVsAEIbrNst1
+         AMEYX9xxq6MAcGfPgvSLVwc1j5xvzDxAG7Hvz9htvj6x79A7f9jdsO2SzfvcwmExmhDT
+         +LjU8Fl3T77kW9biCX96RW2Tco48ujb0XZuDCZSSG/5Pq4YG720qr6lmGRucJEJBQFNL
+         dqCMHK+pA1dGcP/anKYsUNkg+8+POh5Ivt43spIvNkFrDnx8nZg2qz0BKIVC7E4NSCeQ
+         EhkeMzhXm8IMtiT951F2HNR+p8BV+JHI0jBhtCbbLv8eqwO6EduZSz5+1vdTRZH31z12
+         T17g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=bHrnrbfd;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=UeoyKq7n;
        spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=nh2B7KW4qQACQL+7Pj/1liXAkYEDVMPfLR+w8ZVrhAw=;
-        b=PGHbf9AGxumBTlVlGjaIxfQD2rQC5/Xpmci3boPDRAUa+lNEz6DIZfAVy0AGin/HOE
-         8PiW7qthOavXYxImlAVGuVwAn/0l/T59RZvd+dleP5C0xJYmbAstt3KvucKfpv16z+zG
-         d9BtOOCztN/xY2WrJInpD3fyZjX9MoaNEter21istJkMGO2mgrA2flN4j9hdbZH7YeFu
-         TCfv1I2NXY30AytnQ9ug/Zzfi6Fg9v3rnHSIujs3e6x4xQ9BQ8rvAhd2uTc3dVv+L4Au
-         28eXXFqhbY8l2GzZ3qLdgYvv4xcVb/S+2kPTY5DsvjkB21qr+yBz87Q8osx7eLVsskPG
-         rS7g==
+        bh=8m7/K1nCCtQUFRtXKg69uVcRmAEkLWt0WWKoXzg8suU=;
+        b=kAAY7O1Id68+azLtPT0+oBZja1e4m5QWhdbhPD6/pOxwCxsNC7tXOoGJwA1PmemY1e
+         Kg/F3VcRuH0scWOHIPhYxnz7y8tXdplmYfKZDwLwS7+8ZUx0yUN+93x0gepu8oFT5peU
+         P3QPcs8F3MPHK5NRdtJzK1dg9PBx+hVkuhTncWz+gj1jCPNc6vJTd9W8wUJmX0gbtVXQ
+         Qy+hh4cQFhaJnxN4HmVBhRxMlqQW8Uipv0nujgVg1c+GFga/CARtJthj3r8HzlLUVMm6
+         pZx4Jm5cwLSZrnI9fxJs4l2JmPh9pXo5Xl0ttATIMQkTUjy/rpqzEbOAq+cxnRRB+FY5
+         v+BA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,55 +50,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=nh2B7KW4qQACQL+7Pj/1liXAkYEDVMPfLR+w8ZVrhAw=;
-        b=CD3nyj2ULyt6MYv638ZON1DVwO5KDXJ9NdOF9LsKgLx6wH3NMAUL7LEn9wbXfOstMZ
-         2PbdMkxyGPQnYAEVx4APpZCDVf94UD28RaUsucClTbeyQ0vxW97mHU3SpHeQefF1V5bS
-         81Day6d8Kb7/I7d8Kqzn9zE/f8JU1KwTCy0Gbf+aL2CCHENVf8JOqP9LI//6NOGB6hqs
-         KQBV34L5VVMItHvVTiVSY/FIPaWilJ3CVB6o12V/UrUbrzxo8rOOqi2XOZVhJo3IZY0g
-         9OW2qGqXVSqt5c7E7B571VA29vmSEEOmIGTZ0Vhjj12CKb7rDmcWtxhBSMxIql95zhM2
-         Hw3Q==
+        bh=8m7/K1nCCtQUFRtXKg69uVcRmAEkLWt0WWKoXzg8suU=;
+        b=I2wi7cD97EHlZog2J/lfN0aZitZA68vgNUqiSW30+ONlCgXfwCf4JAWRLd8BUiPg40
+         NFVbP/JuGNu34nKaMEIE2WRL7kOGdZRTxdmSflgZNdIYtXjoCcwIlTwrCgDLR/mksWfc
+         SqK5IHrwYECi+PLhZ81965MN9iBRG+whu6Il+bCM95hVnDBfwt1vxGEQvMJBf1tahGUH
+         bSc6dl485+xdtRvfnlED6O0Wm0RRB5gxv3jvK2diHteoLuSuMsMzSi43E3Qc8pLSOXTH
+         CzUhHaO29c25pS4VmMYV7hr5FxMDDNShlmZZeVHuE7V8o74CX0iV5YS/XOU/7cymsRFA
+         89Yg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533aWk2CM9w9LF8cwhIu6cZ1s+60Nby3KXGd/cPFdDx02rIWpQAN
-	mBka+puMYtqKIj5j/kooznw=
-X-Google-Smtp-Source: ABdhPJzvRuLSB4InSvscVmvrVEbGThDlc7YmUuRNNYqzty/pMUp8UshM0qqUQSrgNLz5oOSFATg8/A==
-X-Received: by 2002:a63:5252:: with SMTP id s18mr17265512pgl.229.1623063100458;
-        Mon, 07 Jun 2021 03:51:40 -0700 (PDT)
+X-Gm-Message-State: AOAM533cH+mVVulCiGvIRCvHp2vsO0FrgMMpvPsQAq8XfRqlubmLOs3f
+	m1OX5pNOkWMFHlGBnBosjqk=
+X-Google-Smtp-Source: ABdhPJyWa+r2/t7jJIi/5Pp2tnS1dci08qsnjVtjhCEEcF8g3Uv6dbJyt321iTxED+g+3uZ7SpoXfw==
+X-Received: by 2002:a17:903:4106:b029:10d:22fa:13d4 with SMTP id r6-20020a1709034106b029010d22fa13d4mr17405553pld.78.1623063631882;
+        Mon, 07 Jun 2021 04:00:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:d4b:: with SMTP id 11ls1341642pgn.5.gmail; Mon, 07 Jun
- 2021 03:51:40 -0700 (PDT)
-X-Received: by 2002:a63:f815:: with SMTP id n21mr17572718pgh.2.1623063099899;
-        Mon, 07 Jun 2021 03:51:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623063099; cv=none;
+Received: by 2002:a17:90a:bb11:: with SMTP id u17ls3290337pjr.1.gmail; Mon, 07
+ Jun 2021 04:00:30 -0700 (PDT)
+X-Received: by 2002:a17:90a:de15:: with SMTP id m21mr12865439pjv.87.1623063630110;
+        Mon, 07 Jun 2021 04:00:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623063630; cv=none;
         d=google.com; s=arc-20160816;
-        b=q9Gd4RF5mCnvNKlnqjFkR8k3ZbHX8hldnEoOZGjI2UJHz9kq+g6VyDVPYRK8+QUReZ
-         vKP0fgxNRgLVz1B71PVLCz4C1dSSEbSrgU7/Of+GkvFs9rsrHySSpSRwbKkAyLhOJb7m
-         fJeUj0jxqfxR+A4bH2npcLMmwFXxMV7ce3Tjl99M0GJeu8wnhWBSu458FcLMoir5K5JP
-         AHw69SUdyUmA4yOoONItmlYRxuDJNAPIuJecWb9EnH5uS7ngAgAsUsHNa/4IR0Q4n86F
-         PRBLR+Oqa7nIrVDualOLGaFv9ht/JeXerfa61fg8bE4Ste5P9cPoX0s/AFrRn7+cPp7t
-         MsIw==
+        b=G4/wO/bFQlnfY5I9pAejG4zUCdXqFlPOGPxACcLMUd7FfYoR6b9orYvNCrF+nHhqUI
+         qkkTgEAYoEggwD5BeRh7O2unrtcJwgJoJ5sNzvkfrbgWoCCKdoJ3/kTHpa1AF6O2YFfZ
+         d6hPZDdNaXlJ3511AOExkaTqjl8ePM+vfmDljPclkAmxs/AwZc7oxvDX/z9mXlnZRw2i
+         7oCvUluG+2nDtaME2FV2KnLyZM0vFTN90e1kQHDsvt/IBeVLIZKIuZsAVmC1xrTQHIYP
+         DLfQ++E13FKnzsOCGK+0gctupinJQ/FfKn7WGdERGSD7zz+D9N8sruFXR8HhiR/rOOhJ
+         nS9w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=eD0bk5f53n9uLo+gAYHtQzewYA+P20EM9sXTboHIMJ4=;
-        b=hh+RQv74DuLirpiVsaf63yqcNtgx7xwe/pt3tAsKjpjMdwxf25anlScWmiZVWRKuew
-         yr8Ea5LYZjAFYluKn2jXbcg+DXn+bJS5/DML6/3792bcwv9pDQ2TF/v9L3vC1t4YNjgC
-         TkYVP+u2nJnZnYoAAdifLc/apnWvFS+PCCGHHlcyoA/CY9ImV+biqiDkbkhQcm55yhpH
-         /bWJLvgEzQCs+01Yv3udfeFThTf9KvnhZi9+wkmHlNovFt4wVJJujD+mx6I0qtMZRevQ
-         WhTih4Wqj/VXu65ngK8DUiePjbm89GsEt6b+OWUagCXTKMwnb966aYu0NItY7jz3222w
-         rhgQ==
+        bh=xLL3EYvZrbVc0g06N2Q6tkIZP7m96MwTzRhwnK6TsM8=;
+        b=btpNnOr/AP9oSQ67ocTdQrNtGwMifUMbs2P9bOoePnByAj6/DxCxEkM7JPXvjGNypA
+         /4pjcQ9BfA5gWvPWyIpp1ijBGX9amiejquQMm5VWMN9xE33YaeiLXPvI2s9UvWu/iVvH
+         Yx/9owWYWMs2ji8IWyBZaYBOyrC2K2uEjb14uGWGioI5oauEusW3wQ+MnLEy3U+r8Jx7
+         eNJnR1o3Mb/8jdyeIXLQrHsHCr7ZVbuQfIdRzBx6vST9enjFNTRm5LCw+3JR8tjOScjg
+         JqV5eJyPxcUfuI1/XFZ+XdtkLyXLSZIT4wUaEDOX7/QRcPDoAZXOxa4145X6s/jedECC
+         Q8Fg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=bHrnrbfd;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=UeoyKq7n;
        spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c23si1305974pjv.2.2021.06.07.03.51.39
+        by gmr-mx.google.com with ESMTPS id j15si836028pll.3.2021.06.07.04.00.30
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 07 Jun 2021 03:51:39 -0700 (PDT)
+        Mon, 07 Jun 2021 04:00:30 -0700 (PDT)
 Received-SPF: pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id B4C7C60FDA;
-	Mon,  7 Jun 2021 10:51:38 +0000 (UTC)
-Date: Mon, 7 Jun 2021 13:51:36 +0300
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 25AAB60FDA;
+	Mon,  7 Jun 2021 11:00:29 +0000 (UTC)
+Date: Mon, 7 Jun 2021 14:00:26 +0300
 From: Leon Romanovsky <leon@kernel.org>
 To: Greg KH <gregkh@linuxfoundation.org>
 Cc: Doug Ledford <dledford@redhat.com>, Jason Gunthorpe <jgg@nvidia.com>,
@@ -122,19 +122,19 @@ Cc: Doug Ledford <dledford@redhat.com>, Jason Gunthorpe <jgg@nvidia.com>,
 	VMware PV-Drivers <pv-drivers@vmware.com>,
 	Yishai Hadas <yishaih@nvidia.com>,
 	Zhu Yanjun <zyjzyj2000@gmail.com>
-Subject: Re: [PATCH rdma-next v1 10/15] RDMA/cm: Use an attribute_group on
- the ib_port_attribute intead of kobj's
-Message-ID: <YL36OFkmlxJiqjvc@unreal>
+Subject: Re: [PATCH rdma-next v1 02/15] RDMA/core: Replace the ib_port_data
+ hw_stats pointers with a ib_port pointer
+Message-ID: <YL38SpQ3+mXAvp67@unreal>
 References: <cover.1623053078.git.leonro@nvidia.com>
- <00e578937f557954d240bc0856f45b3f752d6cba.1623053078.git.leonro@nvidia.com>
- <YL3z/xpm5EYHFuZs@kroah.com>
+ <6477a29059b1b4d92ea003e3b801a8d1df6d516d.1623053078.git.leonro@nvidia.com>
+ <YL3zmzSTJ8nE1yr6@kroah.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <YL3z/xpm5EYHFuZs@kroah.com>
+In-Reply-To: <YL3zmzSTJ8nE1yr6@kroah.com>
 X-Original-Sender: leon@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=bHrnrbfd;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=UeoyKq7n;       spf=pass
  (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=leon@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -150,33 +150,108 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 07, 2021 at 12:25:03PM +0200, Greg KH wrote:
-> On Mon, Jun 07, 2021 at 11:17:35AM +0300, Leon Romanovsky wrote:
+On Mon, Jun 07, 2021 at 12:23:23PM +0200, Greg KH wrote:
+> On Mon, Jun 07, 2021 at 11:17:27AM +0300, Leon Romanovsky wrote:
 > > From: Jason Gunthorpe <jgg@nvidia.com>
 > > 
-> > This code is trying to attach a list of counters grouped into 4 groups to
-> > the ib_port sysfs. Instead of creating a bunch of kobjects simply express
-> > everything naturally as an ib_port_attribute and add a single
-> > attribute_groups list.
+> > It is much saner to store a pointer to the kobject structure that contains
+> > the cannonical stats pointer than to copy the stats pointers into a public
+> > structure.
 > > 
-> > Remove all the naked kobject manipulations.
+> > Future patches will require the sysfs pointer for other purposes.
+> > 
+> > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> > Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
+> > ---
+> >  drivers/infiniband/core/core_priv.h |  1 +
+> >  drivers/infiniband/core/nldev.c     |  8 ++------
+> >  drivers/infiniband/core/sysfs.c     | 14 +++++++++++---
+> >  include/rdma/ib_verbs.h             |  3 ++-
+> >  4 files changed, 16 insertions(+), 10 deletions(-)
+> > 
+> > diff --git a/drivers/infiniband/core/core_priv.h b/drivers/infiniband/core/core_priv.h
+> > index 29809dd30041..ec5c2c3db423 100644
+> > --- a/drivers/infiniband/core/core_priv.h
+> > +++ b/drivers/infiniband/core/core_priv.h
+> > @@ -378,6 +378,7 @@ struct net_device *rdma_read_gid_attr_ndev_rcu(const struct ib_gid_attr *attr);
+> >  
+> >  void ib_free_port_attrs(struct ib_core_device *coredev);
+> >  int ib_setup_port_attrs(struct ib_core_device *coredev);
+> > +struct rdma_hw_stats *ib_get_hw_stats_port(struct ib_device *ibdev, u32 port_num);
+> >  
+> >  int rdma_compatdev_set(u8 enable);
+> >  
+> > diff --git a/drivers/infiniband/core/nldev.c b/drivers/infiniband/core/nldev.c
+> > index 01316926cef6..e9b4b2cccaa0 100644
+> > --- a/drivers/infiniband/core/nldev.c
+> > +++ b/drivers/infiniband/core/nldev.c
+> > @@ -2066,7 +2066,8 @@ static int stat_get_doit_default_counter(struct sk_buff *skb,
+> >  	}
+> >  
+> >  	port = nla_get_u32(tb[RDMA_NLDEV_ATTR_PORT_INDEX]);
+> > -	if (!rdma_is_port_valid(device, port)) {
+> > +	stats = ib_get_hw_stats_port(device, port);
+> > +	if (!stats) {
+> >  		ret = -EINVAL;
+> >  		goto err;
+> >  	}
+> > @@ -2088,11 +2089,6 @@ static int stat_get_doit_default_counter(struct sk_buff *skb,
+> >  		goto err_msg;
+> >  	}
+> >  
+> > -	stats = device->port_data ? device->port_data[port].hw_stats : NULL;
+> > -	if (stats == NULL) {
+> > -		ret = -EINVAL;
+> > -		goto err_msg;
+> > -	}
+> >  	mutex_lock(&stats->lock);
+> >  
+> >  	num_cnts = device->ops.get_hw_stats(device, stats, port, 0);
+> > diff --git a/drivers/infiniband/core/sysfs.c b/drivers/infiniband/core/sysfs.c
+> > index d11ceff2b4e4..b153dee1e0fa 100644
+> > --- a/drivers/infiniband/core/sysfs.c
+> > +++ b/drivers/infiniband/core/sysfs.c
+> > @@ -1031,8 +1031,6 @@ static void setup_hw_stats(struct ib_device *device, struct ib_port *port,
+> >  			goto err;
+> >  		port->hw_stats_ag = hsag;
+> >  		port->hw_stats = stats;
+> > -		if (device->port_data)
+> > -			device->port_data[port_num].hw_stats = stats;
+> >  	} else {
+> >  		struct kobject *kobj = &device->dev.kobj;
+> >  		ret = sysfs_create_group(kobj, hsag);
+> > @@ -1053,6 +1051,14 @@ static void setup_hw_stats(struct ib_device *device, struct ib_port *port,
+> >  	kfree(stats);
+> >  }
+> >  
+> > +struct rdma_hw_stats *ib_get_hw_stats_port(struct ib_device *ibdev,
+> > +					   u32 port_num)
+> > +{
+> > +	if (!ibdev->port_data || !rdma_is_port_valid(ibdev, port_num))
+> > +		return NULL;
+> > +	return ibdev->port_data[port_num].sysfs->hw_stats;
+> > +}
+> > +
+> >  static int add_port(struct ib_core_device *coredev, int port_num)
+> >  {
+> >  	struct ib_device *device = rdma_device_to_ibdev(&coredev->dev);
+> > @@ -1171,6 +1177,8 @@ static int add_port(struct ib_core_device *coredev, int port_num)
+> >  		setup_hw_stats(device, p, port_num);
+> >  
+> >  	list_add_tail(&p->kobj.entry, &coredev->port_list);
+> > +	if (device->port_data && is_full_dev)
+> > +		device->port_data[port_num].sysfs = p;
 > 
-> Much nicer.
-> 
-> But why do you need your counters to be atomic in the first place?  What
-> are they counting that requires this?  Given that they are just a
-> statistic for userspace, making them be a u64 should work just the same,
-> right?
+> You are saving off a pointer to a reference counted structure without
+> incrementing the reference count on it?  That's brave, and really wrong.
 
-The statistic counters are per-port, while the cm.c flows run in
-asynchronically in parallel for every CM connection.
-
-We need atomic variable to ensure that "write to u64" is not
-interrupted.
+This is done to ensure that device->port_data[port_num].sysfs is not set
+before "p" is properly configured. From reference point of view  "sysfs"
+is equal to "p" and the latter already initialized.
 
 Thanks
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YL36OFkmlxJiqjvc%40unreal.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YL38SpQ3%2BmXAvp67%40unreal.
