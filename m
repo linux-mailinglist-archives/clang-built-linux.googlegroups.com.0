@@ -1,146 +1,144 @@
-Return-Path: <clang-built-linux+bncBCS5F7M6QIOBB5H666CQMGQEZDFMZMY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBB5MC7CCQMGQETPY33BQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3c.google.com (mail-qv1-xf3c.google.com [IPv6:2607:f8b0:4864:20::f3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3438339DAE2
-	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 13:13:58 +0200 (CEST)
-Received: by mail-qv1-xf3c.google.com with SMTP id v19-20020a0ce1d30000b02902187ed4452esf12896531qvl.6
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 04:13:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623064437; cv=pass;
+Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 63DC439DB22
+	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 13:22:32 +0200 (CEST)
+Received: by mail-yb1-xb3a.google.com with SMTP id d6-20020a2568060000b0290535b52251cfsf21771360ybc.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 04:22:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623064951; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oBz6bmAxl9rXfc4FDyAL/iV3AuqZBYHk5a0S3Ktj0Pmz2IaVq1Mamc4oP7OQzcBt4X
-         JpZzESVYE7ydHhteZrNAVvSOMnc8VasA6DxUweQRjo3LmZ7mcVKrVZKzL9/Gce6ZyNUY
-         sg6r/gT/6F6jSShAxCd1VfDY1CbDm4M/EMEZH412X0jrbaMUPu9A+SvmoFEhnVj9EP/h
-         eUkSW0O05tO6JS1phlM5gi5SE/eVgt+WD3ZUJ43h3n8qhJxGxfWT8MZJOPaoOTAP9syY
-         K79nkz933ycNGgM71jGVUFmFX1EuRQ3q3j0up5xWaQcFP4xaiU3XB7zW3yFh8I8S4P/I
-         nuJw==
+        b=Rvf3zu5quQyX9Pfiu65zOp0wHAr1tuCPRsuuJCpc12rXohULCKM/ZAmFxr9AOu08zp
+         7OAHa/yX9oPqAjJoXlF4amb8Sok6qZEzOiBHY9u/hrFMiJaaQll21KhYNiS9arCmyq53
+         /h+IdEM8s6TAjiO2ztXERBFqwUWRepclidiFsSo5o8lUV4Tvuu0TxFYA34jlUEumWi7l
+         ZT0/j5b7c72sGTlfaZahxz5sCwRaJ+4TV75ifeuECPa7tEKsADHVejkwx1FeM2rmsFG1
+         dAMLGZ0bmWlC1baQkIzrmFG7BUjc0PKVq/D/W515W/iCtlULbcsSyJKTXm41cixR2X4x
+         GnfA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=3qGLWQ6hGadLrytyLWL1Z75r+Syt/3+a2ijDbkKe9AA=;
-        b=PxyjgrXfYVIdOt9AKB8PNUqd8m5rP0zUqxoUzzCLoUrkg4DJQSdQwBxRXu/VZpH657
-         MJX0fLrv6j5/hLVmqIB81bthgB+RnmmY1125m08EpxIw/3tpKczWTYEMpRQHPhBortWn
-         PYbFNSYe4e+e6H6D+5ix2W1+X9onb0yAOkhanOCdlfLkuwUVOa1tP1Zf5VEYapcPI7po
-         LNi7ua8nbgTwV3ZEVGrkw8u7B3P4QrD1WdRLbgJYgx0dMkCptNfN5Vreqw5LCbjRsnhL
-         VyAN2FeZG9cKCvhB7ZGwqIMf0yuO56DWQEIHMP/RSA/uehyULO0vCMqWFdGXP3POkjah
-         lrXA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=s+HymUfm+aPe6HZU7VpKLms0b84ggZZKhIfwkg2o0vY=;
+        b=1I4cD4zb7vFbVEKTMpMyyZ8+acnYozwFWoHxtDoTNFNXNluk3X0Wh3QGVWQRxZo/Pg
+         U+Nwb82SUqnKRTnP6bk0+Kj4O9ZAzvqniXAU78GLgd3e/BH+e93X2B49NGqB/4dMnl79
+         t+3Yw7Am1GibCO1B3WMKMPBKigjjByx+ubRiwNiweuhtWVa53a6Tn5a5zvZXlVfqs5Qg
+         upMV67dHvbeq4Aa8ZT0/kcI9EVKjNhL/sbNcbmngmDDliK78J5CoSKSnedaeoxSI0ryZ
+         trGQs51JtGbovnLfgMbhx9O6XfQgG6+AMkNZW16ZUbcPKcPUS1ijzS2lwWw8tXB2W5dH
+         76uA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=FnhiWZFg;
-       spf=pass (google.com: domain of nikolai.kondrashov@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=nikolai.kondrashov@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=FZ493wnR;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=3qGLWQ6hGadLrytyLWL1Z75r+Syt/3+a2ijDbkKe9AA=;
-        b=Ns7S/fnHhzGWrisZVZ9MAbrLECTy0zcCwgkaaq9cO6kir7bckxMcOIMA8ayXl/jIz7
-         IFv1ojHd/93SHLci9lg+dUiuHi3QTYfdl7udfYps6+AQxQqCP9nvux0D65iAYGF+eEQV
-         cptFQDz+SKAlhHUw6bRsSSJupvDhE5TIuRdIpNMnKakZWX0qNnvi3xzr4lIQun9MaH4b
-         yer3tAoWCjmQ2p3ogKyWz7MHWs3UGs6E5SEWFlG+/z8Zi/NktQsRgrH3s5A/gih298nr
-         /VAGrTD0vhW2sAsqnXjBUE73ePf227AdXISWsQuLzy2mvC6ZFD6x66bSMXAFwPxjPycs
-         VZww==
+        bh=s+HymUfm+aPe6HZU7VpKLms0b84ggZZKhIfwkg2o0vY=;
+        b=OhrsvLt0cLeIezs4tB9P6EkF+rBHcAVvHFVRkThQHNseRw9bSOXbri7bvePadAC/TK
+         ueTsJIBpGerjoCodn3hWrQJT2fM/fw62Q3p2Mkona0b+QiGuSlh97bAz0sFzksIJalGY
+         t59u47fTXHbvf11TKjwp/OMfwdtSHngUgpx1I/5iWtqo4lPLzdt2cbTNZ31wa+5YjSnf
+         wSL2nr0u+XYa/Kdj3Ea+9e3nkSdxErKiaL4D3os4h9fhIRwzc+uNdZbJW88u4jZzKwRQ
+         BeuMUx0AkaKHgKm4yobEPk0c85ErdEPnrKFsiLc9IVMZDcv6yFx1s5VbdQvTBazAUoE4
+         axsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=3qGLWQ6hGadLrytyLWL1Z75r+Syt/3+a2ijDbkKe9AA=;
-        b=aFNFGnyAT3p+ijTmj7xZvki0cmFFAqiENPjO3FN76YbxJ4X+aWBaZVd8EUA5SLO7yf
-         kVUoVtcBwnvyq2FnM4Jz0Ipaef5t7TE0yjmkl4BYwW5TXQ26Ua8aByjd4JLGXVElaBeV
-         49aCqq4k7saeL029090yuu2eOCzpRursnosE2Qa50SY5NEc6jcO+R9zpz9v2BcY1xkUI
-         iqQ2Nhb9rSL3XktNK7J9PAxGCu9frwMQZW6l4bVDgZVSnAio4UgDMhZIJCfAgy+mX98v
-         NkV1A/JOu61qH0dwBfgdumqc2KY7572MOlPgCWRSUxHvHkqpUhFkV12qq+j1IwTQRUuu
-         vMJg==
+        bh=s+HymUfm+aPe6HZU7VpKLms0b84ggZZKhIfwkg2o0vY=;
+        b=D0OE1lf8qhPQsAFNsjndMJ3SoJqVZ9sNkX38sFw/9QChAZRgm1hioQewV7PaYDinx/
+         VBkT7HMxzmyBqrgMbrju7RTE8tMFWFqW4ZxBIphaSPpOzxhUvMDw6SjqG1mV5jAUw2DW
+         Srwa7wuNVg+nQTyMeLuhW6xN95cM1exItamctqCWgWInw6QHkLGKadSc+GsLzmKrUg6l
+         Zx4Phu51siqJsU7Z+ATRDpEMUkZM6qfOXLYLM+2LWYOiLNlGw/sxu4AISGidJxzJaYEN
+         ai6YbLqpJqe5y5EvuB+B4Y+fH1pPOri25FDfmcs0K5ERFHVi/xF6olTS7ZL5UmQ9ouUZ
+         Ue2g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530bL26IZMzOR4UQd6J+iyUWQS/a0jg+zIjllrf6nWFVFXACKq9Z
-	YpMzk+PHUzUd42U+PyN/1Ho=
-X-Google-Smtp-Source: ABdhPJw4RNE94Q1PchynbwJeWEDsDPs6hHeo5EK5y7FvNKqQYYU/9yaxwzpyXHFuJ9584PvVMMGuNA==
-X-Received: by 2002:a37:9003:: with SMTP id s3mr15751169qkd.86.1623064437051;
-        Mon, 07 Jun 2021 04:13:57 -0700 (PDT)
+X-Gm-Message-State: AOAM5328SPpJVo9ijSNOfDnphKop8Do48O1ZDULrUeLwauupUeLYv6gs
+	Cu1MIAtU1cFfPQR0qZQOrL4=
+X-Google-Smtp-Source: ABdhPJz+HO+HJS4xzrJ/DKMby0I8WlsyjGH3Nojce9VZJyO079+9NgaH++h780JcQox7qdlJKtR5dg==
+X-Received: by 2002:a25:a08d:: with SMTP id y13mr23333949ybh.522.1623064950118;
+        Mon, 07 Jun 2021 04:22:30 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:f017:: with SMTP id l23ls8335085qkg.2.gmail; Mon, 07 Jun
- 2021 04:13:56 -0700 (PDT)
-X-Received: by 2002:ae9:e806:: with SMTP id a6mr15891887qkg.431.1623064436610;
-        Mon, 07 Jun 2021 04:13:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623064436; cv=none;
+Received: by 2002:a5b:3c3:: with SMTP id t3ls106462ybp.4.gmail; Mon, 07 Jun
+ 2021 04:22:29 -0700 (PDT)
+X-Received: by 2002:a25:af0d:: with SMTP id a13mr24094517ybh.14.1623064949638;
+        Mon, 07 Jun 2021 04:22:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623064949; cv=none;
         d=google.com; s=arc-20160816;
-        b=WPpbliRf36C08ZDE8ivnJxNEXsuczQGzdx5ThQAFttW5umF54UsIPP/N2WrzV9xHwG
-         gK4YRwjTFeNGInPItslkTOf+pTbmeAbD1X7Ehg6YTBl+cGhz2kI5/F4m3IvqTwNfj2hK
-         eQa+tA+QeDT3aSn9fbCLsZgvsFeTnaWzHi/uC97yS74Wg/nMNY1AhTtvVzmFxFZ53XIi
-         Dfp8tiEgFrqGNNbjlbtB29eceacCmVCUObA5PX2Lntc3pzKw2MJeI/il1jDUifdQC8WC
-         LYhDJ12tvY9zDD601VHOaxJexLDvuCFql/XOotCvCdwGxs9I2kN5LXgvLRttDegYOpDu
-         UZ2A==
+        b=TQqK1ct88bGF3rRBvSJDZLfbCQ4I1ID+rYcmisoOv8IWSL8MgWxMBI4dbcclxcQtLo
+         ns9NV2IikhA+mckTDQEhMp5D1TaXxE+n8TPbHtRqVNiDxG2IPaHh2qw5N9IucxoZLn/s
+         d/aJHHoEMizjFsSXYKpZKS6w58cAk2E2RFGTonvVDqfvC+slsv99nD5uqgqNDTMXWNe2
+         1KC5UPGqQws1qpjrTT/z4T/0wbkuHCO0xDT0K2nG/69ZpjDTOo0LQBHbpQSx5ToGh19d
+         AZ3WclQCg7MsXMJjMIJyYPPIJVEE+2NzU5QPLbsivRdcwzZq2cqV65libIkVkRPikcf7
+         +3Kw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=bPHSwgrWO6ZPTmr+WHf07a7kOVoSYExXq61bzX02VyI=;
-        b=Awbfp0H99fGy0h1UzQ03SmIiaBI/Q2XeSLh9QwIwCUTKyG0J9C1LVkGz6Cnsx+aJC2
-         d3sZX0BXnawPAU7djHmflhH/ycWGMiM4m4Sq3pz1g1gQOdW339u2DZVBRnI3un/DHU9c
-         kVLq4E7hKeuJ2Sjnj5JEHRZEN5dqvx1C8zEkRJ+gRwZpM3RBUwIwAXO7eEI0PJ8GkI3n
-         fb59xTddw+hZ9qUCyEsJAQekO/WOM3j3MHxzuf0d6y6LCA3j83e1ru/ImV6HOdUXaOcr
-         Vb0QAwwzgridLx003iQDA/GaANWJZN63X5l+ghdGk4jp3xlR0ptCJySIEI2bRkwphHb/
-         T9ew==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=8V5LgJfWrDorVHOc6xC0uMt+rmPvuxBZh6r2HnXb5+I=;
+        b=rR5eB5eLxrNHEqTtCd2PGSI7JkuqfYJgZEX0bauD1fEDI+s0uUzEXmK6qXMwYw5t5+
+         ZjslKj1CeByricpyB8VHbeIfqmT30rHPqCt/Vqx1+00/Ujd/gS1vzb7sHn+R+Ur11HfB
+         Usp1ktJhOUq1Sb9IJmagWUZSBM8z16R/hwLhgmJMBWVD1Y4x/riXN0h1hMmUpYoLVIcg
+         KlmdBGTEqndzQy567h161yyZBlxjZQOQ/1QGgmnt/RD9l/9qxRBpo6KZMKNLATgyvgef
+         mt0i/rMP34ZctEawbYuNBg+LZ0NrI36UQy8P/0uR0ZG6Qh6knW/VYeh6mn5uWeO+cmYd
+         8olQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=FnhiWZFg;
-       spf=pass (google.com: domain of nikolai.kondrashov@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=nikolai.kondrashov@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
-        by gmr-mx.google.com with ESMTPS id 85si1120321qkm.5.2021.06.07.04.13.56
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=FZ493wnR;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id s65si357043ybi.5.2021.06.07.04.22.29
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 07 Jun 2021 04:13:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nikolai.kondrashov@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-218-x6a531w3MVyRutC1mELXhw-1; Mon, 07 Jun 2021 07:13:53 -0400
-X-MC-Unique: x6a531w3MVyRutC1mELXhw-1
-Received: by mail-wm1-f69.google.com with SMTP id k5-20020a05600c1c85b02901ac8b854c50so1115718wms.5
-        for <clang-built-linux@googlegroups.com>; Mon, 07 Jun 2021 04:13:53 -0700 (PDT)
-X-Received: by 2002:adf:a193:: with SMTP id u19mr16795280wru.9.1623064432324;
-        Mon, 07 Jun 2021 04:13:52 -0700 (PDT)
-X-Received: by 2002:adf:a193:: with SMTP id u19mr16795262wru.9.1623064432140;
-        Mon, 07 Jun 2021 04:13:52 -0700 (PDT)
-Received: from [192.168.0.118] (88-113-28-221.elisa-laajakaista.fi. [88.113.28.221])
-        by smtp.gmail.com with ESMTPSA id v18sm17085301wrb.10.2021.06.07.04.13.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Jun 2021 04:13:51 -0700 (PDT)
-Subject: Re: #KCIDB engagement report
-To: Nick Desaulniers <ndesaulniers@google.com>,
- Nikolai Kondrashov <spbnick@gmail.com>
-Cc: kernelci@groups.io,
- "automated-testing@yoctoproject.org" <automated-testing@yoctoproject.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Vishal Bhoj <vishal.bhoj@linaro.org>,
- Antonio Terceiro <antonio.terceiro@linaro.org>,
- Remi Duraffort <remi.duraffort@linaro.org>
-References: <5a9bf050-0671-3273-cc4f-1b131445c1fe@redhat.com>
- <CAKwvOdmwRV6R6dcpcSL06SNVQ1_JwvOJMZPYiHKvjSx4sf_95g@mail.gmail.com>
- <d4c587c2-7eca-043f-06b3-7e1cfa125b38@gmail.com>
- <CAKwvOdkFqFoNUczEiTKY6o2E78bHLkMjeHjtQWKm=Qdg7-v26Q@mail.gmail.com>
-From: Nikolai Kondrashov <Nikolai.Kondrashov@redhat.com>
-Message-ID: <0e70beb7-49fe-efba-ef41-a35fa996bdcf@redhat.com>
-Date: Mon, 7 Jun 2021 14:13:50 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.10.0
+        Mon, 07 Jun 2021 04:22:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 0672E6101A;
+	Mon,  7 Jun 2021 11:22:28 +0000 (UTC)
+Date: Mon, 7 Jun 2021 13:22:26 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Doug Ledford <dledford@redhat.com>, Jason Gunthorpe <jgg@nvidia.com>,
+	Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Adit Ranadive <aditr@vmware.com>, Ariel Elior <aelior@marvell.com>,
+	Christian Benvenuti <benve@cisco.com>,
+	clang-built-linux@googlegroups.com,
+	Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>,
+	Devesh Sharma <devesh.sharma@broadcom.com>,
+	Gal Pressman <galpress@amazon.com>, linux-kernel@vger.kernel.org,
+	linux-rdma@vger.kernel.org, Michal Kalderon <mkalderon@marvell.com>,
+	Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
+	Mustafa Ismail <mustafa.ismail@intel.com>,
+	Naresh Kumar PBS <nareshkumar.pbs@broadcom.com>,
+	Nelson Escobar <neescoba@cisco.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Potnuri Bharat Teja <bharat@chelsio.com>,
+	Selvin Xavier <selvin.xavier@broadcom.com>,
+	Shiraz Saleem <shiraz.saleem@intel.com>,
+	VMware PV-Drivers <pv-drivers@vmware.com>,
+	Yishai Hadas <yishaih@nvidia.com>,
+	Zhu Yanjun <zyjzyj2000@gmail.com>
+Subject: Re: [PATCH rdma-next v1 10/15] RDMA/cm: Use an attribute_group on
+ the ib_port_attribute intead of kobj's
+Message-ID: <YL4Bcm2dOyWKLGJ7@kroah.com>
+References: <cover.1623053078.git.leonro@nvidia.com>
+ <00e578937f557954d240bc0856f45b3f752d6cba.1623053078.git.leonro@nvidia.com>
+ <YL3z/xpm5EYHFuZs@kroah.com>
+ <YL36OFkmlxJiqjvc@unreal>
 MIME-Version: 1.0
-In-Reply-To: <CAKwvOdkFqFoNUczEiTKY6o2E78bHLkMjeHjtQWKm=Qdg7-v26Q@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: nikolai.kondrashov@redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <YL36OFkmlxJiqjvc@unreal>
+X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=FnhiWZFg;
-       spf=pass (google.com: domain of nikolai.kondrashov@redhat.com
- designates 170.10.133.124 as permitted sender) smtp.mailfrom=nikolai.kondrashov@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@linuxfoundation.org header.s=korg header.b=FZ493wnR;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,188 +151,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Nick,
-
- >> We don't have a ready-made UI for this, but I think I can add a Grafana
- >> panel/dashboard for that rather quickly. What would be most helpful?
- >
- > I think so.
- >
- > For a given tuple of (tree, branch, configuration), it would be neat
- > to be able to link to a deterministic URL to quickly check who else
- > may have built this recently, and what was the result.
-
-I made a stab at it. I added "Repository" and "Branch" dashboards, showing 
-revisions for a particular repository and branch respectively. They are 
-accessible from the dropdown menu in the top left corner.
-
-Repositories are also linked from the "Home" dashboard, branches - from 
-"Repository" dashboard, and both are linked from "Revision" dashboard.
-
-Additionally, "Home", "Repository", "Branch", and "Revision" dashboards now 
-allow filtering builds by architecture and configuration name. Please be aware 
-that neither are really standardized across submitters yet.
-
-Finally, whoever is reading this, please be aware of the time range selector 
-in the top right corner. It affects every dashboard.
-
- >> How about having a list of "Compilers" below the "Builds" on the page
- >> you link? Each line in that list could correspond to a unique value of
- >> the "Compiler" field, and give an aggregated summary of various
- >> parameters, including build/test results. We can also have a summary per
- >> architecture, or per "Configuration".
- >>
- >> Or maybe something else would help you better?
- >
- > Hard to imagine, but maybe we can iterate on something?
-
-Sure, check it out and tell me what you'd like done differently :)
-
-Nick
-
-On 6/1/21 10:10 PM, Nick Desaulniers wrote:
-> On Tue, May 25, 2021 at 3:32 AM Nikolai Kondrashov <spbnick@gmail.com> wrote:
->>
->> Hi Nick,
->>
->> On 5/24/21 8:38 PM, Nick Desaulniers via groups.io wrote:
->>   > Hi Nikolai,
->>   > It's nice to see our results getting collected; it looks for a given
->>   > tree I can even see the build results of different compilers.
->>   >
->>   > For example, here's a recent run of mainline:
->>   >
->> https://kcidb.kernelci.org/d/revision/revision?orgId=1&var-dataset=kernelci04&var-id=c4681547bcce777daf576925a966ffa824edd09d
->>   >
->>   > One thing we need to be able to quickly triage when we see a build
->>   > failure with one toolchain is "is this toolchain specific or not?"  I
->>   > figure KCIDB has the data; is there a way to surface the results of
->>   > such a query quickly?  If not, that would really help us.
->>
->> We don't have a ready-made UI for this, but I think I can add a Grafana
->> panel/dashboard for that rather quickly. What would be most helpful?
+On Mon, Jun 07, 2021 at 01:51:36PM +0300, Leon Romanovsky wrote:
+> On Mon, Jun 07, 2021 at 12:25:03PM +0200, Greg KH wrote:
+> > On Mon, Jun 07, 2021 at 11:17:35AM +0300, Leon Romanovsky wrote:
+> > > From: Jason Gunthorpe <jgg@nvidia.com>
+> > > 
+> > > This code is trying to attach a list of counters grouped into 4 groups to
+> > > the ib_port sysfs. Instead of creating a bunch of kobjects simply express
+> > > everything naturally as an ib_port_attribute and add a single
+> > > attribute_groups list.
+> > > 
+> > > Remove all the naked kobject manipulations.
+> > 
+> > Much nicer.
+> > 
+> > But why do you need your counters to be atomic in the first place?  What
+> > are they counting that requires this?  Given that they are just a
+> > statistic for userspace, making them be a u64 should work just the same,
+> > right?
 > 
-> I think so.
+> The statistic counters are per-port, while the cm.c flows run in
+> asynchronically in parallel for every CM connection.
 > 
-> For a given tuple of (tree, branch, configuration), it would be neat
-> to be able to link to a deterministic URL to quickly check who else
-> may have built this recently, and what was the result.
-> 
->> How about having a list of "Compilers" below the "Builds" on the page
->> you link? Each line in that list could correspond to a unique value of
->> the "Compiler" field, and give an aggregated summary of various
->> parameters, including build/test results. We can also have a summary per
->> architecture, or per "Configuration".
->>
->> Or maybe something else would help you better?
-> 
-> Hard to imagine, but maybe we can iterate on something?
-> 
->>
->> Nick
->>
->> On 5/24/21 8:38 PM, Nick Desaulniers via groups.io wrote:
->>> On Mon, May 24, 2021 at 12:50 AM Nikolai Kondrashov
->>> <Nikolai.Kondrashov@redhat.com> wrote:
->>>>
->>>> Hi everyone,
->>>>
->>>> Below is the monthly report on KCIDB* engagement. It lists various CI systems
->>>> and their status of engagement with KCIDB, and once we get to that, will list
->>>> developer engagement.
->>>>
->>>> Lines with updates are marked with "!".
->>>>
->>>> Not much news this time, as I had to tend to CKI matters, and had a couple
->>>> weeks of vacation. I still have to tie some loose CKI ends before I return to
->>>> working on a new KCIDB release and reaching developers with e-mail
->>>> notifications.
->>>>
->>>> However, I did try to contact Huawei's Compass CI with an invitation for
->>>> cooperation, but got no response so far.
->>>>
->>>>        KernelCI native
->>>>            Sending (a lot of) production build and test results.
->>>>            https://staging.kernelci.org:3000/?var-origin=kernelci
->>>>
->>>>        Red Hat CKI
->>>>            Sending production results.
->>>>            https://staging.kernelci.org:3000/?var-origin=redhat
->>>>
->>>>        Google Syzbot
->>>>            Sending a subset of production results (failures only).
->>>>            https://staging.kernelci.org:3000/?var-origin=syzbot
->>>>
->>>>        ARM
->>>>            Sending production results.
->>>>            Full commit hashes are currently not available, are spoofed, and don't
->>>>            match the ones reported by others. To be fixed soon.
->>>>            https://staging.kernelci.org:3000/?var-origin=arm
->>>>
->>>>        Sony Fuego
->>>>            Internal design in progress.
->>>>
->>>>        Gentoo GKernelCI
->>>>            Sending production results.
->>>>            Only builds (a few architectures), no configs, no logs, and no tests
->>>>            for now, but working on growing contributions.
->>>>            https://staging.kernelci.org:3000/?var-origin=gkernelci
->>>>
->>>>        Intel 0day
->>>>            Initial conversation concluded, general interest expressed,
->>>>            no contact since.
->>>>
->>>>        Linaro
->>>>            Sending (a lot of) Tuxsuite build results to "production" KCIDB.
->>>>            https://staging.kernelci.org:3000/?var-origin=tuxsuite
->>>
->>> Hi Nikolai,
->>> It's nice to see our results getting collected; it looks for a given
->>> tree I can even see the build results of different compilers.
->>>
->>> For example, here's a recent run of mainline:
->>> https://kcidb.kernelci.org/d/revision/revision?orgId=1&var-dataset=kernelci04&var-id=c4681547bcce777daf576925a966ffa824edd09d
->>>
->>> One thing we need to be able to quickly triage when we see a build
->>> failure with one toolchain is "is this toolchain specific or not?"  I
->>> figure KCIDB has the data; is there a way to surface the results of
->>> such a query quickly?  If not, that would really help us.
->>>
->>>>
->>>>        TuxML
->>>>            Initial contact in response to a report.
->>>>            There's a plan to approach us and start work in the coming months.
->>>>
->>>>        Yocto Project
->>>>            Initial contact in response to a report.
->>>>            Would like to start sending build and test results, particularly for
->>>>            older kernels. Would like to separate upstream commits from project
->>>>            patches first: https://bugzilla.yoctoproject.org/show_bug.cgi?id=14196
->>>>
->>>> !   Huawei Compass CI
->>>> !       Sent a message to Fengguang Wu, who was presenting it at LVC 2021.
->>>> !       No response so far.
->>>>
->>>> Please respond with corrections or suggestions of other CI systems to contact.
->>>>
->>>> Nick
->>>>
->>>> *KCIDB is an effort to unify Linux Kernel CI reporting, maintained by Linux
->>>>     Foundation's KernelCI project:
->>>>     https://foundation.kernelci.org/blog/2020/08/21/introducing-common-reporting/
->>>>
->>>>
->>>>
->>>>
->>>>
->>>>
->>>
->>>
->>
-> 
-> 
+> We need atomic variable to ensure that "write to u64" is not
+> interrupted.
+
+On what system is "write to u64" interruptable?  As these are per-port,
+do multiple threads try to increment these at the same time?  And even
+if they do, what happens if one is 'dropped' somehow because of this?
+It's just a userspace statistic counter, what relies on this being
+exact?
+
+thanks,
+
+greg k-h
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/0e70beb7-49fe-efba-ef41-a35fa996bdcf%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YL4Bcm2dOyWKLGJ7%40kroah.com.
