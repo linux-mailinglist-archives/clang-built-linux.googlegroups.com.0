@@ -1,132 +1,142 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBGUP7KCQMGQEK6ABTJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCJP7WOE5UIBBPUQ7KCQMGQEFFFKEQY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53a.google.com (mail-ed1-x53a.google.com [IPv6:2a00:1450:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8607E39E8C4
-	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 22:54:50 +0200 (CEST)
-Received: by mail-ed1-x53a.google.com with SMTP id z16-20020aa7d4100000b029038feb83da57sf9870752edq.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 13:54:50 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623099290; cv=pass;
+Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
+	by mail.lfdr.de (Postfix) with ESMTPS id A404C39E8CA
+	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 22:57:35 +0200 (CEST)
+Received: by mail-pl1-x63a.google.com with SMTP id b15-20020a1709027e0fb02900fef41cdedfsf8577630plm.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 13:57:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623099454; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QXDd7nMGLsMAW888TCZ4mJRchryVdRdvQdKfNtKDI0H1rRhSIGv2ZjiuszgnncZiUi
-         gQyrC3oegKvNQ1hFj+9CYcW38txSPnUa7hlrFuCvXz5RiKGu1l1fwyQ2skbGJvTWUgc/
-         C422B8mpIBetvygBzXhBGzWy/y+Ag9pgvSoRK1nXk0kLmCzbpJ6h9Qc+BO2YYstK+nlK
-         0y2sZy/rcJC5uqtb82g7H6Xp+XvdT/6xaMpDwkc5ExJHavsIBHiClKPcrXxGG6mcuwXp
-         7pV4NmRHpkd7fQYnRSF6myW7RkT/1A0c3Tyd2aLEopwp/cVMkcnQL+3/gc+Mx+T+6rGj
-         FdDg==
+        b=gf6WBtNwvzHNkjYVy9Fka/m3bpl+asmKRwb/HC3wjVXm4jnZVIpOiEIZTprEGcJ9uo
+         GNwcKV7Mqq3igYLKbLtLvobcfObe2MAvAVsaNlzKXCejHxvZwIb2hTlhi0Bmlu0/Za4+
+         C4l1xse8zHJczaTf7AywBMnG6/tjrAyoohiBnElWMmWORFtjJvaVANKTY+5gP1ycC0Ky
+         fIdep9PGtffxJM2dQWjKKoZlpdp8aeC2yKr6TzTYaxU333BDnhuPRBzCztEnzRXJJFJu
+         Ex4opm+fXMoEVQxRfwDIRGq2QFkcWA8zDzTATEYeFyjoaZlzZofW2TTws4eiFHuEYHsl
+         Ry8w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=76DvVnHJp57d/oe82csNVdm0SqhGmu0B0WdlNzKQBbY=;
-        b=b8yFnJ+5Xm+eEZA0x0/4pjcms915Dpp2VbMg7wjHkfm3F72+O+sgQ774lb6c1WA1pU
-         //AGO4WPWyEv5jKC6ZeSnhzSgIMkGY7sIy+3J1RTAtkb3E+T32PyhoPBoEa6tK1zypIe
-         r4xbK69970GDSuOZ/axrOmetFbCOHKInGMS9YRGXqGwXmZP1P+IVvgPauid9ejrchWBf
-         pAe1X54c9Sph7z7khnYRffmuLwMMcAQDxAIjl3Xmd9Lg4r6pxkJlYTulNn3FsZQsOwwb
-         ovZQEVQn3pW7ASGCM7B+bcef5UPxywf+7Z1nIrU+BfxzrPdSesFkqOeehdXVecI/gG9k
-         UPfQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=TUOgcPhxMyIlUwm0iuEQcmaiWacuQib6kP4zoBvAqQs=;
+        b=rBiA/UdnWWDXsrU4M0nF+GnqDN4wWfslkXofGcOrUr08+ITOpFzq+1UjIzMVxp+SYv
+         4GgfRJkxtXBm+mVugfKyxWSQK2GfehtM1jIPJU86QrN5eKT0I/VZZ1l0rr3T1yaH7jBd
+         jWODnENgrecf218HWFgS3KlbZKHR21slORAuAYhvfu2xEVcZ/DFR2fkprCW/HVRTu2vf
+         O5iXBWMf6PE3LoaCJXzgdhhGapwVpZAyk7KRviD5OZ2cTquvyIHxPhLA3RZm+Mv8ajux
+         fvhMKj/8GI1coLqpNwDE0gWNKlQKzvgvCJH7xhXi1EmRiHpA4DQqfDc5LB7wlmgFpkHn
+         cMGQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=hqeep5Yt;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=QaSDr6Dq;
+       spf=pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::f2e as permitted sender) smtp.mailfrom=dianders@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=76DvVnHJp57d/oe82csNVdm0SqhGmu0B0WdlNzKQBbY=;
-        b=ICPl7j99E16nNxbUEmRO9xqDcjNNb0miJ/yVjyTHYsEpd8W0fCLo0nEDSTpJn9m2+D
-         /vsT0WMxOdLtX9TWZpX+4ay03lq77ly5x7LoG+8ICiRfMf69LTtUNPXKBG/OW/jIG0cI
-         0fcXJdYitbBGvRk2InsU73fhvPnXGb8F9zOtSXtK9nj1ZZXP6RcNk3chRkfxWlF0NNEH
-         jsl6UafPD25sMFpilHPfB0Va+Yg/Fy2J+4yjXi4vCBTfxpfPf9WQNJpsKBTbIE6qkPqE
-         ebWe13nPqff4g2CCPuCrs//UNp6SSUcgb3iME2PdpPlU8qlbr0vsge/cxh+n5x/zqYP+
-         3ucA==
+        bh=TUOgcPhxMyIlUwm0iuEQcmaiWacuQib6kP4zoBvAqQs=;
+        b=W/UgwgA/Xu2naP5Ikbv5YqW2WH7EzsEtCoXcqYFoELXrrf73ufIlQusXPJ84X4LDKx
+         k0pm0Ub02l7i0t92VMujP9eZtQFdBruLzJuMqZMZlx60OKSJDPlRBwHXADyF29oeKFQs
+         znVUfArG8Ov8JLcA8cxJl4ULi7zSrzuxsaOn2NINySOH017WZmS97oHrdBe++yQPvSyl
+         PWAX4MOwljtAn7G6Db2cYMFhNS1uIXrGyuCog8HNdh+Ot0WtFXVGfcHisOxkrONf+yLy
+         uJOMw9aQAJlDqA9MNL6ICdYWiOOgTP0nlawWz6RtBazAdtQDiWYRtJFCIjx5ZvonJ9oW
+         w9rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=76DvVnHJp57d/oe82csNVdm0SqhGmu0B0WdlNzKQBbY=;
-        b=bgP/O58PdN2q6UkJKqCb1f2akueII/M4ATMV1ALByXUAuUjJ718pFPbIdxlij/vW0R
-         djmeJe5MCHA9QjE/gqRUM5BHjiBMna2BmWDsptPePYbGpRuyNLYSO997BsuZ3EcZJv5s
-         1YVSiTd4d/OWusp3mhuQvVBvE+dNcwAA9KpPj2u9CF15JS1D8LRDUsHwaoIx2Ye5Vmki
-         lgnjHUd5AjSJOXn/9igCKn+xPRv5tdsJmUNirobEwBWQiKNzdxIvMktFzjp4J8BSEukw
-         P9dVvIeQBb3mBKxbJgPwChrByQctFtrg6nC9b5phep9/tH9rWQijM8Pe+Rz94eyDA31H
-         zJ/Q==
-X-Gm-Message-State: AOAM5326s9OgVxv2SgsF1vACvCNPST/4pJIfSWGwAU0VtpVOne5Omii2
-	c7dowyLSmfNO+yfqIAak7Ag=
-X-Google-Smtp-Source: ABdhPJzuA0Gk0u2Ujt4PZzxlWZ9ma0IHqLvo2f67za5MZz4ReYHQkFcd03jelZ1uj3DhFk3ftM3NIQ==
-X-Received: by 2002:a17:906:5289:: with SMTP id c9mr19858102ejm.342.1623099290330;
-        Mon, 07 Jun 2021 13:54:50 -0700 (PDT)
+        bh=TUOgcPhxMyIlUwm0iuEQcmaiWacuQib6kP4zoBvAqQs=;
+        b=Qdffdyz7N3YQYixTJRyRcH6NaEkmipNZFHyXzZ/Mt33h8KNSJcMhOyTFbPdJ7G4XkZ
+         Veun815N29mJmpFvnZlYuXNk163EsCyoHqjMQZ0sSKOh3rpXYGYWWtjtHps7mNozX1Cu
+         s3O/uwbpI93Lw3DGw98dAzCVNXMkdLFiDVIgPOcoVdRGoVPU8J8Evebs8twoZhinWgIw
+         fYT57E6zPILdXzVnAM/Nj62GHj2MjWXMh6W5tCSnqT5dLbkF6XrDSqSl6zHjmrB/LQlY
+         9EINhEbqGl50LpIYyNIoHxuXBvFcSVsS+xIzviC0N3IQ8iRnk8rYPyyjG0cbfN1TvzZ8
+         YR+A==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531P8GM5My8bwYcXebe7r7FQjUuQd+58o+rCKaq5eFKBJaL9Klsp
+	RYVq5cNw4zzv8PKDK9tSbog=
+X-Google-Smtp-Source: ABdhPJwRlsrI8vbe//Aah4c73PKiFPXY+Ty/RERJEF2eUsMVMLHkfHwJ9fwcwwJnc1uMyyzOXZKV2g==
+X-Received: by 2002:a17:90a:ee83:: with SMTP id i3mr1050371pjz.162.1623099454126;
+        Mon, 07 Jun 2021 13:57:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:1f09:: with SMTP id w9ls6735610ejj.11.gmail; Mon, 07
- Jun 2021 13:54:49 -0700 (PDT)
-X-Received: by 2002:a17:906:390f:: with SMTP id f15mr19945539eje.270.1623099289455;
-        Mon, 07 Jun 2021 13:54:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623099289; cv=none;
+Received: by 2002:a62:3848:: with SMTP id f69ls7556387pfa.0.gmail; Mon, 07 Jun
+ 2021 13:57:33 -0700 (PDT)
+X-Received: by 2002:a63:5f8b:: with SMTP id t133mr19227091pgb.411.1623099453661;
+        Mon, 07 Jun 2021 13:57:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623099453; cv=none;
         d=google.com; s=arc-20160816;
-        b=UMfinmtbmZz7LEpfBhgO4eaccoia3mTLG+tab+AWscJXBNWPoIKNOybIWHPurxI37f
-         d2miN5RAyI9F9mtyuHWgL1xI6DsQeoDtSe2UP7SAwyOWjDKd5KJC9KgEZNDLsGwrnuhG
-         ygVmU7dUEI99K6tgppPaaM/euyq8HDaUrpAcuTBW5sI7D78Ih+O4qWWiC7/Wd1mJ8Hyk
-         8Pn5hrgYmPhY/cWC8bt63cC4+fnmu/eIZjW07T0Q9aLffBH+pqJRha+kyd+UxLTcVr3d
-         9KY+33Q3+HgLs9HRb8aorotv/ECQ05RYyFEYE3TidTHlDIN8/kIo7cNuX3s44GCfffZX
-         5XVA==
+        b=GmxdKUbSXcJw29MWWdEOfUzemXkrTyugmYB+ZtDY/Ys9XONaOe7zFxWOzPNbXczyHR
+         W1bnXUVSHK5L+s7f8Jvmq01KxTgmR0yjO/M3GPU5dFk0uTeuK3xlC6R7qd0s4BkNshqY
+         ylpDtXStKsQ4M3LIN1AckQN+2708p1GshBKRIJ2DHGBdeBO+KtPXRhrhrj1Di9AYCwdC
+         mG3tReLElwaSe/qnkidcTTRFI7zRKRGBXGcwZWhBkHxD69610gvW3xLnAOXFJgMkm5mL
+         QdhZZ72sS6SbGCeyLsHduTjc1fFeaIGAXBSNO98FpiGyMQEwJv6gm1ApmRIEKoVxNmwc
+         jHqQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=ytaaL5fir0dj08gu9cCAj1Ucrhllz0BBiheWMwRBwRQ=;
-        b=ZNJSOcCfSsQnepG37MtHfz4H4pzn3lbgGruF9Mrv5dp46C9bYBytGNfHCC4W12eHpc
-         4vqJ7kPRvMD9LP5BJOks0+5p08C4ht16MItOAKtd981Q1ZMDlr5agDvTFsfNuZMOL77s
-         3VF/IeT8d2zwl/6dZv5/UCp7sEHaoycUtPkr0VCYQc6vT4XUaJzOGjCb29g4qY4hXb3H
-         8ADL/uOUne3M1j3+kAZDaN0hWA7Rzt3Q5sv/moZMuDLtZUKCLtUl3TKIdUXnKKiiDAJU
-         JJkIznWBXHrIerF4n7wEgNvpCIbkEFmig0UptONrJscf+oxpmbIb4NE/xgKOO87u30zt
-         1E6A==
+        bh=GGBwGm5k7PB2hnUFXG4AgmxjBeqKouZKlwO2MjG0pQI=;
+        b=CpFnc/r/L+pJ/eJjNyTgFy3wUZ0QGwbcHH6m8JgUFHTC8I61Kyg+GaWt0/Ukx7vR4m
+         bcoOKN/40Mw/fGkCJ8v9kEsqf87B/xN2g0HhITwlXYXawG0/C45npPrdf8304gnvK4lO
+         lraXPBvfFqojtNN3zj8shTw5quLpP3dnzpLMbTf2SIRy6bKPfJOlaH7DZF0xMU/OL0+K
+         zh1vwN73XNGMUCXGikvkxf3RRivVfElGRjtJWXwkU5z696A59j1RMM0bVWt2kqG8DTHF
+         ZveUqFxWYh818awDMA4umk2hhwDCN5wEKe2Hmui5RZy/I57IWGbvwbaCybPOor50r0Ci
+         Mp5g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=hqeep5Yt;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x12e.google.com (mail-lf1-x12e.google.com. [2a00:1450:4864:20::12e])
-        by gmr-mx.google.com with ESMTPS id x10si760447ejy.0.2021.06.07.13.54.49
+       dkim=pass header.i=@chromium.org header.s=google header.b=QaSDr6Dq;
+       spf=pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::f2e as permitted sender) smtp.mailfrom=dianders@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-qv1-xf2e.google.com (mail-qv1-xf2e.google.com. [2607:f8b0:4864:20::f2e])
+        by gmr-mx.google.com with ESMTPS id mm4si126216pjb.2.2021.06.07.13.57.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Jun 2021 13:54:49 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e as permitted sender) client-ip=2a00:1450:4864:20::12e;
-Received: by mail-lf1-x12e.google.com with SMTP id n12so21515624lft.10
-        for <clang-built-linux@googlegroups.com>; Mon, 07 Jun 2021 13:54:49 -0700 (PDT)
-X-Received: by 2002:ac2:5cd6:: with SMTP id f22mr13823923lfq.73.1623099288917;
- Mon, 07 Jun 2021 13:54:48 -0700 (PDT)
+        Mon, 07 Jun 2021 13:57:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::f2e as permitted sender) client-ip=2607:f8b0:4864:20::f2e;
+Received: by mail-qv1-xf2e.google.com with SMTP id u13so9646004qvt.7
+        for <clang-built-linux@googlegroups.com>; Mon, 07 Jun 2021 13:57:33 -0700 (PDT)
+X-Received: by 2002:ad4:4631:: with SMTP id x17mr17137107qvv.28.1623099452555;
+        Mon, 07 Jun 2021 13:57:32 -0700 (PDT)
+Received: from mail-yb1-f171.google.com (mail-yb1-f171.google.com. [209.85.219.171])
+        by smtp.gmail.com with ESMTPSA id h4sm1048691qth.66.2021.06.07.13.57.31
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 07 Jun 2021 13:57:31 -0700 (PDT)
+Received: by mail-yb1-f171.google.com with SMTP id y2so26908686ybq.13
+        for <clang-built-linux@googlegroups.com>; Mon, 07 Jun 2021 13:57:31 -0700 (PDT)
+X-Received: by 2002:a25:b801:: with SMTP id v1mr28601197ybj.32.1623099450508;
+ Mon, 07 Jun 2021 13:57:30 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAFJ_xbq06nfaEWtVNLtg7XCJrQeQ9wCs4Zsoi5Y_HP3Dx0iTRA@mail.gmail.com>
- <20210604205018.2238778-1-ndesaulniers@google.com> <CAKwvOdmhg2tj8cKe-XitoZXGKaoOhgTsCEdVXubt+LiY9+46rw@mail.gmail.com>
- <20210604235046.w3hazgcpsg4oefex@google.com> <YLtUO/thYUp2wU7k@hirez.programming.kicks-ass.net>
- <CAFP8O3+ggR8N-ffsaYSMPX7s2XgrzzTQQjOgCwUe9smyos-waA@mail.gmail.com>
- <YL3RQCJGIw9835Y1@hirez.programming.kicks-ass.net> <YL3lQ5QdNV2qwLR/@hirez.programming.kicks-ass.net>
- <YL3q1qFO9QIRL/BA@hirez.programming.kicks-ass.net>
-In-Reply-To: <YL3q1qFO9QIRL/BA@hirez.programming.kicks-ass.net>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 7 Jun 2021 13:54:37 -0700
-Message-ID: <CAKwvOdkuJBwZRigeqdZGevPF9WHyrC5pBAsz6_tWdXAc-wO+1A@mail.gmail.com>
-Subject: Re: [PATCH v3 16/16] objtool,x86: Rewrite retpoline thunk calls
-To: Peter Zijlstra <peterz@infradead.org>, Nathan Chancellor <nathan@kernel.org>
-Cc: =?UTF-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>, 
-	Josh Poimboeuf <jpoimboe@redhat.com>, lma@semihalf.com, Guenter Roeck <groeck@google.com>, 
-	Juergen Gross <jgross@suse.com>, lb@semihalf.com, LKML <linux-kernel@vger.kernel.org>, 
-	mbenes@suse.com, =?UTF-8?Q?Rados=C5=82aw_Biernacki?= <rad@semihalf.com>, 
-	upstream@semihalf.com, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Sami Tolvanen <samitolvanen@google.com>
+References: <20210507205513.640780-1-dianders@chromium.org>
+ <20210507135509.2.Ib54050e4091679cc31b04d52d7ef200f99faaae5@changeid> <47a95789-ca75-70a5-9d65-a2d3e9c651bc@arm.com>
+In-Reply-To: <47a95789-ca75-70a5-9d65-a2d3e9c651bc@arm.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 7 Jun 2021 13:57:19 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=U1ChMU5dT4kBSTcsoePo7VUEQuoYtRUJuHBdVcgbS0XA@mail.gmail.com>
+Message-ID: <CAD=FV=U1ChMU5dT4kBSTcsoePo7VUEQuoYtRUJuHBdVcgbS0XA@mail.gmail.com>
+Subject: Re: [PATCH 2/3] arm64: perf: Improve compat perf_callchain_user() for
+ clang leaf functions
+To: James Clark <james.clark@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Seth LaForge <sethml@google.com>, 
+	Ricky Liang <jcliang@chromium.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@redhat.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Namhyung Kim <namhyung@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
+	linux-perf-users@vger.kernel.org, Alexandre Truong <alexandre.truong@arm.com>, 
+	Wilco Dijkstra <wilco.dijkstra@arm.com>, Al Grant <Al.Grant@arm.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: dianders@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=hqeep5Yt;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12e
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@chromium.org header.s=google header.b=QaSDr6Dq;       spf=pass
+ (google.com: domain of dianders@chromium.org designates 2607:f8b0:4864:20::f2e
+ as permitted sender) smtp.mailfrom=dianders@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,94 +149,65 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 7, 2021 at 2:46 AM Peter Zijlstra <peterz@infradead.org> wrote:
+Hi,
+
+On Mon, Jun 7, 2021 at 2:14 AM James Clark <james.clark@arm.com> wrote:
 >
-
-Thanks, the below diff resolves the linker error reported in
-https://github.com/ClangBuiltLinux/linux/issues/1388
-
-Both readelf implementations seem happy with the results, too.
-
-Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-
-Nathan,
-Can you please test the below diff and see if that resolves your boot
-issue reported in:
-https://github.com/ClangBuiltLinux/linux/issues/1384
-
-> ---
->  tools/objtool/elf.c | 25 ++++++++++++++++++++++++-
->  1 file changed, 24 insertions(+), 1 deletion(-)
 >
-> diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
-> index 743c2e9d0f56..41bca1d13d8e 100644
-> --- a/tools/objtool/elf.c
-> +++ b/tools/objtool/elf.c
-> @@ -717,7 +717,7 @@ static int elf_add_string(struct elf *elf, struct section *strtab, char *str)
 >
->  struct symbol *elf_create_undef_symbol(struct elf *elf, const char *name)
->  {
-> -       struct section *symtab;
-> +       struct section *symtab, *symtab_shndx;
->         struct symbol *sym;
->         Elf_Data *data;
->         Elf_Scn *s;
-> @@ -769,6 +769,29 @@ struct symbol *elf_create_undef_symbol(struct elf *elf, const char *name)
->         symtab->len += data->d_size;
->         symtab->changed = true;
+> On 07/05/2021 23:55, Douglas Anderson wrote:
+> > It turns out that even when you compile code with clang with
+> > "-fno-omit-frame-pointer" that it won't generate a frame pointer for
+> > leaf functions (those that don't call any sub-functions). Presumably
+> > clang does this to reduce the overhead of frame pointers. In a leaf
+> > function you don't really need frame pointers since the Link Register
+> > (LR) is guaranteed to always point to the caller>
+> [...]
+> >
+> >  arch/arm64/kernel/perf_callchain.c | 14 ++++++++++++++
+> >  1 file changed, 14 insertions(+)
+> >
+> > diff --git a/arch/arm64/kernel/perf_callchain.c b/arch/arm64/kernel/perf_callchain.c
+> > index e5ce5f7965d1..b3cd9f371469 100644
+> > --- a/arch/arm64/kernel/perf_callchain.c
+> > +++ b/arch/arm64/kernel/perf_callchain.c
+> > @@ -326,6 +326,20 @@ static void compat_perf_callchain_user(struct perf_callchain_entry_ctx *entry,
+> >       while ((entry->nr < entry->max_stack) && fp && !(fp & 0x3)) {
+> >               err = compat_perf_trace_1(&fp, &pc, leaf_lr);
+> >
+> > +             /*
+> > +              * If this is the first trace and it didn't find the LR then
+> > +              * let's throw it in the trace first. This isn't perfect but
+> > +              * is the best we can do for handling clang leaf functions (or
+> > +              * the case where we're right at the start of the function
+> > +              * before the new frame has been pushed). In the worst case
+> > +              * this can cause us to throw an extra entry that will be some
+> > +              * location in the same function as the PC. That's not
+> > +              * amazing but shouldn't really hurt. It seems better than
+> > +              * throwing away the LR.
+> > +              */
 >
-> +       symtab_shndx = find_section_by_name(elf, ".symtab_shndx");
-> +       if (symtab_shndx) {
-> +               s = elf_getscn(elf->elf, symtab_shndx->idx);
-> +               if (!s) {
-> +                       WARN_ELF("elf_getscn");
-> +                       return NULL;
-> +               }
-> +
-> +               data = elf_newdata(s);
-> +               if (!data) {
-> +                       WARN_ELF("elf_newdata");
-> +                       return NULL;
-> +               }
-> +
-> +               data->d_buf = &sym->sym.st_size; /* conveniently 0 */
-> +               data->d_size = sizeof(Elf32_Word);
-> +               data->d_align = 4;
-> +               data->d_type = ELF_T_WORD;
-> +
-> +               symtab_shndx->len += 4;
-> +               symtab_shndx->changed = true;
-> +       }
-> +
->         sym->sec = find_section_by_index(elf, 0);
+> Hi Douglas,
 >
->         elf_add_symbol(elf, sym);
+> I think the behaviour with GCC is also similar. We were working on this change
+> (https://lore.kernel.org/lkml/20210304163255.10363-4-alexandre.truong@arm.com/)
+> in userspace Perf which addresses the same issue.
+>
+> The basic concept of our version is to record only the link register
+> (as in --user-regs=lr). Then use the existing dwarf based unwind
+> to determine if the link register is valid for that frame, and then if
+> it is and it doesn't already exist on the stack then insert it.
+>
+> You mention that your version isn't perfect, do you think that saving the
+> LR and using something like libunwind in a post process could be better?
 
+Using post processing atop a patch to always save the LR is definitely
+the right solution IMO and (I think) you can fully overcome the "no
+frame pointers in leaf functions" with the post processing.
 
-The only thing that's still different is that the `file` command still
-prints "no section header."
-
-$ find . -name \*.lto.o | xargs file | rev | cut -d , -f 1 | rev |
-sort | uniq -c
-      1  no section header
-   8377  not stripped
-      1  too many section headers (33683)
-      1  too many section headers (50758)
-$ file --version
-file-5.39
-
-That's drivers/gpu/drm/amd/amdgpu/amdgpu.lto.o, fs/xfs/xfs.lto.o,
-drivers/gpu/drm/i915/i915.lto.o, respectively.  I'm not sure that's a
-problem, yet, and whether 9bc0bb50727c8ac69fbb33fb937431cf3518ff37 is
-even related yet; those might just be huge drivers and figured it was
-reporting somewhere in case it ever comes up again.  CONFIG_LTO
-implies -ffunction-sections -fdata-sections, and
-CONFIG_LD_DEAD_CODE_DATA_ELIMINATION explicitly sets those, too.
--- 
-Thanks,
-~Nick Desaulniers
+-Doug
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkuJBwZRigeqdZGevPF9WHyrC5pBAsz6_tWdXAc-wO%2B1A%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAD%3DFV%3DU1ChMU5dT4kBSTcsoePo7VUEQuoYtRUJuHBdVcgbS0XA%40mail.gmail.com.
