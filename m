@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDMMLW4BXYHBBVVM66CQMGQEODOMFBQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDMMLW4BXYHBBY5M66CQMGQEYCRBZTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0ACE039D6FE
-	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 10:18:32 +0200 (CEST)
-Received: by mail-pf1-x438.google.com with SMTP id e19-20020aa78c530000b02902e9ca53899dsf7333500pfd.22
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 01:18:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623053910; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5522E39D702
+	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Jun 2021 10:18:45 +0200 (CEST)
+Received: by mail-pl1-x63d.google.com with SMTP id 31-20020a1709020022b02900eeddd708c8sf7487317pla.11
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 01:18:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623053924; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AelkuaJnTxo7KI0lr9/FV91vN2Zkhw+d62E5EaQnhFoITzFzJNTaM58H7/tFVhmJrA
-         +eXToAFwvMTMTqUkticmZckQPfNN0oCHM4+FH28lfjKWh8gjvfb+L834jLvGepx2hX4n
-         JLPn0fYZMNx/i83d4+tALRjZ98FkhdxLlkYHwSNBSWAqWYzIHVhlzA/heTR3nUFIeVZq
-         TF8D/zUTWjJ7/8d/W2TpHJBr5S9Ccmp194fPzCDHji/WX8qYZ9jwtuJNx/O3IJgHA78o
-         3npIRyFEBs5MPIGaNPDyjZ0flHszf9nmgu78KMP+FOKHEdl7p2T1GicvoIu0+pYwhOtE
-         xmGw==
+        b=Z9tOZHs02uSNHXfVmsbSRG/fBOevpnsbnhLWF6pdnRNRbAM1Yv0IfXVSo4obxKxrlD
+         m6YGLFR96SQOhD5g44vYAW4dCuRU4sXgzE6f4ERfNwXEgJ3v193Y7TQ8zg81ScwpEJCy
+         GmE6Is6fAPo2/39NYY7bbqV98C732zZ8FDsXsCUVvhwVn9LfrXzdz3HzR8rt/dNk70cT
+         NjuK7b7HXqWPqRLzlK/DBJ6AQvHZBFliek+RqXx1lB9Y7K2t+apP41y7/A5wPBnFcFGe
+         MAcnc+IlbMG/ddrA/wE257glmYmK4WFNQqene6dxkuuZ3jmb6KnOZXQ16f8gyCMlKDdu
+         HY+A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=X3phN29gg7AprD6fU9mLjaICMNNwpdNOreUYfPZ8i2Y=;
-        b=T8olsauEpb6c6w9Hapz9tDxYnTOAC5RKqY5+RFvEUftjIFI62yl/PAZ41rzq4sZtLC
-         Vfs+ESvvwVuOmYX+WHvQIs9t2spQa3eSgNv4mzOWV0c1n1Hw6jZZ/l8VQfzMP6pfG5d/
-         L2LM8orqd9jVzuvGqJc0wM84myJRSsZs7JIX5Svoy3QLKwV/2+YJCzX7XHc9uwfiggqj
-         HGasmr7xwG8Dl2V3UrBt/lomgWC6fPKvpVGavHdG5zcbQshUW6SMd/U4RscyQdfq+fQc
-         bnuWBJIQ+IEyN9XNSooxj4P06dgIgpGPX1/Pn9pcHT/dzb4D61BqNySNsplZjz9Eo7Tw
-         IBXA==
+        bh=h2vXa+ausm4GEQCrqTDkvmSiXwIz1GmEEPjpKTmPjq4=;
+        b=AEtmVT5c38BMt6I41HflsR5cVK6ABKTV5SsbVuXwaCllHAxvgY67d1bcE+d4ZMz7b+
+         1spD+fcJnBoBZcHOFCSCKuPj9WhibOJSqWZIpGU+uZILsYn0eNEosQ/4cQD/tkw82IJ9
+         GuNvv06S3KKjPZMXDZQA1T2VgVspraBgRUitNih8KAXEkFxRLvdy/USRwCuhxZlUVlMk
+         0IiVBqtWJXQbKH7bBJddf7txm9zPbKEWOsTocrCRvalKGFKSfsTMrih9Cmg93m12mrxt
+         HbNKB6+fHSn58/7UMae/dJUsyrD7trPyjbnkYmv/beGr3ReCvKm31HknURG0kgZkA0EO
+         ypMw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=niLf7MtP;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cpm68+Yc;
        spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=X3phN29gg7AprD6fU9mLjaICMNNwpdNOreUYfPZ8i2Y=;
-        b=X3BRbzRryr95rZkglyQ+IQNl6Yqzl45vo+qopwRMG8Co4zTQBmmpK1Qp/SbGaFFFZD
-         7dBtxyDJZApn4NOB/oQr+o18YcTRxfAaDCUnV3UU65GTrIas91IR93mpMzfG+mfcWdws
-         BsjwUcXmMlQSs5mTlpcSzHEfNhSxjJK61zdfbKrZvQIMICyKcexE6cpNCVeZpq4wMvYa
-         sT0hjRG92qouOml/llHf68O2DjCq3g1Qcr9Nav8txyPo/8t/M+NbG3x9GYYvcSFoIAE7
-         fsmJPlakohSgCedve7Q8yApD0iNQHSPH90ZFtuAzBzgCwKMF4gSH0czpocDIQh6J7zUx
-         8iIA==
+        bh=h2vXa+ausm4GEQCrqTDkvmSiXwIz1GmEEPjpKTmPjq4=;
+        b=PwFv+eXkZqbJ5tcT+zcidmqiQjVbhsjbq9JRScOwvSc6LkGzzL4qqtcgzRyfYQ58lg
+         ViUVd7TTqBUdVy4TE1aTEHgYS4JD1r0osXUJAmBj7u85on3Geb/tUx2ZNgH6nINrV+2C
+         ZQjvFKh2aXxF7vj6lVNmukvbn/n/7eIt7t+ROmtI3Z5m6Pfzrf2oHTY6wMNNugNGSSUF
+         M96qe4cB6CGC1crYvUGNg/Ydd8+p23WtgNQE5JRUkCH19NvIpmPa3XdjjNaph85iJOb4
+         KgNOUZmAXnZKW+XejsERYp72E0vqy9da2mZWHTsfbiAehd04GQQD+lTwTmAwQ75RPTaW
+         3Khw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,54 +49,54 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=X3phN29gg7AprD6fU9mLjaICMNNwpdNOreUYfPZ8i2Y=;
-        b=BfXQoRIL+8zvKNESifttsV2uyV/hcyCy950oXGjo3BcB3cil2Pzaf/7wUxloKefDiY
-         FdWm/jDjgdlrcVNlLV0ABSjJbzYccZ0eBzrltL6qgtW9CoE+Xoim4T0xX5zSPasohsXs
-         U8DrNqbcjV2JPZqTxbaUgTqpwrhav9z3BV61qe+ic/R0AsRRPCWcdLSdIxMlYUkfHCyv
-         4OT8trFHO+6bbXCXW34CQE8v2+EMwlym8JT4pTX5ughn6vyLWcyPkkDTs7gNbgvkk2zx
-         x2snqJBL8zM6Uuq3urqxe+lzdaaUGpKvoMOP5GFICH1WT2U30iSzqLerQp2sTZ5l0tC9
-         Fsag==
+        bh=h2vXa+ausm4GEQCrqTDkvmSiXwIz1GmEEPjpKTmPjq4=;
+        b=r6PxvlVlFbgW16eT8ex/Bem9yKNxVMXNQQSs7yu5HDsJVo6i0RZIjZXVbTHcfkdWVV
+         4B+KbbDbl099icosaQWM+9leNKWWQLDMowhZHRRKjlT3VrCrYZkepF4I5O5yYifQ6cgp
+         ax5lnxOUel+OyNPqCLFzZ8dKfOz308undJL5wDpXNNaE+rx+2BZMTZF4NjfO22lZ0FVu
+         /HAVEv8geDB9rEpVz2V9rq5Y88LZqcIjZgiWTT5MoMC34Mvy3LngtGR2Ybqu2g/7T3LW
+         Vq3y6MI8W1y26sSt/0uwLVftl3YVPsg2SD8kplHbpDmgVB+NPa77zlW/NbfYjrdxAbEI
+         dHiQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532CYInA4zmpkmYG7XV36TT4mzz6XeheNJcMFqWgrkQTwZtxPtuG
-	4FOIMIItIBl0fW89JXf46xQ=
-X-Google-Smtp-Source: ABdhPJzcFQi+xGWI5cL+8Ct81aUUfRY9gF2Rlu4doTPeicUQtvsFt4syxljdlX/5i7Y5aOq13ZjaOg==
-X-Received: by 2002:a62:5c87:0:b029:2ed:cf:1f89 with SMTP id q129-20020a625c870000b02902ed00cf1f89mr9551693pfb.9.1623053910783;
-        Mon, 07 Jun 2021 01:18:30 -0700 (PDT)
+X-Gm-Message-State: AOAM5333+bmteAbdGXd2Jt0zeJfdEYVBI0L5BfhEJiPR1bssc+7+fs5O
+	2miSZ3w8tRsPlQ8tpcWUO8A=
+X-Google-Smtp-Source: ABdhPJynL6v7kkmQgwRwN4Tuvx+eqba1YgSFn9PKRdRXLC3Es1PBAc2S+cSg1GiXlN5Fxqm0RfXFFQ==
+X-Received: by 2002:a65:498e:: with SMTP id r14mr7617725pgs.57.1623053924022;
+        Mon, 07 Jun 2021 01:18:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:8dc9:: with SMTP id j9ls2236973pfr.9.gmail; Mon, 07 Jun
- 2021 01:18:30 -0700 (PDT)
-X-Received: by 2002:a05:6a00:194c:b029:2ea:5909:ebfc with SMTP id s12-20020a056a00194cb02902ea5909ebfcmr16284013pfk.40.1623053910228;
-        Mon, 07 Jun 2021 01:18:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623053910; cv=none;
+Received: by 2002:aa7:8dc9:: with SMTP id j9ls2237218pfr.9.gmail; Mon, 07 Jun
+ 2021 01:18:43 -0700 (PDT)
+X-Received: by 2002:a63:d410:: with SMTP id a16mr17049718pgh.298.1623053923532;
+        Mon, 07 Jun 2021 01:18:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623053923; cv=none;
         d=google.com; s=arc-20160816;
-        b=pU/WG6zl8WjKAZGOaWpa3WZ6TiKlTTyf3KPxu1WApX5V6Lgzk3dTYz8JFWE6RKwWxR
-         veN7Q3WGYB0tsUUnkLlA8ZzFuADKm2HXJY5L8IPrGnWCfTwrHA8MlW4NyANJ3LtmHL1p
-         U+yKvmy4igM3yBkKDxj7ves15idND7FJ3GwMWuDywLJYw9mXw3mNDL8VlBJuv4CGaswt
-         fb0xjX2rrQb5hwOP1X+UqMXHdkfxRARlDioSv0RA8+w56lGrco4n0z4jJP1jffWJjAdV
-         4XxbhWfqBwkwOEnoEcBRpn7YukZVzhT8tAUQnX7UncinAK2h9GPIvD5GdtFUAv+KoXGY
-         fkmw==
+        b=Pj7SklCRYGBBar7Z5j9Ki0FMLWsgby0ZDRsKIZZ3MBPBYRPIb1+WhtvM4ZeGfNk2X2
+         D0/Cs88syTmZ99/NBNWrt+O2Og/EOB9N5ee/FG4erOL1zaqSSTW81/zBhBcN5El0W0+O
+         A5dIZdNIfBMr++U2LlznzygOBhLo2Shpa5Ze/x8BzwvjAFZ8t8nIAxQK/OGu/4+xOfwv
+         1Snx9YykIKX72cW3QmGmmGHtF5sKaK/NDkRvCosN0/Ytf0ncRN2Qn3SRvaOCkBebc5IN
+         A6LrOkzEgB0dRem4CmnONMXOFPHMqYeD2zfmjQnK0QsuoxVYub1VmRL28UFLb0HDx1py
+         vyOA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=A7a+S8m8bCU/tgkatnTxXNMRuRJ2qxt6GlRF+LRjeZY=;
-        b=QcqmV3PfWTfU7dhgJNAKXiOHnox+x0fqsrFkEwVbnmS025+zQH3n9z4MGYmwnGakD7
-         zyOB1BtTQJQSsl5mQCppTNHVH0JlrXcJT4iN1NCjwrGrYZB8KnAQrnKc+c/jCvtQsm9S
-         9NvMPWAVZIOiaabB78y30Ns+FDoLNdrXNtNzQX4unRfHlg4c7OuBP1CKqMz3lcKNV1U+
-         PkZDVM9cl1jkMBYSSAq1QAvLObDVWEH35XhJ3Ihop1i5wyyUkxyB9Dws1LcoxXqUv4hk
-         +VIQKaImZuJW5si7NwyIsGDSy0+fklO/MlCiCmK2yh7yXY6ggPGk7HNPW+Wm+R4iQzp3
-         oHbg==
+        bh=pZ1lcsObYYb4eUqnJqVxIXeT7AA6RY0N8kjubeMStp4=;
+        b=0Cj2XYC8kWSrSAg9B0qBsBJKAsg/1ecaQ64idqgFEWkgyPZZTlanYajwuSm+AxrLkW
+         DQH/SaH8Q3WMWnVuS2v9M52YcxqRWwaChy8MZQNYo9sjWu0Nej5X6I2z+8Ht4Gskr9z8
+         831bxrWdwktDKZEgFSTJFQqONwriV+2lSbLHYujI/0tjBROI2JfJCAp3tqfpJPNRTZxU
+         8WxzAWBMO9QUZ72xS5ETwhn+UkeA5s3PfJ1MZxSYCofb3qrCF2RgLFnAoE1h8gf2kI7Z
+         EgCfendotS8bLqdVTnwHepCRJ4gaivgc6hMrvOGq/M7My7X9pzGyS/aveb2r6O57xT+c
+         UaVg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=niLf7MtP;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=cpm68+Yc;
        spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id w3si929655plz.2.2021.06.07.01.18.30
+        by gmr-mx.google.com with ESMTPS id u31si604832pfg.3.2021.06.07.01.18.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 07 Jun 2021 01:18:30 -0700 (PDT)
+        Mon, 07 Jun 2021 01:18:43 -0700 (PDT)
 Received-SPF: pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 526C160FF1;
-	Mon,  7 Jun 2021 08:18:29 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 5A6E46136E;
+	Mon,  7 Jun 2021 08:18:42 +0000 (UTC)
 From: Leon Romanovsky <leon@kernel.org>
 To: Doug Ledford <dledford@redhat.com>,
 	Jason Gunthorpe <jgg@nvidia.com>
@@ -124,16 +124,16 @@ Cc: Greg KH <gregkh@linuxfoundation.org>,
 	VMware PV-Drivers <pv-drivers@vmware.com>,
 	Yishai Hadas <yishaih@nvidia.com>,
 	Zhu Yanjun <zyjzyj2000@gmail.com>
-Subject: [PATCH rdma-next v1 08/15] RDMA/core: Remove the kobject_uevent() NOP
-Date: Mon,  7 Jun 2021 11:17:33 +0300
-Message-Id: <0d1deca036afe09cdddd9bead8cb6e0a6e52be60.1623053078.git.leonro@nvidia.com>
+Subject: [PATCH rdma-next v1 09/15] RDMA/core: Expose the ib port sysfs attribute machinery
+Date: Mon,  7 Jun 2021 11:17:34 +0300
+Message-Id: <d95ab4c9fc9f79403d6265a24410404b04505c64.1623053078.git.leonro@nvidia.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <cover.1623053078.git.leonro@nvidia.com>
 References: <cover.1623053078.git.leonro@nvidia.com>
 MIME-Version: 1.0
 X-Original-Sender: leon@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=niLf7MtP;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=cpm68+Yc;       spf=pass
  (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=leon@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -152,41 +152,539 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Jason Gunthorpe <jgg@nvidia.com>
 
-This call does nothing because the ib_port kobj is nested under a struct
-device kobject and the dev_uevent_filter() function of the struct device
-blocks uevents for any children kobj's that are not also struct devices.
+Other things outside the core code are creating attributes against the
+port. This patch exposes the basic machinery to do this.
 
-A uevent for the struct device will be triggered after
-ib_setup_port_attrs() returns which causes udev to pick up all the deep
-"attributes" which are implemented as kobjects nested under a struct
-device and assign them to the udev object for the struct device:
-
- $ udevadm info -a /sys/class/infiniband/ibp0s9
-     ATTR{ports/1/counters/excessive_buffer_overrun_errors}=="0"
+The ib_port_attribute type allows creating groups of attributes attatched
+to the port and comes with the usual machinery to do this.
 
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
 ---
- drivers/infiniband/core/sysfs.c | 2 --
- 1 file changed, 2 deletions(-)
+ drivers/infiniband/core/sysfs.c | 217 +++++++++++++++++---------------
+ include/rdma/ib_sysfs.h         |  41 ++++++
+ 2 files changed, 158 insertions(+), 100 deletions(-)
+ create mode 100644 include/rdma/ib_sysfs.h
 
 diff --git a/drivers/infiniband/core/sysfs.c b/drivers/infiniband/core/sysfs.c
-index 07a00d3d3d44..14b838863b5d 100644
+index 14b838863b5d..3c5541c39bf6 100644
 --- a/drivers/infiniband/core/sysfs.c
 +++ b/drivers/infiniband/core/sysfs.c
-@@ -1422,8 +1422,6 @@ int ib_setup_port_attrs(struct ib_core_device *coredev)
- 			if (ret)
- 				goto err_put;
- 		}
+@@ -44,24 +44,10 @@
+ #include <rdma/ib_pma.h>
+ #include <rdma/ib_cache.h>
+ #include <rdma/rdma_counter.h>
 -
--		kobject_uevent(&port->kobj, KOBJ_ADD);
- 	}
- 	return 0;
+-struct ib_port;
+-
+-struct port_attribute {
+-	struct attribute attr;
+-	ssize_t (*show)(struct ib_port *, struct port_attribute *, char *buf);
+-	ssize_t (*store)(struct ib_port *, struct port_attribute *,
+-			 const char *buf, size_t count);
+-};
+-
+-#define PORT_ATTR(_name, _mode, _show, _store) \
+-struct port_attribute port_attr_##_name = __ATTR(_name, _mode, _show, _store)
+-
+-#define PORT_ATTR_RO(_name) \
+-struct port_attribute port_attr_##_name = __ATTR_RO(_name)
++#include <rdma/ib_sysfs.h>
  
+ struct port_table_attribute {
+-	struct port_attribute	attr;
++	struct ib_port_attribute attr;
+ 	char			name[8];
+ 	int			index;
+ 	__be16			attr_id;
+@@ -97,7 +83,7 @@ struct hw_stats_device_attribute {
+ };
+ 
+ struct hw_stats_port_attribute {
+-	struct port_attribute attr;
++	struct ib_port_attribute attr;
+ 	ssize_t (*show)(struct ib_device *ibdev, struct rdma_hw_stats *stats,
+ 			unsigned int index, unsigned int port_num, char *buf);
+ 	ssize_t (*store)(struct ib_device *ibdev, struct rdma_hw_stats *stats,
+@@ -119,29 +105,55 @@ struct hw_stats_port_data {
+ static ssize_t port_attr_show(struct kobject *kobj,
+ 			      struct attribute *attr, char *buf)
+ {
+-	struct port_attribute *port_attr =
+-		container_of(attr, struct port_attribute, attr);
++	struct ib_port_attribute *port_attr =
++		container_of(attr, struct ib_port_attribute, attr);
+ 	struct ib_port *p = container_of(kobj, struct ib_port, kobj);
+ 
+ 	if (!port_attr->show)
+ 		return -EIO;
+ 
+-	return port_attr->show(p, port_attr, buf);
++	return port_attr->show(p->ibdev, p->port_num, port_attr, buf);
+ }
+ 
+ static ssize_t port_attr_store(struct kobject *kobj,
+ 			       struct attribute *attr,
+ 			       const char *buf, size_t count)
+ {
+-	struct port_attribute *port_attr =
+-		container_of(attr, struct port_attribute, attr);
++	struct ib_port_attribute *port_attr =
++		container_of(attr, struct ib_port_attribute, attr);
+ 	struct ib_port *p = container_of(kobj, struct ib_port, kobj);
+ 
+ 	if (!port_attr->store)
+ 		return -EIO;
+-	return port_attr->store(p, port_attr, buf, count);
++	return port_attr->store(p->ibdev, p->port_num, port_attr, buf, count);
+ }
+ 
++int ib_port_sysfs_create_groups(struct ib_device *ibdev, u32 port_num,
++				const struct attribute_group **groups)
++{
++	return sysfs_create_groups(&ibdev->port_data[port_num].sysfs->kobj,
++				   groups);
++}
++EXPORT_SYMBOL_GPL(ib_port_sysfs_create_groups);
++
++void ib_port_sysfs_remove_groups(struct ib_device *ibdev, u32 port_num,
++				 const struct attribute_group **groups)
++{
++	return sysfs_remove_groups(&ibdev->port_data[port_num].sysfs->kobj,
++				   groups);
++}
++EXPORT_SYMBOL_GPL(ib_port_sysfs_remove_groups);
++
++struct ib_device *ib_port_sysfs_get_ibdev_kobj(struct kobject *kobj,
++					       u32 *port_num)
++{
++	struct ib_port *port = container_of(kobj, struct ib_port, kobj);
++
++	*port_num = port->port_num;
++	return port->ibdev;
++}
++EXPORT_SYMBOL(ib_port_sysfs_get_ibdev_kobj);
++
+ static const struct sysfs_ops port_sysfs_ops = {
+ 	.show	= port_attr_show,
+ 	.store	= port_attr_store
+@@ -171,25 +183,27 @@ static ssize_t hw_stat_device_store(struct device *dev,
+ 				count);
+ }
+ 
+-static ssize_t hw_stat_port_show(struct ib_port *port,
+-				 struct port_attribute *attr, char *buf)
++static ssize_t hw_stat_port_show(struct ib_device *ibdev, u32 port_num,
++				 struct ib_port_attribute *attr, char *buf)
+ {
+ 	struct hw_stats_port_attribute *stat_attr =
+ 		container_of(attr, struct hw_stats_port_attribute, attr);
++	struct ib_port *port = ibdev->port_data[port_num].sysfs;
+ 
+-	return stat_attr->show(port->ibdev, port->hw_stats_data->stats,
++	return stat_attr->show(ibdev, port->hw_stats_data->stats,
+ 			       stat_attr - port->hw_stats_data->attrs,
+ 			       port->port_num, buf);
+ }
+ 
+-static ssize_t hw_stat_port_store(struct ib_port *port,
+-				  struct port_attribute *attr, const char *buf,
+-				  size_t count)
++static ssize_t hw_stat_port_store(struct ib_device *ibdev, u32 port_num,
++				  struct ib_port_attribute *attr,
++				  const char *buf, size_t count)
+ {
+ 	struct hw_stats_port_attribute *stat_attr =
+ 		container_of(attr, struct hw_stats_port_attribute, attr);
++	struct ib_port *port = ibdev->port_data[port_num].sysfs;
+ 
+-	return stat_attr->store(port->ibdev, port->hw_stats_data->stats,
++	return stat_attr->store(ibdev, port->hw_stats_data->stats,
+ 				stat_attr - port->hw_stats_data->attrs,
+ 				port->port_num, buf, count);
+ }
+@@ -197,23 +211,23 @@ static ssize_t hw_stat_port_store(struct ib_port *port,
+ static ssize_t gid_attr_show(struct kobject *kobj,
+ 			     struct attribute *attr, char *buf)
+ {
+-	struct port_attribute *port_attr =
+-		container_of(attr, struct port_attribute, attr);
++	struct ib_port_attribute *port_attr =
++		container_of(attr, struct ib_port_attribute, attr);
+ 	struct ib_port *p = container_of(kobj, struct gid_attr_group,
+ 					 kobj)->port;
+ 
+ 	if (!port_attr->show)
+ 		return -EIO;
+ 
+-	return port_attr->show(p, port_attr, buf);
++	return port_attr->show(p->ibdev, p->port_num, port_attr, buf);
+ }
+ 
+ static const struct sysfs_ops gid_attr_sysfs_ops = {
+ 	.show = gid_attr_show
+ };
+ 
+-static ssize_t state_show(struct ib_port *p, struct port_attribute *unused,
+-			  char *buf)
++static ssize_t state_show(struct ib_device *ibdev, u32 port_num,
++			  struct ib_port_attribute *unused, char *buf)
+ {
+ 	struct ib_port_attr attr;
+ 	ssize_t ret;
+@@ -227,7 +241,7 @@ static ssize_t state_show(struct ib_port *p, struct port_attribute *unused,
+ 		[IB_PORT_ACTIVE_DEFER]	= "ACTIVE_DEFER"
+ 	};
+ 
+-	ret = ib_query_port(p->ibdev, p->port_num, &attr);
++	ret = ib_query_port(ibdev, port_num, &attr);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -238,81 +252,80 @@ static ssize_t state_show(struct ib_port *p, struct port_attribute *unused,
+ 				  "UNKNOWN");
+ }
+ 
+-static ssize_t lid_show(struct ib_port *p, struct port_attribute *unused,
+-			char *buf)
++static ssize_t lid_show(struct ib_device *ibdev, u32 port_num,
++			struct ib_port_attribute *unused, char *buf)
+ {
+ 	struct ib_port_attr attr;
+ 	ssize_t ret;
+ 
+-	ret = ib_query_port(p->ibdev, p->port_num, &attr);
++	ret = ib_query_port(ibdev, port_num, &attr);
+ 	if (ret)
+ 		return ret;
+ 
+ 	return sysfs_emit(buf, "0x%x\n", attr.lid);
+ }
+ 
+-static ssize_t lid_mask_count_show(struct ib_port *p,
+-				   struct port_attribute *unused,
+-				   char *buf)
++static ssize_t lid_mask_count_show(struct ib_device *ibdev, u32 port_num,
++				   struct ib_port_attribute *unused, char *buf)
+ {
+ 	struct ib_port_attr attr;
+ 	ssize_t ret;
+ 
+-	ret = ib_query_port(p->ibdev, p->port_num, &attr);
++	ret = ib_query_port(ibdev, port_num, &attr);
+ 	if (ret)
+ 		return ret;
+ 
+ 	return sysfs_emit(buf, "%d\n", attr.lmc);
+ }
+ 
+-static ssize_t sm_lid_show(struct ib_port *p, struct port_attribute *unused,
+-			   char *buf)
++static ssize_t sm_lid_show(struct ib_device *ibdev, u32 port_num,
++			   struct ib_port_attribute *unused, char *buf)
+ {
+ 	struct ib_port_attr attr;
+ 	ssize_t ret;
+ 
+-	ret = ib_query_port(p->ibdev, p->port_num, &attr);
++	ret = ib_query_port(ibdev, port_num, &attr);
+ 	if (ret)
+ 		return ret;
+ 
+ 	return sysfs_emit(buf, "0x%x\n", attr.sm_lid);
+ }
+ 
+-static ssize_t sm_sl_show(struct ib_port *p, struct port_attribute *unused,
+-			  char *buf)
++static ssize_t sm_sl_show(struct ib_device *ibdev, u32 port_num,
++			  struct ib_port_attribute *unused, char *buf)
+ {
+ 	struct ib_port_attr attr;
+ 	ssize_t ret;
+ 
+-	ret = ib_query_port(p->ibdev, p->port_num, &attr);
++	ret = ib_query_port(ibdev, port_num, &attr);
+ 	if (ret)
+ 		return ret;
+ 
+ 	return sysfs_emit(buf, "%d\n", attr.sm_sl);
+ }
+ 
+-static ssize_t cap_mask_show(struct ib_port *p, struct port_attribute *unused,
+-			     char *buf)
++static ssize_t cap_mask_show(struct ib_device *ibdev, u32 port_num,
++			     struct ib_port_attribute *unused, char *buf)
+ {
+ 	struct ib_port_attr attr;
+ 	ssize_t ret;
+ 
+-	ret = ib_query_port(p->ibdev, p->port_num, &attr);
++	ret = ib_query_port(ibdev, port_num, &attr);
+ 	if (ret)
+ 		return ret;
+ 
+ 	return sysfs_emit(buf, "0x%08x\n", attr.port_cap_flags);
+ }
+ 
+-static ssize_t rate_show(struct ib_port *p, struct port_attribute *unused,
+-			 char *buf)
++static ssize_t rate_show(struct ib_device *ibdev, u32 port_num,
++			 struct ib_port_attribute *unused, char *buf)
+ {
+ 	struct ib_port_attr attr;
+ 	char *speed = "";
+ 	int rate;		/* in deci-Gb/sec */
+ 	ssize_t ret;
+ 
+-	ret = ib_query_port(p->ibdev, p->port_num, &attr);
++	ret = ib_query_port(ibdev, port_num, &attr);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -379,14 +392,14 @@ static const char *phys_state_to_str(enum ib_port_phys_state phys_state)
+ 	return "<unknown>";
+ }
+ 
+-static ssize_t phys_state_show(struct ib_port *p, struct port_attribute *unused,
+-			       char *buf)
++static ssize_t phys_state_show(struct ib_device *ibdev, u32 port_num,
++			       struct ib_port_attribute *unused, char *buf)
+ {
+ 	struct ib_port_attr attr;
+ 
+ 	ssize_t ret;
+ 
+-	ret = ib_query_port(p->ibdev, p->port_num, &attr);
++	ret = ib_query_port(ibdev, port_num, &attr);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -394,12 +407,12 @@ static ssize_t phys_state_show(struct ib_port *p, struct port_attribute *unused,
+ 			  phys_state_to_str(attr.phys_state));
+ }
+ 
+-static ssize_t link_layer_show(struct ib_port *p, struct port_attribute *unused,
+-			       char *buf)
++static ssize_t link_layer_show(struct ib_device *ibdev, u32 port_num,
++			       struct ib_port_attribute *unused, char *buf)
+ {
+ 	const char *output;
+ 
+-	switch (rdma_port_get_link_layer(p->ibdev, p->port_num)) {
++	switch (rdma_port_get_link_layer(ibdev, port_num)) {
+ 	case IB_LINK_LAYER_INFINIBAND:
+ 		output = "InfiniBand";
+ 		break;
+@@ -414,26 +427,26 @@ static ssize_t link_layer_show(struct ib_port *p, struct port_attribute *unused,
+ 	return sysfs_emit(buf, "%s\n", output);
+ }
+ 
+-static PORT_ATTR_RO(state);
+-static PORT_ATTR_RO(lid);
+-static PORT_ATTR_RO(lid_mask_count);
+-static PORT_ATTR_RO(sm_lid);
+-static PORT_ATTR_RO(sm_sl);
+-static PORT_ATTR_RO(cap_mask);
+-static PORT_ATTR_RO(rate);
+-static PORT_ATTR_RO(phys_state);
+-static PORT_ATTR_RO(link_layer);
++static IB_PORT_ATTR_RO(state);
++static IB_PORT_ATTR_RO(lid);
++static IB_PORT_ATTR_RO(lid_mask_count);
++static IB_PORT_ATTR_RO(sm_lid);
++static IB_PORT_ATTR_RO(sm_sl);
++static IB_PORT_ATTR_RO(cap_mask);
++static IB_PORT_ATTR_RO(rate);
++static IB_PORT_ATTR_RO(phys_state);
++static IB_PORT_ATTR_RO(link_layer);
+ 
+ static struct attribute *port_default_attrs[] = {
+-	&port_attr_state.attr,
+-	&port_attr_lid.attr,
+-	&port_attr_lid_mask_count.attr,
+-	&port_attr_sm_lid.attr,
+-	&port_attr_sm_sl.attr,
+-	&port_attr_cap_mask.attr,
+-	&port_attr_rate.attr,
+-	&port_attr_phys_state.attr,
+-	&port_attr_link_layer.attr,
++	&ib_port_attr_state.attr,
++	&ib_port_attr_lid.attr,
++	&ib_port_attr_lid_mask_count.attr,
++	&ib_port_attr_sm_lid.attr,
++	&ib_port_attr_sm_sl.attr,
++	&ib_port_attr_cap_mask.attr,
++	&ib_port_attr_rate.attr,
++	&ib_port_attr_phys_state.attr,
++	&ib_port_attr_link_layer.attr,
+ 	NULL
+ };
+ 
+@@ -457,7 +470,8 @@ static ssize_t print_gid_type(const struct ib_gid_attr *gid_attr, char *buf)
+ }
+ 
+ static ssize_t _show_port_gid_attr(
+-	struct ib_port *p, struct port_attribute *attr, char *buf,
++	struct ib_device *ibdev, u32 port_num, struct ib_port_attribute *attr,
++	char *buf,
+ 	ssize_t (*print)(const struct ib_gid_attr *gid_attr, char *buf))
+ {
+ 	struct port_table_attribute *tab_attr =
+@@ -465,7 +479,7 @@ static ssize_t _show_port_gid_attr(
+ 	const struct ib_gid_attr *gid_attr;
+ 	ssize_t ret;
+ 
+-	gid_attr = rdma_get_gid_attr(p->ibdev, p->port_num, tab_attr->index);
++	gid_attr = rdma_get_gid_attr(ibdev, port_num, tab_attr->index);
+ 	if (IS_ERR(gid_attr))
+ 		/* -EINVAL is returned for user space compatibility reasons. */
+ 		return -EINVAL;
+@@ -475,15 +489,15 @@ static ssize_t _show_port_gid_attr(
+ 	return ret;
+ }
+ 
+-static ssize_t show_port_gid(struct ib_port *p, struct port_attribute *attr,
+-			     char *buf)
++static ssize_t show_port_gid(struct ib_device *ibdev, u32 port_num,
++			     struct ib_port_attribute *attr, char *buf)
+ {
+ 	struct port_table_attribute *tab_attr =
+ 		container_of(attr, struct port_table_attribute, attr);
+ 	const struct ib_gid_attr *gid_attr;
+ 	int len;
+ 
+-	gid_attr = rdma_get_gid_attr(p->ibdev, p->port_num, tab_attr->index);
++	gid_attr = rdma_get_gid_attr(ibdev, port_num, tab_attr->index);
+ 	if (IS_ERR(gid_attr)) {
+ 		const union ib_gid zgid = {};
+ 
+@@ -504,28 +518,30 @@ static ssize_t show_port_gid(struct ib_port *p, struct port_attribute *attr,
+ 	return len;
+ }
+ 
+-static ssize_t show_port_gid_attr_ndev(struct ib_port *p,
+-				       struct port_attribute *attr, char *buf)
++static ssize_t show_port_gid_attr_ndev(struct ib_device *ibdev, u32 port_num,
++				       struct ib_port_attribute *attr,
++				       char *buf)
+ {
+-	return _show_port_gid_attr(p, attr, buf, print_ndev);
++	return _show_port_gid_attr(ibdev, port_num, attr, buf, print_ndev);
+ }
+ 
+-static ssize_t show_port_gid_attr_gid_type(struct ib_port *p,
+-					   struct port_attribute *attr,
++static ssize_t show_port_gid_attr_gid_type(struct ib_device *ibdev,
++					   u32 port_num,
++					   struct ib_port_attribute *attr,
+ 					   char *buf)
+ {
+-	return _show_port_gid_attr(p, attr, buf, print_gid_type);
++	return _show_port_gid_attr(ibdev, port_num, attr, buf, print_gid_type);
+ }
+ 
+-static ssize_t show_port_pkey(struct ib_port *p, struct port_attribute *attr,
+-			      char *buf)
++static ssize_t show_port_pkey(struct ib_device *ibdev, u32 port_num,
++			      struct ib_port_attribute *attr, char *buf)
+ {
+ 	struct port_table_attribute *tab_attr =
+ 		container_of(attr, struct port_table_attribute, attr);
+ 	u16 pkey;
+ 	int ret;
+ 
+-	ret = ib_query_pkey(p->ibdev, p->port_num, tab_attr->index, &pkey);
++	ret = ib_query_pkey(ibdev, port_num, tab_attr->index, &pkey);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -594,8 +610,8 @@ static int get_perf_mad(struct ib_device *dev, int port_num, __be16 attr,
+ 	return ret;
+ }
+ 
+-static ssize_t show_pma_counter(struct ib_port *p, struct port_attribute *attr,
+-				char *buf)
++static ssize_t show_pma_counter(struct ib_device *ibdev, u32 port_num,
++				struct ib_port_attribute *attr, char *buf)
+ {
+ 	struct port_table_attribute *tab_attr =
+ 		container_of(attr, struct port_table_attribute, attr);
+@@ -605,7 +621,7 @@ static ssize_t show_pma_counter(struct ib_port *p, struct port_attribute *attr,
+ 	u8 data[8];
+ 	int len;
+ 
+-	ret = get_perf_mad(p->ibdev, p->port_num, tab_attr->attr_id, &data,
++	ret = get_perf_mad(ibdev, port_num, tab_attr->attr_id, &data,
+ 			40 + offset / 8, sizeof(data));
+ 	if (ret < 0)
+ 		return ret;
+@@ -1077,10 +1093,11 @@ struct rdma_hw_stats *ib_get_hw_stats_port(struct ib_device *ibdev,
+ 	return ibdev->port_data[port_num].sysfs->hw_stats_data->stats;
+ }
+ 
+-static int alloc_port_table_group(
+-	const char *name, struct attribute_group *group,
+-	struct port_table_attribute *attrs, size_t num,
+-	ssize_t (*show)(struct ib_port *, struct port_attribute *, char *buf))
++static int
++alloc_port_table_group(const char *name, struct attribute_group *group,
++		       struct port_table_attribute *attrs, size_t num,
++		       ssize_t (*show)(struct ib_device *ibdev, u32 port_num,
++				       struct ib_port_attribute *, char *buf))
+ {
+ 	struct attribute **attr_list;
+ 	int i;
+diff --git a/include/rdma/ib_sysfs.h b/include/rdma/ib_sysfs.h
+new file mode 100644
+index 000000000000..f869d0e4fd30
+--- /dev/null
++++ b/include/rdma/ib_sysfs.h
+@@ -0,0 +1,41 @@
++/* SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause */
++/*
++ * Copyright (c) 2021 Mellanox Technologies Ltd.  All rights reserved.
++ */
++#ifndef DEF_RDMA_IB_SYSFS_H
++#define DEF_RDMA_IB_SYSFS_H
++
++#include <linux/sysfs.h>
++
++struct ib_device;
++
++struct ib_port_attribute {
++	struct attribute attr;
++	ssize_t (*show)(struct ib_device *ibdev, u32 port_num,
++			struct ib_port_attribute *attr, char *buf);
++	ssize_t (*store)(struct ib_device *ibdev, u32 port_num,
++			 struct ib_port_attribute *attr, const char *buf,
++			 size_t count);
++};
++
++#define IB_PORT_ATTR_RW(_name)                                                 \
++	struct ib_port_attribute ib_port_attr_##_name = __ATTR_RW(_name)
++
++#define IB_PORT_ATTR_ADMIN_RW(_name)                                           \
++	struct ib_port_attribute ib_port_attr_##_name =                        \
++		__ATTR_RW_MODE(_name, 0600)
++
++#define IB_PORT_ATTR_RO(_name)                                                 \
++	struct ib_port_attribute ib_port_attr_##_name = __ATTR_RO(_name)
++
++#define IB_PORT_ATTR_WO(_name)                                                 \
++	struct ib_port_attribute ib_port_attr_##_name = __ATTR_WO(_name)
++
++int ib_port_sysfs_create_groups(struct ib_device *ibdev, u32 port_num,
++				const struct attribute_group **groups);
++void ib_port_sysfs_remove_groups(struct ib_device *ibdev, u32 port_num,
++				 const struct attribute_group **groups);
++struct ib_device *ib_port_sysfs_get_ibdev_kobj(struct kobject *kobj,
++					       u32 *port_num);
++
++#endif
 -- 
 2.31.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/0d1deca036afe09cdddd9bead8cb6e0a6e52be60.1623053078.git.leonro%40nvidia.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d95ab4c9fc9f79403d6265a24410404b04505c64.1623053078.git.leonro%40nvidia.com.
