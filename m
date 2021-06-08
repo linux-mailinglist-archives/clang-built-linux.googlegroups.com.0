@@ -1,125 +1,128 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBDHV72CQMGQELNHHXLA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBR7X72CQMGQEVMU3N7A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13c.google.com (mail-lf1-x13c.google.com [IPv6:2a00:1450:4864:20::13c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 11AA339FFE2
-	for <lists+clang-built-linux@lfdr.de>; Tue,  8 Jun 2021 20:44:29 +0200 (CEST)
-Received: by mail-lf1-x13c.google.com with SMTP id s3-20020ac246430000b02902f4a79c5c14sf6954660lfo.14
-        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Jun 2021 11:44:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623177868; cv=pass;
+Received: from mail-yb1-xb38.google.com (mail-yb1-xb38.google.com [IPv6:2607:f8b0:4864:20::b38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 49A843A0106
+	for <lists+clang-built-linux@lfdr.de>; Tue,  8 Jun 2021 20:49:44 +0200 (CEST)
+Received: by mail-yb1-xb38.google.com with SMTP id 22-20020a250d160000b0290532b914c9f4sf28009918ybn.9
+        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Jun 2021 11:49:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623178183; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rIVUq5zHGaZSMf7Z0ngt3TWY+0XoPuEopM9ZKw2gm8AK3dGQpeFIh5Aax1TuBhfLjE
-         f6pYsGM/Zty8WBQOmbdOcQNPh93s6WO4s6y2bpjhAzA+ZE9QMiu11vxBoon+0VMI6sBk
-         EAtAmrR/GYBn7+u5EcQuTjVfKit01w2TuMfhAQvjlnU2q9k7qAQTjgO4w8EqT+sFdmka
-         kR5ir4LJLgjneibHLis4TVIRBvfQersuusW1/UJhN3HSTLAAOoaNUG1gzaUJdsogcbDb
-         lW7hE2XvK8yU/c5Lnh352fSu0Uu756chkxK6f84Pka/gPnv4OQZHD97107RMsAtt4xzM
-         9qdQ==
+        b=aNyuJErNx7y0xhddm/9zH3Oi1ATqNpy7k9aKOrlovDGdaqCfQOCIWlJ9am/ZFgVrQu
+         gov/a6UyitTfa7gjiIY00w0U5Yc+RuAzMImKqsPEJ6B0skK6nbVwii8o1hJ3UHXn5E9a
+         J4rQcbTmkSVx4N5S9QSaOy263Vuoz+63Lt848JbskFsHB9RUHDPiRON9ysLCnkifGCTu
+         NVlT21g+SWVPLdsVKzseVfXUhWxzz5a847XFHn51oa8x4e3KAuYCqyeKu7NTAVOMSmjT
+         qkh6xerLxv4zzNkVBAYueJ7fV8vG6tpKo720JjJEbRZFrPUopR3M/S7OUxp+Ur57LmJz
+         52Ww==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=ACPHv8RIU2FZWbAF+jf6kKpaKbN2eHtfnMGuGHSQbiM=;
-        b=ubV8czsbeJu9camXZWAHvV+reO6trUNK6LLrcWYQIC7AtszrQt0gtoSJQw2/xG58fA
-         1SK5jfGcBvz8hesa2NvPXMmnbSI7B0q8CBEIXZVxL8RpW5a0l99pufQ+7XFijYRYcn7V
-         Oy0P2A1hFPnGkyGiLuOxniYrnQyEdqnntL/lld/hYEywp7qUGq2dFp89fkpcEwK5WdOo
-         3yfzolIo2pIygxRjwFtUeWUn03OEpZYIp5J5m4y9Xk3aH6dshrP4iQdH/9MKEwER9Hwa
-         P611P5ssQZP0HdLZWhVBpO1dZX0ps/WSsm4maSbQXsv9hGjqTb3L+qiS9ZlkFdI0TW8v
-         gxAA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=it+sXjEikbrAMoCMdKq7is1vMq5naCAWAlK9Ojs0GJE=;
+        b=V4hWr0kS5lLryokiprj+L7ZKkvLZhhEe+/m70fxGMiNYzvMNowGKfqlX6kx8WnBpn7
+         Cu7/ZNQmN5Dc4aYpn9sz5mS+4UnZr2/jBGm95GSdCWsXg/Qd5RRuSulUTO13Amh4bE+k
+         ulY37ePGf+8vqcrH083psOLjSspqxV/LaGQRBt/3KGKlT1GDRQOa1gRIkw/koLKg8b2z
+         FXziUlc9WaxLecZFSeDJU6T2WJMuFaKTM88c70FSPFqo/f5mjW59KyGle4DOxvd8dPP9
+         mJPPfhSc0iAIBQ0tI0AdJP/bdI3yzvM/od2VzrQgBRRAHMsXORXXc+1dx4DcQNuqZ3Al
+         6gmw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=mLCpYalD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=nVUytxhH;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ACPHv8RIU2FZWbAF+jf6kKpaKbN2eHtfnMGuGHSQbiM=;
-        b=P9cZsUSgLnis+PD6hR3uPB+sETtzmy2CUI6YfkCqb4x8mseP8G5fPfYacO/BT/XymV
-         VoUC+/PzNVAX4vsE8gUi0Erf1sohRzEh3DT9D0vFV8B9arDoNblOBjG/uGD+uLei1K/q
-         +d/O+j02HNdlJObYMKA4Wwo+VAQ2U4szBmtUxL0/JKfuYwLorSbd5jUei2rimsYhUCnh
-         qIW+CB3XJ0z43APJYzA4j9p/oB5Gn772dEtpPaLzKsoFdqLJgvI5Y7vg/WWOChlkqSDa
-         zH23ASWluD5yz82YeCVW40dxeQcBH1hZzLkbwyBVqBgopAkn6S4hhzxiaDXcQbrn7sKV
-         HzPA==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=it+sXjEikbrAMoCMdKq7is1vMq5naCAWAlK9Ojs0GJE=;
+        b=NhCwdCyO8NL5SqP2jrws+0qoKw9YP3GCA383TeS8/7CeA32FrgikjJiOAUIozLadFp
+         9aIcAYgsOMDJKhvbQ0ad+v1VPYPiHUFLjNqZ4cKZwFxf70Tzpo8TMigeINsmQFN1ewwS
+         rnE80bxtaXD1uGsi9V0L8rxlOabqT4JiTa/ZpTjvGYlj8cEZAe0XMFgMa/nFuTIDzS0S
+         CFegw/+EY+T20XJw8kzI2Hqqwa9FQxm0/Dfco2xYwu8Z4Jd8mdbSjiG5LnW3PBDb53Mw
+         O3tCQXb6JbZWwQa1tfWS8PMpEhq6dODBWeUzTDDYOVJhJGsHPozxGbdKlaAig1pxwfxq
+         Nwew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ACPHv8RIU2FZWbAF+jf6kKpaKbN2eHtfnMGuGHSQbiM=;
-        b=ccfgPHDZhz2q5wkvMHgHMDm3gEZS5IUeqyN3SP8F42NI9DvLWB6ZpxcclQwsQHkdqa
-         IW3I4O/3THyPCsgGNF9mXdDa/Uliz2dPu1rX5AFE4jqnAFxBSzBjNVd6RQVcRbotCVZ1
-         +w2d6xQM+jVeR3GKfso3UKFmXWfmotOaGS5sX/F5kArWfWztZukiQ7QD8deFwXtmPdgk
-         gj07IACuhzLD/IaS+S4DFdCVewdOTZpcbRwuUjXQWQrAM5O4J59/useARpC/hVoSmDXK
-         W3jsHcfBg1xtvI/xrnI8dGI9O0fBbwmii4UhYDJd1EuJXZzQhV/2vA9G9ftUmsMUT75w
-         9G/A==
-X-Gm-Message-State: AOAM532MPBuVG6vW+VzZiANZiFuL3OS4pcTDv0wNh7sNu968sK6d+oWj
-	K5kki1VQhoPj3BWVPAzC5+g=
-X-Google-Smtp-Source: ABdhPJx+UB1qKB0KCCIv6Q2UDUlhR8fawyhPEfvJ1tU/ybzYIgpXJUSh3j1jPpkdsDVbirlPltIQvQ==
-X-Received: by 2002:ac2:5936:: with SMTP id v22mr16526048lfi.130.1623177868651;
-        Tue, 08 Jun 2021 11:44:28 -0700 (PDT)
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=it+sXjEikbrAMoCMdKq7is1vMq5naCAWAlK9Ojs0GJE=;
+        b=HoFnhxH+fpOCNooWC7OI5+MBli/jexssxr795ydZTDXoJnlB+8WnBv7CH/V8vSLflR
+         r0lXEEtsdc9Zc/H1Zamrvi5lGqycCR2C3VzDF844aUwYStEygg89QxvhsC0XGjt+CECz
+         JBn2L56eqbj1TwTGNtk78IHqnTHlXa17b2M52hEKzJ3hMeF9o1ohJExNF4TTVMQof2Zz
+         feQVRAupvAlEnTfzrLvKuZ1ndszZvXOE3IOQ4eidUonBAiVHOsTJKcg3MH6ADWMsmuwf
+         3GQ4VtViSbphz+0tXvbY/otw53HwetI4pZeAHGasrmHwdHFiGcsgnQcg6Z30OqdMRp6I
+         k1mg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533wPDIxPFwJTE8gsjZRlQz8gVzN9/aBQ8SRVKWINbFPLdX/zjRw
+	OCQlc1IkWBhsjWT5EUUUhc0=
+X-Google-Smtp-Source: ABdhPJwqsM/NkOx7WT95N2tSySM2y1FC3nV+xXghyeokSBDtgWRxS5/mupNRw3EFnD32uXbZicNMMQ==
+X-Received: by 2002:a25:bb84:: with SMTP id y4mr31674662ybg.450.1623178183150;
+        Tue, 08 Jun 2021 11:49:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3f94:: with SMTP id x20ls1592004lfa.0.gmail; Tue,
- 08 Jun 2021 11:44:27 -0700 (PDT)
-X-Received: by 2002:a05:6512:3588:: with SMTP id m8mr16872445lfr.309.1623177867672;
-        Tue, 08 Jun 2021 11:44:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623177867; cv=none;
+Received: by 2002:a25:3c6:: with SMTP id 189ls2951829ybd.8.gmail; Tue, 08 Jun
+ 2021 11:49:42 -0700 (PDT)
+X-Received: by 2002:a25:aa90:: with SMTP id t16mr11644606ybi.307.1623178182717;
+        Tue, 08 Jun 2021 11:49:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623178182; cv=none;
         d=google.com; s=arc-20160816;
-        b=lgMcZBiM6K8VqpH6O6Tlr9P5BU8Yeul3MGEJ+f9PB6f+jdJjed9WGCcsKHxjp4g8El
-         hYMJRhB2plnESKFhY+DA8R2mLwcSnmzMpCCFNXB5zKJgAGE7fP1Wzy3apeERGlkE3z++
-         LL1Lm9LUQ48ZSeLKso6kkzDC1m7ANfQe3g9Nq/v505+jJShjljf3vYeanCL2w7BSpt16
-         PFpjQHiikQn4URsa2f4zo1hsyGgslXmNK2JQKZNNC/HTK5pV4mnPVcRg7jJMxzZhm4z3
-         tPNIk4f3JNeOvRNRvQoT5J8sbhFeF18Nh+CjrP9TtHhVl2uDzN+SN6fushgEeII+q2D+
-         nkFQ==
+        b=L7GShkbCv3hSijO4ghQJQ6YisAa6oCjZ2RrvcX52kCWpva1psGgoTNuqOBdDuUroxe
+         vKZ+FLSaodsyvWZuaqZuco9pIvHWCXmSM4eEq0oy9Fz5r1v2zCbvCrE5ncJkii6dmGmP
+         F4dkICmSn8Blz+33x61laRBx4YZtP3r3is7b0SeB4/knveepFRBu/6+VAt8QnuRjYzHM
+         PJwGhF00/bTO5fwYo/ej5MNo0hzylrcnrKaA7r0+y1ae4kewSB/PawYtMeoW3PT04/sl
+         Iri6LY895RIrAjVd5TBZhX2cBvb6cyLIEo+e4lbCE+XWpt9PeoZtvMjy1jnCRr2j5fiw
+         b8BQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=n/n2yUEViCmlCbkWm7ppXR+v3Z2ScShTqfIirUWpY1w=;
-        b=oAXUxi7ywNdnQ3yK19Ew2tBBOzWYMhjvQePZb6CvPy71N1h/nc2lMfbTSf5CAz/cBL
-         +kC10qONUxQq5SEXFIyZEM8d3qpmtNqfDWQvSbeCXAfgX5NwWoR8m++hE0wAG6vfrHRW
-         gFZXRqmCsHrTGJ5ri2JykXftp7cPfXCPotOUgVOJIdjI/SQfxXpAT1QPjcNrm3fMYwT9
-         WwN9Ywd2oumFFDACTiKUCRSSjwAUW2vhBi/jVHQWoOVBIenLYWCjF20xrdR0jjzDl2nX
-         mEO+wlDix0A35ffMpcEwIxf3UNT40dGLlnhdVwJShyb3rIJ29q/uC57Ng2Fvt7YyeWVC
-         h8LA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=Hk+ppHDB/QTmEhJpRlXdQwC2gWRyizA80HWzUAy2vNs=;
+        b=TzfiKBOAFlB2HT2aNS7ndykVWvzpaXNT36EL+RfXgw0nE8+r9APTRx83LVDIB0YNEx
+         JVBuPuKFDFR/eb/6z74SIT+gFXvNw6t8dfGnE1dlfS/6U5WrX4MEPpAd1y4J1HombSr4
+         k52BBGpa06vlX3WyktdB+3TKkOarD0A/aioeBUMG17VckpZ/ROQzybZI9Rv/nXC4qDoO
+         tDSQzvFy9Ijl25lP9m8zSP3NYVLXE6J1iEdPqTa4VDOd2+9j1u+ZW56l7tIkWzfjSs66
+         UbuSyjtEYaeV6VW/hlmsTcII/NGVbQ1dIHWV/bu5B4HGXYnID6WekH/zu5EE5BZXN5rJ
+         TOVg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=mLCpYalD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x12b.google.com (mail-lf1-x12b.google.com. [2a00:1450:4864:20::12b])
-        by gmr-mx.google.com with ESMTPS id c6si20043ljf.3.2021.06.08.11.44.27
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=nVUytxhH;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id x9si1013184ybn.0.2021.06.08.11.49.42
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 08 Jun 2021 11:44:27 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b as permitted sender) client-ip=2a00:1450:4864:20::12b;
-Received: by mail-lf1-x12b.google.com with SMTP id n12so26692659lft.10
-        for <clang-built-linux@googlegroups.com>; Tue, 08 Jun 2021 11:44:27 -0700 (PDT)
-X-Received: by 2002:a05:6512:51c:: with SMTP id o28mr9020454lfb.297.1623177867232;
- Tue, 08 Jun 2021 11:44:27 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 08 Jun 2021 11:49:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 6D8F561429;
+	Tue,  8 Jun 2021 18:49:41 +0000 (UTC)
+Subject: Re: [PATCH] thermal: devfreq_cooling: Fix kernel-doc
+To: Nick Desaulniers <ndesaulniers@google.com>,
+ Yang Li <yang.lee@linux.alibaba.com>
+Cc: Zhang Rui <rui.zhang@intel.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, amitk@kernel.org,
+ linux-pm@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>
+References: <1623145562-111662-1-git-send-email-yang.lee@linux.alibaba.com>
+ <CAKwvOdmyXV09ZxcDqQ6x43f+Eze4h40W2AoKcCmUhGM2gUWsnQ@mail.gmail.com>
+From: Nathan Chancellor <nathan@kernel.org>
+Message-ID: <6335deba-9e94-61e0-89a1-8905be0e35a1@kernel.org>
+Date: Tue, 8 Jun 2021 11:49:40 -0700
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-References: <1623145017-104752-1-git-send-email-yang.lee@linux.alibaba.com>
-In-Reply-To: <1623145017-104752-1-git-send-email-yang.lee@linux.alibaba.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 8 Jun 2021 11:44:16 -0700
-Message-ID: <CAKwvOdkhQrnunYDtGPvyfMcjW-yMihQQZY_8VYLbD3+Y5pHryA@mail.gmail.com>
-Subject: Re: [PATCH] dmaengine: xilinx: dpdma: fix kernel-doc
-To: Yang Li <yang.lee@linux.alibaba.com>
-Cc: hyun.kwon@xilinx.com, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Vinod Koul <vkoul@kernel.org>, Michal Simek <michal.simek@xilinx.com>, 
-	Nathan Chancellor <nathan@kernel.org>, dmaengine@vger.kernel.org, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+In-Reply-To: <CAKwvOdmyXV09ZxcDqQ6x43f+Eze4h40W2AoKcCmUhGM2gUWsnQ@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=mLCpYalD;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=k20201202 header.b=nVUytxhH;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,52 +135,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jun 8, 2021 at 2:38 AM Yang Li <yang.lee@linux.alibaba.com> wrote:
->
-> Fix function name in xilinx/xilinx_dpdma.c kernel-doc comment
-> to remove a warning found by clang(make W=1 LLVM=1).
->
-> drivers/dma/xilinx/xilinx_dpdma.c:935: warning: expecting prototype for
-> xilinx_dpdma_chan_no_ostand(). Prototype was for
-> xilinx_dpdma_chan_notify_no_ostand() instead.
+On 6/8/2021 11:39 AM, Nick Desaulniers wrote:
+> On Tue, Jun 8, 2021 at 2:46 AM Yang Li <yang.lee@linux.alibaba.com> wrote:
+>>
+>> Fix function name in devfreq_cooling.c kernel-doc comment
+>> to remove a warning found by clang(make W=1 LLVM=1).
+>>
+>> drivers/thermal/devfreq_cooling.c:479: warning: expecting prototype for
+>> devfreq_cooling_em_register_power(). Prototype was for
+>> devfreq_cooling_em_register() instead.
+>>
+>> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
+>> Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
+> 
+> That compiler warning doesn't come from kernel-doc.  Your diff looks
+> good (the comment was wrong), but the commit message is curious.
 
-xilinx_dpdma_chan_notify_no_ostand has static linkage, clang shouldn't
-be emitting such a warning for this function.  Which tree was Abaci
-run on? Do you have the original report? This warning doesn't look
-right to me.
+No, this is indeed kernel-doc complaining. Clang should not even be 
+mentioned in the commit message:
 
-Again, the diff seems fine, but the commit message does not.
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/scripts/kernel-doc?h=v5.13-rc5#n1228
 
->
-> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-> Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
-> ---
->  drivers/dma/xilinx/xilinx_dpdma.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/dma/xilinx/xilinx_dpdma.c b/drivers/dma/xilinx/xilinx_dpdma.c
-> index 70b29bd..0c8739a 100644
-> --- a/drivers/dma/xilinx/xilinx_dpdma.c
-> +++ b/drivers/dma/xilinx/xilinx_dpdma.c
-> @@ -915,7 +915,7 @@ static u32 xilinx_dpdma_chan_ostand(struct xilinx_dpdma_chan *chan)
->  }
->
->  /**
-> - * xilinx_dpdma_chan_no_ostand - Notify no outstanding transaction event
-> + * xilinx_dpdma_chan_notify_no_ostand - Notify no outstanding transaction event
->   * @chan: DPDMA channel
->   *
->   * Notify waiters for no outstanding event, so waiters can stop the channel
-> --
-> 1.8.3.1
->
+The warning could probably be improved to say "definition" instead of 
+"prototype" in certain cases but *shrugs*.
 
+This warning is similar to -Wmissing-prototypes from clang but refers to 
+the fact that the comment claims it is documenting one function but it 
+is really documenting another.
 
--- 
-Thanks,
-~Nick Desaulniers
+Cheers,
+Nathan
+
+> Usually that warning is from when the function prototype does not
+> exist for a function with extern linkage.  It looks like that's always
+> provided though in include/linux/devfreq_cooling.h.  Can you share a
+> link to the original report?
+> 
+>> ---
+>>   drivers/thermal/devfreq_cooling.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/thermal/devfreq_cooling.c b/drivers/thermal/devfreq_cooling.c
+>> index 3a788ac..5a86cff 100644
+>> --- a/drivers/thermal/devfreq_cooling.c
+>> +++ b/drivers/thermal/devfreq_cooling.c
+>> @@ -458,7 +458,7 @@ struct thermal_cooling_device *devfreq_cooling_register(struct devfreq *df)
+>>   EXPORT_SYMBOL_GPL(devfreq_cooling_register);
+>>
+>>   /**
+>> - * devfreq_cooling_em_register_power() - Register devfreq cooling device with
+>> + * devfreq_cooling_em_register() - Register devfreq cooling device with
+>>    *             power information and automatically register Energy Model (EM)
+>>    * @df:                Pointer to devfreq device.
+>>    * @dfc_power: Pointer to devfreq_cooling_power.
+>> --
+>> 1.8.3.1
+>>
+> 
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkhQrnunYDtGPvyfMcjW-yMihQQZY_8VYLbD3%2BY5pHryA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/6335deba-9e94-61e0-89a1-8905be0e35a1%40kernel.org.
