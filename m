@@ -1,146 +1,134 @@
-Return-Path: <clang-built-linux+bncBDMMLW4BXYHBBL7Q7OCQMGQEJUWIQQA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCJZRXGY5YJBBL7T7OCQMGQEIQEJSBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6766A39EDD9
-	for <lists+clang-built-linux@lfdr.de>; Tue,  8 Jun 2021 06:55:13 +0200 (CEST)
-Received: by mail-ot1-x33a.google.com with SMTP id o26-20020a9d6d1a0000b02903e61e3de711sf5514473otp.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 21:55:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623128112; cv=pass;
+Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
+	by mail.lfdr.de (Postfix) with ESMTPS id 622FB39EDE5
+	for <lists+clang-built-linux@lfdr.de>; Tue,  8 Jun 2021 07:01:37 +0200 (CEST)
+Received: by mail-pj1-x1037.google.com with SMTP id w1-20020a17090a0281b0290156f7df20a0sf12477595pja.8
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Jun 2021 22:01:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623128495; cv=pass;
         d=google.com; s=arc-20160816;
-        b=w74SIt+Thn1dSk7Hu78q/JdvqEb+iIdDIC9TE9FmzmLPdeU2knhYb5a8O9M4fFZ++B
-         utkk9WYEHxSZIikYED5jpmL/QNYJP2QaXDK5jcreatD7IAjVKuCyOD2dUJ8/vSBePKyO
-         Yi2rOUqdL79l3Hck4aA5yc1sa38Xax5ePaqxCN2QXhsAMmvYmwfRW7E9jn20b9ZyBKIG
-         OH5XUb1hrlkaygzuQJy0D8ym7kOwmfs2UyCKUO+jzo8qewKfDrY1xC08CP+YoQqTNwZr
-         Zc/hs7/pErJzOcTFYIK7UpTGjOVPBcIWxhYvllLFgMWK6Cnl9DNkh48m16NS1xZfl3/R
-         a+sA==
+        b=Y6/+jIjP/EzWamQ+U9svlC+JwwVJb3Te2wUeAfH7khRr3DDWqiHekMmyxM6M6xU8CU
+         7ggGSgnkzncvzm7aKNLcDJfPNUgJA11EaXHtG5B1nLW8r+H4B802oL1n6DvmPHgbxfxV
+         FmiYtMMxhRy7PGYgZdhw3pbcuMBUwoOFy5TXqcdj+9tdbFKtie8cYs5J+bDDeBJCPDRc
+         WnSOuQkPxF1bzRBmoItyP2nN39Rbcw9f23m8giKzRke4KKDXcENw2pBvqMzCiwFVi39z
+         +ZHEJQFm17T3mbZpUgb5qzZ/ZCbCtCEQtwzTM7zxPDts+pYO4/dAyOFo8J3AA9cjuBU7
+         J2EA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:reply-to:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=BVwnIAFc43mBSQybkquK9oD4MqMpBuMLvcE4QNqKO2A=;
-        b=zTEAfpPKRAbNKxet0VcK65GLTGnVb3DdyIjpl+DAVJHFaHPqk2mDCSiz+v+z2K++4q
-         OoOw7UANSu1KDbPEQf/3gqDnm+JVxjp9uQ6/2l3DToV87XQvwXO1e97gtmlQfmzaLIGz
-         8MXm0lskaueSiiFWmV2I1v+r+BNUJ4kDun1FliJ/H/cyEy2L9Mg5ifMY43yZBrPy8d1I
-         LKHoI94WMolzqZ4WD5FXrjLJ4e638sAGoK38Ma9XOGbfKui+0AEHVwDhHqSi1HC3jMdj
-         jZKiclQjmDBzFxxYh4h9oGAP3nlwo0/qIjX2W8zv5kEH0+W4DoOx/IltuQVvQBAnVYT8
-         8wIA==
+        bh=jvoZYmB+xIRaJWU+Z3/eyCZGK0SgKS6VDRCQY0V6YlA=;
+        b=uJ19m/nyWTMyV8T2Vt+N/1GR7WjtmmkIeJXpzig1LeMmYYvFcpl/Eznvg8LCU3EfNU
+         HF6m6whSsUBEMyXYeBom9M9TP6Okcdws10qU6WSd920W3yhJR4Xg//HrQeM3ehWOuJSy
+         YoqybtGIqXRyqLGlL3iTwCIvRMHd6V2j7siCpeHgsIvti7E1QbGAKB8F2CctZsoigMD/
+         8WKeFVLZwW+kJGjXVGbaNbyoyDB4ZRMlSWfq+nQS6kXIkbvCyq6grXODgEu6xXnnmiCB
+         toxFzcHbI1st3VcFVYwaAvPhqeKwSm9DONeYXiWuOcjhhqtvd2RoosY7fEiBp+EfYw0B
+         9ydQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=PRder6up;
-       spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=d6l6E8jI;
+       spf=pass (google.com: domain of srs0=pgpo=lc=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=PgPO=LC=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=BVwnIAFc43mBSQybkquK9oD4MqMpBuMLvcE4QNqKO2A=;
-        b=O0kDns2aLKAIvbqZa3Y4GfR4Op1PVcfC6tkNDCPFACCXMqKtptvTQ/hg/KxhB8+CAp
-         kCeTGvqYwNjpfPWB1yyK17RBrVVkFmNkoXMrAtuldwwUw1XdwpYqMkk/ZxlMxivSlrR7
-         xMLv0QZodRj0mUZ2C40kjJAb9FLHZVzhkeuvZlhohuMuSGw3z80jnfxQiKLD69TnSG0Q
-         CpkxrQAiUwx85VkmBB0cw/0tX/PL58Nmx1Bhd4f5JElBz6fAPtDg7mPlvzHDlnKf4X53
-         z3qxWFDH2MoAeMAOwrbNGAkeyauDWC1TqjGoPSl3MalDi/PmbHL359SqgrZyVlkC5Fe2
-         Z1HA==
+        h=sender:date:from:to:cc:subject:message-id:reply-to:references
+         :mime-version:content-disposition:content-transfer-encoding
+         :in-reply-to:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=jvoZYmB+xIRaJWU+Z3/eyCZGK0SgKS6VDRCQY0V6YlA=;
+        b=OhdozqA6+P0PpX2cfnZIUPNwbwu/4+aLb+RErv9pehiYiep6E9fjOUhks219Q5vQZ3
+         pgDB33MCON6GdFUKGNtimaXa2Zxpdw+dk8L+hzbaCWyM8hkMptAZWow+BvhXLL7uqSvK
+         3VOkYqhXLxqSgfPGYQ3BchoGuJVx8l0XbsWJZ9yBlu4AS9ualGE1HG5HpbTJ2poWipp3
+         uYgAi7B3I0ehLjNkckU2+RrS1SJmu65LRLcOLFPLEcQ2Aom//+Xk+wnLe2voYo3tqbvq
+         j8zSwqkfuyO9NFNVKZsEnOZpmJmmdhDHJHYAEob7/VZAYA30VLiYUKP9rIgie1bdmEkj
+         DioA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=BVwnIAFc43mBSQybkquK9oD4MqMpBuMLvcE4QNqKO2A=;
-        b=NJTkmju4Cg0Piqix7VqN3RCfhL4a3jd87AC900HBBxBDapyRk8LcA/1ywjEZr7XL6E
-         yQBmxDTXqPc0+Sa5jAA2MJX/F2L6855xLipICPn9q2CgDQ+CR9eOyXx5ELrWEIiwB5t0
-         YBGwqvOCtM055RBogCYvZQDEkzJ1CZaPqDRiJqc3jUyUFQM55ydDfgZHH7jkUh5MTJJR
-         12ozoTDMElUqPFv+6OxIe8y5ky++v4SVkiX57qZn0DDbxJJanJgCPUQCjXbuK3XmS8Oa
-         xJeQUwZugPvHhugYZpYQxnlH+VabbPGvQj5e6NY0r+S4rmx7NSjQdk4PxCoRBnbvbPpf
-         HS+Q==
+         :reply-to:references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=jvoZYmB+xIRaJWU+Z3/eyCZGK0SgKS6VDRCQY0V6YlA=;
+        b=antFLqAHU4Vf3zkFP1b9onnwOxvnCJGqazF58K86Ah8T6QvzKvm98kkLRNlKv8JfNC
+         NMW1yukE0GQPCEmg28gJHprq4ZHUkrminFjhve9Eqr/Fw9g4ZtOhFmAB2seKkSXYRIQx
+         v4dLVT+tdr2oyOkr5yxMxN0oHdQGk/R2d51W/YS+VmTYobZciIFmoShdoJ4JnZxEPE2S
+         zhLsnpdO4lleDPXxi+lMv96mla2CT96gFAUN+sXfOp1qjH9PG5CptAReoFmAGhF0KEPp
+         3+oAY7FntBr+0/zfwdAxsRs8ddVMH8V+OMrPhWGJJDU8vYdPywyvGlbxqcxarRD5va03
+         dBpw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533k43G/aJoS9ximS2J88bkV3A/VxAcT5opAvxUKZjvZWxXVKW0N
-	KMNlX4OO4F0K2VHoPAKIMtM=
-X-Google-Smtp-Source: ABdhPJyJn6BEsolSsLepyZi1p/bEEWal5kGyCcg2aUFcFKnRYBpUxwaVqQOeR/JtYIF6XwF2lPDXzQ==
-X-Received: by 2002:aca:3707:: with SMTP id e7mr1697366oia.17.1623128111922;
-        Mon, 07 Jun 2021 21:55:11 -0700 (PDT)
+X-Gm-Message-State: AOAM531sGIW4I+aGs5aikAFh9cSmE8Mdkt6+LS/5UEeWxxyLwiJY0xVF
+	7jVYc/RR6sIzegFEccik9oo=
+X-Google-Smtp-Source: ABdhPJwgPWEhWAE8F69sDLCINWEAzxWiwqEUIP2LRO9paS6rACg7nSh74Vy46WhE+DIQBEZYpyrvLQ==
+X-Received: by 2002:a17:90a:ad85:: with SMTP id s5mr15182139pjq.230.1623128495481;
+        Mon, 07 Jun 2021 22:01:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:5903:: with SMTP id n3ls4560994oib.6.gmail; Mon, 07 Jun
- 2021 21:55:11 -0700 (PDT)
-X-Received: by 2002:a05:6808:190:: with SMTP id w16mr1645458oic.92.1623128111534;
-        Mon, 07 Jun 2021 21:55:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623128111; cv=none;
+Received: by 2002:a63:b256:: with SMTP id t22ls1354032pgo.8.gmail; Mon, 07 Jun
+ 2021 22:01:34 -0700 (PDT)
+X-Received: by 2002:a63:dd46:: with SMTP id g6mr16994169pgj.125.1623128494836;
+        Mon, 07 Jun 2021 22:01:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623128494; cv=none;
         d=google.com; s=arc-20160816;
-        b=SHRsYhdQkU2cYI+Ml6QjNCiEawWLy94e1OtAh14ql2DB2jPCDy/hLXEmj6zglZ+iDo
-         gYpODLtgDq97QtOws/cMWbL6o5l9Qnif0f4znFPQ1X8SJTYK42RX5bfIoLy3P2CgaL15
-         QZQTWRrPeTReFR98RWH7pZFprbmgQPxYLhYR0u9Z9rcy4enWNt7FeKN3KUj9FrlljKYT
-         CFOaP0yvy+eJ3j15SpRcslIGhkZ9IXszUJ1uKgl1R3e5b2O3xb4ZMNVAvcfgOGbLy3Bf
-         C/g1fynC3Xgbhh4pxHMPHLGIBAFsTBZjDnvEesoRGIsOKG7FSKIbUQo9aWchcNo5fkSV
-         gHxw==
+        b=xecy/wie9KKPRgmsOVpDLuog1MHRaytlGG7cxqmUSKzdA1UOVih0Iu1AR31i7oeSDI
+         H5CyT/cEvCkExyH6IOBqAMEaeojdYYMT7zM+c/rVuKCHW+mlYXkZ1JrxmhRf6jX+kQPF
+         78G71eXlSfPgd907DXdJHJXxLr2rTBD1q6cSng0LAN2NFRlarN4epMp1DLgkZGv/bzTW
+         dRPL2/JZ6A/rEpQ+hGRFHkK3ksxJ0U/Txw11G8P5WbzRTkV8gNYNOGwyJbELNHN4Nh+s
+         vwya6YjQDhqFUUluLZLkX7AewmzPUS8N72M5chdg0lFCmXSKWooTOFTJQvzM+qr19N0i
+         IntQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=BQLIzKncZ0cGL79yh8QD8ozcaAjDYLS8CLV7dkYsvOI=;
-        b=ooFCYbKItkYNN40A3gKGwGW08yodbpsuBsoE3kTPF6SZCDM1FUSfRuHlJHjHEt17Lf
-         knnS5E8Pj/sexx8E40/f0xzpM/xNtZzsDKVRyuw0Dc/tfyRSaFzOUzKZBf7dDvbFXIlR
-         wSzKAtUE8aKH6PQ3NZXkgDc6eW3gIMTkr4Nn7BfJCBMUfYu2iLaLQTerc0AD/v204JPY
-         i5xkIfUDnxbVFvukeJrhI8zt4ww4k5HiOfOjmR7OW957xy4n1o9XX8SUWwA7+RjbNOU1
-         0GUYKTpPsNTN1oIgpOKcJQVhq3U1005kjOFPOZb29JxYkxg0XZmBlx+DO4TuFEfq8Iy4
-         br6Q==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:reply-to:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=CDIe8vJxVjGp0dSu8tbaoDJ7jrfkg/oeaHYciOsRFpc=;
+        b=07iER7VTYNl/6ab1aVUfjfSo+6BoE3tCffDc1neEhifXvZLhpM3EvRAko4Rz8/gOjV
+         Fc64rTmQcwhJcyUOG25v4SrkquAQxG/T2L8Ja1XndK2jWxbi3TqOmSOXemsG5CC37QwL
+         DR8ziGcUxbZ2o/zypNeO9shpV4dRbcXyU8XjuOgeA0ZCxUUfjHhK7/f8dVVuh+1+Xy/0
+         k6XXFqCESUX/MC9bWK7rvQqc7G014DrI/jwGh+1aSWCBq7Uov4wIGA5m1FvBaBKbqSTl
+         9Q5YXCPvyc4waV014tCjRQPa2V6JcpsVCN6LCyeOBWtTnfg9HWQVvhPOQIgn4/MBSRvx
+         mfMg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=PRder6up;
-       spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=d6l6E8jI;
+       spf=pass (google.com: domain of srs0=pgpo=lc=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=PgPO=LC=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id e17si995028ote.2.2021.06.07.21.55.11
+        by gmr-mx.google.com with ESMTPS id ob5si110295pjb.3.2021.06.07.22.01.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 07 Jun 2021 21:55:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C07646124C;
-	Tue,  8 Jun 2021 04:55:09 +0000 (UTC)
-Date: Tue, 8 Jun 2021 07:55:06 +0300
-From: Leon Romanovsky <leon@kernel.org>
-To: Parav Pandit <parav@nvidia.com>
-Cc: Doug Ledford <dledford@redhat.com>, Jason Gunthorpe <jgg@nvidia.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Adit Ranadive <aditr@vmware.com>, Ariel Elior <aelior@marvell.com>,
-	Christian Benvenuti <benve@cisco.com>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>,
-	Devesh Sharma <devesh.sharma@broadcom.com>,
-	Gal Pressman <galpress@amazon.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-rdma@vger.kernel.org" <linux-rdma@vger.kernel.org>,
-	Michal Kalderon <mkalderon@marvell.com>,
-	Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
-	Mustafa Ismail <mustafa.ismail@intel.com>,
-	Naresh Kumar PBS <nareshkumar.pbs@broadcom.com>,
-	Nelson Escobar <neescoba@cisco.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Potnuri Bharat Teja <bharat@chelsio.com>,
-	Selvin Xavier <selvin.xavier@broadcom.com>,
-	Shiraz Saleem <shiraz.saleem@intel.com>,
-	VMware PV-Drivers <pv-drivers@vmware.com>,
-	Yishai Hadas <yishaih@nvidia.com>,
-	Zhu Yanjun <zyjzyj2000@gmail.com>
-Subject: Re: [PATCH rdma-next v1 14/15] RDMA/core: Allow port_groups to be
- used with namespaces
-Message-ID: <YL74KtkVOxVDT5u6@unreal>
-References: <cover.1623053078.git.leonro@nvidia.com>
- <a1a8a96629405ff3b2990f5f8dbd7b57a818571e.1623053078.git.leonro@nvidia.com>
- <PH0PR12MB5481C3DE73C097E938B4E5D1DC389@PH0PR12MB5481.namprd12.prod.outlook.com>
+        Mon, 07 Jun 2021 22:01:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=pgpo=lc=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 890B760FF2;
+	Tue,  8 Jun 2021 05:01:34 +0000 (UTC)
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 568065C08B9; Mon,  7 Jun 2021 22:01:34 -0700 (PDT)
+Date: Mon, 7 Jun 2021 22:01:34 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Rong Chen <rong.a.chen@intel.com>
+Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
+Subject: Re: [kbuild-all] Re: kernel/rcu/tree.c:2073:23: warning: stack frame
+ size of 2704 bytes in function 'rcu_gp_kthread'
+Message-ID: <20210608050134.GZ4397@paulmck-ThinkPad-P17-Gen-1>
+Reply-To: paulmck@kernel.org
+References: <202106061253.0X2QKyyI-lkp@intel.com>
+ <20210606044926.GJ4397@paulmck-ThinkPad-P17-Gen-1>
+ <4696fe3d-a7ad-acae-686e-6295ca327737@intel.com>
+ <20210607151939.GP4397@paulmck-ThinkPad-P17-Gen-1>
+ <e7bbb0e5-3063-031b-af6e-273e97f1d61f@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <PH0PR12MB5481C3DE73C097E938B4E5D1DC389@PH0PR12MB5481.namprd12.prod.outlook.com>
-X-Original-Sender: leon@kernel.org
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <e7bbb0e5-3063-031b-af6e-273e97f1d61f@intel.com>
+X-Original-Sender: paulmck@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=PRder6up;       spf=pass
- (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=leon@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@kernel.org header.s=k20201202 header.b=d6l6E8jI;       spf=pass
+ (google.com: domain of srs0=pgpo=lc=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org
+ designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=PgPO=LC=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,61 +141,135 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 07, 2021 at 01:29:58PM +0000, Parav Pandit wrote:
-> 
-> 
-> > From: Leon Romanovsky <leon@kernel.org>
-> > Sent: Monday, June 7, 2021 1:48 PM
-> > 
-> > From: Jason Gunthorpe <jgg@nvidia.com>
-> > 
-> > Now that the port_groups data is being destroyed and managed by the core
-> > code this restriction is no longer needed. All the ib_port_attrs are compatible
-> > with the core's sysfs lifecycle.
-> > 
-> > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> > Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
-> > ---
-> >  drivers/infiniband/core/device.c | 10 ++++------
-> > drivers/infiniband/core/sysfs.c  | 17 ++++++-----------
-> >  2 files changed, 10 insertions(+), 17 deletions(-)
+On Tue, Jun 08, 2021 at 11:14:40AM +0800, Rong Chen wrote:
+>=20
+>=20
+> On 6/7/21 11:19 PM, Paul E. McKenney wrote:
+> > On Mon, Jun 07, 2021 at 05:18:21PM +0800, Rong Chen wrote:
+> > >=20
+> > > On 6/6/21 12:49 PM, Paul E. McKenney wrote:
+> > > > On Sun, Jun 06, 2021 at 12:19:57PM +0800, kernel test robot wrote:
+> > > > > Hi Paul,
+> > > > >=20
+> > > > > FYI, the error/warning still remains.
+> > > > >=20
+> > > > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/=
+linux.git master
+> > > > > head:   f5b6eb1e018203913dfefcf6fa988649ad11ad6e
+> > > > > commit: 7dffe01765d9309b8bd5505503933ec0ec53d192 rcu: Add lockdep=
+_assert_irqs_disabled() to raw_spin_unlock_rcu_node() macros
+> > > > > date:   5 months ago
+> > > > > config: powerpc-randconfig-r023-20210606 (attached as .config)
+> > > > > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-proj=
+ect 551a697c5cf33275b66add4fc467fcf59084cffb)
+> > > > > reproduce (this is a W=3D1 build):
+> > > > >           wget https://raw.githubusercontent.com/intel/lkp-tests/=
+master/sbin/make.cross -O ~/bin/make.cross
+> > > > >           chmod +x ~/bin/make.cross
+> > > > >           # install powerpc cross compiling tool for clang build
+> > > > >           # apt-get install binutils-powerpc-linux-gnu
+> > > > >           # https://git.kernel.org/pub/scm/linux/kernel/git/torva=
+lds/linux.git/commit/?id=3D7dffe01765d9309b8bd5505503933ec0ec53d192
+> > > > >           git remote add linus https://git.kernel.org/pub/scm/lin=
+ux/kernel/git/torvalds/linux.git
+> > > > >           git fetch --no-tags linus master
+> > > > >           git checkout 7dffe01765d9309b8bd5505503933ec0ec53d192
+> > > > >           # save the attached .config to linux build tree
+> > > > >           COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang mak=
+e.cross ARCH=3Dpowerpc
+> > > > >=20
+> > > > > If you fix the issue, kindly add following tag as appropriate
+> > > > > Reported-by: kernel test robot <lkp@intel.com>
+> > > > >=20
+> > > > > All warnings (new ones prefixed by >>):
+> > > > >=20
+> > > > >      In file included from kernel/rcu/tree.c:21:
+> > > > >      In file included from include/linux/kernel.h:12:
+> > > > >      In file included from include/linux/bitops.h:29:
+> > > > >      In file included from arch/powerpc/include/asm/bitops.h:62:
+> > > > >      arch/powerpc/include/asm/barrier.h:49:9: warning: '__lwsync'=
+ macro redefined [-Wmacro-redefined]
+> > > > >      #define __lwsync()      __asm__ __volatile__ (stringify_in_c=
+(LWSYNC) : : :"memory")
+> > > > >              ^
+> > > > >      <built-in>:310:9: note: previous definition is here
+> > > > >      #define __lwsync __builtin_ppc_lwsync
+> > > > >              ^
+> > > > > > > kernel/rcu/tree.c:2073:23: warning: stack frame size of 2704 =
+bytes in function 'rcu_gp_kthread' [-Wframe-larger-than=3D]
+> > > > >      static int __noreturn rcu_gp_kthread(void *unused)
+> > > > Does -rcu commit 2f20de99a63b ("rcu: Make rcu_gp_cleanup() be noinl=
+ine
+> > > > for tracing") help?
+> > > Hi Paul,
+> > >=20
+> > > The stack frame size decreased to 2256 bytes:
+> > >=20
+> > >  =C2=A0 kernel/rcu/tree.c:2129:23: warning: stack frame size of 2256 =
+bytes in
+> > > function 'rcu_gp_kthread' [-Wframe-larger-than=3D]
+> > Very good, thank you!  Does the following patch (in addition to that
+> > commit) also help?
+>=20
+> Hi Paul,
+>=20
+> I applied the below patch on commit 2f20de99a63b and the warning is gone.
 
-<...>
+Very good, and thank you for your testing.  I have applied the requested
+Reported-by and your Tested-by on the commit shown below.  Please let
+me know if you would prefer some other Reported/Tested setup.
 
-> > diff --git a/drivers/infiniband/core/sysfs.c b/drivers/infiniband/core/sysfs.c
-> > index 09a2e1066df0..f42034fcf3d9 100644
-> > --- a/drivers/infiniband/core/sysfs.c
-> > +++ b/drivers/infiniband/core/sysfs.c
-> > @@ -1236,11 +1236,9 @@ static struct ib_port *setup_port(struct
-> > ib_core_device *coredev, int port_num,
-> >  	ret = sysfs_create_groups(&p->kobj, p->groups_list);
-> >  	if (ret)
-> >  		goto err_del;
-> > -	if (is_full_dev) {
-> > -		ret = sysfs_create_groups(&p->kobj, device-
-> > >ops.port_groups);
-> > -		if (ret)
-> > -			goto err_groups;
-> > -	}
-> > +	ret = sysfs_create_groups(&p->kobj, device->ops.port_groups);
-> > +	if (ret)
-> > +		goto err_groups;
-> > 
-> This will expose counters in all net namespaces in shared mode (default case).
-> Application running in one net namespace will be able to monitor counters of other net namespace.
-> This should be avoided.
+							Thanx, Paul
 
-In shared mode, we are sharing sysfs anyway and have two options to deal
-with the port properties (counters):
-1. Show them in all namespaces as being global to port which is shared anyway.
-2. Show them in init_net namespace only and applications that were left
-in this namespace will see not their counters anyway.
+------------------------------------------------------------------------
 
-Why should we avoid "item 1"?
+commit 336e92638287615d47c07af4ff6feb397cfe2084
+Author: Paul E. McKenney <paulmck@kernel.org>
+Date:   Mon Jun 7 21:57:02 2021 -0700
 
-Thanks
+    rcu: Make rcu_gp_init() and rcu_gp_fqs_loop noinline to conserve stack
+   =20
+    The kbuild test project found an oversized stack frame in rcu_gp_kthrea=
+d()
+    for some kernel configurations.  This oversizing was due to a very larg=
+e
+    amount of inlining, which is unnecessary due to the fact that this code
+    executes infrequently.  This commit therefore marks rcu_gp_init() and
+    rcu_gp_fqs_loop noinline to conserve stack space.
+   =20
+    Reported-by: kernel test robot <lkp@intel.com>
+    Tested-by: Rong Chen <rong.a.chen@intel.com>
+    Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YL74KtkVOxVDT5u6%40unreal.
+diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
+index 13bd8eee62bf..ef435aeac993 100644
+--- a/kernel/rcu/tree.c
++++ b/kernel/rcu/tree.c
+@@ -1737,7 +1737,7 @@ static void rcu_strict_gp_boundary(void *unused)
+ /*
+  * Initialize a new grace period.  Return false if no grace period require=
+d.
+  */
+-static bool rcu_gp_init(void)
++static noinline bool rcu_gp_init(void)
+ {
+ 	unsigned long firstseq;
+ 	unsigned long flags;
+@@ -1931,7 +1931,7 @@ static void rcu_gp_fqs(bool first_time)
+ /*
+  * Loop doing repeated quiescent-state forcing until the grace period ends=
+.
+  */
+-static void rcu_gp_fqs_loop(void)
++static noinline void rcu_gp_fqs_loop(void)
+ {
+ 	bool first_gp_fqs;
+ 	int gf =3D 0;
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20210608050134.GZ4397%40paulmck-ThinkPad-P17-Gen-1.
