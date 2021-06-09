@@ -1,126 +1,145 @@
-Return-Path: <clang-built-linux+bncBCM5BN4V4QDBBJM7QODAMGQEPQI46YA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBW5SQODAMGQEL2HUQGY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id F38033A1732
-	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Jun 2021 16:26:46 +0200 (CEST)
-Received: by mail-il1-x138.google.com with SMTP id q4-20020a056e020784b02901e2ee9a8333sf18734879ils.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 09 Jun 2021 07:26:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623248805; cv=pass;
+Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id BDA283A1897
+	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Jun 2021 17:08:13 +0200 (CEST)
+Received: by mail-lj1-x237.google.com with SMTP id v3-20020a2e99030000b0290144dc7b6cf0sf66864lji.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 09 Jun 2021 08:08:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623251293; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sIape5Y0ZDZaGWkfB2vg6bLhrcaS5w9A06VbIewide9aLzTWj2eX2PEWpf0NBpT2hm
-         NgxP9P4FkKQJm3wqcMYSQen05EF8RDJXcvEATFfLnfpk5VplCLd1eN568H3ZWwpItHex
-         jN7jfxmXqJ0vipWxwiNnjXEFpq1E2YjVa0R6mvRBUIAfIzg57nFUiu3tXmmp/i1y7FNz
-         dgJo4ynWyWeq+sS8/wdbNNosQzztjtYcTaFk1Y4gxkjZ7YlJBA2RUYXiWRX6QeAGA7mB
-         0OprxXB2b7940ztElK7goetzTdc2zDpQZePiy5+vFP05fMPAvktXrDt5kcxbcydlzfC2
-         DzZQ==
+        b=aGfzORubzoEfMEBa1i26tYQpcx0AQFyGnHaFGSgX3sZQKqgc8SNeT5Ntt5UeWmtuD/
+         XQIJbC8CBJ7I+Kmh51+5TSPpeLZedyUrkbZIdcvLagPrso18sQ9X3neKsVMFXHKMA3qM
+         DLHd2I9r3EoGqd1BHwR3J4tnpl6pvd2H8e6HRVsBV/dcCFpx2n8mUe3y2whZE9/slvJx
+         Gw8E9g0lkfNOBaAXt1TCMKKuFjZaNGSi1AUOa2/963LVN8U/mN/injEskLSfvpA0zB3X
+         j8fJ35YGsEu/2RMK9HUpyD3ob2oRbf7KmRRmG6q8RuCJc2YcpMEHur+fonE54p2/uGoe
+         cMPA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:dkim-filter:sender
-         :dkim-signature;
-        bh=/w3rUYEKaVgN0SQYBUJVMZ23uwjYJnk879mrXrxnTV8=;
-        b=N/25NSUJLfhQRXT463lyUjzF58P4B2wc60XA/j43L2O1x0Hc1D7bwCjKnwHb+lU9dK
-         DYtqqbjmH97PGCsFokqZO0nOxBg55oukkGRShrUAI8dOHfghzQyw3PCEp/Ar6YLbEq0m
-         u6oQPAHiHBWMa/PxsS13efgsLNASynpriBGaOV9xGsalUOHiC+iuGr1F2kZ/1s648kx+
-         yde4oQCuSSbIra2t94tebXVQ1cqm9eQXAdthO9IezPtO+xHg/gskUGpYAyYk739ZF96w
-         kWEZaTP4aEUMwZO575kFZTxYhEV6bNgeExobZ0pqkE6YC/rql+2KNvb5wYO87En4CKJQ
-         FVBA==
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=9xHxzzoJsLwQJIfkrklY6LF3mfKs21B4SqBw8QNMNsM=;
+        b=DDqcDuDG4TQos2mOFzTvkpxPt99Xudyy88TwdlEpt5B01wF4xEdYyFZyVP3pkVRoSx
+         qbdUKo7sWPMfELdY15/TAfUHWhRkcj7X/8ixRQ4AbVSrSbSXRRqggsb/rOzwALrxXoGh
+         K+kyomDN7G8tmYYZptJTHT5i9bvOtrOVqdO10HY+CIMaivOqb6X+vxvNxRM5LWPK+GvS
+         fjmJinayTfwZjEFNhNzdqF06PT7GhttY6uESOhVQznnr1XFPr6HKzaXj9HZ3AKO25kXL
+         94tGJS6TEJqVYsxcHOnrGzjdtetayee9vordADK/XAZGxJLVUJHFuSLUynXzGR7Jv/VD
+         yX3Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=mJQ9RnRC;
-       spf=pass (google.com: domain of nramas@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=nramas@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b=alauMrl6;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:message-id:subject:from:to:cc:date:in-reply-to
-         :references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/w3rUYEKaVgN0SQYBUJVMZ23uwjYJnk879mrXrxnTV8=;
-        b=I6xr7UtQyv6YMSRl4T0YA4UgQQGTOk7BKBRCs/9k4588H08/0tErHYfAuD/c7BaRVQ
-         4XamFtVb/oLP0moakTvBbZy4uY04GqcUvr+6UxSOJ1o6RWJ/cGR+Ov8dDI/6wHJCkPMj
-         p5s1shnoNmUJiQRV6clpULEeeRNDoJyPeRvVrAEgJAAoa/1BSQkykpmPMv105Yj91lrP
-         0F69+5VM9IflfLz0bVlaTgZRaxNdFf5AGgRwry8hSAubnml/XPq6a3Xdo304Tt8kFFQx
-         gOAC9WaCdCFscgGaGHyHF5S7Tv+dUVTPdlpfDkhMBqMWnSnGZq0sQfsYL7dGGkbsWHzX
-         itSA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=9xHxzzoJsLwQJIfkrklY6LF3mfKs21B4SqBw8QNMNsM=;
+        b=RUX60BXOGDPeLyaUJ7HHasicb+H4y21IH55nLyYBVoxsNfSPBCORgEZeq6ftXRUNPV
+         7cirt/PLn/FLVZE01kPnBoDk0QQdxKzZjtjRU5iPsx3oGWGuhOb2+WVqvCIMvE1f70uA
+         ISl2EA+MKOAIpzxWBNWw+ga3E6C57M4x2gx96gso0JQAk4xql0csWzmJuoqrkb1sfxiP
+         uiiP8DbY5FPcpsaKHiwm0a3gNs60xq5dNxBAKNvj7Ejiwg9NfYoPBPef4DY9IW3B/e5m
+         OEaHHfuvAG+MJDZ0zLUg9rjhjSOsvURBclfuuRR7fL14UqDSuGvy9IvH74Plha8FRAvo
+         fYDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:message-id:subject:from:to:cc
-         :date:in-reply-to:references:user-agent:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=/w3rUYEKaVgN0SQYBUJVMZ23uwjYJnk879mrXrxnTV8=;
-        b=HoVs+4jbuKV2hXgs+phIsg2nequbPSZtk7HjcPOWSeLRxNgR0btL9k1hU5Ks7My5zz
-         iRQNHK6hmv30OjTKlfY9XBeD+fNPXbf7G1wXYuURN+YrEbRcejjyncm6x34lWfnt1wUc
-         ENJC+CLmvJlrS7TqBi4HCaFfXhcn+XPvMUg2mbpqa+glrZzHHIblMTPxBOPimDcATK7r
-         rvsSV+pGZ94NQmPGjj++/pXoR9M8NFwz/Fs4AZFiL3CzqjamFVxemsmtxKfVeJY0fQcx
-         XV/6G+gAHC3Hlj+IGCCVgylXIaHxui4J2VAer9iaiiov/5XPvcVGsqxUWZcN617PTCjr
-         KXig==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=9xHxzzoJsLwQJIfkrklY6LF3mfKs21B4SqBw8QNMNsM=;
+        b=iCaA7Z31knHygSXYhmHoaObDBxtSciQg1buCVk4wtQJd6BlrFxqEJ5ashBRqtI90Sh
+         CA7SbleYPFTwOsBG4fh3eXiJPSJa6I1a1dVIVxUCRP0v8UFnxXvn3hT5P6VvEQ72TURN
+         q+zTppYn2je3E0J4ZaUQNLKfHuRX27dBAcyEUazWQIsmGV8+UjbcRhh8Qf0zfIuPqHM4
+         pa0Wqw2Q+6Ixz8a2XnySW1zf9oY8GwncoCUR6Uon5MpLMGvtKfoREu0EctCfWH27VrND
+         1yUL7E7qReJ1uemNS+chWbo9PD5ZqKe2ij6ZJEfvzIxecILXojgUFpOp3QrZYiJV1AoX
+         TzMA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533ZV8MciMBxeDQ9XFw7VWQH7dLXZhe1OYtr18O5RYCNhW1JFgnW
-	dmqvbIZQnj+bual8UKtIh5A=
-X-Google-Smtp-Source: ABdhPJzHd9ptPTU/wOwWvrVgS+bPhZdMULKeSFWSN/TGGOT08TGuqCA4Uog2SuTeOgrU8LfQ/jLygQ==
-X-Received: by 2002:a92:d412:: with SMTP id q18mr26657ilm.258.1623248805385;
-        Wed, 09 Jun 2021 07:26:45 -0700 (PDT)
+X-Gm-Message-State: AOAM532Yu2vMTRzgz/ICifn1gzM4hrSrYm4+R6frWMPu+ICwgMif7IrU
+	hTUYtjRjSa8OdgnjaIH5FlQ=
+X-Google-Smtp-Source: ABdhPJx8wMAJ4izsXi6gayyTfraFGT+PAeA0TdZV7TyusWreIoEUJCVqtrOs7Z5kRiZCBkAZC2TXyQ==
+X-Received: by 2002:a05:651c:321:: with SMTP id b1mr353501ljp.102.1623251291894;
+        Wed, 09 Jun 2021 08:08:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:b26:: with SMTP id e6ls727412ilu.8.gmail; Wed, 09
- Jun 2021 07:26:44 -0700 (PDT)
-X-Received: by 2002:a92:d48a:: with SMTP id p10mr30751ilg.206.1623248804924;
-        Wed, 09 Jun 2021 07:26:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623248804; cv=none;
+Received: by 2002:a05:6512:3f94:: with SMTP id x20ls2071815lfa.0.gmail; Wed,
+ 09 Jun 2021 08:08:10 -0700 (PDT)
+X-Received: by 2002:a19:dc01:: with SMTP id t1mr30945lfg.264.1623251290735;
+        Wed, 09 Jun 2021 08:08:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623251290; cv=none;
         d=google.com; s=arc-20160816;
-        b=aBAwunf/4JXhAe/o6nuIPYFsDNjOpdTOcyUyYnPRyfAYJnQHcUTNitZkeonwydTstw
-         zM4Hp2HDOTuJ+rQdI1Hr7Q6envk+iagvtxnvxmbtAgPhday+fd5skozkGysL6zokd5MN
-         5gACCDfgvwgMYC1A4Mygkg37tFIzK0bBThxCer8A9H+Cs2DMnCetyEaIrz5Fj20hxgjM
-         yAMlsn1OlRs+frnsBL67OM1TlkJ0AexfH1T3BqdVCLv9OTNV16+pc04Gxe53/MlxgNp3
-         O1sA/NlG4+WptPjND0jq0AZ2uaOrNrxbfmElKKMoSmZdWB769+g+PeQJ92giNpdQ2zJp
-         DcEA==
+        b=AQIXT23LgvQyIcdakgSi2ZCQy7IFPh7gcKyBneTtUSMbzParc8T5gdWJZzu1I+DCJB
+         AdGXS0YJWD3rdswwOrhBmCkCSDSFBfm3MzburvBmgPQBUYbGZ8Bmorb2ng6ks7N34J4c
+         LT9bIAI7GNgcacPuJQxpum4BATlAJqAUlOHDaieqaxwaHgndpMK0egzo7OSFfVFW52aF
+         NtNRa6rGIlLsbEfdxvaZt7OxZsrqAcBh9YfpvqmhSL+5/NVLc6wFh5dfTyrJNZkhq/S/
+         BG2dnfCRN5SpU/06GCga1GRBVRacBKHpaaN9ie0UfLOa0/lLpjxfUlBTp4VPnnqXxgJH
+         NtLg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:dkim-signature
-         :dkim-filter;
-        bh=h6o44sXR20MBpD+68d/AtJ1ddf69cXVZqeVwg1gbIAw=;
-        b=KnTHYmHpWvExgJMTB8BnRomSfh3cwM73jAdUqETGgFFykLW/STeTkLTlzyjseTygG6
-         XJHFgbS9FqDBijr/rah0UULrUN7B/tzxgDKlvBg7w5LbtbX3v6z6QPytN/Is9u964MzZ
-         7UQHT1fQ2nkyBcs1A9D1qzZLbnWInQpz/4gAyieqttugdHwS4iXy46p9SMUSAdt+eL4J
-         Mh3S0bQdSB4x2/fGpD/309wsX5Xj0MraNNDMhuWm4EXmBIBLShHGic9op+1w3OSwBr1o
-         i1FZ2Ds4ByzxrAfS8UsjUvQUQc2ZiXZJSJVvC2UxoQ3rvX5jBD3IAtrgWC2QHGP05DuE
-         Euzw==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=bGSDp9v/6VI6NXx/o7FnCwfsLH/DQ2C/TbgATT+JAzk=;
+        b=KSza7dtJXXKrYGOl9oCD8mIELrBSmTL+hdkYa0ZO+qLmqD4+Lap8ErqIboZZzb3GKn
+         FavP9p/kabWjGBicCMpox+BQohAlBk/hCgJR7ARgfMxwvQWyCO0oRjOtFyEj08gM/sQo
+         UVWynxb5uDE5rSptWUU3x4mkUZO1CBLUeiOuHPg/1m+nfQr8U3ESOMcJ2zpMqWp5hMna
+         Sj/BNsEe18mBEt3B8mUHhLhlPqqdbP3WhWz3skpvpRped9ld3JRpFpzL6Hk1OrTsqBsH
+         iqkkB+IEVxEBcXH0DEiuD+SgoJG57nm1NElieZw9qi8+fyWKsn+5vXtWmEj+HbluN+io
+         /RVw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux.microsoft.com header.s=default header.b=mJQ9RnRC;
-       spf=pass (google.com: domain of nramas@linux.microsoft.com designates 13.77.154.182 as permitted sender) smtp.mailfrom=nramas@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
-Received: from linux.microsoft.com (linux.microsoft.com. [13.77.154.182])
-        by gmr-mx.google.com with ESMTP id h17si14280ile.3.2021.06.09.07.26.44
-        for <clang-built-linux@googlegroups.com>;
-        Wed, 09 Jun 2021 07:26:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nramas@linux.microsoft.com designates 13.77.154.182 as permitted sender) client-ip=13.77.154.182;
-Received: from nramas-ThinkStation-P520 (c-73-42-176-67.hsd1.wa.comcast.net [73.42.176.67])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 0542020B7188;
-	Wed,  9 Jun 2021 07:26:44 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 0542020B7188
-Message-ID: <f5579d401738d5c72b359a158c825e5c2bc3e746.camel@linux.microsoft.com>
-Subject: Re: security/integrity/ima/ima_kexec.c:81:6: warning: no previous
- prototype for function 'ima_add_kexec_buffer'
-From: nramas <nramas@linux.microsoft.com>
-To: kernel test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, 
- linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, Prakhar
- Srivastava <prsriva@linux.microsoft.com>, Thiago Jung Bauermann
- <bauerman@linux.ibm.com>
-Date: Wed, 09 Jun 2021 07:26:43 -0700
-In-Reply-To: <202106091229.uCfgCAOZ-lkp@intel.com>
-References: <202106091229.uCfgCAOZ-lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.36.5-0ubuntu1
+       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b=alauMrl6;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from desiato.infradead.org (desiato.infradead.org. [2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+        by gmr-mx.google.com with ESMTPS id d18si9319lfv.3.2021.06.09.08.08.10
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Jun 2021 08:08:10 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) client-ip=2001:8b0:10b:1:d65d:64ff:fe57:4e05;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=worktop.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1lqzoG-0057e5-CX; Wed, 09 Jun 2021 15:08:07 +0000
+Received: by worktop.programming.kicks-ass.net (Postfix, from userid 1000)
+	id F3A239867D0; Wed,  9 Jun 2021 17:08:04 +0200 (CEST)
+Date: Wed, 9 Jun 2021 17:08:04 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Lukasz Majczak <lma@semihalf.com>
+Cc: Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	=?utf-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>,
+	Josh Poimboeuf <jpoimboe@redhat.com>,
+	Guenter Roeck <groeck@google.com>, Juergen Gross <jgross@suse.com>,
+	=?utf-8?Q?=C5=81ukasz?= Bartosik <lb@semihalf.com>,
+	LKML <linux-kernel@vger.kernel.org>, mbenes@suse.com,
+	=?utf-8?B?UmFkb3PFgmF3?= Biernacki <rad@semihalf.com>,
+	upstream@semihalf.com,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Sami Tolvanen <samitolvanen@google.com>
+Subject: Re: [PATCH v3 16/16] objtool,x86: Rewrite retpoline thunk calls
+Message-ID: <20210609150804.GF68208@worktop.programming.kicks-ass.net>
+References: <YL3q1qFO9QIRL/BA@hirez.programming.kicks-ass.net>
+ <CAKwvOdkuJBwZRigeqdZGevPF9WHyrC5pBAsz6_tWdXAc-wO+1A@mail.gmail.com>
+ <e351ac97-4038-61b5-b373-63698a787fc1@kernel.org>
+ <YL+nb235rIfEdye0@hirez.programming.kicks-ass.net>
+ <de1a21c0-f20a-cde5-016e-4b8ca92eafa9@kernel.org>
+ <YL+0MO/1Ra1tnzhT@hirez.programming.kicks-ass.net>
+ <5dd58dce-c3a7-39e5-8959-b858de95b72c@kernel.org>
+ <CAFJ_xbp5YzYNQWEJLDySyC_bWUsirq=P03k8HHW=B4sH0V_uUg@mail.gmail.com>
+ <YMBrqDI0Oxj9+Cr/@hirez.programming.kicks-ass.net>
+ <CAFJ_xbodWTQQaJ-3yJ4ZQOiTFFXo6M+cn_F0p157o=80BwrQAw@mail.gmail.com>
 MIME-Version: 1.0
-X-Original-Sender: nramas@linux.microsoft.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <CAFJ_xbodWTQQaJ-3yJ4ZQOiTFFXo6M+cn_F0p157o=80BwrQAw@mail.gmail.com>
+X-Original-Sender: peterz@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux.microsoft.com header.s=default header.b=mJQ9RnRC;
-       spf=pass (google.com: domain of nramas@linux.microsoft.com designates
- 13.77.154.182 as permitted sender) smtp.mailfrom=nramas@linux.microsoft.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linux.microsoft.com
+ header.i=@infradead.org header.s=desiato.20200630 header.b=alauMrl6;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as
+ permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,42 +152,77 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, 2021-06-09 at 12:10 +0800, kernel test robot wrote:
+On Wed, Jun 09, 2021 at 02:23:28PM +0200, Lukasz Majczak wrote:
+> =C5=9Br., 9 cze 2021 o 09:20 Peter Zijlstra <peterz@infradead.org> napisa=
+=C5=82(a):
+> >
+> > On Wed, Jun 09, 2021 at 09:11:18AM +0200, Lukasz Majczak wrote:
+> >
+> > > I'm sorry I was on vacation last week - do you still need the request=
+ed debugs?
+> >
+> > If the patch here:
+> >
+> >   https://lkml.kernel.org/r/YL3q1qFO9QIRL/BA@hirez.programming.kicks-as=
+s.net
+> >
+> > does not fix things for you (don't think it actually will), then yes,
+> > please send me the information requested.
+>=20
+> Ok, it didn't help. Peter, Josh I have sent you a private email with
+> requested information.
 
-Hi,
+OK, I think I've found it. Check this one:
 
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross
-> ARCH=arm64 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
-> > > security/integrity/ima/ima_kexec.c:81:6: warning: no previous
-> > > prototype for function 'ima_add_kexec_buffer' [-Wmissing-
-> > > prototypes]
->    void ima_add_kexec_buffer(struct kimage *image)
->         ^
-
-"linux/ima.h" needs to be included in
-"security/integrity/ima/ima_kexec.c" to fix the above warning.
-
-Thanks for reporting. I will post a patch shortly.
-
- -lakshmi
-
->    security/integrity/ima/ima_kexec.c:81:1: note: declare 'static' if
-> the function is not intended to be used outside of this translation
-> unit
->    void ima_add_kexec_buffer(struct kimage *image)
->    ^
->    static 
->    1 warning generated.
+ 5d5:   0f 85 00 00 00 00       jne    5db <cpuidle_reflect+0x22>       5d7=
+: R_X86_64_PLT32     __x86_indirect_thunk_r11-0x4
 
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/f5579d401738d5c72b359a158c825e5c2bc3e746.camel%40linux.microsoft.com.
++Relocation section '.rela.altinstructions' at offset 0 contains 14 entries=
+:
++    Offset             Info             Type               Symbol's Value =
+ Symbol's Name + Addend
+
++0000000000000018  0000000200000002 R_X86_64_PC32          0000000000000000=
+ .text + 5d5
++000000000000001c  0000009200000002 R_X86_64_PC32          0000000000000000=
+ __x86_indirect_alt_call_r11 + 0
+
+Apparently we get conditional branches to retpoline thunks and objtool
+completely messes that up. I'm betting this also explains the problems
+Nathan is having.
+
+*groan*,.. not sure what to do about this, except return to having
+objtool generate code, which everybody hated on. For now I'll make it
+skip the conditional branches.
+
+I wonder if the compiler will also generate conditional tail calls, and
+what that does with static_call... now I have to check all that.
+
+---
+
+diff --git a/tools/objtool/arch/x86/decode.c b/tools/objtool/arch/x86/decod=
+e.c
+index 24295d39713b..523aa4157f80 100644
+--- a/tools/objtool/arch/x86/decode.c
++++ b/tools/objtool/arch/x86/decode.c
+@@ -747,6 +747,10 @@ int arch_rewrite_retpolines(struct objtool_file *file)
+=20
+ 	list_for_each_entry(insn, &file->retpoline_call_list, call_node) {
+=20
++		if (insn->type !=3D INSN_JUMP_DYNAMIC &&
++		    insn->type !=3D INSN_CALL_DYNAMIC)
++			continue;
++
+ 		if (!strcmp(insn->sec->name, ".text.__x86.indirect_thunk"))
+ 			continue;
+=20
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20210609150804.GF68208%40worktop.programming.kicks-ass.ne=
+t.
