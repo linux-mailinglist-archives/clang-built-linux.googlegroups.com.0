@@ -1,131 +1,73 @@
-Return-Path: <clang-built-linux+bncBCH4JVXIWANRBEOWQKDAMGQEEAJQGTA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDSZZEMNR4LRBQO4QKDAMGQECOU2O7Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9C6F03A1374
-	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Jun 2021 13:50:43 +0200 (CEST)
-Received: by mail-pf1-x440.google.com with SMTP id l145-20020a6288970000b02902e9f6a5c2c3sf11551812pfd.3
-        for <lists+clang-built-linux@lfdr.de>; Wed, 09 Jun 2021 04:50:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623239442; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=AzbfzrF0TXpj3EUPsfr95fS/LGhSAyasytsPbB4KuhcUczdkTnndiFJdYNB4QDCbxs
-         Y1fBbJi1krz2Z7pxfUkMT+ggmCkH9IrSHL9wzP8f4LlOEKS6RimClWly3K5dl4p7yiiV
-         HwiOYqH1yNEu+MUU3n/eIMr+CvaWqR+rRC+QruMUsP4RY7ixQdYfvC7NCdd2pYO2StZm
-         HUJAbbeDaKQQA1iAuGu7IAeMz+ATwfZ/61STIi4GDRwI2A8OtXwRGx97ItkPtTIIMWjD
-         j7dSDr8aRKjrsf50LjHJ353IIgprvwbSmfRNwn7OqkcraWhqAxe+kAeCtZLFF4+PQ4lX
-         2RSA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=JPtpF6FyG5siCo7NG0evY86e5s7uEfPIHM9HR/dKe2o=;
-        b=DCi2DqRxoFEmkTjHhi04be4Kjc7XqQ84jaU7yYTIc2WiMAr+T+XxkxpTcP/jUAEPcg
-         M1HyOByPByjgqPf9PQi09zAw0xkTbFbDk+hJ6++6nEYAGmgC+YThtbMwKG6L2hFpDvxV
-         /rAJZgmTVWQszaBoE0uwtO6mOUlO3gnVmzNooi0+v2oZ5upwFR3VBAPAbGd80FWPBCWT
-         VHgLEySeVZ0dQfCxQHi4sAdowkwx9ehet2o4AbdlQQSuLWP2Fzbh901442IO5zuwf45/
-         1k3S87c1zosiFrtj/454iEgWv3lJOOoUoHzpUGZku/1qiPGLGG3zs1OfIHI3Z2wxTthR
-         9ZYw==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of chengzhihao1@huawei.com designates 45.249.212.187 as permitted sender) smtp.mailfrom=chengzhihao1@huawei.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=huawei.com
+Received: from mail-oo1-xc3b.google.com (mail-oo1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6759C3A13B5
+	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Jun 2021 14:04:19 +0200 (CEST)
+Received: by mail-oo1-xc3b.google.com with SMTP id r17-20020a4a96510000b029024988968d95sf8200135ooi.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 09 Jun 2021 05:04:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=JPtpF6FyG5siCo7NG0evY86e5s7uEfPIHM9HR/dKe2o=;
-        b=FtAyy8WUvEz+BXflaH//IYUBVQOV+5nO/j8GovPUoBtFHqoqu1xfgelVfO/TnWyMgG
-         DVHTug77qtmAI6rI87JzR7WfXwaPufva2uv7Wlxqc79qGDbBN/r9AdWt+swkYiznNwc+
-         Ty5U9iTgPvRPpzc/SCEei+eiRMWDLFb2btfetfqIFCNxFNZVqq5MYdyzpa6PuG7PT9Dw
-         HrYed8OmUeeFj41CH6WgW7Ie0O4YGbd0UL0XP7W4/MMyxzU0XihlN6jeeRNaen4S1iP8
-         6jXqR2APVkubyDM+7msjn1i6mXGapaW6Rlcbdm2EAv6+x2GPHjo6iDr/ImgtSRR91qez
-         D6QQ==
+        h=sender:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=sTFa7QFmL0ue91BgqEwpOIrDCPW0TqxRVwOFSj6L5KA=;
+        b=Lii3NfqFtJlZnVXWaXwgOCeyqURPCvvdRqgnQtqekAJTzPh8V/5N0f2jTJOn20Sx/2
+         BRdZzawIP0EHlFFNk6fP4Oem9C7DAbipiuae7kEG7Wp3JBna4Ez49I1UV6UyK7bLPHQb
+         G8JyMWQk3pIV/Cc7Yp0nLW+5X0ID5DOn6dNAQk19s3yQgbE7lrbPNuJ7w2n9VtNYGRQW
+         snVPr0ka1/Sjlx12JLclsIDAh1KnTRMnAdYBEVSrIdbpak+sT3+rPvaWG8SE5CJj8Zk+
+         leblZxXkiD92Wk7YerEhKiDtl7r08uYx81S9IoHzKfYyCWl1cfYqMZeWxrc26gou7Tl1
+         eh2w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:message-id:in-reply-to:references:subject:mime-version
+         :x-original-sender:precedence:mailing-list:list-id:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=sTFa7QFmL0ue91BgqEwpOIrDCPW0TqxRVwOFSj6L5KA=;
+        b=TO0a6GB1sHRj/caIxSiXivwGIWICnxM2w78lRL0lhaCIIg7erLb505S00xhYythKlz
+         scU5ooJnlZnNf7H36LQFF252RAFFnV71aMihQ73w6UTgT1MCGjUYNko37KrDbvHen0xa
+         nb7iJUSF0WZBNIPtH4FK7MBKfewyavWz04HZ+4/93NpfFjlMEEFpCsxQuafelHdf4VA0
+         miJaIbufgg2v2GYsiEv4IFp+1pwUrzmEuQb2ANL4aDOAa94gVTytdvYwqJwwXp5/6fgW
+         Xu8kXijMLk2H3m4wWcjoXQ9dMRlzQck0PHgUL7c1XlZ+2LaeWVObNpSKGQVdCeiEMvGa
+         w6pg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=JPtpF6FyG5siCo7NG0evY86e5s7uEfPIHM9HR/dKe2o=;
-        b=OW+aNCxcplUv8pASAfTKz65VPSjt39nvc/LdGxzu97ezDgH8oltrLr/MZEEMMnAcwz
-         HjNPKjYwtQxzzC87F5SpvIUIeodWqcpz//oQNWVcTDQkOgubcDMeFed6I1sY+QktLfgw
-         p+RkSLRmSYYbCG5QZbC0POeLbDA/8o+4NlO08kTk2chG3Y2ZfxBDkApRCRZKF9w9cU1X
-         pKPWC0jP3BNpASe8vRocB6RwKgJMTqPXR6b3qf7SpaAZ/ErTV23zbbAtN3tWsM5Hd9a/
-         Y/L8/Ry99HZ7o3L3soUWoVrDBWU6z4Tp4OplKZ4CDqceY7bmyBwHlQU75L+OJ1o4TsGF
-         5kXg==
+        h=sender:x-gm-message-state:date:from:to:message-id:in-reply-to
+         :references:subject:mime-version:x-original-sender:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=sTFa7QFmL0ue91BgqEwpOIrDCPW0TqxRVwOFSj6L5KA=;
+        b=IH1UL20g0tn2m7yg7VDyR2Fc1mYXLSAKvR4ao+DFhzQi8+/I4HHvxI/gK26RYIVqRI
+         TofhTJhumu5qH7lhedWhFV8scgOU4mVZzOPLDe8NkippoOoDE9qPdjQVH0JRaXnPXHAb
+         bKGGBTJ3pNv4HdRyn+FNlE/RDG0ifruy/S8wFq6obUE1L4VaVowhWL9x59N/6rhKPmfG
+         ki4cxvx04INfO2kcxa6DoyFNv282oux2HBre7LxYNWro/25czZRaL9LgcSojyY7e+fPq
+         Ob2lPsoLFR1Gs80rbWj+iXu8jiLNrcr4NuAgy/sb+vkkDOOYsQl0ZBUu+Eg/eb1L9aZh
+         aBlg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533wRB/uX5ynrQItP58WyGYQ4ES4QWiAkQEWOlPT4NdSXB7hvwas
-	CEdIhTs3EFam7N/cGn2tBvo=
-X-Google-Smtp-Source: ABdhPJzJhIMS+2aWMOgIZYKJGjUWJHmLrsw90ebl7R5zm3FMA5lhL26GKh+Qzahd5702wjmMQr7Z2Q==
-X-Received: by 2002:a63:da46:: with SMTP id l6mr3519913pgj.436.1623239442083;
-        Wed, 09 Jun 2021 04:50:42 -0700 (PDT)
+X-Gm-Message-State: AOAM533QNN3S6DX23xy6jDiVidC3VkmBaX8Hp8zibAttn/bTy54hoknZ
+	tj88hP77QfU2ErWkl7gBkx4=
+X-Google-Smtp-Source: ABdhPJxRS+Zbw8g1p+CxpJgUWpgO7IZM6OE5L8nl+l7mSZJRYOpL7mZRenoX3am/wdNmDxK70TLp5Q==
+X-Received: by 2002:a05:6830:1208:: with SMTP id r8mr12012077otp.155.1623240257773;
+        Wed, 09 Jun 2021 05:04:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:e804:: with SMTP id u4ls1329691plg.9.gmail; Wed, 09
- Jun 2021 04:50:41 -0700 (PDT)
-X-Received: by 2002:a17:90b:1805:: with SMTP id lw5mr22025697pjb.120.1623239441202;
-        Wed, 09 Jun 2021 04:50:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623239441; cv=none;
-        d=google.com; s=arc-20160816;
-        b=HKsA6oAzd+5V7MiVsrw6/EOMuTsKxbfDkveXHi0T84GXIScXvXQ218oAJEO+lcUm9a
-         mkh+gmc6jZ354fQscL3NeFJ3lZ8NMWLegf4YHL/J+hEimcsHZEnGiuRyW1vEspDCv90Z
-         rCH9jMx2AAOnZ2CSM4JGZcJTZLWCnecuwkeWVAQPxeHtM7tEAIuFw1pf/96WDGxwaGxb
-         JVu42sdz99SXat29Ul6w2WYPT8l1VieAB0Dg7gG/e2XSeSgZCwkzBzsKKP+aAFOyjdA8
-         7Qy0yxIVhEO4KU2XPGpFnNRAwaT2i5saGfUbDefC5KMpk4QVXWTOK9+cxr7EqyOZfRwG
-         ZWnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from;
-        bh=EZJd5aV1qHz1VnKeqNYNo+ncqIAwV2kSUb+HxwKIdNg=;
-        b=f7KBFD6fbftBkbhEHtT8ujhSZPpPpPuXtwB9aaLTEyNSfSwYYmSlPTeR7+c7FaILXJ
-         P108rJBRkkiPHUtj0UoyyzGGiyRySjj9VMEQA4dvUgHWm2SLEeZDUIbMkNoH362K1K7n
-         Wwt1CnbiPQuL1/0Kkiz3EW65WZuZm0Fv4VVLZRgzqfzNKHji7UhQb1x84o3ahAcuCwnP
-         H8kdWS44dCFKkzr7//AaaD76QK1l/DO/EiK3hC1CwFrAfPYso3m3PAMnT+OXOA1EAAft
-         PJnnnpRUWc/XGeKLcDefFlxa+x0etFI45UsTfDOtqiQhjP8V6aT+cgxc0PemLWFRNhZY
-         UvxA==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of chengzhihao1@huawei.com designates 45.249.212.187 as permitted sender) smtp.mailfrom=chengzhihao1@huawei.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=huawei.com
-Received: from szxga01-in.huawei.com (szxga01-in.huawei.com. [45.249.212.187])
-        by gmr-mx.google.com with ESMTPS id o20si2097536pgv.1.2021.06.09.04.50.41
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 09 Jun 2021 04:50:41 -0700 (PDT)
-Received-SPF: pass (google.com: domain of chengzhihao1@huawei.com designates 45.249.212.187 as permitted sender) client-ip=45.249.212.187;
-Received: from dggemv703-chm.china.huawei.com (unknown [172.30.72.53])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4G0QKQ6Y0fzWtQk;
-	Wed,  9 Jun 2021 19:45:46 +0800 (CST)
-Received: from dggema761-chm.china.huawei.com (10.1.198.203) by
- dggemv703-chm.china.huawei.com (10.3.19.46) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
- 15.1.2176.2; Wed, 9 Jun 2021 19:50:39 +0800
-Received: from huawei.com (10.175.127.227) by dggema761-chm.china.huawei.com
- (10.1.198.203) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2176.2; Wed, 9 Jun
- 2021 19:50:38 +0800
-From: Zhihao Cheng <chengzhihao1@huawei.com>
-To: <peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<jolsa@redhat.com>, <ast@kernel.org>, <daniel@iogearbox.net>,
-	<andrii@kernel.org>, <nathan@kernel.org>, <ndesaulniers@google.com>
-CC: <linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<clang-built-linux@googlegroups.com>, <chengzhihao1@huawei.com>,
-	<yukuai3@huawei.com>
-Subject: [PATCH] perf llvm: Fix error return code in llvm__compile_bpf()
-Date: Wed, 9 Jun 2021 19:59:45 +0800
-Message-ID: <20210609115945.2193194-1-chengzhihao1@huawei.com>
-X-Mailer: git-send-email 2.31.1
+Received: by 2002:aca:5f05:: with SMTP id t5ls655967oib.3.gmail; Wed, 09 Jun
+ 2021 05:04:16 -0700 (PDT)
+X-Received: by 2002:aca:f482:: with SMTP id s124mr6103674oih.167.1623240256344;
+        Wed, 09 Jun 2021 05:04:16 -0700 (PDT)
+Date: Wed, 9 Jun 2021 05:04:15 -0700 (PDT)
+From: Jesse Chan <cjx.private@gmail.com>
+To: Clang Built Linux <clang-built-linux@googlegroups.com>
+Message-Id: <18fa525b-bb89-42e6-98da-f7df79858f83n@googlegroups.com>
+In-Reply-To: <202106081105.1CD9907A99@keescook>
+References: <8aae1be7-d9bc-8a55-0bbb-0d94e6719baf@redhat.com>
+ <202106081050.623BC5C44@keescook>
+ <CAKwvOdnukRtNwG+OLYakDK-9aKJX=0mCf9nA=49XxYxVUZx8zA@mail.gmail.com>
+ <202106081105.1CD9907A99@keescook>
+Subject: Re: Recommendation for LTO type (thin or full) to use for Fedora
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-X-Originating-IP: [10.175.127.227]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggema761-chm.china.huawei.com (10.1.198.203)
-X-CFilter-Loop: Reflected
-X-Original-Sender: chengzhihao1@huawei.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of chengzhihao1@huawei.com designates 45.249.212.187 as
- permitted sender) smtp.mailfrom=chengzhihao1@huawei.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=huawei.com
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_1508_1182683715.1623240255457"
+X-Original-Sender: cjx.private@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,47 +80,140 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Fix to return a negative error code from the error handling
-case instead of 0, as done elsewhere in this function.
+------=_Part_1508_1182683715.1623240255457
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1509_1626062084.1623240255457"
 
-Fixes: cb76371441d098 ("perf llvm: Allow passing options to llc ...")
-Fixes: 5eab5a7ee032ac ("perf llvm: Display eBPF compiling command ...")
-Reported-by: Hulk Robot <hulkci@huawei.com>
-Signed-off-by: Zhihao Cheng <chengzhihao1@huawei.com>
----
- tools/perf/util/llvm-utils.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+------=_Part_1509_1626062084.1623240255457
+Content-Type: text/plain; charset="UTF-8"
 
-diff --git a/tools/perf/util/llvm-utils.c b/tools/perf/util/llvm-utils.c
-index 3ceaf7ef3301..2de02639fb67 100644
---- a/tools/perf/util/llvm-utils.c
-+++ b/tools/perf/util/llvm-utils.c
-@@ -504,8 +504,9 @@ int llvm__compile_bpf(const char *path, void **p_obj_buf,
- 			goto errout;
- 		}
- 
--		if (asprintf(&pipe_template, "%s -emit-llvm | %s -march=bpf %s -filetype=obj -o -",
--			      template, llc_path, opts) < 0) {
-+		err = asprintf(&pipe_template, "%s -emit-llvm | %s -march=bpf %s -filetype=obj -o -",
-+			       template, llc_path, opts);
-+		if (err < 0) {
- 			pr_err("ERROR:\tnot enough memory to setup command line\n");
- 			goto errout;
- 		}
-@@ -524,7 +525,8 @@ int llvm__compile_bpf(const char *path, void **p_obj_buf,
- 
- 	pr_debug("llvm compiling command template: %s\n", template);
- 
--	if (asprintf(&command_echo, "echo -n \"%s\"", template) < 0)
-+	err = asprintf(&command_echo, "echo -n \"%s\"", template);
-+	if (err < 0)
- 		goto errout;
- 
- 	err = read_from_pipe(command_echo, (void **) &command_out, NULL);
--- 
-2.31.1
+Indeed, Android uses full LTO for production kernel [1].
+
+From our experience with AOSP, Kernel is not part of the AOSP build 
+process. It is developed and built separately and then used as prebuilt [2] 
+(TARGET_PREBUILT_KERNEL or  BOARD_USES_GENERIC_KERNEL_IMAGE [3] in DT), so 
+platform people probably don't have to worry too much about the increased 
+build time.
+
+Though, custom Android distributions like LineageOS did build kernel as 
+part of the process [4], and the greatly increased build time is a huge 
+headache, so we disable LTO when the variant is "eng" or simply use 
+ThinLTO. 
+
+Thanks,
+Jesse.
+
+[1]: https://android-review.googlesource.com/c/kernel/common/+/1621952
+[2]: https://android.googlesource.com/kernel/prebuilts/5.4/arm64/+/refs/heads/master
+[3]: https://android.googlesource.com/device/google/redbull/+/refs/heads/master/BoardConfig-common.mk
+[4]: https://github.com/LineageOS/android_vendor_lineage/blob/lineage-18.1/build/tasks/kernel.mk
+
+On Wednesday, June 9, 2021 Kees Cook wrote:
+
+> On Tue, Jun 08, 2021 at 11:02:06AM -0700, Nick Desaulniers wrote: 
+> > On Tue, Jun 8, 2021 at 10:51 AM Kees Cook <kees...@chromium.org> wrote: 
+> > > 
+> > > On Mon, Jun 07, 2021 at 12:36:23PM -0700, Tom Stellard wrote: 
+> > > > I'm working on adding an option to enable LTO in the Fedora kernel 
+> builds. I'm 
+> > > > not sure if I should use thin or full LTO, does anyone have any 
+> recommendations? 
+> > > > What do most people use? 
+> > > 
+> > > ThinLTO is used by Android and is much less resource-heavy at build 
+> > > time. Full LTO exists as an option mostly to be able to a/b test 
+> results 
+> > > and bugs. :) 
+> > 
+> > No. FullLTO is used by Android. Android Common Kernel made this Full 
+> > LTO for S (within the past 2 weeks or so). Every pixel that had an 
+> > LTO kernel has shipped with full LTO. 
+>
+> O_o 
+>
+> I defer to Sami, but ThinLTO is going to be much nicer on your builders. 
+> :) 
+>
+> -- 
+> Kees Cook 
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210609115945.2193194-1-chengzhihao1%40huawei.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/18fa525b-bb89-42e6-98da-f7df79858f83n%40googlegroups.com.
+
+------=_Part_1509_1626062084.1623240255457
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Indeed, Android uses full LTO for production kernel [1].<div><br></div><div=
+>From our experience with AOSP, Kernel is not part of the AOSP build proces=
+s. It is developed and built separately and then used as prebuilt [2] (TARG=
+ET_PREBUILT_KERNEL or&nbsp;
+
+BOARD_USES_GENERIC_KERNEL_IMAGE&nbsp;[3] in DT), so platform people probabl=
+y don't have to worry too much about the increased build time.</div><div><b=
+r></div><div>Though, custom Android distributions like LineageOS did build =
+kernel as part of the process [4], and the greatly increased build time is =
+a huge headache, so we disable LTO when the variant is "eng" or simply use =
+ThinLTO.&nbsp;</div><div><br></div><div>Thanks,</div><div>Jesse.<br><div><b=
+r></div><div>[1]:&nbsp;https://android-review.googlesource.com/c/kernel/com=
+mon/+/1621952</div><div>[2]:&nbsp;https://android.googlesource.com/kernel/p=
+rebuilts/5.4/arm64/+/refs/heads/master</div><div>[3]:&nbsp;https://android.=
+googlesource.com/device/google/redbull/+/refs/heads/master/BoardConfig-comm=
+on.mk</div><div>[4]:&nbsp;https://github.com/LineageOS/android_vendor_linea=
+ge/blob/lineage-18.1/build/tasks/kernel.mk<br><br><div class=3D"gmail_quote=
+"><div dir=3D"auto" class=3D"gmail_attr">On Wednesday, June 9, 2021 Kees Co=
+ok wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin: 0 0 0=
+ 0.8ex; border-left: 1px solid rgb(204, 204, 204); padding-left: 1ex;">On T=
+ue, Jun 08, 2021 at 11:02:06AM -0700, Nick Desaulniers wrote:
+<br>&gt; On Tue, Jun 8, 2021 at 10:51 AM Kees Cook &lt;<a href=3D"" data-em=
+ail-masked=3D"" rel=3D"nofollow">kees...@chromium.org</a>&gt; wrote:
+<br>&gt; &gt;
+<br>&gt; &gt; On Mon, Jun 07, 2021 at 12:36:23PM -0700, Tom Stellard wrote:
+<br>&gt; &gt; &gt; I'm working on adding an option to enable LTO in the Fed=
+ora kernel builds.  I'm
+<br>&gt; &gt; &gt; not sure if I should use thin or full LTO, does anyone h=
+ave any recommendations?
+<br>&gt; &gt; &gt; What do most people use?
+<br>&gt; &gt;
+<br>&gt; &gt; ThinLTO is used by Android and is much less resource-heavy at=
+ build
+<br>&gt; &gt; time. Full LTO exists as an option mostly to be able to a/b t=
+est results
+<br>&gt; &gt; and bugs. :)
+<br>&gt;=20
+<br>&gt; No. FullLTO is used by Android. Android Common Kernel made this Fu=
+ll
+<br>&gt; LTO for S (within the past 2 weeks or so).  Every pixel that had a=
+n
+<br>&gt; LTO kernel has shipped with full LTO.
+<br>
+<br>O_o
+<br>
+<br>I defer to Sami, but ThinLTO is going to be much nicer on your builders=
+.
+<br>:)
+<br>
+<br>--=20
+<br>Kees Cook
+<br></blockquote></div></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/18fa525b-bb89-42e6-98da-f7df79858f83n%40google=
+groups.com?utm_medium=3Demail&utm_source=3Dfooter">https://groups.google.co=
+m/d/msgid/clang-built-linux/18fa525b-bb89-42e6-98da-f7df79858f83n%40googleg=
+roups.com</a>.<br />
+
+------=_Part_1509_1626062084.1623240255457--
+
+------=_Part_1508_1182683715.1623240255457--
