@@ -1,180 +1,140 @@
-Return-Path: <clang-built-linux+bncBAABBHG4QCDAMGQEVUNYCAY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBRHAQCDAMGQEIHCORCA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id F33BA3A0A5F
-	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Jun 2021 04:57:33 +0200 (CEST)
-Received: by mail-pg1-x53d.google.com with SMTP id u7-20020a6345470000b02902211e79e4c1sf5937027pgk.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Jun 2021 19:57:33 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1623207452; cv=pass;
+Received: from mail-oo1-xc3a.google.com (mail-oo1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 717F83A0A78
+	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Jun 2021 05:06:45 +0200 (CEST)
+Received: by mail-oo1-xc3a.google.com with SMTP id t19-20020a4ae4130000b029023950cb8d35sf14547361oov.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 08 Jun 2021 20:06:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623208004; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yw+aeRQ0M7ZzAVMcg7TnQKtOQ5LYcMfFmzAxWgu8scgWbcO6E3V0BNsgktwrslqhAZ
-         ow94X/DXZPnaPu17yTXklIMSBLoKlGJi1iaYd6YuTMR1M0MihiP84EGcYhBJLRgfcDFK
-         ES1ECZu7VL8UTrdRBOuD7HeeBbVjPd/Kz6eypUJYAlB5kjmOiQzlKg0Vcd6FMgY65iYh
-         Ewonk5kR/5Kq+PdSHgALL4VWY205fBdCAT2AUPi88rpoODA9T4IKW5v3nGpC56UgnLst
-         A13SkcpyHTZ9/zxZxiZnGjyuMEIZSKoBujpsGiULUtU527gZ5r3DLv1YD22z1wjnDBGq
-         6hXw==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=r8qbMy0zbvmSLKnFK2F+FygBJjH+QQoLY3CAvQCh3Iul/jrwA/30E/9e9lyYZMx8/R
+         eD2FIS0VMfLasOd2hmBw29Zw8MV0DjsisQTrvKOMHtJTPkFXVV0zNvDCvm2hz4QbMTnR
+         5n2bwCDVNwx+Znw9YXO9jqpQ4Y0QHwKSMV/zxDySlr3PquMQ1DOOQMENsmJldwcsFWK4
+         Ubp/E+THMgEA8HKlpMhS5YtnX7yG+1imjKeFzEIMUpFWEIlMLe794sTZlwsnAzyDGgnT
+         qapg4WduVap5z9V3STWFQzOojKbGneenedxytpcsz1x97aCuHX1oVx+Sd/CCz30n0GDJ
+         U4sQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:sender:dkim-signature;
-        bh=1n+u4LgA1XP7zlJsDegw4N94Dbq0xA3jKjdT8imVRhY=;
-        b=lk3e7TwZdsHHIvlRQRWSZDyp7L7JmINGpjdN/C4tbedGtTUjQUM9acnuWnrtsKDKly
-         PMS7DYqBPnylCAyACOrJA0CKVKeMA2NDtYHIqBWKSjuivj1WcuL3Cq8T2og8AbpbNqgz
-         ZGk6rYEwPLRRsfBCcqbRWmjian1KYeX1nl3KYepzEwvH+/4TM1ZD5rOJo6ahQUZ+3h7p
-         HD2y06WE5B1xf827OIamJa0tlGuUk4NP45mmDry95M0zJzGT5koMiNqJNQGbZ+f8IgdN
-         2spIFmpboYRgnZw1ntiwDHxZ0B2h2ucmjJonPqyJb4iKtK4wk9isPnNVoJgxNQNs2kYV
-         MnCg==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@outlook.com header.s=selector1 header.b=n7+PDfLG;
-       arc=pass (i=1);
-       spf=pass (google.com: domain of mario.limonciello@outlook.com designates 40.92.42.41 as permitted sender) smtp.mailfrom=mario.limonciello@outlook.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=outlook.com
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:ironport-sdr:ironport-sdr:sender:dkim-signature;
+        bh=UgPDlWYm68XnYkaWNpGkm+OeYMCY7bAr5VDdi6Ppaws=;
+        b=UEwzLcDOVsdgNEQFiNtj9e2JyXr2He8+KtBiA4ymIYqvncICQOnWxoNvzqZvC6ZS5D
+         oD0pjIANxfLf9gVUMlpI3iIkIgz9u0d/9DlPoL3/lMaasFXr18+eRk6ja4Kp+5wiwAwJ
+         /p3gdOLBVcrm01/yMZZoZxeFuQARmj8AtgCIGBDaCkdWVq9HPP9D0n0GTQPajqWIfH5l
+         c1DXNt36/qFeZTSTAwI8em656zLs2FLqygFmRFF28mX1Vcx6R2I3wzXhmL31kbVqk/Is
+         J6jz5oAJNdxvS7nd16NZ9Lz/H5FGuOdkeQmoZAxKDlrpxQdNz7+zOOjYsgkVmT1OooUZ
+         Aa9Q==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:ironport-sdr:ironport-sdr:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=1n+u4LgA1XP7zlJsDegw4N94Dbq0xA3jKjdT8imVRhY=;
-        b=PaJrZ2q/kfg0Z5FwsUMaUMJR1fQbJzFfaSKf53ZctvcowuGZYl6ejbv+bXpRg5dmLX
-         ChUw/Vc0HonWYb8C49ZZtXfzjbTk5oSsww9mewmjIHfd/LeF51mxq4wYAFBx1FLfOA7y
-         1w/l1ge9gXXn3a9dtI6ElabS75Z0npjREGVPJam/beVu/fBQdUx77ZQQhLNxQGUlqp1R
-         V7y798kBKmX/ToRHCf2gLwn/2CtlFG72Zh0WX6NDjY9CM3t0DV2dK4wPmvnEJdjpGNAZ
-         8COwgTr2xMrrxzI6c1RGdjWQ6sLBVyWc/MjgKjTMQT+M0+b6ENwxKewf8bCcf1b0IRs9
-         Wnqg==
+        bh=UgPDlWYm68XnYkaWNpGkm+OeYMCY7bAr5VDdi6Ppaws=;
+        b=Pz1dTboRPIA1uSWpXtOa4DYjDCClBnJTcvafcylVKYyNVS5kOl9jD+AKkdnmNJFeZD
+         9eVfzCRW3G2KwUvJmmgEHb3P+xHfrFxWlY1ogo3ScAUDoK/YcvvWZJ7S+TpQRT9ilOhW
+         XozaxuwTnFc6ZHwrQqItsoqjWhzdX5F7ybQ7bFCE6DLxYUTjfIxm5PCo3yJEG3IOJ7mM
+         9kxe8Ew8DQOCgEpT+6KtukVXc2PkiXr5yXqbHlCe4y5H7l7YKncMmgEn0zpMztw9Zo8Z
+         5jpWA06zEm8pVi3KhNIRgq7bM37D2KA09T4Emi77z2XTmdD4K906CTTa33HXRfThx9xW
+         EZ+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:mime-version:x-original-sender
+        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
+         :subject:message-id:references:mime-version:content-disposition
+         :in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=1n+u4LgA1XP7zlJsDegw4N94Dbq0xA3jKjdT8imVRhY=;
-        b=keRtwhDiGP9XTRRbyIX5/Xm54kraB9++wsmMiqjqTdofNJ4ztRgXuWY42FXWCRzogo
-         K2EKmsavBZZ6usk0rYmcKO1FC5VmNDux7HqCbgwRAnbkEbFnLXeZBEUgQxjKhDB6aqtS
-         pqimT3ZfZMkkeponsVvXB4aC2I3LkMIUTxPa+RiN8PYmO/v19comkxEmoA3znzFUDdpY
-         dcmANhrYQT6SB7EdKT8yoih7NFVjo6NUQZi9b4Rc9C/UbJ5lW9D1wOFuMkA3uhOp3Ynz
-         JzuI0KJV4kyeQmvW4KR8JGbU+APUQYv8ivMndP2zZR7WIvAUhQkUGtAzCmkHnPaa1gqf
-         DiNw==
+        bh=UgPDlWYm68XnYkaWNpGkm+OeYMCY7bAr5VDdi6Ppaws=;
+        b=NCEGJ9RrA6IDrbTZqIf3NXN6GSMrF/RgZcemy8QTEpjVCobO6I8W1BYUrb2XVDK5kJ
+         D5bvY9CtKDHhbIrT3YKt5HLrEvLS/GkKXP+zXpsQZ5Awe39MdDVYktRcfAOGTqIDqsEF
+         4cwACwkn8HAz9TE+SENcAcOo46DoLWOcFdeqKdQheHtJypnTJTJg1Bp9mJCwlTMLaZyA
+         Njx2xo/WrRcBB9Pqk+NPe2fCY4++loEays4F23hEMV17DGHM/rDKCHPwRONdS5I/OLyv
+         39dRwiFDMHjzDJdG8VBoBnQW561eBvMsKpY68SyMqGaijINy5QLDr+n/FgZfhFnQWIbC
+         avkQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531FVA4Nry3eTKISXd9aYOQtOElNtWHrEetcNS+13rOM7b593E1k
-	wbIE1ilbpec5HnQhS2b8qhE=
-X-Google-Smtp-Source: ABdhPJwm7/IBMKUz4edNa0EhBQvf6fqs8z6CN7sfvOYo32gIATEbJ1ah+XHl5Pav3ZROXxGs5/mH1A==
-X-Received: by 2002:a62:5545:0:b029:2e9:d88c:15c1 with SMTP id j66-20020a6255450000b02902e9d88c15c1mr2951261pfb.75.1623207452403;
-        Tue, 08 Jun 2021 19:57:32 -0700 (PDT)
+X-Gm-Message-State: AOAM530tw3zraDiKIlQ76t3B9PjcgG6vswm75+gy0KiPEkQPBsH4vmZt
+	yOStkN7mH4GszmdXH4a5MRk=
+X-Google-Smtp-Source: ABdhPJxQsZgKDtMmmuroMgEnIhXcKxKFhGLWuOv/yG4jxK9y3+s99Q23KJbPXugiUjuEVWYisRB0Rw==
+X-Received: by 2002:aca:4bd7:: with SMTP id y206mr5132999oia.40.1623208004184;
+        Tue, 08 Jun 2021 20:06:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:414e:: with SMTP id m14ls484809pjg.3.gmail; Tue, 08
- Jun 2021 19:57:32 -0700 (PDT)
-X-Received: by 2002:a17:902:e9cb:b029:101:cebc:b8d with SMTP id 11-20020a170902e9cbb0290101cebc0b8dmr3205447plk.5.1623207451864;
-        Tue, 08 Jun 2021 19:57:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623207451; cv=pass;
+Received: by 2002:aca:6285:: with SMTP id w127ls261452oib.4.gmail; Tue, 08 Jun
+ 2021 20:06:43 -0700 (PDT)
+X-Received: by 2002:a05:6808:10cd:: with SMTP id s13mr5150454ois.113.1623208003711;
+        Tue, 08 Jun 2021 20:06:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623208003; cv=none;
         d=google.com; s=arc-20160816;
-        b=WMCGe3mkEGKdMyb+jq/pZqp4vTXCljpSX05eUv1LJhzsdThPqN6XOfdPbaDs08jDSY
-         3xGurmCVzaaT3nviO5FcUGUTJFga8CIAjFvd3hY2hA85642UFe4OBp2BHFbm3e9Mw8h5
-         G6DhqHRhv0v1zQNufNfOY1tWTfrsVNAH/C7/7MzaIWtc3+eBySFCZi+wnyowc8iYFgYS
-         d8B3o0YLJ9t+LtLU4qiFKafmN02ZsKro+QY3csHm1pAJRRzXKsiMsjdisblIrxadPyZd
-         hG3VAOBdGK7GuoaPjUsmp7xkcT/T/w7/1fMjEhCh7EFpvckRy1Skt0nVC75/FVkds9ni
-         X60A==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-language:accept-language:in-reply-to
-         :references:message-id:date:thread-index:thread-topic:subject:cc:to
-         :from:dkim-signature;
-        bh=QckLKL3GYiu9JIsFFnNIqhicOsU7KQl02vmVQEZ1lAc=;
-        b=MsuEZEkwSPgRryOwH3ERwtUBaiOHdtiwLJqoZbkkKgAj4AmGyhjPiN64Ntgp/N7/vG
-         xVO7dlS5MZ7yR9awBwWsNuzoSpmWZ7a9eR3nlBB36CJrheLhlefEiPUfNowk2E9GbuZB
-         Vvc220n66zeIKY7EwqiqKmq0VIwFbuK+MS85reC+sgl7ShDtcAC3kGlJiFfNdiYEBzUt
-         GvaSgS3ENxCUWAPbrGIsXlayIzD4AX/BDNmrmhheG9QgdnBXYF1rSZv6sybvK5eaipQ9
-         ZXwpLzUmi0zTCax+Q8wtb/ncF5lM8DNfJJl3FpgvwEY9kolaAuSymCzR6FuUB4somh7R
-         EACg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@outlook.com header.s=selector1 header.b=n7+PDfLG;
-       arc=pass (i=1);
-       spf=pass (google.com: domain of mario.limonciello@outlook.com designates 40.92.42.41 as permitted sender) smtp.mailfrom=mario.limonciello@outlook.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=outlook.com
-Received: from NAM10-MW2-obe.outbound.protection.outlook.com (mail-mw2nam10olkn2041.outbound.protection.outlook.com. [40.92.42.41])
-        by gmr-mx.google.com with ESMTPS id c23si1836733pjv.2.2021.06.08.19.57.31
+        b=BuD25ERlb6UvcI/nfLZp7cG+tZeLLqvCp7LxJ44RO8qs2ihduDcIvBYC4J44lMO9dq
+         d3xbHMMbPWHNvcrRDFjACDpTC5KIO2dE494BAMKtqtd1e0K9KgL7ypSou280VU/yxOFE
+         ahrXAvhCXiNF8lyWNN73FXmhXnioc7cEBMd7aA0+0ai3MufJZgyAkYMKNXHY+3UjokWR
+         I7lmWNgqewf1SpL+sJi44dNonrzvQFw6IgbcrbKmKEZ2n+lIDEVj2NRWYdb5fnrIPJlV
+         U4UGUncK2CeYHOyNmzHoxP2JfZ3g33vRhYR5eaER5ib5ZXvVhzmzJpHmtZdek92qshcq
+         cUVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:ironport-sdr:ironport-sdr;
+        bh=SANEV5ogxG6rTrdz/O0GusvGP59ldNhRau499qwNWW4=;
+        b=qtU4mWo2K3n4U2f7fcHymBjYICqQ4YJ5PBZCJN/5PQmktr0+Zu8I/y5sdRMeVS+CeP
+         t6q7Ytv/hX9OHGTvpDyvlmvgSAfHvd5TW5A0DX/u8CLqD0BFtAtqwv67k18po5e/zh6c
+         aVrplkmgVBfQ1wCA5jbjKSwwWWZSufpF56YX6QhDb98uSPXJSPaikrCRA4I3T3HmqZu2
+         6T5vPbzOpOBC/Fz5DwLm4WngZ4YnBz2JK+xhq7P17ZSr7wo7fOuCfD0zeilZMkKtAAtJ
+         ekVZ+Ho96rG4sMAgDpUW0Km3QT3KNiZVxU+t+JCJ+w64q5bprQO3IcuLolHKb9tTzRF7
+         /gYg==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
+        by gmr-mx.google.com with ESMTPS id t15si1195452oiw.4.2021.06.08.20.06.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 08 Jun 2021 19:57:31 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mario.limonciello@outlook.com designates 40.92.42.41 as permitted sender) client-ip=40.92.42.41;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=eXSXHZx0WKdtK3YRJ+Ta3Buxub1E09ZONpRaDYQ/qjJX+Dg312kwipLhfYoyadldXTz1xo/06xdKHofretMr5XDk0YQs+EsA0zIG/Ia7T37zxwXhKbmUfEUiby2lgdDb6l/B0HffOar8YpWIirmHjJix98XWxo1qzQxkNcYEbK3ktaMbEFCAeJybkvnxVF7VN2FbZW5PLbYI+aekkGeb3Mecxu8PZEcUcoq2pWNPSxlwJLOOiDvZUoA9ArQtaRWWZnwss3X7VSgXeAi4lGd7xklPok6UaMa+fw949+dwahzJOFxaor0UPXZfem8sIZftN5uUQoiPTOIUiDuDSkbd0A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QckLKL3GYiu9JIsFFnNIqhicOsU7KQl02vmVQEZ1lAc=;
- b=Kc2JzRm9V9ZHCbMPPIrmZDNRwLyMW1MIjZOgwKwDY291Fuo9gSy5nwtcihM9XD/RZrNtiwe7QJ5/4T1Z8gDRkW/uAI70J7D80GTgr6tO32FdC1ZVYAQnGLc3nIHk7UJ3VNXvYpaoAv+h8vUZ4MKPFRySjYqUFjQlUdcRzKAk9Iou+8qHMC7ryvkTUEZRpv48rEFzNhlPYGy0FzSHWNzEhdLF9Dl/bz9EMUrXYQdneaYcnSlOiDA1t0Fv1bYsLfeUwldo1GDEXyN6LIun+jk926cG9a37cYXidqyEeSk158Nu7Lt2ZLDEafbAOtNhyoQiKkFzRoKMu2s2eI2DhRCXLQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-Received: from DM6NAM10FT032.eop-nam10.prod.protection.outlook.com
- (2a01:111:e400:7e86::45) by
- DM6NAM10HT132.eop-nam10.prod.protection.outlook.com (2a01:111:e400:7e86::457)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4195.18; Wed, 9 Jun
- 2021 02:57:30 +0000
-Received: from FR1PR80MB5051.lamprd80.prod.outlook.com
- (2a01:111:e400:7e86::4b) by DM6NAM10FT032.mail.protection.outlook.com
- (2a01:111:e400:7e86::306) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4195.18 via Frontend
- Transport; Wed, 9 Jun 2021 02:57:30 +0000
-Received: from FR1PR80MB5051.lamprd80.prod.outlook.com
- ([fe80::567:c444:1ea4:8469]) by FR1PR80MB5051.lamprd80.prod.outlook.com
- ([fe80::567:c444:1ea4:8469%5]) with mapi id 15.20.4195.030; Wed, 9 Jun 2021
- 02:57:30 +0000
-From: Mario Limonciello <mario.limonciello@outlook.com>
-To: Hans de Goede <hdegoede@redhat.com>, kernel test robot <lkp@intel.com>
-CC: "kbuild-all@lists.01.org" <kbuild-all@lists.01.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: drivers/platform/x86/dell/dell-smbios-smm.c:27:35: warning:
- unused variable 'dell_device_table'
-Thread-Topic: drivers/platform/x86/dell/dell-smbios-smm.c:27:35: warning:
- unused variable 'dell_device_table'
-Thread-Index: AQHXXEFmMwAF7ZMm6k2HDGzgEL5FGasK/TqR
-Date: Wed, 9 Jun 2021 02:57:30 +0000
-Message-ID: <FR1PR80MB5051850F4403689F21893377E1369@FR1PR80MB5051.lamprd80.prod.outlook.com>
-References: <202106080633.CrTbLIPD-lkp@intel.com>,<e706a5d6-fabb-4506-1192-d8b40d1c2cf2@redhat.com>
-In-Reply-To: <e706a5d6-fabb-4506-1192-d8b40d1c2cf2@redhat.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-incomingtopheadermarker: OriginalChecksum:2F459E9DD9011FF4343A4B384FC92A1247447419B9DF68769630CED2085FF493;UpperCasedChecksum:E71CACDB242B20ECC0BCB13712DD1508025FF6B708BE918C710752393E23640D;SizeAsReceived:7200;Count:45
-x-ms-exchange-messagesentrepresentingtype: 1
-x-tmn: [Mxyk3aA6AAdHUTIVL99uBp6dH4+kATai]
-x-ms-publictraffictype: Email
-x-incomingheadercount: 45
-x-eopattributedmessage: 0
-x-ms-office365-filtering-correlation-id: 97864c3f-95ea-44c8-15fd-08d92af2529d
-x-ms-traffictypediagnostic: DM6NAM10HT132:
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: bCwivv1B7Llhauepp4824gIn0OgZ75RqNQqeALTL7g1C3oa0HeDQJpk+yeszBiqlZBzBNR9hc0/zvE53FpRSFvssUBgcid+BOEMZl7BCzyZwAZthwqhL4U41W7NBuqClci9j6XAi4kzqiKgP/VMDwblGrz73Ib3VzwrUg+lvz+ZCD4kEbAdGScqr/Q/LtOmHL7wMsHyTXYHkokoNDaNWS9iRTfYRgll8+eXV/epsPjxjlq6p8awMGAFllrkXwHY85UEeu3dW01KKWlUVwyGRITI33U3ceSpOjjX6sPCZEntQ4mfpAmbkU21T/KNVFPoiwSHwc28AIMpBEij6F1LKC96qmXpH82qeO/M6HgN6ZwmF7fQIdD79t25sUrF28U/gSx2sw1wq6wSkLpEZTKaB5dD5iUbJYRr2r/BbJYy4944nYiP2Mvit3be8Bw6bRAAETPUrh9CfpVOXKOvmqBJPAA==
-x-ms-exchange-antispam-messagedata: BSJr6RxpGAsYcenuAjjfEvOlbCA2Sm6LSktEp8lQUYQbKu2Q54qLM8UUPrc1OSq0FNlDbq8dzjZajPFwlnRHXizaOE2m8rQj1bfUtoFSQxNHKesEAVwSrNRZITJ9p1kVhyFx9rHgzLucV8rq0UItFw==
-x-ms-exchange-transport-forked: True
-Content-Type: multipart/alternative;
-	boundary="_000_FR1PR80MB5051850F4403689F21893377E1369FR1PR80MB5051lamp_"
+        Tue, 08 Jun 2021 20:06:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
+IronPort-SDR: trnWKujHHfDT0Vv+vQuWrBHQWOBY+D7xaOsymozJE2j8cZ+MbKWbTt4lMb3eHZRIqDZJAQpEc+
+ mJD9oEEfssIQ==
+X-IronPort-AV: E=McAfee;i="6200,9189,10009"; a="185366134"
+X-IronPort-AV: E=Sophos;i="5.83,260,1616482800"; 
+   d="gz'50?scan'50,208,50";a="185366134"
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jun 2021 20:06:25 -0700
+IronPort-SDR: jZKLVmhG5YN/JkS1Z0mOQIqA5X/7dy7oIVe7objvskWB5ytOMd8PWEnGfmlnBcTM0td8NkRaQk
+ PwC8OEGMViOA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.83,260,1616482800"; 
+   d="gz'50?scan'50,208,50";a="402294779"
+Received: from lkp-server02.sh.intel.com (HELO 1ec8406c5392) ([10.239.97.151])
+  by orsmga003.jf.intel.com with ESMTP; 08 Jun 2021 20:06:21 -0700
+Received: from kbuild by 1ec8406c5392 with local (Exim 4.92)
+	(envelope-from <lkp@intel.com>)
+	id 1lqoXs-0009LI-SX; Wed, 09 Jun 2021 03:06:20 +0000
+Date: Wed, 9 Jun 2021 11:05:29 +0800
+From: kernel test robot <lkp@intel.com>
+To: Vadym Kochan <vadym.kochan@plvision.eu>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	Robert Marko <robert.marko@sartura.hr>,
+	Vadym Kochan <vadym.kochan@plvision.eu>
+Subject: Re: [PATCH v2 1/3] nvmem: core: introduce cells parser
+Message-ID: <202106091032.JY0QCred-lkp@intel.com>
+References: <20210608190327.22071-2-vadym.kochan@plvision.eu>
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-AuthSource: DM6NAM10FT032.eop-nam10.prod.protection.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 97864c3f-95ea-44c8-15fd-08d92af2529d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Jun 2021 02:57:30.4795
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Internet
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6NAM10HT132
-X-Original-Sender: mario.limonciello@outlook.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@outlook.com header.s=selector1 header.b=n7+PDfLG;       arc=pass
- (i=1);       spf=pass (google.com: domain of mario.limonciello@outlook.com
- designates 40.92.42.41 as permitted sender) smtp.mailfrom=mario.limonciello@outlook.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=outlook.com
+Content-Type: multipart/mixed; boundary="wRRV7LY7NUeQGEoC"
+Content-Disposition: inline
+In-Reply-To: <20210608190327.22071-2-vadym.kochan@plvision.eu>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -187,433 +147,665 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---_000_FR1PR80MB5051850F4403689F21893377E1369FR1PR80MB5051lamp_
+
+--wRRV7LY7NUeQGEoC
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 
-Apologies for top post, I'm on mobile.
+Hi Vadym,
 
-I agree it sounds like a corner case to support someone not compiling dell-laptop, but there are actually desktops and workstations that are also supported by dell-smbios-smm.
+I love your patch! Perhaps something to improve:
 
-But then the intersection of systems supporting only smm and not wmi is very small and wmi will load based on the bus. So I'm in agreement with you.
+[auto build test WARNING on robh/for-next]
+[also build test WARNING on linux/master linus/master v5.13-rc5 next-20210608]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch]
 
-Get Outlook for Android<https://aka.ms/AAb9ysg>
-________________________________
-From: Hans de Goede <hdegoede@redhat.com>
-Sent: Tuesday, June 8, 2021 3:36:27 AM
-To: kernel test robot <lkp@intel.com>; Mario Limonciello <mario.limonciello@outlook.com>
-Cc: kbuild-all@lists.01.org <kbuild-all@lists.01.org>; clang-built-linux@googlegroups.com <clang-built-linux@googlegroups.com>; linux-kernel@vger.kernel.org <linux-kernel@vger.kernel.org>
-Subject: Re: drivers/platform/x86/dell/dell-smbios-smm.c:27:35: warning: unused variable 'dell_device_table'
+url:    https://github.com/0day-ci/linux/commits/Vadym-Kochan/nvmem-add-ONIE-NVMEM-cells-parser/20210609-031008
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+config: s390-randconfig-r012-20210608 (attached as .config)
+compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project d2012d965d60c3258b3a69d024491698f8aec386)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # install s390 cross compiling tool for clang build
+        # apt-get install binutils-s390x-linux-gnu
+        # https://github.com/0day-ci/linux/commit/e7cd03f23c4980914d9de330fd018cb733f84d8f
+        git remote add linux-review https://github.com/0day-ci/linux
+        git fetch --no-tags linux-review Vadym-Kochan/nvmem-add-ONIE-NVMEM-cells-parser/20210609-031008
+        git checkout e7cd03f23c4980914d9de330fd018cb733f84d8f
+        # save the attached .config to linux build tree
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=s390 
 
-<replaced Mario's old Dell email address which one which works>
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kernel test robot <lkp@intel.com>
 
-Hi all,
+All warnings (new ones prefixed by >>):
 
-On 6/8/21 12:41 AM, kernel test robot wrote:
-> Hi Mario,
->
-> FYI, the error/warning still remains.
->
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   614124bea77e452aa6df7a8714e8bc820b489922
-> commit: f1e1ea516721d1ea0b21327ff9e6cb2c2bb86e28 platform/x86: Move all dell drivers to their own subdirectory
-> date:   4 months ago
-> config: x86_64-randconfig-r023-20210608 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project ae973380c5f6be77ce395022be40350942260be9)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f1e1ea516721d1ea0b21327ff9e6cb2c2bb86e28
->         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->         git fetch --no-tags linus master
->         git checkout f1e1ea516721d1ea0b21327ff9e6cb2c2bb86e28
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
->>> drivers/platform/x86/dell/dell-smbios-smm.c:27:35: warning: unused variable 'dell_device_table' [-Wunused-const-variable]
->    static const struct dmi_system_id dell_device_table[] __initconst = {
->                                      ^
->    1 warning generated.
->
->
-> vim +/dell_device_table +27 drivers/platform/x86/dell/dell-smbios-smm.c
->
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  26
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01 @27  static const struct dmi_system_id dell_device_table[] __initconst = {
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  28         {
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  29                 .ident = "Dell laptop",
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  30                 .matches = {
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  31                         DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  32                         DMI_MATCH(DMI_CHASSIS_TYPE, "8"),
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  33                 },
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  34         },
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  35         {
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  36                 .matches = {
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  37                         DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  38                         DMI_MATCH(DMI_CHASSIS_TYPE, "9"), /*Laptop*/
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  39                 },
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  40         },
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  41         {
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  42                 .matches = {
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  43                         DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  44                         DMI_MATCH(DMI_CHASSIS_TYPE, "10"), /*Notebook*/
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  45                 },
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  46         },
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  47         {
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  48                 .ident = "Dell Computer Corporation",
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  49                 .matches = {
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  50                         DMI_MATCH(DMI_SYS_VENDOR, "Dell Computer Corporation"),
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  51                         DMI_MATCH(DMI_CHASSIS_TYPE, "8"),
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  52                 },
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  53         },
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  54         { }
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  55  };
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  56  MODULE_DEVICE_TABLE(dmi, dell_device_table);
+   In file included from lib/vsprintf.c:36:
+   In file included from include/linux/rtc.h:18:
+>> include/linux/nvmem-provider.h:183:9: warning: incompatible integer to pointer conversion returning 'int' from a function with result type 'struct nvmem_parser *' [-Wint-conversion]
+           return -EOPNOTSUPP;
+                  ^~~~~~~~~~~
+   In file included from lib/vsprintf.c:40:
+   In file included from include/net/addrconf.h:50:
+   In file included from include/linux/ipv6.h:88:
+   In file included from include/linux/tcp.h:17:
+   In file included from include/linux/skbuff.h:31:
+   In file included from include/linux/dma-mapping.h:10:
+   In file included from include/linux/scatterlist.h:9:
+   In file included from arch/s390/include/asm/io.h:75:
+   include/asm-generic/io.h:464:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           val = __raw_readb(PCI_IOBASE + addr);
+                             ~~~~~~~~~~ ^
+   include/asm-generic/io.h:477:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
+                                                           ~~~~~~~~~~ ^
+   include/uapi/linux/byteorder/big_endian.h:36:59: note: expanded from macro '__le16_to_cpu'
+   #define __le16_to_cpu(x) __swab16((__force __u16)(__le16)(x))
+                                                             ^
+   include/uapi/linux/swab.h:102:54: note: expanded from macro '__swab16'
+   #define __swab16(x) (__u16)__builtin_bswap16((__u16)(x))
+                                                        ^
+   In file included from lib/vsprintf.c:40:
+   In file included from include/net/addrconf.h:50:
+   In file included from include/linux/ipv6.h:88:
+   In file included from include/linux/tcp.h:17:
+   In file included from include/linux/skbuff.h:31:
+   In file included from include/linux/dma-mapping.h:10:
+   In file included from include/linux/scatterlist.h:9:
+   In file included from arch/s390/include/asm/io.h:75:
+   include/asm-generic/io.h:490:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
+                                                           ~~~~~~~~~~ ^
+   include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
+   #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
+                                                             ^
+   include/uapi/linux/swab.h:115:54: note: expanded from macro '__swab32'
+   #define __swab32(x) (__u32)__builtin_bswap32((__u32)(x))
+                                                        ^
+   In file included from lib/vsprintf.c:40:
+   In file included from include/net/addrconf.h:50:
+   In file included from include/linux/ipv6.h:88:
+   In file included from include/linux/tcp.h:17:
+   In file included from include/linux/skbuff.h:31:
+   In file included from include/linux/dma-mapping.h:10:
+   In file included from include/linux/scatterlist.h:9:
+   In file included from arch/s390/include/asm/io.h:75:
+   include/asm-generic/io.h:501:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           __raw_writeb(value, PCI_IOBASE + addr);
+                               ~~~~~~~~~~ ^
+   include/asm-generic/io.h:511:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
+                                                         ~~~~~~~~~~ ^
+   include/asm-generic/io.h:521:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
+                                                         ~~~~~~~~~~ ^
+   include/asm-generic/io.h:609:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           readsb(PCI_IOBASE + addr, buffer, count);
+                  ~~~~~~~~~~ ^
+   include/asm-generic/io.h:617:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           readsw(PCI_IOBASE + addr, buffer, count);
+                  ~~~~~~~~~~ ^
+   include/asm-generic/io.h:625:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           readsl(PCI_IOBASE + addr, buffer, count);
+                  ~~~~~~~~~~ ^
+   include/asm-generic/io.h:634:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           writesb(PCI_IOBASE + addr, buffer, count);
+                   ~~~~~~~~~~ ^
+   include/asm-generic/io.h:643:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           writesw(PCI_IOBASE + addr, buffer, count);
+                   ~~~~~~~~~~ ^
+   include/asm-generic/io.h:652:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           writesl(PCI_IOBASE + addr, buffer, count);
+                   ~~~~~~~~~~ ^
+   13 warnings generated.
+--
+   In file included from lib/test_printf.c:13:
+   In file included from include/linux/rtc.h:18:
+>> include/linux/nvmem-provider.h:183:9: warning: incompatible integer to pointer conversion returning 'int' from a function with result type 'struct nvmem_parser *' [-Wint-conversion]
+           return -EOPNOTSUPP;
+                  ^~~~~~~~~~~
+   lib/test_printf.c:157:52: warning: format specifies type 'unsigned char' but the argument has type 'int' [-Wformat]
+           test("0|1|1|128|255", "%hhu|%hhu|%hhu|%hhu|%hhu", 0, 1, 257, 128, -1);
+                                  ~~~~                       ^
+                                  %d
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:157:55: warning: format specifies type 'unsigned char' but the argument has type 'int' [-Wformat]
+           test("0|1|1|128|255", "%hhu|%hhu|%hhu|%hhu|%hhu", 0, 1, 257, 128, -1);
+                                       ~~~~                     ^
+                                       %d
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:157:58: warning: format specifies type 'unsigned char' but the argument has type 'int' [-Wformat]
+           test("0|1|1|128|255", "%hhu|%hhu|%hhu|%hhu|%hhu", 0, 1, 257, 128, -1);
+                                            ~~~~                   ^~~
+                                            %d
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:157:63: warning: format specifies type 'unsigned char' but the argument has type 'int' [-Wformat]
+           test("0|1|1|128|255", "%hhu|%hhu|%hhu|%hhu|%hhu", 0, 1, 257, 128, -1);
+                                                 ~~~~                   ^~~
+                                                 %d
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:157:68: warning: format specifies type 'unsigned char' but the argument has type 'int' [-Wformat]
+           test("0|1|1|128|255", "%hhu|%hhu|%hhu|%hhu|%hhu", 0, 1, 257, 128, -1);
+                                                      ~~~~                   ^~
+                                                      %d
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:158:52: warning: format specifies type 'char' but the argument has type 'int' [-Wformat]
+           test("0|1|1|-128|-1", "%hhd|%hhd|%hhd|%hhd|%hhd", 0, 1, 257, 128, -1);
+                                  ~~~~                       ^
+                                  %d
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:158:55: warning: format specifies type 'char' but the argument has type 'int' [-Wformat]
+           test("0|1|1|-128|-1", "%hhd|%hhd|%hhd|%hhd|%hhd", 0, 1, 257, 128, -1);
+                                       ~~~~                     ^
+                                       %d
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:158:58: warning: format specifies type 'char' but the argument has type 'int' [-Wformat]
+           test("0|1|1|-128|-1", "%hhd|%hhd|%hhd|%hhd|%hhd", 0, 1, 257, 128, -1);
+                                            ~~~~                   ^~~
+                                            %d
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:158:63: warning: format specifies type 'char' but the argument has type 'int' [-Wformat]
+           test("0|1|1|-128|-1", "%hhd|%hhd|%hhd|%hhd|%hhd", 0, 1, 257, 128, -1);
+                                                 ~~~~                   ^~~
+                                                 %d
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:158:68: warning: format specifies type 'char' but the argument has type 'int' [-Wformat]
+           test("0|1|1|-128|-1", "%hhd|%hhd|%hhd|%hhd|%hhd", 0, 1, 257, 128, -1);
+                                                      ~~~~                   ^~
+                                                      %d
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:159:41: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+           test("2015122420151225", "%ho%ho%#ho", 1037, 5282, -11627);
+                                     ~~~          ^~~~
+                                     %o
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:159:47: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+           test("2015122420151225", "%ho%ho%#ho", 1037, 5282, -11627);
+                                        ~~~             ^~~~
+                                        %o
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   lib/test_printf.c:159:53: warning: format specifies type 'unsigned short' but the argument has type 'int' [-Wformat]
+           test("2015122420151225", "%ho%ho%#ho", 1037, 5282, -11627);
+                                           ~~~~               ^~~~~~
+                                           %#o
+   lib/test_printf.c:137:40: note: expanded from macro 'test'
+           __test(expect, strlen(expect), fmt, ##__VA_ARGS__)
+                                          ~~~    ^~~~~~~~~~~
+   14 warnings generated.
+--
+   In file included from block/partitions/msdos.c:31:
+   In file included from block/partitions/check.h:3:
+   In file included from include/linux/blkdev.h:25:
+   In file included from include/linux/scatterlist.h:9:
+   In file included from arch/s390/include/asm/io.h:75:
+   include/asm-generic/io.h:464:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           val = __raw_readb(PCI_IOBASE + addr);
+                             ~~~~~~~~~~ ^
+   include/asm-generic/io.h:477:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
+                                                           ~~~~~~~~~~ ^
+   include/uapi/linux/byteorder/big_endian.h:36:59: note: expanded from macro '__le16_to_cpu'
+   #define __le16_to_cpu(x) __swab16((__force __u16)(__le16)(x))
+                                                             ^
+   include/uapi/linux/swab.h:102:54: note: expanded from macro '__swab16'
+   #define __swab16(x) (__u16)__builtin_bswap16((__u16)(x))
+                                                        ^
+   In file included from block/partitions/msdos.c:31:
+   In file included from block/partitions/check.h:3:
+   In file included from include/linux/blkdev.h:25:
+   In file included from include/linux/scatterlist.h:9:
+   In file included from arch/s390/include/asm/io.h:75:
+   include/asm-generic/io.h:490:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
+                                                           ~~~~~~~~~~ ^
+   include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
+   #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
+                                                             ^
+   include/uapi/linux/swab.h:115:54: note: expanded from macro '__swab32'
+   #define __swab32(x) (__u32)__builtin_bswap32((__u32)(x))
+                                                        ^
+   In file included from block/partitions/msdos.c:31:
+   In file included from block/partitions/check.h:3:
+   In file included from include/linux/blkdev.h:25:
+   In file included from include/linux/scatterlist.h:9:
+   In file included from arch/s390/include/asm/io.h:75:
+   include/asm-generic/io.h:501:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           __raw_writeb(value, PCI_IOBASE + addr);
+                               ~~~~~~~~~~ ^
+   include/asm-generic/io.h:511:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
+                                                         ~~~~~~~~~~ ^
+   include/asm-generic/io.h:521:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
+                                                         ~~~~~~~~~~ ^
+   include/asm-generic/io.h:609:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           readsb(PCI_IOBASE + addr, buffer, count);
+                  ~~~~~~~~~~ ^
+   include/asm-generic/io.h:617:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           readsw(PCI_IOBASE + addr, buffer, count);
+                  ~~~~~~~~~~ ^
+   include/asm-generic/io.h:625:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           readsl(PCI_IOBASE + addr, buffer, count);
+                  ~~~~~~~~~~ ^
+   include/asm-generic/io.h:634:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           writesb(PCI_IOBASE + addr, buffer, count);
+                   ~~~~~~~~~~ ^
+   include/asm-generic/io.h:643:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           writesw(PCI_IOBASE + addr, buffer, count);
+                   ~~~~~~~~~~ ^
+   include/asm-generic/io.h:652:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           writesl(PCI_IOBASE + addr, buffer, count);
+                   ~~~~~~~~~~ ^
+   In file included from block/partitions/msdos.c:32:
+   In file included from block/partitions/efi.h:20:
+   In file included from include/linux/efi.h:20:
+   In file included from include/linux/rtc.h:18:
+>> include/linux/nvmem-provider.h:183:9: warning: incompatible integer to pointer conversion returning 'int' from a function with result type 'struct nvmem_parser *' [-Wint-conversion]
+           return -EOPNOTSUPP;
+                  ^~~~~~~~~~~
+   13 warnings generated.
+--
+   In file included from kernel/time/ntp.c:10:
+   In file included from include/linux/clocksource.h:22:
+   In file included from arch/s390/include/asm/io.h:75:
+   include/asm-generic/io.h:464:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           val = __raw_readb(PCI_IOBASE + addr);
+                             ~~~~~~~~~~ ^
+   include/asm-generic/io.h:477:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           val = __le16_to_cpu((__le16 __force)__raw_readw(PCI_IOBASE + addr));
+                                                           ~~~~~~~~~~ ^
+   include/uapi/linux/byteorder/big_endian.h:36:59: note: expanded from macro '__le16_to_cpu'
+   #define __le16_to_cpu(x) __swab16((__force __u16)(__le16)(x))
+                                                             ^
+   include/uapi/linux/swab.h:102:54: note: expanded from macro '__swab16'
+   #define __swab16(x) (__u16)__builtin_bswap16((__u16)(x))
+                                                        ^
+   In file included from kernel/time/ntp.c:10:
+   In file included from include/linux/clocksource.h:22:
+   In file included from arch/s390/include/asm/io.h:75:
+   include/asm-generic/io.h:490:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
+                                                           ~~~~~~~~~~ ^
+   include/uapi/linux/byteorder/big_endian.h:34:59: note: expanded from macro '__le32_to_cpu'
+   #define __le32_to_cpu(x) __swab32((__force __u32)(__le32)(x))
+                                                             ^
+   include/uapi/linux/swab.h:115:54: note: expanded from macro '__swab32'
+   #define __swab32(x) (__u32)__builtin_bswap32((__u32)(x))
+                                                        ^
+   In file included from kernel/time/ntp.c:10:
+   In file included from include/linux/clocksource.h:22:
+   In file included from arch/s390/include/asm/io.h:75:
+   include/asm-generic/io.h:501:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           __raw_writeb(value, PCI_IOBASE + addr);
+                               ~~~~~~~~~~ ^
+   include/asm-generic/io.h:511:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           __raw_writew((u16 __force)cpu_to_le16(value), PCI_IOBASE + addr);
+                                                         ~~~~~~~~~~ ^
+   include/asm-generic/io.h:521:59: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           __raw_writel((u32 __force)cpu_to_le32(value), PCI_IOBASE + addr);
+                                                         ~~~~~~~~~~ ^
+   include/asm-generic/io.h:609:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           readsb(PCI_IOBASE + addr, buffer, count);
+                  ~~~~~~~~~~ ^
+   include/asm-generic/io.h:617:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           readsw(PCI_IOBASE + addr, buffer, count);
+                  ~~~~~~~~~~ ^
+   include/asm-generic/io.h:625:20: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           readsl(PCI_IOBASE + addr, buffer, count);
+                  ~~~~~~~~~~ ^
+   include/asm-generic/io.h:634:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           writesb(PCI_IOBASE + addr, buffer, count);
+                   ~~~~~~~~~~ ^
+   include/asm-generic/io.h:643:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           writesw(PCI_IOBASE + addr, buffer, count);
+                   ~~~~~~~~~~ ^
+   include/asm-generic/io.h:652:21: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+           writesl(PCI_IOBASE + addr, buffer, count);
+                   ~~~~~~~~~~ ^
+   In file included from kernel/time/ntp.c:19:
+   In file included from include/linux/rtc.h:18:
+>> include/linux/nvmem-provider.h:183:9: warning: incompatible integer to pointer conversion returning 'int' from a function with result type 'struct nvmem_parser *' [-Wint-conversion]
+           return -EOPNOTSUPP;
+                  ^~~~~~~~~~~
+   kernel/time/ntp.c:245:19: warning: unused function 'ntp_synced' [-Wunused-function]
+   static inline int ntp_synced(void)
+                     ^
+   14 warnings generated.
+..
 
-Note the MODULE_DEVICE_TABLE() here; and I checked and CONFIG_DMI=y in the config used
-here as expected, so this seems like a false-positive warnings, with that said I was
-still a bit surprised about the presence of this table since dell-smbios is depended
-on by dell-laptop and that has this same table + same extra entries for chassis-type
-30, 31 and 32.
 
-Since dell-laptop will already auto-load based on the DMI table in there (which also is
-more complete) and since dell-laptop will then bring in the dell-smbios module, the only
-scenario I can think of where this DMI table inside dell-smbios-smm.c is useful is if
-users have the dell-laptop module disabled and they want to use the sysfs interface
-offered by dell-smbios-smm.c. But that seems such a corner case that I believe it
-would be fair to tell users to do a modprobe themselves in this case ?
+vim +183 include/linux/nvmem-provider.h
 
-This would allow removing the dupplicate table from dell-smbios-smm.c, which would be
-a good thing, because as the differences between the 2 copies which have accumulated
-over time show, having the same table in 2 places seems like a bad idea.
+   179	
+   180	static inline struct nvmem_parser *
+   181	nvmem_parser_register(const struct nvmem_parser_config *config)
+   182	{
+ > 183		return -EOPNOTSUPP;
+   184	}
+   185	
 
-Mario, even though you are no longer at Dell, I would still very much appreciate your
-thoughts on this.
-
-Regards,
-
-Hans
-
-
-
-> 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciello 2017-11-01  57
->
-> :::::: The code at line 27 was first introduced by commit
-> :::::: 549b4930f057658dc50d8010e66219233119a4d8 platform/x86: dell-smbios: Introduce dispatcher for SMM calls
->
-> :::::: TO: Mario Limonciello <mario.limonciello@dell.com>
-> :::::: CC: Darren Hart (VMware) <dvhart@infradead.org>
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->
+---
+0-DAY CI Kernel Test Service, Intel Corporation
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/FR1PR80MB5051850F4403689F21893377E1369%40FR1PR80MB5051.lamprd80.prod.outlook.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106091032.JY0QCred-lkp%40intel.com.
 
---_000_FR1PR80MB5051850F4403689F21893377E1369FR1PR80MB5051lamp_
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+--wRRV7LY7NUeQGEoC
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
 
-<html>
-<head>
-<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
->
-</head>
-<body>
-<div style=3D"color: rgb(33, 33, 33); background-color: rgb(255, 255, 255);=
-" dir=3D"auto">
-Apologies for top post, I'm on mobile.</div>
-<div style=3D"color: rgb(33, 33, 33); background-color: rgb(255, 255, 255);=
-" dir=3D"auto">
-<br>
-</div>
-<div style=3D"color: rgb(33, 33, 33); background-color: rgb(255, 255, 255);=
-" dir=3D"auto">
-I agree it sounds like a corner case to support someone not compiling dell-=
-laptop, but there are actually desktops and workstations that are also supp=
-orted by dell-smbios-smm.</div>
-<div style=3D"color: rgb(33, 33, 33); background-color: rgb(255, 255, 255);=
-" dir=3D"auto">
-<br>
-</div>
-<div style=3D"color: rgb(33, 33, 33); background-color: rgb(255, 255, 255);=
-" dir=3D"auto">
-But then the intersection of systems supporting only smm and not wmi is ver=
-y small and wmi will load based on the bus. So I'm in agreement with you.</=
-div>
-<div id=3D"ms-outlook-mobile-signature">
-<div><br>
-</div>
-Get <a href=3D"https://aka.ms/AAb9ysg">Outlook for Android</a></div>
-<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
-<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
-yle=3D"font-size:11pt" color=3D"#000000"><b>From:</b> Hans de Goede &lt;hde=
-goede@redhat.com&gt;<br>
-<b>Sent:</b> Tuesday, June 8, 2021 3:36:27 AM<br>
-<b>To:</b> kernel test robot &lt;lkp@intel.com&gt;; Mario Limonciello &lt;m=
-ario.limonciello@outlook.com&gt;<br>
-<b>Cc:</b> kbuild-all@lists.01.org &lt;kbuild-all@lists.01.org&gt;; clang-b=
-uilt-linux@googlegroups.com &lt;clang-built-linux@googlegroups.com&gt;; lin=
-ux-kernel@vger.kernel.org &lt;linux-kernel@vger.kernel.org&gt;<br>
-<b>Subject:</b> Re: drivers/platform/x86/dell/dell-smbios-smm.c:27:35: warn=
-ing: unused variable 'dell_device_table'</font>
-<div>&nbsp;</div>
-</div>
-<div class=3D"BodyFragment"><font size=3D"2"><span style=3D"font-size:11pt;=
-">
-<div class=3D"PlainText">&lt;replaced Mario's old Dell email address which =
-one which works&gt;<br>
-<br>
-Hi all,<br>
-<br>
-On 6/8/21 12:41 AM, kernel test robot wrote:<br>
-&gt; Hi Mario,<br>
-&gt; <br>
-&gt; FYI, the error/warning still remains.<br>
-&gt; <br>
-&gt; tree:&nbsp;&nbsp; <a href=3D"https://git.kernel.org/pub/scm/linux/kern=
-el/git/torvalds/linux.git">
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</a> mast=
-er<br>
-&gt; head:&nbsp;&nbsp; 614124bea77e452aa6df7a8714e8bc820b489922<br>
-&gt; commit: f1e1ea516721d1ea0b21327ff9e6cb2c2bb86e28 platform/x86: Move al=
-l dell drivers to their own subdirectory<br>
-&gt; date:&nbsp;&nbsp; 4 months ago<br>
-&gt; config: x86_64-randconfig-r023-20210608 (attached as .config)<br>
-&gt; compiler: clang version 13.0.0 (<a href=3D""></a>https://github.com/ll=
-vm/llvm-project ae973380c5f6be77ce395022be40350942260be9)<br>
-&gt; reproduce (this is a W=3D1 build):<br>
-&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wget <a href=3D"https:=
-//raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross">
-https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross</a=
-> -O ~/bin/make.cross<br>
-&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; chmod +x ~/bin/make.cr=
-oss<br>
-&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # install x86_64 cross=
- compiling tool for clang build<br>
-&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # apt-get install binu=
-tils-x86-64-linux-gnu<br>
-&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # <a href=3D"https://g=
-it.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3Df1e1=
-ea516721d1ea0b21327ff9e6cb2c2bb86e28">
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?=
-id=3Df1e1ea516721d1ea0b21327ff9e6cb2c2bb86e28</a><br>
-&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; git remote add linus <=
-a href=3D"https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.gi=
-t">
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git</a><br>
-&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; git fetch --no-tags li=
-nus master<br>
-&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; git checkout f1e1ea516=
-721d1ea0b21327ff9e6cb2c2bb86e28<br>
-&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # save the attached .c=
-onfig to linux build tree<br>
-&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; COMPILER_INSTALL_PATH=
-=3D$HOME/0day COMPILER=3Dclang make.cross ARCH=3Dx86_64 <br>
-&gt; <br>
-&gt; If you fix the issue, kindly add following tag as appropriate<br>
-&gt; Reported-by: kernel test robot &lt;lkp@intel.com&gt;<br>
-&gt; <br>
-&gt; All warnings (new ones prefixed by &gt;&gt;):<br>
-&gt; <br>
-&gt;&gt;&gt; drivers/platform/x86/dell/dell-smbios-smm.c:27:35: warning: un=
-used variable 'dell_device_table' [-Wunused-const-variable]<br>
-&gt;&nbsp;&nbsp;&nbsp; static const struct dmi_system_id dell_device_table[=
-] __initconst =3D {<br>
-&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
-bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
-; ^<br>
-&gt;&nbsp;&nbsp;&nbsp; 1 warning generated.<br>
-&gt; <br>
-&gt; <br>
-&gt; vim +/dell_device_table +27 drivers/platform/x86/dell/dell-smbios-smm.=
-c<br>
-&gt; <br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 26&nbsp;
-<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01 @27&nbsp; static const struct dmi_system_id dell_device_table[=
-] __initconst =3D {<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .ident =3D &quot;Dell laptop&quo=
-t;,<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .matches =3D {<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 31&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
-sp;&nbsp;&nbsp; DMI_MATCH(DMI_SYS_VENDOR, &quot;Dell Inc.&quot;),<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
-sp;&nbsp;&nbsp; DMI_MATCH(DMI_CHASSIS_TYPE, &quot;8&quot;),<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br=
->
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .matches =3D {<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
-sp;&nbsp;&nbsp; DMI_MATCH(DMI_SYS_VENDOR, &quot;Dell Inc.&quot;),<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 38&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
-sp;&nbsp;&nbsp; DMI_MATCH(DMI_CHASSIS_TYPE, &quot;9&quot;), /*Laptop*/<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br=
->
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 41&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .matches =3D {<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
-sp;&nbsp;&nbsp; DMI_MATCH(DMI_SYS_VENDOR, &quot;Dell Inc.&quot;),<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
-sp;&nbsp;&nbsp; DMI_MATCH(DMI_CHASSIS_TYPE, &quot;10&quot;), /*Notebook*/<b=
-r>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br=
->
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 48&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .ident =3D &quot;Dell Computer C=
-orporation&quot;,<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 49&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .matches =3D {<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
-sp;&nbsp;&nbsp; DMI_MATCH(DMI_SYS_VENDOR, &quot;Dell Computer Corporation&q=
-uot;),<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 51&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
-sp;&nbsp;&nbsp; DMI_MATCH(DMI_CHASSIS_TYPE, &quot;8&quot;),<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 52&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 53&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },<br=
->
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 54&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { }<b=
-r>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 55&nbsp; };<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 56&nbsp; MODULE_DEVICE_TABLE(dmi, dell_device_table);<br=
->
-<br>
-Note the MODULE_DEVICE_TABLE() here; and I checked and CONFIG_DMI=3Dy in th=
-e config used<br>
-here as expected, so this seems like a false-positive warnings, with that s=
-aid I was<br>
-still a bit surprised about the presence of this table since dell-smbios is=
- depended<br>
-on by dell-laptop and that has this same table + same extra entries for cha=
-ssis-type<br>
-30, 31 and 32.<br>
-<br>
-Since dell-laptop will already auto-load based on the DMI table in there (w=
-hich also is<br>
-more complete) and since dell-laptop will then bring in the dell-smbios mod=
-ule, the only<br>
-scenario I can think of where this DMI table inside dell-smbios-smm.c is us=
-eful is if<br>
-users have the dell-laptop module disabled and they want to use the sysfs i=
-nterface<br>
-offered by dell-smbios-smm.c. But that seems such a corner case that I beli=
-eve it<br>
-would be fair to tell users to do a modprobe themselves in this case ?<br>
-<br>
-This would allow removing the dupplicate table from dell-smbios-smm.c, whic=
-h would be<br>
-a good thing, because as the differences between the 2 copies which have ac=
-cumulated<br>
-over time show, having the same table in 2 places seems like a bad idea.<br=
->
-<br>
-Mario, even though you are no longer at Dell, I would still very much appre=
-ciate your<br>
-thoughts on this.<br>
-<br>
-Regards,<br>
-<br>
-Hans<br>
-<br>
-<br>
-<br>
-&gt; 549b4930f05765 drivers/platform/x86/dell-smbios-smm.c Mario Limonciell=
-o 2017-11-01&nbsp; 57&nbsp;
-<br>
-&gt; <br>
-&gt; :::::: The code at line 27 was first introduced by commit<br>
-&gt; :::::: 549b4930f057658dc50d8010e66219233119a4d8 platform/x86: dell-smb=
-ios: Introduce dispatcher for SMM calls<br>
-&gt; <br>
-&gt; :::::: TO: Mario Limonciello &lt;mario.limonciello@dell.com&gt;<br>
-&gt; :::::: CC: Darren Hart (VMware) &lt;dvhart@infradead.org&gt;<br>
-&gt; <br>
-&gt; ---<br>
-&gt; 0-DAY CI Kernel Test Service, Intel Corporation<br>
-&gt; <a href=3D"https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.or=
-g">https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org</a><br>
-&gt; <br>
-<br>
-</div>
-</span></font></div>
-</body>
-</html>
+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
+yP8BvNus5IjeAAA=
 
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/FR1PR80MB5051850F4403689F21893377E1369%40FR1PR=
-80MB5051.lamprd80.prod.outlook.com?utm_medium=3Demail&utm_source=3Dfooter">=
-https://groups.google.com/d/msgid/clang-built-linux/FR1PR80MB5051850F440368=
-9F21893377E1369%40FR1PR80MB5051.lamprd80.prod.outlook.com</a>.<br />
-
---_000_FR1PR80MB5051850F4403689F21893377E1369FR1PR80MB5051lamp_--
+--wRRV7LY7NUeQGEoC--
