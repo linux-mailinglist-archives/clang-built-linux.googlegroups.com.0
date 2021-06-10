@@ -1,151 +1,129 @@
-Return-Path: <clang-built-linux+bncBAABBHNMR2DAMGQEYXQ7LCI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHNMR2DAMGQEUQQXB6A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
-	by mail.lfdr.de (Postfix) with ESMTPS id E7FAC3A472C
-	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 18:58:06 +0200 (CEST)
-Received: by mail-qk1-x73c.google.com with SMTP id 14-20020a37060e0000b02903aad32851d2sf9736823qkg.1
+Received: from mail-qt1-x839.google.com (mail-qt1-x839.google.com [IPv6:2607:f8b0:4864:20::839])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0352B3A472D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 18:58:07 +0200 (CEST)
+Received: by mail-qt1-x839.google.com with SMTP id r1-20020ac85c810000b02901fa9798cdb5sf2305665qta.8
         for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 09:58:06 -0700 (PDT)
 ARC-Seal: i=2; a=rsa-sha256; t=1623430686; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MHmx3hE0OWrwte+J5cK8Ia/FzYNQuOLj/7Pk3rb4A6JbG4Z0FoFwvcjC48ksZQntou
-         lNSNJWGh3inJRsM9IRloAOKesmc7hu0NdNtfp/C0U4c0qNHSLGqU8vy104yi89r9JGu8
-         TtzjJIfoddL/jOxHaHicnt6CpxdGWlvKjEmny9iiFwbRkB792bI2z6SMTOpmujf64H0Z
-         Ep4vjxCsNrj+SN30Iz97EKPxx74w91nkrlVVxEtz4wyiiXsevxvGrLy08hwsA1nL/DfM
-         ILiF1C1JNE5NisxkmJRQbUkQiAsiilBNN269ByxacQ/hwNTAog44Uq05mrAcdgyGDi6u
-         dabw==
+        b=mLNXzEn8YmnUy3KSw+0uz8pxU5vynJWPrEwd52KNgJRn8WbuUa1wkjzWOHaxlyrwg+
+         vAnx/V85+7dlVJMU7DgmFOTCO8XQBSb/qPmKcmySs/YWBRpNzczrFSTXRARAOwrvZ81G
+         y9HwY1nDvRaZ/1arH36xHFfgt68veqoIn6VlU9uDox737UJcoFmsfUDUed5QGxGcagA3
+         Iohdwaf13QxIzjLDxA4vj5HKBtoKXRkjarZFJEI8KVvholfR73IiDEgcXnw4R3ahMprE
+         CBseS3aFa7cfld0Y4J3NhZiL2er0n2vR3tXZ9qjQUln96WdpEeBxTzlxOqLvEEPd6TZd
+         Kuag==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:date:message-id:from
-         :references:cc:to:subject:dkim-signature;
-        bh=x9zc61j+YQg3yIi3sBSbXTFr/m+gNX3V93MZ/GieZV4=;
-        b=A+jP97j2vBitv+GBtUG9CZJiWlx93lORLv7gwuxnCJzZxUBLHaAgNXHd1lSQKupmP4
-         4VDJFlEfVJcGLr2CH+BfZ/lIunEsSteRLsFKfy15gR03g4QILuIn757FovX9N2/lB8Lb
-         TQRG/cm6x4c10Cx6Kf2qaAaCqHjkvGSI+q34tVm5VKVM7txASalIaGLWUd/I+psw7KYZ
-         iD5yxnMZ8pR0m4yWOhfXtBERaPOM1M0bkM0tnhaMOcgKzwJ4ln3z3X6cZVo3ukn+1FAK
-         boM5Sw5TGVSNQJBFliMEEx4OwHEHMOzuLizvBk2cT0uJSQaYk8AzBt/3vjEkL8MJPHNT
-         EOng==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=eWNiGCGw6LbJhxvyQuK1y4UxWmELe2uhnGr+8gqf5os=;
+        b=Z7h186ZX/8oIft/D5ZlWsXQCKvCIrOlZ0CL0k+QxUMJ3913/no+Mq4oGXgMdZxNU0p
+         MPC2Z8k/LzdoabmBUE+++IAxP0BzWjkX5j4S0vyGQwkEUwFgehzki1RXLD6dBxoIollA
+         IoGUycixJTKTQhGINKRwINbK7Mza2BnPoY8AmGyaM1h51CIjkSJMLWS0rxIL+7gCEArB
+         OFJ/pP2Gy12E+Yt5vKXMaMWNdBhCmVg718LFBwz5ShVHOWQ+ztMV/7feoDUAuMFQaU3n
+         gWDjVn2L1DVku65YIEXiypnVgcAnAbQRtRPRYeCmU+Q7eGz7qGER6DMf/diMvtPZMkQe
+         FqEA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=AMfVUiR+;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=QUXTaqxW;
-       spf=pass (google.com: domain of torvic9@mailbox.org designates 2001:67c:2050::465:202 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=TUj4T7lx;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::231 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:mime-version
-         :in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=x9zc61j+YQg3yIi3sBSbXTFr/m+gNX3V93MZ/GieZV4=;
-        b=V0gtX0ivh4gQXVZOSTlyVgCWXgZw/uWPFRQZsVFqZQDNBKBc6d3eRWtFi8a/l622Df
-         qa2VtduJvX8T1i9Nl4P8pRLNYijZE6zJHPMSV5Ua9YqycP0RCqUZB6PjxA8+XM2xxVm1
-         2z36G35jQ45YOCSQUxn6Gtg2rSey3nIAfAChmruTqwtRgtcVGOW7RW6hynRxGl4JlUAA
-         IjALdMkZOoucQitFDACPZj4UF6wZe6NrAVJeMaOVkvBw8qi6DzpypwV1wol+bikc7FJg
-         LPMCxIVYTBoWiNYBrkJm0fYpTuLG+DlpyEBC7MXjdkbf9+MoFBewnAoP57PwO21bH3jg
-         h0DA==
+        bh=eWNiGCGw6LbJhxvyQuK1y4UxWmELe2uhnGr+8gqf5os=;
+        b=OqLTPBS+nXYx/9gAD2X/Uks/gbHgP7YOZs3TEpe7EEnFXoSDmyTgrRLwy8C6hG14f+
+         j0sD0J0DUMYAuBZL5sSfmm2/OXZTIVfaXW2X13Ho9ambTNOkqwWfNPLHwilBlAURwAc+
+         iqL7yj5mWmGfO97flsNlPcNltHdfVQdwzzoZ47ycNv/JRx95WGFquEbQ1OS3yefzwUPX
+         FlzAIVt3UacmjqyP1NfxAGy114RoVRBl/22vU1auNAYjLNvxCOEMTGDwTxABW+KXbdzX
+         Iw/y57WFxcHU/0pUr6wONTScUTrMAeh0Bs5Az3+QH3ij5YkpEQmT+Y1eEDlZ2pxrGPWV
+         Qvjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=x9zc61j+YQg3yIi3sBSbXTFr/m+gNX3V93MZ/GieZV4=;
-        b=rvhaIP+Fmhn48GZl0nvG2R7eKbfVDig00M/2MpNamek33sh0JDVoOwEHqNEmXqsnAx
-         45z3fe+ssc/4p2/zJHVGijBJX++cDPecWz/qlXPE28DCeE5uTxGRkRhbOxYFMjwroEaM
-         gPYCXwYbRUWIYPrjlfRJeH+FsgkJ8RllV3Fo1W0ogDppxAYDZrukLBHz40l4b4WABe0o
-         P1/ZXEcFp4mgOX8rBTO0MUgWm+CvcuaZODkDiJzNeXn3EraNHzkw3xKvU4XYVSlZjVRV
-         h98uRx2eGt5PfbrEvEJVjO0QsNarhlUGLEqe02ww6FGEDGAPaFEjXQJjjRnrEE5gmm+1
-         OLxg==
-X-Gm-Message-State: AOAM530w1P/zPHzngkwBtm3UepmCtFfsFda5xO7wBL1LGYCDX6o3c+LM
-	ifNGe+gT8UkxBH8d8Sas/MI=
-X-Google-Smtp-Source: ABdhPJwrPnKg2AqYPha2M0z/J6WOS+5vOjq50PBHcFZFVOYxOQSybvf+MylXyrV9lgvXdQPxRLrlCA==
-X-Received: by 2002:ad4:4e68:: with SMTP id ec8mr5779102qvb.62.1623430685973;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=eWNiGCGw6LbJhxvyQuK1y4UxWmELe2uhnGr+8gqf5os=;
+        b=AGxEKJmgpVafwGwPr2JCaZcP/+hNNHTQnJyyszVV92hgGCUuvoA1ed8RkNcHIF03YH
+         dNBFYT9YRgsJ24/SOJx3G4+R74Q6LmuPXICXAgbrD3hu9QGK7Gbfj8UL8F8q6hBm3xOp
+         oTlXNzt0ATDl0h5i1++saOYrndB1Demh20SORu/aDUPQ6YgeUkBXq2eaV70dYpsTycur
+         8KAz8ra6YtWGsy47HxeYR2FV4o/ArjYEMXajxPLe1ki6WGj7id8HQVf0CHGpsXts+6bk
+         l0P0uY3Bwoupci9Cfeudx97xwZtl5i9nLjqZzQ0i8AgLgY43JJmRx51l/xANxe7xMnvh
+         2djw==
+X-Gm-Message-State: AOAM533qQvqQqxnwDfEZtw/JA8oj0IM+OY4jizRVVtKzFEukRXw2Ub9J
+	Y7tPiiqss4b37O30cjPQl+A=
+X-Google-Smtp-Source: ABdhPJyKp1phYqPjoT4A9JBKCFWRQFE/unbxLoklL8uOIIf7AAg4FHdY6M6TB9rq4VwiMQmpRYTHGA==
+X-Received: by 2002:aed:314f:: with SMTP id 73mr4859762qtg.194.1623430685990;
         Fri, 11 Jun 2021 09:58:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:ea15:: with SMTP id f21ls5782486qkg.7.gmail; Fri, 11 Jun
+Received: by 2002:a37:af04:: with SMTP id y4ls5782619qke.8.gmail; Fri, 11 Jun
  2021 09:58:05 -0700 (PDT)
-X-Received: by 2002:a37:5b46:: with SMTP id p67mr4583680qkb.358.1623430685685;
+X-Received: by 2002:a05:620a:2449:: with SMTP id h9mr3366682qkn.315.1623430685683;
         Fri, 11 Jun 2021 09:58:05 -0700 (PDT)
-Received: by 2002:a05:620a:2154:b029:3a6:3d2:85c6 with SMTP id af79cd13be357-3ab1cb737b4ms85a;
-        Thu, 10 Jun 2021 11:39:58 -0700 (PDT)
-X-Received: by 2002:a05:6512:3588:: with SMTP id m8mr123148lfr.309.1623350398036;
-        Thu, 10 Jun 2021 11:39:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623350398; cv=none;
+Received: by 2002:a37:a457:0:b029:2fa:742e:472d with SMTP id af79cd13be357-3ab4370ba4bms85a;
+        Thu, 10 Jun 2021 12:17:32 -0700 (PDT)
+X-Received: by 2002:a5d:6082:: with SMTP id w2mr15698wrt.209.1623352652155;
+        Thu, 10 Jun 2021 12:17:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623352652; cv=none;
         d=google.com; s=arc-20160816;
-        b=o4Zx2GfEkjih4bes+QuLgBnNzyCyIl6O3GVgDSOzy0nsjOFpSeSzDvgPj159YuCmnk
-         stVxow9DLDgRXt9kdQ3sP8QmJAu8puK98wuA3Fvdus+Up1GoH5lmbJniZh/bTY4RaAOJ
-         S+/GTO30AkvXZ+TexNRx0ji4nNSfNzydqHpGbunj+3OtV7lrH5gydjGthIiTKxDvcbN7
-         JRjs5/99kK32Cp3AFCKsaGUDQxAqCfJ7rJr7tMQuP7VCwtM/Tttg8MxzUsIyNh/ORsW3
-         DJIZudPJzP9IfG/Jk1G0hPBeMrDX1WE0cjjL+uUwa+1eGPxaQ3V4tA8es3HX789tD5+o
-         /MWw==
+        b=nTyX9vs3rBUMIkQ0JsHjjzRpqhv/1K+4IJrNXlNmniItDnburMfCxR8FI+r25bfSvz
+         nrK1mQQyPETeahK8+B4mIoL2TL989vV/kBjJd4H1DGbnvoyAShrLgqmW7GyrY4uHblDU
+         hKYY5pkWgPCZRbmu48GYVK8G2YtBGlRtaxYF+Z8m/y+LOzmot9I/IiUGiT0bfdG7NAH2
+         h6a018uyq7SD2H6L5idwEpaiZ1BHGawDbRqmssrJX6VGYc3LD5aSO99TCPk2Rm3PGasD
+         QX/Krubh9A8tqBScIWWsUzIrD/iIaJSWQ8KTfuvoZ0eztSnKX4yxr3nHsqcjGZaNRMFP
+         g9pg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :date:message-id:from:references:cc:to:subject:dkim-signature
-         :dkim-signature;
-        bh=ED7r0qztVT/NoVf7338Yzez73nCHxmA7+JBorIZ9hHE=;
-        b=vTwDQMppt7X0b9W9PV+fv6qiwIr2zal4tMwPHIlwhxcsJz4mnImA8MuK6i0ZwStxdS
-         4xv0PIL3BhaGjHnVeDlCH/3vUWCoyeokrklqXnJat+F0p6YRuSpn60c7Lzqu5jE4xC3o
-         nOUHDnp6FcaPBnlnwVU1GGaS6XKj+kmHJXfFmVoKVpPpR77xyCzxJBtA6hPBXeX1Mu5P
-         Z9N9karn8uwpYQX5lByccut5HehsGFIbQhQCUgI3JA2tKIWHDfqlC6ZPv80XSqV9s9O0
-         cBnDxumwvCebDqHq9O1AJogL06l639OCeOxoM82cuHREQsDbxNeuK+4XA7JDD/ZVi+LK
-         tgPw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=aPTyDJh/FqkPC7Of53mXpiFCJnipzLbSqzQI1i7wKkI=;
+        b=HpvkydjZwleKDzv3zR6Zk8tq5Nu1zCafkNcsGq1MqRl4PJfwSPyCe1p9B+gKViD4HM
+         PWdfEYr4TYrW9dbSbtzXz8gU5fYJyhbzsuPlTgRB3YDOI4RrxgYzpDTOpDan5WlRQgLQ
+         GK6aXXvnpCEWV0szZzJZkkLMNBN1+rMU6sEkwZeYefQuei/Hi76qq4Ig70oQo64ZK9Fy
+         f2M6A9dQdRmDGpm/f/BZ6wxqKPcDRzZN7gJYmEXPgCo1LDFO4H3JnlWgtXeq/jMGX76X
+         9lLqYmxBbzPRNjBMgQYdZIqApGFrnNBn2dH13rdd7QGbNtS+gGEsl34ow/bVjgmpk/AC
+         SaqQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=AMfVUiR+;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=QUXTaqxW;
-       spf=pass (google.com: domain of torvic9@mailbox.org designates 2001:67c:2050::465:202 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
-Received: from mout-p-202.mailbox.org (mout-p-202.mailbox.org. [2001:67c:2050::465:202])
-        by gmr-mx.google.com with ESMTPS id d11si161063lfs.2.2021.06.10.11.39.57
+       dkim=pass header.i=@google.com header.s=20161025 header.b=TUj4T7lx;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::231 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lj1-x231.google.com (mail-lj1-x231.google.com. [2a00:1450:4864:20::231])
+        by gmr-mx.google.com with ESMTPS id f23si32379wmh.2.2021.06.10.12.17.32
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jun 2021 11:39:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvic9@mailbox.org designates 2001:67c:2050::465:202 as permitted sender) client-ip=2001:67c:2050::465:202;
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:105:465:1:1:0])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-384) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4G1CSs23vWzQk3G;
-	Thu, 10 Jun 2021 20:39:57 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at heinlein-support.de
-Received: from smtp1.mailbox.org ([80.241.60.240])
-	by spamfilter03.heinlein-hosting.de (spamfilter03.heinlein-hosting.de [80.241.56.117]) (amavisd-new, port 10030)
-	with ESMTP id 4hP10dEOVgtl; Thu, 10 Jun 2021 20:39:52 +0200 (CEST)
-Subject: Re: [PATCH] x86/Makefile: make -stack-alignment conditional on LLD <
- 13.0.0
-To: Nathan Chancellor <nathan@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "ndesaulniers@google.com" <ndesaulniers@google.com>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "mingo@redhat.com" <mingo@redhat.com>
-Cc: "stable@vger.kernel.org" <stable@vger.kernel.org>,
- "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
- "x86@kernel.org" <x86@kernel.org>
-References: <214134496.67043.1623317284090@office.mailbox.org>
- <ea01f4cb-3e65-0b79-ae93-ba0957e076fc@kernel.org>
-From: "'Tor Vic' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Message-ID: <ba06e4f5-709a-08cc-0f62-e50c64fc301f@mailbox.org>
-Date: Thu, 10 Jun 2021 18:39:45 +0000
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 10 Jun 2021 12:17:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::231 as permitted sender) client-ip=2a00:1450:4864:20::231;
+Received: by mail-lj1-x231.google.com with SMTP id d2so6364944ljj.11
+        for <clang-built-linux@googlegroups.com>; Thu, 10 Jun 2021 12:17:32 -0700 (PDT)
+X-Received: by 2002:a2e:3c06:: with SMTP id j6mr68159lja.495.1623352651424;
+ Thu, 10 Jun 2021 12:17:31 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <ea01f4cb-3e65-0b79-ae93-ba0957e076fc@kernel.org>
+References: <214134496.67043.1623317284090@office.mailbox.org>
+ <ea01f4cb-3e65-0b79-ae93-ba0957e076fc@kernel.org> <ba06e4f5-709a-08cc-0f62-e50c64fc301f@mailbox.org>
+In-Reply-To: <ba06e4f5-709a-08cc-0f62-e50c64fc301f@mailbox.org>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 10 Jun 2021 12:17:20 -0700
+Message-ID: <CAKwvOdkpce5kjqXg_Gr8LAzqh3pZt+uJUn348wk2nESvfjB5JA@mail.gmail.com>
+Subject: Re: [PATCH] x86/Makefile: make -stack-alignment conditional on LLD < 13.0.0
+To: Tor Vic <torvic9@mailbox.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "tglx@linutronix.de" <tglx@linutronix.de>, 
+	"mingo@redhat.com" <mingo@redhat.com>, "stable@vger.kernel.org" <stable@vger.kernel.org>, 
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, "x86@kernel.org" <x86@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
-X-MBO-SPAM-Probability: 
-X-Rspamd-Score: -6.90 / 15.00 / 15.00
-X-Rspamd-Queue-Id: E17F71860
-X-Rspamd-UID: 7b8300
-X-Original-Sender: torvic9@mailbox.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mailbox.org header.s=mail20150812 header.b=AMfVUiR+;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812
- header.b=QUXTaqxW;       spf=pass (google.com: domain of torvic9@mailbox.org
- designates 2001:67c:2050::465:202 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
-X-Original-From: Tor Vic <torvic9@mailbox.org>
-Reply-To: Tor Vic <torvic9@mailbox.org>
+ header.i=@google.com header.s=20161025 header.b=TUj4T7lx;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::231
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -157,102 +135,30 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Nathan,
+On Thu, Jun 10, 2021 at 11:39 AM Tor Vic <torvic9@mailbox.org> wrote:
+>
+> Hi Nathan,
+>
+> On 10.06.21 16:42, Nathan Chancellor wrote:
+> > As Greg's auto-response points out, there needs to be an actual
+> >
+> > Cc: stable@vger.kernel.org
+> >
+> > here in the patch, rather than just cc'ing stable@vger.kernel.org
+> > through email.
+> >
+>
+> Yes I misinterpreted this in the sense of "put stable mail in CC".
+> So if I get this right, I should NOT put stable email in CC, but only
+> add the "Cc: stable@vger.kernel.org" tag above the "Signed-off-by"?
 
-On 10.06.21 16:42, Nathan Chancellor wrote:
-> Hi Tor,
->=20
-> On 6/10/2021 2:28 AM, torvic9@mailbox.org wrote:
->> Since LLVM commit 3787ee4, the '-stack-alignment' flag has been
->> dropped [1],
->> leading to the following error message when building a LTO kernel with
->> Clang-13 and LLD-13:
->>
->> =C2=A0=C2=A0=C2=A0=C2=A0 ld.lld: error: -plugin-opt=3D-: ld.lld: Unknown=
- command line argument
->> =C2=A0=C2=A0=C2=A0=C2=A0 '-stack-alignment=3D8'.=C2=A0 Try 'ld.lld --hel=
-p'
->> =C2=A0=C2=A0=C2=A0=C2=A0 ld.lld: Did you mean '--stackrealign=3D8'?
->>
->> It also appears that the '-code-model' flag is not necessary anymore
->> starting
->> with LLVM-9 [2].
->>
->> Drop '-code-model' and make '-stack-alignment' conditional on LLD <
->> 13.0.0.
->>
->> This is for linux-stable 5.12.
->> Another patch will be submitted for 5.13 shortly (unless there are
->> objections).
->=20
-> This patch needs to be accepted into mainline first before it can go to
-> stable so this line needs to be removed. The rest of the description
-> looks good to me, good job on being descriptive!
->=20
+Yep, just above the Link: tags would be perfect. Don't worry, you'll
+get the hang of it.
+-- 
+Thanks,
+~Nick Desaulniers
 
-Thank you for explaining this.
-I wasn't exactly sure how the procedure for stable was.
-Does this mean that the patch should be based on 5.13?
-I usually use Linus' tree mirrored at GitHub.
-
->> Discussion: https://github.com/ClangBuiltLinux/linux/issues/1377
->> [1]: https://reviews.llvm.org/D103048
->> [2]: https://reviews.llvm.org/D52322
->=20
-> As Greg's auto-response points out, there needs to be an actual
->=20
-> Cc: stable@vger.kernel.org
->=20
-> here in the patch, rather than just cc'ing stable@vger.kernel.org
-> through email.
->=20
-
-Yes I misinterpreted this in the sense of "put stable mail in CC".
-So if I get this right, I should NOT put stable email in CC, but only
-add the "Cc: stable@vger.kernel.org" tag above the "Signed-off-by"?
-
->> Signed-off-by: Tor Vic <torvic9@mailbox.org>
->=20
-> The actual patch itself looks good and I have verified that it fixes the
-> build error. On the resend with the above fixed, please feel free to add:
->=20
-> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-> Tested-by: Nathan Chancellor <nathan@kernel.org>
->=20
->> ---
->> =C2=A0 arch/x86/Makefile | 5 +++--
->> =C2=A0 1 file changed, 3 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/x86/Makefile b/arch/x86/Makefile
->> index 1f2e5bf..2855a1a 100644
->> --- a/arch/x86/Makefile
->> +++ b/arch/x86/Makefile
->> @@ -192,8 +192,9 @@ endif
->> =C2=A0 KBUILD_LDFLAGS +=3D -m elf_$(UTS_MACHINE)
->> =C2=A0 =C2=A0 ifdef CONFIG_LTO_CLANG
->> -KBUILD_LDFLAGS=C2=A0=C2=A0=C2=A0 +=3D -plugin-opt=3D-code-model=3Dkerne=
-l \
->> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -plugin-op=
-t=3D-stack-alignment=3D$(if $(CONFIG_X86_32),4,8)
->> +ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 130000; echo $$?),0)
->> +KBUILD_LDFLAGS=C2=A0=C2=A0=C2=A0 +=3D -plugin-opt=3D-stack-alignment=3D=
-$(if
->> $(CONFIG_X86_32),4,8)
->> +endif
->> =C2=A0 endif
->> =C2=A0 =C2=A0 ifdef CONFIG_X86_NEED_RELOCS
->>
->=20
-> Cheers,
-> Nathan
-
-Thanks for your help!
-Tor
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/ba06e4f5-709a-08cc-0f62-e50c64fc301f%40mailbox.org.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkpce5kjqXg_Gr8LAzqh3pZt%2BuJUn348wk2nESvfjB5JA%40mail.gmail.com.
