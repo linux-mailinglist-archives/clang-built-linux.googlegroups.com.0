@@ -1,149 +1,134 @@
-Return-Path: <clang-built-linux+bncBDEZDPVRZMARB366RGDAMGQEKPSEBBA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBMX2RGDAMGQEGWFWL7I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3e.google.com (mail-io1-xd3e.google.com [IPv6:2607:f8b0:4864:20::d3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id A2AC13A3468
-	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 22:00:49 +0200 (CEST)
-Received: by mail-io1-xd3e.google.com with SMTP id z8-20020a5e92480000b02904ae394676efsf14183783iop.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 13:00:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623355248; cv=pass;
+Received: from mail-oi1-x239.google.com (mail-oi1-x239.google.com [IPv6:2607:f8b0:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6C4D43A3543
+	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 22:59:31 +0200 (CEST)
+Received: by mail-oi1-x239.google.com with SMTP id f16-20020acacf100000b02901eed1481b82sf411209oig.20
+        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 13:59:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623358770; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XN5EvrApC5cuXos/9OWgISXDix4uvd9F1Pb/7aVknhrdB3hvor2mi/l7Peo7OsuJDM
-         Lr0MzqaFclELDq+at8BD9x6yojUwJqJmsw7cf5XlEaKFg8VGPzRuCpvwMLSmUteeNu/m
-         b63W4QhtIyQwP18AySqPuUvHOqK+meqEIh6KuK0GGa5XpIFRF8siYX3ZEdogeqZ5nVKh
-         xQqEULdU3XCOz9624xgh587ivSzUoEMc2uuw4GkfmwqxtsyfStwyhV6zLA/m0vhTzwey
-         SpgCz1tNKWQ0yFr+RCrYaYFM2a6/Bin/8U5mn/KHsmxNc6vc4Mm3tqJMZpTd8Tr2GsBm
-         7BQw==
+        b=CeHfoATAJrz10R0nSTz/Vk9BX8ldO4YGYvKIZKY/XhltcjBmNMTj7rAjIbIt9Yg9wp
+         w85XMxpsktx9iDO0KQh3LJKnOmstROMKiiYZUgSWqJRNIiHFjzL0BQrIRv1xShxFXIqI
+         ZWH0wVCxd0KMLzdQ3soLoamT9k3Cm+6NMcFohHpL6P1Fc3W3pjaZBHSmT2dAitYSRo8t
+         MxhZkBQyGOA6D9p4q99KCY8kW4DR+R+FnwOm2/kHLaLjvLCNnb2ciEERFIr5Py1/tVp4
+         n6iwnP5CHZUyjWJga19i4nu1KarOPcp3mnAgu1B20NhgcBbsVpBVYUSpM1ehpLuo9wUn
+         HD6w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=aeUnypfFhVQQofMrl0dQoyUVi2XoeibyGOgHTVqLIt4=;
-        b=LIrLOZyvFsndx/I9eHhqRfpmt5WJuzGSj35Un90WSCkA3w5W8bogTWI8YWbWwMwZky
-         Ea0dI3dcW7ie1j+I+aLNaoegm8ix5Tkyxe4nUWUxkqLTkHAWFEzaXxVxGkb3+S3tc5CY
-         VibcOOidT1Y/+OHmo6l1T2h9DLDXbVqMHGwiPj5shKGH4ihV9vqbuYOWdMyBnZLqKhIH
-         Px42dWs3rffgv+2aqwBgNOjXu5J2ApkFP842xu75jFYgQ1nZskoZ8+212x7xjk2WiU17
-         vABELzGkCdpJ4z+zspJk4W5AG6Ojqpv1Yge8GaIbLjnHk5mtytvCNNzexTnMedHtcogd
-         L2eQ==
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=7Or8h2mkZeaXBiY/jLrtjH+NwyslkC8dvgqLP8FHCAs=;
+        b=fj6qmTeCz1vOI9YxKVgLvFXV0dgB3sCSoqsY9wvxkDG8rbAEDRS/eBEQj5Gw2L2GX/
+         3nrDbdc9JaZfQmnip69x3q/dxlFp8omFYeCGRiW4HSbfpB7b7wSdNWGwo/nwea1xK7tt
+         yTR0CamFyc7GEztRGTezMPwl9GEtl6twK/bbfGxgp/ZKSAZOIsBk72gorBKMLG93QfMv
+         ZanZqJeI9WvKjylvw2bRfutGkZIcdtfZ+TQY3r2imnuakR6yc5CyCCxQKcCGGvZdQEx6
+         0cgKEr6+lUMC7o8AUp2KrTawNnpXqSiLArnkepKWFaK4SNixw0dtqSDCMHIxmKcxKuIn
+         VksQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=it1PG+R5;
-       spf=pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ebiggers@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=CFIPb1n6;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=aeUnypfFhVQQofMrl0dQoyUVi2XoeibyGOgHTVqLIt4=;
-        b=s66FsG8wNsxUGdCjTrK5eG9iW/YBwCQtdg9HwqJoF101MXO1q9ldk9r2fsbhcEhz70
-         tx1pRom1s9rVMudzPKuI73djYmncHcuD8f8C0f9ZJkBq2QIpd5M1AP35pNKwR62BIcRr
-         UhL/cIA6Vu53JRlbMJzwW/QV4zOWsWl7huPQWh1faVXuMWVeXu51BBN9IhqOhiYzGW99
-         gx0GI9d/3/z2iM9p15TAI/bZ3BPpPUGaxYe6+/dUfgQHeX1Z1iIC2FY+lUs+clJrVunC
-         XOjBqVwVFD2F2pDgzMHkpYUHMpUhUBFvgUHf43js93qQbggkOc4z8Mz45xmHxy/qKC6D
-         0i0g==
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=7Or8h2mkZeaXBiY/jLrtjH+NwyslkC8dvgqLP8FHCAs=;
+        b=ReFq+ohYce4Utyg3uJK2b3qvEAJDYsUKmdE6KMobSppS/LhhUk2gsY45NbQdN/l4jn
+         pIOBCgN6Pwa95rBUYnSLUEMuaRPW1FBsK0ht+ssatFv2Ta9olN/ZY098E8y2hSAqjdUL
+         qqf2WHHu75yLog/4CFQVK4UeuGRm7H3bmMhNPbi2cwdqFXB+hvcA09x3zVJvSxZwkOKx
+         Gp2mu+jal+FwQXbANJTw7jaQiYHWay+l2WYhJhkp759/DJ9c4Lz5FoQx7cB6bSQy5VDT
+         vEr8ozi3cHnobUntlKV4Hia1r2E3Lk2PHfF2jGaaYXzrfClkkftxK6J2c4zb3JvV95ZA
+         o84g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=aeUnypfFhVQQofMrl0dQoyUVi2XoeibyGOgHTVqLIt4=;
-        b=BtLmADDRsT4rYktxdyGHDQov0RiGSw1aqklU0hoR02PwgkygfiuICSpUQ/ouaDzdRH
-         tF+NLmMAjo13bDppqZRUk+yNAKkHM79NzE5vjRWhcRqrUDejlLzBjxevDZEglSR7n9Gy
-         yqpJgo0AeDiElPocOUOyvd0eR0UOXbowOI5nuF3zOwRp8WNpWTkPirYHtlN3N0jUOMhV
-         uYvJS0v58/RriC9sua8QPscjOKneOUdpP3sLQYCIzl4iwkwtJtPSv6PeolzdEKRIj+Ap
-         0X/oEV0MUigQUGaBy4rU2wdtQ1jqsIOTXr8TtO3t5UDOCX4wu+WcbOSykqxNa9alfhqD
-         15xQ==
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=7Or8h2mkZeaXBiY/jLrtjH+NwyslkC8dvgqLP8FHCAs=;
+        b=c4TqM2ejzYb8LdMml7O04k2KjjrFk6nxZaPe0biUIx7L6UI+DuGQAYMw2OZyd9qoWU
+         EIqFY77GP4pbO1yX0q1F1cjTveChfSsJwkGRa8rYZc4xa6H/CED1jqHUxQLCSwwlp+ck
+         sqvM5HDZY2MxaN2NpQag/81/vV1Gnk6SmMF9oFrvzd82Cze+7P6LPHOz+7dqYAHMXsMp
+         Lt8i6xvPti3WBXlovswa+VQ4lECEDql7gUqjFh98TUjSW01mD3+wcQ4J+BqxRzDj5d+7
+         1Eb0b4dE+Cdn7d+GBmj38b0w835mWUl+W924r+nAX2g3xVHA4CAko7bgcvQJL9Ycmz4p
+         LrRQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533vdQQYOTTGc0xmNof81s/Q7ps0RuyT7PntZ5Xz0jZDvAh83G2J
-	JmUASjfaPEezCJE8MOWEILQ=
-X-Google-Smtp-Source: ABdhPJwBiJzBGRdpWJgqXERgIwBwYi8AltpRlYX+U9kCsWgBh/8b/frHRaReiKcYiwRJVxl7L4OvEg==
-X-Received: by 2002:a92:b111:: with SMTP id t17mr382151ilh.208.1623355248083;
-        Thu, 10 Jun 2021 13:00:48 -0700 (PDT)
+X-Gm-Message-State: AOAM5315tZnhY5Tz1e/QiZGAWDc7hkJwjBx+gXacL13Pop3aWhAqvjJY
+	mlx9+Mp9Gls1oGrlYzj5NWA=
+X-Google-Smtp-Source: ABdhPJxpiBJOQsgulcufpyWwVQBR3EOKohGA2r5wT3FHNwHh8fl6TRZIrEkUgPHcnLbQjcio5JTmcQ==
+X-Received: by 2002:a9d:6285:: with SMTP id x5mr251961otk.278.1623358770248;
+        Thu, 10 Jun 2021 13:59:30 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:444e:: with SMTP id a14ls1931654ilm.2.gmail; Thu, 10 Jun
- 2021 13:00:47 -0700 (PDT)
-X-Received: by 2002:a92:d4c6:: with SMTP id o6mr364744ilm.196.1623355247728;
-        Thu, 10 Jun 2021 13:00:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623355247; cv=none;
+Received: by 2002:a9d:73c9:: with SMTP id m9ls598798otk.9.gmail; Thu, 10 Jun
+ 2021 13:59:29 -0700 (PDT)
+X-Received: by 2002:a9d:554b:: with SMTP id h11mr259012oti.4.1623358769874;
+        Thu, 10 Jun 2021 13:59:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623358769; cv=none;
         d=google.com; s=arc-20160816;
-        b=JhCj/dxAC1bpMzmEm6V7h0bo5mdNqKhh9PLzVtwhN1Y1AkaJkz9Ybw7oe9kBAYVwA2
-         Dq/Z4s26O1VNzEqdaI3wvFcIn3FTtuGJRMsd70BWpdNVHeSrCIflo63uZI8DGJL1ZPHI
-         Qsex9O3l20hebMg5NyQhXHX0lXeTa5vsmRElM5kfgs6r/mx+XO+incAwbFKwRMCVHnAr
-         CT3lHs1HBMMqZtlsxJxayBeHq3fKpNm2AcgzwjNZ0TXGxSIIrDzGkED9JmrIGCUzYngq
-         SeZkTlyK9/D1LzE/LQvAKnPXgJ6aDdPxxB1p8yYJ5DyR+bHRc2u5gKGGM22tt5pn+KMY
-         KuJg==
+        b=IVcvNXUQK4RGp1R9gfmy3Q/8831mXvSTLwaS8EuBGVZQCZS+Z+1vI7PQT5ijGQzyhB
+         eR/B23Hag+2oRdz6nXRkF5yoCy4nEXZ9MySSIcNXJJ18sh0B/8EDaYKyyKlOOMxo/hFY
+         jS5s+3SwDuze/p5+Ho3GHxuaQH/qljWGwGhlam17zYdjMBOKN2PNmWDee5sibcQM4Ei+
+         ZtwwrVLUi6+VwRxULCagZSvI/bjvUS5szFwxFGuxQCtJiROviJ7RHiuvnp3PrdJnrf72
+         eCepQYCNSi7HexlASTVv78swG2JFEXHYq5JPrKdJSySi71qaXXw190TNStu4BIJgDF+1
+         +Xeg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=VcQcVK1muxZfeixLAT70inWCF+rrO79FtgsqXLLTmhw=;
-        b=NZ+OfCgq0lsAXJTYsivTuws/zErELimvfIrB97F1GkNqOkZsVyZA+BZCMxGcCvoUwj
-         uvC3z6q47zSo/xROkx2TwvOBrquF0jIjhNi4PeqwYP9ptTpl9gW35unZhvelnMrpDBJF
-         stHv9+r/5RZt8+FXLbh+EDvsmAJOMAeSpSPpgPgC9ToyeSCny62G8aoNH4Zlu9zpZSe0
-         RDlJuoJboTqwh2YpDH65EECf2faEzS8q11vmV7yGikHjtnozXsZ0UWIYCki9h7yMjN8n
-         3T6RVMzgF7ES00vuhbSDPekB4Ase5ZC7LYlVQhsT+njLNrBgkzqLGe+bEyx0rlr5f5y4
-         Hlhw==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=quPAbN0ZiAZW4BThk4WkHahKpnK/OiLivClbuPQ78pQ=;
+        b=w2y+29LK6tToGGpA1L/BcTqsc63lFM4JWl8doUj7ub5ThzSaJyDt3lpVkSqQ88fgrg
+         j2emqJcR6DscitJxetUJ9Xsg6dfyPr+hv2cX2LaUYBuzYr8t5In0fuwwN4BYR62Ij63s
+         nz/3KZ5DGJvgLW37NIAXnDFYw71gUsiLeVx0wVh7m0gkQRadKMhqnTSo/yJwVEava9AL
+         vAyJrRwnUjZkWig3V1rpjOBlCH9XupOSG2MGSbOvS+m9VxDFZKTq2jrzs8Ms5L4FBtwI
+         CuGLQ5Od3YkF+/4ohgli8obnTud83vswKWswIJ6cvpWG+mWhVJG/i1wmcgozfWMf+xi9
+         Np8Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=it1PG+R5;
-       spf=pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ebiggers@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=CFIPb1n6;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x13si487843ilg.2.2021.06.10.13.00.47
+        by gmr-mx.google.com with ESMTPS id d12si34553otu.2.2021.06.10.13.59.29
+        for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 10 Jun 2021 13:00:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 2DAEC613F1;
-	Thu, 10 Jun 2021 20:00:46 +0000 (UTC)
-Date: Thu, 10 Jun 2021 13:00:44 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Kees Cook <keescook@chromium.org>, Yonghong Song <yhs@fb.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Kurt Manucredo <fuzzybritches0@gmail.com>,
-	syzbot+bed360704c521841c85d@syzkaller.appspotmail.com,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>, bpf <bpf@vger.kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Martin KaFai Lau <kafai@fb.com>, KP Singh <kpsingh@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
+        Thu, 10 Jun 2021 13:59:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id AD09D613B3;
+	Thu, 10 Jun 2021 20:59:28 +0000 (UTC)
+Date: Thu, 10 Jun 2021 13:59:28 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>, X86 ML <x86@kernel.org>,
+	Josh Poimboeuf <jpoimboe@redhat.com>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
 	LKML <linux-kernel@vger.kernel.org>,
-	Network Development <netdev@vger.kernel.org>,
-	Song Liu <songliubraving@fb.com>,
-	syzkaller-bugs <syzkaller-bugs@googlegroups.com>, nathan@kernel.org,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>,
-	linux-kernel-mentees@lists.linuxfoundation.org,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kernel Hardening <kernel-hardening@lists.openwall.com>,
-	kasan-dev <kasan-dev@googlegroups.com>
-Subject: Re: [PATCH v4] bpf: core: fix shift-out-of-bounds in ___bpf_prog_run
-Message-ID: <YMJvbGEz0xu9JU9D@gmail.com>
-References: <87609-531187-curtm@phaethon>
- <6a392b66-6f26-4532-d25f-6b09770ce366@fb.com>
- <CAADnVQKexxZQw0yK_7rmFOdaYabaFpi2EmF6RGs5bXvFHtUQaA@mail.gmail.com>
- <CACT4Y+b=si6NCx=nRHKm_pziXnVMmLo-eSuRajsxmx5+Hy_ycg@mail.gmail.com>
- <202106091119.84A88B6FE7@keescook>
- <752cb1ad-a0b1-92b7-4c49-bbb42fdecdbe@fb.com>
- <CACT4Y+a592rxFmNgJgk2zwqBE8EqW1ey9SjF_-U3z6gt3Yc=oA@mail.gmail.com>
- <1aaa2408-94b9-a1e6-beff-7523b66fe73d@fb.com>
- <202106101002.DF8C7EF@keescook>
- <CAADnVQKMwKYgthoQV4RmGpZm9Hm-=wH3DoaNqs=UZRmJKefwGw@mail.gmail.com>
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH 01/13] objtool: Rewrite hashtable sizing
+Message-ID: <YMJ9MGyXHi9Xa0ne@DESKTOP-1V8MEUQ.localdomain>
+References: <20210506193352.719596001@infradead.org>
+ <20210506194157.452881700@infradead.org>
+ <YMJWmzXgSipOqXAf@DESKTOP-1V8MEUQ.localdomain>
+ <CABCJKudzC-Nss_LGrpYwRqwdDxeWOf1o6Bvp3J2fBQthEB=WGg@mail.gmail.com>
+ <YMJpGLuGNsGtA5JJ@hirez.programming.kicks-ass.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAADnVQKMwKYgthoQV4RmGpZm9Hm-=wH3DoaNqs=UZRmJKefwGw@mail.gmail.com>
-X-Original-Sender: ebiggers@kernel.org
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <YMJpGLuGNsGtA5JJ@hirez.programming.kicks-ass.net>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=it1PG+R5;       spf=pass
- (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=ebiggers@kernel.org;       dmarc=pass (p=NONE
+ header.i=@kernel.org header.s=k20201202 header.b=CFIPb1n6;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -157,31 +142,97 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jun 10, 2021 at 10:52:37AM -0700, Alexei Starovoitov wrote:
-> On Thu, Jun 10, 2021 at 10:06 AM Kees Cook <keescook@chromium.org> wrote:
-> >
-> > > > I guess the main question: what should happen if a bpf program writer
-> > > > does _not_ use compiler nor check_shl_overflow()?
-> >
-> > I think the BPF runtime needs to make such actions defined, instead of
-> > doing a blind shift. It needs to check the size of the shift explicitly
-> > when handling the shift instruction.
-> 
-> Such ideas were brought up in the past and rejected.
-> We're not going to sacrifice performance to make behavior a bit more
-> 'defined'. CPUs are doing it deterministically.
+On Thu, Jun 10, 2021 at 09:33:44PM +0200, Peter Zijlstra wrote:
+> On Thu, Jun 10, 2021 at 11:50:36AM -0700, Sami Tolvanen wrote:
+> > On Thu, Jun 10, 2021 at 11:14 AM Nathan Chancellor <nathan@kernel.org> =
+wrote:
+> > > Adding Sami because I am not sure why this patch would have much of a=
+n impact
+> > > in relation to LTO. https://git.kernel.org/tip/25cf0d8aa2a3 is the pa=
+tch in
+> > > question.
+> >=20
+> > It's because LLVM enables -ffunction-sections with LTO, so using .text
+> > section size to estimate the reloc hash table size isn't going to be
+> > accurate, as confirmed by objtool output with --stats:
+> >=20
+> >   OBJTOOL vmlinux.o
+> > nr_sections: 141481
+> > section_bits: 17
+> > nr_symbols: 215262
+> > symbol_bits: 17
+> > max_reloc: 24850
+> > tot_reloc: 590890
+> > reloc_bits: 10
+>=20
+> Bah. Would something like the *completely* untested below help with that?
 
-What CPUs do is not the whole story.  The compiler can assume that the shift
-amount is less than the width and use that assumption in other places, resulting
-in other things being miscompiled.
+LGTM, thanks for the quick fix!
 
-Couldn't you just AND the shift amounts with the width minus 1?  That would make
-the shifts defined, and the compiler would optimize out the AND on any CPU that
-interprets the shift amounts modulo the width anyway (e.g., x86).
+Benchmark #1: allmodconfig
+  Time (mean =C2=B1 =CF=83):     624.555 s =C2=B1  2.089 s    [User: 35109.=
+967 s, System: 2146.215 s]
+  Range (min =E2=80=A6 max):   623.078 s =E2=80=A6 626.032 s    2 runs
 
-- Eric
+Benchmark #2: allmodconfig with ThinLTO
+  Time (mean =C2=B1 =CF=83):     769.959 s =C2=B1  1.819 s    [User: 39692.=
+409 s, System: 2308.010 s]
+  Range (min =E2=80=A6 max):   768.673 s =E2=80=A6 771.245 s    2 runs
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMJvbGEz0xu9JU9D%40gmail.com.
+Summary
+  'allmodconfig' ran
+    1.23 =C2=B1 0.01 times faster than 'allmodconfig with ThinLTO'
+
+Tested-by: Nathan Chancellor <nathan@kernel.org>
+
+> ---
+> diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+> index 25f6d293bc86..8676c7598728 100644
+> --- a/tools/objtool/elf.c
+> +++ b/tools/objtool/elf.c
+> @@ -288,6 +288,9 @@ static int read_sections(struct elf *elf)
+>  		}
+>  		sec->len =3D sec->sh.sh_size;
+> =20
+> +		if (sec->sh.sh_flags & SHF_EXECINSTR)
+> +			elf->text_size +=3D sec->len;
+> +
+>  		list_add_tail(&sec->list, &elf->sections);
+>  		elf_hash_add(section, &sec->hash, sec->idx);
+>  		elf_hash_add(section_name, &sec->name_hash, str_hash(sec->name));
+> @@ -581,13 +584,7 @@ static int read_relocs(struct elf *elf)
+>  	unsigned int symndx;
+>  	unsigned long nr_reloc, max_reloc =3D 0, tot_reloc =3D 0;
+> =20
+> -	sec =3D find_section_by_name(elf, ".text");
+> -	if (!sec) {
+> -		WARN("no .text");
+> -		return -1;
+> -	}
+> -
+> -	if (!elf_alloc_hash(reloc, sec->len / 16))
+> +	if (!elf_alloc_hash(reloc, elf->text_size / 16))
+>  		return -1;
+> =20
+>  	list_for_each_entry(sec, &elf->sections, list) {
+> diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/=
+objtool/elf.h
+> index 90082751f851..e34395047530 100644
+> --- a/tools/objtool/include/objtool/elf.h
+> +++ b/tools/objtool/include/objtool/elf.h
+> @@ -83,6 +83,7 @@ struct elf {
+>  	int fd;
+>  	bool changed;
+>  	char *name;
+> +	unsigned int text_size;
+>  	struct list_head sections;
+> =20
+>  	int symbol_bits;
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/YMJ9MGyXHi9Xa0ne%40DESKTOP-1V8MEUQ.localdomain.
