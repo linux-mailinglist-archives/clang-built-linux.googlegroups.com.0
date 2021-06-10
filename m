@@ -1,134 +1,147 @@
-Return-Path: <clang-built-linux+bncBDA67XESXUKBBRH5Q2DAMGQEW7QINJQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS5F7M6QIOBBOFQQ6DAMGQEIRIV5FA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id 47EFF3A2571
-	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 09:27:01 +0200 (CEST)
-Received: by mail-wm1-x339.google.com with SMTP id r4-20020a7bc0840000b02901b7cb5713ecsf982929wmh.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 00:27:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623310021; cv=pass;
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8C0F23A2806
+	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 11:15:38 +0200 (CEST)
+Received: by mail-pg1-x53b.google.com with SMTP id x7-20020a63db470000b029022199758419sf3981000pgi.11
+        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 02:15:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623316536; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pVRnV/zU+wgI5UHnR2vaTuN5HLia/TLHewg0obAI1sBs3CyhJRE4aKoGeUtqultqmj
-         fXk+X8GjQD5AndzFUmuThkQ6FIbXT1bZOezu1NyvumXbXyAQOYa9fGRKWEdX7D0JEaj9
-         P9wNoePfcWOQnK7y2L+APIq9ehr7viYT7nv3oxqhQscVRLaFGIW2fL62zA2kCD8h4ZeB
-         yvwG2zAk4jOw2qVuDud3r7Eg3LGnxi+GbfLXEw7ADKolEtSBMmYXIOOWpnc0lddplNgk
-         YhwOrFZK+x+ATF2xz1YGnL+D2i5dwBwKzRGJTqDRlv3e5qAN2mXWCMhclqai3HjKFrgn
-         gcaA==
+        b=Vde8L5r0WsMwKbKT9RPmr72LpmIcrxCveNbZEzaHHLs5CxarWksG09kz0TV9NMK5SN
+         tZeu7n+BUwYyHgUiNCAzkrGgcg1GILi+z+WCFBOWkJcdOaywg2Hu4uJ23FDbSxUdwKaW
+         IsixPE/YbVtzkGgojmnbRVO8FUe44SDpaJ/lu0OxzGWkN7PYv2kxfHwzflYhd2VKbw4+
+         LOBnxr9h1fwMENYAyC0fWcqeFt8CGjhD1QTR/U/1L48bToJXgBl71ME7qpSQsjOSvVTx
+         zWFg68MWYXFKBPCh4k7gcd6Yg1EDqvqpVFkQsG9tqm6iUg04ODfNxHyZR/tY8K4zAJQQ
+         FxZA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=XVIQkB1kkqMTWciYSJvvLvc2nSahvvRka7PP+hTmnsk=;
-        b=jSxF5a5dzMHheiv+ViqdVLZlj+CfQ5gbklWrJng+vOshqlvy0qQJQmhpVUpzumd4A2
-         q7bsZxwj6y2iRNYv5g+k6vPKJWAhjPaI4u5ltperGUBC8HRmq6n8bwmzVqeHPLBMUiKX
-         Dix4CKH+Yj03mOIgfD9jcRSRWub/kNPapQKN/q8mm03j9VvGRUIYv03nql1jouAFhQGb
-         iM6q7jNFKYJFI80k/7DnSTd7IOJhC9p+6Iz+Gm4eG0ok6Ksg4DQplZdQN0xxNc8AOGO/
-         95jl2gUbohYKCPWqRDkxcfUIJvqfneZ6ndBRC8cirMTrckZgU7SVOxXLRK+Z/HhidbHi
-         Az8Q==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=wH6sJIrALqDBatEP4mJmngpkQS0ir/oA4/GQk27QrsY=;
+        b=LG0ugWFSvDA10HpypOQ9wwcRaxTUZ4XvywtiJvEYjek1Bz/j/dnng8od1sIPLQGDK4
+         0d46MRq8JQoXgrjWsL66hucU62H97oDBR5L5oo1nUSWkxqvXjBaJISP9wTtxTYLOyr/d
+         VmuQEqoGizKa3cBT2J9/bdMIPVVhR4m+kdJJurfYx7tRvWIaTo2uKEAxSQ9bghnvhK3G
+         zZr7o/SiZPod02EI5PvNuX0yfHaMIwameg7UY4X8KY5JAB/qFHCE4SSWZtWeh2BV58Zj
+         CjBi/mGHHCAnYTyZoiY21c3IPm/IIjohTeZVyBqhYsaOGhziTqk8yaHcpKS2vGej8ODN
+         fVBw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=VRc2QaSA;
-       spf=pass (google.com: domain of jean-philippe@linaro.org designates 2a00:1450:4864:20::336 as permitted sender) smtp.mailfrom=jean-philippe@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=OT9SW+pY;
+       spf=pass (google.com: domain of nikolai.kondrashov@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=nikolai.kondrashov@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=XVIQkB1kkqMTWciYSJvvLvc2nSahvvRka7PP+hTmnsk=;
-        b=Lpxvxml1zMNBosLUVvggbsxWXYhBZtvya40gQx1meGaH8Av/XruViKY8BllSpB2rfc
-         E/0jXuyycnnOijexsCy4VvtK7dUZKjmHqpdkXd0bOGY69QuvVZGSbq7DE8S5IJUGIaKU
-         pHRcqjfMkgyrPEslK2DDCq6UaY8KbwJQokLN/kNzBErb8xOch/AM6qCj833+z0qliAf6
-         iTDXPrmIUFbR0b8XBZryKchXmJnkUaHXFzU9iD4m+uVxhHXBhcQQW3ZBmZ+UA70Q7xyO
-         bwsgQ4y5+f351Rg9Xo8s3jmQZceAsSV4a6C9EmwypmBcv8ESquo6aed4WJZsPP7qiZ4n
-         /BHQ==
+        bh=wH6sJIrALqDBatEP4mJmngpkQS0ir/oA4/GQk27QrsY=;
+        b=CRVnd8c37B+m61IRhO1JCbaGKGBbB132KbPyQtR64O0AuO0+v9h7Wosozv0Yf+ptPh
+         2T+AKnvFXjA75NvmZgBNEJv5k2xhupG0xM8h0EP0ZAAO/mfyJTLPIENIgIaRrQRgtQGI
+         +IxbLr08k0ooJGdN7r7aS8i9dwRccwSGqwc4IjN5OX81LKm5pyNpRyfiNt7QEZ80fWkt
+         6LmxLSmCQE3gmYzX/EP7MNF1ZitXTI7nAxIy4cx5H90fAUrlQCYHtOKkQsvykfKmfHqG
+         8CXIgiA3ztc0VTZaMOK6tRCR22VESzX0r8KzmOpNJ1ktbrqqBsX6WKgqXLb/LM3yR2Ct
+         8ymg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=XVIQkB1kkqMTWciYSJvvLvc2nSahvvRka7PP+hTmnsk=;
-        b=sPmSLIXZQVwNGPuBoG7Z6K2tw6Eskqv60xkLqBaBba7HzkBC666MDyQyanqY/ZHLUN
-         145SAtGBkiymWt2/tqUX5DZZXY1667/jBE+UjNFQOY5BpBp8jl70maN0cVxIhdVumupp
-         q6Gbl7Jwkdrc9JVsKPYYtnUDfFGAOtJbVxGaEO9t2AInMKPXOTBBOrP6idfR4oCn/h3V
-         zt9CiBzbSVOYRVEv7AE5ZKgp/IUr+VpBwc7TI1JZR/QxNi1SoKXv6l/WuNmsDy6ANtv3
-         vDiquKfgdpv2Qpd5TRXPlIYD6gyl5rstZb2WVNoJlQKj79kKOF1M8vYOAGT/9VOT2Rze
-         ibRw==
+        bh=wH6sJIrALqDBatEP4mJmngpkQS0ir/oA4/GQk27QrsY=;
+        b=BoEetkQzvx739I1o8+KpKF9m5ZAb+83t50KZuBYvIxhHuWE8M7RSp66tRoD5bwjRy3
+         Xz3XymVnhwZAOQepksw/VtOBCBlGbucgVaXmnwEp4AqGizGzjwyvzOAVUlRbsjUDpY4p
+         rdwO4XSDM+6+IhSPS5jdULaWDd3GWzg6CLTC2xGenNXvkabihOcRN5bdFIiZoLlAIViu
+         LBNn2oeIkGWqqLSwCclBEYTifNcEilXkIq/JZJINsp+nl2ELcqkhpVUJUPv4tBuG0n93
+         PrEpWzPWy0zJVXGDRGaQF6aFbrYetnPoHuMuD2n0UmLyRco/ACFo4xfAPGsxR5AElnhP
+         5M0Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533RHXG3xj4fQrBodkOrW8NG4da9V1o6cJBh1pfjgMc44oojidEN
-	cCg8p65FPB0Xq+xGOBaRdSk=
-X-Google-Smtp-Source: ABdhPJxIYmBd01aFMp/C4JCFv9nPMHyuP7MJv1GZSJqcbBbxSq+umbAl8otr18Fqipfd5Qwmzv1mzQ==
-X-Received: by 2002:a1c:dd09:: with SMTP id u9mr3605751wmg.58.1623310021035;
-        Thu, 10 Jun 2021 00:27:01 -0700 (PDT)
+X-Gm-Message-State: AOAM533sxDoQ4ff8fQ/5xh/C1rZVA56z7vbki1ljMJJCwkqaqGrVv5IV
+	ndTYQKZ2rHSKbb44g4XpdMU=
+X-Google-Smtp-Source: ABdhPJycKaJmLVk+WsWJVXWCrJwPrEV8xaMe078RUngmjx+T1zD6PLjl82hkaBdRHIJcwwFUV9KuYA==
+X-Received: by 2002:a17:902:e80e:b029:10a:c1c:c6e5 with SMTP id u14-20020a170902e80eb029010a0c1cc6e5mr3714365plg.54.1623316536444;
+        Thu, 10 Jun 2021 02:15:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:ded0:: with SMTP id i16ls1626810wrn.1.gmail; Thu, 10 Jun
- 2021 00:27:00 -0700 (PDT)
-X-Received: by 2002:a5d:4351:: with SMTP id u17mr3661760wrr.47.1623310020254;
-        Thu, 10 Jun 2021 00:27:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623310020; cv=none;
+Received: by 2002:a17:903:1d2:: with SMTP id e18ls3137389plh.6.gmail; Thu, 10
+ Jun 2021 02:15:35 -0700 (PDT)
+X-Received: by 2002:a17:902:8493:b029:107:15c:271d with SMTP id c19-20020a1709028493b0290107015c271dmr4042490plo.68.1623316535843;
+        Thu, 10 Jun 2021 02:15:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623316535; cv=none;
         d=google.com; s=arc-20160816;
-        b=pCswmyaW1o8xxsD9yxs1kyM10Ck+rViP9hrHo6jWjgJGXy3GbC1+Du/TRPjJcrZhNP
-         taHjOAfkE5d54cY75wdzj6KZKmQS2/wAxS5V+X9Pbvn3TiY6ZQrNinJ5oiowODD858GW
-         7xodTbPLRmkU4E7RadnsheTnDi0LVN+wkUZg6WMHnGQKn1y2k584rWeAVsHv/kxOYOYe
-         kb5rmuUiC7cvKGRjmO0QU1xw2kBT0vdK5n5Vge0SlNrogWtNdizCaNtm2lIC11mvYmRY
-         OAeNipp7snHmwdknBaxAKeFNjL9akBpQa0l1XXkFEELVqze030Kci/P496uKy4lwkIA7
-         +KTQ==
+        b=iRYWNFCIS58Mo9CBUP+Q5zr2kvbqCSqmUwt1SFkEn2O8giv6WZ2hrhLr7YTYzL52yA
+         9BhE3LJpo493/T3e9xqQt7Ra6IfVHDFH4A7r56Hnv8h55exLDMwv0Sqcfd1CL71SG2Tv
+         BxrNyxBEzszQSlCg4IRqR5PyWc60H0srNXXh8BQMElKJZZCqRoSLoWuENwljudFQy17c
+         0pekuAsPFrxD1xfNgV5c740Oi5wpU9fVPtMk4tt1nogfSVz/ObD9EjWqnj9gqpY+mRu1
+         m5xinUCi+t2eTJhhGfj1ucnbjnLbIoNsMOPxDPSjASdXBqtzQkENdA5xR4gch4QTO73N
+         DQcA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=avXVNANZtbNtwGIzbu5/mOfsXzmuN+oN/aMUmryqr0Q=;
-        b=UnEzLKeCw6VE5N9G/ycqBNIiEzD9F4ITe1TGs04ZtVYCAgAtqdlUHvtTdbQMgRRzBz
-         WNxk5f6wvOlQt2lR/T47UOrDT9vNzAB8WZgAP2rywC+iZXhkn/cfEMP6aMQLnYYU/9Hw
-         9fp58+F8VG1eS7pBz+VhfZWDLklyb/UHavk/SCB5MulOh7AMlAE5gSpep7Dy9wvE9X6q
-         c6dyuyKZfElhql4GQdEHBbBy0I8Ni6IMpkB0mnotZadQbc0Y7PAEH0sV9RxO9LLhnaJI
-         M9/Imnp2WqGBPQKaWsKZaSGkZwoU3JtPeC4Fz20+hcGnyGmIXX+XgBtBFIQpk+g7iCdJ
-         6VYQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=ddflb+s18g2mZp/XRM9dirLH5LQbiPlV2t6L/Ctm2gQ=;
+        b=domqqKNvTX+ktCkk7e/MHP2EeFlxykDq+DuFTIUUnUwxKcSRMYG2kbMuIZN2oCygHO
+         s8wQHZYzPlaW/3xCbpYgNbGvTjlABs9MUiGqOXg6N+M4pCfDHsdiS0p0LbQN707REq+l
+         E6iaXmXqkas6SGOIkh8qx7CRlXsXYr4t/H16xgx6QdHCT5a0ri9PU/hpOSDYyCVSHf/4
+         LSB6vQlTBqFcfDhYylkK8R/WcwBZ8ULruYjcZzhrfjNY4B9BMaOQp1mNfmyusKHnZz4D
+         RCJbOreQj+joWDD72fIGwsIHdGCl97HV/3w4Z942Iy/iu7qNpf1/VfvOP96lhJHWXgQ2
+         DM3Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=VRc2QaSA;
-       spf=pass (google.com: domain of jean-philippe@linaro.org designates 2a00:1450:4864:20::336 as permitted sender) smtp.mailfrom=jean-philippe@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x336.google.com (mail-wm1-x336.google.com. [2a00:1450:4864:20::336])
-        by gmr-mx.google.com with ESMTPS id g17si296964wmq.4.2021.06.10.00.27.00
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=OT9SW+pY;
+       spf=pass (google.com: domain of nikolai.kondrashov@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=nikolai.kondrashov@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
+        by gmr-mx.google.com with ESMTPS id c23si256130pjv.2.2021.06.10.02.15.35
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 10 Jun 2021 02:15:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nikolai.kondrashov@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-170-oRh7R-LaM6y8LjWXxpQc7g-1; Thu, 10 Jun 2021 05:15:33 -0400
+X-MC-Unique: oRh7R-LaM6y8LjWXxpQc7g-1
+Received: by mail-wr1-f69.google.com with SMTP id z3-20020adfdf830000b02901198337bc39so611311wrl.0
+        for <clang-built-linux@googlegroups.com>; Thu, 10 Jun 2021 02:15:33 -0700 (PDT)
+X-Received: by 2002:a05:600c:4282:: with SMTP id v2mr13879322wmc.18.1623316532306;
+        Thu, 10 Jun 2021 02:15:32 -0700 (PDT)
+X-Received: by 2002:a05:600c:4282:: with SMTP id v2mr13879306wmc.18.1623316532092;
+        Thu, 10 Jun 2021 02:15:32 -0700 (PDT)
+Received: from [192.168.0.118] (88-113-28-221.elisa-laajakaista.fi. [88.113.28.221])
+        by smtp.gmail.com with ESMTPSA id 30sm2716677wrl.37.2021.06.10.02.15.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Jun 2021 00:27:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jean-philippe@linaro.org designates 2a00:1450:4864:20::336 as permitted sender) client-ip=2a00:1450:4864:20::336;
-Received: by mail-wm1-x336.google.com with SMTP id h22-20020a05600c3516b02901a826f84095so5733442wmq.5
-        for <clang-built-linux@googlegroups.com>; Thu, 10 Jun 2021 00:27:00 -0700 (PDT)
-X-Received: by 2002:a05:600c:410c:: with SMTP id j12mr3466501wmi.117.1623310020028;
-        Thu, 10 Jun 2021 00:27:00 -0700 (PDT)
-Received: from myrica (adsl-84-226-111-173.adslplus.ch. [84.226.111.173])
-        by smtp.gmail.com with ESMTPSA id l16sm8809890wmj.47.2021.06.10.00.26.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jun 2021 00:26:58 -0700 (PDT)
-Date: Thu, 10 Jun 2021 09:26:41 +0200
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
-To: Joerg Roedel <joro@8bytes.org>
-Cc: kernel test robot <lkp@intel.com>, rjw@rjwysocki.net, lenb@kernel.org,
-	mst@redhat.com, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, will@kernel.org,
-	catalin.marinas@arm.com, baolu.lu@linux.intel.com,
-	dwmw2@infradead.org, linux-acpi@vger.kernel.org,
-	iommu@lists.linux-foundation.org
-Subject: Re: [PATCH v3 2/6] ACPI: Move IOMMU setup code out of IORT
-Message-ID: <YMG+sdvQ9/BkeBCe@myrica>
-References: <20210602154444.1077006-3-jean-philippe@linaro.org>
- <202106030417.97asL7dA-lkp@intel.com>
- <YLiELyo+KLuYqA24@myrica>
- <YLpFHwGPuWsB3AgV@8bytes.org>
+        Thu, 10 Jun 2021 02:15:31 -0700 (PDT)
+Subject: Re: #KCIDB engagement report
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Nikolai Kondrashov <spbnick@gmail.com>, kernelci@groups.io,
+ "automated-testing@yoctoproject.org" <automated-testing@yoctoproject.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ Vishal Bhoj <vishal.bhoj@linaro.org>,
+ Antonio Terceiro <antonio.terceiro@linaro.org>,
+ Remi Duraffort <remi.duraffort@linaro.org>
+References: <5a9bf050-0671-3273-cc4f-1b131445c1fe@redhat.com>
+ <CAKwvOdmwRV6R6dcpcSL06SNVQ1_JwvOJMZPYiHKvjSx4sf_95g@mail.gmail.com>
+ <d4c587c2-7eca-043f-06b3-7e1cfa125b38@gmail.com>
+ <CAKwvOdkFqFoNUczEiTKY6o2E78bHLkMjeHjtQWKm=Qdg7-v26Q@mail.gmail.com>
+ <0e70beb7-49fe-efba-ef41-a35fa996bdcf@redhat.com>
+ <CAKwvOdkoCzf2+-Z2K8e22OF9odo21RxXJu3gkGxweSePoBRaVg@mail.gmail.com>
+From: Nikolai Kondrashov <Nikolai.Kondrashov@redhat.com>
+Message-ID: <c64167f2-23e7-4efa-4945-6398bf99683c@redhat.com>
+Date: Thu, 10 Jun 2021 12:15:30 +0300
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <YLpFHwGPuWsB3AgV@8bytes.org>
-X-Original-Sender: jean-philippe@linaro.org
+In-Reply-To: <CAKwvOdkoCzf2+-Z2K8e22OF9odo21RxXJu3gkGxweSePoBRaVg@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: nikolai.kondrashov@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=VRc2QaSA;       spf=pass
- (google.com: domain of jean-philippe@linaro.org designates
- 2a00:1450:4864:20::336 as permitted sender) smtp.mailfrom=jean-philippe@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@redhat.com header.s=mimecast20190719 header.b=OT9SW+pY;
+       spf=pass (google.com: domain of nikolai.kondrashov@redhat.com
+ designates 170.10.133.124 as permitted sender) smtp.mailfrom=nikolai.kondrashov@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,22 +154,100 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jun 04, 2021 at 05:22:07PM +0200, Joerg Roedel wrote:
-> On Thu, Jun 03, 2021 at 09:26:39AM +0200, Jean-Philippe Brucker wrote:
-> > These are only defined when CONFIG_IOMMU_API is set. IORT uses them inside
-> > an #ifdef, I can do the same. Maybe moving these two functions to a new
-> > drivers/acpi/iommu.c would be nicer, though.
+Hi Nick,
+
+ > Cool.  Some notes from playing around with it:
+ > - might need to de-duplicate
+ > git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git vs
+ > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+
+We have a preference for https:// URLs in the schema, but sometimes submitters 
+overlook that, and submit git:// anyway. It's a catch-up game, and I ping 
+submitters when I see this happening, later fixing URLs in the database.
+
+Similar thing happens with other fields (e.g. architecture). We'll be 
+tightening the requirements as we converge on a common, better defined schema, 
+but for now permissible schema (and messy data) allows us to ramp up 
+participation quickly.
+
+ > - consider sorting list of branches in drop down
+
+They were sorted in descending order to have things like queue/5.9 on top, but 
+I switched that to ascending, as that's more universal and easier to understand.
+
+ > - "tuxsuite" seems to get truncated to "..." for me.
+
+I assume you mean the "Origin" cell in the "Revisions" table. I substitute ". 
+. . . ." for origin, when there's more than one, as more than one wouldn't fit 
+the table. Full list is shown when you open the revision. You can also use the 
+"Origin" filter on top of the page, if you're looking for data from specific 
+origin.
+
+ > - builds over time are useful, but it would be more empowering to know
+ > which of those builds were green vs red.
+
+Yes, I was thinking about that as well.
+
+I added graphs for build status, as well as test status, over time, to the 
+"Home", "Repository", and "Branch" dashboards. However, please be aware, that 
+those are results over time the *result* was produced, not commit order. 
+Strictly speaking, that can be any order, and results for some older commits 
+might pop up e.g. a couple days later. Normally, though, they wouldn't, and 
+there's some use in these graphs.
+
+We don't have commit order/connectivity data in the database (at least yet), 
+so this is the best I can do so far.
+
+I also added a few basic graphs to the "Revision" dashboard, please tell me if 
+any of those are useful.
+
+Thanks for the feedback and the requests.
+Give me some more, if you have them :)
+Nick
+
+On 6/7/21 9:09 PM, Nick Desaulniers wrote:
+> On Mon, Jun 7, 2021 at 4:13 AM Nikolai Kondrashov
+> <Nikolai.Kondrashov@redhat.com> wrote:
+>>
+>> Hi Nick,
+>>
+>>   >> We don't have a ready-made UI for this, but I think I can add a Grafana
+>>   >> panel/dashboard for that rather quickly. What would be most helpful?
+>>   >
+>>   > I think so.
+>>   >
+>>   > For a given tuple of (tree, branch, configuration), it would be neat
+>>   > to be able to link to a deterministic URL to quickly check who else
+>>   > may have built this recently, and what was the result.
+>>
+>> I made a stab at it. I added "Repository" and "Branch" dashboards, showing
+>> revisions for a particular repository and branch respectively. They are
+>> accessible from the dropdown menu in the top left corner.
+>>
+>> Repositories are also linked from the "Home" dashboard, branches - from
+>> "Repository" dashboard, and both are linked from "Revision" dashboard.
+>>
+>> Additionally, "Home", "Repository", "Branch", and "Revision" dashboards now
+>> allow filtering builds by architecture and configuration name. Please be aware
+>> that neither are really standardized across submitters yet.
+>>
+>> Finally, whoever is reading this, please be aware of the time range selector
+>> in the top right corner. It affects every dashboard.
 > 
-> Not sure what the ACPI maintainers and reviewers prefer, but I would
-> just #ifdef the functions and provide stubs in the #else path if
-> necessary.
-
-Yes, I'll resend with that
-
-Thanks,
-Jean
+> Cool.  Some notes from playing around with it:
+> - might need to de-duplicate
+> git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git vs
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+> - consider sorting list of branches in drop down
+> - "tuxsuite" seems to get truncated to "..." for me.
+> - builds over time are useful, but it would be more empowering to know
+> which of those builds were green vs red.
+> 
+> I'm not sure quite yet how to drill down to see which builds were from
+> which toolchain, but this looks pretty close to what I had in mind.
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMG%2BsdvQ9/BkeBCe%40myrica.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c64167f2-23e7-4efa-4945-6398bf99683c%40redhat.com.
