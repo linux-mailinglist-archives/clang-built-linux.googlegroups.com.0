@@ -1,153 +1,128 @@
-Return-Path: <clang-built-linux+bncBCUY5FXDWACRB4VCRGDAMGQE2WC3K4A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBHVNRGDAMGQE5SVTLRI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33a.google.com (mail-wm1-x33a.google.com [IPv6:2a00:1450:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7D3633A3280
-	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 19:52:50 +0200 (CEST)
-Received: by mail-wm1-x33a.google.com with SMTP id m33-20020a05600c3b21b02901a44b1d2d87sf3352121wms.3
-        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 10:52:50 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623347570; cv=pass;
+Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2646E3A32D1
+	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 20:14:55 +0200 (CEST)
+Received: by mail-yb1-xb40.google.com with SMTP id 67-20020a2514460000b029053a9edba2a6sf602618ybu.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 11:14:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623348894; cv=pass;
         d=google.com; s=arc-20160816;
-        b=uespICDkCMhe+PjoYj1WA/b5JnbsPdRj4jquxuc+DoqgDu/zHPM45aGWZrynBsuAfj
-         JCBqM4OQ/vNZtQmHJEgJiKl+X0Mg+pV2Wiw1HWhQBnfWGudEMjS9+QHFe/iSYBLZGi1z
-         5QhFU+FdZZ8YC7YuWZVmnFtLh2IB0dEkr0ZimmUb1RXDAztEPtB13Nuat15wzBo01JAm
-         AvPkbnsb20S+V5RtX3gyr+9I4U6wqP3AE8KdLAVovQhhQd09cglwSaxHiUEF8ZwjxL6E
-         6ohrXhDFQRRRR/wszexEC7dUaYnHWmHA2ZuVCXMIqd5DOcCHEWnlSsEh6xB9kr/WjzAt
-         cbzg==
+        b=VEke6siQc3GnqV5RQ+C8KrZjCIiYsDLG6Vg6LtUG3cWUzIXrVKfHYkZmHbnNGetScI
+         sO53HN9HyibFUtPG1gE04cGbj/CZQX2JTmi0EPBToDrKtdvBhTRnC1szd2yGzMvFtQYW
+         KXMZVhFsbQ4GuzeT8xFYhdKVEwQQBYYRNwegUZ0laiPYHHMfqGv1doPZbCsA0nVI7oFv
+         3RnmwHli8iV1QPvAYHr68vgEpHwY3r6FlJNP3wg9fs4nDWMkONTY/zako33Qd8y5CHHS
+         ylufKsAJcW/lkV6JXmrc12aT5kLLlgN/ax2fJeCJniDpO4lxcme5fN395XXRNnQjJXqW
+         yaPA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=fXI1aZFCGBg39S0Tmr82HCak2mt2Uj6mzhyG/Okg7+8=;
-        b=hzJlIcIo25S5kXTvtBBYfzylBWwMQVgtoeVT8qT/i3X/35KXNEB7O5zG508A5HgOl+
-         M7gSzFBuP6xucucLtWBTFprRSBOOXmPMyILQPj3R9P5QOus31MDD3SjDIPefUUKzhZU1
-         /eEFEvb4l8F1jUq5nA3u3nA4KuiePfTqO4kO7SzCdvCPmDvi+76zDUdmzS1L1CTKxkLb
-         8xbPBlH5jmpRI1nFblj4cFpobgZfGnq+WbDlWsji2QgWj3BOhiQaaYnpoq2MfFioXuMZ
-         QitdXQ6CimkEg/pSaKq0qOVmLxDD3N1707zv7KKCnnQd+wm2xwhYSIGa+a2xobBFX6JC
-         yBOQ==
+         :list-id:mailing-list:precedence:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=tzcWb3KBVIFTv3sDsSRKxgMAkY7cISCXplZObloQN4g=;
+        b=GIVSwCBtJvHEPPt/pPkyfyaGYGTQ9Ls7CVRMjKU7q3NSZHuLGrzpl2xMI+VZOF/lRd
+         Ae9/hRbDmOQzHRVjwdYHT+/D6w98tQwWK+yTF4Z3ozW9hV6ldMTH9o46uIqYzlYohN8L
+         LPVoGvUwI2ysAhS/Q+D4ATQjVg8dL1JCUGIrNUrk5tATyshkyA8Lxy7QlNQBIisrqsdb
+         IXIPEb4X2bGi/M0pd+Qv6ISIiQ4JOmkYojwm3DXuKQqHjcB2oLOBlzHZ6kS9HXOSnH9g
+         U1PxzBjn7kYgGucvWzNjwAEax98vgzJT51LzgjxEIlQYvzyJylgfkWojPe3pwtAZlJWY
+         RSuw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=j9utiUZQ;
-       spf=pass (google.com: domain of alexei.starovoitov@gmail.com designates 2a00:1450:4864:20::22d as permitted sender) smtp.mailfrom=alexei.starovoitov@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=rZ+gjzX8;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=fXI1aZFCGBg39S0Tmr82HCak2mt2Uj6mzhyG/Okg7+8=;
-        b=g4rLdWuhdqL+scX04SVZdaLNbGlsJwb65jRuVC5E1lBAqUQt5nOhKv41YwCwZpCTX8
-         vnDG44r+8w4mHdrYX6Xdd3gnn8PWweLY+Y66u/9PqbZyKWsWTnAy0ds/8WaDBW0jOxEf
-         x64T9YSv3S39hhJvJdE6i6MNei68SG+HucUBBLQUdE+HYsVpRuFzz1AxnTYJfVurM5EM
-         MxgpomHvRvawcjzDdGW2Vf9sQCw2rc8cL3WF6NWVXH44aFiUpxD/Qm740uKIhdVLsfT7
-         80PmXPtn4k6bCB7v0U7ST8bYZnoJUlEk5ziAH/hsxmyZ/1jOtzN9ofXjGJgDiOavAUyI
-         qzKQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=fXI1aZFCGBg39S0Tmr82HCak2mt2Uj6mzhyG/Okg7+8=;
-        b=DD7/JU536skpBn5LyBm/6Foz4tIu/287Y/WVvqv0em0f02qKR92Ngz0dphUvoTRB+a
-         QLqXrZGS/+63p7cWqENmcP8PGIT5jpbaKezcbVpdU47YqnIsPldhssHR459eKtLvffMp
-         tV54RVl3qCVjvWHn58Ryu+2B7Nduuw9ohZYKYRSj9fgbplYqO0tLPsp5MGTl9+5ydnhH
-         TtTDaPTA2/zrjCJfmYNiiGl1oyx/tNEeSA3hLSOP7mzdhvSX0J3J6SJcdl9VCu1UM9B/
-         orYqhSkelpneEHGS5EmM4/cESaR0v1iNosis/9fScRUZd6wwF3v3K392lIlKhNAcbLO8
-         FfKg==
+        bh=tzcWb3KBVIFTv3sDsSRKxgMAkY7cISCXplZObloQN4g=;
+        b=aCYNl6moXXSq+Q/tBkV6QI1MHdfvNZbun8izj7ZN2QWsBAu/OTlMJt3aIRiFGLuKai
+         s829xYV+WbZCAbP3c1QOct/LEwZYtrM4h+t8m+F9/f56tNKDQMdcTahVNtp6qZhPwzfd
+         QZGYyFh/G1zWqaCwCTlCeApnVs6NzTRjct/b5APvS6TVWWTTu0ws36Jow3o9SpCxYcRQ
+         pngwGGsC23Bhtfygc0WpFbyY2R24s5sV6Mf2Lput0+Jh97wBGSVobGKawNgLzX0FJF0h
+         1Z8Do8sgK/xE1tCM/SULHyNjtgoTlKV+enEFkb3GpwTApSLyiuRv0DuoilZQcoPkdm4P
+         O6vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=fXI1aZFCGBg39S0Tmr82HCak2mt2Uj6mzhyG/Okg7+8=;
-        b=tr7Nj7g2R9w3bSalnQkTsjY+qwyrQ6A2Q8DVaRMiEWo4tNrOm1nURREnHeKDSxU2K0
-         E6wsS+H+qRD5vK0W7AWGpWGHf6Ihyhr0dA2TaANXDSPaEuSrdMl+2TymBhb2JCCCKMRz
-         87gbUl8E8bouUcfh+4dq3B33oNcwEMS7Sy06/lob2AWubzt0p1VMQtB28XfFW6KWLV35
-         yZo3TNIObaFfkMMsUA+n+dZPtPjbQnjFqXGtnSc9Lz1LkLy35QCTVcZuAjxlPahupWlF
-         Fv+VfAaeRbEVid0SauGzpIfLLmVfQaxk2hSmLwMG2rEZ+WyX5ekUoDAHnVMuX6b26kVw
-         sgJA==
+        bh=tzcWb3KBVIFTv3sDsSRKxgMAkY7cISCXplZObloQN4g=;
+        b=r0kokoDRlaYdibVbJCQqrx46w56ZtPYEW9z3XY50WiBNsyM+g+AORibcZistFqZfFD
+         1On46S3FHerGT5jz0DDDMR8wlpfyXXKgk2uGjia3Vh2cUxw4FvA/HM9Jonm9xSN66HQf
+         8DpnK44Ew+Y5G/23fMGOBRPhIaiiKsqax+IOz4+mSw7lCa46ktCruI/qjD+EGmdJp6hm
+         sWVzNv7ky9n44Fan4mzG4BEXigLTnSQVueUG9eJHfbGNEB2XZbBbQy66BqpoJUGR1boI
+         EgyMiSpGI8LyPf5bCJiJLyXWplcZJJ6BNOuR7RAd1E1qTJ6yf5/SZyZiIuRU2P0uO+Af
+         cKJw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532fGDxbnu7KdOj3KdmFTZhlcXXvGUeXllLGYhgz8ymkHr5wAj9r
-	TPOXlZoedUAc/k7e029KC4w=
-X-Google-Smtp-Source: ABdhPJzVcGy7jbFuYMWttXjI9hmayCRsym26GOS3SDpTZ5f1vp+SHaP6HOlJ84SWpVACVmCxQAEGWA==
-X-Received: by 2002:a7b:c099:: with SMTP id r25mr85396wmh.48.1623347570315;
-        Thu, 10 Jun 2021 10:52:50 -0700 (PDT)
+X-Gm-Message-State: AOAM530fNkPKRmp9pu5za1JIj1P2AArpJCoscJXoyHfhDcz98FEh1OBR
+	nN4CeizhCd6UyO7lNb3YZII=
+X-Google-Smtp-Source: ABdhPJxzT69m7FVVgLMP2nawcgBsg121JgoMW5bgj7fazKcGU+3yCYr2pwn/zXt2EFnFF3RpGOgfTA==
+X-Received: by 2002:a25:d18d:: with SMTP id i135mr118998ybg.262.1623348894207;
+        Thu, 10 Jun 2021 11:14:54 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:fe4c:: with SMTP id m12ls2232018wrs.0.gmail; Thu, 10 Jun
- 2021 10:52:49 -0700 (PDT)
-X-Received: by 2002:adf:fc90:: with SMTP id g16mr6760551wrr.183.1623347569430;
-        Thu, 10 Jun 2021 10:52:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623347569; cv=none;
+Received: by 2002:a25:38d6:: with SMTP id f205ls4259704yba.1.gmail; Thu, 10
+ Jun 2021 11:14:53 -0700 (PDT)
+X-Received: by 2002:a25:cac6:: with SMTP id a189mr88280ybg.33.1623348893739;
+        Thu, 10 Jun 2021 11:14:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623348893; cv=none;
         d=google.com; s=arc-20160816;
-        b=bsrQa2mQQPGLT8gArOUR25xaR3R6beskVyQZDsZIn50xuUSgToeXTOUOqckhmzh5Up
-         Oc8VyD5415S7PApRJ4VSeDSZJqL44ARKJCVes2N3Upy31GI8jXyYXJK9BPsc5U1Y17wz
-         hbqihgi5zbe8c2U3nXpJgbKKM/0tiVNqY9ClZcgSyje4/LR99MgaUeoXdtuLYZ4NLZbS
-         rrd8tWDf6RtTSEI7dnSxEikknT0fjkPvhktqrjyTDRzL1mb4J+FuqysvQfarhmAT1HG/
-         7yrbl5FMkZsvERQbcHt0GxwaB7o0fKDdzlqPPa9HFVpF4b9RdO/JAuHkiZ+EzblufWcQ
-         I2Ow==
+        b=kTLL3+W/igeNQxVjjpVqHPy3v7FBkbhxdsGtOQ8Y+mZvRWjA+aT838NzrD6ZRRNBsu
+         53hJw8sOS9nE/KFH9+IPvn0tWqVaSanu/Ggm1Ps+Xi9FEpzXbpYzmInSwhkAAtpC+KXh
+         MTfA9n8nBLu1Jnqcm/GyJOAvTzy5fiXnXg6QGgkTsxVxjC5eknOWJQgcpcYB93OVtF2v
+         OF50z8YslncDk9YGqQQLfP4ksJHDeANUGgPChAiWVYZW0wnlpwxBA1pRGus4EPYGuOGg
+         Mz03bkQeAwjk3mULpm8gV8aglqXhB+mJRzm3GtTor5rBU59G/eQXWN8je7G4HtfEXvGF
+         dplw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=on0Tnjo9EX+wZkS0PcGQkLK+8ozdHMxgRM2ZPf0mD60=;
-        b=B/79xHHpun/6NpC6+2daRmUQuqTrOMdscr5uhYPXU3qqgyGvoWd+WezZBmYK+TdwYo
-         m2k6kMdOX45+kAkk05482x3DFu3GS3GVlJvY2YPeZ71rDIvEU6a0uU7BERyTuNHhYiNu
-         8f3SCRqOfeBckbxMZTi3I0r6ILIqJd3ibrlj28HS/vUaP21RISRlqMCTR6eRkZbAvn4S
-         Z/dRlEIA1IBGY3WT03qd3mZphSYrZ+zySvGkYtkJZIg/t42pJ1G41IUQLWRYCxVpSWL8
-         H9r3fVODaFRGEYSnnxDKkUAZSsm6kHrDRlhnsAmcgOtQhDnECRCThVyEu21ercEysXuj
-         hRHw==
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=ouPloUcQuNld0P0ZWy90imBdW72MiMTfihqU7gskmcA=;
+        b=qmXVV++UbNX0H7fC2NiJmPS9dqNoBsP/4uscqwCGU5XMMQw3ntqmfz702IOOT5DIP8
+         2MkXJR+j663aB3zHZ9sEZcUKrsqRUzbjmnFQPrfvrnm+L9b93ps9XuwlWmlpkCPPwWWb
+         qz5loNd6limKFPdzgKktxuQcocbfgiXvVAY3MACXgiTZPSEtQBRrVyiNp3uT6m4S8oo0
+         vqFRDD7T9FErsPlG2Ib5hcNlWqgpZ7Y4S/m1j33UUpgSmnLu/IuQzRf+jGj5IoIh45oD
+         md9VjvG7PQp7HZZA3xLVGSlovsHSXpawlfpd92DEGDT64qfKQlsffuPsGG5w9WVsFGAW
+         28Jg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=j9utiUZQ;
-       spf=pass (google.com: domain of alexei.starovoitov@gmail.com designates 2a00:1450:4864:20::22d as permitted sender) smtp.mailfrom=alexei.starovoitov@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lj1-x22d.google.com (mail-lj1-x22d.google.com. [2a00:1450:4864:20::22d])
-        by gmr-mx.google.com with ESMTPS id t1si132162wrn.4.2021.06.10.10.52.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Jun 2021 10:52:49 -0700 (PDT)
-Received-SPF: pass (google.com: domain of alexei.starovoitov@gmail.com designates 2a00:1450:4864:20::22d as permitted sender) client-ip=2a00:1450:4864:20::22d;
-Received: by mail-lj1-x22d.google.com with SMTP id bn21so6124414ljb.1;
-        Thu, 10 Jun 2021 10:52:49 -0700 (PDT)
-X-Received: by 2002:a2e:b5c8:: with SMTP id g8mr3170497ljn.204.1623347568936;
- Thu, 10 Jun 2021 10:52:48 -0700 (PDT)
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=rZ+gjzX8;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id g10si520509ybc.2.2021.06.10.11.14.53
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 10 Jun 2021 11:14:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 417CB613F5;
+	Thu, 10 Jun 2021 18:14:52 +0000 (UTC)
+Date: Thu, 10 Jun 2021 11:14:51 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: x86@kernel.org, jpoimboe@redhat.com, jbaron@akamai.com,
+	rostedt@goodmis.org, ardb@kernel.org, linux-kernel@vger.kernel.org,
+	samitolvanen@google.com, ndesaulniers@google.com,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH 01/13] objtool: Rewrite hashtable sizing
+Message-ID: <YMJWmzXgSipOqXAf@DESKTOP-1V8MEUQ.localdomain>
+References: <20210506193352.719596001@infradead.org>
+ <20210506194157.452881700@infradead.org>
 MIME-Version: 1.0
-References: <20210602212726.7-1-fuzzybritches0@gmail.com> <YLhd8BL3HGItbXmx@kroah.com>
- <87609-531187-curtm@phaethon> <6a392b66-6f26-4532-d25f-6b09770ce366@fb.com>
- <CAADnVQKexxZQw0yK_7rmFOdaYabaFpi2EmF6RGs5bXvFHtUQaA@mail.gmail.com>
- <CACT4Y+b=si6NCx=nRHKm_pziXnVMmLo-eSuRajsxmx5+Hy_ycg@mail.gmail.com>
- <202106091119.84A88B6FE7@keescook> <752cb1ad-a0b1-92b7-4c49-bbb42fdecdbe@fb.com>
- <CACT4Y+a592rxFmNgJgk2zwqBE8EqW1ey9SjF_-U3z6gt3Yc=oA@mail.gmail.com>
- <1aaa2408-94b9-a1e6-beff-7523b66fe73d@fb.com> <202106101002.DF8C7EF@keescook>
-In-Reply-To: <202106101002.DF8C7EF@keescook>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Thu, 10 Jun 2021 10:52:37 -0700
-Message-ID: <CAADnVQKMwKYgthoQV4RmGpZm9Hm-=wH3DoaNqs=UZRmJKefwGw@mail.gmail.com>
-Subject: Re: [PATCH v4] bpf: core: fix shift-out-of-bounds in ___bpf_prog_run
-To: Kees Cook <keescook@chromium.org>
-Cc: Yonghong Song <yhs@fb.com>, Dmitry Vyukov <dvyukov@google.com>, 
-	Kurt Manucredo <fuzzybritches0@gmail.com>, 
-	syzbot+bed360704c521841c85d@syzkaller.appspotmail.com, 
-	Andrii Nakryiko <andrii@kernel.org>, Alexei Starovoitov <ast@kernel.org>, bpf <bpf@vger.kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, "David S. Miller" <davem@davemloft.net>, 
-	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
-	Martin KaFai Lau <kafai@fb.com>, KP Singh <kpsingh@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, Network Development <netdev@vger.kernel.org>, 
-	Song Liu <songliubraving@fb.com>, syzkaller-bugs <syzkaller-bugs@googlegroups.com>, 
-	nathan@kernel.org, Nick Desaulniers <ndesaulniers@google.com>, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, 
-	linux-kernel-mentees@lists.linuxfoundation.org, 
-	Shuah Khan <skhan@linuxfoundation.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
-	kasan-dev <kasan-dev@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: alexei.starovoitov@gmail.com
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20210506194157.452881700@infradead.org>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=j9utiUZQ;       spf=pass
- (google.com: domain of alexei.starovoitov@gmail.com designates
- 2a00:1450:4864:20::22d as permitted sender) smtp.mailfrom=alexei.starovoitov@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@kernel.org header.s=k20201202 header.b=rZ+gjzX8;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -160,26 +135,111 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jun 10, 2021 at 10:06 AM Kees Cook <keescook@chromium.org> wrote:
->
-> > > I guess the main question: what should happen if a bpf program writer
-> > > does _not_ use compiler nor check_shl_overflow()?
->
-> I think the BPF runtime needs to make such actions defined, instead of
-> doing a blind shift. It needs to check the size of the shift explicitly
-> when handling the shift instruction.
+Hi Peter,
 
-Such ideas were brought up in the past and rejected.
-We're not going to sacrifice performance to make behavior a bit more
-'defined'. CPUs are doing it deterministically. It's the C standard
-that needs fixing.
+On Thu, May 06, 2021 at 09:33:53PM +0200, Peter Zijlstra wrote:
+> Currently objtool has 5 hashtables and sizes them 16 or 20 bits
+> depending on the --vmlinux argument.
+>=20
+> However, a single side doesn't really work well for the 5 tables,
+> which among them, cover 3 different uses. Also, while vmlinux is
+> larger, there is still a very wide difference between a defconfig and
+> allyesconfig build, which again isn't optimally covered by a single
+> size.
+>=20
+> Another aspect is the cost of elf_hash_init(), which for large tables
+> dominates the runtime for small input files. It turns out that all it
+> does it assign NULL, something that is required when using malloc().
+> However, when we allocate memory using mmap(), we're guaranteed to get
+> zero filled pages.
+>=20
+> Therefore, rewrite the whole thing to:
+>=20
+>  1) use more dynamic sized tables, depending on the input file,
+>  2) avoid the need for elf_hash_init() entirely by using mmap().
+>=20
+> This speeds up a regular kernel build (100s to 98s for
+> x86_64-defconfig), and potentially dramatically speeds up vmlinux
+> processing.
+>=20
+> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 
-> Sure, but the point of UBSAN is to find and alert about undefined
-> behavior, so we still need to fix this.
+This patch as commit 25cf0d8aa2a3 ("objtool: Rewrite hashtable sizing")
+in -tip causes a massive compile time regression with allmodconfig +
+ThinLTO.
 
-No. The undefined behavior of C standard doesn't need "fixing" most of the time.
+At v5.13-rc1, the performance penalty is only about 23%, as measured with
+hyperfine for two runs [1]:
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAADnVQKMwKYgthoQV4RmGpZm9Hm-%3DwH3DoaNqs%3DUZRmJKefwGw%40mail.gmail.com.
+Benchmark #1: allmodconfig
+  Time (mean =C2=B1 =CF=83):     625.173 s =C2=B1  2.198 s    [User: 35120.=
+895 s, System: 2176.868 s]
+  Range (min =E2=80=A6 max):   623.619 s =E2=80=A6 626.727 s    2 runs
+
+Benchmark #2: allmodconfig with ThinLTO
+  Time (mean =C2=B1 =CF=83):     771.034 s =C2=B1  0.369 s    [User: 39706.=
+084 s, System: 2326.166 s]
+  Range (min =E2=80=A6 max):   770.773 s =E2=80=A6 771.295 s    2 runs
+
+Summary
+  'allmodconfig' ran
+    1.23 =C2=B1 0.00 times faster than 'allmodconfig with ThinLTO'
+
+However, at 25cf0d8aa2a3, it is almost 150% on a 64-core server.
+
+Benchmark #1: allmodconfig
+  Time (mean =C2=B1 =CF=83):     624.759 s =C2=B1  2.153 s    [User: 35114.=
+379 s, System: 2145.456 s]
+  Range (min =E2=80=A6 max):   623.237 s =E2=80=A6 626.281 s    2 runs
+
+Benchmark #2: allmodconfig with ThinLTO
+  Time (mean =C2=B1 =CF=83):     1555.377 s =C2=B1 12.806 s    [User: 40558=
+.463 s, System: 2310.139 s]
+  Range (min =E2=80=A6 max):   1546.321 s =E2=80=A6 1564.432 s    2 runs
+
+Summary
+  'allmodconfig' ran
+    2.49 =C2=B1 0.02 times faster than 'allmodconfig with ThinLTO'
+
+Adding Sami because I am not sure why this patch would have much of an impa=
+ct
+in relation to LTO. https://git.kernel.org/tip/25cf0d8aa2a3 is the patch in
+question.
+
+If I can provide any further information or help debug, please let me know.
+
+If you are interested in reproducing this locally, you will need a
+fairly recent LLVM stack (I used the stable release/12.x branch) and to
+cherry-pick commit 976aac5f8829 ("kcsan: Fix debugfs initcall return
+type") to fix an unrelated build failure. My script [2] can build a
+self-contained toolchain fairly quickly if you cannot get one from your
+package manager. A command like below will speed up the build a bit:
+
+$ ./build-llvm.py \
+    --branch "release/12.x" \
+    --build-stage1-only \
+    --install-stage1-only \
+    --projects "clang;lld" \
+    --targets X86
+
+After adding the "install/bin" directory to PATH:
+
+$ echo "CONFIG_GCOV_KERNEL=3Dn
+CONFIG_KASAN=3Dn
+CONFIG_LTO_CLANG_THIN=3Dy" >allmod.config
+
+$ make -skj"$(nproc)" LLVM=3D1 LLVM_IAS=3D1 allmodconfig all
+
+[1]: https://github.com/sharkdp/hyperfine
+[2]: https://github.com/ClangBuiltLinux/tc-build
+
+Cheers,
+Nathan
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/YMJWmzXgSipOqXAf%40DESKTOP-1V8MEUQ.localdomain.
