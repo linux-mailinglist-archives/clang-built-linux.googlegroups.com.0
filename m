@@ -1,104 +1,105 @@
-Return-Path: <clang-built-linux+bncBDZKHAFW3AGBBFNIRCDAMGQERLG7NBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDZKHAFW3AGBBGNIRCDAMGQEEAHIMFQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7BC633A2D11
-	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 15:31:01 +0200 (CEST)
-Received: by mail-wr1-x440.google.com with SMTP id l13-20020adfe9cd0000b0290119a0645c8fsf909530wrn.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 06:31:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623331861; cv=pass;
+Received: from mail-ej1-x63e.google.com (mail-ej1-x63e.google.com [IPv6:2a00:1450:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 45FF53A2D13
+	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 15:31:06 +0200 (CEST)
+Received: by mail-ej1-x63e.google.com with SMTP id am5-20020a1709065685b02903eef334e563sf9024501ejc.2
+        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 06:31:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623331866; cv=pass;
         d=google.com; s=arc-20160816;
-        b=J6CJQOKcMUF7D4hxyDqbggEropeObB7bcvMwYHFVOVku1siK5w8Rh5Yfc4E0NDZbuN
-         3t2Tgo0lE9ZowcrX5L9/V2kucY3OAioppMdR2dM6wk5Hfs+7sEUJWirME8PDhPnRKf4S
-         LJoXsRkZgmaHUrLYFwraKbJJ4kctIFWs7lHkMlV2/DRh6hX2F366aLr+ATV+NeDO0KcV
-         vlvtMbFdc3B76JWo1PNANIH9n+hr/aGPOt54oJ1sC8vDfn80iue7m1x6WIvAabrw2J+f
-         tehLh+RctarnrY4CRvwe3UgpBwWzvolP9mjnEDkcBb9ySz7sLK8lVb2/fQGmoQWNiOoz
-         LP7Q==
+        b=tvayutk33dwnTuIHfJ+fwH/NSOZumXt+1eO9HDbiN8d5ZgNdwOs3L/fRi5cptFAnAE
+         bleo//npQ4cetHXpAQTwqVNXAn3GLGXv/ip/nJrfkIkSsb2D9QavSXxRy6omavBBFwr4
+         2qbIAyHZr99VI7NlXtjx5qPmWfrs0diLo2M9ErJZUMfQsXoD8H0M+j86hJaY/sIdmByl
+         k2BTqxYqeFsZAQbafvnrEtKVm1V6UIQ1pm56QVQMY2BLiziPNbUUkFKv308Qb3njPUUD
+         dBc8OvIvSbqPpN+gXOcBOMtRxsIJA41rTGqm52c5b0FDhofhaX/Ol05AENMCher9iHBr
+         SFKA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:mime-version:message-id
-         :date:subject:cc:to:from:dkim-signature;
-        bh=cxjVRDvw0C1m2Mw15p1NA0bC+R9Q4qMTASytoJ2En/A=;
-        b=wvE0QX2JtAOmC/XtZGJOlgJxyQutlqwAM3sngZoegAelrG6ntDW9hMywzPGi7oxkDh
-         JpWVgMHDzfirWvT4T4xLju0+1DSIsD3hfbyUpNqYlrKrUXbYZVuABnEG0PTUEqjGrSQj
-         WLMcVwihIsY8j23CQenbWAMGDw+7V3yjfeOL7SUKs/DyAEfq+EXXByrSfg1BVlSl7SvE
-         6T4QNb46WKfMUBxBjdE78AFSJQ2uXPSXsXnWBc0L+rksZ8BNibFFmUHUaCBRGzb/KBHX
-         TKmo0xv+kXersV6KDhjj+dLzTEHH4d4ld28/8WjomvbShVG6+HmLG1CC+kZQpY8A+pRR
-         J0hQ==
+         :list-id:mailing-list:precedence:reply-to:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
+        bh=4xKUVBPdoc8H6lJJZW/HWVgVXyZV5TG+z0jlpy9oIm4=;
+        b=w8+rsMUl0SKmg6lJfTJkF5bARrYcKeOojGa4d2Eqs0QIUdBTFedur6FuaSxSS2rjGw
+         W1Nl40ttg5TJB46dAOVTA1uSWXr9/cTkf0xgcd3g5a83PVinM+NXFPXBlF/o8XrwVVYr
+         qv4/pXxxn2M1Le4u3dNMncgaOS1pUv3pD+JVAfCsSHdVI8RYLzAT8sgiuweHkByqycZx
+         kwtJ7jEuPMn8HJB4DT4Vn9ZulT4MKiXN2Y935pWTdpska2R3J36Z8yXfYv/ry4mZG/GP
+         8w9+zi0JG2NpX8FsJmmZUXaBzSsDGy6a4gbi5F/y5zjtZbxz34hlozJrRaslmuW3LdFE
+         kAoQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@suse.com header.s=susede1 header.b=q0MaF8Z9;
-       spf=pass (google.com: domain of pmladek@suse.com designates 195.135.220.28 as permitted sender) smtp.mailfrom=pmladek@suse.com;
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=dXZlWeOG;
+       spf=pass (google.com: domain of pmladek@suse.com designates 195.135.220.29 as permitted sender) smtp.mailfrom=pmladek@suse.com;
        dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=cxjVRDvw0C1m2Mw15p1NA0bC+R9Q4qMTASytoJ2En/A=;
-        b=T4OW73GFZHKSZ8nLanuBB9KUyy2kl4khd7MCkEtnKWuDTm0BgpIBR6DHWl93P4Hcp2
-         KLK5wLxregIPIfhmLtGcDJUicpRcZHcMzhYlLZsV3kpp+IBc4tO07rYD0Ysa3A+cCCuH
-         AAXJ+D2VP+Q3CsalArZgwnWCnMmLNBpWNrsjGUVvHrlXV6kiCdx8qgd9T0GRroSj0QjH
-         40yxjklokhKzKZQ8ZLkM8CUhfWPpzG8npHVON4trpsSm13ZpS1F7Lj1uwTYzJO9X47xE
-         g23mfBE/nM5JcWsBCEX4PKzsy9e7h7BlYYA8icz6dQU8165onSGz4Q4kydOfc2CxTipO
-         ZC8g==
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :reply-to:precedence:mailing-list:list-id:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=4xKUVBPdoc8H6lJJZW/HWVgVXyZV5TG+z0jlpy9oIm4=;
+        b=gOX29njO7VWoLJqUUycgW7CE7fxISHaIIwt1vU0vgQ16nikLRg9hYRvxfjImm0qhCt
+         UVM0kt5LtxD+XArHSul0Qa0T8cOxO7Aj/WzllFMDXw/C2C7Fl18WRNygLaupxe44dJve
+         GezrHQAszwdfjHmBPP6rpxh37cmic76utHsbRyD84c/0ddDzj9OfLn7CJ3cYToAivaY9
+         keDFG1Cf7dXDGE4IbDYHp3GshL1IfSe79MDec1FPl4f8W8Sf6oQu9ucK6yvV4yYsa5SH
+         fMSnCIPN4DpCFy10GDlrkZuUM78LnX6FuA0+9cLlPEBPf8Zalxjc+lL8zsIBdICVSgH6
+         8aYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cxjVRDvw0C1m2Mw15p1NA0bC+R9Q4qMTASytoJ2En/A=;
-        b=DydSGCSQVMTFuT0TzkN2dhCNaXz9bB+jCXNMbTXMA3TvhLXkYFKE6ugO0nEQtgh3My
-         Q+mWWdfPsEXgGgWl4TSR8kv98yUQrn+/v1LPx8P4MeLvTrJj7jwcq5Ux6TrYEQUf2qmt
-         C5BS9oDTHNduAVzXo2RbjdxE/awSBDZiwvVWt2yIK/Ykc5DzEzhM2kIBDkK3J5ehGoev
-         mF5zvMdvEyzplt5l0YLW3CVToWbq/OYoPVUXUEFBVFdp+r+gwEvuv4NyZjNyclpHw58+
-         D7I2Ph/TjSB3WAUx5MPpSKruIgTkTEdfgVAtHJR9WxyHBmYyrngH0N/JpD9Sn2AJRCVl
-         LVYQ==
-X-Gm-Message-State: AOAM533QRDhTq1IXan1X5SmwpaEAoOQZzspT4HKQeqFt4MaSYID9XkZM
-	l5xJAydGDkWczlQW+piJRGU=
-X-Google-Smtp-Source: ABdhPJwcxzJt+ivnnSr+tVETAN5RjvCNwgH785pDqlPfigVj0iznBq1kUP2/FW4pSQoMu5wjgLzN2g==
-X-Received: by 2002:a5d:6d8a:: with SMTP id l10mr5686608wrs.63.1623331861251;
-        Thu, 10 Jun 2021 06:31:01 -0700 (PDT)
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=4xKUVBPdoc8H6lJJZW/HWVgVXyZV5TG+z0jlpy9oIm4=;
+        b=lelnm1sQ+TtUcmgJZ3vbGwkX3dnHt41wY2gU/q/x9+uFgZdLOj0zX2bY4eCPhEtWtX
+         A3Iwz+bKfmyy1Ycpj84Vn2unD2uJ7twfSnWaU/npjSJZNonuNfXVeV0UtALTh3sFOQJZ
+         b8nQUYtEZAk7IzrEPrrFCJNx/ngfq0Mw1gZedIKy++jI33Sfg20Jt3ohl41ZWNa9q8bo
+         nsnSHYtfh5PE4eKm8XxgvKxdvGJnK7dG+oES1okRVfGFS/1AkjQp5lMo/Z4gy2Ln7eyn
+         klKLRdWu1ysi1CfvCx6U3wv/WfveqrnxCAc4ALUYELsJ0IFeupKvB9P616Id8pM+3Pw5
+         Zo2Q==
+X-Gm-Message-State: AOAM532OVEbK0Vd2qXIbxEezS6Y9TblmLIvjsuMxb7ldPDi6VoxAswPo
+	lDvtipj2WU9B6InXlK0n91M=
+X-Google-Smtp-Source: ABdhPJwLLhQL9sSMdH3Oc6aAxoJPWgN9+jVwBDEck/wgNSAjXg2hXI29fDemfT9b0kQD9R/WM85Vlg==
+X-Received: by 2002:a17:906:8810:: with SMTP id zh16mr4417471ejb.268.1623331866078;
+        Thu, 10 Jun 2021 06:31:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:c0d1:: with SMTP id s17ls1288494wmh.0.gmail; Thu, 10 Jun
- 2021 06:31:00 -0700 (PDT)
-X-Received: by 2002:a7b:c44f:: with SMTP id l15mr15290427wmi.151.1623331860422;
-        Thu, 10 Jun 2021 06:31:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623331860; cv=none;
+Received: by 2002:a17:906:1f09:: with SMTP id w9ls2213134ejj.11.gmail; Thu, 10
+ Jun 2021 06:31:05 -0700 (PDT)
+X-Received: by 2002:a17:907:9618:: with SMTP id gb24mr4590188ejc.111.1623331862440;
+        Thu, 10 Jun 2021 06:31:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623331862; cv=none;
         d=google.com; s=arc-20160816;
-        b=lrbDZnvqZgAVT9M/CDJlqHmFqOkeDqI993IIxf1FkzUcpyQ7hI0NaTHjseb91EPbBJ
-         z/fg0XQdnrEoASyRzGaAcsFPKJme8L2a2Re19i6kxoMqE1vj0XWzo2OXnsI2qZ1+HGKA
-         8eGENVn8YuaWeUKcDkxTp0fLpHTbXj7a2V7Pwwqdjqko+wBKGEo/3WTJ2XKK8gX/1yxu
-         XDgBlpQHPw8OgUTbTOZVEll9j0nh8/ooa84BXJy++p11iO1IieK3RlkCbUM7JPDmlhQF
-         vUuKigKiMf3M2y9GDtcy+j3PeDZHjsdbl7NTnBaBtTezGd2qOvqS3B9u7kwH2TvZxBl0
-         F7NQ==
+        b=lGMFqhuStCktPgkfoUgz8LUPaENWjLLCN4m0vI8AXXQIpZEV2+flG6fwVSr/PgmE7q
+         HyyKTomItYfWBALJFZ56ipdtXUTUGedv3rT7EVsb1p6musOMH8Z9NGAAK58gDLhmj+s0
+         Q2buF0ECtv0sbdHLjVrNnqG/oTKvRmUqZvYjk/QzV6K8T4Jry6xYKa3fJCaM5Pool9Ba
+         TWIJ2veYL7++tx/7j/9jG/snfPWpL0vf9qw7mA13jM9FvYOMogTgVHaQlzkEzW7vMwEK
+         JHE8zKsi91wsGWCbzk914MdBVuqErBGUZKdD6cQ9K2AjIpdGMAU+desn24wD1/WhGcR/
+         /UEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=EgJC45Dypvp92B1Ue8sTD50N06sDV0MZrg+QBunGi30=;
-        b=CRxcui3MN8whvMCPeA+RkfVC1XmIbVxPabi1PxV3b+Rmh0113/61uHfYyDJjlTy63d
-         LxrXmca+s/8GbySFPe/+Ay7/ZU545e9sQfII/QAmGA93iL0nO72KvgZQPLRXsNcRGE5n
-         88hxHG9OMOO0CyYodqItNIn+KOYLgSJ0jXn0Hij0RFmIVRILNP7zRHlSOMO7XgNbf1iR
-         sTwZlc3yoO1vzA3saYjBnfZ9PxDdzIK4YTm6pVflWJoESH6fpn1j+23e4oJ388KmWajh
-         9Pss2NBdVT9RSGCuFpym82lTozgyEPgMQ4cfXSLfASjkChh3iwUmolDS1PdMG0d+e5Pl
-         vUlQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=7s7gQDEbbPDq7VDl9eHrMUvbWRpohvMX+0UnONTmQ4s=;
+        b=Wo+1Paf5aay785FYjByTOrynfOeZHPe4ZlhIu+xYoknZtlF79oi1qu/RBJdjJh1BC7
+         0h8FLQykyXMUvcoG4VVOt+R53C7w9QF8LmJZzliGI5+FdEjsNPF+JNXwyO4bNHVwA8Mj
+         9vTV30IHyp0gsXvs6j2pnjkcnmhFf1Gdku8yW90tbZxGRngMdueGZEou7EMysgEv4IrN
+         yeIYsbWibGTSPKvzU8VGGu+fElJc03TRmW6N53stzKjIVoDMaPH47KbEjI8baiIo7Rec
+         SZy0LvZ4AIP8ETn/OglVxwX1DNEc8XyApiBUjBIJmZ10J8MnHhS0K/IasT9kq4RhHeti
+         ACnw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@suse.com header.s=susede1 header.b=q0MaF8Z9;
-       spf=pass (google.com: domain of pmladek@suse.com designates 195.135.220.28 as permitted sender) smtp.mailfrom=pmladek@suse.com;
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=dXZlWeOG;
+       spf=pass (google.com: domain of pmladek@suse.com designates 195.135.220.29 as permitted sender) smtp.mailfrom=pmladek@suse.com;
        dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
-Received: from smtp-out1.suse.de (smtp-out1.suse.de. [195.135.220.28])
-        by gmr-mx.google.com with ESMTPS id g17si326764wmq.4.2021.06.10.06.31.00
+Received: from smtp-out2.suse.de (smtp-out2.suse.de. [195.135.220.29])
+        by gmr-mx.google.com with ESMTPS id w2si176685edi.2.2021.06.10.06.31.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Jun 2021 06:31:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pmladek@suse.com designates 195.135.220.28 as permitted sender) client-ip=195.135.220.28;
+        Thu, 10 Jun 2021 06:31:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pmladek@suse.com designates 195.135.220.29 as permitted sender) client-ip=195.135.220.29;
 Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
-	by smtp-out1.suse.de (Postfix) with ESMTP id 18CF421996;
-	Thu, 10 Jun 2021 13:31:00 +0000 (UTC)
+	by smtp-out2.suse.de (Postfix) with ESMTP id D495A1FD37;
+	Thu, 10 Jun 2021 13:31:01 +0000 (UTC)
 Received: from alley.suse.cz (unknown [10.100.224.162])
-	by relay2.suse.de (Postfix) with ESMTP id C36CAA3B8A;
-	Thu, 10 Jun 2021 13:30:59 +0000 (UTC)
+	by relay2.suse.de (Postfix) with ESMTP id 9B4C9A3B9D;
+	Thu, 10 Jun 2021 13:31:01 +0000 (UTC)
 From: "'Petr Mladek' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	Martin Liu <liumartin@google.com>
@@ -112,15 +113,17 @@ Cc: Oleg Nesterov <oleg@redhat.com>,
 	clang-built-linux@googlegroups.com,
 	linux-kernel@vger.kernel.org,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH 0/3] kthread_worker: Fix race between kthread_mod_delayed_work() and kthread_cancel_delayed_work_sync()
-Date: Thu, 10 Jun 2021 15:30:48 +0200
-Message-Id: <20210610133051.15337-1-pmladek@suse.com>
+Subject: [PATCH 1/3] kthread_worker: Split code for canceling the delayed work timer.
+Date: Thu, 10 Jun 2021 15:30:49 +0200
+Message-Id: <20210610133051.15337-2-pmladek@suse.com>
 X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20210610133051.15337-1-pmladek@suse.com>
+References: <20210610133051.15337-1-pmladek@suse.com>
 MIME-Version: 1.0
 X-Original-Sender: pmladek@suse.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@suse.com header.s=susede1 header.b=q0MaF8Z9;       spf=pass
- (google.com: domain of pmladek@suse.com designates 195.135.220.28 as
+ header.i=@suse.com header.s=susede1 header.b=dXZlWeOG;       spf=pass
+ (google.com: domain of pmladek@suse.com designates 195.135.220.29 as
  permitted sender) smtp.mailfrom=pmladek@suse.com;       dmarc=pass
  (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
 X-Original-From: Petr Mladek <pmladek@suse.com>
@@ -138,47 +141,85 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This patchset fixes the race between kthread_mod_delayed_work() and
-kthread_cancel_delayed_work_sync() including proper return value
-handling.
+Simple code refactoring as a preparation step for fixing a race
+between  kthread_mod_delayed_work() and
+kthread_cancel_delayed_work_sync().
 
-The original fix, from Martin Liu [1], opened discussion [2] about
-the return value. It took me some time to realize that the original
-patch was not a correct fix.
+It does not modify the existing behavior.
 
-The problem is that the return value might be used for reference counting
-of the queued works. The return value is boolean. It could distinguish
-only two situations where the work is:
+Signed-off-by: Petr Mladek <pmladek@suse.com>
+---
+ kernel/kthread.c | 46 +++++++++++++++++++++++++++++-----------------
+ 1 file changed, 29 insertions(+), 17 deletions(-)
 
-    + newly queued => inc(refcnt)                   (ret == false)
-    + was queued, removed, added => nope(refcntn)   (ret == true)
-
-The original fix, introduced another situation:
-
-    + was queued, removed => dec(refcnt)   (ret == ???)
-
-The proper solution is to remove the work from the list only when
-it can be added again. Fortunately, it can be fixed relatively
-easily. I have split it into 3 small steps.
-
-[1] https://lore.kernel.org/r/20210513065458.941403-1-liumartin@google.com
-[2] https://lore.kernel.org/r/20210520214737.MrGGKbPrJ%akpm@linux-foundation.org
-
-
-Petr Mladek (3):
-  kthread_worker: Split code for canceling the delayed work timer.
-  kthread: Prevent deadlock when kthread_mod_delayed_work() races with
-    kthread_cancel_delayed_work_sync()
-  kthread_worker: Fix return value when kthread_mod_delayed_work() races
-    with kthread_cancel_delayed_work_sync()
-
- kernel/kthread.c | 96 +++++++++++++++++++++++++++++++-----------------
- 1 file changed, 63 insertions(+), 33 deletions(-)
-
+diff --git a/kernel/kthread.c b/kernel/kthread.c
+index fe3f2a40d61e..121a0e1fc659 100644
+--- a/kernel/kthread.c
++++ b/kernel/kthread.c
+@@ -1092,6 +1092,33 @@ void kthread_flush_work(struct kthread_work *work)
+ }
+ EXPORT_SYMBOL_GPL(kthread_flush_work);
+ 
++/*
++ * Make sure that the timer is neither set nor running and could
++ * not manipulate the work list_head any longer.
++ *
++ * The function is called under worker->lock. The lock is temporary
++ * released but the timer can't be set again in the meantime.
++ */
++static void kthread_cancel_delayed_work_timer(struct kthread_work *work,
++					      unsigned long *flags)
++{
++	struct kthread_delayed_work *dwork =
++		container_of(work, struct kthread_delayed_work, work);
++	struct kthread_worker *worker = work->worker;
++
++	/*
++	 * del_timer_sync() must be called to make sure that the timer
++	 * callback is not running. The lock must be temporary released
++	 * to avoid a deadlock with the callback. In the meantime,
++	 * any queuing is blocked by setting the canceling counter.
++	 */
++	work->canceling++;
++	raw_spin_unlock_irqrestore(&worker->lock, *flags);
++	del_timer_sync(&dwork->timer);
++	raw_spin_lock_irqsave(&worker->lock, *flags);
++	work->canceling--;
++}
++
+ /*
+  * This function removes the work from the worker queue. Also it makes sure
+  * that it won't get queued later via the delayed work's timer.
+@@ -1106,23 +1133,8 @@ static bool __kthread_cancel_work(struct kthread_work *work, bool is_dwork,
+ 				  unsigned long *flags)
+ {
+ 	/* Try to cancel the timer if exists. */
+-	if (is_dwork) {
+-		struct kthread_delayed_work *dwork =
+-			container_of(work, struct kthread_delayed_work, work);
+-		struct kthread_worker *worker = work->worker;
+-
+-		/*
+-		 * del_timer_sync() must be called to make sure that the timer
+-		 * callback is not running. The lock must be temporary released
+-		 * to avoid a deadlock with the callback. In the meantime,
+-		 * any queuing is blocked by setting the canceling counter.
+-		 */
+-		work->canceling++;
+-		raw_spin_unlock_irqrestore(&worker->lock, *flags);
+-		del_timer_sync(&dwork->timer);
+-		raw_spin_lock_irqsave(&worker->lock, *flags);
+-		work->canceling--;
+-	}
++	if (is_dwork)
++		kthread_cancel_delayed_work_timer(work, flags);
+ 
+ 	/*
+ 	 * Try to remove the work from a worker list. It might either
 -- 
 2.26.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210610133051.15337-1-pmladek%40suse.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210610133051.15337-2-pmladek%40suse.com.
