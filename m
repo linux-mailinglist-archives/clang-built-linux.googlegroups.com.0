@@ -1,158 +1,141 @@
-Return-Path: <clang-built-linux+bncBDO4P7WH2UJRBQ4IR2DAMGQEOPCRHJQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDMMLW4BXYHBBKMRR2DAMGQETHRONFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x940.google.com (mail-ua1-x940.google.com [IPv6:2607:f8b0:4864:20::940])
-	by mail.lfdr.de (Postfix) with ESMTPS id A13993A459F
-	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 17:41:56 +0200 (CEST)
-Received: by mail-ua1-x940.google.com with SMTP id g17-20020ab072d10000b029024b77c1dbb6sf2721320uap.1
-        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 08:41:56 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623426115; cv=pass;
+Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
+	by mail.lfdr.de (Postfix) with ESMTPS id 592A63A45E2
+	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 18:00:43 +0200 (CEST)
+Received: by mail-pl1-x640.google.com with SMTP id 31-20020a1709020022b02900eeddd708c8sf2881978pla.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 09:00:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623427242; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NTc4B8WPRYFM3ApFiy1Voqy/J0fvRwHWzOUPCAJN0ob/wiczRr19fdqHud34SbAfC4
-         fdZdBviYEJuHRfXXucBnxVDF3YR5aT+72AMN3+g5gO5B69QPT7obQEJIz/ou/eqcRPFj
-         +I2U4QDTmBvhzWud3RP1ZHvdZ2XaQH76dJ0t6SZxalzxHG2BHU6mL9uk+5PktFgoZObs
-         OuieB1iZ30eEQO/+IkNGyUbgcZpOo28ljcCDO2jjeC0xN1Mrv6EuY8ZA63lLKeRTodAl
-         5g1gfEpQ/d5tnRorUDtwY3i4omn0PByxS9P3frdMaT7DAm/3aYFTukU2GmzKSNBrJ/B3
-         lZsQ==
+        b=DY/+lT2iQWqq/tXGHXAnS5Y33SimQmUBLQy60gH6aJx5Icn/4KvvAEr80epDsWNH0M
+         FB4goj2edSY0ooCzj9bbcmjcYNaE3J7TV+tVg0raqP4snRKMDJflpSYOfZ7wZE8MtFau
+         pFxAsh1oLsT2JrlQFUbOM5q3i2nctpRmvpXS9vktpK4yqgFp1SBAEagAkQkR0D8n3cix
+         W/yvFW+2wpndXty3DFHQsz2ml4tAV/AnxosG0CSWmumF5+b7QxW44Met7wPa6A9Ca3xp
+         YU6OZdvaPnTCQvYvlKl2hf2zOiUG9jnIaLioIbKDGAjas+PxCXtN2+HE7xob0jLXtyFJ
+         TD6g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :date:cc:to:from:subject:message-id:sender:dkim-signature;
-        bh=PC2TO9jMT/mh5Au/vO+7XFaJAOgeUp54veIsA2rtL+8=;
-        b=JKbqKsnCfkZnlzPv+vdtAwLW4bdFvCpuBLBLM86yCr4lK+RVlJv+Fks+WHJShYNjPb
-         NBUKse9RNTnzsAAsjp/Uur9bRERHT4XGfokhtfGDmFbmOFDfPxKBdXfbniWvMyhBCwdW
-         jEsuaNgJTDckTOe7eii4yoEZ0K8lc9kTQrJwuszvBZqmlTt8z86UsQCKSXMbMkgqcQnL
-         B2nprcWZICUDuZOitN1kfbMyoitluMjJElvIwJYDUf0rMq4NMMJGGoPJiFmhAn/JdV1o
-         9Vr3wpA77HxUtwsLiF2bnEQN+CGcL2IDE3dOm+TapdI0/sMZORNHgyxEITlCHqNYHziv
-         6oqg==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=MA+IKwPdLbyYaDr3ZvUb/El8nut6cE4BYL3ia1QmbHU=;
+        b=lnidTDY9MnrH7r2regT2IfiI3zloUV573AXreGJf7S30B9NMpVcyZU2BmQ4WZseX5L
+         6u74CLJZ+cjCAVT+IQxmnasrGZDAO5jBkUK7HMZA1NzyCgswJICSoT0gCpUMOZW0cphZ
+         U5f77TpABTgPDphB9Kgg3vnbC25GSpmsf1mIj/nHq5Zc248Z6IrhhZRVxJqcPL2Zs04T
+         YA8jwiLIZA5Id0jIVcItxzSA/SItbtDsjCeqUIdYjrHCjfRz1BCp/kL0YcgFRHDGanTx
+         h3fY/GTIeGHJTpVj3GRtAeZmRUhhiEgw1nJ/MrTA2e5H7tQrry9uxwKgLZsxpBQnpL4k
+         MNLA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=b7fIZQ06;
-       spf=pass (google.com: domain of zohar@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=zohar@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=XGyPAZCZ;
+       spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PC2TO9jMT/mh5Au/vO+7XFaJAOgeUp54veIsA2rtL+8=;
-        b=BWykpKFSR84K1zH2/2G8NVnqtK2ChHdQJcKU59TVbAWx/gslHRKxC31Zc5/710y0nL
-         uchlp9lYjRoU2jK86RoTnF66tVmxjoM0RvlyJpJakaflh7DmI2vQQ9XR4TZvCh3ZIP+S
-         BR9H56x4ke06Q48q6kKuEYydZK082Ea2AeJhO4yGnbxpCgrnmeey2CVZ7SaDwXWurTRx
-         hCajSYBvkdA0GrEBdtRIX9/ye1D1Q/axl3lsoKodTGvvm7L48ASV2NApIYC/G1QHmepI
-         6GOJTsjFhzZ2Hue6OB3cHizg9dsut+6VRlCXOeyeC7s6s5gVr0/Be03xhd0Rp+YJp0Cw
-         afBg==
+        bh=MA+IKwPdLbyYaDr3ZvUb/El8nut6cE4BYL3ia1QmbHU=;
+        b=PppaAfHXqEKxOEaLwidlUdiB3MQKQt0KWUAozRUnM5nJz3/n3mUdG5Po9WOapZHboW
+         V+fGv0TRTwKZQqULF+znzrTSRMGlek7G5bsO/Pm1J9A3E947hFHSdxgm+Qc02shW+R5H
+         eZkf492IcN5afsR/JC5xqfVWmP82pLb1vdpOzVl10E4NuG9DvNrbUBVcUXyvMViu+CRc
+         7Zdu5aofbapK5TGViLme21iwMF+YRqG3XyWzvkiTFx2qGQTrAWZSb5NJZdns3w5cEAmd
+         oM2Z2kf9eCX51EdsM7uzith1rzS16p0C3hClvpUf/5+AVxf4Be2RJzG0BP8Bb6qKaVHb
+         BgSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=PC2TO9jMT/mh5Au/vO+7XFaJAOgeUp54veIsA2rtL+8=;
-        b=OekgnpAdEKzhfzv0Sj8lwVa5E7BOnYAsvCkeYveiYfTiqavMCt641LexcSH+GUrgUD
-         8hRylJoX9ZlkzHJ2cJLlLnnaV82jV0UD0hTWto/9f1yrrLFRfcBNEOM3RMQi06fbZ5fg
-         ZXCZGr+5TfsrfmXw53NdHJ8YM4W5r3P4EN/2oQLS4QIdDWwdVsRvyljtZIyGiNJt52MH
-         +8ndJFjTRlIF1tkOe3C9eYXtcTXOvMW/EbtxFtvywIlgfkueTSHH4jdispY8KdUkfWzn
-         GYpAuNXg0BtfOeuzw8i2h1T40yuy8fUev+0EAuXQicPGE2RTiU2MWQ3EVoC2LTA2cMcG
-         5k7w==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=MA+IKwPdLbyYaDr3ZvUb/El8nut6cE4BYL3ia1QmbHU=;
+        b=q7wNX2kMa9HrqdieLvavT7qV7ItYWsTL3Ak2QKA5gLVdrY2YRe91cPTuKhLeEHr5mr
+         jA2mb+59InVDLtB6W1F4SiKo42KZCrqoWb2ufm9FZqSmHnLiTDjE0OppdvpxNDCWeEn9
+         R2roQjRJChpEHKquqdZZKp7MyKkkkfSx+Hs/Oa90Kr0cnX9uCAS6dQZBft8MsqPcQuDK
+         e1H/tiXNeU/2iKV0l1J+c3Zspdeh2F0DOHSPdVKzSHIzf58MzKTltl58jAxWQu/kBpI2
+         WD6TvSta1j4GG3MaRJt7SIwYwjg0e0xckZd8ivT4RHWnE880oGlolJG00roVbGiWXiYm
+         RDCQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532qWcYdPUEx2c8OsdQI4i7MeScGODB2mblHRuSyLFm2nXNsWIVP
-	yPSxwMq+k1n2QTeK/+Y7wdM=
-X-Google-Smtp-Source: ABdhPJzSRpHWoGXc/o40hlLjRkVfEUqwTzqAsUdY5CrCQ4TDgUgLy2XdNOHWIf/A8m15RrHOUNvEKw==
-X-Received: by 2002:ab0:6848:: with SMTP id a8mr4101532uas.110.1623426115492;
-        Fri, 11 Jun 2021 08:41:55 -0700 (PDT)
+X-Gm-Message-State: AOAM53321hhRNAYliH0qr8v9ZP80YmX0I8u31+08GAU7zDF7hm90Onpa
+	Q6HX9HnUgcnn5pZLoivSuWM=
+X-Google-Smtp-Source: ABdhPJyJxRjKdkrWLKS7Nws/dIAivCR2yxmfgH/67t+7wurRoMT7P/Hm40VSZuKIHzTkpX+PyfKU1w==
+X-Received: by 2002:a17:90b:4b51:: with SMTP id mi17mr9858058pjb.109.1623427241838;
+        Fri, 11 Jun 2021 09:00:41 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:e017:: with SMTP id c23ls2494922vsl.7.gmail; Fri, 11 Jun
- 2021 08:41:55 -0700 (PDT)
-X-Received: by 2002:a67:cb09:: with SMTP id b9mr10688960vsl.25.1623426114942;
-        Fri, 11 Jun 2021 08:41:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623426114; cv=none;
+Received: by 2002:a17:902:b48a:: with SMTP id y10ls5668385plr.7.gmail; Fri, 11
+ Jun 2021 09:00:41 -0700 (PDT)
+X-Received: by 2002:a17:903:4112:b029:114:8409:147b with SMTP id r18-20020a1709034112b02901148409147bmr4408542pld.55.1623427240747;
+        Fri, 11 Jun 2021 09:00:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623427240; cv=none;
         d=google.com; s=arc-20160816;
-        b=v8jW86xZWPS63VSfBeQWNhrDcpyjFQRIMx1rjQcdw2wLRix6XCju5TwjcXfLd5EdBX
-         5Xed3zqZR+yCHZQ62F6BTJYW68lHg4+FN0OevStMP7IUsObbKCfOTAwJposjew6EU6SL
-         E3afIxU3eFB2QBbjdqtmcJVnlRDRqLvws8e+M7JZwsGFoAe+BiwhjIILFMdJX82o4CKB
-         IguaPAMYIAEELqkfO/w4xUy20BojhYN15gr1uU3t8SZJmZdnQg+PYmIw8hZK5brQoNf1
-         0ksQV88HtQK88OGe5B4+rO+ugRxOxf1/zdq46/zPzlUHqhoRykbB5iTwsrXMPhpCuMB3
-         hjXw==
+        b=vft/QHDB4t0R5rKzz+VdMXyy9HHIh6Hfb4MIfrj/z5HPZh5yHrRLXLb1HpKQJh/1uV
+         d9YH3wkNhwAJ3VQM62clfUgpb/OAq/5eLnRnQOlFvn/3b7HuuClQDNMr6ilgYik+VTjK
+         wdAtHVLT87HKnWWdK9CL58dKAtHvsRrH/BeuSpvvX14ml3nL+zkoNAKWzv89QvFkYc/a
+         JwwJ9/mV2f5F2sx9NNXP5s6ZhpcEmhqat+55oCL5eBnq6L3jiJV59CvZjN/pu6GfbLXr
+         TeBbahyPgWfvODpME7bGOdBoijzJwZ7zay6IHnC2m3GmOo4u8HiPJlpggqZ5eJ56UXJw
+         IYEw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:date
-         :cc:to:from:subject:message-id:dkim-signature;
-        bh=sIHlhEnNqZ4ONfMuHAGdc+iPb+qm+WDjDLJwBrclDdE=;
-        b=0WmJMLYEfYrUEZE8GenOpLeaUswfrL57vSz7dC9g6x+go60zsTLDGARkmuZ6gE5seO
-         q2rW7CiNdytYnzvT73AoB/vrJkux/ZPUMaZeqvEBLJLinVVrwbJhd7+lPMN6t1V7Af03
-         6fO7rvAPPLUwvEbPryOU8r6GFH3fH5O4GwGCFoR89nyddVja9bH+7mgblmAsMtM/FZD+
-         U9abp7ybbhYANEi1iNiDN4Y0U44Xk2lxKL3B3Qmzu0/OOjtFSDoPssU5Yee1J1swd65Q
-         SrDhaZu1cV8UTwDWDzZdDWyhs8HyGFqm36A86KP2UJb1kwL36QwHWEJOXnPOgc2LgSjk
-         Xx8Q==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=lAa3ft1eYwkyz9QnKqWxR3ccc81UEV4vprJdAD30YM4=;
+        b=aZqMl17NgnE2LavsBsgySD9/72DAIHmAv/kuEfmahuTG7jJMikI8Las0WL5iyg5CrQ
+         fZpeRCvfLYAK6miU1OHsOPuqup9bj6KmbRckVPOftMku85AyOM6iK0mdxJz1moeLKm9C
+         lUpwMUzySRYJU9Z9pk08KJyJ56VF0YumE3JpOtFSVdvsiKLYd7Q08YXkyCcuA5hkrQ/K
+         /qVFwp23Q3Y5KvF1qvwiS01e5u9mut7JcPrxVZJZmi/v+P8RuRM69+7ZSSsLo0mI8d6g
+         16o2Urxg2U8rq3a7ZTaByBrsXlfQ4NvcbIHgwznJwpNPFxoeVPzXYKkn5YnqB2J0Gp2L
+         WgxQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=b7fIZQ06;
-       spf=pass (google.com: domain of zohar@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=zohar@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com. [148.163.156.1])
-        by gmr-mx.google.com with ESMTPS id 8si630932vko.4.2021.06.11.08.41.54
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=XGyPAZCZ;
+       spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id mm4si1333177pjb.2.2021.06.11.09.00.40
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 11 Jun 2021 08:41:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of zohar@linux.ibm.com designates 148.163.156.1 as permitted sender) client-ip=148.163.156.1;
-Received: from pps.filterd (m0187473.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 15BFXo09101096;
-	Fri, 11 Jun 2021 11:41:54 -0400
-Received: from ppma03fra.de.ibm.com (6b.4a.5195.ip4.static.sl-reverse.com [149.81.74.107])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 394aahrsuh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Jun 2021 11:41:53 -0400
-Received: from pps.filterd (ppma03fra.de.ibm.com [127.0.0.1])
-	by ppma03fra.de.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 15BFfoKN017488;
-	Fri, 11 Jun 2021 15:41:50 GMT
-Received: from b06cxnps4076.portsmouth.uk.ibm.com (d06relay13.portsmouth.uk.ibm.com [9.149.109.198])
-	by ppma03fra.de.ibm.com with ESMTP id 3900w8syhq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Jun 2021 15:41:50 +0000
-Received: from d06av25.portsmouth.uk.ibm.com (d06av25.portsmouth.uk.ibm.com [9.149.105.61])
-	by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 15BFfmG419792216
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Jun 2021 15:41:48 GMT
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6278311C04C;
-	Fri, 11 Jun 2021 15:41:48 +0000 (GMT)
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9E44211C04A;
-	Fri, 11 Jun 2021 15:41:46 +0000 (GMT)
-Received: from sig-9-65-207-168.ibm.com (unknown [9.65.207.168])
-	by d06av25.portsmouth.uk.ibm.com (Postfix) with ESMTP;
-	Fri, 11 Jun 2021 15:41:46 +0000 (GMT)
-Message-ID: <0dc1d1305333a38f87029c3444fdb12c966c0906.camel@linux.ibm.com>
-Subject: Re: [PATCH 1/2] ima: Fix warning: no previous prototype for
- function 'ima_add_kexec_buffer'
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Lakshmi Ramasubramanian <nramas@linux.microsoft.com>, robh@kernel.org,
-        bauerman@linux.ibm.com
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-        linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
-        tusharsu@linux.microsoft.com
-Date: Fri, 11 Jun 2021 11:41:45 -0400
-In-Reply-To: <20210610171553.3806-1-nramas@linux.microsoft.com>
-References: <20210610171553.3806-1-nramas@linux.microsoft.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Mailer: Evolution 3.28.5 (3.28.5-14.el8)
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: nIZyly8vkyCkeqHMNY48iVKRMbHB_39K
-X-Proofpoint-GUID: nIZyly8vkyCkeqHMNY48iVKRMbHB_39K
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 11 Jun 2021 09:00:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 7AC73613EE;
+	Fri, 11 Jun 2021 16:00:39 +0000 (UTC)
+From: Leon Romanovsky <leon@kernel.org>
+To: Doug Ledford <dledford@redhat.com>,
+	Jason Gunthorpe <jgg@nvidia.com>
+Cc: Leon Romanovsky <leonro@nvidia.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Kees Cook <keescook@chromium.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Adit Ranadive <aditr@vmware.com>,
+	Ariel Elior <aelior@marvell.com>,
+	Christian Benvenuti <benve@cisco.com>,
+	clang-built-linux@googlegroups.com,
+	Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>,
+	Devesh Sharma <devesh.sharma@broadcom.com>,
+	Gal Pressman <galpress@amazon.com>,
+	linux-kernel@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	Michal Kalderon <mkalderon@marvell.com>,
+	Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>,
+	Mustafa Ismail <mustafa.ismail@intel.com>,
+	Naresh Kumar PBS <nareshkumar.pbs@broadcom.com>,
+	Nelson Escobar <neescoba@cisco.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Potnuri Bharat Teja <bharat@chelsio.com>,
+	Selvin Xavier <selvin.xavier@broadcom.com>,
+	Shiraz Saleem <shiraz.saleem@intel.com>,
+	VMware PV-Drivers <pv-drivers@vmware.com>,
+	Yishai Hadas <yishaih@nvidia.com>,
+	Zhu Yanjun <zyjzyj2000@gmail.com>
+Subject: [PATCH rdma-next v2 00/15] Reorganize sysfs file creation for struct ib_devices
+Date: Fri, 11 Jun 2021 19:00:19 +0300
+Message-Id: <cover.1623427137.git.leonro@nvidia.com>
+X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.761
- definitions=2021-06-11_05:2021-06-11,2021-06-11 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=812 adultscore=0
- malwarescore=0 suspectscore=0 mlxscore=0 phishscore=0 priorityscore=1501
- spamscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0 clxscore=1015
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2104190000
- definitions=main-2106110097
-X-Original-Sender: zohar@linux.ibm.com
+X-Original-Sender: leon@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ibm.com header.s=pp1 header.b=b7fIZQ06;       spf=pass (google.com:
- domain of zohar@linux.ibm.com designates 148.163.156.1 as permitted sender)
- smtp.mailfrom=zohar@linux.ibm.com;       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+ header.i=@kernel.org header.s=k20201202 header.b=XGyPAZCZ;       spf=pass
+ (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=leon@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -165,31 +148,120 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 2021-06-10 at 10:15 -0700, Lakshmi Ramasubramanian wrote:
-> The function prototype for ima_add_kexec_buffer() is present
-> in 'linux/ima.h'.  But this header file is not included in
-> ima_kexec.c where the function is implemented.  This results
-> in the following compiler warning when "-Wmissing-prototypes" flag
-> is turned on:
-> 
->   security/integrity/ima/ima_kexec.c:81:6: warning: no previous prototype
->   for function 'ima_add_kexec_buffer' [-Wmissing-prototypes]
-> 
-> Include the header file 'linux/ima.h' in ima_kexec.c to fix
-> the compiler warning.
-> 
-> Fixes: dce92f6b11c3 (arm64: Enable passing IMA log to next kernel on kexec)
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Lakshmi Ramasubramanian <nramas@linux.microsoft.com>
+From: Leon Romanovsky <leonro@nvidia.com>
 
-Thanks!
+Changelog:
+v2:
+ * Make port_attributes visible in init_net namespace.
+ * Fixed hfi1 compilation warning.
+v1: https://lore.kernel.org/lkml/cover.1623053078.git.leonro@nvidia.com
+ * Added two new patches to the series
+     RDMA/core: Allow port_groups to be used with namespaces
+     RDMA: Remove rdma_set_device_sysfs_group()
+ * Fixed missing ops definition in device.c
+ * Passed proper internal validation and review
+ * changed EXPORT_SYMBOL to be EXPORT_SYMBOL_GPL for the ib_port_sysfs_create_groups
+ * qib was converted to use .is_visible() callback together with static
+   attribute_group declaration.
+v0: https://lore.kernel.org/linux-rdma/0-v1-34c90fa45f1c+3c7b0-port_sysfs_jgg@nvidia.com/
 
-Applied to: git://git.kernel.org/pub/scm/linux/kernel/git/zohar/linux-
-integrity.git next-integrity-testing and next-integrity branches.
+-------------------------------------------------------------------------------
+From Jason,
 
-Mimi
+IB has a complex sysfs with a deep nesting of attributes. Nathan and Kees
+recently noticed this was not even slightly sane with how it was handling
+attributes and a deeper inspection shows the whole thing is a pretty
+"ick" coding style.
+
+Further review shows the ick extends outward from the ib_port sysfs and
+basically everything is pretty crazy.
+
+Simplify all of it:
+
+ - Organize the ib_port and gid_attr's kobj's to have clear setup/destroy
+   function pairings that work only on their own kobjs.
+
+ - All memory allocated in service of a kobject's attributes is freed as
+   part of the kobj release function. Thus all the error handling defers
+   the memory frees to a put.
+
+ - Build up lists of groups for every kobject and add the entire group
+   list as a one-shot operation as the last thing in setup function.
+
+ - Remove essentially all the error cleanup. The final kobject_put() will
+   always free any memory allocated or do an internal kobject_del() if
+   required. The new ordering eliminates all the other cleanup cases.
+
+ - Make all attributes use proper typing for the kobj they are attached
+   to. Split device and port hw_stats handling.
+
+ - Create a ib_port_attribute type and change hfi1, qib and the CM code to
+   work with attribute lists of ib_port_attribute type instead of building
+   their own kobject madness
+
+Thanks
+
+Jason Gunthorpe (15):
+  RDMA: Split the alloc_hw_stats() ops to port and device variants
+  RDMA/core: Replace the ib_port_data hw_stats pointers with a ib_port
+    pointer
+  RDMA/core: Split port and device counter sysfs attributes
+  RDMA/core: Split gid_attrs related sysfs from add_port()
+  RDMA/core: Simplify how the gid_attrs sysfs is created
+  RDMA/core: Simplify how the port sysfs is created
+  RDMA/core: Create the device hw_counters through the normal groups
+    mechanism
+  RDMA/core: Remove the kobject_uevent() NOP
+  RDMA/core: Expose the ib port sysfs attribute machinery
+  RDMA/cm: Use an attribute_group on the ib_port_attribute intead of
+    kobj's
+  RDMA/qib: Use attributes for the port sysfs
+  RDMA/hfi1: Use attributes for the port sysfs
+  RDMA: Change ops->init_port to ops->port_groups
+  RDMA/core: Allow port_groups to be used with namespaces
+  RDMA: Remove rdma_set_device_sysfs_group()
+
+ drivers/infiniband/core/cm.c                  |  227 ++--
+ drivers/infiniband/core/core_priv.h           |   13 +-
+ drivers/infiniband/core/counters.c            |    4 +-
+ drivers/infiniband/core/device.c              |   30 +-
+ drivers/infiniband/core/nldev.c               |   10 +-
+ drivers/infiniband/core/sysfs.c               | 1100 ++++++++---------
+ drivers/infiniband/hw/bnxt_re/hw_counters.c   |    7 +-
+ drivers/infiniband/hw/bnxt_re/hw_counters.h   |    4 +-
+ drivers/infiniband/hw/bnxt_re/main.c          |    4 +-
+ drivers/infiniband/hw/cxgb4/provider.c        |   11 +-
+ drivers/infiniband/hw/efa/efa.h               |    3 +-
+ drivers/infiniband/hw/efa/efa_main.c          |    3 +-
+ drivers/infiniband/hw/efa/efa_verbs.c         |   11 +-
+ drivers/infiniband/hw/hfi1/hfi.h              |    7 +-
+ drivers/infiniband/hw/hfi1/sysfs.c            |  530 +++-----
+ drivers/infiniband/hw/hfi1/verbs.c            |   92 +-
+ drivers/infiniband/hw/irdma/verbs.c           |   11 +-
+ drivers/infiniband/hw/mlx4/main.c             |   27 +-
+ drivers/infiniband/hw/mlx5/counters.c         |   42 +-
+ drivers/infiniband/hw/mlx5/main.c             |    2 +-
+ drivers/infiniband/hw/mthca/mthca_provider.c  |    2 +-
+ drivers/infiniband/hw/ocrdma/ocrdma_main.c    |    2 +-
+ drivers/infiniband/hw/qedr/main.c             |    2 +-
+ drivers/infiniband/hw/qib/qib.h               |    8 +-
+ drivers/infiniband/hw/qib/qib_sysfs.c         |  616 ++++-----
+ drivers/infiniband/hw/qib/qib_verbs.c         |    6 +-
+ drivers/infiniband/hw/usnic/usnic_ib_main.c   |    3 +-
+ .../infiniband/hw/vmw_pvrdma/pvrdma_main.c    |    2 +-
+ drivers/infiniband/sw/rdmavt/vt.c             |    2 +-
+ drivers/infiniband/sw/rxe/rxe_hw_counters.c   |    7 +-
+ drivers/infiniband/sw/rxe/rxe_hw_counters.h   |    4 +-
+ drivers/infiniband/sw/rxe/rxe_verbs.c         |    4 +-
+ include/rdma/ib_sysfs.h                       |   37 +
+ include/rdma/ib_verbs.h                       |   68 +-
+ 34 files changed, 1319 insertions(+), 1582 deletions(-)
+ create mode 100644 include/rdma/ib_sysfs.h
+
+-- 
+2.31.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/0dc1d1305333a38f87029c3444fdb12c966c0906.camel%40linux.ibm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/cover.1623427137.git.leonro%40nvidia.com.
