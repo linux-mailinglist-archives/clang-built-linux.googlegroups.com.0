@@ -1,154 +1,136 @@
-Return-Path: <clang-built-linux+bncBDO4P7WH2UJRBP7WRKDAMGQETLN3Y2A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDZKHAFW3AGBBZU3RSDAMGQEW7WMEZI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B6BD73A393B
-	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 03:24:16 +0200 (CEST)
-Received: by mail-yb1-xb3b.google.com with SMTP id 67-20020a2514460000b029053a9edba2a6sf2109617ybu.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Jun 2021 18:24:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623374655; cv=pass;
+Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
+	by mail.lfdr.de (Postfix) with ESMTPS id 98AE73A3CCC
+	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 09:16:55 +0200 (CEST)
+Received: by mail-lf1-x138.google.com with SMTP id bp8-20020a0565121588b02903055a19d65asf1316548lfb.10
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 00:16:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623395815; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vFkLOkv6oDT5wY8TvtDOgaPppRRw3XD4sUcwmby0EGwqe7K3dAONvGQtOk00X2Lo8F
-         Z9106XDU3eIqocxcVWueasZL7DqcGCZcfI7UDUykZPvN+DPJ5r4K8q9B+od9Vmf7T4fy
-         9OSuk/yXkV7c13h0HXH71hsciHEEssado8V/LAY61kRbDQtRRc4N0XUZvYB3C5KQRx6N
-         2upDt0E2R6+dXLFQrFiNQOWG6Veerh2iKE98tobNyhZdwzi3p5sNf4S1F7h7sff7kGLw
-         3ZliOO5M0gmpZv49EjCzV9Om4o2RrV5YWqRSex9/4efDvYhC4FQ1Zz4hCcyw+TxSFyfN
-         1z0A==
+        b=GSgyuURUnZ8Ig4C9MwNsxFDXj1Qmyow6HleTUefCnd+F/mV6XkjOeEca9n5mPLAbeO
+         FzcjYlWv63CeQL1XZ1ABJnUxOC4tTfyOLVER/hdbOvT338EmmduB/Pbs3U3xyl+TWL9d
+         SVeKrVNACtsDymf9uIMHX/OSPpYWs/FwrMz+GiIB3GIJltyompTwX/aJxGZZQsY45sc+
+         94wss1KuiYf3fahW1Oy7zPIdsf1zItG0la0FYJyAdJIm0PE7Myew++JL2HoQKV11JSvB
+         dkaKkBScsyjI1p7YSb/oX1a3X2fJIXJW3ypa7+276TUu6KbrwIFMreA+2nt+R4MF+KJj
+         0IRw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :date:cc:to:from:subject:message-id:sender:dkim-signature;
-        bh=MY1YZNl1zEE3Xtl5/Ci8qyphnmI5CekDVSUqTXfh3YM=;
-        b=BGEOmiQYs4IOAS/UR4rEHgOC5Jq5t4UaZL8zAFSAWh2e4CjYgOuL4mxVOrIA6f1R3x
-         Rn1rdvEZBZ5lxEn/Ihs26LbjQhKlYm4lvlfRzoclYW341962+QTLK2VXTyxXOH5kJkER
-         CVSPS5VFL04l7d/OFrN4FtVtTP56Ipx5kF89qubXU118iNl1mI8Y2uXqR5vJ1efTttbk
-         x+tEOgZiv3HBtocRKsGTCC8oa6kNKE4xeViQCTYhqYDfehW6RrSCevuV530/SW0+vW33
-         x4No3yBQ3Vku43AFhkB4FkMS+mHDW9+mqVCuzLFrFvPiu2+sgCO5xOsRUYTq7WbCqNCp
-         Wh+A==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=QVgGB2TrbER1LvqYt9N8dizCHptwDDA5mzBDOiIz9WQ=;
+        b=ejSej8Ogei0ZI0aYiM/g22GBNTN3iKjCaQLtgtRfCJI+oGsXkcl32o2pxEWnyNvIer
+         tM4C0duoPiE0UgMXh1CypbSu4cX14nX0F8RWbm2NNONJKPmBCM/xD4C5Zf2b5ieKhzDO
+         3ZPjKT2woY1zkijU1iGDH8BonzZ9Oql1gwCA2v4IeV8EwluutS+dgy8BYidXj4mK9BSm
+         cAygsE++MKXTL8fSkpKWhWhbs1X7vtEpjVUKXiNzMB8hBejUA+8Pr9z/mXNUFKHX0M9C
+         AD6YI+/Vltrdy6f3AZBMg7/qhcIfF3xGAex6CxTcIAgveV5IcNk9GAL6gzA8ZSbM5tvc
+         FJmA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=p7XYyhON;
-       spf=pass (google.com: domain of zohar@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=zohar@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=WwXQrYAC;
+       spf=pass (google.com: domain of pmladek@suse.com designates 195.135.220.29 as permitted sender) smtp.mailfrom=pmladek@suse.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=MY1YZNl1zEE3Xtl5/Ci8qyphnmI5CekDVSUqTXfh3YM=;
-        b=rugfgkOKtB2SEwOApb1xQfhC+DxFH1XyiXeW9cUjDRnjjl+ZUnD1KO+Bc9gDCKdYvD
-         8no6nt2jIoUQJpxhmPx06r/NFcjoojRgN+PYiylhs1+3tZimPQ9FXmsJKggqvDY53rCn
-         fo9BLbOAZxWh+ZIvVJkT+ZDnHnspgCPH2Mdrosi8Q6YGenfhdg7Q00xiZ497XplfEvQr
-         J0hjM5Iv+4a2y7LllDCUnskwam1jb5+aN1N2y0tNHjOBG4o3emyRYPqc0wFEVNvh6qbg
-         EQTnbJDhjEcuKwdEzssFkCwQWF8rAX1eQW23yAX2rpLwpHHqHnPRn4npJPK8eISIk/1f
-         hKzQ==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=QVgGB2TrbER1LvqYt9N8dizCHptwDDA5mzBDOiIz9WQ=;
+        b=Bva37L1dKtpTWg+GJPv2bSDTZLajUHWgdNUyxpxyQnG+XqoTFpGHp8HgqJnlaK/9bE
+         Te7VYn9qhz9ash266vAnk5Pf96m4x9dlhfPJTaJ7a0gHWWAS2ilYYKoP383AC2VWXL08
+         JR9in1DT5oVPzaHrXBobT5rb6jrgSWIP/dpyqrBxNWLDBUWMYXf/OBxEGKcNxuU+ldhJ
+         sou+v+qiBIKy6Xb8WbWXzOJGnAxdHATeIbTTk2sVcZ//hH5QewM97XcreLq+5ItAm74H
+         wdCQt7ksMn5qv8vG9yvSFHEutNMILjOwmmaCzCNW5elSrJErLI2jvlVZxk5mxkUYSEJ8
+         0Mdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MY1YZNl1zEE3Xtl5/Ci8qyphnmI5CekDVSUqTXfh3YM=;
-        b=I6vC7JOlLDtjpvF7jva5AX16BqsY2eHO9R1qlsVqms1ad9NDNcUnxxlNaBDaX1baFG
-         GcOlf7hCpuw8uTMvEgqH41rDRJ/MSEX6rKR64QOygdtL0uhbuN9b9vjSKTFGGI262Gla
-         i+I3+WoGdZaJHpnRXdLJUf8PDU7nhPmF7dfslojImUUwgSIoG8xypk+065Tta+7WCWjy
-         /32/jxCiqB+ziM1cyIezWdUUgrqttmpynMr1NgvVaFNxf5ObalHDkbDycY6xEgWsBnAH
-         4F1CmMpSbKF9kvbbCJJ/1NDdBzmp2/4icuZh4yeFVnCyKHuMCHC4tVRXMO4nm6b5lvje
-         qleA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Vh3Uavsd4Ycqycb6uCB68us6Yqcj4fq5/o0l77hZmIlddabOS
-	hDarSHlMfXjdVoLWJrUtWCM=
-X-Google-Smtp-Source: ABdhPJxcygzGO1iUUPRsahxUak2+KpIRIdQKMbkuOi1uI2EsripB79UWA1PoggT2azRyVM9+F/SfVg==
-X-Received: by 2002:a5b:34a:: with SMTP id q10mr2287051ybp.224.1623374655436;
-        Thu, 10 Jun 2021 18:24:15 -0700 (PDT)
+        bh=QVgGB2TrbER1LvqYt9N8dizCHptwDDA5mzBDOiIz9WQ=;
+        b=UQtj7N6lGEwpTJLYT28bDXTih103PMg8xHbU2F4EMxBKxD2xq+r9p9jN3I7pSzrtyi
+         W2CY+MfleOkFhK9DC7VWRmCPJGGeafe40HatPc9XgXWIJPoSMtBKE4IuTNxkjbSGhBhy
+         CUEOBCiMuyWjAnNOby/7VYambh4sOmzriCCwWLYk+VERrTtoQdZ5T0fR2IJMeWQvAaQ5
+         ZQtqeSh7l+0blhb5gQ4XK2sGJx5nPzPdj5A66oC2j4rxxqeZaXMuZuWg3xDuL0ZA9B7Y
+         Zlw7xvIyHC3PvWHahRwZdjQiedUeSDn12owJjaszmgGPt7LjxmRRRAHZAvoJdoYVIZgr
+         xMzg==
+X-Gm-Message-State: AOAM533tfxiA95ovycHQtGK1WduMM184SrAmi3p1Uder5Elv244T0UFM
+	rwTX8Vt5BGWewzSTufm80gQ=
+X-Google-Smtp-Source: ABdhPJx7bHUdXpJ3Edqfx+bLGqN1iUpNwbrXyw9BRIXwY+HhRMWO7z4xl2U5bEZJN3CSmuGO3tCyew==
+X-Received: by 2002:a2e:a44e:: with SMTP id v14mr1882814ljn.243.1623395815112;
+        Fri, 11 Jun 2021 00:16:55 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:7bc7:: with SMTP id w190ls4909792ybc.2.gmail; Thu, 10
- Jun 2021 18:24:15 -0700 (PDT)
-X-Received: by 2002:a25:d34c:: with SMTP id e73mr2241934ybf.460.1623374654985;
-        Thu, 10 Jun 2021 18:24:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623374654; cv=none;
+Received: by 2002:a05:6512:3b0e:: with SMTP id f14ls155170lfv.3.gmail; Fri, 11
+ Jun 2021 00:16:54 -0700 (PDT)
+X-Received: by 2002:ac2:41cf:: with SMTP id d15mr1656911lfi.574.1623395813815;
+        Fri, 11 Jun 2021 00:16:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623395813; cv=none;
         d=google.com; s=arc-20160816;
-        b=NVHqxzzTk84QEegreTBmUH3xpbHyc/ZDzB8iLze8sLvM6Emuu11LDQzpPuPj2haeMt
-         SS8yMuTyQzA4UYXPAZSiVT8l/BlrgpMLmb758muu5qo2hwlg1pwNMqb4iNefpMyTZqGr
-         o0PvQ/6xfH1fFVAb1nJ4D29zUUPaGNSj4NQ9YnFsqH7R0QPXPvzqb+P2BntI8xEiXU/t
-         n9rq6NQBRooISTifzAYGrgVQmnX6ZtOky+PA7ZYN3daNRBfDQYXZRWT6ffJSjitQ07Zc
-         q8/w6zwCb/oQ9tgSIxuIe/xWzNkPEVGb4fpXNaN9hG9anKW92nmjdeW5zybrADLhdENI
-         8yuw==
+        b=BE5lYDdjJUM2nKo7VxBk0V4XQ57anDTALYyt7Uc4gCpeEVgfp46LgYRlswWtOZ4g06
+         nmOJYIuNmuH9l8Zjgcv3JS++uajEecOFBOPbL9ZVZS/+6CoAizis0IwWZVVuJRxMI2fQ
+         9VXKCesiL3/zkUYsBOHivCyCRWRrSQ2Yx2B0DTKRn+P+31i8S+b8IRU+SBmFsTEGGy2t
+         eF/eTeZ/HmjsUgsYnfaWqfIZcDo5QDd9uFQBxQxOsDak0VzjEUV90BMTcapmxgmhiDsL
+         z5XGxcmmgExQ+uZXMtebpyMrCN5HXjHaLl6PGTZx2l/LooCRAz5ERO4R7nwPgLz9pJ+k
+         ePwA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:date
-         :cc:to:from:subject:message-id:dkim-signature;
-        bh=3UZaid9LaN7IOF3CYC1eCX4lLUxOwA2hKs9yAiR/CrQ=;
-        b=diVJ4dEt4d/6Uf9uc65Le6lkrppsgae+88u1ypyzewXf+WKkk/Ri2jUG+zIPDaN1v7
-         yo7epE0VJLqJ0rsvXIV3tFjc5sI6e3XrIEvv8EbYg+hYKITnefeBIGswWOfP3rVCPRti
-         e7oUC2QW9JAoR6wbpLgLpwz5pwNfSxL8t9ALYqIpniFVDe5/eLPhKZNBiRUpK5yVPYUD
-         3zqf35aJlqygXV2qkx3hF4pg/a+jHHzC2+OT4JsiZbvFyQcsFW1Lj4gcDSch6Eiu5xIA
-         bN5qzybmVlvW6hVqUH54728kWlIKdv1LyDCGfFrXWEcbW9i2AmdfSugmtqPPwnHBtzir
-         0bbQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=LWLiine9A4Q23kSjldJjbV2EY1RJY8+LEdaIIQmbBNc=;
+        b=wIC9coOPLcbq5rixl2cba1NKRu1HPEH0EdYaZV665B7IrsEWyvs+cYzpRS/lqlCYIC
+         rLkoB9+iqBfwb/Xwdk3pB435S2jBUwqorZBFjW/pP/t5Qe5AG2YXiq1v775nvTRSGj2v
+         3+74ntphlpoZWiPBHDn4FG8bGMKa0MUVzitdyFDF55Osyd4jXc3qUA+sZ2RVI2UUQdv8
+         ONzEUgNJEcpz1m/0t5u8pfo1yVWmoSPF+S7tatcio+QEmpauyD5H/5ug/7shbFFvPEUE
+         ukB0r8+XqYjaiKL1fPAasgBjdBT2SST2iLF/kcL1aKpzfxT2V6U0sfQnROe/DM8u5SN1
+         OZ+A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=p7XYyhON;
-       spf=pass (google.com: domain of zohar@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=zohar@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com. [148.163.158.5])
-        by gmr-mx.google.com with ESMTPS id r9si580911ybb.1.2021.06.10.18.24.14
+       dkim=pass header.i=@suse.com header.s=susede1 header.b=WwXQrYAC;
+       spf=pass (google.com: domain of pmladek@suse.com designates 195.135.220.29 as permitted sender) smtp.mailfrom=pmladek@suse.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
+Received: from smtp-out2.suse.de (smtp-out2.suse.de. [195.135.220.29])
+        by gmr-mx.google.com with ESMTPS id f6si209088ljo.1.2021.06.11.00.16.53
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 10 Jun 2021 18:24:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of zohar@linux.ibm.com designates 148.163.158.5 as permitted sender) client-ip=148.163.158.5;
-Received: from pps.filterd (m0127361.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 15B137WB122516;
-	Thu, 10 Jun 2021 21:24:14 -0400
-Received: from ppma04ams.nl.ibm.com (63.31.33a9.ip4.static.sl-reverse.com [169.51.49.99])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 393wq2gjms-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 10 Jun 2021 21:24:14 -0400
-Received: from pps.filterd (ppma04ams.nl.ibm.com [127.0.0.1])
-	by ppma04ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 15B1CK1m010743;
-	Fri, 11 Jun 2021 01:24:12 GMT
-Received: from b06cxnps4075.portsmouth.uk.ibm.com (d06relay12.portsmouth.uk.ibm.com [9.149.109.197])
-	by ppma04ams.nl.ibm.com with ESMTP id 3900w8b4t1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Jun 2021 01:24:12 +0000
-Received: from d06av21.portsmouth.uk.ibm.com (d06av21.portsmouth.uk.ibm.com [9.149.105.232])
-	by b06cxnps4075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 15B1OARc11469252
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Jun 2021 01:24:10 GMT
-Received: from d06av21.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6260952054;
-	Fri, 11 Jun 2021 01:24:10 +0000 (GMT)
-Received: from li-f45666cc-3089-11b2-a85c-c57d1a57929f.ibm.com (unknown [9.160.28.13])
-	by d06av21.portsmouth.uk.ibm.com (Postfix) with ESMTP id 7DDC65204E;
-	Fri, 11 Jun 2021 01:24:08 +0000 (GMT)
-Message-ID: <f6251386feb733d4278e97c3501c09f8dc1a4105.camel@linux.ibm.com>
-Subject: Re: [PATCH 2/2] ima: Fix warning: no previous prototype for
- function 'ima_post_key_create_or_update'
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Lakshmi Ramasubramanian <nramas@linux.microsoft.com>, robh@kernel.org
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-        linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
-        tusharsu@linux.microsoft.com
-Date: Thu, 10 Jun 2021 21:24:07 -0400
-In-Reply-To: <20210610171553.3806-2-nramas@linux.microsoft.com>
-References: <20210610171553.3806-1-nramas@linux.microsoft.com>
-	 <20210610171553.3806-2-nramas@linux.microsoft.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Jun 2021 00:16:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pmladek@suse.com designates 195.135.220.29 as permitted sender) client-ip=195.135.220.29;
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+	by smtp-out2.suse.de (Postfix) with ESMTP id 2867B1FD2F;
+	Fri, 11 Jun 2021 07:16:53 +0000 (UTC)
+Received: from suse.cz (unknown [10.100.224.162])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by relay2.suse.de (Postfix) with ESMTPS id 0D321A3B8A;
+	Fri, 11 Jun 2021 07:16:53 +0000 (UTC)
+Date: Fri, 11 Jun 2021 09:16:52 +0200
+From: "'Petr Mladek' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Martin Liu <liumartin@google.com>, Oleg Nesterov <oleg@redhat.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tejun Heo <tj@kernel.org>, minchan@google.com, davidchao@google.com,
+	jenhaochen@google.com, clang-built-linux@googlegroups.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] kthread: Prevent deadlock when
+ kthread_mod_delayed_work() races with kthread_cancel_delayed_work_sync()
+Message-ID: <YMMN5IoXyXqoRsBX@alley>
+References: <20210610133051.15337-1-pmladek@suse.com>
+ <20210610133051.15337-3-pmladek@suse.com>
+ <20210610143030.f599946ec11e1eccde6af4f0@linux-foundation.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Mailer: Evolution 3.28.5 (3.28.5-14.el8)
-Mime-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: yea9vnz1XdiVSQ4XiFFNhIcN1tMKdy32
-X-Proofpoint-GUID: yea9vnz1XdiVSQ4XiFFNhIcN1tMKdy32
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.761
- definitions=2021-06-10_13:2021-06-10,2021-06-10 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 phishscore=0
- bulkscore=0 suspectscore=0 mlxscore=0 spamscore=0 adultscore=0
- clxscore=1011 priorityscore=1501 impostorscore=0 lowpriorityscore=0
- mlxlogscore=889 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2104190000 definitions=main-2106110005
-X-Original-Sender: zohar@linux.ibm.com
+Content-Disposition: inline
+In-Reply-To: <20210610143030.f599946ec11e1eccde6af4f0@linux-foundation.org>
+X-Original-Sender: pmladek@suse.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ibm.com header.s=pp1 header.b=p7XYyhON;       spf=pass (google.com:
- domain of zohar@linux.ibm.com designates 148.163.158.5 as permitted sender)
- smtp.mailfrom=zohar@linux.ibm.com;       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+ header.i=@suse.com header.s=susede1 header.b=WwXQrYAC;       spf=pass
+ (google.com: domain of pmladek@suse.com designates 195.135.220.29 as
+ permitted sender) smtp.mailfrom=pmladek@suse.com;       dmarc=pass
+ (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
+X-Original-From: Petr Mladek <pmladek@suse.com>
+Reply-To: Petr Mladek <pmladek@suse.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -161,36 +143,34 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Lakshmi,
-
-On Thu, 2021-06-10 at 10:15 -0700, Lakshmi Ramasubramanian wrote:
-> The function prototype for ima_post_key_create_or_update() is present
-> in 'linux/ima.h'.  But this header file is not included in
-> ima_asymmetric_keys.c where the function is implemented.  This results
-> in the following compiler warning when "-Wmissing-prototypes" flag
-> is turned on:
+On Thu 2021-06-10 14:30:30, Andrew Morton wrote:
+> On Thu, 10 Jun 2021 15:30:50 +0200 Petr Mladek <pmladek@suse.com> wrote:
 > 
->   security/integrity/ima/ima_asymmetric_keys.c:29:6: warning: no previous
->   prototype for 'ima_post_key_create_or_update' [-Wmissing-prototypes]
+> > The system might hang with the following backtrace:
 > 
-> Include the header file 'linux/ima.h' in ima_asymmetric_keys.c to
-> fix the compiler warning.
+> Well that's not good.
+
+Fortunately, the API users normally synchronize these operations
+another way. The race should never happen when the API is used
+a reasonable way,
+see https://lore.kernel.org/lkml/YKZLnTNOlUQ85F2s@alley/
+
+> > Fixes: 9a6b06c8d9a220860468a ("kthread: allow to modify delayed kthread work")
+> > Reported-by: Martin Liu <liumartin@google.com>
+> > Signed-off-by: Petr Mladek <pmladek@suse.com>
 > 
-> Fixes: 88e70da170e8 (IMA: Define an IMA hook to measure keys)
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lakshmi Ramasubramanian <nramas@linux.microsoft.com>
+> Was a -stable backport considered?
 
-Roberto posted an equivalent patch "[PATCH 4/5] ima: Include header
-defining ima_post_key_create_or_update()" earlier this week.
+Good point! It would make sense to backport it. System hang is never
+good.
 
-Compiler warnings don't meet the requirements for stable -
-Documentation/process/stable-kernel-rules.rst.
+Could you please add Cc: stable@vger.kernel.org or should I resend the
+patchset?
 
-thanks,
-
-Mimi
+Best Regards,
+Petr
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/f6251386feb733d4278e97c3501c09f8dc1a4105.camel%40linux.ibm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMMN5IoXyXqoRsBX%40alley.
