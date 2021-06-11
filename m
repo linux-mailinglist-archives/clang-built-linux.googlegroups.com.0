@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDMMLW4BXYHBBM4RR2DAMGQEF6WBDBA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDMMLW4BXYHBBQERR2DAMGQEXPCN3YI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0238D3A45E8
-	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 18:00:53 +0200 (CEST)
-Received: by mail-pl1-x637.google.com with SMTP id f4-20020a170902ce84b0290118e2c26e44sf413536plg.4
-        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 09:00:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623427251; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 347423A45F2
+	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 18:01:07 +0200 (CEST)
+Received: by mail-pf1-x440.google.com with SMTP id g22-20020a056a000796b02902f0483fd9e4sf3516202pfu.10
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 09:01:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623427266; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bmvzrI85g+oiIXHwLJjLAoJs3XepJWcRdFVxNlBJVDMjgGoS6IgCN1UAZIt5sYPRlR
-         rssNEaCoPzOncMa/H5t44S3T8+9LtF/l78+0R/4b4sKXMn1BzTf50+oaHMXNjd1ZxtB4
-         txyEdCjIEHQvhMu4kH94jzP5MD3Ebm9gc7rSsch5pj9Vap2Y1/ubbc8Rv5r6zdQEBcnT
-         h7gDWdfkfgpAGMuUUXoe/t68mBE+Ar+2Tu8X5DujObSz7e1ynC3RPMsMr+ChXJx+rQJI
-         YWKPpr6Sl51Lkqv0cGe47/ljR7o7Z+bTGoyOZSTCjcjUFAh3w/lY6eXtB2fGtCfFP3R6
-         8SjA==
+        b=wEk8k0vXB+1dazWhmitlPsUEoi6svCvMg3+6WxAWdGere6y5Eh60vLxi35n2y5m99E
+         LPt1UVqKMAsI+RxkVQKjA+Tia2N2anqgUGvmcdg61sMW5fHBqSbp9RcVURRFLvvTRj7Y
+         /ZT+IAg/kM23du14Nwok7L5BSm2GNWQeX7QJXUUaX55+7+dkvlKAuVIs+2YTBR5qHBKg
+         hC1YSP2cHjdn4vtk9uQNhdtkZMgXv6VNiZN3+SkbajsVj3j7SZiieIQOnwxUe9mODMTa
+         4HDSrksWsuYOe+csOWByEc54bqMKM1esZB6/ER8RV9g4+6QnNMJc9XcvD1patwwAKxgR
+         V3rA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=3XWChhh4+sRL6exJD/TZyg8JSGrOU1PFEKlUwy+Cgzo=;
-        b=JiHvMhHXutE0nyAE0n2r2vKo0BO+omBoTbdqCO1Yd62oms59RGfTPJ/QaFoz45kICb
-         GLV9zxvQtYwFPqVjb15LzuK7rzL31m58P+AUPzoNLQ/khab+xt1OkEcrIVRs5bCveaKf
-         Yt0DplRFFip+FzjmyYptD8OINNjVZfpXpmys1CmCv/PNJORqi+9neDoVH95gzkSdwomf
-         RqYMWWchb8HO7FmjqJgz5WTNxVtIxAGEhYkhsWUd/ZjtNZM+ITutly8jvnP61DXSqlrm
-         73vsJ+QG3QiqdaxJV/TXjw8SgO8QfI4q+be6uEY05GgFCZiiuQTpupsRESly7oTT8Of5
-         No3Q==
+        bh=9NzDEvQNU2Tu28MuWHkyNI5XtUyNYJAPXBRWDysewa0=;
+        b=YzNwVRCnBFGObRKtmtR86OBPxuZYlEGnndUH3bKHN5CrL4vQaithMjA+gyy5MIbKNp
+         AkfJkc/Jr3ppVE22qPqLCfVhX9JXX/bdKu2aFn/z4F+C796rXx/aIq5HcIaGyvtCyHfy
+         xvL540sOHXErvxgxgSnoPU6TEMbO4RLxkJKwhx752xepposAIbNJlTR3/XGWqBmdYSDh
+         6/dg/+yBrPzynaBca5TmCsaz8BMdgpH1YBy739WLFO2DgKe9gwF+fs1Upjbs49duQA2Q
+         6/U1G7WrAk3h6R6FCOjvImj6W10ID7f1Q6qtod2LrE1xxuY2p5PjauamgClbLCmWpdOF
+         YhAw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=VB2kjSmZ;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=NHVpFplA;
        spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3XWChhh4+sRL6exJD/TZyg8JSGrOU1PFEKlUwy+Cgzo=;
-        b=hxk291daULDYJmelSnZwQAt9ScL7HqThAkb2BAAYCHcOZOFJPE1wnnd33vSAhWZ2x9
-         NIowtvHeZmG3Oy/VYaMQGBNIYZAU834JTzcEP98pcBCYQe4LL+VT+1hhQTh0eb+m+cHX
-         l6kyqhbm1pYFWe1EecnzJ+TDutZQOo92+xj9tTIlP6ICvxmYpsbjgvmB/oZOcrPSp5Hw
-         nMf3ZWHkaqTSI7S4z33piwWgLjpPu8qbTsHcJWErz/W5xoQLM7iMW8SmZsfzq+pApmIZ
-         0bfwuRBsGtulaq9EmKeEOOoWK4utcfVXhVkpO7Cqgiyf+XAtytkbCyI3zIzzdcFZL7u3
-         fjKQ==
+        bh=9NzDEvQNU2Tu28MuWHkyNI5XtUyNYJAPXBRWDysewa0=;
+        b=B3pefKX+q1HJd+4bcxT+3ljb7bPVgWkbhNiQbDWGNPBEvbmUmnyJQJh+hYhpP4MGmk
+         8Gjfu87Yo6nuqNf49Yr/Xn5iQMGOUKfnOpfQgP6y+kNF1aXnwRaWwsTUyqW3pilRrHMT
+         hZDysuRG4kGEg4Fw/E6h32SLeXkG9UBTXG3W9/h/JaHS6/o/42gN0VIiTEGsvzi3NpgZ
+         XcySpuyVtuqYJnlbYCUliq/84XnyzL1G9+g2njqf+AmWTqOxonSgA5lDmRantlWS1QCH
+         1z5l7NKG25QZm5GCo2eegOzsjw3cF1huVIFJ9MFTpHJ8imhZFpAd8Si3dMB6lBLiREBe
+         rNEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,54 +49,54 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3XWChhh4+sRL6exJD/TZyg8JSGrOU1PFEKlUwy+Cgzo=;
-        b=VMaecnkGGIB9buCzVUH0MSXt/r/UYjwLLeu7/v7i12hOY6IJtWPswuHjaKtxzbZyC/
-         7CQJwAb2xRqh1pFhrO2sChD1erk05NYgAjFCoCz3ASh6V/6yJCGwZDZX7Ss0LpDlYniD
-         CyesCAzY4I4Xh8C6KKATD1mKYtU99NfiOWHSuL7U68u4WtFDGLN4Jm73Tm5GIF927cqg
-         Nfs/GQzs9CGOi3+N4FmuPl9aSjtEY+9s7j9sbgKBiNYypKmz+r++TLo05mh/CdlHIfz2
-         3hTSGNwRpPSm+xLWlHDqVuPuKjtSNt4pejBt/ah6/5+kC1hVP5HnOLC78/o7lG0sIL8f
-         dKJw==
+        bh=9NzDEvQNU2Tu28MuWHkyNI5XtUyNYJAPXBRWDysewa0=;
+        b=kRxlwRF1NcwDL/UDbE68xhgcVUJojuN1npcYE3D3jThF0oVwRGeT/xjWQhZJ0FB+Pq
+         6E0QlzIK54fwHlmIldqadjFHoX8sk2RTiIVlumabByTz6cpzFmlGHMXrEJKGYcYUn1Mu
+         hxJMC3lh27oHddu/aGIOc6JZybEXO8hwygkJXgHRueIsoSQ3T0StS6ODx27fl7ngNakO
+         LhMSH6iaI1cG6l8cUv6ERo07AgQg3OLKK5vLZPdP0GGBSRx7fjA28987ZX4f5p0u837X
+         ILn2Q5LrQB1YXGJCNj5jjrW6smq2Kzdtq21lvmJ91v0UA/1wyjlp5t7HHN5RtRPuOniH
+         4ZTQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Sju8MeycYT38Tk/zDpgctj5ksqTbzFfo9Ozy9aa3AVIHGpOyj
-	tPnDFMkwSvVVs2oVucGu+lc=
-X-Google-Smtp-Source: ABdhPJxCG8RKRiQc8lHzFE3aLV4ABBBmOhODQj2AtuSiwPKYPhqpAbE5PRoge51MAiHqamL+eO6Q+g==
-X-Received: by 2002:a17:90b:3782:: with SMTP id mz2mr5208944pjb.70.1623427251769;
-        Fri, 11 Jun 2021 09:00:51 -0700 (PDT)
+X-Gm-Message-State: AOAM532ao3hzr7Sxam1iQQzr3z4jNbBdQsFkNl9/zhLCH0LJh+lNfe71
+	BJz/AvDfdpuMa2DCUqX6wUs=
+X-Google-Smtp-Source: ABdhPJyCfQoypDTjsrzZYQ59pxzB3JmCGtN90znBjDi0ox0CSxd9SPeTJjo/8JLJgTC6SrGrslgJew==
+X-Received: by 2002:a17:902:7481:b029:114:dd50:4e14 with SMTP id h1-20020a1709027481b0290114dd504e14mr4583293pll.32.1623427265037;
+        Fri, 11 Jun 2021 09:01:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:d915:: with SMTP id c21ls5258508pjv.2.gmail; Fri, 11
- Jun 2021 09:00:51 -0700 (PDT)
-X-Received: by 2002:a17:90a:fb4e:: with SMTP id iq14mr5027684pjb.219.1623427250976;
-        Fri, 11 Jun 2021 09:00:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623427250; cv=none;
+Received: by 2002:a62:6445:: with SMTP id y66ls5003318pfb.7.gmail; Fri, 11 Jun
+ 2021 09:01:04 -0700 (PDT)
+X-Received: by 2002:aa7:99c9:0:b029:2e9:e084:e1de with SMTP id v9-20020aa799c90000b02902e9e084e1demr8828530pfi.80.1623427263989;
+        Fri, 11 Jun 2021 09:01:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623427263; cv=none;
         d=google.com; s=arc-20160816;
-        b=Q3xUDw7SGTpZova4Rhk8sRxieyv2V+Sr7otX8Joo+IJegUOzV+T5xdv69brK9bMEtY
-         3lkzoUyuH0le8tKvceI1I2RK4EK05mbcqxUyJxSUP21WayJ/1hobEpy33OKoWCRcu/7b
-         0fdOj7Pz+3jVKYW/ABVMgHQvrSEoQ5nG+4KDPHE4Ai1CdC+UVnBSrwIcBrIkMIcEY45T
-         SBaIclCcTGALdd3RaKnW3F5DjeboFCgmdHispzWFmPWntPnXzbePn8F+AX1imdCzKKhV
-         BgY9HXnhrHjWd1YqDvlZGqcpoNQWv9eDS0p31qfN2ueYoLiRHKh43CKn63tu05cjB7gU
-         3XPA==
+        b=KyInGUgN3ILHIf/fgydoGoTDL64WZODfXQtQ126B1PO+BWWCNjMscgknRBD+v6Au5o
+         pFaWsEndWkKt6/VbId+X2bBxSMG/hVPCZKgQn8dr6oqypg/31CjDy5cF8OkTFNSoeQtf
+         hDyn+y89LzpOyW78qv+qluMVQm2ilCqSrquedrRTAZRwhZ3XuCcv7L4ORFsp0PnjTukr
+         +NSI3LEbhwYRhjPnlTFyKvDYLNA/mYl8jG3w22ePiEeaklfOw+/RbdlTPD++K4ZqRKoa
+         rMEAoOSg8AlXbxJgJJbJpXVCBONhJq6C1KgN0oIgMGkmZQ1X8F4jgpRYveS3jmtY3TFO
+         PA0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=EvkBmUF2nfADNbKcM35Z7PT7X0qdNa/eWhL1k0ATCaQ=;
-        b=UOqBaONZ/BTuy0jtzrL/76Y3PV3eUBiMdiJqkvfn4/QrOZOGcEAyIdeNvZA049ii86
-         g5JLGiGz5saR873b7Wn6vBUZjYShNTnt3j6ofMCkVhJENVCaYXuCl6sNJBPeqmDUirm3
-         +OOu2Wtszs7fTDRPc3po6WqdeD99uotRqBOwDxWJIsx9R/8ZomcBae+7amZia/z8gOid
-         hfCR1KtOPZDuzH8+1HoHXajzZd2u+0lhNr1f5KJlb2Czmfh9u+ZWxWuuVxQXwaJrFp23
-         nY77U6Ydfnl5oNR+m8wthzj7fu7NJOjSNzleyc66m//4oTjK/Kr+S7OOjkD3gbqsMeHh
-         HElw==
+        bh=K5N0NvU9LCrwTXdgreWvEFs2307dSZHQNJtnv77L6K4=;
+        b=qxDwhQsGWLk2DQmzICgjKkM8U+mJ1d+RKDdQm7oURBRkvSjf8VtgMJ5aup+XkqQthq
+         O+qVpY4OBDITED0qk4QaPw6Jeb1LDojgtO1DTW+so+Amo4E/LB7c/mtAzVckpSiPjqoV
+         YHUldtpb/4NIvuPPGgPM1nHidvJcHlI+PpCJ9wh4XqjsTlNWDNSmR6Pj1W8Eh0NxiS7u
+         mZYNoNZ45oLmoEhHiONr2W/d6o1F/1K7ex7Rxg0wXptFr54dnvlNyV0NHlGJgbapaTim
+         Dvi942eC6+9eRWJmrDJxcPKHDcwVuYhFTc8H7vocYmaTzVJl6s4hjce3HC7yp4wGGD0u
+         ss3Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=VB2kjSmZ;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=NHVpFplA;
        spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id o20si916467pgv.1.2021.06.11.09.00.50
+        by gmr-mx.google.com with ESMTPS id hk2si1041080pjb.0.2021.06.11.09.01.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 11 Jun 2021 09:00:50 -0700 (PDT)
+        Fri, 11 Jun 2021 09:01:03 -0700 (PDT)
 Received-SPF: pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id CC86361400;
-	Fri, 11 Jun 2021 16:00:49 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D2ED2613EA;
+	Fri, 11 Jun 2021 16:01:02 +0000 (UTC)
 From: Leon Romanovsky <leon@kernel.org>
 To: Doug Ledford <dledford@redhat.com>,
 	Jason Gunthorpe <jgg@nvidia.com>
@@ -125,16 +125,16 @@ Cc: Greg KH <gregkh@linuxfoundation.org>,
 	VMware PV-Drivers <pv-drivers@vmware.com>,
 	Yishai Hadas <yishaih@nvidia.com>,
 	Zhu Yanjun <zyjzyj2000@gmail.com>
-Subject: [PATCH rdma-next v2 04/15] RDMA/core: Split gid_attrs related sysfs from add_port()
-Date: Fri, 11 Jun 2021 19:00:23 +0300
-Message-Id: <1c9434111b6770a7aef0e644a88a16eee7e325b8.1623427137.git.leonro@nvidia.com>
+Subject: [PATCH rdma-next v2 05/15] RDMA/core: Simplify how the gid_attrs sysfs is created
+Date: Fri, 11 Jun 2021 19:00:24 +0300
+Message-Id: <f4149d379db7178d37d11d75e3026bf550f818a1.1623427137.git.leonro@nvidia.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <cover.1623427137.git.leonro@nvidia.com>
 References: <cover.1623427137.git.leonro@nvidia.com>
 MIME-Version: 1.0
 X-Original-Sender: leon@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=VB2kjSmZ;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=NHVpFplA;       spf=pass
  (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=leon@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -153,248 +153,258 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Jason Gunthorpe <jgg@nvidia.com>
 
-The gid_attrs directory is a dedicated kobj nested under the port,
-construct/destruct it with its own pair of functions for
-understandability. This is much more readable than having it weirdly
-inlined out of order into the add_port() function.
+Instead of having an whole bunch of different allocations to create the
+gid_attr kobjects reduce it to three, one for the kobj struct plus the
+attributes, and one for the attribute list for each of the two
+groups.
+
+Move the freeing of all allocations to the release function.
+
+Reorder the operations so all the allocations happen first then the
+kobject & sysfs operations are last.
+
+This removes the majority of the complicated error unwind since the
+release function will always undo all the memory allocations. Freeing the
+memory is also much simpler since there is a lot less of it.
+
+Consolidate creating the "group of array indexes" pattern into one helper
+function. Ensure kobject_del is used.
 
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
 ---
- drivers/infiniband/core/sysfs.c | 160 ++++++++++++++++++--------------
- 1 file changed, 89 insertions(+), 71 deletions(-)
+ drivers/infiniband/core/sysfs.c | 170 +++++++++++++++++---------------
+ 1 file changed, 89 insertions(+), 81 deletions(-)
 
 diff --git a/drivers/infiniband/core/sysfs.c b/drivers/infiniband/core/sysfs.c
-index 114fecda9764..d2a089a6f666 100644
+index d2a089a6f666..006bf759e890 100644
 --- a/drivers/infiniband/core/sysfs.c
 +++ b/drivers/infiniband/core/sysfs.c
-@@ -1178,6 +1178,85 @@ struct rdma_hw_stats *ib_get_hw_stats_port(struct ib_device *ibdev,
+@@ -47,23 +47,6 @@
+ 
+ struct ib_port;
+ 
+-struct gid_attr_group {
+-	struct ib_port		*port;
+-	struct kobject		kobj;
+-	struct attribute_group	ndev;
+-	struct attribute_group	type;
+-};
+-struct ib_port {
+-	struct kobject         kobj;
+-	struct ib_device      *ibdev;
+-	struct gid_attr_group *gid_attr_group;
+-	struct attribute_group gid_group;
+-	struct attribute_group *pkey_group;
+-	const struct attribute_group *pma_table;
+-	struct hw_stats_port_data *hw_stats_data;
+-	u32                     port_num;
+-};
+-
+ struct port_attribute {
+ 	struct attribute attr;
+ 	ssize_t (*show)(struct ib_port *, struct port_attribute *, char *buf);
+@@ -84,6 +67,25 @@ struct port_table_attribute {
+ 	__be16			attr_id;
+ };
+ 
++struct gid_attr_group {
++	struct ib_port *port;
++	struct kobject kobj;
++	struct attribute_group groups[2];
++	const struct attribute_group *groups_list[3];
++	struct port_table_attribute attrs_list[];
++};
++
++struct ib_port {
++	struct kobject kobj;
++	struct ib_device *ibdev;
++	struct gid_attr_group *gid_attr_group;
++	struct attribute_group gid_group;
++	struct attribute_group *pkey_group;
++	const struct attribute_group *pma_table;
++	struct hw_stats_port_data *hw_stats_data;
++	u32 port_num;
++};
++
+ struct hw_stats_device_attribute {
+ 	struct device_attribute attr;
+ 	ssize_t (*show)(struct ib_device *ibdev, struct rdma_hw_stats *stats,
+@@ -776,26 +778,13 @@ static void ib_port_release(struct kobject *kobj)
+ 
+ static void ib_port_gid_attr_release(struct kobject *kobj)
+ {
+-	struct gid_attr_group *g = container_of(kobj, struct gid_attr_group,
+-						kobj);
+-	struct attribute *a;
++	struct gid_attr_group *gid_attr_group =
++		container_of(kobj, struct gid_attr_group, kobj);
+ 	int i;
+ 
+-	if (g->ndev.attrs) {
+-		for (i = 0; (a = g->ndev.attrs[i]); ++i)
+-			kfree(a);
+-
+-		kfree(g->ndev.attrs);
+-	}
+-
+-	if (g->type.attrs) {
+-		for (i = 0; (a = g->type.attrs[i]); ++i)
+-			kfree(a);
+-
+-		kfree(g->type.attrs);
+-	}
+-
+-	kfree(g);
++	for (i = 0; i != ARRAY_SIZE(gid_attr_group->groups); i++)
++		kfree(gid_attr_group->groups[i].attrs);
++	kfree(gid_attr_group);
+ }
+ 
+ static struct kobj_type port_type = {
+@@ -1178,6 +1167,41 @@ struct rdma_hw_stats *ib_get_hw_stats_port(struct ib_device *ibdev,
  	return ibdev->port_data[port_num].sysfs->hw_stats_data->stats;
  }
  
-+/*
-+ * Create the sysfs:
-+ *  ibp0s9/ports/XX/gid_attrs/{ndevs,types}/YYY
-+ * YYY is the gid table index in decimal
-+ */
-+static int setup_gid_attrs(struct ib_port *port,
-+			   const struct ib_port_attr *attr)
++static int alloc_port_table_group(
++	const char *name, struct attribute_group *group,
++	struct port_table_attribute *attrs, size_t num,
++	ssize_t (*show)(struct ib_port *, struct port_attribute *, char *buf))
 +{
-+	struct gid_attr_group *gid_attr_group;
-+	int ret;
++	struct attribute **attr_list;
 +	int i;
 +
-+	gid_attr_group = kzalloc(sizeof(*gid_attr_group), GFP_KERNEL);
-+	if (!gid_attr_group)
++	attr_list = kcalloc(num + 1, sizeof(*attr_list), GFP_KERNEL);
++	if (!attr_list)
 +		return -ENOMEM;
 +
-+	gid_attr_group->port = port;
-+	ret = kobject_init_and_add(&gid_attr_group->kobj, &gid_attr_type,
-+				   &port->kobj, "gid_attrs");
-+	if (ret)
-+		goto err_put_gid_attrs;
++	for (i = 0; i < num; i++) {
++		struct port_table_attribute *element = &attrs[i];
 +
-+	gid_attr_group->ndev.name = "ndevs";
-+	gid_attr_group->ndev.attrs =
-+		alloc_group_attrs(show_port_gid_attr_ndev, attr->gid_tbl_len);
-+	if (!gid_attr_group->ndev.attrs) {
-+		ret = -ENOMEM;
-+		goto err_put_gid_attrs;
++		if (snprintf(element->name, sizeof(element->name), "%d", i) >=
++		    sizeof(element->name))
++			goto err;
++
++		sysfs_attr_init(&element->attr.attr);
++		element->attr.attr.name = element->name;
++		element->attr.attr.mode = 0444;
++		element->attr.show = show;
++		element->index = i;
++
++		attr_list[i] = &element->attr.attr;
 +	}
-+
-+	ret = sysfs_create_group(&gid_attr_group->kobj, &gid_attr_group->ndev);
-+	if (ret)
-+		goto err_free_gid_ndev;
-+
-+	gid_attr_group->type.name = "types";
-+	gid_attr_group->type.attrs = alloc_group_attrs(
-+		show_port_gid_attr_gid_type, attr->gid_tbl_len);
-+	if (!gid_attr_group->type.attrs) {
-+		ret = -ENOMEM;
-+		goto err_remove_gid_ndev;
-+	}
-+
-+	ret = sysfs_create_group(&gid_attr_group->kobj, &gid_attr_group->type);
-+	if (ret)
-+		goto err_free_gid_type;
-+
-+	port->gid_attr_group = gid_attr_group;
++	group->name = name;
++	group->attrs = attr_list;
 +	return 0;
-+
-+err_free_gid_type:
-+	for (i = 0; i < attr->gid_tbl_len; ++i)
-+		kfree(gid_attr_group->type.attrs[i]);
-+
-+	kfree(gid_attr_group->type.attrs);
-+	gid_attr_group->type.attrs = NULL;
-+err_remove_gid_ndev:
-+	sysfs_remove_group(&gid_attr_group->kobj, &gid_attr_group->ndev);
-+err_free_gid_ndev:
-+	for (i = 0; i < attr->gid_tbl_len; ++i)
-+		kfree(gid_attr_group->ndev.attrs[i]);
-+
-+	kfree(gid_attr_group->ndev.attrs);
-+	gid_attr_group->ndev.attrs = NULL;
-+err_put_gid_attrs:
-+	kobject_put(&gid_attr_group->kobj);
-+	return ret;
++err:
++	kfree(attr_list);
++	return -EINVAL;
 +}
 +
-+static void destroy_gid_attrs(struct ib_port *port)
-+{
-+	struct gid_attr_group *gid_attr_group = port->gid_attr_group;
-+
-+	sysfs_remove_group(&gid_attr_group->kobj,
-+			   &gid_attr_group->ndev);
-+	sysfs_remove_group(&gid_attr_group->kobj,
-+			   &gid_attr_group->type);
-+	kobject_put(&gid_attr_group->kobj);
-+}
-+
- static int add_port(struct ib_core_device *coredev, int port_num)
+ /*
+  * Create the sysfs:
+  *  ibp0s9/ports/XX/gid_attrs/{ndevs,types}/YYY
+@@ -1188,60 +1212,44 @@ static int setup_gid_attrs(struct ib_port *port,
  {
- 	struct ib_device *device = rdma_device_to_ibdev(&coredev->dev);
-@@ -1204,23 +1283,11 @@ static int add_port(struct ib_core_device *coredev, int port_num)
- 	if (ret)
- 		goto err_put;
+ 	struct gid_attr_group *gid_attr_group;
+ 	int ret;
+-	int i;
  
--	p->gid_attr_group = kzalloc(sizeof(*p->gid_attr_group), GFP_KERNEL);
--	if (!p->gid_attr_group) {
--		ret = -ENOMEM;
--		goto err_put;
--	}
+-	gid_attr_group = kzalloc(sizeof(*gid_attr_group), GFP_KERNEL);
++	gid_attr_group = kzalloc(struct_size(gid_attr_group, attrs_list,
++					     attr->gid_tbl_len * 2),
++				 GFP_KERNEL);
+ 	if (!gid_attr_group)
+ 		return -ENOMEM;
 -
--	p->gid_attr_group->port = p;
--	ret = kobject_init_and_add(&p->gid_attr_group->kobj, &gid_attr_type,
--				   &p->kobj, "gid_attrs");
+ 	gid_attr_group->port = port;
+-	ret = kobject_init_and_add(&gid_attr_group->kobj, &gid_attr_type,
+-				   &port->kobj, "gid_attrs");
 -	if (ret)
 -		goto err_put_gid_attrs;
 -
- 	if (device->ops.process_mad && is_full_dev) {
- 		p->pma_table = get_counter_table(device, port_num);
- 		ret = sysfs_create_group(&p->kobj, p->pma_table);
- 		if (ret)
--			goto err_put_gid_attrs;
-+			goto err_put;
- 	}
- 
- 	p->gid_group.name  = "gids";
-@@ -1234,37 +1301,11 @@ static int add_port(struct ib_core_device *coredev, int port_num)
- 	if (ret)
- 		goto err_free_gid;
- 
--	p->gid_attr_group->ndev.name = "ndevs";
--	p->gid_attr_group->ndev.attrs = alloc_group_attrs(show_port_gid_attr_ndev,
--							  attr.gid_tbl_len);
--	if (!p->gid_attr_group->ndev.attrs) {
+-	gid_attr_group->ndev.name = "ndevs";
+-	gid_attr_group->ndev.attrs =
+-		alloc_group_attrs(show_port_gid_attr_ndev, attr->gid_tbl_len);
+-	if (!gid_attr_group->ndev.attrs) {
 -		ret = -ENOMEM;
--		goto err_remove_gid;
+-		goto err_put_gid_attrs;
 -	}
--
--	ret = sysfs_create_group(&p->gid_attr_group->kobj,
--				 &p->gid_attr_group->ndev);
--	if (ret)
++	kobject_init(&gid_attr_group->kobj, &gid_attr_type);
+ 
+-	ret = sysfs_create_group(&gid_attr_group->kobj, &gid_attr_group->ndev);
++	ret = alloc_port_table_group("ndevs", &gid_attr_group->groups[0],
++				     gid_attr_group->attrs_list,
++				     attr->gid_tbl_len,
++				     show_port_gid_attr_ndev);
+ 	if (ret)
 -		goto err_free_gid_ndev;
 -
--	p->gid_attr_group->type.name = "types";
--	p->gid_attr_group->type.attrs = alloc_group_attrs(show_port_gid_attr_gid_type,
--							  attr.gid_tbl_len);
--	if (!p->gid_attr_group->type.attrs) {
+-	gid_attr_group->type.name = "types";
+-	gid_attr_group->type.attrs = alloc_group_attrs(
+-		show_port_gid_attr_gid_type, attr->gid_tbl_len);
+-	if (!gid_attr_group->type.attrs) {
 -		ret = -ENOMEM;
 -		goto err_remove_gid_ndev;
 -	}
--
--	ret = sysfs_create_group(&p->gid_attr_group->kobj,
--				 &p->gid_attr_group->type);
--	if (ret)
++		goto err_put;
++	gid_attr_group->groups_list[0] = &gid_attr_group->groups[0];
+ 
+-	ret = sysfs_create_group(&gid_attr_group->kobj, &gid_attr_group->type);
++	ret = alloc_port_table_group(
++		"types", &gid_attr_group->groups[1],
++		gid_attr_group->attrs_list + attr->gid_tbl_len,
++		attr->gid_tbl_len, show_port_gid_attr_gid_type);
+ 	if (ret)
 -		goto err_free_gid_type;
--
- 	if (attr.pkey_tbl_len) {
- 		p->pkey_group = kzalloc(sizeof(*p->pkey_group), GFP_KERNEL);
- 		if (!p->pkey_group) {
- 			ret = -ENOMEM;
--			goto err_remove_gid_type;
-+			goto err_remove_gid;
- 		}
++		goto err_put;
++	gid_attr_group->groups_list[1] = &gid_attr_group->groups[1];
  
- 		p->pkey_group->name  = "pkeys";
-@@ -1290,11 +1331,14 @@ static int add_port(struct ib_core_device *coredev, int port_num)
- 		if (ret && ret != -EOPNOTSUPP)
- 			goto err_remove_pkey;
- 	}
-+	ret = setup_gid_attrs(p, &attr);
++	ret = kobject_add(&gid_attr_group->kobj, &port->kobj, "gid_attrs");
 +	if (ret)
-+		goto err_remove_stats;
- 
- 	if (device->ops.init_port && is_full_dev) {
- 		ret = device->ops.init_port(device, port_num, &p->kobj);
- 		if (ret)
--			goto err_remove_stats;
-+			goto err_remove_gid_attrs;
- 	}
- 
- 	list_add_tail(&p->kobj.entry, &coredev->port_list);
-@@ -1304,6 +1348,9 @@ static int add_port(struct ib_core_device *coredev, int port_num)
- 	kobject_uevent(&p->kobj, KOBJ_ADD);
++		goto err_put;
++	ret = sysfs_create_groups(&gid_attr_group->kobj,
++				  gid_attr_group->groups_list);
++	if (ret)
++		goto err_del;
+ 	port->gid_attr_group = gid_attr_group;
  	return 0;
  
-+err_remove_gid_attrs:
-+	destroy_gid_attrs(p);
-+
- err_remove_stats:
- 	destroy_hw_port_stats(p);
- 
-@@ -1323,28 +1370,6 @@ static int add_port(struct ib_core_device *coredev, int port_num)
- err_free_pkey_group:
- 	kfree(p->pkey_group);
- 
--err_remove_gid_type:
--	sysfs_remove_group(&p->gid_attr_group->kobj,
--			   &p->gid_attr_group->type);
--
 -err_free_gid_type:
--	for (i = 0; i < attr.gid_tbl_len; ++i)
--		kfree(p->gid_attr_group->type.attrs[i]);
+-	for (i = 0; i < attr->gid_tbl_len; ++i)
+-		kfree(gid_attr_group->type.attrs[i]);
 -
--	kfree(p->gid_attr_group->type.attrs);
--	p->gid_attr_group->type.attrs = NULL;
--
+-	kfree(gid_attr_group->type.attrs);
+-	gid_attr_group->type.attrs = NULL;
 -err_remove_gid_ndev:
--	sysfs_remove_group(&p->gid_attr_group->kobj,
--			   &p->gid_attr_group->ndev);
--
+-	sysfs_remove_group(&gid_attr_group->kobj, &gid_attr_group->ndev);
 -err_free_gid_ndev:
--	for (i = 0; i < attr.gid_tbl_len; ++i)
--		kfree(p->gid_attr_group->ndev.attrs[i]);
+-	for (i = 0; i < attr->gid_tbl_len; ++i)
+-		kfree(gid_attr_group->ndev.attrs[i]);
 -
--	kfree(p->gid_attr_group->ndev.attrs);
--	p->gid_attr_group->ndev.attrs = NULL;
--
- err_remove_gid:
- 	sysfs_remove_group(&p->kobj, &p->gid_group);
- 
-@@ -1359,9 +1384,6 @@ static int add_port(struct ib_core_device *coredev, int port_num)
- 	if (p->pma_table)
- 		sysfs_remove_group(&p->kobj, p->pma_table);
- 
+-	kfree(gid_attr_group->ndev.attrs);
+-	gid_attr_group->ndev.attrs = NULL;
 -err_put_gid_attrs:
--	kobject_put(&p->gid_attr_group->kobj);
--
- err_put:
- 	kobject_put(&p->kobj);
++err_del:
++	kobject_del(&gid_attr_group->kobj);
++err_put:
+ 	kobject_put(&gid_attr_group->kobj);
  	return ret;
-@@ -1498,11 +1520,7 @@ void ib_free_port_attrs(struct ib_core_device *coredev)
- 		if (port->pkey_group)
- 			sysfs_remove_group(p, port->pkey_group);
- 		sysfs_remove_group(p, &port->gid_group);
--		sysfs_remove_group(&port->gid_attr_group->kobj,
--				   &port->gid_attr_group->ndev);
--		sysfs_remove_group(&port->gid_attr_group->kobj,
--				   &port->gid_attr_group->type);
--		kobject_put(&port->gid_attr_group->kobj);
-+		destroy_gid_attrs(port);
- 		kobject_put(p);
- 	}
+ }
+@@ -1250,10 +1258,10 @@ static void destroy_gid_attrs(struct ib_port *port)
+ {
+ 	struct gid_attr_group *gid_attr_group = port->gid_attr_group;
+ 
+-	sysfs_remove_group(&gid_attr_group->kobj,
+-			   &gid_attr_group->ndev);
+-	sysfs_remove_group(&gid_attr_group->kobj,
+-			   &gid_attr_group->type);
++	if (!gid_attr_group)
++		return;
++	sysfs_remove_groups(&gid_attr_group->kobj, gid_attr_group->groups_list);
++	kobject_del(&gid_attr_group->kobj);
+ 	kobject_put(&gid_attr_group->kobj);
+ }
  
 -- 
 2.31.1
@@ -402,4 +412,4 @@ index 114fecda9764..d2a089a6f666 100644
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1c9434111b6770a7aef0e644a88a16eee7e325b8.1623427137.git.leonro%40nvidia.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/f4149d379db7178d37d11d75e3026bf550f818a1.1623427137.git.leonro%40nvidia.com.
