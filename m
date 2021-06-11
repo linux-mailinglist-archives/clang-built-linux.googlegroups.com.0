@@ -1,125 +1,152 @@
-Return-Path: <clang-built-linux+bncBAABB2XRRSDAMGQE4DWTHHY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS5F7M6QIOBBE4ARWDAMGQE4Y2CM6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2A4DB3A4019
-	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 12:20:28 +0200 (CEST)
-Received: by mail-io1-xd39.google.com with SMTP id p20-20020a6bce140000b029049372849df8sf18991930iob.11
-        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 03:20:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623406827; cv=pass;
+Received: from mail-il1-x139.google.com (mail-il1-x139.google.com [IPv6:2607:f8b0:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id 710873A406E
+	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 12:51:00 +0200 (CEST)
+Received: by mail-il1-x139.google.com with SMTP id o12-20020a056e02188cb02901dbd219e088sf3184944ilu.16
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 03:51:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623408659; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EKrfNtCOojlP/Kpz7NXkR2Y6fCbqLaNUkKQ9719nY58cneyieyYrfxG821FIOmvzE3
-         17335A8Yif/GGH1ZHI08NjvCiLgvpKMHxFKKQ4cVKA8Xuyp2YeEwV/jPi9otymLSHNd2
-         vHgTmjQasdFYZCwnpenPlGfZBt6spbBoT4VpKLE08umedQVkBGNxgwafQruDh+CQFTo/
-         ETpAibqpLMMSuS/Le2CFhXNuqfa18230iyiHcpo/j2fZTG8/2btyp+COZ++FEtDnZ7in
-         +GC5SDH3VXyaLBpiEgd6rfMmRcRynsCQX7rtuzexJ87b6WPx31DaMRJBWb/ST2DeSrzr
-         JNyA==
+        b=Iwx/7EIKx5x0m71Ie9qXVaOBZr/516lhw4AlyUuYcx6CdOy/ugLcZNpmluTDCPTWcW
+         TMCu/oDEWkF7eAY8NGT6derhg7Uztt0jljxtQ3WdOd4ZSUwVCQM5//dxnn+hGEZYM0zr
+         JLsYlh9nExWmqsuTcrirLWC6EoWJWSG2VaKzyB8MlOHiTOmvg4TjpFTK4OS8DhY2/Ioz
+         fkc3EgihVCZ1w0wSDDwRkCGhhcHKs78CAMEg4SZ66Cu5B6HWRWs9bOwRUdq4D1i8RRNZ
+         HpHXmkZ+jtCYg9wHFUgrVLDkEzzfWZNnTwp+/8nuNmPAxDJVBjtQJbLUHtDfk4gbwlkV
+         F1MQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:references:mime-version
-         :subject:message-id:reply-to:cc:to:from:date:sender:dkim-signature;
-        bh=c3VbSCHmjgbKH+shklpD3Qp+z1TnUf1b7tWeSewF/kk=;
-        b=vBdkr/p700fT4lPgaJvITzD0it5HH1GEOxi/2W0upXnUliZTIDur5s9WLG324e3y8J
-         V6yhLjIoiDDBWcwXaGS4fLgezhvDCU1H7TAf1FtKmNLCpKl8Z3uiAZyDENdn+wDOkEJb
-         FtDr3jrnkJiSRv1/63mtTcFu/5qawNPTTZe8ejEaLybcqhToLvFg22Y4cBE2y8TZg5+b
-         WczvJ7fkeazNWPYat3kUx0BUttxUpVuOyudfp+uiN2KYlbWBMTbrqsOaVs4gBFe78XHX
-         YcaQvVvplda59PqjF1zhXE/VRAcYd7SzJVl9tkITv/wOlM0RcA87EKws0lSQdoyZY6YT
-         Nicg==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:sender:dkim-signature;
+        bh=ok3MHfo3aBsDFcFPaFe14fGYdQvZm0BxOV0knREw5U0=;
+        b=aeCFWknY6eT9+Pd/rsgBQCBq+u9nMrcRbZehPDkpIQXRQ/miV/0PwGYf/2fDkb3sKd
+         /tC9L5g1W0rk1I5we9Q1t/D4/a/rbeSNlXzXYylqtx6156Bbs1LsOyBE8T+CrRIyFZmS
+         smmofho+5Lwp5yLm2hTR2pE/p+fq2BgiS6YeGOGzdgKvNocTIuCYlquS0fnjVRDgvmJu
+         f+8lrRWFyd/R3JPKJ8gzcJ8zc68XWyNHnLTuN6VcxzR/hSApDTE/dNUVCpKO4ThREqSO
+         zSk++YNkWqz4QmgWD9uH80nDLL8EIj++WcfZm5EsTl8lpTecE4d/WtInm7yBVpEnPCIi
+         fx4w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.56 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=IHR35l5u;
+       spf=pass (google.com: domain of nikolai.kondrashov@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=nikolai.kondrashov@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:reply-to:message-id:subject:mime-version
-         :references:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=c3VbSCHmjgbKH+shklpD3Qp+z1TnUf1b7tWeSewF/kk=;
-        b=ICah3BuC/CZkfifpidMapZ7qLosMYHJi2y9V4E3x5OUK1fRtsURIZIdCaVUMLPSEz6
-         qOj5Jv09lcRVeSVgITyR7zamM9ozgzV9mrF9MrU1+zcRbKVwCKgigP0saO+5IWrBs1SB
-         chdQyuQ4BeIBv7WU1ZwPy8BVE6runlr3R2zDxSi49rWmFk4ZPIxZmMG2Em5tiUmcY/S/
-         m3iQZvPZYb8VG6i0q2SCaerSz07GwpxILg1TE4ZM3pjqWmYe6IibBs9cFn0XfYhQT0tD
-         W3ZtBXSREPqAnqzgatEJlrUbtkIlPZaWsxBCEamrjlz62mTMZErrpGDonKF+52QDB4u4
-         G8ng==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ok3MHfo3aBsDFcFPaFe14fGYdQvZm0BxOV0knREw5U0=;
+        b=jOqyiABt4MlSN7wSJluEtZoQzf/DddPLE5fNqIQltUvWdXTC+b7s95CgCa+2QA1NPn
+         o4z3MVrbvG8YTxUbU1g4OUK5Gvq8+HgPNQKMhQfl2R2jFTpiiP67EsELdDWjAcuCpewJ
+         XheGEAHb5Zd2O0nLD+P/QttZhLkZKXTTTBdYjBcnoEh6gDYJ52if/T3iQfDDZ+ZeKc/2
+         SQeE4VBdcH47qgsBxgCOarkuBWlJB+tqTPLMqGDMBSUaTspes1A/BJCDsqcvyECfqLno
+         ba5JCcveyxp6W9atBZynZZehMwyYkRb1I3mK+IuocZFpyjbklydYmll8mboaCnXpZSKQ
+         rnbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:reply-to:message-id
-         :subject:mime-version:references:in-reply-to:x-original-sender
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=c3VbSCHmjgbKH+shklpD3Qp+z1TnUf1b7tWeSewF/kk=;
-        b=fd2eLRRVfthCfsAMhLe4MyAGw59Bt8tykp4bX5ATO+okvsHdaRA8oixHojsN6+zGka
-         BKpu9uffhL5+xRd/xsltvD6CYkkmPx3njuRcakoDQ0LAS0FNEOvt5qr+HPqKiXPYiQYW
-         F06JwzNLBrIiTjpCpu9k1mitEW+sc7eGH2FJAk1XRzZkIQAbN732jVbABILCkOlWc5hL
-         ZCRrRb3gR5kqFKW7pi3Pc+CVQCqXwkpA2W4CBbgoA0Xb+OtowfAVLszpMACR1NZP4vUQ
-         yVpi1i6zKk6Lcwg+qzL5HTvjNjoEVAOTivQ/6uJgbDfSMB0Clz+NfMiWnHLlwKvUOJMK
-         jQIA==
+        bh=ok3MHfo3aBsDFcFPaFe14fGYdQvZm0BxOV0knREw5U0=;
+        b=bA2ehkc85JPANWLWsoGm9CNFjQgPRzKfSeOq1eoZVbui1c0daxwHqByJiF47MPFZCQ
+         DEEoiAlHrMYrdMzP3QVra6XqgwKMsncIBNXjD6dFNhqIh9QYx2lRohIxq09jF6j7xI4t
+         Lvc6FJsTPf41hsY3ub7l377jkDFhJebR73Mhdvk8PFiAEPGBuV/T/4c3IABssmg4x6LE
+         i26Y12u/QnNnQAgVETcAL3Vo0mtonNQ2eEWpukxL803tslXRMpaZlNND/zKqnNGdN2CD
+         K9Djx+Va5CJvq5+mlTBPnGSc5GwKeXRO8A+Qw/Etau+m7sUTVJD3hTkJKVj15sPLI0KE
+         MLzA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532oxJpau3y4V2Vd767Sy8JWqqrs9r1FB8q9fp8PhBGO4R7DoEHr
-	KBYsmXFY1eM7VunTMMFwe0w=
-X-Google-Smtp-Source: ABdhPJw3VwdHV9hMFt6bSYrdiRoywQ/38yrvgeAdPpDwMAYHzwYDri1dIHAJjwR9fny9ploHuOK70A==
-X-Received: by 2002:a92:7c11:: with SMTP id x17mr2650865ilc.52.1623406826964;
-        Fri, 11 Jun 2021 03:20:26 -0700 (PDT)
+X-Gm-Message-State: AOAM532mJrRLBfU2WP/KeHEkYN9lamoG0Yp6PApA7u7/zMJwWig4BGoi
+	kDH357c4h3s9K1s9kvRMoJk=
+X-Google-Smtp-Source: ABdhPJxm6ci1E0QKGFtlPClq0jNcrbkydLmRAl8hY5bJam5krI2cOaNSqEwKSMq+/YeZr+yEvJ2K5w==
+X-Received: by 2002:a6b:a10:: with SMTP id z16mr2737203ioi.70.1623408659339;
+        Fri, 11 Jun 2021 03:50:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6602:2297:: with SMTP id d23ls1654614iod.1.gmail; Fri,
- 11 Jun 2021 03:20:26 -0700 (PDT)
-X-Received: by 2002:a5e:c64c:: with SMTP id s12mr2513068ioo.3.1623406826570;
-        Fri, 11 Jun 2021 03:20:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623406826; cv=none;
+Received: by 2002:a92:d092:: with SMTP id h18ls2397555ilh.7.gmail; Fri, 11 Jun
+ 2021 03:50:59 -0700 (PDT)
+X-Received: by 2002:a05:6e02:f48:: with SMTP id y8mr2824208ilj.85.1623408658956;
+        Fri, 11 Jun 2021 03:50:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623408658; cv=none;
         d=google.com; s=arc-20160816;
-        b=HoyrdMjbEZ1Ip3l+HXgCXld5+fAuZHR28K9LzE3pqOmquroTkWMAGseTRDhA+FlkDW
-         IMaa6HV3LrpUw12hhcpZ2aeSEaF6cuxAPJfbiEaDUWITyAsWjCTnPYZC7fLsX/rwYWrZ
-         58XUFJUAwvi6wJLLv+pr3C4kiByGywESsWngri9dl75rznMXCfP4Rqdgn/YNdz8+9mMl
-         4dBfknPUNe/6Ek5VX473gB0MxjCvcHoVwj7KedP/zIXo/uKLKk3NWAoPiLgMbBlN6HU0
-         jgPXGYHEtZGGCJEK/qsZGDG2lgibH4Pdna0O8Q9aJR6wLJ4dseRWLxjYvgiJFehq1WXE
-         m8Mw==
+        b=IjuRoeBf6jsphZakT0rBed/LCU5fy5Tvs1Em1n4zbhZxCfQiRAVZ2C+TQQhkLYdr/p
+         rLXmwHRdjZNKFL+zH3y/mQObqC5ke3x9yUS1ycEkbF2lDOvWObX/DHWJkx0AM9enQ6oU
+         ngWinPwA+au5cUjwbC/Eqi4wo1CDoI9Vlw2IsD92b0DqKGKwmQagjJgi/RYrJCIH7DLj
+         4gc1R9ymKw1PUYgB5RxfHZq71JxWY9b+jXGiBpBh1z28oHxbv0WPqPDiQ6tu+ADXUig+
+         T3G7nFCoJQLmTXQ1LTxEDVnOGXb2EC58F06Ry0Z/VYqubwiDabRQm6Q0JZfVvGrsJWdp
+         iRDQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:references:mime-version:subject:message-id:reply-to:cc
-         :to:from:date;
-        bh=TNKa8KD0HB9yXv4t/yDklP3YoVDCaRxjT25n5wSsiLA=;
-        b=dMGw9+Jm5dnf5FCGQ5OUdBPDMRmqM8qKzTmDAyHJ1BjLvysQEPNt5BLWNWprCf/Xwm
-         BJjqucncqrJ07QUZO8FhxqZltiO7ZAxw8rC7f1+HLW3vjZ3XZQR3vKajpwkLHdLMbaxd
-         fheRdBF8B2Y82UQ3ScIzJWxStpWDnd2nPLerQ/HX9o+s2I5Y74JzKjSHTfXznQCaYzvm
-         duoEA1GfdvAhqd3yExAXjtUYdouYSi3dy3K7Xa8bg1t/t8S5AL5w1ETavOTkgLU3LQ/1
-         NvLJTPmGeMEYHibUkRvHLJekp4uVIgz3iJCMYKpNQcaLmXXc9KAuH1I+oE5rncHJNZem
-         v91Q==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=1YF2bCTWrl3mx1ghPGBKk5k5BvbUP4ymeL3KgcTm3fk=;
+        b=HKxct237PgeXSJxhqrgecjJxR3hGVMdPUs+3B7XL+bh9sya8R2OzL+u13eRlbuwAvH
+         q9JoYRqYdN+XlEFCh7Z/8wqUq0yCC1imepOJNUly5bYJP9SY5XwnJUpBH1n+C2RDOX0f
+         W2oCl5LKyAXMZY1AakOsK/uQ8gazNQrWTNpzUY45Wy6G4wV62y2wD3qgOp+swt0///o/
+         6ALFCwEepvf+XHdPsZ8yL26Fmg2Q6Z0kAqX5u5km8PCJXwu1o5ag13hgzzK1QEIRIA1K
+         o/8iX4xnAGK6XHiNJLt8KFLgQOV2koiyTpnuUq8N4oy1HF8t2MQgR7wniy4h9hDPokyo
+         lZCA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.56 as permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
-Received: from out30-56.freemail.mail.aliyun.com (out30-56.freemail.mail.aliyun.com. [115.124.30.56])
-        by gmr-mx.google.com with ESMTPS id m11si253667iov.0.2021.06.11.03.20.25
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=IHR35l5u;
+       spf=pass (google.com: domain of nikolai.kondrashov@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=nikolai.kondrashov@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id f9si613873iop.1.2021.06.11.03.50.58
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Jun 2021 03:20:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.56 as permitted sender) client-ip=115.124.30.56;
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R651e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e04426;MF=yang.lee@linux.alibaba.com;NM=1;PH=DW;RN=8;SR=0;TI=W4_6173578_DEFAULT_0AC264AF_1623406675278_o7001c396e;
-Received: from WS-web (yang.lee@linux.alibaba.com[W4_6173578_DEFAULT_0AC264AF_1623406675278_o7001c396e]) by e01e07486.eu6 at Fri, 11 Jun 2021 18:20:21 +0800
-Date: Fri, 11 Jun 2021 18:20:21 +0800
-From: "Yang.Lee" <yang.lee@linux.alibaba.com>
-To: "Paul Moore" <paul@paul-moore.com>
-Cc: "Stephen Smalley" <stephen.smalley.work@gmail.com>,
-  "Eric Paris" <eparis@parisplace.org>,
-  "nathan" <nathan@kernel.org>,
-  "ndesaulniers" <ndesaulniers@google.com>,
-  "selinux" <selinux@vger.kernel.org>,
-  "linux-kernel" <linux-kernel@vger.kernel.org>,
-  "clang-built-linux" <clang-built-linux@googlegroups.com>
-Reply-To: "Yang.Lee" <yang.lee@linux.alibaba.com>
-Message-ID: <d99556c9-867f-44c5-9fa8-1c69394d8285.yang.lee@linux.alibaba.com>
-Subject: =?UTF-8?B?5Zue5aSN77yaW1BBVENIIC1uZXh0XSBzZWxpbnV4OiBGaXgga2VybmVsLWRvYw==?=
-X-Mailer: [Alimail-Mailagent revision 2546561][W4_6173578][DEFAULT][Chrome]
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 11 Jun 2021 03:50:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nikolai.kondrashov@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-145-kkDwQrqoMJK59UBVPcP0eQ-1; Fri, 11 Jun 2021 06:50:54 -0400
+X-MC-Unique: kkDwQrqoMJK59UBVPcP0eQ-1
+Received: by mail-wm1-f69.google.com with SMTP id o82-20020a1ca5550000b029019ae053d508so4290925wme.6
+        for <clang-built-linux@googlegroups.com>; Fri, 11 Jun 2021 03:50:54 -0700 (PDT)
+X-Received: by 2002:a5d:6daf:: with SMTP id u15mr3377364wrs.400.1623408653470;
+        Fri, 11 Jun 2021 03:50:53 -0700 (PDT)
+X-Received: by 2002:a5d:6daf:: with SMTP id u15mr3377345wrs.400.1623408653302;
+        Fri, 11 Jun 2021 03:50:53 -0700 (PDT)
+Received: from [192.168.0.118] (88-113-28-221.elisa-laajakaista.fi. [88.113.28.221])
+        by smtp.gmail.com with ESMTPSA id w18sm6620133wrt.55.2021.06.11.03.50.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 11 Jun 2021 03:50:52 -0700 (PDT)
+Subject: Re: #KCIDB engagement report
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Nikolai Kondrashov <spbnick@gmail.com>, kernelci@groups.io,
+ "automated-testing@yoctoproject.org" <automated-testing@yoctoproject.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ Vishal Bhoj <vishal.bhoj@linaro.org>,
+ Antonio Terceiro <antonio.terceiro@linaro.org>,
+ Remi Duraffort <remi.duraffort@linaro.org>
+References: <5a9bf050-0671-3273-cc4f-1b131445c1fe@redhat.com>
+ <CAKwvOdmwRV6R6dcpcSL06SNVQ1_JwvOJMZPYiHKvjSx4sf_95g@mail.gmail.com>
+ <d4c587c2-7eca-043f-06b3-7e1cfa125b38@gmail.com>
+ <CAKwvOdkFqFoNUczEiTKY6o2E78bHLkMjeHjtQWKm=Qdg7-v26Q@mail.gmail.com>
+ <0e70beb7-49fe-efba-ef41-a35fa996bdcf@redhat.com>
+ <CAKwvOdkoCzf2+-Z2K8e22OF9odo21RxXJu3gkGxweSePoBRaVg@mail.gmail.com>
+ <c64167f2-23e7-4efa-4945-6398bf99683c@redhat.com>
+ <CAKwvOdmAjWnVaNdgXm3SWTTCRcsxedtaC3KiF4agsBgiYZ1quQ@mail.gmail.com>
+From: Nikolai Kondrashov <Nikolai.Kondrashov@redhat.com>
+Message-ID: <de48e352-b2c3-71d1-cc05-2b62af725e70@redhat.com>
+Date: Fri, 11 Jun 2021 13:50:51 +0300
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.10.0
 MIME-Version: 1.0
-References: <1623317883-54209-1-git-send-email-yang.lee@linux.alibaba.com>,<CAHC9VhQ_XkZ=ADhe5=PqV-zNuEGOHDZfsBnSErW3j+zz5b4Qrg@mail.gmail.com>
-x-aliyun-mail-creator: W4_6173578_DEFAULT_TCwTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzkwLjAuNDQzMC4yMTIgU2FmYXJpLzUzNy4zNiBFZGcvOTAuMC44MTguNjY=FR
-In-Reply-To: <CAHC9VhQ_XkZ=ADhe5=PqV-zNuEGOHDZfsBnSErW3j+zz5b4Qrg@mail.gmail.com>
-Content-Type: multipart/alternative;
-  boundary="----=ALIBOUNDARY_82897_78580940_60c338e5_10cf0c"
-X-Original-Sender: yang.lee@linux.alibaba.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of yang.lee@linux.alibaba.com designates 115.124.30.56 as
- permitted sender) smtp.mailfrom=yang.lee@linux.alibaba.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+In-Reply-To: <CAKwvOdmAjWnVaNdgXm3SWTTCRcsxedtaC3KiF4agsBgiYZ1quQ@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: nikolai.kondrashov@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b=IHR35l5u;
+       spf=pass (google.com: domain of nikolai.kondrashov@redhat.com
+ designates 216.205.24.124 as permitted sender) smtp.mailfrom=nikolai.kondrashov@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,75 +159,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=ALIBOUNDARY_82897_78580940_60c338e5_10cf0c
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Hi Nick,
 
-Hi,
+On 6/11/21 2:38 AM, Nick Desaulniers wrote:
+ > On Thu, Jun 10, 2021 at 2:15 AM Nikolai Kondrashov
+ > <Nikolai.Kondrashov@redhat.com> wrote:
+ >> Thanks for the feedback and the requests.
+ >> Give me some more, if you have them :)
+ >
+ > Awesome!!!! I really like clearly seeing the number of builds that
+ > succeeded vs failed.  The numbers for the "Top 10 architecture build
+ > failures" add up to the total number of build failures which is great.
 
-I will try my best to check and fix other inconsistent comments in SELinux =
-through tools.=20
-I've added comments for 'state' and sent V2 as you suggested. Due to my lim=
-ited understanding=20
-of functions, I can't add comments for other parameters to functions.
+Eh, the sum would stop matching as soon as there are more than 10 failed=20
+architectures :D I can't really squeeze all of them in there, as it would=
+=20
+become unreadable on at least some displays, that's worse for configuration=
+s,=20
+and would be much worse for compilers.
 
-Thanks for your review and guidance.
+ >
+ > We can clearly see which toolchain was used in the table.
+ >
+ > Oh, I clicked something and can't back the nice histograms.
+ >=20
+https://kcidb.kernelci.org/d/revision/revision?orgId=3D1&var-dataset=3Dkern=
+elci04&var-id=3Dc4681547bcce777daf576925a966ffa824edd09d
+ > vs
+ >=20
+https://kcidb.kernelci.org/d/branch/branch?orgId=3D1&var-dataset=3Dkernelci=
+04&var-git_repository_url=3Dhttps:%2F%2Fgit.kernel.org%2Fpub%2Fscm%2Flinux%=
+2Fkernel%2Fgit%2Ftorvalds%2Flinux.git&var-git_repository_branch=3Dmaster&va=
+r-origin=3DAll&var-build_architecture=3DAll&var-build_config_name=3DAll
+ >
+ > The first URL was in my history, so I just went directly there; but I
+ > can't figure out how to get back there from the existing UI elements.
+ > I click "Home" (top left) > Branch > Repository URL >
+ > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+ >
+ > (the "name" field defaults to "kunit" rather than "master"???)  Oh, is
+ > it "Revision" rather than "Branch" that I should be using? No, that
+ > doesn't seem to be it...hmm...
 
+Those "histograms" are only added to the "Revision" dashboard. Watch the na=
+me=20
+of the dashboard in the top left corner. I guess I can add them to the "Rep=
+o"=20
+and "Branch" dashboards as well. Would the graphs make sense when they are=
+=20
+across multiple revisions?
 
-------------------------------------------------------------------
-=E5=8F=91=E4=BB=B6=E4=BA=BA=EF=BC=9APaul Moore <paul@paul-moore.com>
-=E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4=EF=BC=9A2021=E5=B9=B46=E6=9C=8811=E6=
-=97=A5(=E6=98=9F=E6=9C=9F=E4=BA=94) 09:06
-=E6=94=B6=E4=BB=B6=E4=BA=BA=EF=BC=9AYang Li <yang.lee@linux.alibaba.com>
-=E6=8A=84=E3=80=80=E9=80=81=EF=BC=9AStephen Smalley <stephen.smalley.work@g=
-mail.com>; Eric Paris <eparis@parisplace.org>; nathan <nathan@kernel.org>; =
-ndesaulniers <ndesaulniers@google.com>; selinux <selinux@vger.kernel.org>; =
-linux-kernel <linux-kernel@vger.kernel.org>; clang-built-linux <clang-built=
--linux@googlegroups.com>
-=E4=B8=BB=E3=80=80=E9=A2=98=EF=BC=9ARe: [PATCH -next] selinux: Fix kernel-d=
-oc
+ > I really really like the histograms for build failures; I'm most
+ > interested in seeing one by toolchain (we have bugs specific to just
+ > newer vs older versions of clang all of the time); perhaps folks might
+ > like to slice along any of the columns in the table?
 
-On Thu, Jun 10, 2021 at 5:38 AM Yang Li <yang.lee@linux.alibaba.com> wrote:
->
-> Fix function name in ss/services.c kernel-doc comment
-> to remove a warning found by running make W=3D1 LLVM=3D1.
->
-> security/selinux/ss/services.c:2437: warning: expecting prototype for
-> security_pkey_sid(). Prototype was for security_ib_pkey_sid() instead.
->
-> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-> Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
-> ---
->  security/selinux/ss/services.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/security/selinux/ss/services.c b/security/selinux/ss/service=
-s.c
-> index 3658488..bb043bf 100644
-> --- a/security/selinux/ss/services.c
-> +++ b/security/selinux/ss/services.c
-> @@ -2423,7 +2423,7 @@ int security_port_sid(struct selinux_state *state,
->  }
->
->  /**
-> - * security_pkey_sid - Obtain the SID for a pkey.
-> + * security_ib_pkey_sid - Obtain the SID for a pkey.
->   * @subnet_prefix: Subnet Prefix
->   * @pkey_num: pkey number
->   * @out_sid: security identifier
+Grafana doesn't seem to allow doing that dynamically, but maybe I can leave=
+=20
+only one graph, and add another drop-down list on top for selecting which=
+=20
+metric you want the graph for.
 
-This kdoc function header block is also missing the selinux_state
-description.  Would you mind adding something like the following and
-resubmitting your patch?
+Meanwhile I'll just add another graph for "Top 5 compiler build failures".
 
-  * @state: SELinux state
+ > The build status in the latter link with red vs green area was exactly
+ > what I was imagining. Great work!
 
-... I suspect there are a number of function header comments with
-similar problems in the SELinux code.
+Cool :) Unfortunately, when the ratio is too big, the small bar can be real=
+ly=20
+hard to see and hit with the mouse. Grafana doesn't have pie charts by=20
+default, that would've worked better, but I'd rather wait with adding an ex=
+tra=20
+pie chart plugin before we upgrade to a newer version.
 
---=20
-paul moore
-www.paul-moore.com
+Nick
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -208,118 +240,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/d99556c9-867f-44c5-9fa8-1c69394d8285.yang.lee%40linux.ali=
-baba.com.
-
-------=ALIBOUNDARY_82897_78580940_60c338e5_10cf0c
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div class=3D"__aliyun_email_body_block"><div  style=3D"clear:both;"><span =
- style=3D"font-family:Tahoma,Arial,STHeiti,SimSun;font-size:14.0px;color:#0=
-00000;">Hi,</span></div><div  style=3D"clear:both;"><span  style=3D"font-fa=
-mily:Tahoma,Arial,STHeiti,SimSun;font-size:14.0px;color:#000000;"><br ></sp=
-an></div><div  style=3D"clear:both;"><span  style=3D"font-family:Tahoma,Ari=
-al,STHeiti,SimSun;font-size:14.0px;color:#000000;">I&nbsp;will&nbsp;try&nbs=
-p;my&nbsp;best&nbsp;to&nbsp;check&nbsp;and&nbsp;fix&nbsp;other&nbsp;inconsi=
-stent&nbsp;comments&nbsp;in&nbsp;SELinux&nbsp;through&nbsp;tools.&nbsp;</sp=
-an></div><div  style=3D"clear:both;">I've&nbsp;added&nbsp;comments&nbsp;for=
-&nbsp;'state'&nbsp;and&nbsp;sent&nbsp;V2&nbsp;as&nbsp;you&nbsp;suggested.&n=
-bsp;Due&nbsp;to&nbsp;my&nbsp;limited&nbsp;understanding&nbsp;<br ></div><di=
-v  style=3D"clear:both;">of&nbsp;functions,&nbsp;I&nbsp;can't&nbsp;add&nbsp=
-;comments for&nbsp;other&nbsp;parameters to&nbsp;functions.<br ></div><div =
- style=3D"clear:both;"><span  style=3D"color:#000000;font-family:Tahoma,Ari=
-al,STHeiti,SimSun;font-size:14.0px;font-style:normal;font-variant-ligatures=
-:normal;font-variant-caps:normal;font-weight:400;text-align:start;text-inde=
-nt:.0px;text-transform:none;widows:2;background-color:#ffffff;text-decorati=
-on-thickness:initial;text-decoration-style:initial;text-decoration-color:in=
-itial;float:none;display:inline;"><br ></span></div><div  style=3D"clear:bo=
-th;"><span  style=3D"color:#000000;font-family:Tahoma,Arial,STHeiti,SimSun;=
-font-size:14.0px;font-style:normal;font-variant-ligatures:normal;font-varia=
-nt-caps:normal;font-weight:400;text-align:start;text-indent:.0px;text-trans=
-form:none;widows:2;background-color:#ffffff;text-decoration-thickness:initi=
-al;text-decoration-style:initial;text-decoration-color:initial;float:none;d=
-isplay:inline;"><span  style=3D"color:#171a1d;font-family:Microsoft YaHei,S=
-egoe UI,system-ui,Roboto,Droid Sans,Helvetica Neue,sans-serif,Tahoma,Segoe =
-UI SymbolMyanmar Text,=E5=BE=AE=E8=BD=AF=E9=9B=85=E9=BB=91;font-size:14.0px=
-;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;f=
-ont-weight:400;text-align:left;text-indent:.0px;text-transform:none;widows:=
-2;background-color:#ffffff;text-decoration-thickness:initial;text-decoratio=
-n-style:initial;text-decoration-color:initial;float:none;display:inline;">T=
-hanks for your review and guidance.</span></span></div><div  style=3D"clear=
-:both;"><span  style=3D"font-family:Tahoma,Arial,STHeiti,SimSun;font-size:1=
-4.0px;color:#000000;"><br ></span></div><blockquote  style=3D"margin-right:=
-.0px;margin-top:.0px;margin-bottom:.0px;"><div  style=3D"clear:both;"><span=
-  style=3D"font-family:Tahoma,Arial,STHeiti,SimSun;font-size:14.0px;color:#=
-000000;">------------------------------------------------------------------=
-</span></div><div  style=3D"clear:both;"><span  style=3D"font-family:Tahoma=
-,Arial,STHeiti,SimSun;font-size:14.0px;color:#000000;">=E5=8F=91=E4=BB=B6=
-=E4=BA=BA=EF=BC=9APaul Moore &lt;paul@paul-moore.com&gt;</span></div><div  =
-style=3D"clear:both;"><span  style=3D"font-family:Tahoma,Arial,STHeiti,SimS=
-un;font-size:14.0px;color:#000000;">=E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4=EF=
-=BC=9A2021=E5=B9=B46=E6=9C=8811=E6=97=A5(=E6=98=9F=E6=9C=9F=E4=BA=94) 09:06=
-</span></div><div  style=3D"clear:both;"><span  style=3D"font-family:Tahoma=
-,Arial,STHeiti,SimSun;font-size:14.0px;color:#000000;">=E6=94=B6=E4=BB=B6=
-=E4=BA=BA=EF=BC=9AYang Li &lt;yang.lee@linux.alibaba.com&gt;</span></div><d=
-iv  style=3D"clear:both;"><span  style=3D"font-family:Tahoma,Arial,STHeiti,=
-SimSun;font-size:14.0px;color:#000000;">=E6=8A=84=E3=80=80=E9=80=81=EF=BC=
-=9AStephen Smalley &lt;stephen.smalley.work@gmail.com&gt;; Eric Paris &lt;e=
-paris@parisplace.org&gt;; nathan &lt;nathan@kernel.org&gt;; ndesaulniers &l=
-t;ndesaulniers@google.com&gt;; selinux &lt;selinux@vger.kernel.org&gt;; lin=
-ux-kernel &lt;linux-kernel@vger.kernel.org&gt;; clang-built-linux &lt;clang=
--built-linux@googlegroups.com&gt;</span></div><div  style=3D"clear:both;"><=
-span  style=3D"font-family:Tahoma,Arial,STHeiti,SimSun;font-size:14.0px;col=
-or:#000000;">=E4=B8=BB=E3=80=80=E9=A2=98=EF=BC=9ARe: [PATCH -next] selinux:=
- Fix kernel-doc</span></div><div  style=3D"clear:both;"><span  style=3D"fon=
-t-family:Tahoma,Arial,STHeiti,SimSun;font-size:14.0px;color:#000000;"><br >=
-</span></div>On&nbsp;Thu,&nbsp;Jun&nbsp;10,&nbsp;2021&nbsp;at&nbsp;5:38&nbs=
-p;AM&nbsp;Yang&nbsp;Li&nbsp;&lt;yang.lee@linux.alibaba.com&gt;&nbsp;wrote:<=
-br >&gt;<br >&gt;&nbsp;Fix&nbsp;function&nbsp;name&nbsp;in&nbsp;ss/services=
-.c&nbsp;kernel-doc&nbsp;comment<br >&gt;&nbsp;to&nbsp;remove&nbsp;a&nbsp;wa=
-rning&nbsp;found&nbsp;by&nbsp;running&nbsp;make&nbsp;W=3D1&nbsp;LLVM=3D1.<b=
-r >&gt;<br >&gt;&nbsp;security/selinux/ss/services.c:2437:&nbsp;warning:&nb=
-sp;expecting&nbsp;prototype&nbsp;for<br >&gt;&nbsp;security_pkey_sid().&nbs=
-p;Prototype&nbsp;was&nbsp;for&nbsp;security_ib_pkey_sid()&nbsp;instead.<br =
->&gt;<br >&gt;&nbsp;Reported-by:&nbsp;Abaci&nbsp;Robot&nbsp;&lt;abaci@linux=
-.alibaba.com&gt;<br >&gt;&nbsp;Signed-off-by:&nbsp;Yang&nbsp;Li&nbsp;&lt;ya=
-ng.lee@linux.alibaba.com&gt;<br >&gt;&nbsp;---<br >&gt;&nbsp;&nbsp;security=
-/selinux/ss/services.c&nbsp;|&nbsp;2&nbsp;+-<br >&gt;&nbsp;&nbsp;1&nbsp;fil=
-e&nbsp;changed,&nbsp;1&nbsp;insertion(+),&nbsp;1&nbsp;deletion(-)<br >&gt;<=
-br >&gt;&nbsp;diff&nbsp;--git&nbsp;a/security/selinux/ss/services.c&nbsp;b/=
-security/selinux/ss/services.c<br >&gt;&nbsp;index&nbsp;3658488..bb043bf&nb=
-sp;100644<br >&gt;&nbsp;---&nbsp;a/security/selinux/ss/services.c<br >&gt;&=
-nbsp;+++&nbsp;b/security/selinux/ss/services.c<br >&gt;&nbsp;@@&nbsp;-2423,=
-7&nbsp;+2423,7&nbsp;@@&nbsp;int&nbsp;security_port_sid(struct&nbsp;selinux_=
-state&nbsp;*state,<br >&gt;&nbsp;&nbsp;}<br >&gt;<br >&gt;&nbsp;&nbsp;/**<b=
-r >&gt;&nbsp;-&nbsp;*&nbsp;security_pkey_sid&nbsp;-&nbsp;Obtain&nbsp;the&nb=
-sp;SID&nbsp;for&nbsp;a&nbsp;pkey.<br >&gt;&nbsp;+&nbsp;*&nbsp;security_ib_p=
-key_sid&nbsp;-&nbsp;Obtain&nbsp;the&nbsp;SID&nbsp;for&nbsp;a&nbsp;pkey.<br =
->&gt;&nbsp;&nbsp;&nbsp;*&nbsp;@subnet_prefix:&nbsp;Subnet&nbsp;Prefix<br >&=
-gt;&nbsp;&nbsp;&nbsp;*&nbsp;@pkey_num:&nbsp;pkey&nbsp;number<br >&gt;&nbsp;=
-&nbsp;&nbsp;*&nbsp;@out_sid:&nbsp;security&nbsp;identifier<br ><br >This&nb=
-sp;kdoc&nbsp;function&nbsp;header&nbsp;block&nbsp;is&nbsp;also&nbsp;missing=
-&nbsp;the&nbsp;selinux_state<br >description.&nbsp;&nbsp;Would&nbsp;you&nbs=
-p;mind&nbsp;adding&nbsp;something&nbsp;like&nbsp;the&nbsp;following&nbsp;an=
-d<br >resubmitting&nbsp;your&nbsp;patch?<br ><br >&nbsp;&nbsp;*&nbsp;@state=
-:&nbsp;SELinux&nbsp;state<br ><br >...&nbsp;I&nbsp;suspect&nbsp;there&nbsp;=
-are&nbsp;a&nbsp;number&nbsp;of&nbsp;function&nbsp;header&nbsp;comments&nbsp=
-;with<br >similar&nbsp;problems&nbsp;in&nbsp;the&nbsp;SELinux&nbsp;code.<br=
- ><br >--&nbsp;<br >paul&nbsp;moore<br >www.paul-moore.com</blockquote><div=
- ><br ></div></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/d99556c9-867f-44c5-9fa8-1c69394d8285.yang.lee%=
-40linux.alibaba.com?utm_medium=3Demail&utm_source=3Dfooter">https://groups.=
-google.com/d/msgid/clang-built-linux/d99556c9-867f-44c5-9fa8-1c69394d8285.y=
-ang.lee%40linux.alibaba.com</a>.<br />
-
-------=ALIBOUNDARY_82897_78580940_60c338e5_10cf0c--
-
+clang-built-linux/de48e352-b2c3-71d1-cc05-2b62af725e70%40redhat.com.
