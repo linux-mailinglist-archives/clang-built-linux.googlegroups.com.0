@@ -1,156 +1,144 @@
-Return-Path: <clang-built-linux+bncBAABBJFMR2DAMGQEPDK45XY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBQFLR2DAMGQEKCF3YOA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 246483A4734
-	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 18:58:14 +0200 (CEST)
-Received: by mail-qt1-x83d.google.com with SMTP id r3-20020a05622a0343b029024761fabab8sf2293724qtw.11
-        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 09:58:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623430693; cv=pass;
+Received: from mail-pj1-x103c.google.com (mail-pj1-x103c.google.com [IPv6:2607:f8b0:4864:20::103c])
+	by mail.lfdr.de (Postfix) with ESMTPS id A1EC93A4717
+	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 18:56:33 +0200 (CEST)
+Received: by mail-pj1-x103c.google.com with SMTP id mg5-20020a17090b3705b029016e1ef20338sf5785730pjb.3
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 09:56:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623430592; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kx3UyXb6umk0ZMsy5c7EdTvrxauY+L6pCVoRjQWsgVbljAtbnPvLwVFlN0BOvkXZLF
-         9xaSrUdL2O7n14Z0uDI9gTfLeKmfITjAl/FYOtUWCFquu6BxpVes5fORg31JkqGOR+xX
-         L5oH7ne10yyCJnLr8hpK5oKwutsPGFpDfjbpfW2E4LC6D6sy49go300TTvjavWXyEGCY
-         +ppwuoaccE3FFkiRpjnGrJRDJbC114Zt16f86zJhuQIPYaYvj67q+QFiyqM9b1APB9qD
-         Ju3h6UwyHcrj8VoZhgpzj5ccOnVBwrzwCAB7LLVZYLoLeTyey12NVhYlZpvYpKWPsj0B
-         0JzQ==
+        b=0+gTpMOsexV1+4NsuKCcBz01SZhnwHbnfTmNph1LOBMTOHKjdCHkgPYYJH6gQd2o8n
+         UqVz1m8RbsilpQQLaTaksxKF8Q9VhbrIth5sDEd3jKWFh6+JEQSS0WfqCpTJQDE6lg/+
+         e553hnZle9bypdn8xmZ8vePWdvVfqjJGCsAagHBgZHwKZZqCTZ+59yRIKF97VTxNX/dD
+         Y2FK5H4ogUrH/TKhiuorU4yuSYoQI19tUXIb957CtalWY/sfFu7bdgJ4ttZxsh2RI1F7
+         2wNa0+ajVOhfwUXJlyQ0ixNiZYzi3t6DkMdDm+ybJhlvhbGGaJ0O7MsWpz8rsfVswsJP
+         JFxQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:importance:mime-version
-         :subject:references:in-reply-to:message-id:cc:to:from:date
-         :dkim-signature;
-        bh=qMOnHQDsYbXczvZXdPClixyiEfaHrjPO0c+nYN7nevk=;
-        b=nVChxUP6iQqf9EJuqsV28n7Kg02J+Q5USWRQ9hG5JcbNVp/P+MOmatn2C9LxdSD7EA
-         P7GOwq9B1pG/HO9NLr8sX3fEzBrsMSuN4iDb5Qh0K6Me6Dxgg8HA5nCQH46Rhx+dSzPy
-         2ZMQhzjs8OxpTQ033KOdl29AD22Oy86wH82ms0ksLt2hor5HMIfVNVvAWiLpQ9kOCGnI
-         JoAcgvVJmgPE9UxJDhydN+QpmTJuzetpDF3v8ZZP4Jccwy+hBsGhkK7EpPKTljYhg3tF
-         p5Re4HlSIaVoByCUvSTrnJ/Cwm2Jqjr/rcD+Eb6fM71hJgNwzQ1n+K858WB7hRmLqzY+
-         GYRg==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=CX2zor2u6gCNrGPG39dV+usJq9wSOoPzXvZcQ7SLY3M=;
+        b=cTXrOj4/miMiwTVAOnjrzHauuQp0cgIEFYeEBdrNuVg3kZXYixF/FrE5USf8AkfwSp
+         3Ce07FONt6qeMKl9jiDnONXPHC1HPjEus7Zk2XxHm8uGfZFN0/jIS7ijSwmL6zB4Lj4G
+         sdBGfk1rYk2aTllfnbmtWy3Tdo29wy2AoLpOxVB1SPECcvcssrjFyjuVQV7pIIStwjVQ
+         3n/vLy0BUn8Gmg5eVlt2uWj/C7yfoXKhTgqZwuGDhotWVZb1gbscjdxbjJMuh1WmyxbT
+         kyy0//LOeCz4GH05SXkfl6mzbzhjOmz6mDjKG2zxt4wc692nzUF9lYdD26jGlAnw+bmp
+         SURA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=O59tkCKs;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=t15LK5QH;
-       spf=pass (google.com: domain of torvic9@mailbox.org designates 2001:67c:2050::465:103 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=lKT7CBhk;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:message-id:in-reply-to:references:subject
-         :mime-version:importance:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=qMOnHQDsYbXczvZXdPClixyiEfaHrjPO0c+nYN7nevk=;
-        b=Hmb6+mtAZBYF2OumvrXN3A9nhNHZ0ZP1IbCTut4QHJ6lwXtBqlYZfJKetYDoSOOCjt
-         69pE45M9stKqBguETh8bi8r3u3w9qCIg1m8veHY4+zCW9NJxoUhGhQzQuHydwanbg3S1
-         /ljm6gNzv8wxhr5lM8aP7Nr2csQPalHFu6DiKWlrUWWNhHhzLHBgPF46njSgzPtO8r0G
-         IcThTZXD33egKHhSGRgBoaxKdmP5/iJaSTTMr1zB0VqNNZAjMmniirk79ejMO2KpcAbX
-         0m9blWMO7ykd1+KHh7nGZ44EnjkxP4klyG+iVH2Bsc/xrWHNqnIfxo+t6ZLr61NBJ5Km
-         1fHw==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=CX2zor2u6gCNrGPG39dV+usJq9wSOoPzXvZcQ7SLY3M=;
+        b=f4ODZNbZ7dJvA/NZaz9fwh6ng+JsHTJWFZzPdIL6sagTOcXfi33Vza0LzYg6g6Ng6b
+         FFXk/N9aiREgbqC4wzAlwiMacGFh3FY3tDLi0NWXTBRUqrWDB0KjDgTO/MW9SqfkQqTa
+         abvDOjB7FbPKS0Oo1bEcy75SpMxAmnysYciHEC5e42jyP4q3xXEJLS4oOZTj14St03g9
+         UdEWNoC7lgNVTVXBAleqcNZ6cvkMCU8/RmGA5Altc9rtONQzVn/vd6ZB7q0qvBq7pNl/
+         s55yBTkSaQjSAKanbp1137yx6YP4BDKAB/ct5Ui3bSAJ33PoSewUgNWKbFWMfztX1tO+
+         QCNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:message-id:in-reply-to
-         :references:subject:mime-version:importance:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=qMOnHQDsYbXczvZXdPClixyiEfaHrjPO0c+nYN7nevk=;
-        b=HM9SDbflIHtxP8cLImlqBnyqF2Z9uz2Lw05zxBiwB/KbJpYSAwNQ6s5CpbjKp8nYHt
-         QxJ+e4u8VrRMtuidluLG8w/hzhvnFsnD1qtoAynaoW+cCVeufrFmo3SpI3XyOwg5TDQ1
-         l+9nR67MK/bCwt2J65fhoqnmi1fa1C3DUb0nuCcqXV2jsaQ0YJtoGx7ZDU+frq7xkgN6
-         V18znj71RwaCdYwY7KngLkrpx0iLOmvnkNGkCtsYUJCOm2CJDcN7AdjB6147NTpRMmoP
-         Q74apPn0h0XZBXuKiRihfeLXKQmvh51c0rNqeXaJEXNJKYmzmqS/d9fbxWyHS/au6mcK
-         PxlQ==
-X-Gm-Message-State: AOAM532eiTppdiDx2CTG88cE7x94B9g+w+JpRJvZXkg6Z6wrOZeKNXEy
-	dwGLDlWhMV/769/D+8RvrEw=
-X-Google-Smtp-Source: ABdhPJyxOzzc4ZjlV5I7EECYOLDO18Vwqx8+VF7guGnDfcGJzhvy6NscUrP26c3LtjZi6C7nKClcYA==
-X-Received: by 2002:a05:620a:787:: with SMTP id 7mr4790011qka.397.1623430693066;
-        Fri, 11 Jun 2021 09:58:13 -0700 (PDT)
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=CX2zor2u6gCNrGPG39dV+usJq9wSOoPzXvZcQ7SLY3M=;
+        b=gLb0J+qK6JW0G33xyaeo33tOj/kCyLSun6wE81O2B8jE+dmPBZ1LL0hbs2tBl0ne7m
+         Tyy2le2vdA8YGCxp3Qg2/lKOXYC37ZhuSPXGHHuF2SBKQeSxg9yW/Fj//mgTDlNWjdeC
+         1tcLxVJKMa7TW1AN0buwEerZn57EZj6FXvJfOUtcBGtjgbYpUduKKZWFxpWzdP4wwvq4
+         1/HH8wyJBQBFEOH7hPkSRAnpOMZ1qXuDLgn7Ayocpn3iKocAe8cRx1JVp6dRzby8KhIZ
+         L0Z+BSbpHQygv5YPIA7Dn5sHvFqIxsaY2p3jbhZQQZHFj6CeVhxN/vqLaU1cuqx4v1ou
+         dqjg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531G/Sm3ESu8eNluXClC+/pgMMpw3S171fS/vTYjVLxx2arAPDRs
+	3ZrLkXVL6iE+tuHGY11DMPI=
+X-Google-Smtp-Source: ABdhPJyYoIjnvqwEuZhPQDOAWzLl+wa79XBt9veHusZdJ2gCPx6Sd7rlfe4qOq+INlIq32Z5TYe7pg==
+X-Received: by 2002:a63:fe4a:: with SMTP id x10mr4572440pgj.132.1623430592159;
+        Fri, 11 Jun 2021 09:56:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:5ace:: with SMTP id d14ls3880287qtd.7.gmail; Fri, 11 Jun
- 2021 09:58:12 -0700 (PDT)
-X-Received: by 2002:ac8:1285:: with SMTP id y5mr195301qti.322.1623430692764;
-        Fri, 11 Jun 2021 09:58:12 -0700 (PDT)
-Received: by 2002:a37:a457:0:b029:2fa:742e:472d with SMTP id af79cd13be357-3ab4370ba4bms85a;
-        Fri, 11 Jun 2021 04:16:25 -0700 (PDT)
-X-Received: by 2002:a2e:914d:: with SMTP id q13mr2647546ljg.179.1623410185242;
-        Fri, 11 Jun 2021 04:16:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623410185; cv=none;
+Received: by 2002:a05:6a00:24d5:: with SMTP id d21ls5096369pfv.1.gmail; Fri,
+ 11 Jun 2021 09:56:31 -0700 (PDT)
+X-Received: by 2002:aa7:96c5:0:b029:2ea:7667:ff3d with SMTP id h5-20020aa796c50000b02902ea7667ff3dmr9246040pfq.52.1623430591600;
+        Fri, 11 Jun 2021 09:56:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623430591; cv=none;
         d=google.com; s=arc-20160816;
-        b=B9AHZBeYMofeSbTRVAl7VMuEQxkINiC+0lnyTqDcN8OwfNGffdGOjUTbdBBNxiqCsE
-         jqjA12+czjzrAg9sWMfYLMMa/Ego5pldq9f+0/Tuln0ES/0seEa1WDF5ixJ5LD83nRWs
-         0uaVosSACNL5dc5y+PAyM/CASI4c46779teXcf/NaXZLDBYO5tv4GPU9I5ncagBRQFzG
-         0Idj1dax7sDmgQOfQVcNFxMFiixCeCLN/+MSFN8JlPEMJyXdtuaK2HoX5/A9z3ADfMFf
-         B/tJdygi8gUOpWEKTS8sYnqACBKt+AO/lefbmDNuhqk4hKy9TGN2Cvn1kRzpJKOTvO0D
-         b+0g==
+        b=ZlEhBSicd8NThP0PuNfqYxh+Pbr7x5heNXO+WkuGyAOQ2bfdmacLkqyKKblY+smOAm
+         tvr4TTFT7PWOyPpM7S0Y5VbON7JCFxbNgyvcDLpHVI0jOt3NeyfgDL+EZDUBUWk+I9z9
+         QTSVjmCAhw0SkkTvFJ7OCsbQN172cTIjWwW5KlbKyo6K0F0AI0J4XrIyAcObwlB3wiX1
+         FaqpYKhPPwBBVdjWcBs+nWYcj82DIjUz2Va6s+eCyKuUsiBNJkpmhWqF9Ltv7kLpoqFT
+         M8DzE1iXQt7pxCaYTdNk90bzYN9lUC7JB+6jBqR7JkGsNYOayGSvKM8bM2WiPDsH4XXz
+         XvnQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=importance:content-transfer-encoding:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:dkim-signature
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
          :dkim-signature;
-        bh=VzKvPjjK2fFjRIkmNl4t0mICArkki4NPshBRN7d49zI=;
-        b=M5CGxCe4RrZs8zSofBAMHs8YKVA4sJu9qQnQa5syU8CSQefVIlJOpk7RXZREbkM/3W
-         hGWgHnkWYcAsQV67a2HHDzegcHva4NZjnO6FQFJ7Ha4fR3IXBx+beq5rzI6ZV+9hhIdV
-         udsnAU80CZ1CsaxuR3PqfLn83cJ+48VaPBs1nD02MnZBwRixTt+8vpr9tyhHYYfrsWrB
-         E7nNhLXOjBmqwZ/G5b523RE3laQL+PQopJLt5IQg5rtwXVqUzA9SKBlv0Au/SsjLXEdE
-         6/1QqEQKbrGDNUdZLzqzFaE8wGN1PaSLcA5DVcDyb+oQ+ALwQEmYsqMB9DkAOceqsp/a
-         UB+w==
+        bh=qC8DwbJiHdStspqnLS7tXLLzwNgQM8u5+jZ09VV0fHs=;
+        b=fV828zlgq5XxD1vU/XoZYf6dIYXIR9LbjOWSCf7mvNAZj+V3OUF4ba5UaCXfpos0ku
+         KyOdsC9lFEz8i/QwOKVTAgXa21h5tJLHgfv6exHkQDV1OnPtwQPJcfBBlskr8S9P/TMW
+         jt1E+rAYpz1GgOHnF3Wg7hUNDKxzXdUlN2KFSZfUZrjFXPjS4RW9qwZ3GafBUzFzC8n+
+         6hmBubTa5MNOqzGyjvwl6psHaaM9OYE56qcdboHIcF/Swaw2sive09kuVlPYnlNlVq0Q
+         lOQqmLga8PPL6rnVgsJ3p1YBlXsCntUTNgDfAjAjt62cIeOplcsLpkGCNK2J6+d5AhKr
+         DD9g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=O59tkCKs;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=t15LK5QH;
-       spf=pass (google.com: domain of torvic9@mailbox.org designates 2001:67c:2050::465:103 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
-Received: from mout-p-103.mailbox.org (mout-p-103.mailbox.org. [2001:67c:2050::465:103])
-        by gmr-mx.google.com with ESMTPS id w3si250005ljg.8.2021.06.11.04.16.25
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=lKT7CBhk;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id o20si945149pgv.1.2021.06.11.09.56.31
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Jun 2021 04:16:25 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvic9@mailbox.org designates 2001:67c:2050::465:103 as permitted sender) client-ip=2001:67c:2050::465:103;
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [80.241.60.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-384) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4G1dZc441QzQjcR;
-	Fri, 11 Jun 2021 13:16:24 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at heinlein-support.de
-Received: from smtp2.mailbox.org ([80.241.60.241])
-	by spamfilter05.heinlein-hosting.de (spamfilter05.heinlein-hosting.de [80.241.56.123]) (amavisd-new, port 10030)
-	with ESMTP id tIT0xiDmclvc; Fri, 11 Jun 2021 13:16:21 +0200 (CEST)
-Date: Fri, 11 Jun 2021 13:16:20 +0200 (CEST)
-From: torvic9 via Clang Built Linux <clang-built-linux@googlegroups.com>
-To: David Laight <David.Laight@ACULAB.COM>,
-	Nick Desaulniers <ndesaulniers@google.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"nathan@kernel.org" <nathan@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"x86@kernel.org" <x86@kernel.org>
-Message-ID: <1339363993.74717.1623410180450@office.mailbox.org>
-In-Reply-To: <6c8315ef3ebb45b59dd531c634bcff48@AcuMS.aculab.com>
-References: <214134496.67043.1623317284090@office.mailbox.org>
- <CAKwvOdmU9TUiZ6AatJja=ksneRKP5saNCkx0qodLMOi_BshSSg@mail.gmail.com>
- <6c8315ef3ebb45b59dd531c634bcff48@AcuMS.aculab.com>
-Subject: RE: [PATCH] x86/Makefile: make -stack-alignment conditional on LLD
- < 13.0.0
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 11 Jun 2021 09:56:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id E520C613C3;
+	Fri, 11 Jun 2021 16:56:30 +0000 (UTC)
+Subject: Re: [linux-next:master 7012/7430]
+ include/linux/compiler_types.h:328:38: error: call to
+ '__compiletime_assert_183' declared with attribute error: unexpected size in
+ kmalloc_index()
+To: Hyeonggon Yoo <42.hyeyoo@gmail.com>, Vlastimil Babka <vbabka@suse.cz>
+Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
+ Linux Memory Management List <linux-mm@kvack.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ clang-built-linux@googlegroups.com
+References: <202106051442.G1VJubTz-lkp@intel.com>
+ <20210606110839.GA13828@hyeyoo>
+ <eb652efc-7695-ded7-350d-4373dad94460@suse.cz>
+ <20210607122550.GA752464@hyeyoo>
+ <06af75da-ffe9-7070-1da8-bcb2cb7881d2@suse.cz>
+ <20210607154957.GB927582@hyeyoo>
+ <6e1d48f2-409c-0a71-4d04-a907fe4183b8@suse.cz>
+ <20210608170528.GA28015@hyeyoo>
+ <2d2d792e-e189-99a4-36cb-f1473a4df9ad@suse.cz> <20210608184501.GA5505@hyeyoo>
+ <513f82e6-175c-d040-691c-5d0e7dacfb83@suse.cz>
+ <CAB=+i9StdrGQWXXoQHKU5oLK3eKuNcuCAbrd88kPLzM_Yw==Jg@mail.gmail.com>
+From: Nathan Chancellor <nathan@kernel.org>
+Message-ID: <99de1f59-1e38-6410-86ff-0ea1f016c49f@kernel.org>
+Date: Fri, 11 Jun 2021 09:56:30 -0700
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-X-Priority: 3
-Importance: Normal
-X-MBO-SPAM-Probability: **
-X-Rspamd-Score: 2.46 / 15.00 / 15.00
-X-Rspamd-Queue-Id: 67E3E181A
-X-Rspamd-UID: 6ece5c
-X-Original-Sender: torvic9@mailbox.org
+In-Reply-To: <CAB=+i9StdrGQWXXoQHKU5oLK3eKuNcuCAbrd88kPLzM_Yw==Jg@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mailbox.org header.s=mail20150812 header.b=O59tkCKs;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812
- header.b=t15LK5QH;       spf=pass (google.com: domain of torvic9@mailbox.org
- designates 2001:67c:2050::465:103 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
-X-Original-From: torvic9@mailbox.org
-Reply-To: torvic9@mailbox.org
+ header.i=@kernel.org header.s=k20201202 header.b=lKT7CBhk;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
+X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
 X-Google-Group-Id: 357212215037
 List-Post: <https://groups.google.com/group/clang-built-linux/post>, <mailto:clang-built-linux@googlegroups.com>
 List-Help: <https://groups.google.com/support/>, <mailto:clang-built-linux+help@googlegroups.com>
@@ -159,52 +147,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On 6/11/2021 1:58 AM, Hyeonggon Yoo wrote:> After playing with clang 
+more a bit, I got to know that
+> compiletime_assert makes weird link error (undefined reference to 
+> compiletime_assert_XXX), Not a compile error.
+> 
+> 
+> I think it's time to CC ClangBuiltLinux maintainers, who work on 
+> clang/llvm build support.
+> 
+> [+CC Nathan and Nick]
+> 
+> I assumeed that compiletime_assert (in linux/compiler.h) will make 
+> compiler error, but it makes no compile error, just makes weird link error.
+> 
+> I'm not sure it it works well with clang, or somewhat buggy status?
 
-> David Laight <david.laight@aculab.com> hat am 11.06.2021 10:07 geschrieben:
-> 
->  
-> From: Nick Desaulniers
-> > Sent: 10 June 2021 20:21
-> > 
-> > On Thu, Jun 10, 2021 at 2:28 AM <torvic9@mailbox.org> wrote:
-> > >
-> > > Since LLVM commit 3787ee4, the '-stack-alignment' flag has been dropped [1],
-> > > leading to the following error message when building a LTO kernel with
-> > > Clang-13 and LLD-13:
-> > >
-> > >     ld.lld: error: -plugin-opt=-: ld.lld: Unknown command line argument
-> > >     '-stack-alignment=8'.  Try 'ld.lld --help'
-> > >     ld.lld: Did you mean '--stackrealign=8'?
-> > >
-> > > It also appears that the '-code-model' flag is not necessary anymore starting
-> > > with LLVM-9 [2].
-> > >
-> > > Drop '-code-model' and make '-stack-alignment' conditional on LLD < 13.0.0.
-> > 
-> > Please include this additional context in v2:
-> > ```
-> > These flags were necessary because these flags were not encoded in the
-> > IR properly, so the link would restart optimizations without them. Now
-> > there are properly encoded in the IR, and these flags exposing
-> > implementation details are no longer necessary.
-> > ```
-> > That way it doesn't sound like we're not using an 8B stack alignment
-> > on x86; we very much are so; AMDGPU GPFs without it!
-> 
-> Actually, give that LTO is still 'experimental' is it worth just
-> removing the flags and requiring clang-13 for LTO builds?
-> 
+I am guessing this alone is why we were keyed into the thread so I am 
+just going to respond to this.
 
-Hmm I don't think that a hard requirement on clang-13 makes sense, because you
-can compile and boot a LTO kernel with clang-12 just fine (at least on x86).
+Unfortunately, this is a known issue with clang:
 
-> 	David
-> 
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> Registration No: 1397386 (Wales)
+https://github.com/ClangBuiltLinux/linux/issues/1173
+
+https://bugs.llvm.org/show_bug.cgi?id=16428
+
+As you noticed, building the full kernel will result in a link error but 
+it would certainly be nicer if it were a compiler error. Something for 
+us to improve indeed but I am not sure when we will be able to allocate 
+resources for that. Until then, you can build a full kernel to get the 
+failing translation unit then use nm or readelf when building the single 
+translation unit to see if there are any "__compiletime_assert" symbols.
+
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1339363993.74717.1623410180450%40office.mailbox.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/99de1f59-1e38-6410-86ff-0ea1f016c49f%40kernel.org.
