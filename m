@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBC53FPW2UIOBB3OWSCDAMGQEHQGHV5Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC53FPW2UIOBB3WWSCDAMGQEOKIBREY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53c.google.com (mail-ed1-x53c.google.com [IPv6:2a00:1450:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id ECAEE3A4C6C
-	for <lists+clang-built-linux@lfdr.de>; Sat, 12 Jun 2021 05:35:09 +0200 (CEST)
-Received: by mail-ed1-x53c.google.com with SMTP id v8-20020a0564023488b0290393873961f6sf9415389edc.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623468909; cv=pass;
+Received: from mail-lf1-x140.google.com (mail-lf1-x140.google.com [IPv6:2a00:1450:4864:20::140])
+	by mail.lfdr.de (Postfix) with ESMTPS id 71E313A4C6D
+	for <lists+clang-built-linux@lfdr.de>; Sat, 12 Jun 2021 05:35:11 +0200 (CEST)
+Received: by mail-lf1-x140.google.com with SMTP id f15-20020a0565123b0fb02902fa2f95ec06sf2292951lfv.22
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 20:35:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623468911; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OWBbPzTwIEAqxGjdX7wBBNMPhjxFHuZiPxfFudK59jYdsIaSeFhsgnPtdJokaiH1lJ
-         B4BqU3aQe3Q3oJ+1LazmX6qS5YDFlchAzrge0Zq2svjOT2fY44yAfLQ/nk+ZrZHWJvBg
-         fdH3nN4pR+lmJNNO2zXaRnxoT1Y57JSVuFoQuOhd76lwgVUZnS9UuSVOa6v3B2dQRhS/
-         1pQhhvifmzUdTeA8RkVeg/+v70rnEPk38LY/0feM9ndY3pAclOQQljELgt6+idF5xl/k
-         PhTrkMAlJSYLb8CIqf02rJE9XkaES2mz3N5X9lFC8CpzWF/a5OiA2Vu1/k2WA/4oE6xM
-         kH2g==
+        b=SpKcOx2hPdF4a2kDhhnCCXVU5Ltq0AYcSZomQsCFoYAiedr5jXe/sH2zyUk4fmAETu
+         f21m53JE050B5DjUD2niZrUQWvUQD356nQpGedffioUsj0CpU3DDNwBCSJmzhw2cK1Ye
+         CzBQRSMwyf/D49s5BGa8W7ER5Kp5bBZgY7s2qVL6G5aCmdoy53LXeUw5RqbCXEjZY7IQ
+         HXnTcb26354ZUGlIi7fVImj9yKH5FesnGYYDzZPv20dmkHp4pe/y0mGnlpAKhY+r2ykO
+         Slkd5OHAUnVYFDlISApIOdIjxN9E7TSzKjdFx2Ko1dIeSGOMdFiYCtjqJjG+lokWryds
+         cRRw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature
          :dkim-signature;
-        bh=EOyQqJJBjSm4D7TSe629QN9ejf3X97g4f5cd4VtPxYI=;
-        b=uDV/EMqBxkgtejar8RmEkJKJW9G3NODmfFdQpwaXltdubtbemtfjMuBC9qSaPJZu07
-         iIKowy9xx8OOJ/7hK11nPotBzSHtjsttMXP38IdYG18iGORIngOexbkCPt6ip3BRyphV
-         SVLboT5aidUViA8cpYJyYmYZGCPcolrL03+pmh2FOBx1iXEdxciumwUoej0Q9WVDj91D
-         8hDO4Q6q3d/qWIgE/RSMb1NH+PFSmcwlwqXBjzkLQO7WifWkq3lLcQYnr6mJVqomO78z
-         2ZRgj+ph3wzrr656EeYyW33TqjAEqVMeHdCMsUNnsZ+a/CWS/7xxLM0PJm2WpenswIbA
-         Pzsg==
+        bh=7XIkVkyH92IMNQkm5nofBKJGtDuU/R2EMKmk2Cu4jeQ=;
+        b=ek1aIVerVjapvG/jFlhLYHmyXqOgI2mcSxlbQbYt/+olU79U4t5qXgPlKKtZSSW6Ou
+         cVNik5fZ7TyGhvnhqoVdxvSlzdSNvx1c21A1ofFuBEL6ELoT9/r2peDOoC8pMAEWaz9I
+         neWC+6mvdKub94kBsz7ibqhZ74g7bVYXN/yDA99Xg3O00KBg5yFKX+Ayn9ALHQvoUMMg
+         Wesg4wgMC/bsEra4hZoS1wPAPLx6IQ07Gfb31/aH40n7yMZqgO5UCAcpgiTlNy5zxiCu
+         hhh2unRjThaxUB79vmEX4McYEaZ5KFJIWdj7N6xEsaFlyQi5e0byzkAxxrCsZ/GpHVAs
+         sGZQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="ZC/HeMEG";
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=P+z4J2Nt;
+       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EOyQqJJBjSm4D7TSe629QN9ejf3X97g4f5cd4VtPxYI=;
-        b=erfG0uL+dVhou+H/HuOQAhN1/+iNeBc3BKF1GY62nx4b405RQDOcSmdRQI5dBRQmuY
-         x/sOTZgExMLLlcYiliTj5kPyU4JWr30DT880ysa9KgIMozd5MW7xX/jSkmnu4RxYuMu/
-         8qEIYtrB43/iyQHD3PPKMbs9WR6d+imh9qKmTnse5ZmYfh1Cm37q9YH4tjqw/Ddx2WwU
-         VYKNg6OEK1NQ5EJPzJSZkyYmhw1ZOjrLPJ5JIjjg5yNiJ3lo+T9eAyGy/eEoKmhoKH+L
-         W1vA+fSSKyXhp8BnYgKGcqxg+R6ShpVLqss2blAXdjY0FlHAUx+YNagpuTd8JmfYn/vk
-         x26w==
+        bh=7XIkVkyH92IMNQkm5nofBKJGtDuU/R2EMKmk2Cu4jeQ=;
+        b=CTelKWjyrwrF/TDhAbGujUGc2O88IpylJ7CeyvBKoI0dKILGuHM/Jk6LyqyUUAD6av
+         SGnbaiSOV/9t5s5PoeIIyDfARdQdx3efvjGs7QH0IAaf7s2bFWocskwL+R2hym4jdAJS
+         ccEe3s6H7NsV2NgbfO5PFkFb9ls1ac+AdVep8h2BM+88aw9/n2dxkK/F+BU85O5hww1m
+         Vt8+jHerpt3sDe2w9l7nqrMb2XmV8B5OeTtt5d5ieZssOCKrWEyWTdx7RrJH2KCDCadY
+         xb9IDL2d3Ry6sbqrCw83H62bZjYziGEILYUievKKxNTHKFY2gJ+pVpK4yr4RiYOKEnG0
+         r+nw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EOyQqJJBjSm4D7TSe629QN9ejf3X97g4f5cd4VtPxYI=;
-        b=u3+Tkgd+7ZY9adTnONlteIhmo8AS2iweeaW0O8VOTfcSLg6si+gfQWzY9kOHCPH7l9
-         uoym5RgNLZqXBRH9FdDJ/EKhh7AAQWkAQTxc8hVLbAMiBRrKuDcy73Ap6007cX+RmehL
-         un5n++nWl/my2jhG39r1ipYrlb7vhlH9fcKyiGeK0BV9hQ5wvcGDcPQ6trVI4JGhvCLk
-         DEAzTf9FMiFe+nNXmIQhXyTeUMICieVqsY7243fVWD35W7BqU0HimTPGfMc30dMZZKRi
-         S2BtM04PPU74NIKyZlmPBPaOW3nD2gCejsaltVF0VODE+SLlp6MjjWkn/HB6UZqfgWQp
-         UsIw==
+        bh=7XIkVkyH92IMNQkm5nofBKJGtDuU/R2EMKmk2Cu4jeQ=;
+        b=UA+42YjOlnqxhGlFDkaYXv5GRCqje+A/bBzVcF1HmXMxa119Fw0NIc3lILGU/xJTh9
+         f0bj3l42WdWr1RxisuUCCd98I9HxjVsxKHsBSvbUcXhdUn9e1Z28OieZJMDTh57AAxVG
+         0PEUkSERbfjDXPIuNgBsVJmdGhjHMt4ZBJ9drSlkSdPU/Hm4m/Ok7ZTyA9pAVUlnOy6a
+         4sXzMueUtnPf5ru5vqyh2bMUw+boRpsEXGDJXo8MGvFH9fLbGoPys2DYvQZeBfQmmDhs
+         ySYRW24urv+8tIofAX6wgqcnGQneZp2UCrbgRuc4aREvbjQWEi20wmC/lKI9TMHyn6K9
+         V7Nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -63,60 +63,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EOyQqJJBjSm4D7TSe629QN9ejf3X97g4f5cd4VtPxYI=;
-        b=gFr8jBIuuEbtBE0DfEsqoekOZ1gSMuyrAxprcKWwrdPMtDC7Gr6j9jMr80s6x7LinV
-         kJ34T+OrgNz8pE62bPBsqMc1bftPwvGHQccgoH/8sArDV+bR9r12V/FLDqIb2IdnimPZ
-         gmVuQwbrDrmyY5xnRta4hzH+HpIQj/Vvp6ph33nnhBQ4mGoljZM6mZi3jrEEB95cYuyT
-         Mn3LY3P3j+F6XgWKhpocUIKIxxKdxbANY55JPY05CcPvANTT4TS6Q5hNkGSaTDtKUW0a
-         /aAARYQzOa6pNxISBuDIEc+DPnoEmxYeuUML9PuNo06L67p2jk3wPklXCAAJeRBqkpcf
-         IfVw==
+        bh=7XIkVkyH92IMNQkm5nofBKJGtDuU/R2EMKmk2Cu4jeQ=;
+        b=gHTQHEPDSaV6mQ0E++/VXLK8pF/Fp0p7lFB7PYs/sihCxcYOPUFq1Dpsgiwo94SlJQ
+         yOgcwCwq08eNjcMaJdezqVGVMuF7872U2WLHc8eeNlPn1owFNye2sIJkZnwgmJu9cXBW
+         w3knDWHhDVy1mdTziHSaYtNqcBQlRfgwHpQSSxeQz0MI0EHM2aArEQZe3jIdRCOYNTS6
+         k3EuAh4qiIZWuMm9w1AU6HDIKF86xPVEzdmEtH2aJLnFZDnG+aMElFveEDKfEzaseMwp
+         JZDkUCMKgiQmzMo7agsAL8UIZqSuTi3Me0srhfrNf56IKXg9fbMiA1dBmRWf7Seh7h9p
+         s5cw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5307n+McVnGKlhuqvAF7v9wm6LrV64+gMuqzV0Tknuhrt9kXaP16
-	UlHbXqGTmYZPk+kP98k7NVY=
-X-Google-Smtp-Source: ABdhPJwr9Nh1HJciduf4RxSdv7WKUSVRtmtTq3yH7rxp42pON5qq9fUe9SsWeWukLwy+YBNJK269gg==
-X-Received: by 2002:a17:906:9706:: with SMTP id k6mr6252017ejx.456.1623468909753;
-        Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
+X-Gm-Message-State: AOAM533ManadIaGIwyacvYM4j9lRaquvSQm623Z4XNWcf2ylk8dPWuno
+	klhEBPBzeSv4+qxEf60oGh4=
+X-Google-Smtp-Source: ABdhPJwiKpukC63qHkTrL+lBPTbaVCvvlxLYQGSzVzUDYix5sjbxprA+Z0NvjEg5XJuf7eN3b/U9XQ==
+X-Received: by 2002:a2e:914d:: with SMTP id q13mr5297743ljg.179.1623468910976;
+        Fri, 11 Jun 2021 20:35:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6402:30b2:: with SMTP id df18ls1348831edb.3.gmail; Fri,
- 11 Jun 2021 20:35:08 -0700 (PDT)
-X-Received: by 2002:a50:bf0f:: with SMTP id f15mr6624128edk.205.1623468908761;
-        Fri, 11 Jun 2021 20:35:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623468908; cv=none;
+Received: by 2002:a05:6512:3f94:: with SMTP id x20ls2119167lfa.0.gmail; Fri,
+ 11 Jun 2021 20:35:09 -0700 (PDT)
+X-Received: by 2002:a05:6512:1041:: with SMTP id c1mr1192719lfb.364.1623468909806;
+        Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623468909; cv=none;
         d=google.com; s=arc-20160816;
-        b=iLd6EDjKIEJCKmowMIiZqBZ0WWyxieoekbTFNOaadbz/3LyNxQK9TH7ZZDfEqZieTW
-         dSiOwh/wg8NtGHyMuUXKouz7SzT8fkQRE5Oq1VruGH+BFcVbjHg0k2dPpGZVKhtYS9Ov
-         wghygti+cZU2cb1fVMjbXJL9MpFiP8A3UMIparqd/ikWccRwNWlncdQMN4h/2vmqDcap
-         xnE+2BtZAvB/MVddDsMwfk/L9BBGx4jXW2wY1qaKs5iuq5WuRCxpircUBhFaG3b8GPMK
-         ip6U3AdgWVz9+pK+iwPuZRz7Kn1dSKhS6xPjG2UYf0DJn/Vw3G6ZiR5MaHhE0J+pn4BF
-         OADA==
+        b=PgY/NiteRqa8F3NpzHinu3BSCxbayhoWLb6WhgaCBozMnY6IYfEpEj4vulFA9nPy//
+         gNPFdapjUIYHFXTk+I7wQrsrb2QX6l7zXWTxM1K/l91sJI3un9INt1HcXNqbT5Vvrbid
+         0eEnJLHf6SO83n8oR8C1X1ikWXHhvahv/xFa+GIvU8b0PGK0Lq3iCwkb7xWzq6q2UsMk
+         PMFTu5ulY9Xjkk4YdD5LGXS8xq4CBtpNkVZpw0ZfWGQ9/Rpln9ACmsnrcjkGUJzqAOXj
+         WA7/ZyT6FrwtdMZY5wI30qmdmvARAAO/FqtNG/9yJUNZaK1y0V+vPh7uln/2D7/Uu4TX
+         baaQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=YAt0n/YZuIs0ryLpqLVa8Tl4SvxdixVNh2wyhhwKoMg=;
-        b=CYEXeHYWs1F+EFI+TQjUe9yY+Jb3jBP7Y1/TzGIP3W5/xn5nJTJu4NY6aSbgZlQZD3
-         bRM+FkWC8cHJbwUKCjk3dOdOJVe/v1PGICe1aCZVyK9ghApfrzm8K37LpTiO1kzTF7Mv
-         PeklsLIjPsbcslQBLnBQsmm9SlvDu9MKMKRmVZweEcQ7zBjvoAZg/AFf2OsNxEHSwhma
-         2XYOjII6yJP5wz0ibAZ8LEgR678aMoAvlFJ7dFgJVRv0zIRxARLVVOzKjyiwEnNkdSwD
-         0cAt7darHS6MEzaOiRv66sdPvahhKqMCkTQ8bsYk8gm/d5eEziPnLKs6JskfEpfEVjJG
-         gLjw==
+        bh=pCeBQNr6icOysF7Nkzxw/gw9Ksd4H9stZ7+QUzEfhug=;
+        b=w3a8FOlkQY2izHkZEHzEAbpkMMU3JbksqzS4hX6+BlGMIJsjP1NWtuVY82SsmjXsGo
+         UYIPCdsL3ANCFDCQa896+Hi7zlH9UBbHacYqdLunKBmExvnEaWrQFjKw3eXEDk5s8xE3
+         e2UmwpqQaa3OEc0QwNobanF5+xeF3B5fu4vnsj1ExCmm4hc4c4w6GdKvWXCQe9tLDiCe
+         WlNLTEfl5wOMTjSk4KPEsKFaJ+QlkxMCwzw0BRh2hU7TjY0QdrriOC9nr/XtnuJgLiOh
+         nJ3ADMp+dmPFNMr/mWmrcvuXof4NIZyy9Wh5VNFenBvE00jmqMaHpzfQg5f+NMkzXqO8
+         N9/w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="ZC/HeMEG";
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=P+z4J2Nt;
+       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lf1-x129.google.com (mail-lf1-x129.google.com. [2a00:1450:4864:20::129])
-        by gmr-mx.google.com with ESMTPS id cz2si383205edb.5.2021.06.11.20.35.08
+Received: from mail-lf1-x131.google.com (mail-lf1-x131.google.com. [2a00:1450:4864:20::131])
+        by gmr-mx.google.com with ESMTPS id f20si454659ljj.6.2021.06.11.20.35.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Jun 2021 20:35:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::129 as permitted sender) client-ip=2a00:1450:4864:20::129;
-Received: by mail-lf1-x129.google.com with SMTP id p7so11549603lfg.4
-        for <clang-built-linux@googlegroups.com>; Fri, 11 Jun 2021 20:35:08 -0700 (PDT)
-X-Received: by 2002:a05:6512:33c2:: with SMTP id d2mr4477115lfg.443.1623468908205;
-        Fri, 11 Jun 2021 20:35:08 -0700 (PDT)
+        Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::131 as permitted sender) client-ip=2a00:1450:4864:20::131;
+Received: by mail-lf1-x131.google.com with SMTP id i10so11546216lfj.2
+        for <clang-built-linux@googlegroups.com>; Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
+X-Received: by 2002:ac2:548d:: with SMTP id t13mr4618391lfk.568.1623468909578;
+        Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
 Received: from HyperiorArchMachine.bb.dnainternet.fi (dcx7x4ydkw9h---3prwmt-3.rev.dnainternet.fi. [2001:14ba:14f7:3c00:6897:4dff:feec:7495])
-        by smtp.gmail.com with ESMTPSA id f19sm943250ljn.88.2021.06.11.20.35.07
+        by smtp.gmail.com with ESMTPSA id f19sm943250ljn.88.2021.06.11.20.35.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Jun 2021 20:35:07 -0700 (PDT)
+        Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
 From: Jarmo Tiitto <jarmo.tiitto@gmail.com>
 To: Sami Tolvanen <samitolvanen@google.com>,
 	Bill Wendling <wcw@google.com>,
@@ -127,17 +127,17 @@ To: Sami Tolvanen <samitolvanen@google.com>,
 	linux-kernel@vger.kernel.org
 Cc: Jarmo Tiitto <jarmo.tiitto@gmail.com>,
 	morbo@google.com
-Subject: [RFC PATCH 2/5] pgo: Make serializing functions to take prf_object
-Date: Sat, 12 Jun 2021 06:24:23 +0300
-Message-Id: <20210612032425.11425-3-jarmo.tiitto@gmail.com>
+Subject: [RFC PATCH 3/5] pgo: Wire up the new more generic code for modules
+Date: Sat, 12 Jun 2021 06:24:24 +0300
+Message-Id: <20210612032425.11425-4-jarmo.tiitto@gmail.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20210612032425.11425-1-jarmo.tiitto@gmail.com>
 References: <20210612032425.11425-1-jarmo.tiitto@gmail.com>
 MIME-Version: 1.0
 X-Original-Sender: Jarmo.Tiitto@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="ZC/HeMEG";       spf=pass
- (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::129
+ header.i=@gmail.com header.s=20161025 header.b=P+z4J2Nt;       spf=pass
+ (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::131
  as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
@@ -153,370 +153,220 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-* Add struct prf_object to hold module sections in
-  the new "prf_list" linked list.
+prf_open() now uses the inode->i_private to get
+the prf_object for the file. This can be either
+vmlinux.profraw or any module.profraw file.
 
-* Rewrite serialization code such that they take struct
-  prf_object as an argument and work on it instead
-  of the global: __llvm_prf_{data,cnts,names,vnds} sections.
-
-* No functional user visible changes yet.
-
-The prf_vmlinux is initialized using vmlinux core sections.
-This struct is then passed down into the serializing functions.
-
-Idea here is that the profiling nor serialization code
-doesn't need to care if the prf_object points into
-vmlinux's core sections or into some loaded module's sections.
-
-* The prf_list is RCU protected so that in following commits
-  allocate_node() can walk the prf_list uninterupted.
-
-* List updaters must take the new prf_list_lock() lock.
+The prf_vmlinux object is now added into prf_list and
+allocate_node() scans the list and reserves vnodes
+from corresponding prf_object(s).
 
 Signed-off-by: Jarmo Tiitto <jarmo.tiitto@gmail.com>
 ---
-This is the main commit of this patch series,
-since it re-structures most of the pgo/fs.c around prf_object.
+note: There is no module notifier code yet,
+so only vmlinux.profraw profile data
+is available with this commit.
 
-I have squashed a lot of stuff into this single commit.
+Another thing is that pgo/reset will only
+reset vmlinux.profraw.
+Profile data reset for modules may be added later:
+maybe writing module's name into pgo/reset would reset only
+the specified module's profile data?
+Then writing "all" or zero would atomically reset everything.
+
+I'm bit unsure about the new allocate_node() code since
+it is the first place I had to put rcu_read_lock()
+and the code is likely to change from this.
 ---
- kernel/pgo/fs.c         | 105 +++++++++++++++++++++++++++++-----------
- kernel/pgo/instrument.c |   3 +-
- kernel/pgo/pgo.h        |  83 +++++++++++++++++++++++--------
- 3 files changed, 142 insertions(+), 49 deletions(-)
+ kernel/pgo/fs.c         | 30 ++++++++++++++++++++-----
+ kernel/pgo/instrument.c | 49 +++++++++++++++++++++++++++--------------
+ kernel/pgo/pgo.h        |  2 ++
+ 3 files changed, 60 insertions(+), 21 deletions(-)
 
 diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
-index 3c5aa7c2a4ce..7e269d69bcd7 100644
+index 7e269d69bcd7..84b36e61758b 100644
 --- a/kernel/pgo/fs.c
 +++ b/kernel/pgo/fs.c
-@@ -34,6 +34,31 @@ struct prf_private_data {
+@@ -32,8 +32,10 @@ static struct dentry *directory;
+ struct prf_private_data {
+ 	void *buffer;
  	size_t size;
++	struct prf_object *core;
  };
  
-+static struct prf_object prf_vmlinux;
-+
-+/*
-+ * This lock guards prf_list from concurrent access:
-+ * - New module is registered.
-+ * - Module is unloaded.
-+ * It does *not* protect any PGO serialization functions.
-+ */
-+DEFINE_SPINLOCK(prf_reg_lock);
-+LIST_HEAD(prf_list);
-+
-+static inline unsigned long prf_list_lock(void)
-+{
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&prf_reg_lock, flags);
-+
-+	return flags;
-+}
-+
-+static inline void prf_list_unlock(unsigned long flags)
-+{
-+	spin_unlock_irqrestore(&prf_reg_lock, flags);
-+}
-+
- /*
-  * Raw profile data format:
-  *
-@@ -51,7 +76,7 @@ struct prf_private_data {
-  *		...
-  */
- 
--static void prf_fill_header(void **buffer)
-+static void prf_fill_header(struct prf_object *po, void **buffer)
- {
- 	struct llvm_prf_header *header = *(struct llvm_prf_header **)buffer;
- 
-@@ -61,13 +86,13 @@ static void prf_fill_header(void **buffer)
- 	header->magic = LLVM_INSTR_PROF_RAW_MAGIC_32;
- #endif
- 	header->version = LLVM_VARIANT_MASK_IR_PROF | LLVM_INSTR_PROF_RAW_VERSION;
--	header->data_size = prf_data_count();
-+	header->data_size = po->data_num;
- 	header->padding_bytes_before_counters = 0;
--	header->counters_size = prf_cnts_count();
-+	header->counters_size = po->cnts_num;
- 	header->padding_bytes_after_counters = 0;
--	header->names_size = prf_names_count();
--	header->counters_delta = (u64)__llvm_prf_cnts_start;
--	header->names_delta = (u64)__llvm_prf_names_start;
-+	header->names_size = po->names_num;
-+	header->counters_delta = (u64)po->cnts;
-+	header->names_delta = (u64)po->names;
- 	header->value_kind_last = LLVM_INSTR_PROF_IPVK_LAST;
- 
- 	*buffer += sizeof(*header);
-@@ -77,7 +102,7 @@ static void prf_fill_header(void **buffer)
-  * Copy the source into the buffer, incrementing the pointer into buffer in the
-  * process.
-  */
--static void prf_copy_to_buffer(void **buffer, void *src, unsigned long size)
-+static void prf_copy_to_buffer(void **buffer, const void *src, unsigned long size)
- {
- 	memcpy(*buffer, src, size);
- 	*buffer += size;
-@@ -129,12 +154,13 @@ static u32 __prf_get_value_size(struct llvm_prf_data *p, u32 *value_kinds)
- 	return size;
- }
- 
--static u32 prf_get_value_size(void)
-+static u32 prf_get_value_size(struct prf_object *po)
- {
- 	u32 size = 0;
- 	struct llvm_prf_data *p;
-+	struct llvm_prf_data *end = po->data + po->data_num;
- 
--	for (p = __llvm_prf_data_start; p < __llvm_prf_data_end; p++)
-+	for (p = po->data; p < end; p++)
- 		size += __prf_get_value_size(p, NULL);
- 
- 	return size;
-@@ -201,11 +227,12 @@ static void prf_serialize_value(struct llvm_prf_data *p, void **buffer)
- 	}
- }
- 
--static void prf_serialize_values(void **buffer)
-+static void prf_serialize_values(struct prf_object *po, void **buffer)
- {
- 	struct llvm_prf_data *p;
-+	struct llvm_prf_data *end = po->data + po->data_num;
- 
--	for (p = __llvm_prf_data_start; p < __llvm_prf_data_end; p++)
-+	for (p = po->data; p < end; p++)
- 		prf_serialize_value(p, buffer);
- }
- 
-@@ -215,14 +242,14 @@ static inline unsigned long prf_get_padding(unsigned long size)
- }
- 
- /* Note: caller *must* hold pgo_lock */
--static unsigned long prf_buffer_size(void)
-+static unsigned long prf_buffer_size(struct prf_object *po)
- {
--	return sizeof(struct llvm_prf_header) +
--			prf_data_size()	+
--			prf_cnts_size() +
--			prf_names_size() +
--			prf_get_padding(prf_names_size()) +
--			prf_get_value_size();
-+	return sizeof(struct llvm_prf_header)	+
-+			prf_data_size(po)	+
-+			prf_cnts_size(po)	+
-+			prf_names_size(po)	+
-+			prf_get_padding(prf_names_size(po)) +
-+			prf_get_value_size(po);
- }
++/* vmlinux's prf core */
+ static struct prf_object prf_vmlinux;
  
  /*
-@@ -232,12 +259,12 @@ static unsigned long prf_buffer_size(void)
-  * area of at least prf_buffer_size() in size.
-  * Note: caller *must* hold pgo_lock.
-  */
--static int prf_serialize(struct prf_private_data *p, size_t buf_size)
-+static int prf_serialize(struct prf_object *po, struct prf_private_data *p, size_t buf_size)
- {
- 	void *buffer;
- 
- 	/* get buffer size, again. */
--	p->size = prf_buffer_size();
-+	p->size = prf_buffer_size(po);
- 
- 	/* check for unlikely overflow. */
- 	if (p->size > buf_size)
-@@ -245,15 +272,16 @@ static int prf_serialize(struct prf_private_data *p, size_t buf_size)
- 
- 	buffer = p->buffer;
- 
--	prf_fill_header(&buffer);
--	prf_copy_to_buffer(&buffer, __llvm_prf_data_start,  prf_data_size());
--	prf_copy_to_buffer(&buffer, __llvm_prf_cnts_start,  prf_cnts_size());
--	prf_copy_to_buffer(&buffer, __llvm_prf_names_start, prf_names_size());
--	buffer += prf_get_padding(prf_names_size());
-+	prf_fill_header(po, &buffer);
-+	prf_copy_to_buffer(&buffer, po->data,  prf_data_size(po));
-+	prf_copy_to_buffer(&buffer, po->cnts,  prf_cnts_size(po));
-+	prf_copy_to_buffer(&buffer, po->names, prf_names_size(po));
-+	buffer += prf_get_padding(prf_names_size(po));
- 
--	prf_serialize_values(&buffer);
-+	prf_serialize_values(po, &buffer);
+@@ -281,7 +283,6 @@ static int prf_serialize(struct prf_object *po, struct prf_private_data *p, size
+ 	prf_serialize_values(po, &buffer);
  
  	return 0;
-+
+-
  }
  
  /* open() implementation for PGO. Creates a copy of the profiling data set. */
-@@ -270,7 +298,7 @@ static int prf_open(struct inode *inode, struct file *file)
+@@ -292,13 +293,21 @@ static int prf_open(struct inode *inode, struct file *file)
+ 	size_t buf_size;
+ 	int err = -EINVAL;
  
++	if (WARN_ON(!inode->i_private)) {
++		/* bug: inode was not initialized by us */
++		return err;
++	}
++
+ 	data = kzalloc(sizeof(*data), GFP_KERNEL);
+ 	if (!data)
+ 		return -ENOMEM;
+ 
++	/* Get prf_object of this inode */
++	data->core = inode->i_private;
++
  	/* Get initial buffer size. */
  	flags = prf_lock();
--	data->size = prf_buffer_size();
-+	data->size = prf_buffer_size(&prf_vmlinux);
+-	data->size = prf_buffer_size(&prf_vmlinux);
++	data->size = prf_buffer_size(data->core);
  	prf_unlock(flags);
  
  	do {
-@@ -290,7 +318,7 @@ static int prf_open(struct inode *inode, struct file *file)
+@@ -318,12 +327,13 @@ static int prf_open(struct inode *inode, struct file *file)
  		 * data length in data->size.
  		 */
  		flags = prf_lock();
--		err = prf_serialize(data, buf_size);
-+		err = prf_serialize(&prf_vmlinux, data, buf_size);
+-		err = prf_serialize(&prf_vmlinux, data, buf_size);
++		err = prf_serialize(data->core, data, buf_size);
  		prf_unlock(flags);
  		/* In unlikely case, try again. */
  	} while (err == -EAGAIN);
-@@ -346,7 +374,7 @@ static ssize_t reset_write(struct file *file, const char __user *addr,
- {
- 	struct llvm_prf_data *data;
  
--	memset(__llvm_prf_cnts_start, 0, prf_cnts_size());
-+	memset(__llvm_prf_cnts_start, 0, prf_cnts_size(&prf_vmlinux));
- 
- 	for (data = __llvm_prf_data_start; data < __llvm_prf_data_end; data++) {
- 		struct llvm_prf_value_node **vnodes;
-@@ -384,6 +412,25 @@ static const struct file_operations prf_reset_fops = {
+ 	if (err < 0) {
++
+ 		if (data)
+ 			vfree(data->buffer);
+ 		kfree(data);
+@@ -412,6 +422,8 @@ static const struct file_operations prf_reset_fops = {
  /* Create debugfs entries. */
  static int __init pgo_init(void)
  {
-+	/* Init profiler vmlinux core entry */
-+	memset(&prf_vmlinux, 0, sizeof(prf_vmlinux));
-+	prf_vmlinux.data = __llvm_prf_data_start;
-+	prf_vmlinux.data_num = prf_get_count(__llvm_prf_data_start,
-+		__llvm_prf_data_end, sizeof(__llvm_prf_data_start[0]));
++	unsigned long flags;
 +
-+	prf_vmlinux.cnts = __llvm_prf_cnts_start;
-+	prf_vmlinux.cnts_num = prf_get_count(__llvm_prf_cnts_start,
-+		__llvm_prf_cnts_end, sizeof(__llvm_prf_cnts_start[0]));
-+
-+	prf_vmlinux.names = __llvm_prf_names_start;
-+	prf_vmlinux.names_num = prf_get_count(__llvm_prf_names_start,
-+		__llvm_prf_names_end, sizeof(__llvm_prf_names_start[0]));
-+
-+	prf_vmlinux.vnds = __llvm_prf_vnds_start;
-+	prf_vmlinux.vnds_num = prf_get_count(__llvm_prf_vnds_start,
-+		__llvm_prf_vnds_end, sizeof(__llvm_prf_vnds_start[0]));
-+
-+
+ 	/* Init profiler vmlinux core entry */
+ 	memset(&prf_vmlinux, 0, sizeof(prf_vmlinux));
+ 	prf_vmlinux.data = __llvm_prf_data_start;
+@@ -430,19 +442,27 @@ static int __init pgo_init(void)
+ 	prf_vmlinux.vnds_num = prf_get_count(__llvm_prf_vnds_start,
+ 		__llvm_prf_vnds_end, sizeof(__llvm_prf_vnds_start[0]));
+ 
++	/* enable profiling */
++	flags = prf_list_lock();
++	list_add_tail_rcu(&prf_vmlinux.link, &prf_list);
++	prf_list_unlock(flags);
+ 
  	directory = debugfs_create_dir("pgo", NULL);
  	if (!directory)
  		goto err_remove;
+ 
+-	if (!debugfs_create_file("vmlinux.profraw", 0600, directory, NULL,
+-				 &prf_fops))
++	prf_vmlinux.file = debugfs_create_file("vmlinux.profraw",
++		0600, directory, &prf_vmlinux, &prf_fops);
++	if (!prf_vmlinux.file)
+ 		goto err_remove;
+ 
+ 	if (!debugfs_create_file("reset", 0200, directory, NULL,
+ 				 &prf_reset_fops))
+ 		goto err_remove;
+ 
++	/* show notice why the system slower: */
++	pr_notice("Clang PGO instrumentation is active.");
++
+ 	return 0;
+ 
+ err_remove:
 diff --git a/kernel/pgo/instrument.c b/kernel/pgo/instrument.c
-index 8b54fb6be336..24fdeb79b674 100644
+index 24fdeb79b674..e214c9d7a113 100644
 --- a/kernel/pgo/instrument.c
 +++ b/kernel/pgo/instrument.c
-@@ -56,7 +56,8 @@ void prf_unlock(unsigned long flags)
+@@ -24,6 +24,7 @@
+ #include <linux/export.h>
+ #include <linux/spinlock.h>
+ #include <linux/types.h>
++#include <linux/rculist.h>
+ #include "pgo.h"
+ 
+ /*
+@@ -56,22 +57,38 @@ void prf_unlock(unsigned long flags)
  static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data *p,
  						 u32 index, u64 value)
  {
--	const int max_vnds = prf_vnds_count();
-+	const int max_vnds = prf_get_count(__llvm_prf_vnds_start,
-+		__llvm_prf_vnds_end, sizeof(struct llvm_prf_value_node));
+-	const int max_vnds = prf_get_count(__llvm_prf_vnds_start,
+-		__llvm_prf_vnds_end, sizeof(struct llvm_prf_value_node));
+-
+-	/*
+-	 * Check that p is within vmlinux __llvm_prf_data section.
+-	 * If not, don't allocate since we can't handle modules yet.
+-	 */
+-	if (!memory_contains(__llvm_prf_data_start,
+-		__llvm_prf_data_end, p, sizeof(*p)))
+-		return NULL;
+-
+-	if (WARN_ON_ONCE(current_node >= max_vnds))
+-		return NULL; /* Out of nodes */
+-
+-	/* reserve vnode for vmlinux */
+-	return &__llvm_prf_vnds_start[current_node++];
++	struct llvm_prf_value_node *vnode = NULL;
++	struct prf_object *po;
++	struct llvm_prf_data *data_end;
++	int max_vnds;
++
++	rcu_read_lock();
++
++	list_for_each_entry_rcu(po, &prf_list, link) {
++		/* get section limits */
++		max_vnds = prf_vnds_count(po);
++		data_end = po->data + prf_data_count(po);
++
++		/*
++		 * Check that p is within:
++		 * [po->data, po->data + prf_data_count(po)] section.
++		 * If yes, allocate vnode from this prf_object.
++		 */
++		if (memory_contains(po->data, data_end, p, sizeof(*p))) {
++
++
++			if (WARN_ON_ONCE(po->current_node >= max_vnds))
++				return NULL; /* Out of nodes */
++
++			/* reserve the vnode */
++			vnode = &po->vnds[po->current_node++];
++			goto out;
++		}
++	}
++
++out:
++	rcu_read_unlock();
++	return vnode;
+ }
  
- 	/*
- 	 * Check that p is within vmlinux __llvm_prf_data section.
+ /*
 diff --git a/kernel/pgo/pgo.h b/kernel/pgo/pgo.h
-index ba3f8499254a..44d79e2861e1 100644
+index 44d79e2861e1..59d0aa966fbe 100644
 --- a/kernel/pgo/pgo.h
 +++ b/kernel/pgo/pgo.h
-@@ -185,27 +185,72 @@ void __llvm_profile_instrument_range(u64 target_value, void *data,
- void __llvm_profile_instrument_memop(u64 target_value, void *data,
- 				     u32 counter_index);
+@@ -19,6 +19,8 @@
+ #ifndef _PGO_H
+ #define _PGO_H
  
--#define __DEFINE_PRF_SIZE(s) \
--	static inline unsigned long prf_ ## s ## _size(void)		\
--	{								\
--		unsigned long start =					\
--			(unsigned long)__llvm_prf_ ## s ## _start;	\
--		unsigned long end =					\
--			(unsigned long)__llvm_prf_ ## s ## _end;	\
--		return roundup(end - start,				\
--				sizeof(__llvm_prf_ ## s ## _start[0]));	\
--	}								\
--	static inline unsigned long prf_ ## s ## _count(void)		\
--	{								\
--		return prf_ ## s ## _size() /				\
--			sizeof(__llvm_prf_ ## s ## _start[0]);		\
-+/*
-+ * profiler object:
-+ * maintain profiler internal state
-+ * of vmlinux or any instrumented module.
-+ */
-+struct prf_object {
-+	struct list_head link;
-+	struct rcu_head rcu;
++#include <linux/rculist.h>
 +
-+	/*
-+	 * module name of this prf_object
-+	 * refers to struct module::name
-+	 * or "vmlinux"
-+	 */
-+	const char *mod_name;
-+
-+	/* debugfs file of this profile data set */
-+	struct dentry *file;
-+
-+	int current_node;
-+
-+	struct llvm_prf_data *data;
-+	int data_num;
-+	u64 *cnts;
-+	int cnts_num;
-+	const char *names;
-+	int names_num;
-+	struct llvm_prf_value_node *vnds;
-+	int vnds_num;
-+};
-+
-+/*
-+ * List of profiled modules and vmlinux.
-+ * Readers must take rcu_read_lock() and
-+ * updaters must take prf_list_lock() mutex.
-+ */
-+extern struct list_head prf_list;
-+
-+/*
-+ * define helpers to get __llvm_prf_xxx sections bounds
-+ */
-+#define __DEFINE_PRF_OBJ_SIZE(s) \
-+	static inline unsigned long prf_ ## s ## _size(struct prf_object *po) \
-+	{ \
-+		return po->s ## _num * sizeof(po->s[0]); \
-+	} \
-+	static inline unsigned long prf_ ## s ## _count(struct prf_object *po) \
-+	{ \
-+		return po->s ## _num; \
- 	}
- 
--__DEFINE_PRF_SIZE(data);
--__DEFINE_PRF_SIZE(cnts);
--__DEFINE_PRF_SIZE(names);
--__DEFINE_PRF_SIZE(vnds);
-+__DEFINE_PRF_OBJ_SIZE(data);
-+__DEFINE_PRF_OBJ_SIZE(cnts);
-+__DEFINE_PRF_OBJ_SIZE(names);
-+__DEFINE_PRF_OBJ_SIZE(vnds);
-+
-+#undef __DEFINE_PRF_OBJ_SIZE
-+
-+/* count number of items in range */
-+static inline unsigned int prf_get_count(const void *_start, const void *_end,
-+	unsigned int objsize)
-+{
-+	unsigned long start = (unsigned long)_start;
-+	unsigned long end =	(unsigned long)_end;
- 
--#undef __DEFINE_PRF_SIZE
-+	return roundup(end - start, objsize) / objsize;
-+}
- 
- #endif /* _PGO_H */
+ /*
+  * Note: These internal LLVM definitions must match the compiler version.
+  * See llvm/include/llvm/ProfileData/InstrProfData.inc in LLVM's source code.
 -- 
 2.32.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210612032425.11425-3-jarmo.tiitto%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210612032425.11425-4-jarmo.tiitto%40gmail.com.
