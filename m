@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBC53FPW2UIOBB3WWSCDAMGQEOKIBREY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC53FPW2UIOBB4GWSCDAMGQEXNRQCAQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x140.google.com (mail-lf1-x140.google.com [IPv6:2a00:1450:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id 71E313A4C6D
-	for <lists+clang-built-linux@lfdr.de>; Sat, 12 Jun 2021 05:35:11 +0200 (CEST)
-Received: by mail-lf1-x140.google.com with SMTP id f15-20020a0565123b0fb02902fa2f95ec06sf2292951lfv.22
-        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 20:35:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623468911; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8BE723A4C6E
+	for <lists+clang-built-linux@lfdr.de>; Sat, 12 Jun 2021 05:35:12 +0200 (CEST)
+Received: by mail-wr1-x440.google.com with SMTP id f22-20020a5d58f60000b029011634e39889sf3543865wrd.7
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Jun 2021 20:35:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623468912; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SpKcOx2hPdF4a2kDhhnCCXVU5Ltq0AYcSZomQsCFoYAiedr5jXe/sH2zyUk4fmAETu
-         f21m53JE050B5DjUD2niZrUQWvUQD356nQpGedffioUsj0CpU3DDNwBCSJmzhw2cK1Ye
-         CzBQRSMwyf/D49s5BGa8W7ER5Kp5bBZgY7s2qVL6G5aCmdoy53LXeUw5RqbCXEjZY7IQ
-         HXnTcb26354ZUGlIi7fVImj9yKH5FesnGYYDzZPv20dmkHp4pe/y0mGnlpAKhY+r2ykO
-         Slkd5OHAUnVYFDlISApIOdIjxN9E7TSzKjdFx2Ko1dIeSGOMdFiYCtjqJjG+lokWryds
-         cRRw==
+        b=qfzC4nLZ9A7grOliIBFVqN6rzgMiy7iuVQEmwO95Hr7xXu4Jk7bOHBrkng4nAIw71i
+         0McPL0wboVy1tZuuEdgwZSUByD16g4h3fbYUvT+CB2ATS5g0m/VLiUC3UU9HxmPj9IEV
+         8mchRkkvc/yLR4NW8aFonkHvdzphhov0De/iVLHvUU5XpFtHXaLYgafn5hOGCxPlhuv+
+         eW6LO+UYYNnU50OD+jhoGWB+4igGrKkx/gu2nFSpqQzcSwSqqIMKyd5PWLRw3V0lo1Ux
+         U3m6WH+7MISpPI1sg+oSbJx5wQbO6BRdNBM5YkQY04O9cPOXt4sj4kP+MiwA8gCoTY64
+         ABrA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature
          :dkim-signature;
-        bh=7XIkVkyH92IMNQkm5nofBKJGtDuU/R2EMKmk2Cu4jeQ=;
-        b=ek1aIVerVjapvG/jFlhLYHmyXqOgI2mcSxlbQbYt/+olU79U4t5qXgPlKKtZSSW6Ou
-         cVNik5fZ7TyGhvnhqoVdxvSlzdSNvx1c21A1ofFuBEL6ELoT9/r2peDOoC8pMAEWaz9I
-         neWC+6mvdKub94kBsz7ibqhZ74g7bVYXN/yDA99Xg3O00KBg5yFKX+Ayn9ALHQvoUMMg
-         Wesg4wgMC/bsEra4hZoS1wPAPLx6IQ07Gfb31/aH40n7yMZqgO5UCAcpgiTlNy5zxiCu
-         hhh2unRjThaxUB79vmEX4McYEaZ5KFJIWdj7N6xEsaFlyQi5e0byzkAxxrCsZ/GpHVAs
-         sGZQ==
+        bh=YXcjDf/RLkmT5aYadIdItJohhpMbu9BFA0+vAX//hTs=;
+        b=ys3uXBs0DU5WEar9a1q3ENevA+59Un1DHojkejmjzh/UVCt8l37lHrRS/3RCjJGr3e
+         jzzxfFcKrHUXjdcY9jAjfpQsayXeNbtx9/kgCDCSbRLbjO3Nbs07VIuHdXOsJpE5cXhv
+         pFUyl8Q3hr6UatFiwy2aRGuj9JNAeWiYn+fQUrUUT03A5H26yqp7zTQ0GYejEuXzkkXk
+         n2ZMHBIJD8OIkRLw184YsqZFGBPNgFHou4F9rb1W5S7fvbWEwrOQv5trqqH48qUdkH4k
+         P29pxtzLqfOD24tVVjdezOgYMm6X8uXPKUNWju5yyGS7wKjOyHg0T5RtW1qS40EHw3lT
+         qksA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=P+z4J2Nt;
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NKgNwsRN;
+       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::136 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=7XIkVkyH92IMNQkm5nofBKJGtDuU/R2EMKmk2Cu4jeQ=;
-        b=CTelKWjyrwrF/TDhAbGujUGc2O88IpylJ7CeyvBKoI0dKILGuHM/Jk6LyqyUUAD6av
-         SGnbaiSOV/9t5s5PoeIIyDfARdQdx3efvjGs7QH0IAaf7s2bFWocskwL+R2hym4jdAJS
-         ccEe3s6H7NsV2NgbfO5PFkFb9ls1ac+AdVep8h2BM+88aw9/n2dxkK/F+BU85O5hww1m
-         Vt8+jHerpt3sDe2w9l7nqrMb2XmV8B5OeTtt5d5ieZssOCKrWEyWTdx7RrJH2KCDCadY
-         xb9IDL2d3Ry6sbqrCw83H62bZjYziGEILYUievKKxNTHKFY2gJ+pVpK4yr4RiYOKEnG0
-         r+nw==
+        bh=YXcjDf/RLkmT5aYadIdItJohhpMbu9BFA0+vAX//hTs=;
+        b=onEua5Yf0gdwA5L/R+D3wtHiq6bh1qrkCisjHWO5ic2oN6WD07PamE4mbUhop51lZf
+         SZCjABaQL85s17vRLHuDWjNEILGvDdmlXW+ziTUwcIAyRrD16vfJ45BssOy54Pc38C49
+         hG2ux/2G14dU7NyHwLRjVy2hr7XPcqkhHZDljeFAcJNvhvhdFuUu/8c8DbXzOgwtiKKk
+         CrZjkSqmWon8jvmADWZxgkIS5UutAC2V8P79tEs3M3AMRbuargufcTEmQ1W8MpPf5L3f
+         RPu+abDhBDIjtncncitwtkwgTP8cXm7rx433aJGIkpKVSFlFk3gRc9Hk9HSzlfn2Nld3
+         poHA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=7XIkVkyH92IMNQkm5nofBKJGtDuU/R2EMKmk2Cu4jeQ=;
-        b=UA+42YjOlnqxhGlFDkaYXv5GRCqje+A/bBzVcF1HmXMxa119Fw0NIc3lILGU/xJTh9
-         f0bj3l42WdWr1RxisuUCCd98I9HxjVsxKHsBSvbUcXhdUn9e1Z28OieZJMDTh57AAxVG
-         0PEUkSERbfjDXPIuNgBsVJmdGhjHMt4ZBJ9drSlkSdPU/Hm4m/Ok7ZTyA9pAVUlnOy6a
-         4sXzMueUtnPf5ru5vqyh2bMUw+boRpsEXGDJXo8MGvFH9fLbGoPys2DYvQZeBfQmmDhs
-         ySYRW24urv+8tIofAX6wgqcnGQneZp2UCrbgRuc4aREvbjQWEi20wmC/lKI9TMHyn6K9
-         V7Nw==
+        bh=YXcjDf/RLkmT5aYadIdItJohhpMbu9BFA0+vAX//hTs=;
+        b=juU634dLYDG0B2E6uSo0vd5P5CgA72CrISx98lV/m4ZvDapr+/Ip7i6COypglMPDGA
+         AXSnTrJyPFKBjSC7yTGTvabprM41uABi8Hkvw8Jt+AAVKHOZ8QYtL2bzPwgHNT6jQ9UB
+         GExoUapC1UrWfKw7XdjZkaXBeAGjQChNOxv7ja8JJD9R41d3oXO/D7rrDXZkJ1XO1DQW
+         nOa6SuQsQhyQFNs0R/NG+BcMCVxDdzRWMYEVVfuG23KtmCbc1Yco4sJwBasSmfkE0K80
+         3QdJPd6RArlVmuymvoWXiRMAL3ej7OngOJt9EbwaxwjHdxSs+qHmZC9Sibc6Z5Z7Slx3
+         cecA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -63,60 +63,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=7XIkVkyH92IMNQkm5nofBKJGtDuU/R2EMKmk2Cu4jeQ=;
-        b=gHTQHEPDSaV6mQ0E++/VXLK8pF/Fp0p7lFB7PYs/sihCxcYOPUFq1Dpsgiwo94SlJQ
-         yOgcwCwq08eNjcMaJdezqVGVMuF7872U2WLHc8eeNlPn1owFNye2sIJkZnwgmJu9cXBW
-         w3knDWHhDVy1mdTziHSaYtNqcBQlRfgwHpQSSxeQz0MI0EHM2aArEQZe3jIdRCOYNTS6
-         k3EuAh4qiIZWuMm9w1AU6HDIKF86xPVEzdmEtH2aJLnFZDnG+aMElFveEDKfEzaseMwp
-         JZDkUCMKgiQmzMo7agsAL8UIZqSuTi3Me0srhfrNf56IKXg9fbMiA1dBmRWf7Seh7h9p
-         s5cw==
+        bh=YXcjDf/RLkmT5aYadIdItJohhpMbu9BFA0+vAX//hTs=;
+        b=iuQbuXO93EZd0yU75OCMF9KzVqyC+EHPzydvUes38c1XlBuy6V9LxOx0Rh1jJBOuKT
+         E+YcCXq3nVAfGZqGXCyhv6R9vdxuxmBhXQPL3/+heclPMdE0EYyYUgNRPEbrgN6E6ERg
+         Ewr8LDJHr+Npq+t3dunz4pYfi306j5XbDVw4jcX28zrHsXxRmrklm72NMap0/vT3xDif
+         GhMDaGmOcFckoC00cJFP7kwprv/JO2hHv3LhAam64XoPv4E9Z76cz6H7wSRGxlOTOSIm
+         lMBjCX+X4sXnfrPdifW+XBp9qIBb7AXhGcEpqysqowa43hyVnor/Rs5MI6JcUmU4ygIU
+         28Gw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533ManadIaGIwyacvYM4j9lRaquvSQm623Z4XNWcf2ylk8dPWuno
-	klhEBPBzeSv4+qxEf60oGh4=
-X-Google-Smtp-Source: ABdhPJwiKpukC63qHkTrL+lBPTbaVCvvlxLYQGSzVzUDYix5sjbxprA+Z0NvjEg5XJuf7eN3b/U9XQ==
-X-Received: by 2002:a2e:914d:: with SMTP id q13mr5297743ljg.179.1623468910976;
-        Fri, 11 Jun 2021 20:35:10 -0700 (PDT)
+X-Gm-Message-State: AOAM5302aEgJAppExujs4rrb7jhLHCfum8JQjc1A81J5gHQ/iCOUQCxg
+	EiC9XbDL2dFE0vxnUjl+K0Q=
+X-Google-Smtp-Source: ABdhPJysEUhMA0L5t+qCADMHLRpodEuJ+6sB86KpgsUDCvOHASKlskjEz3ou8iJhz0AUejvBdQXkpA==
+X-Received: by 2002:adf:ec02:: with SMTP id x2mr7093196wrn.156.1623468912295;
+        Fri, 11 Jun 2021 20:35:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3f94:: with SMTP id x20ls2119167lfa.0.gmail; Fri,
- 11 Jun 2021 20:35:09 -0700 (PDT)
-X-Received: by 2002:a05:6512:1041:: with SMTP id c1mr1192719lfb.364.1623468909806;
-        Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623468909; cv=none;
+Received: by 2002:a05:600c:358e:: with SMTP id p14ls4877562wmq.0.canary-gmail;
+ Fri, 11 Jun 2021 20:35:11 -0700 (PDT)
+X-Received: by 2002:a1c:7907:: with SMTP id l7mr6685857wme.147.1623468911311;
+        Fri, 11 Jun 2021 20:35:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623468911; cv=none;
         d=google.com; s=arc-20160816;
-        b=PgY/NiteRqa8F3NpzHinu3BSCxbayhoWLb6WhgaCBozMnY6IYfEpEj4vulFA9nPy//
-         gNPFdapjUIYHFXTk+I7wQrsrb2QX6l7zXWTxM1K/l91sJI3un9INt1HcXNqbT5Vvrbid
-         0eEnJLHf6SO83n8oR8C1X1ikWXHhvahv/xFa+GIvU8b0PGK0Lq3iCwkb7xWzq6q2UsMk
-         PMFTu5ulY9Xjkk4YdD5LGXS8xq4CBtpNkVZpw0ZfWGQ9/Rpln9ACmsnrcjkGUJzqAOXj
-         WA7/ZyT6FrwtdMZY5wI30qmdmvARAAO/FqtNG/9yJUNZaK1y0V+vPh7uln/2D7/Uu4TX
-         baaQ==
+        b=KmH+fA9K8EPB/ASpVncbURKqVAxM0Qe3od+f9Q7n9SGhSDz5xU/cfLW6yqUfkP/sNq
+         mC1qit42+7MnYbvxLpxPJwWzEiZ8GDTGvqHcA+6rs536DPlKk85MAiOnNTjE3VDkL2KR
+         zgmuGKFG/Izkj0ZPWN2cT5BNMijOBqC5bMHq64j+PJbRwMvJdpgABkOA0tJZESPsr1wU
+         ZKEyrEeOMKkZmq89jvu8bvFW3UVBmKckWbKgF2ujCk5kvnjguPt5FI9xlG/LVA/moFzf
+         i1UdLNkZJEFtZ4cH6NTyn3eFodzWPQ59jgV/Mlm9u57He2x53ruxcmmnI+htA/bFvds1
+         yVew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=pCeBQNr6icOysF7Nkzxw/gw9Ksd4H9stZ7+QUzEfhug=;
-        b=w3a8FOlkQY2izHkZEHzEAbpkMMU3JbksqzS4hX6+BlGMIJsjP1NWtuVY82SsmjXsGo
-         UYIPCdsL3ANCFDCQa896+Hi7zlH9UBbHacYqdLunKBmExvnEaWrQFjKw3eXEDk5s8xE3
-         e2UmwpqQaa3OEc0QwNobanF5+xeF3B5fu4vnsj1ExCmm4hc4c4w6GdKvWXCQe9tLDiCe
-         WlNLTEfl5wOMTjSk4KPEsKFaJ+QlkxMCwzw0BRh2hU7TjY0QdrriOC9nr/XtnuJgLiOh
-         nJ3ADMp+dmPFNMr/mWmrcvuXof4NIZyy9Wh5VNFenBvE00jmqMaHpzfQg5f+NMkzXqO8
-         N9/w==
+        bh=gOtwuICSd/k9ZnE0r7oKEW78fGTtl+Xe0V2OTIyFfGE=;
+        b=LfsoM5OFPSwXj7O3d0yApPsogCgGOg1bZ5Vp6sH2quweIik6rJvVWgX3rG4kHIB9yE
+         Hp7mIYChgMhYo1zG5YntKDwAcEU+i3fdZoa1n1Vxuhoozft5MwXwqeYsv7852UfAzLgr
+         hjStOZgNTnFnYthKmum8TZPrCleWPF0vMmbqKig7vU3WFNynB6JVAVHMjZYNb1azZMw2
+         Vm8lyrZWD1M2jfKhsgWbST3MQvOIUt6VJLwFkndO6dQPXs9ufcU8puvHfrBr/UtsghPt
+         aR8XVEmrHwfybh2BvqKGPcXeuECSHloxor6gYwDaiLMkdeYg5AYHltQCAg0vfX+kjz4c
+         nHjQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=P+z4J2Nt;
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NKgNwsRN;
+       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::136 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lf1-x131.google.com (mail-lf1-x131.google.com. [2a00:1450:4864:20::131])
-        by gmr-mx.google.com with ESMTPS id f20si454659ljj.6.2021.06.11.20.35.09
+Received: from mail-lf1-x136.google.com (mail-lf1-x136.google.com. [2a00:1450:4864:20::136])
+        by gmr-mx.google.com with ESMTPS id c26si468283wmr.1.2021.06.11.20.35.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::131 as permitted sender) client-ip=2a00:1450:4864:20::131;
-Received: by mail-lf1-x131.google.com with SMTP id i10so11546216lfj.2
-        for <clang-built-linux@googlegroups.com>; Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
-X-Received: by 2002:ac2:548d:: with SMTP id t13mr4618391lfk.568.1623468909578;
-        Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
+        Fri, 11 Jun 2021 20:35:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::136 as permitted sender) client-ip=2a00:1450:4864:20::136;
+Received: by mail-lf1-x136.google.com with SMTP id r5so11544042lfr.5
+        for <clang-built-linux@googlegroups.com>; Fri, 11 Jun 2021 20:35:11 -0700 (PDT)
+X-Received: by 2002:a19:ed18:: with SMTP id y24mr4795912lfy.359.1623468910825;
+        Fri, 11 Jun 2021 20:35:10 -0700 (PDT)
 Received: from HyperiorArchMachine.bb.dnainternet.fi (dcx7x4ydkw9h---3prwmt-3.rev.dnainternet.fi. [2001:14ba:14f7:3c00:6897:4dff:feec:7495])
-        by smtp.gmail.com with ESMTPSA id f19sm943250ljn.88.2021.06.11.20.35.08
+        by smtp.gmail.com with ESMTPSA id f19sm943250ljn.88.2021.06.11.20.35.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Jun 2021 20:35:09 -0700 (PDT)
+        Fri, 11 Jun 2021 20:35:10 -0700 (PDT)
 From: Jarmo Tiitto <jarmo.tiitto@gmail.com>
 To: Sami Tolvanen <samitolvanen@google.com>,
 	Bill Wendling <wcw@google.com>,
@@ -127,17 +127,17 @@ To: Sami Tolvanen <samitolvanen@google.com>,
 	linux-kernel@vger.kernel.org
 Cc: Jarmo Tiitto <jarmo.tiitto@gmail.com>,
 	morbo@google.com
-Subject: [RFC PATCH 3/5] pgo: Wire up the new more generic code for modules
-Date: Sat, 12 Jun 2021 06:24:24 +0300
-Message-Id: <20210612032425.11425-4-jarmo.tiitto@gmail.com>
+Subject: [RFC PATCH 4/5] pgo: Add module notifier machinery
+Date: Sat, 12 Jun 2021 06:24:25 +0300
+Message-Id: <20210612032425.11425-5-jarmo.tiitto@gmail.com>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20210612032425.11425-1-jarmo.tiitto@gmail.com>
 References: <20210612032425.11425-1-jarmo.tiitto@gmail.com>
 MIME-Version: 1.0
 X-Original-Sender: Jarmo.Tiitto@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=P+z4J2Nt;       spf=pass
- (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::131
+ header.i=@gmail.com header.s=20161025 header.b=NKgNwsRN;       spf=pass
+ (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::136
  as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
@@ -153,220 +153,255 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-prf_open() now uses the inode->i_private to get
-the prf_object for the file. This can be either
-vmlinux.profraw or any module.profraw file.
+Add module notifier callback and register modules
+into prf_list.
 
-The prf_vmlinux object is now added into prf_list and
-allocate_node() scans the list and reserves vnodes
-from corresponding prf_object(s).
+For each module that has __llvm_prf_{data,cnts,names,vnds} sections
+The callback creates debugfs <module>.profraw entry and
+links new prf_object into prf_list.
+
+This enables profiling for all loaded modules.
+
+* Moved rcu_read_lock() outside of allocate_node() in order
+  to protect __llvm_profile_instrument_target() from module unload(s)
 
 Signed-off-by: Jarmo Tiitto <jarmo.tiitto@gmail.com>
 ---
-note: There is no module notifier code yet,
-so only vmlinux.profraw profile data
-is available with this commit.
-
-Another thing is that pgo/reset will only
-reset vmlinux.profraw.
-Profile data reset for modules may be added later:
-maybe writing module's name into pgo/reset would reset only
-the specified module's profile data?
-Then writing "all" or zero would atomically reset everything.
-
-I'm bit unsure about the new allocate_node() code since
-it is the first place I had to put rcu_read_lock()
-and the code is likely to change from this.
+v2: Passed QEMU SMP boot test into minimal Arch Linux distro,
+module loading and unloading work without warnings.
+Module profile data looks ok. :-)
 ---
- kernel/pgo/fs.c         | 30 ++++++++++++++++++++-----
- kernel/pgo/instrument.c | 49 +++++++++++++++++++++++++++--------------
- kernel/pgo/pgo.h        |  2 ++
- 3 files changed, 60 insertions(+), 21 deletions(-)
+ kernel/pgo/fs.c         | 111 ++++++++++++++++++++++++++++++++++++++++
+ kernel/pgo/instrument.c |  19 ++++---
+ 2 files changed, 122 insertions(+), 8 deletions(-)
 
 diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
-index 7e269d69bcd7..84b36e61758b 100644
+index 84b36e61758b..98b982245b58 100644
 --- a/kernel/pgo/fs.c
 +++ b/kernel/pgo/fs.c
-@@ -32,8 +32,10 @@ static struct dentry *directory;
- struct prf_private_data {
- 	void *buffer;
- 	size_t size;
-+	struct prf_object *core;
+@@ -419,6 +419,110 @@ static const struct file_operations prf_reset_fops = {
+ 	.llseek		= noop_llseek,
  };
  
-+/* vmlinux's prf core */
- static struct prf_object prf_vmlinux;
- 
- /*
-@@ -281,7 +283,6 @@ static int prf_serialize(struct prf_object *po, struct prf_private_data *p, size
- 	prf_serialize_values(po, &buffer);
- 
- 	return 0;
--
- }
- 
- /* open() implementation for PGO. Creates a copy of the profiling data set. */
-@@ -292,13 +293,21 @@ static int prf_open(struct inode *inode, struct file *file)
- 	size_t buf_size;
- 	int err = -EINVAL;
- 
-+	if (WARN_ON(!inode->i_private)) {
-+		/* bug: inode was not initialized by us */
-+		return err;
-+	}
-+
- 	data = kzalloc(sizeof(*data), GFP_KERNEL);
- 	if (!data)
- 		return -ENOMEM;
- 
-+	/* Get prf_object of this inode */
-+	data->core = inode->i_private;
-+
- 	/* Get initial buffer size. */
- 	flags = prf_lock();
--	data->size = prf_buffer_size(&prf_vmlinux);
-+	data->size = prf_buffer_size(data->core);
- 	prf_unlock(flags);
- 
- 	do {
-@@ -318,12 +327,13 @@ static int prf_open(struct inode *inode, struct file *file)
- 		 * data length in data->size.
- 		 */
- 		flags = prf_lock();
--		err = prf_serialize(&prf_vmlinux, data, buf_size);
-+		err = prf_serialize(data->core, data, buf_size);
- 		prf_unlock(flags);
- 		/* In unlikely case, try again. */
- 	} while (err == -EAGAIN);
- 
- 	if (err < 0) {
-+
- 		if (data)
- 			vfree(data->buffer);
- 		kfree(data);
-@@ -412,6 +422,8 @@ static const struct file_operations prf_reset_fops = {
- /* Create debugfs entries. */
- static int __init pgo_init(void)
- {
++static void pgo_module_init(struct module *mod)
++{
++	struct prf_object *po;
++	char fname[MODULE_NAME_LEN + 9]; /* +strlen(".profraw") */
 +	unsigned long flags;
 +
- 	/* Init profiler vmlinux core entry */
- 	memset(&prf_vmlinux, 0, sizeof(prf_vmlinux));
- 	prf_vmlinux.data = __llvm_prf_data_start;
-@@ -430,19 +442,27 @@ static int __init pgo_init(void)
- 	prf_vmlinux.vnds_num = prf_get_count(__llvm_prf_vnds_start,
- 		__llvm_prf_vnds_end, sizeof(__llvm_prf_vnds_start[0]));
- 
-+	/* enable profiling */
++	/* add new prf_object entry for the module */
++	po = kzalloc(sizeof(*po), GFP_KERNEL);
++	if (!po)
++		goto out;
++
++	po->mod_name = mod->name;
++
++	fname[0] = 0;
++	snprintf(fname, sizeof(fname), "%s.profraw", po->mod_name);
++
++	/* setup prf_object sections */
++	po->data = mod->prf_data;
++	po->data_num = prf_get_count(mod->prf_data,
++		(char *)mod->prf_data + mod->prf_data_size, sizeof(po->data[0]));
++
++	po->cnts = mod->prf_cnts;
++	po->cnts_num = prf_get_count(mod->prf_cnts,
++		(char *)mod->prf_cnts + mod->prf_cnts_size, sizeof(po->cnts[0]));
++
++	po->names = mod->prf_names;
++	po->names_num = prf_get_count(mod->prf_names,
++		(char *)mod->prf_names + mod->prf_names_size, sizeof(po->names[0]));
++
++	po->vnds = mod->prf_vnds;
++	po->vnds_num = prf_get_count(mod->prf_vnds,
++		(char *)mod->prf_vnds + mod->prf_vnds_size, sizeof(po->vnds[0]));
++
++	/* create debugfs entry */
++	po->file = debugfs_create_file(fname, 0600, directory, po, &prf_fops);
++	if (!po->file) {
++		pr_err("Failed to setup module pgo: %s", fname);
++		kfree(po);
++		goto out;
++	}
++
++	/* finally enable profiling for the module */
 +	flags = prf_list_lock();
-+	list_add_tail_rcu(&prf_vmlinux.link, &prf_list);
++	list_add_tail_rcu(&po->link, &prf_list);
 +	prf_list_unlock(flags);
- 
- 	directory = debugfs_create_dir("pgo", NULL);
- 	if (!directory)
- 		goto err_remove;
- 
--	if (!debugfs_create_file("vmlinux.profraw", 0600, directory, NULL,
--				 &prf_fops))
-+	prf_vmlinux.file = debugfs_create_file("vmlinux.profraw",
-+		0600, directory, &prf_vmlinux, &prf_fops);
-+	if (!prf_vmlinux.file)
- 		goto err_remove;
- 
- 	if (!debugfs_create_file("reset", 0200, directory, NULL,
- 				 &prf_reset_fops))
- 		goto err_remove;
- 
-+	/* show notice why the system slower: */
-+	pr_notice("Clang PGO instrumentation is active.");
 +
- 	return 0;
- 
- err_remove:
-diff --git a/kernel/pgo/instrument.c b/kernel/pgo/instrument.c
-index 24fdeb79b674..e214c9d7a113 100644
---- a/kernel/pgo/instrument.c
-+++ b/kernel/pgo/instrument.c
-@@ -24,6 +24,7 @@
- #include <linux/export.h>
- #include <linux/spinlock.h>
- #include <linux/types.h>
-+#include <linux/rculist.h>
- #include "pgo.h"
- 
- /*
-@@ -56,22 +57,38 @@ void prf_unlock(unsigned long flags)
- static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data *p,
- 						 u32 index, u64 value)
- {
--	const int max_vnds = prf_get_count(__llvm_prf_vnds_start,
--		__llvm_prf_vnds_end, sizeof(struct llvm_prf_value_node));
--
--	/*
--	 * Check that p is within vmlinux __llvm_prf_data section.
--	 * If not, don't allocate since we can't handle modules yet.
--	 */
--	if (!memory_contains(__llvm_prf_data_start,
--		__llvm_prf_data_end, p, sizeof(*p)))
--		return NULL;
--
--	if (WARN_ON_ONCE(current_node >= max_vnds))
--		return NULL; /* Out of nodes */
--
--	/* reserve vnode for vmlinux */
--	return &__llvm_prf_vnds_start[current_node++];
-+	struct llvm_prf_value_node *vnode = NULL;
++out:
++	return;
++}
++
++static int pgo_module_notifier(struct notifier_block *nb, unsigned long event,
++				void *pdata)
++{
++	struct module *mod = pdata;
 +	struct prf_object *po;
-+	struct llvm_prf_data *data_end;
-+	int max_vnds;
++	unsigned long flags;
 +
-+	rcu_read_lock();
++	if (event == MODULE_STATE_LIVE) {
++		/* does the module have profiling info? */
++		if (mod->prf_data
++			&& mod->prf_cnts
++			&& mod->prf_names
++			&& mod->prf_vnds) {
 +
-+	list_for_each_entry_rcu(po, &prf_list, link) {
-+		/* get section limits */
-+		max_vnds = prf_vnds_count(po);
-+		data_end = po->data + prf_data_count(po);
-+
-+		/*
-+		 * Check that p is within:
-+		 * [po->data, po->data + prf_data_count(po)] section.
-+		 * If yes, allocate vnode from this prf_object.
-+		 */
-+		if (memory_contains(po->data, data_end, p, sizeof(*p))) {
-+
-+
-+			if (WARN_ON_ONCE(po->current_node >= max_vnds))
-+				return NULL; /* Out of nodes */
-+
-+			/* reserve the vnode */
-+			vnode = &po->vnds[po->current_node++];
-+			goto out;
++			/* setup module profiling */
++			pgo_module_init(mod);
 +		}
 +	}
 +
-+out:
-+	rcu_read_unlock();
-+	return vnode;
++	if (event == MODULE_STATE_GOING) {
++		/* find the prf_object from the list */
++		rcu_read_lock();
++
++		list_for_each_entry_rcu(po, &prf_list, link) {
++			if (strcmp(po->mod_name, mod->name) == 0)
++				goto out_unlock;
++		}
++		/* no such module */
++		po = NULL;
++
++out_unlock:
++		rcu_read_unlock();
++
++		if (po) {
++			/* remove from profiled modules */
++			flags = prf_list_lock();
++			list_del_rcu(&po->link);
++			prf_list_unlock(flags);
++
++			debugfs_remove(po->file);
++			po->file = NULL;
++
++			/* cleanup memory */
++			kfree_rcu(po, rcu);
++		}
++	}
++
++	return NOTIFY_OK;
++}
++
++static struct notifier_block pgo_module_nb = {
++	.notifier_call = pgo_module_notifier
++};
++
+ /* Create debugfs entries. */
+ static int __init pgo_init(void)
+ {
+@@ -444,6 +548,7 @@ static int __init pgo_init(void)
+ 
+ 	/* enable profiling */
+ 	flags = prf_list_lock();
++	prf_vmlinux.mod_name = "vmlinux";
+ 	list_add_tail_rcu(&prf_vmlinux.link, &prf_list);
+ 	prf_list_unlock(flags);
+ 
+@@ -460,6 +565,9 @@ static int __init pgo_init(void)
+ 				 &prf_reset_fops))
+ 		goto err_remove;
+ 
++	/* register module notifer */
++	register_module_notifier(&pgo_module_nb);
++
+ 	/* show notice why the system slower: */
+ 	pr_notice("Clang PGO instrumentation is active.");
+ 
+@@ -473,6 +581,9 @@ static int __init pgo_init(void)
+ /* Remove debugfs entries. */
+ static void __exit pgo_exit(void)
+ {
++	/* unsubscribe the notifier and do cleanup. */
++	unregister_module_notifier(&pgo_module_nb);
++
+ 	debugfs_remove_recursive(directory);
  }
  
- /*
-diff --git a/kernel/pgo/pgo.h b/kernel/pgo/pgo.h
-index 44d79e2861e1..59d0aa966fbe 100644
---- a/kernel/pgo/pgo.h
-+++ b/kernel/pgo/pgo.h
-@@ -19,6 +19,8 @@
- #ifndef _PGO_H
- #define _PGO_H
+diff --git a/kernel/pgo/instrument.c b/kernel/pgo/instrument.c
+index e214c9d7a113..70bab7e4c153 100644
+--- a/kernel/pgo/instrument.c
++++ b/kernel/pgo/instrument.c
+@@ -33,7 +33,6 @@
+  * ensures that we don't try to serialize data that's only partially updated.
+  */
+ static DEFINE_SPINLOCK(pgo_lock);
+-static int current_node;
  
-+#include <linux/rculist.h>
+ unsigned long prf_lock(void)
+ {
+@@ -62,8 +61,6 @@ static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data *p,
+ 	struct llvm_prf_data *data_end;
+ 	int max_vnds;
+ 
+-	rcu_read_lock();
+-
+ 	list_for_each_entry_rcu(po, &prf_list, link) {
+ 		/* get section limits */
+ 		max_vnds = prf_vnds_count(po);
+@@ -76,7 +73,6 @@ static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data *p,
+ 		 */
+ 		if (memory_contains(po->data, data_end, p, sizeof(*p))) {
+ 
+-
+ 			if (WARN_ON_ONCE(po->current_node >= max_vnds))
+ 				return NULL; /* Out of nodes */
+ 
+@@ -87,7 +83,6 @@ static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data *p,
+ 	}
+ 
+ out:
+-	rcu_read_unlock();
+ 	return vnode;
+ }
+ 
+@@ -108,8 +103,14 @@ void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index)
+ 	u8 values = 0;
+ 	unsigned long flags;
+ 
++	/*
++	 * lock the underlying prf_object(s) in place,
++	 * so they won't vanish while we are operating on it.
++	 */
++	rcu_read_lock();
 +
- /*
-  * Note: These internal LLVM definitions must match the compiler version.
-  * See llvm/include/llvm/ProfileData/InstrProfData.inc in LLVM's source code.
+ 	if (!p || !p->values)
+-		return;
++		goto rcu_unlock;
+ 
+ 	counters = (struct llvm_prf_value_node **)p->values;
+ 	curr = counters[index];
+@@ -117,7 +118,7 @@ void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index)
+ 	while (curr) {
+ 		if (target_value == curr->value) {
+ 			curr->count++;
+-			return;
++			goto rcu_unlock;
+ 		}
+ 
+ 		if (curr->count < min_count) {
+@@ -136,7 +137,7 @@ void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index)
+ 			curr->value = target_value;
+ 			curr->count++;
+ 		}
+-		return;
++		goto rcu_unlock;
+ 	}
+ 
+ 	/* Lock when updating the value node structure. */
+@@ -156,6 +157,8 @@ void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index)
+ 
+ out:
+ 	prf_unlock(flags);
++rcu_unlock:
++	rcu_read_unlock();
+ }
+ EXPORT_SYMBOL(__llvm_profile_instrument_target);
+ 
 -- 
 2.32.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210612032425.11425-4-jarmo.tiitto%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210612032425.11425-5-jarmo.tiitto%40gmail.com.
