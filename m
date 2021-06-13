@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB7PNTGDAMGQEOBB4RTY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBLHQTGDAMGQEME42DVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
-	by mail.lfdr.de (Postfix) with ESMTPS id B30D93A5A97
-	for <lists+clang-built-linux@lfdr.de>; Sun, 13 Jun 2021 23:22:06 +0200 (CEST)
-Received: by mail-pl1-x63d.google.com with SMTP id x7-20020a1709027c07b02900e6489d6231sf3707349pll.6
-        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Jun 2021 14:22:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623619325; cv=pass;
+Received: from mail-ua1-x940.google.com (mail-ua1-x940.google.com [IPv6:2607:f8b0:4864:20::940])
+	by mail.lfdr.de (Postfix) with ESMTPS id F3C143A5A9C
+	for <lists+clang-built-linux@lfdr.de>; Sun, 13 Jun 2021 23:27:09 +0200 (CEST)
+Received: by mail-ua1-x940.google.com with SMTP id k13-20020a9f30cd0000b029025e3e26edb8sf2608344uab.9
+        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Jun 2021 14:27:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623619629; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gF7EiM8eBSQZNldtKeMrT1hHP2G/XYjM7G5Ogxh/EFE/rPGFnvyhyTBIHZWGaIymlL
-         c6G0jJkH1q5eb+o2h/ouUg2Nh0w1mry2noxtikfeA9fHeeG34CXuMNYChp97YNauPTG2
-         OMbkBlKd5mQMpy3W9zA4O8FHSmSnTdt2RnyHWBZT1VGc8qF5BcUv4mpzFneSMXNGi5b9
-         omoMI/MzuBphBXk9PFtMku+b7Bj9423IQmUnCD0SCmrsQxJ3l+BwsLaVm01O1qucuofK
-         aPCaXINPnPIZz4+60da4PdqyEgjw2kmuLPFZZiKdFNR6oPUygV0gvaEBV5HFIwkBYwbF
-         PqHQ==
+        b=gcLLdwlkoSj7RUu603sVs+VbVT+Bd/xg0Twx0Sof5OMiuaQcnqPsea3dgokwC3Ii3n
+         VoDY2rdn6eVmojpukK8Ajdr+U52IiOmDQPz3Rbwi8/43CcYA9nK7ODVPat/mpZ0zMBSv
+         9w82WxuIB1j14VYquq2B9TR7xohrFA0MHuUPvz9Bjd64JumAzt3UF255fUkqScNaB04x
+         SIoDekyFmL4sp1FVK+LNf82wGt9p4q1P+dNOLMHDc3t7cD+9djB8s+uDHADHuj2qp5pZ
+         VaQ2L4EnpIU5TKuN1u82I1BXpngYuURLt7UX9t2kI8R+7oWSNfcSRfYBSNeQ0J1aTH9G
+         IFBA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr
          :ironport-sdr:sender:dkim-signature;
-        bh=uaI7G6rBYly6uufoUW8O4PoV76ac5yu3Zy3snKLnqIo=;
-        b=cuytB2DhwRu71CZ4fvvVUFmXQ3UOhGnVdRTfufFWDpoY242c6HpzFYN02RO0su/FoP
-         F08ybp5FPtwUosH42x00l/CrROL6h9llmCtLMcn3amoYne0olbSAr6lNRCnTghBg7lVO
-         0eTC58Kiqj1afiVVLjo9nJtFOZG6g7ZAvaXYgcy2vGlWQKOmsTWXyrYs3icvf9xoqqko
-         ZUqNLIAPvLsySDS8Ds2KcvK7zhRvlTMLzllMer+JENYcu/WZWRWit5eUyTpwCKPzD9Sj
-         jy+H/Co7HJX4blIwQ1BhUKB+19JT/Nag8Hi+7PH24rd3kU4bL9ZhHm+jzf+rejr6ArYd
-         e/GQ==
+        bh=tO8SGjhFgNrIBLOVDkeRult4e5O2WJoXQpSCz2Hb5QM=;
+        b=lcJri6jryMqiYuc2Ql4UChQwyI2s0KCDNRaWjEW5zRWQD0DpkDnngRRSVkHgxvuKXm
+         h0rQmYl3n4/9hz+0Sou+2RQZZa15LjSn50vfl24xBkQrOu45TC41B1MPshB0aFVAhJkp
+         fwbLjJgk18J6+z9ASnATO68buYQZan9IWoaH4oa0BdMwf2G2RqI18bOXrf9sGPrHrc0M
+         L/FUpM5gU4YMiMGR75yvhF/rUWJDDiYp2sV1cYywEI92xcmmDcFjRJnhItpv5/K8T+nH
+         flnyygGHYcY/yO3+g5s7jgbKmAjcaythX3GWNbUf1HIGGjYBYnQvu9+r3oc2p3/7dmAj
+         EuVA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=uaI7G6rBYly6uufoUW8O4PoV76ac5yu3Zy3snKLnqIo=;
-        b=KU8iVy9cXo/izWLM4WpRXOy3+No4bFBsGmsMFQgfhe+4e6TG5ct/kvonUo7kbjnTCP
-         TWlmkgWGZv6NGX2a7fZepfOkk1pNNTDSD6/qQhGA8TQYeoWm8hTCWGlrQvae2vlCzMj9
-         YmO+XNnDsl7GR2zgdgSzveqwjQl4AlfOj6vAFyEW1bVDyV/TrmoAL1EsERME7ZEHu8oG
-         Z+/wht+x21Xn/56hiaCQ6gApbbXciRmDCchlB1zHzbayf8tRyMbhcot8tnPMT85IB58v
-         4SeH8GCYPYI4RY6jj/H5PDEWayQ+9FCU0ywaEe7+mVuwhH+rxR6DBKKyXNFeQQF+i2oI
-         zC8A==
+        bh=tO8SGjhFgNrIBLOVDkeRult4e5O2WJoXQpSCz2Hb5QM=;
+        b=c3q7T0CWALvN9ww9QKktkunUNyKuDQi6YcSYyMLDtidWb3kn9gMelqHTABooqcKpDL
+         I2UeTRC4DZ2BLnqZQ2gJq1cAq6YbTixu9MIt/ycOxKL4NRBUrlBITDE2EuaK15LmIkEz
+         z4UdoqL65BZFPI9Bp7Tu2IDoKbsRDWVESVQLgNYoKriKIi1UonTzyx5MxllzlUfcJtlk
+         YXb3VXSrvsryT+CEhaxqig2ZWRxw/Xx0NQi/8OWH+vtco+k2QZTNCTVg5Z9ysY6y+p1+
+         Fa4se7O7AsKqu9eeYRn72+hmeBctiXbRD0AvpGDeXMqAqE0C7Ll1Bba+X+y6v1u2ZhHp
+         bjUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:date:from:to:cc
@@ -49,78 +49,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=uaI7G6rBYly6uufoUW8O4PoV76ac5yu3Zy3snKLnqIo=;
-        b=LYXPkw07PtAgb0JUypcyaVLUU36O2fLkcTYarqRTmXRToQgz3bm4Wzd6hWPIAtVddW
-         zm9Vhjcqtqu+OiyV89HoBYYMF8Vh6hSfHBW4bMOV++33hRHgp//Qc8qhmsh3txAYAxeN
-         BFJUEIlGkfPxQn6dAuDbG1sjGpOPCBr5QcRBka0eMTtJPlURIFgSCUQzPil2CCe7LxwI
-         atFHbtf03H9noqBM6bup1riQ7+RRumciQtCGqBdfC6+iR0HFKesFCHsWiTVA9C567FIu
-         MBqA8x+qPpbvAw6ZKhocC/MsMw8RZltgQOhItnb6TrOPJWBYAfZQGM3N+k6lexlIP6ix
-         bIuA==
+        bh=tO8SGjhFgNrIBLOVDkeRult4e5O2WJoXQpSCz2Hb5QM=;
+        b=fDDHYMgOuGc7qmzVZXVaY5dAiIfVfENiCCtduKZ//tiZGB1NppXFVnVMMRVJf46AT5
+         nKH+rM85U7llJ58jVTHdOtC2c5uqTRNCUGte/LeMXop4/sHvNp/nnvoUL3wo561SMRZI
+         QI7uf/mww44o2HRCsOeLjogS2TU3YU/WQKTakh/VhKFfhCdRx7hcEiOpC9SLzbINcB4c
+         6mEjSV14F0KVDP86/U1EX84gUmdURLk/OFZZpygW7UDf2F3aeV1QrHTIoJpTBtFhD/Ex
+         ylmOsSI8tkceO9nZiyrQSqPAll99FvVILN9IB6qQznHwc/UC/f4ncvkugUP7bkJDUe8e
+         suFQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530/Xio5wkG9jfsebSS+54t1IUrtUcyoNYP5x/Prk1P3XHRtl6Sy
-	B92JJC/tkov84AEQ3HE2J60=
-X-Google-Smtp-Source: ABdhPJybojUVwPxe4m3WcZo+5uFvSti1KSOKSnkysWTzIJ3JgcweADLmgAU0O4A4QxdpNkhNht1JNg==
-X-Received: by 2002:a63:d08:: with SMTP id c8mr14429971pgl.248.1623619325271;
-        Sun, 13 Jun 2021 14:22:05 -0700 (PDT)
+X-Gm-Message-State: AOAM530uHO3cuuP1r0Iim1Eo8tIaiuJi4cPMErJjYurb6aRJdbVSa4on
+	uk5qxvYruyMjcFMvMpSdLvY=
+X-Google-Smtp-Source: ABdhPJz7s1+jHWxbAzOyAHOYn2NwWcOuCoU9DsYnML154/M8z1WeJLbRZp4VmUBr6v77939Pje9xOA==
+X-Received: by 2002:a9f:35e9:: with SMTP id u38mr9887904uad.131.1623619628845;
+        Sun, 13 Jun 2021 14:27:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:bb11:: with SMTP id u17ls9683358pjr.1.gmail; Sun, 13
- Jun 2021 14:22:04 -0700 (PDT)
-X-Received: by 2002:a17:90a:108f:: with SMTP id c15mr15454821pja.152.1623619324534;
-        Sun, 13 Jun 2021 14:22:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623619324; cv=none;
+Received: by 2002:a1f:ad8f:: with SMTP id w137ls575655vke.8.gmail; Sun, 13 Jun
+ 2021 14:27:08 -0700 (PDT)
+X-Received: by 2002:a1f:46:: with SMTP id 67mr15197211vka.24.1623619628032;
+        Sun, 13 Jun 2021 14:27:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623619628; cv=none;
         d=google.com; s=arc-20160816;
-        b=JYO38EAczasnQeYkGjmRIi+iHjqU/C2/61kHaBWdZ5+0DVp449zYheDTfzttw7VkpT
-         x+uHJFri4Ho7ngO2Lj+0baQsXvXPp3kLtrTMskBduvazTjPef6LvR9K+B/oVjD7PKBOx
-         Ca/NWPE2X/tKceKaNuiEE78ScDJ4jlX/yDnEEOg4DDrXlK1I+U3iMF2XuDe7R9QO7xFG
-         L+Q1Tx2tYZhj3cnYD6Wz6s1udmld92pmC9bqAsj4B1NLP/CXWFw1OzxHG967Q9x3IaYq
-         2w1HKgO3LiJFZ2Qy2ilRuyZqO213jpcpEsHd7QpzBWhfW5WAQ5fK3umAkMJTXzNuAi7H
-         y+Bw==
+        b=b8DWJLyMP9M0NSlyHW0XNY3IrlWqEWlB3zAfm1IDutg70nsUAMNXTR+w+ZNBTfmi0j
+         y5t94Kx4B4FjWL6hu+MpWcUtrz4bOaLHccbQlvQHvJVb/DTJUIbb7WbLoCuayOu+E9FD
+         vsiGlS6LjpoJyP5ZiDAbFBR7BsX1WEYqblICjTyKCVXlpmNdb3Z47jRg8NYEVkQcTfMi
+         crvRuFk3mPJ34LrrmR2UsesVZIMd+Fo89I6feKsQPex5Ili8ogK471pcAnHJUlACznZy
+         94Ecpbr0rkQCtzz6/07syyHwK7sORs9wRJTh6D8isGd76A76szasDm5mVXN1NYFv80Jt
+         ZdGA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr:ironport-sdr;
-        bh=fBe2eCtbVxzL0sOQ2VmPQoojL0HbVNpKmM3v94yzgD8=;
-        b=Vftmgv80rL+w+ojjSgzsS0incJY0LNH+S12AX5dTy80ifn4nUPmX41W22xGGOpNFow
-         zjazUwbZ6XzxmysxKnlnUgGZTfAubJeg3Vg2iCwkL+XDP+n9iUSxFmV9quyIY8Ne9bDl
-         R+IUHewd/xRD7oEDIVd2xQhcF2d3icp88CadufoSLpM7oDCksNRHKdYpnn8beFzw8eIU
-         yctUFvws1g6FX8gFIfgnXpMUyrQMyrpdrcmpoZ8M+S+QV2TgirqvImp+hSmPTfEkd0gX
-         IbnO5AGIdLnmMljC3KKyDHTlqFQwld1PRvXKtozP1tDq++nFz0OVoDz54BQ28qqMdS9h
-         y8yA==
+        bh=rp/cqDfcVN47v3vEzVAs4LHDO72tzgIZkprWT5OGreM=;
+        b=OZxG7zDOXVo3gcOEAix83WkWv3b+hw0l8lMlzYXnT47+JjfThpXpfL0EN4pD8sGhoB
+         5J/uYIMr0UGsyl4rkWVF+QtJUkKP7OtqaJduZa9uMVdj0AUiNqE54enf/1h8MK1zeHP8
+         KXQHVZ1FWRuob+VSjKKzwGMyMOgNEBdcygTmsW0HNX0PDc6quqiTEHnT1c4qH0DTepaj
+         +NhX9wuHYQ5AdA15aUCiP9IL4h32dYzX0+UtbBbQSoyDRB8eW1PkMkP7u5+CdCE1hn8z
+         le7E5j2z1jqpx3q/cXWG1kWDYCS4gVed23nWVMnWhJeODEQP4YBQ5lPhpjZIjfgBB+BQ
+         Kmew==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id r7si1371532pjp.0.2021.06.13.14.22.04
+        by gmr-mx.google.com with ESMTPS id a1si1170166uaq.0.2021.06.13.14.27.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 13 Jun 2021 14:22:04 -0700 (PDT)
+        Sun, 13 Jun 2021 14:27:06 -0700 (PDT)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
-IronPort-SDR: kDIYunnEzuzHWKE4bUzdF7BxVv325t+CZb6Xkuo4eyODk7gQ84za/qZjPLaVtsGXLVK0G62EN3
- IBFvsg2zv4Rg==
-X-IronPort-AV: E=McAfee;i="6200,9189,10014"; a="205557897"
-X-IronPort-AV: E=Sophos;i="5.83,271,1616482800"; 
-   d="gz'50?scan'50,208,50";a="205557897"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2021 14:22:03 -0700
-IronPort-SDR: L2bfmGxLw/AuhOftBo3HwCOyQi4k6EsT9gqla/7VkS+S60hC9EPUu4D6sg7L/EAappwdJAYasU
- RXIf+hIal4GA==
+IronPort-SDR: AAHjpoNtyjfp17b0lUodpZedVa8yWX2WiIVOz5OEH2KJLJWhS7K5UousXnHZrRBP6uc7qLA7eR
+ QIdP2kgPip/g==
+X-IronPort-AV: E=McAfee;i="6200,9189,10014"; a="205558063"
+X-IronPort-AV: E=Sophos;i="5.83,272,1616482800"; 
+   d="gz'50?scan'50,208,50";a="205558063"
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jun 2021 14:27:03 -0700
+IronPort-SDR: v29j7K3jEIsQdphU78FTd4yTXUNQs7hdwrce5I+508GB/eOFYq2+dCzpLHR/6X3r0eaN1gRvkt
+ 01B8LKdXMmug==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.83,271,1616482800"; 
-   d="gz'50?scan'50,208,50";a="449696120"
+X-IronPort-AV: E=Sophos;i="5.83,272,1616482800"; 
+   d="gz'50?scan'50,208,50";a="420602832"
 Received: from lkp-server02.sh.intel.com (HELO 3cb98b298c7e) ([10.239.97.151])
-  by orsmga008.jf.intel.com with ESMTP; 13 Jun 2021 14:22:01 -0700
+  by orsmga002.jf.intel.com with ESMTP; 13 Jun 2021 14:27:01 -0700
 Received: from kbuild by 3cb98b298c7e with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lsXYQ-0001W8-Bt; Sun, 13 Jun 2021 21:22:02 +0000
-Date: Mon, 14 Jun 2021 05:21:15 +0800
+	id 1lsXdG-0001WE-DG; Sun, 13 Jun 2021 21:27:02 +0000
+Date: Mon, 14 Jun 2021 05:26:58 +0800
 From: kernel test robot <lkp@intel.com>
 To: Ingo Molnar <mingo@kernel.org>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	linux-kernel@vger.kernel.org, x86@kernel.org
-Subject: [tip:tmp.tmp2 101/364] arch/riscv/kernel/asm-offsets.c:18:2: error:
- no member named 'thread' in 'task_struct'
-Message-ID: <202106140512.JOT5Lmnz-lkp@intel.com>
+Subject: [tip:tmp.tmp2 108/364] arch/riscv/kernel/asm-offsets.c:32:2: error:
+ no member named 'thread_info' in 'task_struct'
+Message-ID: <202106140555.rHuM4Hnq-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="liOOAslEiF7prFVr"
+Content-Type: multipart/mixed; boundary="r5Pyd7+fXNt84Ff3"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
@@ -141,7 +141,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---liOOAslEiF7prFVr
+--r5Pyd7+fXNt84Ff3
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -151,7 +151,7 @@ First bad commit (maybe != root cause):
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git tmp.tmp2
 head:   adcceb5eb7aee38e4a9c15bdf599655f0e1b1324
-commit: 3d4d54f073ba51554acd0fc3999027a4e2ee636a [101/364] sched/headers: Remove <linux/seqcount.h> from <linux/sched.h>
+commit: a8bbfcd6b3ffac4ebcc0deb770d628fe6b8f2d05 [108/364] sched/headers: Remove <linux/mutex.h> from <linux/sched.h>
 config: riscv-randconfig-r016-20210613 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project d2012d965d60c3258b3a69d024491698f8aec386)
 reproduce (this is a W=1 build):
@@ -159,10 +159,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install riscv cross compiling tool for clang build
         # apt-get install binutils-riscv64-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git/commit/?id=3d4d54f073ba51554acd0fc3999027a4e2ee636a
+        # https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git/commit/?id=a8bbfcd6b3ffac4ebcc0deb770d628fe6b8f2d05
         git remote add tip https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git
         git fetch --no-tags tip tmp.tmp2
-        git checkout 3d4d54f073ba51554acd0fc3999027a4e2ee636a
+        git checkout a8bbfcd6b3ffac4ebcc0deb770d628fe6b8f2d05
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv 
 
@@ -171,108 +171,18 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-           compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long),  \
-                                                         ^
-   include/linux/compiler_types.h:328:22: note: expanded from macro 'compiletime_assert'
-           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-                               ^~~~~~~~~
-   include/linux/compiler_types.h:316:23: note: expanded from macro '_compiletime_assert'
-           __compiletime_assert(condition, msg, prefix, suffix)
-                                ^~~~~~~~~
-   include/linux/compiler_types.h:308:9: note: expanded from macro '__compiletime_assert'
-                   if (!(condition))                                       \
-                         ^~~~~~~~~
-   In file included from arch/riscv/kernel/asm-offsets.c:10:
-   In file included from include/linux/sched.h:19:
-   In file included from include/linux/mutex.h:19:
-   In file included from include/linux/lockdep.h:14:
-   In file included from include/linux/smp.h:110:
-   In file included from include/linux/preempt.h:80:
-   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
-   include/asm-generic/preempt.h:11:19: error: implicit declaration of function 'current_thread_info' [-Werror,-Wimplicit-function-declaration]
-           return READ_ONCE(current_thread_info()->preempt_count);
-                            ^
-   include/asm-generic/preempt.h:11:42: error: member reference type 'int' is not a pointer
-           return READ_ONCE(current_thread_info()->preempt_count);
-                            ~~~~~~~~~~~~~~~~~~~~~  ^
-   include/asm-generic/rwonce.h:50:14: note: expanded from macro 'READ_ONCE'
-           __READ_ONCE(x);                                                 \
-                       ^
-   include/asm-generic/rwonce.h:44:65: note: expanded from macro '__READ_ONCE'
-   #define __READ_ONCE(x)  (*(const volatile __unqual_scalar_typeof(x) *)&(x))
-                                                                    ^
-   include/linux/compiler_types.h:279:13: note: expanded from macro '__unqual_scalar_typeof'
-                   _Generic((x),                                           \
-                             ^
-   In file included from arch/riscv/kernel/asm-offsets.c:10:
-   In file included from include/linux/sched.h:19:
-   In file included from include/linux/mutex.h:19:
-   In file included from include/linux/lockdep.h:14:
-   In file included from include/linux/smp.h:110:
-   In file included from include/linux/preempt.h:80:
-   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
-   include/asm-generic/preempt.h:11:42: error: member reference type 'int' is not a pointer
-           return READ_ONCE(current_thread_info()->preempt_count);
-                            ~~~~~~~~~~~~~~~~~~~~~  ^
-   include/asm-generic/rwonce.h:50:14: note: expanded from macro 'READ_ONCE'
-           __READ_ONCE(x);                                                 \
-                       ^
-   include/asm-generic/rwonce.h:44:65: note: expanded from macro '__READ_ONCE'
-   #define __READ_ONCE(x)  (*(const volatile __unqual_scalar_typeof(x) *)&(x))
-                                                                    ^
-   include/linux/compiler_types.h:286:15: note: expanded from macro '__unqual_scalar_typeof'
-                            default: (x)))
-                                      ^
-   In file included from arch/riscv/kernel/asm-offsets.c:10:
-   In file included from include/linux/sched.h:19:
-   In file included from include/linux/mutex.h:19:
-   In file included from include/linux/lockdep.h:14:
-   In file included from include/linux/smp.h:110:
-   In file included from include/linux/preempt.h:80:
-   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
-   include/asm-generic/preempt.h:11:42: error: member reference type 'int' is not a pointer
-           return READ_ONCE(current_thread_info()->preempt_count);
-                            ~~~~~~~~~~~~~~~~~~~~~  ^
-   include/asm-generic/rwonce.h:50:14: note: expanded from macro 'READ_ONCE'
-           __READ_ONCE(x);                                                 \
-                       ^
-   include/asm-generic/rwonce.h:44:72: note: expanded from macro '__READ_ONCE'
-   #define __READ_ONCE(x)  (*(const volatile __unqual_scalar_typeof(x) *)&(x))
-                                                                           ^
-   In file included from arch/riscv/kernel/asm-offsets.c:10:
-   In file included from include/linux/sched.h:19:
-   In file included from include/linux/mutex.h:19:
-   In file included from include/linux/lockdep.h:14:
-   In file included from include/linux/smp.h:110:
-   In file included from include/linux/preempt.h:80:
-   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
-   include/asm-generic/preempt.h:11:9: error: returning 'void' from a function with incompatible result type 'int'
-           return READ_ONCE(current_thread_info()->preempt_count);
-                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/asm-generic/rwonce.h:47:28: note: expanded from macro 'READ_ONCE'
-   #define READ_ONCE(x)                                                    \
-                                                                           ^
-   In file included from arch/riscv/kernel/asm-offsets.c:10:
-   In file included from include/linux/sched.h:19:
-   In file included from include/linux/mutex.h:19:
-   In file included from include/linux/lockdep.h:14:
-   In file included from include/linux/smp.h:110:
-   In file included from include/linux/preempt.h:80:
-   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
-   include/asm-generic/preempt.h:16:10: error: implicit declaration of function 'current_thread_info' [-Werror,-Wimplicit-function-declaration]
-           return &current_thread_info()->preempt_count;
-                   ^
-   include/asm-generic/preempt.h:16:33: error: member reference type 'int' is not a pointer
-           return &current_thread_info()->preempt_count;
-                   ~~~~~~~~~~~~~~~~~~~~~  ^
-   include/asm-generic/preempt.h:69:36: error: implicit declaration of function 'tif_need_resched' [-Werror,-Wimplicit-function-declaration]
-           return !--*preempt_count_ptr() && tif_need_resched();
-                                             ^
-   include/asm-generic/preempt.h:78:4: error: implicit declaration of function 'tif_need_resched' [-Werror,-Wimplicit-function-declaration]
-                           tif_need_resched());
-                           ^
->> arch/riscv/kernel/asm-offsets.c:18:2: error: no member named 'thread' in 'task_struct'
-           OFFSET(TASK_THREAD_RA, task_struct, thread.ra);
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:26:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S6, task_struct, thread.s[6]);
            ^                                   ~~~~~~
    include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
            DEFINE(sym, offsetof(struct str, mem))
@@ -286,8 +196,8 @@ All errors (new ones prefixed by >>):
    include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
            asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
                                                                        ^~~
-   arch/riscv/kernel/asm-offsets.c:19:2: error: no member named 'thread' in 'task_struct'
-           OFFSET(TASK_THREAD_SP, task_struct, thread.sp);
+   arch/riscv/kernel/asm-offsets.c:27:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S7, task_struct, thread.s[7]);
            ^                                   ~~~~~~
    include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
            DEFINE(sym, offsetof(struct str, mem))
@@ -301,8 +211,8 @@ All errors (new ones prefixed by >>):
    include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
            asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
                                                                        ^~~
-   arch/riscv/kernel/asm-offsets.c:20:2: error: no member named 'thread' in 'task_struct'
-           OFFSET(TASK_THREAD_S0, task_struct, thread.s[0]);
+   arch/riscv/kernel/asm-offsets.c:28:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S8, task_struct, thread.s[8]);
            ^                                   ~~~~~~
    include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
            DEFINE(sym, offsetof(struct str, mem))
@@ -316,9 +226,114 @@ All errors (new ones prefixed by >>):
    include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
            asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
                                                                        ^~~
-   arch/riscv/kernel/asm-offsets.c:21:2: error: no member named 'thread' in 'task_struct'
-           OFFSET(TASK_THREAD_S1, task_struct, thread.s[1]);
+   arch/riscv/kernel/asm-offsets.c:29:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
            ^                                   ~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:30:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
+           ^                                    ~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:31:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
+           ^                                    ~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+>> arch/riscv/kernel/asm-offsets.c:32:2: error: no member named 'thread_info' in 'task_struct'
+           OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
+           ^                                  ~~~~~~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:33:2: error: no member named 'thread_info' in 'task_struct'
+           OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+           ^                                          ~~~~~~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:34:2: error: no member named 'thread_info' in 'task_struct'
+           OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+           ^                                      ~~~~~~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:35:2: error: no member named 'thread_info' in 'task_struct'
+           OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
+           ^                                    ~~~~~~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:36:2: error: no member named 'thread_info' in 'task_struct'
+           OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
+           ^                                ~~~~~~~~~~~
    include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
            DEFINE(sym, offsetof(struct str, mem))
                        ^                    ~~~
@@ -334,108 +349,18 @@ All errors (new ones prefixed by >>):
    fatal error: too many errors emitted, stopping now [-ferror-limit=]
    20 errors generated.
 --
-           compiletime_assert(__native_word(t) || sizeof(t) == sizeof(long long),  \
-                                                         ^
-   include/linux/compiler_types.h:328:22: note: expanded from macro 'compiletime_assert'
-           _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-                               ^~~~~~~~~
-   include/linux/compiler_types.h:316:23: note: expanded from macro '_compiletime_assert'
-           __compiletime_assert(condition, msg, prefix, suffix)
-                                ^~~~~~~~~
-   include/linux/compiler_types.h:308:9: note: expanded from macro '__compiletime_assert'
-                   if (!(condition))                                       \
-                         ^~~~~~~~~
-   In file included from arch/riscv/kernel/asm-offsets.c:10:
-   In file included from include/linux/sched.h:19:
-   In file included from include/linux/mutex.h:19:
-   In file included from include/linux/lockdep.h:14:
-   In file included from include/linux/smp.h:110:
-   In file included from include/linux/preempt.h:80:
-   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
-   include/asm-generic/preempt.h:11:19: error: implicit declaration of function 'current_thread_info' [-Werror,-Wimplicit-function-declaration]
-           return READ_ONCE(current_thread_info()->preempt_count);
-                            ^
-   include/asm-generic/preempt.h:11:42: error: member reference type 'int' is not a pointer
-           return READ_ONCE(current_thread_info()->preempt_count);
-                            ~~~~~~~~~~~~~~~~~~~~~  ^
-   include/asm-generic/rwonce.h:50:14: note: expanded from macro 'READ_ONCE'
-           __READ_ONCE(x);                                                 \
-                       ^
-   include/asm-generic/rwonce.h:44:65: note: expanded from macro '__READ_ONCE'
-   #define __READ_ONCE(x)  (*(const volatile __unqual_scalar_typeof(x) *)&(x))
-                                                                    ^
-   include/linux/compiler_types.h:279:13: note: expanded from macro '__unqual_scalar_typeof'
-                   _Generic((x),                                           \
-                             ^
-   In file included from arch/riscv/kernel/asm-offsets.c:10:
-   In file included from include/linux/sched.h:19:
-   In file included from include/linux/mutex.h:19:
-   In file included from include/linux/lockdep.h:14:
-   In file included from include/linux/smp.h:110:
-   In file included from include/linux/preempt.h:80:
-   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
-   include/asm-generic/preempt.h:11:42: error: member reference type 'int' is not a pointer
-           return READ_ONCE(current_thread_info()->preempt_count);
-                            ~~~~~~~~~~~~~~~~~~~~~  ^
-   include/asm-generic/rwonce.h:50:14: note: expanded from macro 'READ_ONCE'
-           __READ_ONCE(x);                                                 \
-                       ^
-   include/asm-generic/rwonce.h:44:65: note: expanded from macro '__READ_ONCE'
-   #define __READ_ONCE(x)  (*(const volatile __unqual_scalar_typeof(x) *)&(x))
-                                                                    ^
-   include/linux/compiler_types.h:286:15: note: expanded from macro '__unqual_scalar_typeof'
-                            default: (x)))
-                                      ^
-   In file included from arch/riscv/kernel/asm-offsets.c:10:
-   In file included from include/linux/sched.h:19:
-   In file included from include/linux/mutex.h:19:
-   In file included from include/linux/lockdep.h:14:
-   In file included from include/linux/smp.h:110:
-   In file included from include/linux/preempt.h:80:
-   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
-   include/asm-generic/preempt.h:11:42: error: member reference type 'int' is not a pointer
-           return READ_ONCE(current_thread_info()->preempt_count);
-                            ~~~~~~~~~~~~~~~~~~~~~  ^
-   include/asm-generic/rwonce.h:50:14: note: expanded from macro 'READ_ONCE'
-           __READ_ONCE(x);                                                 \
-                       ^
-   include/asm-generic/rwonce.h:44:72: note: expanded from macro '__READ_ONCE'
-   #define __READ_ONCE(x)  (*(const volatile __unqual_scalar_typeof(x) *)&(x))
-                                                                           ^
-   In file included from arch/riscv/kernel/asm-offsets.c:10:
-   In file included from include/linux/sched.h:19:
-   In file included from include/linux/mutex.h:19:
-   In file included from include/linux/lockdep.h:14:
-   In file included from include/linux/smp.h:110:
-   In file included from include/linux/preempt.h:80:
-   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
-   include/asm-generic/preempt.h:11:9: error: returning 'void' from a function with incompatible result type 'int'
-           return READ_ONCE(current_thread_info()->preempt_count);
-                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/asm-generic/rwonce.h:47:28: note: expanded from macro 'READ_ONCE'
-   #define READ_ONCE(x)                                                    \
-                                                                           ^
-   In file included from arch/riscv/kernel/asm-offsets.c:10:
-   In file included from include/linux/sched.h:19:
-   In file included from include/linux/mutex.h:19:
-   In file included from include/linux/lockdep.h:14:
-   In file included from include/linux/smp.h:110:
-   In file included from include/linux/preempt.h:80:
-   In file included from ./arch/riscv/include/generated/asm/preempt.h:1:
-   include/asm-generic/preempt.h:16:10: error: implicit declaration of function 'current_thread_info' [-Werror,-Wimplicit-function-declaration]
-           return &current_thread_info()->preempt_count;
-                   ^
-   include/asm-generic/preempt.h:16:33: error: member reference type 'int' is not a pointer
-           return &current_thread_info()->preempt_count;
-                   ~~~~~~~~~~~~~~~~~~~~~  ^
-   include/asm-generic/preempt.h:69:36: error: implicit declaration of function 'tif_need_resched' [-Werror,-Wimplicit-function-declaration]
-           return !--*preempt_count_ptr() && tif_need_resched();
-                                             ^
-   include/asm-generic/preempt.h:78:4: error: implicit declaration of function 'tif_need_resched' [-Werror,-Wimplicit-function-declaration]
-                           tif_need_resched());
-                           ^
->> arch/riscv/kernel/asm-offsets.c:18:2: error: no member named 'thread' in 'task_struct'
-           OFFSET(TASK_THREAD_RA, task_struct, thread.ra);
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:26:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S6, task_struct, thread.s[6]);
            ^                                   ~~~~~~
    include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
            DEFINE(sym, offsetof(struct str, mem))
@@ -449,8 +374,8 @@ All errors (new ones prefixed by >>):
    include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
            asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
                                                                        ^~~
-   arch/riscv/kernel/asm-offsets.c:19:2: error: no member named 'thread' in 'task_struct'
-           OFFSET(TASK_THREAD_SP, task_struct, thread.sp);
+   arch/riscv/kernel/asm-offsets.c:27:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S7, task_struct, thread.s[7]);
            ^                                   ~~~~~~
    include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
            DEFINE(sym, offsetof(struct str, mem))
@@ -464,8 +389,8 @@ All errors (new ones prefixed by >>):
    include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
            asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
                                                                        ^~~
-   arch/riscv/kernel/asm-offsets.c:20:2: error: no member named 'thread' in 'task_struct'
-           OFFSET(TASK_THREAD_S0, task_struct, thread.s[0]);
+   arch/riscv/kernel/asm-offsets.c:28:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S8, task_struct, thread.s[8]);
            ^                                   ~~~~~~
    include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
            DEFINE(sym, offsetof(struct str, mem))
@@ -479,9 +404,114 @@ All errors (new ones prefixed by >>):
    include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
            asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
                                                                        ^~~
-   arch/riscv/kernel/asm-offsets.c:21:2: error: no member named 'thread' in 'task_struct'
-           OFFSET(TASK_THREAD_S1, task_struct, thread.s[1]);
+   arch/riscv/kernel/asm-offsets.c:29:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
            ^                                   ~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:30:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
+           ^                                    ~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:31:2: error: no member named 'thread' in 'task_struct'
+           OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
+           ^                                    ~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+>> arch/riscv/kernel/asm-offsets.c:32:2: error: no member named 'thread_info' in 'task_struct'
+           OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
+           ^                                  ~~~~~~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:33:2: error: no member named 'thread_info' in 'task_struct'
+           OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+           ^                                          ~~~~~~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:34:2: error: no member named 'thread_info' in 'task_struct'
+           OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+           ^                                      ~~~~~~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:35:2: error: no member named 'thread_info' in 'task_struct'
+           OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
+           ^                                    ~~~~~~~~~~~
+   include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
+           DEFINE(sym, offsetof(struct str, mem))
+                       ^                    ~~~
+   include/linux/stddef.h:17:32: note: expanded from macro 'offsetof'
+   #define offsetof(TYPE, MEMBER)  __compiler_offsetof(TYPE, MEMBER)
+                                   ^                         ~~~~~~
+   include/linux/compiler_types.h:140:35: note: expanded from macro '__compiler_offsetof'
+   #define __compiler_offsetof(a, b)       __builtin_offsetof(a, b)
+                                           ^                     ~
+   include/linux/kbuild.h:6:62: note: expanded from macro 'DEFINE'
+           asm volatile("\n.ascii \"->" #sym " %0 " #val "\"" : : "i" (val))
+                                                                       ^~~
+   arch/riscv/kernel/asm-offsets.c:36:2: error: no member named 'thread_info' in 'task_struct'
+           OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
+           ^                                ~~~~~~~~~~~
    include/linux/kbuild.h:11:14: note: expanded from macro 'OFFSET'
            DEFINE(sym, offsetof(struct str, mem))
                        ^                    ~~~
@@ -504,14 +534,28 @@ All errors (new ones prefixed by >>):
    make: Target 'prepare' not remade because of errors.
 
 
-vim +18 arch/riscv/kernel/asm-offsets.c
+vim +32 arch/riscv/kernel/asm-offsets.c
 
 3ae9c3cde51abc Souptick Joarder 2020-12-09  15  
 7db91e57a0acde Palmer Dabbelt   2017-07-10  16  void asm_offsets(void)
 7db91e57a0acde Palmer Dabbelt   2017-07-10  17  {
-7db91e57a0acde Palmer Dabbelt   2017-07-10 @18  	OFFSET(TASK_THREAD_RA, task_struct, thread.ra);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  18  	OFFSET(TASK_THREAD_RA, task_struct, thread.ra);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  19  	OFFSET(TASK_THREAD_SP, task_struct, thread.sp);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  20  	OFFSET(TASK_THREAD_S0, task_struct, thread.s[0]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  21  	OFFSET(TASK_THREAD_S1, task_struct, thread.s[1]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  22  	OFFSET(TASK_THREAD_S2, task_struct, thread.s[2]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  23  	OFFSET(TASK_THREAD_S3, task_struct, thread.s[3]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  24  	OFFSET(TASK_THREAD_S4, task_struct, thread.s[4]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  25  	OFFSET(TASK_THREAD_S5, task_struct, thread.s[5]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  26  	OFFSET(TASK_THREAD_S6, task_struct, thread.s[6]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  27  	OFFSET(TASK_THREAD_S7, task_struct, thread.s[7]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  28  	OFFSET(TASK_THREAD_S8, task_struct, thread.s[8]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  29  	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  30  	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10  31  	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
+7db91e57a0acde Palmer Dabbelt   2017-07-10 @32  	OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
 
-:::::: The code at line 18 was first introduced by commit
+:::::: The code at line 32 was first introduced by commit
 :::::: 7db91e57a0acde126a162ababfb1e0ab190130cb RISC-V: Task implementation
 
 :::::: TO: Palmer Dabbelt <palmer@dabbelt.com>
@@ -524,14 +568,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106140512.JOT5Lmnz-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106140555.rHuM4Hnq-lkp%40intel.com.
 
---liOOAslEiF7prFVr
+--r5Pyd7+fXNt84Ff3
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICEp2xmAAAy5jb25maWcAlFzbc9s2s3/vX8FpX9qZL63uls8ZP0AgKKEiCIYAdfELR7WV
+H4sICLh3xmAAAy5jb25maWcAlFzbc9s2s3/vX8FpX9qZL63uls8ZP0AgKKEiCIYAdfELR7WV
 VKeOnZHltPnvvwXAC0CCck9mmki7SxBY7OW3C6g//fBTgN4uL18Ol9PD4enpe/D5+Hw8Hy7H
 x+DT6en4v0HIg4TLgIRU/grC8en57Z/fzqfXh2/B9Nfh+NfBh/PDNFgfz8/HpwC/PH86fX6D
 508vzz/89APmSUSXBcbFhmSC8qSQZCfvfnx4Ojx/Dr4dz68gF6hRfh0EP38+Xf7nt9/g7y+n
@@ -1152,4 +1196,4 @@ VwbbsDgMo7mxBsBYPZa63CMaUTX7sh30O4vRUBq2KXr/XcQM6fAqT/IBmV2cPq0UGETM4Q8m
 DXLPgPT8wMFJInkgDBYOjOPyRFaMjzCgr+ZEdSBWyLjUX01gQfkAdKsaWxAV4T5z7BUlSKwT
 1EWLisiVht7+vyZzfbUtFAIA
 
---liOOAslEiF7prFVr--
+--r5Pyd7+fXNt84Ff3--
