@@ -1,210 +1,133 @@
-Return-Path: <clang-built-linux+bncBCH7325XY4FRBRX5TCDAMGQEXH26DOY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD66FMGZA4IOXEUZQYDBUBCAMVHZI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5EC883A59D8
-	for <lists+clang-built-linux@lfdr.de>; Sun, 13 Jun 2021 19:22:16 +0200 (CEST)
-Received: by mail-pj1-x1038.google.com with SMTP id on11-20020a17090b1d0bb029016bba777f5fsf9936505pjb.7
-        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Jun 2021 10:22:16 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1623604935; cv=pass;
+Received: from mail-ed1-x53f.google.com (mail-ed1-x53f.google.com [IPv6:2a00:1450:4864:20::53f])
+	by mail.lfdr.de (Postfix) with ESMTPS id DBCBF3A59EF
+	for <lists+clang-built-linux@lfdr.de>; Sun, 13 Jun 2021 20:07:39 +0200 (CEST)
+Received: by mail-ed1-x53f.google.com with SMTP id j3-20020aa7c3430000b0290393f7aad447sf4779526edr.18
+        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Jun 2021 11:07:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623607659; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jndMIfdBkgUW87Q1Xnkbaf3hdqeEn+ogmA2fWvycNfTLe6a+RUd+rKlfaj6FIKHATR
-         aD91OF922kGC2Q0W9i/sJPhldFQGn/YD+ma8bcai8vkBpvF9gmHEziVLZXNh203PCUnU
-         udLl1nplBSxOXl/zO6fg84cqjIgxJWuIeT7f1BW7NwpE1qVHsUF1zCVkuFcWW+8HUMOf
-         Wilei5BSUcS7Glv32Gvgm1Rh/mV0URmWFBa3tSeyTN7hz2HpXtdMEtebTgW+9q1stQ0A
-         5PGo4B9ha6cHq0XTaRv/JrUb++u7Uf6N5upKmKoU8L+ak/chcNGNmbSYMd5X8cnzjpgF
-         IvAw==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=QtTEIlD4nK+6CtC7e96AV7VCOtGp4n1waWTwhtdXvdc4MqSMzdTelToWs3HRsXaqja
+         Pwny8gHPd6RhzGXUvYWIVgOR7meHipvumuI5Ka2mvaKyaoggBB8n7L1F7aYkMk/cnTjU
+         8v/tV1z+AGIyw4BcWpppp4OXKpFkr1WPVAZPD7xEa8ZjkjKG8dN9kU0RZmZpVpp37Ve4
+         iCOUF1eLoAlCEjbxERGXNX9FqntIAV2KczwnTo2VLl/7r/mEpu8h4nRGOuY7HlR1oSF2
+         Gs0rfGw3fbk/ywpyOSUbP2ayA2OU7oxIKq9677gexuovm1qKO5lVzu1lQSjhE7yvTj6q
+         zgcw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:sender:dkim-signature;
-        bh=+JxFQEEME1H/RGsBi0Cwbw5VpWwkbqJCe/tutaKqitk=;
-        b=p1ICXDF8LwpqeDMS9k6CwC/+nI20DaB8R6A2h0Snx3etvaw/eXBIMeVGQHx0szimQf
-         uDF2SN0ngUqTFjuIm2qGVVCClEw08rNxJt8FdPetj3Bv6934KEPUDD3B/NNBOHOS4hjX
-         /ZF89QS15Gnq/iW/z+pGJ5vKsjgCpfZy7S8Xjx2hhZqspgYuJ4egVk1mWlNbrztPNYhJ
-         +ePIKn8Kr1uUYRH80zM9DnWwfVyWWiV6mY0FI4wiWaFbN23405PJy2l4mTg49GGtD2m/
-         IefuuUd6D/6h+9mj8/o/Pf5BV8qIA/JADJySf617WjsGBTH92CyLkbjErf5h52KwGOb5
-         XTHw==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@cornelisnetworks.com header.s=selector1 header.b=lJjCVH77;
-       arc=pass (i=1 spf=pass spfdomain=cornelisnetworks.com dkim=pass dkdomain=cornelisnetworks.com dmarc=pass fromdomain=cornelisnetworks.com);
-       spf=pass (google.com: domain of mike.marciniszyn@cornelisnetworks.com designates 40.107.212.137 as permitted sender) smtp.mailfrom=mike.marciniszyn@cornelisnetworks.com
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=FTYNQg2AzYLWctBcgOw/A37wyagiX3xMIWd0yS34YAE=;
+        b=F8hj8IrW5ZwZ8Jnu8wGoCtaJVdCsUWTxNmqnhXJWaaL9uSn3vQbARhOg4qvMfaisSW
+         vBniYHNNJfILrn6dJ8NILYMR8foLwF57krTbe+l2M39elQbtVFSqX6qGIN4h6PQc2Wwp
+         4mfONBFuHQVoEbLWcXkQ89J9Ve/G730msBpAZJt96oABF3W3dnldJuYQznqESKhzIoPO
+         LMSOk1UjKKChrrgHVBl0S544+sIMCHRVyC/zyrkTJdrphGeoAKNR1PhtVQf30J8Kqmbk
+         S1IqjBduk/EAmL51TldD6kwxkBS+CzyPfFhvoP0KYKWqMtqEHctPrNVk0Upt39jyOyOA
+         iEQw==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=TM9DZ6gS;
+       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::630 as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+JxFQEEME1H/RGsBi0Cwbw5VpWwkbqJCe/tutaKqitk=;
-        b=q16Ew/jkxFTbHFkcK3P69nAT8xpm654gQ3lmwYZosKstWEMMW0rmEsvHEMFPXXZhdO
-         s7eTuZ6unRTvBZOANYVVQWXsla23xDyWBC+5Mgof4HEWbFQtW6t3DkL/73UIxtII11Vw
-         6HO6ep9lwo1umvXOgLx6ZiOp57DujZpwOpVU2YxQMQ2BoXymDVauhPA01DErpmhAlQgI
-         sSxaVzWzG+CcYyvEzMI1agHcooYKLhIJz731xch/gmSyZ6NNqbfRFK6chVFuiKiOlTGZ
-         5lomL6SmqLPNKEb+znLgXP7EmOqDU0QT90hdellrt4qlOU8cg6iTrOVvPMKZGgqn0hrT
-         PX0g==
+        bh=FTYNQg2AzYLWctBcgOw/A37wyagiX3xMIWd0yS34YAE=;
+        b=eActP4yyYAMm9xQM71QrVlB37FPQ6zMmsWgZvNjwqgqMW72ehg4HtmGUVbVZa8mbVN
+         wRvIMA++LPWvrFwtFPbmFYCsFIZHnTd/yPqF8+OC8SiEuHfd7JvIMGCV8w7fJeMQQNGR
+         fjKWnjCzSJ3dMENVssFaY3Wig/Moct3q6Jd2BtpTAKAbtg9oDVb/M1CR2hC11mWA5Vi8
+         au0LgWjXMzdLIAOLrdCKb6u4ROdWPMzTKvKEQkHf5wyM9YNBsSoTyROQvwOpAwOyyJHJ
+         cOBaG9OLHvAYUVo2ty82OebEMTjJm446Ung7+DU8MnHQbknzf+sehk99EgfgIRr9YbiX
+         nhAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+JxFQEEME1H/RGsBi0Cwbw5VpWwkbqJCe/tutaKqitk=;
-        b=Gyho3250CKbzcVUwEj+0HKNJoDC3KY7xMOaNt03vvGwmAPxDMZxf1cgIKmEfHybjYd
-         wwE2C2BRlj91Abiqyb5XAEKhbXNy2NNstYJTzoullxh0yx+GjNh+GRVtap2BwHOCLke6
-         l85MF7J0dgy2muFFB4P16H2HxgmFx0JDCEmlaZRV47pWdRyAvNmoC/r56c4zYbrHv0Hx
-         8SzcFi7R7wM7DmXN+/9G7cMzqH4UXfwutZRXraGwtNHotLPz74DogbRfoM2P4YWJPM6I
-         v5DmwtFkndPs2VXP0fZf+n07uAyt1XCb7yFu2DLXX/pf0/myKOho6jqmXu/WmZCv3p3S
-         8N5Q==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532RnR2S1DufAslKscFtts0rkjgcj0TlZABOofM2FVj9JEv4TuEu
-	iYMhB7yF/6jIYiNjawieTKk=
-X-Google-Smtp-Source: ABdhPJxAXMRqPotfhlhn/QAr2cbyOPjmjOk5dv413Vb/ziyKK+tG+AFNuvqbawwIR+aGJbtkmjY+ig==
-X-Received: by 2002:a17:90a:950c:: with SMTP id t12mr18635907pjo.135.1623604934756;
-        Sun, 13 Jun 2021 10:22:14 -0700 (PDT)
+        bh=FTYNQg2AzYLWctBcgOw/A37wyagiX3xMIWd0yS34YAE=;
+        b=GJw7unHQMpAiPgs+nDZTEgabozrfE/4btc/kMp92Wi+uAnlSh/XkTLSiGXwh1Bk1gX
+         171g/lYgLa1calff61NMY3fDtKou3mUFkkhEOAnx07tls3DsCCbNIa+qKNgzegXwJygi
+         Tuk/w+os9IlkKX+TPJoYL79Pw6O94VvyqhctrEqx+lmNkWTB0/fyt/P7lU2ljP/Qjfjl
+         ggRQLf1nGvL7jkIG4CJ0NcEluxCS3glBmZNcQw3tNlvRkdC0F+mJjoLhD6aUZOBzYym4
+         MRz7KZ6SUywSiNVW2tWopZD3JnAL5V/KS6gMFjyl0buc1ONHbEMbTRFfXys9Jc0yqZW8
+         9aQA==
+X-Gm-Message-State: AOAM531HeY/A/A8QIoP2BpCgR7CD1dCuqcXwKuBYQMRAw++9e5cDV3iw
+	28nYGoB7bL6vfY860iYdCPQ=
+X-Google-Smtp-Source: ABdhPJzTx1z+JGQfpJEpa0AxW/brxUmC/86oEQREgy2hLCfnXXZp9D/FLhW5OnyV2qRaAuThOK8wGQ==
+X-Received: by 2002:a05:6402:c8:: with SMTP id i8mr13561507edu.380.1623607659639;
+        Sun, 13 Jun 2021 11:07:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:1a88:: with SMTP id ng8ls12154437pjb.3.canary-gmail;
- Sun, 13 Jun 2021 10:22:14 -0700 (PDT)
-X-Received: by 2002:a17:90a:d590:: with SMTP id v16mr14502470pju.205.1623604934212;
-        Sun, 13 Jun 2021 10:22:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623604934; cv=pass;
+Received: by 2002:a05:6402:1c97:: with SMTP id cy23ls4034831edb.0.gmail; Sun,
+ 13 Jun 2021 11:07:38 -0700 (PDT)
+X-Received: by 2002:aa7:d84e:: with SMTP id f14mr13475260eds.12.1623607658709;
+        Sun, 13 Jun 2021 11:07:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623607658; cv=none;
         d=google.com; s=arc-20160816;
-        b=jJBHUWUlqXDkgdt57ZShp7fp5XG0HCfiVH6t6y/gWHqyl10u8ByL8qI6dalLhJnl82
-         rQiqRiIjWElWjGofMDrOaC3wmDYZgJEQJbroVAFlDq3hSLC72m+207OOtFRR4dpotXp+
-         MQf2QVORPmEpoiPLv3xTNOz7OrVrN4AJrG7RLZOs1fEtOZAQTGtG/ZrgEvZyABEzQbsj
-         dygnoXUhg88z41ZHKuXOip0nG2of4cWzawtWwzCN2JUswCYHuWsCpHMQd5ZcJD8UyY7T
-         qd4ySmxaZphNPyl4VqbixxfY5nnjJd0OzXuv+ng4SWj+8TdRkM74zem3NJMHls5RqnhH
-         Louw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:dkim-signature;
-        bh=slAGYeicS0LHhupXv4tVby7yKQQrWIyZUeYc8ksPOU8=;
-        b=vOESNqi941tvEV8AwZoewX/yoHLlvdcsxv8gxhSAWnaDVI1TdK7IXsgNvUMBC/K/R4
-         tP3e39WY+7ls9J68+zaMWAYqE/z4UaduKZmbpYF55+tW8mZcvxO1IIs5s7owdsLaZZRm
-         1grKBjgcLGaH4G0KRyjne3ARETeyyXm9GlYSBN4Qi67nUfxN7G+Zmp+U9uGr2BTQ+PaF
-         dVY8WR2rARIqxQdgQY43ucx/ZyutEqxdWUyVAEsQoMI4qjgSSlt6Nm3jKim7Wqy3YRxk
-         JB22jiaF4Rzf/JQr8OuNhkJDgJlAzJNvb6+x9phP2Octhkwyp0WC7EFH3seViB5Z8G70
-         UXjw==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@cornelisnetworks.com header.s=selector1 header.b=lJjCVH77;
-       arc=pass (i=1 spf=pass spfdomain=cornelisnetworks.com dkim=pass dkdomain=cornelisnetworks.com dmarc=pass fromdomain=cornelisnetworks.com);
-       spf=pass (google.com: domain of mike.marciniszyn@cornelisnetworks.com designates 40.107.212.137 as permitted sender) smtp.mailfrom=mike.marciniszyn@cornelisnetworks.com
-Received: from NAM02-BN1-obe.outbound.protection.outlook.com (mail-bn1nam07on2137.outbound.protection.outlook.com. [40.107.212.137])
-        by gmr-mx.google.com with ESMTPS id d123si1081887pfa.2.2021.06.13.10.22.13
+        b=nhOrNkz6M0XliMzoglDbuHX5GcCQ8sZWJtsQcMevWEjJVbdqlMcMZMDwOYB7BuvTgP
+         sf4MNMy0mvGwal8hPMda9VMNARla0iGmIW+l1iyS8hCyLmCeVzGdCJ4mzC87VuyWMGJK
+         IEbY/hRq8bEQ6htBtRocm24jwJPvlZk2iFv8+S4uA1TZFwgp+jjs6jd447vUTCps0AKh
+         ZerR1Mz90x1DxyReTw7RwKpcA7Ud5gApZYij/BDo6EIAOHY4pCVCE0lxLWMr7OprnJBB
+         b3wXFveTC18UgCpHMMprQJd9DfX3mNYJgw3vbMp7XBhPrtpEqDf8X3VwPegGWiddT1lA
+         k3wg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=fDsNnaB5ppj4g5MtFY0m5Kbx3wK4L7HQC7af0yYbm7Q=;
+        b=rvg+MJiJ2vGXX6nxxVx0zLYzo2SNumO9K43+dv1MDdhgtdskD0RbNqrtvB0KL0Hy8B
+         uUejROWD+m9SG7w+RcFuoQl+zpjpIAK//4s4crpi9+7auSOmyPzdfrBAPL21JG6KOfcv
+         Y7fJ/G1nZk3zo9T+t/KDVp0IaMVsUlbt+hagROmEgCoLflaFaKmibwtrj1SepFPtrZK/
+         Grx+Ws97KgsGhNXzF7PKqq5YRIzA5gqDv1bxOsrEGrQqD4u1HN+t34a+9gPV3IogNu9G
+         A3oUc8dLCQat3Iq1N5shLx4XlZbkqXQfXpHBLYkHEZm8zyfjA/TarsNpYQ6ng8uqdvqr
+         yBBg==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=TM9DZ6gS;
+       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::630 as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-ej1-x630.google.com (mail-ej1-x630.google.com. [2a00:1450:4864:20::630])
+        by gmr-mx.google.com with ESMTPS id x10si673770ejy.0.2021.06.13.11.07.38
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 13 Jun 2021 10:22:13 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mike.marciniszyn@cornelisnetworks.com designates 40.107.212.137 as permitted sender) client-ip=40.107.212.137;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=EbEZRrP5isJITAJd/LcDdGdl5F+arZQ7ej1TH9tfykhSoPRES8uzFOr351jljSTYNkTHtCp74HGhzX6KIYN7aS42naJPYyaXjLyremQ33JEO4Dw6+JxRLjVXP8fFQyRraCyPTdncq9qvZdBjRhvsKLaHoyhNWAugzYXRG1h48tts/agOeUret7NI1mXOv81FqKhfmCmx308+sG3f+44yUXbfttt1dbI2tEgZmpg9itiUbcP54XuJxTKkLaPL+3M5hy1HYX84G+DPiJ/lOvOkAOBKJbbzuCOsyy3Gbu7VDXJpIpucLROrUn168Wvf1N0mnoWJ3nxBmBCdUQ5pJabRpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=slAGYeicS0LHhupXv4tVby7yKQQrWIyZUeYc8ksPOU8=;
- b=Rfp24H4WgLvOv2byfuHZ5C/4X1VXrCB8WbbhfkF6zYWyFyMZhhqPibIrRZn2WnjFym+5uJP+VVMtGKe4xiDx5QUImiK6GTYVvUw86mtxGV16vL7m33obgaBV0PTaunRztY57vOIVsrsexW2/JAd9j/YLUlv0DGKl0/8LOdBCTMCwg1MkTvRQgr29obz7LoB93S0+yCaPGp0rkOPz5Nf1VRhPJgj9ByMKwesDDlhgajzQzUK98wSKb6EvRmkT8kvDHwkaPwuq0nVSCMHf85baBqC5fd9mzrB6JRDswukZoSqPRg8n9C1kOrXJAhloZLR6Sy5KrCGG6LGcMbWgVnhtcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cornelisnetworks.com; dmarc=pass action=none
- header.from=cornelisnetworks.com; dkim=pass header.d=cornelisnetworks.com;
- arc=none
-Received: from CH0PR01MB7153.prod.exchangelabs.com (2603:10b6:610:ea::7) by
- CH0PR01MB7091.prod.exchangelabs.com (2603:10b6:610:f1::8) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.4219.23; Sun, 13 Jun 2021 17:22:11 +0000
-Received: from CH0PR01MB7153.prod.exchangelabs.com
- ([fe80::81f3:3a8:e00f:92ec]) by CH0PR01MB7153.prod.exchangelabs.com
- ([fe80::81f3:3a8:e00f:92ec%7]) with mapi id 15.20.4219.025; Sun, 13 Jun 2021
- 17:22:11 +0000
-From: "Marciniszyn, Mike" <mike.marciniszyn@cornelisnetworks.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, Leon Romanovsky <leon@kernel.org>,
-	"Dalessandro, Dennis" <dennis.dalessandro@cornelisnetworks.com>
-CC: Doug Ledford <dledford@redhat.com>, Leon Romanovsky <leonro@nvidia.com>,
-	Greg KH <gregkh@linuxfoundation.org>, Kees Cook <keescook@chromium.org>,
-	Nathan Chancellor <nathan@kernel.org>, Adit Ranadive <aditr@vmware.com>,
-	Ariel Elior <aelior@marvell.com>, Christian Benvenuti <benve@cisco.com>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	Devesh Sharma <devesh.sharma@broadcom.com>, Gal Pressman
-	<galpress@amazon.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-rdma@vger.kernel.org"
-	<linux-rdma@vger.kernel.org>, Michal Kalderon <mkalderon@marvell.com>,
-	Mustafa Ismail <mustafa.ismail@intel.com>, Naresh Kumar PBS
-	<nareshkumar.pbs@broadcom.com>, Nelson Escobar <neescoba@cisco.com>, Nick
- Desaulniers <ndesaulniers@google.com>, Potnuri Bharat Teja
-	<bharat@chelsio.com>, Selvin Xavier <selvin.xavier@broadcom.com>, Shiraz
- Saleem <shiraz.saleem@intel.com>, VMware PV-Drivers <pv-drivers@vmware.com>,
-	Yishai Hadas <yishaih@nvidia.com>, Zhu Yanjun <zyjzyj2000@gmail.com>
-Subject: RE: [PATCH rdma-next v2 00/15] Reorganize sysfs file creation for
- struct ib_devices
-Thread-Topic: [PATCH rdma-next v2 00/15] Reorganize sysfs file creation for
- struct ib_devices
-Thread-Index: AQHXXtruz2O6BBpwCE2mTJm4jI2k06sPGHQAgAMa1FA=
-Date: Sun, 13 Jun 2021 17:22:10 +0000
-Message-ID: <CH0PR01MB7153B2E8B70E84CB551FA951F2329@CH0PR01MB7153.prod.exchangelabs.com>
-References: <cover.1623427137.git.leonro@nvidia.com>
- <20210611175620.GY1002214@nvidia.com>
-In-Reply-To: <20210611175620.GY1002214@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [70.15.25.19]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: d82547d6-3add-4376-d3c4-08d92e8fc776
-x-ms-traffictypediagnostic: CH0PR01MB7091:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <CH0PR01MB70910AAAF7088C2DC0240114F2329@CH0PR01MB7091.prod.exchangelabs.com>
-x-ms-oob-tlc-oobclassifiers: OLM:446;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: b8+XmwJLU6nRMi9njHQ+Ky/fGlTtgxgMMW77iHEUQueCaZDXmBDALTJxKRQvl6zrOv/6z41eFiVh2NhuiOcGilxE4XWrNP3MM0117ZlvBykREIt+7PA4njThfxrt+yVDZnqwx8ndWR3C8MBOLjloPNpOl8UdokFloh+TmhgoNpRBZI3gapgYA14N9j9zi8Y9DXM0kt0A0Kqi9Dd4HI4MKfEf79FSx9pGUPLu+QUmzcdv8FKxOoQvFCasf0Cqt+As8wcFaAZ9pXQps2WTRQjf8fJnlYln3AS8gMOzxVFlNX8B5IHQ3zafzE9WrfwDOyA+Cr9IS6+Vq/+6+QDj8xZuxrf9TNEck6wqoNJG4TOq5asyrQt33xn83lTcyUbCNCP3QJKObO/QFtFAiJTOGL4Jv2vNZagy7wvrlQ5OtHBB5CpIv23Vionsy0iC/+IICBVYeqUcY8cD2fC9DJZ4J0SydwWX2zeexA3ji6kpmOfTUM7WBPkwQB8glPCTxRrnDI1S+emvOUx+1e1hvfyJwb0fvYiWo4hZS094020oTz0X5sinEUKaW3BauVit/FnqWxX1zuIFyHBi4/6jujyYNCLHdwAugNeybXSBnBg4JuM49YM=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB7153.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(4636009)(376002)(396003)(39830400003)(136003)(346002)(366004)(5660300002)(558084003)(66946007)(9686003)(76116006)(55016002)(86362001)(66476007)(26005)(4326008)(52536014)(186003)(71200400001)(6506007)(8936002)(2906002)(66556008)(64756008)(38100700002)(122000001)(8676002)(7696005)(478600001)(316002)(110136005)(54906003)(6636002)(33656002)(66446008)(7416002);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?AK0SKcQhhG6zg2JbcXQjYuvSsqgCk1jXv1AJgrJuvthokSayIYfeR3olf2AP?=
- =?us-ascii?Q?DFRWI2wQeJXd9oiIZjGgtVJ7cvSlKFLMwmusTpUkoGnVkmoNkwJ4QGbRcG7g?=
- =?us-ascii?Q?MokJarrylv+I2jNjbn5u/Y09b5LuhVIsTMWppSywggfTIhmfA6vZ2b23Thja?=
- =?us-ascii?Q?0pHsgaEcLZvVvzqF7ZJB0JmwQLlaDXZWZBiXw6N5q6WXuuF0cWTuYTPpvz5p?=
- =?us-ascii?Q?4FoAYTjNJiAeofudXlm8X7C7W3941R6YE++EFSKwiUJf2rqOwAUpMxCPuJfp?=
- =?us-ascii?Q?mR1EAcXR/MMre3OnSm6J11SQcJC8+M5eeYdt+5nG4AVZ0jZY1mTCoW+fcDx9?=
- =?us-ascii?Q?VI23YvmtKCJtjrNyXyVrLr02bISvv0ucrKkgdL/iDtx8SDcng7yuZw23No5z?=
- =?us-ascii?Q?+kQ8muELZk5toa1tQSxc2WSI4DAbKuqNArMpQUku0pDltsWlUhn16im1RX26?=
- =?us-ascii?Q?rFWEM/mUxHX19bbJentJHVvyw1Q5VJc9Ud6acQDSDhHzzvcO2D5iTCvKgtKC?=
- =?us-ascii?Q?KOwPXkJsgK4fTCuI6mXQb7GlqXWfHGXXTrB7FkqNFTiJSw5ST/I3OEZgVjKm?=
- =?us-ascii?Q?0B0Uf+xcwkcD9iLKyhhazax2mtdbnOpNzQ+nmEFDnaY3DrBoF83CSRExmQY6?=
- =?us-ascii?Q?Xu6RR8V6JRwiYLjfNHYXUFaxFy3r3Iym2ZfbWSig3y/oMVFanzPzxBhV8t1B?=
- =?us-ascii?Q?+qQlgve1UhSQsf1++18LlZDJFNTZOybhsP0igWEC2cXjPLhUE6OsVZnXEa2L?=
- =?us-ascii?Q?UmWj+LUxuoO0qH+Is1krH+gIYkEHzM7XwRpdjmLCtURemMBiUN70jCcI4N5E?=
- =?us-ascii?Q?1dxftI3IRN2txtOXZACFP9h71mH/FKXN7JApCbN1HOvhlIJ/BwTniiK/asXP?=
- =?us-ascii?Q?8TRYl0ub9qC2BpsIys18abCwVt3nOITmeKwUi6ts5D81n9QNUZyaP9KL+YGq?=
- =?us-ascii?Q?wQce3bbkh0/X+Enzc2gYnMvLsr38wCCmDXbb7WDPcC+OmMsmZU0lb08h6/fe?=
- =?us-ascii?Q?aGYvfz3P5OQ3sQt3n8HbnE/yoSwWbvHkEqmJH1mntQGaZmXhshOf6se0O9Wf?=
- =?us-ascii?Q?8cuQg2srhMU+CfwagE6LL+ij+tXHpKibb49lkFJX53vqnOX7IRLbhSiUNJti?=
- =?us-ascii?Q?iNGUUttJj7HSdBsLqS4aapptSHEl58SptfvIRiJIGazUUrcM7pfQXqy88TIr?=
- =?us-ascii?Q?x9fWNtbMDysRzS9r1U6yJ6Ae7MgvBhZHP1fL7MBF/oV6ryiB8k3cSFxRzdcj?=
- =?us-ascii?Q?ihz3eKwPoGOyAB5XkpPONYXMEGR32dSCqIYunzzDvznm/8F16ucY37JBf+A9?=
- =?us-ascii?Q?mDk=3D?=
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 13 Jun 2021 11:07:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::630 as permitted sender) client-ip=2a00:1450:4864:20::630;
+Received: by mail-ej1-x630.google.com with SMTP id he7so12528846ejc.13
+        for <clang-built-linux@googlegroups.com>; Sun, 13 Jun 2021 11:07:38 -0700 (PDT)
+X-Received: by 2002:a17:907:2d88:: with SMTP id gt8mr2394107ejc.449.1623607658177;
+ Sun, 13 Jun 2021 11:07:38 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: cornelisnetworks.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB7153.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d82547d6-3add-4376-d3c4-08d92e8fc776
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jun 2021 17:22:10.8950
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 4dbdb7da-74ee-4b45-8747-ef5ce5ebe68a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: mMWJuPuILVnHV7X7WlMcleCc2ag1k7zMfSlKiwUEEQhNMAFirPrpdknwiPVwwlVQ+RHvMzTp55Pfj+tYCr78OJiFuqDCGaNU85X69Ci9+sVu5QjE3tEKmrWOzz+JwuQD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR01MB7091
-X-Original-Sender: mike.marciniszyn@cornelisnetworks.com
+References: <20210111081821.3041587-1-morbo@google.com> <20210407211704.367039-1-morbo@google.com>
+ <YMTn9yjuemKFLbws@hirez.programming.kicks-ass.net> <CAGG=3QXjD1DQjACu=CQQSP=whue-14Pw8FcNcXrJZfLC_E+y9w@mail.gmail.com>
+ <YMT5xZsZMX0PpDKQ@hirez.programming.kicks-ass.net> <CAGG=3QVHkkJ236mCJ8Jt_6JtgYtWHV9b4aVXnoj6ypc7GOnc0A@mail.gmail.com>
+ <20210612202505.GG68208@worktop.programming.kicks-ass.net>
+ <CAGG=3QUZ9tXGNLhbOr+AFDTJABDujZuaG1mYaLKdTcJZguEDWw@mail.gmail.com> <CAGG=3QUFRM85bpyjdokO93=Nem_w7-784-_qihP1P_CJMOsdqg@mail.gmail.com>
+In-Reply-To: <CAGG=3QUFRM85bpyjdokO93=Nem_w7-784-_qihP1P_CJMOsdqg@mail.gmail.com>
+From: "'Bill Wendling' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Sun, 13 Jun 2021 11:07:26 -0700
+Message-ID: <CAGG=3QUrhVi37sYtybTUAZMpCDjB_pw+1OdkbZKvL6+UQrbMbQ@mail.gmail.com>
+Subject: Re: [PATCH v9] pgo: add clang's Profile Guided Optimization infrastructure
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Kees Cook <keescook@google.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Linux Doc Mailing List <linux-doc@vger.kernel.org>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Sami Tolvanen <samitolvanen@google.com>, 
+	Fangrui Song <maskray@google.com>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: morbo@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@cornelisnetworks.com header.s=selector1 header.b=lJjCVH77;
-       arc=pass (i=1 spf=pass spfdomain=cornelisnetworks.com dkim=pass
- dkdomain=cornelisnetworks.com dmarc=pass fromdomain=cornelisnetworks.com);
-       spf=pass (google.com: domain of mike.marciniszyn@cornelisnetworks.com
- designates 40.107.212.137 as permitted sender) smtp.mailfrom=mike.marciniszyn@cornelisnetworks.com
+ header.i=@google.com header.s=20161025 header.b=TM9DZ6gS;       spf=pass
+ (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::630 as
+ permitted sender) smtp.mailfrom=morbo@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Bill Wendling <morbo@google.com>
+Reply-To: Bill Wendling <morbo@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -217,16 +140,103 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> 
-> Dennis, are you OK with these changes?
-> 
-> Jason
+On Sat, Jun 12, 2021 at 3:47 PM Bill Wendling <morbo@google.com> wrote:
+>
+> On Sat, Jun 12, 2021 at 1:56 PM Bill Wendling <morbo@google.com> wrote:
+> > On Sat, Jun 12, 2021 at 1:25 PM Peter Zijlstra <peterz@infradead.org> wrote:
+> > > On Sat, Jun 12, 2021 at 12:10:03PM -0700, Bill Wendling wrote:
+> > > Yes it is, but is that sufficient in this case? It very much isn't for
+> > > KASAN, UBSAN, and a whole host of other instrumentation crud. They all
+> > > needed their own 'bugger-off' attributes.
+> > >
+> > Now, for the "nointr" issue. I'll see if we need an additional change for that.
+> >
+> The GCOV implementation disables profiling in those directories where
+> instrumentation would fail. We do the same. Both clang and gcc seem to
+> treat the no_instrument_function attribute similarly.
+>
+An example:
 
-Yes.
+$ cat n.c
+int g(int);
 
-Tested-by: Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com
+int __attribute__((__no_instrument_function__))
+__attribute__((no_instrument_function))
+no_instr(int a) {
+  int sum = 0;
+  for (int i = 0; i < a; i++)
+    sum += g(i);
+  return sum;
+}
+
+int instr(int a) {
+  int sum = 0;
+  for (int i = 0; i < a; i++)
+    sum += g(i);
+  return sum;
+}
+
+$ gcc -S -o - n.c -fprofile-arcs -ftest-coverage -O2
+        .globl  no_instr
+        .type   no_instr, @function
+no_instr:
+.LFB0:
+ ...
+        addq    $1, __gcov0.no_instr(%rip)
+        pushq   %rbp
+ ...
+.L3:
+ ...
+        addq    $1, 8+__gcov0.no_instr(%rip)
+ ...
+        addq    $1, 16+__gcov0.no_instr(%rip)
+ ...
+        addq    $1, 16+__gcov0.no_instr(%rip)
+ ...
+        ret
+        .globl  instr
+        .type   instr, @function
+instr:
+.LFB1:
+ ...
+        addq    $1, __gcov0.instr(%rip)
+ ...
+        addq    $1, 8+__gcov0.instr(%rip)
+ ...
+        addq    $1, 16+__gcov0.instr(%rip)
+ ...
+        addq    $1, 16+__gcov0.instr(%rip)
+ ...
+        ret
+
+$ clang -S -o - n.c -fprofile-generate -O2
+        .globl  no_instr                        # -- Begin function no_instr
+        .p2align        4, 0x90
+        .type   no_instr,@function
+no_instr:                               # @no_instr
+ ...
+        addq    $1, .L__profc_no_instr+8(%rip)
+ ...
+        movq    .L__profc_no_instr(%rip), %rax
+ ...
+        movq    %rax, .L__profc_no_instr(%rip)
+ ...
+        retq
+        .globl  instr                           # -- Begin function instr
+        .p2align        4, 0x90
+        .type   instr,@function
+instr:                                  # @instr
+ ...
+        addq    $1, .L__profc_instr+8(%rip)
+ ...
+        movq    .L__profc_instr(%rip), %rax
+ ...
+        movq    %rax, .L__profc_instr(%rip)
+ ...
+        retq
+.Lfunc_end1:
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CH0PR01MB7153B2E8B70E84CB551FA951F2329%40CH0PR01MB7153.prod.exchangelabs.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGG%3D3QUrhVi37sYtybTUAZMpCDjB_pw%2B1OdkbZKvL6%2BUQrbMbQ%40mail.gmail.com.
