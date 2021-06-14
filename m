@@ -1,138 +1,145 @@
-Return-Path: <clang-built-linux+bncBDZKHAFW3AGBBVMBTSDAMGQEAFTMW6Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBIUVTSDAMGQEBLBMBBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33e.google.com (mail-wm1-x33e.google.com [IPv6:2a00:1450:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 473A23A5D74
-	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 09:10:14 +0200 (CEST)
-Received: by mail-wm1-x33e.google.com with SMTP id o82-20020a1ca5550000b029019ae053d508sf5277607wme.6
-        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 00:10:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623654614; cv=pass;
+Received: from mail-ed1-x538.google.com (mail-ed1-x538.google.com [IPv6:2a00:1450:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id A6BE03A5DEA
+	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 09:52:02 +0200 (CEST)
+Received: by mail-ed1-x538.google.com with SMTP id dd28-20020a056402313cb029038fc9850034sf19834478edb.7
+        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 00:52:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623657122; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cAvRkQ5cc9V1YnJyPz3Xr8L+vVbmhGFr84DXRvofo4dzG4enSxELU3jOwh9XR9wP/2
-         NWTm1GQNDW5O7/f6iRj92CrK7swKmrZZNTIkY96H/0cKCQ7WJsVeHbZZhTsYd6nx1CNK
-         0UNtlNWfhuUENwd7RXxhco3vz+ZLb6a/XSRgak9emScRxZBRn8tISyvN3/KTFKRMSNrc
-         dLqsIgpWwJI3v6RFClsj9f1pEdib6wWQtsEwDBF+F5LI+U8jrpHVBYGhPycq3KPHGStS
-         Na2VTE8D7VXUS8DNzTxEs4K8lWKQTqRWaTUlrXzRgnh6NB9JRpRiSLOOBxt9mRVvlRJx
-         XQSA==
+        b=KbcIY7Xq8NyW3HNBhTyYDt9eE9qpe7QlMU1JEf9f7cvQluodCd94x3efzKTMJ885Vi
+         +DCUtXZpbtlgWtnt1Wyxlpg84uco02/s8lkvyCtoJHZXHz6H3sFbjVJVSysxCiZbg2ro
+         L+qnSGTuTYnfc+z+9IsAtlVsxXhTLKP0jouVcicCCV/Wdv2BL2DoAUgn11NxLLnLhMiS
+         UJPMkE7G0ENHxtfXbpKi40nrjdprETfIxtMKJyCOak1qUUhkp/aRtNv5UdWYdrNnCssX
+         4jgBQPNeccM4AXe17qMxoJ7hUttmcA5PyiQglI4hiU7FFByCyDGxJRCUCqDON58JwQr3
+         //lA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=sruq+znVr/pur4ZsocH7aAJSDTLOdFzXqp6OzHEeOQ8=;
-        b=CKlI7dF5KlkHBs+C8vrGCzp0lgZNRI5waTpffR/1dXLFOSfHXKe1BOT3EY0VXGTlHp
-         CaNvglxeu4jfXrJHg0KPe3IvMhfBdZyVUYNGJQZR3Ek+Vm04rlr49HRb0E1avJcpm3ey
-         BCx1/+IKSIE6jIScy8HV5Mt8DWa0ifrBCGZBOlgyplP6gdME2QK61P7awfYPK83wEmDI
-         K3eJnfM02+z9WdSxIpScyKIuLqOqBQRAXmDASTnkZy4TkAQcSlDXE1zx6K21HrqIsLfm
-         xDgK6yPpNnAsU/eu87qaQgdFMSECn0tblcfRTwCLdm1tW76F63JK/vQ0m2x1+QfVdCgk
-         JMLQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=NmhEXPjI/gntznsO6aRZ7gqGkH613LvaXV30eUSyzZY=;
+        b=Cx0pzTiztZai7FZvYAmWzbprhOoGfOHgwicn3MMJLuWZSWnXP0MBRv3SutqVtjOgT6
+         CQDD/AKOpgKwjvJTqL9ISWBGeeL8sdXIMMXYsUvHbpW1+1P5JkFnUb7JkIDj/5uhTKwM
+         T6vnX/FX5pcztUc3RtxnbbxjXY0xRgLjJxn3U6E2iGeOr6dmfTw9Js9Tm+HMgJUaJVvw
+         95gCh606nYD+TAG6QVr+gsZI+Nzz+P4SvLDyWkMr8Chxd8xFEWvV650NffvSc/8kHlh/
+         q1rRwH/1Ycn5qiPkIa5DGbvZEI2sOj50MFBQfPODv+ryyJo8+VNVC77QyI+RFAyKUe37
+         9HIg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@suse.com header.s=susede1 header.b=M8dqK02t;
-       spf=pass (google.com: domain of pmladek@suse.com designates 195.135.220.28 as permitted sender) smtp.mailfrom=pmladek@suse.com;
-       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
+       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b="iMpjx/GX";
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=sruq+znVr/pur4ZsocH7aAJSDTLOdFzXqp6OzHEeOQ8=;
-        b=NvG15NjUIvj+zGvMU6onq4kk5gB4G1W71ngZs68Jv6wNfWLn+nvivixejYYY5KxkL9
-         mhp1uzgEnUSes4ocZN+GP3d5cIvQWqSrJwyFsgTj4wjXU78u0L6KL9BKbQ3qOFozmLF3
-         6nojircskwV2s8VFhrpPgwG9uaxshxw6K5brD5+1Xwv30Atk7ir56R4N5ORAkFULlSrM
-         4EsiTIWWcaeuntkDRhG+1FCYVBz6tbTDZG0GSGi4FHIs+vO8AL4RqW6tHlb5WqGAb9/S
-         ts1gfMQHp5LSYTQtADhW9Y5NtAFNxLwAFSGS0Q5U64eRJTV6QN2WbL7WLEfNbwxtj2f1
-         yGJQ==
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=NmhEXPjI/gntznsO6aRZ7gqGkH613LvaXV30eUSyzZY=;
+        b=CGujgar6We3FKAc/2ZE2kc50HWoFNLqo3xISOQmE3pLK4s3mwsnXCBIY0g9HXjhIj8
+         6A/rvhgkO8MM1htDKz74e80WS9X093g65YCf1pe/edVxel+ZAyvpen8QgU3jI80NS62E
+         FM7KA7zWUfJ+esNf0haYJAwkavH9Uog/Nfc8hSc15OCmx2feTbEzYs7tfGZ371+1DSEw
+         Uhn8rsc9rIliXpUaeTyjUia2enY9AJuSfUoEAIfrIrZUORsjOjYEPLqHmkAte4k/RQqw
+         MFzqTRzfVRzDCoFK5ojBCV0KlcUK84bJYxcL4+iO4To6EKt0bdcgrEuMepG5qJC1zkeW
+         lmNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=sruq+znVr/pur4ZsocH7aAJSDTLOdFzXqp6OzHEeOQ8=;
-        b=sn1gNPdaFJg/Ppcm2Chv+b+VQ1/zuzjMQTDBmMAmkBoZu7/3jR8uGARS/ESQNLDU6S
-         yEulk6Q0Gdhsfd4SMV+Q5xT5tGO52paIu1UAohRlcL4gbHOvfQfj2It+opoZbymK7ZFR
-         dSMzxUV4oMEhNSSGisZjg7/5k4f28DbwvfnRMSefs/2rTLMOmcYTtdG5MuL9dln7wibA
-         E4Bmf9L4DAKJP73g6qDdL4SJ+soodbjY8HLAJYRAWsvE/g69el9MVVqv7Xwx/ryZ3Q5h
-         Zho0FmrrUXX0v1YozzGvXprG9WQ1Ir5/E87PBQ+4HpUQPxqUx+E+n+thFG3JKXMoH54e
-         4xTw==
-X-Gm-Message-State: AOAM530xVN06ExzIENHK1Wyl9IOmkbfTBjf/RuRkDDAqEbrIrv2Sy0oP
-	tGqN+uTVpFOrkI3RTLp8rD8=
-X-Google-Smtp-Source: ABdhPJyb0eJbjRS/+zOH/Z3xvOTpaIXfSAANrPDuCVetGC621S+ToSPWYcxVT9Hp0NmoDpdshijpOA==
-X-Received: by 2002:adf:9c93:: with SMTP id d19mr16916543wre.17.1623654614000;
-        Mon, 14 Jun 2021 00:10:14 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=NmhEXPjI/gntznsO6aRZ7gqGkH613LvaXV30eUSyzZY=;
+        b=jj0AcsjC1VtKNfewPGCfNtx6fdivQF3t7JGz2u96y6XcdlGfurEx1m1gx3YQFEYVMR
+         vBH8wL+zUW6Tvg/5Tf3Z+FMR9PFHWZG83N3ZYEp7njJSdQSThTC79kBl5m7ym0ix18nT
+         3ICbUO5n0G2/y9g/MAvahC1mRSpqzDc0X9xS8VtnHxUyWk8QQZCvyvXDoIVH/VTmxJM8
+         fIEPh176zPERj+K4j9cyszv6Mbmbd0tTZx+1lvW6RSu04G1XDQCjIGfiSnbdSsktg1Tx
+         /EqqA21D5X1VLgfeLI+IOjLZViSM1vsDR75olkg6xcg3zpK2InEhS4ScbGWqrQPDkd/h
+         +NJQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531q6lH6kABRdqiXnSpvCekYQKzsIxZ9vYX3QGx0F/7UyM0VVuHa
+	NUHP6EzPn2Ixs1tm/MleKLE=
+X-Google-Smtp-Source: ABdhPJzVwID0c8BTGjl5Sm9KYlTEPlD4Tl72EEwQD2/twT6Rd3vfVUTfOdCGQcUV8Tbg4j6k/iId+A==
+X-Received: by 2002:a17:906:240b:: with SMTP id z11mr13902764eja.545.1623657122391;
+        Mon, 14 Jun 2021 00:52:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:ded0:: with SMTP id i16ls10329153wrn.1.gmail; Mon, 14
- Jun 2021 00:10:13 -0700 (PDT)
-X-Received: by 2002:adf:a291:: with SMTP id s17mr16886907wra.399.1623654613152;
-        Mon, 14 Jun 2021 00:10:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623654613; cv=none;
+Received: by 2002:a05:6402:1510:: with SMTP id f16ls5376349edw.1.gmail; Mon,
+ 14 Jun 2021 00:52:01 -0700 (PDT)
+X-Received: by 2002:aa7:d3ca:: with SMTP id o10mr15756068edr.197.1623657121521;
+        Mon, 14 Jun 2021 00:52:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623657121; cv=none;
         d=google.com; s=arc-20160816;
-        b=ChtAfq2LLa0hIagxHIZpqh7Zf1B5Hx9g+qGBwO3KZBHR7nNgaXY8JGuIsXnXPGSCiW
-         jr0RR0WvY8hnkF94oTaCoxibYjZecQXO+GQO7ocLoK3Kd3rqRe/m8H1pMc1h7rkrNDex
-         QJE2z3Yxcd2p7LXdRztXhvZkObQiy9GWgZVgBCbxPUCMbba/j/oggUC7x+z4xwYJqAmO
-         Mk6buTvNHSVV1EZQCWaLQXESqciW6iG1y0bqvhqpeyaLjNGmopqRBFZEDqFHvw3t1V/3
-         +WKhb7EYWuM0p+Nuyk9SlZ3U5S1w3AD4Cle+5Mwmp+83HgYrAX3xJYVTqL4peevn3uE0
-         TwKg==
+        b=wclSueeesIJQJYY+X5YePYr71xM0ImB7P9afhRoqo7y3AxpHUxljuVq2ivRbZc/UN2
+         vu4GecNEbpEPLTBebxcooMHkPSeBS6OLL0j3OztHQac/i2aejEBBaQqggC+6uPxp12GU
+         v6ucGGpvlgR7RbUYw4v7e7KyKIOKJ5/62fzDQlHd91SDpZO8sikN+U1BGIstwIMy+mhn
+         XpWdUbusnbPb3feAfw6DkmSHKB9VOvzxJEHST8bXs96iH7tpHAomE7kDLTteMk1ygbuG
+         E+Ro0HS4FxcdJFhljeBZlkptF2Hjrtp/7DWVEEiPplUMErNWmiQusW6fcBFJTgAhKqpT
+         W2wg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=imIsqFRpuOqsurBwOcFSF/CSyRUJvFV1150r+mLEIm8=;
-        b=eU5Fzha8JKqri9UEifsJ/2yKFc67maAl6YVyjqic5K7QOeIRp3iOqUv0WHpl8ihJfm
-         od3NoZxuybIHJ9kh2eOg2hlMrRFu6p1mTcuf+e1Oi9k14/Zy6kXNGdGoKfZhaWqshwwe
-         wSP8ZPt9TeQWdAU4emsFqyZOtz4sxb5GtU6xFGNb7bP06oo/MbJ0LI7KtojxHlqVUYFB
-         G86KjvIbYoExnZzePewJR1txQnufw1L1PQ6lsSYqLLE5JifHkAm/qq2oxsGkVrTL3N0N
-         pVNfxx/zd/iG7t1oLw7LVDYDO2S/kDCJM3r2hCiJ9WsF629IeDKXEr59rhORiW+9/BPD
-         flcQ==
+        bh=tgENEbQ1euA5WeQRBjJGfSzObO0naqGm4XxibhoeuXo=;
+        b=DiLfY2AzrON6O2KTIKYMDpevX58XEzf8QjbmdeY2S2lDKXUQ7EdHkH4rQHRk5PLpfR
+         409SyJ6aw6dLR8BwSGcHMhR+zEqQr1WjFB1ZmPG1p/ROpAxBDadd2gi0lxVkeVUIMF6b
+         tLrVzcF9b1PtnmHyY+JBLo+sP3B8jOEPZlghxN3ONSuGVWAWG9Dr7V+QdbkFvYzIQngh
+         UiV9qaPBAVdWkWBZYNBjeGMULYUirqKZUKuV37kXf0+9jiav0iaSDBAhaDidYs6iQjWz
+         fq3kKU7QMoVxYrKvHNiezZio7QmUIjJEn/pfx86xVqdV4944Nz9gcgmz/z/0q94JqSA2
+         fB5w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@suse.com header.s=susede1 header.b=M8dqK02t;
-       spf=pass (google.com: domain of pmladek@suse.com designates 195.135.220.28 as permitted sender) smtp.mailfrom=pmladek@suse.com;
-       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
-Received: from smtp-out1.suse.de (smtp-out1.suse.de. [195.135.220.28])
-        by gmr-mx.google.com with ESMTPS id s13si654876wrr.5.2021.06.14.00.10.13
+       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b="iMpjx/GX";
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
+        by gmr-mx.google.com with ESMTPS id s18si256026ejo.1.2021.06.14.00.52.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jun 2021 00:10:13 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pmladek@suse.com designates 195.135.220.28 as permitted sender) client-ip=195.135.220.28;
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
-	by smtp-out1.suse.de (Postfix) with ESMTP id CDC1621975;
-	Mon, 14 Jun 2021 07:10:12 +0000 (UTC)
-Received: from suse.cz (unknown [10.100.216.66])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by relay2.suse.de (Postfix) with ESMTPS id AD2A7A3B87;
-	Mon, 14 Jun 2021 07:10:12 +0000 (UTC)
-Date: Mon, 14 Jun 2021 09:10:12 +0200
-From: "'Petr Mladek' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Martin Liu <liumartin@google.com>, Oleg Nesterov <oleg@redhat.com>,
-	Nathan Chancellor <nathan@kernel.org>,
+        Mon, 14 Jun 2021 00:52:01 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94 #2 (Red Hat Linux))
+	id 1lshNd-0058rV-UV; Mon, 14 Jun 2021 07:51:49 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 00B8B300252;
+	Mon, 14 Jun 2021 09:51:31 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id DA0252026A646; Mon, 14 Jun 2021 09:51:31 +0200 (CEST)
+Date: Mon, 14 Jun 2021 09:51:31 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Bill Wendling <morbo@google.com>
+Cc: Kees Cook <keescook@google.com>, Jonathan Corbet <corbet@lwn.net>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Tejun Heo <tj@kernel.org>, minchan@google.com, davidchao@google.com,
-	jenhaochen@google.com, clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] kthread: Prevent deadlock when
- kthread_mod_delayed_work() races with kthread_cancel_delayed_work_sync()
-Message-ID: <YMcA1BL5RVRm25bu@alley>
-References: <20210610133051.15337-1-pmladek@suse.com>
- <20210610133051.15337-3-pmladek@suse.com>
- <20210610143030.f599946ec11e1eccde6af4f0@linux-foundation.org>
- <YMMN5IoXyXqoRsBX@alley>
- <20210611134125.bdb08ba0d2b6b87dc60d446d@linux-foundation.org>
+	Sami Tolvanen <samitolvanen@google.com>,
+	Fangrui Song <maskray@google.com>,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>
+Subject: Re: [PATCH v9] pgo: add clang's Profile Guided Optimization
+ infrastructure
+Message-ID: <YMcKgyOz331qvO/R@hirez.programming.kicks-ass.net>
+References: <20210111081821.3041587-1-morbo@google.com>
+ <20210407211704.367039-1-morbo@google.com>
+ <YMTn9yjuemKFLbws@hirez.programming.kicks-ass.net>
+ <CAGG=3QXjD1DQjACu=CQQSP=whue-14Pw8FcNcXrJZfLC_E+y9w@mail.gmail.com>
+ <YMT5xZsZMX0PpDKQ@hirez.programming.kicks-ass.net>
+ <CAGG=3QVHkkJ236mCJ8Jt_6JtgYtWHV9b4aVXnoj6ypc7GOnc0A@mail.gmail.com>
+ <20210612202505.GG68208@worktop.programming.kicks-ass.net>
+ <CAGG=3QUZ9tXGNLhbOr+AFDTJABDujZuaG1mYaLKdTcJZguEDWw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210611134125.bdb08ba0d2b6b87dc60d446d@linux-foundation.org>
-X-Original-Sender: pmladek@suse.com
+In-Reply-To: <CAGG=3QUZ9tXGNLhbOr+AFDTJABDujZuaG1mYaLKdTcJZguEDWw@mail.gmail.com>
+X-Original-Sender: peterz@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@suse.com header.s=susede1 header.b=M8dqK02t;       spf=pass
- (google.com: domain of pmladek@suse.com designates 195.135.220.28 as
- permitted sender) smtp.mailfrom=pmladek@suse.com;       dmarc=pass
- (p=QUARANTINE sp=NONE dis=NONE) header.from=suse.com
-X-Original-From: Petr Mladek <pmladek@suse.com>
-Reply-To: Petr Mladek <pmladek@suse.com>
+ header.i=@infradead.org header.s=casper.20170209 header.b="iMpjx/GX";
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,42 +152,17 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri 2021-06-11 13:41:25, Andrew Morton wrote:
-> On Fri, 11 Jun 2021 09:16:52 +0200 Petr Mladek <pmladek@suse.com> wrote:
-> 
-> > On Thu 2021-06-10 14:30:30, Andrew Morton wrote:
-> > > On Thu, 10 Jun 2021 15:30:50 +0200 Petr Mladek <pmladek@suse.com> wrote:
-> > > 
-> > > > The system might hang with the following backtrace:
-> > > 
-> > > Well that's not good.
-> > 
-> > Fortunately, the API users normally synchronize these operations
-> > another way. The race should never happen when the API is used
-> > a reasonable way,
-> > see https://lore.kernel.org/lkml/YKZLnTNOlUQ85F2s@alley/
-> > 
-> > > > Fixes: 9a6b06c8d9a220860468a ("kthread: allow to modify delayed kthread work")
-> > > > Reported-by: Martin Liu <liumartin@google.com>
-> > > > Signed-off-by: Petr Mladek <pmladek@suse.com>
-> > > 
-> > > Was a -stable backport considered?
-> > 
-> > Good point! It would make sense to backport it. System hang is never
-> > good.
-> > 
-> > Could you please add Cc: stable@vger.kernel.org or should I resend the
-> > patchset?
-> 
-> I made that change to patches 1&2.  I don't think patch 3 need be
-> backported?
+On Sat, Jun 12, 2021 at 01:56:41PM -0700, Bill Wendling wrote:
+> For example, Fangrui gave you numbers, and you rejected them out of
+> hand. I've explained to you why instrumentation is better than
+> sampling (at least for clang). Fangrui gave you numbers. Let's move on
+> to something else.
 
-Sounds good to me. Thanks a lot for the update.
-
-Best Regards,
-Petr
+I did not dismiss them; I asked for clarification. I would like to
+understand what exactly is missed by sampling based PGO data that makes
+such a difference.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMcA1BL5RVRm25bu%40alley.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMcKgyOz331qvO/R%40hirez.programming.kicks-ass.net.
