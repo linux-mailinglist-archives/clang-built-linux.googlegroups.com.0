@@ -1,139 +1,134 @@
-Return-Path: <clang-built-linux+bncBC53FPW2UIOBBGOST2DAMGQECLZ2Z7A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCPZXIGQSEHBBZO3T2DAMGQEMK2AKUY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53e.google.com (mail-ed1-x53e.google.com [IPv6:2a00:1450:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id A192F3A6E8F
-	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 21:08:09 +0200 (CEST)
-Received: by mail-ed1-x53e.google.com with SMTP id ch5-20020a0564021bc5b029039389929f28sf12972851edb.16
-        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 12:08:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623697689; cv=pass;
+Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id 049E23A6EFC
+	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 21:28:38 +0200 (CEST)
+Received: by mail-wm1-x339.google.com with SMTP id u17-20020a05600c19d1b02901af4c4deac5sf396990wmq.7
+        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 12:28:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623698917; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tVA5fY+vf6CEjeaFuQtpynX9/OzmHlp6AeNHbsI1XIBhw85sd8Z9IPX1/UguWe2lFd
-         UyCSWFWettjDACiKd1R/oDDpPDjNOD71uBMTuOG34hYgmGKwWm1Y2u59mimXosTseWG7
-         XoPKzucIksLLS4q5e6DUs4GnmiRDmxLuu49z9Y2ci7k8NYyGIKdM8OtzDlU4JyYloHKs
-         VgC8YxQU8qjs2/DZwOFRAWO1gF3MUZoujLTK68MslDBHzCbMMs6fc0WOVAj8GmwtdeBs
-         4z59NwNgYRldTImRkPPqJchtLWvFMgljE/cVpAoYn6AxakucrCYZ6jwImlGhX+qcBmcz
-         YITA==
+        b=tWc4zM/aafliuMX0mZUH8QbxQtl9CFS0O5tE6UfZG6iJEXMpshMV6QZcngct/snMD8
+         ihijnPKmsPO0az/eK1ZiE2/E5d1dq1noYwXtxtVtm7lwTMUWBHjPitQD4Ibo7r7n2iNM
+         LV6V1ISHbqnsyMq/noHu831XVX0Okl3C22b7bEZQ+PJvTKcW1lim7oV2bDbE6h7ajtM8
+         MNGDrMLSDgPWn9xzga0iMIZRrblpyLGThE6mP99cP7Yklr6m3CAerbq5aVlpkwNxerwN
+         aqh1jH8YFNQi04EAcDGLNhtehwHCbyXtixVfmD5xXEqMCKc3vg/fccYkD3oGGEePgPKw
+         SbsQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:sender:dkim-signature:dkim-signature;
-        bh=cOwPa5E9gtfb5FLcF4Jo+sElrmxezsUju9ZxYsKnlko=;
-        b=AF11WFgka/tn8N/9+gT7x12Hc53kAC6akQWnQJzuSGAe2ItESSL8+yYTqxJvaAjvrN
-         G3taWHKd010S7ZnRKRwwrgedmzXVF3+XHKK4j5PZKcmYDRC1YjiSQ5S1yj+1HPIBon2C
-         rosnFGqQ3WaT5vszeWDCPA9inCY8NeiCwUIubYMYnBVhNM/5lKaBWlJ/Oqh+tTCNuO5u
-         iTiPHUhn/A8F7X0rc07pWJnTHVJnRkCT73MrLm9SgByuRbY6RyFJNZdHycIur2rClqOC
-         Yz/8iKQAJuIxpJQ+6KkH8vv9so5J+4qaEjKc6dog0ciDRRSs1qAxcNca6B8QwdCFEyOZ
-         XRrQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=jIpf2FYOcnRFG51wPwi/OMPGbPLoQwoS/2QCFBXa69Q=;
+        b=eFN0g8SXoVTp5/7kHfcF/I2b9+C6U7VVO8vPu4YF2rQQpNkVp+bIdL+OHTHiHiKomP
+         kZM3tsZnTemsoysjrnw7bctm67C4AfbC8AVmZqTA7xPrc2BIU4ujjyG/B8EzEFiJAldz
+         SlJsv89GYtzVXlLaQgS2v0WcvQbomFCAXCVuBouQ/1hlHWfIAjnSpXJLvfVKsuxlviBN
+         43VnJp6myj3bnN9EZieosD49SVEBGlYnJuxrXJut+acQsghd/mmF0X7fybBBK+7baCpn
+         paf287QxbOGgkxm/4qQWJQqrskvJgMeTzfVkm6ZYMrfypIs1e5q6PWkb9dDimdi1Tb03
+         Sbkw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="sP/OkhF/";
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::130 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=tE+28eU5;
+       spf=pass (google.com: domain of vincent.guittot@linaro.org designates 2a00:1450:4864:20::334 as permitted sender) smtp.mailfrom=vincent.guittot@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cOwPa5E9gtfb5FLcF4Jo+sElrmxezsUju9ZxYsKnlko=;
-        b=q1AaDaUZcu2u8mKjmOfAnT8dJ/kBb/lRAr785jWFbP6VPrHLgQWvc+Gi0S4FB0/H/t
-         mQuNuNtto1GmcZ0s2hfnH6Z2aN3OyqpUIB8OJzQCwLv+NNefvhsjGQUQW+mPMAXuLHFR
-         ZseldSpA93rC7aMryPLaY2NCqg0gbtoVtMzRfUQt9DqIXuqcyHG75PhWNjlBhvUl7Tvt
-         BuhAC4ZtevlLldaSe+8lmDwhUPqzi5W7RnTUAPp2/qsB5pTyFJEU8EQfiuIwKn0AUch1
-         +GnvZQXJLJuphgFekBZ9968UhzDeUB8PIwKFdPkospgtNjJpMevLV46MQCRc8F7s/fG/
-         e//g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cOwPa5E9gtfb5FLcF4Jo+sElrmxezsUju9ZxYsKnlko=;
-        b=r07PZdVQk1LaZhkMFZQOXO1jtzjYXsQd1i0eWDiu5D+UJtb1TVgfN8dIUGK5BRfdHe
-         L/AMbVfhtqz3fppa62u4L4ZOZVIbsGXfzno+FY6h2YwyYVfBYZ0W17rrBe4jClcSN8gb
-         gE9EQzTccVaY8hn+n102dPs4rKRyt2JJ0atzKCcqxSYxjAbcvvYD6ypW0EqfiyHy0PUh
-         PurTCwbWJrKy+HerqQIDSvJ6AgqLjppuzCsv0vZmNMVmKuf0mLBZWQ+pu16ZOkZLhsQS
-         lXwMuEVyFdLymlK1K2W59tHaF3xDXO1qoPYnAUzp/hjIM3qm/64tdcunw8E79qVd/Ysj
-         nweQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=jIpf2FYOcnRFG51wPwi/OMPGbPLoQwoS/2QCFBXa69Q=;
+        b=RPYrmJLmay7Z13i5YggTzOuLeFOB0mNbyt8pPCiELd51K/yU0jRtoev88Z0Ard7+sN
+         x4FFkxfMP1GnI7CfcX8xawlN548RwcF6Q/qA8ahl4sXVOUehJvdVR05VMQrYnYKfq9cm
+         ZnLVc+1cc9gNEDbz2c7WD1d3EsK4uTc025s9t9it8R8ALDdlL1EVWWx9isbaJvblnLEU
+         8/bf1KdPUuA0XaEYRZl7SIB5ZXfmW9SgdI4eR8SSPkbRgjhf06H2Z+XhvoYBvsmWRfPm
+         fiQz2qCpNg3MzzUMYmeypkmkuQF2MDGKymFuTlKsqvfO4GkAEN+WTcDU4+cX0mm3uf3F
+         olCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=cOwPa5E9gtfb5FLcF4Jo+sElrmxezsUju9ZxYsKnlko=;
-        b=X7RD26iqpLu5tH6iojIzzE+jIvanBN2LORnwUnNLBg7iwM07vrRvrYlFdqVKAcu7ep
-         fvpoklmEIb8nnUhuj6Q4nzgaVpAjlo1X7bMJ1GuWavZNTj8OOV6dIudOk5HCHnFxSy0D
-         hOdppB2lt5rrPf+AoNPQdDzHNEI7ioTlnlv79C/QckyMiO7coqPzSZL3voUZDHoGoFeu
-         OErb7v0YPTJkyrshMrwRbhdmMreKRUb3gh/eVSh4euNr+JweoSEC+VgrDs2HcoRtLHW9
-         jMAbRNEoa9nuHpfuksdoFWxbRYUbyRtcHDg0NqmICKLnPjm/DKKHVp8/Ck5fJjXdRTTo
-         vhNQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=jIpf2FYOcnRFG51wPwi/OMPGbPLoQwoS/2QCFBXa69Q=;
+        b=m3CnJ/JOJD3UJGc6Rs10YqyUcNgmqAyhlQIcVAJQfI/PkZDoLRqHfRcRhD426bPY/3
+         uq4pEyq9qJobFdEXOEhWDIJDGvOF6pyL8J/lbZgGHAqPh42lSrk0Ph6IAiOL6sSMyfK4
+         e8QHqdE9fj5OqnEFL7/wAC1X0V9i2f3ICXFAPK1Sfn1AQ8OWcqJI5agiri4KLNjGUUc6
+         H2M9NCoJ4agjMRXjr0ogczc7U6189HwExHBp31gvSk1XjgfQAbmZsltXRhOVgTYFG7d7
+         lqfy0B/dpS7YxlcZXNFb7luGidVzUzfuR/D0k13IICwpgrLN8frzQe3IbEhMi5YnwYC8
+         dLaQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53152PoUeFvSj26pQV3bHLKqJ0Sb4+i1f9xjFskdvRlVf+RUenuU
-	vr1sOuN3S38OpejVa7heSAQ=
-X-Google-Smtp-Source: ABdhPJz8R8QELZFVB2ksAydckXMUQxw2RrIJMRQBJzThElO9N/4TN5ix7jAaCV2va1sYpDE6QCkdvA==
-X-Received: by 2002:aa7:d34a:: with SMTP id m10mr18918837edr.57.1623697689445;
-        Mon, 14 Jun 2021 12:08:09 -0700 (PDT)
+X-Gm-Message-State: AOAM533MFLBRIVv3bwZob5vIkMpICDw+Li9CkJvreUZeBluxRMVrCOGM
+	aBTyMspyXDUijMyY/hE5ECY=
+X-Google-Smtp-Source: ABdhPJxW9eF/8L0jFJcWRQEDvckjESwXJkXoQgmpzq4e1H54IEECbim/EE7uj6rKjqAe6MC0w6UMSA==
+X-Received: by 2002:adf:e8cb:: with SMTP id k11mr20004523wrn.127.1623698917772;
+        Mon, 14 Jun 2021 12:28:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6402:1510:: with SMTP id f16ls7591208edw.1.gmail; Mon,
- 14 Jun 2021 12:08:08 -0700 (PDT)
-X-Received: by 2002:a50:9d8d:: with SMTP id w13mr18928741ede.94.1623697688593;
-        Mon, 14 Jun 2021 12:08:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623697688; cv=none;
+Received: by 2002:adf:a141:: with SMTP id r1ls379430wrr.3.gmail; Mon, 14 Jun
+ 2021 12:28:37 -0700 (PDT)
+X-Received: by 2002:adf:ee52:: with SMTP id w18mr20717456wro.37.1623698916919;
+        Mon, 14 Jun 2021 12:28:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623698916; cv=none;
         d=google.com; s=arc-20160816;
-        b=KzxaSVEzz0kRszbBVX+X9+oGX0BqKjcN0rXe9RFVVb7lT1BHrOC6x0sqaO8vBk2j6L
-         s94DsNJX7QDbRaUwSA8Ui9IqWP3IDU+CjRY7e90lGi3Y1Y6uTGlfmULMqxxfpC9w0G4R
-         R7nKshug3AXC6JFiFe7Ekq26VYO0+lFrr3vIr85SDE8Csa2F/ZAQoirmKkdf29WGZDsU
-         2LDVxRVwXVsFQCtzNL+YnvGIMZCbCZpAhSpTF2HfNkjASDFwyPnZQG59B8wrv6dcJ8vf
-         gFThZCWOEbqvDoxRCMT340aBzrCdetoFiJmDKYH7kRNjH1w1WlZ3JzeDYZMCB6iBmydh
-         nZWQ==
+        b=aHJLbg1nN9KyT22vzaShAcXzTXIcEIIjVJq4adOhLDjtG17MKSvoVJtCt9DZY2SNPZ
+         IpX1+1PhqkIRvwcwB4mnqBXtASgNua9oBP8T9gHLiNkhKrZhBRhytxfwQCIwF3gz8e09
+         CrRxwfE7s2Y7ipEx9BDi22/AuCC2HW4dbba5TI1bBhOYWEJiKReMD2Z3grIav2pNF+C+
+         RXdJfnqeoDSSMmiJbPfm3PYK8eZSQzva+2UqaxV5blkqb8cJnFD/b9TjsSs89UoZFN8c
+         troxYJRPN6ikFV75380TXhesi/hXV7KKq4zlcxEDEPRzd2ANYvtSkndE9MeHnlNcfNRf
+         1x0Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=Ib71WC/3UL+4kN8wAu0hjCKNoFyLxGNskm1j3/2F/J0=;
-        b=AbbMtyAvMDJOp+PFG7O+28EQbI04xUaDlF7jDosPLjg8HPiyIpEMv0tD4O5HZrsNe2
-         UHIPNVmZdrrZAZkvmjhcSMta6XeR+cD3dBxIORuwPMxKcgf8o7W7hR6+uUJvebRX2VgG
-         BRCnFsJC8lkL0qEi+zsTMFpL7b2UUn7dLnhwnpy/Aw0C40hETbtCKYsrjr+cnRZn+BBI
-         BsIm66QU96d7PpDRVkF2mZj+L//c6ItD/9y4Re4psdAYmnmv73tZi0qGw0/5ZphtaJOk
-         NVBwIxwZjWrf1PlOQs6/0ixQmTVYYrgUXICPu/r1AuORmnPdu4pb9tqdqHxo8T/H2llT
-         WNFg==
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=zLQiVrcno9hHFm8GdmIoGekPqU0jac+XU4XG32UNEFo=;
+        b=yQ119AKvXsVygImeRHmhxizttgr62B7i7PQoBh4RMhcFKVE0xR20sgoBE+ebq+9p60
+         4g15r5NFnl1kgG9U+5zZGEOA6+sJsXvucfRvNUpKfosHzQKqEiv+ouVbyVRr2k3qX+mR
+         X64WNXUj8FBFrJmVSyaY1MZPMCplgSewbjCITbjDgnk8FlUG8rmzXgKgemXz+JaNiasi
+         ujRqxkav6a9D8zJSw3C7M+5R/CASYnQh+fFh5jDMqkDupi9EDS9wDucGcMhvWEcxrgUv
+         9ZPK63NBFecTXz1GbvEtNEMHD3fnNSIN0wHyqZ6SmxaTvPMaiYOjLk5MfwS7iPTUt/c0
+         17oQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="sP/OkhF/";
-       spf=pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::130 as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lf1-x130.google.com (mail-lf1-x130.google.com. [2a00:1450:4864:20::130])
-        by gmr-mx.google.com with ESMTPS id cz2si11956edb.5.2021.06.14.12.08.08
+       dkim=pass header.i=@linaro.org header.s=google header.b=tE+28eU5;
+       spf=pass (google.com: domain of vincent.guittot@linaro.org designates 2a00:1450:4864:20::334 as permitted sender) smtp.mailfrom=vincent.guittot@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wm1-x334.google.com (mail-wm1-x334.google.com. [2a00:1450:4864:20::334])
+        by gmr-mx.google.com with ESMTPS id f23si19993wmh.2.2021.06.14.12.28.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Jun 2021 12:08:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::130 as permitted sender) client-ip=2a00:1450:4864:20::130;
-Received: by mail-lf1-x130.google.com with SMTP id x24so17197003lfr.10
-        for <clang-built-linux@googlegroups.com>; Mon, 14 Jun 2021 12:08:08 -0700 (PDT)
-X-Received: by 2002:ac2:530c:: with SMTP id c12mr13315409lfh.514.1623697688361;
-        Mon, 14 Jun 2021 12:08:08 -0700 (PDT)
-Received: from hyperiorarchmachine.localnet (dcx7x4yffpgq---2xhdgy-3.rev.dnainternet.fi. [2001:14ba:14f7:3c00:8461:5bff:fed3:30ca])
-        by smtp.gmail.com with ESMTPSA id x1sm699760lji.19.2021.06.14.12.08.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jun 2021 12:08:07 -0700 (PDT)
-From: jarmo.tiitto@gmail.com
-To: Kees Cook <keescook@chromium.org>
-Cc: Jarmo Tiitto <jarmo.tiitto@gmail.com>, Sami Tolvanen <samitolvanen@google.com>, Bill Wendling <wcw@google.com>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org, morbo@google.com
-Subject: Re: [RFC PATCH 3/5] pgo: Wire up the new more generic code for modules
-Date: Mon, 14 Jun 2021 22:08:06 +0300
-Message-ID: <3322609.HabJG8yQ7u@hyperiorarchmachine>
-In-Reply-To: <202106140851.2D4CAB8@keescook>
-References: <20210612032425.11425-1-jarmo.tiitto@gmail.com> <20210612032425.11425-4-jarmo.tiitto@gmail.com> <202106140851.2D4CAB8@keescook>
+        Mon, 14 Jun 2021 12:28:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of vincent.guittot@linaro.org designates 2a00:1450:4864:20::334 as permitted sender) client-ip=2a00:1450:4864:20::334;
+Received: by mail-wm1-x334.google.com with SMTP id h11-20020a05600c350bb02901b59c28e8b4so149591wmq.1
+        for <clang-built-linux@googlegroups.com>; Mon, 14 Jun 2021 12:28:36 -0700 (PDT)
+X-Received: by 2002:a1c:9dc5:: with SMTP id g188mr694599wme.141.1623698916557;
+        Mon, 14 Jun 2021 12:28:36 -0700 (PDT)
+Received: from vingu-book ([2a01:e0a:f:6020:65e6:8f95:4f83:db44])
+        by smtp.gmail.com with ESMTPSA id b26sm299049wmj.25.2021.06.14.12.28.35
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Mon, 14 Jun 2021 12:28:35 -0700 (PDT)
+Date: Mon, 14 Jun 2021 21:28:34 +0200
+From: Vincent Guittot <vincent.guittot@linaro.org>
+To: kernel test robot <lkp@intel.com>
+Cc: Odin Ugedal <odin@uged.al>, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com,
+	Peter Zijlstra <peterz@infradead.org>
+Subject: Re: [peterz-queue:sched/urgent 1/1] kernel/sched/fair.c:4771:8:
+ error: implicit declaration of function 'cfs_rq_is_decayed'
+Message-ID: <20210614192834.GA13213@vingu-book>
+References: <202106150244.tJgEwdgV-lkp@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: Jarmo.Tiitto@gmail.com
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <202106150244.tJgEwdgV-lkp@intel.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: vincent.guittot@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="sP/OkhF/";       spf=pass
- (google.com: domain of jarmo.tiitto@gmail.com designates 2a00:1450:4864:20::130
- as permitted sender) smtp.mailfrom=jarmo.tiitto@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@linaro.org header.s=google header.b=tE+28eU5;       spf=pass
+ (google.com: domain of vincent.guittot@linaro.org designates
+ 2a00:1450:4864:20::334 as permitted sender) smtp.mailfrom=vincent.guittot@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,330 +141,109 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Kees Cook wrote maanantaina 14. kes=C3=A4kuuta 2021 18.55.23 EEST:
-> On Sat, Jun 12, 2021 at 06:24:24AM +0300, Jarmo Tiitto wrote:
-> > prf_open() now uses the inode->i_private to get
-> > the prf_object for the file. This can be either
-> > vmlinux.profraw or any module.profraw file.
-> >=20
-> > The prf_vmlinux object is now added into prf_list and
-> > allocate_node() scans the list and reserves vnodes
-> > from corresponding prf_object(s).
-> >=20
-> > Signed-off-by: Jarmo Tiitto <jarmo.tiitto@gmail.com>
-> > ---
-> > note: There is no module notifier code yet,
-> > so only vmlinux.profraw profile data
-> > is available with this commit.
-> >=20
-> > Another thing is that pgo/reset will only
-> > reset vmlinux.profraw.
-> > Profile data reset for modules may be added later:
-> > maybe writing module's name into pgo/reset would reset only
-> > the specified module's profile data?
-> > Then writing "all" or zero would atomically reset everything.
+Le mardi 15 juin 2021 =C3=A0 02:37:46 (+0800), kernel test robot a =C3=A9cr=
+it :
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git =
+sched/urgent
+> head:   75f33978239fe8a05ffb95f301eccb166699ac49
+> commit: 75f33978239fe8a05ffb95f301eccb166699ac49 [1/1] sched/fair: Correc=
+tly insert cfs_rq's to list on unthrottle
+> config: x86_64-randconfig-a015-20210613 (attached as .config)
+> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 6472=
+0f57bea6a6bf033feef4a5751ab9c0c3b401)
+> reproduce (this is a W=3D1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
+n/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install x86_64 cross compiling tool for clang build
+>         # apt-get install binutils-x86-64-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.gi=
+t/commit/?id=3D75f33978239fe8a05ffb95f301eccb166699ac49
+>         git remote add peterz-queue https://git.kernel.org/pub/scm/linux/=
+kernel/git/peterz/queue.git
+>         git fetch --no-tags peterz-queue sched/urgent
+>         git checkout 75f33978239fe8a05ffb95f301eccb166699ac49
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross AR=
+CH=3Dx86_64=20
 >=20
-> Yeah, I think matching the internal naming is right. "vmlinux",
-> module::name, and "all"?
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
 >=20
-> > I'm bit unsure about the new allocate_node() code since
-> > it is the first place I had to put rcu_read_lock()
-> > and the code is likely to change from this.
+> All errors (new ones prefixed by >>):
 >=20
-> Comments below...
->=20
-> > ---
-> >=20
-> >  kernel/pgo/fs.c         | 30 ++++++++++++++++++++-----
-> >  kernel/pgo/instrument.c | 49 +++++++++++++++++++++++++++--------------
-> >  kernel/pgo/pgo.h        |  2 ++
-> >  3 files changed, 60 insertions(+), 21 deletions(-)
-> >=20
-> > diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
-> > index 7e269d69bcd7..84b36e61758b 100644
-> > --- a/kernel/pgo/fs.c
-> > +++ b/kernel/pgo/fs.c
-> > @@ -32,8 +32,10 @@ static struct dentry *directory;
-> >=20
-> >  struct prf_private_data {
-> > =20
-> >  	void *buffer;
-> >  	size_t size;
-> >=20
-> > +	struct prf_object *core;
-> >=20
-> >  };
-> >=20
-> > +/* vmlinux's prf core */
-> >=20
-> >  static struct prf_object prf_vmlinux;
-> > =20
-> >  /*
-> >=20
-> > @@ -281,7 +283,6 @@ static int prf_serialize(struct prf_object *po, str=
-uct
-> > prf_private_data *p, size>=20
-> >  	prf_serialize_values(po, &buffer);
-> >  =09
-> >  	return 0;
-> >=20
-> > -
-> >=20
-> >  }
-> > =20
-> >  /* open() implementation for PGO. Creates a copy of the profiling data=
-=20
-set.
-> >  */>=20
-> > @@ -292,13 +293,21 @@ static int prf_open(struct inode *inode, struct f=
-ile
-> > *file)>=20
-> >  	size_t buf_size;
-> >  	int err =3D -EINVAL;
-> >=20
-> > +	if (WARN_ON(!inode->i_private)) {
-> > +		/* bug: inode was not initialized by us */
-> > +		return err;
-> > +	}
-> > +
-> >=20
-> >  	data =3D kzalloc(sizeof(*data), GFP_KERNEL);
-> >  	if (!data)
-> >  =09
-> >  		return -ENOMEM;
-> >=20
-> > +	/* Get prf_object of this inode */
-> > +	data->core =3D inode->i_private;
-> > +
-> >=20
-> >  	/* Get initial buffer size. */
-> >  	flags =3D prf_lock();
-> >=20
-> > -	data->size =3D prf_buffer_size(&prf_vmlinux);
-> > +	data->size =3D prf_buffer_size(data->core);
-> >=20
-> >  	prf_unlock(flags);
-> >  =09
-> >  	do {
-> >=20
-> > @@ -318,12 +327,13 @@ static int prf_open(struct inode *inode, struct f=
-ile
-> > *file)>=20
-> >  		 * data length in data->size.
-> >  		 */
-> >  	=09
-> >  		flags =3D prf_lock();
-> >=20
-> > -		err =3D prf_serialize(&prf_vmlinux, data, buf_size);
-> > +		err =3D prf_serialize(data->core, data, buf_size);
-> >=20
-> >  		prf_unlock(flags);
-> >  		/* In unlikely case, try again. */
-> >  =09
-> >  	} while (err =3D=3D -EAGAIN);
-> >  =09
-> >  	if (err < 0) {
-> >=20
-> > +
-> >=20
-> >  		if (data)
-> >  	=09
-> >  			vfree(data->buffer);
-> >  	=09
-> >  		kfree(data);
-> >=20
-> > @@ -412,6 +422,8 @@ static const struct file_operations prf_reset_fops =
-=3D {
-> >=20
-> >  /* Create debugfs entries. */
-> >  static int __init pgo_init(void)
-> >  {
-> >=20
-> > +	unsigned long flags;
-> > +
-> >=20
-> >  	/* Init profiler vmlinux core entry */
-> >  	memset(&prf_vmlinux, 0, sizeof(prf_vmlinux));
-> >  	prf_vmlinux.data =3D __llvm_prf_data_start;
-> >=20
-> > @@ -430,19 +442,27 @@ static int __init pgo_init(void)
-> >=20
-> >  	prf_vmlinux.vnds_num =3D prf_get_count(__llvm_prf_vnds_start,
-> >  =09
-> >  		__llvm_prf_vnds_end,=20
-sizeof(__llvm_prf_vnds_start[0]));
-> >=20
-> > +	/* enable profiling */
-> > +	flags =3D prf_list_lock();
-> > +	list_add_tail_rcu(&prf_vmlinux.link, &prf_list);
-> > +	prf_list_unlock(flags);
-> >=20
-> >  	directory =3D debugfs_create_dir("pgo", NULL);
-> >  	if (!directory)
-> >  =09
-> >  		goto err_remove;
-> >=20
-> > -	if (!debugfs_create_file("vmlinux.profraw", 0600, directory, NULL,
-> > -				 &prf_fops))
-> > +	prf_vmlinux.file =3D debugfs_create_file("vmlinux.profraw",
-> > +		0600, directory, &prf_vmlinux, &prf_fops);
-> > +	if (!prf_vmlinux.file)
-> >=20
-> >  		goto err_remove;
-> >  =09
-> >  	if (!debugfs_create_file("reset", 0200, directory, NULL,
-> >  =09
-> >  				 &prf_reset_fops))
-> >  	=09
-> >  		goto err_remove;
-> >=20
-> > +	/* show notice why the system slower: */
-> > +	pr_notice("Clang PGO instrumentation is active.");
-> > +
->=20
-> Please pull this change into a separate patch and make it pr_info()
-> ("notice" is, I think, not right here).
->=20
+>    kernel/sched/fair.c:637:5: warning: no previous prototype for function=
+ 'sched_update_scaling' [-Wmissing-prototypes]
+>    int sched_update_scaling(void)
+>        ^
+>    kernel/sched/fair.c:637:1: note: declare 'static' if the function is n=
+ot intended to be used outside of this translation unit
+>    int sched_update_scaling(void)
+>    ^
+>    static=20
+> >> kernel/sched/fair.c:4771:8: error: implicit declaration of function 'c=
+fs_rq_is_decayed' [-Werror,-Wimplicit-function-declaration]
+>                    if (!cfs_rq_is_decayed(cfs_rq) || cfs_rq->nr_running)
+>                         ^
+>    1 warning and 1 error generated.
 
-All rightly then.
+It's the !SMP case for which PELT is disabled. The below fixes the problem:
 
-> >  	return 0;
-> > =20
-> >  err_remove:
-> > diff --git a/kernel/pgo/instrument.c b/kernel/pgo/instrument.c
-> > index 24fdeb79b674..e214c9d7a113 100644
-> > --- a/kernel/pgo/instrument.c
-> > +++ b/kernel/pgo/instrument.c
-> > @@ -24,6 +24,7 @@
-> >=20
-> >  #include <linux/export.h>
-> >  #include <linux/spinlock.h>
-> >  #include <linux/types.h>
-> >=20
-> > +#include <linux/rculist.h>
-> >=20
-> >  #include "pgo.h"
-> > =20
-> >  /*
-> >=20
-> > @@ -56,22 +57,38 @@ void prf_unlock(unsigned long flags)
-> >=20
-> >  static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data =
-*p,
-> > =20
-> >  						=20
-u32 index, u64 value)
-> > =20
-> >  {
-> >=20
-> > -	const int max_vnds =3D prf_get_count(__llvm_prf_vnds_start,
-> > -		__llvm_prf_vnds_end, sizeof(struct=20
-llvm_prf_value_node));
-> > -
-> > -	/*
-> > -	 * Check that p is within vmlinux __llvm_prf_data section.
-> > -	 * If not, don't allocate since we can't handle modules yet.
-> > -	 */
-> > -	if (!memory_contains(__llvm_prf_data_start,
-> > -		__llvm_prf_data_end, p, sizeof(*p)))
-> > -		return NULL;
-> > -
-> > -	if (WARN_ON_ONCE(current_node >=3D max_vnds))
-> > -		return NULL; /* Out of nodes */
-> > -
-> > -	/* reserve vnode for vmlinux */
-> > -	return &__llvm_prf_vnds_start[current_node++];
-> > +	struct llvm_prf_value_node *vnode =3D NULL;
-> > +	struct prf_object *po;
-> > +	struct llvm_prf_data *data_end;
-> > +	int max_vnds;
-> > +
-> > +	rcu_read_lock();
->=20
-> AIUI, list readers are using rcu_read_lock(), and writers are using
-> prf_list_lock()?
->=20
+---
+ kernel/sched/fair.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Yes, I intended the list readers to use rcu_read_lock() and writers to take=
-=20
-the prf_list_lock().
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 62a884a652cc..4f7df0e9d198 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -4062,6 +4062,11 @@ static inline void update_misfit_status(struct task_=
+struct *p, struct rq *rq)
 
-Sadly after I sent this patch set I found during more testing that there ar=
-e=20
-few problems that I need to work on:
+ #else /* CONFIG_SMP */
 
-There is an lockup that only occurs during bare metal run after +15min, so =
-I=20
-haven't been able to catch it in VM.
-I suspect this is caused by the RCU locking I added such that it results in=
-=20
-recursive calls into __llvm_profile_instrument_target()
++static inline bool cfs_rq_is_decayed(struct cfs_rq *cfs_rq)
++{
++	return true;
++}
++
+ #define UPDATE_TG	0x0
+ #define SKIP_AGE_LOAD	0x0
+ #define DO_ATTACH	0x0
+--
 
-I will try build with CONFIG_PROVE_LOCKING, but I have had problems with
-the kernel not getting past cgroup_init_early()... even without my patches
-applied. (stock -rc kernel) :-(
-
-> > +
-> > +	list_for_each_entry_rcu(po, &prf_list, link) {
-> > +		/* get section limits */
-> > +		max_vnds =3D prf_vnds_count(po);
-> > +		data_end =3D po->data + prf_data_count(po);
-> > +
-> > +		/*
-> > +		 * Check that p is within:
-> > +		 * [po->data, po->data + prf_data_count(po)] section.
-> > +		 * If yes, allocate vnode from this prf_object.
-> > +		 */
-> > +		if (memory_contains(po->data, data_end, p,=20
-sizeof(*p))) {
-> > +
-> > +
-> > +			if (WARN_ON_ONCE(po->current_node >=3D=20
-max_vnds))
-> > +				return NULL; /* Out of=20
-nodes */
-> > +
-> > +			/* reserve the vnode */
-> > +			vnode =3D &po->vnds[po->current_node++];
-> > +			goto out;
-> > +		}
-> > +	}
-> > +
-> > +out:
-> > +	rcu_read_unlock();
-> > +	return vnode;
-> >=20
-> >  }
-> > =20
-> >  /*
-> >=20
-> > diff --git a/kernel/pgo/pgo.h b/kernel/pgo/pgo.h
-> > index 44d79e2861e1..59d0aa966fbe 100644
-> > --- a/kernel/pgo/pgo.h
-> > +++ b/kernel/pgo/pgo.h
-> > @@ -19,6 +19,8 @@
-> >=20
-> >  #ifndef _PGO_H
-> >  #define _PGO_H
-> >=20
-> > +#include <linux/rculist.h>
-> > +
-> >=20
-> >  /*
-> > =20
-> >   * Note: These internal LLVM definitions must match the compiler versi=
-on.
-> >   * See llvm/include/llvm/ProfileData/InstrProfData.inc in LLVM's sourc=
-e
-> >   code.
-> >=20
-> > --
-> > 2.32.0
->=20
-> --
-> Kees Cook
+Peter do you prefer a new version of the patch or you will add this fix dir=
+ectly ?
 
 
+>=20
+>=20
+> vim +/cfs_rq_is_decayed +4771 kernel/sched/fair.c
+>=20
+>   4759=09
+>   4760	static int tg_unthrottle_up(struct task_group *tg, void *data)
+>   4761	{
+>   4762		struct rq *rq =3D data;
+>   4763		struct cfs_rq *cfs_rq =3D tg->cfs_rq[cpu_of(rq)];
+>   4764=09
+>   4765		cfs_rq->throttle_count--;
+>   4766		if (!cfs_rq->throttle_count) {
+>   4767			cfs_rq->throttled_clock_task_time +=3D rq_clock_task(rq) -
+>   4768						     cfs_rq->throttled_clock_task;
+>   4769=09
+>   4770			/* Add cfs_rq with load or one or more already running entities =
+to the list */
+> > 4771			if (!cfs_rq_is_decayed(cfs_rq) || cfs_rq->nr_running)
+>   4772				list_add_leaf_cfs_rq(cfs_rq);
+>   4773		}
+>   4774=09
+>   4775		return 0;
+>   4776	}
+>   4777=09
+>=20
+> ---
+> 0-DAY CI Kernel Test Service, Intel Corporation
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 
 
 --=20
@@ -478,4 +252,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/3322609.HabJG8yQ7u%40hyperiorarchmachine.
+clang-built-linux/20210614192834.GA13213%40vingu-book.
