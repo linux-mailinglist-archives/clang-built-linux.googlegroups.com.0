@@ -1,131 +1,137 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBKH2TWDAMGQETPYSKOI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQP3TWDAMGQEFWM356Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73d.google.com (mail-qk1-x73d.google.com [IPv6:2607:f8b0:4864:20::73d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 447F23A6B26
-	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 18:00:41 +0200 (CEST)
-Received: by mail-qk1-x73d.google.com with SMTP id 190-20020a3708c70000b02903aa60e6d8c1sf19347065qki.19
-        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 09:00:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623686440; cv=pass;
+Received: from mail-ej1-x638.google.com (mail-ej1-x638.google.com [IPv6:2a00:1450:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id 34C3D3A6B32
+	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 18:03:14 +0200 (CEST)
+Received: by mail-ej1-x638.google.com with SMTP id k1-20020a17090666c1b029041c273a883dsf3263245ejp.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 09:03:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623686594; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vYL4GmEMzRhdmAMc1KgAi4s0QpRaSHeeXsdOmQV36/rCeC9vkwqwqUaj6HSoLhJfF9
-         +RZPv4cQyXRqdtpJWwAaEAGWHr69Y8zRaw5gDiM8ZtKg6+itFmt2ugd3SfWag0z95De+
-         0+oQKycSSYeMoWLmj5lK5X/7Gwfy1cFQSTwlXnHA5GruYFIhy4WPvsiZzI4SQWVplTO6
-         sPItDBWrrXItF63FQM9T0OaSK8en7vgdfUgIAukoHbbNFpiQ0PGmTDK5wvw7mCEapcNh
-         uNNdZIS62x3mYq+OjAp/QDPc2dnTfXHQPV8B5c9vmNbsXNgwH5DIbXJ3RZkthc9/5t3n
-         CTaQ==
+        b=yygEtEaevdjGObyiZt0rtxiQYS6mS9UBh9v2JXlfNj+R0sKBamUM8KHJDj7RwIWnd5
+         phobAUjvKP2EiEu7ew/4ongAF39q1cXAONo3NCzYQJyet27GKgRvtAdlYmwUxOjf5k9A
+         abvM50VoygzUDO1zxCapMf8g4V2ahAXppqLADGd8g1YZm0fVi9ysu9KYaa/8ZcfNBDOa
+         iDG1TTm0NOP0W/fMcVhcBdNfAiw0XdN4jmzWSp7fH4gaQOiKijYvJn2ZVVBm6EVpb4tE
+         zik+JjVP288CeJmoJw6nA56vQcCl/w44BeaYSLp/XNVsAqdJfjVXYgKlnM4xdtHfnWDq
+         EUWw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=TtUwoRxS2tDvhB+COcpPOPTvPs9OXGlCd9HAF262IGo=;
-        b=oNJdM8riaEamair2m/x7/mdDOfsrbcCFPSwj7kFjJH0khel65k3bNjxqFwHtzrpMny
-         ddKa11Oi4wzdHTv/x1xNzR8KeAW98DWF/Pna3JIkmFwhQnhtLxeRgVn1CwgheFUdOv2U
-         rG9JrbLBiwYTdHELZgBtIOStGOd/lO3WtKOjIJmYoWup42FYHd3yyBt0BB3ADG6lW1Ko
-         S/0pEOYglhpQFelRFzU154kPrrJHD1OtT6c2CAmp1Y0utMSzCpC0v5mSWzxVzO/X70B2
-         7Xy+jmQjm1nDIUOAeKZAo0Yfu1qCgZMBA6IRaZCJ2DNAqwxoLyQIhNNIPXflngHcKmmI
-         iqHA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=eRx7MQtgm0rv9Ho461HVA5hqgPTMhnnkkKGcRKVigfc=;
+        b=NW0OzT3Ml6bMJ7eK5ctRIbjNoULPHHQ68MFzkIstc7ASzYv0KV1aDtIXn4R9qDoans
+         Nt+QulNLAWlSLPW/mpSZSUPagRKIzZXAnyEbSbD5rr8OweFibNBMKdu45Ogzax4Etqf0
+         Px931AGWuHK4zGirbHEpRx8v0/V54hg2iD9ibEYWDtfG9Pk/BT4Qi9Ri+awrSKrM3DAU
+         /WDgrhD2UKx4oAFP9qxhDXgKCp7R78R/SQGl0eAWJrLPOdZ61/4ousevtsGvNFpAreHa
+         EWmR6JGGQN2HZ3VIp1T1Y5Dimz7nuT+LcTxeeeMJ5euC6hDnIc2QtI55nEBcu7b4mq6w
+         MssA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b="VmvGSd/M";
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::533 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Fy7Y+Deo;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=TtUwoRxS2tDvhB+COcpPOPTvPs9OXGlCd9HAF262IGo=;
-        b=nkZm0p22uP6pT2WcI9XX7+4yMroRMveJ43vacnE1Xt3JQPZPjUXaUR2KltiDSJa4A7
-         sIQ8kttogXaJG1vlayD/eMnDMk3gnxhWsGb5fxrrymemnhj4I6FhxB5z+QAGHnESez8t
-         lwtdn8rItI7WwzmDhG6qAZChXp0C2DI+xSkvKwbCx5HQ5/ekQQrs41APnOV4qwbYUkkH
-         5UdHds6DznX70fgxKQaEPRjlou4OojHRbfixvVNVIp+/v5lAWCsXweOCKtPKMmi5mp95
-         W5XOjuYNnzAlW6A5ttoKFkr0p8DI6pSjCNLos8SIP/oEd9QGMj+f6PnEG9QaMopoSX5N
-         PNAw==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=eRx7MQtgm0rv9Ho461HVA5hqgPTMhnnkkKGcRKVigfc=;
+        b=sTpjVpREUQE4j0SKyaWM3VqPYCXzQMwDk/GXN2wtdcdXt9oj+BeG823Xmoro1QZjsV
+         Na7O1lDUlRoDVvN4nUm7lSA96kGeou/+TBzQFzZ017ynY7GxOshrxAnVKhl+gw67iv80
+         lO4qqj+1uF/X5BEyMKcDgRHZ88bakbNH8RlitgkDKBI42OO1ax1QtDf5JI/R1y7bYF3O
+         B+MRSVFJX3NEx/bOlY4Q5fh2gtSEBSTWNWb2oEpfUGXqAog4rYIA1SKeV25k7jSKAFuq
+         6dU+nS2FELhzf8mav9UZn1rwAtsZ1pPn1TVvoInkn2dNjV5T11ln+HkELovnOPBdm4o1
+         FUjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=TtUwoRxS2tDvhB+COcpPOPTvPs9OXGlCd9HAF262IGo=;
-        b=lqjaSUd0ulqSZDIHWNGh1UyHVgf4KX5PM/4c3LMspfcn0oa/XxkcVxYdMt3Fhnw0Nf
-         wYVU50BlF4nhzNne4/BX5NqYjjztcsfY2k//H5hE93Ljv6D3Nh00feuY0hr0i0EuCoV8
-         cTNaqsv3X+8xD3mcrBtsb1JeYElDNKEHFMbMvks3HF+QU2wrcgLNgz3CSwLnonSVe9aY
-         WTAsYhE/oBXRdhquEv8kQB3iOLLzmQd4MD6amZBg2KWo3dpNVzGZx4jT2q16yYLvKXbW
-         wdWg4SyuATyrcQqLpzYUL7uY1kuFyJ+HcMHxTgVhDzrsc6DsH46hvT/qZOAQYojdMZQt
-         KtbA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531Arel82vW1TIZq1jReDYPzfMEpS3mcIKqTXKgmB4Do68VG/rk4
-	gZeRzrZHcDhOAeo5nUECQeI=
-X-Google-Smtp-Source: ABdhPJwTAdGmpAbgu0zBiPx0H8DgJYIrHXrGZ1b+M0pgbUwTNSuqGbVzKp31zx7YmR36OeVDNpMljg==
-X-Received: by 2002:a37:e13:: with SMTP id 19mr16665540qko.252.1623686440181;
-        Mon, 14 Jun 2021 09:00:40 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=eRx7MQtgm0rv9Ho461HVA5hqgPTMhnnkkKGcRKVigfc=;
+        b=Ap9cdGg1uhwrhzPCWfhw9Bb5f8gsnC5QoEJntPpzc55O8pige11tJAjTRXwcaW/UmW
+         ao+bWXasjccgUPJ/gb8HnFrZv1YB71ia5yLCcIUH0jMqLPDUI1U03hMVbTanZL8t9Xzf
+         gHZtxMgEf8sGsxiiJVO/HZ0Htnz0na9fcqnIGlQfRJiZ/ra8AFsnigAfs8b/DDnGTWXR
+         cKJ3tuEQ7LtW0pg4pZVs14/pVt9f1i2WlECrt/jK1j/YoE/tYiVExzNouZEHzVkbavRh
+         +IL6k5YByfD7XE97Dj3dj8dnLogNzQvNLzIEcu907D4l/PxJAs+4wNpV898+6Dc343Pp
+         7+kw==
+X-Gm-Message-State: AOAM532/gumx8JhSMDLv6IF5RMGwA16dIOwkDQ+LfRxJtBBV65CZDIOM
+	UIlj1Qic8maJcEg1AsKT5PY=
+X-Google-Smtp-Source: ABdhPJxyi5yyH8QU/ppsD6+OIJWeb2Bv8tfwMgAhEFjpkvj2tHmwH64Flo5cYpwU8JD2ksuC0JJwZQ==
+X-Received: by 2002:aa7:ca1a:: with SMTP id y26mr17709254eds.314.1623686593947;
+        Mon, 14 Jun 2021 09:03:13 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:46cf:: with SMTP id t198ls2584930qka.0.gmail; Mon, 14
- Jun 2021 09:00:39 -0700 (PDT)
-X-Received: by 2002:a05:620a:15c8:: with SMTP id o8mr16560300qkm.416.1623686439684;
-        Mon, 14 Jun 2021 09:00:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623686439; cv=none;
+Received: by 2002:a17:906:1293:: with SMTP id k19ls6710428ejb.9.gmail; Mon, 14
+ Jun 2021 09:03:12 -0700 (PDT)
+X-Received: by 2002:a17:906:dd6:: with SMTP id p22mr16605266eji.191.1623686592850;
+        Mon, 14 Jun 2021 09:03:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623686592; cv=none;
         d=google.com; s=arc-20160816;
-        b=EiY60rfdSMslFvXfzwXZX67Ngnu/4Y1mbIjR5Nu7WWmy12nwy+xIe96X9PA5B3YZB9
-         OsLOX8mWcNIwx4rbbw2NczQ3QKp25efcZuSOMkKinaP760G93iKLjJPeFt2BDMA3WjWy
-         FuwhCwlHRMzGUYfgy48Iul6UqvzouuepDXcnyyjK70Wt0Wp6QPJh8eLwfT0CFZZvaN8T
-         k50ADyU/pIZbVgYAfmXRAUF0Oz/7tPbuGKja4BVM8Sqo/iEosDvd0HWPJOXmZdckitnK
-         3TLhBM9vrmzqVChfNP8Be71L+SYN8kYyMIlai43nJDPAhE4l1LZImY9LTgkVKr0K0gAi
-         hK9w==
+        b=n8bjrnkjeWZe065o0qi9nuBBG1mXVHjDrwK4iGwpkUSHje4AKk0aBK90ofA9+tgA35
+         vPGvYwJBjwex18QfgDPXPuC3+e6UUSWe4CP/r4ut7YL6z7nhSQZ1xzt3hBrazE7mlaTQ
+         boTvbO0O1reVq5pbNP5eKpSvpTiBmrLoftgaucEZrIWJy1vPHz2FXUg504PUJKYgv0p4
+         YfadSnc8ej1ZUjJl9L6WscPUzDsDNyxE+D2a8XOMgj8y2ZzVZSl1pwSu2Ud4QtSXYvoq
+         mTfhxvwfAmF7HjJ6HtkXJhPDl0OGXS77hzbM7JU8JpMnByiVEznPI153Mhl7b5USb43G
+         nU6Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=A/YrRFRLaVHO1+sPzFsBtD9ot5MF3cKN262LxR6KfXw=;
-        b=pbtLtKu8tcMHdWGKhP70auIrpjSeDhj7UHgwQhAfkYZQS1cseX4Uv7SB3Svxt0aDpQ
-         LZrhOyyhWb2Dcnq2T6GqFtev1Xfn/BtMHWqGg/K7rSNJxa3K2uoveVLBIWL4wIX8TWEs
-         eAYMYRDCQNU+nVwFBMoWYVUCPim56b3eqiIV2jOYX9GxL3c8Tn+2+Yc3dUq/xgfooNeD
-         y7Qg9J+2BZun3Py/3NChIwT8mUpmPRZ72SF/t3pQiKYrc2JHL0v2LvAMhOHJ2sy/7HAY
-         h266MBwGPAWzM59TZ1h7vneofH+fBacRKt2kHTFQlDr1cakjz9QbV8qYDeqKAURjHZuc
-         P25A==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=3MqGDvp9ypUCvhlLUOO4ezsTJgglqtbS6x/EUZzU8+Q=;
+        b=sgun3e/oVMUWWjGOQjLKfUf1Ip7VbHqeq3b9lWh0SQBUC4fugftwMVH1IEY5VTWNsb
+         pZsoYUUJJ3dwAs+gqCLWWET6E5/Z0pjbPfEk2Ce814H43PwGqAF8G4Eyokt19vhurb5r
+         EkaLWG7tE/xzPivjqrFRUVRgpIPZL8E/0VRDB872KqSObnXGiiKhM5vL2hNhtob3TUvv
+         xcoZqIf776AhBwwMGuK+N3ntDMCeqbo72Rba49c7YI2hp4iDUPSxPZurFd4FawwXYvvG
+         39AfeOF4Qo5wv92ArAvhPGJZ8yZBifXJZWXRa6XLNq50cQmj/bP5edboza1rDKQmDxmg
+         c8Zg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b="VmvGSd/M";
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::533 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x533.google.com (mail-pg1-x533.google.com. [2607:f8b0:4864:20::533])
-        by gmr-mx.google.com with ESMTPS id o13si1391474qke.6.2021.06.14.09.00.39
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Fy7Y+Deo;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lf1-x131.google.com (mail-lf1-x131.google.com. [2a00:1450:4864:20::131])
+        by gmr-mx.google.com with ESMTPS id e26si658356edj.1.2021.06.14.09.03.12
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Jun 2021 09:00:39 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::533 as permitted sender) client-ip=2607:f8b0:4864:20::533;
-Received: by mail-pg1-x533.google.com with SMTP id e22so8983323pgv.10
-        for <clang-built-linux@googlegroups.com>; Mon, 14 Jun 2021 09:00:39 -0700 (PDT)
-X-Received: by 2002:a05:6a00:88b:b029:2de:33b3:76c9 with SMTP id q11-20020a056a00088bb02902de33b376c9mr22662665pfj.30.1623686438816;
-        Mon, 14 Jun 2021 09:00:38 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id h12sm13414232pfq.72.2021.06.14.09.00.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jun 2021 09:00:35 -0700 (PDT)
-Date: Mon, 14 Jun 2021 09:00:34 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Jarmo Tiitto <jarmo.tiitto@gmail.com>
-Cc: Sami Tolvanen <samitolvanen@google.com>, Bill Wendling <wcw@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
-	morbo@google.com
-Subject: Re: [RFC PATCH 4/5] pgo: Add module notifier machinery
-Message-ID: <202106140855.2094DF30BB@keescook>
-References: <20210612032425.11425-1-jarmo.tiitto@gmail.com>
- <20210612032425.11425-5-jarmo.tiitto@gmail.com>
+        Mon, 14 Jun 2021 09:03:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) client-ip=2a00:1450:4864:20::131;
+Received: by mail-lf1-x131.google.com with SMTP id p17so21910146lfc.6
+        for <clang-built-linux@googlegroups.com>; Mon, 14 Jun 2021 09:03:12 -0700 (PDT)
+X-Received: by 2002:ac2:5cd6:: with SMTP id f22mr13208808lfq.73.1623686592188;
+ Mon, 14 Jun 2021 09:03:12 -0700 (PDT)
 MIME-Version: 1.0
+References: <CAGG=3QXjD1DQjACu=CQQSP=whue-14Pw8FcNcXrJZfLC_E+y9w@mail.gmail.com>
+ <YMT5xZsZMX0PpDKQ@hirez.programming.kicks-ass.net> <CAGG=3QVHkkJ236mCJ8Jt_6JtgYtWHV9b4aVXnoj6ypc7GOnc0A@mail.gmail.com>
+ <20210612202505.GG68208@worktop.programming.kicks-ass.net>
+ <CAGG=3QUZ9tXGNLhbOr+AFDTJABDujZuaG1mYaLKdTcJZguEDWw@mail.gmail.com>
+ <YMca2aa+t+3VrpN9@hirez.programming.kicks-ass.net> <CAGG=3QVPCuAx9UMTOzQp+8MJk8KVyOfaYeV0yehpVwbCaYMVpg@mail.gmail.com>
+ <YMczJGPsxSWNgJMG@hirez.programming.kicks-ass.net> <CANpmjNNnZv7DHYaJBL7knn9P+50F+SOCvis==Utaf-avENnVsw@mail.gmail.com>
+ <202106140817.F584D2F@keescook> <20210614154639.GB68749@worktop.programming.kicks-ass.net>
+In-Reply-To: <20210614154639.GB68749@worktop.programming.kicks-ass.net>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 14 Jun 2021 09:03:00 -0700
+Message-ID: <CAKwvOd=aAo72j-iE2PNE5Os8BPc0y-Zs7ZoMzd21ck+QNeboBA@mail.gmail.com>
+Subject: Re: [PATCH v9] pgo: add clang's Profile Guided Optimization infrastructure
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Kees Cook <keescook@chromium.org>, Marco Elver <elver@google.com>, 
+	Bill Wendling <morbo@google.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Linux Doc Mailing List <linux-doc@vger.kernel.org>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Sami Tolvanen <samitolvanen@google.com>, Fangrui Song <maskray@google.com>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Dmitry Vyukov <dvyukov@google.com>, Johannes Berg <johannes.berg@intel.com>, oberpar@linux.vnet.ibm.com, 
+	linux-toolchains@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210612032425.11425-5-jarmo.tiitto@gmail.com>
-X-Original-Sender: keescook@chromium.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b="VmvGSd/M";       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::533
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@google.com header.s=20161025 header.b=Fy7Y+Deo;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,275 +144,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Jun 12, 2021 at 06:24:25AM +0300, Jarmo Tiitto wrote:
-> Add module notifier callback and register modules
-> into prf_list.
-> 
-> For each module that has __llvm_prf_{data,cnts,names,vnds} sections
-> The callback creates debugfs <module>.profraw entry and
-> links new prf_object into prf_list.
-> 
-> This enables profiling for all loaded modules.
-> 
-> * Moved rcu_read_lock() outside of allocate_node() in order
->   to protect __llvm_profile_instrument_target() from module unload(s)
-> 
-> Signed-off-by: Jarmo Tiitto <jarmo.tiitto@gmail.com>
-> ---
-> v2: Passed QEMU SMP boot test into minimal Arch Linux distro,
-> module loading and unloading work without warnings.
-> Module profile data looks ok. :-)
-> ---
->  kernel/pgo/fs.c         | 111 ++++++++++++++++++++++++++++++++++++++++
->  kernel/pgo/instrument.c |  19 ++++---
->  2 files changed, 122 insertions(+), 8 deletions(-)
-> 
-> diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
-> index 84b36e61758b..98b982245b58 100644
-> --- a/kernel/pgo/fs.c
-> +++ b/kernel/pgo/fs.c
-> @@ -419,6 +419,110 @@ static const struct file_operations prf_reset_fops = {
->  	.llseek		= noop_llseek,
->  };
->  
-> +static void pgo_module_init(struct module *mod)
-> +{
-> +	struct prf_object *po;
-> +	char fname[MODULE_NAME_LEN + 9]; /* +strlen(".profraw") */
-> +	unsigned long flags;
-> +
-> +	/* add new prf_object entry for the module */
-> +	po = kzalloc(sizeof(*po), GFP_KERNEL);
-> +	if (!po)
-> +		goto out;
-> +
-> +	po->mod_name = mod->name;
-> +
-> +	fname[0] = 0;
-> +	snprintf(fname, sizeof(fname), "%s.profraw", po->mod_name);
-> +
-> +	/* setup prf_object sections */
-> +	po->data = mod->prf_data;
-> +	po->data_num = prf_get_count(mod->prf_data,
-> +		(char *)mod->prf_data + mod->prf_data_size, sizeof(po->data[0]));
-> +
-> +	po->cnts = mod->prf_cnts;
-> +	po->cnts_num = prf_get_count(mod->prf_cnts,
-> +		(char *)mod->prf_cnts + mod->prf_cnts_size, sizeof(po->cnts[0]));
-> +
-> +	po->names = mod->prf_names;
-> +	po->names_num = prf_get_count(mod->prf_names,
-> +		(char *)mod->prf_names + mod->prf_names_size, sizeof(po->names[0]));
-> +
-> +	po->vnds = mod->prf_vnds;
-> +	po->vnds_num = prf_get_count(mod->prf_vnds,
-> +		(char *)mod->prf_vnds + mod->prf_vnds_size, sizeof(po->vnds[0]));
-> +
-> +	/* create debugfs entry */
-> +	po->file = debugfs_create_file(fname, 0600, directory, po, &prf_fops);
-> +	if (!po->file) {
-> +		pr_err("Failed to setup module pgo: %s", fname);
-> +		kfree(po);
-> +		goto out;
-> +	}
-> +
-> +	/* finally enable profiling for the module */
-> +	flags = prf_list_lock();
-> +	list_add_tail_rcu(&po->link, &prf_list);
-> +	prf_list_unlock(flags);
-> +
-> +out:
-> +	return;
-> +}
-> +
-> +static int pgo_module_notifier(struct notifier_block *nb, unsigned long event,
-> +				void *pdata)
-> +{
-> +	struct module *mod = pdata;
-> +	struct prf_object *po;
-> +	unsigned long flags;
-> +
-> +	if (event == MODULE_STATE_LIVE) {
-> +		/* does the module have profiling info? */
-> +		if (mod->prf_data
-> +			&& mod->prf_cnts
-> +			&& mod->prf_names
-> +			&& mod->prf_vnds) {
-> +
-> +			/* setup module profiling */
-> +			pgo_module_init(mod);
-> +		}
-> +	}
-> +
-> +	if (event == MODULE_STATE_GOING) {
-> +		/* find the prf_object from the list */
-> +		rcu_read_lock();
-> +
-> +		list_for_each_entry_rcu(po, &prf_list, link) {
-> +			if (strcmp(po->mod_name, mod->name) == 0)
-> +				goto out_unlock;
-> +		}
-> +		/* no such module */
-> +		po = NULL;
-> +
-> +out_unlock:
-> +		rcu_read_unlock();
+On Mon, Jun 14, 2021 at 8:46 AM Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Mon, Jun 14, 2021 at 08:26:01AM -0700, Kees Cook wrote:
+> > > 2. Like (1) but also keep GCOV, given proper support for attribute
+> > > no_instrument_function would probably fix it (?).
+> > >
+> > > 3. Keep GCOV (and KCOV of course). Somehow extract PGO profiles from KCOV.
+> > >
+> > > 4. Somehow extract PGO profiles from GCOV, or modify kernel/gcov to do so.
+> >
+> > If there *is* a way to "combine" these, I don't think it makes sense
+> > to do it now. PGO has users (and is expanding[1]), and trying to
+> > optimize the design before even landing the first version seems like a
+> > needless obstruction, and to likely not address currently undiscovered
+> > requirements.
+>
+> Even if that were so (and I'm not yet convinced), the current proposal
+> is wedded to llvm-pgo, there is no way gcc-pgo could reuse any of this
+> code afaict, which then means they have to create yet another variant.
 
-Is it correct to do the unlock before the possible list_del_rcu()?
-
-> +
-> +		if (po) {
-> +			/* remove from profiled modules */
-> +			flags = prf_list_lock();
-> +			list_del_rcu(&po->link);
-> +			prf_list_unlock(flags);
-> +
-> +			debugfs_remove(po->file);
-> +			po->file = NULL;
-> +
-> +			/* cleanup memory */
-> +			kfree_rcu(po, rcu);
-> +		}
-
-Though I thought module load/unload was already under a global lock, so
-maybe a race isn't possible here.
-
-For the next version of this series, please Cc the module subsystem
-maintainer as well:
-	Jessica Yu <jeyu@kernel.org>
-
-> +	}
-> +
-> +	return NOTIFY_OK;
-> +}
-> +
-> +static struct notifier_block pgo_module_nb = {
-> +	.notifier_call = pgo_module_notifier
-> +};
-> +
->  /* Create debugfs entries. */
->  static int __init pgo_init(void)
->  {
-> @@ -444,6 +548,7 @@ static int __init pgo_init(void)
->  
->  	/* enable profiling */
->  	flags = prf_list_lock();
-> +	prf_vmlinux.mod_name = "vmlinux";
->  	list_add_tail_rcu(&prf_vmlinux.link, &prf_list);
->  	prf_list_unlock(flags);
->  
-> @@ -460,6 +565,9 @@ static int __init pgo_init(void)
->  				 &prf_reset_fops))
->  		goto err_remove;
->  
-> +	/* register module notifer */
-> +	register_module_notifier(&pgo_module_nb);
-> +
->  	/* show notice why the system slower: */
->  	pr_notice("Clang PGO instrumentation is active.");
->  
-> @@ -473,6 +581,9 @@ static int __init pgo_init(void)
->  /* Remove debugfs entries. */
->  static void __exit pgo_exit(void)
->  {
-> +	/* unsubscribe the notifier and do cleanup. */
-> +	unregister_module_notifier(&pgo_module_nb);
-> +
->  	debugfs_remove_recursive(directory);
->  }
->  
-> diff --git a/kernel/pgo/instrument.c b/kernel/pgo/instrument.c
-> index e214c9d7a113..70bab7e4c153 100644
-> --- a/kernel/pgo/instrument.c
-> +++ b/kernel/pgo/instrument.c
-> @@ -33,7 +33,6 @@
->   * ensures that we don't try to serialize data that's only partially updated.
->   */
->  static DEFINE_SPINLOCK(pgo_lock);
-> -static int current_node;
->  
->  unsigned long prf_lock(void)
->  {
-> @@ -62,8 +61,6 @@ static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data *p,
->  	struct llvm_prf_data *data_end;
->  	int max_vnds;
->  
-> -	rcu_read_lock();
-> -
-
-Please move these rcu locks change into the patch that introduces them
-to avoid adding those changes here.
-
->  	list_for_each_entry_rcu(po, &prf_list, link) {
->  		/* get section limits */
->  		max_vnds = prf_vnds_count(po);
-> @@ -76,7 +73,6 @@ static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data *p,
->  		 */
->  		if (memory_contains(po->data, data_end, p, sizeof(*p))) {
->  
-> -
->  			if (WARN_ON_ONCE(po->current_node >= max_vnds))
->  				return NULL; /* Out of nodes */
->  
-> @@ -87,7 +83,6 @@ static struct llvm_prf_value_node *allocate_node(struct llvm_prf_data *p,
->  	}
->  
->  out:
-> -	rcu_read_unlock();
->  	return vnode;
->  }
->  
-> @@ -108,8 +103,14 @@ void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index)
->  	u8 values = 0;
->  	unsigned long flags;
->  
-> +	/*
-> +	 * lock the underlying prf_object(s) in place,
-> +	 * so they won't vanish while we are operating on it.
-> +	 */
-> +	rcu_read_lock();
-> +
->  	if (!p || !p->values)
-> -		return;
-> +		goto rcu_unlock;
->  
->  	counters = (struct llvm_prf_value_node **)p->values;
->  	curr = counters[index];
-> @@ -117,7 +118,7 @@ void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index)
->  	while (curr) {
->  		if (target_value == curr->value) {
->  			curr->count++;
-> -			return;
-> +			goto rcu_unlock;
->  		}
->  
->  		if (curr->count < min_count) {
-> @@ -136,7 +137,7 @@ void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index)
->  			curr->value = target_value;
->  			curr->count++;
->  		}
-> -		return;
-> +		goto rcu_unlock;
->  	}
->  
->  	/* Lock when updating the value node structure. */
-> @@ -156,6 +157,8 @@ void __llvm_profile_instrument_target(u64 target_value, void *data, u32 index)
->  
->  out:
->  	prf_unlock(flags);
-> +rcu_unlock:
-> +	rcu_read_unlock();
->  }
->  EXPORT_SYMBOL(__llvm_profile_instrument_target);
->  
-> -- 
-> 2.32.0
-> 
-
+Similar to GCOV, the runtime support for exporting such data is
+heavily compiler (and compiler version) specific, as is the data
+format for compilers to consume.  We were able to reuse most of the
+runtime code between GCC and Clang support in GCOV; I don't see why we
+couldn't do a similar factoring of the runtime code being added to the
+kernel here, should anyone care to pursue implementing PGO with GCC.
+Having an implementation is a great starting point for folks looking
+to extend support or to understand how to support PGO in such a bare
+metal environment (one that doesn't dynamically link against
+traditional compiler runtimes).
 -- 
-Kees Cook
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106140855.2094DF30BB%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DaAo72j-iE2PNE5Os8BPc0y-Zs7ZoMzd21ck%2BQNeboBA%40mail.gmail.com.
