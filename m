@@ -1,47 +1,48 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBZHTTWDAMGQE7SSW2EQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBTPVTWDAMGQEQVC2ICY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x437.google.com (mail-wr1-x437.google.com [IPv6:2a00:1450:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8FFE73A6AD4
-	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 17:46:44 +0200 (CEST)
-Received: by mail-wr1-x437.google.com with SMTP id k11-20020adfe3cb0000b0290115c29d165csf7196745wrm.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 08:46:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623685604; cv=pass;
+Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 02EA63A6AEE
+	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 17:50:41 +0200 (CEST)
+Received: by mail-oo1-xc40.google.com with SMTP id c25-20020a4ad7990000b029020e67cc1879sf7179167oou.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 08:50:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623685839; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oVe7q3KERkXezNVPf6ZpmtlTY38Dco2JWelHhl2kfaaVIdckXmTBVrrRrgERFTqC9j
-         orO/wmR05ZhshBizHGxNnnE3ckOsYj9idihZmQBdhhg6TJltNMiHq93ujrct5dq5lXJh
-         bgJwEWRL/grlxZ9qrNvbA2oNyVC9GsaYXweLWr33mgXbjHEsCqT4+8Oj1IAD3ZQJHdsq
-         84weaF41OwG2smEnki3X5XT2nB9z2dn24FOyzbyg8eO9uswPtLAjOVSVUPIhMkq9Y2iF
-         mq6sx8QbbOI1nsv00lkXB5sdT75UYnShV/CLBX26adrumLWD/QcoNbbmE5V0KWVCs8zX
-         OB9g==
+        b=cg1xf42I0/KRL649luLQ0KFog6QWI1oKwx7bw78g2MA+8atMRno/PseZg5KlZAksI/
+         5UFSp8TbPZUNvq7LgmiSVpV9W371YjJPorGnOPJ8xZRRh1p39QneJeDuYv4tedMH98GW
+         E242YCwsIulmQgQHg0KaCxxR/83ChPbpWHjQA8oI/Mkj9GHXFRaoSpbko5Nx9qhbOJz6
+         k8dndMvenbX+nyvv0k9JdGsgd/64bK8HzYkl/EV+7Aj8V9ANT/bVSrfzICm1OclsI4U6
+         ovOtEyPUQPCV5/qt9LJSCy+Ync7gaNUXP4AA9naqA+ax5ukUaE0wk0SvDL4kd0rGx/Qj
+         sN6g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=m+iCX2jB7LFms5Gk2kSWctemoyIU8ThAvU1c7SAHxn4=;
-        b=RJKNAx4A5r3Y8e5BD6gzgFhaOTV1WmA7L7hRmEaHXEKbORXcoXqRGgZfO3NO9ZI0T1
-         q4y1tGCTaRX5OdvYz4g3LGqGY60We5B/erTEFkLiWzf32zj+SzKc4iu7Qg2hg4jPfHrs
-         Cb+JmMJntvjWYrs6MM4GTwcznKISODwPCLuWDueSXl97rxgGu5J99l4r+6K8dWLdIyyN
-         hkPgmn/lv5qCeolP9Jz9c/yujWeTz7/08AqnbufLdyM7fKF4gMwDR9+vTDRWAz+EwJ9l
-         D4sLIOcUce894538vImOOaL28SP+zdBDR1ODm2nhDSqtQY4oaPeLOiVeilO0s5GPmv1w
-         UoxQ==
+        bh=5twmDqYCOnPysqEHmuEYHDIABOgdqTIkmzlCbaih34w=;
+        b=L/Ykv+BqlKY45SZC2j5RcWrUFa0fopdyc6Q7/41yshmvDdkZg/kCekXpvgIY+ylJfM
+         +ePfqsTBEPrLyYasdxld0lksePMSXrsF8wvUVEa87iuhOUEGgB4P6A7Mg0VLqcpo/fhL
+         QYsK5qCVvdjEygS9i/DycXoWaw7HMgd3n4Ha6VRyvOo2WcgtDSwvhANOpCIPztPwT8xa
+         8J9Spwr8O2haABlLQBQbzzdHedydpWSgupsZYFxUGRcBU1yqdeQczmlcydhBc/XpsOBZ
+         7jJuGtROf/87PlmMP0rHGIFFV3Bl7kFeWlkeEkS8YPfO41Fq9MY+KXrwAr6auEcpXzKU
+         TIXw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b=ng9emBsk;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       dkim=pass header.i=@chromium.org header.s=google header.b=G8Ho3xNV;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=m+iCX2jB7LFms5Gk2kSWctemoyIU8ThAvU1c7SAHxn4=;
-        b=tUHe+xA0EtKS7q0ekPGq+iMoEhnp7DMnPpbii1IuiSW4u831a6TF19j4YsYE1CQZAo
-         YyvtSGcEf2GcVMy5LR+VNSMaJRlTqJa4AlNRu+wSPlEnqwXbjW4sR0uS3zArUVhy2llz
-         /4Qc0I9m2vE7kqTPEmbACyqVS3iFSXk3YUo/Hcu5fiJaJXHR6bpfoHSi0tydaL9VEHqC
-         co5Hu6e0q4oFcD6Io4sbFkSDMPy8uj8Wbvw/Yp665mvRqKZKvZMy8jzHaq9ygdGEAstA
-         avgRW7hfiqgKOV/+pV3rKZIzUxdIcZu8MsFt3LmPBsehWWDcMh2e1noUMg11Dlv7ET4U
-         tTTg==
+        bh=5twmDqYCOnPysqEHmuEYHDIABOgdqTIkmzlCbaih34w=;
+        b=GHzGLQNEufqAoqEo/HSWAjICAFxuR/yZzfRsPsKDpAVKQbDeIxf2Hsa7OJY0wJb8c3
+         TMfwzVRVlr0+Rnuu9YhX0eSiX3k7jV/5NP+URcS8PQK/V4nYs/fGSD4LMI2rpecJMSGu
+         dgmRnGOxf1HhcH3JnFs5kT5UIupsB2HpQXUqJVaaubBka32o0XOW/U0Jq1YGUt7P3Cqi
+         7Q4n6GhdvJiKHcR0XSbBAjD2ILcjz2D4RTB8HEo/BfiQlTZ33TQgJZoLxRQzDvCIdSMY
+         O9IC22W83Ed1L1rGDipIk+/r+pLprP7JwCH/mOfZbW5VOcAdRk7LQdMWAKFvdOCmEoJd
+         46uA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,98 +50,82 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=m+iCX2jB7LFms5Gk2kSWctemoyIU8ThAvU1c7SAHxn4=;
-        b=PWVGyeXn0TcX2+8xQyFXeHIGMpW1njXcPL8BLHfj+LHMG2IkogoPKkyw+rvtF70H7j
-         J49gF8QXRgn0/8hhyOI+DEFEWzJgVcsQhkl1D1z4dBdkEBWnZmbmSXGWFLbJrclDuI/A
-         fF2Qf6abOxyn5F8vjoz+iST/gdX2RVLh9EqZZZrR94JpN3b2VVi4JNCROGkCe3QaHdqN
-         kxLUBC6gocxuKdoe7yYhNIAN+21AwEGKALyhCnuu5bCDk574nk8GIf3GQvVO2gnCre8T
-         RiQ1jWEWUKkPRU0LrG3dPkbApfBMd4Po4A5aUVTgeCUZjwc6T+vVdLqL1LoEumGuxfEk
-         h/ag==
+        bh=5twmDqYCOnPysqEHmuEYHDIABOgdqTIkmzlCbaih34w=;
+        b=CC77NGSrphMKxGEiCDQh97n4+iadSj0QSktNmF1ZliqmefuIjZp2jPfv6H17JijXHJ
+         ACGlu8gjtUwfsTngdZ0J/UKxXyhgiUny5LZpfUMd5vW3GsnUJicK52F9VGTx7mUOi3qH
+         rXSVZjJOO61Cs2arInmGaIWPpZjLiYqI0TLY9SgdUpViBkefJwk02U5ZL7G854DCgJz0
+         WoM+MfhSPwGYd8ZEqtCOad006yqtY2SoCfVHItEGjBBWtpyQJdIqOfEhiz4Ap5PPWCnS
+         vryK+3TH8ZojIJ/aIfvDBoZ3BnoMqB44k0Tm/WXIjlqRlNmjyhNgyrd5FqDdp/2DD7Wh
+         Kyaw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532F85on9IOUcgzi5vUqPQF1n0YLYz7S0TFzSw8eAuYEM8p7eoMo
-	QkVPPpWNm5tkqwVvpc652rY=
-X-Google-Smtp-Source: ABdhPJxWU+xhoiD37zojYITLRqaOp6GhqJoJYv6E2Aoh49XKeXVv2XCN1ZdVXmDhWX9CThBM3Orf/Q==
-X-Received: by 2002:a05:600c:4ecc:: with SMTP id g12mr34026031wmq.40.1623685604333;
-        Mon, 14 Jun 2021 08:46:44 -0700 (PDT)
+X-Gm-Message-State: AOAM533s5JWerP3kk+Nqah1USBbXxnkq1q/yZRUVnnxmY1+2fEzTexq+
+	waP+RUah/yfyr2w/EbpzGPY=
+X-Google-Smtp-Source: ABdhPJy4kjKi8NdpA8xH045+qtg9x/yo5eBZTmcTidMdITAmP9G2JepUIx61cKQnTTYdzBPVIO5H3A==
+X-Received: by 2002:a4a:9251:: with SMTP id g17mr13830405ooh.52.1623685837847;
+        Mon, 14 Jun 2021 08:50:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:a141:: with SMTP id r1ls12478822wrr.3.gmail; Mon, 14 Jun
- 2021 08:46:43 -0700 (PDT)
-X-Received: by 2002:adf:e109:: with SMTP id t9mr19483268wrz.372.1623685603491;
-        Mon, 14 Jun 2021 08:46:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623685603; cv=none;
+Received: by 2002:aca:b102:: with SMTP id a2ls5212172oif.5.gmail; Mon, 14 Jun
+ 2021 08:50:37 -0700 (PDT)
+X-Received: by 2002:a54:4710:: with SMTP id k16mr22345395oik.143.1623685837220;
+        Mon, 14 Jun 2021 08:50:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623685837; cv=none;
         d=google.com; s=arc-20160816;
-        b=B4V3fFnZRM0Lyk/W/stkFmb69M/YsgzWxzXkvqCuVgfTqkzqLuzNVwzQfZqohHlvpd
-         1wTT0Jyh0+TA1SheXzyZ6yM4uJGWAknU+foRpZqudhYOq/RcORN+yTT/fOxB+xnrTdMb
-         P1mYS+rz0Hsf6CYHBu4nnA9lcpq6vjQbEA/12j6vPR26ErjT87n2R8JtS3jTGNUI1yZm
-         NO1owvoUBqOXTZqvNca3OcnQZMEJfTy5XNhwpqSDR4s3tS7jWv+UTH4rWTjCTxnAXn7/
-         /DZcFweszG47WqwaKaNn/mJI20IEgPz/KyM+pUBu3OX8oWe4k+i2ZdtvxcG0SBNeybs6
-         R2Ww==
+        b=fg95mTL76jsgOI5gDGIyft8EDG3wZOdgm+PVuB17SJXu2Cj4da5hfKg2gpxPWOd06Y
+         NqO4eTcR676dYn6Md2yPq0qlDGnLtuhCdQ3R22f84qs/R6OK0xjikqikhJkdE/b+PtT4
+         I4Mw9111Xl5id9WUaNyOpDFTlXE6EonRGisW6ETCUpg97JpjOAEGm/RKkjY54wZPQZnT
+         uJ3zh3O4YEwMvQXX/U24BUinzAbLWJBvpIwYfQ+GzfPHbL33Xy34XHXL7UIsY/ZT7g7b
+         z6L/5QwaLLkObrVMXjXsUH26BeKIfgrRblxfbyhySXh2k8BdA78O1N2+AQ5qXX2XVwtP
+         uR8A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=QYZbYwbmFAlPHZAyueGumfXzbFC24Yyq8ZlF/TwUjkw=;
-        b=AKvXShutqWbwy/eWBgW0V6G4JxRrtW4xBKd4p7DBkBaRy7aE9Aqykbl6DN/2MFiHVM
-         HH/4LaAaEasr7Uh7gOZiKPP22+Q8eRafPRJgdoIAGUOOgoYE3J0mElcTLe9NJEPTXxGd
-         rW3JSKBd2XhG2i7S+DO5wwD0bMBKFRa5YSzA36VekykGBUStpVgLS0Xo67hBP7Ce3ejG
-         lzVM7G/q8OZ2z5iQqpvgG0EyzTItP519wLVrGve1oiHnNidPUnFwRrA4EjuexifjQxoV
-         4jDQnIk20zvoh61rIfOUV8Tdw3LV0WmInzAmZymm0AmG9w+LlJ4HyfT3mj7cMPnVe8hU
-         AJyA==
+        bh=8qXeARDYuQsLS9D8sVeex1QzQKpRZqM4RtDuxL1tv14=;
+        b=PXWPFNCNLJLYt9u8/XipRpRObOTLE1T3pfUYD5RxTJSE8tKGO1ndXksGObs/isPSm5
+         Y+65tgVdB9eii6ZTdFu2sUaRG7+RNq/IXw60cIFx+8vzCgtbh8HTtUPEuQPZLj4t6xE+
+         HJ6Q7KjEJkaPcLBdsFXY/tD2SOeKwE2SmRG5OOm1NH0ElOYKbojO1xAPw4DgJ2I8Yfph
+         KciXoJoaZR0uNGDEu7LzB36vXvRXr5bZwCmkdo2fjRLvH1sYrdduhbapSgXFHUFF6Fa1
+         OOIcNhx37AZX51fDxENAZJ4MVPD1FDsI9/6dDkvy71j3t4mo7XbFWyJPrAlcBFP7zOgF
+         LHBQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b=ng9emBsk;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from desiato.infradead.org (desiato.infradead.org. [2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-        by gmr-mx.google.com with ESMTPS id h7si17434wml.3.2021.06.14.08.46.43
+       dkim=pass header.i=@chromium.org header.s=google header.b=G8Ho3xNV;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pf1-x429.google.com (mail-pf1-x429.google.com. [2607:f8b0:4864:20::429])
+        by gmr-mx.google.com with ESMTPS id u128si1908653oif.2.2021.06.14.08.50.37
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 14 Jun 2021 08:50:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429 as permitted sender) client-ip=2607:f8b0:4864:20::429;
+Received: by mail-pf1-x429.google.com with SMTP id k15so10853192pfp.6
+        for <clang-built-linux@googlegroups.com>; Mon, 14 Jun 2021 08:50:37 -0700 (PDT)
+X-Received: by 2002:a62:8f81:0:b029:2e9:c6d9:df67 with SMTP id n123-20020a628f810000b02902e9c6d9df67mr22526082pfd.52.1623685836890;
+        Mon, 14 Jun 2021 08:50:36 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id 35sm13574654pgs.35.2021.06.14.08.50.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jun 2021 08:46:43 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) client-ip=2001:8b0:10b:1:d65d:64ff:fe57:4e05;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=worktop.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1lsonJ-0074ny-On; Mon, 14 Jun 2021 15:46:40 +0000
-Received: by worktop.programming.kicks-ass.net (Postfix, from userid 1000)
-	id CF1C59831CA; Mon, 14 Jun 2021 17:46:39 +0200 (CEST)
-Date: Mon, 14 Jun 2021 17:46:39 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Kees Cook <keescook@chromium.org>
-Cc: Marco Elver <elver@google.com>, Bill Wendling <morbo@google.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
+        Mon, 14 Jun 2021 08:50:36 -0700 (PDT)
+Date: Mon, 14 Jun 2021 08:50:35 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Jarmo Tiitto <jarmo.tiitto@gmail.com>
+Cc: Sami Tolvanen <samitolvanen@google.com>, Bill Wendling <wcw@google.com>,
+	Nathan Chancellor <nathan@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Fangrui Song <maskray@google.com>,
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>, johannes.berg@intel.com,
-	oberpar@linux.vnet.ibm.com, linux-toolchains@vger.kernel.org
-Subject: Re: [PATCH v9] pgo: add clang's Profile Guided Optimization
- infrastructure
-Message-ID: <20210614154639.GB68749@worktop.programming.kicks-ass.net>
-References: <CAGG=3QXjD1DQjACu=CQQSP=whue-14Pw8FcNcXrJZfLC_E+y9w@mail.gmail.com>
- <YMT5xZsZMX0PpDKQ@hirez.programming.kicks-ass.net>
- <CAGG=3QVHkkJ236mCJ8Jt_6JtgYtWHV9b4aVXnoj6ypc7GOnc0A@mail.gmail.com>
- <20210612202505.GG68208@worktop.programming.kicks-ass.net>
- <CAGG=3QUZ9tXGNLhbOr+AFDTJABDujZuaG1mYaLKdTcJZguEDWw@mail.gmail.com>
- <YMca2aa+t+3VrpN9@hirez.programming.kicks-ass.net>
- <CAGG=3QVPCuAx9UMTOzQp+8MJk8KVyOfaYeV0yehpVwbCaYMVpg@mail.gmail.com>
- <YMczJGPsxSWNgJMG@hirez.programming.kicks-ass.net>
- <CANpmjNNnZv7DHYaJBL7knn9P+50F+SOCvis==Utaf-avENnVsw@mail.gmail.com>
- <202106140817.F584D2F@keescook>
+	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
+	morbo@google.com
+Subject: Re: [RFC PATCH 5/5] pgo: Cleanup code in pgo/fs.c
+Message-ID: <202106140849.F65DB86@keescook>
+References: <20210612032425.11425-1-jarmo.tiitto@gmail.com>
+ <20210612032425.11425-6-jarmo.tiitto@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <202106140817.F584D2F@keescook>
-X-Original-Sender: peterz@infradead.org
+In-Reply-To: <20210612032425.11425-6-jarmo.tiitto@gmail.com>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=desiato.20200630 header.b=ng9emBsk;
-       spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as
- permitted sender) smtp.mailfrom=peterz@infradead.org
+ header.i=@chromium.org header.s=google header.b=G8Ho3xNV;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,35 +138,189 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 14, 2021 at 08:26:01AM -0700, Kees Cook wrote:
-> > 2. Like (1) but also keep GCOV, given proper support for attribute
-> > no_instrument_function would probably fix it (?).
-> > 
-> > 3. Keep GCOV (and KCOV of course). Somehow extract PGO profiles from KCOV.
-> > 
-> > 4. Somehow extract PGO profiles from GCOV, or modify kernel/gcov to do so.
+On Sat, Jun 12, 2021 at 06:24:26AM +0300, Jarmo Tiitto wrote:
+> Cleanups to comments and punctuation.
+> Cleanup return path in pgo_module_init.
+
+Can you include these changes in the patches that introduce the various
+comments, etc? It looks like most (all?) are from patches in this
+series.
+
+-Kees
+
 > 
-> If there *is* a way to "combine" these, I don't think it makes sense
-> to do it now. PGO has users (and is expanding[1]), and trying to
-> optimize the design before even landing the first version seems like a
-> needless obstruction, and to likely not address currently undiscovered
-> requirements.
+> Signed-off-by: Jarmo Tiitto <jarmo.tiitto@gmail.com>
+> ---
+>  kernel/pgo/fs.c | 47 +++++++++++++++++++++++------------------------
+>  1 file changed, 23 insertions(+), 24 deletions(-)
+> 
+> diff --git a/kernel/pgo/fs.c b/kernel/pgo/fs.c
+> index 98b982245b58..855d5e3050fa 100644
+> --- a/kernel/pgo/fs.c
+> +++ b/kernel/pgo/fs.c
+> @@ -294,7 +294,7 @@ static int prf_open(struct inode *inode, struct file *file)
+>  	int err = -EINVAL;
+>  
+>  	if (WARN_ON(!inode->i_private)) {
+> -		/* bug: inode was not initialized by us */
+> +		/* Bug: inode was not initialized by us. */
+>  		return err;
+>  	}
+>  
+> @@ -302,7 +302,7 @@ static int prf_open(struct inode *inode, struct file *file)
+>  	if (!data)
+>  		return -ENOMEM;
+>  
+> -	/* Get prf_object of this inode */
+> +	/* Get prf_object of this inode. */
+>  	data->core = inode->i_private;
+>  
+>  	/* Get initial buffer size. */
+> @@ -425,17 +425,17 @@ static void pgo_module_init(struct module *mod)
+>  	char fname[MODULE_NAME_LEN + 9]; /* +strlen(".profraw") */
+>  	unsigned long flags;
+>  
+> -	/* add new prf_object entry for the module */
+> +	/* Add new prf_object entry for the module. */
+>  	po = kzalloc(sizeof(*po), GFP_KERNEL);
+>  	if (!po)
+> -		goto out;
+> +		return; /* -ENOMEM */
+>  
+>  	po->mod_name = mod->name;
+>  
+>  	fname[0] = 0;
+>  	snprintf(fname, sizeof(fname), "%s.profraw", po->mod_name);
+>  
+> -	/* setup prf_object sections */
+> +	/* Setup prf_object sections. */
+>  	po->data = mod->prf_data;
+>  	po->data_num = prf_get_count(mod->prf_data,
+>  		(char *)mod->prf_data + mod->prf_data_size, sizeof(po->data[0]));
+> @@ -452,20 +452,19 @@ static void pgo_module_init(struct module *mod)
+>  	po->vnds_num = prf_get_count(mod->prf_vnds,
+>  		(char *)mod->prf_vnds + mod->prf_vnds_size, sizeof(po->vnds[0]));
+>  
+> -	/* create debugfs entry */
+> +	/* Create debugfs entry. */
+>  	po->file = debugfs_create_file(fname, 0600, directory, po, &prf_fops);
+>  	if (!po->file) {
+>  		pr_err("Failed to setup module pgo: %s", fname);
+>  		kfree(po);
+> -		goto out;
+> -	}
+>  
+> -	/* finally enable profiling for the module */
+> -	flags = prf_list_lock();
+> -	list_add_tail_rcu(&po->link, &prf_list);
+> -	prf_list_unlock(flags);
+> +	} else {
+> +		/* Finally enable profiling for the module. */
+> +		flags = prf_list_lock();
+> +		list_add_tail_rcu(&po->link, &prf_list);
+> +		prf_list_unlock(flags);
+> +	}
+>  
+> -out:
+>  	return;
+>  }
+>  
+> @@ -477,33 +476,33 @@ static int pgo_module_notifier(struct notifier_block *nb, unsigned long event,
+>  	unsigned long flags;
+>  
+>  	if (event == MODULE_STATE_LIVE) {
+> -		/* does the module have profiling info? */
+> +		/* Does the module have profiling info? */
+>  		if (mod->prf_data
+>  			&& mod->prf_cnts
+>  			&& mod->prf_names
+>  			&& mod->prf_vnds) {
+>  
+> -			/* setup module profiling */
+> +			/* Setup module profiling. */
+>  			pgo_module_init(mod);
+>  		}
+>  	}
+>  
+>  	if (event == MODULE_STATE_GOING) {
+> -		/* find the prf_object from the list */
+> +		/* Find the prf_object from the list. */
+>  		rcu_read_lock();
+>  
+>  		list_for_each_entry_rcu(po, &prf_list, link) {
+>  			if (strcmp(po->mod_name, mod->name) == 0)
+>  				goto out_unlock;
+>  		}
+> -		/* no such module */
+> +		/* No such module. */
+>  		po = NULL;
+>  
+>  out_unlock:
+>  		rcu_read_unlock();
+>  
+>  		if (po) {
+> -			/* remove from profiled modules */
+> +			/* Remove from profiled modules. */
+>  			flags = prf_list_lock();
+>  			list_del_rcu(&po->link);
+>  			prf_list_unlock(flags);
+> @@ -511,7 +510,7 @@ static int pgo_module_notifier(struct notifier_block *nb, unsigned long event,
+>  			debugfs_remove(po->file);
+>  			po->file = NULL;
+>  
+> -			/* cleanup memory */
+> +			/* Cleanup memory. */
+>  			kfree_rcu(po, rcu);
+>  		}
+>  	}
+> @@ -528,7 +527,7 @@ static int __init pgo_init(void)
+>  {
+>  	unsigned long flags;
+>  
+> -	/* Init profiler vmlinux core entry */
+> +	/* Init profiler vmlinux core entry. */
+>  	memset(&prf_vmlinux, 0, sizeof(prf_vmlinux));
+>  	prf_vmlinux.data = __llvm_prf_data_start;
+>  	prf_vmlinux.data_num = prf_get_count(__llvm_prf_data_start,
+> @@ -546,7 +545,7 @@ static int __init pgo_init(void)
+>  	prf_vmlinux.vnds_num = prf_get_count(__llvm_prf_vnds_start,
+>  		__llvm_prf_vnds_end, sizeof(__llvm_prf_vnds_start[0]));
+>  
+> -	/* enable profiling */
+> +	/* Enable profiling. */
+>  	flags = prf_list_lock();
+>  	prf_vmlinux.mod_name = "vmlinux";
+>  	list_add_tail_rcu(&prf_vmlinux.link, &prf_list);
+> @@ -565,10 +564,10 @@ static int __init pgo_init(void)
+>  				 &prf_reset_fops))
+>  		goto err_remove;
+>  
+> -	/* register module notifer */
+> +	/* Register module notifer. */
+>  	register_module_notifier(&pgo_module_nb);
+>  
+> -	/* show notice why the system slower: */
+> +	/* Show notice why the system slower: */
+>  	pr_notice("Clang PGO instrumentation is active.");
+>  
+>  	return 0;
+> @@ -581,7 +580,7 @@ static int __init pgo_init(void)
+>  /* Remove debugfs entries. */
+>  static void __exit pgo_exit(void)
+>  {
+> -	/* unsubscribe the notifier and do cleanup. */
+> +	/* Unsubscribe the notifier and do cleanup. */
+>  	unregister_module_notifier(&pgo_module_nb);
+>  
+>  	debugfs_remove_recursive(directory);
+> -- 
+> 2.32.0
+> 
 
-Even if that were so (and I'm not yet convinced), the current proposal
-is wedded to llvm-pgo, there is no way gcc-pgo could reuse any of this
-code afaict, which then means they have to create yet another variant.
-
-Sorting this *before* the first version is exactly the right time.
-
-Since when are we merging code when the requirements are not clear?
-
-Just to clarify:
-
-Nacked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-
-For all this PGO crud.
+-- 
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210614154639.GB68749%40worktop.programming.kicks-ass.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106140849.F65DB86%40keescook.
