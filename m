@@ -1,133 +1,127 @@
-Return-Path: <clang-built-linux+bncBC5KPPH4YUKRBOEFUKDAMGQEAJHY7EA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRB7EVUKDAMGQEVWAQYII@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id D72443A7C16
-	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 12:36:41 +0200 (CEST)
-Received: by mail-pf1-x437.google.com with SMTP id e17-20020aa798110000b02902f12fffef4esf10027473pfl.7
-        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 03:36:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623753400; cv=pass;
+Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7F5D53A7CEA
+	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 13:11:57 +0200 (CEST)
+Received: by mail-oo1-xc40.google.com with SMTP id c25-20020a4ad7990000b029020e67cc1879sf8845980oou.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 04:11:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623755516; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nLOiGesCUPiqF6168k43Rmb26qFVXuND+9jhafrOtl3To2Db5WP0PygYTRlHf/5vd1
-         H4PoP8e1KPqkX85gvDy2xy37iH8BL/lsssrG87fBHL5fctzYmx5F14sO0oBnOcDwGKt/
-         EvefygPD9O8hEIALd22vb/iusLx45eJZCIvJoPuTvr+9kxzUFJOC0qnTp88kSaDpYJib
-         rRiLbMXOxr43SHMKM86WEdIYcWbWL92RfmKm67ylOXvc9QItE3uWGuHsRnkF71iA3f5m
-         68J/gKwcwTTH+HP6lx3tAyrSjkYW7EOIB4g7PT6E4SW6YxXL+n5nbkGoHOHHa9TPmS3y
-         tI3w==
+        b=xl9tdcAPKT3W4Cw7MwkEAoLAVX/Cj7L2GSVIf/+SCmNGUkQM9IaeSrDlA65Hr58bMQ
+         Eq+iaQKtYf/iY1FKp93ENX5i1yPuf+9qOIpAHGRIaZyUC66QFZNvOboIcWRyISZEbK5Z
+         XUfi6p7IQ4nj35wsaQBRVg1dKgJpTa2MYO0OMGJNMhOarySlrom1HiY8RFQ8SZfo1jgM
+         nrN/jk+qIP2ZK/yhmJjIrtzRwyJKJypr59PtguDYofH3BIJ2z1r8STey66M/NWAW2cX8
+         kr50Uf7fS2wKHKoWgRpSDxQa1LXXqCT6rBquMuC8CcKrCCRTWA+SjS1SczUZruBNmKaX
+         qHHQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature;
-        bh=lJmup0bVSTTMwbAZXDWlkEqfFTbLjL59L0Si8NTr8/4=;
-        b=WG5F+drYzKni/R9Rwh9Igd3FJwisnBmNq/6SBlDewl9i3s4DNnxzgUqOiY9PDPKOtB
-         w62ntm244eNISV1DPHSW7UybDZ40mvCes+irfYH1jv5OLrpahg5XUBv8QjZST0JQ2BYE
-         k2aFKbC4zBigRRYUjD0dfpjjNA7ebroiPvIncf40xHaiUoUCVyOvxCvmUjGOmjSMIqqe
-         RZA7gnBz65ECsFUyBFsQ7J8O1zPEhBzwTLkh09FvlbWHVwVp8dip56uVAx8KP2U85lFx
-         wNvWqRxonOkb4WIrfrkklEPFWqziJwjZgaWxsDKR9Ul58zg8amai9a2JCMFIRkDlg8PN
-         mlNQ==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=p484eWdZj8J+I738zuqNteT2mmPEFcltwOyQvhd0ATE=;
+        b=tDe3Y8C1CKrbtteLwmNmrfAkXKzge/leBARH0DiPlh9szwK8OyU/bFoQTJiQfrKgM+
+         7HaJYLlGStgkaiMXP+fRgrFGaCnCHesxOI5xbFj+nmeUO+luW6tjI8SEul77ekmmxLaj
+         hxE//oNHQZn2TLWxq4eZkSByQGpfsHGdW+q0NAehGLUkLPQPuKb/3KnVzuRSGvSk4osf
+         10a9UzXmZJzIyWzxN9t9OSjieBR6SctW2SXBgTQbLFNjwUaf7MfjxrvvcDh4c0utDf3i
+         Smg3W1lrqitkUZcDr9+j7jCDRYnZVqbS2e9Q/fdgExDaCp5jklQJqzLy1MSqcQKD3Lku
+         sB9Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=02TQV5tK;
+       spf=neutral (google.com: 2607:f8b0:4864:20::102c is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lJmup0bVSTTMwbAZXDWlkEqfFTbLjL59L0Si8NTr8/4=;
-        b=Pwfgk/ks9HAZXN6g/zUazNJvhe2bMolNaFhQuTNTzj8Tah/KBRUGGRbdaz8fiCsR6k
-         0uU1A6R3PVFhVVRezGTlqpV0lbBpr4vN2FoPeH9hkD9E9i9NntSLLYkkM5xd/JRrTDPH
-         Hy/bnvPvXcoU+9Sowi4NH5zQcxMt5g4B9gtKLnNzAhUapPug3NEVlDYAJo+Nwuh2m6A5
-         jKpodueQ7b5i7W3ZjIX2ofgcW18WmnKG+LoLf4ktDGn7R63DJr7fjPQkL7eJvXu1W0yC
-         WqiGXCnG2WQ73ICiA2/q3T3PhiOteB4AINfkgguHNGQBAeDi8Wu8dglGvAywIzDLQJs6
-         sijg==
+        bh=p484eWdZj8J+I738zuqNteT2mmPEFcltwOyQvhd0ATE=;
+        b=IgW0tFKjNecK7gjUMzYtYqeS6gruNxuP0TXBIOTYcrbarbERExLw4SfATMwVcL+IrW
+         lYtrXaWOWfafg1RWMg/YsQhZcc2jcdO6+9zKYPDrf1SGSvkwAM6nMwjZ+yk4bCl+/FQK
+         cDJXr7AAKbrSb82Y84BkXOOBZTXo/s1apgX7rJv1OHnktqcs+ge0tAYMODwCun/qi6YE
+         0coBlcG/YbCe4YdSv3K5p+wFtvAL20ilJ0Snq6m7+86yqHJDkfsv8FGAhffaxJCbC+VM
+         P8OuaR/ThRYXC+X9ajg4/W/WhxUAVfAfRzpjIwvZTg5MeJMrXgfCYVJ+SUbibXyu4fVz
+         U8dg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lJmup0bVSTTMwbAZXDWlkEqfFTbLjL59L0Si8NTr8/4=;
-        b=t8xv3xvInoGBonECkidk3uqKTtEx4drzBYhlgEzZFiGcdC7I/xfe8KqKVDBk/9Z8mc
-         DGp7ruP1+G8FMIOQ/3Z7loNhCCBJVdT4VGasSWnRpkKzhHHFXt4fHNYmA0anh2rHpq1P
-         JcoN1yI464J1aFdfWNs3Kdoozm6z+NHRb38n+4ePUIrpugT7FS6ZPl5MqDL8lh9apLkJ
-         UAVcM9DrfHg8Y53eCPL7JrDlodRGde8iU81BM3Ahnp/S+gFgCDWHRl5E0CCSdeREaxDM
-         5M8F6WUqe6oSR33gPgUB67DLq2t0Zdd18wQghfAFa7wkwGdi7Q06vWF5AV8pG2cLutVf
-         LrPw==
+        bh=p484eWdZj8J+I738zuqNteT2mmPEFcltwOyQvhd0ATE=;
+        b=ejCHbm2by/LvhakloYsEZ1EhaGp/bBBWHdnUWQoufbr1wkEFMSdSQgkw9PaAlRT5GA
+         Q4Z50HY2dX47uEgBWDvK05xH14CPBsuTBsGbjnQdJnoJEKg2wJCR7DFmqiVVai0UOipv
+         ixc41vHjSUHmYMLnF9QEDSoZ37QCOUymc7l+8jYj2y32WSRIMiw1RQfThY/gf/R76x/t
+         KbeanrXxw/inh26Sxe92CIYfsQtdAF0D+zo0wrB6AXTJESVO6ih5PpnVzox/D7os21XX
+         CKrw42OvfZ+9eH3m0Gcql8ccxbF6T+uslViqFt8VcWB5Lp6LZjqDfFZrBEV7vwFHzqbY
+         cQmQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530BAdSWEmV/yE2ODvA+Cmr/1/aeiGkVmm2eoD8A6k17KmAT72t9
-	/gnYnQD/eGJGtwY2qU8p9HM=
-X-Google-Smtp-Source: ABdhPJzc+Mj/L94n9PMGdS3PI9bk0QO7dC5M/mOpqaTlqlXZDQdqxkLpc0yh5TyxB15hssgo0/m+Nw==
-X-Received: by 2002:a17:902:9b8a:b029:110:56f0:b275 with SMTP id y10-20020a1709029b8ab029011056f0b275mr3697194plp.30.1623753400547;
-        Tue, 15 Jun 2021 03:36:40 -0700 (PDT)
+X-Gm-Message-State: AOAM5319QUTtEBjMokcy1U+ggmhcii1KxqweBVusZsaOIHjEFzNlwrYA
+	XwJO65wXvmMzBrprHtBiyNk=
+X-Google-Smtp-Source: ABdhPJxgeZXeyftPaF9xzL2JUDLJ+Yy3Y5M+0B0UIJPeYKqXvlroO7AY055EMYsVpkhMPvTRLpyDqQ==
+X-Received: by 2002:aca:c492:: with SMTP id u140mr2886532oif.20.1623755516399;
+        Tue, 15 Jun 2021 04:11:56 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:4a42:: with SMTP id lb2ls2295962pjb.1.gmail; Tue, 15
- Jun 2021 03:36:40 -0700 (PDT)
-X-Received: by 2002:a17:902:778d:b029:119:3443:9ebd with SMTP id o13-20020a170902778db029011934439ebdmr3623459pll.45.1623753399888;
-        Tue, 15 Jun 2021 03:36:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623753399; cv=none;
+Received: by 2002:a05:6830:1e45:: with SMTP id e5ls7237721otj.6.gmail; Tue, 15
+ Jun 2021 04:11:56 -0700 (PDT)
+X-Received: by 2002:a9d:426:: with SMTP id 35mr16863196otc.162.1623755515832;
+        Tue, 15 Jun 2021 04:11:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623755515; cv=none;
         d=google.com; s=arc-20160816;
-        b=fffn2wmRjpBY97p8X2lumDljjqCCPVuMFQOv0xfT1qlHfZsWxedbpUj9pbPvZA1XCv
-         7Kgdp7Er3TUbBbmFJaJV1InsHY5cMKGccy1Q7PWl+CwC0nbAp64dvXqY4KEybpmndgEu
-         oh/hTapH6gS2KPh7wblC7/3J+cz0bHzkRjPtuEgsbdqL2SkDTDqdWAOqKva9rjjW7b2/
-         emaNiX+lLbWWyOJjCJTZqpSymc/LSfsy7xC4xKiKtD+FlVZtHz9+lIGBvXeUuGcIpgF1
-         m0r51/Y8rTOWFv8Q+6sTu1yN6/QDsHLTEozl8nrVkwUZeao796M5UfPVOZNk249IccG3
-         ekGg==
+        b=b2dy0wT3Yoj9HwFicoBwZilpq1MAryFE2JyiqdrzckGBA2LT/ADWniab6EkU83JHj9
+         DlRsfgAX5b5GCsI14ZDavzKButRpzscgH0jMxkn4gEJw+LzEEYqtoHdNUhKS7ZdOHmqo
+         wTZnL7gQM8wqfxDiXHbB8XA658rPobxZSYKjbvPQ9Wr4NOfxs8Y5T80VegrnJ96LKiUu
+         6JwjOj5sF4odq/qzUs34oXUFSqAZW2NJvSVoIOsj01ykrVgFgIuYOUhj1BwNjgi0mY/t
+         zuoe8M4p1M3SJLsHGgd80GAulAPKYAgjNYQWJPGSvGiNRl56OOyHBZaT12aJkZIBwiDw
+         bfrQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=djAlKe1K1IjS25Qd8x/dpp8LLKYOtegSzTJN1t5l+/4=;
-        b=MglcSYdjiuEROXPmVJEligk15u3grkse4sRz+47bgjR1MC0qB3E2E70CFEs6Ahq+/N
-         2A9sASfdLpj9gZltLG+BOx6lX8oU8MNz3l331ljiidyhZ0FSLu5dWNf8pbJCPOf3lNVy
-         Nd5T7wEV9hrC1zDxhySrsM8v5OIR0YNI8PbGDklDkVukHzKvvziYDy3bvccGOsJ9jrpu
-         sPzTNikne+smYZxYwgoUWAUpHMzADjrcjgDjFyPnT66ugWyyjyKaA2jP5V0J4qQp29kc
-         Ovm461afTTsZ8xWpd+6YgNbdgDkeWUSZabv7728vE+k74MI5ZRg6TIYCS4ffVsTaIyyn
-         N/uA==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=Y53v54suRM7ZgGeCxJcV/LkZb58KeknbPxjnD3hL7/A=;
+        b=e5PCOhKNPZJaNowiSESZV6VLOpgDE0o1YigPxMdRPKcCQwPQZj6RjRWlp005SnIpNY
+         YitVMSb+ILxPNOfQgIHX0N2Qvda9BQ22VCAzN9heEZa6aTE7XIPuuezX3zv6P0GY4y54
+         UF/2nkYfai686WrwasZvMYhdrgLzNtLlnxxnrd/QcEg/3+oFRizOqMxS+5aLKrvZJrKS
+         4LbDm/TaGgmM3U6WDdPEnr8QQk4o2WKpb4t8aMmccSSiTExUtL6aYxYVOqnxerUC5Zer
+         x9sxNZBImrv8f6SX/Fl5jHxN3GjgnmBHShMEdz6R1qQUiMz35av2ds0lQ6cEVg0UA5aU
+         5Yuw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
-Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [46.235.227.227])
-        by gmr-mx.google.com with ESMTPS id y205si260280pfc.6.2021.06.15.03.36.39
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=02TQV5tK;
+       spf=neutral (google.com: 2607:f8b0:4864:20::102c is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pj1-x102c.google.com (mail-pj1-x102c.google.com. [2607:f8b0:4864:20::102c])
+        by gmr-mx.google.com with ESMTPS id m16si283571oih.4.2021.06.15.04.11.55
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 15 Jun 2021 03:36:39 -0700 (PDT)
-Received-SPF: pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) client-ip=46.235.227.227;
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	(Authenticated sender: gtucker)
-	with ESMTPSA id 307111F42E8A
-Subject: Re: #KCIDB engagement report
-To: Nikolai Kondrashov <Nikolai.Kondrashov@redhat.com>, kernelci@groups.io,
- =?UTF-8?B?TWljaGHFgiBHYcWCa2E=?= <michal.galka@collabora.com>
-Cc: keescook@chromium.org, Nick Desaulniers <ndesaulniers@google.com>,
- "automated-testing@yoctoproject.org" <automated-testing@yoctoproject.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Vishal Bhoj <vishal.bhoj@linaro.org>,
- Antonio Terceiro <antonio.terceiro@linaro.org>,
- Remi Duraffort <remi.duraffort@linaro.org>
-References: <5a9bf050-0671-3273-cc4f-1b131445c1fe@redhat.com>
- <CAKwvOdmwRV6R6dcpcSL06SNVQ1_JwvOJMZPYiHKvjSx4sf_95g@mail.gmail.com>
- <202106011315.432A65D6@keescook>
- <774899c5-c20a-3d7e-3289-ee257b86e06e@collabora.com>
- <CAMbaCcc4-n022x97S-6ur8P9xKcp3cNMhK31y2GJLnd5PVOM-g@mail.gmail.com>
-From: Guillaume Tucker <guillaume.tucker@collabora.com>
-Message-ID: <b42c0a0d-8764-3e8d-f195-f2c231878c60@collabora.com>
-Date: Tue, 15 Jun 2021 11:36:34 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
-MIME-Version: 1.0
-In-Reply-To: <CAMbaCcc4-n022x97S-6ur8P9xKcp3cNMhK31y2GJLnd5PVOM-g@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Jun 2021 04:11:55 -0700 (PDT)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::102c is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::102c;
+Received: by mail-pj1-x102c.google.com with SMTP id o10-20020a17090aac0ab029016e92770073so1992021pjq.5
+        for <clang-built-linux@googlegroups.com>; Tue, 15 Jun 2021 04:11:55 -0700 (PDT)
+X-Received: by 2002:a17:903:2307:b029:11d:60c0:9e with SMTP id d7-20020a1709032307b029011d60c0009emr3106117plh.66.1623755512848;
+        Tue, 15 Jun 2021 04:11:52 -0700 (PDT)
+Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id h4sm2682488pjv.55.2021.06.15.04.11.52
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Jun 2021 04:11:52 -0700 (PDT)
+Message-ID: <60c88af8.1c69fb81.cb7e.7d94@mx.google.com>
+Date: Tue, 15 Jun 2021 04:11:52 -0700 (PDT)
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
+MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: guillaume.tucker@collabora.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of guillaume.tucker@collabora.com designates
- 46.235.227.227 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+X-Kernelci-Report-Type: build
+X-Kernelci-Kernel: next-20210615
+X-Kernelci-Branch: master
+X-Kernelci-Tree: next
+Subject: next/master build: 213 builds: 5 failed, 208 passed, 32 errors,
+ 250 warnings (next-20210615)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=02TQV5tK;       spf=neutral (google.com: 2607:f8b0:4864:20::102c is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,135 +134,2362 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 15/06/2021 10:58, Nikolai Kondrashov wrote:
-> Guillaume,
->=20
-> I checked the database, and the submission queue logs and could only find=
- the build itself, but no tests. They were probably lost somewhere before K=
-CIDB.
+next/master build: 213 builds: 5 failed, 208 passed, 32 errors, 250 warning=
+s (next-20210615)
 
-Right, I think this is at least part of the issue:
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20210615/
 
-  ValidationError: 'kselftest-futex.breakpoints:step_after_suspend_test' do=
-es not match '^[.a-zA-Z0-9_-]*$'
+Tree: next
+Branch: master
+Git Describe: next-20210615
+Git Commit: 19ae1f2bd9c091059f80646604ccef8a1e614f57
+Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
+t
+Built: 7 unique architectures
 
-Micha=C5=82, is this going to get resolved with the fix you're making
-for invalid characters in test case names?
+Build Failures Detected:
 
-Cheers,
-Guillaume
+arc:
+    allnoconfig: (gcc-8) FAIL
+    nsimosci_hs_smp_defconfig: (gcc-8) FAIL
 
-> On Fri, 11 Jun 2021 at 19:12, Guillaume Tucker <guillaume.tucker@collabor=
-a.com <mailto:guillaume.tucker@collabora.com>> wrote:
->=20
->     Hi Kees,
->=20
->     On 01/06/2021 21:26, Kees Cook wrote:
->     > On Mon, May 24, 2021 at 10:38:22AM -0700, 'Nick Desaulniers' via Cl=
-ang Built Linux wrote:
->     >> On Mon, May 24, 2021 at 12:50 AM Nikolai Kondrashov
->     >> <Nikolai.Kondrashov@redhat.com <mailto:Nikolai.Kondrashov@redhat.c=
-om>> wrote:
->     >>> [...]
->     >>>=C2=A0 =C2=A0 =C2=A0 KernelCI native
->     >>>=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 Sending (a lot of) production b=
-uild and test results.
->     >>>=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 https://staging.kernelci.org:30=
-00/?var-origin=3Dkernelci <https://staging.kernelci.org:3000/?var-origin=3D=
-kernelci>
->     >>> [...]
->     >
->     > Apologies for the thread hijack, but does anyone know what's happen=
-ing
->     > with kselftest? It seems missing from the listed[1] build artifacts=
-, but
->     > it is actually present[2] (and I see the logs for generating the ta=
-rball
->     > there too), but I can't find any builds that actually run the tests=
-?
->     >
->     > (Or how do I see a top-level list of all tests and search it?)
->=20
->     The kselftest results are all there on the KernelCI native
->     dashboard, for example the futex tests:
->=20
->     =C2=A0 https://linux.kernelci.org/test/job/mainline/branch/master/ker=
-nel/v5.13-rc5-74-g06af8679449d/plan/kselftest-futex/ <https://linux.kernelc=
-i.org/test/job/mainline/branch/master/kernel/v5.13-rc5-74-g06af8679449d/pla=
-n/kselftest-futex/>
->=20
->=20
->     Here's a set of passing results on a "coral" x86 Chromebook, with
->     a bunch of unknowns but that's because other kselftests are being
->     run when they shouldn't (net, mqueue, ptrace) so it's noise which
->     should get resolved with a fix soon:
->=20
->     =C2=A0 https://linux.kernelci.org/test/plan/id/60c2bf67ed48b86ffe0c0d=
-f8/ <https://linux.kernelci.org/test/plan/id/60c2bf67ed48b86ffe0c0df8/>
->=20
->=20
->     And here are the full kernel build details:
->=20
->     =C2=A0 https://linux.kernelci.org/build/id/60c2bdeea60229633d0c0f0c/ =
-<https://linux.kernelci.org/build/id/60c2bdeea60229633d0c0f0c/>
->=20
->     and artifacts (logs, binaries, meta-data in JSON):
->=20
->     =C2=A0 https://storage.kernelci.org/mainline/master/v5.13-rc5-74-g06a=
-f8679449d/x86_64/x86_64_defconfig+x86-chromebook+kselftest/gcc-8/ <https://=
-storage.kernelci.org/mainline/master/v5.13-rc5-74-g06af8679449d/x86_64/x86_=
-64_defconfig+x86-chromebook+kselftest/gcc-8/>
->=20
->=20
->     So this is the original data, now let's look at what we have in
->     KCIDB.=C2=A0 Here's the matching build:
->=20
->     =C2=A0 https://kcidb.kernelci.org/d/build/build?orgId=3D1&var-dataset=
-=3Dkernelci04&var-id=3Dkernelci:kernelci.org:60c2bdeea60229633d0c0f0c <http=
-s://kcidb.kernelci.org/d/build/build?orgId=3D1&var-dataset=3Dkernelci04&var=
--id=3Dkernelci:kernelci.org:60c2bdeea60229633d0c0f0c>
->=20
->     However there's no results, probably because submitting the data
->     failed for some reason.=C2=A0 It could be due to some invalid
->     characters in the test names.=C2=A0 The Log link works though, it
->     takes you to the directory with all the log files - to be
->     improved as it's advertised as a single build log...
->=20
->     So we'll take a closer look, see if there were any errors in the
->     logs to find out why the results aren't in KCIDB.=C2=A0 But the
->     kselftests were definitely run.
->=20
->=20
->     Thanks,
->     Guillaume
->=20
->     > [1] https://kcidb.kernelci.org/d/build/build?orgId=3D1&var-dataset=
-=3Dkernelci04&var-id=3Dkernelci:kernelci.org:60b654321456eb7654b3afa6&fulls=
-creen&panelId=3D17 <https://kcidb.kernelci.org/d/build/build?orgId=3D1&var-=
-dataset=3Dkernelci04&var-id=3Dkernelci:kernelci.org:60b654321456eb7654b3afa=
-6&fullscreen&panelId=3D17>
->     > [2] https://storage.kernelci.org//mainline/master/v5.13-rc4-11-gc21=
-31f7e73c9/x86_64/x86_64_defconfig+x86-chromebook+kselftest/gcc-8/ <https://=
-storage.kernelci.org//mainline/master/v5.13-rc4-11-gc2131f7e73c9/x86_64/x86=
-_64_defconfig+x86-chromebook+kselftest/gcc-8/>
->=20
->=20
->     -=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-
->     Groups.io Links: You receive all messages sent to this group.
->     View/Reply Online (#1136): https://groups.io/g/kernelci/message/1136 =
-<https://groups.io/g/kernelci/message/1136>
->     Mute This Topic: https://groups.io/mt/83045962/3616695 <https://group=
-s.io/mt/83045962/3616695>
->     Mute #kcidb:https://groups.io/g/kernelci/mutehashtag/kcidb <https://g=
-roups.io/g/kernelci/mutehashtag/kcidb>
->     Group Owner: kernelci+owner@groups.io <mailto:kernelci%2Bowner@groups=
-.io>
->     Unsubscribe: https://groups.io/g/kernelci/unsub <https://groups.io/g/=
-kernelci/unsub> [Nikolai.Kondrashov@redhat.com <mailto:Nikolai.Kondrashov@r=
-edhat.com>]
->     -=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-
->=20
->=20
+mips:
+    decstation_64_defconfig: (gcc-8) FAIL
+    lemote2f_defconfig: (gcc-8) FAIL
+
+riscv:
+    rv32_defconfig: (gcc-8) FAIL
+
+Errors and Warnings Detected:
+
+arc:
+    allnoconfig (gcc-8): 8 errors, 1 warning
+    axs103_defconfig (gcc-8): 2 warnings
+    axs103_smp_defconfig (gcc-8): 2 warnings
+    haps_hs_defconfig (gcc-8): 2 warnings
+    haps_hs_smp_defconfig (gcc-8): 2 warnings
+    haps_hs_smp_defconfig+kselftest (gcc-8): 3 warnings
+    hsdk_defconfig (gcc-8): 1 warning
+    nsimosci_hs_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_smp_defconfig (gcc-8): 8 errors, 2 warnings
+    vdk_hs38_defconfig (gcc-8): 2 warnings
+    vdk_hs38_smp_defconfig (gcc-8): 2 warnings
+
+arm64:
+    allmodconfig (clang-12): 2 warnings
+    defconfig (clang-10): 1 warning
+    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-10): 1 warning
+
+arm:
+    allmodconfig (gcc-8): 1 warning
+    am200epdkit_defconfig (gcc-8): 1 warning
+    aspeed_g4_defconfig (gcc-8): 1 warning
+    aspeed_g5_defconfig (gcc-8): 1 warning
+    aspeed_g5_defconfig (clang-10): 2 warnings
+    aspeed_g5_defconfig (clang-12): 2 warnings
+    assabet_defconfig (gcc-8): 1 warning
+    at91_dt_defconfig (gcc-8): 1 warning
+    axm55xx_defconfig (gcc-8): 4 warnings
+    badge4_defconfig (gcc-8): 1 warning
+    bcm2835_defconfig (gcc-8): 1 warning
+    cerfcube_defconfig (gcc-8): 1 warning
+    cm_x300_defconfig (gcc-8): 1 warning
+    colibri_pxa270_defconfig (gcc-8): 2 warnings
+    colibri_pxa300_defconfig (gcc-8): 1 warning
+    collie_defconfig (gcc-8): 1 warning
+    corgi_defconfig (gcc-8): 1 warning
+    davinci_all_defconfig (gcc-8): 1 warning
+    dove_defconfig (gcc-8): 1 warning
+    ep93xx_defconfig (gcc-8): 1 warning
+    eseries_pxa_defconfig (gcc-8): 1 warning
+    exynos_defconfig (gcc-8): 1 warning
+    ezx_defconfig (gcc-8): 1 warning
+    footbridge_defconfig (gcc-8): 1 warning
+    gemini_defconfig (gcc-8): 1 warning
+    h3600_defconfig (gcc-8): 1 warning
+    h5000_defconfig (gcc-8): 1 warning
+    hackkit_defconfig (gcc-8): 1 warning
+    hisi_defconfig (gcc-8): 1 warning
+    imote2_defconfig (gcc-8): 1 warning
+    imx_v4_v5_defconfig (gcc-8): 1 warning
+    imx_v6_v7_defconfig (gcc-8): 1 warning
+    integrator_defconfig (gcc-8): 1 warning
+    iop32x_defconfig (gcc-8): 1 warning
+    ixp4xx_defconfig (gcc-8): 1 warning
+    jornada720_defconfig (gcc-8): 1 warning
+    keystone_defconfig (gcc-8): 3 warnings
+    lart_defconfig (gcc-8): 1 warning
+    lpc18xx_defconfig (gcc-8): 2 warnings
+    lpc32xx_defconfig (gcc-8): 1 warning
+    lpd270_defconfig (gcc-8): 1 warning
+    lubbock_defconfig (gcc-8): 1 warning
+    magician_defconfig (gcc-8): 1 warning
+    mainstone_defconfig (gcc-8): 1 warning
+    milbeaut_m10v_defconfig (gcc-8): 1 warning
+    mini2440_defconfig (gcc-8): 2 warnings
+    mmp2_defconfig (gcc-8): 1 warning
+    moxart_defconfig (gcc-8): 1 warning
+    mps2_defconfig (gcc-8): 2 warnings
+    multi_v4t_defconfig (gcc-8): 1 warning
+    multi_v5_defconfig (gcc-8): 1 warning
+    multi_v5_defconfig (clang-12): 2 warnings
+    multi_v5_defconfig (clang-10): 2 warnings
+    multi_v7_defconfig (gcc-8): 1 warning
+    multi_v7_defconfig (clang-12): 4 warnings
+    multi_v7_defconfig (clang-10): 4 warnings
+    multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 1 warning
+    multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (gcc-8): 3 warnin=
+gs
+    multi_v7_defconfig+CONFIG_SMP=3Dn (gcc-8): 1 warning
+    multi_v7_defconfig+kselftest (gcc-8): 1 warning
+    mvebu_v5_defconfig (gcc-8): 1 warning
+    mvebu_v7_defconfig (gcc-8): 1 warning
+    mxs_defconfig (gcc-8): 1 warning
+    neponset_defconfig (gcc-8): 1 warning
+    netwinder_defconfig (gcc-8): 1 warning
+    nhk8815_defconfig (gcc-8): 2 warnings
+    omap1_defconfig (gcc-8): 1 warning
+    omap2plus_defconfig (gcc-8): 1 warning
+    orion5x_defconfig (gcc-8): 1 warning
+    oxnas_v6_defconfig (gcc-8): 1 warning
+    palmz72_defconfig (gcc-8): 1 warning
+    pcm027_defconfig (gcc-8): 1 warning
+    pleb_defconfig (gcc-8): 1 warning
+    pxa168_defconfig (gcc-8): 1 warning
+    pxa255-idp_defconfig (gcc-8): 1 warning
+    pxa3xx_defconfig (gcc-8): 1 warning
+    pxa910_defconfig (gcc-8): 1 warning
+    pxa_defconfig (gcc-8): 2 warnings
+    qcom_defconfig (gcc-8): 1 warning
+    realview_defconfig (gcc-8): 1 warning
+    s3c2410_defconfig (gcc-8): 1 warning
+    s3c6400_defconfig (gcc-8): 1 warning
+    s5pv210_defconfig (gcc-8): 1 warning
+    sama5_defconfig (gcc-8): 1 warning
+    shannon_defconfig (gcc-8): 1 warning
+    shmobile_defconfig (gcc-8): 1 warning
+    simpad_defconfig (gcc-8): 1 warning
+    socfpga_defconfig (gcc-8): 1 warning
+    spear13xx_defconfig (gcc-8): 1 warning
+    spear3xx_defconfig (gcc-8): 1 warning
+    spear6xx_defconfig (gcc-8): 1 warning
+    spitz_defconfig (gcc-8): 1 warning
+    stm32_defconfig (gcc-8): 2 warnings
+    sunxi_defconfig (gcc-8): 1 warning
+    tct_hammer_defconfig (gcc-8): 1 warning
+    tegra_defconfig (gcc-8): 1 warning
+    trizeps4_defconfig (gcc-8): 2 warnings
+    u8500_defconfig (gcc-8): 1 warning
+    versatile_defconfig (gcc-8): 1 warning
+    vexpress_defconfig (gcc-8): 1 warning
+    vf610m4_defconfig (gcc-8): 2 warnings
+    viper_defconfig (gcc-8): 1 warning
+    vt8500_v6_v7_defconfig (gcc-8): 1 warning
+    xcep_defconfig (gcc-8): 2 warnings
+    zeus_defconfig (gcc-8): 1 warning
+
+i386:
+    allmodconfig (clang-12): 4 warnings
+    allnoconfig (clang-10): 2 warnings
+    allnoconfig (gcc-8): 1 warning
+    allnoconfig (clang-12): 2 warnings
+    i386_defconfig (clang-10): 2 warnings
+    i386_defconfig (gcc-8): 1 warning
+    i386_defconfig (clang-12): 2 warnings
+    i386_defconfig+kselftest (gcc-8): 1 warning
+
+mips:
+    32r2el_defconfig (gcc-8): 1 warning
+    32r2el_defconfig+kselftest (gcc-8): 1 warning
+    ar7_defconfig (gcc-8): 1 warning
+    ath25_defconfig (gcc-8): 1 warning
+    ath79_defconfig (gcc-8): 1 warning
+    bcm47xx_defconfig (gcc-8): 1 warning
+    bcm63xx_defconfig (gcc-8): 1 warning
+    bmips_be_defconfig (gcc-8): 1 warning
+    bmips_stb_defconfig (gcc-8): 1 warning
+    capcella_defconfig (gcc-8): 2 warnings
+    ci20_defconfig (gcc-8): 1 warning
+    cobalt_defconfig (gcc-8): 2 warnings
+    cu1000-neo_defconfig (gcc-8): 1 warning
+    cu1830-neo_defconfig (gcc-8): 1 warning
+    db1xxx_defconfig (gcc-8): 1 warning
+    decstation_defconfig (gcc-8): 1 warning
+    decstation_r4k_defconfig (gcc-8): 1 warning
+    e55_defconfig (gcc-8): 1 warning
+    gcw0_defconfig (gcc-8): 1 warning
+    gpr_defconfig (gcc-8): 1 warning
+    ip22_defconfig (gcc-8): 1 warning
+    jazz_defconfig (gcc-8): 1 warning
+    jmr3927_defconfig (gcc-8): 1 warning
+    loongson1b_defconfig (gcc-8): 1 warning
+    loongson1c_defconfig (gcc-8): 1 warning
+    malta_defconfig (gcc-8): 1 warning
+    malta_kvm_defconfig (gcc-8): 1 warning
+    malta_qemu_32r6_defconfig (gcc-8): 1 warning
+    maltaaprp_defconfig (gcc-8): 1 warning
+    maltasmvp_defconfig (gcc-8): 1 warning
+    maltasmvp_eva_defconfig (gcc-8): 1 warning
+    maltaup_defconfig (gcc-8): 1 warning
+    maltaup_xpa_defconfig (gcc-8): 1 warning
+    mpc30x_defconfig (gcc-8): 2 warnings
+    mtx1_defconfig (gcc-8): 1 warning
+    nlm_xlp_defconfig (gcc-8): 1 warning
+    nlm_xlr_defconfig (gcc-8): 1 warning
+    omega2p_defconfig (gcc-8): 1 warning
+    pic32mzda_defconfig (gcc-8): 1 warning
+    pistachio_defconfig (gcc-8): 1 warning
+    qi_lb60_defconfig (gcc-8): 1 warning
+    rb532_defconfig (gcc-8): 1 warning
+    rbtx49xx_defconfig (gcc-8): 1 warning
+    rm200_defconfig (gcc-8): 9 warnings
+    rt305x_defconfig (gcc-8): 1 warning
+    sb1250_swarm_defconfig (gcc-8): 1 warning
+    tb0219_defconfig (gcc-8): 1 warning
+    tb0226_defconfig (gcc-8): 1 warning
+    tb0287_defconfig (gcc-8): 1 warning
+    vocore2_defconfig (gcc-8): 1 warning
+    workpad_defconfig (gcc-8): 2 warnings
+
+riscv:
+    nommu_k210_defconfig (gcc-8): 1 warning
+    nommu_k210_sdcard_defconfig (gcc-8): 1 warning
+    rv32_defconfig (gcc-8): 16 errors, 11 warnings
+
+x86_64:
+    x86_64_defconfig (clang-10): 2 warnings
+
+Errors summary:
+
+    8    arch/riscv/include/asm/pgtable.h:521:9: error: incompatible types =
+when returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =
+=E2=80=98struct <anonymous>=E2=80=99} was expected
+    8    arch/riscv/include/asm/pgtable.h:521:9: error: implicit declaratio=
+n of function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=
+=80=99? [-Werror=3Dimplicit-function-declaration]
+    2    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `=
+__softirqentry_text_end'
+    2    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `=
+__softirqentry_text_start'
+    2    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `=
+__irqentry_text_end'
+    2    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `_=
+_softirqentry_text_end'
+    2    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `_=
+_softirqentry_text_start'
+    2    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `_=
+_irqentry_text_end'
+    1    stackdepot.c:(.text+0x4ac): undefined reference to `__irqentry_tex=
+t_start'
+    1    stackdepot.c:(.text+0x4): undefined reference to `__irqentry_text_=
+start'
+    1    arc-elf32-ld: stackdepot.c:(.text+0x4ac): undefined reference to `=
+__irqentry_text_start'
+    1    arc-elf32-ld: stackdepot.c:(.text+0x4): undefined reference to `__=
+irqentry_text_start'
+
+Warnings summary:
+
+    162  include/linux/minmax.h:20:28: warning: comparison of distinct poin=
+ter types lacks a cast
+    20   net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=
+=E2=80=99 defined but not used [-Wunused-function]
+    15   1 warning generated.
+    11   fs/io_uring.c:7095:28: warning: comparison of distinct pointer typ=
+es ('typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *'=
+ (aka 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    8    cc1: some warnings being treated as errors
+    6    include/linux/rmap.h:293:34: warning: statement with no effect [-W=
+unused-value]
+    3    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%x=E2=
+=80=99 expects argument of type =E2=80=98unsigned int=E2=80=99, but argumen=
+t 3 has type =E2=80=98phys_addr_t=E2=80=99 {aka =E2=80=98long long unsigned=
+ int=E2=80=99} [-Wformat=3D]
+    3    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%x=E2=
+=80=99 expects argument of type =E2=80=98unsigned int=E2=80=99, but argumen=
+t 2 has type =E2=80=98phys_addr_t=E2=80=99 {aka =E2=80=98long long unsigned=
+ int=E2=80=99} [-Wformat=3D]
+    2    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:976:48: warning: implici=
+t conversion from 'unsigned long long' to 'unsigned long' changes value fro=
+m 5000000000 to 705032704 [-Wconstant-conversion]
+    1    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
+e of 1332 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
+=3D]
+    1    fs/cifs/dfs_cache.c:1433:1: warning: the frame size of 1120 bytes =
+is larger than 1024 bytes [-Wframe-larger-than=3D]
+    1    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBYFS_CallBack=
+_name=E2=80=99 defined but not used [-Wunused-variable]
+    1    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBTellMeAboutY=
+ourself_name=E2=80=99 defined but not used [-Wunused-variable]
+    1    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBProbe_name=
+=E2=80=99 defined but not used [-Wunused-variable]
+    1    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBProbeUuid_na=
+me=E2=80=99 defined but not used [-Wunused-variable]
+    1    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBInitCallBack=
+State_name=E2=80=99 defined but not used [-Wunused-variable]
+    1    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBInitCallBack=
+State3_name=E2=80=99 defined but not used [-Wunused-variable]
+    1    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBCallBack_nam=
+e=E2=80=99 defined but not used [-Wunused-variable]
+    1    drivers/staging/greybus/audio_topology.c:977:12: warning: stack fr=
+ame size of 3312 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-la=
+rger-than=3D]
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_relocate_parse_slow()+0x427: stack state mismatch: cfa1=3D4+120 cfa2=3D-=
+1+0
+    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
+eb_copy_relocations()+0x1d5: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
+    1    drivers/block/paride/bpck.c:32: warning: "PC" redefined
+    1    arch/arc/include/asm/perf_event.h:91:27: warning: =E2=80=98arc_pmu=
+_ev_hw_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
+    1    arch/arc/include/asm/perf_event.h:126:23: warning: =E2=80=98arc_pm=
+u_cache_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
+ib/modules/5.13.0-rc6-next-20210615/kernel/drivers/media/tuners/tuner-types=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+    1    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
+ib/modules/5.13.0-rc6-next-20210615/kernel/drivers/media/tuners/tuner-types=
+.ko: unsupported GNU_PROPERTY_TYPE (5) type: 0x  STRIP   /tmp/kci/linux/bui=
+ld/_modules_/lib/modules/5.13.0-rc6-next-20210615/kernel/drivers/media/tune=
+rs/xc5000.ko
+    1    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    1    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    1    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warnin=
+g, 0 section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 4 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    fs/io_uring.c:7095:28: warning: comparison of distinct pointer types ('=
+typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *' (aka=
+ 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
+1332 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
+    1 warning generated.
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-12) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/staging/greybus/audio_topology.c:977:12: warning: stack frame s=
+ize of 3312 bytes in function 'gbaudio_tplg_create_widget' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/io_uring.c:7095:28: warning: comparison of distinct pointer types ('=
+typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *' (aka=
+ 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 FAIL, 8 errors, 1 warning, 0 section mis=
+matches
+
+Errors:
+    stackdepot.c:(.text+0x4ac): undefined reference to `__irqentry_text_sta=
+rt'
+    arc-elf32-ld: stackdepot.c:(.text+0x4ac): undefined reference to `__irq=
+entry_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `__irq=
+entry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `__irq=
+entry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `__sof=
+tirqentry_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `__sof=
+tirqentry_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `__sof=
+tirqentry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `__sof=
+tirqentry_text_end'
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/io_uring.c:7095:28: warning: comparison of distinct pointer types ('=
+typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *' (aka=
+ 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    fs/io_uring.c:7095:28: warning: comparison of distinct pointer types ('=
+typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *' (aka=
+ 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    fs/io_uring.c:7095:28: warning: comparison of distinct pointer types ('=
+typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *' (aka=
+ 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%x=E2=80=99 =
+expects argument of type =E2=80=98unsigned int=E2=80=99, but argument 2 has=
+ type =E2=80=98phys_addr_t=E2=80=99 {aka =E2=80=98long long unsigned int=E2=
+=80=99} [-Wformat=3D]
+    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%x=E2=80=99 =
+expects argument of type =E2=80=98unsigned int=E2=80=99, but argument 3 has=
+ type =E2=80=98phys_addr_t=E2=80=99 {aka =E2=80=98long long unsigned int=E2=
+=80=99} [-Wformat=3D]
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+cu1830-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning,=
+ 0 section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
+dules/5.13.0-rc6-next-20210615/kernel/drivers/media/tuners/tuner-types.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0x  STRIP   /tmp/kci/linux/build/_m=
+odules_/lib/modules/5.13.0-rc6-next-20210615/kernel/drivers/media/tuners/xc=
+5000.ko
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-12) =E2=80=94 PASS, 0 er=
+rors, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 error=
+s, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-10) =E2=80=94 PASS, 0 er=
+rors, 1 warning, 0 section mismatches
+
+Warnings:
+    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
+dules/5.13.0-rc6-next-20210615/kernel/drivers/media/tuners/tuner-types.ko: =
+unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_EFI=3Dn (riscv, clang-12) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 wa=
+rnings, 0 section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    arch/arc/include/asm/perf_event.h:126:23: warning: =E2=80=98arc_pmu_cac=
+he_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
+    arch/arc/include/asm/perf_event.h:91:27: warning: =E2=80=98arc_pmu_ev_h=
+w_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:7095:28: warning: comparison of distinct pointer types ('=
+typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *' (aka=
+ 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:7095:28: warning: comparison of distinct pointer types ('=
+typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *' (aka=
+ 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning,=
+ 0 section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%x=E2=80=99 =
+expects argument of type =E2=80=98unsigned int=E2=80=99, but argument 2 has=
+ type =E2=80=98phys_addr_t=E2=80=99 {aka =E2=80=98long long unsigned int=E2=
+=80=99} [-Wformat=3D]
+    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%x=E2=80=99 =
+expects argument of type =E2=80=98unsigned int=E2=80=99, but argument 3 has=
+ type =E2=80=98phys_addr_t=E2=80=99 {aka =E2=80=98long long unsigned int=E2=
+=80=99} [-Wformat=3D]
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+loongson2k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/rmap.h:293:34: warning: statement with no effect [-Wunuse=
+d-value]
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
+, 0 section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/rmap.h:293:34: warning: statement with no effect [-Wunuse=
+d-value]
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    fs/io_uring.c:7095:28: warning: comparison of distinct pointer types ('=
+typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *' (aka=
+ 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    fs/io_uring.c:7095:28: warning: comparison of distinct pointer types ('=
+typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *' (aka=
+ 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 4 warnings, 0 =
+section mismatches
+
+Warnings:
+    fs/io_uring.c:7095:28: warning: comparison of distinct pointer types ('=
+typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *' (aka=
+ 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    1 warning generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:976:48: warning: implicit con=
+version from 'unsigned long long' to 'unsigned long' changes value from 500=
+0000000 to 705032704 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 4 warnings, 0 =
+section mismatches
+
+Warnings:
+    fs/io_uring.c:7095:28: warning: comparison of distinct pointer types ('=
+typeof (size) *' (aka 'unsigned int *') and 'typeof (((1UL) << 12)) *' (aka=
+ 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+    1 warning generated.
+    drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c:976:48: warning: implicit con=
+version from 'unsigned long long' to 'unsigned long' changes value from 500=
+0000000 to 705032704 [-Wconstant-conversion]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 1 warning, 0 section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 3 warnings, 0 section mismatches
+
+Warnings:
+    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%x=E2=80=99 =
+expects argument of type =E2=80=98unsigned int=E2=80=99, but argument 2 has=
+ type =E2=80=98phys_addr_t=E2=80=99 {aka =E2=80=98long long unsigned int=E2=
+=80=99} [-Wformat=3D]
+    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%x=E2=80=99 =
+expects argument of type =E2=80=98unsigned int=E2=80=99, but argument 3 has=
+ type =E2=80=98phys_addr_t=E2=80=99 {aka =E2=80=98long long unsigned int=E2=
+=80=99} [-Wformat=3D]
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 =
+warning, 0 section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warni=
+ng, 0 section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/cifs/dfs_cache.c:1433:1: warning: the frame size of 1120 bytes is la=
+rger than 1024 bytes [-Wframe-larger-than=3D]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    include/linux/rmap.h:293:34: warning: statement with no effect [-Wunuse=
+d-value]
+
+---------------------------------------------------------------------------=
+-----
+nommu_k210_sdcard_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warn=
+ing, 0 section mismatches
+
+Warnings:
+    include/linux/rmap.h:293:34: warning: statement with no effect [-Wunuse=
+d-value]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 FAIL, 8 errors, 2 warnings=
+, 0 section mismatches
+
+Errors:
+    stackdepot.c:(.text+0x4): undefined reference to `__irqentry_text_start=
+'
+    arc-elf32-ld: stackdepot.c:(.text+0x4): undefined reference to `__irqen=
+try_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `__irqe=
+ntry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `__irqe=
+ntry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `__soft=
+irqentry_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `__soft=
+irqentry_text_start'
+    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `__soft=
+irqentry_text_end'
+    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `__soft=
+irqentry_text_end'
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBYFS_CallBack_name=
+=E2=80=99 defined but not used [-Wunused-variable]
+    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBTellMeAboutYourse=
+lf_name=E2=80=99 defined but not used [-Wunused-variable]
+    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBProbeUuid_name=E2=
+=80=99 defined but not used [-Wunused-variable]
+    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBProbe_name=E2=80=
+=99 defined but not used [-Wunused-variable]
+    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBInitCallBackState=
+3_name=E2=80=99 defined but not used [-Wunused-variable]
+    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBInitCallBackState=
+_name=E2=80=99 defined but not used [-Wunused-variable]
+    fs/afs/cmservice.c:34:21: warning: =E2=80=98_afs_SRXCBCallBack_name=E2=
+=80=99 defined but not used [-Wunused-variable]
+    drivers/block/paride/bpck.c:32: warning: "PC" redefined
+
+---------------------------------------------------------------------------=
+-----
+rs90_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 FAIL, 16 errors, 11 warnings, 0 sec=
+tion mismatches
+
+Errors:
+    arch/riscv/include/asm/pgtable.h:521:9: error: implicit declaration of =
+function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
+ [-Werror=3Dimplicit-function-declaration]
+    arch/riscv/include/asm/pgtable.h:521:9: error: incompatible types when =
+returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
+=80=98struct <anonymous>=E2=80=99} was expected
+    arch/riscv/include/asm/pgtable.h:521:9: error: implicit declaration of =
+function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
+ [-Werror=3Dimplicit-function-declaration]
+    arch/riscv/include/asm/pgtable.h:521:9: error: incompatible types when =
+returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
+=80=98struct <anonymous>=E2=80=99} was expected
+    arch/riscv/include/asm/pgtable.h:521:9: error: implicit declaration of =
+function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
+ [-Werror=3Dimplicit-function-declaration]
+    arch/riscv/include/asm/pgtable.h:521:9: error: incompatible types when =
+returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
+=80=98struct <anonymous>=E2=80=99} was expected
+    arch/riscv/include/asm/pgtable.h:521:9: error: implicit declaration of =
+function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
+ [-Werror=3Dimplicit-function-declaration]
+    arch/riscv/include/asm/pgtable.h:521:9: error: incompatible types when =
+returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
+=80=98struct <anonymous>=E2=80=99} was expected
+    arch/riscv/include/asm/pgtable.h:521:9: error: implicit declaration of =
+function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
+ [-Werror=3Dimplicit-function-declaration]
+    arch/riscv/include/asm/pgtable.h:521:9: error: incompatible types when =
+returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
+=80=98struct <anonymous>=E2=80=99} was expected
+    arch/riscv/include/asm/pgtable.h:521:9: error: implicit declaration of =
+function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
+ [-Werror=3Dimplicit-function-declaration]
+    arch/riscv/include/asm/pgtable.h:521:9: error: incompatible types when =
+returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
+=80=98struct <anonymous>=E2=80=99} was expected
+    arch/riscv/include/asm/pgtable.h:521:9: error: implicit declaration of =
+function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
+ [-Werror=3Dimplicit-function-declaration]
+    arch/riscv/include/asm/pgtable.h:521:9: error: incompatible types when =
+returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
+=80=98struct <anonymous>=E2=80=99} was expected
+    arch/riscv/include/asm/pgtable.h:521:9: error: implicit declaration of =
+function =E2=80=98pfn_pmd=E2=80=99; did you mean =E2=80=98pfn_pgd=E2=80=99?=
+ [-Werror=3Dimplicit-function-declaration]
+    arch/riscv/include/asm/pgtable.h:521:9: error: incompatible types when =
+returning type =E2=80=98int=E2=80=99 but =E2=80=98pmd_t=E2=80=99 {aka =E2=
+=80=98struct <anonymous>=E2=80=99} was expected
+
+Warnings:
+    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    cc1: some warnings being treated as errors
+    cc1: some warnings being treated as errors
+    cc1: some warnings being treated as errors
+    cc1: some warnings being treated as errors
+    cc1: some warnings being treated as errors
+    cc1: some warnings being treated as errors
+    cc1: some warnings being treated as errors
+    cc1: some warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/rmap.h:293:34: warning: statement with no effect [-Wunuse=
+d-value]
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/rmap.h:293:34: warning: statement with no effect [-Wunuse=
+d-value]
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_re=
+locate_parse_slow()+0x427: stack state mismatch: cfa1=3D4+120 cfa2=3D-1+0
+    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
+py_relocations()+0x1d5: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+x86-chromebook (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0=
+ warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+x86-chromebook+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0=
+ errors, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+x86_kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 =
+warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+    net/xfrm/xfrm_output.c:140:12: warning: =E2=80=98xfrm6_hdr_offset=E2=80=
+=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/minmax.h:20:28: warning: comparison of distinct pointer t=
+ypes lacks a cast
+
+---
+For more info write to <info@kernelci.org>
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -276,4 +2497,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/b42c0a0d-8764-3e8d-f195-f2c231878c60%40collabora.com.
+clang-built-linux/60c88af8.1c69fb81.cb7e.7d94%40mx.google.com.
