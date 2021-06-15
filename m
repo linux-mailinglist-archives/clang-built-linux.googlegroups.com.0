@@ -1,121 +1,161 @@
-Return-Path: <clang-built-linux+bncBCM2HQW3QYHRB7U6UODAMGQE5L27FJQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCP35GGZRMDRB5FQUODAMGQEVPOCSAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x140.google.com (mail-lf1-x140.google.com [IPv6:2a00:1450:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id A385A3A8604
-	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 18:04:15 +0200 (CEST)
-Received: by mail-lf1-x140.google.com with SMTP id 76-20020a190c4f0000b02902e8d879d2f2sf7252153lfm.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 09:04:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623773055; cv=pass;
+Received: from mail-lj1-x23f.google.com (mail-lj1-x23f.google.com [IPv6:2a00:1450:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1B56F3A86B7
+	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 18:42:29 +0200 (CEST)
+Received: by mail-lj1-x23f.google.com with SMTP id o15-20020a2e9b4f0000b029015ae56d3aa0sf3142007ljj.0
+        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 09:42:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623775348; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PYF2ckSGnIHihLnUp7B7pi4ZRCjLKQq8b1Si2/m36OoN8mx1GeaI32adwy0SfUcISb
-         oL0O4FovZHxm2ZGvwjaRk2nYFj8zObBdx2kmaEc2CZ1jGY/4lgU06iXsnO3kq0+st8Un
-         BBAKqs0IFxvmis5MByYVI5kol9IZrE4yDED+A07aYJYmR+wuNNrCYyWXHAM0Tqc6l3p4
-         Mg0+Ym0EjGJpFlCUt8AKXX2xtVlQbA+9aoR6CJ+xHqXGcPOPDK61hIbuZOhmp6+8wSO5
-         aPevyEoW0G/yPRWMj5tb9DvA0h0g1/5vuJyA8G8fmpYw0qg0SNt1UuPD1QliYmojE/Rf
-         QezA==
+        b=w2hSoqEzZpopZOP4x0FhvXTxFKDsLneH2cQzeFdRri8c2MmeBnSfXxt/O5jMYgXaKT
+         e4/mhiEYk9MtudnPky11a5GnTUSKWFmdYw0HFVpQhkPRYMAjvam3gkDDCx4Z0OGfslkx
+         2Vs3/Chx5hKs3dDHKlRb6fksk3auVfTY+/49UonM7qwffqcsXUHSUQHnZj0Uobx/NgB+
+         Y2vgNaMN62hgAsrLiMraWz6CR+qYYcitOCt2IZGbJRDP8B5F7AKxULcmhS3fOhxhC3pK
+         jNf5JgWrxHNuT/8YvF/nOQ/7dnIPbx6TUtl6s+zlcwLGhQxT3f6gAMd2mbdlx7AUTkfb
+         ELcA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature
          :dkim-signature;
-        bh=kU3Ke3/QVS5cVqZ90EQXBCA7kKeRG9SjK0Z/y2HMPmI=;
-        b=tTSlBjpxHm5/SJM3qT411FbbUI9JroQkjQi7OQWkULLvSMDnVOiyAtmhMfkz5nNKSN
-         pT0+gLoeWFqLLSb2kgWj1K3DvqkXGSqUbDKsjBXWQO4xXmOQU1NYmMIgYuMN0GqgHj+h
-         IEsX06/zeBFPDbkacL308/V5zK/I45cenjAWx8MZ9eJ6KmmDcB1dQMFanpH1lx8lMenC
-         3sfAX3vwHFqBns9h6T8hOVqLxZPvNdSnDrCpmwsLxnDu30Y6BZ8/64SnG1OocYUFPTd6
-         8hJtJgnaNvdoqozM8F8rJshrEbLUCNqdKqF7rlLpsCyXFXovKBQK5oLirKsa1v4Em595
-         yldQ==
+        bh=kpcuCk0rGNmvxzVATC9A7yTWrKN9lza845SDGmhd1Z4=;
+        b=k4u9b68cDyTAMXU4nnBb0YrPa0XGS9f4w0a8nkiJPx6iRKb+aTfLWAxpZPs0iO1H8x
+         aDmn9Qhop4jRCzqFKL+tp/DpZrtXZO/vCdFvhP9R6QUiJrthCnjHeTZl9LaC8WhAl0w8
+         8S7sfrqmViZ81dqc7/krVNXbVvEFdHgncFsBMF3zqB2jcSdWwdUFcuWwHF39ZN4IYS3E
+         MiDM8kINP1JlZFdqKpi8uYdKctHO53ETzcntcC8yDDjvzspq4F1YoUhrtPBc3g6IQyqj
+         bxU2uqj28d2ACTs+FrDzXsRbb6yZqhbUNojVAwtErfCgrxiytOXpTumIZjS6L0ohQC3o
+         7Fmg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=QW8LsKzd;
-       spf=pass (google.com: best guess record for domain of willy@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=willy@infradead.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mybjY4le;
+       spf=pass (google.com: domain of fuzzybritches0@gmail.com designates 2a00:1450:4864:20::432 as permitted sender) smtp.mailfrom=fuzzybritches0@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kU3Ke3/QVS5cVqZ90EQXBCA7kKeRG9SjK0Z/y2HMPmI=;
-        b=HQDQb0pDivEgTVuZnIH4VQEznQQz13AUw5J1FSZc2cjyy6NnpEniSv3e/1l8BtFTwW
-         27zMmS49NbOtu4S1uTtXk2gpjxl3eGnmc0eW5MJ5vzA+8DZfe+bVnQzzjqyjBeaoR65O
-         ETUFsLJ+PB2ShFoEShalOWUub6ieAxkutrL7rXmyAPC3kmxJCEMX0IdQyP7EFj/SFVH4
-         wfJfjkrmem1h/3EtQFCYrf8QpLpgK0zEFamg5BR6+PB6gruy666bzUlMh63My4vR9YwI
-         4lRQNOf8gOHaFp8NyTRmcfcb6D8nIi5v/ruDeBN4XXbaRNkvJvZNd1FAexet5gCBSewZ
-         XQfQ==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=kpcuCk0rGNmvxzVATC9A7yTWrKN9lza845SDGmhd1Z4=;
+        b=KMHd1PVKDw5mAXe9n4I7PshucPAbqRHx4NANEgFqGw09CkPbShAC9ck4o6DyY6zc2e
+         /nYv3LfffCSh/kADo+KR/sQL/nsnfmoHctkKHJTROt30ZcD7PyujdQeas/hBpchuDyaf
+         dwdFOr0OHK1HOsq6nt+Jbfk/o6C2rK3bZ4gUepNZIVnoePKlTN1sJi33SDO13IftWh3o
+         +QX0+XH6joFlk6FVTxUjCsL8BotA7kiGIgfpmLNyX7F3np6pRIXHf68CTeNWUMgtx+Fo
+         z4PY42xH5a1nYdrNRhEblwI9B0AU7YBtPJaEQll5MlUD5oQl90Qpmg6Uj6xqvb3fFRp6
+         kNKQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=kpcuCk0rGNmvxzVATC9A7yTWrKN9lza845SDGmhd1Z4=;
+        b=O7bOBiC1GerzvO5X99YqWxacSmYSivmTrFvFTSZ8IURwo4mxcwfM4XB8keMEjoGVDb
+         hsLg2k6Y3gXFrC9/TraQBzkqPLezdhvyk0YNpgjTHLUi1BoHGQh6g1/Q/bj3UnI7FCpv
+         iMCnUoeSR6bTaQfHG6ML6wVxqNLwXTbsgNyL/gIudO7PaTE+eWciN+MJBViIF24DsXmT
+         5UsMXeFtoL73F/JNONhSlMj+lMGDOEJ7ldO/5asXodRtzZit+dyi8ImorDB2yNyj+Owi
+         hJit6mGnYyi3wACC2pEAn5lkoZCSmPioDK9l8ydHcvp1kghahqPWn5W2mgeXRXYIgXKH
+         ThdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=kU3Ke3/QVS5cVqZ90EQXBCA7kKeRG9SjK0Z/y2HMPmI=;
-        b=OjmvSvhWHEdQowPc65WMUjaFu3GjZUDHFHV97WvFPH6mXvCnLCVdSbuZzuoH26d7Yp
-         bpfav05H8WAh3Y7BTW47ySHaeh0CXOaR3cFBMrqmtshABi7Opp/Wz7vIFZgDHujSkCc0
-         5UsYxAMbppTLOmSKBdUScNLMSRrT8DOMdBNHKPCV92iBVUXnQO84Qy/uJ9fstefp9oXn
-         Ui4ndJCp/Rwvy/BjFpP4zi3j8VlK6cwtjEfu7BZEu6B452Vt39iJw67YG07sNV7P03F8
-         KwH6j/K7Yot1TnEVwhLubopRuJ8Mo4Wuq7HuX6fEwdZmEwiNJDUJu0S4tQF0tgO0DJlz
-         81lg==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=kpcuCk0rGNmvxzVATC9A7yTWrKN9lza845SDGmhd1Z4=;
+        b=GDhmQmkXOe/mdLJyBvWmZJXdh7JFAK76+IKCTT0oU9eUs8vc/gbkmpfXm5RKPcydDo
+         8kTqVqNktruD2W1is+K4X2vsGLrN7Mkn5zBTqjHiBXrG8I+zSs2yNYZZR+XA+NgXLYgu
+         HR29AkRnuRiN3mZULCrLV8DgwUaf2jE2/l6gLKpOYS2YU5jalqjVbNJXjOdKuAYc9cid
+         8CSvqmaYSeVTn1dgH0nS39tDLB3gQMZYsO1V9He75m82dOYreLNA65WThN97XzibRiG+
+         VFWpY3y/glXSUNXH2uvAHqNcOVZQj82bw/fKlU72aATR9+yFCMV+dQaFNJAkyd/PHrom
+         F/gw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530nhXiXBKeVuXgbr5HvPZ1nzUXnOhtqBjNXNAhZuQipVIba5KCt
-	WcW05rIeSHkeU7r7SvnTibI=
-X-Google-Smtp-Source: ABdhPJwev4tv9NiqrgyTZBGOcvkZYWGpxUrlT9w0apMGMjxkV2tM48lyk3ec4o21dxtCviBRMzRnTw==
-X-Received: by 2002:a2e:9887:: with SMTP id b7mr315251ljj.78.1623773055095;
-        Tue, 15 Jun 2021 09:04:15 -0700 (PDT)
+X-Gm-Message-State: AOAM532D0cl8aqF47HqN5kyLyUV/Ne0SW7yguOPDC+tbvyLf46Uzcy9v
+	/hXt8e6qCX11SfMfqmQldIw=
+X-Google-Smtp-Source: ABdhPJxhtKEBShPad9vO+oJPM+mSujstcKMLGNvhT8ej4BTmETyGykdVdkGa41lcZz4J/C8tDsyWmQ==
+X-Received: by 2002:a05:6512:48d:: with SMTP id v13mr240981lfq.284.1623775348719;
+        Tue, 15 Jun 2021 09:42:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3b99:: with SMTP id g25ls923016lfv.2.gmail; Tue, 15
- Jun 2021 09:04:14 -0700 (PDT)
-X-Received: by 2002:ac2:53b8:: with SMTP id j24mr105154lfh.292.1623773054067;
-        Tue, 15 Jun 2021 09:04:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623773054; cv=none;
+Received: by 2002:a05:6512:3b99:: with SMTP id g25ls1034738lfv.2.gmail; Tue,
+ 15 Jun 2021 09:42:27 -0700 (PDT)
+X-Received: by 2002:ac2:561a:: with SMTP id v26mr231970lfd.48.1623775347676;
+        Tue, 15 Jun 2021 09:42:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623775347; cv=none;
         d=google.com; s=arc-20160816;
-        b=ID23BSt/iJSOF4hXKsSF30tv9cfKkkO3xu1pnhpFXgJJhaJ8jfyEs10OPlVsqdQC9j
-         1uvAysTjMNoqG3v+jo4umlklZY/hZYfbafPPgZ6jbK9QVA2uoNApPy2QnZ1DvYzEmdnx
-         CDYXGf4KFhgHIrIBVvFWhEpcGuL0r4iGm0TH+IEwbztou97d0r6Ui0k7MuJKSoglTToa
-         1RJ8b/NUhS2uyFpQLhUHuvcZ+d+xhjPf0YsbmhMJ0bj/EZQaOUN05CEfYsCs62QKgAmw
-         ppSEVdmQ1pGN++mYaylCtfw6iEs2r05mCHs1TN38uY+S4E0zXK44WIqr7alb046eQlZc
-         RhUQ==
+        b=V5KeTUEx5RTluNU9sJ33N66WWbHC/V2sFg//kzMkGleHaCPvb1EKxGvAqVbsgCs8B4
+         NXq2PUkobTOQgdYFbKPKlcIRHc0+sBNFJ6PMQ3IAJsvQgIkJdY+t0mi7ffl7Dt0mD4UH
+         hM/9WEuiQdTTKNMLMqmgVDGeyr9rPWTp+tN7UvhhMFZh6Z6mDwoSuOEYXTLhNb5wbPFv
+         1nNKRkmTQMYkYw7gbshjQHFmeHOhaZyl95VnOJEsuxpq2jwgT4X4BfPDLh/wdjkmssCf
+         oaan/qdPpPRyQTIh/15EKpNWqMHOjhI47b0pxUBNfs5V5HqV1vILjxf+MqrAH8S22A4Y
+         hd8Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=RSxTZhrCVvlPH6TBm6FnRJTJu75hcXLGuCqA5vyGd3E=;
-        b=ySgQW9NoBs7acaMnSXk+wIc85/gRcaRLpT4V3MO56pPCF96pUCULyN7QGd6JqWdd86
-         H5q5p8jU4jz6K6sunL45Mk06TAr9xkeMxzD8f4Bz47iOSDK409f+YHrnQK15kqZz3gTH
-         abibmQdXxPjeG7dblVL0ygiVuN2kKe1QMMnadq7W3GxjBOQACzMgaLaQZboU5+GDRb6W
-         0LEp6nDso9KJKb7ffbu8J1CesEc6ZgYRNzm+OJaw6+w0WBrqyx4Mbncni+7fMk65yYRu
-         KcGrKc1DCLDoC777uHFOooKCl3StajfPREZQn+P/K3x3YuhZxyWx9g84dWEqkV3RupTD
-         oxww==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=5HqZgwKlnzHk7eYEZtH1CaDCUYRbqEaAMkPzJHvXqS0=;
+        b=KKYGUPCrNH4mz5uCO619nA4ZywoeHWJYltbRE2e7j+mDEckhoi6NOgvc187nnj+U26
+         aHaSM7IjV1j04H+1GSbw8dLH83+run/0h7D+iFaF84MyjY0LXbLPhA+TV7mAYjfsJI7C
+         qVn1AdEtJQyxjv8Jcad/ewvfRGgAL6q56IXbPfk2TpF1tIN9MCpFuj/2ZL6WHfj5b/Ex
+         xtTGuppXrg5v2nAIwuRzQ2o3MQetOU/kQEeJ8CcBIQMdh6I4Vdqk082A07o3WauqVMUb
+         42fjqRZrWdbKo7b97az1u5CjJDXXmgYb5AIPs5sHSQx1gUagk1C0EMIox/7+Sw6Eyxpq
+         qqYQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=QW8LsKzd;
-       spf=pass (google.com: best guess record for domain of willy@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=willy@infradead.org
-Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
-        by gmr-mx.google.com with ESMTPS id bn2si89134ljb.7.2021.06.15.09.04.13
-        for <clang-built-linux@googlegroups.com>
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mybjY4le;
+       spf=pass (google.com: domain of fuzzybritches0@gmail.com designates 2a00:1450:4864:20::432 as permitted sender) smtp.mailfrom=fuzzybritches0@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x432.google.com (mail-wr1-x432.google.com. [2a00:1450:4864:20::432])
+        by gmr-mx.google.com with ESMTPS id q10si115014lfo.11.2021.06.15.09.42.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Jun 2021 09:42:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of fuzzybritches0@gmail.com designates 2a00:1450:4864:20::432 as permitted sender) client-ip=2a00:1450:4864:20::432;
+Received: by mail-wr1-x432.google.com with SMTP id c5so19033268wrq.9;
+        Tue, 15 Jun 2021 09:42:27 -0700 (PDT)
+X-Received: by 2002:a05:6000:110e:: with SMTP id z14mr26964792wrw.235.1623775347448;
+        Tue, 15 Jun 2021 09:42:27 -0700 (PDT)
+Received: from localhost.localdomain ([185.199.80.151])
+        by smtp.gmail.com with ESMTPSA id t11sm7387549wrz.7.2021.06.15.09.42.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Jun 2021 09:04:13 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of willy@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ltBXQ-006zD1-39; Tue, 15 Jun 2021 16:03:46 +0000
-Date: Tue, 15 Jun 2021 17:03:40 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: kernel test robot <lkp@intel.com>
-Cc: Hugh Dickins <hughd@google.com>, kbuild-all@lists.01.org,
+        Tue, 15 Jun 2021 09:42:26 -0700 (PDT)
+From: Kurt Manucredo <fuzzybritches0@gmail.com>
+To: ebiggers@kernel.org,
+	syzbot+bed360704c521841c85d@syzkaller.appspotmail.com
+Cc: Kurt Manucredo <fuzzybritches0@gmail.com>,
+	keescook@chromium.org,
+	yhs@fb.com,
+	dvyukov@google.com,
+	andrii@kernel.org,
+	ast@kernel.org,
+	bpf@vger.kernel.org,
+	daniel@iogearbox.net,
+	davem@davemloft.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	kafai@fb.com,
+	kpsingh@kernel.org,
+	kuba@kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	songliubraving@fb.com,
+	syzkaller-bugs@googlegroups.com,
+	nathan@kernel.org,
+	ndesaulniers@google.com,
 	clang-built-linux@googlegroups.com,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	Andrew Morton <akpm@linux-foundation.org>
-Subject: Re: [linux-next:master 9529/10007] mm/hugetlb.c:1591:9: warning: no
- previous prototype for function 'hugetlb_basepage_index'
-Message-ID: <YMjPXKrHfqZKDisp@casper.infradead.org>
-References: <202106152328.Mh5S48hE-lkp@intel.com>
+	kernel-hardening@lists.openwall.com,
+	kasan-dev@googlegroups.com
+Subject: [PATCH v5] bpf: core: fix shift-out-of-bounds in ___bpf_prog_run
+Date: Tue, 15 Jun 2021 16:42:10 +0000
+Message-Id: <85536-177443-curtm@phaethon>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <YMJvbGEz0xu9JU9D@gmail.com>
+References: <87609-531187-curtm@phaethon> <6a392b66-6f26-4532-d25f-6b09770ce366@fb.com> <CAADnVQKexxZQw0yK_7rmFOdaYabaFpi2EmF6RGs5bXvFHtUQaA@mail.gmail.com> <CACT4Y+b=si6NCx=nRHKm_pziXnVMmLo-eSuRajsxmx5+Hy_ycg@mail.gmail.com> <202106091119.84A88B6FE7@keescook> <752cb1ad-a0b1-92b7-4c49-bbb42fdecdbe@fb.com> <CACT4Y+a592rxFmNgJgk2zwqBE8EqW1ey9SjF_-U3z6gt3Yc=oA@mail.gmail.com> <1aaa2408-94b9-a1e6-beff-7523b66fe73d@fb.com> <202106101002.DF8C7EF@keescook> <CAADnVQKMwKYgthoQV4RmGpZm9Hm-=wH3DoaNqs=UZRmJKefwGw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202106152328.Mh5S48hE-lkp@intel.com>
-X-Original-Sender: willy@infradead.org
+X-Original-Sender: fuzzybritches0@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=casper.20170209 header.b=QW8LsKzd;
-       spf=pass (google.com: best guess record for domain of
- willy@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=willy@infradead.org
+ header.i=@gmail.com header.s=20161025 header.b=mybjY4le;       spf=pass
+ (google.com: domain of fuzzybritches0@gmail.com designates
+ 2a00:1450:4864:20::432 as permitted sender) smtp.mailfrom=fuzzybritches0@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -128,21 +168,142 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jun 15, 2021 at 11:58:36PM +0800, kernel test robot wrote:
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
-> >> mm/hugetlb.c:1591:9: warning: no previous prototype for function 'hugetlb_basepage_index' [-Wmissing-prototypes]
->    pgoff_t hugetlb_basepage_index(struct page *page)
+Syzbot detects a shift-out-of-bounds in ___bpf_prog_run()
+kernel/bpf/core.c:1414:2.
 
-So clang requires the prototype to still be in scope, while gcc doesn't.
-Does one of our clangers want to file a bug about that?
+The shift-out-of-bounds happens when we have BPF_X. This means we have
+to go the same way we go when we want to avoid a divide-by-zero. We do
+it in do_misc_fixups().
+
+When we have BPF_K we find divide-by-zero and shift-out-of-bounds guards
+next each other in check_alu_op(). It seems only logical to me that the
+same should be true for BPF_X in do_misc_fixups() since it is there where
+I found the divide-by-zero guard. Or is there a reason I'm not aware of,
+that dictates that the checks should be in adjust_scalar_min_max_vals(),
+as they are now?
+
+This patch was tested by syzbot.
+
+Reported-and-tested-by: syzbot+bed360704c521841c85d@syzkaller.appspotmail.com
+Signed-off-by: Kurt Manucredo <fuzzybritches0@gmail.com>
+---
+
+https://syzkaller.appspot.com/bug?id=edb51be4c9a320186328893287bb30d5eed09231
+
+Changelog:
+----------
+v5 - Fix shift-out-of-bounds in do_misc_fixups().
+v4 - Fix shift-out-of-bounds in adjust_scalar_min_max_vals.
+     Fix commit message.
+v3 - Make it clearer what the fix is for.
+v2 - Fix shift-out-of-bounds in ___bpf_prog_run() by adding boundary
+     check in check_alu_op() in verifier.c.
+v1 - Fix shift-out-of-bounds in ___bpf_prog_run() by adding boundary
+     check in ___bpf_prog_run().
+
+thanks
+
+kind regards
+
+Kurt
+
+ kernel/bpf/verifier.c | 53 +++++++++++++++++++++++++------------------
+ 1 file changed, 31 insertions(+), 22 deletions(-)
+
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index 94ba5163d4c5..83c7c1ccaf26 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -7496,7 +7496,6 @@ static int adjust_scalar_min_max_vals(struct bpf_verifier_env *env,
+ 	u64 umin_val, umax_val;
+ 	s32 s32_min_val, s32_max_val;
+ 	u32 u32_min_val, u32_max_val;
+-	u64 insn_bitness = (BPF_CLASS(insn->code) == BPF_ALU64) ? 64 : 32;
+ 	bool alu32 = (BPF_CLASS(insn->code) != BPF_ALU64);
+ 	int ret;
+ 
+@@ -7592,39 +7591,18 @@ static int adjust_scalar_min_max_vals(struct bpf_verifier_env *env,
+ 		scalar_min_max_xor(dst_reg, &src_reg);
+ 		break;
+ 	case BPF_LSH:
+-		if (umax_val >= insn_bitness) {
+-			/* Shifts greater than 31 or 63 are undefined.
+-			 * This includes shifts by a negative number.
+-			 */
+-			mark_reg_unknown(env, regs, insn->dst_reg);
+-			break;
+-		}
+ 		if (alu32)
+ 			scalar32_min_max_lsh(dst_reg, &src_reg);
+ 		else
+ 			scalar_min_max_lsh(dst_reg, &src_reg);
+ 		break;
+ 	case BPF_RSH:
+-		if (umax_val >= insn_bitness) {
+-			/* Shifts greater than 31 or 63 are undefined.
+-			 * This includes shifts by a negative number.
+-			 */
+-			mark_reg_unknown(env, regs, insn->dst_reg);
+-			break;
+-		}
+ 		if (alu32)
+ 			scalar32_min_max_rsh(dst_reg, &src_reg);
+ 		else
+ 			scalar_min_max_rsh(dst_reg, &src_reg);
+ 		break;
+ 	case BPF_ARSH:
+-		if (umax_val >= insn_bitness) {
+-			/* Shifts greater than 31 or 63 are undefined.
+-			 * This includes shifts by a negative number.
+-			 */
+-			mark_reg_unknown(env, regs, insn->dst_reg);
+-			break;
+-		}
+ 		if (alu32)
+ 			scalar32_min_max_arsh(dst_reg, &src_reg);
+ 		else
+@@ -12353,6 +12331,37 @@ static int do_misc_fixups(struct bpf_verifier_env *env)
+ 			continue;
+ 		}
+ 
++		/* Make shift-out-of-bounds exceptions impossible. */
++		if (insn->code == (BPF_ALU64 | BPF_LSH | BPF_X) ||
++		    insn->code == (BPF_ALU64 | BPF_RSH | BPF_X) ||
++		    insn->code == (BPF_ALU64 | BPF_ARSH | BPF_X) ||
++		    insn->code == (BPF_ALU | BPF_LSH | BPF_X) ||
++		    insn->code == (BPF_ALU | BPF_RSH | BPF_X) ||
++		    insn->code == (BPF_ALU | BPF_ARSH | BPF_X)) {
++			bool is64 = BPF_CLASS(insn->code) == BPF_ALU64;
++			u8 insn_bitness = is64 ? 64 : 32;
++			struct bpf_insn chk_and_shift[] = {
++				/* [R,W]x shift >= 32||64 -> 0 */
++				BPF_RAW_INSN((is64 ? BPF_JMP : BPF_JMP32) |
++					     BPF_JLT | BPF_K, insn->src_reg,
++					     insn_bitness, 2, 0),
++				BPF_ALU32_REG(BPF_XOR, insn->dst_reg, insn->dst_reg),
++				BPF_JMP_IMM(BPF_JA, 0, 0, 1),
++				*insn,
++			};
++
++			cnt = ARRAY_SIZE(chk_and_shift);
++
++			new_prog = bpf_patch_insn_data(env, i + delta, chk_and_shift, cnt);
++			if (!new_prog)
++				return -ENOMEM;
++
++			delta    += cnt - 1;
++			env->prog = prog = new_prog;
++			insn      = new_prog->insnsi + i + delta;
++			continue;
++		}
++
+ 		/* Implement LD_ABS and LD_IND with a rewrite, if supported by the program type. */
+ 		if (BPF_CLASS(insn->code) == BPF_LD &&
+ 		    (BPF_MODE(insn->code) == BPF_ABS ||
+-- 
+2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMjPXKrHfqZKDisp%40casper.infradead.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/85536-177443-curtm%40phaethon.
