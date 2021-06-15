@@ -1,133 +1,130 @@
-Return-Path: <clang-built-linux+bncBCS5F7M6QIOBBQXTUGDAMGQEBQDLINY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQYFH77QIORBQPZUGDAMGQEWCN55MI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id B97AC3A7B4F
-	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 11:58:27 +0200 (CEST)
-Received: by mail-il1-x137.google.com with SMTP id g14-20020a926b0e0000b02901bb2deb9d71sf9844572ilc.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 02:58:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623751106; cv=pass;
+Received: from mail-pj1-f63.google.com (mail-pj1-f63.google.com [209.85.216.63])
+	by mail.lfdr.de (Postfix) with ESMTPS id DA4113A7B84
+	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 12:11:14 +0200 (CEST)
+Received: by mail-pj1-f63.google.com with SMTP id o11-20020a17090a420bb029016eed2aa304sf1171970pjg.2
+        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 03:11:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623751873; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kOLSK4kfeA8sizJ6XOqG+PscgdpFB81/bvo7INRLD9B3FDjdqJEYU+b69zqyANaxzG
-         TvJaFSQe1EjnMi65Z4+NlISqqhKlZAStf0oIAG+U86qt8PEWu+0+am1pGdpuym7jstGA
-         xDcf2sP6eT1ajtDDHoy+L1c+d5zIePSsnIwZklWK712RzhS1YbzJ8CyE0ZDSzhgIrvzF
-         lE8NF7VRDG/2wkBZCXXCXFPnoXp6B+1RB/UEEViKDtiPAigcwzpzgCWYsV16jd1dPZjS
-         F7Iw6Akqt+AIsJC6g+AGOzYUac0ym6Uwjsc0H8KnRpFvBt35vdSN5Ay5T4oShc6vx+Ci
-         nhsA==
+        b=KtXjogJv4HlqPhTHkY5vvEIfUxg0iQDTMOH+SaI51tPfOx9cJntewEoR4vyvanTgrY
+         OI/odqmLGZw1dQpmudblECQYhxGxRvP0IicTB9RVK7wJVe77A88T+DbDfFj5yGrN2b9u
+         h1nD9Rs6SeAHiGKtQjb6osZFxy7MMmoDrtteu40158ZOClKSj/BQhn4cDRGBhmKuwCpn
+         DoTAjLB7CKrQudWuLtvuyPmv3wpTRE7akT75Pr3F8KJuNkM2XKhzHUyVuPDYIRzn5B+U
+         vn17tpDi7Nn2hsh9F+R+OtfhH3xhBwMZRXNsXOW4YOj6+69yD9EbJ4yDU07WOoFnaOTr
+         VmFA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=Bb5JfylPSpBW5C4r4AMnVS5jQg1uKRySkNENPoN6YoY=;
-        b=WJftr4tNQk4mSuz5MAAfiz/JEaAyRSLu8GR2ZlYO+Q7YyPB/yYtRBRSBg6TpxEefSy
-         TrdodPdbOwwI9rciJB0ppvn+psqrX9zkicTTfqugMyS2b/Q9jTt2opuccU90ebBIts51
-         vYOfG3tJWAI36AudxmsTJofsCHd+Q4yym63fHeImJdPUJkBOuTPZLwLEwBVPndbmGSZb
-         al1X3dmOxwkOIB7BDjs67m7e4TX65PzTAHpegPRlGqpE2LHfs5wpxdvlOamEOJZMEjR7
-         WNNVfFELpEn/v+zrUYJq6bgpDl2r10ZY/HrarXajXKc3AyM+5+fJsVaTTL230sJc5vC5
-         jC0w==
+         :list-id:mailing-list:precedence:date:message-id:user-agent:cc:to
+         :references:in-reply-to:from:subject:content-transfer-encoding
+         :mime-version:dmarc-filter:sender;
+        bh=DZrs5Ksd0Rn2f6CqScHYRCQxug2GiW8sI4spabyRboo=;
+        b=yFhtzkuTPbRR3hSvzXHe8a3lUmErQ1yoo2Mhw1uRZeuNkEvslws4Sj7AvLICM6iAWp
+         pxeVe/spC0pGr0ZH/zMAoCMsRdFdowX+Tk6YazmR40ySgH1hLzBvEPtHLec+AUWx6uJh
+         xK1RXDA4y62dHREd4w1XOGLB6BY/P8xel4iBIfptQpfUJENk4lSiho2DDZcMHk+UKAxT
+         Q9C0ngJYYaVRx7vIQlzU+NtLSWQtdSq2OCIeQ3obXPJIEsmv6iaGF0+x0keLmeV4C3pk
+         TF0g8Ovs8oYM8oOx/7wsWj7gF+NHpi+NkjgZgormxM1ylZoP7p5iMC7r52OfFXc6jjxg
+         FGkA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=g9CfJe+V;
-       spf=pass (google.com: domain of nkondras@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=nkondras@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Bb5JfylPSpBW5C4r4AMnVS5jQg1uKRySkNENPoN6YoY=;
-        b=RB1/BmukpWFrOdgY0v+YlPcbUy2hzva2SacrfZPLP2477vFEXyTVXwUdxRQhyhToBM
-         8wtktIJkC/TlmIDDUj1o7E++1hkIjysNLq7VVszUX5ehs+ujdDzx8dAAwLmlmoswJIKV
-         TlH8MMKrbs6gfyUjUTNNPWJdN6vgEOvtAF5dp+rnGTivYNPVkuoPOvCDGKRM3lSxG9+N
-         V/Z9AnDN0yoYUso1PBiUlPeA/KVi+cUe8CAe1YRRSK+gAk13Mc/6y0yO50pSiSEo0vIJ
-         TC4PPhV1y96njk3vp0/bbtC/1lE4DLy3FgjBI/QBqPTKyIWQ/X86TqN8SAsLVOl5WloY
-         yMVA==
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=P+tD9sQx;
+       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=x-gm-message-state:sender:dmarc-filter:mime-version
+         :content-transfer-encoding:subject:from:in-reply-to:references:to:cc
+         :user-agent:message-id:date:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Bb5JfylPSpBW5C4r4AMnVS5jQg1uKRySkNENPoN6YoY=;
-        b=L9zhtPwjVjpjhETNFmfn2qqGuyZoAneFn6RnsXm4jniYUmons0IPiroStfz2Wv+EdQ
-         Y/JXhCy4iVgwP6PAYa74r+ttFGZlUQ4Az5erIlYNLdfumACkpF3sgGY4JcBFVvGRPEmp
-         1cyeQg08xz5+0pGLtdmwvxp3avGYK9KA3rZJFO5c6gThzcBA5+ZfV55wil1+3QiJNAl5
-         poiMExlqdmdYU6VXFONeLTxVMSpid+r9HHDZSArCtXdcuYAyCV7C89qFSk9hiSX53pti
-         kk4KymBl1VAXJI58OjzzvZDSDfx/ZvZIuBHXerP+oa7OOlvt0o1Zs4zBSLloCTLByecs
-         Cbvw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532X9b3UC9nOCipzUmypgoAYXcfg8dhWjPYu0yPQF4M8lKZ2lxfz
-	Gxx3PUIoVcfUu3jXhWpmq64=
-X-Google-Smtp-Source: ABdhPJyDmU87xoT6s8/IeVoQcb3LmrKtc0hqTcBtezxVpmRzVgDFRYv5yS3UTNCYX60j6HgihN1A3g==
-X-Received: by 2002:a05:6602:140e:: with SMTP id t14mr17814405iov.42.1623751106333;
-        Tue, 15 Jun 2021 02:58:26 -0700 (PDT)
+        bh=DZrs5Ksd0Rn2f6CqScHYRCQxug2GiW8sI4spabyRboo=;
+        b=cwpwpLAwAcYCQoNKal29+MN5/UYC84pmJiLR1uOGrMpLVjbkgCwxhQ7D8MBT3a4lEi
+         Y3R1SGBqP/LjL7Q6qdtlKpodtSGRyJAbjYUPJ8/tr7yA2iHK6yp8psU4AKxYb6boFOuE
+         HDjRnB4EDeMR/Abee6kdwjWEOVK/NRKp/N6fXwjUPqX4w1320fZhoAqDPrlrGl9ZHEIa
+         cm3jGFEB6jQkQyr2S/1DZ3JqsNDByqfFYwr2GNYEAt142yHHTXhObGMHi6gsgQqKfeUy
+         z/h8BsKFfmoVOyWCV8v+T/PukIJaTUmSDJESKCxpXO0sk72HcfODDK3dvTeq+kTBWbZR
+         m/GA==
+X-Gm-Message-State: AOAM532fZEzk/BMNmzTDV242JpEiGAXYRV0M+l1BZwNsS94xfg+9IwcD
+	hRSR1fPQPCGqfHOGPpVhHcs=
+X-Google-Smtp-Source: ABdhPJz4ZaoJ880wTKdDWZCxcljZ9+f/kCIWaqFeNPLClOI+qPm5OZSfOMUBgkFq0m1MT8K+Ou+ETw==
+X-Received: by 2002:a17:902:6bc8:b029:117:6a8a:f7af with SMTP id m8-20020a1709026bc8b02901176a8af7afmr3625684plt.51.1623751873466;
+        Tue, 15 Jun 2021 03:11:13 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:191b:: with SMTP id p27ls2923617jal.5.gmail; Tue,
- 15 Jun 2021 02:58:25 -0700 (PDT)
-X-Received: by 2002:a02:c894:: with SMTP id m20mr1712950jao.53.1623751105686;
-        Tue, 15 Jun 2021 02:58:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623751105; cv=none;
+Received: by 2002:a63:d4b:: with SMTP id 11ls9360283pgn.5.gmail; Tue, 15 Jun
+ 2021 03:11:12 -0700 (PDT)
+X-Received: by 2002:a63:4466:: with SMTP id t38mr21532137pgk.51.1623751872858;
+        Tue, 15 Jun 2021 03:11:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623751872; cv=none;
         d=google.com; s=arc-20160816;
-        b=eYGA8NcMlgUrNzYSjz3PWgwkWpYbwsuCTMrS2QBpBiuflcXjjaHxnqfGXOJx6TJUZw
-         iLI/PAHPq5pn5ZG8WAx4i710alf0FLI+RopIxHGdQNcDs/5rzYk53s4DIG/9MgK63KKv
-         tADwJiRfKXasF6+tAXApCtR17aD+zPEkWCHeZ6UtunD5g7xN6vK/JkzhsOfO9VNTV6VU
-         q7SIgcDjuLnDHRuGhiPfJPp2AIZvQ5mcuJ/3Uzl92Mbtkv1F6iYBAHaGj+5al7Q/4kRv
-         y3O5VG2xC+qR6yC1NilGOfYq5xvC8mWu0R9kFiFJArMAhTQb1tJa52bsj00Ni+pS7/d7
-         5/6g==
+        b=o1OomXCAXpV+j8gCgkKjkyqGnZv56aJSo96kn065TiNfasnp9VUnAJ/T5kfgcYgiPq
+         BZnsoB+ejcjNzWiQCQ0qk+Lv/+mwN3wdoSL+fds4HyQUSVtNDonPO4CYul2BD2BmHU91
+         OJ85lXX1qsNN6/LnCdc0mq9cfXxupzxBUvdN5RGCtCuofjMJNuK06muYaudtWMh9PVuW
+         UT9LhcX+cWxuOwowMo4g00+sK7ClR+eV3nUjuRtRumh7OQL6CBOU3vK/Ylw/65La8A1f
+         ogUxI/X0v9dUKt47HgbmYimyrc0ybTEeJeAjvfaUS2/5/v6doPyML6n75NSgiEBJ71fM
+         JduQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=YRrgoeqs6+FsT8PAMVqpJ3DeYrjxe9AzS6rcZLE2bO0=;
-        b=nKqm6HLR1QdXL4GOHGYzWn3DnbTZ81xNUe80eyPHHbG1C+GmPRMqxHpAVx+/kohalp
-         VYdyVva+EG58fThKO6FzQTwbVKAYCRMlyyo9e6Y46+Z1nF3Koh2oAKq+p3EA+GMkcoLl
-         oO+W/tZuMic1sj0O5oX7+ThgYpgXefdMLTVfuDUo8FR9zR0BIG1B6ooorkJh5Ca6ZvkW
-         JNf5rdzHvJQMdL5jBHj/K8GAvnPe2kBWy9VZemd3JuxrOs/Hl9AaMM5LDAhsRywVS8Iq
-         IKKp4qdFjePbjZe+GmsdPgtTfKd07sg52m7VaTC2tqetC8y2Oy4upuMD2C8R2SLzlCpA
-         b1iQ==
+        h=date:message-id:user-agent:cc:to:references:in-reply-to:from
+         :subject:content-transfer-encoding:mime-version:dmarc-filter:sender
+         :dkim-signature;
+        bh=Wnx0dnJAasSI19113sOftFNVrI60o7qtI8hrUanoFFQ=;
+        b=coxBPKQ5dT4XBBX/7M5YbRMbtiVk00eP7qr2NFZ2SFkHtQNfiZfhiu9VYnRe6txv3c
+         EziuQHik8+i7vtsVo7z1zLIXnnZ1TPoq3NnXaMJVYZe9Xdtukdldmb4Ed83E9ZuCzC5k
+         1PkaXoQgtrjvIv/vfeV/Jm9MLykZZiRaJjuMSK0L0l3nPzEcqRTZ2kJgh5uggXZ9lMc5
+         b/kIbBD9FRTPZYnmEQOllx/PlxFJTCL0ayAM6g+1peKpYIBiJlO1JVzsv1MHYJWBMUv0
+         5u1u/E9xNjQc5rCnp1J/6uducLcUbESFgJfh6/aOjg+gjJ7D/Lx90X48RiNqz8XJHBIg
+         w44A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=g9CfJe+V;
-       spf=pass (google.com: domain of nkondras@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=nkondras@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
-        by gmr-mx.google.com with ESMTPS id g16si221623ion.0.2021.06.15.02.58.25
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=P+tD9sQx;
+       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+Received: from so254-9.mailgun.net (so254-9.mailgun.net. [198.61.254.9])
+        by gmr-mx.google.com with UTF8SMTPS id u31si164462pfg.3.2021.06.15.03.11.07
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 15 Jun 2021 02:58:25 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nkondras@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
-Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
- [209.85.208.69]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-40-Oz39ze03NhCj08_3CmB-Vw-1; Tue, 15 Jun 2021 05:58:21 -0400
-X-MC-Unique: Oz39ze03NhCj08_3CmB-Vw-1
-Received: by mail-ed1-f69.google.com with SMTP id y16-20020a0564024410b0290394293f6816so4520668eda.20
-        for <clang-built-linux@googlegroups.com>; Tue, 15 Jun 2021 02:58:21 -0700 (PDT)
-X-Received: by 2002:a17:907:1c20:: with SMTP id nc32mr19461661ejc.21.1623751099971;
-        Tue, 15 Jun 2021 02:58:19 -0700 (PDT)
-X-Received: by 2002:a17:907:1c20:: with SMTP id nc32mr19461650ejc.21.1623751099827;
- Tue, 15 Jun 2021 02:58:19 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Jun 2021 03:11:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) client-ip=198.61.254.9;
+X-Mailgun-Sending-Ip: 198.61.254.9
+X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
+Received: from smtp.codeaurora.org
+ (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
+ smtp-out-n02.prod.us-west-2.postgun.com with SMTP id
+ 60c87c912eaeb98b5e258639 (version=TLS1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Tue, 15 Jun 2021 10:10:25
+ GMT
+Sender: kvalo=codeaurora.org@mg.codeaurora.org
+Received: by smtp.codeaurora.org (Postfix, from userid 1001)
+	id 7C6DBC43217; Tue, 15 Jun 2021 10:10:25 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	aws-us-west-2-caf-mail-1.web.codeaurora.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.0 required=2.0 tests=ALL_TRUSTED,BAYES_00,
+	MISSING_DATE,MISSING_MID,SPF_FAIL autolearn=no autolearn_force=no
+	version=3.4.0
+Received: from tykki.adurom.net (tynnyri.adurom.net [51.15.11.48])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: kvalo)
+	by smtp.codeaurora.org (Postfix) with ESMTPSA id 076C6C4338A;
+	Tue, 15 Jun 2021 10:10:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org 076C6C4338A
+Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-References: <5a9bf050-0671-3273-cc4f-1b131445c1fe@redhat.com>
- <CAKwvOdmwRV6R6dcpcSL06SNVQ1_JwvOJMZPYiHKvjSx4sf_95g@mail.gmail.com>
- <202106011315.432A65D6@keescook> <774899c5-c20a-3d7e-3289-ee257b86e06e@collabora.com>
-In-Reply-To: <774899c5-c20a-3d7e-3289-ee257b86e06e@collabora.com>
-From: Nikolai Kondrashov <Nikolai.Kondrashov@redhat.com>
-Date: Tue, 15 Jun 2021 12:58:08 +0300
-Message-ID: <CAMbaCcc4-n022x97S-6ur8P9xKcp3cNMhK31y2GJLnd5PVOM-g@mail.gmail.com>
-Subject: Re: #KCIDB engagement report
-To: kernelci@groups.io, guillaume.tucker@collabora.com
-Cc: keescook@chromium.org, Nick Desaulniers <ndesaulniers@google.com>, 
-	"automated-testing@yoctoproject.org" <automated-testing@yoctoproject.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Vishal Bhoj <vishal.bhoj@linaro.org>, 
-	Antonio Terceiro <antonio.terceiro@linaro.org>, Remi Duraffort <remi.duraffort@linaro.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: multipart/alternative; boundary="000000000000825e6905c4cb03c3"
-X-Original-Sender: nikolai.kondrashov@redhat.com
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] ssb: Remove redundant assignment to err
+From: Kalle Valo <kvalo@codeaurora.org>
+In-Reply-To: <1619693230-108804-1-git-send-email-yang.lee@linux.alibaba.com>
+References: <1619693230-108804-1-git-send-email-yang.lee@linux.alibaba.com>
+To: Yang Li <yang.lee@linux.alibaba.com>
+Cc: m@bues.ch, nathan@kernel.org, ndesaulniers@google.com,
+ linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com, Yang Li <yang.lee@linux.alibaba.com>
+User-Agent: pwcli/0.1.0-git (https://github.com/kvalo/pwcli/) Python/3.7.3
+Message-Id: <20210615101025.7C6DBC43217@smtp.codeaurora.org>
+Date: Tue, 15 Jun 2021 10:10:25 +0000 (UTC)
+X-Original-Sender: kvalo@codeaurora.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=g9CfJe+V;
-       spf=pass (google.com: domain of nkondras@redhat.com designates
- 170.10.133.124 as permitted sender) smtp.mailfrom=nkondras@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@mg.codeaurora.org header.s=smtp header.b=P+tD9sQx;       spf=pass
+ (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
+ designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,258 +137,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---000000000000825e6905c4cb03c3
-Content-Type: text/plain; charset="UTF-8"
+Yang Li <yang.lee@linux.alibaba.com> wrote:
 
-Guillaume,
+> Variable 'err' is set to zero but this value is never read as it is
+> overwritten with a new value later on, hence it is a redundant
+> assignment and can be removed.
+>=20
+> Clean up the following clang-analyzer warning:
+>=20
+> drivers/ssb/main.c:1306:3: warning: Value stored to 'err' is never read
+> [clang-analyzer-deadcode.DeadStores]
+> drivers/ssb/main.c:1312:3: warning: Value stored to 'err' is never read
+> [clang-analyzer-deadcode.DeadStores]
+>=20
+> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
+> Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
+> Acked-by: Michael B=C3=BCsch <m@bues.ch>
 
-I checked the database, and the submission queue logs and could only find
-the build itself, but no tests. They were probably lost somewhere before
-KCIDB.
+Patch applied to wireless-drivers-next.git, thanks.
 
-Nick
-P.S. Sorry Debian broke Thunderbird with GMail, so I have to use WebUI and
-my messages might be extra ugly.
+7557dfde1bd1 ssb: Remove redundant assignment to err
 
-On Fri, 11 Jun 2021 at 19:12, Guillaume Tucker <
-guillaume.tucker@collabora.com> wrote:
+--=20
+https://patchwork.kernel.org/project/linux-wireless/patch/1619693230-108804=
+-1-git-send-email-yang.lee@linux.alibaba.com/
 
-> Hi Kees,
->
-> On 01/06/2021 21:26, Kees Cook wrote:
-> > On Mon, May 24, 2021 at 10:38:22AM -0700, 'Nick Desaulniers' via Clang
-> Built Linux wrote:
-> >> On Mon, May 24, 2021 at 12:50 AM Nikolai Kondrashov
-> >> <Nikolai.Kondrashov@redhat.com> wrote:
-> >>> [...]
-> >>>      KernelCI native
-> >>>          Sending (a lot of) production build and test results.
-> >>>          https://staging.kernelci.org:3000/?var-origin=kernelci
-> >>> [...]
-> >
-> > Apologies for the thread hijack, but does anyone know what's happening
-> > with kselftest? It seems missing from the listed[1] build artifacts, but
-> > it is actually present[2] (and I see the logs for generating the tarball
-> > there too), but I can't find any builds that actually run the tests?
-> >
-> > (Or how do I see a top-level list of all tests and search it?)
->
-> The kselftest results are all there on the KernelCI native
-> dashboard, for example the futex tests:
->
->
-> https://linux.kernelci.org/test/job/mainline/branch/master/kernel/v5.13-rc5-74-g06af8679449d/plan/kselftest-futex/
->
->
-> Here's a set of passing results on a "coral" x86 Chromebook, with
-> a bunch of unknowns but that's because other kselftests are being
-> run when they shouldn't (net, mqueue, ptrace) so it's noise which
-> should get resolved with a fix soon:
->
->   https://linux.kernelci.org/test/plan/id/60c2bf67ed48b86ffe0c0df8/
->
->
-> And here are the full kernel build details:
->
->   https://linux.kernelci.org/build/id/60c2bdeea60229633d0c0f0c/
->
-> and artifacts (logs, binaries, meta-data in JSON):
->
->
-> https://storage.kernelci.org/mainline/master/v5.13-rc5-74-g06af8679449d/x86_64/x86_64_defconfig+x86-chromebook+kselftest/gcc-8/
->
->
-> So this is the original data, now let's look at what we have in
-> KCIDB.  Here's the matching build:
->
->
-> https://kcidb.kernelci.org/d/build/build?orgId=1&var-dataset=kernelci04&var-id=kernelci:kernelci.org:60c2bdeea60229633d0c0f0c
->
-> However there's no results, probably because submitting the data
-> failed for some reason.  It could be due to some invalid
-> characters in the test names.  The Log link works though, it
-> takes you to the directory with all the log files - to be
-> improved as it's advertised as a single build log...
->
-> So we'll take a closer look, see if there were any errors in the
-> logs to find out why the results aren't in KCIDB.  But the
-> kselftests were definitely run.
->
->
-> Thanks,
-> Guillaume
->
-> > [1]
-> https://kcidb.kernelci.org/d/build/build?orgId=1&var-dataset=kernelci04&var-id=kernelci:kernelci.org:60b654321456eb7654b3afa6&fullscreen&panelId=17
-> > [2]
-> https://storage.kernelci.org//mainline/master/v5.13-rc4-11-gc2131f7e73c9/x86_64/x86_64_defconfig+x86-chromebook+kselftest/gcc-8/
->
->
-> -=-=-=-=-=-=-=-=-=-=-=-
-> Groups.io Links: You receive all messages sent to this group.
-> View/Reply Online (#1136): https://groups.io/g/kernelci/message/1136
-> Mute This Topic: https://groups.io/mt/83045962/3616695
-> Mute #kcidb:https://groups.io/g/kernelci/mutehashtag/kcidb
-> Group Owner: kernelci+owner@groups.io
-> Unsubscribe: https://groups.io/g/kernelci/unsub [
-> Nikolai.Kondrashov@redhat.com]
-> -=-=-=-=-=-=-=-=-=-=-=-
->
->
->
+https://wireless.wiki.kernel.org/en/developers/documentation/submittingpatc=
+hes
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMbaCcc4-n022x97S-6ur8P9xKcp3cNMhK31y2GJLnd5PVOM-g%40mail.gmail.com.
-
---000000000000825e6905c4cb03c3
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div>Guillaume,</div><div><br></div><div>I checked the dat=
-abase, and the submission queue logs and could only find the build itself, =
-but no tests. They were probably lost somewhere before KCIDB.</div><div><br=
-></div><div>Nick</div><div>P.S. Sorry Debian broke Thunderbird with GMail, =
-so I have to use WebUI and my messages might be extra ugly.<br></div></div>=
-<br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Fri=
-, 11 Jun 2021 at 19:12, Guillaume Tucker &lt;<a href=3D"mailto:guillaume.tu=
-cker@collabora.com">guillaume.tucker@collabora.com</a>&gt; wrote:<br></div>=
-<blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-=
-left:1px solid rgb(204,204,204);padding-left:1ex">Hi Kees,<br>
-<br>
-On 01/06/2021 21:26, Kees Cook wrote:<br>
-&gt; On Mon, May 24, 2021 at 10:38:22AM -0700, &#39;Nick Desaulniers&#39; v=
-ia Clang Built Linux wrote:<br>
-&gt;&gt; On Mon, May 24, 2021 at 12:50 AM Nikolai Kondrashov<br>
-&gt;&gt; &lt;<a href=3D"mailto:Nikolai.Kondrashov@redhat.com" target=3D"_bl=
-ank">Nikolai.Kondrashov@redhat.com</a>&gt; wrote:<br>
-&gt;&gt;&gt; [...]<br>
-&gt;&gt;&gt;=C2=A0 =C2=A0 =C2=A0 KernelCI native<br>
-&gt;&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 Sending (a lot of) productio=
-n build and test results.<br>
-&gt;&gt;&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 <a href=3D"https://staging.k=
-ernelci.org:3000/?var-origin=3Dkernelci" rel=3D"noreferrer" target=3D"_blan=
-k">https://staging.kernelci.org:3000/?var-origin=3Dkernelci</a><br>
-&gt;&gt;&gt; [...]<br>
-&gt; <br>
-&gt; Apologies for the thread hijack, but does anyone know what&#39;s happe=
-ning<br>
-&gt; with kselftest? It seems missing from the listed[1] build artifacts, b=
-ut<br>
-&gt; it is actually present[2] (and I see the logs for generating the tarba=
-ll<br>
-&gt; there too), but I can&#39;t find any builds that actually run the test=
-s?<br>
-&gt; <br>
-&gt; (Or how do I see a top-level list of all tests and search it?)<br>
-<br>
-The kselftest results are all there on the KernelCI native<br>
-dashboard, for example the futex tests:<br>
-<br>
-=C2=A0 <a href=3D"https://linux.kernelci.org/test/job/mainline/branch/maste=
-r/kernel/v5.13-rc5-74-g06af8679449d/plan/kselftest-futex/" rel=3D"noreferre=
-r" target=3D"_blank">https://linux.kernelci.org/test/job/mainline/branch/ma=
-ster/kernel/v5.13-rc5-74-g06af8679449d/plan/kselftest-futex/</a><br>
-<br>
-<br>
-Here&#39;s a set of passing results on a &quot;coral&quot; x86 Chromebook, =
-with<br>
-a bunch of unknowns but that&#39;s because other kselftests are being<br>
-run when they shouldn&#39;t (net, mqueue, ptrace) so it&#39;s noise which<b=
-r>
-should get resolved with a fix soon:<br>
-<br>
-=C2=A0 <a href=3D"https://linux.kernelci.org/test/plan/id/60c2bf67ed48b86ff=
-e0c0df8/" rel=3D"noreferrer" target=3D"_blank">https://linux.kernelci.org/t=
-est/plan/id/60c2bf67ed48b86ffe0c0df8/</a><br>
-<br>
-<br>
-And here are the full kernel build details:<br>
-<br>
-=C2=A0 <a href=3D"https://linux.kernelci.org/build/id/60c2bdeea60229633d0c0=
-f0c/" rel=3D"noreferrer" target=3D"_blank">https://linux.kernelci.org/build=
-/id/60c2bdeea60229633d0c0f0c/</a><br>
-<br>
-and artifacts (logs, binaries, meta-data in JSON):<br>
-<br>
-=C2=A0 <a href=3D"https://storage.kernelci.org/mainline/master/v5.13-rc5-74=
--g06af8679449d/x86_64/x86_64_defconfig+x86-chromebook+kselftest/gcc-8/" rel=
-=3D"noreferrer" target=3D"_blank">https://storage.kernelci.org/mainline/mas=
-ter/v5.13-rc5-74-g06af8679449d/x86_64/x86_64_defconfig+x86-chromebook+kself=
-test/gcc-8/</a><br>
-<br>
-<br>
-So this is the original data, now let&#39;s look at what we have in<br>
-KCIDB.=C2=A0 Here&#39;s the matching build:<br>
-<br>
-=C2=A0 <a href=3D"https://kcidb.kernelci.org/d/build/build?orgId=3D1&amp;va=
-r-dataset=3Dkernelci04&amp;var-id=3Dkernelci:kernelci.org:60c2bdeea60229633=
-d0c0f0c" rel=3D"noreferrer" target=3D"_blank">https://kcidb.kernelci.org/d/=
-build/build?orgId=3D1&amp;var-dataset=3Dkernelci04&amp;var-id=3Dkernelci:ke=
-rnelci.org:60c2bdeea60229633d0c0f0c</a><br>
-<br>
-However there&#39;s no results, probably because submitting the data<br>
-failed for some reason.=C2=A0 It could be due to some invalid<br>
-characters in the test names.=C2=A0 The Log link works though, it<br>
-takes you to the directory with all the log files - to be<br>
-improved as it&#39;s advertised as a single build log...<br>
-<br>
-So we&#39;ll take a closer look, see if there were any errors in the<br>
-logs to find out why the results aren&#39;t in KCIDB.=C2=A0 But the<br>
-kselftests were definitely run.<br>
-<br>
-<br>
-Thanks,<br>
-Guillaume<br>
-<br>
-&gt; [1] <a href=3D"https://kcidb.kernelci.org/d/build/build?orgId=3D1&amp;=
-var-dataset=3Dkernelci04&amp;var-id=3Dkernelci:kernelci.org:60b654321456eb7=
-654b3afa6&amp;fullscreen&amp;panelId=3D17" rel=3D"noreferrer" target=3D"_bl=
-ank">https://kcidb.kernelci.org/d/build/build?orgId=3D1&amp;var-dataset=3Dk=
-ernelci04&amp;var-id=3Dkernelci:kernelci.org:60b654321456eb7654b3afa6&amp;f=
-ullscreen&amp;panelId=3D17</a><br>
-&gt; [2] <a href=3D"https://storage.kernelci.org//mainline/master/v5.13-rc4=
--11-gc2131f7e73c9/x86_64/x86_64_defconfig+x86-chromebook+kselftest/gcc-8/" =
-rel=3D"noreferrer" target=3D"_blank">https://storage.kernelci.org//mainline=
-/master/v5.13-rc4-11-gc2131f7e73c9/x86_64/x86_64_defconfig+x86-chromebook+k=
-selftest/gcc-8/</a><br>
-<br>
-<br>
--=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-<br>
-Groups.io Links: You receive all messages sent to this group.<br>
-View/Reply Online (#1136): <a href=3D"https://groups.io/g/kernelci/message/=
-1136" rel=3D"noreferrer" target=3D"_blank">https://groups.io/g/kernelci/mes=
-sage/1136</a><br>
-Mute This Topic: <a href=3D"https://groups.io/mt/83045962/3616695" rel=3D"n=
-oreferrer" target=3D"_blank">https://groups.io/mt/83045962/3616695</a><br>
-Mute #kcidb:<a href=3D"https://groups.io/g/kernelci/mutehashtag/kcidb" rel=
-=3D"noreferrer" target=3D"_blank">https://groups.io/g/kernelci/mutehashtag/=
-kcidb</a><br>
-Group Owner: <a href=3D"mailto:kernelci%2Bowner@groups.io" target=3D"_blank=
-">kernelci+owner@groups.io</a><br>
-Unsubscribe: <a href=3D"https://groups.io/g/kernelci/unsub" rel=3D"noreferr=
-er" target=3D"_blank">https://groups.io/g/kernelci/unsub</a> [<a href=3D"ma=
-ilto:Nikolai.Kondrashov@redhat.com" target=3D"_blank">Nikolai.Kondrashov@re=
-dhat.com</a>]<br>
--=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-<br>
-<br>
-<br>
-</blockquote></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CAMbaCcc4-n022x97S-6ur8P9xKcp3cNMhK31y2GJLnd5P=
-VOM-g%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://grou=
-ps.google.com/d/msgid/clang-built-linux/CAMbaCcc4-n022x97S-6ur8P9xKcp3cNMhK=
-31y2GJLnd5PVOM-g%40mail.gmail.com</a>.<br />
-
---000000000000825e6905c4cb03c3--
-
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20210615101025.7C6DBC43217%40smtp.codeaurora.org.
