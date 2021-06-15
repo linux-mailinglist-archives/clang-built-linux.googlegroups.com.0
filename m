@@ -1,216 +1,141 @@
-Return-Path: <clang-built-linux+bncBC6PR5N36AORBH55USDAMGQEAGNLZAI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTJ7DM3WQOBBK6DUSDAMGQESASPWTY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13a.google.com (mail-il1-x13a.google.com [IPv6:2607:f8b0:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id EEA3C3A8B4F
-	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 23:41:52 +0200 (CEST)
-Received: by mail-il1-x13a.google.com with SMTP id o8-20020a92c0480000b02901ebb5960fb8sf227745ilf.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 14:41:52 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1623793311; cv=pass;
+Received: from mail-wr1-x43f.google.com (mail-wr1-x43f.google.com [IPv6:2a00:1450:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6FB6D3A8B6E
+	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 23:54:51 +0200 (CEST)
+Received: by mail-wr1-x43f.google.com with SMTP id d5-20020a0560001865b0290119bba6e1c7sf87878wri.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 14:54:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623794091; cv=pass;
         d=google.com; s=arc-20160816;
-        b=v5fTk3LOSO/Vr/CxoVjMSDnDHmAvWD307kKn5qcrR1Mowoi96tQbe0ftJLkTHAfYIR
-         BjA8jHStE/jMaC9XofZYcL/1Zq/IPWy8lRuXt9961QkvmXf4GH/8vl+P6XICgauFXix4
-         nzVHwzrAx/20dqoxGxvQOcLcTp8aVyuGujh0UigZ/MZDNlS50ne/UKH9pQ8vWrv8zAZP
-         7oEpZkOvvh1tCuRRsrNy0nYtqnbAeqzEG3Qa0EdYDvMxEA7c5zgbv5Va6y5DHjwEOYym
-         vACa4JdcUe1gLE+XdS91MSeoq/6hPd0a3NfkOAPm6HjExT8NRTEok2oAQY1BF88ZevDJ
-         /hXA==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=E/p+SUlXetNvbg0s4dhH6FhpS09azN8IH+4fAKVxz8Tyfu/e9kcEed3nTmAo8Q29Ks
+         bVqy81PcEwYReJ1MwM/yVUMuplHF0OuahzJiNP1rlzRDfvu47dbiFgnA4wZmCps65Szr
+         ROpSbRNSWFJcT/HQHrUh9PMCYkOzidM6MgUVhvaAtvFjYAQ84Gf1xfkEyREbP2gc6Zh9
+         63kskfjsmyRt3Wh8idEluJIFGpLseglKgJ1W8KGXKDaIQ92iKAwnIQMvnQi8Eil4xQAH
+         cNDfDDcXTZ24l5LbHE6uO89CTzbSzX/PhZOMUjIMUXB9vSzEC4yjg6BLcoTVUygaWXGp
+         VZ5Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:wdcipoutbound
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:ironport-sdr
-         :sender:dkim-signature;
-        bh=BY6EtIbxktRZp68oNKIZwuU/BImG8WAn9+l2KRt+cX0=;
-        b=j9YACNq0pEgjOCwwVh1xtbGi5gwQbewqH28evdZyNe34FU/7JfbQ30DZo8MhL8vUg3
-         CpewSqJqUII6mvqqYqBq0vdxkWommTG+Mm38Jgb2JeQTnO9eIu6sv+Ny1KwdAA532Fws
-         GVAGXd2njpdZlkuPcw+ZlgwAEOgneyCwrh8ifVgKmCyjQcSEFKvQkgCZJig4UHyCc8nh
-         bODBqHRH+ejcRJcWRddJFulaoaW3fEBS7OT+GWm6/FZLZVZ5azrRPpH6RVuJDKFFdGUi
-         1XYP4OuIGcRcUYiM4/ErLZYFVf3SmAYG30jv4EO/wcZwVgbLB7Q97S49gKMFAmHSzPE6
-         cpkQ==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@wdc.com header.s=dkim.wdc.com header.b=Ocgw9W8N;
-       dkim=pass header.i=@sharedspace.onmicrosoft.com header.s=selector2-sharedspace-onmicrosoft-com header.b=vyPPigop;
-       arc=pass (i=1 spf=pass spfdomain=wdc.com dkim=pass dkdomain=wdc.com dmarc=pass fromdomain=wdc.com);
-       spf=pass (google.com: domain of prvs=793731fd0=chaitanya.kulkarni@wdc.com designates 216.71.153.144 as permitted sender) smtp.mailfrom="prvs=793731fd0=Chaitanya.Kulkarni@wdc.com";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=wdc.com
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=8hVlET30i9km1gOSbqruT25NVynVhKml+1/86cVDpd0=;
+        b=BkAiuaBPCrADEyYY4w3FUcYhvs1R2Njk4y2ecoF5RBhD8fanIckwTAD6tbUHSFAilK
+         Dy9zPek8kcTnYexoBYIGnH5gOs+Am8ix3OEqInO8a9EHq58DzueKQPDpsvijEJW4ZN4F
+         jRl2ga0S5bR7POZja56TmViUqm77+8yI9uWCJYK6UA/KeRwZs1M4f9W9G1Pr9ZBRYKaN
+         lxgy/1mb6QUImvf8ZZeVYXTjisH3a2mSaQeCe7dPl/QeaDdfPTVvy+eHjoeObW2szDot
+         nForaxZPKqxeHo1+LwbxQbuD9fumv9uEhvKkKwX0OOevfyEDduwoHVHPz8RAZ1ooxpDN
+         GAvQ==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       spf=pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) smtp.mailfrom=daniel@iogearbox.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:from:to:cc:subject:thread-topic:thread-index
-         :date:message-id:references:in-reply-to:accept-language
-         :content-language:wdcipoutbound:mime-version:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=BY6EtIbxktRZp68oNKIZwuU/BImG8WAn9+l2KRt+cX0=;
-        b=GCCsew8qG7F2mfjuTtzMMyXS8wtI9338oyoBOvsNAchosaPaidgR7u+aoRvnmiUhpj
-         3+gvId9klo0FhvpBGSGKSOSwR3X29DsRS2Tdi4cLoRFPTZDUBRnkvYsVwG1j17p6tgmB
-         b+3zuxy3jgJQItNZphvkvI+B55kTLw5Ry2ms2FTK63l2aqLvMQS2uzD3OJ4uJ2jOWDuG
-         x56HMzgA26YzoSKGcc4sSqQpXVdBEP05fXP7aD5LYKeBW4Uv3TA4kGrm1KCr6rHDGVWb
-         40cFDJyQZdXsB041H4g+AapULlQGHO1Nirsm658tQjymL8DqFD8PkXyCztSOC2huCcMl
-         U0lA==
+        bh=8hVlET30i9km1gOSbqruT25NVynVhKml+1/86cVDpd0=;
+        b=MW3y3YPmLYjzt7QGdbsqlyKPhre42FOg5xtyv8WZ4IJ/RWDFXyMknx/l1kAVq0zM1Z
+         xbFCxOl6z3GXMtGzwQ9ms11Cg82ZtgxaCLGY2YnwjgvgS7XmuRmuekZZV4UZt42TNi0S
+         xZ8xbh2VDS15TpDhFr8var2vupsuoTb7UL8cu52AU2t3VTN2b8i89XF8kJ0fl7hrIRCt
+         t4CaVj4qlf6IOig//56BvwcwPGpZsMOI+6UxG7K3RBUa/P1rndygMqao3tIoQNYyq6rr
+         kw76l8h1hSVuTcMI00yX2ThiMg94LX9v7J7D3o0JhSw8SpcIxMaJNZ+vnzUn4TeBzZVs
+         32MQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:from:to:cc:subject
-         :thread-topic:thread-index:date:message-id:references:in-reply-to
-         :accept-language:content-language:wdcipoutbound:mime-version
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=BY6EtIbxktRZp68oNKIZwuU/BImG8WAn9+l2KRt+cX0=;
-        b=fp+3Lgbl5bmzIi+P/k1cX4IwjzV/CP8Eka5sdcJUJcOgNbv0zvQs6lLxtrMSkA0x0j
-         8HNsKNHpv4LQa/8WWmgRCFrkfCS7MKRov8J4m44a67IoG8xcrNa91A+X3rr/tek03NAS
-         /y+hn+o2rtBymIl2o4I5U5kwKoCJe47/ny+TIv0E/k2UvGx01IK/hOTkmT4yS9MPlgmT
-         zqOcmz4gZUmyhFsx3X4Suh1v7/5w+Kx0rmeEw1NxlVHZn1GKxhixuCBreAOYpT+FwQ7r
-         TR4u4Ml7qdhE8LXoOk14cQZ/+2E9BQZPy71shj+/H7lIZLqDUXpIlZ1Maq7PsEg5qwpb
-         oXeg==
+        bh=8hVlET30i9km1gOSbqruT25NVynVhKml+1/86cVDpd0=;
+        b=Pvz7YsQ9+HuNJ2cYVLS7TYJY+Fj2LBHGE1nTUYEmNpWg68O5l0S0Dmx0FvjkY8A9Us
+         +8+jkwKUJvMQkdD+Z4WRzRw2wFMcHXqaeP4KOqrSmc+ZnQDU7+gSppGJ2cQNsuO+tuLC
+         rh3s+6/XVQPzhNAAHxKPuScgq4ExY/j0MvIVM6Lo1bos1+mylSe1ikc2q0Npac5JB3h0
+         aKfmja8MvSP0Hx/Pq2uxVZbH6snEHiLn+ACDJrFDcy89ej2i8N4ketHWZm7p11zkBb27
+         TPiju5nhEPfdHVM+RwEabVzeCGy7Whr9VronK+S2N1f32Qn96bflRRThzO7Co4GRYthi
+         JoOw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530olhxRlFUpoAdzeg14MpgGqSOmZF5slwQANJyjcWi+Bf+QI5NZ
-	1C/HoAycOtO/ALiGBsDpY9g=
-X-Google-Smtp-Source: ABdhPJz7P98rlR/GSnuIVZ3YEjwCddEtzNnoseFuETMOXRPlsr8xVRSo9CmB3PMlT8MCgcPsq5t/eQ==
-X-Received: by 2002:a02:c906:: with SMTP id t6mr1083181jao.117.1623793311626;
-        Tue, 15 Jun 2021 14:41:51 -0700 (PDT)
+X-Gm-Message-State: AOAM532IQI/3eUs/4YqGXPJvK1QNut8EIrHx6c0Ddh71wqysd6Y2efGN
+	DMhUiNmWE7tKGbSCjgfy/X8=
+X-Google-Smtp-Source: ABdhPJytCpNfKsy05ngqBUZPf11ekF+KqC1XrE0lXZ7LNyvh7k/F3z210eGYB1qciZFF/kgVefNXhA==
+X-Received: by 2002:a5d:4903:: with SMTP id x3mr1318660wrq.376.1623794091240;
+        Tue, 15 Jun 2021 14:54:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:d902:: with SMTP id s2ls7115iln.1.gmail; Tue, 15 Jun
- 2021 14:41:51 -0700 (PDT)
-X-Received: by 2002:a05:6e02:1a84:: with SMTP id k4mr612733ilv.206.1623793311286;
-        Tue, 15 Jun 2021 14:41:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623793311; cv=pass;
+Received: by 2002:a7b:c0d1:: with SMTP id s17ls137263wmh.0.gmail; Tue, 15 Jun
+ 2021 14:54:50 -0700 (PDT)
+X-Received: by 2002:a1c:ac87:: with SMTP id v129mr710025wme.45.1623794090403;
+        Tue, 15 Jun 2021 14:54:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623794090; cv=none;
         d=google.com; s=arc-20160816;
-        b=G0FfHIXdNt43TI/gImzTmOyCJqsQFtvsKa3z5sEK7vYZuDmZWTl1eGSI4Z/FwO7cT7
-         TuK+zKujnRMDjvIDRpww9n4wggB6Tk0G8xCEbtIgeii7wzdZj/1bQJCcAn87uqrv03H5
-         SjPG522Ba+RySl8VWJbSo9Bbx0y4ZEzwUcWMKXOq+Hyg9+zpSMmJ9iD1f/nvmeiDVGyo
-         wHbKmH5vObr90lgtQz05QAy+IA6UuMOc3Xr+wbMF9Lx0tGBhFf8ZkIwWKbA6zsT2JryU
-         kkydlNh8JG9dOLN/BcbRFrsiUvH79p7yvvkI7VurRqTggAMeE9bDVZARsGEn64+mMn1g
-         rkVA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:wdcipoutbound
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:dkim-signature
-         :ironport-sdr:dkim-signature;
-        bh=8NQGG5JRNJEWGXvYxH2yGhSMcjbB2JQnCqCmq+RBEno=;
-        b=K5R5EuzfS3xvKMmXINzjgSSibegJGBZ4HE8zmWvCX+MrgG/qZpNlJOhbGSFmC3QNpJ
-         mo8zvj6v4V6xCioh3cVApQDiu0Bt1VjdymmiwOhXDCpJNuZKvy9EaSUje9aXjrw6gkse
-         zumdcMLgCBOveYa2E35UbqhDSebEj0q/Mk29KRwJTA1UavRCjO530SMMheGdbWDgcrKm
-         jy7B6c0V0URQoo4xr2dGhEs3zWFszEAVBU9xIgHNcYIhDARXcfoNLwgT+C5dAzHw5Blx
-         afjWgKHmWPM2WUgBH307jZdnlCr41WTBb18L0KTllvNhIFtZ4L2sv8aL+XsY0XpOH0qd
-         15Zg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@wdc.com header.s=dkim.wdc.com header.b=Ocgw9W8N;
-       dkim=pass header.i=@sharedspace.onmicrosoft.com header.s=selector2-sharedspace-onmicrosoft-com header.b=vyPPigop;
-       arc=pass (i=1 spf=pass spfdomain=wdc.com dkim=pass dkdomain=wdc.com dmarc=pass fromdomain=wdc.com);
-       spf=pass (google.com: domain of prvs=793731fd0=chaitanya.kulkarni@wdc.com designates 216.71.153.144 as permitted sender) smtp.mailfrom="prvs=793731fd0=Chaitanya.Kulkarni@wdc.com";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=wdc.com
-Received: from esa5.hgst.iphmx.com (esa5.hgst.iphmx.com. [216.71.153.144])
-        by gmr-mx.google.com with ESMTPS id g16si15281ion.0.2021.06.15.14.41.50
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 15 Jun 2021 14:41:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of prvs=793731fd0=chaitanya.kulkarni@wdc.com designates 216.71.153.144 as permitted sender) client-ip=216.71.153.144;
-IronPort-SDR: xOzVDWHNnqOdvB4862ly3ICTaHH6KZRhDi61q3kWQPe2gGWF5V8VJBnB+f31v6rbC6KLzjMUjw
- 0bATRGZPVE+i8ceSF43JKbv/9oP/Wgcx3AuUj6dWOv49Ij8lv8DfhzufRfhHbyj++JBjtc9DDN
- MkW9Wam4SKO7FuhOLS/6Jc6FrvkMblgy8qct+X7I7gq9YKsyR/KjVgK86UsglCFUczsLo2XJtl
- zbx0wTKyE2G+JcN42o6xZjdG61bkwR5asF75BD7gux8NPvR08T5VU4ndXeqGqiFvA7TK3Lpl5y
- go4=
-X-IronPort-AV: E=Sophos;i="5.83,276,1616428800"; 
-   d="scan'208";a="172020400"
-Received: from mail-dm6nam12lp2175.outbound.protection.outlook.com (HELO NAM12-DM6-obe.outbound.protection.outlook.com) ([104.47.59.175])
-  by ob1.hgst.iphmx.com with ESMTP; 16 Jun 2021 05:41:48 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=CXvVIhpr9B8CTrM8DAWFCcUuTBMrnC2GTZr64SlyqLlfV14kk1Hhhk1RJ3Mb4Qq7YaqfHXyCAF1Hm8liobaySioegbPrSMeRje2gO3InjoO11inSkViqIf5UvP0N5AsYUzTlqwZBznHRrilT3I5FFveKvmWXqXaHVweozusCfxLmKWHXWxjABq+dCu99oVrsdNpgo7y/HC/L9glBCyU7QYsqB6NV++JuBgM4jxatuIdumh9u+7Fv9L4O4PBt1ecDqJTlu1JEhGUjpdyj9lvNIcXkJ214aYGJd0BUxmD9FslFZv6IGK6shinanv6YMdj/2r/6PiWaX5dfqdtD7lOnCQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8NQGG5JRNJEWGXvYxH2yGhSMcjbB2JQnCqCmq+RBEno=;
- b=h2pLyJdMvVekQM76m38wocgMNZjRR02lp8KMTyBTzmtGXYSOuQqrt4sfuZGAfAgwc3cAhxOgknfMwhas9ve7mPolkHD5qoneG/OsoVqh+IvWFZBrZzdPiZG++x5b2aerfyaxfMYgdRyFaDGPSkKOVZjOsyc8TKVXkZzjgI0+4TjGQrK4n7kw82Vd8Dt0tTQC4q5tvKO1OXrF4r9hci49nW5xdtqyJduxvcFl2vcTMSiQku/eSfrt0zdH7kqptlu5rkDTi4ho5OTfmE9iMfuo2rm57LCTv3PKgvPbJtVZj4tyczML7oGnEnLirdrqAfx+tuPaDU5X/1NLPWaEnRaXbg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-Received: from BYAPR04MB4965.namprd04.prod.outlook.com (2603:10b6:a03:4d::25)
- by SJ0PR04MB7550.namprd04.prod.outlook.com (2603:10b6:a03:327::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4219.22; Tue, 15 Jun
- 2021 21:41:48 +0000
-Received: from BYAPR04MB4965.namprd04.prod.outlook.com
- ([fe80::6873:3d64:8f9f:faf0]) by BYAPR04MB4965.namprd04.prod.outlook.com
- ([fe80::6873:3d64:8f9f:faf0%7]) with mapi id 15.20.4219.025; Tue, 15 Jun 2021
- 21:41:48 +0000
-From: Chaitanya Kulkarni <Chaitanya.Kulkarni@wdc.com>
-To: kernel test robot <lkp@intel.com>
-CC: "kbuild-all@lists.01.org" <kbuild-all@lists.01.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"linux-nvme@lists.infradead.org" <linux-nvme@lists.infradead.org>, Christoph
- Hellwig <hch@lst.de>, Damien Le Moal <Damien.LeMoal@wdc.com>
-Subject: Re: [linux-nvme:nvme-5.14 32/32] drivers/nvme/target/zns.c:257:6:
- warning: no previous prototype for function 'nvmet_bdev_zone_zmgmt_recv_work'
-Thread-Topic: [linux-nvme:nvme-5.14 32/32] drivers/nvme/target/zns.c:257:6:
- warning: no previous prototype for function 'nvmet_bdev_zone_zmgmt_recv_work'
-Thread-Index: AQHXYi7/YxXu7Hmy5k6zW4wZts/tSasVmh6S
-Date: Tue, 15 Jun 2021 21:41:48 +0000
-Message-ID: <472070C8-85CE-4C02-A96C-4D163A7D9296@wdc.com>
-References: <202106160534.PvpGDOHM-lkp@intel.com>
-In-Reply-To: <202106160534.PvpGDOHM-lkp@intel.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [2607:fb90:849e:cc43:e84c:2e80:f77:c13b]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 50cabb1a-f6f5-414b-3214-08d930466105
-x-ms-traffictypediagnostic: SJ0PR04MB7550:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <SJ0PR04MB7550F9347216EA978D4CA33A86309@SJ0PR04MB7550.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:8273;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 8ULvImVs+lIhX2Au3VqHVEz3J4vh+xxyAYH4dnNT+p1n3DYcn9b+qRie3PxV/W2YttX6dUgQkNt5u1pgQVQt30SqPz7mESzwQd0pAjoNwdXJtuafaRUxguxzbRVmx9ilKY3EIIFEMNT1TPYPksW1eqdD+5ExXMLlUOTBzz06/04oo2atPQVDmHNiNZLiCdJiP5CNAqyacVSvDtHra/O5NkMRHxkA9h+R1kbOwhZBy0/yyFI/vpT1o94vtDQQM/uXg6SWCeupSD90OD+O6x8TMtx7XzIheZIpo+lNn+4gmQ+C4sKpsidKI7V76wiUp8GTwjWUeNL8t35tHqsS+lYQBjn8GI+WQYsaqrHiMblrvINhNkVX+pVhB6eM27E9pXkN+oFO1+wpgUpWvFZ4RvaCaY1QsY9CvfvKn/dvysreOfbK4bi9RBUmlF2wQ1Ydl1+IEWY97QLpckmaEk60BHaoRbP7ztFUer3GZHJz73/YAbRIoIU1xL9qEbKU1i67foT9Aj4oQy3oLppnqGhVfDW2C3FVUJ+WKySzXt+FYxSJGvLTQONc2gw2B4U7ERoOKJ3pUbAN2jlqMJrCAT4umb3LADXt3g0I1zjpLsR//DbhvhhIPXDGTx3HGeMnMfbd9wRJTukgljMxFD5PECM8Pp22KA==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR04MB4965.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(39860400002)(136003)(366004)(376002)(396003)(346002)(6506007)(6512007)(478600001)(53546011)(2906002)(6916009)(2616005)(38100700002)(54906003)(83380400001)(8676002)(122000001)(71200400001)(86362001)(36756003)(66946007)(186003)(33656002)(76116006)(4326008)(66446008)(6486002)(64756008)(66476007)(66556008)(8936002)(316002)(4744005)(5660300002)(45980500001);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?eZAdG1Ncj0Cd3SmpHWYKo+c+MfZl6VKNErrGAyOIImUp/F+rQf63OQKirOOw?=
- =?us-ascii?Q?ZW7k8qkSRnnZfsmKzfo3BL1bhqhx67hX4mIcqqcvjv98bnSuruzjkuKBcqfO?=
- =?us-ascii?Q?xhWe0TUuMh1wDGg6AR8sKs653shw54XSSKbjbcfVPWAxQKNpslo9aYHmzemK?=
- =?us-ascii?Q?6jqJ+4uLkTRJ3UEFUu38e0+G7j7yQfmS4xks/k/dqoaSNgw5dhYZG+zt8pFG?=
- =?us-ascii?Q?FIi1bW8nwfoujo6cz+Ik/ur7PKrR8nkPhATEMQ1xctcoAjYwlVLRKU7tUqc3?=
- =?us-ascii?Q?xHr1P0WQKvWy0ebNT2RRCyyVNwEp1IOM1/VtVqMGpeLTBwm43qJZDBLcuKop?=
- =?us-ascii?Q?7nbWbSZtQ9PJ/nQrnPHutt0LLyVPDd3uu4z2FqP5atqsHln1dugoFfNiDoJL?=
- =?us-ascii?Q?ccD9sqL187zih3+RjF+5tDg/CqHdsiSSKAfOHtOFPSm4Kv6Brq02neNoAsf8?=
- =?us-ascii?Q?MP2PLw6ZVj8r89j4IpIvzdYFInNr8BDJlyIr4CdHkj8aSZFFcybaLkJh6Fzb?=
- =?us-ascii?Q?AALTXublNP/HbXY0iebecZxP9Fv7nA6ve9DCNGMTF30FwFLMHLGC1pcmodnJ?=
- =?us-ascii?Q?hC0nKRQdK8RZHNUawfLeNMHmmPTCjlv0u7PqVIoFCOaOtA9v9sDqeLE8hARa?=
- =?us-ascii?Q?w3GP/W68KLeaBAeWnvASS90a8lDULP5paFMpOIKNNxn5CE0rjRNgVDTBFRaG?=
- =?us-ascii?Q?cW0+bHjJ03LIzp3fJuo++uw8SzrtHEyH9fDoUL1T3GJvFDhN1v9IiPuF6y4+?=
- =?us-ascii?Q?o4qdEx8oFekPDR2DhptAwwsyIfFCZyxmld4vER6Jl+ocd1ixDfqPju+Pxl4J?=
- =?us-ascii?Q?xnALaHrv0MmodbG+UvzSzcaBgJG8/rARXGdMI6FLp0e12isQ9Plsga7U7F+Q?=
- =?us-ascii?Q?ShvD96BOU1fH/w93812UjL3uWiplanHVsJxBAWH6iQQcfjbrEVJN5h8teQ3k?=
- =?us-ascii?Q?D7FlU+p0VjyOB3IJrerLvcEPw2MNqAtSQRlrC0lWV2ceWU9SaI3Xtnf/RTla?=
- =?us-ascii?Q?jgS2BkPbHL8l9gJPjMMsRMtPEDd8ep43O9gRofzOWpOJ4fJnphL4brpykaYl?=
- =?us-ascii?Q?rLBam63dRT2WsBdBff2ma00afJMBVCDrk9YdNWC9D/26sTahKDOEx8qwpy1H?=
- =?us-ascii?Q?/yzWsPfFjmOVh4lK0n5lOGWviRxZGdN5Vk8kaHv+Kme1ZI3Cp1t0N6xHUx1+?=
- =?us-ascii?Q?qtvN3SSbs9tG6ia/jgErsPc/Tr8At/bnFZLOOTbMOzTufpACY+KMfJOMihue?=
- =?us-ascii?Q?kRnaOU/1yyDcYi6gJKNGP0YCt9LPuywLcqMcXVrnqIR2gIqnyg798IrY1LLZ?=
- =?us-ascii?Q?Bm32uEE4OWM/z8sR1TYa1LYP0xNQkinCjnW0fARovgQBwmvhSs9mUrXgNYc2?=
- =?us-ascii?Q?gr5YsqPlA4PVTTtXDVQ9zOYbMfdd?=
-Content-Type: text/plain; charset="UTF-8"
+        b=H7Go0+zX5lQQoEF63hSVFABS566hq3/MPEm3/M5eFha2j+4SUESM/zcMpBEc+N7abr
+         6fBrurQnEvOMJOMHSzMDmdLB0NLVHjxTl2Mm6xfyi+N7aS7JAfoBiqTSuZAF7yJFhzO8
+         e6G/kx4S/SjqtPiTs4AbZJMHfj9ktj7rKePkF9OnP29lm6Xl4qjlPFvwuLiee/RPuawK
+         mN28rzlcsb4VHWbhe1Tgzt2pHwaXiKohsBzj9B9Rqt/0IgkLMi0IXRL8e1ZTp3JEzeuX
+         uAXvECPOAwsSb7mDg76ZnY5i9jFd7pV3zkSXV6uUfwGIJbXw40/3cG4nf3Azg2T76OBB
+         vb9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=k3ccg9mpyGuJlP4StkHf/KwlYBnsSRYrs6zxKfc17wc=;
+        b=XzDCAhxzuU48lel7QgTVBn4tJJRihDnjmU9s3tgLRtxy7j78kIqIRpg5nRVkIsnY+e
+         h0Q+s4S+6xV0PaKYQmKZne/b4p//O0D4d53tu99PsjnkIo6j90503v0AeY95mz78YkXt
+         pyd7TRxiDigX96LohvrmMLn4MRQ3YgPahsGAMNAYikXeV7hfRXhbybalALs6kie8MMp5
+         XYLEvuyomvOjVfNJObaZ+GwxD9YVaMuLWE72JRo9Ej6hEsZUk66nLCYpC34C4cwFQaqM
+         j+fqQbKn32xz0qrxlOrYMQIZmf388zKB9hjxlPRYof3vgD2N2/WKp98AC29B8j2WDJWa
+         1NNA==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) smtp.mailfrom=daniel@iogearbox.net
+Received: from www62.your-server.de (www62.your-server.de. [213.133.104.62])
+        by gmr-mx.google.com with ESMTPS id v4si6303wrg.2.2021.06.15.14.54.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Jun 2021 14:54:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) client-ip=213.133.104.62;
+Received: from sslproxy01.your-server.de ([78.46.139.224])
+	by www62.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.92.3)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1ltH19-0009sn-8n; Tue, 15 Jun 2021 23:54:43 +0200
+Received: from [85.7.101.30] (helo=linux-3.home)
+	by sslproxy01.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1ltH18-000IMK-PK; Tue, 15 Jun 2021 23:54:42 +0200
+Subject: Re: [PATCH v5] bpf: core: fix shift-out-of-bounds in ___bpf_prog_run
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Edward Cree <ecree.xilinx@gmail.com>,
+ Kurt Manucredo <fuzzybritches0@gmail.com>,
+ syzbot+bed360704c521841c85d@syzkaller.appspotmail.com,
+ keescook@chromium.org, yhs@fb.com, dvyukov@google.com, andrii@kernel.org,
+ ast@kernel.org, bpf@vger.kernel.org, davem@davemloft.net, hawk@kernel.org,
+ john.fastabend@gmail.com, kafai@fb.com, kpsingh@kernel.org, kuba@kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, songliubraving@fb.com,
+ syzkaller-bugs@googlegroups.com, nathan@kernel.org, ndesaulniers@google.com,
+ clang-built-linux@googlegroups.com, kernel-hardening@lists.openwall.com,
+ kasan-dev@googlegroups.com
+References: <752cb1ad-a0b1-92b7-4c49-bbb42fdecdbe@fb.com>
+ <CACT4Y+a592rxFmNgJgk2zwqBE8EqW1ey9SjF_-U3z6gt3Yc=oA@mail.gmail.com>
+ <1aaa2408-94b9-a1e6-beff-7523b66fe73d@fb.com> <202106101002.DF8C7EF@keescook>
+ <CAADnVQKMwKYgthoQV4RmGpZm9Hm-=wH3DoaNqs=UZRmJKefwGw@mail.gmail.com>
+ <85536-177443-curtm@phaethon>
+ <bac16d8d-c174-bdc4-91bd-bfa62b410190@gmail.com> <YMkAbNQiIBbhD7+P@gmail.com>
+ <dbcfb2d3-0054-3ee6-6e76-5bd78023a4f2@iogearbox.net>
+ <YMkcYn4dyZBY/ze+@gmail.com> <YMkdx1VB0i+fhjAY@gmail.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <4713f6e9-2cfb-e2a6-c42d-b2a62f035bf2@iogearbox.net>
+Date: Tue, 15 Jun 2021 23:54:41 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BYAPR04MB4965.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 50cabb1a-f6f5-414b-3214-08d930466105
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Jun 2021 21:41:48.2140
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: alJRb7U9tRsA3TzEjbSw6IatNTJRZXSBLk4WXUS1/VVMmq4bJT+vD5Rzk9RH8etxPxMhtr5oApm8yugALR3HCjBVexG4C+ru13zYZSutivI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR04MB7550
-X-Original-Sender: chaitanya.kulkarni@wdc.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@wdc.com header.s=dkim.wdc.com header.b=Ocgw9W8N;       dkim=pass
- header.i=@sharedspace.onmicrosoft.com header.s=selector2-sharedspace-onmicrosoft-com
- header.b=vyPPigop;       arc=pass (i=1 spf=pass spfdomain=wdc.com dkim=pass
- dkdomain=wdc.com dmarc=pass fromdomain=wdc.com);       spf=pass (google.com:
- domain of prvs=793731fd0=chaitanya.kulkarni@wdc.com designates 216.71.153.144
- as permitted sender) smtp.mailfrom="prvs=793731fd0=Chaitanya.Kulkarni@wdc.com";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=wdc.com
+In-Reply-To: <YMkdx1VB0i+fhjAY@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.103.2/26202/Tue Jun 15 13:21:24 2021)
+X-Original-Sender: daniel@iogearbox.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as
+ permitted sender) smtp.mailfrom=daniel@iogearbox.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -223,23 +148,89 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On 6/15/21 11:38 PM, Eric Biggers wrote:
+> On Tue, Jun 15, 2021 at 02:32:18PM -0700, Eric Biggers wrote:
+>> On Tue, Jun 15, 2021 at 11:08:18PM +0200, Daniel Borkmann wrote:
+>>> On 6/15/21 9:33 PM, Eric Biggers wrote:
+>>>> On Tue, Jun 15, 2021 at 07:51:07PM +0100, Edward Cree wrote:
+>>>>>
+>>>>> As I understand it, the UBSAN report is coming from the eBPF interpreter,
+>>>>>    which is the *slow path* and indeed on many production systems is
+>>>>>    compiled out for hardening reasons (CONFIG_BPF_JIT_ALWAYS_ON).
+>>>>> Perhaps a better approach to the fix would be to change the interpreter
+>>>>>    to compute "DST = DST << (SRC & 63);" (and similar for other shifts and
+>>>>>    bitnesses), thus matching the behaviour of most chips' shift opcodes.
+>>>>> This would shut up UBSAN, without affecting JIT code generation.
+>>>>
+>>>> Yes, I suggested that last week
+>>>> (https://lkml.kernel.org/netdev/YMJvbGEz0xu9JU9D@gmail.com).  The AND will even
+>>>> get optimized out when compiling for most CPUs.
+>>>
+>>> Did you check if the generated interpreter code for e.g. x86 is the same
+>>> before/after with that?
+>>
+>> Yes, on x86_64 with gcc 10.2.1, the disassembly of ___bpf_prog_run() is the same
+>> both before and after (with UBSAN disabled).  Here is the patch I used:
+>>
+>> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+>> index 5e31ee9f7512..996db8a1bbfb 100644
+>> --- a/kernel/bpf/core.c
+>> +++ b/kernel/bpf/core.c
+>> @@ -1407,12 +1407,30 @@ static u64 ___bpf_prog_run(u64 *regs, const struct bpf_insn *insn)
+>>   		DST = (u32) DST OP (u32) IMM;	\
+>>   		CONT;
+>>   
+>> +	/*
+>> +	 * Explicitly mask the shift amounts with 63 or 31 to avoid undefined
+>> +	 * behavior.  Normally this won't affect the generated code.
 
-> On Jun 15, 2021, at 2:40 PM, kernel test robot <lkp@intel.com> wrote:
-> 
->  void nvmet_bdev_zone_zmgmt_recv_work(struct work_struct *w)
->        ^
->   drivers/nvme/target/zns.c:257:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
->   void nvmet_bdev_zone_zmgmt_recv_work(struct work_struct *w)
->   ^
->   static 
->   1 warning generated.
-> 
-> 
-> vim +/nvmet_bdev_zone_zmgmt_recv_work +257 drivers/nvme/target/zns.c
+The last one should probably be more specific in terms of 'normally', e.g. that
+it is expected that the compiler is optimizing this away for archs like x86. Is
+arm64 also covered by this ... do you happen to know on which archs this won't
+be the case?
 
-Yep got it now, will send out the fix soon. 
+Additionally, I think such comment should probably be more clear in that it also
+needs to give proper guidance to JIT authors that look at the interpreter code to
+see what they need to implement, in other words, that they don't end up copying
+an explicit AND instruction emission if not needed there.
+
+>> +	 */
+>> +#define ALU_SHIFT(OPCODE, OP)		\
+>> +	ALU64_##OPCODE##_X:		\
+>> +		DST = DST OP (SRC & 63);\
+>> +		CONT;			\
+>> +	ALU_##OPCODE##_X:		\
+>> +		DST = (u32) DST OP ((u32)SRC & 31);	\
+>> +		CONT;			\
+>> +	ALU64_##OPCODE##_K:		\
+>> +		DST = DST OP (IMM & 63);	\
+>> +		CONT;			\
+>> +	ALU_##OPCODE##_K:		\
+>> +		DST = (u32) DST OP ((u32)IMM & 31);	\
+>> +		CONT;
+
+For the *_K cases these are explicitly rejected by the verifier already. Is this
+required here nevertheless to suppress UBSAN false positive?
+
+>>   	ALU(ADD,  +)
+>>   	ALU(SUB,  -)
+>>   	ALU(AND,  &)
+>>   	ALU(OR,   |)
+>> -	ALU(LSH, <<)
+>> -	ALU(RSH, >>)
+>> +	ALU_SHIFT(LSH, <<)
+>> +	ALU_SHIFT(RSH, >>)
+>>   	ALU(XOR,  ^)
+>>   	ALU(MUL,  *)
+>>   #undef ALU
+> 
+> Note, I missed the arithmetic right shifts later on in the function.  Same
+> result there, though.
+> 
+> - Eric
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/472070C8-85CE-4C02-A96C-4D163A7D9296%40wdc.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/4713f6e9-2cfb-e2a6-c42d-b2a62f035bf2%40iogearbox.net.
