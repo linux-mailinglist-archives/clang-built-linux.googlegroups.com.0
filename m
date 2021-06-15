@@ -1,139 +1,131 @@
-Return-Path: <clang-built-linux+bncBDEZDPVRZMARBMWJUSDAMGQEELTGHCQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5KPPH4YUKRB3GQUSDAMGQE7XIWD2I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id B2B293A8B97
-	for <lists+clang-built-linux@lfdr.de>; Wed, 16 Jun 2021 00:07:47 +0200 (CEST)
-Received: by mail-pf1-x43c.google.com with SMTP id s5-20020aa78d450000b02902ace63a7e93sf335524pfe.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 15:07:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623794866; cv=pass;
+Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5EF053A8BBF
+	for <lists+clang-built-linux@lfdr.de>; Wed, 16 Jun 2021 00:23:42 +0200 (CEST)
+Received: by mail-pj1-x1040.google.com with SMTP id z3-20020a17090a4683b029015f6c19f126sf480149pjf.1
+        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 15:23:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623795821; cv=pass;
         d=google.com; s=arc-20160816;
-        b=P2u/hRGgnbB9dMWqeU6TxJb2m7N87XnFN+4reP6NMbd9nRpGFrsfZ7BKjdKAWAiqyv
-         Zgc73F3uk7GKT3flRhuBgJwqfB75a1bg0thLAOLoYPl286Wqr5/Q/gxrMcwW/cMFMTsc
-         h936thR4TsCuRfio7U4yjmm972Pv5Y0TjTl64b70YrmTTf6XzStOc51s6ndDowXO4LRp
-         zE4ygaF1NKr4IlxtUviF9sE434dQDJ5SVXwxJxtjUHYD5e2xZF5LpuDtLm0sgU9kaNHX
-         f2doMo9Exku/pwSbFCQpFMimLSGc4XwxqEOTdvC9j6xBSBFU2mj1q871tQFZB9jQJdkd
-         RfIg==
+        b=GkiHp7NZISf2ZzRKPeZ0gsMlLFAlu03qCT8jov0S5KPVmMU8jbG40fetjUoTFJSs6m
+         VXo2FPiKM+Y8dQWdwzhShSfyXDS9ba226ntoLesWguxMIMTd3A0qn2jX4rsIz8GzB3UR
+         WmPVaD/EvcENIpTwbiXagWOk1xGCCZkNhd8tG5vf8W6hFN1z/jvZjwFdh2//8AwLgOia
+         MXoXpZNW7N2r7zF5o9h0ivFjL9O4p87TFyr1ksLIUFd8zFI8XqFtZT0OvNsxMXwXTmiJ
+         tV1rgGGxJzelnPzhvIvyICtqEE+Bh5Xe8YjUYcrvBAmGOCET0YgMUwVXCXu4f1RRNlhu
+         r1Fw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=N7BAgWj0SdFgXcyWE96tZf9vCNbihfecCyjlqWWmVo4=;
-        b=YRECtJ2g9Beg9emDuNF6anDwp3Zuj1MTDqCuEMCIoX3nUh3cWs/x02ZYFx1QcX3zlW
-         QQaM2qDeMqQMegA2exMjvZNdhi1/WJPPPFDP/ArSUQlxkvthzqKtf1IKT7YsyMhWGrA/
-         j5VB+cKSU7zXHhWXU6762yNBfFjNiDVbW0WIan81axtxIde3rKNrjlJd02IL+Yh8Eeug
-         QD9chWLy6Igi0I+XWLqelusI4NgkktL6vKnWcnDmIgAEQHu3f7ReHlDYD+xsEx5qM6g5
-         Ljy0rAafZALRUgOZdlnDqzdO64KanlRkRHm3EXavjmI/KFrLhu56nDzVvXG1NHnflS2B
-         GcAA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=XdSxLOFoqdoo++bmUgKDRlZIm2rnWBHmmokFRnvOjvA=;
+        b=kdl47eHN3SrEI5pifcwhHChtXP+/EIVFLsKemw2wFT1fcFRH8BT+y/GJRbZ+VzCsZx
+         cEIj52/V7Gs9/s+03CuN5CiYV0MUj/eDURKtY7HlPEYhPqiRNW6yF5gcn4SrFM1OmyRB
+         WTVIgSRESAxfo5n7P0E33PPsrkQlSHKx1lAcH+5zjPy79L56nHmWj8KabMlyf5JnV1c2
+         mgdbDdy4VsNcljJoFKOPyWf0nz5J1U7uaPspef98IO0FEGjIqGyZwm51IscBtjzf4szr
+         JBD8IeG/52tOr3gJNJnv9KclGiul0x/yoicUP7+sPMCmW77ScyO3v2HoLoU0bOq0NWYt
+         9GEQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=iLXao5Jt;
-       spf=pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ebiggers@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=N7BAgWj0SdFgXcyWE96tZf9vCNbihfecCyjlqWWmVo4=;
-        b=DWcYD/MlSWV4sMFS/+N+wgqCj6orIIJfDoWmS9mcZ1lwCW1FdE6+69wkdZvA9mwe9V
-         gwT4AVRxfIVd9La3WbU6JpYkybRtG9w+XC5CGf/wtHah7WOeP7/KHuh6VUTOSEurWXkB
-         F4EkTCS2BK80PYUg2lsylNeOZvJfiV97EQD2WTHWx708i63f0mjuJe6PnaXHaJFhRS/q
-         6IOntohRhCBlPnw+jBzyoOxHSvxibuuoQfcHI04O0g9VvQm6kmOcRH/U6pDH1SYIwXjn
-         feSL7YrzT4zh7vsy1R9Iv+kwsDV4Qo5lgQ6uDiFKAs3qU4dbNuV3Unt9cu22PgGDHwux
-         GImA==
+        bh=XdSxLOFoqdoo++bmUgKDRlZIm2rnWBHmmokFRnvOjvA=;
+        b=EgnhBFhW62Kk+Kl4pHMlL5XHxWQGwb8bglxtjFJX5hbYj14QDNHCpeteBZ/aCgXIGg
+         1YrtHadAy5TvPBuGjRybXHmt5ZJCG74ZxqLNuX7yR2RpAFYmOmrNpr4OfgkR4ydAbVkw
+         WPbXR/Sn31/b1ab8vPp5xiaG2jvMZhOSs61P/Hsg2ZVRKFZFIF9RXffk6ruPpM5XLBKg
+         pezKWzdnacIV3vBQXyHpjb0WUPA3zL10MAbEzfOxUlbxJ4j81DZM9ujsjGCsveed8s8t
+         GCiEI5zWaeDNCfoUpQ+ZvZoHRk6M+UpInxiZX2tZPIgBbjGR4uNgJ5XwfsD6c600wM7k
+         hZTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=N7BAgWj0SdFgXcyWE96tZf9vCNbihfecCyjlqWWmVo4=;
-        b=rKIZ+jvBn6ut/Sh48ne9+9EWlCfcNZuR5133sPoOGPj5jjd3YJVG1SzNwLZehxEUtX
-         FhJMdBqDd6u8qJnGBOq1xInbJhymkNw9DNpT+bayZYBEUVmYuhXrMf+et4sRaqif9gyi
-         ttj01SOY8BJZ7ZXQdPqBao2fLt4ovjZDJ2Z4uFkbEJbbXA/w9R7qUymfZ+7/k/XqLjU4
-         b+8KKaeWAHla4A5Drffy29MCNwC0YQEsYzPtgQQOel8Qm8AHqY8/HlDFTs3bufhDw/Jr
-         GTkMHfnpbujkPYrWd0bLApFt4AGEy/a6WEkCs923Ra7lbU2z8gRr1QBL62T5DrStk73b
-         eZFA==
+        bh=XdSxLOFoqdoo++bmUgKDRlZIm2rnWBHmmokFRnvOjvA=;
+        b=l1rwWP2WCUAvXbmapgmHBnj+FKIIS6KIzedpwFCKg/kq4YjyA1Jl86bmcC/vsDa32F
+         tbkhc9BEjZ32AhoFBFRA57d6iXzO7fbGUf1cZnWHbkWHTcK+FfHVLXhlGWoKU4lLDj+e
+         Xy+/247s7ya0V6V8CKChIfsQWQuIGyg8wHljqhVlD6cF/Dqd4u5uA6wKqVwd+6o9wx8a
+         pq5/heP4cJHw325zCVFjE+6ne1wwkz4wzR58QRvaGKVQcB7T/StYTWbJJqu3KmGHdlPb
+         naBHuog34jte5appUIZbx9NvORMKSpJj0UIHJxMk8AJtCgmoSXp70t93zpbybfUEOb8I
+         PmHg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531AnqKalIpd55aRy0eD9HSr8NY3oSdwbErx1l0Rn59Y/H0OSrTS
-	3yEQv1t3nMOUW0DnUMqF27I=
-X-Google-Smtp-Source: ABdhPJzvc3o0oexHONxVxOSwjn+sriWxIS1kDwsxza4oDxKsxNtqdJ8oMzBiKXRdb/y6bsImWfF8ag==
-X-Received: by 2002:a17:902:a613:b029:119:50c6:e44d with SMTP id u19-20020a170902a613b029011950c6e44dmr6299193plq.24.1623794866169;
-        Tue, 15 Jun 2021 15:07:46 -0700 (PDT)
+X-Gm-Message-State: AOAM533EzD7z24tLANfSL5g/v85dGY4XRXNfnZilMTJzda8y7P6sTL2S
+	hfT/L38154/nytxQoUDYZ3o=
+X-Google-Smtp-Source: ABdhPJxBzhWGxIOmkJeByrQ+f3DJL+vUwvvQQoNU5YFbLMaDSrtfEWl+8PXU1lNpJjhcJmDFcRqv6w==
+X-Received: by 2002:a17:902:7c05:b029:11c:1e7d:c633 with SMTP id x5-20020a1709027c05b029011c1e7dc633mr4851859pll.48.1623795821050;
+        Tue, 15 Jun 2021 15:23:41 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:211e:: with SMTP id h30ls130794pgh.1.gmail; Tue, 15 Jun
- 2021 15:07:45 -0700 (PDT)
-X-Received: by 2002:a63:1210:: with SMTP id h16mr1640227pgl.189.1623794865572;
-        Tue, 15 Jun 2021 15:07:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623794865; cv=none;
+Received: by 2002:a63:501b:: with SMTP id e27ls141494pgb.2.gmail; Tue, 15 Jun
+ 2021 15:23:40 -0700 (PDT)
+X-Received: by 2002:a05:6a00:bc1:b029:2f4:3461:c2ae with SMTP id x1-20020a056a000bc1b02902f43461c2aemr6492193pfu.9.1623795820339;
+        Tue, 15 Jun 2021 15:23:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623795820; cv=none;
         d=google.com; s=arc-20160816;
-        b=bavYB5r+ttc6q+zblvX5VdPoSoKu/ZJ6WRi3mAlkfohAwQSWxIEbV9nG3C70RACODp
-         Ab71oVggCw3prhIgS2Pdr2THRNKbcpWRmt0ZLF92W+mdNmlh1zJ7Awr3c/Cs2wV84ytd
-         dT31uOl5uqKoupnh5gf3K8yDUonkRXGqjDJPjEbIykwhiRHkL8KOto0a3rHAKHcwsXwS
-         ySIoc8YxFSssgHBaxU0M9DnB2pb1yniPBAcZPfSVG+aptIHOYK0p0tBgtp2pRxRMygY6
-         wQbcl52eowYZ/OXYNzzpOKOPH1diN3q9vt10HnCaw2cGkA5ygmj+BMeeUwO4JqtD6vRv
-         mA+Q==
+        b=nYZ4+H8dFSoBZ5D8BSQxaFxqdLpNTvvymduliKXBjDeNI3Yjsn2QaebDMbjaWb70gA
+         59l9VGcwsyXiZabgxUH0XQt+tJuchbm56b4TTPQqAci9TscaUVqO0kMaPl3uC27xvbvd
+         O3e6HlRn8xhz30kuLtfwP9qkcyfG6giUmzcXsezrmK4hOKAAUa3PcLGt8Ynt5+tKK+J4
+         QDqZr/s4EXQ3yEbUkDqAhknLphkZPpi/Fj6WllSiWBObhxG5u2AwshVrcg6IWUM0Q/Na
+         kymKtLq1M7yvuKIrtDoiWbHMnuf5P/v/fZ9Ea8E7EAzxbQ/iNVKgDpAAcIgwQsBtYsTP
+         gZSg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=PFcpNSSwpGh2g6z9qAL3Dpip3O1aYObWgJ6QmsQMEWc=;
-        b=I1BuBXWc8cQF+yQMiASSjTFB3+AlEGlxFM0LmdTJpC77zzyAPZHuLRAkhAl7ZpXhPD
-         CqeQTFRvzMl4rOM9rkfg8TdAVStddvXFGpf5ZabfI7C690ynxQ1kRPnPyivpzpIvqIPm
-         vlTZoZiP9+8Xzk+QFqPi3vh7SeFMmvwdb3WVCCWCQA5FfPOlAtzRhlsRTRqn58s0rq56
-         4xNv/BQUvlgmns4g+M31YW9ALwQa6DLV9Vtm39Zu2Uek/Ozjzjz7t0uGChE3gOJ8jkKd
-         qWFWi1hfPS0LZGojqhVSNewLDkCQ3y5LacBnQbz9a1m+wMvfAfIYlaTjTvLMqe8Q3Yyd
-         gpaQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=vqyOQ6kV2crZhAzsoGDPVOIQ80olqbnRouMZB3EYTZU=;
+        b=z2KtmmRPspIOtphSwifISxGepfi/cjq8yXL5Q+3rPOKbRLMuwbOg0m1hwO6fYOlc+U
+         5iaQdxGUAk63xWALgCdiQZACAI6XnxidZIAGSafnn0m6S1yQArRWvuH/YdyEspjEp+la
+         WWmxItJViZLhpeBNKe9TDh+C2obYRvtupZJhFldF8ppI9ZwggQgHLAZeRg/I6IyIB/7w
+         aDPlSBCVvX5e9ugNL6edBD1Yuw7ar4XSxHqivFKy8k0AtfFhdB/yd1s5UfO2SQ9SAT9Y
+         4tOLiC/UCbLhfxQ/TqUeSkriMxEgwQbHhAfVfRz0v1xreggp+VqeivFyC6FVHuGXzpvk
+         vxVw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=iLXao5Jt;
-       spf=pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ebiggers@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id m14si425936pjq.1.2021.06.15.15.07.45
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 15 Jun 2021 15:07:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id A9F6D610EA;
-	Tue, 15 Jun 2021 22:07:44 +0000 (UTC)
-Date: Tue, 15 Jun 2021 15:07:43 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Daniel Borkmann <daniel@iogearbox.net>
-Cc: Edward Cree <ecree.xilinx@gmail.com>,
-	Kurt Manucredo <fuzzybritches0@gmail.com>,
-	syzbot+bed360704c521841c85d@syzkaller.appspotmail.com,
-	keescook@chromium.org, yhs@fb.com, dvyukov@google.com,
-	andrii@kernel.org, ast@kernel.org, bpf@vger.kernel.org,
-	davem@davemloft.net, hawk@kernel.org, john.fastabend@gmail.com,
-	kafai@fb.com, kpsingh@kernel.org, kuba@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	songliubraving@fb.com, syzkaller-bugs@googlegroups.com,
-	nathan@kernel.org, ndesaulniers@google.com,
-	clang-built-linux@googlegroups.com,
-	kernel-hardening@lists.openwall.com, kasan-dev@googlegroups.com
-Subject: Re: [PATCH v5] bpf: core: fix shift-out-of-bounds in ___bpf_prog_run
-Message-ID: <YMkkr5G6E8lcFymG@gmail.com>
-References: <1aaa2408-94b9-a1e6-beff-7523b66fe73d@fb.com>
- <202106101002.DF8C7EF@keescook>
- <CAADnVQKMwKYgthoQV4RmGpZm9Hm-=wH3DoaNqs=UZRmJKefwGw@mail.gmail.com>
- <85536-177443-curtm@phaethon>
- <bac16d8d-c174-bdc4-91bd-bfa62b410190@gmail.com>
- <YMkAbNQiIBbhD7+P@gmail.com>
- <dbcfb2d3-0054-3ee6-6e76-5bd78023a4f2@iogearbox.net>
- <YMkcYn4dyZBY/ze+@gmail.com>
- <YMkdx1VB0i+fhjAY@gmail.com>
- <4713f6e9-2cfb-e2a6-c42d-b2a62f035bf2@iogearbox.net>
+       spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [2a00:1098:0:82:1000:25:2eeb:e3e3])
+        by gmr-mx.google.com with ESMTPS id r7si16352pjp.0.2021.06.15.15.23.40
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Tue, 15 Jun 2021 15:23:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of guillaume.tucker@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) client-ip=2a00:1098:0:82:1000:25:2eeb:e3e3;
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(Authenticated sender: gtucker)
+	with ESMTPSA id 418191F432F8
+Subject: Re: #KCIDB engagement report
+To: Kees Cook <keescook@chromium.org>
+Cc: kernelci@groups.io, Nick Desaulniers <ndesaulniers@google.com>,
+ Nikolai Kondrashov <Nikolai.Kondrashov@redhat.com>,
+ "automated-testing@yoctoproject.org" <automated-testing@yoctoproject.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ Vishal Bhoj <vishal.bhoj@linaro.org>,
+ Antonio Terceiro <antonio.terceiro@linaro.org>,
+ Remi Duraffort <remi.duraffort@linaro.org>,
+ Alexandra da Silva Pereira <alexandra.pereira@collabora.com>
+References: <5a9bf050-0671-3273-cc4f-1b131445c1fe@redhat.com>
+ <CAKwvOdmwRV6R6dcpcSL06SNVQ1_JwvOJMZPYiHKvjSx4sf_95g@mail.gmail.com>
+ <202106011315.432A65D6@keescook>
+ <774899c5-c20a-3d7e-3289-ee257b86e06e@collabora.com>
+ <202106151501.235746C5@keescook>
+From: Guillaume Tucker <guillaume.tucker@collabora.com>
+Message-ID: <f68058fe-a047-2c02-ce35-8349a95f69b8@collabora.com>
+Date: Tue, 15 Jun 2021 23:23:35 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
+In-Reply-To: <202106151501.235746C5@keescook>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <4713f6e9-2cfb-e2a6-c42d-b2a62f035bf2@iogearbox.net>
-X-Original-Sender: ebiggers@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=iLXao5Jt;       spf=pass
- (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=ebiggers@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+Content-Language: en-US
+X-Original-Sender: guillaume.tucker@collabora.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of guillaume.tucker@collabora.com designates
+ 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,88 +138,78 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jun 15, 2021 at 11:54:41PM +0200, Daniel Borkmann wrote:
-> On 6/15/21 11:38 PM, Eric Biggers wrote:
-> > On Tue, Jun 15, 2021 at 02:32:18PM -0700, Eric Biggers wrote:
-> > > On Tue, Jun 15, 2021 at 11:08:18PM +0200, Daniel Borkmann wrote:
-> > > > On 6/15/21 9:33 PM, Eric Biggers wrote:
-> > > > > On Tue, Jun 15, 2021 at 07:51:07PM +0100, Edward Cree wrote:
-> > > > > > 
-> > > > > > As I understand it, the UBSAN report is coming from the eBPF interpreter,
-> > > > > >    which is the *slow path* and indeed on many production systems is
-> > > > > >    compiled out for hardening reasons (CONFIG_BPF_JIT_ALWAYS_ON).
-> > > > > > Perhaps a better approach to the fix would be to change the interpreter
-> > > > > >    to compute "DST = DST << (SRC & 63);" (and similar for other shifts and
-> > > > > >    bitnesses), thus matching the behaviour of most chips' shift opcodes.
-> > > > > > This would shut up UBSAN, without affecting JIT code generation.
-> > > > > 
-> > > > > Yes, I suggested that last week
-> > > > > (https://lkml.kernel.org/netdev/YMJvbGEz0xu9JU9D@gmail.com).  The AND will even
-> > > > > get optimized out when compiling for most CPUs.
-> > > > 
-> > > > Did you check if the generated interpreter code for e.g. x86 is the same
-> > > > before/after with that?
-> > > 
-> > > Yes, on x86_64 with gcc 10.2.1, the disassembly of ___bpf_prog_run() is the same
-> > > both before and after (with UBSAN disabled).  Here is the patch I used:
-> > > 
-> > > diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-> > > index 5e31ee9f7512..996db8a1bbfb 100644
-> > > --- a/kernel/bpf/core.c
-> > > +++ b/kernel/bpf/core.c
-> > > @@ -1407,12 +1407,30 @@ static u64 ___bpf_prog_run(u64 *regs, const struct bpf_insn *insn)
-> > >   		DST = (u32) DST OP (u32) IMM;	\
-> > >   		CONT;
-> > > +	/*
-> > > +	 * Explicitly mask the shift amounts with 63 or 31 to avoid undefined
-> > > +	 * behavior.  Normally this won't affect the generated code.
++alex 
+
+On 15/06/2021 23:03, Kees Cook wrote:
+> On Fri, Jun 11, 2021 at 05:11:59PM +0100, Guillaume Tucker wrote:
+>> Hi Kees,
+>>
+>> On 01/06/2021 21:26, Kees Cook wrote:
+>>> On Mon, May 24, 2021 at 10:38:22AM -0700, 'Nick Desaulniers' via Clang Built Linux wrote:
+>>>> On Mon, May 24, 2021 at 12:50 AM Nikolai Kondrashov
+>>>> <Nikolai.Kondrashov@redhat.com> wrote:
+>>>>> [...]
+>>>>>      KernelCI native
+>>>>>          Sending (a lot of) production build and test results.
+>>>>>          https://staging.kernelci.org:3000/?var-origin=kernelci
+>>>>> [...]
+>>>
+>>> Apologies for the thread hijack, but does anyone know what's happening
+>>> with kselftest? It seems missing from the listed[1] build artifacts, but
+>>> it is actually present[2] (and I see the logs for generating the tarball
+>>> there too), but I can't find any builds that actually run the tests?
+>>>
+>>> (Or how do I see a top-level list of all tests and search it?)
+>>
+>> The kselftest results are all there on the KernelCI native
+>> dashboard, for example the futex tests:
+>>
+>>   https://linux.kernelci.org/test/job/mainline/branch/master/kernel/v5.13-rc5-74-g06af8679449d/plan/kselftest-futex/
 > 
-> The last one should probably be more specific in terms of 'normally', e.g. that
-> it is expected that the compiler is optimizing this away for archs like x86. Is
-> arm64 also covered by this ... do you happen to know on which archs this won't
-> be the case?
+> Thanks for looking at this for me! :)
 > 
-> Additionally, I think such comment should probably be more clear in that it also
-> needs to give proper guidance to JIT authors that look at the interpreter code to
-> see what they need to implement, in other words, that they don't end up copying
-> an explicit AND instruction emission if not needed there.
-
-Same result on arm64 with gcc 10.2.0.
-
-On arm32 it is different, probably because the 64-bit shifts aren't native in
-that case.  I don't know about other architectures.  But there aren't many ways
-to implement shifts, and using just the low bits of the shift amount is the most
-logical way.
-
-Please feel free to send out a patch with whatever comment you want.  The diff I
-gave was just an example and I am not an expert in BPF.
-
+> How do I find the other kselftest stuff? I just see "kselftest-futex"
+> and "kselftest-filesystem". I was expecting _all_ of the kselftests, but
+> I can't find them.
 > 
-> > > +	 */
-> > > +#define ALU_SHIFT(OPCODE, OP)		\
-> > > +	ALU64_##OPCODE##_X:		\
-> > > +		DST = DST OP (SRC & 63);\
-> > > +		CONT;			\
-> > > +	ALU_##OPCODE##_X:		\
-> > > +		DST = (u32) DST OP ((u32)SRC & 31);	\
-> > > +		CONT;			\
-> > > +	ALU64_##OPCODE##_K:		\
-> > > +		DST = DST OP (IMM & 63);	\
-> > > +		CONT;			\
-> > > +	ALU_##OPCODE##_K:		\
-> > > +		DST = (u32) DST OP ((u32)IMM & 31);	\
-> > > +		CONT;
-> 
-> For the *_K cases these are explicitly rejected by the verifier already. Is this
-> required here nevertheless to suppress UBSAN false positive?
-> 
+> (Specifically, I can't find a top-level "list of all test plans")
 
-No, I just didn't know that these constants are never out of range.  Please feel
-free to send out a patch that does this properly.
+That's because kselftest is rather large, and we're only enabling
+subsets of it one at a time.  As more test labs and more devices
+become available, we'll gradually expand coverage.  We might also
+choose to have full coverage only on say, linux-next, mainline
+and LTS branches but not everywhere to not overload the labs.
 
-- Eric
+To answer your question about "all the tests", well you can look
+at any kernel revision to see the tests that were run for it
+since it won't be the same for all of them.  Typically,
+linux-next has the highest number of tests so here's an example:
+
+  https://linux.kernelci.org/test/job/next/branch/master/kernel/next-20210615/
+
+As you've already found, there are only 3 kselftest subsets
+or "collections" being run there at the moment.  That's by design
+in the KernelCI configuration, but at least we have good enough
+support for running kselftest now which wasn't completely
+trivial to put in place...
+
+There are still a few issues to fix, but I would expect kselftest
+coverage to keep growing over the coming weeks.
+
+If there are kselftest collections you really want to have
+enabled, you can always make a PR to add them to this file:
+
+  https://github.com/kernelci/kernelci-core/blob/main/config/core/test-configs.yaml#L187
+
+As long as there's capacity for it at least on some types of
+devices and it runs as expected, we should be able to get this
+deployed in production pretty easily.
+
+
+Thanks,
+Guillaume
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMkkr5G6E8lcFymG%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/f68058fe-a047-2c02-ce35-8349a95f69b8%40collabora.com.
