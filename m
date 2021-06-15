@@ -1,139 +1,121 @@
-Return-Path: <clang-built-linux+bncBDF27JWI2YLRBVVYUCDAMGQECJQGMRI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTY5EWUQMEBB2UKUGDAMGQEWSQGVAA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 653B63A74ED
-	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 05:19:52 +0200 (CEST)
-Received: by mail-pg1-x53a.google.com with SMTP id x7-20020a63db470000b029022199758419sf7983588pgi.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 20:19:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623727191; cv=pass;
+Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 87C0C3A76F4
+	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 08:15:08 +0200 (CEST)
+Received: by mail-pg1-x53e.google.com with SMTP id z71-20020a63334a0000b029022250d765d3sf3875112pgz.12
+        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 23:15:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623737707; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zbnS+Qi4qwF8zeUcWUASap8zq2emxfmjwbIvKyGCyMtyAUtYxWOyUPqwh2rZzS2FEJ
-         HaIfDeGthAu7bqVGLw4mBo+YKJUMQnVfSZnVCCfXtgSb1KDTEW7aNi5wjIKtzX83lpUA
-         3jcPdbZ3OhCRqo3dIcVkOeq06OCRGbvhl8RfSI5eH3CAUA1ONwquMVXiAJEtidtp4jZ0
-         wG1XY6cEocz+Krdlq6PsDZcSqIPWQSdlYuyumjjFrt0KNhLoCrGsmdGhqrKYU20zUQPN
-         YWri/rmN7t2o2BGYd9K8DcSvU+WTH+NwirgQGuKQC+2+qj6bPaigaWnLJA+nGV3JPr86
-         DMXA==
+        b=bf5Cy6cXHGmahOBD+YVgk9LQVv+ah371kY0Dj2MRZjlGMsiHdIcs7Nsx7UspS1PjKg
+         tmbuKj6S0ZF0cp4+x4W9u/+AppCnwWutVJr3KVj0cWhK4rWhoxk6uq48RU+pxqN9jvR2
+         VF1rArnBD3STh86wohhRb1YWeOf8LA3LTpqZSaWioGE28/JI8dtbCAfiIHtZqu50AzRH
+         H8fIHC6+lixaX+k/IzFzHcCdW7IYVmhPq5Y0Go1DjtnWiSVHY1HvQiUtk0QfS/6wtFR2
+         Lkw/F4Cru3vlc7e3txRDNim4TYCMpeR6jH0r4VnjkJpK0jhQla0Rh0KYYIu2Z9kWNFlU
+         4nCA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:to:subject
-         :cc:ironport-sdr:ironport-sdr:sender:dkim-signature;
-        bh=WWOywvIkBnJvDUE16ecJdYB6tYuicDDWdlZc1XRNP6E=;
-        b=Bjlms5/nQs0w6cHxFGd6wBM7y3mOcGsPmIqNKhPU508NA+RgGaFsZmCxvlceQ/+oqH
-         54mSXndTSEXJqS0RX5Jvo54dkbvPCinRqMTArY9q7gW9j0PqL/wVDxc0f0g2uKfh7eHy
-         POv1aMWCSQKv6m8KA9tO0jwNfhDlciT7felo9dGBVtP9JYz0LQGyDt7n4qSnaYDPx1FY
-         5es5pF+yOQ4K7NXtgFFIllpG0Kr/jQZgRhaihUbDDpy+rVZJ8tdGN4gH1P2u4ifxaZHH
-         dJSucqdYjX7Aj3Pcch3JIZmcmdq2otTEdAoT98NOprQQnCMAJHAMp/iC16E08KMiXV2h
-         ZC1g==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=GshQUzKnwDcFgKyVXA8NcYg+Pitkc2QvNC6qHIafpKg=;
+        b=08+DAxv2eb+5/xt7Rd7pAirKKX+edElqUk0LafO5n/H80lEEWUfKw8oxErl4eBKAX0
+         1tgoMzCFjEIURYY3V7HoCUdo1PmOj0R9lS3YPWlL4aBf61SARLmFeA6Epn1m3x77coA9
+         wlninDz3kT12nRS+hqhyaiNS/X3nA7LMt+na0GXdPWMavb2kuA3/J83jTwcBWJD7UP/B
+         Rprl6YYRBWbMJbgTEpUwiUyk4yfYzOgdzyoHO8L+veXFuXD3aodwY7bun1Mx7+7Nnzgn
+         4nJ9I/KloE4xVX+/CLiwPV93e8NE+FV7ZvX++5FnYpS12SPFZq/Vco3KS1GkHgXOF7aE
+         dtUA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of baolu.lu@linux.intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=baolu.lu@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       spf=pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) smtp.mailfrom=herbert@gondor.apana.org.au
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:ironport-sdr:ironport-sdr:cc:subject:to:references:from
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=WWOywvIkBnJvDUE16ecJdYB6tYuicDDWdlZc1XRNP6E=;
-        b=IYnw3eLDQ6uTY3QHH2BUW+N0h/Pjt5RBKjPGovZCMqOmvH8pQtM7MqlraR2HjToju9
-         BBU/LaDyCuiXtwjfkhmaWZGte6qCi/joLGI9+yLcl94b36ZblRpH2ExHsz57TE/moZg+
-         N1tjWXi4Ko+h6sY77EBo2rEJL48KfPIlXKF7lba8JOOD8nYymNlKSRqTcoCFaIZPIOlU
-         IwRwdTbY5C7ZiTyJIMkFr2lQlivCDcw4HZ/KtpGoTipomMEj97RJdaiC6GuYGl2ckvtw
-         4Gxxypcrrr4YFQLqOPXNWFF5sTcUs0YdS5t5jvgOE6pP7//iWd2kT6SSqJrHcz2UjWi3
-         Q/Lw==
+        bh=GshQUzKnwDcFgKyVXA8NcYg+Pitkc2QvNC6qHIafpKg=;
+        b=etPWFEOPl+HTVp3vKcGbg+7CNRmcoVF/I38sK0b85disbHp6Av5TyYGbnguk2YPOk9
+         3Fx1FKbha8bRV7JjIyofi+ZHToAbd2V1R3L3LQQvhjFNO2bLy+C2Apap9Iw4bJneDZ/I
+         tG5W292PqoN7H7BTJoYFDSO6UmmZXgtlWPmglqAtn64IgtKN3xWrVCaTtvOuxe+jT7MX
+         Hj/MtTYUkyt0S7R9nnoP88I44wfoDmQu831FuoUL85/mNkJtKukMSyQ7J7YyilbySM+8
+         rmHVlW+jjqCDtvpQgWI8brqC3A0/pH9BRtUQ/IEEoNWqbghdu/wJdtPrCBwTMaTa0kIs
+         ngrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:ironport-sdr:ironport-sdr:cc:subject:to
-         :references:from:message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=WWOywvIkBnJvDUE16ecJdYB6tYuicDDWdlZc1XRNP6E=;
-        b=GDc1V928pbrK0qRu8dS9D9gP4kAxb3f3HctYWZBvZpnn/F/ckJvhhXpNOy2FvUsZkX
-         8Wzhi2PcLdaeANuwyFHG47osRzxh49IRZA5y4Y07/r0BodVjmoH3hWd8uMTaV9CaAMhu
-         FIVNcWnPD6yNxAlYwRF7PV1uTIb+qR3qNtQAiaFo5FYGF227cTa0pSIxtImFFdbHZfpd
-         CSlVO8dNGAsSMBafGH5ptVaTfa3s/nSqXnK8IBrtXP2N9Pbec8/3krowQ2zSr2Fvbpbv
-         jjXEOjJj9Tv/j+Gi04g/k03k6AbYMM8xtud547AMetMA3qD4FdJ/cz8A/xzmu43pcY7v
-         +ZRA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=GshQUzKnwDcFgKyVXA8NcYg+Pitkc2QvNC6qHIafpKg=;
+        b=f5vQ+V3ih8DXUHidHQxdxMfywOVa2TkjXZfreKRSfT5AdgW5ULtlxaQHvuqO+RWDnp
+         mKAI+AUmq/Awc5cvHI5GBhHfAaJPeJ+BQ/yB1/+TgbTLl/Y6Q8Snqo2LvDgKoSSUiYSV
+         BuaF2x1IAuy0yO3FnMXDm2VpfRtqjVYxdn2R4Xa/buwTVdBzSOrc5EUQ3Mw/zqDDIIt8
+         XK3Kj5fjqisqO/oi0+8S9NZ9TQYCd8aPeR3dCehjynLCOjp5XT/nBG7YOqKKCLYIQSBD
+         8iHOR6VWHFcRAt8CyEx7dsDmNwLHP4n++D/JzhEKz2pjRsphvhVo3+pEaezDS/9bzMWM
+         ZKtg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530/uwYDkoFfzP9el2/w9AW4wXYcgihkQ2pyfza6PP00vTu/f8w9
-	0XKr8rQGFTbjvF005PY2O+M=
-X-Google-Smtp-Source: ABdhPJwbQmEX6LHx+aAxjtSBLdCRbPm0ip71XCuGE80KjP2l63WnJyTvw8IvYKynAh/ilbT++aO+uA==
-X-Received: by 2002:a63:8c05:: with SMTP id m5mr8623537pgd.223.1623727191003;
-        Mon, 14 Jun 2021 20:19:51 -0700 (PDT)
+X-Gm-Message-State: AOAM530JzCxm4+il7+JN9RY9QX9cwFYYsOL2kQoNl4wigRz0baHtYDqG
+	rN0yyXAF5P2UFfRUEY6eJaE=
+X-Google-Smtp-Source: ABdhPJwwd4iQlETtjAl2ey+a0mgPrdf5dUeE8SmSvlJH2Uo6sOjjj7NE2sxQJFmm55KpDgizgZ0FaQ==
+X-Received: by 2002:a17:90a:d30a:: with SMTP id p10mr23504598pju.104.1623737706758;
+        Mon, 14 Jun 2021 23:15:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:d915:: with SMTP id c21ls11601045pjv.2.gmail; Mon,
- 14 Jun 2021 20:19:50 -0700 (PDT)
-X-Received: by 2002:a17:90a:6b46:: with SMTP id x6mr2519331pjl.163.1623727190499;
-        Mon, 14 Jun 2021 20:19:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623727190; cv=none;
+Received: by 2002:a17:902:8609:: with SMTP id f9ls8927982plo.5.gmail; Mon, 14
+ Jun 2021 23:15:06 -0700 (PDT)
+X-Received: by 2002:a17:902:ee82:b029:114:8409:1b78 with SMTP id a2-20020a170902ee82b029011484091b78mr2798937pld.59.1623737705952;
+        Mon, 14 Jun 2021 23:15:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623737705; cv=none;
         d=google.com; s=arc-20160816;
-        b=PJBMGUduO2yAb7vmai2mdO5+r3oLe08CUndh12Rev3jDr+SjrR84kVyPok5fhmUOpN
-         zbwl4bEJH+Sb8fnsYqmAWMLRHjCr9ezntfakoLb+1Kjwkt1HgvqTfPEvsm4i+D1ZXhd7
-         emyyznCBR+Teu7U/O3ud4AS4VVWx5rv5aV2kQuUe+iZfDQ9UAISplfsX2IpuT1yb1ugQ
-         QiIxLB2hZSBHS1skFBCqzC5D5ck5JFYOmyIEl6Rabm3l5UDxqhWz3VubqOQ5pCFhuMQn
-         mfvuRYLV+gl/p5CZHk5vJ7P7lWMtrOk5i/j0XoTnKfskDWlV+rCbvsxmqM9um+ReFYxj
-         bneA==
+        b=ck1IrXvGLpnSj5LPyZu3wPj1L5P8BeZ28HMLYbRNRd8VLb6CNz3jpmA1ZfOlDIBHrc
+         F3KG0d4CxGl7MAjHs4EkguEQ4jjetXhWkFE6G0GUAzvw5JiVo/Q2lhVL04X9LJMQ71+O
+         KqESPMeQlpKgpjw3jkrGH/rlTEE6P6OGE1jO+Ox7CiSegjM4Q1+eHiDwWALQUzZz+w+o
+         Qu0YYvuNv8vQVjw5h+IFPTtgW2lvu5p5699lYcaPdIT4hy3o8yLw3Te7wpvLv7yq75TI
+         8z2e9nnLPZlQ8fVoZd1fjIbwah8wWSf9kBYlO9t22KPEr8GUr41OBrp22kIVUUUUut2i
+         zIcA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:to:subject:cc
-         :ironport-sdr:ironport-sdr;
-        bh=N2DEB1ITnnFvkJfXB/C5Ye1wSjRLehjxr/rzcSWUE1s=;
-        b=U9Fim6DuVywGEcJhVB35ppY9cxBPrvPw5MoNj/egpW4QpS7U1NUpac/kwLJ9y0AkFc
-         f/aAuc/ztBs2sCNvsD2XASVwmDxXHk+DaunyUtxfY1bjM6Y2Dx5y6YjzXe1+VLQA8jcH
-         17agxKq9/HhlqMxQb06H58XqoykA5qcRmmhfY7Uox2Sd9Qzm5hc2J2Ksv07SBTA0Cmtx
-         B/B0xoFecrUwtH5bPEWbU6gR+iIH5XS6JRPLEBUtl1tdVlVwSjr94vkM/49FL3kaXPfu
-         uPFRVEJe/F4yHDEDjRbgQLrkefrBGdQVe5zYpsL1/qJRfj1IKaMq75ffDKSdKLbnp5v/
-         MUeQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=CsBZLQpFqMB1CJI+YecKEEmRgBdEErh63+/VylUl44o=;
+        b=pH7nEJS0mjsshK+oP2hLgOOZf/l1W+DjA07b4pIo6svL1boeDeQik8ao14I/LFMLRu
+         AxAmVT5TgRzMo4v/Ir1C60nVedMIAtObenGgdfvfQp7EaWkOE4z0j+sV8bYfytpuxOGG
+         rCGWUdwiVH/s3RAyyMqEKOr0L06pjbSrebLLisv7oqwMjcz5B5Dx79aAvttPEgPWewuu
+         XWSP0dMaIwqRPLopyXol44avz9cumNicXdVX/Y0A+dUdoXRgF8vBlxtujDSk9vzRfr9w
+         Xn+qV/Wjt9RrBLBdWt8dGm9KLnfFZXXREQGgp7rt8u/wAzL5O3T5FG++pK+GgPi6Brb8
+         ACYQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of baolu.lu@linux.intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=baolu.lu@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id k78si131604pfd.5.2021.06.14.20.19.50
+       spf=pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) smtp.mailfrom=herbert@gondor.apana.org.au
+Received: from deadmen.hmeau.com (helcar.hmeau.com. [216.24.177.18])
+        by gmr-mx.google.com with ESMTPS id s14si134935pfu.0.2021.06.14.23.15.05
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 14 Jun 2021 20:19:50 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of baolu.lu@linux.intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
-IronPort-SDR: sWbKpD2nXZ3rG8lwoaIbJ+cSDtDBqvor+3TDwUe6jccnV9OoA1KRhjVePAjcDWEpz+HX/Jy0Xs
- H3R8QHJeMqnQ==
-X-IronPort-AV: E=McAfee;i="6200,9189,10015"; a="291547705"
-X-IronPort-AV: E=Sophos;i="5.83,275,1616482800"; 
-   d="scan'208";a="291547705"
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jun 2021 20:19:50 -0700
-IronPort-SDR: ri4P/H+XUswIbWAc9hVv3si7t688QdvlLEeTmogJr8vCfAWVYiaXKElgKkA6kTrQtWx9WyXZnZ
- J5Sxp6TIABFw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.83,275,1616482800"; 
-   d="scan'208";a="554308038"
-Received: from unknown (HELO [10.239.159.118]) ([10.239.159.118])
-  by fmsmga001.fm.intel.com with ESMTP; 14 Jun 2021 20:19:48 -0700
-Cc: baolu.lu@linux.intel.com, kbuild-all@lists.01.org,
- clang-built-linux@googlegroups.com,
- Linux Memory Management List <linux-mm@kvack.org>,
- Joerg Roedel <jroedel@suse.de>, Fenghua Yu <fenghua.yu@intel.com>
-Subject: Re: [linux-next:master 8472/9209] drivers/iommu/intel/perf.c:16:
- warning: expecting prototype for perf.c(). Prototype was for
- DEFINE_SPINLOCK() instead
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Jun 2021 23:15:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) client-ip=216.24.177.18;
+Received: from gondobar.mordor.me.apana.org.au ([192.168.128.4] helo=gondobar)
+	by deadmen.hmeau.com with esmtp (Exim 4.92 #5 (Debian))
+	id 1lt2Li-0007Jz-Se; Tue, 15 Jun 2021 14:14:58 +0800
+Received: from herbert by gondobar with local (Exim 4.92)
+	(envelope-from <herbert@gondor.apana.org.au>)
+	id 1lt2Lc-0001v2-A7; Tue, 15 Jun 2021 14:14:52 +0800
+Date: Tue, 15 Jun 2021 14:14:52 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
 To: kernel test robot <lkp@intel.com>
-References: <202106121952.9eBLxaDd-lkp@intel.com>
-From: Lu Baolu <baolu.lu@linux.intel.com>
-Message-ID: <09a11577-5c2d-808d-ac70-8d546ef43199@linux.intel.com>
-Date: Tue, 15 Jun 2021 11:18:24 +0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+Cc: Peter Ujfalusi <peter.ujfalusi@ti.com>, kbuild-all@lists.01.org,
+	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
+	Linux Crypto Mailing List <linux-crypto@vger.kernel.org>
+Subject: [PATCH] crypto: sa2ul - Remove unused auth_len variable
+Message-ID: <20210615061452.GA5622@gondor.apana.org.au>
+References: <202106030304.crsT6r76-lkp@intel.com>
 MIME-Version: 1.0
-In-Reply-To: <202106121952.9eBLxaDd-lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: baolu.lu@linux.intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <202106030304.crsT6r76-lkp@intel.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: herbert@gondor.apana.org.au
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of baolu.lu@linux.intel.com
- designates 192.55.52.43 as permitted sender) smtp.mailfrom=baolu.lu@linux.intel.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+ (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18
+ as permitted sender) smtp.mailfrom=herbert@gondor.apana.org.au
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,61 +128,76 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 6/12/21 7:47 PM, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> head:   25fe90f43fa312213b653dc1f12fd2d80f855883
-> commit: 456bb0b97f00fe8defba155c0a4c48d951635395 [8472/9209] iommu/vt-d: Expose latency monitor data through debugfs
-> config: x86_64-randconfig-a006-20210612 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project d2012d965d60c3258b3a69d024491698f8aec386)
+On Thu, Jun 03, 2021 at 03:53:14AM +0800, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> head:   231bc539066760aaa44d46818c85b14ca2f56d9f
+> commit: 00c9211f60db2dead16856f81a3e6ab86b31f275 crypto: sa2ul - Fix DMA mapping API usage
+> date:   8 months ago
+> config: arm64-randconfig-r005-20210601 (attached as .config)
+> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project d41cb6bb2607fa5c7a9df2b3dab361353657d225)
 > reproduce (this is a W=1 build):
->          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->          chmod +x ~/bin/make.cross
->          # install x86_64 cross compiling tool for clang build
->          # apt-get install binutils-x86-64-linux-gnu
->          # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=456bb0b97f00fe8defba155c0a4c48d951635395
->          git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
->          git fetch --no-tags linux-next master
->          git checkout 456bb0b97f00fe8defba155c0a4c48d951635395
->          # save the attached .config to linux build tree
->          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install arm64 cross compiling tool for clang build
+>         # apt-get install binutils-aarch64-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=00c9211f60db2dead16856f81a3e6ab86b31f275
+>         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+>         git fetch --no-tags linus master
+>         git checkout 00c9211f60db2dead16856f81a3e6ab86b31f275
+>         # save the attached .config to linux build tree
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
 > 
 > If you fix the issue, kindly add following tag as appropriate
 > Reported-by: kernel test robot <lkp@intel.com>
 > 
 > All warnings (new ones prefixed by >>):
 > 
->     drivers/iommu/intel/perf.c:16: warning: Function parameter or member 'latency_lock' not described in 'DEFINE_SPINLOCK'
->>> drivers/iommu/intel/perf.c:16: warning: expecting prototype for perf.c(). Prototype was for DEFINE_SPINLOCK() instead
+> >> drivers/crypto/sa2ul.c:1674:6: warning: variable 'auth_len' set but not used [-Wunused-but-set-variable]
+>            u16 auth_len;
+>                ^
+>    1 warning generated.
 
-This seems to be a kernel doc warning and should be fixed in the header
-file for DEFINE_SPINLOCK. Did I miss anything?
+Thanks for the report.  This variable is indeed unused.
 
-DEFINE_SPINLOCK is used everywhere, perhaps we need to add some comments
-around it?
+---8<---
+This patch removes the unused auth_len variable from
+sa_aead_dma_in_callback.
 
-Best regards,
-baolu
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 
-> 
-> 
-> vim +16 drivers/iommu/intel/perf.c
-> 
-> 55ee5e67a59a1b Lu Baolu 2021-06-10  15
-> 55ee5e67a59a1b Lu Baolu 2021-06-10 @16  static DEFINE_SPINLOCK(latency_lock);
-> 55ee5e67a59a1b Lu Baolu 2021-06-10  17
-> 
-> :::::: The code at line 16 was first introduced by commit
-> :::::: 55ee5e67a59a1b6f388d7a1c7b24022145f47a3e iommu/vt-d: Add common code for dmar latency performance monitors
-> 
-> :::::: TO: Lu Baolu <baolu.lu@linux.intel.com>
-> :::::: CC: Joerg Roedel <jroedel@suse.de>
-> 
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> 
+diff --git a/drivers/crypto/sa2ul.c b/drivers/crypto/sa2ul.c
+index 51bb69bc573c..544d7040cfc5 100644
+--- a/drivers/crypto/sa2ul.c
++++ b/drivers/crypto/sa2ul.c
+@@ -1698,7 +1698,6 @@ static void sa_aead_dma_in_callback(void *data)
+ 	size_t pl, ml;
+ 	int i;
+ 	int err = 0;
+-	u16 auth_len;
+ 	u32 *mdptr;
+ 
+ 	sa_sync_from_device(rxd);
+@@ -1711,13 +1710,10 @@ static void sa_aead_dma_in_callback(void *data)
+ 	for (i = 0; i < (authsize / 4); i++)
+ 		mdptr[i + 4] = swab32(mdptr[i + 4]);
+ 
+-	auth_len = req->assoclen + req->cryptlen;
+-
+ 	if (rxd->enc) {
+ 		scatterwalk_map_and_copy(&mdptr[4], req->dst, start, authsize,
+ 					 1);
+ 	} else {
+-		auth_len -= authsize;
+ 		start -= authsize;
+ 		scatterwalk_map_and_copy(auth_tag, req->src, start, authsize,
+ 					 0);
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/09a11577-5c2d-808d-ac70-8d546ef43199%40linux.intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210615061452.GA5622%40gondor.apana.org.au.
