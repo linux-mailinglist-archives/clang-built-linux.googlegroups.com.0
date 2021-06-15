@@ -1,121 +1,131 @@
-Return-Path: <clang-built-linux+bncBDTY5EWUQMEBB2UKUGDAMGQEWSQGVAA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCN7B3VUS4CRBOMQUGDAMGQETWCLQTQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 87C0C3A76F4
-	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 08:15:08 +0200 (CEST)
-Received: by mail-pg1-x53e.google.com with SMTP id z71-20020a63334a0000b029022250d765d3sf3875112pgz.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 23:15:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623737707; cv=pass;
+Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
+	by mail.lfdr.de (Postfix) with ESMTPS id F3BA73A7712
+	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Jun 2021 08:27:06 +0200 (CEST)
+Received: by mail-io1-xd37.google.com with SMTP id u19-20020a6be3130000b02904a77f550cbcsf25515394ioc.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Jun 2021 23:27:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623738426; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bf5Cy6cXHGmahOBD+YVgk9LQVv+ah371kY0Dj2MRZjlGMsiHdIcs7Nsx7UspS1PjKg
-         tmbuKj6S0ZF0cp4+x4W9u/+AppCnwWutVJr3KVj0cWhK4rWhoxk6uq48RU+pxqN9jvR2
-         VF1rArnBD3STh86wohhRb1YWeOf8LA3LTpqZSaWioGE28/JI8dtbCAfiIHtZqu50AzRH
-         H8fIHC6+lixaX+k/IzFzHcCdW7IYVmhPq5Y0Go1DjtnWiSVHY1HvQiUtk0QfS/6wtFR2
-         Lkw/F4Cru3vlc7e3txRDNim4TYCMpeR6jH0r4VnjkJpK0jhQla0Rh0KYYIu2Z9kWNFlU
-         4nCA==
+        b=HZyW6D0AZV0u1dyt8UuC5AJTwxA7eNQ9KHblsyJoGcNW/I9HTuTsfW3+EWhhgltxXM
+         6W/RkqLjjwvwxWjeQcc2dJUN7wJle4jZ+g6ag/3bNiM7U86uQ0x87uMYMifvsrcfUYNc
+         aGC/cXIwE7409C2Xq9IECVwwwVRxgOjDOsQ721yl/G/PX3Ryvjvxv9er8Inc8eYfaNCx
+         m4fPEehHodhM3Ni5+NPOB487Ei1m8hEb6Yuj1arrqkR6p2X8b4sG8SgwDZdwjcwQEwDp
+         J5UhicGqrEDDoEFoPrndl2Pw8/DrtHY5nxmeYOwtfMSFWcH1+LxHkmYbSdjf9FYhETMT
+         cT6Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=GshQUzKnwDcFgKyVXA8NcYg+Pitkc2QvNC6qHIafpKg=;
-        b=08+DAxv2eb+5/xt7Rd7pAirKKX+edElqUk0LafO5n/H80lEEWUfKw8oxErl4eBKAX0
-         1tgoMzCFjEIURYY3V7HoCUdo1PmOj0R9lS3YPWlL4aBf61SARLmFeA6Epn1m3x77coA9
-         wlninDz3kT12nRS+hqhyaiNS/X3nA7LMt+na0GXdPWMavb2kuA3/J83jTwcBWJD7UP/B
-         Rprl6YYRBWbMJbgTEpUwiUyk4yfYzOgdzyoHO8L+veXFuXD3aodwY7bun1Mx7+7Nnzgn
-         4nJ9I/KloE4xVX+/CLiwPV93e8NE+FV7ZvX++5FnYpS12SPFZq/Vco3KS1GkHgXOF7aE
-         dtUA==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=zdGBLDhAbrYNFTAtCpzHGmlo6xPc3Ifr9oGWV5Dtzbw=;
+        b=oDjEQeg8HDvIx1P567ZjC2SocFH7YTeRPYmuS54cDjK57AHCp/8oCLXrTebj6I7MoA
+         o0iKwfMe6/ObSXkcgbTBRQBZl4Rr3EkEksa953OZCVjbHvOy7DZD7m9losrwE48YYiv7
+         Dg5FVrTc2SrmmU0Zm+OudU9pUn6ibJaFwFbjHb0J8Jjp5PP9DvHo94SBQzGUDyur3SW/
+         FAIetLs5KNDyWA2kciOyrzcmKaYb3fqW8JjnFJgMel2MDzXaugGt5V8ri5A9ly14AbyB
+         6G8dspZa+YcqzXlrqhISfRInNYmhzqmKXUW1ABv7NjiyGu3NH2BuvJRSHMCmwlvPU0P+
+         SewA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) smtp.mailfrom=herbert@gondor.apana.org.au
+       spf=pass (google.com: domain of lecopzer.chen@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=lecopzer.chen@mediatek.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GshQUzKnwDcFgKyVXA8NcYg+Pitkc2QvNC6qHIafpKg=;
-        b=etPWFEOPl+HTVp3vKcGbg+7CNRmcoVF/I38sK0b85disbHp6Av5TyYGbnguk2YPOk9
-         3Fx1FKbha8bRV7JjIyofi+ZHToAbd2V1R3L3LQQvhjFNO2bLy+C2Apap9Iw4bJneDZ/I
-         tG5W292PqoN7H7BTJoYFDSO6UmmZXgtlWPmglqAtn64IgtKN3xWrVCaTtvOuxe+jT7MX
-         Hj/MtTYUkyt0S7R9nnoP88I44wfoDmQu831FuoUL85/mNkJtKukMSyQ7J7YyilbySM+8
-         rmHVlW+jjqCDtvpQgWI8brqC3A0/pH9BRtUQ/IEEoNWqbghdu/wJdtPrCBwTMaTa0kIs
-         ngrQ==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=zdGBLDhAbrYNFTAtCpzHGmlo6xPc3Ifr9oGWV5Dtzbw=;
+        b=diD7ccTQFzq95viIxuDJvDP7F20hXB85FTTpEbReapnnO3GPGBesFzb7M7LB5ErnYd
+         hV5iVlNZ1poiO/7lv+r3QkXtQuPx5FE+2TuWfsP1NR3xf3KobkyjlGc07vcefkxTRXjs
+         UZ9u0dfaVeTYM1QkPDiaOXzCeZXxdAl7HmtEk/Yl+agUt/1/ghevIeQkD1zQwTeQP+3i
+         HsbrlQPNvFhZmVhPdodxaNIpdsWpoRnG/7YKbZus6dHeOzXcSA5+txSN3wIVTB77gyhz
+         upC/gjuxYSiIha/76v9IeI/GW/Q/7L0hrw1kRWK72xcfWQietLr9haFLOKW8DMO1VSAR
+         ewqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=GshQUzKnwDcFgKyVXA8NcYg+Pitkc2QvNC6qHIafpKg=;
-        b=f5vQ+V3ih8DXUHidHQxdxMfywOVa2TkjXZfreKRSfT5AdgW5ULtlxaQHvuqO+RWDnp
-         mKAI+AUmq/Awc5cvHI5GBhHfAaJPeJ+BQ/yB1/+TgbTLl/Y6Q8Snqo2LvDgKoSSUiYSV
-         BuaF2x1IAuy0yO3FnMXDm2VpfRtqjVYxdn2R4Xa/buwTVdBzSOrc5EUQ3Mw/zqDDIIt8
-         XK3Kj5fjqisqO/oi0+8S9NZ9TQYCd8aPeR3dCehjynLCOjp5XT/nBG7YOqKKCLYIQSBD
-         8iHOR6VWHFcRAt8CyEx7dsDmNwLHP4n++D/JzhEKz2pjRsphvhVo3+pEaezDS/9bzMWM
-         ZKtg==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=zdGBLDhAbrYNFTAtCpzHGmlo6xPc3Ifr9oGWV5Dtzbw=;
+        b=kv49+XW9ux/bPavphACVTwr348I3Z3k3stCyvrMY0qfyCmrDKVpzBkwpukk+h5ZYJZ
+         LFM9qm8/NT17Xk8kENaJsyE1rlJMxHR4RuDnjt3q/eUSmga1UNPGuSDLYAeAoH6U98nP
+         zw7cYMGvu00BcSY/aqxmIYYXUslFg01TfvKMOAWaWeayLYyxnbaZFYgE9uFhfZaAdLzu
+         zCaATEARx1itwBfG3895r9uh81elEWo3jbFntbyg3aie9faYACVwAan5tJY08VUQXZca
+         z+lMxD7TmIsKa3iYWRO3la8eUFP+3cvW4OlxSQdXJgzwgpG+Jglqe9QrZcG3N3dq1+p0
+         HTGw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530JzCxm4+il7+JN9RY9QX9cwFYYsOL2kQoNl4wigRz0baHtYDqG
-	rN0yyXAF5P2UFfRUEY6eJaE=
-X-Google-Smtp-Source: ABdhPJwwd4iQlETtjAl2ey+a0mgPrdf5dUeE8SmSvlJH2Uo6sOjjj7NE2sxQJFmm55KpDgizgZ0FaQ==
-X-Received: by 2002:a17:90a:d30a:: with SMTP id p10mr23504598pju.104.1623737706758;
-        Mon, 14 Jun 2021 23:15:06 -0700 (PDT)
+X-Gm-Message-State: AOAM532iA/bqu89E1uPW6+M7iL5hUvdaeVxgNNhrg/nLqryUBGf39IsZ
+	OiJN0jceFJCpcUvpQ/7gp1w=
+X-Google-Smtp-Source: ABdhPJygrpz5Evhp63VRKm8iD0ekUi4g98JBwbiXEcrhyjyftbS5DGMlN7QqUy0UL8yLjbIZl/WpBg==
+X-Received: by 2002:a05:6e02:12c4:: with SMTP id i4mr16884777ilm.141.1623738426020;
+        Mon, 14 Jun 2021 23:27:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:8609:: with SMTP id f9ls8927982plo.5.gmail; Mon, 14
- Jun 2021 23:15:06 -0700 (PDT)
-X-Received: by 2002:a17:902:ee82:b029:114:8409:1b78 with SMTP id a2-20020a170902ee82b029011484091b78mr2798937pld.59.1623737705952;
-        Mon, 14 Jun 2021 23:15:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623737705; cv=none;
+Received: by 2002:a05:6602:15c7:: with SMTP id f7ls3364387iow.10.gmail; Mon,
+ 14 Jun 2021 23:27:05 -0700 (PDT)
+X-Received: by 2002:a5d:9694:: with SMTP id m20mr1523814ion.185.1623738425647;
+        Mon, 14 Jun 2021 23:27:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623738425; cv=none;
         d=google.com; s=arc-20160816;
-        b=ck1IrXvGLpnSj5LPyZu3wPj1L5P8BeZ28HMLYbRNRd8VLb6CNz3jpmA1ZfOlDIBHrc
-         F3KG0d4CxGl7MAjHs4EkguEQ4jjetXhWkFE6G0GUAzvw5JiVo/Q2lhVL04X9LJMQ71+O
-         KqESPMeQlpKgpjw3jkrGH/rlTEE6P6OGE1jO+Ox7CiSegjM4Q1+eHiDwWALQUzZz+w+o
-         Qu0YYvuNv8vQVjw5h+IFPTtgW2lvu5p5699lYcaPdIT4hy3o8yLw3Te7wpvLv7yq75TI
-         8z2e9nnLPZlQ8fVoZd1fjIbwah8wWSf9kBYlO9t22KPEr8GUr41OBrp22kIVUUUUut2i
-         zIcA==
+        b=vZMma1S9/GCx2AXtutve3GcW50f2Ys2u9AJMyy+6tElDQ/HqutBicED86tFCHwEHqC
+         nQmbGwfcH37NcUSq7RxE8MFnkrppQx2ErYbY9dyT2G3VT7/3jXK0Qb9Yxd/lMVhGoTe5
+         wfGcRo3e4fmQSesubjzLuxyha+ahLea1OTpQBzaAgTHEbKnD6/jVUOpen3Wj8C0+1sDD
+         9hfQq2MdKJrnk/45ZcFanq/CmEtKQN4do08nNqpWeYuAVxTOMmCxb2nt+2PaQldVCjOf
+         E3sn10jBCEHnffeC7I751yJMmCcJk1kfQVsFJWe9d3XqsHEVk+wvGeaHVO+awqpvBJuI
+         0sKw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=CsBZLQpFqMB1CJI+YecKEEmRgBdEErh63+/VylUl44o=;
-        b=pH7nEJS0mjsshK+oP2hLgOOZf/l1W+DjA07b4pIo6svL1boeDeQik8ao14I/LFMLRu
-         AxAmVT5TgRzMo4v/Ir1C60nVedMIAtObenGgdfvfQp7EaWkOE4z0j+sV8bYfytpuxOGG
-         rCGWUdwiVH/s3RAyyMqEKOr0L06pjbSrebLLisv7oqwMjcz5B5Dx79aAvttPEgPWewuu
-         XWSP0dMaIwqRPLopyXol44avz9cumNicXdVX/Y0A+dUdoXRgF8vBlxtujDSk9vzRfr9w
-         Xn+qV/Wjt9RrBLBdWt8dGm9KLnfFZXXREQGgp7rt8u/wAzL5O3T5FG++pK+GgPi6Brb8
-         ACYQ==
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from;
+        bh=h86XvEo//hkv2s7D873Ta+hGzcQhPBzGwR/Qd6upzrk=;
+        b=sIu/w+4HYWIYmzoao5b+zfukGtRCRhTZkiojOFP4jhM6do7JrHIgmrarX5UVDkJgBr
+         i/1zKzCgZX9wTj/quEU/3AifXL34V3kCQJZT2Br67ln8PfFtJsnN194/MR03ury64BwN
+         uMFnYcaD0rUhir86KITdzzu73ei17V+fu90Czk2ftAJcTY4nAQtJZaV5QZDmbfcBnsvo
+         2StsQc5btNckx3jNSjL3IJOe/jvcU4K8OX3KYAk1wLLIzUkSXmmiFSJguHxjG2yyCG3z
+         YiNmQYXbc61xtC2eTqlo09PNEOJ4nscT3NsMawBf5q93U++1MDbP1ENLWW2up92+C0aZ
+         w29g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) smtp.mailfrom=herbert@gondor.apana.org.au
-Received: from deadmen.hmeau.com (helcar.hmeau.com. [216.24.177.18])
-        by gmr-mx.google.com with ESMTPS id s14si134935pfu.0.2021.06.14.23.15.05
+       spf=pass (google.com: domain of lecopzer.chen@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=lecopzer.chen@mediatek.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
+Received: from mailgw02.mediatek.com ([210.61.82.184])
+        by gmr-mx.google.com with ESMTPS id v7si103979ilu.1.2021.06.14.23.27.05
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Jun 2021 23:15:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18 as permitted sender) client-ip=216.24.177.18;
-Received: from gondobar.mordor.me.apana.org.au ([192.168.128.4] helo=gondobar)
-	by deadmen.hmeau.com with esmtp (Exim 4.92 #5 (Debian))
-	id 1lt2Li-0007Jz-Se; Tue, 15 Jun 2021 14:14:58 +0800
-Received: from herbert by gondobar with local (Exim 4.92)
-	(envelope-from <herbert@gondor.apana.org.au>)
-	id 1lt2Lc-0001v2-A7; Tue, 15 Jun 2021 14:14:52 +0800
-Date: Tue, 15 Jun 2021 14:14:52 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: kernel test robot <lkp@intel.com>
-Cc: Peter Ujfalusi <peter.ujfalusi@ti.com>, kbuild-all@lists.01.org,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
-	Linux Crypto Mailing List <linux-crypto@vger.kernel.org>
-Subject: [PATCH] crypto: sa2ul - Remove unused auth_len variable
-Message-ID: <20210615061452.GA5622@gondor.apana.org.au>
-References: <202106030304.crsT6r76-lkp@intel.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 14 Jun 2021 23:27:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lecopzer.chen@mediatek.com designates 210.61.82.184 as permitted sender) client-ip=210.61.82.184;
+X-UUID: eec2f9026ec84ccfb2496baa8727fbfe-20210615
+X-UUID: eec2f9026ec84ccfb2496baa8727fbfe-20210615
+Received: from mtkcas11.mediatek.inc [(172.21.101.40)] by mailgw02.mediatek.com
+	(envelope-from <lecopzer.chen@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-SHA384 256/256)
+	with ESMTP id 1795548193; Tue, 15 Jun 2021 14:27:00 +0800
+Received: from mtkcas11.mediatek.inc (172.21.101.40) by
+ mtkmbs08n1.mediatek.inc (172.21.101.55) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.2; Tue, 15 Jun 2021 14:26:58 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by mtkcas11.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.0.1497.2 via Frontend
+ Transport; Tue, 15 Jun 2021 14:26:58 +0800
+From: Lecopzer Chen <lecopzer.chen@mediatek.com>
+To: <keescook@chromium.org>
+CC: <clang-built-linux@googlegroups.com>, <lecopzer.chen@mediatek.com>,
+	<linux-kbuild@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<masahiroy@kernel.org>, <michal.lkml@markovi.net>, <nathan@kernel.org>,
+	<ndesaulniers@google.com>, <samitolvanen@google.com>,
+	<yj.chiang@mediatek.com>
+Subject: Re: [PATCH] kbuild: lto: fix module versionings mismatch in incremental build
+Date: Tue, 15 Jun 2021 14:26:58 +0800
+Message-ID: <20210615062658.21633-1-lecopzer.chen@mediatek.com>
+X-Mailer: git-send-email 2.18.0
+In-Reply-To: <202106141554.A2D26986A@keescook>
+References: <202106141554.A2D26986A@keescook>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202106030304.crsT6r76-lkp@intel.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: herbert@gondor.apana.org.au
+X-MTK: N
+X-Original-Sender: lecopzer.chen@mediatek.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of herbert@gondor.apana.org.au designates 216.24.177.18
- as permitted sender) smtp.mailfrom=herbert@gondor.apana.org.au
+ (google.com: domain of lecopzer.chen@mediatek.com designates 210.61.82.184 as
+ permitted sender) smtp.mailfrom=lecopzer.chen@mediatek.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -128,76 +138,61 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jun 03, 2021 at 03:53:14AM +0800, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   231bc539066760aaa44d46818c85b14ca2f56d9f
-> commit: 00c9211f60db2dead16856f81a3e6ab86b31f275 crypto: sa2ul - Fix DMA mapping API usage
-> date:   8 months ago
-> config: arm64-randconfig-r005-20210601 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project d41cb6bb2607fa5c7a9df2b3dab361353657d225)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install arm64 cross compiling tool for clang build
->         # apt-get install binutils-aarch64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=00c9211f60db2dead16856f81a3e6ab86b31f275
->         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->         git fetch --no-tags linus master
->         git checkout 00c9211f60db2dead16856f81a3e6ab86b31f275
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm64 
+> On Mon, Jun 14, 2021 at 01:51:09PM +0800, Lecopzer Chen wrote:
+> > When building modules(CONFIG_...=m), I found some of module versions
+> > are incorrect and set to 0.
+> > This can be found in build log for first clean build which shows
+> > 
+> > WARNING: EXPORT symbol "XXXX" [drivers/XXX/XXX.ko] version generation failed, symbol will not be versioned.
 > 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
+> I'm doing this, and I don't see the problem:
 > 
-> All warnings (new ones prefixed by >>):
+> $ make LLVM=1 LLVM_IAS=1 distclean
+> $ make LLVM=1 LLVM_IAS=1 menuconfig
+> 	*enable LTO*
+> 	*enable a module*
+> $ make LLVM=1 LLVM_IAS=1 -j...
 > 
-> >> drivers/crypto/sa2ul.c:1674:6: warning: variable 'auth_len' set but not used [-Wunused-but-set-variable]
->            u16 auth_len;
->                ^
->    1 warning generated.
+> What series of commands (and .config) shows this for you?
 
-Thanks for the report.  This variable is indeed unused.
+Hi Kees,
 
----8<---
-This patch removes the unused auth_len variable from
-sa_aead_dma_in_callback.
+Thanks for you checking.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+After double checking in clean android kernel build, this causes by
+make version.
+(I have build failed in Linux LTO,
+seems it's not well support in contract to android?)
 
-diff --git a/drivers/crypto/sa2ul.c b/drivers/crypto/sa2ul.c
-index 51bb69bc573c..544d7040cfc5 100644
---- a/drivers/crypto/sa2ul.c
-+++ b/drivers/crypto/sa2ul.c
-@@ -1698,7 +1698,6 @@ static void sa_aead_dma_in_callback(void *data)
- 	size_t pl, ml;
- 	int i;
- 	int err = 0;
--	u16 auth_len;
- 	u32 *mdptr;
- 
- 	sa_sync_from_device(rxd);
-@@ -1711,13 +1710,10 @@ static void sa_aead_dma_in_callback(void *data)
- 	for (i = 0; i < (authsize / 4); i++)
- 		mdptr[i + 4] = swab32(mdptr[i + 4]);
- 
--	auth_len = req->assoclen + req->cryptlen;
--
- 	if (rxd->enc) {
- 		scatterwalk_map_and_copy(&mdptr[4], req->dst, start, authsize,
- 					 1);
- 	} else {
--		auth_len -= authsize;
- 		start -= authsize;
- 		scatterwalk_map_and_copy(auth_tag, req->src, start, authsize,
- 					 0);
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+I knew Google has LTO first in Android and upstream later, and most code
+are same as upstream, so the env here I use Android common kernel for
+easily testing.
+
+
+Test env is android common kernel: android12-5.4 [1] with its latest code
+and it builds from build.sh[2]
+
+$ BUILD_CONFIG=common/build.config.gki.aarch64 build/build.sh
++ make O=.... LLVM=1 LLVM_IAS=1 DEPMOD=depmod -j12 Image modules Image.lz4
+
+With make set to v3.81, this can be reproduced with CONFIG_TEE=m.
+With version >= 4.2 this is not reproducible.
+
+
+Our build env default set make to v3.81, although Android uses hermetic build
+and v4.3 now, but Linux doesn't have such things.
+
+Maybe we can add build time checking or comment before CFI module versioning
+build rules to avoid anyone struggling with this again:).
+
+[1] https://android.googlesource.com/kernel/common/+/refs/heads/android12-5.4
+[2] https://android.googlesource.com/kernel/build/+/refs/heads/master
+
+thanks,
+Lecopzer
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210615061452.GA5622%40gondor.apana.org.au.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210615062658.21633-1-lecopzer.chen%40mediatek.com.
