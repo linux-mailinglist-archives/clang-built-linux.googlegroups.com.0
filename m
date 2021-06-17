@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCT6537ZTEKRBBMIVWDAMGQERNE3SPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT6537ZTEKRBVUJVWDAMGQEYQEEEBY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x639.google.com (mail-ej1-x639.google.com [IPv6:2a00:1450:4864:20::639])
-	by mail.lfdr.de (Postfix) with ESMTPS id 059F53AB3EC
-	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Jun 2021 14:45:58 +0200 (CEST)
-Received: by mail-ej1-x639.google.com with SMTP id lt4-20020a170906fa84b0290481535542e3sf303215ejb.18
-        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Jun 2021 05:45:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623933957; cv=pass;
+Received: from mail-ed1-x53a.google.com (mail-ed1-x53a.google.com [IPv6:2a00:1450:4864:20::53a])
+	by mail.lfdr.de (Postfix) with ESMTPS id E9FB73AB400
+	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Jun 2021 14:49:26 +0200 (CEST)
+Received: by mail-ed1-x53a.google.com with SMTP id f12-20020a056402150cb029038fdcfb6ea2sf1444512edw.14
+        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Jun 2021 05:49:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623934166; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zqfKhl5wqXG5uYuxywxVRpi7JTjf8jBlMX4Q7A9qGYmbtT6ntklG4ywIkQHYy0m14J
-         lwPy0uKV/Wvgtusw/bG6Lt/tP+pVmGv50tH2xPHq9c/ipnpSLY605b731gk0wxy5fkF0
-         q/0SkRr4KnpqZQV0kZqyrOPJtfsiq1Xv1zMfB9YdTVXZZZEz+n5Y5jQ84urAms/WxrHM
-         dD81IGNYc6vvVIJd616dGwsHa3wjkd5kNnFZm6eK0RSN4iy0D/tcLLKYf7AuoEpIaV3w
-         DXewvCRZuDREPixBRg5H/iAgwCMgNjy9gR/8VbGYvKiR3cUWUB3cLohGrz2PX/jt3rmz
-         9akg==
+        b=WBi/VTAVZBlSJR5P1fzo15Twp1e+qA4w9vOGT5vcrPPtuD6istcQajXfKTGckjJGOz
+         I7wraWJ5Jwn8XgOku7qpwVh2rXFLHZuhgf2L3cn0sY+fKoGINObcagLxsR40wgD74Lr4
+         WcNXD6FONYKKwX2/4w6EODz/kL/usAN8F9c9XbYLPbeIeyEAOIyTPTm6/sNlMNhxKJ44
+         8YHgU6Qj+oop60oOiKZts+IpMSPSY0jrveEfVll+dvfV0MAXnBJnMK4FYtx1haGyYQIZ
+         ZIey+3Vs5TbqItVOQA1WLkXLPugUzM7cqNTz/bSZJ3xtkTb8LZRquMSmEYdKtaLNceB9
+         SXWQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=TuVn1f3IkPJKdUu4JXv/s6hACEd8RUF38e9+ZosGlq4=;
-        b=k0uRfrbL+chRtepX0iXgg3dEgijdpgo50Ibz3e94ZiWT0trP98OapgD7QUPLhzrpq+
-         63F+NSFt0t5KXIBoL5dDvblIO0EdaIQJikLLA8Yzc9jN9HhAHGMdpZa5IJ2EEwZol/rg
-         RgLxY7OMD6HxuBBrDBtQI0VnX64Q9lndVkEpLFnaXX6cWddVmQyZacHzDny/2VEWcKwW
-         WaegwlaiuVHbm6IjB4gv9+LdT79UA60DMqodEpMjHR8akqHWEgkzHmT/wThBNTdPps6A
-         IobhZWHOHDuGovTyKbt/11vJaHT5+ro99s+bfo3Wnj2xRCPPcEG7NJTLz7f8qP5aw1vn
-         dZXg==
+        bh=6fBoOk4VyTFfhhk8F8EGIO+EarDPeR9vItdGrhlrDtE=;
+        b=YHDummarrJasTiPnhdrcETkjkwnLnblandWUyUZtoOaQfJBvhPlEAwR5WyFUD1OkOt
+         XP62/EItA8SHJOgId3BSxIvx7u++sKkvPYcEfzlDaqp4UdsoSOSruLlIFEJOGzmxycdk
+         9POjzsN9FXlKowIAo6kWie74pp14uu0OJMWGtF+5ZYLWLgAB/Iu5OrURLBiMMoeM/s48
+         oQZybLWbtV0nfzHe/Ijbb7Wb0jSVoos8q4n4lvjL6gXwRNwbwsXZlQWUwMS1EG/ePV1i
+         ts5eVYRm7hGPIo81/2+NHeniknnF4s09GYTfnodIY09/5h+TZsT3qX0ZkDsfv4pFpVA4
+         Q+3w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=iP9jNH0t;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::630 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=wYl9BpEI;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::62d as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TuVn1f3IkPJKdUu4JXv/s6hACEd8RUF38e9+ZosGlq4=;
-        b=LRH1XIEpThf1S1Y1EkSZwBXjUGOC0oOG+nd4r/PcOZNsLTi5iHq4BkFlDRE6U+OOhY
-         vyCn2bfMowlXfNhvufNW+wVyR9/GzOy38Nv1QTuGx+e1EHrC8eyF843x14mthwytLRNi
-         Yxay5HRSV4XB8qVY2Hb/aa0SRas1cqO0NDgOqa3JxJJg0CN8r25Hvufw6Q+nXuu8Ld/Y
-         d3A26dnDp8oGs8k7vENW2SmWPYWTUaknlQkL+UU7ltGrEaoIkwjdYYnDQywJoqEq1a2J
-         GiQATlmxHYwsUZ5Ari/w5CkgT5EauyGqGaX4ps+PQ1fWNfgQZGAVM6f2HxibYrJxeWH8
-         E0HA==
+        bh=6fBoOk4VyTFfhhk8F8EGIO+EarDPeR9vItdGrhlrDtE=;
+        b=Xa2KcNch97d9fRG9IDB67eDO9tcU+1gstIe8/LQKLrr1FiXrAQSqlOsit80iozfyiz
+         p5PojnRlDr1LBMv4S/wz0jUDAX8lxJz5RqDnyDX4lZ7bFGU25IFQA/MPDrEB7QGINCRo
+         nFcwyd2fCHuRD0XqF4WsIwBcIBcEM9oWCOWnUQ1oqjQkn6IVgQMjNzsv6iQ//nyM+Yi/
+         dLwfhA0SZXl2bZIgty1n9N3emuA/xAD3RxBTpt7m6+ErpiaPkl5ZdEZhtNJglhY0e5MH
+         v+z1INPt+BRughhdcbD68UxA+Wqt3MAQGv7dI227b75avtEhSzQrJV9hXy4Cor4ZwcSC
+         S+5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -49,86 +49,76 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TuVn1f3IkPJKdUu4JXv/s6hACEd8RUF38e9+ZosGlq4=;
-        b=MDp/KMS3wIQ/utokJrHCC/sDWJ14RwL4JMUvX3cviR99QxEh8PG7O6C3x3j2XqC4i8
-         sSaZWgSZE2pFQerRNGFRYO65XkAX5y1qsX2Y7wjgtq6OvQkfy7A5spicIK/biw8bdxRt
-         xlhVHnxO3PEcgfcRd/wRHRJtHLpM4weDKIQNDrEHfcIaSjTNw6jdHBcivVZH7EJQEJuo
-         OgJQZllQAkmi51wITqqPXiIhomM3aPyFKCz6dg1mRGkC4MTyTB7TaGusVm4u92fZq2/x
-         7ilOWelLsL+ILgtpHhIaAIwuCNIdKFFwiVx4MZxt9SNtr+yJW2wy07MfAsUNjJOj3eAt
-         +sSQ==
+        bh=6fBoOk4VyTFfhhk8F8EGIO+EarDPeR9vItdGrhlrDtE=;
+        b=rCDkj1eaA12rSOn18MwPbu4BkLJluZA5xhARZIPTTF4ixJVbgE18QZFmXPa2LFYgGN
+         aT/T3rcrpwLEx2zLPXi5Rh4N13VIaS6UKtdSOXjUlg2ID0IcojY5w6MdpK8oPEAce4a/
+         5PyyR3EVSCi+EGQ12G2hTqylDbt9gigoTWHVlXBHTwGWdduc8wQ95Vg8qRDY13HDksKB
+         6uBqvS35CJt/nPgO0QXJ9zRKReBvZ8UALNHcLEFeIPoONmWT9GcW+INBdvsZZv533mhz
+         6dJLuYWg4Qy6WCdD5wO6qVJ/zloXdIR2iEVI0/CIRFb8BgFIcRJEyi6xaNohR7Y+QOJn
+         HOiA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531vyEphElPd62ejfYeAUFAZCussZk0cZosblNWTXOCwMUq5Ailo
-	m2etI02fz4RDFi1JyhCdFac=
-X-Google-Smtp-Source: ABdhPJzB76Pvx/xSPXEePu2Jji1zwnqKB2GAQMRgYHWmNlvZA8QVYZ8L2nWC45sEzTixRVY+nr/m6w==
-X-Received: by 2002:a17:907:3e1a:: with SMTP id hp26mr4988058ejc.77.1623933957686;
-        Thu, 17 Jun 2021 05:45:57 -0700 (PDT)
+X-Gm-Message-State: AOAM532eROOOElWrf2Te9EiHhGtGrA3UfF5A+NezyPfSdSn92APMjmoX
+	y0boSqB61xpPHywUkBaCOGs=
+X-Google-Smtp-Source: ABdhPJz2zHOi96z+QvuDtwshc2S2zX9GFdFlxpfTFukGiXh2ZmiL9wsSAsEHblIXnbo3+09TBYRRuw==
+X-Received: by 2002:a17:907:7b9e:: with SMTP id ne30mr5078912ejc.389.1623934166663;
+        Thu, 17 Jun 2021 05:49:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6402:4404:: with SMTP id y4ls922063eda.1.gmail; Thu, 17
- Jun 2021 05:45:56 -0700 (PDT)
-X-Received: by 2002:a05:6402:d06:: with SMTP id eb6mr6104238edb.337.1623933956786;
-        Thu, 17 Jun 2021 05:45:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623933956; cv=none;
+Received: by 2002:a17:906:4796:: with SMTP id cw22ls2564551ejc.3.gmail; Thu,
+ 17 Jun 2021 05:49:25 -0700 (PDT)
+X-Received: by 2002:a17:906:c247:: with SMTP id bl7mr5240597ejb.288.1623934165696;
+        Thu, 17 Jun 2021 05:49:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623934165; cv=none;
         d=google.com; s=arc-20160816;
-        b=ROEBAtnJzNCjaBUy+YiFM/CO/Hb7z9NxyKMDqFx0mxddbc3KY1QEOgIwqa/8yDnbat
-         BhF/60YvrE8cZMUaz/6uMkAU/urkdl1FYMNd2MgUHhkpAlOEaLib7g6oHY+VmIAHm6WL
-         KDEh9V28c6lUkaiV3KgNPVdljsUYTvlPAbCSDT55Eea9+gyuukoNh1rgGYDE9XKZ9WsE
-         X+TaKwZSO2NhTk7YjPf+mEKS06QNaVgHnQhHACbHc4rhyYJil6y4j9Bmx4aF4PNC1JHv
-         fwwAaEoiZEGMpiYRRxwz07d/lgeRqqy8jfhP5eMuwZoOPZFjMcBMZov8Gsob49NhlV+q
-         fS/A==
+        b=oe7etsBfdAlDHTHGLGQ6qttd9R69u8CjP+1aq0yBnVmdAiTspf/pEDkXPPiIyEMWMU
+         kFbYYle+5iIm75dXijHDkJHp4sjsIxUZ7FG1WPbSdIl1Yar9i/6ANmjBEn9u3nxgG+Cr
+         +tsrztXGC7wWw0MlnoTtZ7N0WRvRCftPZKX/9HKECcx4D1wsG0ojbzVbGWH+Zmcdo13A
+         g9ij4TMXl6rp5q9hYkIOMnCmADlP+Dc4q4r+EAwDRRPpwg5KS6+sZNSWxbLvLmR+1G/C
+         zOd8bowOLlpd3zyp4DjlLWAs9Gu2o8Ro27WTAevzvwO9tfxlMODxXMaHKdpz1xtj94Xj
+         xauQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=mhQF38qVkFPjYjvziQjLIcfMR/G9GUoa3asUn5y7JgI=;
-        b=ZKVA620U22D2MU0XBvvb3bCwhPgI09Iifuv2fY3X50XT70rGw9x8hWnPLvYwY1IDe7
-         e2XgP912qKvGJppPKLDZ50smVvZcIqOYFdA6pimO/76CkgK44fR8LcZgrPckc6ngiM4t
-         fTLiG+K9HYvTcq/v/IFbHPfAqMSSdDadk7WTq49o69tu1yK95V1bPAZ244EN+ewJbeiO
-         dPFSc8D3un/NqCDfUUlU2TsPu7Fde0uE6nrS1k3IaSBSlWOfUxCsvRkqRd18vcnHBP8t
-         OMHz1Iwdk4v8jtkNOZjMbABPyqtw1jWWymmd/+IxyPrmuvavVO3aqCQGkB09qtlfNq4P
-         SBCw==
+        bh=Sw0rRPu1vla3L3zZiG3OVvS5c51Ec2nGfh20w94ZGwY=;
+        b=y7yCnNd5IFw5aci3ygRlp8K/3HJBlbBvENTbDTp9xgznTW1Nwp+T8+AyQu5gtRgCzN
+         /oYS5ktmZEA6KqTx+UzyxLP/o/knX1jtzRxOqWeerpc/voBWfs8ghS1IzROarzsBxJHV
+         k/+xyEFKuj7CP20B/5O22iE2h0SVmJlD51VrMEawolBYloUBkBwYwGuQtLVhE1NC+ytM
+         sFLDTNYMHCJyaGnYciqSwD2DbgEwysJ4Nzyi0xGqahkicXzQLc79QPfQlG+LwXRdSyEa
+         fwEOjhhD+y/FBaSvomXX/QgwACEIqRCOvzlzflXtBo8KeMhH3WmuEyics8Qj3ruWMVG/
+         DYGw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=iP9jNH0t;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::630 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=wYl9BpEI;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::62d as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-ej1-x630.google.com (mail-ej1-x630.google.com. [2a00:1450:4864:20::630])
-        by gmr-mx.google.com with ESMTPS id s9si270377edw.4.2021.06.17.05.45.56
+Received: from mail-ej1-x62d.google.com (mail-ej1-x62d.google.com. [2a00:1450:4864:20::62d])
+        by gmr-mx.google.com with ESMTPS id s9si270674edw.4.2021.06.17.05.49.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Jun 2021 05:45:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::630 as permitted sender) client-ip=2a00:1450:4864:20::630;
-Received: by mail-ej1-x630.google.com with SMTP id ho18so9662933ejc.8
-        for <clang-built-linux@googlegroups.com>; Thu, 17 Jun 2021 05:45:56 -0700 (PDT)
-X-Received: by 2002:a17:906:480a:: with SMTP id w10mr5071539ejq.18.1623933956354;
- Thu, 17 Jun 2021 05:45:56 -0700 (PDT)
+        Thu, 17 Jun 2021 05:49:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::62d as permitted sender) client-ip=2a00:1450:4864:20::62d;
+Received: by mail-ej1-x62d.google.com with SMTP id l1so9710965ejb.6
+        for <clang-built-linux@googlegroups.com>; Thu, 17 Jun 2021 05:49:25 -0700 (PDT)
+X-Received: by 2002:a17:906:480a:: with SMTP id w10mr5085999ejq.18.1623934165253;
+ Thu, 17 Jun 2021 05:49:25 -0700 (PDT)
 MIME-Version: 1.0
-References: <CA+G9fYsWHE5Vu9T3FV-vtHHbVFJWEF=bmjQxwaZs3uVYef028g@mail.gmail.com>
-In-Reply-To: <CA+G9fYsWHE5Vu9T3FV-vtHHbVFJWEF=bmjQxwaZs3uVYef028g@mail.gmail.com>
+References: <CA+G9fYsn-3rZXkHTtH33Oo0y97nfgkQmR_Echbu_-=WAbfo4Ug@mail.gmail.com>
+In-Reply-To: <CA+G9fYsn-3rZXkHTtH33Oo0y97nfgkQmR_Echbu_-=WAbfo4Ug@mail.gmail.com>
 From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Thu, 17 Jun 2021 18:15:45 +0530
-Message-ID: <CA+G9fYvvf+XTvZg1sTq4_f9OrVFsCazGo0ozaEbjVYgSeKCkWA@mail.gmail.com>
-Subject: Re: [next] [clang] x86_64-linux-gnu-ld: mm/mremap.o: in function
- `move_pgt_entry': mremap.c:(.text+0x763): undefined reference to `__compiletime_assert_342'
+Date: Thu, 17 Jun 2021 18:19:14 +0530
+Message-ID: <CA+G9fYu2SvwA7CDxTAJVdTi1K1267WDcdx9m6Ds6z0D3borthQ@mail.gmail.com>
+Subject: Re: [next] [clang] s390: clang: error: unable to execute command:
+ Segmentation fault (core dumped)
 To: Linux-Next Mailing List <linux-next@vger.kernel.org>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>, lkft-triage@lists.linaro.org, 
 	open list <linux-kernel@vger.kernel.org>
 Cc: Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Stephen Rothwell <sfr@canb.auug.org.au>, Stephen Boyd <swboyd@chromium.org>, 
-	Jiri Olsa <jolsa@kernel.org>, Alexei Starovoitov <ast@kernel.org>, Jessica Yu <jeyu@kernel.org>, 
-	Evan Green <evgreen@chromium.org>, Hsin-Yi Wang <hsinyi@chromium.org>, 
-	Petr Mladek <pmladek@suse.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Sergey Senozhatsky <sergey.senozhatsky@gmail.com>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Matthew Wilcox <willy@infradead.org>, 
-	Baoquan He <bhe@redhat.com>, Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Dave Young <dyoung@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
-	Konstantin Khlebnikov <khlebnikov@yandex-team.ru>, Sasha Levin <sashal@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vivek Goyal <vgoyal@redhat.com>, Will Deacon <will@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>
+	Arnd Bergmann <arnd@arndb.de>, Stephen Rothwell <sfr@canb.auug.org.au>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: naresh.kamboju@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=iP9jNH0t;       spf=pass
+ header.i=@linaro.org header.s=google header.b=wYl9BpEI;       spf=pass
  (google.com: domain of naresh.kamboju@linaro.org designates
- 2a00:1450:4864:20::630 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+ 2a00:1450:4864:20::62d as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -142,174 +132,201 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 17 Jun 2021 at 17:41, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
+The git bisect found the first bad commit,
+
+On Thu, 17 Jun 2021 at 17:57, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
 >
-> Linux next 20210617 tag following x86_64 builds failed with clang-10
-> and clang-11.
-> Regressions found on x86_64:
+> Linux next 20210617 tag following s390 builds failed with clang-10,
+> clang-11 and clang-12.
+>
+> Regressions found on s390:
 >
 >  - build/clang-11-tinyconfig
 >  - build/clang-11-allnoconfig
+>  - build/clang-12-allnoconfig
+>  - build/clang-12-defconfig
 >  - build/clang-10-tinyconfig
+>  - build/clang-11-defconfig
 >  - build/clang-10-allnoconfig
->  - build/clang-11-x86_64_defconfig
+>  - build/clang-12-tinyconfig
 >  - build/clang-10-defconfig
->
-> We are running git bisect to identify the bad commit.
 >
 > Build log:
 > ------------
-> drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool:
-> eb_relocate_parse_slow()+0x466: stack state mismatch: cfa1=4+120
-> cfa2=-1+0
-> drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool:
-> eb_copy_relocations()+0x1e0: stack state mismatch: cfa1=4+104
-> cfa2=-1+0
-> x86_64-linux-gnu-ld: mm/mremap.o: in function `move_pgt_entry':
-> mremap.c:(.text+0x763): undefined reference to `__compiletime_assert_342'
-
-The git bisect pointed out the first bad commit.
+> make --silent --keep-going --jobs=8
+> O=/home/tuxbuild/.cache/tuxmake/builds/current ARCH=s390
+> CROSS_COMPILE=s390x-linux-gnu- 'HOSTCC=sccache clang' 'CC=sccache
+> clang'
+> PLEASE submit a bug report to https://bugs.llvm.org/ and include the
+> crash backtrace, preprocessed source, and associated run script.
+> Stack dump:
+> 0.Program arguments: /usr/lib/llvm-12/bin/clang -cc1 -triple
+> s390x-unknown-linux-gnu -S -disable-free -disable-llvm-verifier
+> -discard-value-names -main-file-name core.c -mrelocation-model pic
+> -pic-level 2 -pic-is-pie -fno-delete-null-pointer-checks -mllvm
+> -warn-stack-size=2048 -mframe-pointer=none -relaxed-aliasing
+> -fmath-errno -fno-rounding-math -no-integrated-as
+> -mconstructor-aliases -target-cpu zEC12 -target-feature +soft-float
+> -mbackchain -mpacked-stack -msoft-float -mfloat-abi soft
+> -fno-split-dwarf-inlining -debug-info-kind=limited -dwarf-version=4
+> -debugger-tuning=gdb -nostdsysteminc -nobuiltininc -resource-dir
+> /usr/lib/llvm-12/lib/clang/12.0.1 -dependency-file
+> kernel/sched/.core.o.d -MT kernel/sched/core.o -isystem
+> /usr/lib/llvm-12/lib/clang/12.0.1/include -include
+> /builds/linux/include/linux/compiler-version.h -include
+> /builds/linux/include/linux/kconfig.h -include
+> /builds/linux/include/linux/compiler_types.h -I
+> /builds/linux/arch/s390/include -I ./arch/s390/include/generated -I
+> /builds/linux/include -I ./include -I
+> /builds/linux/arch/s390/include/uapi -I
+> ./arch/s390/include/generated/uapi -I /builds/linux/include/uapi -I
+> ./include/generated/uapi -D __KERNEL__ -D __PACK_STACK -D
+> CONFIG_AS_CFI_VAL_OFFSET=1 -D CC_USING_NOP_MCOUNT -D CC_USING_FENTRY
+> -I /builds/linux/kernel/sched -I ./kernel/sched -D
+> KBUILD_MODFILE=\"kernel/sched/core\" -D KBUILD_BASENAME=\"core\" -D
+> KBUILD_MODNAME=\"core\" -D __KBUILD_MODNAME=kmod_core
+> -fmacro-prefix-map=/builds/linux/= -O2 -Wall -Wundef
+> -Werror=strict-prototypes -Wno-trigraphs
+> -Werror=implicit-function-declaration -Werror=implicit-int
+> -Werror=return-type -Wno-format-security
+> -Werror=unknown-warning-option -Wno-sign-compare -Wno-frame-address
+> -Wno-address-of-packed-member -Wno-format-invalid-specifier -Wno-gnu
+> -Wno-unused-const-variable -Wdeclaration-after-statement -Wvla
+> -Wno-pointer-sign -Wno-array-bounds -Werror=date-time
+> -Werror=incompatible-pointer-types -Wno-initializer-overrides
+> -Wno-format -Wno-sign-compare -Wno-format-zero-length
+> -Wno-pointer-to-enum-cast
+> -Wno-tautological-constant-out-of-range-compare -std=gnu89
+> -fno-dwarf-directory-asm -fdebug-compilation-dir
+> /home/tuxbuild/.cache/tuxmake/builds/current -ferror-limit 19 -pg
+> -mfentry -mnop-mcount -mrecord-mcount -fwrapv -fno-signed-char
+> -fwchar-type=short -fno-signed-wchar -fgnuc-version=4.2.1
+> -vectorize-loops -vectorize-slp -o /tmp/core-eaad47.s -x c
+> /builds/linux/kernel/sched/core.c
+> 1.<eof> parser at end of file
+> 2.Code generation
+> 3.Running pass 'Function Pass Manager' on module
+> '/builds/linux/kernel/sched/core.c'.
+> 4.Running pass 'SystemZ DAG->DAG Pattern Instruction Selection' on
+> function '@trace_event_raw_event_sched_switch'
+>  #0 0x00007f7227e2e693 llvm::sys::PrintStackTrace(llvm::raw_ostream&,
+> int) (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0xd12693)
+>  #1 0x00007f7227e2c9b0 llvm::sys::RunSignalHandlers()
+> (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0xd109b0)
+>  #2 0x00007f7227e2ecff (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0xd12cff)
+>  #3 0x00007f722f7cb140 __restore_rt
+> (/lib/x86_64-linux-gnu/libpthread.so.0+0x14140)
+>  #4 0x00007f7227dba772 llvm::LLT::print(llvm::raw_ostream&) const
+> (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0xc9e772)
+>  #5 0x00007f72284a850b
+> llvm::SelectionDAGBuilder::visitInlineAsm(llvm::CallBase const&)
+> (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0x138c50b)
+>  #6 0x00007f722848ade7
+> llvm::SelectionDAGBuilder::visit(llvm::Instruction const&)
+> (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0x136ede7)
+>  #7 0x00007f72285198b9
+> llvm::SelectionDAGISel::SelectBasicBlock(llvm::ilist_iterator<llvm::ilist_detail::node_options<llvm::Instruction,
+> false, false, void>, false, true>,
+> llvm::ilist_iterator<llvm::ilist_detail::node_options<llvm::Instruction,
+> false, false, void>, false, true>, bool&)
+> (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0x13fd8b9)
+>  #8 0x00007f722851926a
+> llvm::SelectionDAGISel::SelectAllBasicBlocks(llvm::Function const&)
+> (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0x13fd26a)
+>  #9 0x00007f7228516fa6
+> llvm::SelectionDAGISel::runOnMachineFunction(llvm::MachineFunction&)
+> (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0x13fafa6)
+> #10 0x00007f7229f07742 (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0x2deb742)
+> #11 0x00007f722813b09e
+> llvm::MachineFunctionPass::runOnFunction(llvm::Function&)
+> (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0x101f09e)
+> #12 0x00007f7227f5619d
+> llvm::FPPassManager::runOnFunction(llvm::Function&)
+> (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0xe3a19d)
+> #13 0x00007f7227f5bb83 llvm::FPPassManager::runOnModule(llvm::Module&)
+> (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0xe3fb83)
+> #14 0x00007f7227f567ef
+> llvm::legacy::PassManagerImpl::run(llvm::Module&)
+> (/usr/lib/x86_64-linux-gnu/libLLVM-12.so.1+0xe3a7ef)
+> #15 0x00007f722e092be6
+> clang::EmitBackendOutput(clang::DiagnosticsEngine&,
+> clang::HeaderSearchOptions const&, clang::CodeGenOptions const&,
+> clang::TargetOptions const&, clang::LangOptions const&,
+> llvm::DataLayout const&, llvm::Module*, clang::BackendAction,
+> std::unique_ptr<llvm::raw_pwrite_stream,
+> std::default_delete<llvm::raw_pwrite_stream> >)
+> (/usr/lib/x86_64-linux-gnu/libclang-cpp.so.12+0x1614be6)
+> #16 0x00007f722e32bd9f (/usr/lib/x86_64-linux-gnu/libclang-cpp.so.12+0x18add9f)
+> #17 0x00007f722d487054 clang::ParseAST(clang::Sema&, bool, bool)
+> (/usr/lib/x86_64-linux-gnu/libclang-cpp.so.12+0xa09054)
+> #18 0x00007f722ea20268 clang::FrontendAction::Execute()
+> (/usr/lib/x86_64-linux-gnu/libclang-cpp.so.12+0x1fa2268)
+> #19 0x00007f722e9adcf1
+> clang::CompilerInstance::ExecuteAction(clang::FrontendAction&)
+> (/usr/lib/x86_64-linux-gnu/libclang-cpp.so.12+0x1f2fcf1)
+> #20 0x00007f722ea83282
+> clang::ExecuteCompilerInvocation(clang::CompilerInstance*)
+> (/usr/lib/x86_64-linux-gnu/libclang-cpp.so.12+0x2005282)
+> #21 0x0000000000413352 cc1_main(llvm::ArrayRef<char const*>, char
+> const*, void*) (/usr/lib/llvm-12/bin/clang+0x413352)
+> #22 0x00000000004116ce (/usr/lib/llvm-12/bin/clang+0x4116ce)
+> #23 0x00000000004114de main (/usr/lib/llvm-12/bin/clang+0x4114de)
+> #24 0x00007f7226c50d0a __libc_start_main
+> (/lib/x86_64-linux-gnu/libc.so.6+0x26d0a)
+> #25 0x000000000040e88a _start (/usr/lib/llvm-12/bin/clang+0x40e88a)
+> clang: error: unable to execute command: Segmentation fault (core dumped)
+> clang: error: clang frontend command failed due to signal (use -v to
+> see invocation)
+> Debian clang version 12.0.1-+rc1-1
+> Target: s390x-unknown-linux-gnu
+> Thread model: posix
+> InstalledDir: /usr/local/bin
+> clang: note: diagnostic msg:
+> ********************
+>
+> PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+> Preprocessed source(s) and associated run script(s) are located at:
+> clang: note: diagnostic msg: /tmp/core-86ba67.c
+> clang: note: diagnostic msg: /tmp/core-86ba67.sh
+> clang: note: diagnostic msg:
+>
+> ********************
+> make[3]: *** [/builds/linux/scripts/Makefile.build:272:
+> kernel/sched/core.o] Error 254
 
 The first bad commit:
-commit 928cf6adc7d60c96eca760c05c1000cda061604e
-Author: Stephen Boyd <swboyd@chromium.org>
-Date:   Thu Jun 17 15:21:35 2021 +1000
-    module: add printk formats to add module build ID to stacktraces
+commit 3abbdfde5a6588a92209cd8b131769b8058e7c21
+Author: Heiko Carstens <hca@linux.ibm.com>
+Date:   Wed Jun 9 22:59:13 2021 +0200
+    s390/bitops: use register pair instead of register asm
 
-    Let's make kernel stacktraces easier to identify by including the build
-    ID[1] of a module if the stacktrace is printing a symbol from a module.
-    This makes it simpler for developers to locate a kernel module's full
-    debuginfo for a particular stacktrace.  Combined with
-    scripts/decode_stracktrace.sh, a developer can download the matching
-    debuginfo from a debuginfod[2] server and find the exact file and line
-    number for the functions plus offsets in a stacktrace that match the
-    module.  This is especially useful for pstore crash debugging where the
-    kernel crashes are recorded in something like console-ramoops and the
-    recovery kernel/modules are different or the debuginfo doesn't exist on
-    the device due to space concerns (the debuginfo can be too large for space
-    limited devices).
+    Get rid of register asm statement and use a register pair.
+    This allows the compiler to allocate registers on its own.
 
-    Originally, I put this on the %pS format, but that was quickly rejected
-    given that %pS is used in other places such as ftrace where build IDs
-    aren't meaningful.  There was some discussions on the list to put every
-    module build ID into the "Modules linked in:" section of the stacktrace
-    message but that quickly becomes very hard to read once you have more than
-    three or four modules linked in.  It also provides too much information
-    when we don't expect each module to be traversed in a stacktrace.  Having
-    the build ID for modules that aren't important just makes things messy.
-    Splitting it to multiple lines for each module quickly explodes the number
-    of lines printed in an oops too, possibly wrapping the warning off the
-    console.  And finally, trying to stash away each module used in a
-    callstack to provide the ID of each symbol printed is cumbersome and would
-    require changes to each architecture to stash away modules and return
-    their build IDs once unwinding has completed.
-
-    Instead, we opt for the simpler approach of introducing new printk formats
-    '%pS[R]b' for "pointer symbolic backtrace with module build ID" and '%pBb'
-    for "pointer backtrace with module build ID" and then updating the few
-    places in the architecture layer where the stacktrace is printed to use
-    this new format.
-
-    Before:
-
-     Call trace:
-      lkdtm_WARNING+0x28/0x30 [lkdtm]
-      direct_entry+0x16c/0x1b4 [lkdtm]
-      full_proxy_write+0x74/0xa4
-      vfs_write+0xec/0x2e8
-
-    After:
-
-     Call trace:
-      lkdtm_WARNING+0x28/0x30 [lkdtm 6c2215028606bda50de823490723dc4bc5bf46f9]
-      direct_entry+0x16c/0x1b4 [lkdtm 6c2215028606bda50de823490723dc4bc5bf46f9]
-      full_proxy_write+0x74/0xa4
-      vfs_write+0xec/0x2e8
-
-    Link: https://lkml.kernel.org/r/20210511003845.2429846-6-swboyd@chromium.org
-    Link: https://fedoraproject.org/wiki/Releases/FeatureBuildId [1]
-    Link: https://sourceware.org/elfutils/Debuginfod.html [2]
-    Signed-off-by: Stephen Boyd <swboyd@chromium.org>
-    Cc: Jiri Olsa <jolsa@kernel.org>
-    Cc: Alexei Starovoitov <ast@kernel.org>
-    Cc: Jessica Yu <jeyu@kernel.org>
-    Cc: Evan Green <evgreen@chromium.org>
-    Cc: Hsin-Yi Wang <hsinyi@chromium.org>
-    Cc: Petr Mladek <pmladek@suse.com>
-    Cc: Steven Rostedt <rostedt@goodmis.org>
-    Cc: Sergey Senozhatsky <sergey.senozhatsky@gmail.com>
-    Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-    Cc: Rasmus Villemoes <linux@rasmusvillemoes.dk>
-    Cc: Matthew Wilcox <willy@infradead.org>
-    Cc: Baoquan He <bhe@redhat.com>
-    Cc: Borislav Petkov <bp@alien8.de>
-    Cc: Catalin Marinas <catalin.marinas@arm.com>
-    Cc: Dave Young <dyoung@redhat.com>
-    Cc: Ingo Molnar <mingo@redhat.com>
-    Cc: Konstantin Khlebnikov <khlebnikov@yandex-team.ru>
-    Cc: Sasha Levin <sashal@kernel.org>
-    Cc: Thomas Gleixner <tglx@linutronix.de>
-    Cc: Vivek Goyal <vgoyal@redhat.com>
-    Cc: Will Deacon <will@kernel.org>
-    Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-    Signed-off-by: Stephen Rothwell <sfr@canb.auug.org.au>
- Documentation/core-api/printk-formats.rst |  11 ++++
- include/linux/kallsyms.h                  |  20 +++++-
- include/linux/module.h                    |   8 ++-
- kernel/kallsyms.c                         | 101 ++++++++++++++++++++++++------
- kernel/module.c                           |  31 ++++++++-
- lib/vsprintf.c                            |   8 ++-
- 6 files changed, 154 insertions(+), 25 deletions(-)
-Previous HEAD position was b2dcc0267277 dump_stack: add vmlinux build
-ID to stack traces
+    Signed-off-by: Heiko Carstens <hca@linux.ibm.com>
+    Signed-off-by: Vasily Gorbik <gor@linux.ibm.com>
+ arch/s390/include/asm/bitops.h | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+Previous HEAD position was 3abbdfde5a65 s390/bitops: use register pair
+instead of register asm
 HEAD is now at 7d9c6b8147bd Add linux-next specific files for 20210617
 
-
-
-> make[1]: *** [/builds/linux/Makefile:1252: vmlinux] Error 1
-> make[1]: Target '__all' not remade because of errors.
-> make: *** [Makefile:222: __sub-make] Error 2
-> make: Target '__all' not remade because of errors.
-> make --silent --keep-going --jobs=8
-> O=/home/tuxbuild/.cache/tuxmake/builds/current ARCH=x86_64
-> CROSS_COMPILE=x86_64-linux-gnu- 'HOSTCC=sccache clang' 'CC=sccache
-> clang' headers_install
-> INSTALL_HDR_PATH=/home/tuxbuild/.cache/tuxmake/builds/current/install_hdr/
-> tar caf /home/tuxbuild/.cache/tuxmake/builds/current/headers.tar.xz -C
-> /home/tuxbuild/.cache/tuxmake/builds/current/install_hdr .
 >
 > ref:
-> https://builds.tuxbuild.com/1u4ZKFTh12vrYBVf8b1xGpaFOrE/
+> https://builds.tuxbuild.com/1u4ZMVtVqiZtUcCrP9YE89mx9iU/
 >
-> # TuxMake is a command line tool and Python library that provides
-> # portable and repeatable Linux kernel builds across a variety of
-> # architectures, toolchains, kernel configurations, and make targets.
-> #
-> # TuxMake supports the concept of runtimes.
-> # See https://docs.tuxmake.org/runtimes/, for that to work it requires
-> # that you install podman or docker on your system.
-> #
-> # To install tuxmake on your system globally:
-> # sudo pip3 install -U tuxmake
-> #
-> # See https://docs.tuxmake.org/ for complete documentation.
->
-> tuxmake --runtime podman --target-arch x86_64 --toolchain clang-11
-> --kconfig x86_64_defconfig
->
-> ref:
-> https://builds.tuxbuild.com/1u4ZKFTh12vrYBVf8b1xGpaFOrE/
->
-> build info:
+> Build:
+> --------
 >     git_repo: https://gitlab.com/Linaro/lkft/mirrors/next/linux-next
 >     git_sha: 7d9c6b8147bdd76d7eb2cf6f74f84c6918ae0939
 >     git_short_log: 7d9c6b8147bd (\Add linux-next specific files for 20210617\)
->     kconfig: x86_64_defconfig
->     kernel_image:
->     kernel_version: 5.13.0-rc6
->     toolchain: clang-11
+>     kconfig: defconfig
+>     target_arch: s390
+>     toolchain: clang-12
+>
+> Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
 
-Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
+- Naresh
 
 > --
 > Linaro LKFT
@@ -318,4 +335,4 @@ Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYvvf%2BXTvZg1sTq4_f9OrVFsCazGo0ozaEbjVYgSeKCkWA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYu2SvwA7CDxTAJVdTi1K1267WDcdx9m6Ds6z0D3borthQ%40mail.gmail.com.
