@@ -1,129 +1,143 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBJWTV2DAMGQEOZYRU5I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDVP5PWXVEHRB67BV2DAMGQEP6U5QEY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D5E5E3ABD39
-	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Jun 2021 21:59:34 +0200 (CEST)
-Received: by mail-lj1-x23b.google.com with SMTP id e8-20020a2ea5480000b029015b5329f488sf3878054ljn.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Jun 2021 12:59:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1623959974; cv=pass;
+Received: from mail-ej1-x637.google.com (mail-ej1-x637.google.com [IPv6:2a00:1450:4864:20::637])
+	by mail.lfdr.de (Postfix) with ESMTPS id 579F63ABD6D
+	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Jun 2021 22:30:52 +0200 (CEST)
+Received: by mail-ej1-x637.google.com with SMTP id n19-20020a1709067253b029043b446e4a03sf2967085ejk.23
+        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Jun 2021 13:30:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1623961852; cv=pass;
         d=google.com; s=arc-20160816;
-        b=VwuLSiZ903W2gYx/TEoo94kK4Kzae9Mm6kffdBKp/kQR6O4MO77SUcJDrQTUhUZcGY
-         v96vfMZKFJCid9O59muJ0r4x3MPirfSLaGmMuPFs5R6dRaKQxirBdOm9aQ7plThvf/2D
-         Xg8gH4e7dG4pGlRUkIW2yx204tN+j8FWxY52g8s7I8SX0XrHVXdcqWnClGLYEcdBq4nm
-         55uvEHDifE0iZ6fthjoaNdNYEYMBo/comT95JK9iNewwOZWFAf4YjFQFBKLS9K5ktOvm
-         FHqQ2Lt7VMmZlYoN84Zd8XPS/Bf7olmD0W5eeFbSd124rt/OQAfxE9ENmy/iy25Y2fbQ
-         ckzg==
+        b=ntyYo7hbTZW6Rcta0TQzN8DSRxGQioC6qaxB/htjcpmmoMY4dz9bNILzaGtYEERdBL
+         xkVtqLY4r+8DyJpvsdL9lPSaJ3RalQL9IGj6UBnC4+HTP/NLfeCY6LWdvztVlqfykSrz
+         i2OMrMjcAEhHwfc+HfGKfOjW77jiAhcYguNLFnBBP36NALIfdzODOM6OOUCVhSUp+TNI
+         2Q3O7M9JSO3G5MfDUOTqtrVHyQRIq8VYsdyJyab7hNULBLtrpJz8g6++NGngrip9dQQu
+         5QrJgvYATffvMnjD9JgOsyyRsu58txYxse9Xyg2DU/4oDh/WfXWD07EmRltp1FhmdpGS
+         skXA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=sKWb/Pr7SIZshfmDpQt+LHAbdKk6YypYPdMC/XqkxJA=;
-        b=KXGInWMjWrSWRMnP4aGKMuNkZzEHhFkKKmFker+8Z61xTSf0KwTb/Ui8zWTPypyIqS
-         NtEPh9p7xYGSdhBjejP+U/u9kdqE0Hrw8Hu8j5t+bXWJ9Vusns6d7RVglkRTs4CW09Ng
-         l38iBeaRAPVaA4Xe/nKvCAgsWyopcAOjToWuyM3BacwUgPJ5uXDgQHMFJlRDVng1eiwd
-         eJmDBXQ0zrFTwN/dPtXZPd/dGykJwuELw1bWR1n+ZCtLaK3rAS4qUs/RRXvm/GdOQXb3
-         sGYq3NdEPknUWK6id2VMv42z5sTcC9aAVWRm7Medxmr/auj/nGosytpHndfxgUIxGgB9
-         aI7g==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=f9pB4cPhHNfDFzJYD0TYRseh+W2dBlQaCMfKSCXg3U4=;
+        b=vUfXvZmfHTeIrKAYkmu1pDQv4xSRtmyfLmTKO942Vt0GKpiTpCRfQBD/jxvStNhmcn
+         OfF4Jq0jurk08IkuHJF+40VNqwAvkPvIp9rmNd0oZ7iPOPdALv+0fMGy4+mcHcHTz1Ls
+         gCEtVZ6lmBbyYKreUpntsGIc0Q6IxLkYgGnc+NDoSIE3urDQcfx6X2iSFzGOfWBU8/j2
+         vhpj0eVotRyan4PLAjdTbY7+MHsGG3wLzGSnx4Juz5TB3AjEIwMNhFrM66B+kZs4c0gs
+         BPoUHn+VYU9Ufq7toHoRL0O6wQY3UusmFNIjvjaWkuLIQjfrTglENxqbQlrEKGXP+1TU
+         HTbQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Sa9UsKs1;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=Nzml9LQc;
+       dkim=neutral (no key) header.i=@suse.de;
+       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=Nzml9LQc;
+       dkim=neutral (no key) header.i=@suse.de;
+       spf=pass (google.com: domain of jroedel@suse.de designates 195.135.220.28 as permitted sender) smtp.mailfrom=jroedel@suse.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=sKWb/Pr7SIZshfmDpQt+LHAbdKk6YypYPdMC/XqkxJA=;
-        b=dHnCzrrv0TQ5tZ8iR1egge3GwqMlqGFNiouk6oQ4D3qFoEx6hoH1vyYqihQ0meIv0K
-         Btb14hwjmSjeQcesH9UDpwQxU5fMC0U1PARpVVai1NV446ZmEhlhyeJluoog7HC6mmNx
-         lz/aQ8Us1rBnARp6hF3camjpH+CPSoDKa+r/q5lAvt5cS5Xol8WNRI3yz0cDQGGRWNiV
-         yadZj3SKFZ1EWuFMWNJdMDiPrJWBVWh6yfW40+yA46gQk9CpWTjCj0vlIuUlf3s/+/uF
-         1UY4F7YzLp5s+j+Xgj0WLEhDeBc8dgs/jXNSHelYsNExTbgJLVoKaM4y4gtEry8jMskQ
-         j3HQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=f9pB4cPhHNfDFzJYD0TYRseh+W2dBlQaCMfKSCXg3U4=;
+        b=f07+XOVfoDiMIqVrc4uomJi+Ef1l7yuoEMYZJrLcJUS1KBAB02Ry81QOdXvBAFIcWR
+         z0dLQAXNggO+uiapliq/Qf6YZohhj0AhrjuXdlHSUpDc8/jCQBgRCqPUs4GpRcnHLykz
+         iEsmqt183jjYhuVsGvgC/a4+zfpig/8K3YxzKRMFkuzYkzzFAHw0qGjzuFFZgYxsakWh
+         XKR84nFscHD/oAqN/x/rxWDLabDTJ4QIlzgmjP2iMJuM740UOW8hg8v9MrLesTnwZfZq
+         +4sxC+leApzUKs1LMMefF0t6S58HtbvSj5nhZn/GHMWSSB3Tzq0IRFlmc/rEImaqkZC/
+         o6+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=sKWb/Pr7SIZshfmDpQt+LHAbdKk6YypYPdMC/XqkxJA=;
-        b=SayUZ5gbe4v5gIaNDYZ91PEh+VZ5Rl+gqUyz48DVUWiG3wTdN1JFjNu4Vxtuc1kixM
-         IS+1t1IXW0W9TH1FXjRHuV6S86EQRqTD0AF8TlvG836xu4rJ8f6b3QIGudDuJ6hXSJqu
-         BKz5mvNV08kS50mWQmWMe6CIiu7OhCk8fh6rjDxon+UKuQdS4urYJ7aq4k00GXPz0SRU
-         mmbw0aF19aZqUSpD8idAy8SPiO/BmydeKs1x+x8T4obp0Ge5d0YD+JjFantqo69dOf6c
-         n/OcalXXcxRU80cubZq8Nhw0CrmZUEMFGr0zmpZ9Zd4NgXiwGM8jGbp7GUFhMlvdWxX4
-         JncQ==
-X-Gm-Message-State: AOAM5325KUZOuby7Te9+epsRh3ek0E1Muqb009HrCY4SYaEgXB7J4Xla
-	DWc5pesVNrpnyRTX1XMTEK8=
-X-Google-Smtp-Source: ABdhPJxi+MBimp/MFZ6fAyFK5IA98JJ/QgggeyAlxGyZ338UXzqzW3CtExu5awVoBa4L4NNatVcxTw==
-X-Received: by 2002:a05:6512:12c9:: with SMTP id p9mr22099lfg.74.1623959974442;
-        Thu, 17 Jun 2021 12:59:34 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=f9pB4cPhHNfDFzJYD0TYRseh+W2dBlQaCMfKSCXg3U4=;
+        b=sczV/6TPuLbE+cZfh5aYE79UpOLh6VJpGmwjTFvgH+QmoOapNa4JSkd+SVPbcyKxgw
+         0iHOLuT0dd6129KisEzjwvDdkf0g8ER5OuCPExe2e+azMIVUki82p3huZpfrJ/+uWuw9
+         hi4hIqQzrk2W9e6GJHlWSYQJMa5BA+7+G35AmsopO1ndbuLefH2yyMeiz0q+xETgzGHo
+         XRwlpeuj1yTPx0UwhayW4NzrsluCjO9EBI0NRauGtMDXx/vJXHHT6McA7dT2MwFsyim2
+         dGcB3BOvn5X+wczLLRHJi0g0j2hy68QJyb63bZnAMBbAB7s5+lAz2xDcMixgGdFahDaB
+         k/Cg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533HoUOR2DsArKMEKyS0JeFei5aXwyt7AR9WtXVGRow42i9SKnsv
+	bECZji9TY9UeZZ78ThIc4aA=
+X-Google-Smtp-Source: ABdhPJxMPGjsXaugAiJ+HKSTsuu2ETpJbqkOIjttwWUvZihIbNbo7K+Zd4cyJiwExCRi0jLAQOhpeA==
+X-Received: by 2002:a17:906:39d7:: with SMTP id i23mr7248380eje.121.1623961852011;
+        Thu, 17 Jun 2021 13:30:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:bf03:: with SMTP id c3ls2188105ljr.10.gmail; Thu, 17 Jun
- 2021 12:59:33 -0700 (PDT)
-X-Received: by 2002:a2e:8647:: with SMTP id i7mr6168513ljj.502.1623959973394;
-        Thu, 17 Jun 2021 12:59:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1623959973; cv=none;
+Received: by 2002:a17:906:6d57:: with SMTP id a23ls3621112ejt.6.gmail; Thu, 17
+ Jun 2021 13:30:51 -0700 (PDT)
+X-Received: by 2002:a17:906:39d7:: with SMTP id i23mr7248328eje.121.1623961851091;
+        Thu, 17 Jun 2021 13:30:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1623961851; cv=none;
         d=google.com; s=arc-20160816;
-        b=0I6WJdt3p8LOKRsXBHJhm5lPVzlxKmz4tz18ngX44O5qv9cO2zin9hWtktgknr1835
-         OWn1hARH1IfE7jofSI+fQvxX3x/un1Sx3wp2HnGpVgfiWtgX91ygdF9SyZEz8wQecuSh
-         bWsteXM3o8UsrFIAfY3U98/nFHXODfeSPq+9UrhASu+iUdJORi9EmVcNW4G0AiBPdshC
-         +5naoNJO2ZDAv1+Dac/KZfR8ZOSCwQhmbrR7YhhyhFn2/j5R5aMVca4WGe6o/cnzy4LN
-         ri9izbiIOSu5ZJ2bOW+EAk2XJaQQ5K7rsu45P1cVSjoS9k+DI0sug6+YTD7d4TBbjc3S
-         lq5g==
+        b=v4gFQn8aT0fLGHVXpC/EDAsOhMrQZaUtPRiSMJawJlDBE0E+tuBfPAUhultBM6T3Hr
+         2wZj6X3X6d+nTDhxafxRpuWVngspzaZEWRdK7b3ZeSvPiwuC5nvpFQNDo78xKDbuLsj1
+         4ycCpjdYeNXzlOvbSgUX57H9ysWngoLYECYPltvBpvl0mPAaItvUKs6hRe/s06Gd1TH1
+         SLyx7B1f3tiC5T+jPm68z9coxdXvzEKO1wjL4ppirHi8c1UnvBMKWS1zexP9D8CUT2D0
+         /+wLkKJP7ChrXIFHNlWVDuQVUbvEAsBNmcxbkQTzUy1vFVIUIp5ZAVY/USPxF+Y4z78i
+         c6Dg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=zcyy0+lIJvFeXvehJWIwg9rBNfSRvCsx4qwdpO20ymM=;
-        b=if3VoSxbqcrbRQd2m4O9VQwQh0PGwRZTLy3WqyvPPvZv4UFDFwgGEuQIH/kS5x2mJX
-         +tRiL0NlQNixLijD2FTNoFoGM/TRF3eNufbSF/ABNEgjKUaUIs84EuOGtrPJWTl3fkj0
-         X+kZtnAzacHpIRjn9bQc5LvGqidGjK+lyeDKXC2HNxwv8yOmkgOHpweFRkK7ta783Zax
-         xj7Hck+vNCbGEDKkp9PAFaAjiZcvv4qU2Oc92ae6MmyKnmnxEuleQmPu70mOo1ejWipu
-         an2I0p3YkOqml6rRr2vks4eKoAOiRhOrLs6w1ZvVsWmeQvPFIywy/NoXblIDqAyehu3/
-         w8kA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature:dkim-signature
+         :dkim-signature:dkim-signature;
+        bh=7MrOSZdFOt9wTUVyZxzKZ+9qRk1GhEPDQuhCcMSdan0=;
+        b=XzVXPt1zxU8CNPcRg7TkdJvCS20h0e/aQ23ryUHd5mn7E08/MkLtcvNkcopCOoAMJh
+         Zgkeq3nwoLD6p3g9+BOm1t/0IAkSpOsF/OQe950lVsidmI/p5+691toCOO/1goeee/ux
+         kmIcBqpMvs+BP0ly2RAX8SK5Xt6kk2K8KiIdrWo1UA1lROKEZrVgp/VUfj8ZUa7N7XQi
+         7cMoP5W48O6F0bVN0HbNCjqmQeF2vF2Ui2w94G7pCT2kRVdG8mowUOyYde2W5F97JhhC
+         huhzX7QYZexqDEVXhNgB/YLXe7v9Qtzm6Ck01ECgdb21n8EsG137QwUhAIaWR6RrcT/n
+         RHuQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Sa9UsKs1;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lj1-x233.google.com (mail-lj1-x233.google.com. [2a00:1450:4864:20::233])
-        by gmr-mx.google.com with ESMTPS id f17si334699lfl.4.2021.06.17.12.59.33
+       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=Nzml9LQc;
+       dkim=neutral (no key) header.i=@suse.de;
+       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=Nzml9LQc;
+       dkim=neutral (no key) header.i=@suse.de;
+       spf=pass (google.com: domain of jroedel@suse.de designates 195.135.220.28 as permitted sender) smtp.mailfrom=jroedel@suse.de
+Received: from smtp-out1.suse.de (smtp-out1.suse.de. [195.135.220.28])
+        by gmr-mx.google.com with ESMTPS id w2si367137edi.2.2021.06.17.13.30.51
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 17 Jun 2021 12:59:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) client-ip=2a00:1450:4864:20::233;
-Received: by mail-lj1-x233.google.com with SMTP id z22so10678464ljh.8
-        for <clang-built-linux@googlegroups.com>; Thu, 17 Jun 2021 12:59:33 -0700 (PDT)
-X-Received: by 2002:a05:651c:1181:: with SMTP id w1mr6271031ljo.116.1623959972826;
- Thu, 17 Jun 2021 12:59:32 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 17 Jun 2021 13:30:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jroedel@suse.de designates 195.135.220.28 as permitted sender) client-ip=195.135.220.28;
+Received: from imap.suse.de (imap-alt.suse-dmz.suse.de [192.168.254.47])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id A9B4521B1C;
+	Thu, 17 Jun 2021 20:30:50 +0000 (UTC)
+Received: from imap3-int (imap-alt.suse-dmz.suse.de [192.168.254.47])
+	by imap.suse.de (Postfix) with ESMTP id 50E7A118DD;
+	Thu, 17 Jun 2021 20:30:50 +0000 (UTC)
+Received: from director2.suse.de ([192.168.254.72])
+	by imap3-int with ESMTPSA
+	id waNDEfqwy2ASDgAALh3uQQ
+	(envelope-from <jroedel@suse.de>); Thu, 17 Jun 2021 20:30:50 +0000
+Date: Thu, 17 Jun 2021 22:30:48 +0200
+From: Joerg Roedel <jroedel@suse.de>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	David Woodhouse <dwmw2@infradead.org>,
+	iommu@lists.linux-foundation.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] iommu/vt-d: Fix W=1 clang warning in intel/perf.c
+Message-ID: <YMuw+LtM/B1QTTJI@suse.de>
+References: <20210617145339.2692-1-joro@8bytes.org>
+ <CAKwvOd=8jUsRFKg6+sqq2-DakbRBGR6Z6mR_smuxp+cMEmCHLw@mail.gmail.com>
 MIME-Version: 1.0
-References: <YMtib5hKVyNknZt3@osiris> <20210617193139.856957-1-nathan@kernel.org>
-In-Reply-To: <20210617193139.856957-1-nathan@kernel.org>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 17 Jun 2021 12:59:21 -0700
-Message-ID: <CAKwvOdn9Z3JrVJzkZuXUY_5aBP5Ttxw6g9ALb_XM-bkY=iU8KQ@mail.gmail.com>
-Subject: Re: [PATCH] scripts/min-tool-version.sh: Raise minimum clang version
- to 13.0.0 for s390
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@de.ibm.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	linux-s390 <linux-s390@vger.kernel.org>, 
-	Linux Next Mailing List <linux-next@vger.kernel.org>, lkft-triage@lists.linaro.org, 
-	Arnd Bergmann <arnd@arndb.de>, Stephen Rothwell <sfr@canb.auug.org.au>, 
-	Naresh Kamboju <naresh.kamboju@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=8jUsRFKg6+sqq2-DakbRBGR6Z6mR_smuxp+cMEmCHLw@mail.gmail.com>
+X-Original-Sender: jroedel@suse.de
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Sa9UsKs1;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@suse.de header.s=susede2_rsa header.b=Nzml9LQc;       dkim=neutral
+ (no key) header.i=@suse.de;       dkim=pass header.i=@suse.de
+ header.s=susede2_rsa header.b=Nzml9LQc;       dkim=neutral (no key)
+ header.i=@suse.de;       spf=pass (google.com: domain of jroedel@suse.de
+ designates 195.135.220.28 as permitted sender) smtp.mailfrom=jroedel@suse.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,62 +150,26 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jun 17, 2021 at 12:32 PM Nathan Chancellor <nathan@kernel.org> wrote:
->
-> clang versions prior to the current development version of 13.0.0 cannot
-> compile s390 after commit 3abbdfde5a65 ("s390/bitops: use register pair
-> instead of register asm") and the s390 maintainers do not intend to work
-> around this in the kernel. Codify this in scripts/min-tool-version.sh
-> similar to arm64 with GCC 5.1.0 so that there are no reports of broken
-> builds.
->
-> Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+On Thu, Jun 17, 2021 at 10:16:50AM -0700, Nick Desaulniers wrote:
+> On Thu, Jun 17, 2021 at 7:54 AM Joerg Roedel <joro@8bytes.org> wrote:
+> >
+> > From: Joerg Roedel <jroedel@suse.de>
+> >
+> > Fix this warning when compiled with clang and W=1:
+> >
+> >         drivers/iommu/intel/perf.c:16: warning: Function parameter or member 'latency_lock' not described in 'DEFINE_SPINLOCK'
+> >         drivers/iommu/intel/perf.c:16: warning: expecting prototype for perf.c(). Prototype was for DEFINE_SPINLOCK() instead
+> 
+> I think these warnings are actually produced by kernel-doc? (not clang)
 
-Acked-by: Nick Desaulniers <ndesaulniers@google.com>
+Will kernel-doc check automatically when COMPILER=clang is set and W=1?
+Because I did not explicitly enable any kernel-doc checks.
 
-> ---
->
-> This should probably go through the s390 tree with Masahiro's ack.
->
->  scripts/min-tool-version.sh | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
->
-> diff --git a/scripts/min-tool-version.sh b/scripts/min-tool-version.sh
-> index d22cf91212b0..319f92104f56 100755
-> --- a/scripts/min-tool-version.sh
-> +++ b/scripts/min-tool-version.sh
-> @@ -30,7 +30,12 @@ icc)
->         echo 16.0.3
->         ;;
->  llvm)
-> -       echo 10.0.1
-> +       # https://lore.kernel.org/r/YMtib5hKVyNknZt3@osiris/
-> +       if [ "$SRCARCH" = s390 ]; then
-> +               echo 13.0.0
-> +       else
-> +               echo 10.0.1
-> +       fi
->         ;;
->  *)
->         echo "$1: unknown tool" >&2
->
-> base-commit: 7d9c6b8147bdd76d7eb2cf6f74f84c6918ae0939
-> --
-> 2.32.0.93.g670b81a890
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210617193139.856957-1-nathan%40kernel.org.
+Regards,
 
-
-
--- 
-Thanks,
-~Nick Desaulniers
+	Joerg
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdn9Z3JrVJzkZuXUY_5aBP5Ttxw6g9ALb_XM-bkY%3DiU8KQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMuw%2BLtM/B1QTTJI%40suse.de.
