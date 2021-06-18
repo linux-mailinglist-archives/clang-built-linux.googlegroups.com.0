@@ -1,124 +1,131 @@
-Return-Path: <clang-built-linux+bncBDV37XP3XYDRBUHSWKDAMGQEXGRJATQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDUKXHHSSIJBBNPTWKDAMGQEQEJM3EY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 434443ACE7D
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 17:18:41 +0200 (CEST)
-Received: by mail-ot1-x33c.google.com with SMTP id 35-20020a9d03260000b029040539236725sf6098464otv.2
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 08:18:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624029520; cv=pass;
+Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
+	by mail.lfdr.de (Postfix) with ESMTPS id EB9803ACE92
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 17:20:22 +0200 (CEST)
+Received: by mail-lf1-x13d.google.com with SMTP id d20-20020a0565123214b02902ee335ffed2sf4600691lfe.16
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 08:20:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624029622; cv=pass;
         d=google.com; s=arc-20160816;
-        b=j3TwWkGFbOx3iojb7dcuGQ0mr8NaDyQ8oBzkhCndn/Fm90nkyfNXE+hlQbwxVNDOtM
-         kgWyHpqata+K3nVMeMmKOMTwJMvpEak9k3muKuAyh0f64oV2qLhramB1yQSDY1jRPHJb
-         7T7SSK8tnl1d8cgQykuzfgyso6WFD1IpDfT+eGSNiCo+YXfC9RNKwx0wo5qUYgc033H3
-         +Y31Grp+RyK61wkluVlMi+dA2yS0aafeTRO7F+djCPoMN4/4IiAyzWGv101POsrF1yYj
-         cnAK3QpKbmseeURwUAdSP021dKEtCPlmitR+8ZI1emCk62TJYAHnjfY5kMJ47zO+bNi5
-         ONTg==
+        b=sS79T4W1P6ocggVEG1YSFQRGJxQfMpLRfn4NyO5KOw92doHL/HQeFX8mio1wLJY5YV
+         wIOBoFy9R2XINtAhqDpvEBPP5hlbgE9sMtz8harc4U10aciyzItj960tz8FHWPNLuccx
+         wgz6/DMgjI4CGLJkWu1cJoHPJzBPI0Jvdlh6GL8XQWGOAO96bMHMM3joapC19c+hsLdC
+         +iiSBz/sSZsNLF2DZVc3IiWmlRug0eXPjgMRm4qNBzYBWCOMFkS5MQvLM+TszWgzzi/d
+         PE36lK7XQR6/LVWuaad24/93iszge2aIp+YBq8FYvkcb4+AQn7sEZ35ONBIi3US8Hbdb
+         2DZg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
          :dkim-signature;
-        bh=RwdZyNo8IUqjmQzQVlutBO7Sp9kYF4Ztfzbho5IO3b8=;
-        b=NotgMH+hcbBPLuNFxyQuWLxdJTirXaxNaqu7u1TlpV7/4LktkbY1tPfa2+E6Lmp0Rq
-         Yf88auiwngnR5fEP8A5xJU8abOj/dzVvYD1CyOHfHFQQ/FNRneCv/Rgsutf6yhFw45BE
-         pgi0jW8YjVqltwoyt/tFOhZa1ePzu4NJdfkBtF4+IkgGFg1wNztQqdPN1dQrZWI0PH2Y
-         HlhgtMarf190KQ3TFf3Ou6sXxQl3hxPl59XTlcvZzDh1BO5kMa0+ex72Mgt5ooExtf8n
-         9QrX57dvIyDCgFlS5ROKJt++ytD7XEQEPL1U5nltZmSEYFbhPA/LLnjN6DSuBxb5F0Yx
-         hPhw==
+        bh=u11r2AQ3GPO+7IErHnDRG90iEmtZZDTbTmKPyX9ou8Q=;
+        b=K4yC78khZGsiRo0F/NwA3f3l1uCMBdjNUHORNP8fvXf8QHvGNFbiL/+OWRriS6ia+T
+         d31cxWwkuGF7I/y6Ep7tTjFhlPZJG/DTmvr6ba04wkH11/PXEVpaPVGKaDF3uP68eX0y
+         w1q/y6Wg59CnjyAW+i0RVLUQu73AWcPub3eCj5rkqMGSr1uGyK0buYoifcRufWS5/QdC
+         9vXFVIasc89tqeuY0QHjwaI+SszEvYxX41ZTjYIxCnikW6Y8/e3D/SYZhQrfffR30kRw
+         CglwBRONVMh/IBUmgbmLvhlmb9UUJvQJhndD+qDgwtnZ+qYG2D3Y+cYFJ6NexoW2IfHx
+         Nx4Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
+       spf=pass (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) smtp.mailfrom=p.zabel@pengutronix.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RwdZyNo8IUqjmQzQVlutBO7Sp9kYF4Ztfzbho5IO3b8=;
-        b=Fo3UkddpcfFZqP9CF88zSKy/15/ZUwucWTPRBMWX5+uvqscMAN43cMckPxfxL8wY7y
-         Zt0yx1Hs5v/q9W8wApennQrssPGxvYO13inKueM8vXiZjDoFWOVl3LthSp2mm9T+5V1w
-         z3cI/pTsmT9+pZLXw7Ojd9xeN1KA5BVJe7mhQes9HvnbqzUFx7N/eJHORxa8w3DLhVQa
-         phJBFSzJBYOMd74cJumuo+/b+f/+GDwIlUJglTEqnaAYQFkkw8ZIIE8HQfoJqlJSiIVL
-         TvsBYv10vmbO9+uo/ZzIQcca5ad/eNDxAh5RXR307kB1jwuMqGPpw+Q1yvBmqq0lsTLB
-         dnFw==
+        bh=u11r2AQ3GPO+7IErHnDRG90iEmtZZDTbTmKPyX9ou8Q=;
+        b=KX8c/owFsLlnCeMOpWYKm9VL5ErYL2L2Uv5fpo9GvyTIyxWBVieiw3SQgdJoa8u3/H
+         IqKfQGf+8bcEP9ti1HltSP/lh4p7Qtxk1n/qqaf7Bkt5l6vzF5G5F2ehY4KMSJacV6mr
+         j7wqXFYZ9dwV0v7qVgMsKyFFLk6L2SYLnT0B1xlFFFt+yx4+aIs8da/xZcaNdubfu6DR
+         e1PxlH8o+RZ6mSmyY8/jW0c1jeooBmMBtK1yGdV2qw0Fc1OeDWTVXFCcAWyMbt9F2nJR
+         QNZCZyHZegCl+opGyH7lAklIgu5yU6mteQp5bQMTAjR3ZGxBL8ZOieesFljELN7Pu5cZ
+         Ps7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=RwdZyNo8IUqjmQzQVlutBO7Sp9kYF4Ztfzbho5IO3b8=;
-        b=gq/+ndALaUp7tcIaeAN2meLn6lLmAWPaUZDSNm8r16hT7ggThfXw8yWsy8GQ8ZNLP2
-         PTxSMPAaa6DTQUVi5Ju9lmR6pfIbn2GDe2yZNLLGaqgtMe0U0k3Qaz0uKTHVZdPdNUWn
-         zGOVHGZwQh9tpqFQn53Klw9pJjochxM3neESb619JBVAU9cRdn9KJapuJOyPyd9m9/hb
-         tWlZbC2Q9vmFfF9aETF0Hn+oBogKkf8rF5sBIi8yp/c2i2q5jYbsZmzx4X//Iv2BJ4az
-         KxNvdATwi13ZQQO8TGxyMA35tPU5J2tK86iqnsElxRmgFQYXBXAYykRXi85/hcn+zypo
-         F2+g==
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=u11r2AQ3GPO+7IErHnDRG90iEmtZZDTbTmKPyX9ou8Q=;
+        b=rHp2MNHG/b89z+sjJLQxv+nJMNaiMeqJKIUpMOkkFteZ4/UfjEQtPSywcqfAtqaWJ6
+         qC5ydoE6GITKUws4NzuwsGGhz5x2/pSorfQFB1mfdrm19YBs9hJhjPJ9WHXv6KfApoai
+         cKdvQHkIvHN5SPXQzSsKZxuBXBHUW3wSQ1rTl/iCvL/+Da71zD4SiAkQTMfhBP5o3hnS
+         IBs46eoJHUML67TzW01HUX+VrQbjT42vF/rXA7jk6XP/btZux2GWlcJTUN6ucwl71f7c
+         5Nlk1gYEkmzWRG2VAeg+kjLYyyugCCnW7ywyNhFsxvsvE8gx9WbpMpi4uX//s0diTrCc
+         ItQA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530ADK7LSiOijiuWrtc8Kpt7Mn1TmfIJlO/yH6IWlEDeKMKOjIKk
-	79xNPwt4xGF9i7NzmmzduYk=
-X-Google-Smtp-Source: ABdhPJw+Tp2MFsRMADmH/pr9VfcwTiD4kDfyhLDxAXMi8X9R2E5mtquLBz8YfmksYuRiIahKugeyIg==
-X-Received: by 2002:aca:1b13:: with SMTP id b19mr3370720oib.77.1624029520235;
-        Fri, 18 Jun 2021 08:18:40 -0700 (PDT)
+X-Gm-Message-State: AOAM530ipiNv5iglvadYy0pUKWEZQmnEbD1zstI7EGuEhsYx1j2b+4tI
+	14V5tWRElFVGO943+8eIR5A=
+X-Google-Smtp-Source: ABdhPJztMeR0n+tdPy9Uliolh0JLhutA6Ab/buaGdxnjHKriM6Qle4G8p8lqTIslGc0Kyt1LO8l9MQ==
+X-Received: by 2002:a2e:a48b:: with SMTP id h11mr9890410lji.111.1624029621467;
+        Fri, 18 Jun 2021 08:20:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:3206:: with SMTP id y6ls3076339oiy.11.gmail; Fri, 18 Jun
- 2021 08:18:39 -0700 (PDT)
-X-Received: by 2002:aca:410a:: with SMTP id o10mr7585358oia.51.1624029519827;
-        Fri, 18 Jun 2021 08:18:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624029519; cv=none;
+Received: by 2002:a2e:b54c:: with SMTP id a12ls3470554ljn.5.gmail; Fri, 18 Jun
+ 2021 08:20:20 -0700 (PDT)
+X-Received: by 2002:a2e:5c08:: with SMTP id q8mr10005592ljb.145.1624029620206;
+        Fri, 18 Jun 2021 08:20:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624029620; cv=none;
         d=google.com; s=arc-20160816;
-        b=y+QKbaoGu9TrTFDUJ5Z6Sx1mYg9lATKXRkcBN/JolkNFORUi3eqLIM83vgpDzbAEpm
-         wuXyJb1j7YjuCBi8VXviuRZFZEKy3lvV9oT3j+hxVkQZTJbFfgph+0krm9tlLTOQV9Jy
-         2V9DX5GFTUCudR/5bn5LPsTdLsT4aqoyTkO+ZDNlG5+3lBUgMC90t+epzJeTu8KTFtFm
-         vYTV5E7gwk0mPQaU8kPGDb2XcV+imJNurA7ISmcYSRwsPDei4KR+zAw6W6Nggjw7o/d0
-         jvyA/8ki0zvwGJsWIyOT0Xw99AompgucmcqZ1mGKH7UJ9646Q2T7vnl3cNn5zJWVpYnY
-         Ek7w==
+        b=IP1KMA7BxhvE/oFe/CVQBVGdpCYtfvdiaFwZS4Ug89WWaklJ276r89ZbzAVb38NrMY
+         fIjuZokHqfaXA3LSqyHVKvEL8trX1ou0Y/rxcOmbVMeKTiYjcesrsNikNiDx/h62+OcZ
+         lFkIqtVSsjUWrWBtAMzUny6sZzWMQKmrfD+qBrrKcacd4naTuwchPSWwa8dGsUZqiqAu
+         QSNKRQS3iT6r2Q03sZcSpIxgJdEKZXNrppWGteSx6No93eTyQrKu6YLkHCmceSskOkvb
+         Kz0MReqxoTN4X/lwxyk6+Lqb7Le/wx0VKgoR6dGAnXT9UttMa+bjY+LGEIuKzG1vesFs
+         2+fA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date;
-        bh=QROIyvoMbqaTDYXGKUFNNWdidRVdVU9pWyAruYcDlH0=;
-        b=DVVoVBCyHcUkqiIjsxTNXEQ4KOAALceb4fH7ZbS8br91Du2wl+bLYYPMkP1KwdtaEY
-         gGVm2JW1qAY7Ieq2pELvSIssXjfM8O1sybSvxTa3dTTg0q+mfkCcebkU2J4+Vz2vLSR7
-         MAF2GyIW1MVsfJalau/W6mOEE9szXscqLTfXPgYraX9X3J8Llw4mN0FVp3bAOetL1NYd
-         Jhy5PtrqIRLanNV/EmAgDtDUDEI/hX+zrwItdmLZgx+E29WzOuCVoryEIozO1kU1n6wv
-         Ibz7Y8jlMtG/1ImTrb+5ko23mhuYFa7+z0pyAMbbXJ201jE1+M7N+BMrxpk0VEohLokI
-         f13A==
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=l2vHj7gC1bPudxwKnXM6ZzxS+KXh+EPm8mlUndhME6c=;
+        b=ONV1/1U2rb+T6A/j+59BOo4FvZsu11MVgIU3+QQTeyP176svHJxXg6aDb7ShpVDMiY
+         7YyT9Tuyum6R0P/LU2FuH3d7LJ7FqtbrHLjPqdQDAqayckT6mSbVVuxFRLU3kaLhqMTP
+         eNenCPFdJ52D2/Y1Wl0u5aDhlYu9iaGxoQBRWLN7IfiOEGwa8Cpkn2VXuiLRoQiWjoX4
+         L5fmBt7OHpCF9NxhJfA1HMduiYyjUjAAKIXSuac3N2ZSiJdqBQ8opYOic99wD+0a0ziL
+         8fGTpMbPCr0fUmkyl8h8eqMk3GWviYIV8eYWG8GYWFgmSOXr9dMcyg+U8UWODvDZMwwM
+         dCew==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
-Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id d8si1024176ote.4.2021.06.18.08.18.39
-        for <clang-built-linux@googlegroups.com>;
-        Fri, 18 Jun 2021 08:18:39 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E15113A1;
-	Fri, 18 Jun 2021 08:18:39 -0700 (PDT)
-Received: from C02TD0UTHF1T.local (unknown [10.57.10.206])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 240E03F694;
-	Fri, 18 Jun 2021 08:18:37 -0700 (PDT)
-Date: Fri, 18 Jun 2021 16:18:35 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Nathan Chancellor <nathan@kernel.org>, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 2/2] arm64: insn: move AARCH64_INSN_SIZE into <asm/insn.h>
-Message-ID: <20210618151835.GC8318@C02TD0UTHF1T.local>
-References: <20210609102301.17332-1-mark.rutland@arm.com>
- <20210609102301.17332-3-mark.rutland@arm.com>
- <YMv2B6HCnDReOFIr@archlinux-ax161>
-MIME-Version: 1.0
+       spf=pass (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) smtp.mailfrom=p.zabel@pengutronix.de
+Received: from metis.ext.pengutronix.de (metis.ext.pengutronix.de. [2001:67c:670:201:290:27ff:fe1d:cc33])
+        by gmr-mx.google.com with ESMTPS id w3si387859ljg.8.2021.06.18.08.20.20
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Jun 2021 08:20:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) client-ip=2001:67c:670:201:290:27ff:fe1d:cc33;
+Received: from lupine.hi.pengutronix.de ([2001:67c:670:100:3ad5:47ff:feaf:1a17] helo=lupine)
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1luGI0-0003mh-7M; Fri, 18 Jun 2021 17:20:12 +0200
+Received: from pza by lupine with local (Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1luGHy-0003ik-S4; Fri, 18 Jun 2021 17:20:10 +0200
+Message-ID: <02b33fbe07720d29c112fe1ed5713f532319f215.camel@pengutronix.de>
+Subject: Re: [linux-next:master 5946/11253] ld.lld: error: undefined symbol:
+ reset_controller_register
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Thierry Reding <treding@nvidia.com>, kernel test robot <lkp@intel.com>, 
+	Krzysztof Kozlowski
+	 <krzk@kernel.org>
+Cc: Dmitry Osipenko <digetx@gmail.com>, "kbuild-all@lists.01.org"
+	 <kbuild-all@lists.01.org>, "clang-built-linux@googlegroups.com"
+	 <clang-built-linux@googlegroups.com>, Linux Memory Management List
+	 <linux-mm@kvack.org>
+Date: Fri, 18 Jun 2021 17:20:10 +0200
+In-Reply-To: <YMyzKmDO+SJt8n4N@orome.fritz.box>
+References: <202106182243.KgZxMD9A-lkp@intel.com>
+	 <YMyzKmDO+SJt8n4N@orome.fritz.box>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <YMv2B6HCnDReOFIr@archlinux-ax161>
-X-Original-Sender: mark.rutland@arm.com
+User-Agent: Evolution 3.30.5-1.1
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2001:67c:670:100:3ad5:47ff:feaf:1a17
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: clang-built-linux@googlegroups.com
+X-Original-Sender: p.zabel@pengutronix.de
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as
- permitted sender) smtp.mailfrom=mark.rutland@arm.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=arm.com
+ (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33
+ as permitted sender) smtp.mailfrom=p.zabel@pengutronix.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,119 +138,61 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jun 17, 2021 at 06:25:27PM -0700, Nathan Chancellor wrote:
-> Hi Mark,
+Hi Thierry, Krzysztof,
 
-Hi Nathan,
-
-> On Wed, Jun 09, 2021 at 11:23:01AM +0100, Mark Rutland wrote:
-> > For histroical reasons, we define AARCH64_INSN_SIZE in
-> > <asm/alternative-macros.h>, but it would make more sense to do so in
-> > <asm/insn.h>. Let's move it into <asm/insn.h>, and add the necessary
-> > include directives for this.
-
-> I bisected a CONFIG_LTO_CLANG_THIN=y build failure that our CI reported
-> to this patch:
+On Fri, 2021-06-18 at 16:52 +0200, Thierry Reding wrote:
+> On Fri, Jun 18, 2021 at 04:21:45PM +0200, kernel test robot wrote:
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> > head:   e71e3a48a7e89fa71fb70bf4602367528864d2ff
+> > commit: 56ebc9b0d77e0406aba2d900c82e79204cc7dc32 [5946/11253] memory: tegra: Enable compile testing for all drivers
+> > config: x86_64-randconfig-a001-20210618 (attached as .config)
+> > compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 64720f57bea6a6bf033feef4a5751ab9c0c3b401)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # install x86_64 cross compiling tool for clang build
+> >         # apt-get install binutils-x86-64-linux-gnu
+> >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=56ebc9b0d77e0406aba2d900c82e79204cc7dc32
+> >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+> >         git fetch --no-tags linux-next master
+> >         git checkout 56ebc9b0d77e0406aba2d900c82e79204cc7dc32
+> >         # save the attached .config to linux build tree
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+> > 
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > 
+> > Note: the linux-next/master HEAD e71e3a48a7e89fa71fb70bf4602367528864d2ff builds fine.
+> >       It may have been fixed somewhere.
+> > 
+> > All errors (new ones prefixed by >>):
+> > 
+> > > > ld.lld: error: undefined symbol: reset_controller_register
+> >    >>> referenced by mc.c
+> >    >>>               memory/tegra/mc.o:(tegra_mc_probe) in archive drivers/built-in.a
 > 
-> https://builds.tuxbuild.com/1u4Fpx2FQkkgkyPxWtq0Ke4YFCQ/build.log
+> Ugh... more fallout from that compile-test enablement. It looks like
+> that compile-test stubs addition patch for reset hasn't found its way
+> into linux-next yet.
 
-Thanks for reporting this; the lopg is really helpful!
+It has [1], it's just merged later [2].
 
-> I have not had a whole ton of time to look into this (dealing with a
-> million fires it seems :^) but it is not immediately obvious to me why
-> this fails because include/linux/build_bug.h is included within
-> arch/arm64/include/asm/insn.h.
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=48a74b1147f7db4623eaed591cc01eb740b871c0
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=25da503ecce8f523c1c1c678659cb484d3bcd73f
 
-The problem is that with LTO, we patch READ_ONCE(), and <asm/rwonce.h>
-includes <asm/insn.h>, creating a circular include chain:
+> Philipp, I wonder if it would make sense for Krzysztof to pick up that
+> patch or, if you prefer, for Krzysztof to pull a stable branch from you
+> that includes this so that the memory controller tree becomes buildable
+> again?
 
-	<linux/build_bug.h>
-	<linux/compiler.h>
-	<asm/rwonce.h>
-	<asm/alternative-macros.h>
-	<asm/insn.h>
-	<linux/build-bug.h>
+That commit is stable. Feel free to pull it in below 56ebc9b0d77e:
 
-... and so when <asm/insn.h> includes <linux/build_bug.h>, none of the
-BUILD_BUG* definitions have happened yet.
+https://lore.kernel.org/linux-arm-kernel/14d33ac19b2a107e97ce1ab264987b707baa9ba7.camel@pengutronix.de/
 
-Will, are you happy to take the fixup patch below, or would you prefer
-to drop this patch for now?
-
-Thanks,
-Mark.
-
----->8----
-From 0acc3d92302f54475d938f55749805adf74faec1 Mon Sep 17 00:00:00 2001
-From: Mark Rutland <mark.rutland@arm.com>
-Date: Fri, 18 Jun 2021 16:11:22 +0100
-Subject: [PATCH] arm64: insn: avoid circular include dependency
-
-Nathan reports that when building with CONFIG_LTO_CLANG_THIN=y, the
-build fails due to BUILD_BUG_ON() not being defined before its uss in
-<asm/insn.h>.
-
-The problem is that with LTO, we patch READ_ONCE(), and <asm/rwonce.h>
-includes <asm/insn.h>, creating a circular include chain:
-
-        <linux/build_bug.h>
-        <linux/compiler.h>
-        <asm/rwonce.h>
-        <asm/alternative-macros.h>
-        <asm/insn.h>
-        <linux/build-bug.h>
-
-... and so when <asm/insn.h> includes <linux/build_bug.h>, none of the
-BUILD_BUG* definitions have happened yet.
-
-To avoid this, let's move AARCH64_INSN_SIZE into a header without any
-dependencies, such that it can always be safely included. At the same
-time, avoid including <asm/alternative.h> in <asm/insn.h>, which should
-no longer be necessary (and doesn't make sense when insn.h is consumed
-by userspace).
-
-Reported-by: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/alternative-macros.h | 2 +-
- arch/arm64/include/asm/insn.h               | 5 +----
- 2 files changed, 2 insertions(+), 5 deletions(-)
-
-diff --git a/arch/arm64/include/asm/alternative-macros.h b/arch/arm64/include/asm/alternative-macros.h
-index 703fbf310b79..eba3173a2a2c 100644
---- a/arch/arm64/include/asm/alternative-macros.h
-+++ b/arch/arm64/include/asm/alternative-macros.h
-@@ -3,7 +3,7 @@
- #define __ASM_ALTERNATIVE_MACROS_H
- 
- #include <asm/cpucaps.h>
--#include <asm/insn.h>
-+#include <asm/insn-def.h>
- 
- #define ARM64_CB_PATCH ARM64_NCAPS
- 
-diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-index 1430b4973039..6b776c8667b2 100644
---- a/arch/arm64/include/asm/insn.h
-+++ b/arch/arm64/include/asm/insn.h
-@@ -10,10 +10,7 @@
- #include <linux/build_bug.h>
- #include <linux/types.h>
- 
--#include <asm/alternative.h>
--
--/* A64 instructions are always 32 bits. */
--#define	AARCH64_INSN_SIZE		4
-+#include <asm/insn-def.h>
- 
- #ifndef __ASSEMBLY__
- /*
--- 
-2.11.0
+regards
+Philipp
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210618151835.GC8318%40C02TD0UTHF1T.local.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/02b33fbe07720d29c112fe1ed5713f532319f215.camel%40pengutronix.de.
