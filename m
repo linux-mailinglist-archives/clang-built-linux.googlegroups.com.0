@@ -1,50 +1,48 @@
-Return-Path: <clang-built-linux+bncBDVP5PWXVEHRBZNDWGDAMGQEY43H2EA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCYL7PHBVABBBB5ZWGDAMGQE34GFEHA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id 010993AC57E
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 09:57:26 +0200 (CEST)
-Received: by mail-wm1-x339.google.com with SMTP id i82-20020a1c22550000b02901d64e84b3c9sf1801540wmi.5
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 00:57:25 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624003045; cv=pass;
+Received: from mail-pj1-x103a.google.com (mail-pj1-x103a.google.com [IPv6:2607:f8b0:4864:20::103a])
+	by mail.lfdr.de (Postfix) with ESMTPS id A0C9A3AC65D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 10:42:48 +0200 (CEST)
+Received: by mail-pj1-x103a.google.com with SMTP id u11-20020a17090a1d4bb029016df2fceb76sf5756818pju.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 01:42:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624005767; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PCxodmS1L3YdEJJx0+9pFpDZFxY4HrW2kLWJkENEEkrUwH84yfY7XVbLBqOufbE/Sk
-         e6HJZjrfsrke6AdG7uzw+D5RebLbVdyFgcR4hUQFnM6OwRQPU+D0FR8xlJjTVXgynO4e
-         VQPrjoJwegixRU7+mkZgQRiZ/0pfRueiXc2lrUuo7o1/rmAXySuNpr827bhCa8ZxTmAA
-         JXt2fxDG+kT6of1WMScclZGHLG61epw06ydrnMdPes52BFcdtXmMrEYvD8yYWw2Om/Bl
-         RrojbvsuVxPtQpdmMhiwBpR1LX4R2xRsrU3N5wYLSqmu9xhmZK4WpfPlWqyrhw8KTGj3
-         LrnA==
+        b=jk57gqeG8LuYkszzHr4V2q0ECTqO6JbmhMEEFtZxVWWY5jilqG8JFBx7p1FMdutnX/
+         xqDUOxvYC8+syHrOLuAKHlWiJmg2QMBVM2GyVxU9RA1jPAgkGA2Kb1UEM+88Xm63bbMt
+         IrFM8W62FM6yx2wN17VcNh3PKTBRYmNtUw02Z94RS/sCrfVMp5+vxqhyXs30rmMdHbVL
+         71NHMss9OHXkMNAnWJ/5wLiNQAx06ZB1TeHVOF2OITg1fCbMWy0pDQddZBjMQHD3mz/i
+         /CO2ZBVwDZWVVgb13cge6dtSKFwk+9f+Rzp1vQGlTaQ658MmsVf7+SJWFOSjllttPB1s
+         CunQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=2OWdwXM93mho5MxFRu5KsQAE3o9jI07BWPUruS+Gdy8=;
-        b=fvTLTPrXmZXwVsd+iH3wKymE3PYeHCy7ciLy7wCni/Q7zVJfatYufVgsNz500Vg6U1
-         4S1QPdwEbkwmkBNbC/xOfz5f/bYbF60J89UjiRQxsCMcFT1U8C6yEWJKw/UBGeErzz5s
-         q4KFN/stnFt/vEd/lQNrVnwpdokp7KsEb7hVWPnfQfiWlA7H4vSb2CxIv2z4oUmIXEAe
-         LrJIYdc4sSP6+mV5BBsYaOv3jM4liqh23Zgj25oQ5xcP6vcFBzfyIszDMgIxKZchzJzp
-         sxXEH8tbPin8ozHZL9evXyxzBW9fYt3JvxQzTGnsWRs/kVGHvAGy9DWpqk/CnfldA9U6
-         VEUQ==
+        bh=Zrj9Y6N+eAhdYykBEU4orOCCeYg85s3oOY0tnb6QJqo=;
+        b=VemAknT1eeKfmJx3mTIyv6BibzNl0gILYj7rDY5qWPuRjZddgwe7Y8dGK60Lj2MC/U
+         MVZkXMQ7Ow/tn39gKtOngNkEmssDUflu+szm3IPJTHLOvV4n5f1zG7ap5QA1YEr4rR6n
+         Eh4T3flgUg76jJY2yMloJeat++7Bd6O0jDRkjdtP8dcUlwkivgH8XJWsxbLrw82AjJkr
+         wzzcqCbz0SzTOUBEEKETbEM42HuMcrmv8tWLOJn574vN4lNnWViMUogUhQFgDS81WtNZ
+         5PJxNlixcnpnSvEeZBIKVNmNDQNMRV0DauQ6F4xlhUd4gSP1s0iT70Z2sYQYWCTt3fPc
+         NPPg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;
-       dkim=neutral (no key) header.i=@suse.de header.s=susede2_ed25519;
-       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;
-       dkim=neutral (no key) header.i=@suse.de header.s=susede2_ed25519 header.b=BWmbx4uW;
-       spf=pass (google.com: domain of jroedel@suse.de designates 195.135.220.29 as permitted sender) smtp.mailfrom=jroedel@suse.de
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=anGd94GR;
+       spf=pass (google.com: domain of hca@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=hca@linux.ibm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=2OWdwXM93mho5MxFRu5KsQAE3o9jI07BWPUruS+Gdy8=;
-        b=XskBRCmEtqp6ZlsL1e3WGPh5JZUaMDcWLJ4wr4f53rnpYlriFTvSO2jFW0wOXOTLH6
-         Dey6AgBuSPxIDtjk9xpWUS+/U1D1G7hqEvuaofiYrgM0QGFbz+9c764SPcjXKron2voP
-         cwUJpWw4hd9tS7yuRw9Kk729Xf0msZYXY5kT4Qt6Uv4A+v3f8M9nksPvQjasREc4Ua0n
-         uJEXUqbW1DYNWj3n1m6r66djgOTgtVsjovjjKch9SutSDQJlKxM2gayLsdBNwHnfmTOM
-         cBGJYMtT3SW7/OlHa926nKTUWu3SB+7dCRl+Y/01tXy2fJFRNqb1MB8MUe3UEUrZOHRr
-         fwJQ==
+        bh=Zrj9Y6N+eAhdYykBEU4orOCCeYg85s3oOY0tnb6QJqo=;
+        b=COM3cQIqdjl8lzJwBS2TMriUs2i/HuBpFYafxcX11no53NFeJhVSkWN2l21onVVj1V
+         PwjldxBFWskaRs4IlcGj4c+LtrajVJ5tR+EVaFGoKMMolLMDvbmZRmVFgDFUIKj4e+Mb
+         MmyasAzDfdJaWaqAcUQXvu2/jJqitk1FMtdbesmE8e5CJqyJbpmQm8yzie9OACvJYaLj
+         Iev62AMP0QTEyUGunQN7IdAiBO7wolSZYLqkS2rmpCUwvEjWrfRtlKWuyT6dpqPEamQS
+         WMZRaDq4mbHIw+NTO5glt3IAcY/2nk7puC/mSBsW2Vp7fW4HyO7LhsxRL7/ull/hxWLG
+         Fpbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -52,96 +50,119 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=2OWdwXM93mho5MxFRu5KsQAE3o9jI07BWPUruS+Gdy8=;
-        b=OJIK9X9NRXkFAxe+IsD3vXulOk03HgMxtKeSdxkukQeicQEPts9XeQFcDRgZ1aegLC
-         Xk1Je1dYUIbXGubt4lzuKGZ9zZv13aD6485/ItL8U4ePPqlSg9slx1a0CC/vsb5t+QB9
-         bxXoB+YwQc5mKi2RG8c5E8E/zFHVuLgkIfNOHZYjrm6FZAYfTxpZIHFEfVceLhoHQVYv
-         7yumrHWvygl8OuSZ3CNSa9h5KJ2475Qsy1CheQ6aEzEXOIE56JmepjIz72ej8kpzAKWO
-         pvKCzdzL978Q2jYPNRqT3TSCdCrS7KiW3/LaFMcOfjsEerjdi5LAsdYivskokLEgnh42
-         MCKw==
+        bh=Zrj9Y6N+eAhdYykBEU4orOCCeYg85s3oOY0tnb6QJqo=;
+        b=oYIkITlxEzSpuCbxbo5Uqd4MgnyheNaMDrCrfEkxNfvY3AOEz/5MxDGjF0Wq3LLfbo
+         vE5SRCJupIbtUAdF+mViiMGK49zjJ443YQedOQL1aC7Hm6m32yQQ1fLAyaJ3EZlXBH+k
+         iYWuZjqLmWq0m85AACoec1FBTzhaDxHE2SBzca2qPjYI6vefq1t7ZzlHCPZN8t9f14Se
+         r0URczbBTUVnZ094oBV0WZH75DDMQC0vSne683jCyta038mCFCQCk2dOJfsgV+6PxXfB
+         MUg4SRn1aCmJ0sbZmrmiKq9IU0wDAgHnVf/KMI7V0ak65wRQ0ZtKbyHc/AtmUISTKyLe
+         AmIA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531O3oawOPic6LMC+3y2bxIT1YY6/oKnCLXphzRcNkL4tDx1IqtY
-	iCBPLT62hPb7LXGEZ7XBdc0=
-X-Google-Smtp-Source: ABdhPJyRXPhLFMQnZY6FvAA5MKYEPVY39RIgrSFf+Zaryc6dTj2bsxqnVKBr5EC0IEc1wScSUTqmmA==
-X-Received: by 2002:a7b:c189:: with SMTP id y9mr9996410wmi.106.1624003045714;
-        Fri, 18 Jun 2021 00:57:25 -0700 (PDT)
+X-Gm-Message-State: AOAM532x2VnW3bxecrmVOsMirJwxi/0foFpgdVTP9YZLhoEbxIjY947i
+	/PcNkcC/43T+qZmR1+2k/bc=
+X-Google-Smtp-Source: ABdhPJyzfOydEEjXqz+DFRI8JQajP25/d2oDxQH3HR5dMJ6ue+/oEcp12AM2/5luQgNjvg6IjSUlJQ==
+X-Received: by 2002:a17:90b:78e:: with SMTP id l14mr8449277pjz.4.1624005767393;
+        Fri, 18 Jun 2021 01:42:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:6945:: with SMTP id r5ls2000207wrw.2.gmail; Fri, 18 Jun
- 2021 00:57:24 -0700 (PDT)
-X-Received: by 2002:adf:f445:: with SMTP id f5mr4665813wrp.264.1624003044846;
-        Fri, 18 Jun 2021 00:57:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624003044; cv=none;
+Received: by 2002:a62:6445:: with SMTP id y66ls3950693pfb.7.gmail; Fri, 18 Jun
+ 2021 01:42:46 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1a4a:b029:2ff:b1c:e3fd with SMTP id h10-20020a056a001a4ab02902ff0b1ce3fdmr4089620pfv.1.1624005766845;
+        Fri, 18 Jun 2021 01:42:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624005766; cv=none;
         d=google.com; s=arc-20160816;
-        b=R8nKeFq2yONfExQmODxVl0JXzwDfPdrrkQtZp2PoA/1C2ZvGpp2vfnm7gFBwOY2owj
-         IBwtf/NN42qJgfZH7+1ISnJQvvKT8EvYk+oK+sYRBy5PYiiMiOy8UqSnofcS3HqkViNB
-         Bm32RDTJy2jGj7T7mVUlvUrk58TEyTABnjZUjHaRlYSbKf5t7hQWCqZg1gg4OiAH8aps
-         L4J3CtNC65JQxOqvZ60unkPxp6NGBHps8tERR32xOKvM/bL0AtXxWS3CiMCx+6PlB/F/
-         04y3QSAd0Iwk6U+Yl4L376Wor2xO2wJJVmNWsBzIN8aCxrXv+Mx/NMHeWyE56IfwiLxA
-         nRYg==
+        b=ch5kx04qsGav0nDbfjpJosvonJA1vMt65XOhB6B2uaw2uTTTVwFSe+oRGkDEQ+EDl/
+         4SKkSuQyXyGFfZi5BMJClTelkl9dHxfaHzUbS6FwBKGBWqOM0AZnfBMj08TDrNF9mLtv
+         X1CE6ZrDooLttNIUxRB+luU9wxdVH497uIY33XYE1Ead/ogT1tivGqFOPECWSvJe8Und
+         +6eRZfeHqki1MAuYZ02yOVdIUI5SNk+hrNXAjIPX25q/LpzyXuHCXvC+8K8q5r3djxDy
+         xPv2TJJK122nwbi7RQ8DgGhqHgw7+G6UApbSAE0+cFI3eBVatbErIVnwSung2I+MOzXW
+         KHrw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature:dkim-signature
-         :dkim-signature:dkim-signature;
-        bh=00PGLHSy+8q9cRmQ8fgZXfLgJHGTi7QAl5WB49PoiEY=;
-        b=YXzJFjgPvNKlf+NtlizY0K7Yo4C4R2yTnGI+EmGX0WqGWbJ9XNZZnIUW6P8gNUAaJw
-         FTRCMzohZ1dL8MAPxVa1199YNGcWP3YkeOtMJtRsSmGKgYz3QPlqIdHg7eUetiM+gdT6
-         m98nWHJclNyny19Lh25jar3WL4O3BJ7g/4Rtl3qlbAUQQ/B+oTUrTVVK/KLJkpeHq5un
-         JJpzIDoeZf3Zz2nOhjCpizixS8xB79k6yEcxzrAvnHy9/+d6xChDAFjp1BiX40sKs4AL
-         eIPx0k7GL9QpU3DqYMKboSN1urZ2zQYhzcx44Fh8pUF7dZOMz3cCBFxULm7V6Wp1Ukjq
-         D53w==
+         :subject:cc:to:from:date:dkim-signature;
+        bh=WbzSnA8nbxcmk/DChKVe5ctPYDstqZgdtPrr/A1odZk=;
+        b=rJm+BjWuKAjl0oAiIdfwhLmgdHY/apQVBkoOMbSPaWtHqdPL+XTFnEKN0GQhsoWm5o
+         bJrpOz5gGDDC1aORzHSRFVqnxF5WE2UWo7Vc6gx+x6KQkW0XT7hry8XPdyc15HjUeh/0
+         jVCUZfAqYdcQ8blvnNJyh+IBZB4Wz14IUJrRjHzDC/Oxr2m1vj624Ijn2QhV+h0T7ilu
+         Itab8vIyrQTmdKQncwNVFidWJVzwiR3iygXAEHjF3ABBVOuisjbRzHYjfVBSF/OJ3btT
+         pX3ut+FE84cBCOtPg133A5TFIxdifWo4H681frTft28GJLrc4HLqipAQlimdNwhqXT3u
+         XO/g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;
-       dkim=neutral (no key) header.i=@suse.de header.s=susede2_ed25519;
-       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;
-       dkim=neutral (no key) header.i=@suse.de header.s=susede2_ed25519 header.b=BWmbx4uW;
-       spf=pass (google.com: domain of jroedel@suse.de designates 195.135.220.29 as permitted sender) smtp.mailfrom=jroedel@suse.de
-Received: from smtp-out2.suse.de (smtp-out2.suse.de. [195.135.220.29])
-        by gmr-mx.google.com with ESMTPS id q22si68130wrz.3.2021.06.18.00.57.24
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=anGd94GR;
+       spf=pass (google.com: domain of hca@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=hca@linux.ibm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+Received: from mx0a-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com. [148.163.158.5])
+        by gmr-mx.google.com with ESMTPS id a15si1008350pgw.2.2021.06.18.01.42.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Jun 2021 00:57:24 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jroedel@suse.de designates 195.135.220.29 as permitted sender) client-ip=195.135.220.29;
-Received: from imap.suse.de (imap-alt.suse-dmz.suse.de [192.168.254.47])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 7B5AD1FDE7;
-	Fri, 18 Jun 2021 07:57:24 +0000 (UTC)
-Received: from imap3-int (imap-alt.suse-dmz.suse.de [192.168.254.47])
-	by imap.suse.de (Postfix) with ESMTP id 1EB6E118DD;
-	Fri, 18 Jun 2021 07:57:24 +0000 (UTC)
-Received: from director2.suse.de ([192.168.254.72])
-	by imap3-int with ESMTPSA
-	id mCyyBeRRzGCGVAAALh3uQQ
-	(envelope-from <jroedel@suse.de>); Fri, 18 Jun 2021 07:57:24 +0000
-Date: Fri, 18 Jun 2021 09:57:22 +0200
-From: Joerg Roedel <jroedel@suse.de>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 18 Jun 2021 01:42:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of hca@linux.ibm.com designates 148.163.158.5 as permitted sender) client-ip=148.163.158.5;
+Received: from pps.filterd (m0098419.ppops.net [127.0.0.1])
+	by mx0b-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 15I8X1ts086417;
+	Fri, 18 Jun 2021 04:42:39 -0400
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0b-001b2d01.pphosted.com with ESMTP id 398nvavcqj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 18 Jun 2021 04:42:39 -0400
+Received: from m0098419.ppops.net (m0098419.ppops.net [127.0.0.1])
+	by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 15I8X3fC086574;
+	Fri, 18 Jun 2021 04:42:38 -0400
+Received: from ppma04ams.nl.ibm.com (63.31.33a9.ip4.static.sl-reverse.com [169.51.49.99])
+	by mx0b-001b2d01.pphosted.com with ESMTP id 398nvavcpj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 18 Jun 2021 04:42:38 -0400
+Received: from pps.filterd (ppma04ams.nl.ibm.com [127.0.0.1])
+	by ppma04ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 15I8Wsr6015449;
+	Fri, 18 Jun 2021 08:42:35 GMT
+Received: from b06cxnps3075.portsmouth.uk.ibm.com (d06relay10.portsmouth.uk.ibm.com [9.149.109.195])
+	by ppma04ams.nl.ibm.com with ESMTP id 394mj8u6mj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 18 Jun 2021 08:42:35 +0000
+Received: from d06av21.portsmouth.uk.ibm.com (d06av21.portsmouth.uk.ibm.com [9.149.105.232])
+	by b06cxnps3075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 15I8gWB624117562
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 18 Jun 2021 08:42:32 GMT
+Received: from d06av21.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9584B52052;
+	Fri, 18 Jun 2021 08:42:32 +0000 (GMT)
+Received: from osiris (unknown [9.145.4.27])
+	by d06av21.portsmouth.uk.ibm.com (Postfix) with ESMTPS id 154A75204E;
+	Fri, 18 Jun 2021 08:42:32 +0000 (GMT)
+Date: Fri, 18 Jun 2021 10:42:30 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
 To: Nathan Chancellor <nathan@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	David Woodhouse <dwmw2@infradead.org>,
-	iommu@lists.linux-foundation.org,
-	LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] iommu/vt-d: Fix W=1 clang warning in intel/perf.c
-Message-ID: <YMxR4ggRGZQZbiz1@suse.de>
-References: <20210617145339.2692-1-joro@8bytes.org>
- <CAKwvOd=8jUsRFKg6+sqq2-DakbRBGR6Z6mR_smuxp+cMEmCHLw@mail.gmail.com>
- <YMuw+LtM/B1QTTJI@suse.de>
- <32f14288-315a-b75d-913b-2fc6a16cd748@kernel.org>
+Cc: Vasily Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@de.ibm.com>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+        linux-s390@vger.kernel.org, linux-next@vger.kernel.org,
+        lkft-triage@lists.linaro.org, Arnd Bergmann <arnd@arndb.de>,
+        Stephen Rothwell <sfr@canb.auug.org.au>,
+        Naresh Kamboju <naresh.kamboju@linaro.org>
+Subject: Re: [PATCH] scripts/min-tool-version.sh: Raise minimum clang version
+ to 13.0.0 for s390
+Message-ID: <YMxcdv/1taBevSjP@osiris>
+References: <YMtib5hKVyNknZt3@osiris>
+ <20210617193139.856957-1-nathan@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <32f14288-315a-b75d-913b-2fc6a16cd748@kernel.org>
-X-Original-Sender: jroedel@suse.de
+In-Reply-To: <20210617193139.856957-1-nathan@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 4bCbJ863SOOjvOHDFC_wa6hO-bo1QLk6
+X-Proofpoint-ORIG-GUID: xW4I_Z0qNkRAMI_ghInzYLw6jUTbad0d
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.790
+ definitions=2021-06-18_04:2021-06-15,2021-06-18 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 spamscore=0
+ bulkscore=0 impostorscore=0 priorityscore=1501 lowpriorityscore=0
+ mlxlogscore=999 malwarescore=0 mlxscore=0 suspectscore=0 clxscore=1011
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2104190000 definitions=main-2106180048
+X-Original-Sender: hca@linux.ibm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;       dkim=neutral
- (no key) header.i=@suse.de header.s=susede2_ed25519;       dkim=pass
- header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;       dkim=neutral
- (no key) header.i=@suse.de header.s=susede2_ed25519 header.b=BWmbx4uW;
-       spf=pass (google.com: domain of jroedel@suse.de designates
- 195.135.220.29 as permitted sender) smtp.mailfrom=jroedel@suse.de
+ header.i=@ibm.com header.s=pp1 header.b=anGd94GR;       spf=pass (google.com:
+ domain of hca@linux.ibm.com designates 148.163.158.5 as permitted sender)
+ smtp.mailfrom=hca@linux.ibm.com;       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,16 +175,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jun 17, 2021 at 01:51:24PM -0700, Nathan Chancellor wrote:
-> kernel-doc is run automatically with W=1, regardless of gcc versus clang.
+On Thu, Jun 17, 2021 at 12:31:40PM -0700, Nathan Chancellor wrote:
+> clang versions prior to the current development version of 13.0.0 cannot
+> compile s390 after commit 3abbdfde5a65 ("s390/bitops: use register pair
+> instead of register asm") and the s390 maintainers do not intend to work
+> around this in the kernel. Codify this in scripts/min-tool-version.sh
+> similar to arm64 with GCC 5.1.0 so that there are no reports of broken
+> builds.
+> 
+> Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+> 
+> This should probably go through the s390 tree with Masahiro's ack.
 
-I see, thanks. Will update the commit message.
+Thank's a lot!
 
-Thanks,
+I'll add the below text to the commit message, and apply it internally
+first:
 
-	Joerg
+[hca@linux.ibm.com: breaking compatibility with older clang compilers
+ is intended to finally make use of a feature which allows the
+ compiler to allocate even/odd register pairs. This is possible since
+ a very long time with gcc, but only since llvm-project commit
+ d058262b1471 ("[SystemZ] Support i128 inline asm operands.") with
+ clang. Using that feature allows to get rid of error prone register
+ asm statements, of which the above named kernel commit is only the
+ first of a larger not yet complete series]
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMxR4ggRGZQZbiz1%40suse.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMxcdv/1taBevSjP%40osiris.
