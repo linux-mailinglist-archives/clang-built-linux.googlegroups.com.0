@@ -1,122 +1,125 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBEE7WODAMGQETMAWEYA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBQNEWODAMGQEFXZVXCI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1974D3AD0C3
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 18:53:38 +0200 (CEST)
-Received: by mail-qk1-x73b.google.com with SMTP id m133-20020a37a38b0000b02903adaf1dd081sf6059120qke.14
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 09:53:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624035217; cv=pass;
+Received: from mail-qt1-x840.google.com (mail-qt1-x840.google.com [IPv6:2607:f8b0:4864:20::840])
+	by mail.lfdr.de (Postfix) with ESMTPS id A44F23AD0E9
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 19:05:06 +0200 (CEST)
+Received: by mail-qt1-x840.google.com with SMTP id t6-20020ac80dc60000b029024e988e8277sf7898384qti.23
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 10:05:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624035905; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XQIFkNDn4mKUqV66RLU8r1prlXpcrNqd6GKn7y+Z1R4mtdZniDutmHPj27kBjvqAVq
-         Fk/zeK56LEW25FDnBqSXIHlm/tP1pBD6IK0vOvDGhe4q6hzVYUqssjuiH8dXkfxBpmp8
-         gQ0iV0jUZMtTrQxpAnj4/vq1WMC846Ik5+OSB/AKlvph1xJPurNcpenYuf3r5GdWUmUd
-         GJJCG4RzCR/umvz94B0Pi/GCbLZ0xPn3VqCscRYgr1EIOqiDKrkdSfpn5kvCFt1jeWWw
-         kgg1vxEPL4Hx1F8xY5BaKAaP5Moyi8vf8bX+HwMqi2hlZnfVV94qR1yaimayP2UwF+TQ
-         1O3A==
+        b=vMouf+SLABhDD++hECQxRddHNHbsMzqmSde/Pmh0uoYjcD7RzG9BUe4wt+dK/rZuWH
+         odJTEwT30gvD0DjRHIh2sRI8Y2iRFC+4EIlP9eG/x/E5x6KJNaHf5UwCTJ+CW5TuLHp5
+         KBu3JtYh6vsT3wAcolne/2URzm6Yeeur2FiopIfYdWRI5DeMwQzUPhr8sK0McJcSPUdN
+         S2qiYT2b8LNt4+4r2qrhgkIe6AislP/5e/hmJ++BiCKVHYX+yml2JGUE7sJ7zQquldBH
+         ezhF+Qo3XW4hUV+NV+OjYoqaQnEmsgCtpIQzHrdOsCRHaXgmXQBrcMX7DNIQZ28lbo30
+         6YJQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=847uVFnnnGvb9rFBYChn9k2QCJQExOGgQIzvxLhNFq4=;
-        b=Ga09+J5xkMznUABmO4OTMWEAT1GOf46G6NeD+VRBcz9zxpEsAZofY4zgDrVPdyYR0N
-         35xPiCz3Ri00Vv7t60JU4lQMA7OJB1r6GKcV/VWZREUZYhtW2lk9EbSikKhf1EfPnb9R
-         v3TjPxBWberKbv1tDpS5PlMT2W97kSe3GQc8EcIK2EbWHSXvA9qQwT3LzoDChBRKmgBV
-         sT5QpXELijGEjXc3a4zPBPpu8igxFhMJIujpbc2jhKVVRmJXdBER/GYi3Fqw9GYoQ1j+
-         vhaVfTL3QBWzXQdVUlnzZ/W0J0Izk0fW9AYABCb0YobEb0pju4FmmcotnAc1Z8WEB+sU
-         vw1g==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=vHpYpLy/pHg/kw50LtL+M2TGSJniESL/LUmxJ4LRthU=;
+        b=C6/AEV1C2xnRDzlzPcQN5bExN0/Fwl3+tlCqRESQuUg3WtkKP2XKP72T0y/JCFIcrj
+         pinXHHvABR6ADp4T4xvgUhMVkLqcbztQ5XeWP/UJ60m3w1Ws1OP4L3/E4XOPCBbf3gdN
+         I0oOk3hBcjZaFcOXnQC/QS5WhcRwDgj0o3r9E3rXKEdlA8ZPUiXn8PUg5b/CAlEuEYiW
+         UWUd6DrrGqFUarXBex559UHnq4QL7vViJicEZhRhLc0ow/oGqdOM6o+Q6f4Yiyya0/eW
+         PZLLvVko2A84FqDIFmqwvkp7xrg/AcnT5g56uhmWZMMdPjFAYoHVRnFihM8cPxd7nuwP
+         GyOA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=u5BxcQ+y;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YLJj4sqL;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=847uVFnnnGvb9rFBYChn9k2QCJQExOGgQIzvxLhNFq4=;
-        b=I99rnIXzWpoK2sVrU1hmTiWWUR85YpoxSZomDUEzOYaR/ygsOiRrdcj7RM4wDtiVpk
-         uV/slvsbhkWRzxHiXQJcQkdhCj7WYwBDO295be2cBo98aq79J9bdObiJOEe8TBoKEqbe
-         k0G+s9zhhVDblCBvOpoRTTKgF1cFgdkcSeJOCWB3RBM5YFZroaqTURWxgByy1n2RUI/d
-         1zf7iFwZWYuUTcj4sNBO8T0Tgdh3GkhrMOCi3TDiRlQ5uZTrIPXMBQx79fcrJdXRsn1m
-         WjMtN/c1kKsMl73LwcG7PrNYIXym1FwoSrX3CyvexGW4YjBGYC5bztgMf2P/2BV6bZTB
-         tySA==
+        bh=vHpYpLy/pHg/kw50LtL+M2TGSJniESL/LUmxJ4LRthU=;
+        b=Ru4VWJ/7UWb0Wk6HCXOQ2mG03WK6ng62CClw/c6kIfggvSbHWnMODSh5WBrnbag0xt
+         rXwTu2RWGXXLd4YK73nBzc7ebK71j4CwFIatCkwwtOtgpIgfXvbYdHWlB0MWVBR5N4nx
+         +/y3bEQGFWrjnad5S4ElmsxhS3krvciBqulw1jYUDjxxSrEJ+CR8Ip5SW3/fCZZAiTg7
+         S0T61yS8ogc/ZHVMRwCS2I7icPQT6igfhNVQFtlS1BllYdX/rTf2FjIbrC+4oWv9Dm8N
+         rSjszJOnHXlv893yDlmSavEtGoCdgWBMX7JUE4B6z0KpRl2YnJ8mjyYZ0wh/M968IVZO
+         Wd3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=847uVFnnnGvb9rFBYChn9k2QCJQExOGgQIzvxLhNFq4=;
-        b=jhSLLxbaQ9kNunAxQeKGF6P2SeTLX78A3UVebungHkaGO0LXv66bzlm0oDAuaZRE+D
-         vYygmMUS5H2uuJPzbPBP/AWeHLyJyhV8saHZNUeyiMiIqIVp0Qgik/GuPjwjJbJYfmxN
-         2r3XFenglGJnZFijg+xOlQ1R5kdcEmMv8RB5BoZolX0H4m3rdn6iGQpYHW+csMyCM+nW
-         6+G2tEvdWQZGow+yllo11KKRkyGkQyOWNXffbkkIwFt1NKmkwod53xDlR6C3cE1mpkFL
-         yPvv0lnh9jWGIJfbAr37X9JdOD7pnpG+MnUhTtQxI120Npm28P6zt2GTvVrpvhdMqC58
-         n9QA==
+        bh=vHpYpLy/pHg/kw50LtL+M2TGSJniESL/LUmxJ4LRthU=;
+        b=cgTGMOkopJJ4qYzPHOBiFBP8psm7ilhOmHoNHhjUPj/W3XcuLrN2gHEoRPL+Ex+vVE
+         syzenYIyjd5j+aqHMJxxjAO0ts/QjdP8FR8S1YAMjqNQV/pjqfvFLMPHbo2e37bvHbXc
+         Yt858jp+g0KdYn3PakFxEGm4fKqCm8/2W54sNVzoqCK0PhMl+RrpbZp/4XTDKE9mzgfA
+         J0dFEzTh84c7DPPAJk8pikr2tMOstgdSu+N3gKbUZ7kRYvHexf6l6h7GefFuYWCdupv9
+         0eY5QEmnylteUxEo2maoBLwfXjD31vG9YbSy91TN8FcRst1K2zDSnB7Ri/lzBw4xDZLZ
+         IkMQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533VshZ+xW6E5SC084XM3A72AxdccJBGSe+0HzStd+NwaRSam36s
-	lnLRRxunfhpS20FSYillIVo=
-X-Google-Smtp-Source: ABdhPJxtBtML5Iy5ugs0CnrLGJR9iM9Si0OtanETWUcnFBB+fJca7EoAJINQx64Fcx3f4uHagpFzYg==
-X-Received: by 2002:a05:622a:316:: with SMTP id q22mr11431314qtw.153.1624035216906;
-        Fri, 18 Jun 2021 09:53:36 -0700 (PDT)
+X-Gm-Message-State: AOAM5328UHzaHT/geEdLkMQg0+8ktNB+PaxeWMJfwafe4w5SXMwMx8B7
+	LOhUEIoMS4T0W8QoR4Cl2/c=
+X-Google-Smtp-Source: ABdhPJyJFtpzgU39vUwmvdQqe1Fh29LojVnGMx5dON330tBiejxtO9dEo9DiXLchLNpQ0mU6xlItXg==
+X-Received: by 2002:a05:620a:54e:: with SMTP id o14mr8531736qko.371.1624035905575;
+        Fri, 18 Jun 2021 10:05:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:a3d2:: with SMTP id m201ls5760020qke.0.gmail; Fri, 18
- Jun 2021 09:53:36 -0700 (PDT)
-X-Received: by 2002:a37:488:: with SMTP id 130mr9933493qke.215.1624035216438;
-        Fri, 18 Jun 2021 09:53:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624035216; cv=none;
+Received: by 2002:a05:6214:da7:: with SMTP id h7ls3612496qvh.3.gmail; Fri, 18
+ Jun 2021 10:05:04 -0700 (PDT)
+X-Received: by 2002:a05:6214:80a:: with SMTP id df10mr6778453qvb.8.1624035904051;
+        Fri, 18 Jun 2021 10:05:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624035904; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZkKhswUGADgqbIGsJBznlQbf9OwutBNEOVAiPpqLPd83kVP9lT1A09tneewjO2zS44
-         wZxJrH6Ml9SJnUZxfbW5pGM98hMq4BvaO9E/1weAxCFvohgy8MA6m7QKQfWHxT2CMVoO
-         jmGmFAgm55X5x04nOQ5Xci+D7zviUzyXuACpdEjr949f2u4eDIvGzT1mFTSxqIHAHzPg
-         2hcyo6roP9UCjcxJlHgASdCFuxSyl8oUGn3Zs8eZT7qlms1NgJCxm/XWuT9J07IekSua
-         w8R9RMUr4SKppwYhKOEWnPjjuzVoQ+W1l61opM3dUjO5n043tHkH/7pe842MqX2tjidA
-         ZaWA==
+        b=ZUvOsTuhNWyfe566A83hFEjgD0EBYL4ikc/ArrQIfx1s12P9XwnDD5zIHhljMlVxEg
+         lNIyyF3LzJ/sUAWWFf+nIsfyyCH6AUokY6qSg6muQsw8z+w9iLG/KqcgBXWMgrpAuUKB
+         1mtK2RbttgL5B0Vk7wxVRPg/6pzDdHcgD05n4UwdvNvdI+wmpOMG5DkhAK0vl7Y2nAV9
+         qu1uL/XZNR9DGqYsbbksukMoBcCNTcYf0iUHUFd3McU9Qi3Q/msqucNlYtXI/o7HBvuX
+         rLudaPe8FKQJQsCkxvFYRmJH+gvj9T3C9CTkbFzWAN25vc7PRkgBEJXoEmbbqP7LXEA3
+         w0Kw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=hXuN2IHtCwyNZPGBS84p+defbPMdtgSlpxad21snsOs=;
-        b=DURwi6BNOmVE2OLnOI8ySMxQ4DlD36eOcsZOa6r2rGH/0Z6/Di3sPXsvylGQhDyd29
-         OwaLmm8R32P7+n0W59tyhouVmTTeub1VfJPiqySJtFvgQWY8PWB+WyRD/lredqgQwjRG
-         MVtz8mwAqI6afK/z0e4GaC9WVHKIt5hbq4QoAr/QTpgue7SMOo2hXimzGs/ATWu0Gop0
-         ryRZbz79QywjIiQrT2XKh1Mjnu0qqsbVQBSz0WMsZ2yXjK4mSPRqUQzTKzrhsVohek0O
-         cg9Df753T+hxz37i82DAHM3FfExWo2mk52P9N0ZtPl9bD6uXv7RVj14H5AhdLrbyxdfE
-         lGbA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=tO5TzIIgGGK6V6RoQ6rG25FpQsrrFG6BAVAvloWDKUk=;
+        b=mqztlnIgYeGqEBKy8Y+pcH9okUynsdNewb0DYSu/+d2FMACjtuYK/WiGzTqacukrES
+         qKIuJMPr85JWrctCEEOzcZjQ2WqRizkdFbfuexGopdi9677aZI9yKzopbkrLzFXCQmC6
+         yCVSqmliMkbR3uU+kMYhJvLSNPh9yS6VEI66fc9qbn/S4+0yDAo13lVb50dnq2St8aLQ
+         1vcFzGeBaPNC3pQF/c7KUeoQkzjxBqpYj01WghKHWh1qT5t7duaBTmUk8Sk9Lg/1H+rH
+         EUa2hbkMkb/kT5FN2Pn3w4YczD35FORD8R94GtV0v5qnxhNc4BF1DR7NvLmpZDsvaKcZ
+         UAtg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=u5BxcQ+y;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YLJj4sqL;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id f1si686115qko.5.2021.06.18.09.53.36
+        by gmr-mx.google.com with ESMTPS id e11si326881qtw.3.2021.06.18.10.05.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 18 Jun 2021 09:53:36 -0700 (PDT)
+        Fri, 18 Jun 2021 10:05:04 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 6893A610C7;
-	Fri, 18 Jun 2021 16:53:34 +0000 (UTC)
-Date: Fri, 18 Jun 2021 09:53:31 -0700
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 2AA8E61154;
+	Fri, 18 Jun 2021 17:05:02 +0000 (UTC)
+Subject: Re: [PATCH v4 1/2] media: rc: new driver for USB-UIRT device
+To: Sean Young <sean@mess.org>, kernel test robot <lkp@intel.com>
+Cc: linux-media@vger.kernel.org, linux-usb@vger.kernel.org,
+ Johan Hovold <johan@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jon Rhees <support@usbuirt.com>, Oliver Neukum <oneukum@suse.com>,
+ kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+References: <8e380fbe6853bfebd067cdeba2e65e83a3df2922.1623318855.git.sean@mess.org>
+ <202106180629.J4nRNiax-lkp@intel.com> <20210618084450.GA26388@gofer.mess.org>
 From: Nathan Chancellor <nathan@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 2/2] arm64: insn: move AARCH64_INSN_SIZE into <asm/insn.h>
-Message-ID: <YMzPi0Ckyd9wqO5d@archlinux-ax161>
-References: <20210609102301.17332-1-mark.rutland@arm.com>
- <20210609102301.17332-3-mark.rutland@arm.com>
- <YMv2B6HCnDReOFIr@archlinux-ax161>
- <20210618151835.GC8318@C02TD0UTHF1T.local>
+Message-ID: <63f389df-e128-6438-97b4-0b66b30e7028@kernel.org>
+Date: Fri, 18 Jun 2021 10:04:58 -0700
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210618151835.GC8318@C02TD0UTHF1T.local>
+In-Reply-To: <20210618084450.GA26388@gofer.mess.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=u5BxcQ+y;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=YLJj4sqL;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -132,143 +135,246 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jun 18, 2021 at 04:18:35PM +0100, Mark Rutland wrote:
-> On Thu, Jun 17, 2021 at 06:25:27PM -0700, Nathan Chancellor wrote:
-> > Hi Mark,
+On 6/18/2021 1:44 AM, Sean Young wrote:
+> On Fri, Jun 18, 2021 at 06:18:06AM +0800, kernel test robot wrote:
+>> Hi Sean,
+>>
+>> I love your patch! Perhaps something to improve:
+>>
+>> [auto build test WARNING on linuxtv-media/master]
+>> [also build test WARNING on usb-serial/usb-next usb/usb-testing peter.chen-usb/for-usb-next v5.13-rc6 next-20210617]
+>> [If your patch is applied to the wrong git tree, kindly drop us a note.
+>> And when submitting patch, we suggest to use '--base' as documented in
+>> https://git-scm.com/docs/git-format-patch]
+>>
+>> url:    https://github.com/0day-ci/linux/commits/Sean-Young/IR-driver-for-USB-UIRT-device/20210616-182135
+>> base:   git://linuxtv.org/media_tree.git master
+>> config: powerpc64-randconfig-r012-20210617 (attached as .config)
+>> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 64720f57bea6a6bf033feef4a5751ab9c0c3b401)
+>> reproduce (this is a W=1 build):
+>>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>          chmod +x ~/bin/make.cross
+>>          # install powerpc64 cross compiling tool for clang build
+>>          # apt-get install binutils-powerpc64-linux-gnu
+>>          # https://github.com/0day-ci/linux/commit/17d3a0332baecb0359e05e8ae755478c7a1a4468
+>>          git remote add linux-review https://github.com/0day-ci/linux
+>>          git fetch --no-tags linux-review Sean-Young/IR-driver-for-USB-UIRT-device/20210616-182135
+>>          git checkout 17d3a0332baecb0359e05e8ae755478c7a1a4468
+>>          # save the attached .config to linux build tree
+>>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64
+>>
+>> If you fix the issue, kindly add following tag as appropriate
+>> Reported-by: kernel test robot <lkp@intel.com>
+>>
+>> All warnings (new ones prefixed by >>):
+>>
+>>     In file included from drivers/media/rc/uirt.c:11:
+>>     In file included from include/linux/completion.h:12:
+>>     In file included from include/linux/swait.h:5:
+>>     In file included from include/linux/list.h:9:
+>>     In file included from include/linux/kernel.h:12:
+>>     In file included from include/linux/bitops.h:32:
+>>     In file included from arch/powerpc/include/asm/bitops.h:62:
+>>     arch/powerpc/include/asm/barrier.h:49:9: warning: '__lwsync' macro redefined [-Wmacro-redefined]
+>>     #define __lwsync()      __asm__ __volatile__ (stringify_in_c(LWSYNC) : : :"memory")
+>>             ^
+>>     <built-in>:310:9: note: previous definition is here
+>>     #define __lwsync __builtin_ppc_lwsync
+>>             ^
+>>>> drivers/media/rc/uirt.c:639:6: warning: variable 'err' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+>>             if (!urb)
+>>                 ^~~~
+>>     drivers/media/rc/uirt.c:705:9: note: uninitialized use occurs here
+>>             return err;
 > 
-> Hi Nathan,
-> 
-> > On Wed, Jun 09, 2021 at 11:23:01AM +0100, Mark Rutland wrote:
-> > > For histroical reasons, we define AARCH64_INSN_SIZE in
-> > > <asm/alternative-macros.h>, but it would make more sense to do so in
-> > > <asm/insn.h>. Let's move it into <asm/insn.h>, and add the necessary
-> > > include directives for this.
-> 
-> > I bisected a CONFIG_LTO_CLANG_THIN=y build failure that our CI reported
-> > to this patch:
-> > 
-> > https://builds.tuxbuild.com/1u4Fpx2FQkkgkyPxWtq0Ke4YFCQ/build.log
-> 
-> Thanks for reporting this; the lopg is really helpful!
-> 
-> > I have not had a whole ton of time to look into this (dealing with a
-> > million fires it seems :^) but it is not immediately obvious to me why
-> > this fails because include/linux/build_bug.h is included within
-> > arch/arm64/include/asm/insn.h.
-> 
-> The problem is that with LTO, we patch READ_ONCE(), and <asm/rwonce.h>
-> includes <asm/insn.h>, creating a circular include chain:
-> 
-> 	<linux/build_bug.h>
-> 	<linux/compiler.h>
-> 	<asm/rwonce.h>
-> 	<asm/alternative-macros.h>
-> 	<asm/insn.h>
-> 	<linux/build-bug.h>
-> 
-> ... and so when <asm/insn.h> includes <linux/build_bug.h>, none of the
-> BUILD_BUG* definitions have happened yet.
+> This is interesting. clang is right here, there are error paths where err is
+> not initialized. gcc-11.1 does not pick this up for some reason. The error path
+> should be an immediate dominator so it shouldn't be complicated to detect.
 
-Aha, that would certainly explain it. I figured something like this
-would be the root cause but figuring out header dependencies is not my
-cup of tea.
-
-> Will, are you happy to take the fixup patch below, or would you prefer
-> to drop this patch for now?
-> 
-> Thanks,
-> Mark.
-> 
-> ---->8----
-> >From 0acc3d92302f54475d938f55749805adf74faec1 Mon Sep 17 00:00:00 2001
-> From: Mark Rutland <mark.rutland@arm.com>
-> Date: Fri, 18 Jun 2021 16:11:22 +0100
-> Subject: [PATCH] arm64: insn: avoid circular include dependency
-> 
-> Nathan reports that when building with CONFIG_LTO_CLANG_THIN=y, the
-> build fails due to BUILD_BUG_ON() not being defined before its uss in
-> <asm/insn.h>.
-> 
-> The problem is that with LTO, we patch READ_ONCE(), and <asm/rwonce.h>
-> includes <asm/insn.h>, creating a circular include chain:
-> 
->         <linux/build_bug.h>
->         <linux/compiler.h>
->         <asm/rwonce.h>
->         <asm/alternative-macros.h>
->         <asm/insn.h>
->         <linux/build-bug.h>
-> 
-> ... and so when <asm/insn.h> includes <linux/build_bug.h>, none of the
-> BUILD_BUG* definitions have happened yet.
-> 
-> To avoid this, let's move AARCH64_INSN_SIZE into a header without any
-> dependencies, such that it can always be safely included. At the same
-> time, avoid including <asm/alternative.h> in <asm/insn.h>, which should
-> no longer be necessary (and doesn't make sense when insn.h is consumed
-> by userspace).
-> 
-> Reported-by: Nathan Chancellor <nathan@kernel.org>
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/include/asm/alternative-macros.h | 2 +-
->  arch/arm64/include/asm/insn.h               | 5 +----
-
-Looks like arch/arm64/include/asm/insn-def.h is missing from this patch?
-
-If I add one with just the two deleted lines plus a header guard, the
-build passes.
-
-Tested-by: Nathan Chancellor <nathan@kernel.org>
-
-Thank you for the quick fix!
+The reason GCC does not warn about this is due to commit 78a5255ffb6a 
+("Stop the ad-hoc games with -Wno-maybe-initialized"), which disables 
+the GCC version of this warning except with W=2, which very few people 
+use. You could use 'KCFLAGS=-Wmaybe-uninitialized' to try and see the 
+same warning.
 
 Cheers,
 Nathan
 
->  2 files changed, 2 insertions(+), 5 deletions(-)
+> I'll send out a v5 with this issue fixed.
 > 
-> diff --git a/arch/arm64/include/asm/alternative-macros.h b/arch/arm64/include/asm/alternative-macros.h
-> index 703fbf310b79..eba3173a2a2c 100644
-> --- a/arch/arm64/include/asm/alternative-macros.h
-> +++ b/arch/arm64/include/asm/alternative-macros.h
-> @@ -3,7 +3,7 @@
->  #define __ASM_ALTERNATIVE_MACROS_H
->  
->  #include <asm/cpucaps.h>
-> -#include <asm/insn.h>
-> +#include <asm/insn-def.h>
->  
->  #define ARM64_CB_PATCH ARM64_NCAPS
->  
-> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-> index 1430b4973039..6b776c8667b2 100644
-> --- a/arch/arm64/include/asm/insn.h
-> +++ b/arch/arm64/include/asm/insn.h
-> @@ -10,10 +10,7 @@
->  #include <linux/build_bug.h>
->  #include <linux/types.h>
->  
-> -#include <asm/alternative.h>
-> -
-> -/* A64 instructions are always 32 bits. */
-> -#define	AARCH64_INSN_SIZE		4
-> +#include <asm/insn-def.h>
->  
->  #ifndef __ASSEMBLY__
->  /*
-> -- 
-> 2.11.0
+> Sean
+> 
+>>                    ^~~
+>>     drivers/media/rc/uirt.c:639:2: note: remove the 'if' if its condition is always false
+>>             if (!urb)
+>>             ^~~~~~~~~
+>>     drivers/media/rc/uirt.c:630:6: warning: variable 'err' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+>>             if (!urb)
+>>                 ^~~~
+>>     drivers/media/rc/uirt.c:705:9: note: uninitialized use occurs here
+>>             return err;
+>>                    ^~~
+>>     drivers/media/rc/uirt.c:630:2: note: remove the 'if' if its condition is always false
+>>             if (!urb)
+>>             ^~~~~~~~~
+>>     drivers/media/rc/uirt.c:626:6: warning: variable 'err' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+>>             if (!rc)
+>>                 ^~~
+>>     drivers/media/rc/uirt.c:705:9: note: uninitialized use occurs here
+>>             return err;
+>>                    ^~~
+>>     drivers/media/rc/uirt.c:626:2: note: remove the 'if' if its condition is always false
+>>             if (!rc)
+>>             ^~~~~~~~
+>>     drivers/media/rc/uirt.c:622:6: warning: variable 'err' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+>>             if (!uirt->out)
+>>                 ^~~~~~~~~~
+>>     drivers/media/rc/uirt.c:705:9: note: uninitialized use occurs here
+>>             return err;
+>>                    ^~~
+>>     drivers/media/rc/uirt.c:622:2: note: remove the 'if' if its condition is always false
+>>             if (!uirt->out)
+>>             ^~~~~~~~~~~~~~~
+>>     drivers/media/rc/uirt.c:618:6: warning: variable 'err' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+>>             if (!uirt->in)
+>>                 ^~~~~~~~~
+>>     drivers/media/rc/uirt.c:705:9: note: uninitialized use occurs here
+>>             return err;
+>>                    ^~~
+>>     drivers/media/rc/uirt.c:618:2: note: remove the 'if' if its condition is always false
+>>             if (!uirt->in)
+>>             ^~~~~~~~~~~~~~
+>>     drivers/media/rc/uirt.c:604:15: note: initialize the variable 'err' to silence this warning
+>>             int pipe, err;
+>>                          ^
+>>                           = 0
+>>     6 warnings generated.
+>>
+>>
+>> vim +639 drivers/media/rc/uirt.c
+>>
+>>     594	
+>>     595	static int uirt_probe(struct usb_interface *intf,
+>>     596			      const struct usb_device_id *id)
+>>     597	{
+>>     598		struct usb_device *usbdev = interface_to_usbdev(intf);
+>>     599		struct usb_endpoint_descriptor *ep_in;
+>>     600		struct usb_endpoint_descriptor *ep_out;
+>>     601		struct uirt *uirt;
+>>     602		struct rc_dev *rc;
+>>     603		struct urb *urb;
+>>     604		int pipe, err;
+>>     605	
+>>     606		if (usb_find_common_endpoints(intf->cur_altsetting, &ep_in, &ep_out, NULL, NULL) ||
+>>     607		    usb_endpoint_maxp(ep_in) != MAX_PACKET ||
+>>     608		    usb_endpoint_maxp(ep_out) != MAX_PACKET) {
+>>     609			dev_err(&intf->dev, "required endpoints not found\n");
+>>     610			return -ENODEV;
+>>     611		}
+>>     612	
+>>     613		uirt = kzalloc(sizeof(*uirt), GFP_KERNEL);
+>>     614		if (!uirt)
+>>     615			return -ENOMEM;
+>>     616	
+>>     617		uirt->in = kmalloc(MAX_PACKET, GFP_KERNEL);
+>>     618		if (!uirt->in)
+>>     619			goto free_uirt;
+>>     620	
+>>     621		uirt->out = kmalloc(MAX_PACKET, GFP_KERNEL);
+>>     622		if (!uirt->out)
+>>     623			goto free_uirt;
+>>     624	
+>>     625		rc = rc_allocate_device(RC_DRIVER_IR_RAW);
+>>     626		if (!rc)
+>>     627			goto free_uirt;
+>>     628	
+>>     629		urb = usb_alloc_urb(0, GFP_KERNEL);
+>>     630		if (!urb)
+>>     631			goto free_rcdev;
+>>     632	
+>>     633		pipe = usb_rcvbulkpipe(usbdev, ep_in->bEndpointAddress);
+>>     634		usb_fill_bulk_urb(urb, usbdev, pipe, uirt->in, MAX_PACKET,
+>>     635				  uirt_in_callback, uirt);
+>>     636		uirt->urb_in = urb;
+>>     637	
+>>     638		urb = usb_alloc_urb(0, GFP_KERNEL);
+>>   > 639		if (!urb)
+>>     640			goto free_rcdev;
+>>     641	
+>>     642		pipe = usb_sndbulkpipe(usbdev, ep_out->bEndpointAddress);
+>>     643		usb_fill_bulk_urb(urb, usbdev, pipe, uirt->out, MAX_PACKET,
+>>     644				  uirt_out_callback, uirt);
+>>     645	
+>>     646		uirt->dev = &intf->dev;
+>>     647		uirt->usbdev = usbdev;
+>>     648		uirt->rc = rc;
+>>     649		uirt->urb_out = urb;
+>>     650		uirt->rx_state = RX_STATE_INTERSPACE_HIGH;
+>>     651	
+>>     652		err = usb_submit_urb(uirt->urb_in, GFP_KERNEL);
+>>     653		if (err != 0) {
+>>     654			dev_err(uirt->dev, "failed to submit read urb: %d\n", err);
+>>     655			goto free_rcdev;
+>>     656		}
+>>     657	
+>>     658		err = init_ftdi(usbdev);
+>>     659		if (err) {
+>>     660			dev_err(uirt->dev, "failed to setup ftdi: %d\n", err);
+>>     661			goto kill_urbs;
+>>     662		}
+>>     663	
+>>     664		err = uirt_setup(uirt);
+>>     665		if (err)
+>>     666			goto kill_urbs;
+>>     667	
+>>     668		usb_make_path(usbdev, uirt->phys, sizeof(uirt->phys));
+>>     669	
+>>     670		rc->device_name = "USB-UIRT";
+>>     671		rc->driver_name = KBUILD_MODNAME;
+>>     672		rc->input_phys = uirt->phys;
+>>     673		usb_to_input_id(usbdev, &rc->input_id);
+>>     674		rc->dev.parent = &intf->dev;
+>>     675		rc->priv = uirt;
+>>     676		rc->tx_ir = uirt_tx;
+>>     677		rc->s_tx_carrier = uirt_set_tx_carrier;
+>>     678		rc->s_learning_mode = uirt_set_rx_wideband;
+>>     679		rc->allowed_protocols = RC_PROTO_BIT_ALL_IR_DECODER;
+>>     680		rc->map_name = RC_MAP_RC6_MCE;
+>>     681		rc->rx_resolution = UNIT_US;
+>>     682		rc->timeout = IR_TIMEOUT;
+>>     683	
+>>     684		uirt_set_tx_carrier(rc, 38000);
+>>     685	
+>>     686		err = rc_register_device(rc);
+>>     687		if (err)
+>>     688			goto kill_urbs;
+>>     689	
+>>     690		usb_set_intfdata(intf, uirt);
+>>     691	
+>>     692		return 0;
+>>     693	
+>>     694	kill_urbs:
+>>     695		usb_kill_urb(uirt->urb_in);
+>>     696		usb_kill_urb(uirt->urb_out);
+>>     697	free_rcdev:
+>>     698		usb_free_urb(uirt->urb_in);
+>>     699		usb_free_urb(uirt->urb_out);
+>>     700		rc_free_device(rc);
+>>     701	free_uirt:
+>>     702		kfree(uirt->in);
+>>     703		kfree(uirt->out);
+>>     704		kfree(uirt);
+>>     705		return err;
+>>     706	}
+>>     707	
+>>
+>> ---
+>> 0-DAY CI Kernel Test Service, Intel Corporation
+>> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 > 
 > 
-> _______________________________________________
-> linux-arm-kernel mailing list
-> linux-arm-kernel@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMzPi0Ckyd9wqO5d%40archlinux-ax161.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/63f389df-e128-6438-97b4-0b66b30e7028%40kernel.org.
