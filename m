@@ -1,122 +1,147 @@
-Return-Path: <clang-built-linux+bncBC4MX6WW7QIBB346WGDAMGQEM6FVNFA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDVP5PWXVEHRBZNDWGDAMGQEY43H2EA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23a.google.com (mail-lj1-x23a.google.com [IPv6:2a00:1450:4864:20::23a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6CF443AC534
-	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 09:46:56 +0200 (CEST)
-Received: by mail-lj1-x23a.google.com with SMTP id t8-20020a05651c2048b029012eb794d268sf4510564ljo.14
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 00:46:56 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624002416; cv=pass;
+Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id 010993AC57E
+	for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 09:57:26 +0200 (CEST)
+Received: by mail-wm1-x339.google.com with SMTP id i82-20020a1c22550000b02901d64e84b3c9sf1801540wmi.5
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Jun 2021 00:57:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624003045; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yi7YMhHZgpjyJs5ChRIjnJ9DLsBU7qfNp6jsHUjTKSci07qPqsmpbJbMBTrLjW9Sti
-         Pgy7ae8mHwwo4YhAhKF2sgDlziuafX0Bd98jrucXqJ5xvQcxuUyx5jheZcgpNC1si2BT
-         yh6PJdtFOOv+vkL71aZTEr52f/Gb+9vh2FjshZuozgsJEJ0gGqzfRXUSQvh2xTvtpYh2
-         QrttqzgqGS2gosK+b9m3n8ffRVoOP2QyTQ/2kKLrv2xKPFR5Ry7VuSBV3Kw9ZwAY9a8s
-         AMGjS9lZy6ck4Yv0guVXCiW6mohiR7j8+t8c8E4wKL0jHvzlm/l46BNVxy6ZFhj5lRak
-         wyLg==
+        b=PCxodmS1L3YdEJJx0+9pFpDZFxY4HrW2kLWJkENEEkrUwH84yfY7XVbLBqOufbE/Sk
+         e6HJZjrfsrke6AdG7uzw+D5RebLbVdyFgcR4hUQFnM6OwRQPU+D0FR8xlJjTVXgynO4e
+         VQPrjoJwegixRU7+mkZgQRiZ/0pfRueiXc2lrUuo7o1/rmAXySuNpr827bhCa8ZxTmAA
+         JXt2fxDG+kT6of1WMScclZGHLG61epw06ydrnMdPes52BFcdtXmMrEYvD8yYWw2Om/Bl
+         RrojbvsuVxPtQpdmMhiwBpR1LX4R2xRsrU3N5wYLSqmu9xhmZK4WpfPlWqyrhw8KTGj3
+         LrnA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:organization:references:in-reply-to:message-id:subject
-         :cc:to:from:date:sender:dkim-signature;
-        bh=aLVpGhywraMkAz0Qs7cQNuJTM5LTIGo3uNwWhl4oadE=;
-        b=LQcP7i8KFvMiqC+wZ9z3UgMhtZWRPXOH47O2GtVvtMf80lj5vv7vYwzTEgbvlDFkl0
-         mvBjd5mLbX0IF2z/fIi6zlERD4daS/VlfzZpmQNFuJYpWLMJYBQXgVa+x2SskvH9INOP
-         90I7uLWloC8Q+Fh7RjVqfZFgq10bZeLogIPxeuP8nSmwTiUbY2m6ZPWLLbgmFA2l88Wk
-         b4ZL7vj55LoiHaLur/xY1AEs5CWgSWRzMZ6EPHDwhGYOwTRbPdyosxZN1/wsg4MGrXUL
-         BGNQK4h8kNARvcgZVdL88aiIR+AjlyMP75Y6wQB5wrRltGkD9Aw5dZ6xkF76NmQnyX5D
-         DdCA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=2OWdwXM93mho5MxFRu5KsQAE3o9jI07BWPUruS+Gdy8=;
+        b=fvTLTPrXmZXwVsd+iH3wKymE3PYeHCy7ciLy7wCni/Q7zVJfatYufVgsNz500Vg6U1
+         4S1QPdwEbkwmkBNbC/xOfz5f/bYbF60J89UjiRQxsCMcFT1U8C6yEWJKw/UBGeErzz5s
+         q4KFN/stnFt/vEd/lQNrVnwpdokp7KsEb7hVWPnfQfiWlA7H4vSb2CxIv2z4oUmIXEAe
+         LrJIYdc4sSP6+mV5BBsYaOv3jM4liqh23Zgj25oQ5xcP6vcFBzfyIszDMgIxKZchzJzp
+         sxXEH8tbPin8ozHZL9evXyxzBW9fYt3JvxQzTGnsWRs/kVGHvAGy9DWpqk/CnfldA9U6
+         VEUQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of miquel.raynal@bootlin.com designates 217.70.183.194 as permitted sender) smtp.mailfrom=miquel.raynal@bootlin.com
+       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;
+       dkim=neutral (no key) header.i=@suse.de header.s=susede2_ed25519;
+       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;
+       dkim=neutral (no key) header.i=@suse.de header.s=susede2_ed25519 header.b=BWmbx4uW;
+       spf=pass (google.com: domain of jroedel@suse.de designates 195.135.220.29 as permitted sender) smtp.mailfrom=jroedel@suse.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :organization:mime-version:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=aLVpGhywraMkAz0Qs7cQNuJTM5LTIGo3uNwWhl4oadE=;
-        b=ZwIvZOXtA5qSluf7+N7tpPcC4+v3Ck8wk5M33Y2zFt1cNqWNmd5rrsb3fOQFkaE4Qf
-         wb9qauhFrECQrClNFJw7KwobX+BFX5qZx5bownrqOcYb1NUIfUugAiLtyplmLM77buV+
-         N9zB740Il3cMTEJQ9j0KuRvBXH55i2Z/KBIEtJRNEYJUiua3XGjvEh69XoR7tOokaBM9
-         QHXDPPNrANJuOLDr/3rqqZk3MFsv8yHjkRPqrMVBOCIFvRFEPD93A8sNpNVS+xw1kf6f
-         0nCnX5ZQyvx5TraBoQxDrxy3Rk/swBzo0Sb/tQiGZ8mtwDcbrPqyCArISz10tsuWYIvz
-         03Mw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=2OWdwXM93mho5MxFRu5KsQAE3o9jI07BWPUruS+Gdy8=;
+        b=XskBRCmEtqp6ZlsL1e3WGPh5JZUaMDcWLJ4wr4f53rnpYlriFTvSO2jFW0wOXOTLH6
+         Dey6AgBuSPxIDtjk9xpWUS+/U1D1G7hqEvuaofiYrgM0QGFbz+9c764SPcjXKron2voP
+         cwUJpWw4hd9tS7yuRw9Kk729Xf0msZYXY5kT4Qt6Uv4A+v3f8M9nksPvQjasREc4Ua0n
+         uJEXUqbW1DYNWj3n1m6r66djgOTgtVsjovjjKch9SutSDQJlKxM2gayLsdBNwHnfmTOM
+         cBGJYMtT3SW7/OlHa926nKTUWu3SB+7dCRl+Y/01tXy2fJFRNqb1MB8MUe3UEUrZOHRr
+         fwJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:organization:mime-version
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=aLVpGhywraMkAz0Qs7cQNuJTM5LTIGo3uNwWhl4oadE=;
-        b=ii2jZGlpLmiF39KghfjkBIq7NTtD1uziZPZEom0sBc9n+KQSVKovQapNihjJEqHgEa
-         hHheXMcUf+YEqrjciO7ouDniKKoQ+uA2E0PoktZpdO9b3VM30IDN2q6ia/HgCFMGYq+O
-         hSLDkJR5QBKZ/jy1402jSLo8qQ7RNUbl0E3zozNMKCEdczGxijl/YLgwMvm3XMbDFBkz
-         /zOnJiNgQCm26TTXlwY2QaHeIp2lVwHstmH8xdEfjM+iawB2gUMdkQLfRPGwuD+bqcFl
-         B1kKY7qelZELVK4GHWiD6ihx+bT36X6jxZa5+ieffBpy/x4GGQ0NfgRu517nrpMPr+h+
-         Q7YQ==
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=2OWdwXM93mho5MxFRu5KsQAE3o9jI07BWPUruS+Gdy8=;
+        b=OJIK9X9NRXkFAxe+IsD3vXulOk03HgMxtKeSdxkukQeicQEPts9XeQFcDRgZ1aegLC
+         Xk1Je1dYUIbXGubt4lzuKGZ9zZv13aD6485/ItL8U4ePPqlSg9slx1a0CC/vsb5t+QB9
+         bxXoB+YwQc5mKi2RG8c5E8E/zFHVuLgkIfNOHZYjrm6FZAYfTxpZIHFEfVceLhoHQVYv
+         7yumrHWvygl8OuSZ3CNSa9h5KJ2475Qsy1CheQ6aEzEXOIE56JmepjIz72ej8kpzAKWO
+         pvKCzdzL978Q2jYPNRqT3TSCdCrS7KiW3/LaFMcOfjsEerjdi5LAsdYivskokLEgnh42
+         MCKw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Uuxs+moEwJR+FLQtuBCy86ITsnlWp8QVYWo25sV6ueJJMRCKE
-	ngTu8xHRwyJx5tPs4ZuuzWg=
-X-Google-Smtp-Source: ABdhPJyc8sIthaWuTlyeY5hNE1OJ8btVT3Z8Vt5qzPdLTueMmAKEnFJkwOCjj53X5EhVTkrpDgAIPg==
-X-Received: by 2002:a2e:a48b:: with SMTP id h11mr8345937lji.111.1624002415953;
-        Fri, 18 Jun 2021 00:46:55 -0700 (PDT)
+X-Gm-Message-State: AOAM531O3oawOPic6LMC+3y2bxIT1YY6/oKnCLXphzRcNkL4tDx1IqtY
+	iCBPLT62hPb7LXGEZ7XBdc0=
+X-Google-Smtp-Source: ABdhPJyRXPhLFMQnZY6FvAA5MKYEPVY39RIgrSFf+Zaryc6dTj2bsxqnVKBr5EC0IEc1wScSUTqmmA==
+X-Received: by 2002:a7b:c189:: with SMTP id y9mr9996410wmi.106.1624003045714;
+        Fri, 18 Jun 2021 00:57:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:b54c:: with SMTP id a12ls2768424ljn.5.gmail; Fri, 18 Jun
- 2021 00:46:54 -0700 (PDT)
-X-Received: by 2002:a2e:90f:: with SMTP id 15mr8467579ljj.277.1624002414829;
-        Fri, 18 Jun 2021 00:46:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624002414; cv=none;
+Received: by 2002:a5d:6945:: with SMTP id r5ls2000207wrw.2.gmail; Fri, 18 Jun
+ 2021 00:57:24 -0700 (PDT)
+X-Received: by 2002:adf:f445:: with SMTP id f5mr4665813wrp.264.1624003044846;
+        Fri, 18 Jun 2021 00:57:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624003044; cv=none;
         d=google.com; s=arc-20160816;
-        b=ieKjm3nWOnO9lTs6hGPS3vlB4e7xwsKHsbxnz/eZWTPwSdq11zIE0/wshxeCO/VLpw
-         5YtM64wUH9UZSAuLX05ZINZON61GMx/VTBNR7UmVWAOheCGfGdPG6qE9nyyaR26s1PJG
-         kk0SxG/oG+umemcF/a59nnHqKH+Ki4r9uJl3PzszE7LKnnCnlICdH2q4G7gDKQFaJ9p/
-         3QpyQA0XSdjautnvOXY7o25ZLB/O3iwndyP9C3UCrH8Zcuf365fbps+S8CLkb0XrNZfU
-         R1JkKCumh0HC00IFBJS4RNLf2W9QxZsF/CgIm3fLbFPieEA63rqIp4hUM3H0nW+etZn/
-         zU6g==
+        b=R8nKeFq2yONfExQmODxVl0JXzwDfPdrrkQtZp2PoA/1C2ZvGpp2vfnm7gFBwOY2owj
+         IBwtf/NN42qJgfZH7+1ISnJQvvKT8EvYk+oK+sYRBy5PYiiMiOy8UqSnofcS3HqkViNB
+         Bm32RDTJy2jGj7T7mVUlvUrk58TEyTABnjZUjHaRlYSbKf5t7hQWCqZg1gg4OiAH8aps
+         L4J3CtNC65JQxOqvZ60unkPxp6NGBHps8tERR32xOKvM/bL0AtXxWS3CiMCx+6PlB/F/
+         04y3QSAd0Iwk6U+Yl4L376Wor2xO2wJJVmNWsBzIN8aCxrXv+Mx/NMHeWyE56IfwiLxA
+         nRYg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:organization:references
-         :in-reply-to:message-id:subject:cc:to:from:date;
-        bh=vAlVN2GZlGiilcXUMb50Y50sWIP3wpTimzkYvtQ3scE=;
-        b=d6+NFXk5Mz7khUt9IT1W0qRELzCzxH6mwQ5uRbbSEJN9Qhgf/RLOgAr45GeRG40/mc
-         pHsti+/MKepujTQNOm7fubtT1jxkn7PhijWMIawWGbGuXSOJDVXk2sX1VBBImZ7gnhqf
-         5+9hjjrNKYMhTmCj9dHnaKkvec54xFoWwhCGJ/x09TSuQpJAy0ceWfaUWUyCHyuGSexd
-         D2p2cRwZoL2tYHgIdE0ay+PzgRz1u9FBTl/4mHYmGemOe29kSr5KXYRFaXBClN+FQkGL
-         ZExiS76w2Rb2bVrfNP33xl1HKWe4y54nXSulpSQSc7L1jlP0PaliiY6B+i/jFGdLCivm
-         P1lw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature:dkim-signature
+         :dkim-signature:dkim-signature;
+        bh=00PGLHSy+8q9cRmQ8fgZXfLgJHGTi7QAl5WB49PoiEY=;
+        b=YXzJFjgPvNKlf+NtlizY0K7Yo4C4R2yTnGI+EmGX0WqGWbJ9XNZZnIUW6P8gNUAaJw
+         FTRCMzohZ1dL8MAPxVa1199YNGcWP3YkeOtMJtRsSmGKgYz3QPlqIdHg7eUetiM+gdT6
+         m98nWHJclNyny19Lh25jar3WL4O3BJ7g/4Rtl3qlbAUQQ/B+oTUrTVVK/KLJkpeHq5un
+         JJpzIDoeZf3Zz2nOhjCpizixS8xB79k6yEcxzrAvnHy9/+d6xChDAFjp1BiX40sKs4AL
+         eIPx0k7GL9QpU3DqYMKboSN1urZ2zQYhzcx44Fh8pUF7dZOMz3cCBFxULm7V6Wp1Ukjq
+         D53w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of miquel.raynal@bootlin.com designates 217.70.183.194 as permitted sender) smtp.mailfrom=miquel.raynal@bootlin.com
-Received: from relay2-d.mail.gandi.net (relay2-d.mail.gandi.net. [217.70.183.194])
-        by gmr-mx.google.com with ESMTPS id i12si250201lfc.10.2021.06.18.00.46.54
+       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;
+       dkim=neutral (no key) header.i=@suse.de header.s=susede2_ed25519;
+       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;
+       dkim=neutral (no key) header.i=@suse.de header.s=susede2_ed25519 header.b=BWmbx4uW;
+       spf=pass (google.com: domain of jroedel@suse.de designates 195.135.220.29 as permitted sender) smtp.mailfrom=jroedel@suse.de
+Received: from smtp-out2.suse.de (smtp-out2.suse.de. [195.135.220.29])
+        by gmr-mx.google.com with ESMTPS id q22si68130wrz.3.2021.06.18.00.57.24
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Fri, 18 Jun 2021 00:46:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of miquel.raynal@bootlin.com designates 217.70.183.194 as permitted sender) client-ip=217.70.183.194;
-Received: (Authenticated sender: miquel.raynal@bootlin.com)
-	by relay2-d.mail.gandi.net (Postfix) with ESMTPSA id A108740006;
-	Fri, 18 Jun 2021 07:46:52 +0000 (UTC)
-Date: Fri, 18 Jun 2021 09:46:51 +0200
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: kernel test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, Linux
- Memory Management List <linux-mm@kvack.org>
-Subject: Re: [linux-next:master 9419/10007]
- drivers/mtd/nand/raw/arasan-nand-controller.c:1453:33: warning: shift count
- >= width of type
-Message-ID: <20210618094651.2a767516@xps13>
-In-Reply-To: <202106161802.0TPrXeZY-lkp@intel.com>
-References: <202106161802.0TPrXeZY-lkp@intel.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.7 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 18 Jun 2021 00:57:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jroedel@suse.de designates 195.135.220.29 as permitted sender) client-ip=195.135.220.29;
+Received: from imap.suse.de (imap-alt.suse-dmz.suse.de [192.168.254.47])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 7B5AD1FDE7;
+	Fri, 18 Jun 2021 07:57:24 +0000 (UTC)
+Received: from imap3-int (imap-alt.suse-dmz.suse.de [192.168.254.47])
+	by imap.suse.de (Postfix) with ESMTP id 1EB6E118DD;
+	Fri, 18 Jun 2021 07:57:24 +0000 (UTC)
+Received: from director2.suse.de ([192.168.254.72])
+	by imap3-int with ESMTPSA
+	id mCyyBeRRzGCGVAAALh3uQQ
+	(envelope-from <jroedel@suse.de>); Fri, 18 Jun 2021 07:57:24 +0000
+Date: Fri, 18 Jun 2021 09:57:22 +0200
+From: Joerg Roedel <jroedel@suse.de>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	David Woodhouse <dwmw2@infradead.org>,
+	iommu@lists.linux-foundation.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] iommu/vt-d: Fix W=1 clang warning in intel/perf.c
+Message-ID: <YMxR4ggRGZQZbiz1@suse.de>
+References: <20210617145339.2692-1-joro@8bytes.org>
+ <CAKwvOd=8jUsRFKg6+sqq2-DakbRBGR6Z6mR_smuxp+cMEmCHLw@mail.gmail.com>
+ <YMuw+LtM/B1QTTJI@suse.de>
+ <32f14288-315a-b75d-913b-2fc6a16cd748@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: miquel.raynal@bootlin.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of miquel.raynal@bootlin.com designates 217.70.183.194 as
- permitted sender) smtp.mailfrom=miquel.raynal@bootlin.com
+Content-Disposition: inline
+In-Reply-To: <32f14288-315a-b75d-913b-2fc6a16cd748@kernel.org>
+X-Original-Sender: jroedel@suse.de
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;       dkim=neutral
+ (no key) header.i=@suse.de header.s=susede2_ed25519;       dkim=pass
+ header.i=@suse.de header.s=susede2_rsa header.b=NlPIItnw;       dkim=neutral
+ (no key) header.i=@suse.de header.s=susede2_ed25519 header.b=BWmbx4uW;
+       spf=pass (google.com: domain of jroedel@suse.de designates
+ 195.135.220.29 as permitted sender) smtp.mailfrom=jroedel@suse.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,129 +154,16 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello,
+On Thu, Jun 17, 2021 at 01:51:24PM -0700, Nathan Chancellor wrote:
+> kernel-doc is run automatically with W=1, regardless of gcc versus clang.
 
-kernel test robot <lkp@intel.com> wrote on Wed, 16 Jun 2021 18:33:22
-+0800:
-
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.g=
-it master
-> head:   19ae1f2bd9c091059f80646604ccef8a1e614f57
-> commit: 236fd3e0427070413e7059dc3c52c3f9c89f7cc0 [9419/10007] Merge remot=
-e-tracking branch 'nand/nand/next'
-> config: riscv-randconfig-r013-20210615 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 6472=
-0f57bea6a6bf033feef4a5751ab9c0c3b401)
-> reproduce (this is a W=3D1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
-n/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install riscv cross compiling tool for clang build
->         # apt-get install binutils-riscv64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next=
-.git/commit/?id=3D236fd3e0427070413e7059dc3c52c3f9c89f7cc0
->         git remote add linux-next https://git.kernel.org/pub/scm/linux/ke=
-rnel/git/next/linux-next.git
->         git fetch --no-tags linux-next master
->         git checkout 236fd3e0427070413e7059dc3c52c3f9c89f7cc0
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross AR=
-CH=3Driscv=20
->=20
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->=20
-> All warnings (new ones prefixed by >>):
->=20
->    In file included from drivers/mtd/nand/raw/arasan-nand-controller.c:17=
-:
->    In file included from include/linux/dma-mapping.h:10:
->    In file included from include/linux/scatterlist.h:8:
->    In file included from include/linux/mm.h:33:
->    In file included from include/linux/pgtable.h:6:
->    arch/riscv/include/asm/pgtable.h:521:9: error: implicit declaration of=
- function 'pfn_pmd' [-Werror,-Wimplicit-function-declaration]
->            return pfn_pmd(page_to_pfn(page), prot);
->                   ^
->    arch/riscv/include/asm/pgtable.h:521:9: note: did you mean 'pfn_pgd'?
->    arch/riscv/include/asm/pgtable.h:222:21: note: 'pfn_pgd' declared here
->    static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
->                        ^
->    arch/riscv/include/asm/pgtable.h:521:17: error: implicit declaration o=
-f function 'page_to_section' [-Werror,-Wimplicit-function-declaration]
->            return pfn_pmd(page_to_pfn(page), prot);
->                           ^
->    include/asm-generic/memory_model.h:81:21: note: expanded from macro 'p=
-age_to_pfn'
->    #define page_to_pfn __page_to_pfn
->                        ^
->    include/asm-generic/memory_model.h:64:14: note: expanded from macro '_=
-_page_to_pfn'
->            int __sec =3D page_to_section(__pg);                      \
->                        ^
->    arch/riscv/include/asm/pgtable.h:521:17: note: did you mean '__nr_to_s=
-ection'?
->    include/asm-generic/memory_model.h:81:21: note: expanded from macro 'p=
-age_to_pfn'
->    #define page_to_pfn __page_to_pfn
->                        ^
->    include/asm-generic/memory_model.h:64:14: note: expanded from macro '_=
-_page_to_pfn'
->            int __sec =3D page_to_section(__pg);                      \
->                        ^
->    include/linux/mmzone.h:1314:35: note: '__nr_to_section' declared here
->    static inline struct mem_section *__nr_to_section(unsigned long nr)
->                                      ^
->    In file included from drivers/mtd/nand/raw/arasan-nand-controller.c:17=
-:
->    In file included from include/linux/dma-mapping.h:10:
->    In file included from include/linux/scatterlist.h:8:
->    In file included from include/linux/mm.h:33:
->    In file included from include/linux/pgtable.h:6:
->    arch/riscv/include/asm/pgtable.h:521:9: error: returning 'int' from a =
-function with incompatible result type 'pmd_t'
->            return pfn_pmd(page_to_pfn(page), prot);
->                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    In file included from drivers/mtd/nand/raw/arasan-nand-controller.c:17=
-:
->    In file included from include/linux/dma-mapping.h:10:
->    In file included from include/linux/scatterlist.h:8:
->    include/linux/mm.h:1552:29: error: static declaration of 'page_to_sect=
-ion' follows non-static declaration
->    static inline unsigned long page_to_section(const struct page *page)
->                                ^
->    arch/riscv/include/asm/pgtable.h:521:17: note: previous implicit decla=
-ration is here
->            return pfn_pmd(page_to_pfn(page), prot);
->                           ^
->    include/asm-generic/memory_model.h:81:21: note: expanded from macro 'p=
-age_to_pfn'
->    #define page_to_pfn __page_to_pfn
->                        ^
->    include/asm-generic/memory_model.h:64:14: note: expanded from macro '_=
-_page_to_pfn'
->            int __sec =3D page_to_section(__pg);                      \
->                        ^
-> >> drivers/mtd/nand/raw/arasan-nand-controller.c:1453:33: warning: shift =
-count >=3D width of type [-Wshift-count-overflow] =20
->            ret =3D dma_set_mask(&pdev->dev, DMA_BIT_MASK(64));
->                                           ^~~~~~~~~~~~~~~~
->    include/linux/dma-mapping.h:76:54: note: expanded from macro 'DMA_BIT_=
-MASK'
->    #define DMA_BIT_MASK(n) (((n) =3D=3D 64) ? ~0ULL : ((1ULL<<(n))-1))
->                                                         ^ ~~~
->    1 warning and 4 errors generated.
-
-I'm not sure to understand what the proper fix here. I am also unable
-to reproduce the warning with the above steps.
+I see, thanks. Will update the commit message.
 
 Thanks,
-Miqu=C3=A8l
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20210618094651.2a767516%40xps13.
+	Joerg
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YMxR4ggRGZQZbiz1%40suse.de.
