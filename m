@@ -1,47 +1,48 @@
-Return-Path: <clang-built-linux+bncBDV37XP3XYDRBFESYGDAMGQEJQQL5AQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDMMLW4BXYHBBJNHYGDAMGQEAJWRUVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id AEFDA3AE48F
-	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Jun 2021 10:08:53 +0200 (CEST)
-Received: by mail-il1-x138.google.com with SMTP id q4-20020a056e0220e4b02901edfa664940sf10251230ilv.20
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Jun 2021 01:08:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624262932; cv=pass;
+Received: from mail-qv1-xf3b.google.com (mail-qv1-xf3b.google.com [IPv6:2607:f8b0:4864:20::f3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id F353E3AE553
+	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Jun 2021 10:53:58 +0200 (CEST)
+Received: by mail-qv1-xf3b.google.com with SMTP id k12-20020a0cfd6c0000b029020df9543019sf13514778qvs.14
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Jun 2021 01:53:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624265638; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oZr5OEwAhM1P4NX2avokXuOpn8IHDj26V81jkJ4jVlH4cvqZPxVyB4VLsKjwPoPgSu
-         HRh/l69sZuMH6Vr+Vq+CgnS0jCvPQTJmg1zpj7GSR95jsAXYZPGZT2DAjPs1K8ozQLyN
-         XY3pfllp0s/1W8Tbge8H6dAqtnK26NLdBfRFpfvN+yjZU3iD75QxHol6R+VHGssoSdDC
-         E/ODPNU/dAwTKKfqeCR14o+R05nbh1kAse4tpwz2TS0SdF6N+W5coEMnPpKAccc6Qe1f
-         1bryeSk4qkDfx2ZiCC+jEuUhFoGc4a7s+5kZyhPnrSLSkxvSXPe0IZ67lCVRZ2qPFjyp
-         2J9Q==
+        b=vz521AGQ+cz587jRfOA/HCo3TXmQF6nPC3oxvaD6pEUEL7NXuT6UHvzyMQWmnfILJ2
+         FGcTIIuiPXiPw3JDDLiq1QnRuhdViW19z96sp1e2Yy1Nztz0k+MrtfQic7FyDlGLybAA
+         loplADg/6KCN800ELU4uI2RpUKzIHuVstMZoRb2Tk5xQB/ctEXQsQJgrlnJeVQ+8K7RH
+         eR00Z2E+hyuggjTXisSnkwHiKVDQZR0ePGdhfJTC7pcyGnSpr2QMlYK1paSW+nfri1Oy
+         +sbzaaYyQA2wJc6AAaBJb+OlZYUmSyQtshr6e/Binl+MeSFoROAjNqlvR9bub/wK4LmG
+         VA+A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=STaynxJZYxA87H5lLYBALs7Dfm95YynQVEVogrP3FSI=;
-        b=yWe+mKGPpWyZ6KSHRBjcANR5uRywHbAiT4MELdTQWlabHl4AI+YFC9McS2U4drsSug
-         tFik+fGZec+5d5PQ2aFcyj8lXxL6ltN7bF2sLDVY7/YFgFqjrqwoHkamjjXbyaN0ukpK
-         p3ATwwDgdE5lBj9eYOtGxRay2DlJHD1VadYieepnS3qunDD3dVfY6UdI+CjL3h5+ESTd
-         24DIb+8uRjuHzG5owZ9l+D4B4C4EX+dJUwXsvVlTRg2J1FNbjwiychC+Wf6st3IYUXvS
-         qId56MVG8mjnZqBjAFdiy8pwsaQP3Z2BSPaHgyAl/P4yXsv3lQr0d9BQLuNmkZrU63/n
-         y0nQ==
+        bh=svW1hni1r8xlxVgwyI3Ws4UhtfORBDXocXLRGtS0lA4=;
+        b=ekehbvNxWmVIcBZ3W8XW6kDgmA2J62VGG5qIZIAku1TDEfQkWKrW7VdFtUAoav9/9D
+         2XMgYxBxAorkEWd3/92aBNfPwe7GQLNUf+nAsRafLk3/Z8WEKKZ65/HdN+84jYi7hZ7z
+         GvbI51e0uw6nzem0CwB4zfZQjiqVWDtcb2+D15UrXR3DAz+REbHZPHFYcdCAtXOFmV5h
+         3M3NZVVDmGiS2QRNld81B3NkJQa7d402GGcZsDhunKT4VrALBBLwRpH7kKtJojeuaYGf
+         yS6lCUfixRHoxBIt8kt7puexS2z7+KKOggzKrdaX5EN6ouvM+3/lck0KKWICP1P3W+sS
+         hbew==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=mgnTgKk8;
+       spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=STaynxJZYxA87H5lLYBALs7Dfm95YynQVEVogrP3FSI=;
-        b=oDpSzGzwYGDlJkktg9miNxjMnGdLXe6xWTTGEj7/gFouR5dWYaQirufIvlM5LMZoSr
-         Ea7PE2VlnDWBkgZ2HsW9CNQV+FLVH0Njv6LFpfWUGjnl5w1HRTi14/n4znmctdUWU6pf
-         B2EWp1Wk7E1KHoCQwsd81Y9PBn86En1RWS3oDkd0LcI4VBhexxmGzq8lJOk3gpj9M8pk
-         Z7+PqrMzKwYkzng/grEyTH7gogH6dY/eMmGrKsA5BBetUjLrF3nQm90Ac9BzSX0DEcrr
-         1/e1smippg+xwceLBtoSD77jc0ezrufQ/Dq3AnCIqq2jNKrAoHZVRlK8SajB5ALu8eCM
-         Q5Xw==
+        bh=svW1hni1r8xlxVgwyI3Ws4UhtfORBDXocXLRGtS0lA4=;
+        b=nGrqxpr5ryyJsYIQ0rXYY5RmX7jkAO9skCuOMIH08RHABnsxdXPmKW5dfd+W52tO7x
+         XRBI8ktJlnRIxvJaVIq7tRBwx18W7aEyqmSlF62vUmdXeHO+7/Pt4NUlGMhAWErCR9mp
+         cielfShf9OD9ZIhwlcCOxPHmQe/HmYSwa3sfPKj81OO39FCQCvZud+uh7njEHK/6j7fT
+         O7mytkyicmXq2kBATqhdBj6MFWHlCugijyCISIDc08ebhQUO59I7sIqWzGL+S3yz03rx
+         +6zqxaj7OXWFcU9Bln80hij5Qwu4N8jx8wlL5lOL5PtY9YOrr8X4TyVXoVei6wMT3Uim
+         IWUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,78 +50,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=STaynxJZYxA87H5lLYBALs7Dfm95YynQVEVogrP3FSI=;
-        b=ZnZnJ+enF0poQPYwCwRn8Jsn/slJILF1ZcV1hpw0XrcMN3ZSC8jJYb6GIXOafYWhup
-         Gxwu0Sa7hSo95mp+OFi62UuC3pgnt0SK/27Jfkqh8+O/GRIWJfOwRFIriTq5asp5tgdE
-         4/wCfcRGdaTEcStP5rKxozsZK4orXFj7R7eQpj7lbjtqyGx/HsC5q+vl/HW6KUOnpLYt
-         FHX1yRjKjjlR/fmypLCDwxmUb+ZJvNiCQlDAXyeokD/FtUcEX0oaPe4aA2t+hGdu4i2d
-         A5mxCAhwYcjvLCw0A8PRwNGdQ5C68ykrloyem6Xmp/Civv3cCEWFI/eY3WakcoTPLmxh
-         zt3A==
+        bh=svW1hni1r8xlxVgwyI3Ws4UhtfORBDXocXLRGtS0lA4=;
+        b=afZ2AVWDBAAi5AF/3kDNHtof4IZjwqLOKTtgYveqFpShozq6m1byQqteockrp0r/6l
+         UC7dpe0KDFB1rffjoULRLdN2HKfyAX5PMvxLo+gyWW89dEzVu0bhqQcITde/MX3mPvwX
+         +arx3ZfjJwqdRoAryp/A9Kcwb3/ehnRrGjIT7Fzcr3aU4QuEXx/q8EWXeLx7Dwu3avyn
+         pJTz7nyAAfsxpDRJnNQlv31NJ0WXLY4qgdwZ1D8xOZn8tr4KSFH2fhE1unpHXhoVgpWL
+         LgVEPZpQ56VszotXOFolXEv0yrQHIT/Nup8HkZaWh3L3j0BUbM8BHFrQCnCl/tusw5Kq
+         /B0Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530CJmhHj/wXcBgAgw3gRSQm2hlyul1HRVuWYBHY+OH/TSobo8My
-	jVchnNabTmRLPiBqSUP4qNQ=
-X-Google-Smtp-Source: ABdhPJzKgtjmng386pL9cEhu3iSeoh3nX5EE6xs9otB8C8TUBts25kg9FKXCQHYOgjldFCl8YbDrVw==
-X-Received: by 2002:a02:ccd0:: with SMTP id k16mr16499926jaq.56.1624262932272;
-        Mon, 21 Jun 2021 01:08:52 -0700 (PDT)
+X-Gm-Message-State: AOAM530vu+y6rTDwcvNorm/pGlKBFFbsfPXhmn7sBK9FgpZG905gU24/
+	uRXpCTKZiOs0+VXYWoBQ/3Y=
+X-Google-Smtp-Source: ABdhPJx5BjsWT2sl+L3rIIkNq3SSwj/KwQpvS2G0R4zh43TwF0xMAJk17rn/gHRlIDnLM9pFEKPALA==
+X-Received: by 2002:ad4:4ae4:: with SMTP id cp4mr18879852qvb.44.1624265638012;
+        Mon, 21 Jun 2021 01:53:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:13c9:: with SMTP id i9ls2657861jaj.10.gmail; Mon,
- 21 Jun 2021 01:08:52 -0700 (PDT)
-X-Received: by 2002:a02:c906:: with SMTP id t6mr16624117jao.117.1624262931908;
-        Mon, 21 Jun 2021 01:08:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624262931; cv=none;
+Received: by 2002:a05:620a:1a9a:: with SMTP id bl26ls9584445qkb.1.gmail; Mon,
+ 21 Jun 2021 01:53:57 -0700 (PDT)
+X-Received: by 2002:a37:a24e:: with SMTP id l75mr21678135qke.175.1624265637585;
+        Mon, 21 Jun 2021 01:53:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624265637; cv=none;
         d=google.com; s=arc-20160816;
-        b=fxSJWqGoETNo7jIqAqf8+TjBFwdm3Mdx2g1x7BoqaRzwX1GPamP25M6XgplMoTbc70
-         fh3/QJx5rdhIbGzRK7eqiDSHTe8K8mEDybOqtO1loil/fgCDryaEjlGViyhATA4n0+9Q
-         8sccZnfMtufQrR37OaaJvPT7udSGNYDbDDhnJO8FvZTZxDGqkCCY0cdUo6UV+lqkutMi
-         soqQsErcSqBf/Rao86gzkRMa3v/HpgrkpCE/RLEE4UWvIK3cS+vm1HckFgYFwFd7bZe0
-         ys80NrucMHhvfzvFvmCT+/ZuygmjHjbDf5YSl8/lY0cdfXbWdqRYktRHRuuGQwjal/Sl
-         29nw==
+        b=owO9VGgKMJR7qKhYB8XpGJDPt7x74UxPgZD1aH3CEVbPtCGEHi0NQjWDTfvS9MgQ62
+         hD0Ju8gskimDADL/siBJkfAjAXc8ul5Mof9bDQI7NkMNFWLABdk3SBdYAUCVXj5okI6j
+         ZkiwcdU90pyrn/XIV8dBgKiXtHHfeWjn9cn9b+PIAS5F0GqOU7UOB9v7ZNW8aMJl4wmZ
+         LSGC9nxect9P5VyXk3bCuZHBhvBu4hhbqa+fp74uTYc+dFFjJ+hgEGxHKFsgvspVqUw9
+         txHfQufTFUTzrfEpysHkG1SFfcD1WQcKJ//BUc4eKe0Ci7NSLLOTIGB3M7IAEhSxUlNN
+         SNMg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date;
-        bh=KaZd9HqrC4XT0iTAfFOyYFc4L8q2E0Z/tJS6pIUZlLk=;
-        b=qR0qRCtjbjDstRxsPifjbdsO7kAFxKQ9Ehj6JVre1WBcIl9PRnJFV3ZMpX1BZAlLaa
-         J3iKhfJCmDEHEjVp4msGXygA7kKfsrXZnFZLBxv/NHfPsu7KBErNm3XQff7EyUe9NuGS
-         fYgY/CP/QHO35cy8Hp/9PVpSkUU+Tw/I4icGBGu34rAVgHBkMTTNPpdHxDpD1G2nU5Nm
-         ymgSlaPua77eKJK/NUm4Vrjy+wideGkwQth7OUF6JBQv0Dp0ciRnsETMbXZDdJgd/Lt1
-         iqLF5YkNNd1b/x1KxhfDm1o0vr3/veCqT3VdcZ0cQo8SEvwlFKtrww5kARxzi1QSeYaL
-         IbMg==
+         :subject:cc:to:from:date:dkim-signature;
+        bh=20LLXvnskwr7F2B0HHzvzhv0lPCqOdFDrTOeXHLuv1g=;
+        b=Zi9wa7hG07wCsljQwrHIGzUn8/gJvUcS7Z6zHc8IvJU7eSo/1jzYKLF4JyA+WPk4+r
+         CfGs4flGNMhG0djplsJpMj208M4VaZbrbj3wZfyS1wMApoP5gqawEGb/QexyS8ugyEDM
+         6t41A8ve2cE5CftIjUd/wuLc4MDSgpHqxZvrEm5CJ0n64Vi0aMnZoDsas64njaGatk0d
+         PlzXyTng9oydCTzK7m7uGD1YtPFiOXrn+hCciJ92vjKOJspx8wzws2bLpRz0sST4j58F
+         2guve7XgxdBx+QxcYfCzK0lnOpgHiKQtiZKNKhzxZYxcw3LYdTn81iyIULHjpn+EPCBB
+         N75Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
-Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id a2si802617ili.4.2021.06.21.01.08.51
-        for <clang-built-linux@googlegroups.com>;
-        Mon, 21 Jun 2021 01:08:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B928D6E;
-	Mon, 21 Jun 2021 01:08:51 -0700 (PDT)
-Received: from C02TD0UTHF1T.local (unknown [10.57.12.39])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E1B3F3F718;
-	Mon, 21 Jun 2021 01:08:49 -0700 (PDT)
-Date: Mon, 21 Jun 2021 09:08:30 +0100
-From: Mark Rutland <mark.rutland@arm.com>
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=mgnTgKk8;
+       spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id e11si832768qtw.3.2021.06.21.01.53.57
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 21 Jun 2021 01:53:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id CE39C60FE7;
+	Mon, 21 Jun 2021 08:53:55 +0000 (UTC)
+Date: Mon, 21 Jun 2021 11:53:52 +0300
+From: Leon Romanovsky <leon@kernel.org>
 To: Nathan Chancellor <nathan@kernel.org>
-Cc: will@kernel.org, linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
+Cc: Saeed Mahameed <saeedm@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>, netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 2/2] arm64: insn: move AARCH64_INSN_SIZE into <asm/insn.h>
-Message-ID: <20210621080830.GA37068@C02TD0UTHF1T.local>
-References: <20210609102301.17332-1-mark.rutland@arm.com>
- <20210609102301.17332-3-mark.rutland@arm.com>
- <YMv2B6HCnDReOFIr@archlinux-ax161>
- <20210618151835.GC8318@C02TD0UTHF1T.local>
- <YMzPi0Ckyd9wqO5d@archlinux-ax161>
+Subject: Re: [PATCH net-next] net/mlx5: Use cpumask_available() in
+ mlx5_eq_create_generic()
+Message-ID: <YNBToF0+eruEG7JL@unreal>
+References: <20210618000358.2402567-1-nathan@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <YMzPi0Ckyd9wqO5d@archlinux-ax161>
-X-Original-Sender: mark.rutland@arm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as
- permitted sender) smtp.mailfrom=mark.rutland@arm.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=arm.com
+In-Reply-To: <20210618000358.2402567-1-nathan@kernel.org>
+X-Original-Sender: leon@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=k20201202 header.b=mgnTgKk8;       spf=pass
+ (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=leon@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,156 +133,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jun 18, 2021 at 09:53:31AM -0700, Nathan Chancellor wrote:
-> On Fri, Jun 18, 2021 at 04:18:35PM +0100, Mark Rutland wrote:
-> > On Thu, Jun 17, 2021 at 06:25:27PM -0700, Nathan Chancellor wrote:
-> > > Hi Mark,
-> > 
-> > Hi Nathan,
-> > 
-> > > On Wed, Jun 09, 2021 at 11:23:01AM +0100, Mark Rutland wrote:
-> > > > For histroical reasons, we define AARCH64_INSN_SIZE in
-> > > > <asm/alternative-macros.h>, but it would make more sense to do so in
-> > > > <asm/insn.h>. Let's move it into <asm/insn.h>, and add the necessary
-> > > > include directives for this.
-> > 
-> > > I bisected a CONFIG_LTO_CLANG_THIN=y build failure that our CI reported
-> > > to this patch:
-> > > 
-> > > https://builds.tuxbuild.com/1u4Fpx2FQkkgkyPxWtq0Ke4YFCQ/build.log
-> > 
-> > Thanks for reporting this; the lopg is really helpful!
-> > 
-> > > I have not had a whole ton of time to look into this (dealing with a
-> > > million fires it seems :^) but it is not immediately obvious to me why
-> > > this fails because include/linux/build_bug.h is included within
-> > > arch/arm64/include/asm/insn.h.
-> > 
-> > The problem is that with LTO, we patch READ_ONCE(), and <asm/rwonce.h>
-> > includes <asm/insn.h>, creating a circular include chain:
-> > 
-> > 	<linux/build_bug.h>
-> > 	<linux/compiler.h>
-> > 	<asm/rwonce.h>
-> > 	<asm/alternative-macros.h>
-> > 	<asm/insn.h>
-> > 	<linux/build-bug.h>
-> > 
-> > ... and so when <asm/insn.h> includes <linux/build_bug.h>, none of the
-> > BUILD_BUG* definitions have happened yet.
+On Thu, Jun 17, 2021 at 05:03:59PM -0700, Nathan Chancellor wrote:
+> When CONFIG_CPUMASK_OFFSTACK is unset, cpumask_var_t is not a pointer
+> but a single element array, meaning its address in a structure cannot be
+> NULL as long as it is not the first element, which it is not. This
+> results in a clang warning:
 > 
-> Aha, that would certainly explain it. I figured something like this
-> would be the root cause but figuring out header dependencies is not my
-> cup of tea.
+> drivers/net/ethernet/mellanox/mlx5/core/eq.c:715:14: warning: address of
+> array 'param->affinity' will always evaluate to 'true'
+> [-Wpointer-bool-conversion]
+>         if (!param->affinity)
+>             ~~~~~~~~^~~~~~~~
+> 1 warning generated.
 > 
-> > Will, are you happy to take the fixup patch below, or would you prefer
-> > to drop this patch for now?
-
-> >  arch/arm64/include/asm/alternative-macros.h | 2 +-
-> >  arch/arm64/include/asm/insn.h               | 5 +----
+> The helper cpumask_available was added in commit f7e30f01a9e2 ("cpumask:
+> Add helper cpumask_available()") to handle situations like this so use
+> it to keep the meaning of the code the same while resolving the warning.
 > 
-> Looks like arch/arm64/include/asm/insn-def.h is missing from this patch?
+> Fixes: e4e3f24b822f ("net/mlx5: Provide cpumask at EQ creation phase")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1400
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+>  drivers/net/ethernet/mellanox/mlx5/core/eq.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> If I add one with just the two deleted lines plus a header guard, the
-> build passes.
-> 
-> Tested-by: Nathan Chancellor <nathan@kernel.org>
-
-Whoops; that should have been as below.
-
-Was that the same as you tested?
 
 Thanks,
-Mark.
-
----->8----
-From 622fd784c57423b1a276fbbfb270b84839e3afa8 Mon Sep 17 00:00:00 2001
-From: Mark Rutland <mark.rutland@arm.com>
-Date: Fri, 18 Jun 2021 16:11:22 +0100
-Subject: [PATCH] arm64: insn: avoid circular include dependency
-
-Nathan reports that when building with CONFIG_LTO_CLANG_THIN=y, the
-build fails due to BUILD_BUG_ON() not being defined before its uss in
-<asm/insn.h>.
-
-The problem is that with LTO, we patch READ_ONCE(), and <asm/rwonce.h>
-includes <asm/insn.h>, creating a circular include chain:
-
-        <linux/build_bug.h>
-        <linux/compiler.h>
-        <asm/rwonce.h>
-        <asm/alternative-macros.h>
-        <asm/insn.h>
-        <linux/build-bug.h>
-
-... and so when <asm/insn.h> includes <linux/build_bug.h>, none of the
-BUILD_BUG* definitions have happened yet.
-
-To avoid this, let's move AARCH64_INSN_SIZE into a header without any
-dependencies, such that it can always be safely included. At the same
-time, avoid including <asm/alternative.h> in <asm/insn.h>, which should
-no longer be necessary (and doesn't make sense when insn.h is consumed
-by userspace).
-
-Reported-by: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/alternative-macros.h | 2 +-
- arch/arm64/include/asm/insn-def.h           | 9 +++++++++
- arch/arm64/include/asm/insn.h               | 5 +----
- 3 files changed, 11 insertions(+), 5 deletions(-)
- create mode 100644 arch/arm64/include/asm/insn-def.h
-
-diff --git a/arch/arm64/include/asm/alternative-macros.h b/arch/arm64/include/asm/alternative-macros.h
-index 703fbf310b79..eba3173a2a2c 100644
---- a/arch/arm64/include/asm/alternative-macros.h
-+++ b/arch/arm64/include/asm/alternative-macros.h
-@@ -3,7 +3,7 @@
- #define __ASM_ALTERNATIVE_MACROS_H
- 
- #include <asm/cpucaps.h>
--#include <asm/insn.h>
-+#include <asm/insn-def.h>
- 
- #define ARM64_CB_PATCH ARM64_NCAPS
- 
-diff --git a/arch/arm64/include/asm/insn-def.h b/arch/arm64/include/asm/insn-def.h
-new file mode 100644
-index 000000000000..2c075f615c6a
---- /dev/null
-+++ b/arch/arm64/include/asm/insn-def.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+
-+#ifndef __ASM_INSN_DEF_H
-+#define __ASM_INSN_DEF_H
-+
-+/* A64 instructions are always 32 bits. */
-+#define	AARCH64_INSN_SIZE		4
-+
-+#endif /* __ASM_INSN_DEF_H */
-diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-index 1430b4973039..6b776c8667b2 100644
---- a/arch/arm64/include/asm/insn.h
-+++ b/arch/arm64/include/asm/insn.h
-@@ -10,10 +10,7 @@
- #include <linux/build_bug.h>
- #include <linux/types.h>
- 
--#include <asm/alternative.h>
--
--/* A64 instructions are always 32 bits. */
--#define	AARCH64_INSN_SIZE		4
-+#include <asm/insn-def.h>
- 
- #ifndef __ASSEMBLY__
- /*
--- 
-2.11.0
+Reviewed-by: Leon Romanovsky <leonro@nvidia.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210621080830.GA37068%40C02TD0UTHF1T.local.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YNBToF0%2BeruEG7JL%40unreal.
