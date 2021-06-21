@@ -1,128 +1,134 @@
-Return-Path: <clang-built-linux+bncBCR5PSMFZYORBZN7YGDAMGQEB4MDOQA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDUKXHHSSIJBBN66YGDAMGQEZR3QPCA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe37.google.com (mail-vs1-xe37.google.com [IPv6:2607:f8b0:4864:20::e37])
-	by mail.lfdr.de (Postfix) with ESMTPS id EE2463AE65B
-	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Jun 2021 11:46:14 +0200 (CEST)
-Received: by mail-vs1-xe37.google.com with SMTP id j11-20020a67ef0b0000b029025d2626b5besf4801729vsr.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Jun 2021 02:46:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624268774; cv=pass;
+Received: from mail-ed1-x540.google.com (mail-ed1-x540.google.com [IPv6:2a00:1450:4864:20::540])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2C52E3AE7A4
+	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Jun 2021 12:51:37 +0200 (CEST)
+Received: by mail-ed1-x540.google.com with SMTP id h11-20020a50ed8b0000b02903947b9ca1f3sf5752567edr.7
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Jun 2021 03:51:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624272697; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bdxq8q/JGJYU4AddkiUwLSM8wCLzw1UoEFFsIxlH6Qt+bCOxE6HzjfxLMdcIWyP/IB
-         Gh2o8TngX+sgF+UCVj8HBAewTt6CCL489bSTbrRdZARfSD2sAsUqXS+OGZrSuvOAlFbK
-         ujAbA+/C32ydhOeKQKhTh+4JoRFApqvY/vvFYjeM465NW+ONtYZyysvQ79OYrHoczF7e
-         KRjcLrmN9cSaVhMaSQjzdMNKrkJUPcea4Wd234b2DrnafOQ3imG+YcoCj615YQdPad6N
-         FTMkneRuouOcdzHlVaj9sg5dbYhRrX3C/Q/9yGePBdw+G+oPlfGUVI7rauDxiL37kF79
-         ShDQ==
+        b=Hip+fl7dPgOcgE2njk3leU+jQDDfHcViv3oZ4LOOu/X1U/C83P4m4RXIfJj+0tL6sQ
+         H/lLH3XWlIC4fTgk0Tw8i7orQRmac+Gphe6bZ+j+sUHj9z05EOVay2DQAQuu+fnD1DnK
+         JtgtPBOdi6ZjajnY6V33rDzpNFbXyOvOv6fEtbQ6p/b84K5sazTLmVvumwxJtBhEdCaf
+         EZv34upEd8S37aRl59A2sOUvRB7U4B4+74UHLlHz537Vzdm2GSIgDal5Pm5NeZP/kVyF
+         EYr3WKeVHoz7wAQlrRtFYmoJLKJLsJVJKGeO8OQIlx2MZfhJ8TOr93P+R/xhf6lxj29+
+         6DfA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=5YB18UgdMPwk2dY5OKCX1HGYpmaxAWhgUhCsTio8bhU=;
-        b=KaWR+jvoMRd+8+3FkIVr2QHUcNm5K8TgplRMSzplhsSJ+OPFm0DbF/fQ6Gi0JZQjZP
-         lriqWikmVby7j5TWVezsXtWVOtZeRQL4L+EVW0L24CW1URumh1GS1U07Cb6RntpldvLD
-         HIqKSq7zXaFB8NdqXZGd3QVtPzPRUGZeXB5oq59qUMdhyMe2qtp8u81Du4sZ+ctDcrRa
-         QIh7lcj0lf00BTeUaZ0UueyJrY+H/7c1xVJCKwxxd77qvBlnWk+pcuTvsMx37DWgl4TQ
-         wla70XIUqpKMfzNU3ny62PrX90Pv9ka2mH2cFJUDIVjY81U7R7HBgqKkVmkFCQS0KicK
-         5o8w==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=RFDJ15dtu9I20XexjpqQz623WbvLLgmRkVc2IHZk0Dw=;
+        b=kK+1/OTTEjW3qSwxr4Ijqz6gRwI7P0DypAcFGL6HyNg9ehPOMrErZ2lmAzSLgskdOJ
+         xCYBuz+0ff7PBNxaYUMbKXjQgaPLrHzPpLfbL95f9/7QW49FsaeV+/4ioIleRQ4aFd6W
+         DH9wqt5L98qA5uhlYVG0aYWN7wsG2jYP/mybObhPIAnc142zeuWqiAHwYi03IaMi/124
+         9NRykY/N54jssvndPxhtx+6u1iGBy8ctf7kn2G1pwnJXXtmocXyB5jWX41Bl4QlLBIIX
+         YBt/1tEgsQs0bqxpZT3S4QbG7MNbZOnPdghH96nT0AYhLQBFUgEOLzbot2+jVP2SwyFI
+         IhyA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=qjIZKqzu;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
+       spf=pass (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) smtp.mailfrom=p.zabel@pengutronix.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5YB18UgdMPwk2dY5OKCX1HGYpmaxAWhgUhCsTio8bhU=;
-        b=Kcwumq1tmNWZNgYgs3QKB8YNAJzYyygmshojE3Rc20Hl1Vt3Q5N+tylgGIaUZ4Ohfe
-         /r7v8C57jfudb/VmlLRYm6U0Dub5pa8StbMJr7l8MirADLksAmBUBJvbIZJEUMFXEgx2
-         0/tm/85r6cmuG5MxvXxGTNSXPOPuJtLN8co0CAeBTWWjMsv1aBSN97MAW4VSvNtdX5cq
-         uMwt9HJYz7aqzfk2LN/Moe9iiLF32I+c9TdTBCP27S5jU0P8jk8SZJ8Hv3gmglfViWiM
-         4XdhoFm2tVV4f6vH7vZjLfVWNpgsxOKLwpa6hUQuPgpWNUO01V/Iruwi+gpQytih5AJY
-         C+jw==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=RFDJ15dtu9I20XexjpqQz623WbvLLgmRkVc2IHZk0Dw=;
+        b=XpWCm4WzSYkP07Su2hKsNU+zlC2JLpOQuYlSZdVRuPxkt1zbg7h7z0DVZQ4mOoFrGX
+         AAkgxSvqTZ0qm2/CrniKC2ce+sYP0whZYqhNuUiBAyB7kSrCKjNUK6cxR4U5H1txCcuV
+         MskemgFvtf/sC8INDrl2hOkrKkExLbNBrXMmEPs8WWNPcvnXdGIQNl5ELGlLTey8txe/
+         BMbNkLPsUytL36/qy3asnK8YA9BC6tPy6UBCNJAOGBH//up/T9zB3gW9r2MifqtF5/XJ
+         Jw77EuyeR9/wwo2WeOPZinR81/MDHYsAmiX0h/PfsZa8rRwOmeBrAX0558iztjAC665G
+         4LVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:x-original-sender
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5YB18UgdMPwk2dY5OKCX1HGYpmaxAWhgUhCsTio8bhU=;
-        b=j6Ws2Wo8vGPbW7P/a+RcrsYwI5r1Y5Zi0lgmtVAiOHis36GkOQOmHse2I/kZ2vPXRB
-         BEvkYN+QkIQ4/UHxRJhmOszHHaWV9UiVsMRICgnYsxNV+89z9WiAkQAIX5uLTuetmlvJ
-         MbvrQdLbYEm9mMZw0CdScUCAs8+djKaD42hKlCDAuACGuPf5PcO/fXGP83KwRvYxGJAp
-         bv1w9Jusu3tpyd/OPhyvoio6GKt6PePm0XJE6mfC44+iFQYtjgroboRAtRbGHZNXQL4R
-         zQlg9zMAmOvzUioU4bVzMqKL/kC7hNj5DkS+OMZdbNyXCWydcvFQHD2cY7qG2Hkg3dzg
-         0zeQ==
+        bh=RFDJ15dtu9I20XexjpqQz623WbvLLgmRkVc2IHZk0Dw=;
+        b=Uf32tqbKUJNvWFOviiIZciuym4OOtPV91M3bKYhFTSzuPRcjuadgEC/sUp3GbnKCnS
+         5saQHeBePpiH6WTgTbr5CLPOJ4VEs51U5Di9GtwBeJ5Fpo9qss2cLhX9v6xbO4Z5XK6I
+         DmqcCl8qq0mjpGwX5umMZK3+I61hqCQV4gpYy668IOp0YUU3rNtA057qY0dyjPD4pTIg
+         Yn8Q7IRNpvPlAiW8xU88eg/xpWbS2fpqdbNEnoruTP3WiDRafT/bjxY58COSLgudPDZC
+         v8I8VVhPB6pD8JU7AiBkBGZSmAuDZ+xjJk3gCMKfUWLSsNoUw+zbKHnPopA3cAukYTzp
+         dE6w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531ziiboX87FVjZFC5XOuQFe1NqoPWDR9zZGYlYIEruGT0nmIbvX
-	nh3jUHzLwOgtfVCnTcKW7IU=
-X-Google-Smtp-Source: ABdhPJx9c0bv6SnSyWENZ2efmfphFpKgaS0raUf3Y4YZiULGHU1+t+UejykLP3HcwO3CMKhp0xyHUA==
-X-Received: by 2002:a67:887:: with SMTP id 129mr15634920vsi.23.1624268774005;
-        Mon, 21 Jun 2021 02:46:14 -0700 (PDT)
+X-Gm-Message-State: AOAM530SF/KEoFx4gqJc2woowrsTzUmVGehWHX9mKC6xX8DVZOJHlnLz
+	Ou29wFPjIeRTt2+b4ReINEA=
+X-Google-Smtp-Source: ABdhPJxfJEoqmLb4CbA0ES3hYvrIc+mFy76B5ZrbDUhj/Dxxeo51LoX31cc2xtXQis9l1CzKS2CyiQ==
+X-Received: by 2002:a17:907:20ed:: with SMTP id rh13mr7079760ejb.137.1624272695986;
+        Mon, 21 Jun 2021 03:51:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:c01:: with SMTP id a1ls2842775uak.4.gmail; Mon, 21 Jun
- 2021 02:46:13 -0700 (PDT)
-X-Received: by 2002:ab0:6998:: with SMTP id t24mr21433046uaq.72.1624268773215;
-        Mon, 21 Jun 2021 02:46:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624268773; cv=none;
+Received: by 2002:a17:906:7c16:: with SMTP id t22ls4461056ejo.11.gmail; Mon,
+ 21 Jun 2021 03:51:34 -0700 (PDT)
+X-Received: by 2002:a17:906:89a3:: with SMTP id gg35mr24648897ejc.188.1624272694886;
+        Mon, 21 Jun 2021 03:51:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624272694; cv=none;
         d=google.com; s=arc-20160816;
-        b=IFvEd9A3Yp8HHv47TSIpEhw/U6B3n7cebbdtuy1G/L74M9euWDLmlgif/y05SUo0Vc
-         yE9nKp/mzn5LujOLm4aPhM1I4Iwzd+zocU4Ku9rwBpbvnwdqSY/TWDhGn18kP6sTIX7f
-         qG1uBSc6DdA0b9/vT82eEVgIrvaBjMFdSItteYhQdGhxd1PMXMa9FVmzzU1babelXThP
-         0hCYRJLM8pbhQ6qj9sdsoDVUaKrWdpderRj1yNuV7y3OMYUnQAcRwZ1TWNKDwU5oINg7
-         BsRXkuKxFEtMMq0lE/tFAVOSKUgrZYQQyullcLVf76TF1i+eaBCPZVIn4JlPDHIZY5KM
-         tIJA==
+        b=OiaN2vJX12vC9U+EolSB0JT1qFfXDNHWIS8YCCvTliW4NqqH2/XkwTnENrpDhOJ174
+         MPMkieki0oZqpKRtqlJqqdugg0l89KPf/lFEMNa5fmULaXITyThVGpCEKdsG7xPfTV0h
+         6CFlA9r7IVWrwd+bkqb6cf1y5FqvhgNdN9q8cFhsrBXnfzJM4oIO0r9Gp8/FkwD79YH5
+         7oFFcaTFvD0tTeay9jpPc1H+N6YoieM/ezO9Jlrj2ndrSX5GujLSIZ3860r1wpZPUHg9
+         PYl1uMq4zZdrA+7QiPPgVpnyEhdy+waIw/03cyqveShmr9/97K68hI14CZFtYgKJEF/A
+         GCeQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:dkim-signature;
-        bh=Hb21Nn6g42SJ39Koogxh1jjn42VLgf2TIzDVKkAOEw4=;
-        b=BD+YAtKuS4QJNLRqi2LAjexC2QgA/sZklrG5ktfZg4PP1uABJ6Y6U4aVhMymEeWgJh
-         X+jaVdfGKav/lyr5gfBTFdI4vlUG1nou4cxWR13J75aAvXJxIGn6NkM4FsgYdpFljyMi
-         +Yf3mH2c8zygfVIYoup3rQ+Qax1zt5eLXLs/eU3yOSppnRzJc4/fcemGp2+CcLW8mUd8
-         XpDrPBkOGfrMliiehiFS+HmBqRjAH6yDfljLyB3rW82pappUA/WEP3j04/29ajkP+u6r
-         3u0u2D73P+1D135eKE//KjjGKPJTZtQSgQHlVNAVY7hJTSjT3tUNsOB5pw/WtTT5pgxU
-         ZNFQ==
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=gYR/30Pps9hpELvVnBVMFGzhPtog60QGp6Kf4QPYNSs=;
+        b=G/JULrQhOjB/f++vANEzn/dRFt0Ydxa1ovr+qj9tpF+/XRwWclw2xq84G0K37aCOz6
+         6Lt0/cZyLId5I5OogzFZTA+dDJy0iGGgN9fNDQt8Ayh0UHNwJxHmxvlWImM6pnW/A6nW
+         AgfvnwTcZboJN54pPrByO3/mXE+m0APz8KgpRb/KfjFORJr3KUhYAB+g6XXrVuhaGp1k
+         kY+j/xybbGLOQUbS6wErYjwjhQ2XjFLHRC+kDL1ZM6En48QpxuALW1p63cwL+3Pc9/DW
+         aTTdzqICOn5tp8mTe5NRU1KQ8J053FLFUlS5bTmDcsWwDY83tLqJG5pgPYV5xIu39MkZ
+         X2CQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=qjIZKqzu;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
-Received: from ozlabs.org (ozlabs.org. [2401:3900:2:1::2])
-        by gmr-mx.google.com with ESMTPS id k62si1134947vkk.2.2021.06.21.02.46.12
+       spf=pass (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) smtp.mailfrom=p.zabel@pengutronix.de
+Received: from metis.ext.pengutronix.de (metis.ext.pengutronix.de. [2001:67c:670:201:290:27ff:fe1d:cc33])
+        by gmr-mx.google.com with ESMTPS id e26si728065edr.3.2021.06.21.03.51.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Jun 2021 02:46:12 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as permitted sender) client-ip=2401:3900:2:1::2;
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4G7l5p14q7z9sWl;
-	Mon, 21 Jun 2021 19:46:06 +1000 (AEST)
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Nathan Chancellor <nathan@kernel.org>, Nicholas Piggin
- <npiggin@gmail.com>, Arnd Bergmann <arnd@arndb.de>, kernel test robot
- <lkp@intel.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- clang-built-linux@googlegroups.com, kbuild-all@lists.01.org, Kees Cook
- <keescook@chromium.org>, linux-kernel@vger.kernel.org, Linux Memory
- Management List <linux-mm@kvack.org>, linuxppc-dev@lists.ozlabs.org,
- kvm-ppc@vger.kernel.org
-Subject: Re: arch/powerpc/kvm/book3s_hv_nested.c:264:6: error: stack frame
- size of 2304 bytes in function 'kvmhv_enter_nested_guest'
-In-Reply-To: <e6167885-30e5-d149-bcde-3e9ad9f5d381@kernel.org>
-References: <202104031853.vDT0Qjqj-lkp@intel.com>
- <1624232938.d90brlmh3p.astroid@bobo.none>
- <e6167885-30e5-d149-bcde-3e9ad9f5d381@kernel.org>
-Date: Mon, 21 Jun 2021 19:46:03 +1000
-Message-ID: <87im273604.fsf@mpe.ellerman.id.au>
-MIME-Version: 1.0
+        Mon, 21 Jun 2021 03:51:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) client-ip=2001:67c:670:201:290:27ff:fe1d:cc33;
+Received: from lupine.hi.pengutronix.de ([2001:67c:670:100:3ad5:47ff:feaf:1a17] helo=lupine)
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1lvHWY-0002zO-QJ; Mon, 21 Jun 2021 12:51:26 +0200
+Received: from pza by lupine with local (Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1lvHWU-000737-Jc; Mon, 21 Jun 2021 12:51:22 +0200
+Message-ID: <68a0278fac134b81ecc48582fd386206dd3af244.camel@pengutronix.de>
+Subject: Re: [linux-next:master 5946/11253] ld.lld: error: undefined symbol:
+ reset_controller_register
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Thierry Reding
+ <treding@nvidia.com>,  kernel test robot <lkp@intel.com>, Olof Johansson
+ <olof@lixom.net>
+Cc: Dmitry Osipenko <digetx@gmail.com>, "kbuild-all@lists.01.org"
+	 <kbuild-all@lists.01.org>, "clang-built-linux@googlegroups.com"
+	 <clang-built-linux@googlegroups.com>, Linux Memory Management List
+	 <linux-mm@kvack.org>
+Date: Mon, 21 Jun 2021 12:51:22 +0200
+In-Reply-To: <a9a17943-e672-2475-5e30-244283986a7c@kernel.org>
+References: <202106182243.KgZxMD9A-lkp@intel.com>
+	 <YMyzKmDO+SJt8n4N@orome.fritz.box>
+	 <b29290ec-679d-322f-0cd0-32358533aac7@kernel.org>
+	 <5455875a86b33ecbbc94156c0c799e7224bba93a.camel@pengutronix.de>
+	 <a9a17943-e672-2475-5e30-244283986a7c@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: mpe@ellerman.id.au
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ellerman.id.au header.s=201909 header.b=qjIZKqzu;       spf=pass
- (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as
- permitted sender) smtp.mailfrom=mpe@ellerman.id.au
+User-Agent: Evolution 3.30.5-1.1
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2001:67c:670:100:3ad5:47ff:feaf:1a17
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: clang-built-linux@googlegroups.com
+X-Original-Sender: p.zabel@pengutronix.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of p.zabel@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33
+ as permitted sender) smtp.mailfrom=p.zabel@pengutronix.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,68 +141,24 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Nathan Chancellor <nathan@kernel.org> writes:
-> On 6/20/2021 4:59 PM, Nicholas Piggin wrote:
->> Excerpts from kernel test robot's message of April 3, 2021 8:47 pm:
->>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
->>> head:   d93a0d43e3d0ba9e19387be4dae4a8d5b175a8d7
->>> commit: 97e4910232fa1f81e806aa60c25a0450276d99a2 linux/compiler-clang.h: define HAVE_BUILTIN_BSWAP*
->>> date:   3 weeks ago
->>> config: powerpc64-randconfig-r006-20210403 (attached as .config)
->>> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 0fe8af94688aa03c01913c2001d6a1a911f42ce6)
->>> reproduce (this is a W=1 build):
->>>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->>>          chmod +x ~/bin/make.cross
->>>          # install powerpc64 cross compiling tool for clang build
->>>          # apt-get install binutils-powerpc64-linux-gnu
->>>          # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=97e4910232fa1f81e806aa60c25a0450276d99a2
->>>          git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->>>          git fetch --no-tags linus master
->>>          git checkout 97e4910232fa1f81e806aa60c25a0450276d99a2
->>>          # save the attached .config to linux build tree
->>>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64
->>>
->>> If you fix the issue, kindly add following tag as appropriate
->>> Reported-by: kernel test robot <lkp@intel.com>
->>>
->>> All errors (new ones prefixed by >>):
->>>
->>>>> arch/powerpc/kvm/book3s_hv_nested.c:264:6: error: stack frame size of 2304 bytes in function 'kvmhv_enter_nested_guest' [-Werror,-Wframe-larger-than=]
->>>     long kvmhv_enter_nested_guest(struct kvm_vcpu *vcpu)
->>>          ^
->>>     1 error generated.
->>>
->>>
->>> vim +/kvmhv_enter_nested_guest +264 arch/powerpc/kvm/book3s_hv_nested.c
->> 
->> Not much changed here recently. It's not that big a concern because it's
->> only called in the KVM ioctl path, not in any deep IO paths or anything,
->> and doesn't recurse. Might be a bit of inlining or stack spilling put it
->> over the edge.
->
-> It appears to be the fact that LLVM's PowerPC backend does not emit 
-> efficient byteswap assembly:
->
-> https://github.com/ClangBuiltLinux/linux/issues/1292
->
-> https://bugs.llvm.org/show_bug.cgi?id=49610
->
->> powerpc does make it an error though, would be good to avoid that so the
->> robot doesn't keep tripping over.
->
-> Marking byteswap_pt_regs as 'noinline_for_stack' drastically reduces the 
-> stack usage. If that is an acceptable solution, I can send it along 
-> tomorrow.
+On Mon, 2021-06-21 at 11:27 +0200, Krzysztof Kozlowski wrote:
+[...]
+> It won't change the bisectability, just the scope will be few commits
+> narrower.  The damage is unfortunately done.
 
-Yeah that should be OK. Can you post the before/after disassembly when
-you post the patch?
+Oh right, so the only way to fix this would have been to rebase your
+branch on top of mine before the pull request.
 
-It should just be two extra function calls, which shouldn't be enough
-overhead to be measurable.
+I'll try to be more careful about spotting and pointing out such
+dependencies when picking patches out of series. If I still miss them
+and pick up a patch that you think should be merged together with the
+rest of the series, don't hesitate to ask me to drop it from my tree.
+More often than not, I have no conflicting patches pending.
 
-cheers
+regards
+Philipp
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87im273604.fsf%40mpe.ellerman.id.au.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/68a0278fac134b81ecc48582fd386206dd3af244.camel%40pengutronix.de.
