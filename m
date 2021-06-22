@@ -1,158 +1,145 @@
-Return-Path: <clang-built-linux+bncBDIZTUWNWICRBYOGY2DAMGQE4LSYW6Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDN7FYMXXEORBCWMY2DAMGQEDU3B7RI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3a.google.com (mail-oo1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id A71243AFF8D
-	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Jun 2021 10:46:26 +0200 (CEST)
-Received: by mail-oo1-xc3a.google.com with SMTP id b9-20020a4a87890000b0290248cb841124sf12915973ooi.4
-        for <lists+clang-built-linux@lfdr.de>; Tue, 22 Jun 2021 01:46:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624351585; cv=pass;
+Received: from mail-qt1-x83c.google.com (mail-qt1-x83c.google.com [IPv6:2607:f8b0:4864:20::83c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1D65E3AFFB6
+	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Jun 2021 10:57:48 +0200 (CEST)
+Received: by mail-qt1-x83c.google.com with SMTP id b9-20020ac86bc90000b029024a9c2c55b2sf4216967qtt.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 22 Jun 2021 01:57:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624352267; cv=pass;
         d=google.com; s=arc-20160816;
-        b=l/2Q89WbwdSEJ81dVvu/4rDyDC9Br84StTBZXGeY33TN32NQbpKud+FCAcQWPOTB/I
-         3tN9LkdHsI42ScNmOgckLB0d+R5vphy8u254b7ww+qgWrlXEfTrLOyn63FbloQInE6Zy
-         uTWGAmqWtpBb5XBPIuqQWpb/Y1cO7ajD8/ho/GkUBde/UX/3RhniW2ZRsJV74L2JLakI
-         TybBQLBj+KMpHpcAHa9UO6n6ovefVcjbgyksIBTfUQwhBbqAmfsSntrOyIdht2t3GHtx
-         CrvEvfWbnYQ00BiOgXMkO0IQK//cHoXjWVwNzQ1kVs/YIhbEOxi25YYrzhfU3C8YOMC8
-         VsKQ==
+        b=dqG+MTuEJR+XH6+RcK3qxvHKV3B4puFjRvAKe9M/ASKRag8QZJ1AG6VBr0/lufuqPU
+         scA8unDyVq9CMAHqyJN3MDBnPtKNibKtsRyH2Fjzn5UUneJ9ms8ttCps4DY5BjAlXY6L
+         rpVZURlqVJG6SFfO64yy9W096IRz9WIFIFgI8iRTyqJ3XdpEZT0cniUe727/aMwAS8sU
+         wbx9PHBujA/e8kk9SDMsjD3onbN+UM7AtZ/3w2IJnNWtsZCspl4OZZYCD1VWCIRar0OX
+         q8VR6dUVBAwz9AaOE8VJdmCvYvOfs9SXjwEYRy5/1fMTunKWoLVAfl9xUqkr7Sc7XiiT
+         dqpQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=4e9OeR+McPslfMFtZefjTgKO86ly0JmxhfeGj9gWKE8=;
-        b=eRAoh4yJnWpbMwqyynkf2uKjgyKPGfVY9ycobM0lxOIUwGsa+eU/e9FqeTRXMYXL5x
-         moVF7l6FshjxYdYcPTdI9ZUEVKWCPhxVUVkcynpwE2A4PYE8CNc7duRd9WwvBDcfzfs0
-         RgZnkGLh7BGRkROQc21hCEnhSHqZElrJG8RXN+BEhvyfHC86QiWkW5mc72U8L7sY2g1r
-         gbHk2XvCZyouVUtaJSMCAnwtf4u6bxAyVuHiXIrxBXaFI1XVwP6uEQNaoBlYXOk/2sgt
-         wD5Kosbtr3fXdtsJBisiEr+xEmXKbiivdd+tGzts8Uf0qmbAtn8nnf7KE4tMALMyFvzq
-         OUXw==
+         :list-id:mailing-list:precedence:message-id:mime-version:in-reply-to
+         :references:cc:to:subject:from:date:sender:dkim-signature
+         :dkim-signature;
+        bh=xSqrB92nwQpjxmgBsSzyDlgBiNdx8+VU6uBYjRV9JZM=;
+        b=X6hPC8JKW0QQaEngliHpADYpSG1Tt8VV0Ah6w53tpdXNBHhnq7FvIKWtdckhuSs2v8
+         8T+bKARF4k6unYmQzGiY2FTFKrNu4opOHpxu3u0eIA9Kq+eSPKMjVG7826MsMBnjcl61
+         s7LUfY8AeABW4g2I6YfGXWpOffRU3Wb3Y5c7PSiypaSEIFZP/if2j6TO8kqz0+3Gt4Ff
+         iWO2dTNVmAwze3VfJBdz5GqVXwcK2pLE6uL2ff2vekj9DMkph2aD5x074ZujMdfkD4f0
+         tK2uHCcWIMiSSuuNPaD88lOJwRYJ0H0/BrQnad+uDXUrzdngjmnYD5z6PD99tWkYwIzY
+         HhpA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@oracle.com header.s=corp-2020-01-29 header.b=dow6+rpm;
-       spf=pass (google.com: domain of dan.carpenter@oracle.com designates 205.220.177.32 as permitted sender) smtp.mailfrom=dan.carpenter@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mVukyLLV;
+       spf=pass (google.com: domain of npiggin@gmail.com designates 2607:f8b0:4864:20::1029 as permitted sender) smtp.mailfrom=npiggin@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=4e9OeR+McPslfMFtZefjTgKO86ly0JmxhfeGj9gWKE8=;
-        b=A7A2kH5GMDd0nU9+uh21Np6I/RpN4IIop5BKkFtfeoeMljvF3dDwU3KiG63+wpW8P8
-         lUN1V65XCIF5a7lTHWcGiTjM6uHBOARnh0EtU8CRCgCG5ASgcsd8KulYO0O6bnmB5HmW
-         vXVntfBipRn6HK6QVMvGJ2pNiOO8B6nfSQloH4wEVmYvPOAU1c/0zu2+5YRLKo+XMGEb
-         rQBRlZBQqxcvClcmh22Pbvn4qscbOlR1md/hQGE9fPkVZYZ/ZtQF+gQtSV7yWN+DKIBC
-         AQEVBKiyfmT/eAgEOOtDVBpnS5BTMEm1OYKOMMCjYJRT8gMYGPw+3YQkRb6PUJGcf7ID
-         /YUA==
+        h=sender:date:from:subject:to:cc:references:in-reply-to:mime-version
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xSqrB92nwQpjxmgBsSzyDlgBiNdx8+VU6uBYjRV9JZM=;
+        b=gX5uCeqGl5ecLp8OX0H0ycpJGI2MGQxbbnLPCxdYqGxOQr1W/1uzT2MrY4ph6cqCao
+         nKb1BXcuRPcTZGs1t3I2bKxkChXvhewwROnpGtLZfFhcqXB0IvC+S5Wacye8zh320RMK
+         qseKAUHAL4ZjIMYhKWZL8WlC2BlipI4N+p7IDgQ3Jcfn24lLKzkxJHM2oDc7p7lXLDU5
+         AbOzJEWeflLY4QjjfEX+yTs8VaJrpoAjwJ61t4WesCA56BP6MU4ssqdhy4ASzJv+eHHS
+         nYCL7TsTPxE8QJm836yrhyBdIA4DPAFOsl+7kGEhR9qrM0DDnrtfvg2qtJ1uJETZ5oQm
+         fw3Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:subject:to:cc:references:in-reply-to:mime-version
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xSqrB92nwQpjxmgBsSzyDlgBiNdx8+VU6uBYjRV9JZM=;
+        b=U0W75mFYPGwvcgqz1LMUDkaTAETkPlCKECP3GI2xVO16unun97rB1yArVDV9c5bWnj
+         YXqkf430H0LOlm4JFMKsQPWa6Ih+TaJbCVjRbE0V/4072Yk1ksX7FGl/ZE+XNUtezeI6
+         87AuOpZpmqEZEKXy01OMjoAAyuTT5Z0ai+xVMa3BEHRIdY3Kj0z/w/RtYe/4+jJbssIb
+         7haVc+jo4akDxHV54cl5r0cQxhIt+t0bB/j5uWqcLhx+umcXDIN5PEtnEAevjkzqlE2a
+         /dBD2m4gTpzOLrYhRxbshisH8hrclP1BNaxoCU85UxuQsPPmNTvJbew13zdlfFF1INLg
+         CZkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=4e9OeR+McPslfMFtZefjTgKO86ly0JmxhfeGj9gWKE8=;
-        b=dOR4r7xU4c0eCgjgLvv79N9hLXMxeLJYHyS0yGznlwUT2PynMtk4D9Pg6tqw29bIBP
-         wm6LwJIRAtrOLvB9l9hDmUrHTSoz0I+GTUK8cCJN6ZcZXe5CpxYQ8VR/AVeAyGmvUrgW
-         cLyliREYnCoq0qNJooAkDCfk/AYoCL/PufHNw55nZyS6D0WbSW92rCbgcZJ1PSSbmQQB
-         WpML5BRblL4YEXXRjNHDn4hbwpMezQGI6xgaEmw0cZRsgLexK/wcTZ2ZXGFQQ6CN8sSh
-         Jb7Xi/0ikDGnoLRUmcaHnghlsMou1pK3UznH5xWRIeiUNsYrkzwNlijZo9UXLnTktRTa
-         RPkg==
+        h=sender:x-gm-message-state:date:from:subject:to:cc:references
+         :in-reply-to:mime-version:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xSqrB92nwQpjxmgBsSzyDlgBiNdx8+VU6uBYjRV9JZM=;
+        b=pPx5zQROo16CNY6VD1H+5FXWLPDfCc96ukIRxQW9751WJMu6OqxdZLsbT/bhmWkZTO
+         Qc1ih2Uo5HcX4dVP77iit9uel0QKV7LuWZNLDn7yJxcer1+yKYdH3erVJnuPHrDG38by
+         L7jXDnWg9jXD1S+SGhEeQkzU9l6X90OxxyykugwL2rVwVsBFuwoMHyLkQcM8TqK+2mZ/
+         vA1sDFwD0U+/8Sv3KzfLd7P1h15eIQiF+bChV+hdGrdmZX5jWcZ8adTEAn4dyeJIKWKt
+         k8p79veCtsl8GIcVUvP4rDjNBlUb4qUbFxc9QyLsa9zrvn3HRB3QeRd9uchgMZATfXK6
+         mzTQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530zob1NDMuRQDy9rzFEVx4QJO0nyW+Kf8YdzW53LtOaRL3VdWEa
-	1a9pu534kedLjLJ5G40OR5M=
-X-Google-Smtp-Source: ABdhPJznL8u+zFU0DYatIYwa/p7WIaoVm5zDixhfxIraIRB1XZF2/bhnU2IeyYzVgi2Mw9WwLWNqzA==
-X-Received: by 2002:a9d:2dc2:: with SMTP id g60mr2167143otb.54.1624351585472;
-        Tue, 22 Jun 2021 01:46:25 -0700 (PDT)
+X-Gm-Message-State: AOAM532yVYeGzdAd4wp2XNqJupzKz8tCfhyrKgLz2tLpxuWisqdlZT6u
+	ziQlpO/2hXLk+Ol+dE8OFbM=
+X-Google-Smtp-Source: ABdhPJwZjXT/CGkOUxeTzdr7Eb/5cdVS/3zJN1BoAA488M75GrtZfcnFTfHZZRtd3ANqydvbRtfREg==
+X-Received: by 2002:a25:f446:: with SMTP id p6mr3448187ybe.288.1624352266858;
+        Tue, 22 Jun 2021 01:57:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:6a84:: with SMTP id l4ls7802951otq.1.gmail; Tue, 22 Jun
- 2021 01:46:25 -0700 (PDT)
-X-Received: by 2002:a9d:12a9:: with SMTP id g38mr2328358otg.114.1624351585127;
-        Tue, 22 Jun 2021 01:46:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624351585; cv=none;
+Received: by 2002:a25:2787:: with SMTP id n129ls10690246ybn.6.gmail; Tue, 22
+ Jun 2021 01:57:46 -0700 (PDT)
+X-Received: by 2002:a25:9a45:: with SMTP id r5mr3367352ybo.450.1624352266417;
+        Tue, 22 Jun 2021 01:57:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624352266; cv=none;
         d=google.com; s=arc-20160816;
-        b=qxiopYTPctojH1y4JsJCdz7kItPA8uRPu/ArImIpG4/Lp+4ZBgVJlxSSnUbxSHb4vq
-         NmeMtNrB5aACix9wv4UAE7AoWEw3f/+/5AV54GmiQTF6bbu1Efu8j3owsb8vG3SaSbCj
-         netk19uA8FSn442omEu/DQ8c+qa1jGdcKHfW/JeIjInVBROlUvqKPpUC5tGgbBCj87i4
-         86ECc67IrzMeCP6N6gnU0HPsdq3atrrQlxLu7/C+I6tn8U5/0ikt5AjAsNhjp+60kXdM
-         JYyPkv9gIWLfETdSUdAq3g9zis+4d/u3KMJOyQEWJ3pTZa4Z9xMsPTM4lShZNCXGE9Xd
-         RtlA==
+        b=TqGlKcUjKGBnm94hrUycHOIkpYe5Lx1z2yTWj7NRzOR7a+BMnZVj/OAJ8NcuUhBepk
+         nK0xd9bLC+OF0hsXaoV3gMzhyIow/HlBuFXbmYbAIIP/kuEXt1TWvFLzb+77QzldTRN9
+         Q5TQhg0dHOQ7oXiBFaBUOaYnARUmmB6dEMf+Dv1nMfjqAk+ySfc3JA6k+Oocts7zwzVG
+         2+6V8B+rSdA+e4ErlwpfC99ZxSWcXOQDZy1081K9P0glfsUrT/vQhrs8X/lP4J8y8C+s
+         jr/ZhGQMHEqyZfo7N0eOHgpVDVoftPVp2KD1GpHzLrzTpOjFlvnq4iwZFSioDo2c4g2s
+         YwZw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=A3r2KM1U5npDvFVZxZTNcLxjpBA75n/lIxXbDb5XcGM=;
-        b=n7mWHG66RWVyn5nZoZC1Aqe/s3BHCbtexDlh49hVFe9zKDFDepFnnbdVz9YCxa68Qc
-         OgGI3Dr6vhIyB01o748uaJpa/yegIClDoHZTsOJI+mossjU01s6R3iKKaYS+fm5XNPGU
-         xvUsSmimvermxKDR7YkZZZM8iySerq3CIDpvpkR5ZGtGgFBWayXhqzfQMppVqL8XuZuK
-         8soTyVI+vEmO3RhDCcKzgM3Iy5hwbdUZTFY0r8P+31vcrrU870eDsZkqTfAO+5gSfncc
-         wBaOIFTLQ1qwK4RVaKhjNDKRfjQbOTAHGsZKLB42bWrBgfWbvjx8mlt2F0xG9UW3o/0W
-         aTSw==
+        h=content-transfer-encoding:message-id:mime-version:in-reply-to
+         :references:cc:to:subject:from:date:dkim-signature;
+        bh=HNevKIrxlPVGEQdCRLTX5YK2dWZlzRumxTolSmIBotY=;
+        b=uWJ2kWJlXOcfNMNRBbT0yFVByZEycX8OioESiB8IgD3hRxZ/hOe+Nv0wQq48lqsGKl
+         5B1r5wthkxChTMnBa3oM26o+aI4nf+ROXVn1hMsu4lyTd4VVqlaYrz0275/9tmA6Y+EQ
+         fPAtVbXjwDX1wQ8nhjutgm488rB/K/pu630BR0eOpu6wF4hDOd0rEBAAQCa6SbTWzu0N
+         twEvCuhsilGThPZOeR4Y2CsQ3HTa6qWm4JpJ3dFH9LHA6qNrvtdIao3es5KDCpdPxjAR
+         z9ERBrdlEk4zlGVx9GAhO4MsM2453wxw1aJqcqZ2IJOjmYz2xwTIfQH2Whe8pM0YiVp6
+         0Sbg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@oracle.com header.s=corp-2020-01-29 header.b=dow6+rpm;
-       spf=pass (google.com: domain of dan.carpenter@oracle.com designates 205.220.177.32 as permitted sender) smtp.mailfrom=dan.carpenter@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
-Received: from mx0b-00069f02.pphosted.com (mx0b-00069f02.pphosted.com. [205.220.177.32])
-        by gmr-mx.google.com with ESMTPS id u128si178537oif.2.2021.06.22.01.46.25
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=mVukyLLV;
+       spf=pass (google.com: domain of npiggin@gmail.com designates 2607:f8b0:4864:20::1029 as permitted sender) smtp.mailfrom=npiggin@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pj1-x1029.google.com (mail-pj1-x1029.google.com. [2607:f8b0:4864:20::1029])
+        by gmr-mx.google.com with ESMTPS id x199si114966ybe.5.2021.06.22.01.57.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 22 Jun 2021 01:46:25 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dan.carpenter@oracle.com designates 205.220.177.32 as permitted sender) client-ip=205.220.177.32;
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 15M8gDjK013957;
-	Tue, 22 Jun 2021 08:46:22 GMT
-Received: from oracle.com (aserp3020.oracle.com [141.146.126.70])
-	by mx0b-00069f02.pphosted.com with ESMTP id 39acyqbc2r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 22 Jun 2021 08:46:22 +0000
-Received: from aserp3020.oracle.com (aserp3020.oracle.com [127.0.0.1])
-	by pps.podrdrct (8.16.0.36/8.16.0.36) with SMTP id 15M8kMAu181288;
-	Tue, 22 Jun 2021 08:46:22 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by aserp3020.oracle.com with ESMTP id 3998d729nw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 22 Jun 2021 08:46:22 +0000
-Received: from aserp3020.oracle.com (aserp3020.oracle.com [127.0.0.1])
-	by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 15M8kLWw181263;
-	Tue, 22 Jun 2021 08:46:21 GMT
-Received: from aserv0122.oracle.com (aserv0122.oracle.com [141.146.126.236])
-	by aserp3020.oracle.com with ESMTP id 3998d729nk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 22 Jun 2021 08:46:21 +0000
-Received: from abhmp0008.oracle.com (abhmp0008.oracle.com [141.146.116.14])
-	by aserv0122.oracle.com (8.14.4/8.14.4) with ESMTP id 15M8kK1I009864;
-	Tue, 22 Jun 2021 08:46:20 GMT
-Received: from kadam (/102.222.70.252)
-	by default (Oracle Beehive Gateway v4.0)
-	with ESMTP ; Tue, 22 Jun 2021 01:46:19 -0700
-Date: Tue, 22 Jun 2021 11:46:11 +0300
-From: Dan Carpenter <dan.carpenter@oracle.com>
-To: Coiby Xu <coiby.xu@gmail.com>
-Cc: linux-staging@lists.linux.dev, netdev@vger.kernel.org,
-        Benjamin Poirier <benjamin.poirier@gmail.com>,
-        Shung-Hsi Yu <shung-hsi.yu@suse.com>,
-        Manish Chopra <manishc@marvell.com>,
-        "supporter:QLOGIC QLGE 10Gb ETHERNET DRIVER" <GR-Linux-NIC-Dev@marvell.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        open list <linux-kernel@vger.kernel.org>,
-        "open list:CLANG/LLVM BUILD SUPPORT" <clang-built-linux@googlegroups.com>
-Subject: Re: [RFC 17/19] staging: qlge: fix weird line wrapping
-Message-ID: <20210622084611.GM1861@kadam>
-References: <20210621134902.83587-1-coiby.xu@gmail.com>
- <20210621134902.83587-18-coiby.xu@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 22 Jun 2021 01:57:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of npiggin@gmail.com designates 2607:f8b0:4864:20::1029 as permitted sender) client-ip=2607:f8b0:4864:20::1029;
+Received: by mail-pj1-x1029.google.com with SMTP id k5so11701551pjj.1
+        for <clang-built-linux@googlegroups.com>; Tue, 22 Jun 2021 01:57:46 -0700 (PDT)
+X-Received: by 2002:a17:90b:2282:: with SMTP id kx2mr2673071pjb.60.1624352265702;
+        Tue, 22 Jun 2021 01:57:45 -0700 (PDT)
+Received: from localhost (60-242-147-73.tpgi.com.au. [60.242.147.73])
+        by smtp.gmail.com with ESMTPSA id n5sm15609389pgf.35.2021.06.22.01.57.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Jun 2021 01:57:45 -0700 (PDT)
+Date: Tue, 22 Jun 2021 18:57:39 +1000
+From: Nicholas Piggin <npiggin@gmail.com>
+Subject: Re: [PATCH] KVM: PPC: Book3S HV: Workaround high stack usage with
+ clang
+To: Michael Ellerman <mpe@ellerman.id.au>, Nathan Chancellor
+	<nathan@kernel.org>, Paul Mackerras <paulus@ozlabs.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Benjamin Herrenschmidt
+	<benh@kernel.crashing.org>, clang-built-linux@googlegroups.com,
+	kvm-ppc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, kernel test robot <lkp@intel.com>,
+	Nick Desaulniers <ndesaulniers@google.com>
+References: <YNDUEoanTqvayZ5P@archlinux-ax161>
+	<20210621182440.990242-1-nathan@kernel.org>
+In-Reply-To: <20210621182440.990242-1-nathan@kernel.org>
 MIME-Version: 1.0
+Message-Id: <1624352117.tss3fnkwt4.astroid@bobo.none>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210621134902.83587-18-coiby.xu@gmail.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Proofpoint-GUID: rWfi0exMPgDUX5UtGmlftWnwzClz0ePZ
-X-Proofpoint-ORIG-GUID: rWfi0exMPgDUX5UtGmlftWnwzClz0ePZ
-X-Original-Sender: dan.carpenter@oracle.com
+X-Original-Sender: npiggin@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@oracle.com header.s=corp-2020-01-29 header.b=dow6+rpm;
-       spf=pass (google.com: domain of dan.carpenter@oracle.com designates
- 205.220.177.32 as permitted sender) smtp.mailfrom=dan.carpenter@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
+ header.i=@gmail.com header.s=20161025 header.b=mVukyLLV;       spf=pass
+ (google.com: domain of npiggin@gmail.com designates 2607:f8b0:4864:20::1029
+ as permitted sender) smtp.mailfrom=npiggin@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -165,101 +152,70 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jun 21, 2021 at 09:49:00PM +0800, Coiby Xu wrote:
-> @@ -524,8 +523,8 @@ static int qlge_set_routing_reg(struct qlge_adapter *qdev, u32 index, u32 mask,
->  		{
->  			value = RT_IDX_DST_DFLT_Q | /* dest */
->  				RT_IDX_TYPE_NICQ | /* type */
-> -				(RT_IDX_IP_CSUM_ERR_SLOT <<
-> -				RT_IDX_IDX_SHIFT); /* index */
-> +			(RT_IDX_IP_CSUM_ERR_SLOT
-> +			 << RT_IDX_IDX_SHIFT); /* index */
+Excerpts from Nathan Chancellor's message of June 22, 2021 4:24 am:
+> LLVM does not emit optimal byteswap assembly, which results in high
+> stack usage in kvmhv_enter_nested_guest() due to the inlining of
+> byteswap_pt_regs(). With LLVM 12.0.0:
+> 
+> arch/powerpc/kvm/book3s_hv_nested.c:289:6: error: stack frame size of
+> 2512 bytes in function 'kvmhv_enter_nested_guest' [-Werror,-Wframe-larger-than=]
+> long kvmhv_enter_nested_guest(struct kvm_vcpu *vcpu)
+>      ^
+> 1 error generated.
+> 
+> While this gets fixed in LLVM, mark byteswap_pt_regs() as
+> noinline_for_stack so that it does not get inlined and break the build
+> due to -Werror by default in arch/powerpc/. Not inlining saves
+> approximately 800 bytes with LLVM 12.0.0:
+> 
+> arch/powerpc/kvm/book3s_hv_nested.c:290:6: warning: stack frame size of
+> 1728 bytes in function 'kvmhv_enter_nested_guest' [-Wframe-larger-than=]
+> long kvmhv_enter_nested_guest(struct kvm_vcpu *vcpu)
+>      ^
+> 1 warning generated.
+> 
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1292
+> Link: https://bugs.llvm.org/show_bug.cgi?id=49610
+> Link: https://lore.kernel.org/r/202104031853.vDT0Qjqj-lkp@intel.com/
+> Link: https://gist.github.com/ba710e3703bf45043a31e2806c843ffd
+> Reported-by: kernel test robot <lkp@intel.com>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
-The original is not great but the new indenting is definitely worse.
-It might look nicer with the comments moved in the front?  Why does
-RT_IDX_IDX_SHIFT have two IDX strings?
+Seems okay to me. If it was something where performance might be 
+signficiant I guess you could ifdef on CC_IS_CLANG, but for this
+it shouldn't matter.
 
-			/* value = dest | type | index; */
-			value = RT_IDX_DST_DFLT_Q |
-				RT_IDX_TYPE_NICQ  |
-				(RT_IDX_IP_CSUM_ERR_SLOT << RT_IDX_IDX_SHIFT);
+Acked-by: Nicholas Piggin <npiggin@gmail.com>
 
+Thanks,
+Nick
 
->  			break;
->  		}
->  	case RT_IDX_TU_CSUM_ERR: /* Pass up TCP/UDP CSUM error frames. */
-> @@ -554,7 +553,8 @@ static int qlge_set_routing_reg(struct qlge_adapter *qdev, u32 index, u32 mask,
->  		{
->  			value = RT_IDX_DST_DFLT_Q |	/* dest */
->  			    RT_IDX_TYPE_NICQ |	/* type */
-> -			    (RT_IDX_MCAST_MATCH_SLOT << RT_IDX_IDX_SHIFT);/* index */
-> +			(RT_IDX_MCAST_MATCH_SLOT
-> +			 << RT_IDX_IDX_SHIFT); /* index */
-
-Original is better.
-
->  			break;
->  		}
->  	case RT_IDX_RSS_MATCH:	/* Pass up matched RSS frames. */
-> @@ -648,15 +648,15 @@ static int qlge_read_flash_word(struct qlge_adapter *qdev, int offset, __le32 *d
+> ---
+>  arch/powerpc/kvm/book3s_hv_nested.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/powerpc/kvm/book3s_hv_nested.c b/arch/powerpc/kvm/book3s_hv_nested.c
+> index 60724f674421..1b3ff0af1264 100644
+> --- a/arch/powerpc/kvm/book3s_hv_nested.c
+> +++ b/arch/powerpc/kvm/book3s_hv_nested.c
+> @@ -53,7 +53,8 @@ void kvmhv_save_hv_regs(struct kvm_vcpu *vcpu, struct hv_guest_state *hr)
+>  	hr->dawrx1 = vcpu->arch.dawrx1;
+>  }
+>  
+> -static void byteswap_pt_regs(struct pt_regs *regs)
+> +/* Use noinline_for_stack due to https://bugs.llvm.org/show_bug.cgi?id=49610 */
+> +static noinline_for_stack void byteswap_pt_regs(struct pt_regs *regs)
 >  {
->  	int status = 0;
->  	/* wait for reg to come ready */
-> -	status = qlge_wait_reg_rdy(qdev,
-> -				   FLASH_ADDR, FLASH_ADDR_RDY, FLASH_ADDR_ERR);
-> +	status = qlge_wait_reg_rdy(qdev, FLASH_ADDR, FLASH_ADDR_RDY,
-> +				   FLASH_ADDR_ERR);
->  	if (status)
->  		goto exit;
->  	/* set up for reg read */
->  	qlge_write32(qdev, FLASH_ADDR, FLASH_ADDR_R | offset);
->  	/* wait for reg to come ready */
-> -	status = qlge_wait_reg_rdy(qdev,
-> -				   FLASH_ADDR, FLASH_ADDR_RDY, FLASH_ADDR_ERR);
-> +	status = qlge_wait_reg_rdy(qdev, FLASH_ADDR, FLASH_ADDR_RDY,
-> +				   FLASH_ADDR_ERR);
->  	if (status)
->  		goto exit;
->  	/* This data is stored on flash as an array of
-> @@ -792,8 +792,8 @@ static int qlge_write_xgmac_reg(struct qlge_adapter *qdev, u32 reg, u32 data)
->  {
->  	int status;
->  	/* wait for reg to come ready */
-> -	status = qlge_wait_reg_rdy(qdev,
-> -				   XGMAC_ADDR, XGMAC_ADDR_RDY, XGMAC_ADDR_XME);
-> +	status = qlge_wait_reg_rdy(qdev, XGMAC_ADDR, XGMAC_ADDR_RDY,
-> +				   XGMAC_ADDR_XME);
->  	if (status)
->  		return status;
->  	/* write the data to the data reg */
-> @@ -811,15 +811,15 @@ int qlge_read_xgmac_reg(struct qlge_adapter *qdev, u32 reg, u32 *data)
->  {
->  	int status = 0;
->  	/* wait for reg to come ready */
-> -	status = qlge_wait_reg_rdy(qdev,
-> -				   XGMAC_ADDR, XGMAC_ADDR_RDY, XGMAC_ADDR_XME);
-> +	status = qlge_wait_reg_rdy(qdev, XGMAC_ADDR, XGMAC_ADDR_RDY,
-> +				   XGMAC_ADDR_XME);
-
-Need a blank line after the declaration block.
-
->  	if (status)
->  		goto exit;
->  	/* set up for reg read */
->  	qlge_write32(qdev, XGMAC_ADDR, reg | XGMAC_ADDR_R);
->  	/* wait for reg to come ready */
-> -	status = qlge_wait_reg_rdy(qdev,
-> -				   XGMAC_ADDR, XGMAC_ADDR_RDY, XGMAC_ADDR_XME);
-> +	status = qlge_wait_reg_rdy(qdev, XGMAC_ADDR, XGMAC_ADDR_RDY,
-> +				   XGMAC_ADDR_XME);
->  	if (status)
->  		goto exit;
->  	/* get the data */
-
-regards,
-dan carpenter
+>  	unsigned long *addr = (unsigned long *) regs;
+>  
+> 
+> base-commit: 4a21192e2796c3338c4b0083b494a84a61311aaf
+> -- 
+> 2.32.0.93.g670b81a890
+> 
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210622084611.GM1861%40kadam.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1624352117.tss3fnkwt4.astroid%40bobo.none.
