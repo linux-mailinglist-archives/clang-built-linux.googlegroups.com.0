@@ -1,155 +1,185 @@
-Return-Path: <clang-built-linux+bncBDDL3KWR4EBRBQ64Y2DAMGQEPUFOLYA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCYL7PHBVABBB6O4Y2DAMGQE2CP6HOA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 85EA63B004E
-	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Jun 2021 11:32:52 +0200 (CEST)
-Received: by mail-qv1-xf37.google.com with SMTP id a2-20020ad441c20000b0290251bb08ce61sf73109qvq.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 22 Jun 2021 02:32:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624354371; cv=pass;
+Received: from mail-vs1-xe3a.google.com (mail-vs1-xe3a.google.com [IPv6:2607:f8b0:4864:20::e3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id A9C533B0052
+	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Jun 2021 11:33:46 +0200 (CEST)
+Received: by mail-vs1-xe3a.google.com with SMTP id u12-20020a67f94c0000b0290278a507ec3asf105138vsq.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 22 Jun 2021 02:33:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624354425; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DjTSX+BfVJWa+BRQpRZCy9mk+Z5rs6YE8agclAp66eJzsspOhV9XzoJXqgQer5JJix
-         dhQRpfMhjMcSojV0daP9aGwLDEtj01iscFk9polKr2fFb4DxV0DM6JjGeiDb8nqn6ohc
-         hVXyNf9keS3qM8ZgSOsensO5NEa6ZJlv5EEw1+DYOBhHGIPZ22gCHvseMWapMi0cxsff
-         V6xGsc5rtH+OkWxQa1qmweMLNG1aW/ipNXbLcDUBb0caJ0YtY3yYKNtrCB1ZVhtFZGsq
-         kUS9svZlGjtOWQk+xUiFSCIlgju8VRM5chE0++dxcoRhvaVIxVb8IC5dBycDKoSPS5Mq
-         8s8g==
+        b=k2K7bX5GomUvhwnBTHPMZsp5j6Dqz8ABuYIWeJsY1InAmHQD7S2b1CjlK7LD0HIa37
+         ZnLYCLTF9f1Ffan9MwJauB0xHbXjoKytGBCv7cBLLkMYaFtJ+Ji1HH/LuqBAWuoycAOX
+         BW63DLku98hL4GTecfrsZekR/CiGTovvtEOrmCVG4yefyulWxuYiBVHs5U2+MK/f9/Hv
+         5X9vaelRfs0DfimKj4JsSSIiwlex9CrdMcS6J2ApZjFzVxs8btmi0RRNQz1dtIbynLPg
+         ikSnTWjgT5+3bQF3WktlkWjOTpabwYE3gPCmcLBBKMYCyP6jBUHPNjJrkfiomgHmIiXv
+         5tkQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=46gMzc02FrpFS3M2iUnabtD9DH5e26EANlE64DEOgTs=;
-        b=fEsD4LI3wgEIlSIoo6p6OICR3V2dvIQbKt3bTsqBlhtzKX873Gbtju36xPgPLsBQ6T
-         3wETfYOQNpEw+ndaaMIXGtAM8hoOQIX7wAJ5i8FBaQUcLpm1GXuM6+mFCR8r0AT5tHQB
-         p98eK6e5Rj3qO0l7pQScxWWXjaDv10iAmUZSiPHiN7XflV11XC+uwBQuZKC90jQDWTIY
-         93y7hTEivcGHIzJMqMi2vycO2EsVUGzfbu0Hb1Kfccwcj/eo3mdkE/GS9rZpiZbkzH9P
-         8rmtnxAItyD9Nx4+ZsSTpg7um+FefmeqSJgLjykCYBAYWzYXPI5thSwQwjPSmnQO+uQm
-         84tw==
+         :list-id:mailing-list:precedence:mime-version:in-reply-to
+         :content-disposition:references:message-id:subject:cc:to:from:date
+         :sender:dkim-signature;
+        bh=CyGzvuZ4p7F/kZFQV69OJf5G2ozI5c7NgJ3zOif9fXg=;
+        b=BvkUyIFUS+u6zNQlllTjr1NK8ruwsakXOWaR4baJXAOcYRIZUDzvfssJHHN+JVXDHQ
+         KOtCCm2fZFyfWNG9g+2UfwhyNgC7v9BGdBzoRk5RQFpCLGmX7d4eDInY71FaZcVbLWM7
+         ter7wmX2ZjfqycKQXmX2rSD7SbfhFa/JkaeuEgXd+IwO0ZukOyy+zdAK6naK4zhQwm3o
+         3L84PyIDe8EyAov6lLNemOzhPZ4toN3GEa01dEVJKMQmlTNvlydJPSnhGrIa246NVVsA
+         uMLtQz+EpXX28U+SFc4zwM5TmstpnrbOVmVULIdZG3vX4zMn97omFokSBMkeBe5hdeLH
+         7/iw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of cmarinas@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=cmarinas@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=arm.com
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=B3rySooA;
+       spf=pass (google.com: domain of hca@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=hca@linux.ibm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references
+         :content-disposition:in-reply-to:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=46gMzc02FrpFS3M2iUnabtD9DH5e26EANlE64DEOgTs=;
-        b=PI/lhZ/U7ZnH++HPfcHN2vA3T6iLJWa1zVw3NOHLuGUQT5AGV1nmhDq+kDt+uRG9Ux
-         HlEVQGjBvsB3XRVPKjtcTlJUyiQ5YUwVFWs9T6cRwHyFYSpe2D0JDZESxZDpfc9Y+h9V
-         ec/KI/t4y7FFIpEhExokogpr88PAkCHmoElBE6D1986X9lucDqvYi2Fb66KgJhQZuuZ0
-         kycA5v2ny6TnZw0g3xMFfljijIBXhHCcMApvXr2OonBPyaaV72TF6xvWQDxxhDoHoiKD
-         XZQQnQ2lsPUQFDzewRGWjQcWB8zfpoFEhidgAHz78K/NcKyQEByx96x91rxEqBG7UN8q
-         KK5A==
+        bh=CyGzvuZ4p7F/kZFQV69OJf5G2ozI5c7NgJ3zOif9fXg=;
+        b=TaukG5pMdKlIkWV5HTt/MHVsOq6JwR+0kY63gYS9TVOxnffY7ltlAYCY88yHHSUIZw
+         GEn/q5PGgUgLbKWKnUKgaUFmFeZOHuKenNXnm7ezbRyP0hoYBrlQ40YRol6x6UNRtn3n
+         SHoYeCkApyyMcsybtyEQXTF4K7sMwUIxT1KxL4TgwvTlymf6PZ5UgFB3sSjYB7LXwWCX
+         heu0VxU51kqkkY97uLhB9d30hvKoBPrZXVzy5Dc6LulXrFZrK5A5ECgWTd3szD7t80lG
+         IubgWjvIN+ksctW4DaubQyqE+vYqUoPbZoubj74zPTDlc0Z9eIq94wyfzBrlV4pA+Vyy
+         p/Dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :references:content-disposition:in-reply-to:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=46gMzc02FrpFS3M2iUnabtD9DH5e26EANlE64DEOgTs=;
-        b=sJwfYTU3b2wuNlMGYhB7CH44MlRpcnKwzGi7+mLyFbhxzniQReEocRWR+ctWqdSiVo
-         aOIhC2ImhALN4FH0Tu8/iaG43Rc7BRRGevNaC9ra2jQZ4nid45qjxJItOTbLA94U7EE4
-         ZcIC+bGWBGz4vLOhWP4BQSP75mzpg6CoDmZEBeK2gx8+AfPdJci5ongilOLXWWfLj6ML
-         tMwRuDeqSxURN56/kADQ7ZdIm2HfI5FJSO+jjEw7vrVZ8cxGGOlNrBbEcYW3DHnmPQrm
-         HJRrv3SBeOhr/wZ2ctY6WVK5xZzqWHE3al2/QadB69cc9Fmr+Os6MHSiehHbBrwZ2MN+
-         1YJQ==
+        bh=CyGzvuZ4p7F/kZFQV69OJf5G2ozI5c7NgJ3zOif9fXg=;
+        b=LpVs0Gs88BFsedkMM5yhWcX/LVXq2AoV0gOPFjo8H0Sqb/bmqXCTCVsOBWSajRo4v7
+         ZK7W8hkV67e+jDPggTkTraBZoj4oEsy57VVP5G41rd0X3C/KnC3z3yMOrUM6SLaWaY82
+         eFxfAdAH5X4EqOurTt5n0cUo/0VimsxRL8FrBzlzEvPG2o5k1oFyqCFgMKaAXP5buByK
+         P0X6SY+an4fpXgvb0BQA3+XOlqY6259n+ueZP2uSd7PRpc5GTILswirOTCRCkUIGG0IX
+         3V6oKPeQiJb8w8vu4UvUaBDakCC9k6C6wZQG8WgT82xssSlMbhLmyCV4dflOcspE0toT
+         4mqw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532RRkDYJ2FhjmYJk9pEOIFf/AldsGBKniOhj0LWBC69g0I4QSXq
-	9Bf228p6nJTVvSSR6ojoBFM=
-X-Google-Smtp-Source: ABdhPJx1w4QbrBqRoOZPrEalASIs+xPLMwzyFQyMQ/cIRNVFlq41jWv0mdzE0JUBMYCgtj1BTWo0oQ==
-X-Received: by 2002:a0c:e18c:: with SMTP id p12mr15822311qvl.54.1624354371598;
-        Tue, 22 Jun 2021 02:32:51 -0700 (PDT)
+X-Gm-Message-State: AOAM533kYF+58LOlod9z9ZX+76ri0IEKX0O3G/3NoSVHtV4U+2tKM66Q
+	HY1GEHsISti9HsO9Uhoczqc=
+X-Google-Smtp-Source: ABdhPJynh5kqXgRslFDFXsXUuAPU0M302xZbknOVP2NkiFSmvlfjFO6xVOHqL86Dwfq1GJ6NUJYolQ==
+X-Received: by 2002:a67:cfc4:: with SMTP id h4mr16912107vsm.34.1624354425804;
+        Tue, 22 Jun 2021 02:33:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:622a:1015:: with SMTP id d21ls10314606qte.4.gmail; Tue,
- 22 Jun 2021 02:32:51 -0700 (PDT)
-X-Received: by 2002:ac8:7f91:: with SMTP id z17mr2571909qtj.167.1624354371150;
-        Tue, 22 Jun 2021 02:32:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624354371; cv=none;
+Received: by 2002:a1f:3fc1:: with SMTP id m184ls135620vka.10.gmail; Tue, 22
+ Jun 2021 02:33:45 -0700 (PDT)
+X-Received: by 2002:a05:6122:a1e:: with SMTP id 30mr17383696vkn.3.1624354425260;
+        Tue, 22 Jun 2021 02:33:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624354425; cv=none;
         d=google.com; s=arc-20160816;
-        b=kDZj8w0C0LQoIbamRVMBxe4N8BgXoFWSOwfWpvdEz0bgTcvZOZuOc0JWflWm/rRyJq
-         OQQexhCzO/6IoOWd7Mti2LMV93wneRv9mhYAzOc8Gvw0elExwoSFvUZSSyAwETbPJK30
-         BcWtmZxbnxBriM/Dst1TsE4lAeFmDZgfh3jNizojE4Nr2kKm+X/rZbwHTdX66RzFqRLJ
-         6zKIS4EzH38QPkCtSAdGKY5Ph3V6Ivb2XbDAttgUvsZfCF21t/XffVfS+77OYj+Gey9g
-         T1r1OYOHEHDx/+s9uWFjEOLLtowXqL3dSO9vFNuukGtuKIHbUHDXjx2Lw/PTaOC1aQCC
-         AGqQ==
+        b=P0DoAHIHSkK+ykBPCCEqSo+8t77+Qw5EwJN9BBOVmn4okUEwDBphbsHgyrb2IqVE8o
+         xeYrjBFSv7HmXtKdHf0+J39IaLOCemhDVA0iQB24/3H9FaOvAXgQZLU8GI35+RTBqQFt
+         LTzVMOjOi4A0kS2rzyFAGdurVpJOJONgTIGIgNqr9MW2NXcOR1qLzlHeYxwcSg8LSWqt
+         upqOfQP7kWgytB2zSfwYHbAE75iBwNqlEhP9FCUMrKgndeE1kjfbkVvtDkorTiNSX40o
+         Kv5AAq5TumwTO4T55KBv4WZ2UD/lR580NNEevRqcPAavmmCPv5ucS/6OeekZctoFwctj
+         rdVw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=ZpoXkhKRnAYZAqhn6wPN/jQ1FT+SphuLu/H3fWLwrVg=;
-        b=xGooryrN5A8wcPh0kDUlMmU6YT86RRvthV1ef5KmxnvE6KOotH4KvHaG/1F9uTq66L
-         W5Z/UkPL1UlRRn6J29koJHSwiSVkjFInUGw78mz8WmhoX5GFP6+zRCdrVtAB/yt995x6
-         //Pm3M/PLKwYSo/tTZwxWBGgC+UgYSSZCQVCiNcWKMdVUv8eaB/9iJzVFtOXP6pB96qA
-         GYwtE5An5G5ZxQx6Fmgwfpp3RVApMM4X+3S/DERtKP3T6gi77uBqZcnkmbyWJ52omf12
-         z7q+Pj3JIZuI9+wqLas/4Je8vItLGHIth7FuHf903J7JmtTf5sGfPDJTLFNN07IOM2GG
-         2DmQ==
+        h=mime-version:in-reply-to:content-disposition:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=q/kOB4NKVpOx4buNmAVOSPQSRCs7ghgBdjl2ofeD1UY=;
+        b=Q3jm+fcCfTVd9SpojZeNEnjuTJ9HddpKl9co8fYTTvNINBw4HQMS//WrQwKYSSnNVx
+         Gjk0pv0A6YxLfO4/xbSu3zshrIsM4qJY4F4o0l7WA5P8Px1KcEt+fltzxSA6HfzjiFJi
+         W3EmlA+a+Au1rEFdEQOQI2JoNRvtgSAsfI50AtA13MhWYYdDffFkrR6fr2nh9/oAcaFN
+         e3ob118BguudKBNlALih5cPngPzt7xjFYNary+ceR9k1TdxoV2wD43fmCJyGhMte+trF
+         Y2L3ez01+uFfRavd7fqCupl/XCGAI51GlBSpxO29+PyRVdVtnKSgtwCE/LcDtKgBxaH6
+         nctA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of cmarinas@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=cmarinas@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=arm.com
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x10si54533qkn.7.2021.06.22.02.32.51
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=B3rySooA;
+       spf=pass (google.com: domain of hca@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=hca@linux.ibm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com. [148.163.156.1])
+        by gmr-mx.google.com with ESMTPS id ba24si90808vkb.1.2021.06.22.02.33.44
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 22 Jun 2021 02:32:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of cmarinas@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 1058A61352;
-	Tue, 22 Jun 2021 09:32:44 +0000 (UTC)
-Date: Tue, 22 Jun 2021 10:32:42 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@de.ibm.com>,
-	Peter Oberparleiter <oberpar@linux.ibm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Bill Wendling <wcw@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	Borislav Petkov <bp@alien8.de>, Martin Liska <mliska@suse.cz>,
-	Jonathan Corbet <corbet@lwn.net>, Fangrui Song <maskray@google.com>,
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Johannes Berg <johannes.berg@intel.com>,
-	linux-toolchains@vger.kernel.org, Marco Elver <elver@google.com>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	linux-s390 <linux-s390@vger.kernel.org>
-Subject: Re: [PATCH 2/2] Kconfig: CC_HAS_NO_PROFILE_FN_ATTR, depend on for
- GCOV and PGO
-Message-ID: <20210622093241.GC3555@arm.com>
-References: <20210618233023.1360185-1-ndesaulniers@google.com>
- <20210618233023.1360185-3-ndesaulniers@google.com>
- <CANpmjNNK-iYXucjz7Degh1kJPF_Z_=8+2vNLtUW17x0UnfgtPg@mail.gmail.com>
- <CAKwvOdmxGt6nAj+dDZEPdQtXNbYb8N6y3XwoCvCD+Qazskh7zw@mail.gmail.com>
- <CAGG=3QXeAxaf0AhKsg8P1-j2uHOoXne2KCOCEhq9SKa-e2dnag@mail.gmail.com>
- <CAKwvOd=9oAGPeuQmWnAMOxZn2ii_CRmyWnheoyXGcd09-U_CwA@mail.gmail.com>
- <20210622092533.GB3555@arm.com>
- <20210622092937.GB67232@C02TD0UTHF1T.local>
-MIME-Version: 1.0
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 22 Jun 2021 02:33:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of hca@linux.ibm.com designates 148.163.156.1 as permitted sender) client-ip=148.163.156.1;
+Received: from pps.filterd (m0098394.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 15M9SEc9129533;
+	Tue, 22 Jun 2021 05:33:33 -0400
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com with ESMTP id 39bct1h0hh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 22 Jun 2021 05:33:33 -0400
+Received: from m0098394.ppops.net (m0098394.ppops.net [127.0.0.1])
+	by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 15M9T655134078;
+	Tue, 22 Jun 2021 05:33:32 -0400
+Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com [169.51.49.98])
+	by mx0a-001b2d01.pphosted.com with ESMTP id 39bct1h0gj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 22 Jun 2021 05:33:32 -0400
+Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
+	by ppma03ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 15M9RbTB000559;
+	Tue, 22 Jun 2021 09:33:30 GMT
+Received: from b06avi18878370.portsmouth.uk.ibm.com (b06avi18878370.portsmouth.uk.ibm.com [9.149.26.194])
+	by ppma03ams.nl.ibm.com with ESMTP id 3998789bf3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 22 Jun 2021 09:33:30 +0000
+Received: from d06av26.portsmouth.uk.ibm.com (d06av26.portsmouth.uk.ibm.com [9.149.105.62])
+	by b06avi18878370.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 15M9W7Bn34603406
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 22 Jun 2021 09:32:07 GMT
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 32B1CAE051;
+	Tue, 22 Jun 2021 09:33:27 +0000 (GMT)
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0CAC4AE04D;
+	Tue, 22 Jun 2021 09:33:26 +0000 (GMT)
+Received: from osiris (unknown [9.145.20.128])
+	by d06av26.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+	Tue, 22 Jun 2021 09:33:25 +0000 (GMT)
+Date: Tue, 22 Jun 2021 11:33:24 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Kees Cook <keescook@chromium.org>, Peter Zijlstra <peterz@infradead.org>,
+        Bill Wendling <wcw@google.com>,
+        Sami Tolvanen <samitolvanen@google.com>,
+        Peter Oberparleiter <oberpar@linux.ibm.com>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
+        Ard Biesheuvel <ardb@kernel.org>, Will Deacon <will@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+        x86@kernel.org, Borislav Petkov <bp@alien8.de>,
+        Martin Liska <mliska@suse.cz>, Marco Elver <elver@google.com>,
+        Jonathan Corbet <corbet@lwn.net>, Fangrui Song <maskray@google.com>,
+        linux-doc@vger.kernel.org, linux-kbuild@vger.kernel.org,
+        Dmitry Vyukov <dvyukov@google.com>, johannes.berg@intel.com,
+        linux-toolchains@vger.kernel.org, Vasily Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@de.ibm.com>,
+        linux-s390@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v2 3/3] Kconfig: add
+ ARCH_WANTS_NO_INSTR+CC_HAS_NO_PROFILE_FN_ATTR, depend on for GCOV and PGO
+Message-ID: <YNGuZPl64IwQeF0/@osiris>
+References: <20210621231822.2848305-1-ndesaulniers@google.com>
+ <20210621231822.2848305-4-ndesaulniers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210622092937.GB67232@C02TD0UTHF1T.local>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: catalin.marinas@arm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of cmarinas@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=cmarinas@kernel.org;       dmarc=fail (p=NONE
- sp=NONE dis=NONE) header.from=arm.com
+In-Reply-To: <20210621231822.2848305-4-ndesaulniers@google.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 3zDGCVJf9g2k5E222QjL_kpljCj0uR2S
+X-Proofpoint-ORIG-GUID: wOSKkkZu1vnWUXVoAF3BJoqRyevFgeXb
+X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+MIME-Version: 1.0
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.790
+ definitions=2021-06-22_05:2021-06-21,2021-06-22 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 spamscore=0
+ priorityscore=1501 impostorscore=0 clxscore=1011 phishscore=0
+ suspectscore=0 mlxlogscore=870 mlxscore=0 bulkscore=0 adultscore=0
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2104190000 definitions=main-2106220058
+X-Original-Sender: hca@linux.ibm.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@ibm.com header.s=pp1 header.b=B3rySooA;       spf=pass (google.com:
+ domain of hca@linux.ibm.com designates 148.163.156.1 as permitted sender)
+ smtp.mailfrom=hca@linux.ibm.com;       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -162,38 +192,43 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jun 22, 2021 at 10:29:37AM +0100, Mark Rutland wrote:
-> On Tue, Jun 22, 2021 at 10:25:34AM +0100, Catalin Marinas wrote:
-> > On Mon, Jun 21, 2021 at 01:43:54PM -0700, Nick Desaulniers wrote:
-> > > We need to be able to express via Kconfig "GCOV should not be enabled
-> > > for architectures that use noinstr when the toolchain does not support
-> > > __attribute__((no_profile_instrument_function))."
-> > > 
-> > > Where "architectures that use noinstr" are currently arm64, s390, and
-> > > x86.  So I guess we could do:
-> > > 
-> > > + depends on !ARM64 || !S390 || !X86 || CC_HAS_NO_PROFILE_FN_ATTR
-> > 
-> > I think you want:
-> > 
-> >   depends on !(ARM64 || S390 || X86) || CC_HAS_NO_PROFILE_FN_ATTR
-> > 
-> > > (We could add a Kconfig for ARCH_WANTS_NO_INSTR, which might be more
-> > > informative than listed out architectures which might be non-obvious
-> > > to passers-by).
-> > 
-> > That would probably look better.
+On Mon, Jun 21, 2021 at 04:18:22PM -0700, Nick Desaulniers wrote:
+> We don't want compiler instrumentation to touch noinstr functions, which
+> are annotated with the no_profile_instrument_function function
+> attribute. Add a Kconfig test for this and make PGO and GCOV depend on
+> it.
 > 
-> It does; see:
+> If an architecture is using noinstr, it should denote that via this
+> Kconfig value. That makes Kconfigs that depend on noinstr able to
+> express dependencies in an architecturally agnostic way.
 > 
-> https://lore.kernel.org/r/20210621231822.2848305-1-ndesaulniers@google.com
+> Cc: Masahiro Yamada <masahiroy@kernel.org>
+> Cc: Peter Oberparleiter <oberpar@linux.ibm.com>
+> Link: https://lore.kernel.org/lkml/YMTn9yjuemKFLbws@hirez.programming.kicks-ass.net/
+> Link: https://lore.kernel.org/lkml/YMcssV%2Fn5IBGv4f0@hirez.programming.kicks-ass.net/
+> Suggested-by: Nathan Chancellor <nathan@kernel.org>
+> Suggested-by: Peter Zijlstra <peterz@infradead.org>
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> ---
+> Changes V1 -> V2:
+> * Add ARCH_WANTS_NO_INSTR
+> * Change depdendencies to be !ARCH_WANTS_NO_INSTR || CC_HAS_NO_PROFILE_FN_ATTR
+>   rather than list architectures explicitly, as per Nathan.
+> * s/no_profile/no_profile_instrument_function/
+> 
+>  arch/Kconfig        | 7 +++++++
+>  arch/arm64/Kconfig  | 1 +
+>  arch/s390/Kconfig   | 1 +
+>  arch/x86/Kconfig    | 1 +
+>  init/Kconfig        | 3 +++
+>  kernel/gcov/Kconfig | 1 +
+>  kernel/pgo/Kconfig  | 3 ++-
+>  7 files changed, 16 insertions(+), 1 deletion(-)
 
-I'm getting there, eventually ;).
-
--- 
-Catalin
+For s390:
+Acked-by: Heiko Carstens <hca@linux.ibm.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210622093241.GC3555%40arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YNGuZPl64IwQeF0/%40osiris.
