@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCJZRXGY5YJBBW46Z6DAMGQEOFYTBKA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCJZRXGY5YJBBEE7Z6DAMGQER4H66GA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x937.google.com (mail-ua1-x937.google.com [IPv6:2607:f8b0:4864:20::937])
-	by mail.lfdr.de (Postfix) with ESMTPS id D6C173B2436
-	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Jun 2021 02:18:36 +0200 (CEST)
-Received: by mail-ua1-x937.google.com with SMTP id e12-20020ab0356c0000b029027874ede313sf1518368uaa.17
-        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Jun 2021 17:18:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624493915; cv=pass;
+Received: from mail-qt1-x83b.google.com (mail-qt1-x83b.google.com [IPv6:2607:f8b0:4864:20::83b])
+	by mail.lfdr.de (Postfix) with ESMTPS id D02DA3B243A
+	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Jun 2021 02:19:29 +0200 (CEST)
+Received: by mail-qt1-x83b.google.com with SMTP id r17-20020ac842510000b02902456ec03025sf4478256qtm.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Jun 2021 17:19:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624493968; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Anxl2as02j+LqXSfVcMVAoa6xLg0zVaTP9+nda+RPjpUO7KV+lGx3ha21vTCTdCveL
-         Au830bYqt6EnrkMt4XhduAkdgvmQRj0GfSfOQq3wu/I6+oQFl1KNt703kuEWjeq/FK/R
-         Va3WwObMFpfHHAMr7ZHA3y1OQqGXWql9ILz20Vm6zKjy8JoHAlyX7XGtaj02fSe4vZIk
-         /J1PHxNk4FWVE8xsKxd4V72jgHt1+BSBJWc2+VZ2tJGTMI1R7NKkrcVqIpqt4X1S20C6
-         z4krMiFVeLH00/wEjFVI7P+IfC/eo55rjh8k4Cpj5BgKAVUG/5rMbcNABTBUBNFtxT0C
-         1liA==
+        b=xW8fMLQRKSFy+4adv0tOq0n/vb/s+7O0CWlu5Ai6Wn2iWbHfes44PHeQ1C3S0HxYCD
+         MHyP8PK4ZNaWnBNXSL9BDUWgVt+BMMQ+ZwgpuaA5GzI6flfqudbY/SojcqLPjwhHrUDr
+         OGIeBeJ6YwKy8/E1D93PKGlgRBsZqCgc0yYfz9dPjSgRLt/lYyFWhE2kMVe2tbOroXEf
+         EET2bhylteIvEOuj4yCt4x2OEuOzUE8NcYyLJxdPyXaMHlydHdIybXDTuX6PIbl5kML/
+         yNbu6bmxuM4n5+Uo5Qj78tEFOFrinyK4+1NoeXaSs/6R6xE8opaTDYVARJcbHU6pCHTv
+         DTcQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:reply-to:message-id:subject:cc:to:from:date
          :sender:dkim-signature;
-        bh=COwOcwxt5qmGspyWUpMyWRb+7aW5+dZyVmlZMV1m/h8=;
-        b=tczXlFX/2l6odYgslO/9unF/aRU6y1qt3K2qMB41AzDxe/AHWzIRH1GQU563Ihkf0a
-         /Ue+JB+iWF4cmrYivogsSpDluYohmCu6MqDFX1Bm7qzxtmMdHnp3uWZf/n2kIC6aObdW
-         ceYQO5LuTvsrIokrqg+O6RkKZY1MRw2qIj9JRf0D0SXWG03cr0AHHkw4TC4I+RJIqZPv
-         K1Q1tZ7wCWUSyWlpxU3Psgfaa1iYUTHR8+gWSYnBp7/iBCjsxmiQ8yGPhIFHU2+t2AWv
-         uR+hELLB+zu+sw3fHNUwJEJNAv67/6l9pUDYz6lnwYRNiB9hYmJw4HnSF+rXhsG1kZSW
-         t6bQ==
+        bh=5Bx/a4FI2UIrZxgQ7CYjiXmWvAYzlEUegH2plaL+uSk=;
+        b=SSVw9KMialIXrQCjDLbFTGrZYEWhWDJa4ht0LTO7YIueRE742vJYPMpz9XA4WGjVtT
+         umietgnBmlqsnEo7i/4RZ58x7Gg13FhCtaGrDfsjQN+5K9DIfXO/K7PKYkEEFXh6K4G8
+         j98A1Cw3hgX81YdXPXTR/xlHGDqvXz4E+TSF42Uh2v9hPThDJgMVR1NPDyo0FvDvewEx
+         kLSewkrNJH0aNZYu3FqGH0Cf7cFeG6qX6uZG3niGxOiwZxsmBchoIud6K9O+3BBHg9ag
+         crO/eNDwdTGpvrNwaBDh3ZuwSQWo2qCp+WAVmBgs7xGo17W5UVVQZuE65/S8YDLXcPR4
+         s9Bg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=SqAq0u92;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=sHaCwDox;
        spf=pass (google.com: domain of srs0=20by=ls=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=20by=LS=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=COwOcwxt5qmGspyWUpMyWRb+7aW5+dZyVmlZMV1m/h8=;
-        b=gpo2hnCNTWGJEBgd8t8JXcFjxciPqtZlWqqg8eVCODNwMPkMRxdhgXl3X/PeJVHgXu
-         Tf/wNObu4bv6ptl4uwdoUWQxq1yIRLkkxGxrw4d7xnKlC6HO3Pb2cRaOCWGu0BGKqmet
-         E/zXZLeRXt9v0IOtCFgbzy7gzTA7rSb5PigOsGhMDwcXQte+CjixmZyq/scKroDmDovd
-         IV7UTr94YN8ENDUi0emgpwyawoPtjqPipkcvpJ50nPhGHyMx5O25xpyosTCrk86chXpL
-         wb9RQxyEXN3PlUhZl3FveXs5ZbqunfscoqdQqD8mgCENkZt3RfuZZPX0H7H4ObZbS+aD
-         q/aQ==
+        bh=5Bx/a4FI2UIrZxgQ7CYjiXmWvAYzlEUegH2plaL+uSk=;
+        b=OXODxiCwH8bqurgvFYloitbXK2lg/6Ibeql87ItWmgNM9a0M5dUAfML70BEumSpgYM
+         HcEfMq4flK7TnUHnY/MC5xoKYxOUXfdL9BYPWTKWfFhML/DMKQHIoDOl+zTyCRgxA16M
+         IRxgoTjLfWMHQZFNIsMMr7YfYk/og3g6X/+s7cGETI3Qc0yV5XZvDA9d2T0cqfxaN48s
+         Vkikdc4mjSURlOpGreEjzDQe/jhPSblEoN/WlIVTRmYEPGEmOg92txlHj9h4zzSmg6iv
+         P5NTDUDNWOLaEu2YaNwn44+X7w8rRBwL7FSLT7KNW5rYSuTcPp7hT4MN92WRt9SCg3RI
+         oFJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,88 +50,76 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=COwOcwxt5qmGspyWUpMyWRb+7aW5+dZyVmlZMV1m/h8=;
-        b=Rpwtq77+gnZseaKb8SkMDED8szKUqz/YmfsHuM7KgIctpv/zp32TtrYSPA+LzoeeCE
-         DHeDQsSWereYjOcsyvNoyiBQBefZecdIBy3MEUq7cIxLXFpqxAfoJOs3k5Bv6dE3kob+
-         B6z89T8q0jIxiwV0AUMQCkdLAoETNibw365N9hpi6ht0VPkEww0CoGPUgkNHzywZfsEJ
-         wK5PcSqzqo2jjVIuTteUV2ZsuDmGBhb37GDFWjFQOcne2oVLYfIjCJIn1byNocqsom+V
-         Gh0jsOa7fkd39xWA24EvoDhbk1t/UagAWzQInTQXi3HaqLa1GY6N1pjSVAvy61pDNfS/
-         M3DQ==
+        bh=5Bx/a4FI2UIrZxgQ7CYjiXmWvAYzlEUegH2plaL+uSk=;
+        b=Wkx6NSMWWBqzmvdXnhMMlwkiXcJOQ4dCbv6MPlcCDgO0PHE+5cg6EA+MgmRltxVJXB
+         xhVC78mk4CBInPwyMuxaHdpxnbkqmB/6omo+hLcEooQVd8mumH57HG7SITt4QqwYhxyP
+         IXgmXsx8Xj4yt9C1rAGxFy/bEMVEZ3w4lUZ7FnvzpyPbvY/FE4GZGDoluOTjkoT+Dmgk
+         8bJjOE/n45BQ/Sw5GgrW1VTDD0KxrpGeEBhsURiDzhCRTiUiOPak4sGqKGkGzUk99mtR
+         Tywh7X+vLxUU+FUuOSis4TgYZLFvDDlOdWLJpixh07aI9fzRAaOuFSjBAlkbLUP9dg/V
+         n3wA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532BZCR+ZfSYNtMF9X2TGJYE3UN5cnWhPQLzNWamccbyis+VPiHl
-	6LTiRvEIbDUQa96H/XGUNuU=
-X-Google-Smtp-Source: ABdhPJzallu8bggk2S5U+llUXZeRfBBay/1BNyrAaw81qTGA6Rug0MpXjthEw96KZJoUjoV0dw4QEw==
-X-Received: by 2002:a67:8c4a:: with SMTP id o71mr680776vsd.46.1624493915700;
-        Wed, 23 Jun 2021 17:18:35 -0700 (PDT)
+X-Gm-Message-State: AOAM532EkWG+LKKdQcE3pVQ0/quze6hrdWPjV04ujYmbA1fjbEt8nPPQ
+	es5oy9BA5ECSmfI/iRevK18=
+X-Google-Smtp-Source: ABdhPJzH6imwdl3ZlnLiTMCjTkdI61F+DrdVbu1Kj+tTZokDbHozSROiJZUZPe5hOhfyQdR+MjwhAA==
+X-Received: by 2002:a25:b8c:: with SMTP id 134mr1220456ybl.332.1624493968542;
+        Wed, 23 Jun 2021 17:19:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6130:398:: with SMTP id az24ls717911uab.0.gmail; Wed, 23
- Jun 2021 17:18:35 -0700 (PDT)
-X-Received: by 2002:ab0:37c1:: with SMTP id e1mr3239697uav.116.1624493915180;
-        Wed, 23 Jun 2021 17:18:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624493915; cv=none;
+Received: by 2002:a5b:3c3:: with SMTP id t3ls2168341ybp.4.gmail; Wed, 23 Jun
+ 2021 17:19:28 -0700 (PDT)
+X-Received: by 2002:a25:25c5:: with SMTP id l188mr1098461ybl.41.1624493968136;
+        Wed, 23 Jun 2021 17:19:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624493968; cv=none;
         d=google.com; s=arc-20160816;
-        b=F7fxID9xdeQIfJZUZTJd93s+fYjPMCWM8yLR0M4uDPj+loqO9SxArKiZuCuDU0SayO
-         WzufVpJ1HO+BiHfvy6MEVbrTEbfeW2aabWTks0BzzH0WRs+4fhuVk1Tgt48K70bXcuRY
-         Iubxod/GEJVw6Zov3J9pr2hiQnZ4++DFaQPgmlmiMyXRHoTcKAlMnfNeU638+n9n/KZJ
-         AydJKzbhSDtK3ID7Fs+3SFxcgrTvDmntJNr8G40ha9+VZF4DdXKynSFKV+q8K06GceK4
-         Ngi/Agsf3tfs0c++mYEpeAkODMx7NK9WzxIYVDDe91p/EREi0kX5dv8Ql+kWMYPLR0W4
-         ooIA==
+        b=D2HSPPFowZ3vRC0FvzwjJ0yl2/2rl8aftC157TaSScIi0NM/o3Ykz8ye8qELEuDolo
+         4SR42Y4tBo3PIOXVi1J83PAB8rlraOgql7ZWMXWLC12uQmPygokJJSHybNPIEUXilJAG
+         daRTh+OuaHYd8R4CoiDpCiNI4x+Ahnav9M084uCih4g3Dc2cOrMafh2Vvhg7N+n4sY2H
+         +pkq0YumbpntBR1x0xyqJXmZeEwAgvFS1MltZu609b7Zsb+OIf+Q79IIjpEqKmQpE0jV
+         sBeQ8FC2B3r49rGJwslVAdEVg64fJngslKU7SOEhinqGBGmKDfIAEnP9mqnDqCrH2mv+
+         Qbqg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:reply-to
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=U80Eva80M5GoIWAQ1cAC4nqxJTAE/x2ryoNp0gxGfH8=;
-        b=rFlI5r7w09OK7BmvyeuqZVddzOjXo2Co/l0Xszub59Z7RNjvY7331msBZMQTl44MNm
-         Kpsi3HkyO5FarBziDlvZKBMQ8B1fSluhcBOMVX7orx5Bs7VJMQAsUBQGaQr7QuBWnZmO
-         oouNDDjitHZMKmNbA3uCsSYEJHdNVHmrbawjjG2SBb9bwi9cCXFznwWO6/+W/U0tGtjn
-         /ra9zdPGF5pkFiN3HokuAQmDNy+mwiNssNkU04l+Gl9F32zM+EZsGF3+U7ZgEBmg8ZC8
-         AZtL+dPpmosRydXqT1K8iQM4oKUlODfkHKJ6NiFcXUwuMdlwL4dQR6iHfVxFRv3BIDOq
-         +9Mw==
+        bh=80WNEcgMjOX1BxOcZNw/jURKPRJ9npx+iMl3NIjFOFw=;
+        b=Y05BLesSHDqY3yVAetvDwjM5AHQBxCapIAM4Syj9JSECo8gwTqpjhNbD+P0zWZsf1y
+         hrq5UAbzrEDfglHSP8sufZfukcCRi5hKUibxQQDZ79QWNa2+PzCDtXxVh5v6ITSLrT30
+         w+khtdmEJsjIUv7EunqkCd7V1H9TFUXsKz84nnuKBeKXwrbTyNqQHMNpNHT2Bcw3YGUg
+         vrGEkPMLBRUlaacpnfbmYzazpgoWO78RcHKUa73jZBEt/RHZVnEchTOLyVXTlbjYCwzD
+         fixMwRj4TdZiZuigrrdwaAhAloWMjsmXYQlKzjT2VofNhj7H4FdZu3to0Ci3SkkUuT5r
+         4yyA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=SqAq0u92;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=sHaCwDox;
        spf=pass (google.com: domain of srs0=20by=ls=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=20by=LS=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id y2si152673uaa.1.2021.06.23.17.18.35
+        by gmr-mx.google.com with ESMTPS id e184si154038ybf.0.2021.06.23.17.19.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 23 Jun 2021 17:18:35 -0700 (PDT)
+        Wed, 23 Jun 2021 17:19:28 -0700 (PDT)
 Received-SPF: pass (google.com: domain of srs0=20by=ls=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 2552460FF2;
-	Thu, 24 Jun 2021 00:18:34 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 444E060FE9;
+	Thu, 24 Jun 2021 00:19:27 +0000 (UTC)
 Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id E515B5C08D8; Wed, 23 Jun 2021 17:18:33 -0700 (PDT)
-Date: Wed, 23 Jun 2021 17:18:33 -0700
+	id 186885C08D8; Wed, 23 Jun 2021 17:19:27 -0700 (PDT)
+Date: Wed, 23 Jun 2021 17:19:27 -0700
 From: "Paul E. McKenney" <paulmck@kernel.org>
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Nathan Chancellor <nathan@kernel.org>,
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
+Cc: aneesh.kumar@linux.ibm.com, LKML <linux-kernel@vger.kernel.org>,
 	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	lkft-triage@lists.linaro.org, LKML <linux-kernel@vger.kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Stephen Rothwell <sfr@canb.auug.org.au>
-Subject: Re: [next] [clang] x86_64-linux-gnu-ld: mm/mremap.o: in function
- `move_pgt_entry': mremap.c:(.text+0x763): undefined reference to
- `__compiletime_assert_342'
-Message-ID: <20210624001833.GR4397@paulmck-ThinkPad-P17-Gen-1>
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	Marco Elver <elver@google.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: Build failure in -next
+Message-ID: <20210624001927.GS4397@paulmck-ThinkPad-P17-Gen-1>
 Reply-To: paulmck@kernel.org
-References: <CA+G9fYsWHE5Vu9T3FV-vtHHbVFJWEF=bmjQxwaZs3uVYef028g@mail.gmail.com>
- <CA+G9fYvvf+XTvZg1sTq4_f9OrVFsCazGo0ozaEbjVYgSeKCkWA@mail.gmail.com>
- <YMtTdU2b9fI3dnFD@casper.infradead.org>
- <YMuOSnJsL9qkxweY@archlinux-ax161>
- <6f3c5317-2877-9a57-0126-e9305f000269@linux.ibm.com>
- <YM0mrZIPM+sWTDHf@Ryzen-9-3900X.localdomain>
- <CAKwvOd=w0iPT_LLHQ48Mq3XCZcW9dZNRTpq+0OyVEjsg-VRXOw@mail.gmail.com>
+References: <20210623223015.GA315292@paulmck-ThinkPad-P17-Gen-1>
+ <CAKwvOd=Y1fhJM7NpotvjNy3OE+JtqEBy046ctwE=cqV_ge5tgw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAKwvOd=w0iPT_LLHQ48Mq3XCZcW9dZNRTpq+0OyVEjsg-VRXOw@mail.gmail.com>
+In-Reply-To: <CAKwvOd=Y1fhJM7NpotvjNy3OE+JtqEBy046ctwE=cqV_ge5tgw@mail.gmail.com>
 X-Original-Sender: paulmck@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=SqAq0u92;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=sHaCwDox;       spf=pass
  (google.com: domain of srs0=20by=ls=paulmck-thinkpad-p17-gen-1.home=paulmck@kernel.org
  designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=20by=LS=paulmck-ThinkPad-P17-Gen-1.home=paulmck@kernel.org";
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -147,113 +135,49 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jun 23, 2021 at 04:39:56PM -0700, Nick Desaulniers wrote:
-> An additional report:
-> https://lore.kernel.org/lkml/20210623223015.GA315292@paulmck-ThinkPad-P17-Gen-1/
-> EOM
+On Wed, Jun 23, 2021 at 04:39:11PM -0700, Nick Desaulniers wrote:
+> On Wed, Jun 23, 2021 at 3:30 PM Paul E. McKenney <paulmck@kernel.org> wrote:
+> >
+> > Hello, Aneesh!
+> >
+> > Yesterday evening's next-20210622 testing gave me the following
+> > kernel-build error:
+> >
+> > ld: mm/mremap.o: in function `move_huge_pud':
+> > /home/git/linux-next/mm/mremap.c:372: undefined reference to `__compiletime_assert_395'
+> >
+> > Bisection landed on this commit:
+> >
+> > 257121c5aabe ("mm/mremap: convert huge PUD move to separate helper")
+> >
+> > I have no idea how this commit relates to that error message, but
+> > reverting this commit on top of next-20210622 really does get rid of
+> > the problem.
+> >
+> > The following reproducer provokes this error:
+> >
+> > tools/testing/selftests/rcutorture/bin/kvm.sh --allcpus --torture lock --configs LOCK07 --build-only --kconfig "CONFIG_DEBUG_LOCK_ALLOC=y CONFIG_PROVE_LOCKING=y" --kmake-arg "CC=clang-11"
+> >
+> > Run the above command in the top-level directory of your -next source
+> > tree, and using this compiler:
+> >
+> > $ clang-11 -v
+> > Ubuntu clang version 11.1.0-++20210428103817+1fdec59bffc1-1~exp1~20210428204431.166
+> > Target: x86_64-pc-linux-gnu
+> >
+> > Thoughts?
+> >
+> >                                                         Thanx, Paul
 > 
-> On Fri, Jun 18, 2021 at 4:05 PM Nathan Chancellor <nathan@kernel.org> wrote:
-> >
-> > On Fri, Jun 18, 2021 at 10:32:42AM +0530, Aneesh Kumar K.V wrote:
-> > > On 6/17/21 11:32 PM, Nathan Chancellor wrote:
-> > > > Rebuilt the CC list because most people were added based on the
-> > > > incorrect bisect result.
-> > > >
-> > > > On Thu, Jun 17, 2021 at 02:51:49PM +0100, Matthew Wilcox wrote:
-> > > > > On Thu, Jun 17, 2021 at 06:15:45PM +0530, Naresh Kamboju wrote:
-> > > > > > On Thu, 17 Jun 2021 at 17:41, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
-> > > > > > > x86_64-linux-gnu-ld: mm/mremap.o: in function `move_pgt_entry':
-> > > > > > > mremap.c:(.text+0x763): undefined reference to `__compiletime_assert_342'
-> > > > > >
-> > > > > > The git bisect pointed out the first bad commit.
-> > > > > >
-> > > > > > The first bad commit:
-> > > > > > commit 928cf6adc7d60c96eca760c05c1000cda061604e
-> > > > > > Author: Stephen Boyd <swboyd@chromium.org>
-> > > > > > Date:   Thu Jun 17 15:21:35 2021 +1000
-> > > > > >      module: add printk formats to add module build ID to stacktraces
-> > > > >
-> > > > > Your git bisect probably went astray.  There's no way that commit
-> > > > > caused that regression.
-> > > >
-> > > > My bisect landed on commit 83f85ac75855 ("mm/mremap: convert huge PUD
-> > > > move to separate helper"). flush_pud_tlb_range() evaluates to
-> > > > BUILD_BUG() when CONFIG_TRANSPARENT_HUGEPAGE is unset but this function
-> > > > is present just based on the value of
-> > > > CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD.
-> > > >
-> > > > $ make -skj(nproc) ARCH=x86_64 CC=clang O=build/x86_64 distclean allnoconfig mm/mremap.o
-> > > >
-> > > > $ llvm-readelf -s build/x86_64/mm/mremap.o &| rg __compiletime_assert
-> > > >      21: 0000000000000000     0 NOTYPE  GLOBAL DEFAULT   UND __compiletime_assert_337
-> > > >
-> > > > $ rg TRANSPARENT_ build/x86_64/.config
-> > > > 450:CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE=y
-> > > > 451:CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD=y
-> > > > 562:# CONFIG_TRANSPARENT_HUGEPAGE is not set
-> > > >
-> > > > Not sure why this does not happen on newer clang versions, presumably
-> > > > something with inlining decisions? Still seems like a legitimate issue
-> > > > to me.
-> > > >
-> > >
-> > > gcc 10 also doesn't give a build error. I guess that is because we evaluate
-> > >
-> > >      if (pud_trans_huge(*old_pud) || pud_devmap(*old_pud)) {
-> > >
-> > >  to if (0) with CONFIG_TRANSPARENT_HUGEPAGE disabled.
-> > >
-> > > switching that to if (1) do results in BUILD_BUG triggering.
-> >
-> > Thanks for pointing that out. I think what happens with clang-10 and
-> > clang-11 is that move_huge_pud() gets inlined into move_pgt_entry() but
-> > then the compiler does not figure out that the HPAGE_PUD case is dead so
-> > the code sticks around, where as GCC and newer clang versions can figure
-> > that out and eliminate that case.
-> >
-> > > Should we fix this ?
-> >
-> > Yes, I believe that we should.
-> >
-> > > modified   mm/mremap.c
-> > > @@ -336,7 +336,7 @@ static inline bool move_normal_pud(struct vm_area_struct
-> > > *vma,
-> > >  }
-> > >  #endif
-> > >
-> > > -#ifdef CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD
-> > > +#if defined(CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD) &&
-> > > defined(CONFIG_TRANSPARENT_HUGEPAGE)
-> > >  static bool move_huge_pud(struct vm_area_struct *vma, unsigned long
-> > > old_addr,
-> > >                         unsigned long new_addr, pud_t *old_pud, pud_t *new_pud)
-> > >  {
+> ++beers_owed; for the report and bisection. Also reported
+> https://lore.kernel.org/lkml/YM0mrZIPM+sWTDHf@Ryzen-9-3900X.localdomain/,
+> let's chat over there.
 
-Making the above change does the trick for my repeat-by, thank you!
+And thank you for the redirection!
 
-> > That works or we could mirror what has already been done for the
-> > HPAGE_PMD case. No personal preference.
-> >
-> > diff --git a/mm/mremap.c b/mm/mremap.c
-> > index 9a7fbec31dc9..5989d3990020 100644
-> > --- a/mm/mremap.c
-> > +++ b/mm/mremap.c
-> > @@ -460,7 +460,8 @@ static bool move_pgt_entry(enum pgt_entry entry, struct vm_area_struct *vma,
-> >                                       new_entry);
-> >                 break;
-> >         case HPAGE_PUD:
-> > -               moved = move_huge_pud(vma, old_addr, new_addr, old_entry,
-> > +               moved = IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE) &&
-> > +                       move_huge_pud(vma, old_addr, new_addr, old_entry,
-> >                                       new_entry);
-> >                 break;
-
-This one is already in -next, but you knew that already.  I am happy to
-test the resulting patch, when and if.
-
-						Thanx, Paul
+							Thanx, Paul
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210624001833.GR4397%40paulmck-ThinkPad-P17-Gen-1.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210624001927.GS4397%40paulmck-ThinkPad-P17-Gen-1.
