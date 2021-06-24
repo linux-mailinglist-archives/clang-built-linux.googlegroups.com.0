@@ -1,116 +1,131 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB7VI2ODAMGQEXWAZ24I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBPV52ODAMGQECHGAJHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53b.google.com (mail-ed1-x53b.google.com [IPv6:2a00:1450:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 874283B3620
-	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Jun 2021 20:52:47 +0200 (CEST)
-Received: by mail-ed1-x53b.google.com with SMTP id p19-20020aa7c4d30000b0290394bdda6d9csf3813086edr.21
-        for <lists+clang-built-linux@lfdr.de>; Thu, 24 Jun 2021 11:52:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624560767; cv=pass;
+Received: from mail-ed1-x53d.google.com (mail-ed1-x53d.google.com [IPv6:2a00:1450:4864:20::53d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 382C53B3712
+	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Jun 2021 21:36:31 +0200 (CEST)
+Received: by mail-ed1-x53d.google.com with SMTP id l9-20020a0564022549b0290394bafbfbcasf3926471edb.3
+        for <lists+clang-built-linux@lfdr.de>; Thu, 24 Jun 2021 12:36:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624563391; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wquv3kd7beE80O2HF/aJ/T5+C8dYFSjP7wcV7POMMN7Xd+H8BXTQP8oTXXvY30Q4Nr
-         L8UtWMisc//N62+ZoDXZJEl0/+y0dtDDtuLvWJysb7wLHJ3G8W2iQveU0man7ne7pf1a
-         dK7o2ODojVhhNgMLat71T8wf3mXzORJHUxhyPhqSiYzMP1ncZEEQON4jfyVs/fdM7ao7
-         7H5cf76t7hA+pHLArwE/FzrXXc72GOKIxqGy6JqYqDoVmiOUfuewj4JqgCCFxIjYwH6n
-         BS3K3QAxDv2Y2BIWSbbt+vVBu3LcS4K/GVoq8pnsy/NvAhdUs+x+6ELKZYVPujLHdpvK
-         ze5A==
+        b=KtvNwzw6AxxOPgejpz6JrbTejTs8AOaoyBkKpxxKPQvwTAS2wFQ9ghIbJ9+VdcKQVi
+         PKLDhlxVBAAEJxalkzKZdR9320V5/sOW87yl8x6yyPUS4iD++oj3C+Pe1ZRFibXR7YrN
+         i06/o2cHEa6kfbh36DdRURF/Aj/6m227NtlDDQGhCy3nYuhS2vKBxx9FxOPNx6eFJYWG
+         pDSbH6UpGLYiyUSi8UZij2bwwLB6TjilgKtY2gZBUj5/JeWNR9Qgost42nSrXjMIL6fz
+         7iw28Y+Xn2QLEPLVKkDVuxayHM/TZWh/DMSSyy6jWNSfa8T4jLrlBA20jLQ4qWmgzDJO
+         Fnsw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:mime-version:dkim-signature;
-        bh=h/ea6RC/0/62/eUNo1ZxsSGE1ROJjH+pGDdTBS4V7ZM=;
-        b=zNDqOvoQsHpx03OrsIEG0FngJzcGw9VZAZVJ12iLdlKwYlO6Lk0/tP1r+b/brajCW9
-         8SQZ5RrMXR/TYzpb9OpdYtaMIQOSoFAF3AfRf3tVscOhnPYc3zO69f5xBR0eThgCc+GR
-         jk2QT5H4YpeS58AYFjEkbTxXYZtoSVC+pOpVOw5nc1Iv1zA5kritc90J06+hAhPom6Q3
-         yeSV7/b+6T+ckXRZjje2oB/bY83CytZj3/XxaWcAGo1LEeNBE+TtADVqzOTfodySlrNP
-         xfnhoJTVkikvqZJfCVqiLUrJM2GW377JCO1u09d0YaNT4og5RTh8QNI8YNnilM9Z2nXD
-         IHiA==
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=x3Z0aLR17Pq+dCOn0XnsmrNb4SA+9siscIKO4y9xueE=;
+        b=YnxKJ3sa7KNrVW6uvv7UjGn3AKJRlVzEraspmIjjmBP7PqjQpLiNTWTk+pgexay8+n
+         9fF7d+KnHxpJu1fnbitI8lceZM0oYOXPOBXVgov+5+ZhfHDH5Xqj9zqcHj1ctPyT+5KK
+         sNcApN960/3fKCLqzavc8UpDDkyH3boqOLaEvYMSRwDWrSC8+hTMNUTvodDcDa3r9Jqo
+         giZXzIp5a2nc9ZvOiavgJqO1qhkDmdlWQLvQPCbzjzXivFf6R57UcpBcowpsHG8KGExs
+         ULG2vggxzhVdKka4G4RcH9xwpmX6LKfUht0VcsFvFqXTiTKJAaxZRXs964tcu5WJezex
+         8XnQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Ffs8zI1Z;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=dYwgZ9h2;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::232 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=h/ea6RC/0/62/eUNo1ZxsSGE1ROJjH+pGDdTBS4V7ZM=;
-        b=QRcu/dFrTLNlQ1CcYIcZTxPrazptU/0yEGsTmAKt3M4bNnswsBvg4DWJh9dKfH+PYQ
-         IGL+rhbBmgtimj4FYK7ExBVRjr8fHxXxaTQxFrh5JQensZVo6jXq5OkddlP+8Nw0k/V2
-         bLUWAFKSVuFGFJpWRye+F8EEs3fh9KABUinC0ZUTf4435LrNqisxqgvsh6EwWvao7Cj3
-         X6t9RkV6cYICVdF0DI0KKnN5l8zZxGYhpeYOCfZtK60azCGtOqS6/+QZvDQoAl8kdNqp
-         Nc8fHDqIoyiKPQ8G+p3r0Qneg/cgyYLUz4qXxPBFrHgyqulw8qkI1c5wyZSxAsYmrkDo
-         Na2g==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=x3Z0aLR17Pq+dCOn0XnsmrNb4SA+9siscIKO4y9xueE=;
+        b=M6+2TyxkqozXG46rX7uVsp1NRJK8ZfXP8NFUsTZWRGRIyU1AlKp3PE6SuQ830n/jMD
+         qadDj8VEjKHRsqBTiHU/IHr4qWoj8MlWvezC0XS1nQKlGgXBBrnO0N2LuHxGgAvSZm7A
+         z+ZL+rr/QZhjuYwsoJWx2udotBwr5M7kjl6jxWQvgtXJ6B8rYh6CTGym8iygj3RjwuKs
+         n59lTM8AaRsAz4h6KyVkD9qS+grgYWt0SmRD7lRiltzXDPUxBWAmxLN2xM+nJzjdiFDg
+         BZzj16TZGih207YyhCQYLA3rzEhvdMo+y05E0rnEKJ0YPxvOouBuxw7g0wTxbeZs8R0O
+         FO4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=h/ea6RC/0/62/eUNo1ZxsSGE1ROJjH+pGDdTBS4V7ZM=;
-        b=b1f+9Q3Y5sG3P6KjPBW0LPiqlrOANFq9z1G+vBUhzl61hhBddQtrv6bDvHPhAJHOFC
-         14/2PZoWRzMA7TFuqJgysgtvcjM7OnA5vTp3NfqOMhuU9ODu7RP/WAUSm80bvkbFTuDI
-         OtVuBIYnPRFosIbTdUMpy9bWcd0xL5M32Q0zZOWN3YxUv23feUjlJle6Y53e0SBeOMxz
-         QDiCV3WwfIIQ3IQw/NO6LDUWfRsazFvrywWyufmwAAhVWo8QqXs3juTcEt7iSMBReSnl
-         Up/7++4lqZS3oh2BmYtrZEqNlXcVC42EpLiU7tg1O7z9FYNWlCzntVHeW1KrP7p0FvUM
-         FkSw==
-X-Gm-Message-State: AOAM530n8diAruzonNgrOLjCyWPVe7HyS0eANWEv6b5LDeC1abFCx4zS
-	wyyv2HAFswOMbkbgrXQKOiU=
-X-Google-Smtp-Source: ABdhPJygBSRU3dz8c1yLFjuM484pbXiH2YCYMcY8J+bd1zQAVdSeCMqEnnKYvpw7qrmGrzc07amY+A==
-X-Received: by 2002:a17:907:1c0a:: with SMTP id nc10mr6667652ejc.294.1624560767212;
-        Thu, 24 Jun 2021 11:52:47 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=x3Z0aLR17Pq+dCOn0XnsmrNb4SA+9siscIKO4y9xueE=;
+        b=fFcVZLq70tl77S6ZJuom3HVNc1FAOScUKCpUnqrPki9ED0byO6n3bjayok1QU+cg80
+         P1COYbAk6oCAHhDtPvy7aKPsL4zd1jgHpi1rCGI6urewggVIBpufxVQvpOqlk4w6uvY+
+         UHcrVCB1no3GuAk/tUsOc9E/QkhO2GT9UA2zfxCO68JHNhNU/6vpwC/wuMVXdk4DOt/l
+         MDcONCNTeIrXBjX+sKofhMbrsnPQ5iLc0s5l5M7VLC517mpSEvE0qvBVj9JBVj9LTtf6
+         bMf2loxMOL2nFSQCkagrC7lwIZlQQ5S2qoTJVloYN5meaSsOVNLGigkPSPNynOf2nY/h
+         jg+g==
+X-Gm-Message-State: AOAM532WgWfIqrclpSXN1uL4Viz3T0QkzDj797DGloXZf6qox0APakiQ
+	p0bsxOC6pHyg3rSGkswNVV8=
+X-Google-Smtp-Source: ABdhPJyIVRRko1x8m3oyU5Xx+taef7bJT/6oIjQiAhD+jZXwkpaGON6BlvTKiWCdhgHI5eZt6wu9DQ==
+X-Received: by 2002:a17:907:1ca0:: with SMTP id nb32mr6668036ejc.105.1624563391012;
+        Thu, 24 Jun 2021 12:36:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:6b82:: with SMTP id l2ls2795474ejr.0.gmail; Thu, 24
- Jun 2021 11:52:46 -0700 (PDT)
-X-Received: by 2002:a17:906:234e:: with SMTP id m14mr6688013eja.217.1624560766257;
-        Thu, 24 Jun 2021 11:52:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624560766; cv=none;
+Received: by 2002:a05:6402:90b:: with SMTP id g11ls3828899edz.2.gmail; Thu, 24
+ Jun 2021 12:36:30 -0700 (PDT)
+X-Received: by 2002:a05:6402:10cc:: with SMTP id p12mr9540634edu.328.1624563390155;
+        Thu, 24 Jun 2021 12:36:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624563390; cv=none;
         d=google.com; s=arc-20160816;
-        b=QE6Pt8v6hua7P7hID9Rs93N73goVzySzA0WBrVUiJw3oU/IsNMHvzU+aWQsq68yd/a
-         eX48G3Yvmo3LvFg1t9slJmHmCps9q2/Ol0zYLbMW7PP/hJSrRee/7GCg3jeZd014T9b9
-         JJlulTRldZCPh2xEWHBnZL3d5PjiDQ3UyxBjpWIr5fYjnEDVYmiTHpwBDsFxj0oCfcZY
-         vuGiqoKZsLoMfsB0rx0q09uoZM/V2ZxL1+r0YY3RNNiJliUv/wQ7LoAxmNBkDy6Xf+i5
-         lWhmYEaiBhVe8ei3cEPj0hxwNZDDFpgi7LDyn8RkTQf7fQ7ytJ+wJipicNnQfB0u+0RK
-         65fA==
+        b=Mr+LEtSheZxos9dOwWrzGbTJDqB4gP+5BbZIqkr8fYu3cd88ex/F/mhoZ3U80dS5wE
+         Tgz+eSPeG8Sr3gP35ps8e/bV8XGrZ2e6+H6VSLCyGNfHwuB5xPJJEfkvZGEoxZANIFXq
+         /igPNFx2S3uM3YePb28gTALj6GgX3W80ZS7p/NjNGi4UyeW+CHQ643wnpHZv49xljDt7
+         ib+2WiciBFk/SowvVriAKfmeVdC/ooEINA6cnPL/mbhE8W2exiTDce4NRYcnIe7zrX9R
+         Ues7mOFBghUG5y1dEso0Nwa2J0mwveBYNDZEd14oDUOn/U4/4XGhDKIx48Z924d7PMpu
+         SArQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=XpGPx+T9aCV/lfkSzevX/NAp90hqMwoz9jAiyQO4dFA=;
-        b=tD7JHbRVNEBDnaVCPkA5AluwQjlwTRvSimIxcDyUZxhqn3SUuuV0EBgDLtC9Lq17Ib
-         5HUtesJzi62D8W2y3AvUs1SZFgtRl0Ni1TVGObTEIClgeM+1LZ9G3MJSKmqcsgSHucTz
-         I9ssx3Ho1HtIJJZZwf7FUGMjXBT62ny4SJAk7Mcl6mHSVZeKAlW7AwbWjm4T1SNpfzya
-         mkcXYyZTbGr+nfSEwcXBBo0kOEzzt+Jn4SNd6gfiogI98PgsEJ//wpILzUAAII8KKOPf
-         yfncRUnCniZ6NpYkInI0fk/0I6w5qEm6yC/4F4SuUsNO+b33J1rCrRdgktgFeoFFBQEq
-         +qEQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=DBxJ+5KzUAKH3jFhz3Iwj54r7FIMmamDMI5BPojMuJc=;
+        b=XKg+IXYBZ9eqDEreh8Wquwoiz36gQn8s1LoEBQRAwqjdYLfMhjXo61LIK56QpaDY3j
+         DEOqcc+GY96EdhmWzU7/58u7KMHuk48YBX2YMaT2paGSygjfwvB78ydtELDRz7YDdleR
+         PEC9t9eR2fgJlQWYnSX7IBoOHuk+uXmYkLxuRtZAlZ2UZ4uwl/Qar4upVHJGFJDFfJEH
+         dwVa618GLEZjfKV3/IE3nqB6lXZrO0iw0GP2k0GUbZl+vnYAiZXtLWCY5UtRfiaok1vO
+         nuW+kodezLVfYEuH4uMgt3iqKvxKKvDvY3l7pAqAnODVO3qzThSuaVY9BiBmcIYzDqdD
+         B6ZQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Ffs8zI1Z;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=dYwgZ9h2;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::232 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x131.google.com (mail-lf1-x131.google.com. [2a00:1450:4864:20::131])
-        by gmr-mx.google.com with ESMTPS id s18si100461ejo.1.2021.06.24.11.52.46
+Received: from mail-lj1-x232.google.com (mail-lj1-x232.google.com. [2a00:1450:4864:20::232])
+        by gmr-mx.google.com with ESMTPS id s18si103221ejo.1.2021.06.24.12.36.30
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Jun 2021 11:52:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) client-ip=2a00:1450:4864:20::131;
-Received: by mail-lf1-x131.google.com with SMTP id p7so12045683lfg.4
-        for <clang-built-linux@googlegroups.com>; Thu, 24 Jun 2021 11:52:46 -0700 (PDT)
-X-Received: by 2002:ac2:482a:: with SMTP id 10mr4890271lft.297.1624560765596;
- Thu, 24 Jun 2021 11:52:45 -0700 (PDT)
+        Thu, 24 Jun 2021 12:36:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::232 as permitted sender) client-ip=2a00:1450:4864:20::232;
+Received: by mail-lj1-x232.google.com with SMTP id d13so9245084ljg.12
+        for <clang-built-linux@googlegroups.com>; Thu, 24 Jun 2021 12:36:30 -0700 (PDT)
+X-Received: by 2002:a2e:92cc:: with SMTP id k12mr5168790ljh.116.1624563389245;
+ Thu, 24 Jun 2021 12:36:29 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210621231822.2848305-1-ndesaulniers@google.com> <162442894704.2888450.8087873021886781652.b4-ty@chromium.org>
+In-Reply-To: <162442894704.2888450.8087873021886781652.b4-ty@chromium.org>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 24 Jun 2021 11:52:34 -0700
-Message-ID: <CAKwvOdncyTGCrjeNBLnZoo_NM7qOdBCw1CEmxUGt135OKzMXEQ@mail.gmail.com>
-Subject: [RFC] inlining and mismatched function attributes
-To: llvm-dev <llvm-dev@lists.llvm.org>
-Cc: Fangrui Song <maskray@google.com>, Marco Elver <elver@google.com>, 
-	=?UTF-8?Q?Martin_Li=C5=A1ka?= <mliska@suse.cz>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Chris Wailes <chriswailes@google.com>, 
-	Johannes Doerfert <jdoerfert@anl.gov>
+Date: Thu, 24 Jun 2021 12:36:18 -0700
+Message-ID: <CAKwvOdkC4E5AvyrWzzN4q3xjceHZG3xQSjO6tp6vGK5Yc204YA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] no_profile fn attr and Kconfig for GCOV+PGO
+To: Kees Cook <keescook@chromium.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+	linux-arm-kernel@lists.infradead.org, Nathan Chancellor <nathan@kernel.org>, 
+	Fangrui Song <maskray@google.com>, linux-kbuild@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-s390@vger.kernel.org, Peter Oberparleiter <oberpar@linux.ibm.com>, 
+	Borislav Petkov <bp@alien8.de>, Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, 
+	Marco Elver <elver@google.com>, Christian Borntraeger <borntraeger@de.ibm.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, 
+	Bill Wendling <wcw@google.com>, Arnd Bergmann <arnd@arndb.de>, johannes.berg@intel.com, 
+	clang-built-linux@googlegroups.com, Jonathan Corbet <corbet@lwn.net>, 
+	Martin Liska <mliska@suse.cz>, linux-toolchains@vger.kernel.org, x86@kernel.org, 
+	Sami Tolvanen <samitolvanen@google.com>, Will Deacon <will@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Ffs8zI1Z;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131
+ header.i=@google.com header.s=20161025 header.b=dYwgZ9h2;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::232
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -127,139 +142,39 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hey folks,
-It was suggested that I bring up a peculiarity from an individual code
-review to the list.
+On Tue, Jun 22, 2021 at 11:17 PM Kees Cook <keescook@chromium.org> wrote:
+>
+> On Mon, 21 Jun 2021 16:18:19 -0700, Nick Desaulniers wrote:
+> > The kernel has been using noinstr for correctness to politely request
+> > that the compiler avoid adding various forms of instrumentation to
+> > certain functions.
+> >
+> > GCOV and PGO can both instrument functions, yet the function attribute
+> > to disable such instrumentation (no_profile_instrument_function) was not
+> > being used to suppress such implementation. Also, clang only just
+> > recently gained support for no_profile_instrument_function. GCC has
+> > supported that since 7.1+.
+> >
+> > [...]
+>
+> Applied to for-next/clang/features, thanks!
+>
+> [1/3] compiler_attributes.h: define __no_profile, add to noinstr
+>       https://git.kernel.org/kees/c/380d53c45ff2
+> [2/3] compiler_attributes.h: cleanups for GCC 4.9+
+>       https://git.kernel.org/kees/c/ae4d682dfd33
+> [3/3] Kconfig: add ARCH_WANTS_NO_INSTR+CC_HAS_NO_PROFILE_FN_ATTR, depend on for GCOV and PGO
+>       https://git.kernel.org/kees/c/51c2ee6d121c
+>
+> Note that I've tweaked the series slightly to move the PGO Kconfig change into
+> the PGO patch.
 
-We have a couple function attributes (in C) where inlining can produce
-unexpected or surprising results.
-
-Let's take for example, stack protectors, which help me prevent stack
-buffer overruns from rewriting a return address pushed on the stack
-(sometimes). Now let's say I'm an operating system kernel and I need
-to restore register state after suspend (ie. during resume).  That
-register state would conflict with the generated stack protector code,
-so I use a function attribute like __attribute__((no_stack_protector)
-to prevent my compiler from inserting such code in my resume handler
-which has to initialize a new stack canary.  But I wasn't careful to
-check that all of the functions I call from said handler have a
-matching function attribute, and due to inlining, I wind up with a
-stack protector, even though I requested a function not have a stack
-protector!  Suddenly I load the incorrect stack canary value from
-garbage register state, fail the stack check guard, and now I fail to
-resume due to a kernel panic. (True story)
-
-Another stack protector issue that came up recently has to do with
-forking "zygote-like" processes, and having unique stack protector
-values per process.  Point being, there are a few cases where we want
-stack protectors generally, but need the fine grain control provided
-by function attributes.  Moving code into separate translation units
-in order to use different flags, is tedious and commonly runs into
-issues with LTO in LLVM when flags that aren't encoded in IR are
-dropped by LTO.
-
-Similar problems crop up again with coverage, and profiling
-instrumentation in "delicate" code.  Sanitizers, shadow call stack,
-and a few others run into similar situations.
-
-As a developer without knowledge of my toolchain, how do I go about
-debugging this myself?  (Debugging the suspend/resume issue was not
-fun).
-
-What are some ways developers can fix this?  Well, if I know my call
-chain, I can go through and start marking my callees
-__attribute__((no_stack_protector)) or __attribute__((noinline))
-recursively.  Eventually, I should get to the point where none of my
-callees have stack protectors or are inlined. But that strips off more
-stack protectors perhaps than I'd like, and leaves a lot of code
-unprotected.  This begins to feel like "what color is your function?"
-"Red" functions may only call other "red" functions; "blue" functions
-may only call other "blue" functions.
-https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/
-
-Maybe my callees have different callers with different constraints.
-Aliases can be used for callees.  Example:
-
-// has a stack protector
-void callee_bad(void) { ... }
-
-__attribute__((alias("callee_bad"),noinline))
-void callee_good(void);
-
-// requires no stack protector
-__attribute__((no_stack_protector))
-void caller(void) {
-  callee_good();
-}
-
-However, caller() could be inlined into yet another (not defined
-above) call site that does have/need a stack protector.
-
-And other call sites (that don't care about stack protectors) can just
-call callee_bad like normal.  If I don't have too many callees, it's
-not too bad.  But very quickly it can become difficult as a developer
-to tell which callee was problematic.
-
-Another possibility is that the compiler could have knowledge of
-certain conflicting function attributes, and skip inline substitution
-of callee into caller upon mismatch.  We provide "remarks" to help
-developers understand why inline substitution failed, if they care to
-know why.  ie.
-$ clang -O1 -O1 -Rpass-missed=inline foo.c
-foo.c:6:10: remark: foo not inlined into bar because it should never
-be inlined (cost=never): <really good reason why here>
-
-Indeed, that's exactly the tact I took with no_stack_protector in
-commit bc044a88ee3c ("[Inline] prevent inlining on stack protector mismatch").
-
-It's what GCC is proposing for
-__attribute__((no_profile_instrument_function)) (coverage and
-profiling) in:
-https://gcc.gnu.org/pipermail/gcc-patches/2021-June/573511.html
-https://gcc.gnu.org/bugzilla/show_bug.cgi?id=80223
-and I'm looking to match in
-https://reviews.llvm.org/D104810 .
-
-We already have precedence for this in LLVM; checkout `CompatRule` in
-llvm/include/llvm/IR/Attributes.td and
-`llvm::getAttributeBasedInliningDecision` in
-llvm/lib/Analysis/InlineCost.cpp.
-
-I'd argue it's also less surprising for a function not to be inlined
-than for a stack protector or profile/coverage instrumentation to show
-up when a function is explicitly attributed to not have those things.
-These attributes describe a desired property of the function. If
-inlined, we wish the new copies have the same property. However,
-function attribute applies to the whole function, not a subset of
-instructions.
-
-But, now we're making IR function attributes that could have been
-orthogonal (nossp, noinline) entangled.  That hurts the composition of
-such attributes.  (I will note, nossp does not unconditionally imply
-noinline; it implies "noinline for mismatched callers, and noinline on
-callees that are mismatched, on a per call site basis."
-__attribute__((always_inline)) will override this exception, and we
-don't provide helpful diagnostics in such case; good luck! :-/ )  We
-likely will have such conflicts with additional function attributes in
-the future. Should the inliner scan the caller and callee at every
-call site for such attribute lists? Should the LangRef document such
-inlining behavior?
-
-Another concern is diverging from GCC here; while we're both
-discussing no_profile_instrument_function it would be good to gather
-more feedback.
-
-Sometimes, I wish in C we had the ability to express at a given
-callsite that inlining the callee should not occur.
-
-You can see more discussion
-https://gcc.gnu.org/bugzilla/show_bug.cgi?id=80223 .  Surely there are
-additional solutions we have not yet conceived of. At this point, I
-don't particularly care what color we paint this bikeshed; I just need
-a bikeshed built so that my kernel boots.  We all want all software to
-be better, and can have a gentle-person's disagreement. Thoughts?
+Ok, LGTM.
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdncyTGCrjeNBLnZoo_NM7qOdBCw1CEmxUGt135OKzMXEQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkC4E5AvyrWzzN4q3xjceHZG3xQSjO6tp6vGK5Yc204YA%40mail.gmail.com.
