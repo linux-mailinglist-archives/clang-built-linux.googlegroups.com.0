@@ -1,131 +1,123 @@
-Return-Path: <clang-built-linux+bncBDOMDVMI5MBRBLUT22DAMGQEGCZ26II@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBGGX22DAMGQEOILXZGQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B43F3B3DE0
-	for <lists+clang-built-linux@lfdr.de>; Fri, 25 Jun 2021 09:45:51 +0200 (CEST)
-Received: by mail-lj1-x23b.google.com with SMTP id t7-20020a2e81470000b02901477fea061csf2904854ljg.12
-        for <lists+clang-built-linux@lfdr.de>; Fri, 25 Jun 2021 00:45:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624607150; cv=pass;
+Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
+	by mail.lfdr.de (Postfix) with ESMTPS id C14C83B4128
+	for <lists+clang-built-linux@lfdr.de>; Fri, 25 Jun 2021 12:10:33 +0200 (CEST)
+Received: by mail-oo1-xc40.google.com with SMTP id d12-20020a4aeb8c0000b029023bbaaddcbbsf5488109ooj.13
+        for <lists+clang-built-linux@lfdr.de>; Fri, 25 Jun 2021 03:10:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624615832; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hu5os/mVuS5jbHcttK+ebs5W1jvsOUbQjOj87jfB5CwWpCbQ5TbFKrtjwJq4wg635O
-         boRV08ALBv6p+Ijxxn7e9BLjW+JFbRdxbkRBO8638qgZ4JNhP0PUxmi5ae2ZKXHZ+Fze
-         m+r2U2nlr+p/NppnBBS+No/mTnL8EAlznDPDOd2H9uxITD5L9J141maNY2zWGOwcBpvu
-         kQB3rghA8nHxCpxBR/CTMPJoQA/SOtLpz2lnPw3txTaYOqtFUgnbv+lzd3M6TLDy+Lki
-         BH33lpPuiilnSXzJsCjV9FhiQU6yVE9AWcaOWAHdZ/PC612tvEh+nBhqN19eHGRxJNHn
-         2Bkg==
+        b=i4vxtDII1Hwoxs/g/gME26lEMQ2/cyjEY8RIGMK/O//XPoL0zbgWsb4VCKb6a7Hspe
+         0rcUuGXPLolmFius+AdN/u66R9peZcBGbrzQVA2s/fPdOSYMGwiv1ZvILiKirL7hKBIi
+         85IC01nZVMHz/hVY8JNSYVoCrnRbnYHAsEX9kr7RS831XuIDllxY3cPjXdKqK3BWeQLF
+         Dou1HifLHCeGqghz2+/JtWjXJUPTgGhe+7aSnc7CViHzwKhQHO8RnqcqSA0Z+MEF0j6/
+         d77FHbanoLaB2OThi6sibQwpiAPEvtLIBEj+CmyXsHqXWGTO+gRIIqxvsJt4CwRPqKw5
+         cnXA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:subject:cc:to:from:message-id:date:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=PjkEEDENCVf00QAz+drTJt6COuoZ5b2zzuUbpr1b6j4=;
-        b=I442pBAcSDUmwmbxGr5Fl+xDj1ypwhYyeeMqxdWv1Q4gVDx7BuwyJft1VqJnX3/dDQ
-         KqucrcX62EuM5Z8pczjU6uMO6nf3DQ8QoGSeavtPO7PcxMZwBJKLtzo8Ak8UMqBpYbrc
-         yprWbgnA3jDwBHk29InTUYb27pjyhiO8E4yGvSgrj7mckfDjMhPxXeRdilQwBfcAQ4eR
-         cweeJhtYsnw/Z1i5dlqIgUu1TJzYb+KWbLazP05ia0cNyaFluX5w+/LkbBmtrmS2XIdz
-         4k7ZxBuSiTeBf6KxXH7jiyV01x8l232ChjHs2ss6jzjQIu274YOGDs2l16SSVaskwWDj
-         myCg==
+        bh=PWvFyEMaBew3Z3rWHFFLNGHo0fz8iAlTAujYmfA9uRE=;
+        b=lQc6jEGifrAtxE4nvL5XWE6RxnAl4Z04HVLoRRiRl4wFpeR//Pls12cuoJ5/1rGrML
+         s+SpLD9oCuimTBXuKB+7vftB9UO591D5Kz6BKwmJFBGxqHR3XJ14uFKt7vRkXVidd9/I
+         0h66rq43CCLpWyxcp+ZtE4WMt6sArXXdYKa9u0JtrovnjWqQWn/ZiXwQOviNftznyU1a
+         QhPO0ZMPslvq/Rg4WOt1p205HWCczCjOtZxc6T7Kv/Mh2DlzTfpQ9VGk7Si4e2zH29Op
+         yDwYAHf1Tw4M8TSt455NA81xwR+YjefdLuPGrlDOyb9gpNXCpwzyp6xtYj+1NnVTJOME
+         90rQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b="M7+xz/a9";
-       dkim=neutral (no key) header.i=@suse.de;
-       spf=pass (google.com: domain of tiwai@suse.de designates 195.135.220.29 as permitted sender) smtp.mailfrom=tiwai@suse.de
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=Ro7vdmrt;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:message-id:from:to:cc:subject:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=PjkEEDENCVf00QAz+drTJt6COuoZ5b2zzuUbpr1b6j4=;
-        b=q8KUhQx5CRdOCqxt9VxJgjq7Dw5+z99kckrV7ruWEEF+S/zFjRIrJ0Z78ZlRAhMiw2
-         9VgH1DwbQO0gHH18T0Rn1xQfk6z3e3MJpuv5QHQuWpRj7pe9vnx3WPUUw/wjhe6V+urx
-         gXHNDjVS12hdZH+OrWhuAGDZUVN6V+m0K2LerA5tahNrhMrQ3dRIBE53/wedlVNRnYCV
-         BNV13n7chex1yOwDBb52fa29zB6LyXJU1WJAvrqsZmQ3nsr2LBoPcGKWb/kHTjy86cEF
-         OkCUnBa/8ihqjRtCMDldCDAXvKbLVeiratW2tmhGiLiWPLstI+PVJaQFuw1NdRLiLJLH
-         cF2g==
+        bh=PWvFyEMaBew3Z3rWHFFLNGHo0fz8iAlTAujYmfA9uRE=;
+        b=UX8NSRZyhchFq7IiEd7T+CEnrrizTbjCYFieFoj1t0Hoie6Auy0YJGiKsxou4s8UrF
+         /dQvxXODTmDjxdhaDhtcF0JPLb/LbGIe5V+3/xlX/JT8rvvzK146gJYCR1XGP/HvQRp0
+         xtRg93ysjIRhD/diamDDdRKr2fnH/tYnvxM3TUJbUbKK/0ouAR8Jd9MqkMuECGpbs5ff
+         pCrIFcYMP+M4WLw87d1T3rUz3HMIRimLOAE7CRmuczkzLHOd0pDSKZGP+YtznXU5HnOA
+         5J0QXaUU/HhXXgLyNbeo7Yf5bAggng1bdfJvMqoZAHnCnIn6dIiZpAJpVWzSuC5L7PyV
+         VY/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:message-id:from:to:cc:subject
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=PjkEEDENCVf00QAz+drTJt6COuoZ5b2zzuUbpr1b6j4=;
-        b=lVixSF35lhg6qQjRJKWbTZgF+pXXJq39Ohk2/O+kRq3EIngdcZlicn6StALQJ0t908
-         T3RVA+83cuRzZF917BG+gBFXkTGP3RjGIzKdVbQYyg3eUXwYxcRX9PfX8NyvmaP5ENls
-         kmZJXb9IqmiZl3u4IHKeKWhDAdh2auU+ML3pN2VdHotTM1rdgWCwy68WzmgizRXe8F+z
-         45eqOxb4BVzodDET9a5RpnPmtzUxpI55dA5jsKCxO3fX/cpcE4I4pK/Dfpuj/RdTxGjm
-         xil+ubRJWWCYvbRGf4d1CTxJDCZAJmQ7C8wzv6rr7vI7fv8KyqDJNi/85qCPrZP6lSC8
-         M8/w==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=PWvFyEMaBew3Z3rWHFFLNGHo0fz8iAlTAujYmfA9uRE=;
+        b=PWLXNhgGYEHctDk3nUfx4iUhMbIUFK/qIupm5KmR2URua1hg3HVTQ1g+mtz1H0D8tg
+         ZpUHDeMMmdJ70mRzb0FUtRBxc0rqoHyDqMbXd2w6/OBfNnXu5dN+GZGG/oH992aH/hmL
+         MbQOklpkVAHCLufu+4mSXOCEETl9/Gpe1K+g7DH/HJllw2EgiQ736b+pigQUgrdPwCSR
+         fwGXCxCL6OCLs1YVT6XRKlLfIditLBcRK+Ngw8UK3kfZQbed8Ac9mvrL+x/ymY+eK/HZ
+         SHplPk4s+v2wM4+VgljvdhYWN8FQ/FC1dongMvPIUtrNOuRQIfiUlHeSqfqxO1EUukVn
+         hqww==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530IM8qAwv9Rlw796H2tdx5+9stPoClwDLUprz54hliiuiVMBkl2
-	QwZhrLasqn+wmuxqwtw7YVU=
-X-Google-Smtp-Source: ABdhPJxSiSJGKej3BSAZHXOIOK/1lO3sPn2/VSk/KJ834AIRpqvhQSlpP5Ui2hG3W6GudTCht6T/JA==
-X-Received: by 2002:a05:6512:169f:: with SMTP id bu31mr7077842lfb.486.1624607150637;
-        Fri, 25 Jun 2021 00:45:50 -0700 (PDT)
+X-Gm-Message-State: AOAM532k+LXZU4cv0wlYo1WO9RYFYzmuU4wTQcJBvK0/e4ZzVJ0snz9a
+	CbMnoVLkczQxKGhIUrbdu/E=
+X-Google-Smtp-Source: ABdhPJz3QA6ZyCVXVvQmcwOUZfECNk86Zg477772x6KagkE/gjBPNyyNr97NMatrh+2KWURDXRp9fg==
+X-Received: by 2002:a4a:a18e:: with SMTP id k14mr8380626ool.29.1624615832556;
+        Fri, 25 Jun 2021 03:10:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:46c6:: with SMTP id p6ls2371709lfo.3.gmail; Fri, 25 Jun
- 2021 00:45:49 -0700 (PDT)
-X-Received: by 2002:a05:6512:260a:: with SMTP id bt10mr1045805lfb.100.1624607149496;
-        Fri, 25 Jun 2021 00:45:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624607149; cv=none;
+Received: by 2002:a05:6830:1f24:: with SMTP id e4ls3234281oth.4.gmail; Fri, 25
+ Jun 2021 03:10:32 -0700 (PDT)
+X-Received: by 2002:a05:6830:545:: with SMTP id l5mr8717932otb.270.1624615832195;
+        Fri, 25 Jun 2021 03:10:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624615832; cv=none;
         d=google.com; s=arc-20160816;
-        b=DVGkYd7v4rGQSm6Ncly5HoCZEIn0jyiTsMC6MMNWY+ec4kfV+H9MTxJmPb2H7jky6v
-         6vXQIHsGpOSqFO1u7liSDDIukXdUEFCbzqt0+7SUaIVxO99AYZXP5EWhcvRg39yQy7ah
-         ribCaBwl1ywX5X9jLKLMN/FbIkW9vENruXSLH7oPQR8PyCtQg8YHTlb1q2gUpaiWcVug
-         LVLGi3/E1D8dVpQpcUX1FObn8rOtqh5QuC7E1gLQo4BmI+/CmUEyUqTBwuIA5PLzfjlQ
-         cfDuwxzs0tDKlsMcjIFVpS7bahC209jufOYLA+q/fzxqJhidkXCx51KYzsyfg9Qtxfzo
-         YwQA==
+        b=RgNaWOk+HoGmuPsFqjLTGwlsm8lJ7mSJq3Y+kQUMwRvMpqpdeVXUMOXnc4OuLTXGRL
+         02mFYgYMvbXFxQKV1niyXP4+dPrJ5lAiaWhfQ+HOYvS0XO8Oq5FY6ck+HeY18uBF/3IE
+         k4V3JRlyTHZgDnQwA/TQKxdQHpGOsyB4KQRVLMCy74/Enc5ASYijZKwo/clv4pRz7TyH
+         cTswK8W1FZO9nZUrczM2rk5ufGJOEFmtgVMPj4izAQG/lA5Jc2tkN1Cl5n9y1eGGl20Q
+         1TFeV0P2mtA7mZcgssEyvaSkN2K5K8xvnfbuv5PSlOMCJrdnS6H0ECFtDOR2tUEDzq+q
+         lXRg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:references:in-reply-to:subject:cc:to:from
-         :message-id:date:dkim-signature:dkim-signature;
-        bh=36BBIWb4P8ecW+8XwIEeqQKz0t/gusqeVesShI9xHg0=;
-        b=y+qp5i1Vp4xJHFDtIslNovLsiPibdPSFb9pYrdLSvwmNN8gKllnbyUrM9VSe+Qinmt
-         zvL6apNPUvhWfwLuj2/9jl9BkSXHLksWKKntloDfr5urh/F9lmxx8i1q/z/kWUs/kshk
-         fGeYsCay++ssPDxw+JjH8lk87Hu89rduVRTiDWa+fOLrE0V+GnlZVlwPDeLSQmxz/Lw1
-         U/iWilrA1UCwh4MRDrkcKBbm6W/TFvD++e5jO8EcQwbII7DT8cQ8eLvXPga9GuLjXB2e
-         JYToWxTtcc+YKMfy4QaM3iq+kbvb53T2k5FahNWCJ3Qpt4MMkwLTnE6V/5qn447fwqC/
-         ERZw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=RXCqGuKmHEMuxaBawEx/fPO1D7uKdxlvyjPt9IkCQDc=;
+        b=ko0G+2vlsy4YatlmbnSNreFaP11G4X5VJZL73Vroe1mxCzTOGUYRJQ4M20MRkTzYoh
+         xgiL8h2IlgmaZDtrEib0H4LZm4Oinjwy6LyrsyU8enSkivQRpJaeD/YOo2FpfRClPlWL
+         LkwXNzWcxK4WT29QYr+1xnLKRz73PEsRXvJfxXplPMUqk2jDIhaRHC88YPYEyAA3QgK7
+         UgA5QzdoNHyoqbsZ9cuHyqqJVGZoDwf6p3maQ362ogeZf4hr4oI2kweut67c0Ijk/yQZ
+         X/sI8hFHmBJr0NPEhuMSqQGYuRsPEf5XYjBgaTe1A2eUYfnQrrayPkCY7ybuQlGU2UAK
+         e/TA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@suse.de header.s=susede2_rsa header.b="M7+xz/a9";
-       dkim=neutral (no key) header.i=@suse.de;
-       spf=pass (google.com: domain of tiwai@suse.de designates 195.135.220.29 as permitted sender) smtp.mailfrom=tiwai@suse.de
-Received: from smtp-out2.suse.de (smtp-out2.suse.de. [195.135.220.29])
-        by gmr-mx.google.com with ESMTPS id b43si178605ljr.6.2021.06.25.00.45.49
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=Ro7vdmrt;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id v22si126770otp.0.2021.06.25.03.10.32
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Jun 2021 00:45:49 -0700 (PDT)
-Received-SPF: pass (google.com: domain of tiwai@suse.de designates 195.135.220.29 as permitted sender) client-ip=195.135.220.29;
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
-	by smtp-out2.suse.de (Postfix) with ESMTP id D16311FE44;
-	Fri, 25 Jun 2021 07:45:48 +0000 (UTC)
-Received: from alsa1.suse.de (alsa1.suse.de [10.160.4.42])
-	by relay2.suse.de (Postfix) with ESMTP id BBF10A3BB4;
-	Fri, 25 Jun 2021 07:45:48 +0000 (UTC)
-Date: Fri, 25 Jun 2021 09:45:48 +0200
-Message-ID: <s5heecql74j.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 25 Jun 2021 03:10:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D03D761428;
+	Fri, 25 Jun 2021 10:10:30 +0000 (UTC)
+Date: Fri, 25 Jun 2021 12:10:29 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: Nathan Chancellor <nathan@kernel.org>
-Cc: "Geoffrey D. Bennett" <g@b4.vu>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
+Cc: Sasha Levin <sashal@kernel.org>, stable@vger.kernel.org,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	alsa-devel@alsa-project.org,
-	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] ALSA: usb-audio: scarlett2: Fix for loop increment in scarlett2_usb_get_config
-In-Reply-To: <20210624212048.1356136-1-nathan@kernel.org>
-References: <20210624212048.1356136-1-nathan@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI/1.14.6 (Maruoka)
- FLIM/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL/10.8 Emacs/25.3
- (x86_64-suse-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI 1.14.6 - "Maruoka")
+Subject: Re: [PATCH 4.4 to 4.19] Makefile: Move -Wno-unused-but-set-variable
+ out of GCC only block
+Message-ID: <YNWrlag5xpdpBMM8@kroah.com>
+References: <20210623172610.3281050-1-nathan@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: tiwai@suse.de
+Content-Disposition: inline
+In-Reply-To: <20210623172610.3281050-1-nathan@kernel.org>
+X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@suse.de header.s=susede2_rsa header.b="M7+xz/a9";
-       dkim=neutral (no key) header.i=@suse.de;       spf=pass (google.com:
- domain of tiwai@suse.de designates 195.135.220.29 as permitted sender) smtp.mailfrom=tiwai@suse.de
+ header.i=@linuxfoundation.org header.s=korg header.b=Ro7vdmrt;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,56 +130,32 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 24 Jun 2021 23:20:48 +0200,
-Nathan Chancellor wrote:
+On Wed, Jun 23, 2021 at 10:26:12AM -0700, Nathan Chancellor wrote:
+> commit 885480b084696331bea61a4f7eba10652999a9c1 upstream.
 > 
-> Clang warns:
+> Currently, -Wunused-but-set-variable is only supported by GCC so it is
+> disabled unconditionally in a GCC only block (it is enabled with W=1).
+> clang currently has its implementation for this warning in review so
+> preemptively move this statement out of the GCC only block and wrap it
+> with cc-disable-warning so that both compilers function the same.
 > 
-> sound/usb/mixer_scarlett_gen2.c:1189:32: warning: expression result
-> unused [-Wunused-value]
->                         for (i = 0; i < count; i++, (u16 *)buf++)
->                                                     ^      ~~~~~
-> 1 warning generated.
-> 
-> It appears the intention was to cast the void pointer to a u16 pointer
-> so that the data could be iterated through like an array of u16 values.
-> However, the cast happens after the increment because a cast is an
-> rvalue, whereas the post-increment operator only works on lvalues, so
-> the loop does not iterate as expected.
-> 
-> Replace the post-increment shorthand with the full expression so the
-> cast can be added in the right place and the look works as expected.
-> 
-> Fixes: ac34df733d2d ("ALSA: usb-audio: scarlett2: Update get_config to do endian conversion")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1408
+> Cc: stable@vger.kernel.org
+> Link: https://reviews.llvm.org/D100581
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> [nc: Backport, workaround lack of e2079e93f562 in older branches]
 > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 > ---
->  sound/usb/mixer_scarlett_gen2.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/sound/usb/mixer_scarlett_gen2.c b/sound/usb/mixer_scarlett_gen2.c
-> index fcba682cd422..c20c7f1ddc50 100644
-> --- a/sound/usb/mixer_scarlett_gen2.c
-> +++ b/sound/usb/mixer_scarlett_gen2.c
-> @@ -1186,7 +1186,7 @@ static int scarlett2_usb_get_config(
->  		if (err < 0)
->  			return err;
->  		if (size == 2)
-> -			for (i = 0; i < count; i++, (u16 *)buf++)
-> +			for (i = 0; i < count; i++, buf = (u16 *)buf + 1)
->  				*(u16 *)buf = le16_to_cpu(*(__le16 *)buf);
+>  Makefile | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
 
-That's still too error-prone.
+Now queued up, thanks.
 
-Could you rather introduce another variable of u16 * type, and use it
-instead?  Ditto for u8 access for the code after that, too.
-
-
-thanks,
-
-Takashi
+greg k-h
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/s5heecql74j.wl-tiwai%40suse.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YNWrlag5xpdpBMM8%40kroah.com.
