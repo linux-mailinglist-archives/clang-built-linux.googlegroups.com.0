@@ -1,125 +1,126 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBI7P3CDAMGQEBVY2L2I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBVHR3CDAMGQERJSOIRQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6085A3B49AA
-	for <lists+clang-built-linux@lfdr.de>; Fri, 25 Jun 2021 22:08:05 +0200 (CEST)
-Received: by mail-pl1-x63a.google.com with SMTP id o7-20020a1709026b07b029011a0d4de43dsf4207160plk.5
-        for <lists+clang-built-linux@lfdr.de>; Fri, 25 Jun 2021 13:08:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624651684; cv=pass;
+Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 785113B49AE
+	for <lists+clang-built-linux@lfdr.de>; Fri, 25 Jun 2021 22:13:09 +0200 (CEST)
+Received: by mail-io1-xd37.google.com with SMTP id w2-20020a5d96020000b02904d5a6cb5d72sf7788835iol.14
+        for <lists+clang-built-linux@lfdr.de>; Fri, 25 Jun 2021 13:13:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624651988; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jA8EpeS7GMVIMRdPqpi4ju4FxvxlZxZ6ICH+bHqbRrXC9E1JIjsxSpE0wPpFMy356t
-         /Jso07JCxoxkvgS0LcL8jQYko4VvwemqDDTQf2FKIIk1NdTd/2VW0vH9Mb1Vts84vDw2
-         koBoD2soflHIA/UcLNru3mD4iNqpAiR7zGIug3IEIJOU9SzJ08lokRUEVg7djQ+dSlJf
-         M+BXOD4a9Rukfi/QDknnIjpsQ+gb45NA08yizsZ8/YcVO9ZOIIWji1oCVWScSswF8vGF
-         +dnGDp24LXM4gnXl7RruwOS2KBDy4MWP9sQs5pSEOXQGdDZsEgmDPYMQoTulEKzFGkJj
-         vxtQ==
+        b=U4B1zYRMjOaLWJuy3G72JmoiVljApKfLRWRGRHhmY3dQpjuhIXpEHDBc2sWFN5PCu5
+         S3LLWxY+hHhMl7ge2JA1ObU9ZpmKpQqih9il+9lyfcyXq9k4bOX+3aeuugmboPFjALvc
+         bZVDh4a2bFmL1Aqt2CP2kN9pVtEYsKhi7ZnIWZ2jSY5dcJwax/R7jJ0jnGYyHdQfMRFH
+         t9Bf5gzZfsQKBQrczIye6c9B6TYxxeQ/r+5DPJAc5Bkc2xXRbeDvpwaqeDFoNcjdGLEA
+         kJY0ddtu+tav0L2tO0orM4frroRGnH5hipaQ34LRwfZrb7brdo4KtXKDD7L45skJLytH
+         0BAg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=MHJwPuaI7HXA0Tj6qN2JshNndh9aap1hWcD2/mybx0U=;
-        b=cuLyX51hxu7hPpz39BimGjh/uvWSLiq6rnkC+BG/6rrIeYk6ryeCNdaamhBkFdJoBo
-         YR0mcG+ezjNQ0xYrfogkncB8PAYyCEX9+YXGNVFqAnwsWX5uHRIM8fVo0ia2GPlLQYws
-         r1T/F9PKdZp8eyVN3zDGT7/2imzy08Z/0gx6xONNRm6A1Cai010pV8MnR/C64Jzu8Zqp
-         fGcM8K2rdhjWWH8WpsXXqf+mt120FPEkOulr77hHpPIv+8zqiTDMmSgfXuaxvi6CGI6y
-         SXdFZkzMf9IOT7hz5xF04U5yIR6K05HHjd9sq0vPA3Knpui8+Z4WRxsLlW3RoT7YCdla
-         VG2g==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=ptEUlq4jpqE94Sh7PB4BWanKMLgbrM2pT81stWGNgj4=;
+        b=g9Ru2BgnWT5yWeImoYU1U6RKNMslIRrR398Dk0q1hn/kfSDQygQimFIYTRrEW98hoZ
+         f9RrT2EVlki2jOmkAu+Hhyw/NCjOP4wCLY3288AQKLo31ItiZ4urFAAY8SJqKm89sYhh
+         ZGiipQMUyyHldUYUy2PHjVRZNw1kKqe2Q8+V2aNrPLHUpG3pYtItr8nfEZfX6elE1u39
+         hgItPC2A2vZDBdua5Cv19uNv2LRPX8yksyr1RuqIa1wnQswE2qEBndjJYVGPiFZXKGH+
+         nCSPpsCMsWUUiZhKs0k0rfahujtHjlGswXx8IeHqiTgC/N/62Qb9GhNtbrN8CLJcBZ/q
+         v6Vw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=i1Qf5Nyv;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=obrIPNX2;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=MHJwPuaI7HXA0Tj6qN2JshNndh9aap1hWcD2/mybx0U=;
-        b=smW0eUgypW8KTZQ/uBSPMLiIQDTP2R1t55GGQSfTEDOtrk2yBDfsYvReSfyniTTdq+
-         7Pr9j12xjjae4gyU+QVERyAsdqQoGBnyekPSvzfTpKgD55zMZ/5k9t9/Kdlk6NAe0D8k
-         PcyLJxTvLYpkt2nvyTSFr+qMvMGZJUwyjzBDOvMUdBmjBjdgRla6R9+Y6PiKD/TN70CQ
-         Hu3MGiARXhHhTBBi3JXBJuSAN7a5IlK2ohQ+IrjN1EPZ+cuLFvQsDSw8sj99mIe/oZRq
-         hOCcbO7Rbh/rHbEuoeiMXGABLpnhkRjY0yPdCB5ZCCU+zFwjof+sij+jVadAjYT2Emgd
-         8o0A==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ptEUlq4jpqE94Sh7PB4BWanKMLgbrM2pT81stWGNgj4=;
+        b=YyJpaLS6yMBcgKoJJu5iNEswsHqKChPX2cNhVxpyKbBYYCc2eTP4BlWDfgaQgGOnM2
+         HLLzExIVUJsWJOpp8dfG7hYUlQq6r95w6Mfo31hwKvIlxHfjL9vPyZ5h79b9ZTU2jXUO
+         3PnDis5msp8euV3z3oSzGnb52SG/StKxrvD4dvU1vGmwdPB751I6i4o8EToe8EJva/cx
+         7X6egdtbekm1Y2YrohTF0qS7ZTDW9Q/NRqicNBOb7xrccb+KJh7JtKqK/VBfC56/1hsa
+         utWRDYqsQgKd/qw1BrtPVfLNQq7ZWzikK3JPQq+qaqLrDZXeA+9EeeFddqgDhtGcaJt1
+         +nYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=MHJwPuaI7HXA0Tj6qN2JshNndh9aap1hWcD2/mybx0U=;
-        b=Bo0+rtqTVUdcMMipL+VSvscIudKCuRvpFouV/eAgSeXyIJ/yZWsZvdB/V7DqcQaUV+
-         Ft4onD3b4myBK9rzClBnYBxYVmBnnnmu6f2+AnMjrIVHT2lZMhpjTXF0+IxsVzOI1AUd
-         qA4Q09sbttHw9/Dz/msPGXDL/Hsa5ctFjy3jjFfyLOe2t7Gsoil/0HAaiWiC/VpLvwtf
-         oZkW9p3jQiUCWh/vhID2DFLI547dZ2MGjwEDgsnCpiJPzLFSSoixYoA6/RTe6yrKid70
-         TdbOuTd1T1H01qXi9ddjD3BUBkaPkzzdjGnZx0tvl6IfkgZegw8tybknamjHyNPkOmov
-         Txcg==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ptEUlq4jpqE94Sh7PB4BWanKMLgbrM2pT81stWGNgj4=;
+        b=APWwplmL9kf2BXN6DXtgHrdIIy/xYtjXg7Y/4dDtSTcwkKPEgYN370O9mLde6UO+8t
+         ZOcNmXw4jd/Dp8mFmUeGQ28yKDuwFPZ5lW+pJ1slEPX97T5njnjWPQaYpKMgk9J7ikZG
+         INIJypYmjF/erF6/lZpJEtfeNzrXjnZXz374eGZ47BEdrlAaKttV1Q+2JXGcBH5pkJxx
+         jZm4GBnZ4uTPhJwWgco4diZZAOalCxzM5DI53gdAxrBH3rCczhQn3Q9zsTHn8ub/n6C5
+         5CYsadWW4kBZ8sC5SfdJCXamOH55eilp4mV8WcBXy6QIzV7+qDHBnNTxVv67WxWGaUlm
+         Kcrg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5333GBNvpEbJIye26tTZ0pilIUWKk+ighxeRQ2Kn35eK+4B8PiKc
-	A5bKywCbtZmnxRmnz4yrR8U=
-X-Google-Smtp-Source: ABdhPJzdJUWOYF4XHosCrdnY0KcXl07V/F19rFRHefyDdZC3KolQeVHQnbSrXzsDtEvcmNWz1gsfqQ==
-X-Received: by 2002:aa7:8702:0:b029:303:6c92:dc8e with SMTP id b2-20020aa787020000b02903036c92dc8emr12144113pfo.63.1624651683841;
-        Fri, 25 Jun 2021 13:08:03 -0700 (PDT)
+X-Gm-Message-State: AOAM5332HKpvMSh4dfx4rTxBRnCL9rLH4xr/1f9D2oZjFKlEVpdsafhf
+	sMmnT/fUsFaXHNceee1cWKc=
+X-Google-Smtp-Source: ABdhPJwJabXTaw35g+csDmGruHeMFmz+kvr0hpoy8gie3OkmlpgDVMRtC0YyODG3Hb7zvgJBbN0Aeg==
+X-Received: by 2002:a05:6e02:1489:: with SMTP id n9mr8718364ilk.102.1624651988438;
+        Fri, 25 Jun 2021 13:13:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:11d1:: with SMTP id gv17ls3437637pjb.1.canary-gmail;
- Fri, 25 Jun 2021 13:08:03 -0700 (PDT)
-X-Received: by 2002:a17:90b:ecf:: with SMTP id gz15mr12548476pjb.131.1624651683311;
-        Fri, 25 Jun 2021 13:08:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624651683; cv=none;
+Received: by 2002:a05:6638:2722:: with SMTP id m34ls1659197jav.7.gmail; Fri,
+ 25 Jun 2021 13:13:08 -0700 (PDT)
+X-Received: by 2002:a02:70c3:: with SMTP id f186mr10770866jac.92.1624651988084;
+        Fri, 25 Jun 2021 13:13:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624651988; cv=none;
         d=google.com; s=arc-20160816;
-        b=ETKcdUlJcBmrIZWoA1KBJZ6ZUirrPTK3F3wpT7vu/A3uY8prrnY8zm1ywx+9kgkeS2
-         peb+DZwQZWtco/ibhsLfkxvUHgTJ/8R+7wjTFAiOm/nwWrSY7UeokKdWDsdCMnmrhhgv
-         PJnKXMD5zwajbxJUB4nfKa2Z5Tjc5nRQ/koJZKipAPGJdyJXxDWsW/2CQi6elfPdGgjx
-         BoAUKK3rgNSMiFI+qHJNr1naK7W6CTK5iI0Ut1Qqp2WTYYGLYwoKUg4UgkqOrKe/a3DW
-         ZpSPuxplb6zvghNopAZyznFiN1ZdDuwIbsQ6NeSGvAk8YMXOs4c23Vif5IHE4EPALUNy
-         aiIg==
+        b=GB631AjsiAAANiw8kRgQqKY5shzOvru0hhaCxteUeWNtBJFWhopWzFancgkSOKFWuH
+         Alnw5VaxGO9NwfF56Jk2tNBYeW8cFHD0PjV75d22Q/Q6H/Ntaa+qB7vdHBe5Xn7BrYfP
+         zZPjqZ25FU9gKKe+2Xr9MNApSejDhnf7jzpypgs/B25r/H9dKtXUYOCC7+yA0udQw6o4
+         WEK46/MbhaErzeLiVSOxezxdz66mxWh4qxKCmnMZ7YGf2bitu1gJDKuqjpXnNK8uaZRp
+         /v42jhVajFmHX4OPFgppfgI6OIvV6FHrIubsO4N7yv0m1hubRjF4aG8XQMe/dL3D+Bx+
+         WThg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=st0qw6d4LTdim7HyfGW8euGHVqaVu1Ne6XAil8H7SUg=;
-        b=GlrAFdIShblI5z3HEeL1/y0Td+8lZ1D4SbfCA2myVQWNdNMxX85POzYrFGduP+3UU7
-         VDc9ENf6RSL6cQ5N4hu6Pxx2UIIKTGB3m1iQX7Pzma0a6WQrVytgULZFEagRaYRNtcRx
-         bsdguNke3AJRa+qSd2Syaql3Fux0uPmUkneDRmlauPBCL/RGGAT11xAjwccIZ2e7v4x8
-         j9NgMCeY97hUj+tXaJHMMeZ0V/FpwtwJGO7a6zfpKVj7BxIylmhAfduTQ3gWtzwk9K+s
-         DstJBkwJKqffR40drw6YjjHln9vMrx1TXSq/aa4ZZ0C7vQjomsCQHJagdjb8+1izH0bY
-         Gv3g==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=MFLloclV3xTXF7Y4FDuGm/9ur+HcnWjczGGcBZB+Lgo=;
+        b=arJK91Tna2iTDh8TrkbMTrcc6MORsmYsD15mPDBnOjzBO413SZCynUzrPCZC+Iu+zI
+         KE2dANGbJWrCi+S5AJPFkx4ZW23yvruw5h/N8ZSwugXULyrrgBHF5zrcXATM3b9RI51y
+         c5p4UdaxRKJwzerj8IwicG8xC/YpeGTwOMNgJ6gcj5bqFfXTjmTvmbhHQUp05kSZeP+2
+         kRXiHeI+G+0JX/ocWUHMb4/wcjIxfxOvzh0tM8YKrnAFxQI2c6hM2+jg/E2NXzZIwPB5
+         xsC/klUnAxxFgdCs3B+Cdti70idZ//N1HxygyBvXzCxXhMcchVHLNh2YPE4WM4srrmr1
+         5GPw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=i1Qf5Nyv;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=obrIPNX2;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id z18si592911pfc.5.2021.06.25.13.08.03
+        by gmr-mx.google.com with ESMTPS id i12si188484iog.2.2021.06.25.13.13.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 25 Jun 2021 13:08:03 -0700 (PDT)
+        Fri, 25 Jun 2021 13:13:08 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 7A69761960;
-	Fri, 25 Jun 2021 20:08:02 +0000 (UTC)
-Date: Fri, 25 Jun 2021 13:08:00 -0700
+Received: by mail.kernel.org (Postfix) with ESMTPSA id C4FFE61879;
+	Fri, 25 Jun 2021 20:13:05 +0000 (UTC)
 From: Nathan Chancellor <nathan@kernel.org>
-To: "Geoffrey D. Bennett" <g@b4.vu>
-Cc: alsa-devel@alsa-project.org, Nick Desaulniers <ndesaulniers@google.com>,
-	linux-kernel@vger.kernel.org, Takashi Iwai <tiwai@suse.com>,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v2] ALSA: usb-audio: scarlett2: Fix for loop increment in
- scarlett2_usb_get_config
-Message-ID: <YNY3oF3RkbZRk2Ri@Ryzen-9-3900X.localdomain>
-References: <s5heecql74j.wl-tiwai@suse.de>
- <20210625175418.2019892-1-nathan@kernel.org>
- <20210625184342.GA23780@m.b4.vu>
+To: "Geoffrey D. Bennett" <g@b4.vu>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	alsa-devel@alsa-project.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH v4] ALSA: usb-audio: scarlett2: Fix for loop increment in scarlett2_usb_get_config
+Date: Fri, 25 Jun 2021 13:11:51 -0700
+Message-Id: <20210625201150.1523987-1-nathan@kernel.org>
+X-Mailer: git-send-email 2.32.0.93.g670b81a890
+In-Reply-To: <20210625200549.1061113-1-nathan@kernel.org>
+References: <20210625200549.1061113-1-nathan@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210625184342.GA23780@m.b4.vu>
+X-Patchwork-Bot: notify
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=i1Qf5Nyv;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=obrIPNX2;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,112 +133,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Jun 26, 2021 at 04:13:42AM +0930, Geoffrey D. Bennett wrote:
-> On Fri, Jun 25, 2021 at 10:54:19AM -0700, Nathan Chancellor wrote:
-> > Clang warns:
-> > 
-> > sound/usb/mixer_scarlett_gen2.c:1189:32: warning: expression result
-> > unused [-Wunused-value]
-> >                         for (i = 0; i < count; i++, (u16 *)buf++)
-> >                                                     ^      ~~~~~
-> > 1 warning generated.
-> > 
-> > It appears the intention was to cast the void pointer to a u16 pointer
-> > so that the data could be iterated through like an array of u16 values.
-> > However, the cast happens after the increment because a cast is an
-> > rvalue, whereas the post-increment operator only works on lvalues, so
-> > the loop does not iterate as expected. This is not a bug in practice
-> > because count is not greater than one at the moment but this could
-> > change in the future so this should be fixed.
-> > 
-> > Replace the cast with a temporary variable of the proper type, which is
-> > less error prone and fixes the iteration. Do the same thing for the
-> > 'u8 *' below this if block.
-> > 
-> > Fixes: ac34df733d2d ("ALSA: usb-audio: scarlett2: Update get_config to do endian conversion")
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/1408
-> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> > ---
-> > 
-> > v1 -> v2:
-> > 
-> > * Use temporary variables of proper type rather than casting, as
-> >   requested by Takashi. I did not include Geoffrey's ack for this
-> >   reason.
-> > 
-> > * Mention that there is not a bug at the moment per Geoffrey's comment.
-> > 
-> >  sound/usb/mixer_scarlett_gen2.c | 14 ++++++++++----
-> >  1 file changed, 10 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/sound/usb/mixer_scarlett_gen2.c b/sound/usb/mixer_scarlett_gen2.c
-> > index fcba682cd422..b13903bed330 100644
-> > --- a/sound/usb/mixer_scarlett_gen2.c
-> > +++ b/sound/usb/mixer_scarlett_gen2.c
-> > @@ -1177,17 +1177,22 @@ static int scarlett2_usb_get_config(
-> >  	const struct scarlett2_config *config_item =
-> >  		&scarlett2_config_items[info->has_mixer][config_item_num];
-> >  	int size, err, i;
-> > +	u8 *buf_8;
-> >  	u8 value;
-> >  
-> >  	/* For byte-sized parameters, retrieve directly into buf */
-> >  	if (config_item->size >= 8) {
-> > +		u16 *buf_16;
-> > +
-> 
-> I would prefer that the u16 *buf_16 declaration above be removed from
-> there...
-> 
-> >  		size = config_item->size / 8 * count;
-> >  		err = scarlett2_usb_get(mixer, config_item->offset, buf, size);
-> >  		if (err < 0)
-> >  			return err;
-> > -		if (size == 2)
-> > -			for (i = 0; i < count; i++, (u16 *)buf++)
-> > -				*(u16 *)buf = le16_to_cpu(*(__le16 *)buf);
-> > +		if (size == 2) {
-> > +			buf_16 = buf;
-> 
-> ...and combined with the assignment here, like: u16 *buf_16 = buf;
+Clang warns:
 
-Thanks for pointing it out, I was not paying enough attention to realize
-that the scope could be reduced. v3 sent with your Ack added, thank you
-for taking a look in a quick manner!
+sound/usb/mixer_scarlett_gen2.c:1189:32: warning: expression result
+unused [-Wunused-value]
+                        for (i = 0; i < count; i++, (u16 *)buf++)
+                                                    ^      ~~~~~
+1 warning generated.
 
-Cheers,
-Nathan
+It appears the intention was to cast the void pointer to a u16 pointer
+so that the data could be iterated through like an array of u16 values.
+However, the cast happens after the increment because a cast is an
+rvalue, whereas the post-increment operator only works on lvalues, so
+the loop does not iterate as expected.
 
-> Regardless:
-> 
-> Acked-by: Geoffrey D. Bennett <g@b4.vu>
-> 
-> And, thanks again!
-> 
-> > +			for (i = 0; i < count; i++, buf_16++)
-> > +				*buf_16 = le16_to_cpu(*(__le16 *)buf_16);
-> > +		}
-> >  		return 0;
-> >  	}
-> >  
-> > @@ -1197,8 +1202,9 @@ static int scarlett2_usb_get_config(
-> >  		return err;
-> >  
-> >  	/* then unpack from value into buf[] */
-> > +	buf_8 = buf;
-> >  	for (i = 0; i < 8 && i < count; i++, value >>= 1)
-> > -		*(u8 *)buf++ = value & 1;
-> > +		*buf_8++ = value & 1;
-> >  
-> >  	return 0;
-> >  }
-> > 
-> > base-commit: 0cbbeaf370221fc469c95945dd3c1198865c5fe4
-> > -- 
-> > 2.32.0.93.g670b81a890
-> > 
+Replace the cast with a temporary variable of the proper type, which is
+less error prone and fixes the iteration. Do the same thing for the
+'u8 *' below this if block.
+
+Fixes: ac34df733d2d ("ALSA: usb-audio: scarlett2: Update get_config to do endian conversion")
+Link: https://github.com/ClangBuiltLinux/linux/issues/1408
+Acked-by: Geoffrey D. Bennett <g@b4.vu>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+
+v1 -> v2:
+
+* Use temporary variables of proper type rather than casting, as
+  requested by Takashi.
+
+* Mention that there is not a bug at the moment per Geoffrey's comment.
+
+v2 -> v3:
+
+* Restrict scope of buf_16 more, as requested by Geoffrey.
+
+* Add Geoffrey's ack.
+
+v3 -> v4:
+
+* Fix stray newline added below
+
+  if (config_item->size >= 8) {
+
+  leftover from buf_16's declaration.
+
+ sound/usb/mixer_scarlett_gen2.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
+
+diff --git a/sound/usb/mixer_scarlett_gen2.c b/sound/usb/mixer_scarlett_gen2.c
+index fcba682cd422..161d832cafef 100644
+--- a/sound/usb/mixer_scarlett_gen2.c
++++ b/sound/usb/mixer_scarlett_gen2.c
+@@ -1177,6 +1177,7 @@ static int scarlett2_usb_get_config(
+ 	const struct scarlett2_config *config_item =
+ 		&scarlett2_config_items[info->has_mixer][config_item_num];
+ 	int size, err, i;
++	u8 *buf_8;
+ 	u8 value;
+ 
+ 	/* For byte-sized parameters, retrieve directly into buf */
+@@ -1185,9 +1186,12 @@ static int scarlett2_usb_get_config(
+ 		err = scarlett2_usb_get(mixer, config_item->offset, buf, size);
+ 		if (err < 0)
+ 			return err;
+-		if (size == 2)
+-			for (i = 0; i < count; i++, (u16 *)buf++)
+-				*(u16 *)buf = le16_to_cpu(*(__le16 *)buf);
++		if (size == 2) {
++			u16 *buf_16 = buf;
++
++			for (i = 0; i < count; i++, buf_16++)
++				*buf_16 = le16_to_cpu(*(__le16 *)buf_16);
++		}
+ 		return 0;
+ 	}
+ 
+@@ -1197,8 +1201,9 @@ static int scarlett2_usb_get_config(
+ 		return err;
+ 
+ 	/* then unpack from value into buf[] */
++	buf_8 = buf;
+ 	for (i = 0; i < 8 && i < count; i++, value >>= 1)
+-		*(u8 *)buf++ = value & 1;
++		*buf_8++ = value & 1;
+ 
+ 	return 0;
+ }
+
+base-commit: 0cbbeaf370221fc469c95945dd3c1198865c5fe4
+-- 
+2.32.0.93.g670b81a890
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YNY3oF3RkbZRk2Ri%40Ryzen-9-3900X.localdomain.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210625201150.1523987-1-nathan%40kernel.org.
