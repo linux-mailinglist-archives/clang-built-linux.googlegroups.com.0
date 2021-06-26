@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBMEZ32DAMGQERVN63IA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBKVB32DAMGQEAUBMDTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
-	by mail.lfdr.de (Postfix) with ESMTPS id 492FD3B5010
-	for <lists+clang-built-linux@lfdr.de>; Sat, 26 Jun 2021 22:23:13 +0200 (CEST)
-Received: by mail-qt1-x838.google.com with SMTP id u11-20020a05622a010bb029024ec154fa8bsf10681132qtw.20
-        for <lists+clang-built-linux@lfdr.de>; Sat, 26 Jun 2021 13:23:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624738992; cv=pass;
+Received: from mail-qk1-x740.google.com (mail-qk1-x740.google.com [IPv6:2607:f8b0:4864:20::740])
+	by mail.lfdr.de (Postfix) with ESMTPS id 421A83B5012
+	for <lists+clang-built-linux@lfdr.de>; Sat, 26 Jun 2021 22:40:11 +0200 (CEST)
+Received: by mail-qk1-x740.google.com with SMTP id o189-20020a378cc60000b02903b2ccd94ea1sf13531290qkd.19
+        for <lists+clang-built-linux@lfdr.de>; Sat, 26 Jun 2021 13:40:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624740010; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TrhxyVphQ4b9EdgC89znB2chbVFddsde7ARRfEvYZ2By38uysHtK9AreTdw/RU7ZXW
-         LMBX+ss4gBNWlXfCivLi5Tz/k1FJRmbhkT1Sa8G4kR7V+jOEaMnJIPXE7QtH3sHCPlJf
-         fjdywrHzoQCsdVUDcBLPEQnV/ZJUxGGykVvp3I9Ls1vP+povTI81lOCDP6yFE1Y1gxLQ
-         GqxU0qd6ZCmKZlTEkypHh3dVSuvSp9ei2astRM02Zk8prvkSNPh0qYV0FSv6XoE2Oj/R
-         mD1EnfCgubj4eP33ZzA81HRsOv607eof+hew4M5YOvVNkCXPTbVrm8KIkRFTyInscoOv
-         9JNA==
+        b=oE4v7kKVfvHdZd3z/VKMQ+WZ1fy5GAF8qCdHMMQX/sT2VzP31OflHlf+/7LZLzXVjO
+         99bt2sdAATSnZ4i1mTDzC6J6xH3Hh5ytdzVpvpr5/M9HFz9fDZmCZnneeKqmwnkygJJW
+         8hOsOf2H994pm5b/dbUOeMearrOme1urV7Aoo1VkDEzL7yq/hvLKIjjBDs7hzTYIMuiL
+         0Eg2jFuJ+vJgvTtryqgiDUmKE05F1vyFYjRjlQc7VOjJw3VS1I1GC163PbmhysyIDWHi
+         N59PgIMrlKke+IBRlnd8WKmoWLzPAqLrAS9fdXSBjvqYN0y18jEQTUz0WWQTQf1ULXgF
+         yXRw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr:sender
          :dkim-signature;
-        bh=cTqDriZLg/qRcB59wxQycC/NS8SSdFlLh+AK6Cnhv94=;
-        b=05vGFb7vTFnG2aw5cln579fFUhTl6FoVTR3wZKwshLDigol4Lv4GN2GDM9p3NgORTC
-         BVrn9t0gneeVbh6M4fecgOU/HQES97QVOLMH6Opw6/pd7egc4CMahAmR4l9jVMIh03qD
-         EeQS4Mh+GrFV2yfvHLHluUH1Ei4uDcSzCxBL9WbbgQAFI0ivCLQWnrIlI6+PfJDKgAhc
-         wW6l5lZWGhnRo2cWZ58RPk7wYxl+ROToc05qhqsUEwnmNSCta6lE7xu0bmQ+R8jxTn4O
-         AcX3hAeUL0xPSO04uZ5lSaqyZ7dDmlMLN56ejY+pCOaPpDMQ+is79eajG+PDAff9OXdv
-         HiJw==
+        bh=3JHtZ1pPiaHWy6uE8Rije+ON0mOXBi2aeMeZAoIlIJk=;
+        b=SxIxtQrVJcqOseWnv1yW/sseba+JIuJZk7dH68J9rbrA+5Cmh9Ym2F66RYJXmXMAfs
+         5h0WQxaizL1Cb3WZuK0O4mdPf+MJD3wcAyJtRyxgr0SmkHzc2fO3Xt3KeNhqvRtPYmBa
+         N0hVpc08awHzDIoFXhHpASwFqo9y4lKsLxf1K6luPG1mKBw6l1DKpZOZqjn0IKWQU5Eg
+         /0J4rYJCN0V012jebqRyd7qUccIoMH2LmBkznOpSjjbeI+JWrrPzCQGzX/O1ntfXW6Qn
+         dN141ylNz384cgbkwaKBCY7jPPBjW51TQoNTdio2p3YlJ6wmq7IcWMe4vMW+TmIFu8ml
+         3wWQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cTqDriZLg/qRcB59wxQycC/NS8SSdFlLh+AK6Cnhv94=;
-        b=gIbMdOYKZIGS0QPoEl/z+zLMzlIHdbw06wg2bM9jko1JGz6DNijIssbD8ZLVxJyLOr
-         Cmcyg1zTldND0dB9PrpEZ6KlP8zJIpFWzJoXoGAxVMrSEw59/q2OOxGqneVLlgq01Su7
-         l0Anp9lVzn9pvPSkahh9q7cKWmqrwZzBuYufYpsJ13qEUsovQwiwz+6BuMi1hNSA3l+a
-         j3XMoq2b8ilW4gHMh9RGS0Z7TV0PgQC/8CPER+UVMx/il6Puy7ZR0ro285xPk0wI7IZG
-         9QSPHCoEUz97xZnDbXTLqgcK0miTdVgNfEH0xgak28GmI5JOK39GSYR9ie7rexXJ/OA0
-         uHpA==
+        bh=3JHtZ1pPiaHWy6uE8Rije+ON0mOXBi2aeMeZAoIlIJk=;
+        b=HBoLmvRmPb7MjLuA0GoSX2aRuM7vWeDNOw8F3afHbdeXYOGK0ElOum+0D+18Sepk9h
+         wNRVvZYBtkQR2biJplkZ/pZYwuwFdokXab/cXLe502/ZIhtFox2kDQI6WyBVJtxivY3U
+         nC/3++dmcwOyBiPZAQmqWk4JP6SxqX9kqa3CurBh2bFWNAW+KaGoEpdRQmEAsSTi+Efv
+         Gc3uq6bK6AfIEgvaIZ0t8juCzXrRy6Xa4+etRt8D87Wu/YhnmNuMwOiKhT7K1irfN5u+
+         vxSPoOjkT8ieYBQtH/lrsXGAJiX+TJPA8X7wsR8FYTGSF8hCVssyAoheXDkgXuhRda3f
+         c7ww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:date:from:to:cc:subject
@@ -49,81 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=cTqDriZLg/qRcB59wxQycC/NS8SSdFlLh+AK6Cnhv94=;
-        b=ZBy/HLBJ0vTrmfGWTzGjrzYQHPmcEbBsS5qttJamHt9iWbpKfIZANmwifH8mb4Uhav
-         s/Md9jfVGSsqeoCtE5Sje1+yDYQQXofZiCH+cIfZCwX+pgkHppkspaUR8NO/Brjb6Gcd
-         gLWrsRD7qCWUCT+yfY7UKxAMEZLNK0Pbsv1oEOCVuCcBI5Ojz/a+xAPzmTe6oaDfjU0c
-         lvgdqd6e2cR8tsKXRIpgYtKLeB5OBnycDehXdym/HZJiktvQRUSEifyRAj1pUSZTm8ih
-         c/9oJptmGM0dbTP7YrK0farDiFTAR8D8hsdNMEDDdQopHBdL+rTzTPc6n7FjVQyXKhSm
-         ocvQ==
+        bh=3JHtZ1pPiaHWy6uE8Rije+ON0mOXBi2aeMeZAoIlIJk=;
+        b=bKz1H4AAksjHNAfvPHzL6gajIPWQ4WyGcoyTEk7D009pbdsT+A71TSci/Z3CjLzNmY
+         zYXAKbkljBAqXfMD518Hi6IncqFg+VFUrWfRv8zgasflZtziUMUyT/la/i0tx5vwgDKP
+         Rc+LEZuVPZhG+w5ilMNU3sLihhmwOVkXEVP5Ql9TyC6Hn3p1riZMaE1oGEZOO9g7O+uz
+         wd2Ezh9Br9s0WWZE6DHhA8musokU35jWov0w7pv0ku2xkhHfSA0+5njOJPIkGUuujjk4
+         lyaTay3r7SwRl5318s5FhmTbEb8RWWeHanVK/XcKlWUNz7OLnGe3XwL62YhXrttXH2jo
+         9iqQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533Zh1jN89rk2FdAOzJ0CM5ZHF14iEPTYZdYHQieCN7fX6KYDlEp
-	GZerpcCL5pXDLIG+4RgAHGY=
-X-Google-Smtp-Source: ABdhPJyykVul4GGU+p6VOs54HzHFKtxI7V0saOH6C8Dt+j5Ww+NJqPelbivhdXoyAUt97a+4es7e5Q==
-X-Received: by 2002:ae9:f510:: with SMTP id o16mr17738017qkg.211.1624738992106;
-        Sat, 26 Jun 2021 13:23:12 -0700 (PDT)
+X-Gm-Message-State: AOAM532sCphFf9YE4Q52dQjGy5+7UYnp/f6XyHvyTHv56yi8F+uFQx+2
+	3AfJZSFPKkBh6BwbgJB+VJE=
+X-Google-Smtp-Source: ABdhPJyfPJO981mwQ50+tBepqVaiOId6eml7dvujkTAOIpv4SWkq9pm4AWKimD6M0p2BKe4/wfornw==
+X-Received: by 2002:a37:315:: with SMTP id 21mr14891501qkd.491.1624740010144;
+        Sat, 26 Jun 2021 13:40:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:ea15:: with SMTP id f21ls8669664qkg.7.gmail; Sat, 26 Jun
- 2021 13:23:11 -0700 (PDT)
-X-Received: by 2002:ae9:eb17:: with SMTP id b23mr14475965qkg.34.1624738991482;
-        Sat, 26 Jun 2021 13:23:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624738991; cv=none;
+Received: by 2002:a05:6214:cc9:: with SMTP id 9ls604811qvx.6.gmail; Sat, 26
+ Jun 2021 13:40:09 -0700 (PDT)
+X-Received: by 2002:a0c:f008:: with SMTP id z8mr6990611qvk.35.1624740009564;
+        Sat, 26 Jun 2021 13:40:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624740009; cv=none;
         d=google.com; s=arc-20160816;
-        b=TMBYh6iECwlAvMbi0oQmFAqUzAEO/tEnFS1xiDVnLzQBSlSm4pjzHcNCEB311VkK9t
-         T6xJK0jPBzjlgT2fGbFXpIaJvWvcN5+jncLT4oGLM9Ipzo1xW+rnfyo1eFqkJynjVPm3
-         BONoRIpzIu1A519GdHtDjsBebyk9IOytnGij5A3+BaxxvZ53v0uf/qUvTZO8gv9I9Qgx
-         ZfXw3PdWUogkaV0XXAS4ntlQc9xbiQ9mArxF8I+akRsY0IvsAH9eVDoi2XtvLHnZLNVJ
-         gbvLVTtTySbleFt0OfDMK5SY7GZLSdADtfdnIohDe008F38BKZw7HXNGF5EizYT5SRdG
-         p8Jg==
+        b=J7o7bL5WrzJy4USkhtTwtLosOYBKzvwKiu3Z8i0Tyuyl0uq6dCbe9LCNvXiCfFCW9A
+         pM7m+dBOAtB6RTtViCWxsuP/pAjzr1XcGkwDjdXsF6W9OfxCVuqRdyoUALotf3YODM8l
+         Qmcleiz9+Xt+rS2Vxwn57Fk3R9IS3nvcvJixBQdtGOT6kaeLtw3Aoh3Ok7DiHLFDNExg
+         jXWyUNx9iAkXqQBoO7X26nSHswKXqribCB/nVnIA3Cq2r2kn+MwBIAVy1rJzw+ERB7QN
+         TYZlg4dQbgmihF6JtO4Z+96zKjmNeHMHfwtEQugQpJTLf7W6K+9DxWBeJ2DWuPJW608T
+         qvxg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr;
-        bh=RUlhOfux8yshuW7tMd2biqHmRvUuAto5GDCqIkpaf+s=;
-        b=el3bUfKVkmnSAbaW6516xRsXL5UR6N6ni143Dd9+fqdQlgkKqrrRhClePni9MICD6J
-         7gmPuro5iSHZbg7qUZ0TSjzVVEMIqHB3J9Nyl/1QrFt5+1e1GjCS/cjR2nWilzLmCs0N
-         sEPBoYemTvyKGOWWbsuKNTcDg2P0fWZrYGSe1VRm2caUbR1f65Xno9DIw2FI6J0e8nrL
-         j23nQTd8jHQIzCGh8o/ZMvz6ZyJKcBZeFuuCNGtHWPRcoZgR8cqqjLZt2/2wAlbbtxv6
-         gjBPrqhQ3bujE6nWlzoBnw6yWIbDGMYmc+0DvRJlyfyyAmyoGYmbOMXXVZd8Foextun0
-         7QLA==
+        bh=p4RdrAoshZdKPCszTDPKiX17q5cwWP7UoinDXIkBShg=;
+        b=gIDmMbxq7VAxOgeg6rLFSbwmJ1JeV3q/Shbyo5plmGcoWsvNO7QymNY+KRco3ze3A3
+         PicH2zHeETgpOZ4JTNyOnHcZo0WBWVrg7e2MYfggvgBBDmwnHMztuWD9aSZ0j7c4lqvE
+         JftpBmeYj6uoQ+VxfR6GTvXecyzrtKkt2x+Za4PJka8qZ1p5VcNVfL7WIlmT4cAkr+S2
+         pve3KtglLiDEH/jv7JGnfgxfOsF9kiWYLdG9QUdDmUfhIAqIat60/vta0LYp8VG84LGb
+         FWHFSokqElrHMl+rjgmty52gUOjL4iPH35HcP17I/hvPqJKLrmOAPWPnGYric0ZwM6gS
+         ZQ1A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id h18si536487qtq.5.2021.06.26.13.23.10
+Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
+        by gmr-mx.google.com with ESMTPS id c24si859625qtw.1.2021.06.26.13.40.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 26 Jun 2021 13:23:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
-IronPort-SDR: GkOGJ03mNAuxE6fb7tzz+F/0eCEm2lejfVWrtcjslWqUG4vB4oePdjVron1rE+6DAd2mTVrqU5
- we8iKH4JTnSw==
-X-IronPort-AV: E=McAfee;i="6200,9189,10027"; a="205980774"
+        Sat, 26 Jun 2021 13:40:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
+IronPort-SDR: NAkXOMeNcZXZEnDvkZPLXKBkuiNBwfJAeVVSrelwl+zJo/I9rNvT00UM3FZJXweSOHDwD7wfU5
+ H4/nue0wbA2w==
+X-IronPort-AV: E=McAfee;i="6200,9189,10027"; a="204799488"
 X-IronPort-AV: E=Sophos;i="5.83,302,1616482800"; 
-   d="gz'50?scan'50,208,50";a="205980774"
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2021 13:23:07 -0700
+   d="gz'50?scan'50,208,50";a="204799488"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2021 13:40:07 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.83,302,1616482800"; 
-   d="gz'50?scan'50,208,50";a="624823756"
+   d="gz'50?scan'50,208,50";a="418721523"
 Received: from lkp-server01.sh.intel.com (HELO 4aae0cb4f5b5) ([10.239.97.150])
-  by orsmga005.jf.intel.com with ESMTP; 26 Jun 2021 13:23:05 -0700
+  by fmsmga007.fm.intel.com with ESMTP; 26 Jun 2021 13:40:05 -0700
 Received: from kbuild by 4aae0cb4f5b5 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lxEpU-0007sx-JA; Sat, 26 Jun 2021 20:23:04 +0000
-Date: Sun, 27 Jun 2021 04:22:20 +0800
+	id 1lxF5w-0007tX-U5; Sat, 26 Jun 2021 20:40:04 +0000
+Date: Sun, 27 Jun 2021 04:39:35 +0800
 From: kernel test robot <lkp@intel.com>
 To: Daniel Bristot de Oliveira <bristot@redhat.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	"Steven Rostedt (VMware)" <rostedt@goodmis.org>
-Subject: [trace:for-next 34/40] kernel/trace/trace_osnoise.c:438:6: warning:
- no previous prototype for function 'osnoise_trace_irq_entry'
-Message-ID: <202106270416.HRtXdK0A-lkp@intel.com>
+Subject: [trace:for-next 38/40] kernel/trace/trace_osnoise.c:1584:2: error:
+ void function 'osnoise_init_hotplug_support' should not return a value
+Message-ID: <202106270431.0esjH5YC-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="UugvWAfsgieZRqgk"
+Content-Type: multipart/mixed; boundary="rwEMma7ioTxnRzrJ"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,13 +139,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---UugvWAfsgieZRqgk
+--rwEMma7ioTxnRzrJ
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trace.git for-next
 head:   6a2cbc58d6c9d90cd74288cc497c2b45815bc064
-commit: bce29ac9ce0bb0b0b146b687ab978378c21e9078 [34/40] trace: Add osnoise tracer
+commit: c8895e271f7994a3ecb13b8a280e39aa53879545 [38/40] trace/osnoise: Support hotplug operations
 config: powerpc-randconfig-r031-20210626 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 557b101ce714e39438ba1d39c4c50b03e12fcb96)
 reproduce (this is a W=1 build):
@@ -153,19 +153,19 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install powerpc cross compiling tool for clang build
         # apt-get install binutils-powerpc-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trace.git/commit/?id=bce29ac9ce0bb0b0b146b687ab978378c21e9078
+        # https://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trace.git/commit/?id=c8895e271f7994a3ecb13b8a280e39aa53879545
         git remote add trace https://git.kernel.org/pub/scm/linux/kernel/git/rostedt/linux-trace.git
         git fetch --no-tags trace for-next
-        git checkout bce29ac9ce0bb0b0b146b687ab978378c21e9078
+        git checkout c8895e271f7994a3ecb13b8a280e39aa53879545
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
-   In file included from kernel/trace/trace_osnoise.c:18:
+   In file included from kernel/trace/trace_osnoise.c:19:
    In file included from include/linux/kthread.h:6:
    In file included from include/linux/sched.h:14:
    In file included from include/linux/pid.h:5:
@@ -180,272 +180,116 @@ All warnings (new ones prefixed by >>):
    <built-in>:308:9: note: previous definition is here
    #define __lwsync __builtin_ppc_lwsync
            ^
->> kernel/trace/trace_osnoise.c:438:6: warning: no previous prototype for function 'osnoise_trace_irq_entry' [-Wmissing-prototypes]
+   kernel/trace/trace_osnoise.c:657:6: warning: no previous prototype for function 'osnoise_trace_irq_entry' [-Wmissing-prototypes]
    void osnoise_trace_irq_entry(int id)
         ^
-   kernel/trace/trace_osnoise.c:438:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/trace/trace_osnoise.c:657:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void osnoise_trace_irq_entry(int id)
    ^
    static 
->> kernel/trace/trace_osnoise.c:461:6: warning: no previous prototype for function 'osnoise_trace_irq_exit' [-Wmissing-prototypes]
+   kernel/trace/trace_osnoise.c:680:6: warning: no previous prototype for function 'osnoise_trace_irq_exit' [-Wmissing-prototypes]
    void osnoise_trace_irq_exit(int id, const char *desc)
         ^
-   kernel/trace/trace_osnoise.c:461:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/trace/trace_osnoise.c:680:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void osnoise_trace_irq_exit(int id, const char *desc)
    ^
    static 
->> kernel/trace/trace_osnoise.c:520:5: warning: no previous prototype for function 'hook_irq_events' [-Wmissing-prototypes]
+   kernel/trace/trace_osnoise.c:739:5: warning: no previous prototype for function 'hook_irq_events' [-Wmissing-prototypes]
    int hook_irq_events(void)
        ^
-   kernel/trace/trace_osnoise.c:520:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/trace/trace_osnoise.c:739:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    int hook_irq_events(void)
    ^
    static 
->> kernel/trace/trace_osnoise.c:552:6: warning: no previous prototype for function 'unhook_irq_events' [-Wmissing-prototypes]
+   kernel/trace/trace_osnoise.c:771:6: warning: no previous prototype for function 'unhook_irq_events' [-Wmissing-prototypes]
    void unhook_irq_events(void)
         ^
-   kernel/trace/trace_osnoise.c:552:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/trace/trace_osnoise.c:771:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void unhook_irq_events(void)
    ^
    static 
->> kernel/trace/trace_osnoise.c:569:6: warning: no previous prototype for function 'trace_softirq_entry_callback' [-Wmissing-prototypes]
+   kernel/trace/trace_osnoise.c:788:6: warning: no previous prototype for function 'trace_softirq_entry_callback' [-Wmissing-prototypes]
    void trace_softirq_entry_callback(void *data, unsigned int vec_nr)
         ^
-   kernel/trace/trace_osnoise.c:569:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/trace/trace_osnoise.c:788:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void trace_softirq_entry_callback(void *data, unsigned int vec_nr)
    ^
    static 
->> kernel/trace/trace_osnoise.c:592:6: warning: no previous prototype for function 'trace_softirq_exit_callback' [-Wmissing-prototypes]
+   kernel/trace/trace_osnoise.c:811:6: warning: no previous prototype for function 'trace_softirq_exit_callback' [-Wmissing-prototypes]
    void trace_softirq_exit_callback(void *data, unsigned int vec_nr)
         ^
-   kernel/trace/trace_osnoise.c:592:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/trace/trace_osnoise.c:811:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void trace_softirq_exit_callback(void *data, unsigned int vec_nr)
    ^
    static 
->> kernel/trace/trace_osnoise.c:706:1: warning: no previous prototype for function 'trace_sched_switch_callback' [-Wmissing-prototypes]
+   kernel/trace/trace_osnoise.c:953:1: warning: no previous prototype for function 'trace_sched_switch_callback' [-Wmissing-prototypes]
    trace_sched_switch_callback(void *data, bool preempt, struct task_struct *p,
    ^
-   kernel/trace/trace_osnoise.c:705:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/trace/trace_osnoise.c:952:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void
    ^
    static 
->> kernel/trace/trace_osnoise.c:724:5: warning: no previous prototype for function 'hook_thread_events' [-Wmissing-prototypes]
+   kernel/trace/trace_osnoise.c:971:5: warning: no previous prototype for function 'hook_thread_events' [-Wmissing-prototypes]
    int hook_thread_events(void)
        ^
-   kernel/trace/trace_osnoise.c:724:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/trace/trace_osnoise.c:971:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    int hook_thread_events(void)
    ^
    static 
->> kernel/trace/trace_osnoise.c:741:6: warning: no previous prototype for function 'unhook_thread_events' [-Wmissing-prototypes]
+   kernel/trace/trace_osnoise.c:988:6: warning: no previous prototype for function 'unhook_thread_events' [-Wmissing-prototypes]
    void unhook_thread_events(void)
         ^
-   kernel/trace/trace_osnoise.c:741:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/trace/trace_osnoise.c:988:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void unhook_thread_events(void)
    ^
    static 
->> kernel/trace/trace_osnoise.c:753:6: warning: no previous prototype for function 'save_osn_sample_stats' [-Wmissing-prototypes]
+   kernel/trace/trace_osnoise.c:1000:6: warning: no previous prototype for function 'save_osn_sample_stats' [-Wmissing-prototypes]
    void save_osn_sample_stats(struct osnoise_variables *osn_var, struct osnoise_sample *s)
         ^
-   kernel/trace/trace_osnoise.c:753:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/trace/trace_osnoise.c:1000:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void save_osn_sample_stats(struct osnoise_variables *osn_var, struct osnoise_sample *s)
    ^
    static 
->> kernel/trace/trace_osnoise.c:768:6: warning: no previous prototype for function 'diff_osn_sample_stats' [-Wmissing-prototypes]
+   kernel/trace/trace_osnoise.c:1015:6: warning: no previous prototype for function 'diff_osn_sample_stats' [-Wmissing-prototypes]
    void diff_osn_sample_stats(struct osnoise_variables *osn_var, struct osnoise_sample *s)
         ^
-   kernel/trace/trace_osnoise.c:768:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/trace/trace_osnoise.c:1015:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void diff_osn_sample_stats(struct osnoise_variables *osn_var, struct osnoise_sample *s)
    ^
    static 
->> kernel/trace/trace_osnoise.c:966:3: warning: comparison of distinct pointer types ('typeof ((interval)) *' (aka 'long long *') and 'uint64_t *' (aka 'unsigned long long *')) [-Wcompare-distinct-pointer-types]
+   kernel/trace/trace_osnoise.c:1213:3: warning: comparison of distinct pointer types ('typeof ((interval)) *' (aka 'long long *') and 'uint64_t *' (aka 'unsigned long long *')) [-Wcompare-distinct-pointer-types]
                    do_div(interval, USEC_PER_MSEC);
                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    include/asm-generic/div64.h:228:28: note: expanded from macro 'do_div'
            (void)(((typeof((n)) *)0) == ((uint64_t *)0));  \
                   ~~~~~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~~
-   13 warnings generated.
+>> kernel/trace/trace_osnoise.c:1584:2: error: void function 'osnoise_init_hotplug_support' should not return a value [-Wreturn-type]
+           return 0;
+           ^      ~
+   13 warnings and 1 error generated.
 
 
-vim +/osnoise_trace_irq_entry +438 kernel/trace/trace_osnoise.c
+vim +/osnoise_init_hotplug_support +1584 kernel/trace/trace_osnoise.c
 
-   428	
-   429	/*
-   430	 * osnoise_trace_irq_entry - Note the starting of an IRQ
-   431	 *
-   432	 * Save the starting time of an IRQ. As IRQs are non-preemptive to other IRQs,
-   433	 * it is safe to use a single variable (ons_var->irq) to save the statistics.
-   434	 * The arrival_time is used to report... the arrival time. The delta_start
-   435	 * is used to compute the duration at the IRQ exit handler. See
-   436	 * cond_move_irq_delta_start().
-   437	 */
- > 438	void osnoise_trace_irq_entry(int id)
-   439	{
-   440		struct osnoise_variables *osn_var = this_cpu_osn_var();
-   441	
-   442		if (!osn_var->sampling)
-   443			return;
-   444		/*
-   445		 * This value will be used in the report, but not to compute
-   446		 * the execution time, so it is safe to get it unsafe.
-   447		 */
-   448		osn_var->irq.arrival_time = time_get();
-   449		set_int_safe_time(osn_var, &osn_var->irq.delta_start);
-   450		osn_var->irq.count++;
-   451	
-   452		local_inc(&osn_var->int_counter);
-   453	}
-   454	
-   455	/*
-   456	 * osnoise_irq_exit - Note the end of an IRQ, sava data and trace
-   457	 *
-   458	 * Computes the duration of the IRQ noise, and trace it. Also discounts the
-   459	 * interference from other sources of noise could be currently being accounted.
-   460	 */
- > 461	void osnoise_trace_irq_exit(int id, const char *desc)
-   462	{
-   463		struct osnoise_variables *osn_var = this_cpu_osn_var();
-   464		int duration;
-   465	
-   466		if (!osn_var->sampling)
-   467			return;
-   468	
-   469		duration = get_int_safe_duration(osn_var, &osn_var->irq.delta_start);
-   470		trace_irq_noise(id, desc, osn_var->irq.arrival_time, duration);
-   471		osn_var->irq.arrival_time = 0;
-   472		cond_move_softirq_delta_start(osn_var, duration);
-   473		cond_move_thread_delta_start(osn_var, duration);
-   474	}
-   475	
-   476	/*
-   477	 * trace_irqentry_callback - Callback to the irq:irq_entry traceevent
-   478	 *
-   479	 * Used to note the starting of an IRQ occurece.
-   480	 */
-   481	static void trace_irqentry_callback(void *data, int irq,
-   482					    struct irqaction *action)
-   483	{
-   484		osnoise_trace_irq_entry(irq);
-   485	}
-   486	
-   487	/*
-   488	 * trace_irqexit_callback - Callback to the irq:irq_exit traceevent
-   489	 *
-   490	 * Used to note the end of an IRQ occurece.
-   491	 */
-   492	static void trace_irqexit_callback(void *data, int irq,
-   493					   struct irqaction *action, int ret)
-   494	{
-   495		osnoise_trace_irq_exit(irq, action->name);
-   496	}
-   497	
-   498	/*
-   499	 * arch specific register function.
-   500	 */
-   501	int __weak osnoise_arch_register(void)
-   502	{
-   503		return 0;
-   504	}
-   505	
-   506	/*
-   507	 * arch specific unregister function.
-   508	 */
-   509	void __weak osnoise_arch_unregister(void)
-   510	{
-   511		return;
-   512	}
-   513	
-   514	/*
-   515	 * hook_irq_events - Hook IRQ handling events
-   516	 *
-   517	 * This function hooks the IRQ related callbacks to the respective trace
-   518	 * events.
-   519	 */
- > 520	int hook_irq_events(void)
-   521	{
-   522		int ret;
-   523	
-   524		ret = register_trace_irq_handler_entry(trace_irqentry_callback, NULL);
-   525		if (ret)
-   526			goto out_err;
-   527	
-   528		ret = register_trace_irq_handler_exit(trace_irqexit_callback, NULL);
-   529		if (ret)
-   530			goto out_unregister_entry;
-   531	
-   532		ret = osnoise_arch_register();
-   533		if (ret)
-   534			goto out_irq_exit;
-   535	
-   536		return 0;
-   537	
-   538	out_irq_exit:
-   539		unregister_trace_irq_handler_exit(trace_irqexit_callback, NULL);
-   540	out_unregister_entry:
-   541		unregister_trace_irq_handler_entry(trace_irqentry_callback, NULL);
-   542	out_err:
-   543		return -EINVAL;
-   544	}
-   545	
-   546	/*
-   547	 * unhook_irq_events - Unhook IRQ handling events
-   548	 *
-   549	 * This function unhooks the IRQ related callbacks to the respective trace
-   550	 * events.
-   551	 */
- > 552	void unhook_irq_events(void)
-   553	{
-   554		osnoise_arch_unregister();
-   555		unregister_trace_irq_handler_exit(trace_irqexit_callback, NULL);
-   556		unregister_trace_irq_handler_entry(trace_irqentry_callback, NULL);
-   557	}
-   558	
-   559	#ifndef CONFIG_PREEMPT_RT
-   560	/*
-   561	 * trace_softirq_entry_callback - Note the starting of a softirq
-   562	 *
-   563	 * Save the starting time of a softirq. As softirqs are non-preemptive to
-   564	 * other softirqs, it is safe to use a single variable (ons_var->softirq)
-   565	 * to save the statistics. The arrival_time is used to report... the
-   566	 * arrival time. The delta_start is used to compute the duration at the
-   567	 * softirq exit handler. See cond_move_softirq_delta_start().
-   568	 */
- > 569	void trace_softirq_entry_callback(void *data, unsigned int vec_nr)
-   570	{
-   571		struct osnoise_variables *osn_var = this_cpu_osn_var();
-   572	
-   573		if (!osn_var->sampling)
-   574			return;
-   575		/*
-   576		 * This value will be used in the report, but not to compute
-   577		 * the execution time, so it is safe to get it unsafe.
-   578		 */
-   579		osn_var->softirq.arrival_time = time_get();
-   580		set_int_safe_time(osn_var, &osn_var->softirq.delta_start);
-   581		osn_var->softirq.count++;
-   582	
-   583		local_inc(&osn_var->int_counter);
-   584	}
-   585	
-   586	/*
-   587	 * trace_softirq_exit_callback - Note the end of an softirq
-   588	 *
-   589	 * Computes the duration of the softirq noise, and trace it. Also discounts the
-   590	 * interference from other sources of noise could be currently being accounted.
-   591	 */
- > 592	void trace_softirq_exit_callback(void *data, unsigned int vec_nr)
-   593	{
-   594		struct osnoise_variables *osn_var = this_cpu_osn_var();
-   595		int duration;
-   596	
-   597		if (!osn_var->sampling)
-   598			return;
-   599	
-   600		duration = get_int_safe_duration(osn_var, &osn_var->softirq.delta_start);
-   601		trace_softirq_noise(vec_nr, osn_var->softirq.arrival_time, duration);
-   602		cond_move_thread_delta_start(osn_var, duration);
-   603		osn_var->softirq.arrival_time = 0;
-   604	}
-   605	
+  1569	
+  1570	static void osnoise_init_hotplug_support(void)
+  1571	{
+  1572		int ret;
+  1573	
+  1574		ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "trace/osnoise:online",
+  1575					osnoise_cpu_init, osnoise_cpu_die);
+  1576		if (ret < 0)
+  1577			pr_warn(BANNER "Error to init cpu hotplug support\n");
+  1578	
+  1579		return;
+  1580	}
+  1581	#else /* CONFIG_HOTPLUG_CPU */
+  1582	static void osnoise_init_hotplug_support(void)
+  1583	{
+> 1584		return 0;
+  1585	}
+  1586	#endif /* CONFIG_HOTPLUG_CPU */
+  1587	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -454,14 +298,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106270416.HRtXdK0A-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106270431.0esjH5YC-lkp%40intel.com.
 
---UugvWAfsgieZRqgk
+--rwEMma7ioTxnRzrJ
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICGmJ12AAAy5jb25maWcAnDzbdtu2su/9Cq3mpfuhrS6+7r38AIGgiIokGAKUZL9gKbKS
+H4sICLWN12AAAy5jb25maWcAnDzbdtu2su/9Cq3mpfuhrS6+7r38AIGgiIokGAKUZL9gKbKS
 6mxH9pHlNP37MwPeABJ0uk5Xm9ozuAwGcx8wH376MCJv5+ev2/Nht316+nv0ZX/cn7bn/ePo
 8+Fp/59RIEapUCMWcPUbDI4Px7fvv788/7U/vexGl79NZr+Nfz3tLkfL/em4fxrR5+Pnw5c3
 WOHwfPzpw09UpCFfaEr1iuWSi1QrtlF3P++etscvo2/70yuMG+Eqv41Hv3w5nP/9++/w59fD
@@ -1082,20 +926,20 @@ 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
-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
+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
 
---UugvWAfsgieZRqgk--
+--rwEMma7ioTxnRzrJ--
