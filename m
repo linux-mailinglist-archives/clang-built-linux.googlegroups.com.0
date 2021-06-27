@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBPMQ36DAMGQEZTB6ERY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBHPA36DAMGQE2NPXFGA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id C29643B50A6
-	for <lists+clang-built-linux@lfdr.de>; Sun, 27 Jun 2021 02:37:19 +0200 (CEST)
-Received: by mail-pg1-x538.google.com with SMTP id x7-20020a63db470000b029022199758419sf9002196pgi.11
-        for <lists+clang-built-linux@lfdr.de>; Sat, 26 Jun 2021 17:37:19 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624754238; cv=pass;
+Received: from mail-qv1-xf3d.google.com (mail-qv1-xf3d.google.com [IPv6:2607:f8b0:4864:20::f3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 13C113B50ED
+	for <lists+clang-built-linux@lfdr.de>; Sun, 27 Jun 2021 05:27:27 +0200 (CEST)
+Received: by mail-qv1-xf3d.google.com with SMTP id q20-20020a0cf5d40000b029027498137223sf14096402qvm.15
+        for <lists+clang-built-linux@lfdr.de>; Sat, 26 Jun 2021 20:27:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624764446; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GYXWIm+78ye13eZD+36TfP3MEdhQ6PdHAv849BJvSgdKICUMZpiSlTWKM5UgwUBha5
-         ILGKTdYZ6y6RciYvqFCE1gyCmEPURrMqz77rDOowl1k0Lx/+WnKoo+MY3zjDo1HHoJfj
-         iAubrtUDXDYyQsOqtunpO70bHE55L6vWluD4CuGR2tjk8z5wHkSiyTCvh+lfFGYfTxjY
-         G9bvu3K7Ncy/vteotji9AeEELK1Bj0poDqCUHSznlNZ9/6lKWKjM9pTm+AxWYV0t1Jcj
-         rAZiBt/Z7OzcZXXSqMPpNBIlMhpNOuhEcQ9njSM08T318VbuVROMXnZuS2c8ck+3HHu6
-         UxvQ==
+        b=JSvTZ5RhJSubzlVbYAHbJkFnFFATwQaINABL1/+Jmeog0zI0KhtQZD9Qte1mDdla22
+         oPIhiuqAXXawdZlNPCrDifbJv8FlFtC97nUhm+oYCQyQ7XF3+2pJVeMOncUO296mmF76
+         QP5nkdDsjonxpA5Gwy/d1Hnp04B750Elj5oXYFTK9qvIE+amIayinM43PHSgTda1Bt7t
+         Nx2rvWr3ZRIWeCaGo525IeJ7aU6aCgNHYRur7Jvb5Fs9z2bFbcEgtLBkwCoGNIFP5rxh
+         +1Zz17MY8MHOf2vLfwb+t0zEG84+bm5c8PNOgtGkHbbUuIxiFOJVcASPg+OChAP7OXCV
+         H2Wg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:ironport-sdr:sender
          :dkim-signature;
-        bh=5rrnxYQcQpKUoWVht9VvBJebkJ7wMDhtkoa/E0SAos8=;
-        b=kM5+jVBF7MAwL7H3Ie2BoLt184Lk+2y3Hlq4zzSgJ6tGO9oWlvuenOv50w7hfj1tKw
-         gbWGiafG1KUx2dIsNZAIdOCFbdZfCs4B4pqsGVkO/rmaPtPMpRWeRRKDUpe66/CEglDR
-         egPs0TIfmJa+qFlAhewtG1tM5gA74hCIbdH2r10Zj3c5yFyvjaF7zjZLDcsZ3cRwAG4t
-         1vWVjc2GBh6K3M5LVhg+k1/AM5ApyVIAzXeE/qK/yPtgPnEg7GVH2yN1mEIbqcbtPPZq
-         9uzyYt4eADWaxs3AMMs3hcwmPfM6RbtJNaFTBNea8mIs/T+JuMqfMTvSf3e4kY+on/Xp
-         gIKA==
+        bh=JKjhixIvchxhD40ZvWO3XcaRZvslNmUDapKKnVvKGzk=;
+        b=gZcJil1VLNtc0AnE1g5FuQrL0AOKtC0+S4i0XmDm4hPuw+moKRVC/tciMbPjWqH6VX
+         TlIx4v+GfVda2Tw6uqo69joINmFWSSLrEPycRQu5CAeKx24dnYivRmkNdRWDwFSXttYu
+         4xadqwq/ILNNPwkOlDUAiKW6UVwFQSiM676j7ZdIaXX9aw43KYBQihkwE/JWWMBp9iVE
+         7XP5sRhd67ng4O1mqAyw508l5nrCrYdwngBklbG1fKhmjyG519YWGGJ+Bpx99S2FIn/Z
+         oUJciYG2Nqv1FjYYlZLghJpNYx3sUQYrhzWiMLXga2WwvpXj+h6jxeiB21VSKU+CdKip
+         z7hw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5rrnxYQcQpKUoWVht9VvBJebkJ7wMDhtkoa/E0SAos8=;
-        b=M0YmQjavXTqSQk0FReQ+QtYZMnQXioHT/5vpYrzHNSqAhQigrDuDgOUCFIcXUi/dPP
-         ntept2i/+gJ+fFpD3m1MdwE7GYgANqTz2/7Q2kEK7QHcDEJI2Bi8R8vRHBQYJj4IAfco
-         ftqZ9LET7N3wyyCYyH1WEXwGR9VJbfGgsi+2vSNtporvsarVrwUt4QD61pkivjYLTqMy
-         tmCsDS/sm+G0xtU4n/Eeoc0Trfo1eCcVrZo6T+6Ys/58R5Hg+o9rKmf0jdhih98leFU3
-         KHdTepx9/u240z1pCx2HavSXUr2xoSRBBSxRd0PwCuaDHNPPublnuukOQMfifBOhkJm5
-         q6Gg==
+        bh=JKjhixIvchxhD40ZvWO3XcaRZvslNmUDapKKnVvKGzk=;
+        b=Obd+qkR8EUCnp3HRcG3RlYD+lgkXRM8oY/WS5r6nYTuy026hEkAZscM3xUpciUFJVo
+         ZVdSYU08pvLzO6U7fxvjQu3jZOju+1zjGpcOLk3NDZ0L+/r3V4S3KwJjjzOz4/XOpigm
+         dxpBRM4xfx+jOZUY1D8XvfO47cz9fCaqETiCCA0s34geP1hXxhcvr19kQjNsKUvC+0AN
+         TRlgXqeS8ILH8MRwx3mXeYNNYDn12x16e0iiZFsvpjuA3Xgh23GZNVltMU3IxlfMGe1z
+         HSZNpEYHGBSLMK3lND08jZsiq5auxRJXJ668G7sh3qrZTJHfiMeqSlt806WoHc2QW8F4
+         vgrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:ironport-sdr:date:from:to:cc:subject
@@ -49,77 +49,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=5rrnxYQcQpKUoWVht9VvBJebkJ7wMDhtkoa/E0SAos8=;
-        b=g/uK96QDo6ZbIDyuZAylvRqIetOlUjMCqxkV1KS1y5UBaY7gvNbRNr2+Fa4o8DdTjl
-         nyN7uTsZULDK/1yeyxifptgb+3sqz41qx7qOIYMUyPXo0cFe+r7M1Uqp/Ldkt5+zsCX8
-         RXujOshukGguzrqLBUi/GyPhMnIZonNapmqEWw5AHyDfxy37tHaX9UDpVBctJ6Ko17fI
-         aGD/ldz7LPI3RbYJUDSBAt07gP44rUCs9DK9O7ndPK5AT1DXOf7TQa9jLa69IR/hk3Gk
-         3iF1guuxLfuoC+vyjIJAXCrqHtJD3JxFlPp5q0ISGC3qofe+13rICo+KDWBoPorvDrkv
-         FsdA==
+        bh=JKjhixIvchxhD40ZvWO3XcaRZvslNmUDapKKnVvKGzk=;
+        b=oR632zL/NRoxMdzwaLQzLwpdSuujXxY64jHh7k6kfVXm69GPU8JIvDnit0SrqqlykG
+         JA4GRHe3wKssbRnxkZaGL5XMFwuwW8Hjc8kJJpj9re/LqJjIgnyaMr0UolWDeIWlt2P0
+         lRu6yTLaLDyL/qlqt42wvvzq4UaYyka3ulldBHDGfkpRUa8wTsA3+nbLNxGhJzT2BBeO
+         u0AfH+Y4PYwowMuHP3nFn9UNHIA6l+vZWKNqetopo0w/XP2R1r+pj+WIKdNnv8K0ddda
+         LL49DttISsAcmWJDfwmhXif5TseCRz0pFuwKv/dM+LlurLpC1VDS9UMgzjopqlGEF8m8
+         J/vQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532pUUzUrCnN9E+uI1gx4AMDd9QaGm7B1GzkqGUc4RD1BZruB8jx
-	DyMJgEhyCwparp6CtyXMlaM=
-X-Google-Smtp-Source: ABdhPJyqBZSNfVJajhW6PjIsFTb16vmy7OuREP66CnDewq7yiaeq48Fg5/2WY9kZSs12z/cyOz+HxQ==
-X-Received: by 2002:a65:6481:: with SMTP id e1mr16280384pgv.140.1624754238049;
-        Sat, 26 Jun 2021 17:37:18 -0700 (PDT)
+X-Gm-Message-State: AOAM530l+gSRObH3c1cLzDb2rJKSl4aiUNJIS8r05Rc1WCxMClyowko1
+	s+RyPVwkUWjXriLX2sgcZ68=
+X-Google-Smtp-Source: ABdhPJzVwAaFU0jIb1h+dNj6lNvl8e4Fwn36NKivHwA+XGh3z6fOZLAI+cCGDLWby1JmSs+T+USo8A==
+X-Received: by 2002:a05:620a:16b1:: with SMTP id s17mr19224109qkj.184.1624764445707;
+        Sat, 26 Jun 2021 20:27:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:e23:: with SMTP id d35ls6541132pgl.5.gmail; Sat, 26 Jun
- 2021 17:37:17 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1a50:b029:305:7cd3:ab35 with SMTP id h16-20020a056a001a50b02903057cd3ab35mr18214661pfv.31.1624754237301;
-        Sat, 26 Jun 2021 17:37:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624754237; cv=none;
+Received: by 2002:a05:6214:cc9:: with SMTP id 9ls812839qvx.6.gmail; Sat, 26
+ Jun 2021 20:27:25 -0700 (PDT)
+X-Received: by 2002:a0c:c507:: with SMTP id x7mr18929489qvi.10.1624764445020;
+        Sat, 26 Jun 2021 20:27:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624764445; cv=none;
         d=google.com; s=arc-20160816;
-        b=VnSLZamuAemy+ycOKTg5qQHZpMp2P2oonH+51awnBvRb44FywmjpDLb1a9DSYIJNoX
-         TnJKAP6QfIwMpmTYF/TwVWtkKTDtLthQ414HPa3wM7e7Ii2QXCbFU2lwn2M7am5uC+vZ
-         Pr18wMPJ7/5Yqh2ykqdD/5ijKXQq8coInbMt9sKBpekncu5ZiN0uxC/z0E5EoEJfN/0J
-         hQNmEg5pjTchT2PUw0glKJETS8E1YUNLu6WQ5GZGuGdpsujtV81ORxLwgHq4I72DchD7
-         bN8eduhpqShPo0Q0kcMRvK3w1dVrERQhQMHkUtR+1WuYYPN3ZL9AnDbHee5jK7oR1r0G
-         302A==
+        b=MUrbD9bH1C3y2s2NYIkyqHSK7n6rhdCH9CBhvIK2LDgRhRSl66eFxisxtPsLhUK8Bp
+         7PebLHw7LVMH6CkSXXDbq2IyaHu3c8yNnH8m6JvgqHCz0w+p1cWJtPYzXZ6RI63djUhJ
+         JkeIgkGzm/MqdsabvE3+cW//Bd56ijDnjSb85IAs2B84/Pbw4Kp8k1Lb638UgkHujrgR
+         D5yWdSfIj6xyq8YG2Mgj6PXnSC6V0x5sMSkBagsdq4OPL/e5UbxfIKoB4yS6UTuQPB/z
+         Rbq8vAbT4knRasbYn3xaEikF8vOd+XdPXlCCZOa3o8rBHSP+cXraUYkxEL4XNMFYSUlb
+         +cvQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date:ironport-sdr;
-        bh=VCHIPTgvYjQgsrNsfrUnp9SLYN0GpzZlllQPT+FdR4I=;
-        b=Hfj+pahm09v6+cday0cyFalm18sswf/otoxG7WKKluGDQoJA9ao30EHccGex9enJck
-         r4giEgZLqBxvsouPSi3bQICBubac32gmt+/eWEDn2gG/fdcqSO5VAAlXxYNNYE6IVL6L
-         N9qNQ7fJeIKL+Qz5MklUvE6BEwerIMbTM8tzzR5KAbzEuOG9gGxuHhenINk/x65bN+hK
-         FbLECe7kpofAIodB2UXkS512EZlkfErA0VBYg+4z1NwOhuFi8gDpfmp91/md3JBzObu2
-         9bs06RM1UXouA7l2r/g77xq3SSHiZv+8318NQfzE3+Ji7gNxSDIwq0AG6W/XFe/gCozw
-         JJDQ==
+        bh=GVjIUeiWo8iJQKbkArfiRzd5HTY45qYTh3lZ/mlwrw0=;
+        b=EixbE0xjbfaQv4xZe0oLw6uwtCBoiGVu9GCmpGsUs8l7YS97BOWJlJuHMUWyqz0/6+
+         b8XCuGJB1PRoGKEZLBzjN6Z6XhYnezgrcOmM250cLNtkA+Lnmapl9rdaq31T/3amZDPE
+         qS4oFnC+aiyW25blXEIZ89RpJwGlJupj3xAtp39UrdUjriDx2tdm7al+IfS07I/6Ej+P
+         /GWzk9hLXevR+W2Hr7O8EFBAOhLmIJZlTGTyiGYbPFdCU9cKVZlZWtdWVawbU0Dm0a8d
+         kJnYO2xoGRtacFO6PXgbZMoB1nxSYvcj7d84zYLQbgdUYEJhIu2bmpxxvdoxgHZ7PJB3
+         uuYw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
-        by gmr-mx.google.com with ESMTPS id h17si937714pfk.3.2021.06.26.17.37.17
+        by gmr-mx.google.com with ESMTPS id m6si1515103qkg.2.2021.06.26.20.27.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 26 Jun 2021 17:37:17 -0700 (PDT)
+        Sat, 26 Jun 2021 20:27:24 -0700 (PDT)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
-IronPort-SDR: PRa0r8v/3jqx6SsIUuM7fIKEiixPkUToaRxoQyeOC2rqKZ94QM0XRUv9jij8lcDh4micj7clTt
- vjX1coI45aYQ==
-X-IronPort-AV: E=McAfee;i="6200,9189,10027"; a="207849841"
+IronPort-SDR: H9COx49YSOXMWMNZ6ugwuQ3Ko6LwTkAl3vbMVng9EWHd4jMGkcj5QmjuJEOVF7QTrqyUwQQoif
+ Rlb5m2RYHxBw==
+X-IronPort-AV: E=McAfee;i="6200,9189,10027"; a="207854717"
 X-IronPort-AV: E=Sophos;i="5.83,302,1616482800"; 
-   d="gz'50?scan'50,208,50";a="207849841"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2021 17:37:11 -0700
+   d="gz'50?scan'50,208,50";a="207854717"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jun 2021 20:27:20 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.83,302,1616482800"; 
-   d="gz'50?scan'50,208,50";a="446058524"
+   d="gz'50?scan'50,208,50";a="455878147"
 Received: from lkp-server01.sh.intel.com (HELO 4aae0cb4f5b5) ([10.239.97.150])
-  by orsmga007.jf.intel.com with ESMTP; 26 Jun 2021 17:37:08 -0700
+  by fmsmga008.fm.intel.com with ESMTP; 26 Jun 2021 20:27:17 -0700
 Received: from kbuild by 4aae0cb4f5b5 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lxInM-0007y0-11; Sun, 27 Jun 2021 00:37:08 +0000
-Date: Sun, 27 Jun 2021 08:36:46 +0800
+	id 1lxLS1-000814-8i; Sun, 27 Jun 2021 03:27:17 +0000
+Date: Sun, 27 Jun 2021 11:26:29 +0800
 From: kernel test robot <lkp@intel.com>
 To: Alex Deucher <alexander.deucher@amd.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org, Luben Tuikov <luben.tuikov@amd.com>
-Subject: drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_calc_30.c:1813:6:
- warning: stack frame size (2592) exceeds limit (2048) in function
- 'dml30_rq_dlg_get_dlg_reg'
-Message-ID: <202106270840.FeBxiWnc-lkp@intel.com>
+	linux-kernel@vger.kernel.org,
+	Harry Wentland <harry.wentland@amd.com>,
+	Nicholas Kazlauskas <nicholas.kazlauskas@amd.com>
+Subject: drivers/gpu/drm/amd/amdgpu/../display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c:214:2:
+ error: implicit declaration of function 'enable_kernel_altivec'
+Message-ID: <202106271124.KF2w3HHY-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="RnlQjJ0d97Da+TV1"
+Content-Type: multipart/mixed; boundary="u3/rZRmxL6MmkK24"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
@@ -140,17 +141,17 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---RnlQjJ0d97Da+TV1
+--u3/rZRmxL6MmkK24
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 Hi Alex,
 
-First bad commit (maybe != root cause):
+FYI, the error/warning still remains.
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
 head:   625acffd7ae2c52898d249e6c5c39f348db0d8df
-commit: 20f2ffe504728612d7b0c34e4f8280e34251e704 drm/amdgpu: fold CONFIG_DRM_AMD_DC_DCN3* into CONFIG_DRM_AMD_DC_DCN (v3)
+commit: 582e2ce5b4ece37055c6ebe58ab48a4817d30b10 drm/amdgpu/display: FP fixes for DCN3.x (v4)
 date:   8 months ago
 config: powerpc-buildonly-randconfig-r006-20210627 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 557b101ce714e39438ba1d39c4c50b03e12fcb96)
@@ -159,22 +160,21 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install powerpc cross compiling tool for clang build
         # apt-get install binutils-powerpc-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=20f2ffe504728612d7b0c34e4f8280e34251e704
+        # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=582e2ce5b4ece37055c6ebe58ab48a4817d30b10
         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
         git fetch --no-tags linus master
-        git checkout 20f2ffe504728612d7b0c34e4f8280e34251e704
+        git checkout 582e2ce5b4ece37055c6ebe58ab48a4817d30b10
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
-   In file included from drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_calc_30.c:28:
-   In file included from drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/../display_mode_lib.h:28:
-   In file included from drivers/gpu/drm/amd/amdgpu/../display/dc/dm_services.h:35:
-   In file included from drivers/gpu/drm/amd/amdgpu/../display/dc/dm_services_types.h:29:
+   In file included from drivers/gpu/drm/amd/amdgpu/../display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c:26:
+   In file included from drivers/gpu/drm/amd/amdgpu/../display/dc/inc/hw/dccg.h:29:
+   In file included from drivers/gpu/drm/amd/amdgpu/../display/dc/dc_types.h:32:
    In file included from drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:30:
    In file included from include/linux/kgdb.h:18:
    In file included from include/linux/atomic.h:7:
@@ -192,76 +192,341 @@ All warnings (new ones prefixed by >>):
    <built-in>:309:9: note: previous definition is here
    #define __lwsync __builtin_ppc_lwsync
            ^
->> drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_calc_30.c:1813:6: warning: stack frame size (2592) exceeds limit (2048) in function 'dml30_rq_dlg_get_dlg_reg' [-Wframe-larger-than]
-   void dml30_rq_dlg_get_dlg_reg(struct display_mode_lib *mode_lib,
+   drivers/gpu/drm/amd/amdgpu/../display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c:214:2: error: implicit declaration of function 'enable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_START();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:68:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_vsx(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c:214:2: note: did you mean 'enable_kernel_fp'?
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:68:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_vsx(); \
+                   ^
+   arch/powerpc/include/asm/switch_to.h:40:13: note: 'enable_kernel_fp' declared here
+   extern void enable_kernel_fp(void);
+               ^
+>> drivers/gpu/drm/amd/amdgpu/../display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c:214:2: error: implicit declaration of function 'enable_kernel_altivec' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_START();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:71:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_altivec(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c:214:2: note: did you mean 'enable_kernel_fp'?
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:71:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_altivec(); \
+                   ^
+   arch/powerpc/include/asm/switch_to.h:40:13: note: 'enable_kernel_fp' declared here
+   extern void enable_kernel_fp(void);
+               ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c:216:2: error: implicit declaration of function 'disable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_END();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:79:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_vsx(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c:216:2: note: did you mean 'disable_kernel_fp'?
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:79:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_vsx(); \
+                   ^
+   arch/powerpc/include/asm/switch_to.h:44:20: note: 'disable_kernel_fp' declared here
+   static inline void disable_kernel_fp(void)
+                      ^
+>> drivers/gpu/drm/amd/amdgpu/../display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c:216:2: error: implicit declaration of function 'disable_kernel_altivec' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_END();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:82:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_altivec(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c:216:2: note: did you mean 'disable_kernel_fp'?
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:82:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_altivec(); \
+                   ^
+   arch/powerpc/include/asm/switch_to.h:44:20: note: 'disable_kernel_fp' declared here
+   static inline void disable_kernel_fp(void)
+                      ^
+   1 warning and 4 errors generated.
+--
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dce_hwseq.h:244:2: note: expanded from macro 'HWSEQ_DCN2_REG_LIST'
+           SR(MPC_CRC_RESULT_C), \
+           ^~~~~~~~~~~~~~~~~~~~
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:247:15: note: expanded from macro 'SR'
+                   .reg_name = BASE(mm ## reg_name ## _BASE_IDX) +  \
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:242:25: note: expanded from macro 'BASE_INNER'
+   #define BASE_INNER(seg) DCN_BASE__INST0_SEG ## seg
+                           ^
+   <scratch space>:202:1: note: expanded from here
+   DCN_BASE__INST0_SEG3
+   ^
+   drivers/gpu/drm/amd/amdgpu/../include/sienna_cichlid_ip_offset.h:373:52: note: expanded from macro 'DCN_BASE__INST0_SEG3'
+   #define DCN_BASE__INST0_SEG3                       0x00009000
+                                                      ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:753:3: warning: initializer overrides prior initialization of this subobject [-Winitializer-overrides]
+                   HWSEQ_DCN30_REG_LIST()
+                   ^~~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dce_hwseq.h:357:2: note: expanded from macro 'HWSEQ_DCN30_REG_LIST'
+           SR(MPC_CRC_RESULT_AR), \
+           ^~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:247:15: note: expanded from macro 'SR'
+                   .reg_name = BASE(mm ## reg_name ## _BASE_IDX) +  \
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:244:19: note: expanded from macro 'BASE'
+   #define BASE(seg) BASE_INNER(seg)
+                     ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:242:25: note: expanded from macro 'BASE_INNER'
+   #define BASE_INNER(seg) DCN_BASE__INST0_SEG ## seg
+                           ^
+   <scratch space>:199:1: note: expanded from here
+   DCN_BASE__INST0_SEG3
+   ^
+   drivers/gpu/drm/amd/amdgpu/../include/sienna_cichlid_ip_offset.h:373:52: note: expanded from macro 'DCN_BASE__INST0_SEG3'
+   #define DCN_BASE__INST0_SEG3                       0x00009000
+                                                      ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:753:3: note: previous initialization is here
+                   HWSEQ_DCN30_REG_LIST()
+                   ^~~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dce_hwseq.h:341:2: note: expanded from macro 'HWSEQ_DCN30_REG_LIST'
+           HWSEQ_DCN2_REG_LIST(),\
+           ^~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dce_hwseq.h:245:2: note: expanded from macro 'HWSEQ_DCN2_REG_LIST'
+           SR(MPC_CRC_RESULT_AR), \
+           ^~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:247:15: note: expanded from macro 'SR'
+                   .reg_name = BASE(mm ## reg_name ## _BASE_IDX) +  \
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:242:25: note: expanded from macro 'BASE_INNER'
+   #define BASE_INNER(seg) DCN_BASE__INST0_SEG ## seg
+                           ^
+   <scratch space>:5:1: note: expanded from here
+   DCN_BASE__INST0_SEG3
+   ^
+   drivers/gpu/drm/amd/amdgpu/../include/sienna_cichlid_ip_offset.h:373:52: note: expanded from macro 'DCN_BASE__INST0_SEG3'
+   #define DCN_BASE__INST0_SEG3                       0x00009000
+                                                      ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:875:6: warning: no previous prototype for function 'dcn30_dpp_destroy' [-Wmissing-prototypes]
+   void dcn30_dpp_destroy(struct dpp **dpp)
         ^
-   2 warnings generated.
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:875:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   void dcn30_dpp_destroy(struct dpp **dpp)
+   ^
+   static 
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:992:16: warning: no previous prototype for function 'dcn30_hubbub_create' [-Wmissing-prototypes]
+   struct hubbub *dcn30_hubbub_create(struct dc_context *ctx)
+                  ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:992:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   struct hubbub *dcn30_hubbub_create(struct dc_context *ctx)
+   ^
+   static 
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1143:24: warning: no previous prototype for function 'dcn30_stream_encoder_create' [-Wmissing-prototypes]
+   struct stream_encoder *dcn30_stream_encoder_create(
+                          ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1143:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   struct stream_encoder *dcn30_stream_encoder_create(
+   ^
+   static 
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1175:19: warning: no previous prototype for function 'dcn30_hwseq_create' [-Wmissing-prototypes]
+   struct dce_hwseq *dcn30_hwseq_create(
+                     ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1175:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   struct dce_hwseq *dcn30_hwseq_create(
+   ^
+   static 
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1576:2: error: implicit declaration of function 'enable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_START();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:68:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_vsx(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1576:2: note: did you mean 'enable_kernel_fp'?
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:68:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_vsx(); \
+                   ^
+   arch/powerpc/include/asm/switch_to.h:40:13: note: 'enable_kernel_fp' declared here
+   extern void enable_kernel_fp(void);
+               ^
+>> drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1576:2: error: implicit declaration of function 'enable_kernel_altivec' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_START();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:71:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_altivec(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1576:2: note: did you mean 'enable_kernel_fp'?
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:71:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_altivec(); \
+                   ^
+   arch/powerpc/include/asm/switch_to.h:40:13: note: 'enable_kernel_fp' declared here
+   extern void enable_kernel_fp(void);
+               ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1578:2: error: implicit declaration of function 'disable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_END();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:79:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_vsx(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1578:2: note: did you mean 'disable_kernel_fp'?
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:79:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_vsx(); \
+                   ^
+   arch/powerpc/include/asm/switch_to.h:44:20: note: 'disable_kernel_fp' declared here
+   static inline void disable_kernel_fp(void)
+                      ^
+>> drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1578:2: error: implicit declaration of function 'disable_kernel_altivec' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_END();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:82:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_altivec(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:1578:2: note: did you mean 'disable_kernel_fp'?
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:82:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_altivec(); \
+                   ^
+   arch/powerpc/include/asm/switch_to.h:44:20: note: 'disable_kernel_fp' declared here
+   static inline void disable_kernel_fp(void)
+                      ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2401:2: error: implicit declaration of function 'enable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_START();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:68:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_vsx(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2401:2: error: implicit declaration of function 'enable_kernel_altivec' [-Werror,-Wimplicit-function-declaration]
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:71:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_altivec(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2403:2: error: implicit declaration of function 'disable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_END();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:79:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_vsx(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2403:2: error: implicit declaration of function 'disable_kernel_altivec' [-Werror,-Wimplicit-function-declaration]
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:82:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_altivec(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2463:2: error: implicit declaration of function 'enable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_START();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:68:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_vsx(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2463:2: error: implicit declaration of function 'enable_kernel_altivec' [-Werror,-Wimplicit-function-declaration]
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:71:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_altivec(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2465:2: error: implicit declaration of function 'disable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_END();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:79:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_vsx(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2465:2: error: implicit declaration of function 'disable_kernel_altivec' [-Werror,-Wimplicit-function-declaration]
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:82:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_altivec(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2537:4: error: implicit declaration of function 'enable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+                           DC_FP_START();
+                           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:68:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_vsx(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2537:4: error: implicit declaration of function 'enable_kernel_altivec' [-Werror,-Wimplicit-function-declaration]
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:71:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_altivec(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2540:4: error: implicit declaration of function 'disable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+                           DC_FP_END();
+                           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:79:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_vsx(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2540:4: error: implicit declaration of function 'disable_kernel_altivec' [-Werror,-Wimplicit-function-declaration]
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:82:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_altivec(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2644:2: error: implicit declaration of function 'enable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_START();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:68:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_vsx(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2644:2: error: implicit declaration of function 'enable_kernel_altivec' [-Werror,-Wimplicit-function-declaration]
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:71:3: note: expanded from macro 'DC_FP_START'
+                   enable_kernel_altivec(); \
+                   ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/dcn30/dcn30_resource.c:2923:2: error: implicit declaration of function 'disable_kernel_vsx' [-Werror,-Wimplicit-function-declaration]
+           DC_FP_END();
+           ^
+   drivers/gpu/drm/amd/amdgpu/../display/dc/os_types.h:79:3: note: expanded from macro 'DC_FP_END'
+                   disable_kernel_vsx(); \
+                   ^
+   fatal error: too many errors emitted, stopping now [-ferror-limit=]
+   116 warnings and 20 errors generated.
 
 
-vim +/dml30_rq_dlg_get_dlg_reg +1813 drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn30/display_rq_dlg_calc_30.c
+vim +/enable_kernel_altivec +214 drivers/gpu/drm/amd/amdgpu/../display/dc/clk_mgr/dcn30/dcn30_clk_mgr.c
 
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1812  
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21 @1813  void dml30_rq_dlg_get_dlg_reg(struct display_mode_lib *mode_lib,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1814  	display_dlg_regs_st *dlg_regs,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1815  	display_ttu_regs_st *ttu_regs,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1816  	display_e2e_pipe_params_st *e2e_pipe_param,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1817  	const unsigned int num_pipes,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1818  	const unsigned int pipe_idx,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1819  	const bool cstate_en,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1820  	const bool pstate_en,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1821  	const bool vm_en,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1822  	const bool ignore_viewport_pos,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1823  	const bool immediate_flip_support)
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1824  {
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1825  	display_rq_params_st rq_param = { 0 };
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1826  	display_dlg_sys_params_st dlg_sys_param = { 0 };
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1827  
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1828  	// Get watermark and Tex.
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1829  	dlg_sys_param.t_urg_wm_us = get_wm_urgent(mode_lib, e2e_pipe_param, num_pipes);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1830  	dlg_sys_param.deepsleep_dcfclk_mhz = get_clk_dcf_deepsleep(mode_lib,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1831  		e2e_pipe_param,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1832  		num_pipes);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1833  	dlg_sys_param.t_extra_us = get_urgent_extra_latency(mode_lib, e2e_pipe_param, num_pipes);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1834  	dlg_sys_param.mem_trip_us = get_wm_memory_trip(mode_lib, e2e_pipe_param, num_pipes);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1835  	dlg_sys_param.t_mclk_wm_us = get_wm_dram_clock_change(mode_lib, e2e_pipe_param, num_pipes);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1836  	dlg_sys_param.t_sr_wm_us = get_wm_stutter_enter_exit(mode_lib, e2e_pipe_param, num_pipes);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1837  	dlg_sys_param.total_flip_bw = get_total_immediate_flip_bw(mode_lib,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1838  		e2e_pipe_param,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1839  		num_pipes);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1840  	dlg_sys_param.total_flip_bytes = get_total_immediate_flip_bytes(mode_lib,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1841  		e2e_pipe_param,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1842  		num_pipes);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1843  	dlg_sys_param.t_srx_delay_us = mode_lib->ip.dcfclk_cstate_latency
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1844  		/ dlg_sys_param.deepsleep_dcfclk_mhz; // TODO: Deprecated
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1845  
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1846  	print__dlg_sys_params_st(mode_lib, dlg_sys_param);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1847  
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1848  	// system parameter calculation done
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1849  
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1850  	dml_print("DML_DLG: Calculation for pipe[%d] start\n\n", pipe_idx);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1851  	dml_rq_dlg_get_rq_params(mode_lib, &rq_param, e2e_pipe_param[pipe_idx].pipe);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1852  	dml_rq_dlg_get_dlg_params(mode_lib,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1853  		e2e_pipe_param,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1854  		num_pipes,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1855  		pipe_idx,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1856  		dlg_regs,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1857  		ttu_regs,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1858  		rq_param.dlg,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1859  		dlg_sys_param,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1860  		cstate_en,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1861  		pstate_en,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1862  		vm_en,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1863  		ignore_viewport_pos,
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1864  		immediate_flip_support);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1865  	dml_print("DML_DLG: Calculation for pipe[%d] end\n", pipe_idx);
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1866  }
-6725a88f88a7e92 Bhawanpreet Lakha 2020-05-21  1867  
-
-:::::: The code at line 1813 was first introduced by commit
-:::::: 6725a88f88a7e922e91c45bf83d320487810c192 drm/amd/display: Add DCN3 DML
-
-:::::: TO: Bhawanpreet Lakha <Bhawanpreet.Lakha@amd.com>
-:::::: CC: Alex Deucher <alexander.deucher@amd.com>
+   159	
+   160	void dcn3_init_clocks(struct clk_mgr *clk_mgr_base)
+   161	{
+   162		struct clk_mgr_internal *clk_mgr = TO_CLK_MGR_INTERNAL(clk_mgr_base);
+   163		unsigned int num_levels;
+   164	
+   165		memset(&(clk_mgr_base->clks), 0, sizeof(struct dc_clocks));
+   166		clk_mgr_base->clks.p_state_change_support = true;
+   167		clk_mgr_base->clks.prev_p_state_change_support = true;
+   168		clk_mgr->smu_present = false;
+   169	
+   170		if (!clk_mgr_base->bw_params)
+   171			return;
+   172	
+   173		if (!clk_mgr_base->force_smu_not_present && dcn30_smu_get_smu_version(clk_mgr, &clk_mgr->smu_ver))
+   174			clk_mgr->smu_present = true;
+   175	
+   176		if (!clk_mgr->smu_present)
+   177			return;
+   178	
+   179		// do we fail if these fail? if so, how? do we not care to check?
+   180		dcn30_smu_check_driver_if_version(clk_mgr);
+   181		dcn30_smu_check_msg_header_version(clk_mgr);
+   182	
+   183		/* DCFCLK */
+   184		dcn3_init_single_clock(clk_mgr, PPCLK_DCEFCLK,
+   185				&clk_mgr_base->bw_params->clk_table.entries[0].dcfclk_mhz,
+   186				&num_levels);
+   187	
+   188		/* DTBCLK */
+   189		dcn3_init_single_clock(clk_mgr, PPCLK_DTBCLK,
+   190				&clk_mgr_base->bw_params->clk_table.entries[0].dtbclk_mhz,
+   191				&num_levels);
+   192	
+   193		// DPREFCLK ???
+   194	
+   195		/* DISPCLK */
+   196		dcn3_init_single_clock(clk_mgr, PPCLK_DISPCLK,
+   197				&clk_mgr_base->bw_params->clk_table.entries[0].dispclk_mhz,
+   198				&num_levels);
+   199	
+   200		/* DPPCLK */
+   201		dcn3_init_single_clock(clk_mgr, PPCLK_PIXCLK,
+   202				&clk_mgr_base->bw_params->clk_table.entries[0].dppclk_mhz,
+   203				&num_levels);
+   204	
+   205		/* PHYCLK */
+   206		dcn3_init_single_clock(clk_mgr, PPCLK_PHYCLK,
+   207				&clk_mgr_base->bw_params->clk_table.entries[0].phyclk_mhz,
+   208				&num_levels);
+   209	
+   210		/* Get UCLK, update bounding box */
+   211		clk_mgr_base->funcs->get_memclk_states_from_smu(clk_mgr_base);
+   212	
+   213		/* WM range table */
+ > 214		DC_FP_START();
+   215		dcn3_build_wm_range_table(clk_mgr);
+ > 216		DC_FP_END();
+   217	}
+   218	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -270,14 +535,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106270840.FeBxiWnc-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106271124.KF2w3HHY-lkp%40intel.com.
 
---RnlQjJ0d97Da+TV1
+--u3/rZRmxL6MmkK24
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICKq212AAAy5jb25maWcAlDxbd9s2k+/9FTrpS7+HJr7EabJ7/ACCoISKJGgClGy/4Ciy
+H4sICB/j12AAAy5jb25maWcAlDxbd9s2k+/9FTrpS7+HJr7EabJ7/ACCoISKJGgClGy/4Ciy
 kmprW15Jbpv99TsD3gAQVNKcnMScGQyAwWBuAPzzTz9PyOtx97Q6bterx8dvk6+b581+ddw8
 TL5sHzf/PYnFJBdqwmKu3gJxun1+/efdy+7vzf5lPbl6++nt2a/79dVkvtk/bx4ndPf8Zfv1
 FRhsd88//fwTFXnCp5pSvWCl5CLXit2q6zfrx9Xz18lfm/0B6Cbnl2/P3p5Nfvm6Pf7Xu3fw
@@ -867,4 +1132,4 @@ MzZys7IBTqq2YWfrR6eMfU9arUdxk0LVFdj2+a7s8n2baX0bldxVYwsSSQJ4APJyjeDWkR6x
 s0iEnytvjYCfQ68OqSp5Foqyyb4FK4tCt2xAG+UptVKqVjwtM1h1QWliWah1Sq85KGsJZohR
 ttYWt3lYBuFJbIn7Ax9Cc/hh3wEA
 
---RnlQjJ0d97Da+TV1--
+--u3/rZRmxL6MmkK24--
