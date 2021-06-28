@@ -1,144 +1,139 @@
-Return-Path: <clang-built-linux+bncBC27HSOJ44LBBM4O42DAMGQEVJXRCLI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC3YFL76U4CRBLNF42DAMGQEYBYCFBA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7F72B3B5A6D
-	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Jun 2021 10:24:21 +0200 (CEST)
-Received: by mail-lf1-x13d.google.com with SMTP id z13-20020a056512376db0290329474fcc99sf3559322lft.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Jun 2021 01:24:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624868661; cv=pass;
+Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 959ED3B5B09
+	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Jun 2021 11:13:18 +0200 (CEST)
+Received: by mail-io1-xd3d.google.com with SMTP id a6-20020a0566021486b02904db010ce8e8sf12999734iow.11
+        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Jun 2021 02:13:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624871597; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UUfyWqcOO2ApEo1n2GbtsmZEDr2ty3mix4mnawOxIiAIS2yonfZpU+dY+gvvDTmvFD
-         grO4ZWuxxus/2Tf6GHC5Hf/WKu/xl9jk79WRF/nqsYVoHQ72iPAlmlC6W5sdq62esDtn
-         n8YIY2kT31+zT9395CylSDK2BTbI6W3LA93mKCC735EkLq2MG/Nx6UH/X9NZQsoSeiyE
-         xSRjKz98OzfnwzBMxughgY2B3ofw2bkCVZEISOyv+hPWFe2iX0RqC6INjcDR9JhzqB7v
-         eH+TOya8iIA62wD6fPZgcHp8PDufQl1ryyY9tAhwoehAparATadWQSvkrXflHtc/n8qD
-         5mWw==
+        b=tSGxHU4NVrqOeHjUTHk14fmv2dk2WqVUy/ialhZXZDfc1dm/5VOKTSjfLljNLyBXMp
+         dZfNKX1pdr7oL5Drufxa7Irhztc4RUaSPw6t0BMUqGlKMWbZJq/gepVzk4HwFipzkOIG
+         ylPVXGfTqCHcf5NJt7Y4V+mWGa4FY9+aFvgMRjhO6+zXeXLnn+DRKbwux83rp8xf3EW8
+         fgGTVGRJhFw9CWoXzvMobBD+OnY4daYf2uBKVMn0lvlj04+AVYAS0czO8IXl6wbRHT87
+         UACz6usuAdiQxBnkZlpxTSVzRiLLrRgnBoGP7S2ZJNcDNQ7L+9LRoluJiE2oBbuBi1WC
+         beeA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:mime-version
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:sender:dkim-signature;
-        bh=ggNvrtBulIjzyjnb+06JDrsAnjRNIVgfUWP60zHjRZU=;
-        b=cfGWKHg8XZJrzi0zZcOhsrkEaUP0hZcfv6zaZgQLGuNoSwTEctbn3dTx7rQslLqe+j
-         Iu+8cyZ+dJqH/Ej3kudDGIytzqyZdyqp9QvO4K6jHvPF9gDkKl8oXqEx5zzfDv2RZ0Sj
-         k1NKMJCXU7kbYaYrT18KG8VrLlxOWQKfuQqV1peMIWAG+oUot8nTxG32KpoxFz443e1x
-         mCwu4NI720eHBOQTPlLXxbWMtdpKAOHc/0cyyXohtmGw3EoAqsRLIPNHNMrZpbuVHY21
-         aKX3OX7y4sal+/W7zP3bzLt1p/oL8JqQo5ojiGXOzpW7aP6jdPpYNls+lZuOip8jvARV
-         KfbQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=Z5PeFeduWFiGf/z6gc1b+E1DYfQH+znst/98FDTDECI=;
+        b=rGZxfXrB3MH3uXm85Ae3jRyCPfpNbZBOl7hiB9c/e1laALjjY+ugRe2UVWYJrKGBVO
+         BNctwOuST5yfVeQW5MZ940Y+b1kCqJUOQnbg2mGqgXFAitJqdze1emmGqWwU2nMm89Tm
+         CZdHDoWm4grzb26fvDdD/BKW+at2CKb7QUAyHud9bZzwjoZqr4tsar1Fe/l05dfsKkrt
+         0fZ9dNyEcTyMHyf32bdvvGCzBeuLKtDZ8ddTzBV9cJaTdJEatz3byl8nHm9byW78MZmj
+         k7lCpkR7B0X8zVyjU/EN3CcgpPbKQuoaqLZnWdwFzCslVoomwlecxKHKw9S+qIMEZyVc
+         x5TQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RkGdPeKd;
+       spf=pass (google.com: domain of bristot@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=bristot@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:mime-version
-         :content-language:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ggNvrtBulIjzyjnb+06JDrsAnjRNIVgfUWP60zHjRZU=;
-        b=Me8O4RZEI41FGSK1gG1PZrIgc8xsOTTArgKCQm/WNF9PWYyaHLIN8/V65KBPHu5OVk
-         CssTRuTftn9fwlKR2D59QkZd92oE0GSvEZhb+XhirCDo4t65PR5vmgRdj7WvQGd85LgG
-         srz7+TtAGHaNvHNkg7sDQrF7FYG322AZlrvjAAEoy5U1thZ5xodae6H+qhnW+ZstpWuh
-         0RYN6oiAhslC+yMkRg1yscdfmVObdG0m0fcPyKiqkAzmUoT1m5/7gbEFE7J3xwLMwiM0
-         nGETzAM97/sSCR71UaRk8g3UZudK+SkysUFcfR3gYyLXSh8dTKl0FvZ2D8QEflzRFHX8
-         YzgA==
+        bh=Z5PeFeduWFiGf/z6gc1b+E1DYfQH+znst/98FDTDECI=;
+        b=GvR52ZQFjVSTBtQIT4oGmYrbuMk/DA0FPfumZZniQNVIFx14N6jSXm7JOClm6td72h
+         NeBQLOHPmfGo5NK+wC6b7CqKyIUysvDC9CQ4xpwQYHTUcyv04/ai/DDCpLSs57MSt85y
+         UhPbzrkivgkHbb99w7fSC0bdSucndmqvw1jIuRnBfmjiJ7BdeOdclZdWI2y6QV53LCp5
+         mtIPaRq1bhwwuM4U1dM1Z2hYv+skk/vizDRUr1QzwcBHwlZJUx+Aq7FZtcE0VEUKqfI2
+         9dmXzrIP6VN5O8ZJENfTVPyZmhVSzutiT4beTC+UiFiy+R7gkLd9SICfMiO/c0hFdx1x
+         D/pQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :mime-version:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ggNvrtBulIjzyjnb+06JDrsAnjRNIVgfUWP60zHjRZU=;
-        b=omS3d4rZo12NjZAcNrf/4Tu/aEMGrp1JXthH7maSDOj8plt+H5Wn0GdNo5nvF3c1hC
-         xHXv7ads/RRFjdoanyEOd8B7h2NRZBFahWgzdpRxJdigErnksUFdRx3BEDplVAFUz1HF
-         9bdKc6/ypOTTrCuQIRx303elGaQMmA36tHyg4qkvrX7WFFfxurOdUNsJs8QwwvSmuD/c
-         KN/MQau+UX2KgqTiuJFVv3PtFaFqY6Terjc1SwmUe6h6+cu93+wZpnv/nggg7sWcZf0h
-         0YQ3+sVcaDeGu0NyhkJD0ZJQSBhFj+KQiUq5xRKJwgbSPc5xSPqVQAIsLYSgpD3q7mmz
-         mivQ==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Z5PeFeduWFiGf/z6gc1b+E1DYfQH+znst/98FDTDECI=;
+        b=lULU/gcWcb4b7zk8Wqm89tK5bYB9N9kqAOzK5ipx8ba/0Fdk+eZ6m9mZbY7ByC/lZp
+         0rKsLZ8MTbkIyeNNSokIWoVgG8mfMMzkhK9PgR0FlU9QpUkZ5AzNOHBm7hNjgOi2xMOL
+         a7DZro3c3A5T3/Nfi3LEnV5T1zdPhSrojLrHz+IPi7UI/i6TGuMT2zxvWI+zGBm25vg4
+         iizdsJ+ZSlzTESNqbYmH8Rn1n5VkHFb/fEIQC0UWw5D4OeKrVIYZqMhIsVwLgXRsk85f
+         YANmHDNVwS8glSPcEqG670mgnG+DVC6Iw86rnivAsejkKgvU0jz0zyk2KRSG63cqbutN
+         NGBg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533JA5YVcTsCQ4O0q65yLtlrnLWz1OMBGhbA2/+K6Z0sYakRPkdi
-	tPGetjEPELMSVZZc0rQ39AU=
-X-Google-Smtp-Source: ABdhPJyRpd+mqrlua0e5j8J24bUHxoSFjXY2xd+DlXVbs/2tSlBx3y6lKkpPUiJ0oUbWsfe8AQ3d/w==
-X-Received: by 2002:a2e:6e0e:: with SMTP id j14mr12174624ljc.419.1624868659516;
-        Mon, 28 Jun 2021 01:24:19 -0700 (PDT)
+X-Gm-Message-State: AOAM531tGUKtDPkMuUDzQUkEhlKPZ3pHOqrBvI6XiApVeHs/NhrYTOAU
+	Qvtp/7hXUvRkovIUlIcazhA=
+X-Google-Smtp-Source: ABdhPJxiHpFVx/wn7b6+FwnGrx8UkM2WISfpKpsR8ZdDEAoA5ojKa+JAhJ4tPFiy7GksoIiANzGplA==
+X-Received: by 2002:a05:6638:5b7:: with SMTP id b23mr1040970jar.138.1624871597328;
+        Mon, 28 Jun 2021 02:13:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:f515:: with SMTP id j21ls759242lfb.1.gmail; Mon, 28 Jun
- 2021 01:24:18 -0700 (PDT)
-X-Received: by 2002:a05:6512:203a:: with SMTP id s26mr18146077lfs.394.1624868658384;
-        Mon, 28 Jun 2021 01:24:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624868658; cv=none;
+Received: by 2002:a92:3414:: with SMTP id b20ls4370435ila.3.gmail; Mon, 28 Jun
+ 2021 02:13:17 -0700 (PDT)
+X-Received: by 2002:a92:1a42:: with SMTP id z2mr17218624ill.223.1624871596979;
+        Mon, 28 Jun 2021 02:13:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624871596; cv=none;
         d=google.com; s=arc-20160816;
-        b=nfQ1tMdHHNYe2vhQt0fudcJdmltYyBRICsR3zc+7PC0LKpGUmcUVyYWrc2kefI5mEW
-         z07hn9EIB7TnDeqv6cwm6uUfy7KfAeEjAWuYWGC9P+R+KgN3E7aMtWo4bwnP1Zh4Oh+n
-         fRqosbJ7haxtBSJLWzWx9jIw8GJRP/1xq7XYm+YtoqyoNprBHMM1u8kPzCaEKUw2f25y
-         NYkHnwYu6EEKujyUvFWqLEVgu6uvmcMVqmaubKTKRumII/Hq8sCncBTWymUtyAjGGSPN
-         /loTwoNjQA4S9upU4rDURUHGCeYkJykWbfMF18IJGPkP3IrUnao21LQWOzh//cZLhjEC
-         IgUw==
+        b=J6xxw+J7bB8cNIb8QIGTs2NxNIM16E60aIQqBsDkZ2/nDNSfgddwRM1TZWylPqzXVp
+         hWzOAFq/Z/OuQLS3saGXMfF1nxEpXBSOutif+9G4srmWd0MLicc8Q4dJt7uReawYtH/k
+         wCMeS9RAa4Pk/ghrBZYG4NDlc5h+li4lDI3LU9iNiyot0e3YoPsylWJK+maOREIpOCgs
+         KNoQX2VQRTkW6oFcmSepmzaHiuZqHPZa83W35mZrwCYevj4F+U86Zv0KnEPH/yLDvaLd
+         C/fnE/A2rlmmQ1peFOcuokJfk8nzHawPwMAT9Rbn+4pkoOYiJFzHDFSmMmeVQvBZ9kFH
+         Bpxw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:mime-version
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from;
-        bh=Lm/YodiIP8OfB8Xzq9Nxk0Qa8E+vN0M0A9uEYifmkLQ=;
-        b=jJftRCMt02hJyPUq34V6A3Yxpo9Ogboq4LLRfAba22ibXWf/IlPD/PMHi/ujf/LT7M
-         VMHMtM0ZDDqokiLQlFyC2xuPgxPWX6QiIL84WIaN75LAUmSixoRdVTHgwUjg7LSqpkB3
-         7brNN7SR8Uz0JefKh/hecJ8ED26Ht47AqM29XzyeJslgotBmrzY/4en3iHdW6bz6QXge
-         LKEMi7VCYl0XAkU83fJOfI1FoH2ZgjwDj47YvrvnLpjzs26TPmY+DfidYV4NxH4kBr4R
-         qCXzytWyoGxUrmkQUbYM7En5E4G+Cd08O+3InVDltK3+I397I2EZY6VwNZbF/qgT3zrJ
-         O/gw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=aTlyhYbwi12H8iUHLWWzeN8Tfh8WUFAXSYT888KXMww=;
+        b=qkY1iypGIjLQsaj7qBHYN7v5aRaEec5a4l5g34TVduwiACMGuhHRD6CXM1QE5eCvrc
+         jxeNaWxUCBRw3tgShlrGshjW8f6M5gWAvF3ritvsuesJSi3jIgIG20XtkqAEgPMYlEbS
+         Hq8ZR7RMTXalJWM8JIt4lWTrKGlKReioMOchmJ4RHt09bqglxZHVc2F+HywYBajX0dzr
+         bx+6ITg/YUEhxxe0NifvPKs3oNlvjdoJ1w3eHms0RbAK425Z1tqwKX9T7yhmq7HiFJUu
+         6czKyh43IlsY8wJqKtLBBlZ3nk6mhA5tBYAW9N59Jxh0nH3yoRimk5/ELWdv8JFo7BDE
+         OgmA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
-Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [185.58.86.151])
-        by gmr-mx.google.com with ESMTPS id b35si484566lfv.5.2021.06.28.01.24.18
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RkGdPeKd;
+       spf=pass (google.com: domain of bristot@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=bristot@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id e16si438530ilm.3.2021.06.28.02.13.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 28 Jun 2021 01:24:18 -0700 (PDT)
-Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) client-ip=185.58.86.151;
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) (Using
- TLS) by relay.mimecast.com with ESMTP id
- uk-mta-89-FswThSeuNS-iTkJMwVP7Ow-1; Mon, 28 Jun 2021 09:24:16 +0100
-X-MC-Unique: FswThSeuNS-iTkJMwVP7Ow-1
-Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
- (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.18; Mon, 28 Jun
- 2021 09:24:15 +0100
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.018; Mon, 28 Jun 2021 09:24:15 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: "'Chen, Rong A'" <rong.a.chen@intel.com>, Ilya Dryomov
-	<idryomov@gmail.com>, kernel test robot <lkp@intel.com>
-CC: "kbuild-all@lists.01.org" <kbuild-all@lists.01.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: RE: [kbuild-all] Re: net/ceph/messenger_v2.c:2808:5: warning: stack
- frame size (2336) exceeds limit (2048) in function 'ceph_con_v2_try_read'
-Thread-Topic: [kbuild-all] Re: net/ceph/messenger_v2.c:2808:5: warning: stack
- frame size (2336) exceeds limit (2048) in function 'ceph_con_v2_try_read'
-Thread-Index: AQHXa/RueJm4ArZTY06Bo3hjOSis8KspFAQw
-Date: Mon, 28 Jun 2021 08:24:15 +0000
-Message-ID: <3d6a513b51d545cc87a7a0ae22452567@AcuMS.aculab.com>
-References: <202106280955.VUsBSyHq-lkp@intel.com>
- <CAOi1vP-FR2PpqdW4WuhJaaFPZifxthf0B45dV03v00ef66R8wg@mail.gmail.com>
- <a875976b-3117-f001-606b-8e90802bef8a@intel.com>
-In-Reply-To: <a875976b-3117-f001-606b-8e90802bef8a@intel.com>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+        Mon, 28 Jun 2021 02:13:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bristot@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
+ [209.85.208.70]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-333-vMsAGfVHP--BG1_UxEbWXQ-1; Mon, 28 Jun 2021 05:13:15 -0400
+X-MC-Unique: vMsAGfVHP--BG1_UxEbWXQ-1
+Received: by mail-ed1-f70.google.com with SMTP id w22-20020a50f1160000b02903956dcb0172so663173edl.5
+        for <clang-built-linux@googlegroups.com>; Mon, 28 Jun 2021 02:13:14 -0700 (PDT)
+X-Received: by 2002:a17:907:2135:: with SMTP id qo21mr23535696ejb.385.1624871593744;
+        Mon, 28 Jun 2021 02:13:13 -0700 (PDT)
+X-Received: by 2002:a17:907:2135:: with SMTP id qo21mr23535680ejb.385.1624871593559;
+        Mon, 28 Jun 2021 02:13:13 -0700 (PDT)
+Received: from x1.bristot.me (host-79-23-205-114.retail.telecomitalia.it. [79.23.205.114])
+        by smtp.gmail.com with ESMTPSA id yl1sm1718255ejb.18.2021.06.28.02.13.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Jun 2021 02:13:13 -0700 (PDT)
+Subject: Re: [trace:for-next 38/40] kernel/trace/trace_osnoise.c:1584:2:
+ error: void function 'osnoise_init_hotplug_support' should not return a value
+To: Steven Rostedt <rostedt@goodmis.org>, kernel test robot <lkp@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
+References: <202106270431.0esjH5YC-lkp@intel.com>
+ <20210627232122.73f00a07@rorschach.local.home>
+From: Daniel Bristot de Oliveira <bristot@redhat.com>
+Message-ID: <d27f1f38-9b4e-c7be-03ca-055d89bc12e2@redhat.com>
+Date: Mon, 28 Jun 2021 11:13:12 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
+In-Reply-To: <20210627232122.73f00a07@rorschach.local.home>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: david.laight@aculab.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as
- permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+Content-Language: en-US
+X-Original-Sender: bristot@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b=RkGdPeKd;
+       spf=pass (google.com: domain of bristot@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=bristot@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,33 +146,22 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-...
-> >>     arch/powerpc/include/asm/io-defs.h:43:1: warning: performing pointer arithmetic on a null
-> pointer has undefined behavior [-Wnull-pointer-arithmetic]
+On 6/28/21 5:21 AM, Steven Rostedt wrote:
+> Daniel,
+> 
+> Can you fix this too.
 
-I've just realised why that error is output.
-The result of (long)((char *)0 + 4) is only 4 if the NULL pointer
-has the 'all-zero' bit pattern.
-This isn't mandated by the language.
+Fixing...
 
-However I suspect almost every implementation of C there has ever
-been has used the all-zero bit pattern for NULL.
-This includes one system I used (many years ago) where the 'natural'
-NULL pointer would have been the all-ones pattern.
+Regarding the "return 0" on void functions, I am making two patches because one
+Fixes: bce29ac9ce0b ("trace: Add osnoise tracer"), and another that Fixes
+c8895e271f79 ("trace/osnoise: Support hotplug operations").
 
-Far too much code assumes memset(ptr, 0, len) will set pointers
-to NULL for any other value to ever work.
+Thoughts?
 
-Of course 'undefined behaviour' doesn't mean 'undefined value'
-it includes firing a ICBM at the coder's house.
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+-- Daniel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/3d6a513b51d545cc87a7a0ae22452567%40AcuMS.aculab.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d27f1f38-9b4e-c7be-03ca-055d89bc12e2%40redhat.com.
