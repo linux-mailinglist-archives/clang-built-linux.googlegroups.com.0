@@ -1,129 +1,144 @@
-Return-Path: <clang-built-linux+bncBD26TVH6RINBBZMF42DAMGQEANELIXY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27HSOJ44LBBM4O42DAMGQEVJXRCLI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8A2EE3B5A3C
-	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Jun 2021 10:05:58 +0200 (CEST)
-Received: by mail-pl1-x640.google.com with SMTP id e14-20020a170902784eb0290102b64712f9sf5446012pln.10
-        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Jun 2021 01:05:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624867557; cv=pass;
+Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7F72B3B5A6D
+	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Jun 2021 10:24:21 +0200 (CEST)
+Received: by mail-lf1-x13d.google.com with SMTP id z13-20020a056512376db0290329474fcc99sf3559322lft.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Jun 2021 01:24:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624868661; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CgAwew9Ciq8Vk8hf4CEg+Qw1iEqGlUZE0MGV40FbgJEW9/+5ZTzE96iSmuYqXvM7QZ
-         3awZvYO585o5XKDx+c65gn0wqfMOMun9X9pyYvxVUAOu/4noBWgPSXJxkjzG29kW/t/d
-         m+MlPPH5ur3o9n/lIuW0/4DPpCfcKoNWoCygxRnJC8tKNf0KQDCbxz8bzkQ7QV52FE8j
-         DYxpIK+CrvDnfGlvZ2kFI02HOI7eyoyd3pl7Ul33kim5fTlsGKarmtdjMBrL6VAeh0s6
-         aCwsnv7I8DH0cWdvalG475alaQ0FzfY9LiTx0NqUc5ApCNgqajKmgNinmJfLzVVm/8KR
-         OM7Q==
+        b=UUfyWqcOO2ApEo1n2GbtsmZEDr2ty3mix4mnawOxIiAIS2yonfZpU+dY+gvvDTmvFD
+         grO4ZWuxxus/2Tf6GHC5Hf/WKu/xl9jk79WRF/nqsYVoHQ72iPAlmlC6W5sdq62esDtn
+         n8YIY2kT31+zT9395CylSDK2BTbI6W3LA93mKCC735EkLq2MG/Nx6UH/X9NZQsoSeiyE
+         xSRjKz98OzfnwzBMxughgY2B3ofw2bkCVZEISOyv+hPWFe2iX0RqC6INjcDR9JhzqB7v
+         eH+TOya8iIA62wD6fPZgcHp8PDufQl1ryyY9tAhwoehAparATadWQSvkrXflHtc/n8qD
+         5mWw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=V+pgD9DNBsxptzHqMebDU3w4bgHSvxSUyCFutFKtRVU=;
-        b=Q5v1JkJlek4xddT/jXtpnltGWkafHZwvuUMoz27lZqIuVUaLQ/C78UC15S061E3BwN
-         VDQPs9aqjk0j6Nl8VmK/mqzrg0Nh38Gtwm2yF/TdjYwLldPuqZjRB38aJRJikRlLswia
-         qW1lXjT0zmMqcP9kOQsAPqyEscttR2wWDJTIuArUydVpBubYA4mgNY1XA0bNrY757dXD
-         6Cey3z4MqP8PEEB302K/Zzx23mVsRX+LXz1HNybdgS1nMD6MRISXkHschDmEM1hTkXVF
-         6vkamapwPVHsiJOa5T9Gqj+hkz1loJOyaA+LL+eqGzMYC5e0NGVkhfnGeYQY4+4yCHdg
-         k2Uw==
+         :list-id:mailing-list:precedence:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=ggNvrtBulIjzyjnb+06JDrsAnjRNIVgfUWP60zHjRZU=;
+        b=cfGWKHg8XZJrzi0zZcOhsrkEaUP0hZcfv6zaZgQLGuNoSwTEctbn3dTx7rQslLqe+j
+         Iu+8cyZ+dJqH/Ej3kudDGIytzqyZdyqp9QvO4K6jHvPF9gDkKl8oXqEx5zzfDv2RZ0Sj
+         k1NKMJCXU7kbYaYrT18KG8VrLlxOWQKfuQqV1peMIWAG+oUot8nTxG32KpoxFz443e1x
+         mCwu4NI720eHBOQTPlLXxbWMtdpKAOHc/0cyyXohtmGw3EoAqsRLIPNHNMrZpbuVHY21
+         aKX3OX7y4sal+/W7zP3bzLt1p/oL8JqQo5ojiGXOzpW7aP6jdPpYNls+lZuOip8jvARV
+         KfbQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:mime-version
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=V+pgD9DNBsxptzHqMebDU3w4bgHSvxSUyCFutFKtRVU=;
-        b=ODqnpeVobQqQvQ2IdOBrP3UZIzjdV3PvWGGUKK/t7s+DPxKLFn02LVlgwG4AIrzXnH
-         FwWX9AnO8zoUgzbYKC6kQ41xAcgJLg2xDbZZabatzbxVOw3ajCFRkMOBqccYbSJIUZPe
-         OHN7c6rvek+OFpY3/E6NV7X6KjHZT/WiHBp5kFY0rA2FFDpwNNsp227okQAcBouScf++
-         qU99B1BCjd40b+v6g6bSvMgcCw65janR30ztyFHOhaFDwPkD/O/23EETSs6xpO5X+9VD
-         q7n9GSVJnzK6E4Yss0Y5b6PGpIdApKMncX5vstXmi6zyKrd+Qf04nFgZSrlNWgpssJ6h
-         BCYw==
+        bh=ggNvrtBulIjzyjnb+06JDrsAnjRNIVgfUWP60zHjRZU=;
+        b=Me8O4RZEI41FGSK1gG1PZrIgc8xsOTTArgKCQm/WNF9PWYyaHLIN8/V65KBPHu5OVk
+         CssTRuTftn9fwlKR2D59QkZd92oE0GSvEZhb+XhirCDo4t65PR5vmgRdj7WvQGd85LgG
+         srz7+TtAGHaNvHNkg7sDQrF7FYG322AZlrvjAAEoy5U1thZ5xodae6H+qhnW+ZstpWuh
+         0RYN6oiAhslC+yMkRg1yscdfmVObdG0m0fcPyKiqkAzmUoT1m5/7gbEFE7J3xwLMwiM0
+         nGETzAM97/sSCR71UaRk8g3UZudK+SkysUFcfR3gYyLXSh8dTKl0FvZ2D8QEflzRFHX8
+         YzgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=V+pgD9DNBsxptzHqMebDU3w4bgHSvxSUyCFutFKtRVU=;
-        b=DmvoIYfTTXux8eYhiOnjs18ZdLr1N1a16gDnCRdhtmqf/YFEsf+xzCQXSAGkxmhk6l
-         RcMRfVLF1z52KFte7Ab2rt7t6llp91oq+H77CblC6IloJuzX76Zj5+sq9AdclDW/J9UB
-         4s3v6XF5w5kTWly/5I/C9Mdb8ebTFNZ3GhDmS2iMBp0PtwlIhMdo8wok3kMR1Qqqy5sO
-         NoNJ3/2LsGCHiwVuYNcPhwXF1s2J7ioYmG9UfuFrg/ZqvODzx9sqGdVQBa3amArKJRcW
-         k2uugS2iZBZ195K/1dVjIIC3aDkuqP+DK5Qu8lYo5Pt6fYMz53/6aNUh15kXIq5D0Luy
-         RJHQ==
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :mime-version:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ggNvrtBulIjzyjnb+06JDrsAnjRNIVgfUWP60zHjRZU=;
+        b=omS3d4rZo12NjZAcNrf/4Tu/aEMGrp1JXthH7maSDOj8plt+H5Wn0GdNo5nvF3c1hC
+         xHXv7ads/RRFjdoanyEOd8B7h2NRZBFahWgzdpRxJdigErnksUFdRx3BEDplVAFUz1HF
+         9bdKc6/ypOTTrCuQIRx303elGaQMmA36tHyg4qkvrX7WFFfxurOdUNsJs8QwwvSmuD/c
+         KN/MQau+UX2KgqTiuJFVv3PtFaFqY6Terjc1SwmUe6h6+cu93+wZpnv/nggg7sWcZf0h
+         0YQ3+sVcaDeGu0NyhkJD0ZJQSBhFj+KQiUq5xRKJwgbSPc5xSPqVQAIsLYSgpD3q7mmz
+         mivQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Uw3sUf3RygeXnh28Qh2+270LAyw0arayYWGrjevX6hYa4QPQI
-	RNEgBn8481+ydG7CTjfYJJ8=
-X-Google-Smtp-Source: ABdhPJzby/mD4kagFIw8EG1vaDaRmedsAFTpq8avmZjuzSNmrKV0GyAfDnMrnkv/sWkn88xhLzFGdg==
-X-Received: by 2002:a17:902:9a02:b029:118:307e:a9dd with SMTP id v2-20020a1709029a02b0290118307ea9ddmr21632817plp.47.1624867557275;
-        Mon, 28 Jun 2021 01:05:57 -0700 (PDT)
+X-Gm-Message-State: AOAM533JA5YVcTsCQ4O0q65yLtlrnLWz1OMBGhbA2/+K6Z0sYakRPkdi
+	tPGetjEPELMSVZZc0rQ39AU=
+X-Google-Smtp-Source: ABdhPJyRpd+mqrlua0e5j8J24bUHxoSFjXY2xd+DlXVbs/2tSlBx3y6lKkpPUiJ0oUbWsfe8AQ3d/w==
+X-Received: by 2002:a2e:6e0e:: with SMTP id j14mr12174624ljc.419.1624868659516;
+        Mon, 28 Jun 2021 01:24:19 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:aa09:: with SMTP id be9ls9000625plb.6.gmail; Mon, 28
- Jun 2021 01:05:56 -0700 (PDT)
-X-Received: by 2002:a17:90a:ab96:: with SMTP id n22mr26374535pjq.92.1624867556748;
-        Mon, 28 Jun 2021 01:05:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624867556; cv=none;
+Received: by 2002:a19:f515:: with SMTP id j21ls759242lfb.1.gmail; Mon, 28 Jun
+ 2021 01:24:18 -0700 (PDT)
+X-Received: by 2002:a05:6512:203a:: with SMTP id s26mr18146077lfs.394.1624868658384;
+        Mon, 28 Jun 2021 01:24:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624868658; cv=none;
         d=google.com; s=arc-20160816;
-        b=k0z3QZbk1YhwrVboVuNOWbIQljY+kIDIYedD05NNQbAUF/mbx7TJja0y4AoBYUbLp3
-         ZSZx3NT7rGWmsk5zlWFn25V+78WZv4Ia1+2lvveyfuiNrQmHvYWV2ycj4ZrZP1zER3T5
-         qfd6LhpEbhWg0ESOCCMc/KNAJKq6RjmZXMTGidPp6HU72OSRQNAOfWhLz5ZbNhDYEwWL
-         rCbqoTpeTIKTugRqeuuPKEzlK/w3Lpl1HWxT7KEodxvWX3JwsJuv0MfRmxV+ED9N/aV5
-         gzY6PWxOIlnF2YzJ+xBBalZ+eVtHEuy/Fe5cwtBVgWGnlqautX1AUkNCwjyl6PFeP/1z
-         oFgQ==
+        b=nfQ1tMdHHNYe2vhQt0fudcJdmltYyBRICsR3zc+7PC0LKpGUmcUVyYWrc2kefI5mEW
+         z07hn9EIB7TnDeqv6cwm6uUfy7KfAeEjAWuYWGC9P+R+KgN3E7aMtWo4bwnP1Zh4Oh+n
+         fRqosbJ7haxtBSJLWzWx9jIw8GJRP/1xq7XYm+YtoqyoNprBHMM1u8kPzCaEKUw2f25y
+         NYkHnwYu6EEKujyUvFWqLEVgu6uvmcMVqmaubKTKRumII/Hq8sCncBTWymUtyAjGGSPN
+         /loTwoNjQA4S9upU4rDURUHGCeYkJykWbfMF18IJGPkP3IrUnao21LQWOzh//cZLhjEC
+         IgUw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=VcQK6b8Q1K4mMo4J4GLgB2LCcmGGPFFZDsUg4tVqu2A=;
-        b=SL96jo2GS7CmlVut6moaik//HyLgb3Bny3FkuE6nT7cmDLVGclV+48WLdi8poyFmWJ
-         8xSurnBkGvyUrryZxbjsABKL5iZE8hvNZFrL4e0AvA3X42cbvtIAKTWlmG7/tOoPD2mf
-         n1UvVStPpvCXOeuh2U9jnpZcTwKO1CB9LZe4rIcqSGAvfEaXdz074JCuPjFET6lt8R0B
-         x5Rsf1K/+IkQXQP3tGt4aGoML6zsmsD6qVDeouDODLqH4fGCSMNrtvXj1ttbwvLK2nSZ
-         XefYD9MlRAQcXMVUPZ5dzMSwCnKbZA668qsac8wGlekjBDr8g4KOgKjU9X5z3qOMs5Kx
-         19uA==
+        h=content-transfer-encoding:content-language:mime-version
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from;
+        bh=Lm/YodiIP8OfB8Xzq9Nxk0Qa8E+vN0M0A9uEYifmkLQ=;
+        b=jJftRCMt02hJyPUq34V6A3Yxpo9Ogboq4LLRfAba22ibXWf/IlPD/PMHi/ujf/LT7M
+         VMHMtM0ZDDqokiLQlFyC2xuPgxPWX6QiIL84WIaN75LAUmSixoRdVTHgwUjg7LSqpkB3
+         7brNN7SR8Uz0JefKh/hecJ8ED26Ht47AqM29XzyeJslgotBmrzY/4en3iHdW6bz6QXge
+         LKEMi7VCYl0XAkU83fJOfI1FoH2ZgjwDj47YvrvnLpjzs26TPmY+DfidYV4NxH4kBr4R
+         qCXzytWyoGxUrmkQUbYM7En5E4G+Cd08O+3InVDltK3+I397I2EZY6VwNZbF/qgT3zrJ
+         O/gw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id o21si795446pgu.0.2021.06.28.01.05.56
+       spf=pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [185.58.86.151])
+        by gmr-mx.google.com with ESMTPS id b35si484566lfv.5.2021.06.28.01.24.18
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 28 Jun 2021 01:05:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-X-IronPort-AV: E=McAfee;i="6200,9189,10028"; a="204901470"
-X-IronPort-AV: E=Sophos;i="5.83,305,1616482800"; 
-   d="scan'208";a="204901470"
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2021 01:05:56 -0700
-X-IronPort-AV: E=Sophos;i="5.83,305,1616482800"; 
-   d="scan'208";a="456226358"
-Received: from rongch2-mobl.ccr.corp.intel.com (HELO [10.255.30.185]) ([10.255.30.185])
-  by fmsmga008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jun 2021 01:05:53 -0700
-Subject: Re: [kbuild-all] Re: net/ceph/messenger_v2.c:2808:5: warning: stack
+        Mon, 28 Jun 2021 01:24:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as permitted sender) client-ip=185.58.86.151;
+Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) (Using
+ TLS) by relay.mimecast.com with ESMTP id
+ uk-mta-89-FswThSeuNS-iTkJMwVP7Ow-1; Mon, 28 Jun 2021 09:24:16 +0100
+X-MC-Unique: FswThSeuNS-iTkJMwVP7Ow-1
+Received: from AcuMS.Aculab.com (10.202.163.6) by AcuMS.aculab.com
+ (10.202.163.6) with Microsoft SMTP Server (TLS) id 15.0.1497.18; Mon, 28 Jun
+ 2021 09:24:15 +0100
+Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
+ AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
+ 15.00.1497.018; Mon, 28 Jun 2021 09:24:15 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: "'Chen, Rong A'" <rong.a.chen@intel.com>, Ilya Dryomov
+	<idryomov@gmail.com>, kernel test robot <lkp@intel.com>
+CC: "kbuild-all@lists.01.org" <kbuild-all@lists.01.org>,
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: RE: [kbuild-all] Re: net/ceph/messenger_v2.c:2808:5: warning: stack
  frame size (2336) exceeds limit (2048) in function 'ceph_con_v2_try_read'
-To: Ilya Dryomov <idryomov@gmail.com>, kernel test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
- LKML <linux-kernel@vger.kernel.org>
+Thread-Topic: [kbuild-all] Re: net/ceph/messenger_v2.c:2808:5: warning: stack
+ frame size (2336) exceeds limit (2048) in function 'ceph_con_v2_try_read'
+Thread-Index: AQHXa/RueJm4ArZTY06Bo3hjOSis8KspFAQw
+Date: Mon, 28 Jun 2021 08:24:15 +0000
+Message-ID: <3d6a513b51d545cc87a7a0ae22452567@AcuMS.aculab.com>
 References: <202106280955.VUsBSyHq-lkp@intel.com>
  <CAOi1vP-FR2PpqdW4WuhJaaFPZifxthf0B45dV03v00ef66R8wg@mail.gmail.com>
-From: "Chen, Rong A" <rong.a.chen@intel.com>
-Message-ID: <a875976b-3117-f001-606b-8e90802bef8a@intel.com>
-Date: Mon, 28 Jun 2021 16:05:48 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.11.0
+ <a875976b-3117-f001-606b-8e90802bef8a@intel.com>
+In-Reply-To: <a875976b-3117-f001-606b-8e90802bef8a@intel.com>
+Accept-Language: en-GB, en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-In-Reply-To: <CAOi1vP-FR2PpqdW4WuhJaaFPZifxthf0B45dV03v00ef66R8wg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
 Content-Language: en-US
-X-Original-Sender: rong.a.chen@intel.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: david.laight@aculab.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as
- permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+ (google.com: domain of david.laight@aculab.com designates 185.58.86.151 as
+ permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,154 +151,33 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+...
+> >>     arch/powerpc/include/asm/io-defs.h:43:1: warning: performing pointer arithmetic on a null
+> pointer has undefined behavior [-Wnull-pointer-arithmetic]
 
+I've just realised why that error is output.
+The result of (long)((char *)0 + 4) is only 4 if the NULL pointer
+has the 'all-zero' bit pattern.
+This isn't mandated by the language.
 
-On 6/28/2021 4:02 PM, Ilya Dryomov wrote:
-> On Mon, Jun 28, 2021 at 3:25 AM kernel test robot <lkp@intel.com> wrote:
->>
->> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
->> head:   62fb9874f5da54fdb243003b386128037319b219
->> commit: cd1a677cad994021b19665ed476aea63f5d54f31 libceph, ceph: implement msgr2.1 protocol (crc and secure modes)
->> date:   7 months ago
->> config: powerpc64-randconfig-r034-20210628 (attached as .config)
->> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 59558129276098d62046c8cda92240d292cbfb1c)
->> reproduce (this is a W=1 build):
->>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->>          chmod +x ~/bin/make.cross
->>          # install powerpc64 cross compiling tool for clang build
->>          # apt-get install binutils-powerpc64-linux-gnu
->>          # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cd1a677cad994021b19665ed476aea63f5d54f31
->>          git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->>          git fetch --no-tags linus master
->>          git checkout cd1a677cad994021b19665ed476aea63f5d54f31
->>          # save the attached .config to linux build tree
->>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64
->>
->> If you fix the issue, kindly add following tag as appropriate
->> Reported-by: kernel test robot <lkp@intel.com>
->>
->> All warnings (new ones prefixed by >>):
->>
->>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
->>                     __do_##name al;                                 \
->>                     ^~~~~~~~~~~~~~
->>     <scratch space>:2:1: note: expanded from here
->>     __do_outl
->>     ^
->>     arch/powerpc/include/asm/io.h:522:62: note: expanded from macro '__do_outl'
->>     #define __do_outl(val, port)    writel(val,(PCI_IO_ADDR)_IO_BASE+port);
->>                                                ~~~~~~~~~~~~~~~~~~~~~^
->>     In file included from net/ceph/messenger_v2.c:17:
->>     In file included from include/linux/scatterlist.h:9:
->>     In file included from arch/powerpc/include/asm/io.h:604:
->>     arch/powerpc/include/asm/io-defs.h:43:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->>     DEF_PCI_AC_NORET(insb, (unsigned long p, void *b, unsigned long c),
->>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
->>                     __do_##name al;                                 \
->>                     ^~~~~~~~~~~~~~
->>     <scratch space>:30:1: note: expanded from here
->>     __do_insb
->>     ^
->>     arch/powerpc/include/asm/io.h:541:56: note: expanded from macro '__do_insb'
->>     #define __do_insb(p, b, n)      readsb((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
->>                                            ~~~~~~~~~~~~~~~~~~~~~^
->>     In file included from net/ceph/messenger_v2.c:17:
->>     In file included from include/linux/scatterlist.h:9:
->>     In file included from arch/powerpc/include/asm/io.h:604:
->>     arch/powerpc/include/asm/io-defs.h:45:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->>     DEF_PCI_AC_NORET(insw, (unsigned long p, void *b, unsigned long c),
->>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
->>                     __do_##name al;                                 \
->>                     ^~~~~~~~~~~~~~
->>     <scratch space>:34:1: note: expanded from here
->>     __do_insw
->>     ^
->>     arch/powerpc/include/asm/io.h:542:56: note: expanded from macro '__do_insw'
->>     #define __do_insw(p, b, n)      readsw((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
->>                                            ~~~~~~~~~~~~~~~~~~~~~^
->>     In file included from net/ceph/messenger_v2.c:17:
->>     In file included from include/linux/scatterlist.h:9:
->>     In file included from arch/powerpc/include/asm/io.h:604:
->>     arch/powerpc/include/asm/io-defs.h:47:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->>     DEF_PCI_AC_NORET(insl, (unsigned long p, void *b, unsigned long c),
->>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
->>                     __do_##name al;                                 \
->>                     ^~~~~~~~~~~~~~
->>     <scratch space>:38:1: note: expanded from here
->>     __do_insl
->>     ^
->>     arch/powerpc/include/asm/io.h:543:56: note: expanded from macro '__do_insl'
->>     #define __do_insl(p, b, n)      readsl((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
->>                                            ~~~~~~~~~~~~~~~~~~~~~^
->>     In file included from net/ceph/messenger_v2.c:17:
->>     In file included from include/linux/scatterlist.h:9:
->>     In file included from arch/powerpc/include/asm/io.h:604:
->>     arch/powerpc/include/asm/io-defs.h:49:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->>     DEF_PCI_AC_NORET(outsb, (unsigned long p, const void *b, unsigned long c),
->>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
->>                     __do_##name al;                                 \
->>                     ^~~~~~~~~~~~~~
->>     <scratch space>:42:1: note: expanded from here
->>     __do_outsb
->>     ^
->>     arch/powerpc/include/asm/io.h:544:58: note: expanded from macro '__do_outsb'
->>     #define __do_outsb(p, b, n)     writesb((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
->>                                             ~~~~~~~~~~~~~~~~~~~~~^
->>     In file included from net/ceph/messenger_v2.c:17:
->>     In file included from include/linux/scatterlist.h:9:
->>     In file included from arch/powerpc/include/asm/io.h:604:
->>     arch/powerpc/include/asm/io-defs.h:51:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->>     DEF_PCI_AC_NORET(outsw, (unsigned long p, const void *b, unsigned long c),
->>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
->>                     __do_##name al;                                 \
->>                     ^~~~~~~~~~~~~~
->>     <scratch space>:46:1: note: expanded from here
->>     __do_outsw
->>     ^
->>     arch/powerpc/include/asm/io.h:545:58: note: expanded from macro '__do_outsw'
->>     #define __do_outsw(p, b, n)     writesw((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
->>                                             ~~~~~~~~~~~~~~~~~~~~~^
->>     In file included from net/ceph/messenger_v2.c:17:
->>     In file included from include/linux/scatterlist.h:9:
->>     In file included from arch/powerpc/include/asm/io.h:604:
->>     arch/powerpc/include/asm/io-defs.h:53:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
->>     DEF_PCI_AC_NORET(outsl, (unsigned long p, const void *b, unsigned long c),
->>     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>     arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
->>                     __do_##name al;                                 \
->>                     ^~~~~~~~~~~~~~
->>     <scratch space>:50:1: note: expanded from here
->>     __do_outsl
->>     ^
->>     arch/powerpc/include/asm/io.h:546:58: note: expanded from macro '__do_outsl'
->>     #define __do_outsl(p, b, n)     writesl((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
->>                                             ~~~~~~~~~~~~~~~~~~~~~^
->>>> net/ceph/messenger_v2.c:2808:5: warning: stack frame size (2336) exceeds limit (2048) in function 'ceph_con_v2_try_read' [-Wframe-larger-than]
-> 
-> Same as for ceph_con_v1_try_read(), please add this instance to the
-> allowlist.
+However I suspect almost every implementation of C there has ever
+been has used the all-zero bit pattern for NULL.
+This includes one system I used (many years ago) where the 'natural'
+NULL pointer would have been the all-ones pattern.
 
-Got it, thanks for the information.
+Far too much code assumes memset(ptr, 0, len) will set pointers
+to NULL for any other value to ever work.
 
-Best Regards,
-Rong Chen
+Of course 'undefined behaviour' doesn't mean 'undefined value'
+it includes firing a ICBM at the coder's house.
 
-> 
-> Thanks,
-> 
->                  Ilya
-> _______________________________________________
-> kbuild-all mailing list -- kbuild-all@lists.01.org
-> To unsubscribe send an email to kbuild-all-leave@lists.01.org
-> 
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/a875976b-3117-f001-606b-8e90802bef8a%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/3d6a513b51d545cc87a7a0ae22452567%40AcuMS.aculab.com.
