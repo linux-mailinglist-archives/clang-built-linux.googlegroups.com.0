@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBMNZ4SDAMGQEG2GNCNA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBJGK4SDAMGQE2NANV4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x739.google.com (mail-qk1-x739.google.com [IPv6:2607:f8b0:4864:20::739])
-	by mail.lfdr.de (Postfix) with ESMTPS id A2C753B566A
-	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Jun 2021 02:49:54 +0200 (CEST)
-Received: by mail-qk1-x739.google.com with SMTP id f10-20020a05620a15aab02903b3210e44dcsf10436565qkk.6
-        for <lists+clang-built-linux@lfdr.de>; Sun, 27 Jun 2021 17:49:54 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1624841393; cv=pass;
+Received: from mail-vs1-xe37.google.com (mail-vs1-xe37.google.com [IPv6:2607:f8b0:4864:20::e37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8A69F3B569B
+	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Jun 2021 03:25:57 +0200 (CEST)
+Received: by mail-vs1-xe37.google.com with SMTP id d188-20020a6768c50000b029027e5c0c36a8sf586658vsc.2
+        for <lists+clang-built-linux@lfdr.de>; Sun, 27 Jun 2021 18:25:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1624843556; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rz8EeKmcGvfkH1z6jvwJ+i+GrWP6ap001DYGsSA6q7D2+NHRWi+qRWRQRhdL+LniRc
-         0+Zn2mYOTOojfglyxwznyuHQy4uIh0enlSWWlreuxt7JpfqpYMErjV/bYZLwZmXsyAU8
-         4bJQM2tPkUpJPediz2opdJ/la28/rf6q/G1Ya/wGtXLbJbH8lHdNwRS0mIdtvKigM/55
-         B1NxxhfWm9SiURHL77DR4UjDySNnNps8XvzS/topXXw605Lx08JJjsNl4iJjbVnT6dNL
-         WYdyrcNVproKrfCLnzHIOFQxcPEje84V2dO2gH9mOWXKe1+2jBY0GlemO0cmx2dl1Z8F
-         uFUg==
+        b=n1OYgMem2quPYajaqrUTP8CJNNpoZVI3Gsd6DqQGxioHLlcZtLe8jjFIjB2F9nExmY
+         vUzEXN8qCgW1EGAsCaTTonIhcoLfCm5AfpMKIalhECHk4arQDF056Nvks0cyjaky46Rm
+         Hl0I1bIkOvQqOLR52E0vGZ7dSKrqvXy9RH/t85qYvN0fFxMayaoNhgcbqrKPG523aC9A
+         faaI/wYpRddOe026Ryd6jZDX3RyduVPfUCStlOC7/ML0ZTrMl8T8Bs5eURr2aoddZbrI
+         uugofQ1sDe1U6Z8IzOP1IIq3Ux/4KJ4S4STD2P7JmcRYDsVHrXEt5lQEj6oi8QbQRChn
+         lfaA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=FTVMeXDAn299Oobr0vsSyAVdC4aK1zzWeuIPq+q5/IU=;
-        b=VnVlJ/NRnAhM4hiT+YRDamiC/3ZdTOKBAcHfGG2iOjaA/Cc6QlejfEUb94Q29CtXQJ
-         Om5vwKZPy67bIrOIelIqxKaV2gW5EDAXOf5f5dCPb4ZIz2n8vspWd5Fj3lqQvz9yC078
-         Lb9TPhG4y4sZ9qLoSNEiKtYDQsxxuNHBFqNmVhKHEWvfuWOqyX8cZt2d8IAOLHfrkAHI
-         dUaLU4DIA47YJikTfD+fzQvG/gZVEpHfUNiJ1SQaCEYBnPkClwvIaf6l1MdnsS8IxT4L
-         19OajFatP5l4VgTzjgNGoDNuC28O2KX42FHsyADBZqi31OXGMx9BeMFnbOGGzivWlHUo
-         4dVQ==
+        bh=SN9LDOOSGNmGOlxtPvin4ZNn98SQA0tqV/5M7RQo29s=;
+        b=tL4bagOfeUY6XMJG0I3C1nI/Ip1EH4YWJSld2EcRVk+uEouhI/FIm8vNVqy2TvUEwz
+         Yt/ouzVl39jsfs34d4FV1ON5shBU8Jk5D0rLdPmTWQi+KMBQz01prV1HJbH9WCKs7Hic
+         MrkFAj9YPxqD9TD37jl+4qcK05p+pidh+boRf8neUm9oLDXvc6amUm8TJvIBv/vyAqZD
+         XaKnQdcg0rAWrq+QVr3tLeo7lrbuKxBXMFKhzl+Ak8ZJDJOw8EWjLFBXhBWSSzY8QRDl
+         geEVevuYZMt3tQSjw05Dknqsgi/KQH3jDrc19XV8e/K7JBrZwn4k/iMI9MJarbUocBau
+         QUtg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=FTVMeXDAn299Oobr0vsSyAVdC4aK1zzWeuIPq+q5/IU=;
-        b=coGK8pNYyqTT2cQzTk2WrLpTQgrPRVKmhwjr60VzbXLtkOv3x1ZQAovkAgUwCH3g7X
-         XTF4M5cJUwwmNVeRUtHNKfDtFv328dc3G9JDU5/DwcDwVKivDspjA3rwcz0c2e3SbMcG
-         2U8lEz0bUQcwy46hGZMmmc/Taz15fT8E73XkWsz30iXjGed+tgO/vDkLoiVwTJoBcWZE
-         yQy5P/C4GhoySQMtjqxOF1xHtrUGyYi/0n2fq6o9o8kQDiI+6YNWLLrELVKTwiO6kDTD
-         YK7PHymw1dTwWvKDo3FTYZbA9N1bjFPCTPxc9LS8B0Kio8ddUOkwNyGa+f8S39R6axWS
-         Sj+Q==
+        bh=SN9LDOOSGNmGOlxtPvin4ZNn98SQA0tqV/5M7RQo29s=;
+        b=XidkNHfpGoqgQtlZMQuSYPLEY/bJddS96WYw2Aik4DsNM8+CNHYZsCnAtSAoJz1dOt
+         t6LP3ndea35wOIfHGxfS5UNvAQWIYwV19re6WXnS7mUi+APdasC4uSj5HatXqD6im5GC
+         2HFK7c//JoLJL/ie75YxrxdwlfJMLy5/6u6t1eOQ8jxPoC7U8HHGiQ+Y7v0EriFbP5Ed
+         KN5pWHGMRiJWgwOSL8LQ5dcXrbgH3+2ZymoZYTIunoQRlkH3/OxR/udmp6cLgaYWuy6q
+         EtuQWdLmTW/SRRjWH1lUWCMgE1O30xrYLBRTB6h2OUvoF9Ke63oZfStQouYuNUpNlM/t
+         m7jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=FTVMeXDAn299Oobr0vsSyAVdC4aK1zzWeuIPq+q5/IU=;
-        b=b2FGYVgTAtiiTt3m0s/g2W5PprMZgTA+VaRermNzrrL0dBJLxgX2UUyWrgvk+qYINP
-         +kelEtni8G9cUXHlMvyYnUFnDW3tGvxDX3s5luHoiDthICLUhoLiZTlYIC7xXT+D8ZVf
-         apQTY++jG7NGie4fMxhJJijVlYkbtTNGIff4DUk9cbFdhAXQIT/vBbXFShjQc7qb7tPe
-         bQNOC2Y5s8nKt4zhldXnPyqUaa67gwAi9kMLVgqqFkqC2rqKqii3egZWcRya8mHngAem
-         EKKOBzeOmpmPklYB4hu4PjgazixeXEXJ2uq2oe1DuIyh7E0Bx19g80cC9iPlQGYrraDr
-         fbIQ==
+        bh=SN9LDOOSGNmGOlxtPvin4ZNn98SQA0tqV/5M7RQo29s=;
+        b=QpyRqaizFocdQnKO4j5Wzs4x8zSCpbImmbWQAB4XdgI6LSH40eSoqku03sagEOTNu5
+         e/gnnHnN/RJDmpHujNMJD80gqfPvR/1yLDK3m6/LVTWF3dtvOXsDbPFWzrMcmCRuLIrG
+         OpZhuQhoYdjB0UvTGS2y/ABXTKJKjlayYDG8GZ7bkWFNdHVffuz7++T9ZI7cndb9pHAj
+         iRO4fMregfO13ei+3y6RE1t/FBdvS6gG/B/OaRsXHeeS4trzhc4/wAMuFrxO0dgMuowK
+         y67q/mfjE+H4EHtLBUkJOM7iHRaqx96I3IsnCtXWIokdwW0vTFwDGBkjaJd/7fXeejdM
+         /TLQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531GWBEaGmK0UIsiOmo4R+XP5h4t9sz7MZPhoDtxdAXNJjM5VtNa
-	Amc2ZSMBnZ7hMGhoX5pA6AA=
-X-Google-Smtp-Source: ABdhPJxOG2BK9wWDb8TUuHdvc6iIIxYMSTHt4mS/TSHquFP3EUpPE5dproLkk9HlEp1YLdYS/OxnyQ==
-X-Received: by 2002:ac8:670f:: with SMTP id e15mr19617761qtp.291.1624841393481;
-        Sun, 27 Jun 2021 17:49:53 -0700 (PDT)
+X-Gm-Message-State: AOAM532Zxw7Wm7JvDUg2tGS3g7UreKHgNx9J1kWbnhHYwnpnDUPg8sDK
+	Pe1YqVammvsrckfZcxgxOlY=
+X-Google-Smtp-Source: ABdhPJx9hfwimZmPA8b67ML70x0O0Qb8QI51hnzaOdg3EIvZ1eRNvEoB8MZmOYgbf473PQGlNsJnEw==
+X-Received: by 2002:a05:6122:6a8:: with SMTP id r8mr14951444vkq.11.1624843556550;
+        Sun, 27 Jun 2021 18:25:56 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:fed1:: with SMTP id z17ls603295qvs.10.gmail; Sun, 27 Jun
- 2021 17:49:53 -0700 (PDT)
-X-Received: by 2002:a0c:d68f:: with SMTP id k15mr23275851qvi.14.1624841392957;
-        Sun, 27 Jun 2021 17:49:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1624841392; cv=none;
+Received: by 2002:ab0:2b1a:: with SMTP id e26ls1679950uar.9.gmail; Sun, 27 Jun
+ 2021 18:25:56 -0700 (PDT)
+X-Received: by 2002:ab0:77c7:: with SMTP id y7mr18361106uar.119.1624843555845;
+        Sun, 27 Jun 2021 18:25:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1624843555; cv=none;
         d=google.com; s=arc-20160816;
-        b=bYv546twdu74Ilv1lsiz/luuy7ZYfR+KyVF+MHQCZXl4FF0G/YUGuLUjSHV4CkZqal
-         achfctTEVcLxsfj7j+SRII3t6tHDIKXRJw+xuM0Lesy8YRXzx7oCY1RllLLWCOAJC62z
-         MDaraayuygorYqIN0akCVkkDEvPfvPG5DeliQPB4fSPB12JmIFmdWnHgSmGbWtwREhqa
-         DAT17edJiqBlPValM0Wgdj3HCEsUeehDR41OnYHZxIc8oKJqj8prYF2Ixq2M+Gh1yBvg
-         Xbmv6vofYR/3HeKll70MyYx+vTbbwWhTXafZFORBo8h60VlD2443fUdeL6C2LQ3vQ5f7
-         C0Qg==
+        b=tCsZwFYAJfxYumMY/tz9sV5Pm0F0jUvR9xZ7dBQQnoiUNTkbCGtJiI4faFIbn3RL6n
+         5RQGxqeUALY+rNL9It1MhBZQTWkwjUB1fRjT7QqSLIxp3eOQ+7CwyQ3ec/OP77uhIQrD
+         Z4EWrjnt8s5JLc63etltokFFsk4kv0qdsnLb1oYPX3aiYrAa6e/4T4kBBNYVb/O2yEIJ
+         3VgICGXW+Oc87ZJEIScucYrR6TA4ZbjMNtz9WC+CUBJj4w8GzVrM113YwJ0Z9l2I1zQV
+         XRa30eWa4XR2YoLBOyoGUAzMwN6HpuQSZxmCHSOC6mejP6FbeIrkV9v05IITPmMVU70k
+         2XJw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=Zn8m+wual1QxHnX08uwYRq/x7BTdqI3h10106/zA5xM=;
-        b=mENCNMe9dznCrjwmYliNOkil+Dg4MX+quyUFtHMt6Odmaso0CUpGDypTBor0hQhJ5v
-         J3llITsAXTudAGcWQU1ptaoJ01o7OB9i7fzgZjlQs9sOmVmv3+EadoHnPHKrhksgxemP
-         EbhPPDyPcQXnSg/8h457lhuMKc0R9PaSAolI4oKu4AV2/k6vNWkU1ghYrdCjQ06XPsF+
-         xGKKNyJYsbzpxwU6N9Q4E3NPXJ4w7fhtcdZDyfEstl+Zj5SPAX1cXlblfE8Mis4lfBxm
-         NEsmfSBR2v+FcKcWsQgFnDtKuhNSt9QlqwTM3nZeK0gBlIFe8EYVHR+PsDi43s9DUpGD
-         f69Q==
+        bh=0kcoOqY4qbh1q3raPl9dyfuj2rp/e4+Kl9s7qZuY13M=;
+        b=doUykC9bHWw34WgIfRuv9+LBeZcZAlbVnNxSjZ4UpQ6lblAInuOTqhQCGH6HQyCep2
+         38zvhPQi2i7zlf19noqmA/bJYMCyfZgVfd8kqa84hfPHuyu4R6k5HRabJ0iiZx6A66k0
+         hBAFdr/udI4QiueMz0rp9aHEYCljgK/ghXUtkryal+GtFdMMIHyqDNArGbc5xE2QmgfK
+         3X4PUwFQffTv8eNu2wPeDb1g4sBLzHGOKMeT023J7woBksn4HXq+pXby46cs6N3NUfSU
+         0K3r3LLuzbwRaUFE9FDyoyYtCm26h9w9zKdZ0LA7mvP0+YjyJwLCxNKGsjhP0g0zj/cN
+         KAQA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id b6si626559qtk.3.2021.06.27.17.49.52
+Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
+        by gmr-mx.google.com with ESMTPS id m8si751913vko.5.2021.06.27.18.25.52
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 27 Jun 2021 17:49:52 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
-X-IronPort-AV: E=McAfee;i="6200,9189,10028"; a="207688545"
+        Sun, 27 Jun 2021 18:25:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+X-IronPort-AV: E=McAfee;i="6200,9189,10028"; a="195021496"
 X-IronPort-AV: E=Sophos;i="5.83,304,1616482800"; 
-   d="gz'50?scan'50,208,50";a="207688545"
+   d="gz'50?scan'50,208,50";a="195021496"
 Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jun 2021 17:49:50 -0700
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jun 2021 18:25:51 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.83,304,1616482800"; 
-   d="gz'50?scan'50,208,50";a="456111199"
+   d="gz'50?scan'50,208,50";a="456117834"
 Received: from lkp-server01.sh.intel.com (HELO 4aae0cb4f5b5) ([10.239.97.150])
-  by fmsmga008.fm.intel.com with ESMTP; 27 Jun 2021 17:49:48 -0700
+  by fmsmga008.fm.intel.com with ESMTP; 27 Jun 2021 18:25:49 -0700
 Received: from kbuild by 4aae0cb4f5b5 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lxfT9-0008Mn-L8; Mon, 28 Jun 2021 00:49:47 +0000
-Date: Mon, 28 Jun 2021 08:49:28 +0800
+	id 1lxg20-0008NH-F3; Mon, 28 Jun 2021 01:25:48 +0000
+Date: Mon, 28 Jun 2021 09:24:57 +0800
 From: kernel test robot <lkp@intel.com>
 To: Ilya Dryomov <idryomov@gmail.com>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	linux-kernel@vger.kernel.org
-Subject: net/ceph/messenger_v1.c:1204:5: warning: stack frame size (2880)
- exceeds limit (2048) in function 'ceph_con_v1_try_read'
-Message-ID: <202106280823.ePtT6j5N-lkp@intel.com>
+Subject: net/ceph/messenger_v2.c:2808:5: warning: stack frame size (2336)
+ exceeds limit (2048) in function 'ceph_con_v2_try_read'
+Message-ID: <202106280955.VUsBSyHq-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="KsGdsel6WgEHnImy"
+Content-Type: multipart/mixed; boundary="IJpNTDwzlM2Ie8A6"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,13 +137,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---KsGdsel6WgEHnImy
+--IJpNTDwzlM2Ie8A6
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
 head:   62fb9874f5da54fdb243003b386128037319b219
-commit: 2f713615ddd9d805b6c5e79c52e0e11af99d2bf1 libceph: move msgr1 protocol implementation to its own file
+commit: cd1a677cad994021b19665ed476aea63f5d54f31 libceph, ceph: implement msgr2.1 protocol (crc and secure modes)
 date:   7 months ago
 config: powerpc64-randconfig-r034-20210628 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 59558129276098d62046c8cda92240d292cbfb1c)
@@ -152,10 +152,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install powerpc64 cross compiling tool for clang build
         # apt-get install binutils-powerpc64-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2f713615ddd9d805b6c5e79c52e0e11af99d2bf1
+        # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cd1a677cad994021b19665ed476aea63f5d54f31
         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
         git fetch --no-tags linus master
-        git checkout 2f713615ddd9d805b6c5e79c52e0e11af99d2bf1
+        git checkout cd1a677cad994021b19665ed476aea63f5d54f31
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64 
 
@@ -164,17 +164,33 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+                   __do_##name al;                                 \
+                   ^~~~~~~~~~~~~~
+   <scratch space>:2:1: note: expanded from here
+   __do_outl
+   ^
+   arch/powerpc/include/asm/io.h:522:62: note: expanded from macro '__do_outl'
+   #define __do_outl(val, port)    writel(val,(PCI_IO_ADDR)_IO_BASE+port);
+                                              ~~~~~~~~~~~~~~~~~~~~~^
+   In file included from net/ceph/messenger_v2.c:17:
+   In file included from include/linux/scatterlist.h:9:
+   In file included from arch/powerpc/include/asm/io.h:604:
+   arch/powerpc/include/asm/io-defs.h:43:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+   DEF_PCI_AC_NORET(insb, (unsigned long p, void *b, unsigned long c),
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
+                   __do_##name al;                                 \
+                   ^~~~~~~~~~~~~~
+   <scratch space>:30:1: note: expanded from here
    __do_insb
    ^
    arch/powerpc/include/asm/io.h:541:56: note: expanded from macro '__do_insb'
    #define __do_insb(p, b, n)      readsb((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
                                           ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from net/ceph/messenger_v1.c:8:
-   In file included from include/net/sock.h:38:
-   In file included from include/linux/hardirq.h:10:
-   In file included from arch/powerpc/include/asm/hardirq.h:6:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
+   In file included from net/ceph/messenger_v2.c:17:
+   In file included from include/linux/scatterlist.h:9:
    In file included from arch/powerpc/include/asm/io.h:604:
    arch/powerpc/include/asm/io-defs.h:45:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
    DEF_PCI_AC_NORET(insw, (unsigned long p, void *b, unsigned long c),
@@ -182,18 +198,14 @@ All warnings (new ones prefixed by >>):
    arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
                    __do_##name al;                                 \
                    ^~~~~~~~~~~~~~
-   <scratch space>:246:1: note: expanded from here
+   <scratch space>:34:1: note: expanded from here
    __do_insw
    ^
    arch/powerpc/include/asm/io.h:542:56: note: expanded from macro '__do_insw'
    #define __do_insw(p, b, n)      readsw((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
                                           ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from net/ceph/messenger_v1.c:8:
-   In file included from include/net/sock.h:38:
-   In file included from include/linux/hardirq.h:10:
-   In file included from arch/powerpc/include/asm/hardirq.h:6:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
+   In file included from net/ceph/messenger_v2.c:17:
+   In file included from include/linux/scatterlist.h:9:
    In file included from arch/powerpc/include/asm/io.h:604:
    arch/powerpc/include/asm/io-defs.h:47:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
    DEF_PCI_AC_NORET(insl, (unsigned long p, void *b, unsigned long c),
@@ -201,18 +213,14 @@ All warnings (new ones prefixed by >>):
    arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
                    __do_##name al;                                 \
                    ^~~~~~~~~~~~~~
-   <scratch space>:250:1: note: expanded from here
+   <scratch space>:38:1: note: expanded from here
    __do_insl
    ^
    arch/powerpc/include/asm/io.h:543:56: note: expanded from macro '__do_insl'
    #define __do_insl(p, b, n)      readsl((PCI_IO_ADDR)_IO_BASE+(p), (b), (n))
                                           ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from net/ceph/messenger_v1.c:8:
-   In file included from include/net/sock.h:38:
-   In file included from include/linux/hardirq.h:10:
-   In file included from arch/powerpc/include/asm/hardirq.h:6:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
+   In file included from net/ceph/messenger_v2.c:17:
+   In file included from include/linux/scatterlist.h:9:
    In file included from arch/powerpc/include/asm/io.h:604:
    arch/powerpc/include/asm/io-defs.h:49:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
    DEF_PCI_AC_NORET(outsb, (unsigned long p, const void *b, unsigned long c),
@@ -220,18 +228,14 @@ All warnings (new ones prefixed by >>):
    arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
                    __do_##name al;                                 \
                    ^~~~~~~~~~~~~~
-   <scratch space>:254:1: note: expanded from here
+   <scratch space>:42:1: note: expanded from here
    __do_outsb
    ^
    arch/powerpc/include/asm/io.h:544:58: note: expanded from macro '__do_outsb'
    #define __do_outsb(p, b, n)     writesb((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
                                            ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from net/ceph/messenger_v1.c:8:
-   In file included from include/net/sock.h:38:
-   In file included from include/linux/hardirq.h:10:
-   In file included from arch/powerpc/include/asm/hardirq.h:6:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
+   In file included from net/ceph/messenger_v2.c:17:
+   In file included from include/linux/scatterlist.h:9:
    In file included from arch/powerpc/include/asm/io.h:604:
    arch/powerpc/include/asm/io-defs.h:51:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
    DEF_PCI_AC_NORET(outsw, (unsigned long p, const void *b, unsigned long c),
@@ -239,18 +243,14 @@ All warnings (new ones prefixed by >>):
    arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
                    __do_##name al;                                 \
                    ^~~~~~~~~~~~~~
-   <scratch space>:4:1: note: expanded from here
+   <scratch space>:46:1: note: expanded from here
    __do_outsw
    ^
    arch/powerpc/include/asm/io.h:545:58: note: expanded from macro '__do_outsw'
    #define __do_outsw(p, b, n)     writesw((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
                                            ~~~~~~~~~~~~~~~~~~~~~^
-   In file included from net/ceph/messenger_v1.c:8:
-   In file included from include/net/sock.h:38:
-   In file included from include/linux/hardirq.h:10:
-   In file included from arch/powerpc/include/asm/hardirq.h:6:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
+   In file included from net/ceph/messenger_v2.c:17:
+   In file included from include/linux/scatterlist.h:9:
    In file included from arch/powerpc/include/asm/io.h:604:
    arch/powerpc/include/asm/io-defs.h:53:1: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
    DEF_PCI_AC_NORET(outsl, (unsigned long p, const void *b, unsigned long c),
@@ -258,167 +258,53 @@ All warnings (new ones prefixed by >>):
    arch/powerpc/include/asm/io.h:601:3: note: expanded from macro 'DEF_PCI_AC_NORET'
                    __do_##name al;                                 \
                    ^~~~~~~~~~~~~~
-   <scratch space>:8:1: note: expanded from here
+   <scratch space>:50:1: note: expanded from here
    __do_outsl
    ^
    arch/powerpc/include/asm/io.h:546:58: note: expanded from macro '__do_outsl'
    #define __do_outsl(p, b, n)     writesl((PCI_IO_ADDR)_IO_BASE+(p),(b),(n))
                                            ~~~~~~~~~~~~~~~~~~~~~^
->> net/ceph/messenger_v1.c:1204:5: warning: stack frame size (2880) exceeds limit (2048) in function 'ceph_con_v1_try_read' [-Wframe-larger-than]
-   int ceph_con_v1_try_read(struct ceph_connection *con)
+>> net/ceph/messenger_v2.c:2808:5: warning: stack frame size (2336) exceeds limit (2048) in function 'ceph_con_v2_try_read' [-Wframe-larger-than]
+   int ceph_con_v2_try_read(struct ceph_connection *con)
        ^
    14 warnings generated.
 
 
-vim +/ceph_con_v1_try_read +1204 net/ceph/messenger_v1.c
+vim +/ceph_con_v2_try_read +2808 net/ceph/messenger_v2.c
 
-  1200	
-  1201	/*
-  1202	 * Read what we can from the socket.
-  1203	 */
-> 1204	int ceph_con_v1_try_read(struct ceph_connection *con)
-  1205	{
-  1206		int ret = -1;
-  1207	
-  1208	more:
-  1209		dout("try_read start %p state %d\n", con, con->state);
-  1210		if (con->state != CEPH_CON_S_V1_BANNER &&
-  1211		    con->state != CEPH_CON_S_V1_CONNECT_MSG &&
-  1212		    con->state != CEPH_CON_S_OPEN)
-  1213			return 0;
-  1214	
-  1215		BUG_ON(!con->sock);
-  1216	
-  1217		dout("try_read tag %d in_base_pos %d\n", (int)con->in_tag,
-  1218		     con->in_base_pos);
-  1219	
-  1220		if (con->state == CEPH_CON_S_V1_BANNER) {
-  1221			ret = read_partial_banner(con);
-  1222			if (ret <= 0)
-  1223				goto out;
-  1224			ret = process_banner(con);
-  1225			if (ret < 0)
-  1226				goto out;
-  1227	
-  1228			con->state = CEPH_CON_S_V1_CONNECT_MSG;
-  1229	
-  1230			/*
-  1231			 * Received banner is good, exchange connection info.
-  1232			 * Do not reset out_kvec, as sending our banner raced
-  1233			 * with receiving peer banner after connect completed.
-  1234			 */
-  1235			ret = prepare_write_connect(con);
-  1236			if (ret < 0)
-  1237				goto out;
-  1238			prepare_read_connect(con);
-  1239	
-  1240			/* Send connection info before awaiting response */
-  1241			goto out;
-  1242		}
-  1243	
-  1244		if (con->state == CEPH_CON_S_V1_CONNECT_MSG) {
-  1245			ret = read_partial_connect(con);
-  1246			if (ret <= 0)
-  1247				goto out;
-  1248			ret = process_connect(con);
-  1249			if (ret < 0)
-  1250				goto out;
-  1251			goto more;
-  1252		}
-  1253	
-  1254		WARN_ON(con->state != CEPH_CON_S_OPEN);
-  1255	
-  1256		if (con->in_base_pos < 0) {
-  1257			/*
-  1258			 * skipping + discarding content.
-  1259			 */
-  1260			ret = ceph_tcp_recvmsg(con->sock, NULL, -con->in_base_pos);
-  1261			if (ret <= 0)
-  1262				goto out;
-  1263			dout("skipped %d / %d bytes\n", ret, -con->in_base_pos);
-  1264			con->in_base_pos += ret;
-  1265			if (con->in_base_pos)
-  1266				goto more;
-  1267		}
-  1268		if (con->in_tag == CEPH_MSGR_TAG_READY) {
-  1269			/*
-  1270			 * what's next?
-  1271			 */
-  1272			ret = ceph_tcp_recvmsg(con->sock, &con->in_tag, 1);
-  1273			if (ret <= 0)
-  1274				goto out;
-  1275			dout("try_read got tag %d\n", (int)con->in_tag);
-  1276			switch (con->in_tag) {
-  1277			case CEPH_MSGR_TAG_MSG:
-  1278				prepare_read_message(con);
-  1279				break;
-  1280			case CEPH_MSGR_TAG_ACK:
-  1281				prepare_read_ack(con);
-  1282				break;
-  1283			case CEPH_MSGR_TAG_KEEPALIVE2_ACK:
-  1284				prepare_read_keepalive_ack(con);
-  1285				break;
-  1286			case CEPH_MSGR_TAG_CLOSE:
-  1287				ceph_con_close_socket(con);
-  1288				con->state = CEPH_CON_S_CLOSED;
-  1289				goto out;
-  1290			default:
-  1291				goto bad_tag;
-  1292			}
-  1293		}
-  1294		if (con->in_tag == CEPH_MSGR_TAG_MSG) {
-  1295			ret = read_partial_message(con);
-  1296			if (ret <= 0) {
-  1297				switch (ret) {
-  1298				case -EBADMSG:
-  1299					con->error_msg = "bad crc/signature";
-  1300					fallthrough;
-  1301				case -EBADE:
-  1302					ret = -EIO;
-  1303					break;
-  1304				case -EIO:
-  1305					con->error_msg = "io error";
-  1306					break;
-  1307				}
-  1308				goto out;
-  1309			}
-  1310			if (con->in_tag == CEPH_MSGR_TAG_READY)
-  1311				goto more;
-  1312			ceph_con_process_message(con);
-  1313			if (con->state == CEPH_CON_S_OPEN)
-  1314				prepare_read_tag(con);
-  1315			goto more;
-  1316		}
-  1317		if (con->in_tag == CEPH_MSGR_TAG_ACK ||
-  1318		    con->in_tag == CEPH_MSGR_TAG_SEQ) {
-  1319			/*
-  1320			 * the final handshake seq exchange is semantically
-  1321			 * equivalent to an ACK
-  1322			 */
-  1323			ret = read_partial_ack(con);
-  1324			if (ret <= 0)
-  1325				goto out;
-  1326			process_ack(con);
-  1327			goto more;
-  1328		}
-  1329		if (con->in_tag == CEPH_MSGR_TAG_KEEPALIVE2_ACK) {
-  1330			ret = read_keepalive_ack(con);
-  1331			if (ret <= 0)
-  1332				goto out;
-  1333			goto more;
-  1334		}
-  1335	
-  1336	out:
-  1337		dout("try_read done on %p ret %d\n", con, ret);
-  1338		return ret;
-  1339	
-  1340	bad_tag:
-  1341		pr_err("try_read bad con->in_tag = %d\n", (int)con->in_tag);
-  1342		con->error_msg = "protocol error, garbage tag";
-  1343		ret = -1;
-  1344		goto out;
-  1345	}
-  1346	
+  2807	
+> 2808	int ceph_con_v2_try_read(struct ceph_connection *con)
+  2809	{
+  2810		int ret;
+  2811	
+  2812		dout("%s con %p state %d need %zu\n", __func__, con, con->state,
+  2813		     iov_iter_count(&con->v2.in_iter));
+  2814	
+  2815		if (con->state == CEPH_CON_S_PREOPEN)
+  2816			return 0;
+  2817	
+  2818		/*
+  2819		 * We should always have something pending here.  If not,
+  2820		 * avoid calling populate_in_iter() as if we read something
+  2821		 * (ceph_tcp_recv() would immediately return 1).
+  2822		 */
+  2823		if (WARN_ON(!iov_iter_count(&con->v2.in_iter)))
+  2824			return -ENODATA;
+  2825	
+  2826		for (;;) {
+  2827			ret = ceph_tcp_recv(con);
+  2828			if (ret <= 0)
+  2829				return ret;
+  2830	
+  2831			ret = populate_in_iter(con);
+  2832			if (ret <= 0) {
+  2833				if (ret && ret != -EAGAIN && !con->error_msg)
+  2834					con->error_msg = "read processing error";
+  2835				return ret;
+  2836			}
+  2837		}
+  2838	}
+  2839	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -427,14 +313,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106280823.ePtT6j5N-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202106280955.VUsBSyHq-lkp%40intel.com.
 
---KsGdsel6WgEHnImy
+--IJpNTDwzlM2Ie8A6
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICKEV2WAAAy5jb25maWcAlDzLduO2kvt8hU5nc2dxE7/a6cwcL0ASlBCRBA2Aku0NjlqW
+H4sICIYg2WAAAy5jb25maWcAlDzLduO2kvt8hU5nc2dxE7/a6cwcL0ASlBCRBA2Aku0NjlqW
 O57YVl9Zzk3u108VwAcAgu6eLNKtqkIBKNQbYP/4w48z8nbcP2+Oj9vN09Pfsy+7l91hc9zd
 zx4en3b/M8v4rOJqRjOmfgLi4vHl7a+fv+7/vTt83c4+/nR68tPJbLk7vOyeZun+5eHxyxuM
 fty//PDjDymvcjbXaapXVEjGK63ojbr6sH3avHyZ/bk7vALd7PT8J+Txjy+Px//++Wf4//Pj
@@ -923,4 +809,4 @@ NKBGruH7EARUtyq0mVwUQgOz4jlDkkfYopNmjKKsWVJl68DU+MuZtmJSQlnAe9NInTqmMCco
 T58y0gK0pzA/J7aUfuEU6j+BlUMpRFFfP1WsC2Ega48nigNwf+PeJPS3+GSYNNYihu+UqoWW
 JxyHSzuWgZbZ4qzf+9RdmD/uHZ9iaZnyfyhEMCSzkwEA
 
---KsGdsel6WgEHnImy--
+--IJpNTDwzlM2Ie8A6--
