@@ -1,123 +1,119 @@
-Return-Path: <clang-built-linux+bncBCN7B3VUS4CRBKMM7KDAMGQE2TYYIAI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCN7B3VUS4CRBNUQ7KDAMGQEQBQ3Q3Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB3A43B9AF5
-	for <lists+clang-built-linux@lfdr.de>; Fri,  2 Jul 2021 05:21:14 +0200 (CEST)
-Received: by mail-yb1-xb3e.google.com with SMTP id z64-20020a257e430000b0290550b1931c8dsf11213606ybc.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Jul 2021 20:21:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625196073; cv=pass;
+Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9EF9F3B9B0F
+	for <lists+clang-built-linux@lfdr.de>; Fri,  2 Jul 2021 05:29:59 +0200 (CEST)
+Received: by mail-ot1-x33c.google.com with SMTP id i24-20020a9d62580000b0290464ba1bb21esf5417358otk.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Jul 2021 20:29:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625196598; cv=pass;
         d=google.com; s=arc-20160816;
-        b=H3N7xXeD47KLyv2fpzFvmAKDPysObcgWR1hzSdDXAwgBaKUX83RhMUGMGDAROMWzf9
-         pJfkyxCwu67YppYqREYI1Nc9r0bmT5RD0hCDWF3aio8RQR7WE5E4hb8qAb0cSpJBEgaQ
-         f4WfnrKcILpnZ/1zHJm2GD2hyxVMB/LKdDn2SVlh9xixIf3iNgSOvkYSAp3QQ7y99FMJ
-         Is8J90ltherEVpf1aPLQRQkG3aNDM1NcgWZ7p20H4SnTebXZGm3TsvgUMKtziUsfWlak
-         3RdYvY6WaJBAY7TUkj+/ODqtCwpHmXsmv+LiliN76/ASKuadUf8x/Mf8vzk90f6H0cjp
-         jXUA==
+        b=JLAN3On3HzeKCTE0d2ayq0A78daLM2Ra8+ktm//HSTrVl8pWt215tcidJXeReI1ngD
+         zZugxxHaXo7pST3S2Dw/oiDUxSfcVpIZHc0pNwKYIXz14AN7K5ZXYC5vbAf0+vc8vU2x
+         ZuxS+joUoAjo+Vin1Kv2Sen/1Mpy9u1p8JWqblb5IP/JrhE6JAVDFPo1PgrYMzLfGvVa
+         k9X32QTWZ1jmAjQM9KsPOhzEt7MhktDV0Kk3m25ZJACTfZDzXs+dx1C6/qzymCYw1bkz
+         54ZkDPnVjjQ/VpZHEAA4XhDj9lj27RsKPVn3R7gwPUOkxa0jX/yQKSHPBE6l2KpIQNZ+
+         J9Gg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=5LeaC00Ob1FnIPqEF2GX7aI6qVfszIdIxjd4uu6JN7U=;
-        b=dekloYYnBJojt4IZi8xJ4iKI0ni+zlMXnyO+HFx9JLlhjM6oje+CDzQvXMWRyucSKO
-         NRARMiWE9i/oPyUQ3N9Lq0ePZNUTweBsqRA6PgiUKxyQNz62Xm/GjrHi0vPwjKdFTubM
-         CCIU6SZyq8f7TP6vimRlioukhWXTXOwuP578q8eYqwBwZhcIi+PkTTVg8+s8msh8OU4Z
-         IAvytPVOf/PDzRT3Vmce9Y16so34FfjvKbMEpxMoKM69es62HW5lArgtu1o9MQHryEka
-         e4GbU6r3KDgHHvtOR/3H2EpJL04O57/F4iwgfr8aBtHX0kSlP6qBSO6P/USsAzS72K7p
-         bk6w==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=GZ2sP/lgLkI+VLYSKosolR+a6M5lLN/s6R8SBdUNhpY=;
+        b=jZueboT6X5qZQzNutyZ/yGJ+KAQx5xFHfDDoZr21cbI355HpIzbcJWK+AU64LFjxSS
+         6xdqm8oUIV00eLIYbktPK3cED4mL0m1KYYOunecMLaX5thYPBPCjje9dmpIclUZBs+qU
+         qUGZ4ta4wceXRcqX8Yr2zaF2MzzzBWE8k/fPAGaFgbFmjTXZSDTD6o32yT++HJIZhb+2
+         XPO9tW/7r3tYoKyTkmUksXRfoEuNoKhCUl2YaGusHLHzCqQCpZuGFFOz9CSwnyj72Oi8
+         I9Xz8Ml6TJSReToVGus9+Dk7w/qWy7WODVai09MFht2/lU5JEaVbNzIRrLD/jMrOj8Tp
+         a1Sw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lecopzer.chen@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=lecopzer.chen@mediatek.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5LeaC00Ob1FnIPqEF2GX7aI6qVfszIdIxjd4uu6JN7U=;
-        b=nMppMr7y6kLkADlzc++5sLSkrX1+2sCiGzAZ1IRX+6DkfUN4b0JaZ0j9YhXSodIf/s
-         2HjyWcyVOm0H1VLkIJVb85UvPN7Ptc9YSAQkqSgVMEyopv3roiYB2XcWb69051zqiX6g
-         cb7Z4oj2j8rXMqQn96tqLoo+XtLKkW8cVgcP6UcJCT4rZQ6EtAY1xMmmYkrL8G/Klg8w
-         JMTk8sMQ4GdkkrQxa21gYOcx0B/paCMRtTDzTW4PV7VbAL9SkL2xmVey03VcA595P/uU
-         jzy1ymSVMcba9cNSItxxNc5/40OXIukUNvUDJOJNE8R24k/gPbVH17AqpkqAaWkXMUZ7
-         n5/A==
+        bh=GZ2sP/lgLkI+VLYSKosolR+a6M5lLN/s6R8SBdUNhpY=;
+        b=LkRmh+FIuGHCXk6O3EwRrR+UuQFNEcxIInAgvqvmc3cIaGfEt31lNF9alMK1ujzS8Z
+         kvBqea5EGzZ923ldOFsRgJ+URkF/vgtyK9e6W0orEhqhLZSPuLgqNhzD6pnMMKPiHoxt
+         bu2DPp6814ouGNLrWvfSbRjpEQ0AajqM6aR3daEOAkyrDaNsjnIbKENTWAhAjieKp5i5
+         hBAaC+WRwuCx7+UsEfz+4DXGIDuQH1al2bPJEvt5oV2smf05IflufehEb+nm4UXm/EuS
+         qwPTahyRkvT1VtdR0Bl/W361x2/h1l1Up4jgDP9b46l4eGJOxPh+EUDyRY9BZ/ba6I6N
+         GbeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5LeaC00Ob1FnIPqEF2GX7aI6qVfszIdIxjd4uu6JN7U=;
-        b=t/A9njukWbsCCEhX86kAO15B3/MgOKQMQeJlb+ySsynV8x6znrxAIIXg1P40dJZexT
-         CB/4bhjX9/yInE6Hh1TOdkleRMIPy8pYeHxLJqSCL+8/L0F/QcrKoEy/H3/ERSQf8Dyl
-         /bHHg9WA+hUMVi7p+HYHNfxUKzjsTWuqV5VzVFHabwHSjfyqX6AydbK7npRHrLcsrtBL
-         7t1LUWGtl6D8SFcOyXe0xEL6O7H0yeVpVZucY8Y4mnbOFsdw4638WRNgOeV8k+COylVS
-         4YQ/Ta7V/gSk2eryxHwO4Ds/2WtZoeRyQQYCnqnpqU3De4pQyB/zbntQce63XE78F9kq
-         VXZA==
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=GZ2sP/lgLkI+VLYSKosolR+a6M5lLN/s6R8SBdUNhpY=;
+        b=GxdYCtArmhGszjkdKlv+E723o0F+znvnVc/sJH+FYCWsZBVIqUGxiNP9tHl1qHfFAg
+         03SiTIzJ9CCVK/R+D3y5NkjgRwe/V4/KsEnkQToC4pjJ/Bs7aggVeWJhEzX2PdoL3fc8
+         2Uk5KhPq9JR7dUpcE90tG9KN5XbSmcYnefYpVQdope4idnOX/+XzAeCCnTX1fQk2OP1o
+         IKkmLkkqYTc79nR/QGptxrTVyQDeAxIm9kWVaJAigv5VG/shw8OT+C0JJ5UpyEuU58fe
+         n4bBPIggNFpI8YIdiIbVzGoEClYGv+J1BMTHY233D0hKJUUS8RMv3UJLoMOOQrwhqPGI
+         ChTg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531MtxnAxJgCYGCn8Ky2TT3QcWAMiAhXS7qz68Cf0gHbDzzBFWWn
-	gHBPm6CB+oMDh6cTas7iK58=
-X-Google-Smtp-Source: ABdhPJy3v/lWCW4aIVpis2/X/esGMCUpzo05W6Qik/LyZdcYhMS3QQ+Z9AUhY6ize8KYWKY07wvBHA==
-X-Received: by 2002:a25:ae16:: with SMTP id a22mr4119067ybj.416.1625196073687;
-        Thu, 01 Jul 2021 20:21:13 -0700 (PDT)
+X-Gm-Message-State: AOAM531auIxIMWTP927fKd7nf2SVhEpGzSs65yUpVftufsGwL62Nymlr
+	eweqNPT2+7ZqqZcnhTSdnho=
+X-Google-Smtp-Source: ABdhPJwLEaOi6R8RFTHolf3YPbNM2fJO0eVFdSAiAlvZt/D6AnCknk6YqJCgRUbVrkjeFJLOhxEdnA==
+X-Received: by 2002:a05:6808:8c9:: with SMTP id k9mr917592oij.157.1625196598515;
+        Thu, 01 Jul 2021 20:29:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:4053:: with SMTP id n80ls4898479yba.11.gmail; Thu, 01
- Jul 2021 20:21:13 -0700 (PDT)
-X-Received: by 2002:a25:23ce:: with SMTP id j197mr4038186ybj.477.1625196073089;
-        Thu, 01 Jul 2021 20:21:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1625196073; cv=none;
+Received: by 2002:aca:cf0e:: with SMTP id f14ls3047297oig.5.gmail; Thu, 01 Jul
+ 2021 20:29:58 -0700 (PDT)
+X-Received: by 2002:a05:6808:2095:: with SMTP id s21mr2195793oiw.14.1625196598101;
+        Thu, 01 Jul 2021 20:29:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625196598; cv=none;
         d=google.com; s=arc-20160816;
-        b=jhicK8cuqPdiEH5gkfi+FRF88lNPM+Y5Dq5nDK3OnBanSeSdayNglgOxCUrG9srbn9
-         1fGn/QgkO4CvOsDXpoSPd6Eynir3f8kERnbijI3wJ6L1Cv6/0t1EWxAPYkVoQiQxZPUM
-         BGd2ixAtQFFb/3CLzqXtm7ilYoETn++sCoqBvVr2476E+o/QrTmzaZ9NRrl25QO6W4E1
-         VIfzzEsN1lUE7WDoTjpZmIFz1Wl+gc0VdC1AxNbF+xisXVptAdvSoQ8GJSCprFDrHKK4
-         UWXB+2OC16RBqCB2aCMBOpHeC58AeEb5l7WHx3YFiErAIlldu/9tT+lPRiBFn2d5gjWF
-         PKgw==
+        b=dyJugRE+VutcMCnmqNaFhQvttKWZ+YcCP1Mnr5QhaEdu2O+YY+i5O1iuAIHeUrNOHg
+         wX3WUeqBHoXAobpe0CjSqbLWElS7aVJUjo53Wv5lad9lcnnjGWPSya73ByE/NXqMWyBW
+         RVWE6Km8hq+sC6J4edQN3xH1hER32y8q8nJ6PuM5Kgf5Tli9oBhJl9IorkXeWopnmkf3
+         Jd8Vlhb4mo8xS3LIPT5H1hdLV0Q651r6fJYkexb8uaC5kSzLMPLAIY16n8x09Z1OrI7W
+         dL9bVeOXUO6wt/ST+f4Y6CHW6eB3SigJ5ltF3FIgHaxx1kn9R3gj6Zw8BdfP9RFDyf4N
+         B1yg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from;
-        bh=xPMTSKOut1u1Tuk+EwEh500kCXFHVLaCQuwdbVzAMbs=;
-        b=vOyH6mGAMVK2soOA241SK+HzlD87b0+ro8QY0uLA7Sr5ZFgoPOujj84tYuQx9PZYPM
-         Y/lAmTVAvOMJl4u3+wo0wL4qgFR/T7wYCzyp0J2IfxRMeKB2fNO9XiCGL4eUhjbqbN6I
-         aEKTjXPhV718ke3EEXQRqocbqQH6AKOfrH9h2icTy2hOzttVhcje+Uy06HqRhoVicRFj
-         xAwrmzhPg8m2kiIrfN6YllFHDh4ul9kl4RDlEAridm6v1gc4qL4tXTv3tEGy5ZtMXxXs
-         BegfdSVBpoJk8DTF2pUuiYlX3fkXE3Khcah6a4FdeJOyu1HloCNubmlYOx3pKw4H+i4d
-         3svg==
+        h=mime-version:message-id:date:subject:cc:to:from;
+        bh=Y2k4RfptZ3Y1mkgLDHKfa+pPOW8/OZLKSTT6BUK5DsI=;
+        b=retIgYxjeT8LPZfBG2xaym9eJBmVVgvuratJaVMbwl3M50Sif6C8SaImM53uqMG5uY
+         klBqLSPhXgkcnneJXcbUeiBOpYv3rOiff4HyKR24+aEkc8I25CkbTBUd4M5jTpZw2HOn
+         n/OwVj7551VvpXR0KlCMbQnaXHJcDVRvoFPi/MSw8GI89gh9j3PzM98gNAYiXJLYrNl7
+         wYMucwVKLv6vRmXuoxil+kgkrHVcC4DLa7ioaxToKGPk6ImHR/Gf+swgvNcTdLglRPFe
+         YXM6+ctO3yjts5S9uFCuZlsX+bweyfZT5yNt8PLUv9lVZ6uyVnRyNPev8vCp49XAXXVT
+         UtMA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lecopzer.chen@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=lecopzer.chen@mediatek.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
 Received: from mailgw02.mediatek.com ([210.61.82.184])
-        by gmr-mx.google.com with ESMTPS id c13si228932ybr.5.2021.07.01.20.21.11
+        by gmr-mx.google.com with ESMTPS id c22si149784oiy.1.2021.07.01.20.29.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 01 Jul 2021 20:21:12 -0700 (PDT)
+        Thu, 01 Jul 2021 20:29:57 -0700 (PDT)
 Received-SPF: pass (google.com: domain of lecopzer.chen@mediatek.com designates 210.61.82.184 as permitted sender) client-ip=210.61.82.184;
-X-UUID: b8b6fa4102924558afc3271190e5e027-20210702
-X-UUID: b8b6fa4102924558afc3271190e5e027-20210702
-Received: from mtkcas10.mediatek.inc [(172.21.101.39)] by mailgw02.mediatek.com
+X-UUID: a8e0cdab0a1746ccbb52f710fd33de60-20210702
+X-UUID: a8e0cdab0a1746ccbb52f710fd33de60-20210702
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
 	(envelope-from <lecopzer.chen@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-SHA384 256/256)
-	with ESMTP id 1843929319; Fri, 02 Jul 2021 11:21:05 +0800
-Received: from mtkcas07.mediatek.inc (172.21.101.84) by
- mtkmbs05n2.mediatek.inc (172.21.101.140) with Microsoft SMTP Server (TLS) id
- 15.0.1497.2; Fri, 2 Jul 2021 11:21:04 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by mtkcas07.mediatek.inc
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1609371012; Fri, 02 Jul 2021 11:29:52 +0800
+Received: from MTKCAS06.mediatek.inc (172.21.101.30) by
+ mtkmbs01n2.mediatek.inc (172.21.101.79) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.2; Fri, 2 Jul 2021 11:29:44 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by MTKCAS06.mediatek.inc
  (172.21.101.73) with Microsoft SMTP Server id 15.0.1497.2 via Frontend
- Transport; Fri, 2 Jul 2021 11:21:03 +0800
+ Transport; Fri, 2 Jul 2021 11:29:44 +0800
 From: Lecopzer Chen <lecopzer.chen@mediatek.com>
-To: <ndesaulniers@google.com>
-CC: <clang-built-linux@googlegroups.com>, <keescook@chromium.org>,
-	<lecopzer.chen@mediatek.com>, <linux-kbuild@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <masahiroy@kernel.org>,
-	<michal.lkml@markovi.net>, <nathan@kernel.org>, <samitolvanen@google.com>,
-	<yj.chiang@mediatek.com>
-Subject: Re: [RESEND PATCH v2 1/2] Kbuild: lto: add CONFIG_MAKE_VERSION
-Date: Fri, 2 Jul 2021 11:21:03 +0800
-Message-ID: <20210702032103.7787-1-lecopzer.chen@mediatek.com>
+To: <ndesaulniers@google.com>, <keescook@chromium.org>,
+	<samitolvanen@google.com>, <linux-kbuild@vger.kernel.org>,
+	<nathan@kernel.org>
+CC: <clang-built-linux@googlegroups.com>, <linux-kernel@vger.kernel.org>,
+	<yj.chiang@mediatek.com>, <masahiroy@kernel.org>, <michal.lkml@markovi.net>,
+	Lecopzer Chen <lecopzer.chen@mediatek.com>
+Subject: [PATCH v3 0/2] Kbuild: lto: add make version checking for MODVERSIONS
+Date: Fri, 2 Jul 2021 11:29:41 +0800
+Message-ID: <20210702032943.7865-1-lecopzer.chen@mediatek.com>
 X-Mailer: git-send-email 2.18.0
-In-Reply-To: <CAKwvOdkGjz-rH8AHudO3dJmSt+48FSJ8iT-eCacwyeMhWv909w@mail.gmail.com>
-References: <CAKwvOdkGjz-rH8AHudO3dJmSt+48FSJ8iT-eCacwyeMhWv909w@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-MTK: N
@@ -138,72 +134,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> On Thu, Jul 1, 2021 at 2:28 AM Lecopzer Chen <lecopzer.chen@mediatek.com> wrote:
-> >
-> > To check the GNU make version. Used by the LTO Kconfig.
-> >
-> > LTO with MODVERSIONS will fail in generating correct CRC because
-> > the makefile rule doesn't work for make with version 3.8X.[1]
-> >
-> > Thus we need to check make version during selecting on LTO Kconfig.
-> > Add CONFIG_MAKE_VERSION which means MAKE_VERSION in canonical digits
-> > for arithmetic comparisons.
-> >
-> > [1] https://lore.kernel.org/lkml/20210616080252.32046-1-lecopzer.chen@mediatek.com/
-> > Signed-off-by: Lecopzer Chen <lecopzer.chen@mediatek.com>
-> > ---
-> >  Makefile                |  2 +-
-> >  init/Kconfig            |  4 ++++
-> >  scripts/make-version.sh | 13 +++++++++++++
-> >  3 files changed, 18 insertions(+), 1 deletion(-)
-> >  create mode 100755 scripts/make-version.sh
-> >
-> > diff --git a/Makefile b/Makefile
-> > index 88888fff4c62..2402745b2ba9 100644
-> > --- a/Makefile
-> > +++ b/Makefile
-> > @@ -516,7 +516,7 @@ CLANG_FLAGS :=
-> >
-> >  export ARCH SRCARCH CONFIG_SHELL BASH HOSTCC KBUILD_HOSTCFLAGS CROSS_COMPILE LD CC
-> >  export CPP AR NM STRIP OBJCOPY OBJDUMP READELF PAHOLE RESOLVE_BTFIDS LEX YACC AWK INSTALLKERNEL
-> > -export PERL PYTHON3 CHECK CHECKFLAGS MAKE UTS_MACHINE HOSTCXX
-> > +export PERL PYTHON3 CHECK CHECKFLAGS MAKE MAKE_VERSION UTS_MACHINE HOSTCXX
-> >  export KGZIP KBZIP2 KLZOP LZMA LZ4 XZ ZSTD
-> >  export KBUILD_HOSTCXXFLAGS KBUILD_HOSTLDFLAGS KBUILD_HOSTLDLIBS LDFLAGS_MODULE
-> >
-> > diff --git a/init/Kconfig b/init/Kconfig
-> > index 55f9f7738ebb..ecc110504f87 100644
-> > --- a/init/Kconfig
-> > +++ b/init/Kconfig
-> > @@ -86,6 +86,10 @@ config CC_HAS_ASM_INLINE
-> >  config CC_HAS_NO_PROFILE_FN_ATTR
-> >         def_bool $(success,echo '__attribute__((no_profile_instrument_function)) int x();' | $(CC) -x c - -c -o /dev/null -Werror)
-> >
-> > +config MAKE_VERSION
-> > +       int
-> > +       default $(shell,$(srctree)/scripts/make-version.sh $(MAKE_VERSION))
-> > +
-> >  config CONSTRUCTORS
-> >         bool
-> >
-> > diff --git a/scripts/make-version.sh b/scripts/make-version.sh
-> > new file mode 100755
-> > index 000000000000..ce5af96696cc
-> > --- /dev/null
-> > +++ b/scripts/make-version.sh
-> > @@ -0,0 +1,13 @@
-> > +#!/bin/sh
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +#
-> > +# Print the linker name and its version in a 5 or 6-digit form.
-> 
-> The linker? 
+LTO with MODVERSIONS will fail in generating correct CRC because
+the makefile rule doesn't work for make with version 3.8X.
 
-my bad, I'll fix this, thanks
+Refer to [1]:
+> When building modules(CONFIG_...=m), I found some of module versions
+> are incorrect and set to 0.
+> This can be found in build log for first clean build which shows
+
+> WARNING: EXPORT symbol "XXXX" [drivers/XXX/XXX.ko] version generation failed,
+> symbol will not be versioned.
+
+> But in second build(incremental build), the WARNING disappeared and the
+> module version becomes valid CRC and make someone who want to change
+> modules without updating kernel image can't insert their modules.
+
+> The problematic code is
+> + $(foreach n, $(filter-out FORCE,$^),        \
+> +   $(if $(wildcard $(n).symversions),      \
+> +     ; cat $(n).symversions >> $@.symversions))
+
+The issue is fixed when make version upgrading to 4.2.
+
+Thus we need to check make version during selecting on LTO Kconfig.
+Add CONFIG_MAKE_VERSION which means MAKE_VERSION in canonical digits
+for arithmetic comparisons.
+
+[1] https://lore.kernel.org/lkml/20210616080252.32046-1-lecopzer.chen@mediatek.com/
+Signed-off-by: Lecopzer Chen <lecopzer.chen@mediatek.com>
 
 
+----
+v3:
+- fix comment in make-version.sh
+
+v2:
+https://lore.kernel.org/lkml/20210701092841.1419-1-lecopzer.chen@mediatek.com/
+- change MAKE_VERSION_INT to MAKE_VERSION
+- remove $(make-version)
+- tweak commit message
+
+v1:
+https://lore.kernel.org/lkml/20210630121436.19581-1-lecopzer.chen@mediatek.com/
+----
+
+
+Lecopzer Chen (2):
+  Kbuild: lto: add CONFIG_MAKE_VERSION
+  Kbuild: lto: add make version checking
+
+ Makefile                |  2 +-
+ arch/Kconfig            |  1 +
+ init/Kconfig            |  4 ++++
+ scripts/make-version.sh | 13 +++++++++++++
+ 4 files changed, 19 insertions(+), 1 deletion(-)
+ create mode 100755 scripts/make-version.sh
+
+-- 
+2.18.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210702032103.7787-1-lecopzer.chen%40mediatek.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210702032943.7865-1-lecopzer.chen%40mediatek.com.
