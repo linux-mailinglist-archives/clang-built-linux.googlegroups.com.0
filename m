@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBE6SQGDQMGQE26NCGSA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBCPKQGDQMGQEX4ZVFRY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3a.google.com (mail-qv1-xf3a.google.com [IPv6:2607:f8b0:4864:20::f3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5F9773BA8D6
-	for <lists+clang-built-linux@lfdr.de>; Sat,  3 Jul 2021 15:41:40 +0200 (CEST)
-Received: by mail-qv1-xf3a.google.com with SMTP id u40-20020a0cb9280000b0290290c3a9f6f1sf8494077qvf.0
-        for <lists+clang-built-linux@lfdr.de>; Sat, 03 Jul 2021 06:41:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625319699; cv=pass;
+Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9311D3BA8FB
+	for <lists+clang-built-linux@lfdr.de>; Sat,  3 Jul 2021 16:32:42 +0200 (CEST)
+Received: by mail-ua1-x93d.google.com with SMTP id i8-20020a9f3b080000b029023c932e01b8sf3683220uah.3
+        for <lists+clang-built-linux@lfdr.de>; Sat, 03 Jul 2021 07:32:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625322761; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aBIvewXNOKIKxV2SeKCh5AJLYqOJA+Dd72VdfmBqoRtzeqC5OWWxjbqexH7FayeGSE
-         rnB1Whr7k6/xDEjnOLGtTcPENtV7UhVHDK5/Dxl05miQQ5rCDhGmymeHz1TwxZMvf33H
-         VYYxd4hnPOZ0/NV54jqVGUJaFVKoYysPNqO1+PMFzC8XWbAptY7Y0sqa3+NStlNAgqF1
-         k1WQtDGvC0hTbn1siQ5iXpy1M0AsYMO8rq/oGTBGbeJRuaq46AS0XRZrvEeLczl91zEx
-         QtxxoDdjUZBOpoH7EiDjS2GAhRO/RJTxN9YKU6wWdBD4pvdTZSGZvXAV6IM/HuMA0g8p
-         ZuvA==
+        b=m387OwdII5KI4kd6atMmnnEy3LeCgT6Aj1fZA7T2dfsFI9FpM8afxXodg3gbVZo2H/
+         lkltqPhveMduNXCkSMTOr/031FUe6LZIfq2u0v0nlX+aIKGV1N1x35f0GRO2fwzHdO0i
+         d0Ewx1M5KkuSs9mXxtH7WWdedReF+DquLahTafCOnX5BM4GKJkE99CxVg75Ai5+uYD4k
+         2JDgGuWSoym8jLjbZCqeYAkidPX1r1jQn2Te5o6O+IUDEYC0xDg2lxkX1aAPPEK/3EVZ
+         ntwVskk3c26PdcZHMNDU4B3ULjCoRw4RbaZcLEVu6kG6dz+OiliXxa8pJ4iyW0RTDreB
+         4B+g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=0PB7qo9MPi8qoMfJNPX//ePi6MW/SEQrIWB9SQFy+JM=;
-        b=BWnnRHDYjfUdRXlO3SrI1DZAFeTM92OUtQYMLUocpkEK4U4kqID1aku729pk84OJ+w
-         n5DwvOpl7dxpB2Ns0wF9Z3Yyaewnh8gVobfpnQuI0omuZAR5xNwyDij/lJBOwATMCvUk
-         FA/UMFkzqvYRCkubQjWZVu6wI7fPKxCm9PY3PEIZFGLKOvA44bAnQIdpfXqUOTHpq3XS
-         l1Z+BX4EswNn+cNu3g98toHg/FpmUmKSi3Rqx1XbX9UG+ygVVwETuwhiNr0jpHuKnDT/
-         HJaCWNLvWSnrseXrBlPUJ0k2p6PV5Pc7PEz2ITlkDALa27qGsbt+L6FoL+Csujl2pxCZ
-         EEqg==
+        bh=2t0DITDz+ZfNGXrr1Sz9oTNYeVUxaEAGRrTg+340U2g=;
+        b=H05drADxTskiaINxwlOsdcxVdBw9kLLre34IAJ9LDsL8zcU+OQoxk/TNxBas11Q9I9
+         XWEB3fMJb6VVgfDlt8rZJQIyOW1bfM7w5tcixnOdQ/YoH0btBA719/G6yZg+iwSzLnOA
+         zHOugKMoTHtbjaQzpUaTadU87Sk9Dm2eU+Nrloaew6AwflklLucbJbTrtSYj7W9pXmbb
+         BC2WeZuHAuXD78blaXWp6h+9ffqeBKn4xaJ5KoriQrMFmMsOzcNCuwlbdb0KscVevhg4
+         KBzut9MD4TMn227Lf1SB3p2q0tqk0n01+FlOnXiG3ApBVsyWnRzrcB9fz/wxkypInTd2
+         6Y1g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=0PB7qo9MPi8qoMfJNPX//ePi6MW/SEQrIWB9SQFy+JM=;
-        b=fTNL08fn5YXFAfNAzheYAVmUAA6DSJFA/FCbvnZQufqbg1niyC8tneX9V794YItfX2
-         qllXd+41/dduCAaKbUswpeZl+WLu/iSsHs5i8J6/qNreaXoFBdQSaQDfedooH69Qw9WU
-         Z6HubAhqeswURfzsSyIO2U5hOeaBkV3JiLTsvnj7QbP6l85Yn7yP/wURPJriVndMi4tQ
-         MJVgicRPlFySuod8+SMXepAwbvvPo2gRZmKg5ekFdxjm8Klxns3/wDZT7tDcu4Rcokbk
-         lHAZAnR6Q7rCFX9ecPhA2ZxA1LZqlVmxvZuGillCu+dAjpTo+9PTLex6KrlLRR0Oyuq9
-         uFCg==
+        bh=2t0DITDz+ZfNGXrr1Sz9oTNYeVUxaEAGRrTg+340U2g=;
+        b=cmi3BCJkiN6y8bcrUWz5u1/ruqSUOZiv9+DrHFLv0s+uMJmbMrSJpDkXZmZeGOGcVy
+         ooDKNk9ro2jBHK4P2EDv5D51mwLt63gjxprA1PB+uL8YgsxiN4AdkHX3VHcM4QVG6PZp
+         iTKUp+ihh+6FazYufbWjJ/HvF0CakiVHcO0HsH/dlq01kjVnhg7Q50U2YkL+J3gjD4Hg
+         nGMkgKp8UYmue8w2Q9Kh2iR3BylY6oBJSi9XoO1P9o6TZIeRRQP4Pm4qPD/p0QSNZNAc
+         PzjG39+a4iAau5JVSMx2LHFvjvyKxT1/M4wnWDgSQjxKaFom8ihJ7VPB52qwCks7/jR1
+         BoOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0PB7qo9MPi8qoMfJNPX//ePi6MW/SEQrIWB9SQFy+JM=;
-        b=aEvKIpuhWOD+fBiS6VWLGSlpVGJkkArpmncbwdxBGAvL/rj5aKdIvOhS8FzqTPT9A5
-         VROlg+osZF5wiGkMb3ueEkacD0KAK+4lld2JbHtphR53OK7fU0Va6lnHE+x3Hg153ag6
-         URHP1F2n3ZX0uvMn09XvoVA061CByacrB05RwxzIscCUp+osMgE+TWicNu63DpcLG2q/
-         +vM1Z3SoxhohT6CC/VE3trMEwNpAb8XoaPzJki0M8Eb2As5A19jhHyWukuT5kJrHSWl1
-         Zn5bg4jfbpr7HnJvk6vZGIyeoSg1XrWMgAUxHzXIuGtzdWQRAM3rvXd5f0f44VT5DxMj
-         Sblg==
+        bh=2t0DITDz+ZfNGXrr1Sz9oTNYeVUxaEAGRrTg+340U2g=;
+        b=B7Xic7sN0MqiMixbEvGSOY4frvuCPc5+O80NcAmC7q15lnBDJylWmU1Zq2jRWTHZCi
+         aZLEhKyhAmkYW1DAneDSadoMQKuykCb42A5DpRGXg0x5DhfXocQKKGUaBwGIrjchu/1r
+         uS/WU2KvS+xQWolpdT/lpFQyRGVVMb/a9EPEPGhCNfc/4QmkbpBzzg248sBWL8ir0cte
+         Mciuc4DPxw3LnjawVQbSYspMvFr7YPHt62rfuarEo0gNnSFsBSSfyamK+I0J1uQvr70B
+         KcKGsqnSLmDB0RwvurAeudPOl8Si17+M+kQKMsyPi284q03/oieTS9t9U+c/usgBolNr
+         V28g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5304AjR9C7+vOCxWRv6/+yHh6kta2gzM4CneIMsvLmBOmtwLA0go
-	1xV+wwU/cBepZLL7hxN8ivI=
-X-Google-Smtp-Source: ABdhPJwMLzRVF/NHI2IQCVGBmDwxNshLlN5odawxdgJkqlLwg7uHDVunEaAbUQI5VwQx/K+TBKxnjA==
-X-Received: by 2002:a0c:e982:: with SMTP id z2mr4565448qvn.58.1625319699218;
-        Sat, 03 Jul 2021 06:41:39 -0700 (PDT)
+X-Gm-Message-State: AOAM532Ndkl3JIVkHhv6eiWPIfGtjubAY1DPJVopK+6ayGp4ujUSRgZk
+	MaCvR9fTkcGN1xjhvBzbJys=
+X-Google-Smtp-Source: ABdhPJwpXKr77pXjKQWrLVO3ThOHJ4goJ1zgmDlx6DA14z+/LDlCyEcVBV8rO2TSp8XtLSvKWMXGbg==
+X-Received: by 2002:ab0:c19:: with SMTP id a25mr4945852uak.98.1625322761480;
+        Sat, 03 Jul 2021 07:32:41 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:5c15:: with SMTP id i21ls5762952qti.2.gmail; Sat, 03 Jul
- 2021 06:41:38 -0700 (PDT)
-X-Received: by 2002:a05:622a:2cd:: with SMTP id a13mr4345419qtx.155.1625319698581;
-        Sat, 03 Jul 2021 06:41:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1625319698; cv=none;
+Received: by 2002:a1f:c704:: with SMTP id x4ls1513139vkf.4.gmail; Sat, 03 Jul
+ 2021 07:32:41 -0700 (PDT)
+X-Received: by 2002:a1f:cb05:: with SMTP id b5mr4217954vkg.9.1625322760734;
+        Sat, 03 Jul 2021 07:32:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625322760; cv=none;
         d=google.com; s=arc-20160816;
-        b=moeZTH1oai93GlV+B+y7DNPkvyAELD9M0Z6eNX8BlHZS31PvAgnhFWtraZFh/OVAJu
-         MVW44ceRRU5q03ZVy0GPB6IoVOSfwESGFoQ24TDuMefb2dZ2vX9K791WbTVYfZBwEDyM
-         FiUrtAHtpbDdLhuVBd0Kt3781yJIYUQY5kD6zbmhvhrp/isjspZEBFCZiF34pR/h3rJe
-         RqbdKPhLtzj9xbRhO4yHgGQABwEfsZIyCR8cv9bNaHQ/gz03GxsgaO0k73/t8PKQuV8O
-         Z7hDH6Xgm9qUFp/W3KRF8UtP6URsSxqOKUthh3PUbLBEhb/ps1dCXlc7CrQKy7kFEHxN
-         6AIg==
+        b=UqZqD137Mn/LxvHdS101Wa5eSyPBLGT+bCElkk/LNMMLDBJXZ3nypnf8r1LskH6ZtW
+         4bBx9g5Jc4Cn+ngETwMAOdXH5iJZAvDZYd8wY0St/wZaSHb25CPmHAoAH2B49i7JEG3H
+         9kR6JDSk/nstdxC0YEZanM1Pv4pHjT2YrpL5ufK8GBiFacND06DWdQ+SfKzvIOgrNf1z
+         roeiIj43c7qLyv/auWll8o+5xlIG9B/6/3WSMuGntnOh+HJit7J9XbqBtKcGweIdXbL3
+         tj8pewIeGW1m3m1IhUCmaxNajLb4ULHpFt8wK9Nha0ChakCjKjXV1IzTjQIE67Gxl5ke
+         oZzQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=WD0WOhoKcSTWx8ruNG0ArWcvBC5FrdzySBcLw0k0lvg=;
-        b=oUfn530wtrAOdI6LZfdfnblbFV+8QdT92ieIrPFmXmn4BfBudXyp+4ujWWfmw17m0A
-         Q2/bTlpIbuipGmr1QpEwXpg6yHJapRpQgoXYu/+y8e0KVW1NnRkRQ00/FKGMGDzvxd1a
-         QrEO6bQfqL64OzHr9uxCG0x7Pry4TqKgC5GpiOgplNnnSjdWqe9VDbkD51+rGewZF8uc
-         exQYNHalkbAtbGGqX8hHEPngBm8z2v6ztsfcqI2ND49T/HRJqGnSPlqe8jWhK7RiX14I
-         qs4KZsHHrgRJY4hrvWlcbvg5+s5kWo13j4z0SboWu4/T2l9xf5Cr6YFpPJGGBlT7DlYC
-         VRHw==
+        bh=+vcUNCg2drSua/GXdJ5Y5KfCmGZguTbhOXctWytPhuY=;
+        b=k0dhy9U01XR0QCoFhK28X5EWCR6Y8h8a8MF5+otNUz7KSUKDL7YViSNyNo+L+uMOUe
+         ySPN19x7vcBVEA6fIuHV/ZLZJFZ0lrvEDACszWU01SUVPA5+yA7DF0LLffsxUrG+tVUf
+         P3ixMTq0MQ9pMjzRD7Z83Dgtrgs5hq4d1/tUp0bgiipNnZo0DoOOVgrhzWGGdba2+Uxo
+         jON4ZLrxjZmMllHuyWKSQNlb4ILoeeV6KmzQVaM6Z5LhXj9dO7Y6tZb+keAkEZr0xbOi
+         8Wn3soF1q3297mGjEriQzQeft3nql5u5+L7dXqYDXZrEAWZhYNHIuwLgfZAkLv8xEOuF
+         nqvA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id l1si637693qkp.4.2021.07.03.06.41.38
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id l6si870211vkg.0.2021.07.03.07.32.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 03 Jul 2021 06:41:38 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
-X-IronPort-AV: E=McAfee;i="6200,9189,10033"; a="230531315"
+        Sat, 03 Jul 2021 07:32:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
+X-IronPort-AV: E=McAfee;i="6200,9189,10034"; a="208867852"
 X-IronPort-AV: E=Sophos;i="5.83,322,1616482800"; 
-   d="gz'50?scan'50,208,50";a="230531315"
+   d="gz'50?scan'50,208,50";a="208867852"
 Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2021 06:41:36 -0700
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2021 07:32:37 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.83,322,1616482800"; 
-   d="gz'50?scan'50,208,50";a="643081506"
+   d="gz'50?scan'50,208,50";a="643087381"
 Received: from lkp-server01.sh.intel.com (HELO 4aae0cb4f5b5) ([10.239.97.150])
-  by fmsmga006.fm.intel.com with ESMTP; 03 Jul 2021 06:41:34 -0700
+  by fmsmga006.fm.intel.com with ESMTP; 03 Jul 2021 07:32:35 -0700
 Received: from kbuild by 4aae0cb4f5b5 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1lzftl-000Ba8-LB; Sat, 03 Jul 2021 13:41:33 +0000
-Date: Sat, 3 Jul 2021 21:41:15 +0800
+	id 1lzgh8-000BbC-CH; Sat, 03 Jul 2021 14:32:34 +0000
+Date: Sat, 3 Jul 2021 22:32:04 +0800
 From: kernel test robot <lkp@intel.com>
-To: Thomas Gleixner <tglx@linutronix.de>
+To: Peter Zijlstra <peterz@infradead.org>
 Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
-	linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
-	Valentin Schneider <valentin.schneider@arm.com>,
+	linux-kernel@vger.kernel.org,
 	Daniel Bristot de Oliveira <bristot@redhat.com>
-Subject: kernel/sched/core.c:6854:20: warning: unused function
- 'balance_hotplug_wait'
-Message-ID: <202107032112.gVl3XTKy-lkp@intel.com>
+Subject: kernel/sched/core.c:2771:20: warning: unused function
+ 'rq_has_pinned_tasks'
+Message-ID: <202107032257.vfuKFfO3-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="d6Gm4EdcadzBjdND"
+Content-Type: multipart/mixed; boundary="4Ckj6UjgE2iN1+kY"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,20 +138,20 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---d6Gm4EdcadzBjdND
+--4Ckj6UjgE2iN1+kY
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hi Thomas,
+Hi Peter,
 
 FYI, the error/warning still remains.
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git =
 master
 head:   4b820e167bf6f410ace479d8df5b15a574000e75
-commit: 1cf12e08bc4d50a76b80c42a3109c53d8794a0c9 sched/hotplug: Consolidate=
- task migration on CPU unplug
+commit: a7c81556ec4d341dfdbf2cc478ead89d73e474a7 sched: Fix migrate_disable=
+() vs rt/dl balancing
 date:   8 months ago
 config: mips-randconfig-r015-20210702 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 9eb613=
@@ -164,11 +163,11 @@ make.cross -O ~/bin/make.cross
         # install mips cross compiling tool for clang build
         # apt-get install binutils-mips-linux-gnu
         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.gi=
-t/commit/?id=3D1cf12e08bc4d50a76b80c42a3109c53d8794a0c9
+t/commit/?id=3Da7c81556ec4d341dfdbf2cc478ead89d73e474a7
         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/gi=
 t/torvalds/linux.git
         git fetch --no-tags linus master
-        git checkout 1cf12e08bc4d50a76b80c42a3109c53d8794a0c9
+        git checkout a7c81556ec4d341dfdbf2cc478ead89d73e474a7
         # save the attached .config to linux build tree
         mkdir build_dir
         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross O=3D=
@@ -180,22 +179,26 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
-   kernel/sched/core.c:2376:6: warning: no previous prototype for function =
+   kernel/sched/core.c:2711:6: warning: no previous prototype for function =
 'sched_set_stop_task'
    void sched_set_stop_task(int cpu, struct task_struct
    ^
-   kernel/sched/core.c:2376:1: note: declare 'static' if the function is no=
+   kernel/sched/core.c:2711:1: note: declare 'static' if the function is no=
 t intended to be used outside of this translation unit
    void sched_set_stop_task(int cpu, struct task_struct
    ^
    static
-   kernel/sched/core.c:3746:13: warning: variable 'rq' set but not used
+   kernel/sched/core.c:4109:13: warning: variable 'rq' set but not used
    struct rq
    ^
-   kernel/sched/core.c:4196:20: warning: unused function 'sched_tick_stop'
+>> kernel/sched/core.c:2771:20: warning: unused function 'rq_has_pinned_tas=
+ks'
+   static inline bool rq_has_pinned_tasks(struct rq
+   ^
+   kernel/sched/core.c:4559:20: warning: unused function 'sched_tick_stop'
    static inline void sched_tick_stop(int cpu) { }
    ^
->> kernel/sched/core.c:6854:20: warning: unused function 'balance_hotplug_w=
+   kernel/sched/core.c:7224:20: warning: unused function 'balance_hotplug_w=
 ait'
    static inline void balance_hotplug_wait(void)
    ^
@@ -218,18 +221,115 @@ ude/asm/barrier.h", .line =3D 21, $); 0x00 ) !=3D -1)) : $))) ) && ( (1 << =
 mm scripts security sound source usr virt
 
 
-vim +/balance_hotplug_wait +6854 kernel/sched/core.c
+vim +/rq_has_pinned_tasks +2771 kernel/sched/core.c
 
-2558aacff85866 Peter Zijlstra  2020-09-11  6853 =20
-f2469a1fb43f85 Thomas Gleixner 2020-09-14 @6854  static inline void balance=
-_hotplug_wait(void)
-f2469a1fb43f85 Thomas Gleixner 2020-09-14  6855  {
-f2469a1fb43f85 Thomas Gleixner 2020-09-14  6856  }
-f2469a1fb43f85 Thomas Gleixner 2020-09-14  6857 =20
+09a40af5240de0 kernel/sched.c      Mike Galbraith  2010-04-15  2710 =20
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29 @2711  void s=
+ched_set_stop_task(int cpu, struct task_struct *stop)
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2712  {
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2713  	stati=
+c struct lock_class_key stop_pi_lock;
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2714  	struc=
+t sched_param param =3D { .sched_priority =3D MAX_RT_PRIO - 1 };
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2715  	struc=
+t task_struct *old_stop =3D cpu_rq(cpu)->stop;
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2716 =20
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2717  	if (s=
+top) {
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2718  		/*
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2719  		 * M=
+ake it appear like a SCHED_FIFO task, its something
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2720  		 * u=
+serspace knows about and won't get confused about.
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2721  		 *
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2722  		 * A=
+lso, it will make PI more or less work without too
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2723  		 * m=
+uch confusion -- but then, stop work should not
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2724  		 * r=
+ely on PI working anyway.
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2725  		 */
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2726  		sche=
+d_setscheduler_nocheck(stop, SCHED_FIFO, &param);
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2727 =20
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2728  		stop=
+->sched_class =3D &stop_sched_class;
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2729 =20
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2730  		/*
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2731  		 * T=
+he PI code calls rt_mutex_setprio() with ->pi_lock held to
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2732  		 * a=
+djust the effective priority of a task. As a result,
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2733  		 * r=
+t_mutex_setprio() can trigger (RT) balancing operations,
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2734  		 * w=
+hich can then trigger wakeups of the stop thread to push
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2735  		 * a=
+round the current task.
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2736  		 *
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2737  		 * T=
+he stop task itself will never be part of the PI-chain, it
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2738  		 * n=
+ever blocks, therefore that ->pi_lock recursion is safe.
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2739  		 * T=
+ell lockdep about this by placing the stop->pi_lock in its
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2740  		 * o=
+wn class.
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2741  		 */
+ded467dc83ac71 kernel/sched/core.c Peter Zijlstra  2020-10-01  2742  		lock=
+dep_set_class(&stop->pi_lock, &stop_pi_lock);
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2743  	}
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2744 =20
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2745  	cpu_r=
+q(cpu)->stop =3D stop;
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2746 =20
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2747  	if (o=
+ld_stop) {
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2748  		/*
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2749  		 * R=
+eset it back to a normal scheduling class so that
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2750  		 * i=
+t can die in pieces.
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2751  		 */
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2752  		old_=
+stop->sched_class =3D &rt_sched_class;
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2753  	}
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2754  }
+f5832c1998af2c kernel/sched/core.c Nicolas Pitre   2017-05-29  2755 =20
+25834c73f93af7 kernel/sched/core.c Peter Zijlstra  2015-05-15  2756  #else
+25834c73f93af7 kernel/sched/core.c Peter Zijlstra  2015-05-15  2757 =20
+25834c73f93af7 kernel/sched/core.c Peter Zijlstra  2015-05-15  2758  static=
+ inline int __set_cpus_allowed_ptr(struct task_struct *p,
+9cfc3e18adb036 kernel/sched/core.c Peter Zijlstra  2020-09-16  2759  					 =
+const struct cpumask *new_mask,
+9cfc3e18adb036 kernel/sched/core.c Peter Zijlstra  2020-09-16  2760  					 =
+u32 flags)
+25834c73f93af7 kernel/sched/core.c Peter Zijlstra  2015-05-15  2761  {
+25834c73f93af7 kernel/sched/core.c Peter Zijlstra  2015-05-15  2762  	retur=
+n set_cpus_allowed_ptr(p, new_mask);
+25834c73f93af7 kernel/sched/core.c Peter Zijlstra  2015-05-15  2763  }
+25834c73f93af7 kernel/sched/core.c Peter Zijlstra  2015-05-15  2764 =20
+5cc389bcee088b kernel/sched/core.c Peter Zijlstra  2015-06-11  2765  #endif=
+ /* CONFIG_SMP */
+970b13bacba14a kernel/sched.c      Peter Zijlstra  2009-11-25  2766 =20
+af449901b84c98 kernel/sched/core.c Peter Zijlstra  2020-09-17  2767  #if !d=
+efined(CONFIG_SMP) || !defined(CONFIG_PREEMPT_RT)
+af449901b84c98 kernel/sched/core.c Peter Zijlstra  2020-09-17  2768 =20
+af449901b84c98 kernel/sched/core.c Peter Zijlstra  2020-09-17  2769  static=
+ inline void migrate_disable_switch(struct rq *rq, struct task_struct *p) {=
+ }
+af449901b84c98 kernel/sched/core.c Peter Zijlstra  2020-09-17  2770 =20
+3015ef4b98f53f kernel/sched/core.c Thomas Gleixner 2020-08-26 @2771  static=
+ inline bool rq_has_pinned_tasks(struct rq *rq)
+3015ef4b98f53f kernel/sched/core.c Thomas Gleixner 2020-08-26  2772  {
+3015ef4b98f53f kernel/sched/core.c Thomas Gleixner 2020-08-26  2773  	retur=
+n false;
+3015ef4b98f53f kernel/sched/core.c Thomas Gleixner 2020-08-26  2774  }
+3015ef4b98f53f kernel/sched/core.c Thomas Gleixner 2020-08-26  2775 =20
 
-:::::: The code at line 6854 was first introduced by commit
-:::::: f2469a1fb43f85d243ce72638367fb6e15c33491 sched/core: Wait for tasks =
-being pushed away on hotplug
+:::::: The code at line 2771 was first introduced by commit
+:::::: 3015ef4b98f53fe7eba4f5f82f562c0e074d213c sched/core: Make migrate di=
+sable and CPU hotplug cooperative
 
 :::::: TO: Thomas Gleixner <tglx@linutronix.de>
 :::::: CC: Peter Zijlstra <peterz@infradead.org>
@@ -244,14 +344,14 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/202107032112.gVl3XTKy-lkp%40intel.com.
+clang-built-linux/202107032257.vfuKFfO3-lkp%40intel.com.
 
---d6Gm4EdcadzBjdND
+--4Ckj6UjgE2iN1+kY
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICBpk4GAAAy5jb25maWcAjFxZc+O2sn7Pr2AlVbeSqkzGkuVl7i0/gCQoYUQSHACUlxeW
+H4sICNNx4GAAAy5jb25maWcAjFxZc+O2sn7Pr2AlVbeSqkzGkuVl7i0/gCQoYUQSHACUlxeW
 xpZndCMvJduTM//+dANcABKUc6pOEnU39kb3142mf/vlt4C8vT49rF+3t+vd7mfwbfO42a9f
 N3fB/Xa3+b8g5kHOVUBjpv4C4XT7+Pafjw/b55fg5K/J0V9HH/a3k2C52T9udkH09Hi//fYG
 zbdPj7/89kvE84TNqyiqVlRIxvNK0St18evtbv34Lfix2b+AXDA5/gv6CX7/tn39348f4Z8P
@@ -761,4 +861,4 @@ EzA8oSJwgwEUHZ1+uwg3QpdAWcK8sIusxLcGO1FKIfUiawowGlm5QA28IE98tobCpMtFNmYC
 lkQEixgKVgrU1E5PvRm3ROdK4gFmDesiBq0rnHWKR+KNt+T+0aMZA1yCdCVM8nnqwjfjZ4VC
 cCPIeOP+B6a+KbE8qAEA
 
---d6Gm4EdcadzBjdND--
+--4Ckj6UjgE2iN1+kY--
