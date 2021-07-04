@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBC5JXFXXVEGRBTX7RCDQMGQEAKEOMLQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5JXFXXVEGRBBMARGDQMGQEDCN6CHA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43b.google.com (mail-pf1-x43b.google.com [IPv6:2607:f8b0:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 793463BB128
-	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Jul 2021 01:10:08 +0200 (CEST)
-Received: by mail-pf1-x43b.google.com with SMTP id d29-20020aa797bd0000b02903147a50038asf6204543pfq.15
-        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Jul 2021 16:10:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625440207; cv=pass;
+Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
+	by mail.lfdr.de (Postfix) with ESMTPS id BDC423BB1A7
+	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Jul 2021 01:11:02 +0200 (CEST)
+Received: by mail-pj1-x103d.google.com with SMTP id t5-20020a17090a4485b029016f7fcb8a3dsf8544868pjg.2
+        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Jul 2021 16:11:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625440261; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bLZH4JOa1Q8Zp1KdE5h8yHjxRggo1Ac+O8ZBXqtaAm9UbI0dZlBU47EIz9MpLei0fG
-         r3ex+nfZ2pkjJjZGHCqUBgXGE1gbQOHL3PnsIKJlW9joJEzb4BS3Y/eT1uL7tJr/Jm3e
-         +6nCYZkTaGONZaqw9QlGO9/GXebimces/cXs12chcU+hdU/S/keE2/pjAAdn/dfmHVYo
-         8eYTv9cEEaSkFpptHwe5i1fICIEL7wUJ8KllliyJg4ri02uB3G5z2nj85BrZTVB0BC4W
-         J9hwIEKuk4XJqPxIXPN87ZxKDJUAaXNvvtuxratHI2osVPo4iEL54d1GpUrv8pPuOeqJ
-         zPQA==
+        b=QeM1X3eCplijIyztSXZD54Thx14TfmLHHIC5jqX2wiimvy+5I/yuP7A5Eepcz/fq3c
+         JV4HmMslh2VSzwtk79FQQLzJp5Uds4F+dVP2kqmHOaGT4w+xyhzUbPX3SRlVDgHbPVql
+         ownU6h0tlro8GzzwJ620BDxojF5rFnTG7eshpaZ7/IIVwTk5uTi5ArDGmofr0YFyInIh
+         awj+HbQyYf/JQmzJ/+jBZOrT7SQXFj/vfa+xt7UrQorkzlz8HnE1bEMBoNSqfdWo7ls/
+         FHM+gzMQ4bmIkAsJNrV6AajpcLHBSKNHoauchX/lwvjxfkHS41QRF4zpf0ajX+ef1t2k
+         je+w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=T/YQHRROLhhZHkozz1J0EwowOGA5rQTL8MhD16pqgyU=;
-        b=t3Lie7MM2h7eMGKma5aVJdGjjOci1EY8gpSxSzWkCHZglyOJCeAhERYi73Jj2icCIT
-         B6tiiFXdxRMFV/DEKR2gNGxggShLGnPpLEyaF2EZ4BLV4escg6Z9U2YXhkPLv6uEI2Nf
-         E7vza/Pr/UJmMj3nRj5cfncHU/8YdcEz6B9C0GoWZ5AsfjKZceVd/P4PVu0s0CjXLXIj
-         orEKDuCHapUGqZAQ2OFe4C3mN1J7ZxitSnjZmjFfs8hT+NDun0LgFNQEQSagdC/eTGs1
-         u+JCaUAAsHkhYWaXf4re2etmQj+3yFJXyFIG1PNJITYhVNo4NDBiXt/AK+U/11+bE5T0
-         Wkfw==
+        bh=RVSsa/fBnzL11qqqUo/b9YfhHd56u1DOmBxZyjaVlkU=;
+        b=JCofjUOekQWw/iMfBaDqrfUG+OFtKZVlYV17WkAWFV9mUhjHm+gfYGYF5h6TO6ay2v
+         wMYd2xWg0p2I0Rwt6t/sp/46elmFGVQiqOm/V6OlwCbkx5xC3TKGsUOtWDAkAHhneDVd
+         89XPrnde+o+wXhYl5U54S2PCwoaN500gqzEBLrwNReqGE7m1rzUeyt7urTWm8aa2Wxhc
+         h3QCzMCEdW55tdBdC0Q/WJxfUA1cUvb6VW56f0+IpNS70jieWqNq8JUOdK0/HyI6kzlz
+         tpb7WEe45BWXoKnMYA7Z66DXEKuWd7IeiJp7NxhFxzUyNs560t6cGtwtDls352HXzYao
+         9FFQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=nmi6SjBk;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=AbXdO81q;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=T/YQHRROLhhZHkozz1J0EwowOGA5rQTL8MhD16pqgyU=;
-        b=qSzCZLbsvYBbNmi3pXBhDyQEfT8tvsqwlLaLxIIzewWx/AwR5XQqYPrW5pPq4hSYoN
-         lpfo0e/cwSkJiuNSQ3FL/y/xALC9ijsgQo2DzfuP2BI7JF6VF4dNa20Kp4rg0hZXMAv9
-         KJYf2LweCXEgsIuVDFFh8TeeKPUPxTnd1xotqllYASDZvLhJQ2fvXfB3Xvj4+9VA3nLH
-         t0v9HYnVJ2D/NJp9ImTQ0NCYKofOySo/kpWqeh2TJadpq+pOeC/9vcM/vmRI8vnAQXYi
-         YdsEUwiuUugWgSX/tnRyR2akZrSiWWDVpphrCMTxmkZEGWQwe9csaUg6O9ZWCWCDqyna
-         Z8oA==
+        bh=RVSsa/fBnzL11qqqUo/b9YfhHd56u1DOmBxZyjaVlkU=;
+        b=lggtXLWi1EUaMq9h1felePV+sKVILIzKu4QKVXKMmFNyuk8/+yFnYE7hCtyEwQfh5I
+         5bKdqY/ZmV+eb2+9zkZhe6HDTc0uvzsB/6vtnLVZRY7PUqBHw2A8GAR/m86862utUMnr
+         fUOAYIbYXPiv1cYd2BRgekCa6rMJMEUQWc9lKAjL7ecCJbmvkxkHF1Rz6fj+KYj7rkzh
+         /g136JEi28nuX+Zc0maY1+EpHddrteUoNAc5Qgf2BwbsdBgzL7Vi8l3T93IzPXWiaWYs
+         H7irn0rbc/Hj2yFuFybHsk0IuNRZuDT3x6qER9tgmqO4XPy62VFxlJSdJQn3VqS+UwLJ
+         iBAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,54 +49,54 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=T/YQHRROLhhZHkozz1J0EwowOGA5rQTL8MhD16pqgyU=;
-        b=kduu+xI6QFkP/mNPeI6mAImC8DmNI+FojrEACxcv4Gs2c3aRCR5Lp/frus3dWIwXQV
-         zogO0705F9O08S5HluYWkWsnhDwU/RW/vpN6aTTmKDGIAJsbEeaTWxVlr5snXmg7rxz4
-         WW/o4ahg8S5Ib/v1gEqAo7oTOeMW7nbyxD+YJxefaVBLV+EDAPKT9AGjTaonCYM/GXvB
-         Ht204RIRjVABg9Jnn/mWuE5OXVabj6Uq6efwSZrJHU/+kNkddTKAsEfGt09fbcmaceqf
-         h7umx9JVzPt/yTib1Q25Rdkrc36YivEKlwNqCs9jICl6PxmAZPZWapryMqugZsyoifSB
-         id+w==
+        bh=RVSsa/fBnzL11qqqUo/b9YfhHd56u1DOmBxZyjaVlkU=;
+        b=jNEg04h1qJJkwJjJsiyb8eb3jo8IKX1u0SueK/3lKhIDjVTU7H8imZ07bhhHoKEibw
+         uvKC/mPxTu+uVgqoexv2zgS7SjBnS62tqx73NsQufOZDYLyro+9L8vAGTQaihOUbfzTO
+         rb6nOMvkQzBvRY1tUq53eZGqmtsUiJ3Lz2D2zTdXi+QUNoPKwa5dQuGuBcUhtyryOu9F
+         VJa7Oxr75liV9hh2tQfRL6P4WrgkWb/s5IyWpAuStNyOpdFwm0woCYXGaxPhePZSG8rH
+         B4n2ye6PAb/EtgH65fRvGsH/PsUNqzBzPiN6MZFWZuPK5HBNP/4y/ToLL4uv3sp9hxwP
+         0fkg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531lLFveVRG9qGzqUWPUWiFFcel9LnjHkSOPk37XQo3c6B0ZPTCZ
-	1G43kNgUBk+dub4JSYmJcUQ=
-X-Google-Smtp-Source: ABdhPJy103U45SmEijHNdaFdragzdjPzCWydBqX92M/zCXaMow+czUXZS6Y4KzuKzv1gfCgv/5ozfw==
-X-Received: by 2002:a17:90a:9511:: with SMTP id t17mr12041318pjo.108.1625440207127;
-        Sun, 04 Jul 2021 16:10:07 -0700 (PDT)
+X-Gm-Message-State: AOAM5327lOD10tCXmgzYsbOoNuryHwPXJ86kbwECiGFTyc2Y/K2wcL61
+	3/OTtAx5RKqSW9CXLklNUkc=
+X-Google-Smtp-Source: ABdhPJwu+cQGo0qKqhvj5UhyO6EsfBmk8/BudOIesZsD8JwpTzynWEO//23rw9BdnywOmPGDBn7ing==
+X-Received: by 2002:a05:6a00:179e:b029:2e9:e53:198d with SMTP id s30-20020a056a00179eb02902e90e53198dmr12193950pfg.72.1625440261482;
+        Sun, 04 Jul 2021 16:11:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:2406:: with SMTP id k6ls7007893pgk.9.gmail; Sun, 04 Jul
- 2021 16:10:06 -0700 (PDT)
-X-Received: by 2002:a62:1708:0:b029:31b:113f:174a with SMTP id 8-20020a6217080000b029031b113f174amr7937886pfx.68.1625440206499;
-        Sun, 04 Jul 2021 16:10:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1625440206; cv=none;
+Received: by 2002:a17:902:8609:: with SMTP id f9ls8021510plo.5.gmail; Sun, 04
+ Jul 2021 16:11:01 -0700 (PDT)
+X-Received: by 2002:a17:902:a606:b029:129:5b58:8de4 with SMTP id u6-20020a170902a606b02901295b588de4mr9286414plq.24.1625440260938;
+        Sun, 04 Jul 2021 16:11:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625440260; cv=none;
         d=google.com; s=arc-20160816;
-        b=jaMIFXvBGU0mPz/qwYvMPkFCjdzQDVi8d9zsgKSFeR63lh9rIZTNIlOZKZxlS9jKaR
-         kAiHf4hVlDBhN0X9h8xTYAs3UAryU+Lxpvrr/fD6ZNK0KtHP9q0tFMUFr2FbXJmpHDos
-         jVzuGGLRKeSl4X2c05/q2+jquVO620TOzVvPcNCsARRRrL/PJcvxBi+06Mmz203xzZBD
-         WSuPip4HVo7yQqaQi2etPUul3j8SrSmfXRDulg0J7/xN8LMdS/AT3j32AtuTWU4pTiLJ
-         ecjBjV+AQZzBgvW5G6h+DmI7FMJr4COEbHJC1KxudEvrF51KLUQ850ito1jnqjCCkS7q
-         Xa/Q==
+        b=f+slB1CMfQmh+p9d5kzaQfYuP5F2wW3DV3zP4mKtMJzwVNUrFN1fOj0jWFzI6NPR0Z
+         G0V1G9IKYaeT4GX2Rw8oUDNI0nOI6Z5lxJar5u8bR5wcWDvO1qdpspRwfkQgEDBrA21E
+         VFCqg8m9xcC3Ws9fAFDOGHIf/gPlpMKoZyEcVnqK4FOcP7w5UFAvvwNKp/UaDKcGadPe
+         FxOhJHK7cGJ7btkeylH84D3i8p41i3/px4iLmrD+UgQJA3BeWlC/gvKkcB9f5xZB3HtO
+         zL0N8ij31oGfcYv05Gw87ca78b+fVTs4xWti4dJJE8T0XeahfYSfnln07NdgJoQd+a79
+         BNPQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=bpXgtI/wLS5eCTWW/418z1P77EycsSy/0SrNajOKv80=;
-        b=Rw87GqYz6QmLcrTRTBwPXRm5h4B3aJH+EXadYwgZY7Y7+kM/d0MYeuCOelR9BmMSPo
-         np8eXVoQFLJnlgBJ99fHwUNyU2dfCwDqOmNJaDMKa78rZ78M9NER+/HOGW8trBqjZ8kZ
-         KzSByX7+dRvflXiN8sf9I33zNzHJ7eMjBhI2s/sN0yNbqeY/ypifdz4b6SnpsvjhPNd6
-         diz5aqV5QqB4sPlwsKoNPtP4PCoKUFfbZaz66g69b7u6v+HM2oL8GRq9hRwzRvgyepBS
-         IEU3RIrSALf/X5RMHC4JOvpfk0Hmzci/rntYu99Epy9NwdMywamJ7lCyqKwEzBLN5upk
-         kBmA==
+        bh=sjczYipd2i0O1iecT52os4MnfBMKm/vdZkUNBnXVEig=;
+        b=TNETFyLXMbgN7jBar7Xji9xugMA3h+Gyiw4hSrlKqGjAKjkjv2njXB9/IW68C76CmC
+         9sHlum3i2XXt++dMuzPiyLqgd8jOD0gdlPetXgfrCfHEXENvHr4ER3vCOT0nnFqkwoiw
+         KYOmHVll5EvkDVpN1tL0W23QHwSA6gZr+x2Ukqvdg9ElvqJqVl3SOOsR8GdWE0xSEczn
+         DD+OBABgpmiyBEWa7jfqrNu8eEdt3zRJfljmnKg7SqMF5vqPQ36l5QiRodqSprEUV5FR
+         oua4SJX21jt2JTtm3hc1GZt71+lAZk0P9cUNt9ZKITNwCJynomW00qmQPxwyLh3giVhY
+         HQ9g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=nmi6SjBk;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=AbXdO81q;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id cq18si1475434pjb.1.2021.07.04.16.10.06
+        by gmr-mx.google.com with ESMTPS id q7si1266461pgf.3.2021.07.04.16.11.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 04 Jul 2021 16:10:06 -0700 (PDT)
+        Sun, 04 Jul 2021 16:11:00 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 42D3A6197E;
-	Sun,  4 Jul 2021 23:10:05 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id AD1216199C;
+	Sun,  4 Jul 2021 23:10:59 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -108,18 +108,18 @@ Cc: Jack Xu <jack.xu@intel.com>,
 	qat-linux@intel.com,
 	linux-crypto@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.4 21/50] crypto: qat - remove unused macro in FW loader
-Date: Sun,  4 Jul 2021 19:09:09 -0400
-Message-Id: <20210704230938.1490742-21-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 13/31] crypto: qat - check return code of qat_hal_rd_rel_reg()
+Date: Sun,  4 Jul 2021 19:10:25 -0400
+Message-Id: <20210704231043.1491209-13-sashal@kernel.org>
 X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20210704230938.1490742-1-sashal@kernel.org>
-References: <20210704230938.1490742-1-sashal@kernel.org>
+In-Reply-To: <20210704231043.1491209-1-sashal@kernel.org>
+References: <20210704231043.1491209-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=nmi6SjBk;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=AbXdO81q;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,15 +138,15 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Jack Xu <jack.xu@intel.com>
 
-[ Upstream commit 9afe77cf25d9670e61b489fd52cc6f75fd7f6803 ]
+[ Upstream commit 96b57229209490c8bca4335b01a426a96173dc56 ]
 
-Remove the unused macro ICP_DH895XCC_PESRAM_BAR_SIZE in the firmware
-loader.
+Check the return code of the function qat_hal_rd_rel_reg() and return it
+to the caller.
 
-This is to fix the following warning when compiling the driver using the
-clang compiler with CC=clang W=2:
+This is to fix the following warning when compiling the driver with
+clang scan-build:
 
-    drivers/crypto/qat/qat_common/qat_uclo.c:345:9: warning: macro is not used [-Wunused-macros]
+    drivers/crypto/qat/qat_common/qat_hal.c:1436:2: warning: 6th function call argument is an uninitialized value
 
 Signed-off-by: Jack Xu <jack.xu@intel.com>
 Co-developed-by: Zhehui Xiang <zhehui.xiang@intel.com>
@@ -155,25 +155,30 @@ Reviewed-by: Giovanni Cabiddu <giovanni.cabiddu@intel.com>
 Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/crypto/qat/qat_common/qat_uclo.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/crypto/qat/qat_common/qat_hal.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/crypto/qat/qat_common/qat_uclo.c b/drivers/crypto/qat/qat_common/qat_uclo.c
-index aeb03081415c..9542423bb7ca 100644
---- a/drivers/crypto/qat/qat_common/qat_uclo.c
-+++ b/drivers/crypto/qat/qat_common/qat_uclo.c
-@@ -385,7 +385,6 @@ static int qat_uclo_init_umem_seg(struct icp_qat_fw_loader_handle *handle,
- 	return 0;
- }
- 
--#define ICP_DH895XCC_PESRAM_BAR_SIZE 0x80000
- static int qat_uclo_init_ae_memory(struct icp_qat_fw_loader_handle *handle,
- 				   struct icp_qat_uof_initmem *init_mem)
- {
+diff --git a/drivers/crypto/qat/qat_common/qat_hal.c b/drivers/crypto/qat/qat_common/qat_hal.c
+index dac130bb807a..eda692271f0c 100644
+--- a/drivers/crypto/qat/qat_common/qat_hal.c
++++ b/drivers/crypto/qat/qat_common/qat_hal.c
+@@ -1256,7 +1256,11 @@ static int qat_hal_put_rel_wr_xfer(struct icp_qat_fw_loader_handle *handle,
+ 		pr_err("QAT: bad xfrAddr=0x%x\n", xfr_addr);
+ 		return -EINVAL;
+ 	}
+-	qat_hal_rd_rel_reg(handle, ae, ctx, ICP_GPB_REL, gprnum, &gprval);
++	status = qat_hal_rd_rel_reg(handle, ae, ctx, ICP_GPB_REL, gprnum, &gprval);
++	if (status) {
++		pr_err("QAT: failed to read register");
++		return status;
++	}
+ 	gpr_addr = qat_hal_get_reg_addr(ICP_GPB_REL, gprnum);
+ 	data16low = 0xffff & data;
+ 	data16hi = 0xffff & (data >> 0x10);
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210704230938.1490742-21-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210704231043.1491209-13-sashal%40kernel.org.
