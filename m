@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB4H6QODQMGQEL6SC5YQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBHUKQSDQMGQENC6YTLI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
-	by mail.lfdr.de (Postfix) with ESMTPS id A86373BAAB5
-	for <lists+clang-built-linux@lfdr.de>; Sun,  4 Jul 2021 02:23:13 +0200 (CEST)
-Received: by mail-pj1-x1040.google.com with SMTP id mm9-20020a17090b3589b029016e99e81994sf8368350pjb.0
-        for <lists+clang-built-linux@lfdr.de>; Sat, 03 Jul 2021 17:23:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625358192; cv=pass;
+Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2A5203BAABD
+	for <lists+clang-built-linux@lfdr.de>; Sun,  4 Jul 2021 02:47:27 +0200 (CEST)
+Received: by mail-qt1-x838.google.com with SMTP id e9-20020ac859890000b0290250be770d0fsf7681214qte.15
+        for <lists+clang-built-linux@lfdr.de>; Sat, 03 Jul 2021 17:47:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625359646; cv=pass;
         d=google.com; s=arc-20160816;
-        b=re8oSOEPNoGl/fegmQ0GEtlqj9c3BJYGtqdHEYzjzVwIHdsv1JSMyeX3koJCgf7KPG
-         b2eMH/99NXHS7zxocbGMYzgr2lInNoKotf1CIvPqAyLFfxQRuR8UdwlRkpq9DnrvJnsC
-         ExPkz1I4oCeAd4i5GiXds1Ofj0x7Xl2GFW7doXAh78tj2TvZUwQsOEm/CM4tLzRe1BYN
-         REz8Qd3oIDhmQdNkYwdJCY89dht+zHYOi3tAKuIEUkEjao7JImSVS6KuToU+3KZKTxiV
-         yIb7nrX/44BFS3VuXvuMg4v3+G7+NXHrDXWlnYAdDB5BCR6fx0C8Dda2Srs98urcnJrv
-         G/yQ==
+        b=nWXvVKOtG0Nkkwl84kd26Ta9rXaLQXH2cCIMwMb5P/HoVWK1xmal/SuzqFOkS6LNpR
+         5l2EingyJfxQrVNQzSLzzqkS75VMMnu7UBGN7j+s4nSQMdt+JFP9a8yIqGhhjae2rug4
+         omAC8SbZxYnSffNH3PUDcXiHvk7lyj8FPpCRrlQuJt1D2egDwZmjn7S/WFA0UVu+y7Vf
+         M9c7SUmL88GINEbzuN7waoWjHohTNOtsfd10bIvIFpf/sqfmSXC9jB6+mFSI63OzgSFK
+         W1tXFr+BefhNrnS+FXMYgVLcLiQh9IflEvm4HXcfowhK730RWrjHrayIfaUjLipJ12Gu
+         FPYA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=HrRyT537oHmC83TrxNBh+gCi3x7DVuiOdOdZBskxXpU=;
-        b=eYxF1xfN88ozi/Q3YbIrrrwXGWb/R8SKvjmLr6KqAK+JVTU1AA9yp1S7c1sU074cNn
-         QCH+eMXrXHWrvn09Kmd4e9KgR5XE4IYtV2FmBcsbqBEPV1St9meb9Gr6kNIgJCmIujfl
-         4Z7ETfaYsus5zOXeeIWbGxkgJmCfBa8Juimqeq4B3GpjpLziZX2V1s5bW+e9Inj3tGVM
-         oxVvmlwJebDdxVrmoXhUs+3KJY3xjMZ72Kcvxy8lcv2TFV/RwpNmM+Sel2YYQyPhePKN
-         4qCoqTwBjS1+MCsqspjby/RxrBJSrR2wdeda3Z4ylEG5lOGE1ZjGSfOZIz4B8Z7w8Qht
-         TglA==
+        bh=PsEwxOdNuSniefzw+Jlq4Tz/cGN2sg4WGf2JD+E3FCo=;
+        b=JMkO9uXleBOHNXRBtJ7yCsbbhlV9rQ+xiSeT/B0d++LlNZAkvq/p3EzqB1kZU5+IQk
+         HGetPJZ64GB9h38sULwNFk7TvSAf8zwDFXLp+P0G+2AT3a+TvNjTwUqobBiuJQpbgagq
+         LGPD3VJ/qKIaxoXc/YCVyUSxXZVyaglyfL43qjisuLRZqbyi7OH8g8Ok7ZZqjQhJ+1Nk
+         AFWahSrKRwBzYLjAgW1O+Z27xy/+JyoidFp4GAurGdl5AGA8H4iO5Pq06T7eqLE+zpqp
+         7hr6xhSP8nD0/VRAqVbTGgGTQnF257wFxIM4/zF9OnK9JuH+peG0WNVkd4nW+4PP+/aE
+         klWw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=EcFEc1qi;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=htslqKoG;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=HrRyT537oHmC83TrxNBh+gCi3x7DVuiOdOdZBskxXpU=;
-        b=pbw9y/aevlCkc5r+hgaz6dZi52usEAuJavcA30o4NZAgpb3S+Dn66qwDOO80Mn9wHe
-         vMmzFd5hhAOT09LI8Mi0TH2CZUcl5sQ4l7FCHBdTBnwAF0Q3DlnxlVyumNQzLrdwlA5V
-         hqJdq0vBWB6oZgR/tyvlAEPieei3zWBUy9YBMQ/2AdVDiWRCOKw+zOI2IecGj6ZBwPEJ
-         RDccW6LcbG3TWeNcXMrW2O2ZjLrx/iXND3i2kVK4EEwwrxKt3DrZjae6n3Dee/YMTH7z
-         VnwAndoVfgonWqe5juhTlR1qgrxTtpA85I10/ZW+lhjX2wGmfOLKfAE0SnbNBVGZ9yCo
-         ui2w==
+        bh=PsEwxOdNuSniefzw+Jlq4Tz/cGN2sg4WGf2JD+E3FCo=;
+        b=ADimGuCGbqb7OWQeKtc6eQCi0acx7dcd7eiklQbJRjUyC5E2oZ9mZVF8NAD5RZuHlu
+         1uGFBUIDM3igLWbPk3+mgbAFyOfHwn3y5F85FvWOOY8/L4HyOVMLf2JD1tKT1xi6fWPz
+         Y2v66bL/a7qtiALRhjYbVr6dko3/HV+buturObvz9D6l5VKW29fhCh7ADNb7oheK6Pf7
+         ZqumY4mqH9QWQ4vEkLEGL/54aPysAeZwINjTATbjWkBL4wyfCKFPmEzWIdT7reXZlqLc
+         Extmu1LPbQi6BpHLdkhwtNoTqD0mXycmCMIpBnqNi66LqHuHT+gye6G7eJC6Iq8p2uoS
+         +utA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,72 +50,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=HrRyT537oHmC83TrxNBh+gCi3x7DVuiOdOdZBskxXpU=;
-        b=f2i3m4T6PT+RpwkHxzB/Q63AWwMb61oz4iYZ85hmFdLqcXhnpEfRFSi2ENXYa1PFKh
-         IAzqpeyq4DThdXFhwnBYGsdCYq1aPizgYAUJSFm/9Tfjj2OWmkNab0E7eOV7jhRFQExc
-         TdPfJ/wk8Q41InI2j3qXK24Hiztm1bzMnw76aTsZ2mFCkLSyd1pmYrt9QEGjN9ZPAVnK
-         dxd2WR5fmnfxzoBrlZ7AAFlgWFSYt5p1+/RxuNxfTgnIv/R7JmTMHwwgUD+mYgvSC1SO
-         Y3qRt/OtNV02hWsRu3aI7/p5nbdzXhth2BqQBpDthg9xNLAocW9OFHvOlx+eLYhvKOyD
-         /BZw==
+        bh=PsEwxOdNuSniefzw+Jlq4Tz/cGN2sg4WGf2JD+E3FCo=;
+        b=U6nRQNvaycdM1k1ytyQk9gwnv20np+06miCqxppbzap22jQqUvTEzECYNl1jEsoVcr
+         7lDT32N6jpQxG8kYSuBzCJzyQ8LhlTU+CFCLGQvUGhV1Rn1eoO2xypOLi7Y69IFuApSo
+         PO28jGpemSG3ObA60lEZmcU2dIMufZEeTcP5Iufma6RMjN8tE1kXNQbYFJYv38rZRbht
+         MVTcG0SCpxTzFu54i9gmIAsaQToTiVvzvE8ihsa37u2+kpXKW4j0JVHFcrspnlIjIIhg
+         Oe0AC42S5jJWzGJD0SeYyrseeOo3Xj7NJTjGzA7PoWbj+sUjzLhTRFJldmeE9JjmOrnh
+         5SPA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532oiy1+k5QtyimfjzpnYHupwFINshBp1aaHtWuRXHZV/nF5w2Kt
-	aVpVliqQ287y18kRIUdqHQ0=
-X-Google-Smtp-Source: ABdhPJz2RUgpKaEWhTq7LkAJCww29NjbcTKMFzwp67MdZaPvzf8kelTa8pBlHf+vfl/d5Gyv7XT+RQ==
-X-Received: by 2002:aa7:828f:0:b029:200:6e27:8c8f with SMTP id s15-20020aa7828f0000b02902006e278c8fmr7312708pfm.44.1625358192358;
-        Sat, 03 Jul 2021 17:23:12 -0700 (PDT)
+X-Gm-Message-State: AOAM533nFOEUYUVoNJa9rSKA9VTMh9E0y/ALD9j6l5TL7r2A7OGKP6/p
+	AwFVKcmLLHg2QqsKT5WUXc8=
+X-Google-Smtp-Source: ABdhPJz6raRg5ZxwehAfBIImu0C+OGWEwO4eUrrdweGF2xHya5YJh+rraFxfOYphJVcjHVCXEb5yEA==
+X-Received: by 2002:a37:a2cb:: with SMTP id l194mr7408455qke.190.1625359646175;
+        Sat, 03 Jul 2021 17:47:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:2353:: with SMTP id ms19ls10356722pjb.1.canary-gmail;
- Sat, 03 Jul 2021 17:23:11 -0700 (PDT)
-X-Received: by 2002:a17:902:e5cb:b029:128:9962:ef60 with SMTP id u11-20020a170902e5cbb02901289962ef60mr5883716plf.59.1625358191837;
-        Sat, 03 Jul 2021 17:23:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1625358191; cv=none;
+Received: by 2002:ac8:5c15:: with SMTP id i21ls6238399qti.2.gmail; Sat, 03 Jul
+ 2021 17:47:25 -0700 (PDT)
+X-Received: by 2002:a05:622a:453:: with SMTP id o19mr6433541qtx.122.1625359645672;
+        Sat, 03 Jul 2021 17:47:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625359645; cv=none;
         d=google.com; s=arc-20160816;
-        b=fE5ZeOkTC3ENZ6IJYFofHw3SPPQc0eu2169bFrxzMo3gPZKrEliGKN/hzOeiNV2xZh
-         /S7IUVcLQjgs9J5kn5oW2ckvxcUil1glgP3TNYVsrQzRRjZJA75ZOoNRRxQAWnc++Icn
-         B3TtaAuVvv2TSsWOWU5PR2SJaohkDQ8zFInTTHOrIXg/s59YCwrZ/SF3bHo3O0v43+JG
-         eXJb+Thhk2X6SIyBLLapd1veKTxZ8DHBLb3zMcUGT25UeH/cIUMje5D3qnkB3XniesO4
-         +szSTnuqmpL3i/QkK9dEhRyzMxyxvlfmb8PylDiFgPh4eaUVKdsPSAGXdtrzCmJoslHL
-         1Hzw==
+        b=fy7UxalXZ2NQQxzu5eS1dE9Z7c/3eNzHyKfHYuwwfY7k3EkcYcRMjGwKLbuAcqeL1p
+         peAn6qcSjH01tivNfDcIdybEssl6jH3sgeEh2wLwcmnKuSpht71Y0USNsSXYLn9e02w/
+         Wezzv+q07PRwj+FebC2jb4o/QydSTs2g4ppKsaTEgg0hJX4oaUYMj0jBZI5DlsG3n9MD
+         C6QTsad7iubH2esrBQql79PkQ5YaIWXLFlitWl7LutXiCbZrISxci7j2tfk7z88YDM3U
+         sCjoohWqK7AZhL+g8yhYpAjqmQQQs3DFfxxHHMw8kDmZ+vP1iZ+r5BJsCr7U/Abe3xXb
+         U5vg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=tS2X05KP5X1yzefnQ3KeBXrd6szUZ+ZW9J0GkyQ0JfY=;
-        b=mCBk6ky/CPiC74G7li20v2S6og7KT/NF59fK1N5McejzT7G83HaTg0D0T2x7VzG8ez
-         Vc6U88KT9FTOwVCLTa9+01rsvaZBdE1BY3nqNLmb35ZVhxeazQvK43KV8PWE39YK0bAQ
-         eUl8irmqHFboxNub2AfZdPVZdcmuYggJgP6qAg9JSQvmFfD0Lvv7VlIjmdunHf6AgEzQ
-         V12HbhFBdkMmZ1I5ZzDVL4K0sD9zBYPj/dqpuy25juumf8pq1vVnsD9jfIHQmG9agRib
-         dMQUeRl5KUnKiiQHyTH6UgocroffazlZzGLueFsbRuVFpA6qrv7OjibM8ixOQ721O9MV
-         P5aA==
+        bh=np9lNBSWqpFW+tay+FZLu+teV0mCRq7c0OGZ5lwb2iQ=;
+        b=KKlcDt9kNcF4kwh3E8PlVye2Pf3RCU2ToBEzvvFCYXfe06toWamzvHv93PoKU/4SP+
+         0K0EuJ96DDcngtiTosLf36gF1HQGwI5U5rNDYFWCmDcCYR6IgUFGuVR4rzjoC5iEgr9f
+         rbIQMS70Iaox0oIl6L/rd6JJLvA6T7H/QpABMtbVxWSFxdf4Xmuq1q+j6JcxeXBhCmtF
+         cmZD57iNdDfBLX7o2r6Y6r7LaHgxKlobhaofxT5JdrCsA30zeEUnLzHkA335R6lw+uW0
+         6TGYTopqjkQPiQwXkGXTrkoOUFLnSAZHuEVVq4wwFv70n1YHoTiPc1S41rO+b6gH8ch5
+         fUGQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=EcFEc1qi;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=htslqKoG;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t1si967217pgj.4.2021.07.03.17.23.11
+        by gmr-mx.google.com with ESMTPS id t8si654528qkp.6.2021.07.03.17.47.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 03 Jul 2021 17:23:11 -0700 (PDT)
+        Sat, 03 Jul 2021 17:47:25 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9BA19613C7;
-	Sun,  4 Jul 2021 00:23:10 +0000 (UTC)
-Date: Sat, 3 Jul 2021 17:23:08 -0700
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D4AF5615A0;
+	Sun,  4 Jul 2021 00:47:23 +0000 (UTC)
+Date: Sat, 3 Jul 2021 17:47:21 -0700
 From: Nathan Chancellor <nathan@kernel.org>
-To: Maciej Falkowski <maciej.falkowski9@gmail.com>
-Cc: natechancellor@gmail.com, ndesaulniers@google.com, masahiroy@kernel.org,
-	michal.lkml@markovi.net, nhuck@google.com,
-	clang-built-linux@googlegroups.com, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clang-tools: Print information when clang-tidy tool is
- missing
-Message-ID: <YOD/bPIizKRSkB8w@Ryzen-9-3900X.localdomain>
-References: <20210702235120.7023-1-maciej.falkowski9@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Arnd Bergmann <arnd@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Fangrui Song <maskray@google.com>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] arm64: drop CROSS_COMPILE for LLVM=1 LLVM_IAS=1
+Message-ID: <YOEFGcTJC6AWFgs1@Ryzen-9-3900X.localdomain>
+References: <20210701235505.1792711-1-ndesaulniers@google.com>
+ <CAK8P3a1EfBNxaMbsp+s2BiYHGKPK4NeRR+ugM82jfY43Pq7-Uw@mail.gmail.com>
+ <CAKwvOdkgEeQktLgEN7CAh7bTjTN+TQNE27aETgvbXep9=xb1DQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210702235120.7023-1-maciej.falkowski9@gmail.com>
+In-Reply-To: <CAKwvOdkgEeQktLgEN7CAh7bTjTN+TQNE27aETgvbXep9=xb1DQ@mail.gmail.com>
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=EcFEc1qi;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=htslqKoG;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -131,66 +134,88 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Jul 03, 2021 at 01:51:20AM +0200, Maciej Falkowski wrote:
-> When clang-tidy tool is missing in the system, the FileNotFoundError
-> exception is raised in the program reporting a stack trace to the user:
+On Fri, Jul 02, 2021 at 11:29:31AM -0700, Nick Desaulniers wrote:
+> On Fri, Jul 2, 2021 at 4:59 AM Arnd Bergmann <arnd@kernel.org> wrote:
+> >
+> > On Fri, Jul 2, 2021 at 1:55 AM 'Nick Desaulniers' via Clang Built
+> > Linux <clang-built-linux@googlegroups.com> wrote:
+> > >
+> > > +ifneq ($(LLVM),)
+> > > +ifneq ($(LLVM_IAS),)
+> > > +ifeq ($(CROSS_COMPILE),)
+> > > +CLANG_TARGET   :=--target=aarch64-linux
+> > > +CLANG_FLAGS    += $(CLANG_TARGET)
+> > > +KBUILD_CFLAGS  += $(CLANG_TARGET)
+> > > +KBUILD_AFLAGS  += $(CLANG_TARGET)
+> > > +endif
+> > > +endif
+> > > +endif
+> >
+> > I think only the "CLANG_TARGET   :=--target=aarch64-linux" line should
+> > go into the
+> > per-architecture Makefile. It doesn't hurt to just set that
+> > unconditionally here,
+> > and then change the CLANG_FLAGS logic in the top-level Makefile to use this
+> > in place of $(notdir $(CROSS_COMPILE:%-=%)).
 > 
-> $ ./scripts/clang-tools/run-clang-tools.py clang-tidy ./compile_commands.json
-> multiprocessing.pool.RemoteTraceback:
-> """
-> Traceback (most recent call last):
->   File "/usr/lib64/python3.8/multiprocessing/pool.py", line 125, in worker
->     result = (True, func(*args, **kwds))
->   File "/usr/lib64/python3.8/multiprocessing/pool.py", line 48, in mapstar
->     return list(map(*args))
->   File "./scripts/clang-tools/run-clang-tools.py", line 54, in run_analysis
->     p = subprocess.run(["clang-tidy", "-p", args.path, checks, entry["file"]],
->   File "/usr/lib64/python3.8/subprocess.py", line 489, in run
->     with Popen(*popenargs, **kwargs) as process:
->   File "/usr/lib64/python3.8/subprocess.py", line 854, in __init__
->     self._execute_child(args, executable, preexec_fn, close_fds,
->   File "/usr/lib64/python3.8/subprocess.py", line 1702, in _execute_child
->     raise child_exception_type(errno_num, err_msg, err_filename)
-> FileNotFoundError: [Errno 2] No such file or directory: 'clang-tidy'
-> """
+> I don't think we can do that. Based on the order the arch/ specific
+> Makefiles are included, if we don't eagerly add --target to the
+> KBUILD_{C|A}FLAGS, then cc-option, as-option, and as-instr macros
+> (defined in scripts/Makefile.compiler) checks in per arch/ Makefiles
+> may fail erroneously because --target was not set for
+> KBUILD_{C|A}FLAGS yet.
 > 
-> The patch adds more user-friendly information about missing tool by
-> checking the presence of clang-tidy using `command -v` at the beginning
-> of the script:
+> Another issue is the order of operations between the top level
+> Makefile and the per arch/ Makefiles.  The `notdir` block you
+> reference occurs earlier than the per-arch includes:
 > 
-> $ ./scripts/clang-tools/run-clang-tools.py clang-tidy ./compile_commands.json
-> Command 'clang-tidy' is missing in the system
+>  609 TENTATIVE_CLANG_FLAGS += --target=$(notdir $(CROSS_COMPILE:%-=%))
+> ...
+>  648 include $(srctree)/arch/$(SRCARCH)/Makefile
 > 
-> Signed-off-by: Maciej Falkowski <maciej.falkowski9@gmail.com>
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1342
+> We would need the opposite order to do what you describe. Reordering
+> these would effectively be a revert of
+> commit ae6b289a3789 ("kbuild: Set KBUILD_CFLAGS before incl. arch Makefile")
+> which I'm not sure we want to do.  But maybe there's another way I'm
+> not seeing yet?
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-Tested-by: Nathan Chancellor <nathan@kernel.org>
+Is there any reason we cannot just add this sort of logic to the main
+Makefile?
 
-> ---
->  scripts/clang-tools/run-clang-tools.py | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/scripts/clang-tools/run-clang-tools.py b/scripts/clang-tools/run-clang-tools.py
-> index fa7655c7cec0..d34eaf5a0ee5 100755
-> --- a/scripts/clang-tools/run-clang-tools.py
-> +++ b/scripts/clang-tools/run-clang-tools.py
-> @@ -60,6 +60,11 @@ def run_analysis(entry):
->  
->  
->  def main():
-> +    exitcode = subprocess.getstatusoutput('command -v clang-tidy')[0]
-> +    if exitcode == 1:
-> +        print("Command 'clang-tidy' is missing in the system", file=sys.stderr)
-> +        sys.exit(127)
-> +
->      args = parse_arguments()
->  
->      lock = multiprocessing.Lock()
-> -- 
-> 2.26.3
+Such as (indentation to emphasis diff):
+
+ifeq ($(CROSS_COMPILE),)
+ifneq ($(LLVM),)
+ifeq ($(LLVM_IAS),1)
+	ifeq ($(ARCH),arm64)
+		TENTATIVE_CLANG_FLAGS	+= --target=aarch64-linux
+	else ifeq ($(ARCH),s390)
+		TENTATIVE_CLANG_FLAGS	+= --target=s390x-linux
+	else ifeq ($(ARCH),x86_64)
+		TENTATIVE_CLANG_FLAGS	+= --target=x86_64-linux
+	else
+		$(error Specify CROSS_COMPILE or add '--target=' option to Makefile)
+	endif
+endif
+endif
+else
+TENTATIVE_CLANG_FLAGS	+= --target=$(notdir $(CROSS_COMPILE:%-=%))
+ifeq ($(LLVM_IAS),1)
+TENTATIVE_CLANG_FLAGS	+= -integrated-as
+else
+TENTATIVE_CLANG_FLAGS	+= -no-integrated-as
+GCC_TOOLCHAIN_DIR := $(dir $(shell which $(CROSS_COMPILE)elfedit))
+TENTATIVE_CLANG_FLAGS	+= --prefix=$(GCC_TOOLCHAIN_DIR)$(notdir $(CROSS_COMPILE))
+endif
+endif
+
+I know this looks a little cumbersome but it does help us avoid
+duplication across architecture Makefiles and ordering dependencies.
+
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YOD/bPIizKRSkB8w%40Ryzen-9-3900X.localdomain.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YOEFGcTJC6AWFgs1%40Ryzen-9-3900X.localdomain.
