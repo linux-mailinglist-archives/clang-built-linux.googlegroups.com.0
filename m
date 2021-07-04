@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBMMMQ6DQMGQEM57E7NA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBQVIQ6DQMGQEXF7YUNA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
-	by mail.lfdr.de (Postfix) with ESMTPS id A8EE23BAD68
-	for <lists+clang-built-linux@lfdr.de>; Sun,  4 Jul 2021 16:31:14 +0200 (CEST)
-Received: by mail-oo1-xc40.google.com with SMTP id e36-20020a0568200624b029024c79ea65e1sf7522923oow.11
-        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Jul 2021 07:31:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625409073; cv=pass;
+Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
+	by mail.lfdr.de (Postfix) with ESMTPS id 980C53BADAE
+	for <lists+clang-built-linux@lfdr.de>; Sun,  4 Jul 2021 17:31:16 +0200 (CEST)
+Received: by mail-pj1-x1040.google.com with SMTP id a16-20020a17090a6d90b0290172c6293174sf1333713pjk.0
+        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Jul 2021 08:31:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625412675; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vbbvoU3dGSWY+w6bzhCzoeeEjtIbygSDi6gyZSEbK67fq1N9saZthN6H5rALK0iGiq
-         1D1aU5W9kmk59DckOBHvH5tDUALE75ebL8uVSDPVHUHHxI84zjpqqJHG+3KsRLXhvlph
-         f2xii6a44L1joYg5X4KxNSM4t4cb50lMG2Hjat0pz0fLqLZqz1xiuhVUqCbApwjA0bQz
-         eWWk4pdgFbuGSuMgT/an321JuNBeY5RRxhX7AZwIlQdOT5HjKgruQFSoe3UK+QyYmtmQ
-         N4Uu8NyIy9tHrugeCTmTr7FfT6yD+SqKTddRRLSInpX8xtTocaABdxHdSN2DnJ3QCiSl
-         +GTg==
+        b=nry4yQBucetvuVXFHAEAgaOLCPVXdVhFcdGyXbr42Gyp1exH3Leb1on874Lu3EqeAm
+         7B6n9zf9F9z64IAsZFGOEyC8q1Q0cQ3d3hT2c7EU55+s6sAP0oMa2cdihpwXPMKmv3i1
+         S9eNuQky45X+qbuXheXklRogiEiM2XsQWj51QVCSGkKsoDm0qlymszu0/OfYut2FXfAp
+         Yev7eZgNwA0mNi6ZZwJnAIf15Qv3O/lX7znKGe8Xoix2PPy/jsXOM2M2UN8fVPs1YjzB
+         CtQt2+egOpvRgfkUqUqapM/w9NRrBYH0eS78nk49mnlhNXlmOWn9ZHFf2yXRNa+94Dn1
+         fSxQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=/VaLRZ4R8DrdTI+LdX/l1Z3zY1fqG3qJIYUcZcbOsTA=;
-        b=pmUiqRRe5Y8SkRORNo19/wJ8nvxbM0R2OAG/q/g3q/8wpTDke76cI91l339tb0YXTK
-         l22drJ5+4FrrKHdt6o2vk0UEtmXZkjfXcwMmwpKkGpn2TWmglVBRINSx7j7ZQYzFAXq3
-         4rQ3F5mxauAhUV65F8FYm8UpL6i5T9Ds17fnepcheWUnaSJF8hS85Z2r8KC3OD1X7iIX
-         2n/Ir+PceXnfGzl4k6BQTjLthKVKltI9LZsyp/uxYdRhGQc/yyp7StcTSzYPwvtYy7Yp
-         IUl/g6jm+0FKTVjaISfY5f5Ca1O6vuz/3aM1A9B/abM4LtA4657NPPPxyrIxHBoRlaNZ
-         Bnfw==
+        bh=BGhY9sE2PAvX7THbch+0gOiq2IjpoFVukrlOVJjNSrM=;
+        b=ln0mn2QFBzlPVIw/Aap8H/7QM+qQvZuR6Lb0q6GmRvasNbkIKE8tI+1du2z0Adh3ci
+         t5BIz0fPrA7GY8qdl162Wt5sUVYLek1X0pYJf5AqW71AwUkVby1ScHqlMbmzcecIMwP4
+         qqLCyPgo0rmI50Zbws1R8rZ7ocsWYJBC3pc+G8xBPfeWnJvZMD1bXNtla8wG7OSQLlkM
+         AAv0kcpG3npst7BM4yarb6GzFU7v8xEmTFT6MGBCUpVpUUSiFjEsSxFclIxjZkDHBe0V
+         Zc3yfPiWfUf2dpaEB7SJ1Z0WW5W2I+UiZJ/nZ4dSM+VXN0obQeQotsehsp9D9iX20vat
+         ayqg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/VaLRZ4R8DrdTI+LdX/l1Z3zY1fqG3qJIYUcZcbOsTA=;
-        b=MmyeY8l4egPBoI8wWTb2KOBV1bNWd8LtBNf6wuoFd6kX9xnEclwZP6HLZ1Q1Autn5h
-         BxkQWuPyjeU8OzDZaNF8eD4k6rwRdIYHeFmyUcIlS9iQ5CXdiDP8habvvHtQq8Cui/Y6
-         XsZvjbVR/gbGnVcYhC03VCNtsvItQUe9DqINsTOTNHKiwWjPjvNs7Y2OQZKqc12ssL8+
-         IMsTWotRmPUzH5aA2h19HMGmELJxfyRDW4T/6Ias0ZAX5JzT/oL+kVopppktT7ycu3RX
-         byS8lzATFMsgep7PvJJ0zF4CfMVLhedmhK71a64lZe7Ujn3TxJ87m8Yz+1JVKa5WzZrB
-         MrWQ==
+        bh=BGhY9sE2PAvX7THbch+0gOiq2IjpoFVukrlOVJjNSrM=;
+        b=QwGWmey8rK+7Rsc3fu4e5GjwhSz76nflNrjjQOgEyAROAPPoZcvAmiA/dbI7Or5jA+
+         jF3cB3UJIWqcyEMaCdPcGmtbgOmAb8Lda7qgBqVWVeOz9Oi5teFacPKy1/z8ZrqlAAJ7
+         jJh7AF4JRbozQHKexotcqciVVPecbSScEkWgxYJP/2GDu/U+UH9nI7bj+JAswDYa/qLB
+         FuilN1RenQwZMc9G9HmHJbNbzX1Bzneab/v1h35LK9VZ0A5VBhIOD1flcOk/Wyuar0X8
+         NUIcYkLIBOhadwKiOqxHTNoNduyt7mmx6b8yh8EW+9ent7rqL+QZvWyHdpTL62AZa/kX
+         PwQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/VaLRZ4R8DrdTI+LdX/l1Z3zY1fqG3qJIYUcZcbOsTA=;
-        b=T+dmuyifoQsP3+K8abFUr0u2KsCaPdYG3GC3xGztA2Gf3UV1KeJ+OvrD3t6S7cwoSb
-         f/pEvHYWVSY52VuaixO5eUXDiqrpacunS/pc262oh3yXPCUZTFiujUTL0AlJBe34dROv
-         228mlqi9CObgB4eAEFBf6RiIpVCYlTg/2+3YQYciHjyXT+y2qsx1wShq0fhhnTNpLLJT
-         IEcV/WRumDc75KnYVjeeaYcBI+8u1SH8NmzlOUHX9zdXG/pYHgUc76Hdv0SiCDdmN2BR
-         Bkrt4oqLQJSrYSD5ZZ1EgMAQ++KcLpIEgx80rg/BbSd//e41DGaxmYmgFSx4uqsoFGg1
-         Em/g==
+        bh=BGhY9sE2PAvX7THbch+0gOiq2IjpoFVukrlOVJjNSrM=;
+        b=f0gOvNMWcB8PjweNLUthV2BKnPGDI7aus1Fu5xa5Uev3RLR/ZshOYJHvdrr9/Eqfdj
+         UvuBsIHn2rbikC0RWaop7eAaIbFPO2T1QoA99nhj732oPLX0SnSPz3Odo+QinmlMzWEO
+         xXi3UR6KGvHoU5eERbVpcGK6jTJjxF4zAWkqhgKrH7le5EI8k0/EFdFcDzsw6Gh59atc
+         4n9m59nixU/w1Nn2yJbOWujTFwXuvvBGWSkKle98g0XvJno/yjENRU2dgPwIARqYevRJ
+         d8otGsKXwh/sdMixYKF85SZFEanfr03KxQS+Q8CU02vS9SRGmmGQplirir2nQHnpgBJs
+         p+OA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532vWindsu7/XVbIX9fazd7UNwxOq+d0GgrIqkIMbD4KUodwypMb
-	KMa5AbRvwVIbBHRK9qIRehQ=
-X-Google-Smtp-Source: ABdhPJyV4ZUanmUnNXjeZvpA0wmZLDtZEHVyFVl3gnU5jHmv6s0ju/kltzWsZQOI2FpFwfQdzQLSbQ==
-X-Received: by 2002:a4a:e401:: with SMTP id t1mr7106112oov.63.1625409073353;
-        Sun, 04 Jul 2021 07:31:13 -0700 (PDT)
+X-Gm-Message-State: AOAM5302eJQycYQa0/+xjW1ZKbgXK/Ap9MCwmmqZl69WLvK7S8XNo0EQ
+	QllbjvdKZLCIfXauSQ8gZCA=
+X-Google-Smtp-Source: ABdhPJxwTVZv+DoEMk301G+Rle2ZZDyBZB6q2w11OQL4YcPaKbfrnbPrQK3S2FiYn7mjvmHdd7GcvA==
+X-Received: by 2002:aa7:8254:0:b029:2ed:b41:fefc with SMTP id e20-20020aa782540000b02902ed0b41fefcmr10529280pfn.42.1625412674786;
+        Sun, 04 Jul 2021 08:31:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:5a83:: with SMTP id o125ls5925861oib.7.gmail; Sun, 04
- Jul 2021 07:31:13 -0700 (PDT)
-X-Received: by 2002:aca:bdc4:: with SMTP id n187mr7042997oif.169.1625409072761;
-        Sun, 04 Jul 2021 07:31:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1625409072; cv=none;
+Received: by 2002:a17:903:18d:: with SMTP id z13ls7680365plg.11.gmail; Sun, 04
+ Jul 2021 08:31:14 -0700 (PDT)
+X-Received: by 2002:a17:90a:a798:: with SMTP id f24mr10383434pjq.8.1625412673914;
+        Sun, 04 Jul 2021 08:31:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625412673; cv=none;
         d=google.com; s=arc-20160816;
-        b=Q22NLXPUAHxyCnyis3OieUCqhoLIA/bY5OrLlCn8f1aK8ZZJ2tHQ3e8fDWw1RI6HPV
-         bcMDrmGRrEzQVguYB4MiVriqW4EK6+Oxz6Si+XB0tvoVsAh+Jg4aCHODilaKWna1cfrJ
-         xt+9bessOcd4AcXU9g0r7+AdDO+b0ipYaOzpQcbnzYX1fOgcsOLimhj2KWTai4FpkpTK
-         otpiIUcoinT8RXiTipgr5kPSq95hqXAQbYfQBsUeSNYr9RaD984vGYYaVdLY1flSFX9I
-         jqBfglASTbQdzEloyzjz8prKoPIMCjhs6g30jCn6+KMZ8EOskU8r9xx46E+qrpXqsxt6
-         eCMw==
+        b=pm+gBQBJIqv7DHGMyHbEjwQqOcuhmB0fnFj4483uAs8PwqYJ4eY9Fqtw+pDgIMJa6v
+         bwapGMnaEJhP+ukeiEMRfiDdp3t8F2vJowdCfOsZt5X/9NqzLDsSJ1cG77ykBEJ8XxQv
+         pExesUy4AWlDcetwRohx7WNOrSbjFzVoDCsS+YGDb8j9VqI0+8I6fncGb4frsh0wxI7P
+         qI2umyWIQnQjS5FUU5nTtBcPq9lGZtWpPXTf1ud+oGlFEDsGYH8fxa4+TxSBqMjETtpi
+         H9ukEO34B7Uczt+tIqXzGWx4VzS0Ejwjefx1a2dqHI5QIBhYN7h10zkOvFL7kj/rQaiq
+         3q9A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=UMT30zq92kxvZGGFB0w9tKebJzhzqG59JB/UOL87eJA=;
-        b=wQDDdRMHeHf25KQZnKoDj8U2SUqDpjY1uyIf7CBY3Wh/DRmQM1IfUzJjeEr1KdYG8r
-         e87ICBU+lCvhxlXoJvFxnNgkuGhDUoUxk53hszQxq1kwPlu6KIFwLcko5GRbXob42ZwC
-         nOSqgaqVuZfLoD5Iv0xahzkthfpArYrZo1fq1YJi4eiHzZq8D1jyLVdOYA71mM50yX9D
-         M6OhlfcG88DYyMN6NrDozxwaLRtexJhfY8Sou4jTZqloH8PLfPtW2QFxpAlv1fThubrm
-         XCm2OFdmjCz93C92HV0/TfgNT8Sd8X2OkYGoVxCez40AWIoMeKf0Z4whYt3b48H0BihR
-         elfg==
+        bh=oqtigWW2AdEJtBGT3GDLKJgGhWPpPCd2yxNcRMjvVSY=;
+        b=uInlpdFMz7CwKepC1MiPYm4jF2J6Vz7KzX8Pvi2D9TVXRFS354MeR9LB0ti/+A+Szt
+         3rc61dQf3GeeYl+BF/yoJqJXwiGqMnw5TGFgI9SOkOb7HCLePul5VYrOV8hOBN0FFuZd
+         mFF2QnVD5nJcJdm0Dcl42NzwisiSGMRLqG4s83VGPLq5zRFw/pgkYj4/ahDOJaIoV9mk
+         j1aP2QbPg+MsebHEChcWq1WM2JjH9FC3vXeFkg5oLn6KNh1xanWiVNGK+LvFFwRtt3kY
+         MuYFsuMQhPX7hwSBXe+zjAjNe3BnMf1peBAJnOPRPFCiaq4UgGdD8QiwVrFmUqYzyxwA
+         6kEQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id v22si759122otp.0.2021.07.04.07.31.12
+Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
+        by gmr-mx.google.com with ESMTPS id q7si1158580pgf.3.2021.07.04.08.31.13
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 04 Jul 2021 07:31:12 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
-X-IronPort-AV: E=McAfee;i="6200,9189,10035"; a="230590449"
-X-IronPort-AV: E=Sophos;i="5.83,323,1616482800"; 
-   d="gz'50?scan'50,208,50";a="230590449"
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2021 07:31:10 -0700
+        Sun, 04 Jul 2021 08:31:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+X-IronPort-AV: E=McAfee;i="6200,9189,10035"; a="196049551"
+X-IronPort-AV: E=Sophos;i="5.83,324,1616482800"; 
+   d="gz'50?scan'50,208,50";a="196049551"
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Jul 2021 08:31:12 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.83,323,1616482800"; 
-   d="gz'50?scan'50,208,50";a="422150814"
+X-IronPort-AV: E=Sophos;i="5.83,324,1616482800"; 
+   d="gz'50?scan'50,208,50";a="643847600"
 Received: from lkp-server01.sh.intel.com (HELO 4aae0cb4f5b5) ([10.239.97.150])
-  by fmsmga007.fm.intel.com with ESMTP; 04 Jul 2021 07:31:07 -0700
+  by fmsmga006.fm.intel.com with ESMTP; 04 Jul 2021 08:31:08 -0700
 Received: from kbuild by 4aae0cb4f5b5 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1m039G-000C44-Q4; Sun, 04 Jul 2021 14:31:06 +0000
-Date: Sun, 4 Jul 2021 22:30:57 +0800
+	id 1m045L-000C5X-Px; Sun, 04 Jul 2021 15:31:07 +0000
+Date: Sun, 4 Jul 2021 23:30:41 +0800
 From: kernel test robot <lkp@intel.com>
 To: Yuri Nudelman <ynudelman@habana.ai>
 Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
-	linux-kernel@vger.kernel.org, Oded Gabbay <ogabbay@kernel.org>,
-	linux-doc@vger.kernel.org
-Subject: [ogabbay:next 11/13] drivers/misc/habanalabs/common/state_dump.c:12:
- warning: This comment starts with '/**', but isn't a kernel-doc comment.
- Refer Documentation/doc-guide/kernel-doc.rst
-Message-ID: <202107042254.KTsmA7Ww-lkp@intel.com>
+	linux-kernel@vger.kernel.org, Oded Gabbay <ogabbay@kernel.org>
+Subject: [ogabbay:next 12/13]
+ drivers/misc/habanalabs/common/state_dump.c:495: warning: expecting
+ prototype for hl_state_dump_print_monitors_single_block(). Prototype was for
+ hl_state_dump_free_monitors() instead
+Message-ID: <202107042333.eAsH7M1h-lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="0F1p//8PRICkK4MW"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -145,7 +145,7 @@ Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/ogabbay/linux.git next
 head:   e07c3e2148e472868aa22cffb5e4b0b2c7b73be8
-commit: 41a0f1e2bd12cb274dec431c9904612c61bdf21f [11/13] habanalabs: expose state dump
+commit: 01afa09c63748e54b25449a1173c5098290f97fc [12/13] habanalabs: state dump monitors and fences infrastructure
 config: x86_64-randconfig-a006-20210704 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 89c1c64cc3170a05a881bb9954feafc3edca6704)
 reproduce (this is a W=1 build):
@@ -153,70 +153,37 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/ogabbay/linux.git/commit/?id=41a0f1e2bd12cb274dec431c9904612c61bdf21f
+        # https://git.kernel.org/pub/scm/linux/kernel/git/ogabbay/linux.git/commit/?id=01afa09c63748e54b25449a1173c5098290f97fc
         git remote add ogabbay https://git.kernel.org/pub/scm/linux/kernel/git/ogabbay/linux.git
         git fetch --no-tags ogabbay next
-        git checkout 41a0f1e2bd12cb274dec431c9904612c61bdf21f
+        git checkout 01afa09c63748e54b25449a1173c5098290f97fc
         # save the attached .config to linux build tree
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
+        mkdir build_dir
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross O=build_dir ARCH=x86_64 SHELL=/bin/bash drivers/misc/
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> drivers/misc/habanalabs/common/state_dump.c:12: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
+   drivers/misc/habanalabs/common/state_dump.c:13: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
     * A helper function, format an integer as binary using supplied scratch buffer,
+>> drivers/misc/habanalabs/common/state_dump.c:495: warning: expecting prototype for hl_state_dump_print_monitors_single_block(). Prototype was for hl_state_dump_free_monitors() instead
 
 
-vim +12 drivers/misc/habanalabs/common/state_dump.c
+vim +495 drivers/misc/habanalabs/common/state_dump.c
 
-    10	
-    11	/**
-  > 12	 * A helper function, format an integer as binary using supplied scratch buffer,
-    13	 * return the pointer to the buffer.
-    14	 * @buf: the buffer to use
-    15	 * @buf_len: buffer capacity
-    16	 * @n: number to format
-    17	 *
-    18	 * Returns pointer to buf
-    19	 */
-    20	char *hl_format_as_binary(char *buf, size_t buf_len, u32 n)
-    21	{
-    22		int i;
-    23		u32 bit;
-    24		bool leading0 = true;
-    25		char *wrptr = buf;
-    26	
-    27		if (buf_len > 0 && buf_len < 3) {
-    28			*wrptr = '\0';
-    29			return buf;
-    30		}
-    31	
-    32		wrptr[0] = '0';
-    33		wrptr[1] = 'b';
-    34		wrptr += 2;
-    35		/* Remove 3 characters from length for '0b' and '\0' termination */
-    36		buf_len -= 3;
-    37	
-    38		for (i = 0; i < sizeof(n) * BITS_PER_BYTE && buf_len; ++i, n <<= 1) {
-    39			/* Writing bit calculation in one line would cause a false
-    40			 * positive static code analysis error, so splitting.
-    41			 */
-    42			bit = n & (1 << (sizeof(n) * BITS_PER_BYTE - 1));
-    43			bit = !!bit;
-    44			leading0 &= !bit;
-    45			if (!leading0) {
-    46				*wrptr = '0' + bit;
-    47				++wrptr;
-    48			}
-    49		}
-    50	
-    51		*wrptr = '\0';
-    52	
-    53		return buf;
-    54	}
-    55	
+   488	
+   489	/**
+   490	 * hl_state_dump_print_monitors_single_block - print active monitors
+   491	 * @monitors: monitors array created with
+   492	 *            hl_state_dump_alloc_read_sm_block_monitors
+   493	 */
+   494	static void hl_state_dump_free_monitors(struct hl_mon_state_dump *monitors)
+ > 495	{
+   496		vfree(monitors);
+   497	}
+   498	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -225,14 +192,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107042254.KTsmA7Ww-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107042333.eAsH7M1h-lkp%40intel.com.
 
 --0F1p//8PRICkK4MW
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICKq84WAAAy5jb25maWcAjDzLdtw2svt8RR9nk1kk1suKcu/RAk2C3UiTBA2Q/dCGpy23
+H4sICL7K4WAAAy5jb25maWcAjDzLdtw2svt8RR9nk1kk1suKcu/RAk2C3UiTBA2Q/dCGpy23
 Pbqjh6clZeK/v1UASBZAUB4vbHdV4V1vFPjzTz/P2OvL08P+5e52f3//ffb18Hg47l8On2df
 7u4P/ztL5ayU9Yynov4NiPO7x9e/3/99ddleXsw+/HZ6/tvJr8fby9nqcHw83M+Sp8cvd19f
 oYO7p8effv4pkWUmFm2StGuutJBlW/Ntff3u9n7/+HX21+H4DHQz7OW3k9kvX+9e/uf9e/j7
