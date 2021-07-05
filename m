@@ -1,196 +1,133 @@
-Return-Path: <clang-built-linux+bncBCN77QHK3UIBBB63RSDQMGQEF5P2HUY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBCPCRSDQMGQEQH6NENI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103f.google.com (mail-pj1-x103f.google.com [IPv6:2607:f8b0:4864:20::103f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6F6F13BC150
-	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Jul 2021 18:04:25 +0200 (CEST)
-Received: by mail-pj1-x103f.google.com with SMTP id t5-20020a17090a4485b029016f7fcb8a3dsf203031pjg.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 05 Jul 2021 09:04:25 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1625501064; cv=pass;
+Received: from mail-qk1-x73f.google.com (mail-qk1-x73f.google.com [IPv6:2607:f8b0:4864:20::73f])
+	by mail.lfdr.de (Postfix) with ESMTPS id BCF243BC18F
+	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Jul 2021 18:19:22 +0200 (CEST)
+Received: by mail-qk1-x73f.google.com with SMTP id e9-20020a05620a12c9b02903b429a77b4csf13823771qkl.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 05 Jul 2021 09:19:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625501962; cv=pass;
         d=google.com; s=arc-20160816;
-        b=c2uW6uujsLgLNO1PyqqiRbGZYlqLo+FmHCDUB4VaWEpWcGJJ98PG5d9sVfKf91heAw
-         CICtjO57wxmlRg7OjfRy/QPhlFmOqnywN3e5w35B2tbT4/VQ/Wvz3cN09c7rPglDFG7i
-         4i8lkAHmO6p+l9A8YCzX7mbF5rZ61DUHWtOSBOpXDd4juIA9eFrT4PxGwnG315DBxwo/
-         DCNNA4gmOt9du8HR/1RK/wu9XOXHW3Ebz263StcoVSg5laQ5Cwiiu1SbHy+G2Pad2NT0
-         hRlmbXex8ch9hNceOX4O8QYt/mi0WxNnlEiSQa4yR0RtJs2ExLWj6TaW2+q5KpsT2YNV
-         AEuw==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=bNZRU8ACqBD5zHZlKJRmNPuYuIodwI22gciRu/dFOqIJk0QvHxVfe+DIY8gOMvgXub
+         nU9DH0G6esAgQGk0FF00V6CmQ+fcBUBRN8yXi1+XS7uJgzsc4P499w5aKTp/GxSmwCEA
+         u2Cp1vSGxPKFiCfP45VzR7m02aO1Glso0iQ4n+Fl4sgCm7l4nDXgIpW1oWu6JomYlwQy
+         q+9ee3E1ltTEJA2JtpbDOsg2j7RYfNA3xc2bhDZrxAcsNsKd7bdcfpc+Mcf8Fq1DSjif
+         pcrdv5yHAfxzP3jgH0vZeMfnrHu97ThgZgI1J5LmxHNZh3sGxzIYvHW8FT6Qg1X9HHpp
+         86jA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:in-reply-to
-         :content-disposition:references:message-id:subject:cc:to:from:date
-         :sender:dkim-signature;
-        bh=Q+8/++WIOR0reUUmu+1US4lvpYr00y9uKQ76wMe0gLs=;
-        b=lgpiDr/sjoRF+vV4RESuwOFkvM1l4Ix9KaLE8pGzPaYcYZ+o17E6TNRpfM3NoGx4JN
-         4iX4RI4yxdNDnfFqnNgeVjJum+PO/Xuh5tZgK6YcrBDUZgnz8N9FNCmwmIZCTaqZctj+
-         2SWwLON5/Slx5+JKQ5iacp+iBnDgAmtP8PPB6Dco+ZzGKP047J957PZW04Q/lOZYFpAb
-         a4Tz1fTptrNDoh4PF0OrpmiQLVB9VyHUlmNdWfWoZ/NSc3N6SivluMnubmhkBsq3yQmS
-         UOXvJrZB/Q+/c/Jc802dhSwxa3/7b5g2xHblNGF+Cbty1byiAc4468DRow5R0+83uq21
-         NThw==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=GJexAfqo;
-       arc=pass (i=1 spf=pass spfdomain=nvidia.com dkim=pass dkdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
-       spf=pass (google.com: domain of jgg@nvidia.com designates 40.107.101.73 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=ORqmXFKMk+6LXeFgP8pd/xvQjlAvQeOZqq2GfXGYC6I=;
+        b=TqUpC67kOKrRS1h0WnQ5d1lGa0wOnRdTgNt5NhjZ8wlNNG1jMq6uswpy3AgMoFS2cl
+         rMN025cEGunNH0Dq+BS9PkEXm8ZpVTirJDLtMmrf+0l8Do9Q0WZMXty/3He13oLbWQzZ
+         L9mnrXqd06GIlqHb6reosxPTOkFVxST1TdEwfxI3Nz5khKOzPO48TyYWu//Zsx5TKFWM
+         rD/Qwr6p4x9SQHBPseZAxaJAbUxTEVgA0zv6wqebb2M2Ww9aejtVaZuHeAjglCHTkRuM
+         2/nU56k7dQTDgaYfFHJRrN3odgJkgZYrBWAZ5juGYRYsQgrBfd9nEUGs7ehUsh92Med2
+         oY3g==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Df392UW3;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references
-         :content-disposition:in-reply-to:mime-version:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Q+8/++WIOR0reUUmu+1US4lvpYr00y9uKQ76wMe0gLs=;
-        b=RVkABtwRWr3rjnUs2L2ennFE5qhwPnlp4s71GGRByVz8qmQs9YuhrK70ZFRP6bcEIT
-         bgJcwhCb+zaWUKSR/lnlSRdNuo9DYDmLGWX6A/qsE/r8bM1L1QyqUv7YTfA++M8BAOTv
-         JyH+fKqN7cpouWv/iipWwGIMrVy43ioUeUM+LQn72UNLpxXDWItWdL6oyXYUEIIT9X0e
-         E17JH5j4XlQRvYzICB3got/4BinqSn9DP6GjaAzN3tz6xh5vU8W5ecgL4c/351Un9Yic
-         otwEWtBGRg1HgjjiuIUA45tJj0w5UpeXyVa3mczSEI37pOTVz5KwYMYojzx1qr80SXlw
-         yAfg==
+        bh=ORqmXFKMk+6LXeFgP8pd/xvQjlAvQeOZqq2GfXGYC6I=;
+        b=hN9/ZL4dgwgo+qInaJnrifoHUPOsUSenRqQx6p2ghbdPMDt/oBC2QpJt2vgbjxrnzR
+         /asfsd1yc2CdUoJLNul09DAZcsHBieFf1f9fECOQ0MGBJv6teILKIfDnQunqSb3s/GbR
+         M8LKeURj5xbT9MJ+p0muJGXOmFmTLnK4vAl97BHJHo+Ze1CmwfGbTCQD1uOAfrd92vq4
+         56nTBNZR7kTbfiOrsTtCOGS4Ym36Ci0gaKL5u6eIDdVHehIEIUFzC1QkSD7Q/1d2GUdf
+         tXx+ZcqOVM9vFNWNKi0PAWLbjU5nyz+u0YrOeRaZnH5z589FgRrHF1jGxvP4NYLePOvf
+         HZcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:content-disposition:in-reply-to:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=Q+8/++WIOR0reUUmu+1US4lvpYr00y9uKQ76wMe0gLs=;
-        b=fKAg5YmQRhjNByjjWsEUW3GQIM+3k8PXNvYlg+se8pX/LQFNjxoLx4mlGh9US+gewS
-         o1xL2squE8HMCYI13pdrCq4Iau7tOEM0UCutPIC+Roi+uCZM5an0yFzuc6KHqCyNQ79j
-         DdKGdgg+QdpcpuydJN7yvSInQZ4XYGrt0SUd1CNAyXvZoRAFnJ60NzoTUCRSknaFR/6m
-         P0GMubjjwP7y1o0PIiTJEkNSlJ30jqKbSdyjix+Ol0e4ujdKQPIFFGE9NU70GkjubQzL
-         tKFWP2eLNl6v6EfCAxYftgyxC8fNpFLpDkSS2cwAAnJWnjZNNgjfUkZvRyEx35x/eOXC
-         1T8A==
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ORqmXFKMk+6LXeFgP8pd/xvQjlAvQeOZqq2GfXGYC6I=;
+        b=lY7sGuBriXvRA+dcCcMJYBwRSm/oSIz/z+Rh0UMRg8T+Y1z1qQfpfIZ2buZnLWlMda
+         TuUeCwnckoLj3FevWspSyppE0+G09peweeg1JZa7nPs62LH7oOlP/ffyF7ckBcTzBB2p
+         R/rlx2i0frL3uE0qn1lhwwf+tqZpV2enYHef/PmUDgKP/eqEmsyo43QO4k+r5uiNzRF3
+         N8DWFqbMw2tu/LFCw0L35EC27UD3OkDiridePC7DH9SZSbsKlVO2Ll/mOVY9pMRIQOl9
+         JDtbx6k53A04HNPtwKmWKtxfb/nL7SuCx5CRM7J2v1id7mIzAAS2RqpP91KALySG+Cpp
+         WllA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532upXJ7uRc6vx9A3+GnK/LkZMoW7wx2yYZMcN2l8hS9KuDFPiec
-	GrKVkOXqLMwb8jnj/MXjFzE=
-X-Google-Smtp-Source: ABdhPJydprgtD/9MqzD17R8Ifke3c6F6YXjLeQcLvAiT21WSSjsgWLXtoeRqftATlHn3xy036bRzBQ==
-X-Received: by 2002:a17:90a:974c:: with SMTP id i12mr16482903pjw.158.1625501064125;
-        Mon, 05 Jul 2021 09:04:24 -0700 (PDT)
+X-Gm-Message-State: AOAM532EZTT6Tkx+Gi5wBokwTL9hXiIbd9xLiAeCatZ7etY02fSkee/N
+	WhTwJfdSdjYeggyJYk7hpQ0=
+X-Google-Smtp-Source: ABdhPJzbsUtVpw+VwWxW0t8Ks2IAtp0xQWJVcZqlB/GVd1hVIMZ5/uXJ1iVlhs8BVOtGmw/9zjCokg==
+X-Received: by 2002:a05:620a:15a6:: with SMTP id f6mr15436983qkk.472.1625501961840;
+        Mon, 05 Jul 2021 09:19:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:e802:: with SMTP id u2ls9389831plg.9.gmail; Mon, 05
- Jul 2021 09:04:23 -0700 (PDT)
-X-Received: by 2002:a17:90a:fa93:: with SMTP id cu19mr15974161pjb.220.1625501063480;
-        Mon, 05 Jul 2021 09:04:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625501063; cv=pass;
+Received: by 2002:a05:620a:1648:: with SMTP id c8ls11302066qko.1.gmail; Mon,
+ 05 Jul 2021 09:19:21 -0700 (PDT)
+X-Received: by 2002:a37:7844:: with SMTP id t65mr14843423qkc.429.1625501961418;
+        Mon, 05 Jul 2021 09:19:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625501961; cv=none;
         d=google.com; s=arc-20160816;
-        b=Gm3a1VIM5spGTUJOTF6NkIVuSqiWbPBy/YEAIUlIhq0DrVrkPOAMgmeYDddzRShJFg
-         3aSZiYh1YjZW9xw/hzVijekasJy0MpPgxg/VjuvkimGGqBCMDylVyd5OI5Ly3Mc/3GZs
-         8OnaPLoQPZYWbbZ4UWYXWUO08wmRz+NPLIYyb7iiTZH3JCmkYtjXTd9QVsBhSdskNBaq
-         5u2Tsl5WPfTFgg63RPi0uQIgVMEuQFaoVUYYSxg70JGkL2Rd2uNosWmQLC2xMQPIMBpR
-         /Gc+K5ZPyEQKslm4959GHo7EJ9nsTsrKs7uh4rUXmBbnD9eZ+AXhwdHnHOk2lCRft/ZI
-         iTxw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:in-reply-to:content-disposition:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=eum/geYwECBhocPfwhd/KefEF0/Nc0iwwnZJsWJg6LQ=;
-        b=tL6iZOeb2+pbhFrxm8mJE/4nRsC1A0eao8DVJcTJ3+w/ZCL2BBduiXidOFp81g1z3p
-         +kDm5YMa6m/ROq2pPIagoMGLXBupABrr532BDOO2uE27/6aMHC2LWT+sxZ8o0GD4iZwB
-         gf8PrG0L4vF46vV13NO5k8ApYFOKjiXhb45TSJxOxw48J45RlHurB++O8U7Lyj8jaQ+V
-         pkk+OZcnrLhZJxw8bdsd+UbTIO4MVUEW0UcUOnD3mybqk3Bwv5ji7UltftQuCFpJp6/t
-         HB7fIlmW0YVzqfn7DE1JdN7rWPTrbz5KnwNUYARci6U9bJW6ZwlTjotrSTNmKfj5OA1+
-         +Plw==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=GJexAfqo;
-       arc=pass (i=1 spf=pass spfdomain=nvidia.com dkim=pass dkdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
-       spf=pass (google.com: domain of jgg@nvidia.com designates 40.107.101.73 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
-Received: from NAM04-MW2-obe.outbound.protection.outlook.com (mail-mw2nam08on2073.outbound.protection.outlook.com. [40.107.101.73])
-        by gmr-mx.google.com with ESMTPS id t1si1628200pgj.4.2021.07.05.09.04.23
+        b=SnE3nz+mgSyVX/4ZcGWQLFtf7y8FIWtCbZWY4JYpsI032Wdmn5XzrY2H7wfKwkg4cF
+         LK2Jkp+fQcFQ+C2xyI811/F1dCXCMS8rK6pGNAXsQ5Ahx94e4zIv03uiGNfI5/Yn1kDW
+         Bw56cOdFcOHt2wcke5rHCz8BXP5PEDZZyjjFRWlkfnfLpdNUuyMS2Pk6imP4RQckr8kd
+         ur0o2XsOCbjsm+Jhp9hwCZHheGN0Ls+Yyb7FU5LQhVpI0JjS37pMSU1XgUGRZuvJwEqF
+         BiZ952ynTrkcauHR+SvaOAP3nhHd4+imSj1ugSh3fcaVACQ8SgSHGmtq/qju/Yl41fnI
+         r1ig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=TviIxBe6uXwBdYLpXXiJTmijOR9PL90jTmqGpS0b2vc=;
+        b=aIpBVS2TH01uUUpdMnRSa0TGG/fpJuCmyD22YI5IHJk887aodZILagwQ91SQ0oaZg9
+         TNuhZBoKbAhcSprZR/4mYCui4ocaK01KLRx9sQ90d+Eni1aFH+AKrPckuI0xSSSaa8dz
+         LRkRtwkSoYsecs9ppuW/IocHmq4VcnJnYIMyA7uRJ8skkSs9T3aUt03epZH2ps9otrQA
+         2JCfOh5xKBqHjDL7FOLW/QdX8ofAYX9f3SevZTV/hfkDgyPXKOLngwDbDAQHxj5Fey9/
+         90luvrD4a3sspZ0DURIiQ9660RZOh+3eKWToIaDPaVVp0NNH18gtxildoYUVCxCSK5w5
+         R5qQ==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Df392UW3;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-06.nifty.com (conssluserg-06.nifty.com. [210.131.2.91])
+        by gmr-mx.google.com with ESMTPS id p18si150042qtk.1.2021.07.05.09.19.20
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 05 Jul 2021 09:04:23 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jgg@nvidia.com designates 40.107.101.73 as permitted sender) client-ip=40.107.101.73;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Jt3e7b2/02BIVaMKOEay96UA9hGOffU/1QvI0faG67tD4YH5OZS1+qX+vTd4TC0Da6SjEZYBRrfoqfoU7hOZc1erCvQPDLG3lmFaHlwmwX6pWk2YtTgsV/f43jx2SMsB61dywU917BJLhERk6ecylF9Zey8TNrMMbkC4afEuIOlPB2TF1BN5DS5iLeZARD7fA3UTwsFnHA5ZhcwBTSxzPzs2VfrnsjKQFnxom24j5q09Fe6fZMWQVJ5S4rcIq0MQNLcfBdRABpXGyl3pByhLZZU3OHZorAHg69bB5VxzWxnEd7RW9kCdBT+P/ME2D2J5NF1ISIGRAQQoS7mS06oo3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eum/geYwECBhocPfwhd/KefEF0/Nc0iwwnZJsWJg6LQ=;
- b=Q03HZRoaMZb3h+GvsqBV6/HqXBTTQ7IsejtccVM5+jLRSXcLGL2YVFkR9p6jb3RDhHcfZ5IBG0ggvAD2DUy5ITXgYQUbkUB+qmEM5VfvwmS4mOJyjXDwudL8mRR1PwZZSRYUyEdI/u2A9cswqMtiY4oGCivmTX9a9iwBS2AJ+zMJKzPrKQYBSbxpajysVSobHQ74ezS+sEfgbQaao4m44HORiAI86+fuJAv9VSpX2qVlp7lMVJUzVrQX2vOW8axY1y05/vpYnluZpE7y0qJvlhaqDX7fU9XMF4yqSm7l99yH6oPkt9BI+WKxqLmYetVlt2Qe72R9x2vUx9DWwkwVaw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-Received: from BL0PR12MB5506.namprd12.prod.outlook.com (2603:10b6:208:1cb::22)
- by BL0PR12MB5524.namprd12.prod.outlook.com (2603:10b6:208:1cd::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4287.23; Mon, 5 Jul
- 2021 16:04:22 +0000
-Received: from BL0PR12MB5506.namprd12.prod.outlook.com
- ([fe80::d017:af2f:7049:5482]) by BL0PR12MB5506.namprd12.prod.outlook.com
- ([fe80::d017:af2f:7049:5482%4]) with mapi id 15.20.4287.033; Mon, 5 Jul 2021
- 16:04:22 +0000
-Date: Mon, 5 Jul 2021 13:04:21 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: kernel test robot <lkp@intel.com>,
-	Tatyana Nikolova <tatyana.e.nikolova@intel.com>,
-	Mustafa Ismail <mustafa.ismail@intel.com>
-Cc: Shiraz Saleem <shiraz.saleem@intel.com>,
-	clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: drivers/infiniband/hw/irdma/uk.c:934:6: warning: variable
- 'total_size' set but not used
-Message-ID: <20210705160421.GS4459@nvidia.com>
-References: <202107020917.rzVg3a4q-lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202107020917.rzVg3a4q-lkp@intel.com>
-X-Originating-IP: [47.55.113.94]
-X-ClientProxiedBy: BL0PR02CA0131.namprd02.prod.outlook.com
- (2603:10b6:208:35::36) To BL0PR12MB5506.namprd12.prod.outlook.com
- (2603:10b6:208:1cb::22)
+        Mon, 05 Jul 2021 09:19:21 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) client-ip=210.131.2.91;
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175]) (authenticated)
+	by conssluserg-06.nifty.com with ESMTP id 165GJ1kY016056
+	for <clang-built-linux@googlegroups.com>; Tue, 6 Jul 2021 01:19:02 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com 165GJ1kY016056
+X-Nifty-SrcIP: [209.85.215.175]
+Received: by mail-pg1-f175.google.com with SMTP id 62so10633740pgf.1
+        for <clang-built-linux@googlegroups.com>; Mon, 05 Jul 2021 09:19:02 -0700 (PDT)
+X-Received: by 2002:a63:d80a:: with SMTP id b10mr16483848pgh.47.1625501941399;
+ Mon, 05 Jul 2021 09:19:01 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from mlx.ziepe.ca (47.55.113.94) by BL0PR02CA0131.namprd02.prod.outlook.com (2603:10b6:208:35::36) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4287.23 via Frontend Transport; Mon, 5 Jul 2021 16:04:22 +0000
-Received: from jgg by mlx with local (Exim 4.94)	(envelope-from <jgg@nvidia.com>)	id 1m0R53-003r0c-KU; Mon, 05 Jul 2021 13:04:21 -0300
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 7f52f34f-3ec6-44d4-4bfd-08d93fce8dd2
-X-MS-TrafficTypeDiagnostic: BL0PR12MB5524:
-X-Microsoft-Antispam-PRVS: <BL0PR12MB5524A1977A37EB77DC9D3A91C21C9@BL0PR12MB5524.namprd12.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:3968;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: kxwkcsGeNebMl4e2CJFjxRVvDZp+yem1LyhyzW5yT5QkZHvKnHxqcax7FbTd/LoEkuLnoot0fdQeHCOV9koYd8oShNPV2lDL8D7MKTm8YgvhxTiggFmbnX5EF8YDU/9o2WctTgjigAyQip5BgnQdasgcYXuWyTdDAw0Ul0orm8UpBncyHw3jj1uBbgjYLEf9MELb3qUYqFosHP28ZqOj3GAG05+VhVxu/gbJ2IN1nQA1d9ng+iTEf0geaMY/LK5b6e2+UNQm4c1cDZYCR10t3RE6LTOifi4cH5p1riwnNVBoHto5oVnIYZnIZZkR1bAPFOqPW7D+D9O9Ap0rtgY2MqvuDUBfSwU4bWgbNZgAEX35Ojw7EFVyDuT52Vapf15sY1JlsjjcD/YTqVzDRI/ki+RHU7qm0+XlpNTdQwm0KywIQF2BK1HHh4AAxXccbPPySSGKfg46TY1McVt/U+AjPP/eLZVswGupyKR8EKtXrS8QgHeKlpgkfOmKSCQedOqYjpMZI24A9uF6C7cTwmIe6F+qaFXQpm4jfKgPz770LYbV4DfgF0dXismeTcZp1zrgQM5VDJo6aUK/3vPn/sIm+TF7473bqsSxShKvLRnT06tE3NWLgXkPKcjOnAmKUYzOKlrv66sHaUQdQ3a7HKdSB8OLEHotEk52pQFB97AU68vjimvaUQ9Zh81238knHy/z2d4WdYAzYjLRuvZ8UKaF7PDniuEvDYwIfxVQTxBRT3D+lt7kvL9w7Kd/7KIx+QAg1tjVW/zqJUXq24jz2a2VpQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR12MB5506.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(346002)(39860400002)(376002)(136003)(366004)(396003)(66946007)(186003)(33656002)(66476007)(1076003)(9746002)(9786002)(316002)(66556008)(83380400001)(8676002)(36756003)(26005)(38100700002)(2906002)(2616005)(5660300002)(86362001)(966005)(8936002)(4326008)(478600001)(426003)(110136005);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6rjHccsEHs3aHhIMNFqcKE823bzCVhmQWOWMN1xXGjsi2AppLt8cqCbgx0du?=
- =?us-ascii?Q?gG6OAyKhAinex2oI/menRGgXP0Mx+6s4wdQbRQ6Iz4CS4WkfCFpjBxGs/Muo?=
- =?us-ascii?Q?vFCnl7eDPAhPiPa2cLfP7Hiz3abrL1Dby9yl1UZBuJTOnzFugLXEeixeG/+L?=
- =?us-ascii?Q?7atsRyVZop/HRhZk6QV7eTgSlzXpd2r9g3ltR67QQ6Wf2zDdj5xDS0FaKO9x?=
- =?us-ascii?Q?JpcG4WjRF7qSLiWvHeuRIIgmoXC8DlkfOXDfa3QyDqJeFNcv2/wK5masRyc/?=
- =?us-ascii?Q?IFYrDq8xOsU2ekAGVo2LKFCfRz4nEntm8E8RaOS2tFP2aS/puX/mkFWsNtmU?=
- =?us-ascii?Q?FalSN67jcSwnBLM/7NdARgeWWd4cazQAbS9SDZmqC24WCK5cw9TSDfGfrlJn?=
- =?us-ascii?Q?pe57IotKG8WIiX+Yhe2sOJZYyvNXp+vQ2FZ75CsO5pL6hLHSLA/mLBTzkY+u?=
- =?us-ascii?Q?1Z5BUs6k0U1hW7oKzaiBFkDQFybTsC/X/hf71aIjmuoOwTv4jIH54rRo/m8W?=
- =?us-ascii?Q?QtX3X86X+9UBaFsyJkC2vvrExfAmQ54U4tQrC/k0pa7SXmQcq+mYIfRoxJ7/?=
- =?us-ascii?Q?nojQswwrTNByKDeZEdzL/Wgbh/p26YKWH0/I8e8Fjkn8Sje4t48DEjf+nidd?=
- =?us-ascii?Q?BLu3jiEw5wibbm7UfSzh9EhQD9TvlcZj5TuSOw8sJxQKyHZAG/btpBODZZhR?=
- =?us-ascii?Q?ucnFEB9vy/X6ldO+9c55OQxYRFSR/d3h2Xutm3LoZQlXFuMTDUP0eEfCOEVJ?=
- =?us-ascii?Q?pgbJ+WqAQ+6DcyxvBE7sAsQDVDA0Jip1pn9K441WEVYLURobUtnpJEwNQgjO?=
- =?us-ascii?Q?dLzOQfC0/+65RcjGnaB1iyE8nWeIzagsu4+ZME8qBSn/FeBxVd14WDChGMfB?=
- =?us-ascii?Q?T6nxhLmb8zcXwALBAskKiL72IdyAoDlGbnA7OBS8kOytkFiwCcx/SkgTroMV?=
- =?us-ascii?Q?1ExOq5GIH6CFH8qOLVIPyD+/6Y3IBXLMR9YkUzi07ZCvrkKwLyEokso3RxR7?=
- =?us-ascii?Q?fPuqK4D1DP5IsWsCScL1d+KLose7gNwMFcvHnw1LVF9FSjtpRl1LhcRdjkwO?=
- =?us-ascii?Q?nCubrz0UDvanyg3VgjcEZbBB3h42V9MhLtt4rYcYdLnll9Maeo0IDcQjdUb0?=
- =?us-ascii?Q?BpKUkcRmTJwRSWada8lYL45h/wFfTWsdlsJktHJE9GijAhT2xAshJUBjDrNk?=
- =?us-ascii?Q?xE+gGBnHAGKsC9kvn5Iii7kCj0KPdg/NH94WK1w//DS5eKWOlZDyEjW2G5DS?=
- =?us-ascii?Q?hvUo7m2y6LCvwY3pCD1PeBkvywCtwhP2ZzeUSlEO48uf5rDFSzxjZaGMs/PS?=
- =?us-ascii?Q?OdquGBDfuTQif80032cBbEpX?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7f52f34f-3ec6-44d4-4bfd-08d93fce8dd2
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR12MB5506.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jul 2021 16:04:22.6391
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qxihEjEX69WySyaEe3j5zJLzi0uWfRTKmhr8B3aA0XGID73yXqZ6/H0Jv+tiyosQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR12MB5524
-X-Original-Sender: jgg@nvidia.com
+References: <20210702235120.7023-1-maciej.falkowski9@gmail.com>
+In-Reply-To: <20210702235120.7023-1-maciej.falkowski9@gmail.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Tue, 6 Jul 2021 01:18:24 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAS=tyS22vk1mO7uCuzZ=YuzgByzC4Aix9JwugdV3xpr-Q@mail.gmail.com>
+Message-ID: <CAK7LNAS=tyS22vk1mO7uCuzZ=YuzgByzC4Aix9JwugdV3xpr-Q@mail.gmail.com>
+Subject: Re: [PATCH] clang-tools: Print information when clang-tidy tool is missing
+To: Maciej Falkowski <maciej.falkowski9@gmail.com>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Michal Marek <michal.lkml@markovi.net>,
+        Nathan Huckleberry <nhuck@google.com>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@Nvidia.com header.s=selector2 header.b=GJexAfqo;       arc=pass
- (i=1 spf=pass spfdomain=nvidia.com dkim=pass dkdomain=nvidia.com dmarc=pass
- fromdomain=nvidia.com);       spf=pass (google.com: domain of jgg@nvidia.com
- designates 40.107.101.73 as permitted sender) smtp.mailfrom=jgg@nvidia.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=nvidia.com
+ header.i=@nifty.com header.s=dec2015msa header.b=Df392UW3;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -203,45 +140,139 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jul 02, 2021 at 09:15:24AM +0800, kernel test robot wrote:
-> Hi Shiraz,
-> 
-> First bad commit (maybe != root cause):
-> 
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-> head:   e04360a2ea01bf42aa639b65aad81f502e896c7f
-> commit: fa0cf568fd76550c1ddb806c03a65a1a4a1ea909 RDMA/irdma: Add irdma Kconfig/Makefile and remove i40iw
-> date:   4 weeks ago
-> config: arm-randconfig-r005-20210701 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project e7e71e9454ed76c1b3d8140170b5333c28bef1be)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install arm cross compiling tool for clang build
->         # apt-get install binutils-arm-linux-gnueabi
->         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa0cf568fd76550c1ddb806c03a65a1a4a1ea909
->         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->         git fetch --no-tags linus master
->         git checkout fa0cf568fd76550c1ddb806c03a65a1a4a1ea909
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm 
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
-> >> drivers/infiniband/hw/irdma/uk.c:934:6: warning: variable 'total_size' set but not used [-Wunused-but-set-variable]
->            u32 total_size = 0, wqe_idx, i, byte_off;
->                ^
->    1 warning generated.
+On Sat, Jul 3, 2021 at 8:51 AM Maciej Falkowski
+<maciej.falkowski9@gmail.com> wrote:
+>
+> When clang-tidy tool is missing in the system, the FileNotFoundError
+> exception is raised in the program reporting a stack trace to the user:
+>
+> $ ./scripts/clang-tools/run-clang-tools.py clang-tidy ./compile_commands.json
+> multiprocessing.pool.RemoteTraceback:
+> """
+> Traceback (most recent call last):
+>   File "/usr/lib64/python3.8/multiprocessing/pool.py", line 125, in worker
+>     result = (True, func(*args, **kwds))
+>   File "/usr/lib64/python3.8/multiprocessing/pool.py", line 48, in mapstar
+>     return list(map(*args))
+>   File "./scripts/clang-tools/run-clang-tools.py", line 54, in run_analysis
+>     p = subprocess.run(["clang-tidy", "-p", args.path, checks, entry["file"]],
+>   File "/usr/lib64/python3.8/subprocess.py", line 489, in run
+>     with Popen(*popenargs, **kwargs) as process:
+>   File "/usr/lib64/python3.8/subprocess.py", line 854, in __init__
+>     self._execute_child(args, executable, preexec_fn, close_fds,
+>   File "/usr/lib64/python3.8/subprocess.py", line 1702, in _execute_child
+>     raise child_exception_type(errno_num, err_msg, err_filename)
+> FileNotFoundError: [Errno 2] No such file or directory: 'clang-tidy'
+> """
+>
+> The patch adds more user-friendly information about missing tool by
+> checking the presence of clang-tidy using `command -v` at the beginning
+> of the script:
+>
+> $ ./scripts/clang-tools/run-clang-tools.py clang-tidy ./compile_commands.json
+> Command 'clang-tidy' is missing in the system
+>
+> Signed-off-by: Maciej Falkowski <maciej.falkowski9@gmail.com>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1342
+> ---
+>  scripts/clang-tools/run-clang-tools.py | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/scripts/clang-tools/run-clang-tools.py b/scripts/clang-tools/run-clang-tools.py
+> index fa7655c7cec0..d34eaf5a0ee5 100755
+> --- a/scripts/clang-tools/run-clang-tools.py
+> +++ b/scripts/clang-tools/run-clang-tools.py
+> @@ -60,6 +60,11 @@ def run_analysis(entry):
+>
+>
+>  def main():
+> +    exitcode = subprocess.getstatusoutput('command -v clang-tidy')[0]
+> +    if exitcode == 1:
+> +        print("Command 'clang-tidy' is missing in the system", file=sys.stderr)
+> +        sys.exit(127)
 
-Yes, Tatyana please send a patch
 
-Thanks,
-Jason
+
+I like the first answer in this link:
+https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions
+
+"If the reason you're checking is so you can do something like
+if file_exists: open_it(), it's safer to use a try around the attempt
+to open it. Checking and then opening risks the file being deleted
+or moved or something between when you check and when you try to open it."
+
+
+
+Generally, I believe that Python's taste is:
+
+   try:
+        f = open("my-file")
+   except:
+        [ error handling ]
+
+
+rather than:
+
+    if not os.path.exists("my-file"):
+           [ error handling ]
+    f = open("my-file")
+
+
+
+With the same logic applied,
+if you like to display your custom error message here,
+more Python-ish code might be:
+
+
+    try:
+         [ run clang-tidy ]
+    except FileNotFoundError:
+         print("Command 'clang-tidy' is missing in the system", file=sys.stderr)
+         sys.exit(127)
+    except:
+         [ handle other errors ]
+
+
+
+I often see, "I observed Python's backtrace, so let's suppress it"
+for clang-tools scripts.
+
+For example,
+https://lore.kernel.org/lkml/20210520231821.12272-2-maciej.falkowski9@gmail.com/
+
+
+If you believe "our custom error messages are better than
+the default ones from Python", do you want to insert
+ones to every code that can fail?
+
+I do not think so.
+
+
+
+
+
+
+
+
+> +
+>      args = parse_arguments()
+>
+>      lock = multiprocessing.Lock()
+> --
+> 2.26.3
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210702235120.7023-1-maciej.falkowski9%40gmail.com.
+
+
+
+--
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210705160421.GS4459%40nvidia.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAS%3DtyS22vk1mO7uCuzZ%3DYuzgByzC4Aix9JwugdV3xpr-Q%40mail.gmail.com.
