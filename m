@@ -1,46 +1,47 @@
-Return-Path: <clang-built-linux+bncBCN7B3VUS4CRBBN2SCDQMGQENF63TJI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5JXFXXVEGRB4PWSCDQMGQEYLKJ3DA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id 896893BC842
-	for <lists+clang-built-linux@lfdr.de>; Tue,  6 Jul 2021 11:06:14 +0200 (CEST)
-Received: by mail-il1-x140.google.com with SMTP id d17-20020a92d7910000b02901f00ad0c690sf10346897iln.7
-        for <lists+clang-built-linux@lfdr.de>; Tue, 06 Jul 2021 02:06:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625562373; cv=pass;
+Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9DF483BCC13
+	for <lists+clang-built-linux@lfdr.de>; Tue,  6 Jul 2021 13:16:02 +0200 (CEST)
+Received: by mail-pf1-x438.google.com with SMTP id c129-20020a6235870000b0290316088e2a39sf8707285pfa.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 06 Jul 2021 04:16:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625570161; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QbtjsyOks0bLyYAaY3RVCTYcbpr5aIlc6iDYZpa+DfXFLqwzmvnwLfipqtPeX5YI5T
-         OIb9zRDklf2Bu9g9KfO0oa0pbAA2kN0mQgrBqlEjv21t1Ok63fkH7ditQ9/xcwswhwkX
-         0tWT/8Pke9KdSKa8RM+jXbH5MnU8F595cLzptxAscNuhiJeHdA7Cw1Yzlc8GN323Uojl
-         URZgXPbOz8y1rqezsILHjT7GqrEqqWWpq7OU8svf8JQdM8r7wdWwQU9tV/DBx4FkewBQ
-         GkJTvHRQs+zFLcpCGBUPT5q2Y09jYZS1Meps9/qmWQTaPF9SCVnDSoAZDmaKYEN1wBBJ
-         ZHzg==
+        b=ZZXG/e6MlemtWUMLi0poVjyvmgMxSLxb0dySLTrzinVa++ue+j/waIC4KYeAaJv9YR
+         h15Qs1VoEEtL57rCxtepCwD0v0C39/wJL/qmt+YV0MYlBMGUEYMPAtQkJ1KDmyKmC91w
+         Veac8A0UBCs/9mEbTdVVuVnbT0j6g5zjHc7rVp6ZVm7XjM0yw7L1onUriTObPnBCV2cA
+         C25QrcWxeHYRl1mtzxq3Fnn1/XivgIHhfhqQfhd89xYuBYa3HJ8m3s+vA9sXCzaP/ELn
+         v9VPsn+pqsCVTzg7VOEqE474PHL8SzDQQIqZJSIhFAK5YizQPXBARsqg0Ud9AWGNOYh2
+         LsLw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=aDIDA03wz3Av0R+e/OVzLSjsiEI8zUjDfNuQG+isLXw=;
-        b=KKafExT6oTpMe/n4CjykPzuddZFadMdvlzXjdtarjW05jdLLk2ADn7dzoNQDLeOSJ4
-         biJPTp2vJJkNLvAoTbbELgpp0LDS32nBCa/ETF0h/AtehYbs5ckzqm9lHg40G4oNAg1T
-         7Wsvo279qDRr2PAqBV/X8q1Fz+fItnev4x1dG291bs10oWRGRHPdkphYO0tmih3iN5/R
-         Kd9s3oCZFo/K+RvfG9eSb18AebJTiSPgmxvaJ4JEyuU/YvebDuFqQ7M6tTd0aLJJd/xs
-         iNSfCnloNDBHZ8yBhf7RBGXT2mvN6FKD0EO7oPsV/JLdYURZrxReHtgNwa4OUK2W807J
-         Kbhw==
+        bh=z+OA8rie02EgDCS/emJ+d3advDDhAQywHluug4jrA3A=;
+        b=kFOOnNMFxxyeko5/YVr7It3rQs3DPI6esx+SU3q3g3YbNDEcFltoojELDGn/Tl/bBi
+         3c/g5xmxe4iSQkdjmVPfA96SfzXRQYlpxFXZFDNL6pFefDczTLxlEOFukfHgNbFOjPFZ
+         nQGj9beyR5YM86PlgtzWQ5jr80oP2goVcrOANbRqqrYxiePg9lsuGJyDTZOZeuSYyzjm
+         hl8NcgLu+uqaSOioOjHt0bL30/LLStI4EfLRMaRXml69FaYV16d9VgIIefAvFY823pOw
+         YbJieXED2tBgTW260DIRj2bIiOmGfUSCvFTNkaW6JIltKPjh1g2MBbsicPUIRpG2vzbI
+         7i2g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lecopzer.chen@mediatek.com designates 60.244.123.138 as permitted sender) smtp.mailfrom=lecopzer.chen@mediatek.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=hM765qP4;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aDIDA03wz3Av0R+e/OVzLSjsiEI8zUjDfNuQG+isLXw=;
-        b=shCKerqT/FW04K9Ob9MAjlPeePaYxIqx7grqWQWxzscSopiv/8eZAFJ5sZS5haKvHh
-         zOmzitUvwnEr42U7/Q6VL104KXSPFHKxyZaaInWeilzCReDT614q4clKkbCBMHz6ri2f
-         19xQqMm4GoJoxbYgQZ9scNdaz5iA6lY/ofKgbySKYhR63x52G6qSv3uOByDq7j9QaxpL
-         UT5t0mG2sA2Xk7C/gubMGaRwFPRRxdc1dKsdaW5qZIE+7TVVOFBmO7FYlhtvl/wOELFM
-         Npa21GkRsE6uUXl9uhejVVnwZw99PZb2INpJEz9cmVvsmRt3jprJu4lwTyh6z7yE+Ydt
-         eMgA==
+        bh=z+OA8rie02EgDCS/emJ+d3advDDhAQywHluug4jrA3A=;
+        b=hdJeM3RpHIrl3xKj8L69uzp1PL33zrx6U75ksYuHbXASFPgnh1BNDoia8DoQ/fFDHm
+         tEh/Klmklo+j3uuqFtb6wQr5ssIQmeukoY7PPJ0PMXzmjUqGyv68SBBSpKeFCdBS5D/Z
+         gWNmY/OuZcS7ux7RSultrzkPQ0kwFjh9CrP+ChAGO8HFB+ae1aSNVCTnpeKWtf4QdLj0
+         pdGHLx73qfL5i3reZpLd1yPqCNvq1nT2HZI48nlgv7q1vSq7ogNZ4DNoJx+z7pWtHl4+
+         KYsjdOxWmD8x+z4ac9sNagdfw7b9HsuBZC6myIK2vI6DSEAlVhf0mcnEbLmdMq/Tm1jX
+         BChw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -48,84 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aDIDA03wz3Av0R+e/OVzLSjsiEI8zUjDfNuQG+isLXw=;
-        b=hKk6yh5V4haUCSPVV4jpUItILnpO1UxEgAI9s7Jgc4Pa2W9U+2Sy1Q9Ee3X7Xmz1Ks
-         w6pET79RWFZZ0UyFHhnfTU5zQesXIAqqpmTZBKuvO4ORkticzcxkvcQ6T+/ajVrDtFTE
-         EUvJg+ojyrL5zPOL2m8dSOUqiXfaOnyfazeHGd1MwvVuktJojwPJ/LxRkWJLN8L0irM8
-         nFQ1IHpG+KF7CyQN1OpJqM8xHETB4iQd0wR/uSQlrV9lykyc/bo7MWhvXJbFlryui8jn
-         HMfGm0LN3PlCfzYNHdsGMMD7uf2+gJhysORW4MnGF8rvsG2o4+aUWqnf4v+m9dkepyq0
-         Gu1w==
+        bh=z+OA8rie02EgDCS/emJ+d3advDDhAQywHluug4jrA3A=;
+        b=SPx9XdJSXAhnzD0w9lOs7PrG/ZK5Mayn7/iroLgiFVy1JJ3I+b1QDb8vVJ1sTAr2Wf
+         7b8kppnJ3pr0BPVx6PEuqtt7VMmhIH5lhcmnAvsofIL97rKBNc+f5UoPkjK3XYA92ymZ
+         pcXhsrxD3s/mDLKiQOMkvv4rBkAOZVEaMe8/RVV7IgKYsGs/Yv+f8j+d6vMXYvC9PAzp
+         x+rsVU2AOkfQAKRreH4VEolKuvKNrYm/hKaycWCcnSypvvGFXnnYptjV3yVQUbkAIZxG
+         fo40bay+qb59MKM7/u3y85F8vThaDW1iyMgvxd1EFT3GTkjVnu9XGwztZdbasgapZGr3
+         zTTQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533zc6uIXUgXAay6+oaC8VpO5Sjf+SRYYMbHRiohBSQ93ataK6nS
-	Sm/jfj/64QdFBu1iP85Tp7w=
-X-Google-Smtp-Source: ABdhPJxYB+9jadEtKWw7FptoGK8OQcNoN0ZuLRUvUFnREP81PN75pqX1T5RzWn51Lu7rMGADsqyxng==
-X-Received: by 2002:a05:6e02:dca:: with SMTP id l10mr13558790ilj.222.1625562373308;
-        Tue, 06 Jul 2021 02:06:13 -0700 (PDT)
+X-Gm-Message-State: AOAM530RuzH44pyllVBcvZV+W3ubKJHDsl7C6xuWBidje+chiXUftwzO
+	2n+UXzkaufRG6GB55r4oDdU=
+X-Google-Smtp-Source: ABdhPJzAV8522xmzcysfHPn70mhlt4XuHbW5zzMJEOJvuoCfl/WoFoKhZvX6vgxbtGGZAZsu+SOjtw==
+X-Received: by 2002:a17:90a:4490:: with SMTP id t16mr3831484pjg.183.1625570161310;
+        Tue, 06 Jul 2021 04:16:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:1e04:: with SMTP id g4ls5400373ila.10.gmail; Tue,
- 06 Jul 2021 02:06:13 -0700 (PDT)
-X-Received: by 2002:a92:5401:: with SMTP id i1mr13888835ilb.17.1625562372954;
-        Tue, 06 Jul 2021 02:06:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1625562372; cv=none;
+Received: by 2002:a17:90b:141:: with SMTP id em1ls12522273pjb.3.gmail; Tue, 06
+ Jul 2021 04:16:00 -0700 (PDT)
+X-Received: by 2002:a17:90a:588b:: with SMTP id j11mr19616354pji.114.1625570160671;
+        Tue, 06 Jul 2021 04:16:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625570160; cv=none;
         d=google.com; s=arc-20160816;
-        b=eBrFXwRN/ne8AYeklmoD9jyWTTkNZWwOzIZNk5fDtnn5NjGKyfPv8Q6DvJyxQwzPhO
-         oCjQVxDtV5msaCf2jr2gwLse0mNoSv/76VDMFnU9vsuJ642tchoDlppSn9oXDwK0lCRC
-         pMWoyPTl05faJInNdL8yr5khmkDx9I4+W0axnXskTCC6HfAT62M2JYiQjyH2sOiPy83v
-         SKNBLACoghnwiYp9cSJfLtmGjIdUnN8zh/yJkDc4ZXEIjidvbtpgk9+fpLPQyNklYaO1
-         Tx2Df0Uxzkx/BnoijA9tabd/jPvSi95zcgoGpPq0CQ0PR6rMfaO4FgsJkkMal2pVtINr
-         4btQ==
+        b=D2XCHb6tXKHCw4W2A3mSzTFf/YKpBBn/CFSU8A+azN6algj+4OBUWsHWy4VBasDkbW
+         JhcRxkwog9sRHKWBL9v0Qmfnhffc0ZAFalZywTBJxdujNFCHGWuwWm2xVofjx4yxzU9q
+         wovUitSUgd3B/lmEAO28TFOFPd3wuKM2LlCJ48C9N2h3kH9iSuS+fChtUOYh7409nTdG
+         fy49tE+uTD0KZ1R5IKtMVKYTgOA6mEhjFoXmhuQlefZnmCiOEj3lszet5wI5/nxKraye
+         NkKe3oRvC3BI60AX9/ulwQR0WckQ4CG/vgUdg6ekw+DcZZb1Ls0WMzYBu7Y575JHwEnd
+         ILGw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from;
-        bh=jh2GS0hdJs/o6tPx3T6u+lXx9D2nTbRUMzg4HkBiBy8=;
-        b=ys29jCsinHJjqLYG5GbnQybfxOydLOHAsNy6eLVe3sUBVZVuHMFNxBDoTXh0hhUSYZ
-         C1yhaKyQNIYrUjyL9oW1sjJ/EtClV/HV9sYAntBvLlaIMUMVWMXvT1WxRwRh9clDCT8n
-         6+13b755OrA5+am083CfnCR85NAGLGoE4dXJgd0fPNPGtAPrfBby5wKsjO3EZ8YDsu2i
-         L1nT7hdGihA7Z9kiZSSY2QUjMAU0nuZvJFjxPOsbXIebhNm1gcRzbZJ2nhHeYCqFjlyM
-         eph8CRGborOVXmDXLIGpfgz5yQYF7mTMgvjqr28U4ZvOYbsz/39flyVDzU0DjOVcqC6T
-         3bkg==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=nDPbwr/DfUeg2J9jPiwFzIvWkax/qHtWh6SRKMm/JLM=;
+        b=J6+srD+oo6dj3eAqcsFHiDfAM6Ne5YoyxVAxIDhRWKKFmSRL6u2+Hy6A6EmypdcNTf
+         4dx81PebpZqB+COKKyD5JbQiKLqDq+qyGhOhTnPtP4kL35g/+ZjOWsON68N7NyImteOO
+         FLebeMQR6T9rHsUpwJs/OU42UwkBVbRUNvsCaCL5GPmHzne4dDOZvcwAJwX7FU1FwM03
+         tNjfSEX3/VQdxxC3v7WbrJNEvGKiXpY/1kIL7aZhBD7tmJ+UG+RwZxrd9160iako93VA
+         0tY3y+xENeP+JGRxEhiicGsNg/9gL9zq0qPZ7pRKIEMkjGp6me5SUrvBXvKz60q7X9fd
+         jTyQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lecopzer.chen@mediatek.com designates 60.244.123.138 as permitted sender) smtp.mailfrom=lecopzer.chen@mediatek.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
-Received: from mailgw01.mediatek.com ([60.244.123.138])
-        by gmr-mx.google.com with ESMTPS id i12si1318413iog.2.2021.07.06.02.06.12
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=hM765qP4;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id q7si1908013pgf.3.2021.07.06.04.16.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 06 Jul 2021 02:06:12 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lecopzer.chen@mediatek.com designates 60.244.123.138 as permitted sender) client-ip=60.244.123.138;
-X-UUID: a40910a74eb44e2d8bd1078bd86f64ec-20210706
-X-UUID: a40910a74eb44e2d8bd1078bd86f64ec-20210706
-Received: from mtkcas10.mediatek.inc [(172.21.101.39)] by mailgw01.mediatek.com
-	(envelope-from <lecopzer.chen@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-SHA384 256/256)
-	with ESMTP id 947538566; Tue, 06 Jul 2021 17:06:09 +0800
-Received: from MTKCAS06.mediatek.inc (172.21.101.30) by
- mtkmbs05n2.mediatek.inc (172.21.101.140) with Microsoft SMTP Server (TLS) id
- 15.0.1497.2; Tue, 6 Jul 2021 17:06:07 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by MTKCAS06.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.0.1497.2 via Frontend
- Transport; Tue, 6 Jul 2021 17:06:07 +0800
-From: Lecopzer Chen <lecopzer.chen@mediatek.com>
-To: <samitolvanen@google.com>
-CC: <clang-built-linux@googlegroups.com>, <keescook@chromium.org>,
-	<lecopzer.chen@mediatek.com>, <linux-kbuild@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <masahiroy@kernel.org>,
-	<michal.lkml@markovi.net>, <nathan@kernel.org>, <ndesaulniers@google.com>,
-	<yj.chiang@mediatek.com>
-Subject: Re: [PATCH v3 1/2] Kbuild: lto: add CONFIG_MAKE_VERSION
-Date: Tue, 6 Jul 2021 17:06:07 +0800
-Message-ID: <20210706090607.19421-1-lecopzer.chen@mediatek.com>
-X-Mailer: git-send-email 2.18.0
-In-Reply-To: <CABCJKudYQV6Nt=Qq+zY=9JF1WmLVLnx+--3mJA9dkhLMhMvuFg@mail.gmail.com>
-References: <CABCJKudYQV6Nt=Qq+zY=9JF1WmLVLnx+--3mJA9dkhLMhMvuFg@mail.gmail.com>
+        Tue, 06 Jul 2021 04:16:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 7591661C78;
+	Tue,  6 Jul 2021 11:15:59 +0000 (UTC)
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Paul M Stillwell Jr <paul.m.stillwell.jr@intel.com>,
+	Tony Brelinski <tonyx.brelinski@intel.com>,
+	Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Sasha Levin <sashal@kernel.org>,
+	intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH AUTOSEL 5.13 081/189] ice: fix clang warning regarding deadcode.DeadStores
+Date: Tue,  6 Jul 2021 07:12:21 -0400
+Message-Id: <20210706111409.2058071-81-sashal@kernel.org>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210706111409.2058071-1-sashal@kernel.org>
+References: <20210706111409.2058071-1-sashal@kernel.org>
 MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-Original-Sender: sashal@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=k20201202 header.b=hM765qP4;       spf=pass
+ (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-MTK: N
-X-Original-Sender: lecopzer.chen@mediatek.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lecopzer.chen@mediatek.com designates 60.244.123.138
- as permitted sender) smtp.mailfrom=lecopzer.chen@mediatek.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,67 +135,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> On Sun, Jul 4, 2021 at 7:03 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
-> >
-> > On Fri, Jul 2, 2021 at 12:29 PM Lecopzer Chen
-> > <lecopzer.chen@mediatek.com> wrote:
-> > >
-> > > To check the GNU make version. Used by the LTO Kconfig.
-> > >
-> > > LTO with MODVERSIONS will fail in generating correct CRC because
-> > > the makefile rule doesn't work for make with version 3.8X.[1]
-> > >
-> > > Thus we need to check make version during selecting on LTO Kconfig.
-> > > Add CONFIG_MAKE_VERSION which means MAKE_VERSION in canonical digits
-> > > for arithmetic comparisons.
-> > >
-> > > [1] https://lore.kernel.org/lkml/20210616080252.32046-1-lecopzer.chen@mediatek.com/
-> > > Signed-off-by: Lecopzer Chen <lecopzer.chen@mediatek.com>
-> > > ---
-> >
-> >
-> > NACK.
-> >
-> > "Let's add MAKE_VERSION >= 40200 restriction
-> > just because I cannot write correct code that
-> > works for older Make" is a horrible idea.
-> >
-> > Also, Kconfig is supposed to check the compiler
-> > (or toolchains) capability, not host tool versions.
-> 
-> I feel like requiring a Make that's half a decade old for a feature
-> that also requires a toolchain released last October ago isn't
-> entirely unreasonable.
-> 
-> That being said, if Masahiro prefers not to rely on the wildcard
-> function's behavior here, which is a reasonable request, we could
-> simply use the shell to test for the file's existence:
-> 
-> diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-> index 34d257653fb4..c6bd62f518ff 100644
-> --- a/scripts/Makefile.build
-> +++ b/scripts/Makefile.build
-> @@ -388,7 +388,7 @@ ifeq ($(CONFIG_LTO_CLANG) $(CONFIG_MODVERSIONS),y y)
->        cmd_update_lto_symversions =                                     \
->         rm -f $@.symversions                                            \
->         $(foreach n, $(filter-out FORCE,$^),                            \
-> -               $(if $(wildcard $(n).symversions),                      \
-> +               $(if $(shell test -s $(n).symversions && echo y),       \
->                         ; cat $(n).symversions >> $@.symversions))
->  else
->        cmd_update_lto_symversions = echo >/dev/null
-> 
-> This is not quite as efficient as using wildcard, but should work with
-> older Make versions too. Thoughts?
-> 
+From: Paul M Stillwell Jr <paul.m.stillwell.jr@intel.com>
 
+[ Upstream commit 7e94090ae13e1ae5fe8bd3a9cd08136260bb7039 ]
 
-I've tested this in both make-4.3 and 3.81, and the CRC is correct.
-But I'm not sure if anyone would have the "arg list too long" issue.
+clang generates deadcode.DeadStores warnings when a variable
+is used to read a value, but then that value isn't used later
+in the code. Fix this warning.
 
-Tested-by: Lecopzer Chen <lecopzer.chen@mediatek.com>
+Signed-off-by: Paul M Stillwell Jr <paul.m.stillwell.jr@intel.com>
+Tested-by: Tony Brelinski <tonyx.brelinski@intel.com>
+Signed-off-by: Tony Nguyen <anthony.l.nguyen@intel.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/net/ethernet/intel/ice/ice_ethtool.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/drivers/net/ethernet/intel/ice/ice_ethtool.c b/drivers/net/ethernet/intel/ice/ice_ethtool.c
+index 99301ad95290..1f30f24648d8 100644
+--- a/drivers/net/ethernet/intel/ice/ice_ethtool.c
++++ b/drivers/net/ethernet/intel/ice/ice_ethtool.c
+@@ -3462,13 +3462,9 @@ static int
+ ice_get_rc_coalesce(struct ethtool_coalesce *ec, enum ice_container_type c_type,
+ 		    struct ice_ring_container *rc)
+ {
+-	struct ice_pf *pf;
+-
+ 	if (!rc->ring)
+ 		return -EINVAL;
+ 
+-	pf = rc->ring->vsi->back;
+-
+ 	switch (c_type) {
+ 	case ICE_RX_CONTAINER:
+ 		ec->use_adaptive_rx_coalesce = ITR_IS_DYNAMIC(rc);
+@@ -3480,7 +3476,7 @@ ice_get_rc_coalesce(struct ethtool_coalesce *ec, enum ice_container_type c_type,
+ 		ec->tx_coalesce_usecs = rc->itr_setting;
+ 		break;
+ 	default:
+-		dev_dbg(ice_pf_to_dev(pf), "Invalid c_type %d\n", c_type);
++		dev_dbg(ice_pf_to_dev(rc->ring->vsi->back), "Invalid c_type %d\n", c_type);
+ 		return -EINVAL;
+ 	}
+ 
+-- 
+2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210706090607.19421-1-lecopzer.chen%40mediatek.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210706111409.2058071-81-sashal%40kernel.org.
