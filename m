@@ -1,127 +1,118 @@
-Return-Path: <clang-built-linux+bncBDT6TV45WMPRBKFGSWDQMGQE6EJKASY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQPF57GUQHBB4FTSWDQMGQE4WHX54A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf38.google.com (mail-qv1-xf38.google.com [IPv6:2607:f8b0:4864:20::f38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 105163BE365
-	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Jul 2021 09:09:30 +0200 (CEST)
-Received: by mail-qv1-xf38.google.com with SMTP id k12-20020a0cfd6c0000b029020df9543019sf933557qvs.14
-        for <lists+clang-built-linux@lfdr.de>; Wed, 07 Jul 2021 00:09:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625641769; cv=pass;
+Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
+	by mail.lfdr.de (Postfix) with ESMTPS id 08A203BE3BA
+	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Jul 2021 09:38:26 +0200 (CEST)
+Received: by mail-pj1-x1037.google.com with SMTP id lb18-20020a17090b4a52b02901727f0a3730sf1080391pjb.0
+        for <lists+clang-built-linux@lfdr.de>; Wed, 07 Jul 2021 00:38:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625643504; cv=pass;
         d=google.com; s=arc-20160816;
-        b=R+DETQmz3acjvTme0vgHeRWP72qr7/S+aFzWOo71KVmywF1bGITNYd6+++8svTCTy7
-         OBIPQnn/AwE1HsRDOtmvmlljlWbRX3gPX7oRN5mXq8tNehMWKMVV0/zuuBebA26pHSEj
-         ev2//lqGACi34Vx+eXltHPuCFMbc2wvqLGUVp3FKTUARCQ1JmC/dAofAZkhKWnIWoLwc
-         p+Y1I2eBrPntV/0mDU0aeWWa30bzXgkpIqj1gAq737wbQPKR3sX+XRO8xZjzqIOtTrY0
-         6BoACg2ZDNIZkGmdCso/T3w7mf4HWHFbJNUJE3hQo8R+of7TqtTz1yW/QpqcHJ85PYzQ
-         SQmA==
+        b=xclR/Yg1Egb9eLrEccQo3ltPdWGtpGgilvXqbLsGoQRGjgKlKfYWNSPFAZsMXgN6bo
+         cs3evdI5qJua3KbzrZ9D67o1s0M2cnmExFTxB9t5Hy+AEu8NIv3ro596WD86uuElpUUU
+         rAAs4fZT32vJ0+e7IMWsnKVnnXROCZfEhl7SHqH6mXblZyvkbLmpGurEF955xW6hwLzd
+         22ZBND37UWoSyuGuLQL3CzJLv9UmmDVeJxpG/EGwziTKsCZGCA0nzpiUV3NhLurqZhOd
+         MWXJM6if+b4/ECgOOafr8T1cfM7dp6Vnu/Tsp7sWfy9W/MiECArKyyFxRuIW/SP00oWz
+         /Yhw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:from:to:subject
-         :content-transfer-encoding:mime-version:date:message-id:sender
-         :dkim-signature;
-        bh=DSbxdCuq/RXWCI74Oetkkg05N1bnywTc8DJPqJJ1+aI=;
-        b=GQ5iaEkzg5ei/VympwM+3vH4Giy/Mvj98nnyJIj61FSW8rSHc6Y6tDrSQlvHuPUyuE
-         g9v56uZe1H4C0BW2sT5C+4qQlQYUmdjPE0ClO+5IybMHz1PyCF71Sp/RlWZ+N5xhYn4w
-         qJ/atvxBBPRzzL01tzYb11c+NZEWHLgmwHrD6YnlcWJ3a6q2aD9E1vBs4AtmE5vPT8fR
-         gfrEfAHWyuAzb/9f9ime8PSA41Rshili0UcXjZGUiH/B4jwqxyVP3MJavvymKs7g3iJM
-         onRxEmhCk3mNu4PbF0hISyiCXZt+4Tg545pcGyzIQa3WjEYLiboChWfvgUJfRIvXT14U
-         2Mqw==
+         :list-id:mailing-list:precedence:content-transfer-encoding:to:from
+         :subject:message-id:date:mime-version:sender:dkim-signature;
+        bh=Cd7PXZiTTQhndSCQSPtO404hG0rPCO8OxZ5nGaWwmw8=;
+        b=UxgoVGZL9HNlBJt965eGzbzsc6ot8ZRDc6SrnnWDhea5cUR7GbkfFk1wmBDxhzgAtz
+         F561WD6x2gvPhWhMDXcK/3WlHcqvUCNj8PKXbAh1vYSMUduskhOI3yD0UL1HqkO300pG
+         45VPzkgqjnH3olMWdrDa/MEzGdJHT1WO4yZlSljKp5AOsW5rUC8VvXNRxbDgbWIkllOv
+         07lfIXYXIlK4O23GsxpnjYLnSsJs+lBgfI9lSaFWQemr0yNGPsxGDBhkNKzuSH78UA5q
+         Nj7ZeIOYSc0P/NfR/vKG4+qBHtrPuO4wCfT4WR8ct1VBLUxqmG1Z3wOqSCFzuYX6bkL8
+         TNvQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=uSBNSS2E;
-       spf=neutral (google.com: 2607:f8b0:4864:20::62e is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+       spf=pass (google.com: domain of 37lnlyakbaeuz56rhsslyhwwpk.nvvnsl1zlyjvu0lu0.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.69 as permitted sender) smtp.mailfrom=37lnlYAkbAEUz56rhsslyhwwpk.nvvnsl1zlyjvu0lu0.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:date:mime-version:content-transfer-encoding
-         :subject:to:from:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=DSbxdCuq/RXWCI74Oetkkg05N1bnywTc8DJPqJJ1+aI=;
-        b=ITDG914Tsm0oc0s5qAdQ0eqvIifSfF2bZUYZ7gx4beAbYVaqa4EZ2iuAjtJcxSG/Hq
-         75+NwbHzZWXR8l9KnCpG9I3DrVhaLILsV2xbpD6Yw3hbouc5eEb02cdFB8sD3Ly5PnQ0
-         5zZeMp4JWFxoDdGxIu0+eGiOvUg+pGjgATpjIEgSi13zsZsmu3u6WiYGJRHTIWE8VwjS
-         ef2qEPqG5yo0BY29b8dOP6QAoOYJOjLMxp3T3DnBSGbCrlUDmVafbpr2juJfcVZlx2df
-         +0IYhQazJfHQNqX5foZ5+h2bLWv5bDxVO1P3VEt/6UzupFucjXD5PQgPAlC2hxwY49MM
-         Q1/g==
+        h=sender:mime-version:date:message-id:subject:from:to
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Cd7PXZiTTQhndSCQSPtO404hG0rPCO8OxZ5nGaWwmw8=;
+        b=jOmf7vEhozzWweglTr9DG/EZusGATgciSov0drZ6V3WG1s6iHAxchYY/UzZGFHfWBr
+         rur6NAwfKU9WM5wpY3ZzhmV3pqAetRyVCesQIiGNfX100wlF+YSET2KdInQoaaagf4xJ
+         1Hc8pp434dhbh98z6KxZN+GvIYcqgzj8DB77J5lmJV7r6jdHDP7w8GJ6ArqK8infxWe3
+         2sgOKPkAy8ImYqB3OeN8k2e54e1u/k1fEE55XIcr+cEwMTEqFv4HUiat6ebeZbSdm0d5
+         FP5giDId3sNtftmHJyGVu8b1BZjsVjlOmeeYx0PlDJMkzFzIDBFhItFiJ73PV7vwxt6R
+         MRow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:date:mime-version
-         :content-transfer-encoding:subject:to:from:x-original-sender
+        h=sender:x-gm-message-state:mime-version:date:message-id:subject:from
+         :to:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=DSbxdCuq/RXWCI74Oetkkg05N1bnywTc8DJPqJJ1+aI=;
-        b=ddfOZwVSlaL0zHEfhUa7r8zOqIOhNouoM9sMKOGVpMKIGYYe+yLDAt1jpNUeD2KKgg
-         ToeNB7wq6k50XXK7V6ob3kPU3jn8DjMYupfcqPZ6Jx6hUHf+G0spB68MT/QV0eCESIFL
-         U3NICgX2ZyOSGN9toEBF7vnQq3Q2TkVMbve5cJ5chWnOalay6ZBh7dhq5YW+dy2Kb3Bf
-         kMh+ETWITBzmvT2twDwJrYs2h9yVpD3YQwKlXE3KKwcLO1hVT52uu31xXznxONuYZufZ
-         llM2VhglFR6rQRHLBBjpMgdzBU+n6IcS63tdQattvmHPMKMSGamGkv3Rgp1bnkxz2Vs7
-         S8pw==
+        bh=Cd7PXZiTTQhndSCQSPtO404hG0rPCO8OxZ5nGaWwmw8=;
+        b=SUf/o0Wpuu6WhxC/DL/Znjm9e76y9VQ/uemVOgMHOmgNfeF6q3bCJ/CuZeAStmBJvI
+         bey/kG6hhRNEIu/EV4bC+ou8purRBamQUiYiHJnoEdKbLZUtiQCxakwvyM0xGOd6n2aY
+         dnmcDpXVcGuuN8QMJRNr3UdQ6Ah5DQ9Cl2GSpDX72l9FEWDAk7b/B6oIFWars2akwcu8
+         Jd/2bvopO3H8r3hCQ192qNr3RufKwjp6Acj58BAWY0qjyEeqytUl3F9OvaHtfdkAQvSZ
+         PEYqvQj56wn3/qcTm0Rjhw/7WhpS/UixbJDXeL0dI06WIR1BPn6dGypErgovURJGMomF
+         e8Cg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Wqs5lwmBsUGg8HC0A505d3r3Q0fCRB9Gc64nMdvUtyhCb7zPu
-	AXHJ5cRpT4XPJ8HkSIUfL7Y=
-X-Google-Smtp-Source: ABdhPJzctbwFI5BoYPaTnGBLxs0tV5jtlhM/RjRX6Bi8uY4qMqIGGlTPtMl7yiLR5MgLUiPIJ13izA==
-X-Received: by 2002:a37:9e44:: with SMTP id h65mr6980014qke.431.1625641768842;
-        Wed, 07 Jul 2021 00:09:28 -0700 (PDT)
+X-Gm-Message-State: AOAM5330AIl45Rj72iAg2Vdf6BTUfKhTpBaPEus1EvLbAuIMmp5om0+A
+	0z5JNiZfmlf5wXX8NdeHJC8=
+X-Google-Smtp-Source: ABdhPJwgOVPVX9D+qBG8mPTlF3KaoHIQT7/Jhgps7MKaVmntLCNPaOBDwm3yz/fnwhB7DypjqdU5Dg==
+X-Received: by 2002:a63:2b91:: with SMTP id r139mr24583153pgr.242.1625643504312;
+        Wed, 07 Jul 2021 00:38:24 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:1583:: with SMTP id d3ls14765804qkk.10.gmail; Wed,
- 07 Jul 2021 00:09:28 -0700 (PDT)
-X-Received: by 2002:a05:620a:1667:: with SMTP id d7mr23275763qko.132.1625641768366;
-        Wed, 07 Jul 2021 00:09:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1625641768; cv=none;
+Received: by 2002:a17:90b:4d0b:: with SMTP id mw11ls14420435pjb.1.gmail; Wed,
+ 07 Jul 2021 00:38:23 -0700 (PDT)
+X-Received: by 2002:a17:902:aa03:b029:129:96eb:1950 with SMTP id be3-20020a170902aa03b029012996eb1950mr9757796plb.6.1625643503577;
+        Wed, 07 Jul 2021 00:38:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625643503; cv=none;
         d=google.com; s=arc-20160816;
-        b=ciP8iwSiTIQ/69wphKLTyr2cElKLIfx2m5TWl1NU8miZcgVMQx414/pjf6raZfWJ5N
-         0K6/lKRHzrpqUZipnMOd+b9myYNDRbBU3f3e0Xl7lzg/q963FNH4OZHkGlkpy3PvItbg
-         X66EpUl5f7ZCBXMngi+YLH2Oo8iCdqknH4DjkAKWMM8/ki9h9o64s3iCRC5JFha7Rqdx
-         LnJSHHP//qpFwfDN1+8vBh8t+TREVpRIg1+atSU6VcY4I1T6a3K16SraLtMEK5l3jAJQ
-         k8Bx6RUO+TxrMB0Px98THt7SArU3pQ3X/f9ccxs659GI9hgIgX3KBLMNJmHkMPk+ultM
-         YFgg==
+        b=HrbMkuQndddXzqGucp5CSsY6QZtx0+lZ7J3X6JcpiWMoJ3CQxCyATDEhM/T1/0oAp6
+         mcsIozyL3SpS2RlDpfNu99/2qNU9uwdxFirCjCLpH3PbADY1t1q2uUcERuSURGQ0vq0C
+         CFsozud5WKxvj8QUTYxeZHQJXFd/Pwxrz0qqAtBhQmpC5OFhWUlZLQTTgSFtwScOpWds
+         58jmMo6+a/3nZC1hF+MjguuTI2BAE4aCWkiMVE4TsCTZG8qBGovTgAiMODg7vTDDCMtv
+         6qJwBD2qRFj5+lVtkePwi+jqGoW16jkfhggUvIDwV+gA3ouwXmF3KCpevPK+Cqszk4ne
+         gXoA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:dkim-signature;
-        bh=r4a1SJqAeLCf0rkYiBl9Fq73BwOf29CxsK76Ymz1tfs=;
-        b=GLDofl7RxTMh6ErjtR4VL5nugJ0l1ypU8xtAWfgzKK99UAb/iAOeI7DdU3v3sKO79e
-         Ncaj1yKZl/0ztZUHmCEJfshUoCItWS3HVMDrpHA/BKJogeaUtj2IWU6htuCISaqSHtd0
-         /nlULoHIO7tnjJj+FZNxmMPDAOi8n0SkPtN2HxlevVIqr1qITChfqmov+5L9U/voA7Hy
-         T937kV4RHCngqkIe/UWkMuf4N3zhQBJq3cbt4Vi7m059nx+sPJBha1eTTWot1QDrVwoF
-         Dh0XyjkmS31ebGKYdh7F6DvnRQeq9vZOM0mSo0UntZJ/Iz/9Z/L+kHJs+uwjpYgsDdGa
-         a+3w==
+        h=content-transfer-encoding:to:from:subject:message-id:date
+         :mime-version;
+        bh=YhJQztim+e7KR2u4+DYsil96NEDvvJ0D+IpS40VJjm8=;
+        b=P2G/ItE8xHUR9pmEjbRC3/I3sOmwf3gI/gxjnKhcoLnqFbe6ExpoPUDVdqEufCWEs2
+         kM7vBbNYeItdF0PSQ/GMFJ+xDpS/cc9SBDkf+ONwNMTkYjZd+xdGA479oruyQJTwtq61
+         tkIlQRxQNfVvjWrep3egL0XM/4qMCgFuIhgvHaXQk/qIQADwRB7Hf2IPRDcQShDbsqU2
+         ppeRn+Y/QraDxt7ynPv1QTQYQ2aICxp0Dt8pJ7ZfgNN8dUwmJckS79nEHABeaSDM2zEm
+         albKy3tnmOQwwnNa0W9d0fx/swtS2L47OZIkKv7+S8cAcUxYrCyga7F76JddiZwqYI8g
+         twyg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=uSBNSS2E;
-       spf=neutral (google.com: 2607:f8b0:4864:20::62e is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
-Received: from mail-pl1-x62e.google.com (mail-pl1-x62e.google.com. [2607:f8b0:4864:20::62e])
-        by gmr-mx.google.com with ESMTPS id e24si159727qkl.4.2021.07.07.00.09.28
+       spf=pass (google.com: domain of 37lnlyakbaeuz56rhsslyhwwpk.nvvnsl1zlyjvu0lu0.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.69 as permitted sender) smtp.mailfrom=37lnlYAkbAEUz56rhsslyhwwpk.nvvnsl1zlyjvu0lu0.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
+Received: from mail-io1-f69.google.com (mail-io1-f69.google.com. [209.85.166.69])
+        by gmr-mx.google.com with ESMTPS id lp13si342053pjb.0.2021.07.07.00.38.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 07 Jul 2021 00:09:28 -0700 (PDT)
-Received-SPF: neutral (google.com: 2607:f8b0:4864:20::62e is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::62e;
-Received: by mail-pl1-x62e.google.com with SMTP id v13so540183ple.9
-        for <clang-built-linux@googlegroups.com>; Wed, 07 Jul 2021 00:09:28 -0700 (PDT)
-X-Received: by 2002:a17:90a:aa8a:: with SMTP id l10mr24779512pjq.227.1625641766742;
-        Wed, 07 Jul 2021 00:09:26 -0700 (PDT)
-Received: from kernelci-production.internal.cloudapp.net ([52.250.1.28])
-        by smtp.gmail.com with ESMTPSA id j205sm19625762pfd.4.2021.07.07.00.09.25
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 07 Jul 2021 00:09:26 -0700 (PDT)
-Message-ID: <60e55326.1c69fb81.c1a6d.ac1b@mx.google.com>
-Date: Wed, 07 Jul 2021 00:09:26 -0700 (PDT)
-Content-Type: text/plain; charset="UTF-8"
+        Wed, 07 Jul 2021 00:38:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 37lnlyakbaeuz56rhsslyhwwpk.nvvnsl1zlyjvu0lu0.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.69 as permitted sender) client-ip=209.85.166.69;
+Received: by mail-io1-f69.google.com with SMTP id p21-20020a6b8d150000b029050e9f519782so1045313iod.19
+        for <clang-built-linux@googlegroups.com>; Wed, 07 Jul 2021 00:38:23 -0700 (PDT)
 MIME-Version: 1.0
+X-Received: by 2002:a92:c888:: with SMTP id w8mr353763ilo.140.1625643502906;
+ Wed, 07 Jul 2021 00:38:22 -0700 (PDT)
+Date: Wed, 07 Jul 2021 00:38:22 -0700
+X-Google-Appengine-App-Id: s~syzkaller
+Message-ID: <00000000000085b5fd05c6839f7d@google.com>
+Subject: [syzbot] upstream boot error: possible deadlock in local_lock_acquire
+From: syzbot <syzbot+3e5b71aeec827cfb4316@syzkaller.appspotmail.com>
+To: akpm@linux-foundation.org, clang-built-linux@googlegroups.com, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Kernelci-Kernel: next-20210707
-X-Kernelci-Report-Type: build
-X-Kernelci-Tree: next
-X-Kernelci-Branch: master
-Subject: next/master build: 210 builds: 5 failed, 205 passed, 18 errors,
- 115 warnings (next-20210707)
-To: clang-built-linux@googlegroups.com
-From: "kernelci.org bot" <bot@kernelci.org>
-X-Original-Sender: bot@kernelci.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
- header.b=uSBNSS2E;       spf=neutral (google.com: 2607:f8b0:4864:20::62e is
- neither permitted nor denied by best guess record for domain of
- bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+X-Original-Sender: syzbot@syzkaller.appspotmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of 37lnlyakbaeuz56rhsslyhwwpk.nvvnsl1zlyjvu0lu0.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com
+ designates 209.85.166.69 as permitted sender) smtp.mailfrom=37lnlYAkbAEUz56rhsslyhwwpk.nvvnsl1zlyjvu0lu0.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,1581 +125,1400 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-next/master build: 210 builds: 5 failed, 205 passed, 18 errors, 115 warning=
-s (next-20210707)
+Hello,
 
-Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
-xt-20210707/
+syzbot found the following issue on:
 
-Tree: next
-Branch: master
-Git Describe: next-20210707
-Git Commit: ee268dee405b4710e179426a431ffe0cdee14f13
-Git URL: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
-t
-Built: 7 unique architectures
+HEAD commit:    79160a60 Merge tag 'usb-5.14-rc1' of git://git.kernel.org/.=
+.
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=3D101489c4300000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=3D644a2e484726c21=
+7
+dashboard link: https://syzkaller.appspot.com/bug?extid=3D3e5b71aeec827cfb4=
+316
+compiler:       Debian clang version 11.0.1-2
 
-Build Failures Detected:
+IMPORTANT: if you fix the issue, please add the following tag to the commit=
+:
+Reported-by: syzbot+3e5b71aeec827cfb4316@syzkaller.appspotmail.com
 
-arc:
-    allnoconfig: (gcc-8) FAIL
-    nsimosci_hs_smp_defconfig: (gcc-8) FAIL
-
-arm64:
-    allmodconfig: (gcc-8) FAIL
-
-mips:
-    decstation_64_defconfig: (gcc-8) FAIL
-    lemote2f_defconfig: (gcc-8) FAIL
-
-Errors and Warnings Detected:
-
-arc:
-    allnoconfig (gcc-8): 8 errors
-    haps_hs_defconfig (gcc-8): 1 warning
-    haps_hs_smp_defconfig+kselftest (gcc-8): 2 warnings
-    nsimosci_hs_smp_defconfig (gcc-8): 8 errors
-
-arm64:
-    allmodconfig (gcc-8): 2 errors, 2 warnings
-    defconfig (gcc-8): 1 warning
-    defconfig (clang-12): 2 warnings
-    defconfig (clang-10): 3 warnings
-    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (gcc-8): 1 warning
-    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-10): 3 warnings
-    defconfig+CONFIG_ARM64_64K_PAGES=3Dy (clang-12): 2 warnings
-    defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 1 warning
-    defconfig+CONFIG_RANDOMIZE_BASE=3Dy (gcc-8): 1 warning
-
-arm:
-    allmodconfig (gcc-8): 2 warnings
-    allmodconfig (clang-12): 30 warnings
-    allmodconfig (clang-10): 30 warnings
-    axm55xx_defconfig (gcc-8): 1 warning
-    lpc18xx_defconfig (gcc-8): 1 warning
-    mps2_defconfig (gcc-8): 1 warning
-    multi_v7_defconfig (gcc-8): 1 warning
-    multi_v7_defconfig (clang-10): 2 warnings
-    multi_v7_defconfig (clang-12): 2 warnings
-    multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (gcc-8): 1 warning
-    multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (gcc-8): 1 warnin=
-g
-    multi_v7_defconfig+CONFIG_SMP=3Dn (gcc-8): 1 warning
-    multi_v7_defconfig+kselftest (gcc-8): 1 warning
-    stm32_defconfig (gcc-8): 1 warning
-    vf610m4_defconfig (gcc-8): 1 warning
-
-i386:
-
-mips:
-    32r2el_defconfig (gcc-8): 1 warning
-    32r2el_defconfig+kselftest (gcc-8): 1 warning
-    loongson3_defconfig (gcc-8): 1 warning
-    rm200_defconfig (gcc-8): 1 warning
-
-riscv:
-    defconfig (gcc-8): 1 warning
-    defconfig+CONFIG_EFI=3Dn (clang-12): 2 warnings
-    defconfig+kselftest (gcc-8): 1 warning
-    nommu_k210_defconfig (gcc-8): 1 warning
-    nommu_k210_sdcard_defconfig (gcc-8): 1 warning
-    rv32_defconfig (gcc-8): 7 warnings
-
-x86_64:
-    x86_64_defconfig (clang-10): 2 warnings
-    x86_64_defconfig+x86_kvm_guest (gcc-8): 1 warning
-
-Errors summary:
-
-    2    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `=
-__softirqentry_text_end'
-    2    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `=
-__softirqentry_text_start'
-    2    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `=
-__irqentry_text_end'
-    2    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `_=
-_softirqentry_text_end'
-    2    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `_=
-_softirqentry_text_start'
-    2    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `_=
-_irqentry_text_end'
-    1    stackdepot.c:(.text+0x4ac): undefined reference to `__irqentry_tex=
-t_start'
-    1    stackdepot.c:(.text+0x4): undefined reference to `__irqentry_text_=
-start'
-    1    arc-elf32-ld: stackdepot.c:(.text+0x4ac): undefined reference to `=
-__irqentry_text_start'
-    1    arc-elf32-ld: stackdepot.c:(.text+0x4): undefined reference to `__=
-irqentry_text_start'
-    1    ./../include/linux/compiler_types.h:328:38: error: call to =E2=80=
-=98__compiletime_assert_1864=E2=80=99 declared with attribute error: FIELD_=
-PREP: value too large for the field
-    1    ./../include/linux/compiler_types.h:328:38: error: call to =E2=80=
-=98__compiletime_assert_1857=E2=80=99 declared with attribute error: FIELD_=
-PREP: value too large for the field
-
-Warnings summary:
-
-    29   1 warning generated.
-    21   drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=
-=98bytes=E2=80=99 [-Wunused-variable]
-    8    drivers/net/virtio_net.c:1695:15: warning: unused variable 'bytes'=
- [-Wunused-variable]
-    6    include/linux/rmap.h:294:34: warning: statement with no effect [-W=
-unused-value]
-    4    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least=
- version 4.6 of GCC [-W#warnings]
-    4    2 warnings generated.
-    4    #warning This code requires at least version 4.6 of GCC
-    2    kernel/trace/trace_osnoise.c:1461:8: warning: =E2=80=98main=E2=80=
-=99 is usually a function [-Wmain]
-    2    drivers/staging/fbtft/fbtft-core.c:902:12: warning: stack frame si=
-ze of 1080 bytes in function 'fbtft_init_display_from_property' [-Wframe-la=
-rger-than=3D]
-    2    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:114:10: warning: i=
-mplicit conversion from enumeration type 'enum mt76_cipher_type' to differe=
-nt enumeration type 'enum mcu_cipher_type' [-Wenum-conversion]
-    2    drivers/net/wireless/mediatek/mt76/mt7915/mcu.c:114:10: warning: i=
-mplicit conversion from enumeration type 'enum mt76_cipher_type' to differe=
-nt enumeration type 'enum mcu_cipher_type' [-Wenum-conversion]
-    2    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame si=
-ze of 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
-    2    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack fra=
-me size of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
-    2    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3043:6:=
- warning: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-la=
-rger-than=3D]
-    2    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame=
- size of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
-    2    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/l=
-ib/modules/5.13.0-next-20210707/kernel/drivers/media/tuners/tuner-types.ko:=
- unsupported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-    2    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [=
--Wcpp]
-    2    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [=
--Wcpp]
-    2    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemente=
-d [-Wcpp]
-    1    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
-e of 1392 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
-=3D]
-    1    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame siz=
-e of 1384 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=
-=3D]
-    1    drivers/staging/fbtft/fbtft-core.c:992:5: warning: stack frame siz=
-e of 1216 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
-    1    drivers/staging/fbtft/fbtft-core.c:992:5: warning: stack frame siz=
-e of 1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
-    1    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame =
-size of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=
-=3D]
-    1    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame =
-size of 1056 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=
-=3D]
-    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
-eb_relocate_parse_slow()+0x427: stack state mismatch: cfa1=3D4+120 cfa2=3D-=
-1+0
-    1    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: =
-eb_copy_relocations()+0x1d5: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
-warning: stack frame size of 5560 bytes in function 'calculate_bandwidth' [=
--Wframe-larger-than=3D]
-    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
-warning: stack frame size of 5536 bytes in function 'calculate_bandwidth' [=
--Wframe-larger-than=3D]
-    1    drivers/block/paride/bpck.c:32: warning: "PC" redefined
-    1    crypto/wp512.c:782:13: warning: stack frame size of 1192 bytes in =
-function 'wp512_process_buffer' [-Wframe-larger-than=3D]
-    1    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in =
-function 'wp512_process_buffer' [-Wframe-larger-than=3D]
-    1    arch/arc/include/asm/perf_event.h:91:27: warning: =E2=80=98arc_pmu=
-_ev_hw_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
-    1    arch/arc/include/asm/perf_event.h:126:23: warning: =E2=80=98arc_pm=
-u_cache_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
-    1    15: warning: unused variable 'bytes' [-Wunused-variable]
+ACPI: PCI: Interrupt link LNKD configured for IRQ 11
+ACPI: PCI: Interrupt link LNKS configured for IRQ 9
+iommu: Default domain type: Translated=20
+pci 0000:00:05.0: vgaarb: setting as boot VGA device
+pci 0000:00:05.0: vgaarb: VGA device added: decodes=3Dio+mem,owns=3Dio+mem,=
+locks=3Dnone
+pci 0000:00:05.0: vgaarb: bridge control possible
+vgaarb: loaded
+SCSI subsystem initialized
+ACPI: bus type USB registered
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+mc: Linux media interface: v0.10
+videodev: Linux video capture interface: v2.00
+pps_core: LinuxPPS API ver. 1 registered
+pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giome=
+tti@linux.it>
+PTP clock support registered
+EDAC MC: Ver: 3.0.0
+Advanced Linux Sound Architecture Driver Initialized.
+Bluetooth: Core ver 2.22
+NET: Registered PF_BLUETOOTH protocol family
+Bluetooth: HCI device and connection manager initialized
+Bluetooth: HCI socket layer initialized
+Bluetooth: L2CAP socket layer initialized
+Bluetooth: SCO socket layer initialized
+NET: Registered PF_ATMPVC protocol family
+NET: Registered PF_ATMSVC protocol family
+NetLabel: Initializing
+NetLabel:  domain hash size =3D 128
+NetLabel:  protocols =3D UNLABELED CIPSOv4 CALIPSO
+NetLabel:  unlabeled traffic allowed by default
+nfc: nfc_init: NFC Core ver 0.1
+NET: Registered PF_NFC protocol family
+PCI: Using ACPI for IRQ routing
+clocksource: Switched to clocksource kvm-clock
+VFS: Disk quotas dquot_6.6.0
+VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+FS-Cache: Loaded
+CacheFiles: Loaded
+TOMOYO: 2.6.0
+Mandatory Access Control activated.
+pnp: PnP ACPI init
+pnp: PnP ACPI: found 7 devices
+clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 208=
+5701024 ns
+NET: Registered PF_INET protocol family
+IP idents hash table entries: 131072 (order: 8, 1048576 bytes, vmalloc)
+tcp_listen_portaddr_hash hash table entries: 4096 (order: 6, 327680 bytes, =
+vmalloc)
+TCP established hash table entries: 65536 (order: 7, 524288 bytes, vmalloc)
 
 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-
-Detailed per-defconfig build reports:
-
----------------------------------------------------------------------------=
------
-32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warnin=
-g, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, gcc-8) =E2=80=94 FAIL, 2 errors, 2 warnings, 0 section=
- mismatches
-
-Errors:
-    ./../include/linux/compiler_types.h:328:38: error: call to =E2=80=98__c=
-ompiletime_assert_1857=E2=80=99 declared with attribute error: FIELD_PREP: =
-value too large for the field
-    ./../include/linux/compiler_types.h:328:38: error: call to =E2=80=98__c=
-ompiletime_assert_1864=E2=80=99 declared with attribute error: FIELD_PREP: =
-value too large for the field
-
-Warnings:
-    kernel/trace/trace_osnoise.c:1461:8: warning: =E2=80=98main=E2=80=99 is=
- usually a function [-Wmain]
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section m=
-ismatches
-
-Warnings:
-    kernel/trace/trace_osnoise.c:1461:8: warning: =E2=80=98main=E2=80=99 is=
- usually a function [-Wmain]
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 30 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
-1384 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame size=
- of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
-    1 warning generated.
-    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
-ion 4.6 of GCC [-W#warnings]
-    #warning This code requires at least version 4.6 of GCC
-    1 warning generated.
-    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
-ion 4.6 of GCC [-W#warnings]
-    #warning This code requires at least version 4.6 of GCC
-    1 warning generated.
-    crypto/wp512.c:782:13: warning: stack frame size of 1176 bytes in funct=
-ion 'wp512_process_buffer' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame size of=
- 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack frame si=
-ze of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/net/wireless/mediatek/mt76/mt7915/mcu.c:114:10: warning: implic=
-it conversion from enumeration type 'enum mt76_cipher_type' to different en=
-umeration type 'enum mcu_cipher_type' [-Wenum-conversion]
-    1 warning generated.
-    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:114:10: warning: implic=
-it conversion from enumeration type 'enum mt76_cipher_type' to different en=
-umeration type 'enum mcu_cipher_type' [-Wenum-conversion]
-    1 warning generated.
-    drivers/net/virtio_net.c:1695:15: warning: unused variable 'bytes' [-Wu=
-nused-variable]
-    1 warning generated.
-    drivers/staging/fbtft/fbtft-core.c:992:5: warning: stack frame size of =
-1208 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
-    drivers/staging/fbtft/fbtft-core.c:902:12: warning: stack frame size of=
- 1080 bytes in function 'fbtft_init_display_from_property' [-Wframe-larger-=
-than=3D]
-    2 warnings generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3043:6: warn=
-ing: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-larger-=
-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
-ng: stack frame size of 5560 bytes in function 'calculate_bandwidth' [-Wfra=
-me-larger-than=3D]
-    2 warnings generated.
-    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame size =
-of 1064 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=3D]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 30 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/trace/trace_events_hist.c:4594:13: warning: stack frame size of =
-1392 bytes in function 'hist_trigger_print_key' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/firmware/tegra/bpmp-debugfs.c:321:16: warning: stack frame size=
- of 1264 bytes in function 'bpmp_debug_store' [-Wframe-larger-than=3D]
-    1 warning generated.
-    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
-ion 4.6 of GCC [-W#warnings]
-    #warning This code requires at least version 4.6 of GCC
-    1 warning generated.
-    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
-ion 4.6 of GCC [-W#warnings]
-    #warning This code requires at least version 4.6 of GCC
-    1 warning generated.
-    crypto/wp512.c:782:13: warning: stack frame size of 1192 bytes in funct=
-ion 'wp512_process_buffer' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/gpu/drm/selftests/test-drm_mm.c:372:12: warning: stack frame si=
-ze of 1040 bytes in function '__igt_reserve' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/net/wireless/cisco/airo.c:3075:12: warning: stack frame size of=
- 1056 bytes in function 'airo_thread' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/net/wireless/mediatek/mt76/mt7915/mcu.c:114:10: warning: implic=
-it conversion from enumeration type 'enum mt76_cipher_type' to different en=
-umeration type 'enum mcu_cipher_type' [-Wenum-conversion]
-    1 warning generated.
-    drivers/net/wireless/mediatek/mt76/mt7921/mcu.c:114:10: warning: implic=
-it conversion from enumeration type 'enum mt76_cipher_type' to different en=
-umeration type 'enum mcu_cipher_type' [-Wenum-conversion]
-    1 warning generated.
-    drivers/mtd/chips/cfi_cmdset_0001.c:1872:12: warning: stack frame size =
-of 1056 bytes in function 'cfi_intelext_writev' [-Wframe-larger-than=3D]
-    1 warning generated.
-    drivers/net/virtio_net.c:1695:15: warning: unused variable 'bytes' [-Wu=
-nused-variable]
-    1 warning generated.
-    drivers/staging/fbtft/fbtft-core.c:992:5: warning: stack frame size of =
-1216 bytes in function 'fbtft_init_display' [-Wframe-larger-than=3D]
-    drivers/staging/fbtft/fbtft-core.c:902:12: warning: stack frame size of=
- 1080 bytes in function 'fbtft_init_display_from_property' [-Wframe-larger-=
-than=3D]
-    2 warnings generated.
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3043:6: warn=
-ing: stack frame size of 1384 bytes in function 'bw_calcs' [-Wframe-larger-=
-than=3D]
-    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
-ng: stack frame size of 5536 bytes in function 'calculate_bandwidth' [-Wfra=
-me-larger-than=3D]
-    2 warnings generated.
-
----------------------------------------------------------------------------=
------
-allnoconfig (arc, gcc-8) =E2=80=94 FAIL, 8 errors, 0 warnings, 0 section mi=
-smatches
-
-Errors:
-    stackdepot.c:(.text+0x4ac): undefined reference to `__irqentry_text_sta=
-rt'
-    arc-elf32-ld: stackdepot.c:(.text+0x4ac): undefined reference to `__irq=
-entry_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `__irq=
-entry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x4cc): undefined reference to `__irq=
-entry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `__sof=
-tirqentry_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x4d8): undefined reference to `__sof=
-tirqentry_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `__sof=
-tirqentry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x4e0): undefined reference to `__sof=
-tirqentry_text_end'
-
----------------------------------------------------------------------------=
------
-allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (x86_64, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-cu1830-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-decstation_64_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
-, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
-matches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
-matches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, clang-12) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable 'bytes' [-Wu=
-nused-variable]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, clang-10) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
- mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable 'bytes' [-Wu=
-nused-variable]
-    1 warning generated.
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
-dules/5.13.0-next-20210707/kernel/drivers/media/tuners/tuner-types.ko: unsu=
-pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 error=
-s, 1 warning, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-10) =E2=80=94 PASS, 0 er=
-rors, 3 warnings, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable 'bytes' [-Wu=
-nused-variable]
-    1 warning generated.
-    aarch64-linux-gnu-strip: warning: /tmp/kci/linux/build/_modules_/lib/mo=
-dules/5.13.0-next-20210707/kernel/drivers/media/tuners/tuner-types.ko: unsu=
-pported GNU_PROPERTY_TYPE (5) type: 0xc0000000
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_ARM64_64K_PAGES=3Dy (arm64, clang-12) =E2=80=94 PASS, 0 er=
-rors, 2 warnings, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable 'bytes' [-Wu=
-nused-variable]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
-, 1 warning, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_EFI=3Dn (riscv, clang-12) =E2=80=94 PASS, 0 errors, 2 warn=
-ings, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable 'bytes' [-Wu=
-nused-variable]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
-, 1 warning, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
-ection mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-haps_hs_smp_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 wa=
-rnings, 0 section mismatches
-
-Warnings:
-    arch/arc/include/asm/perf_event.h:126:23: warning: =E2=80=98arc_pmu_cac=
-he_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
-    arch/arc/include/asm/perf_event.h:91:27: warning: =E2=80=98arc_pmu_ev_h=
-w_map=E2=80=99 defined but not used [-Wunused-const-variable=3D]
-
----------------------------------------------------------------------------=
------
-hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
-, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-lemote2f_defconfig (mips, gcc-8) =E2=80=94 FAIL, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-loongson2k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    include/linux/rmap.h:294:34: warning: statement with no effect [-Wunuse=
-d-value]
-
----------------------------------------------------------------------------=
------
-lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
-s, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
-
----------------------------------------------------------------------------=
------
-maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
-0 section mismatches
-
----------------------------------------------------------------------------=
------
-mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    include/linux/rmap.h:294:34: warning: statement with no effect [-Wunuse=
-d-value]
-
----------------------------------------------------------------------------=
------
-mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable 'bytes' [-Wu=
-nused-variable]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, clang-12) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    15: warning: unused variable 'bytes' [-Wunused-variable]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
- errors, 1 warning, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
-=94 PASS, 0 errors, 1 warning, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 =
-warning, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warni=
-ng, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-nommu_k210_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
-section mismatches
-
-Warnings:
-    include/linux/rmap.h:294:34: warning: statement with no effect [-Wunuse=
-d-value]
-
----------------------------------------------------------------------------=
------
-nommu_k210_sdcard_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warn=
-ing, 0 section mismatches
-
-Warnings:
-    include/linux/rmap.h:294:34: warning: statement with no effect [-Wunuse=
-d-value]
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 FAIL, 8 errors, 0 warnings=
-, 0 section mismatches
-
-Errors:
-    stackdepot.c:(.text+0x4): undefined reference to `__irqentry_text_start=
-'
-    arc-elf32-ld: stackdepot.c:(.text+0x4): undefined reference to `__irqen=
-try_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `__irqe=
-ntry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x24): undefined reference to `__irqe=
-ntry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `__soft=
-irqentry_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x30): undefined reference to `__soft=
-irqentry_text_start'
-    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `__soft=
-irqentry_text_end'
-    arc-elf32-ld: stackdepot.c:(.text+0x38): undefined reference to `__soft=
-irqentry_text_end'
-
----------------------------------------------------------------------------=
------
-omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    drivers/block/paride/bpck.c:32: warning: "PC" redefined
-
----------------------------------------------------------------------------=
------
-rs90_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
-]
-    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
-cpp]
-    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-    <stdin>:834:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
-]
-    <stdin>:1131:2: warning: #warning syscall fstatat64 not implemented [-W=
-cpp]
-    <stdin>:1515:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
-0 section mismatches
-
----------------------------------------------------------------------------=
------
-shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    include/linux/rmap.h:294:34: warning: statement with no effect [-Wunuse=
-d-value]
-
----------------------------------------------------------------------------=
------
-sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
-matches
-
----------------------------------------------------------------------------=
------
-tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    include/linux/rmap.h:294:34: warning: statement with no effect [-Wunuse=
-d-value]
-
----------------------------------------------------------------------------=
------
-viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, clang-10) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
- section mismatches
-
-Warnings:
-    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_re=
-locate_parse_slow()+0x427: stack state mismatch: cfa1=3D4+120 cfa2=3D-1+0
-    drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: eb_co=
-py_relocations()+0x1d5: stack state mismatch: cfa1=3D4+104 cfa2=3D-1+0
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, clang-12) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
-ings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+x86-chromebook (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0=
- warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+x86-chromebook+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0=
- errors, 0 warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+x86_kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 =
-warning, 0 section mismatches
-
-Warnings:
-    drivers/net/virtio_net.c:1695:15: warning: unused variable =E2=80=98byt=
-es=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+WARNING: possible recursive locking detected
+5.13.0-syzkaller #0 Not tainted
+--------------------------------------------
+swapper/0/1 is trying to acquire lock:
+ffff8880b9d4d0c8 (lock#2){-.-.}-{2:2}, at: local_lock_acquire+0x7/0x130 inc=
+lude/linux/local_lock_internal.h:41
+
+but task is already holding lock:
+ffff8880b9d4d0c8 (lock#2){-.-.}-{2:2}, at: local_lock_acquire+0x7/0x130 inc=
+lude/linux/local_lock_internal.h:41
+
+other info that might help us debug this:
+ Possible unsafe locking scenario:
+
+       CPU0
+       ----
+  lock(lock#2);
+  lock(lock#2);
+
+ *** DEADLOCK ***
+
+ May be due to missing lock nesting notation
+
+1 lock held by swapper/0/1:
+ #0: ffff8880b9d4d0c8 (lock#2){-.-.}-{2:2}, at: local_lock_acquire+0x7/0x13=
+0 include/linux/local_lock_internal.h:41
+
+stack backtrace:
+CPU: 1 PID: 1 Comm: swapper/0 Not tainted 5.13.0-syzkaller #0
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Goo=
+gle 01/01/2011
+Call Trace:
+ __dump_stack lib/dump_stack.c:79 [inline]
+ dump_stack_lvl+0x1ae/0x29f lib/dump_stack.c:96
+ __lock_acquire+0x2615/0x6100 kernel/locking/lockdep.c:4853
+ lock_acquire+0x182/0x4a0 kernel/locking/lockdep.c:5625
+ local_lock_acquire+0x23/0x130 include/linux/local_lock_internal.h:42
+ rmqueue_pcplist+0x10c/0x4d0 mm/page_alloc.c:3674
+ rmqueue+0x1eb4/0x22e0 mm/page_alloc.c:3712
+ get_page_from_freelist+0x4b3/0xa30 mm/page_alloc.c:4174
+ __alloc_pages+0x26c/0x5f0 mm/page_alloc.c:5385
+ alloc_page_interleave+0x22/0x1c0 mm/mempolicy.c:2119
+ stack_depot_save+0x361/0x490 lib/stackdepot.c:303
+ save_stack+0xf9/0x1f0 mm/page_owner.c:120
+ __set_page_owner+0x42/0x2f0 mm/page_owner.c:181
+ prep_new_page mm/page_alloc.c:2444 [inline]
+ __alloc_pages_bulk+0x9f2/0x1090 mm/page_alloc.c:5312
+ alloc_pages_bulk_array_node include/linux/gfp.h:557 [inline]
+ vm_area_alloc_pages mm/vmalloc.c:2793 [inline]
+ __vmalloc_area_node mm/vmalloc.c:2863 [inline]
+ __vmalloc_node_range+0x3ad/0x7f0 mm/vmalloc.c:2966
+ __vmalloc_node mm/vmalloc.c:3015 [inline]
+ __vmalloc+0x75/0x80 mm/vmalloc.c:3029
+ alloc_large_system_hash+0x1a3/0x496 mm/page_alloc.c:8750
+ tcp_init+0x242/0x7cf net/ipv4/tcp.c:4535
+ inet_init+0x27f/0x392 net/ipv4/af_inet.c:2006
+ do_one_initcall+0x1a7/0x400 init/main.c:1280
+ do_initcall_level+0x14a/0x1f5 init/main.c:1353
+ do_initcalls+0x4b/0x8c init/main.c:1369
+ kernel_init_freeable+0x3f1/0x57e init/main.c:1591
+ kernel_init+0x19/0x2a0 init/main.c:1483
+ ret_from_fork+0x1f/0x30 arch/x86/entry/entry_64.S:295
+TCP bind hash table entries: 65536 (order: 10, 4718592 bytes, vmalloc)
+TCP: Hash tables configured (established 65536 bind 65536)
+MPTCP token hash table entries: 8192 (order: 7, 720896 bytes, vmalloc)
+UDP hash table entries: 4096 (order: 7, 655360 bytes, vmalloc)
+UDP-Lite hash table entries: 4096 (order: 7, 655360 bytes, vmalloc)
+NET: Registered PF_UNIX/PF_LOCAL protocol family
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+NET: Registered PF_XDP protocol family
+pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7 window]
+pci_bus 0000:00: resource 5 [io  0x0d00-0xffff window]
+pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff window]
+pci_bus 0000:00: resource 7 [mem 0xc0000000-0xfebfefff window]
+pci 0000:00:00.0: Limiting direct PCI/PCI transfers
+pci 0000:00:05.0: Video device with shadowed ROM at [mem 0x000c0000-0x000df=
+fff]
+PCI: CLS 0 bytes, default 64
+PCI-DMA: Using software bounce buffering for IO (SWIOTLB)
+software IO TLB: mapped [mem 0x00000000b5c00000-0x00000000b9c00000] (64MB)
+ACPI: bus type thunderbolt registered
+RAPL PMU: API unit is 2^-32 Joules, 0 fixed counters, 10737418240 ms ovfl t=
+imer
+kvm: already loaded the other module
+clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x212733415c7, max_i=
+dle_ns: 440795236380 ns
+clocksource: Switched to clocksource tsc
+Initialise system trusted keyrings
+workingset: timestamp_bits=3D40 max_order=3D21 bucket_order=3D0
+zbud: loaded
+DLM installed
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+FS-Cache: Netfs 'nfs' registered for caching
+NFS: Registering the id_resolver key type
+Key type id_resolver registered
+Key type id_legacy registered
+nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+FS-Cache: Netfs 'cifs' registered for caching
+Key type cifs.spnego registered
+Key type cifs.idmap registered
+ntfs: driver 2.1.32 [Flags: R/W].
+efs: 1.0a - http://aeschi.ch.eu.org/efs/
+jffs2: version 2.2. (NAND) (SUMMARY)  =C2=A9 2001-2006 Red Hat, Inc.
+romfs: ROMFS MTD (C) 2007 Red Hat, Inc.
+QNX4 filesystem 0.2.3 registered.
+qnx6: QNX6 filesystem 1.0.0 registered.
+fuse: init (API version 7.33)
+orangefs_debugfs_init: called with debug mask: :none: :0:
+orangefs_init: module version upstream loaded
+JFS: nTxBlock =3D 8192, nTxLock =3D 65536
+SGI XFS with ACLs, security attributes, realtime, quota, fatal assert, debu=
+g enabled
+9p: Installing v9fs 9p2000 file system support
+FS-Cache: Netfs '9p' registered for caching
+NILFS version 2 loaded
+befs: version: 0.9.3
+ocfs2: Registered cluster interface o2cb
+ocfs2: Registered cluster interface user
+OCFS2 User DLM kernel interface loaded
+gfs2: GFS2 installed
+FS-Cache: Netfs 'ceph' registered for caching
+ceph: loaded (mds proto 32)
+Smack: Registering netfilter hooks
+NET: Registered PF_ALG protocol family
+xor: automatically using best checksumming function   avx      =20
+async_tx: api initialized (async)
+Key type asymmetric registered
+Asymmetric key parser 'x509' registered
+Asymmetric key parser 'pkcs8' registered
+Key type pkcs7_test registered
+Asymmetric key parser 'tpm_parser' registered
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 241)
+io scheduler mq-deadline registered
+io scheduler kyber registered
+io scheduler bfq registered
+start plist test
+end plist test
+usbcore: registered new interface driver udlfb
+usbcore: registered new interface driver smscufx
+uvesafb: failed to execute /sbin/v86d
+uvesafb: make sure that the v86d helper is installed and executable
+uvesafb: Getting VBE info block failed (eax=3D0x4f00, err=3D-2)
+uvesafb: vbe_init() failed with -22
+uvesafb: probe of uvesafb.0 failed with error -22
+vga16fb: initializing
+vga16fb: mapped to 0xffff8880000a0000
+Console: switching to colour frame buffer device 80x30
+fb0: VGA16 VGA frame buffer device
+input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input0
+ACPI: button: Power Button [PWRF]
+input: Sleep Button as /devices/LNXSYSTM:00/LNXSLPBN:00/input/input1
+ACPI: button: Sleep Button [SLPF]
+ACPI: \_SB_.LNKC: Enabled at IRQ 11
+virtio-pci 0000:00:03.0: virtio_pci: leaving for legacy driver
+ACPI: \_SB_.LNKD: Enabled at IRQ 10
+virtio-pci 0000:00:04.0: virtio_pci: leaving for legacy driver
+ACPI: \_SB_.LNKB: Enabled at IRQ 10
+virtio-pci 0000:00:06.0: virtio_pci: leaving for legacy driver
+virtio-pci 0000:00:07.0: virtio_pci: leaving for legacy driver
+N_HDLC line discipline registered with maxframe=3D4096
+Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+00:03: ttyS0 at I/O 0x3f8 (irq =3D 4, base_baud =3D 115200) is a 16550A
+00:04: ttyS1 at I/O 0x2f8 (irq =3D 3, base_baud =3D 115200) is a 16550A
+00:05: ttyS2 at I/O 0x3e8 (irq =3D 6, base_baud =3D 115200) is a 16550A
+00:06: ttyS3 at I/O 0x2e8 (irq =3D 7, base_baud =3D 115200) is a 16550A
+Non-volatile memory driver v1.3
+Linux agpgart interface v0.103
+[drm] Initialized vgem 1.0.0 20120112 for vgem on minor 0
+[drm] Initialized vkms 1.0.0 20180514 for vkms on minor 1
+checking generic (a0000 10000) vs hw (0 0)
+platform vkms: [drm] fb1: vkms frame buffer device
+usbcore: registered new interface driver udl
+brd: module loaded
+loop: module loaded
+zram: Added device: zram0
+null_blk: module loaded
+Guest personality initialized and is inactive
+VMCI host device registered (name=3Dvmci, major=3D10, minor=3D120)
+Initialized host personality
+usbcore: registered new interface driver rtsx_usb
+usbcore: registered new interface driver viperboard
+usbcore: registered new interface driver dln2
+usbcore: registered new interface driver pn533_usb
+nfcsim 0.2 initialized
+usbcore: registered new interface driver port100
+usbcore: registered new interface driver nfcmrvl
+Loading iSCSI transport class v2.0-870.
+scsi host0: Virtio SCSI HBA
+st: Version 20160209, fixed bufsize 32768, s/g segs 256
+Rounding down aligned max_sectors from 4294967295 to 4294967288
+db_root: cannot open: /etc/target
+slram: not enough parameters.
+ftl_cs: FTL header not found.
+wireguard: WireGuard 1.0.0 loaded. See www.wireguard.com for information.
+wireguard: Copyright (C) 2015-2019 Jason A. Donenfeld <Jason@zx2c4.com>. Al=
+l Rights Reserved.
+eql: Equalizer2002: Simon Janes (simon@ncm.com) and David S. Miller (davem@=
+redhat.com)
+MACsec IEEE 802.1AE
+libphy: Fixed MDIO Bus: probed
+tun: Universal TUN/TAP device driver, 1.6
+vcan: Virtual CAN interface driver
+vxcan: Virtual CAN Tunnel driver
+slcan: serial line CAN interface driver
+slcan: 10 dynamic interface channels.
+CAN device driver interface
+usbcore: registered new interface driver usb_8dev
+usbcore: registered new interface driver ems_usb
+usbcore: registered new interface driver esd_usb2
+usbcore: registered new interface driver gs_usb
+usbcore: registered new interface driver kvaser_usb
+usbcore: registered new interface driver mcba_usb
+usbcore: registered new interface driver peak_usb
+e100: Intel(R) PRO/100 Network Driver
+e100: Copyright(c) 1999-2006 Intel Corporation
+e1000: Intel(R) PRO/1000 Network Driver
+e1000: Copyright (c) 1999-2006 Intel Corporation.
+e1000e: Intel(R) PRO/1000 Network Driver
+e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+mkiss: AX.25 Multikiss, Hans Albas PE1AYX
+AX.25: 6pack driver, Revision: 0.3.0
+AX.25: bpqether driver version 004
+PPP generic driver version 2.4.2
+PPP BSD Compression module registered
+PPP Deflate Compression module registered
+PPP MPPE Compression module registered
+NET: Registered PF_PPPOX protocol family
+PPTP driver version 0.8.5
+SLIP: version 0.8.4-NET3.019-NEWTTY (dynamic channels, max=3D256) (6 bit en=
+capsulation enabled).
+CSLIP: code copyright 1989 Regents of the University of California.
+SLIP linefill/keepalive option.
+hdlc: HDLC support module revision 1.22
+LAPB Ethernet driver version 0.02
+usbcore: registered new interface driver ath9k_htc
+usbcore: registered new interface driver carl9170
+usbcore: registered new interface driver ath6kl_usb
+usbcore: registered new interface driver ar5523
+usbcore: registered new interface driver ath10k_usb
+usbcore: registered new interface driver rndis_wlan
+mac80211_hwsim: initializing netlink
+ieee80211 phy0: Selected rate control algorithm 'minstrel_ht'
+ieee80211 phy1: Selected rate control algorithm 'minstrel_ht'
+usbcore: registered new interface driver atusb
+mac802154_hwsim mac802154_hwsim: Added 2 mac802154 hwsim hardware radios
+VMware vmxnet3 virtual NIC driver - version 1.5.0.0-k-NAPI
+usbcore: registered new interface driver catc
+usbcore: registered new interface driver kaweth
+pegasus: v0.9.3 (2013/04/25), Pegasus/Pegasus II USB Ethernet driver
+usbcore: registered new interface driver pegasus
+usbcore: registered new interface driver rtl8150
+usbcore: registered new interface driver r8152
+hso: drivers/net/usb/hso.c: Option Wireless
+usbcore: registered new interface driver hso
+usbcore: registered new interface driver lan78xx
+usbcore: registered new interface driver asix
+usbcore: registered new interface driver ax88179_178a
+usbcore: registered new interface driver cdc_ether
+usbcore: registered new interface driver cdc_eem
+usbcore: registered new interface driver dm9601
+usbcore: registered new interface driver sr9700
+usbcore: registered new interface driver CoreChips
+usbcore: registered new interface driver smsc75xx
+usbcore: registered new interface driver smsc95xx
+usbcore: registered new interface driver gl620a
+usbcore: registered new interface driver net1080
+usbcore: registered new interface driver plusb
+usbcore: registered new interface driver rndis_host
+usbcore: registered new interface driver cdc_subset
+usbcore: registered new interface driver zaurus
+usbcore: registered new interface driver MOSCHIP usb-ethernet driver
+usbcore: registered new interface driver int51x1
+usbcore: registered new interface driver cdc_phonet
+usbcore: registered new interface driver kalmia
+usbcore: registered new interface driver ipheth
+usbcore: registered new interface driver sierra_net
+usbcore: registered new interface driver cx82310_eth
+usbcore: registered new interface driver cdc_ncm
+usbcore: registered new interface driver huawei_cdc_ncm
+usbcore: registered new interface driver lg-vl600
+usbcore: registered new interface driver qmi_wwan
+usbcore: registered new interface driver cdc_mbim
+usbcore: registered new interface driver ch9200
+VFIO - User Level meta-driver version: 0.3
+aoe: AoE v85 initialised.
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+ehci-pci: EHCI PCI platform driver
+ehci-platform: EHCI generic platform driver
+ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+ohci-pci: OHCI PCI platform driver
+ohci-platform: OHCI generic platform driver
+uhci_hcd: USB Universal Host Controller Interface driver
+driver u132_hcd
+fotg210_hcd: FOTG210 Host Controller (EHCI) Driver
+Warning! fotg210_hcd should always be loaded before uhci_hcd and ohci_hcd, =
+not after
+usbcore: registered new interface driver cdc_acm
+cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+usbcore: registered new interface driver usblp
+usbcore: registered new interface driver cdc_wdm
+usbcore: registered new interface driver usbtmc
+usbcore: registered new interface driver uas
+usbcore: registered new interface driver usb-storage
+usbcore: registered new interface driver ums-alauda
+usbcore: registered new interface driver ums-cypress
+usbcore: registered new interface driver ums-datafab
+usbcore: registered new interface driver ums_eneub6250
+usbcore: registered new interface driver ums-freecom
+usbcore: registered new interface driver ums-isd200
+usbcore: registered new interface driver ums-jumpshot
+usbcore: registered new interface driver ums-karma
+usbcore: registered new interface driver ums-onetouch
+usbcore: registered new interface driver ums-realtek
+usbcore: registered new interface driver ums-sddr09
+usbcore: registered new interface driver ums-sddr55
+usbcore: registered new interface driver ums-usbat
+usbcore: registered new interface driver mdc800
+mdc800: v0.7.5 (30/10/2000):USB Driver for Mustek MDC800 Digital Camera
+usbcore: registered new interface driver microtekX6
+usbcore: registered new interface driver usbserial_generic
+usbserial: USB Serial support registered for generic
+usbcore: registered new interface driver aircable
+usbserial: USB Serial support registered for aircable
+usbcore: registered new interface driver ark3116
+usbserial: USB Serial support registered for ark3116
+usbcore: registered new interface driver belkin_sa
+usbserial: USB Serial support registered for Belkin / Peracom / GoHubs USB =
+Serial Adapter
+usbcore: registered new interface driver ch341
+usbserial: USB Serial support registered for ch341-uart
+usbcore: registered new interface driver cp210x
+usbserial: USB Serial support registered for cp210x
+usbcore: registered new interface driver cyberjack
+usbserial: USB Serial support registered for Reiner SCT Cyberjack USB card =
+reader
+usbcore: registered new interface driver cypress_m8
+usbserial: USB Serial support registered for DeLorme Earthmate USB
+usbserial: USB Serial support registered for HID->COM RS232 Adapter
+usbserial: USB Serial support registered for Nokia CA-42 V2 Adapter
+usbcore: registered new interface driver usb_debug
+usbserial: USB Serial support registered for debug
+usbserial: USB Serial support registered for xhci_dbc
+usbcore: registered new interface driver digi_acceleport
+usbserial: USB Serial support registered for Digi 2 port USB adapter
+usbserial: USB Serial support registered for Digi 4 port USB adapter
+usbcore: registered new interface driver io_edgeport
+usbserial: USB Serial support registered for Edgeport 2 port adapter
+usbserial: USB Serial support registered for Edgeport 4 port adapter
+usbserial: USB Serial support registered for Edgeport 8 port adapter
+usbserial: USB Serial support registered for EPiC device
+usbcore: registered new interface driver io_ti
+usbserial: USB Serial support registered for Edgeport TI 1 port adapter
+usbserial: USB Serial support registered for Edgeport TI 2 port adapter
+usbcore: registered new interface driver empeg
+usbserial: USB Serial support registered for empeg
+usbcore: registered new interface driver f81534a_ctrl
+usbcore: registered new interface driver f81232
+usbserial: USB Serial support registered for f81232
+usbserial: USB Serial support registered for f81534a
+usbcore: registered new interface driver f81534
+usbserial: USB Serial support registered for Fintek F81532/F81534
+usbcore: registered new interface driver ftdi_sio
+usbserial: USB Serial support registered for FTDI USB Serial Device
+usbcore: registered new interface driver garmin_gps
+usbserial: USB Serial support registered for Garmin GPS usb/tty
+usbcore: registered new interface driver ipaq
+usbserial: USB Serial support registered for PocketPC PDA
+usbcore: registered new interface driver ipw
+usbserial: USB Serial support registered for IPWireless converter
+usbcore: registered new interface driver ir_usb
+usbserial: USB Serial support registered for IR Dongle
+usbcore: registered new interface driver iuu_phoenix
+usbserial: USB Serial support registered for iuu_phoenix
+usbcore: registered new interface driver keyspan
+usbserial: USB Serial support registered for Keyspan - (without firmware)
+usbserial: USB Serial support registered for Keyspan 1 port adapter
+usbserial: USB Serial support registered for Keyspan 2 port adapter
+usbserial: USB Serial support registered for Keyspan 4 port adapter
+usbcore: registered new interface driver keyspan_pda
+usbserial: USB Serial support registered for Keyspan PDA
+usbserial: USB Serial support registered for Keyspan PDA - (prerenumeration=
+)
+usbcore: registered new interface driver kl5kusb105
+usbserial: USB Serial support registered for KL5KUSB105D / PalmConnect
+usbcore: registered new interface driver kobil_sct
+usbserial: USB Serial support registered for KOBIL USB smart card terminal
+usbcore: registered new interface driver mct_u232
+usbserial: USB Serial support registered for MCT U232
+usbcore: registered new interface driver metro_usb
+usbserial: USB Serial support registered for Metrologic USB to Serial
+usbcore: registered new interface driver mos7720
+usbserial: USB Serial support registered for Moschip 2 port adapter
+usbcore: registered new interface driver mos7840
+usbserial: USB Serial support registered for Moschip 7840/7820 USB Serial D=
+river
+usbcore: registered new interface driver mxuport
+usbserial: USB Serial support registered for MOXA UPort
+usbcore: registered new interface driver navman
+usbserial: USB Serial support registered for navman
+usbcore: registered new interface driver omninet
+usbserial: USB Serial support registered for ZyXEL - omni.net usb
+usbcore: registered new interface driver opticon
+usbserial: USB Serial support registered for opticon
+usbcore: registered new interface driver option
+usbserial: USB Serial support registered for GSM modem (1-port)
+usbcore: registered new interface driver oti6858
+usbserial: USB Serial support registered for oti6858
+usbcore: registered new interface driver pl2303
+usbserial: USB Serial support registered for pl2303
+usbcore: registered new interface driver qcaux
+usbserial: USB Serial support registered for qcaux
+usbcore: registered new interface driver qcserial
+usbserial: USB Serial support registered for Qualcomm USB modem
+usbcore: registered new interface driver quatech2
+usbserial: USB Serial support registered for Quatech 2nd gen USB to Serial =
+Driver
+usbcore: registered new interface driver safe_serial
+usbserial: USB Serial support registered for safe_serial
+usbcore: registered new interface driver sierra
+usbserial: USB Serial support registered for Sierra USB modem
+usbcore: registered new interface driver usb_serial_simple
+usbserial: USB Serial support registered for carelink
+usbserial: USB Serial support registered for zio
+usbserial: USB Serial support registered for funsoft
+usbserial: USB Serial support registered for flashloader
+usbserial: USB Serial support registered for google
+usbserial: USB Serial support registered for libtransistor
+usbserial: USB Serial support registered for vivopay
+usbserial: USB Serial support registered for moto_modem
+usbserial: USB Serial support registered for motorola_tetra
+usbserial: USB Serial support registered for novatel_gps
+usbserial: USB Serial support registered for hp4x
+usbserial: USB Serial support registered for suunto
+usbserial: USB Serial support registered for siemens_mpi
+usbcore: registered new interface driver spcp8x5
+usbserial: USB Serial support registered for SPCP8x5
+usbcore: registered new interface driver ssu100
+usbserial: USB Serial support registered for Quatech SSU-100 USB to Serial =
+Driver
+usbcore: registered new interface driver symbolserial
+usbserial: USB Serial support registered for symbol
+usbcore: registered new interface driver ti_usb_3410_5052
+usbserial: USB Serial support registered for TI USB 3410 1 port adapter
+usbserial: USB Serial support registered for TI USB 5052 2 port adapter
+usbcore: registered new interface driver upd78f0730
+usbserial: USB Serial support registered for upd78f0730
+usbcore: registered new interface driver visor
+usbserial: USB Serial support registered for Handspring Visor / Palm OS
+usbserial: USB Serial support registered for Sony Clie 5.0
+usbserial: USB Serial support registered for Sony Clie 3.5
+usbcore: registered new interface driver wishbone_serial
+usbserial: USB Serial support registered for wishbone_serial
+usbcore: registered new interface driver whiteheat
+usbserial: USB Serial support registered for Connect Tech - WhiteHEAT - (pr=
+erenumeration)
+usbserial: USB Serial support registered for Connect Tech - WhiteHEAT
+usbcore: registered new interface driver xr_serial
+usbserial: USB Serial support registered for xr_serial
+usbcore: registered new interface driver xsens_mt
+usbserial: USB Serial support registered for xsens_mt
+usbcore: registered new interface driver adutux
+usbcore: registered new interface driver appledisplay
+usbcore: registered new interface driver cypress_cy7c63
+usbcore: registered new interface driver cytherm
+usbcore: registered new interface driver emi26 - firmware loader
+usbcore: registered new interface driver emi62 - firmware loader
+ftdi_elan: driver ftdi-elan
+usbcore: registered new interface driver ftdi-elan
+usbcore: registered new interface driver idmouse
+usbcore: registered new interface driver iowarrior
+usbcore: registered new interface driver isight_firmware
+usbcore: registered new interface driver usblcd
+usbcore: registered new interface driver ldusb
+usbcore: registered new interface driver legousbtower
+usbcore: registered new interface driver usbtest
+usbcore: registered new interface driver usb_ehset_test
+usbcore: registered new interface driver trancevibrator
+usbcore: registered new interface driver uss720
+uss720: USB Parport Cable driver for Cables using the Lucent Technologies U=
+SS720 Chip
+uss720: NOTE: this is a special purpose driver to allow nonstandard
+uss720: protocols (eg. bitbang) over USS720 usb to parallel cables
+uss720: If you just want to connect to a printer, use usblp instead
+usbcore: registered new interface driver usbsevseg
+usbcore: registered new interface driver yurex
+usbcore: registered new interface driver chaoskey
+usbcore: registered new interface driver sisusb
+usbcore: registered new interface driver lvs
+usbcore: registered new interface driver cxacru
+usbcore: registered new interface driver speedtch
+usbcore: registered new interface driver ueagle-atm
+xusbatm: malformed module parameters
+dummy_hcd dummy_hcd.0: USB Host+Gadget Emulator, driver 02 May 2005
+dummy_hcd dummy_hcd.0: Dummy host controller
+dummy_hcd dummy_hcd.0: new USB bus registered, assigned bus number 1
+usb usb1: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevic=
+e=3D 5.13
+usb usb1: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb1: Product: Dummy host controller
+usb usb1: Manufacturer: Linux 5.13.0-syzkaller dummy_hcd
+usb usb1: SerialNumber: dummy_hcd.0
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+dummy_hcd dummy_hcd.1: USB Host+Gadget Emulator, driver 02 May 2005
+dummy_hcd dummy_hcd.1: Dummy host controller
+dummy_hcd dummy_hcd.1: new USB bus registered, assigned bus number 2
+usb usb2: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevic=
+e=3D 5.13
+usb usb2: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb2: Product: Dummy host controller
+usb usb2: Manufacturer: Linux 5.13.0-syzkaller dummy_hcd
+usb usb2: SerialNumber: dummy_hcd.1
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 1 port detected
+dummy_hcd dummy_hcd.2: USB Host+Gadget Emulator, driver 02 May 2005
+dummy_hcd dummy_hcd.2: Dummy host controller
+dummy_hcd dummy_hcd.2: new USB bus registered, assigned bus number 3
+usb usb3: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevic=
+e=3D 5.13
+usb usb3: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb3: Product: Dummy host controller
+usb usb3: Manufacturer: Linux 5.13.0-syzkaller dummy_hcd
+usb usb3: SerialNumber: dummy_hcd.2
+hub 3-0:1.0: USB hub found
+hub 3-0:1.0: 1 port detected
+dummy_hcd dummy_hcd.3: USB Host+Gadget Emulator, driver 02 May 2005
+dummy_hcd dummy_hcd.3: Dummy host controller
+dummy_hcd dummy_hcd.3: new USB bus registered, assigned bus number 4
+usb usb4: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevic=
+e=3D 5.13
+usb usb4: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb4: Product: Dummy host controller
+usb usb4: Manufacturer: Linux 5.13.0-syzkaller dummy_hcd
+usb usb4: SerialNumber: dummy_hcd.3
+hub 4-0:1.0: USB hub found
+hub 4-0:1.0: 1 port detected
+dummy_hcd dummy_hcd.4: USB Host+Gadget Emulator, driver 02 May 2005
+dummy_hcd dummy_hcd.4: Dummy host controller
+dummy_hcd dummy_hcd.4: new USB bus registered, assigned bus number 5
+usb usb5: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevic=
+e=3D 5.13
+usb usb5: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb5: Product: Dummy host controller
+usb usb5: Manufacturer: Linux 5.13.0-syzkaller dummy_hcd
+usb usb5: SerialNumber: dummy_hcd.4
+hub 5-0:1.0: USB hub found
+hub 5-0:1.0: 1 port detected
+dummy_hcd dummy_hcd.5: USB Host+Gadget Emulator, driver 02 May 2005
+dummy_hcd dummy_hcd.5: Dummy host controller
+dummy_hcd dummy_hcd.5: new USB bus registered, assigned bus number 6
+usb usb6: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevic=
+e=3D 5.13
+usb usb6: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb6: Product: Dummy host controller
+usb usb6: Manufacturer: Linux 5.13.0-syzkaller dummy_hcd
+usb usb6: SerialNumber: dummy_hcd.5
+hub 6-0:1.0: USB hub found
+hub 6-0:1.0: 1 port detected
+dummy_hcd dummy_hcd.6: USB Host+Gadget Emulator, driver 02 May 2005
+dummy_hcd dummy_hcd.6: Dummy host controller
+dummy_hcd dummy_hcd.6: new USB bus registered, assigned bus number 7
+usb usb7: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevic=
+e=3D 5.13
+usb usb7: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb7: Product: Dummy host controller
+usb usb7: Manufacturer: Linux 5.13.0-syzkaller dummy_hcd
+usb usb7: SerialNumber: dummy_hcd.6
+hub 7-0:1.0: USB hub found
+hub 7-0:1.0: 1 port detected
+dummy_hcd dummy_hcd.7: USB Host+Gadget Emulator, driver 02 May 2005
+dummy_hcd dummy_hcd.7: Dummy host controller
+dummy_hcd dummy_hcd.7: new USB bus registered, assigned bus number 8
+usb usb8: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevic=
+e=3D 5.13
+usb usb8: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb8: Product: Dummy host controller
+usb usb8: Manufacturer: Linux 5.13.0-syzkaller dummy_hcd
+usb usb8: SerialNumber: dummy_hcd.7
+hub 8-0:1.0: USB hub found
+hub 8-0:1.0: 1 port detected
+gadgetfs: USB Gadget filesystem, version 24 Aug 2004
+vhci_hcd vhci_hcd.0: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.0: new USB bus registered, assigned bus number 9
+vhci_hcd: created sysfs vhci_hcd.0
+usb usb9: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevic=
+e=3D 5.13
+usb usb9: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb9: Product: USB/IP Virtual Host Controller
+usb usb9: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb9: SerialNumber: vhci_hcd.0
+hub 9-0:1.0: USB hub found
+hub 9-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.0: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.0: new USB bus registered, assigned bus number 10
+usb usb10: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb10: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb10: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb10: Product: USB/IP Virtual Host Controller
+usb usb10: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb10: SerialNumber: vhci_hcd.0
+hub 10-0:1.0: USB hub found
+hub 10-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.1: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.1: new USB bus registered, assigned bus number 11
+usb usb11: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb11: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb11: Product: USB/IP Virtual Host Controller
+usb usb11: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb11: SerialNumber: vhci_hcd.1
+hub 11-0:1.0: USB hub found
+hub 11-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.1: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.1: new USB bus registered, assigned bus number 12
+usb usb12: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb12: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb12: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb12: Product: USB/IP Virtual Host Controller
+usb usb12: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb12: SerialNumber: vhci_hcd.1
+hub 12-0:1.0: USB hub found
+hub 12-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.2: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.2: new USB bus registered, assigned bus number 13
+usb usb13: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb13: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb13: Product: USB/IP Virtual Host Controller
+usb usb13: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb13: SerialNumber: vhci_hcd.2
+hub 13-0:1.0: USB hub found
+hub 13-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.2: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.2: new USB bus registered, assigned bus number 14
+usb usb14: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb14: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb14: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb14: Product: USB/IP Virtual Host Controller
+usb usb14: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb14: SerialNumber: vhci_hcd.2
+hub 14-0:1.0: USB hub found
+hub 14-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.3: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.3: new USB bus registered, assigned bus number 15
+usb usb15: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb15: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb15: Product: USB/IP Virtual Host Controller
+usb usb15: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb15: SerialNumber: vhci_hcd.3
+hub 15-0:1.0: USB hub found
+hub 15-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.3: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.3: new USB bus registered, assigned bus number 16
+usb usb16: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb16: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb16: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb16: Product: USB/IP Virtual Host Controller
+usb usb16: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb16: SerialNumber: vhci_hcd.3
+hub 16-0:1.0: USB hub found
+hub 16-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.4: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.4: new USB bus registered, assigned bus number 17
+usb usb17: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb17: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb17: Product: USB/IP Virtual Host Controller
+usb usb17: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb17: SerialNumber: vhci_hcd.4
+hub 17-0:1.0: USB hub found
+hub 17-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.4: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.4: new USB bus registered, assigned bus number 18
+usb usb18: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb18: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb18: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb18: Product: USB/IP Virtual Host Controller
+usb usb18: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb18: SerialNumber: vhci_hcd.4
+hub 18-0:1.0: USB hub found
+hub 18-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.5: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.5: new USB bus registered, assigned bus number 19
+usb usb19: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb19: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb19: Product: USB/IP Virtual Host Controller
+usb usb19: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb19: SerialNumber: vhci_hcd.5
+hub 19-0:1.0: USB hub found
+hub 19-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.5: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.5: new USB bus registered, assigned bus number 20
+usb usb20: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb20: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb20: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb20: Product: USB/IP Virtual Host Controller
+usb usb20: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb20: SerialNumber: vhci_hcd.5
+hub 20-0:1.0: USB hub found
+hub 20-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.6: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.6: new USB bus registered, assigned bus number 21
+usb usb21: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb21: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb21: Product: USB/IP Virtual Host Controller
+usb usb21: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb21: SerialNumber: vhci_hcd.6
+hub 21-0:1.0: USB hub found
+hub 21-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.6: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.6: new USB bus registered, assigned bus number 22
+usb usb22: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb22: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb22: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb22: Product: USB/IP Virtual Host Controller
+usb usb22: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb22: SerialNumber: vhci_hcd.6
+hub 22-0:1.0: USB hub found
+hub 22-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.7: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.7: new USB bus registered, assigned bus number 23
+usb usb23: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb23: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb23: Product: USB/IP Virtual Host Controller
+usb usb23: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb23: SerialNumber: vhci_hcd.7
+hub 23-0:1.0: USB hub found
+hub 23-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.7: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.7: new USB bus registered, assigned bus number 24
+usb usb24: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb24: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb24: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb24: Product: USB/IP Virtual Host Controller
+usb usb24: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb24: SerialNumber: vhci_hcd.7
+hub 24-0:1.0: USB hub found
+hub 24-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.8: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.8: new USB bus registered, assigned bus number 25
+usb usb25: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb25: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb25: Product: USB/IP Virtual Host Controller
+usb usb25: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb25: SerialNumber: vhci_hcd.8
+hub 25-0:1.0: USB hub found
+hub 25-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.8: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.8: new USB bus registered, assigned bus number 26
+usb usb26: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb26: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb26: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb26: Product: USB/IP Virtual Host Controller
+usb usb26: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb26: SerialNumber: vhci_hcd.8
+hub 26-0:1.0: USB hub found
+hub 26-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.9: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.9: new USB bus registered, assigned bus number 27
+usb usb27: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb27: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb27: Product: USB/IP Virtual Host Controller
+usb usb27: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb27: SerialNumber: vhci_hcd.9
+hub 27-0:1.0: USB hub found
+hub 27-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.9: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.9: new USB bus registered, assigned bus number 28
+usb usb28: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb28: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb28: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb28: Product: USB/IP Virtual Host Controller
+usb usb28: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb28: SerialNumber: vhci_hcd.9
+hub 28-0:1.0: USB hub found
+hub 28-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.10: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.10: new USB bus registered, assigned bus number 29
+usb usb29: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb29: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb29: Product: USB/IP Virtual Host Controller
+usb usb29: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb29: SerialNumber: vhci_hcd.10
+hub 29-0:1.0: USB hub found
+hub 29-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.10: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.10: new USB bus registered, assigned bus number 30
+usb usb30: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb30: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb30: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb30: Product: USB/IP Virtual Host Controller
+usb usb30: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb30: SerialNumber: vhci_hcd.10
+hub 30-0:1.0: USB hub found
+hub 30-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.11: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.11: new USB bus registered, assigned bus number 31
+usb usb31: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb31: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb31: Product: USB/IP Virtual Host Controller
+usb usb31: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb31: SerialNumber: vhci_hcd.11
+hub 31-0:1.0: USB hub found
+hub 31-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.11: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.11: new USB bus registered, assigned bus number 32
+usb usb32: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb32: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb32: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb32: Product: USB/IP Virtual Host Controller
+usb usb32: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb32: SerialNumber: vhci_hcd.11
+hub 32-0:1.0: USB hub found
+hub 32-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.12: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.12: new USB bus registered, assigned bus number 33
+usb usb33: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb33: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb33: Product: USB/IP Virtual Host Controller
+usb usb33: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb33: SerialNumber: vhci_hcd.12
+hub 33-0:1.0: USB hub found
+hub 33-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.12: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.12: new USB bus registered, assigned bus number 34
+usb usb34: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb34: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb34: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb34: Product: USB/IP Virtual Host Controller
+usb usb34: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb34: SerialNumber: vhci_hcd.12
+hub 34-0:1.0: USB hub found
+hub 34-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.13: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.13: new USB bus registered, assigned bus number 35
+usb usb35: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb35: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb35: Product: USB/IP Virtual Host Controller
+usb usb35: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb35: SerialNumber: vhci_hcd.13
+hub 35-0:1.0: USB hub found
+hub 35-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.13: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.13: new USB bus registered, assigned bus number 36
+usb usb36: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb36: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb36: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb36: Product: USB/IP Virtual Host Controller
+usb usb36: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb36: SerialNumber: vhci_hcd.13
+hub 36-0:1.0: USB hub found
+hub 36-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.14: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.14: new USB bus registered, assigned bus number 37
+usb usb37: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb37: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb37: Product: USB/IP Virtual Host Controller
+usb usb37: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb37: SerialNumber: vhci_hcd.14
+hub 37-0:1.0: USB hub found
+hub 37-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.14: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.14: new USB bus registered, assigned bus number 38
+usb usb38: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb38: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb38: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb38: Product: USB/IP Virtual Host Controller
+usb usb38: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb38: SerialNumber: vhci_hcd.14
+hub 38-0:1.0: USB hub found
+hub 38-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.15: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.15: new USB bus registered, assigned bus number 39
+usb usb39: New USB device found, idVendor=3D1d6b, idProduct=3D0002, bcdDevi=
+ce=3D 5.13
+usb usb39: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb39: Product: USB/IP Virtual Host Controller
+usb usb39: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb39: SerialNumber: vhci_hcd.15
+hub 39-0:1.0: USB hub found
+hub 39-0:1.0: 8 ports detected
+vhci_hcd vhci_hcd.15: USB/IP Virtual Host Controller
+vhci_hcd vhci_hcd.15: new USB bus registered, assigned bus number 40
+usb usb40: We don't know the algorithms for LPM for this host, disabling LP=
+M.
+usb usb40: New USB device found, idVendor=3D1d6b, idProduct=3D0003, bcdDevi=
+ce=3D 5.13
+usb usb40: New USB device strings: Mfr=3D3, Product=3D2, SerialNumber=3D1
+usb usb40: Product: USB/IP Virtual Host Controller
+usb usb40: Manufacturer: Linux 5.13.0-syzkaller vhci_hcd
+usb usb40: SerialNumber: vhci_hcd.15
+hub 40-0:1.0: USB hub found
+hub 40-0:1.0: 8 ports detected
+usbcore: registered new device driver usbip-host
+i8042: PNP: PS/2 Controller [PNP0303:KBD,PNP0f13:MOU] at 0x60,0x64 irq 1,12
+i8042: Warning: Keylock active
+serio: i8042 KBD port at 0x60,0x64 irq 1
+serio: i8042 AUX port at 0x60,0x64 irq 12
+mousedev: PS/2 mouse device common for all mice
+usbcore: registered new interface driver appletouch
+usbcore: registered new interface driver bcm5974
+usbcore: registered new interface driver synaptics_usb
+usbcore: registered new interface driver iforce
+usbcore: registered new interface driver xpad
+usbcore: registered new interface driver usb_acecad
+usbcore: registered new interface driver aiptek
+usbcore: registered new interface driver hanwang
+usbcore: registered new interface driver kbtab
+usbcore: registered new interface driver pegasus_notetaker
+usbcore: registered new interface driver usbtouchscreen
+usbcore: registered new interface driver sur40
+usbcore: registered new interface driver ati_remote2
+cm109: Keymap for Komunikate KIP1000 phone loaded
+usbcore: registered new interface driver cm109
+cm109: CM109 phone driver: 20080805 (C) Alfred E. Heggestad
+usbcore: registered new interface driver ims_pcu
+usbcore: registered new interface driver keyspan_remote
+usbcore: registered new interface driver powermate
+usbcore: registered new interface driver yealink
+rtc_cmos 00:00: RTC can wake from S4
+rtc_cmos 00:00: registered as rtc0
+rtc_cmos 00:00: alarms up to one day, 114 bytes nvram
+i2c /dev entries driver
+usbcore: registered new interface driver i2c-diolan-u2c
+usbcore: registered new interface driver RobotFuzz Open Source InterFace, O=
+SIF
+usbcore: registered new interface driver i2c-tiny-usb
+usbcore: registered new interface driver ati_remote
+usbcore: registered new interface driver imon
+usbcore: registered new interface driver mceusb
+usbcore: registered new interface driver redrat3
+usbcore: registered new interface driver streamzap
+usbcore: registered new interface driver igorplugusb
+usbcore: registered new interface driver iguanair
+usbcore: registered new interface driver ttusbir
+b2c2-flexcop: B2C2 FlexcopII/II(b)/III digital TV receiver chip loaded succ=
+essfully
+usbcore: registered new interface driver ttusb-dec
+usbcore: registered new interface driver ttusb
+usbcore: registered new interface driver dvb_usb_vp7045
+usbcore: registered new interface driver dvb_usb_vp702x
+usbcore: registered new interface driver dvb_usb_gp8psk
+usbcore: registered new interface driver dvb_usb_dtt200u
+usbcore: registered new interface driver dvb_usb_a800
+usbcore: registered new interface driver dvb_usb_dibusb_mb
+usbcore: registered new interface driver dvb_usb_dibusb_mc
+usbcore: registered new interface driver dvb_usb_nova_t_usb2
+usbcore: registered new interface driver dvb_usb_umt_010
+usbcore: registered new interface driver dvb_usb_m920x
+usbcore: registered new interface driver dvb_usb_digitv
+usbcore: registered new interface driver dvb_usb_cxusb
+usbcore: registered new interface driver dvb_usb_ttusb2
+usbcore: registered new interface driver dvb_usb_dib0700
+usbcore: registered new interface driver opera1
+usbcore: registered new interface driver dvb_usb_af9005
+usbcore: registered new interface driver pctv452e
+usbcore: registered new interface driver dw2102
+usbcore: registered new interface driver dvb_usb_dtv5100
+usbcore: registered new interface driver cinergyT2
+usbcore: registered new interface driver dvb_usb_az6027
+usbcore: registered new interface driver dvb_usb_technisat_usb2
+usbcore: registered new interface driver dvb_usb_af9015
+usbcore: registered new interface driver dvb_usb_af9035
+usbcore: registered new interface driver dvb_usb_anysee
+usbcore: registered new interface driver dvb_usb_au6610
+usbcore: registered new interface driver dvb_usb_az6007
+usbcore: registered new interface driver dvb_usb_ce6230
+usbcore: registered new interface driver dvb_usb_ec168
+usbcore: registered new interface driver dvb_usb_lmedm04
+usbcore: registered new interface driver dvb_usb_gl861
+usbcore: registered new interface driver dvb_usb_mxl111sf
+usbcore: registered new interface driver dvb_usb_rtl28xxu
+usbcore: registered new interface driver dvb_usb_dvbsky
+usbcore: registered new interface driver zd1301
+usbcore: registered new interface driver smsusb
+usbcore: registered new interface driver b2c2_flexcop_usb
+usbcore: registered new interface driver zr364xx
+usbcore: registered new interface driver stkwebcam
+usbcore: registered new interface driver s2255
+usbcore: registered new interface driver uvcvideo
+gspca_main: v2.14.0 registered
+usbcore: registered new interface driver benq
+usbcore: registered new interface driver conex
+usbcore: registered new interface driver cpia1
+usbcore: registered new interface driver dtcs033
+usbcore: registered new interface driver etoms
+usbcore: registered new interface driver finepix
+usbcore: registered new interface driver jeilinj
+usbcore: registered new interface driver jl2005bcd
+usbcore: registered new interface driver kinect
+usbcore: registered new interface driver konica
+usbcore: registered new interface driver mars
+usbcore: registered new interface driver mr97310a
+usbcore: registered new interface driver nw80x
+usbcore: registered new interface driver ov519
+usbcore: registered new interface driver ov534
+usbcore: registered new interface driver ov534_9
+usbcore: registered new interface driver pac207
+usbcore: registered new interface driver gspca_pac7302
+usbcore: registered new interface driver pac7311
+usbcore: registered new interface driver se401
+usbcore: registered new interface driver sn9c2028
+usbcore: registered new interface driver gspca_sn9c20x
+usbcore: registered new interface driver sonixb
+usbcore: registered new interface driver sonixj
+usbcore: registered new interface driver spca500
+usbcore: registered new interface driver spca501
+usbcore: registered new interface driver spca505
+usbcore: registered new interface driver spca506
+usbcore: registered new interface driver spca508
+usbcore: registered new interface driver spca561
+usbcore: registered new interface driver spca1528
+usbcore: registered new interface driver sq905
+usbcore: registered new interface driver sq905c
+usbcore: registered new interface driver sq930x
+usbcore: registered new interface driver sunplus
+usbcore: registered new interface driver stk014
+usbcore: registered new interface driver stk1135
+usbcore: registered new interface driver stv0680
+usbcore: registered new interface driver t613
+usbcore: registered new interface driver gspca_topro
+usbcore: registered new interface driver touptek
+usbcore: registered new interface driver tv8532
+usbcore: registered new interface driver vc032x
+usbcore: registered new interface driver vicam
+usbcore: registered new interface driver xirlink-cit
+usbcore: registered new interface driver gspca_zc3xx
+usbcore: registered new interface driver ALi m5602
+usbcore: registered new interface driver STV06xx
+usbcore: registered new interface driver gspca_gl860
+usbcore: registered new interface driver Philips webcam
+usbcore: registered new interface driver airspy
+usbcore: registered new interface driver hackrf
+usbcore: registered new interface driver msi2500
+cpia2: V4L-Driver for Vision CPiA2 based cameras v3.0.1
+usbcore: registered new interface driver cpia2
+au0828: au0828 driver loaded
+usbcore: registered new interface driver au0828
+usbcore: registered new interface driver hdpvr
+usbcore: registered new interface driver pvrusb2
+pvrusb2: V4L in-tree version:Hauppauge WinTV-PVR-USB2 MPEG2 Encoder/Tuner
+pvrusb2: Debug mask is 31 (0x1f)
+usbcore: registered new interface driver stk1160
+usbcore: registered new interface driver cx231xx
+usbcore: registered new interface driver tm6000
+usbcore: registered new interface driver em28xx
+em28xx: Registered (Em28xx v4l2 Extension) extension
+em28xx: Registered (Em28xx Audio Extension) extension
+em28xx: Registered (Em28xx dvb Extension) extension
+em28xx: Registered (Em28xx Input Extension) extension
+usbcore: registered new interface driver usbtv
+usbcore: registered new interface driver go7007
+usbcore: registered new interface driver go7007-loader
+usbcore: registered new interface driver Abilis Systems as10x usb driver
+vivid-000: using single planar format API
+BUG: sleeping function called from invalid context at mm/page_alloc.c:5178
+in_atomic(): 0, irqs_disabled(): 1, non_block: 0, pid: 1, name: swapper/0
+INFO: lockdep is turned off.
+irq event stamp: 540836
+hardirqs last  enabled at (540835): [<ffffffff81bea116>] __alloc_pages_bulk=
++0xdf6/0x1090 mm/page_alloc.c:5320
+hardirqs last disabled at (540836): [<ffffffff81be9b21>] __alloc_pages_bulk=
++0x801/0x1090 mm/page_alloc.c:5290
+softirqs last  enabled at (540138): [<ffffffff814d647b>] invoke_softirq ker=
+nel/softirq.c:432 [inline]
+softirqs last  enabled at (540138): [<ffffffff814d647b>] __irq_exit_rcu+0x2=
+1b/0x260 kernel/softirq.c:636
+softirqs last disabled at (540127): [<ffffffff814d647b>] invoke_softirq ker=
+nel/softirq.c:432 [inline]
+softirqs last disabled at (540127): [<ffffffff814d647b>] __irq_exit_rcu+0x2=
+1b/0x260 kernel/softirq.c:636
+CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.13.0-syzkaller #0
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Goo=
+gle 01/01/2011
+Call Trace:
+ __dump_stack lib/dump_stack.c:79 [inline]
+ dump_stack_lvl+0x1ae/0x29f lib/dump_stack.c:96
+ ___might_sleep+0x4e5/0x6b0 kernel/sched/core.c:9153
+ prepare_alloc_pages+0x1c0/0x5a0 mm/page_alloc.c:5178
+ __alloc_pages+0x14d/0x5f0 mm/page_alloc.c:5374
+ alloc_page_interleave+0x22/0x1c0 mm/mempolicy.c:2119
+ stack_depot_save+0x361/0x490 lib/stackdepot.c:303
+ save_stack+0xf9/0x1f0 mm/page_owner.c:120
+ __set_page_owner+0x42/0x2f0 mm/page_owner.c:181
+ prep_new_page mm/page_alloc.c:2444 [inline]
+ __alloc_pages_bulk+0x9f2/0x1090 mm/page_alloc.c:5312
+ alloc_pages_bulk_array_node include/linux/gfp.h:557 [inline]
+ vm_area_alloc_pages mm/vmalloc.c:2793 [inline]
+ __vmalloc_area_node mm/vmalloc.c:2863 [inline]
+ __vmalloc_node_range+0x3ad/0x7f0 mm/vmalloc.c:2966
+ __vmalloc_node mm/vmalloc.c:3015 [inline]
+ vzalloc+0x75/0x80 mm/vmalloc.c:3085
+ tpg_alloc+0x4eb/0x770 drivers/media/common/v4l2-tpg/v4l2-tpg-core.c:142
+ vivid_create_instance+0x2035/0xac90 drivers/media/test-drivers/vivid/vivid=
+-core.c:1770
+ vivid_probe+0x9a/0x140 drivers/media/test-drivers/vivid/vivid-core.c:2001
+ platform_probe+0x130/0x1b0 drivers/base/platform.c:1427
+ call_driver_probe+0x96/0x250 drivers/base/dd.c:517
+ really_probe+0x223/0x9c0 drivers/base/dd.c:595
+ __driver_probe_device+0x1f8/0x3e0 drivers/base/dd.c:747
+ driver_probe_device+0x50/0x240 drivers/base/dd.c:777
+ __driver_attach+0x2ba/0x520 drivers/base/dd.c:1136
+ bus_for_each_dev+0x168/0x1d0 drivers/base/bus.c:301
+ bus_add_driver+0x324/0x5e0 drivers/base/bus.c:618
+ driver_register+0x2e9/0x3e0 drivers/base/driver.c:171
+ vivid_init+0x39/0x67 drivers/media/test-drivers/vivid/vivid-core.c:2131
+ do_one_initcall+0x1a7/0x400 init/main.c:1280
+ do_initcall_level+0x14a/0x1f5 init/main.c:1353
+ do_initcalls+0x4b/0x8c init/main.c:1369
+ kernel_init_freeable+0x3f1/0x57e init/main.c:1591
+ kernel_init+0x19/0x2a0 init/main.c:1483
+ ret_from_fork+0x1f/0x30 arch/x86/entry/entry_64.S:295
+vivid-000: CEC adapter cec0 registered for HDMI input 0
+vivid-000: V4L2 capture device registered as video3
+vivid-000: CEC adapter cec1 registered for HDMI output 0
+vivid-000: V4L2 output device registered as video4
+vivid-000: V4L2 capture device registered as vbi0, supports raw and sliced =
+VBI
+vivid-000: V4L2 output device registered as vbi1, supports raw and sliced V=
+BI
+vivid-000: V4L2 capture device registered as swradio0
+vivid-000: V4L2 receiver device registered as radio0
+vivid-000: V4L2 transmitter device registered as radio1
+vivid-000: V4L2 metadata capture device registered as video5
+vivid-000: V4L2 metadata output device registered as video6
+vivid-000: V4L2 touch capture device registered as v4l-touch0
+vivid-001: using multiplanar format API
+vivid-001: CEC adapter cec2 registered for HDMI input 0
+vivid-001: V4L2 capture device registered as video7
+vivid-001: CEC adapter cec3 registered for HDMI output 0
+vivid-001: V4L2 output device registered as video8
+vivid-001: V4L2 capture device registered as vbi2, supports raw and sliced =
+VBI
+vivid-001: V4L2 output device registered as vbi3, supports raw and sliced V=
+BI
+vivid-001: V4L2 capture device registered as swradio1
+vivid-001: V4L2 receiver device registered as radio2
+vivid-001: V4L2 transmitter device registered as radio3
+vivid-001: V4L2 metadata capture device registered as video9
+vivid-001: V4L2 metadata output device registered as video10
+vivid-001: V4L2 touch capture device registered as v4l-touch1
+vivid-002: using single planar format API
+vivid-002: CEC adapter cec4 registered for HDMI input 0
+vivid-002: V4L2 capture device registered as video11
+vivid-002: CEC adapter cec5 registered for HDMI output 0
+vivid-002: V4L2 output device registered as video12
+vivid-002: V4L2 capture device registered as vbi4, supports raw and sliced =
+VBI
+vivid-002: V4L2 output device registered as vbi5, supports raw and sliced V=
+BI
+vivid-002: V4L2 capture device registered as swradio2
+vivid-002: V4L2 receiver device registered as radio4
+vivid-002: V4L2 transmitter device registered as radio5
+vivid-002: V4L2 metadata capture device registered as video13
+vivid-002: V4L2 metadata output device registered as video14
+vivid-002: V4L2 touch capture device registered as v4l-touch2
+vivid-003: using multiplanar format API
+vivid-003: CEC adapter cec6 registered for HDMI input 0
+vivid-003: V4L2 capture device registered as video15
+vivid-003: CEC adapter cec7 registered for HDMI output 0
+vivid-003: V4L2 output device registered as video16
+vivid-003: V4L2 capture device registered as vbi6, supports raw and sliced =
+VBI
+vivid-003: V4L2 output device registered as vbi7, supports raw and sliced V=
+BI
+vivid-003: V4L2 capture device registered as swradio3
+vivid-003: V4L2 receiver device registered as radio6
+vivid-003: V4L2 transmitter device registered as radio7
+vivid-003: V4L2 metadata capture device registered as video17
+vivid-003: V4L2 metadata output device registered as video18
+vivid-003: V4L2 touch capture device registered as v4l-touch3
+vivid-004: using single planar format API
+vivid-004: CEC adapter cec8 registered for HDMI input 0
+vivid-004: V4L2 capture device registered as video19
+vivid-004: CEC adapter cec9 registered for HDMI output 0
+vivid-004: V4L2 output device registered as video20
+vivid-004: V4L2 capture device registered as vbi8, supports raw and sliced =
+VBI
+vivid-004: V4L2 output device registered as vbi9, supports raw and sliced V=
+BI
+vivid-004: V4L2 capture device registered as swradio4
+vivid-004: V4L2 receiver device registered as radio8
+vivid-004: V4L2 transmitter device registered as radio9
+vivid-004: V4L2 metadata capture device registered as video21
+vivid-004: V4L2 metadata output device registered as video22
+vivid-004: V4L2 touch capture device registered as v4l-touch4
+vivid-005: using multiplanar format API
+vivid-005: CEC adapter cec10 registered for HDMI input 0
+vivid-005: V4L2 capture device registered as video23
+vivid-005: CEC adapter cec11 registered for HDMI output 0
+vivid-005: V4L2 output device registered as video24
+vivid-005: V4L2 capture device registered as vbi10, supports raw and sliced=
+ VBI
+vivid-005: V4L2 output device registered as vbi11, supports raw and sliced =
+VBI
+vivid-005: V4L2 capture device registered as swradio5
+vivid-005: V4L2 receiver device registered as radio10
+vivid-005: V4L2 transmitter device registered as radio11
+vivid-005: V4L2 metadata capture device registered as video25
+vivid-005: V4L2 metadata output device registered as video26
+vivid-005: V4L2 touch capture device registered as v4l-touch5
+vivid-006: using single planar format API
+vivid-006: CEC adapter cec12 registered for HDMI input 0
+vivid-006: V4L2 capture device registered as video27
+vivid-006: CEC adapter cec13 registered for HDMI output 0
+vivid-006: V4L2 output device registered as video28
+vivid-006: V4L2 capture device registered as vbi12, supports raw and sliced=
+ VBI
+vivid-006: V4L2 output device registered as vbi13, supports raw and sliced =
+VBI
+vivid-006: V4L2 capture device registered as swradio6
+vivid-006: V4L2 receiver device registered as radio12
+vivid-006: V4L2 transmitter device registered as radio13
+vivid-006: V4L2 metadata capture device registered as video29
+vivid-006: V4L2 metadata output device registered as video30
+vivid-006: V4L2 touch capture device registered as v4l-touch6
+vivid-007: using multiplanar format API
+vivid-007: CEC adapter cec14 registered for HDMI input 0
+vivid-007: V4L2 capture device registered as video31
+vivid-007: CEC adapter cec15 registered for HDMI output 0
+vivid-007: V4L2 output device registered as video32
+vivid-007: V4L2 capture device registered as vbi14, supports raw and sliced=
+ VBI
+vivid-007: V4L2 output device registered as vbi15, supports raw and sliced =
+VBI
+vivid-007: V4L2 capture device registered as swradio7
+vivid-007: V4L2 receiver device registered as radio14
+vivid-007: V4L2 transmitter device registered as radio15
+vivid-007: V4L2 metadata capture device registered as video33
+vivid-007: V4L2 metadata output device registered as video34
+vivid-007: V4L2 touch capture device registered as v4l-touch7
+vivid-008: using single planar format API
+vivid-008: CEC adapter cec16 registered for HDMI input 0
+vivid-008: V4L2 capture device registered as video35
+vivid-008: CEC adapter cec17 registered for HDMI output 0
+vivid-008: V4L2 output device registered as video36
+vivid-008: V4L2 capture device registered as vbi16, supports raw and sliced=
+ VBI
+vivid-008: V4L2 output device registered as vbi17, supports raw and sliced =
+VBI
+vivid-008: V4L2 capture device registered as swradio8
+vivid-008: V4L2 receiver device registered as radio16
+vivid-008: V4L2 transmitter device registered as radio17
+vivid-008: V4L2 metadata capture device registered as video37
+vivid-008: V4L2 metadata output device registered as video38
+vivid-008: V4L2 touch capture device registered as v4l-touch8
+vivid-009: using multiplanar format API
+vivid-009: CEC adapter cec18 registered for HDMI input 0
+vivid-009: V4L2 capture device registered as video39
+vivid-009: CEC adapter cec19 registered for HDMI output 0
+vivid-009: V4L2 output device registered as video40
+vivid-009: V4L2 capture device registered as vbi18, supports raw and sliced=
+ VBI
+vivid-009: V4L2 output device registered as vbi19, supports raw and sliced =
+VBI
+vivid-009: V4L2 capture device registered as swradio9
+vivid-009: V4L2 receiver device registered as radio18
+vivid-009: V4L2 transmitter device registered as radio19
+vivid-009: V4L2 metadata capture device registered as video41
+vivid-009: V4L2 metadata output device registered as video42
+vivid-009: V4L2 touch capture device registered as v4l-touch9
+vivid-010: using single planar format API
+vivid-010: CEC adapter cec20 registered for HDMI input 0
+vivid-010: V4L2 capture device registered as video43
+vivid-010: CEC adapter cec21 registered for HDMI output 0
+vivid-010: V4L2 output device registered as video44
+vivid-
 
 ---
-For more info write to <info@kernelci.org>
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -1716,4 +1526,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/60e55326.1c69fb81.c1a6d.ac1b%40mx.google.com.
+clang-built-linux/00000000000085b5fd05c6839f7d%40google.com.
