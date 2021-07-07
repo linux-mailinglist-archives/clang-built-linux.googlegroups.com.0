@@ -1,133 +1,123 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBMPHS6DQMGQEIMWF6TI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3ZBFI7MBBBXXNS6DQMGQE3L74S7I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
-	by mail.lfdr.de (Postfix) with ESMTPS id E1EAD3BEEBF
-	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Jul 2021 20:34:26 +0200 (CEST)
-Received: by mail-pj1-x1037.google.com with SMTP id d1-20020a17090ae281b0290170ba1f9948sf4376723pjz.7
-        for <lists+clang-built-linux@lfdr.de>; Wed, 07 Jul 2021 11:34:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625682865; cv=pass;
+Received: from mail-ed1-x539.google.com (mail-ed1-x539.google.com [IPv6:2a00:1450:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id 90E653BEFCF
+	for <lists+clang-built-linux@lfdr.de>; Wed,  7 Jul 2021 20:47:58 +0200 (CEST)
+Received: by mail-ed1-x539.google.com with SMTP id p13-20020a05640210cdb029039560ff6f46sf1867028edu.17
+        for <lists+clang-built-linux@lfdr.de>; Wed, 07 Jul 2021 11:47:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625683678; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fXTRePAznZBto4surpzHMfpZkYwbOh+TFLUbty4i7AhyvhJ9iMbn3MTHGdSepVupZ1
-         VU4DFCD3LV0PCD7ey65EEJkgcivX0tQo9Pyt//QyYDrbB4V3UbqsbBk5F+3Xvgbtrzji
-         rKiabNN8INzpHMh5T4MsgpOdaSA+7lfoQ3ibX6lq06zDR9jqPLRVo/PyXUQy7SzUOWDP
-         JZgSX7mWigKX2Zn3CCzYSFv3eLZP7UfRD3m6IeXHpzPcFKT9uZBoGm8l9byyhIqUITgX
-         Ez/BqQbJPWyox8owjFdjRclhrbrO+aASEltld8eJnRSCRbbZO5zk4ZCy7XBlZyGAYWcz
-         Dc6Q==
+        b=OkdnYZ9TbQM3iRgeFYsruBnVxSUntsZbwUpMIg5t+V0GO/gXHnUu8xuHnIq0tlevoj
+         gEkUzskb15hqdV+qkMNO9+IcoooJIeLcjSeHYA/RiNDHGyQBKtw2G5W6iJO478lqaaX9
+         6rpwW+0yeErehkMUVAlLOdcunRPlYH286ksENet4+17tHS0/CteC6JRCuykSI+cq8giz
+         x5HjOy0nVljOPJtwb2tEZSo6HWvb8iLUKI8JW1lQKtpImmQoLi/EYhKk4i1/PWCJS52V
+         S/F/ErGCJhUvTctIgmXLowILXhNQN7uLWtt7H/6/3TqHg19eEf6XETnyLTvqdz6SN0mh
+         GNgg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=2oyRuAIPZsJ387ySlf9x9cxpiVJOf+MNhSWY4sI9Y78=;
-        b=k/bhLN2wKKLSeQNEeYB/bk5AGorn/gGBtWo6hY5D7fvBxpxjWfHMuCtHYNrfAcT9cT
-         mTN5AXTTUBgD/YP3ubeyqfZRHz1OAOn07XnXsOID7ikYnIY79ostO91+5MpzXEwx/NWs
-         mJ1pw4E499R+nQlvun3oPHZREXjIds3CgKo7ZIope4eo7gQZHMFhovNDSATP/J4kC+AP
-         AdlvMdl3hAaVXUe8TwJAqbKSa4tn6Zpcc85UPRERxWGzY+Mna5n1GwEiRZIWfZ7KfRf+
-         iEZbfV2fF6s7LgKfguJ+tJ39ibfmMOkw4Y/sNtnlkYC2jrTFIi17VKGakSqHTqNIvDvI
-         cngw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=bfqTSXjP5uVSj9E7bHmop+fMVM0JJcfJJnBjHHh1Nto=;
+        b=BvehndUEd+K80Dcu6nSdDaTrK+wB6SvYP1WZ9Vjq1gnu74XDWhwErDmz9Pk58u3NXg
+         hMyEOPjkM5hJ3UeXcXr1wYXXfO7tXM8U0EiJHW3WdptlOdXCyRxoeQaG0Eq8WGJikXX9
+         FqK6it1978NsArNqv3AXRFHlfSr1IJSSuGY4zr05aD0LAnanTRV1XkTOgbj0batWMZUM
+         EKtDExlUbNMM1dqRuH2/GFaa6NxPBZ1OjgaORRj/hIkOs1752tm4cZIAVbzdilQvYMSs
+         ha3pnQwR1368m044BeKO/Ppincqu7fDrczDDY2sxkgik8NN9XxURTtmO1aHAN617HJGI
+         y5cw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=sM0sNH3f;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=MsfW9BtZ;
+       spf=pass (google.com: domain of chriswailes@google.com designates 2a00:1450:4864:20::334 as permitted sender) smtp.mailfrom=chriswailes@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=2oyRuAIPZsJ387ySlf9x9cxpiVJOf+MNhSWY4sI9Y78=;
-        b=orP2T/HW/3lnESI5EV3huToKmLEJQV1KHFiHfmMOyIpF+J95Exl+H8XAXK3qMWwI7t
-         KvhqxL07f6JPTMni3IPwGwGjC9xVYaMWrKsMlMYYYraHBs9nyXm5veElwOu2MqYfQXeV
-         DuPiaej/LJwD2LKtaGxzXw1ufIIAlnqEPITmF7x/6HKSHlLlesfFitmjVUi0CcN9VwIF
-         beA6kwGXeAFH7aRiKIsV5Xzv5lVHDgfXk8G6GgQm44mN40JEyhawMwpCjSnmBalwuZ4y
-         C4dqHtJJcm36fmF0oNiH+4Fn9FV7zwWXk+sDPGNQQ9aGINgjt4BZj2W//hpk/0rr2rRi
-         WdVg==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=bfqTSXjP5uVSj9E7bHmop+fMVM0JJcfJJnBjHHh1Nto=;
+        b=YihUFpxS0FXVVKKtv0mXEoarMLThJTadHrQs9l4TsafaUFYyLJLyqN9YgX0VVLZTR8
+         C+BnTRDFeC80BkXh4iLJDzEXqC7zGCSDxVk1QeLfk1JjsFi4szzAGo8EfNXLJ2ur3pMq
+         TC1lCIOUz27UzIAt0u54gH+HUekvUAvPukcYWiuAHPFnU3hI13nxCgpiR1W6lFMhcH2/
+         2r063sDMzmOj/knAP63pWFCZhLi8E/V2fiLnDtFlfOJ7VMNM2Sm5esyXPcjlIdnP0Qam
+         SOC3W0udkWRMe3jSvhIN6U8JQJ/IOunS7RG3CI4USo52u2HOH2y98favBBioyh0Mphm8
+         zykw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=2oyRuAIPZsJ387ySlf9x9cxpiVJOf+MNhSWY4sI9Y78=;
-        b=F4o4VLzrze/ysO4CG2QDU/VzS9US0LoR2A/EeVQ58dR163JV+dg2VNeNeCkMhaE6v5
-         I9i9SJ7rVzZ0+FXZpBa9k/3HQKSMRRFy86+tg5il8ll8jUdO+KBJ5gO/9X2wit6jHfdu
-         23W6Gf8ya2or5MaO0tOTY2U3705iQAV51sfjZT7QEYMoqRKkvdGhng1HN4OssNN6IiGi
-         g9IUL6AbEijrE869ZUVWpUfUC2hzCGlpXvVDqfvGsEp6Uz2hw7wmmoJbhm8eosyivGUn
-         hKE23mFGa+/HQ+ATQ6oyLxSMN6KvYjBXxRiVvHC6LGYlC8CIAWBGREc5KkOr3WPWtPLM
-         Iwow==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533ldZFQt/pdrEKODSEDiFqXdkVd2j0lN+xRJy+OQmZv7KTmLuEl
-	0TPSKEZRHU0gW1OS0gVN36M=
-X-Google-Smtp-Source: ABdhPJx/p7bao06OS5Yqt37/BRCJygfW69XD3NjT6b/2Eq9HcR/PQUvANfT9d0hlK3x/HPRfk++vGA==
-X-Received: by 2002:a17:90a:ee8e:: with SMTP id i14mr391176pjz.29.1625682865648;
-        Wed, 07 Jul 2021 11:34:25 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=bfqTSXjP5uVSj9E7bHmop+fMVM0JJcfJJnBjHHh1Nto=;
+        b=XYJfw7RZVWguGMIx3QBch+cZgIZkCJd0hoyTI2DpClXrooe2r8ddGUpbRh7qj+0JaI
+         GgEc/sX5xSewINfjUnpUtgMlK/wmIQP4ZmQsVna/ERyUCTyVF9MfY6hUDsKYFbRK1w4U
+         ulwgbK5JDFwLjm8NGngxekLSTjqZYXSL7SM6xi6FYwo2iA68rVUKpfPe+aRyd6Fl3TSM
+         eM2J/nRzhaQENF8mCQQewLpMT67+F8JoQVmrbdhD2XqkCS0y2KX2JE+nWzPllEKW5gfM
+         hIkBNhudh+2T9zP3NpPnsBQaIW0WGvHrf483lRKM5xLFq5m375IxgNEl73zu5GhHs4Lm
+         HbYw==
+X-Gm-Message-State: AOAM53147yUb53nUO5tnQ/b9NEZERQbNC0/fbSklnbx/zlbRAoL7Cx8p
+	7rKJYxFK7bdMOTtdmr0bABA=
+X-Google-Smtp-Source: ABdhPJw55KlMorvQNgRsJLbHB6YtgV+mcZf2+Y1UkqIDN2pYupWsbO5oJzPe0pFaoitkHJRx2/5VVQ==
+X-Received: by 2002:a17:906:85c2:: with SMTP id i2mr13697378ejy.27.1625683678286;
+        Wed, 07 Jul 2021 11:47:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:4a0e:: with SMTP id e14ls15464584pjh.2.gmail; Wed,
- 07 Jul 2021 11:34:25 -0700 (PDT)
-X-Received: by 2002:a17:90a:6903:: with SMTP id r3mr12089858pjj.105.1625682865074;
-        Wed, 07 Jul 2021 11:34:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1625682865; cv=none;
+Received: by 2002:a17:906:925a:: with SMTP id c26ls427577ejx.6.gmail; Wed, 07
+ Jul 2021 11:47:57 -0700 (PDT)
+X-Received: by 2002:a17:906:c41a:: with SMTP id u26mr25969992ejz.270.1625683677274;
+        Wed, 07 Jul 2021 11:47:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625683677; cv=none;
         d=google.com; s=arc-20160816;
-        b=Cp6GsFJWbhLKqj+q+Iz+Sw3D2GTmV6wKh3aOqBlgT0mtxQeMv0OSj90s4eOlDf3cAv
-         fNUakXEJ/lHHdZILDGCFvnBy+j3dE/nWoKRnD02xHRbbSykZM5SJtnZjPR3m+rbvV6E+
-         YX2mJ2zuMmEgK88qJlm0qBDGSlBLh/TcTu59BFFhPHOjm+dZl5zS/9rfFlA7CZINYqP1
-         KwgH0m/brREbP5CoKTPGoUXFqwcmDQ+hSLxFuHDZJth9GOOGr+5eGHS5yEKdkrt3Fech
-         eWDgRl8EKP5mcyEfUnfzYZxq5x9UiEuTG5MvoZI/IBtvtrWpjBkybIkIXxUa/M34gmmz
-         AX7g==
+        b=V6bMbQ/yOiQFUT9gD2IYufPzn1k/aETp8V5+tq3JFig3xP+UFsa0RnzqNdFpQc5iar
+         4T3OhUbAZcAPQnzlWaAh1ODQ4MU7IUmv/qNds3eZyKZzvWy23vmUUJCY4EGUEm9Ixwns
+         QGCwXVlfcrof/xiW3lBTjVIk/Ykh846dNnvW7pgSNDzqG8mcv65LPUIB4I+/fbV9hysw
+         kH89wzVqDKLDyNJ5VTTpUGty2UCKs5orhzcPfQCUANViABuFGlZU2A1j5Xp2EqpsCuRL
+         CP/C9eSTSOWmBtn7L1yNH5Ck8AP9XKDih2m3E86stPgk2KZnRdTqZ6meBj6viUetlZMn
+         RV6w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=rjUDaaYsStd0WL6zi2l8coFWTg6bnQ3TaNhypVGrUhM=;
-        b=FZ0DywiaPL5kZiUMEbTBGu5KDEq/46UKgQrPk+qWqOrFpKFhlZ8TmsCJEmgLI1QT6O
-         z1LwhjL/n7txQ0rWEEBZRrWPs4A8CykA5BbjY8RtruSGwZ7pk7spyJj+8fclufCoOTv1
-         63OV/8FunPmv/pL50gVKfOIcLSbJUzfAqLwKkY1lrLYhpvxhH6W6i3xgfj2UyG+QOaNB
-         uECbO0nWuRVp3PoBjTmZzlkFLVTaWCa5VdYlm/qiHa5JVMAZj/wExqsA4tueTMAV1KAX
-         NgXy+aWEG4klIrOhQcjX7vhUwiKCTofaSWHJDoktmvTK6BZGmv2ykUc+ZQfXaOUq/Pjs
-         LOKA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=efV9QfncYXAInftKNUg9mPbu0IBAqovNftqSvuDVE3M=;
+        b=w3bhB3C/mPsqvm19u2J5mTl4uA/5g39D8A07kUEH+b7h6Dhw3sRrjoEPz5Q3qL4vIF
+         VNZ1B3uKNGuazzrdFBA2VAKszp4Knzmd78Fvm8usR0EHgPK39/6x+aMfI5aQoyrX82Mn
+         xl5Eyz9gIYLCttKp6WetFHMF9goCRFAERI/h7A7TPksZ7QKN7dkaZy7xy6ZlZ8AJDMt+
+         oAjbouPS5H8aJz//pCJjBH2kHx0f26j4mxg09ChEmxeS+7R1Plm3IAgYoqtfj2R6g7HS
+         uz92RJ+yasMSzBvQj/VbELSj1WjLGRgUDOEW9Ko46L6HO6NmDk60KyfGGKP9owwuSDtA
+         QKrw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=sM0sNH3f;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id d17si1241976plr.3.2021.07.07.11.34.25
+       dkim=pass header.i=@google.com header.s=20161025 header.b=MsfW9BtZ;
+       spf=pass (google.com: domain of chriswailes@google.com designates 2a00:1450:4864:20::334 as permitted sender) smtp.mailfrom=chriswailes@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-wm1-x334.google.com (mail-wm1-x334.google.com. [2a00:1450:4864:20::334])
+        by gmr-mx.google.com with ESMTPS id du5si97862ejc.0.2021.07.07.11.47.57
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 07 Jul 2021 11:34:25 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 115D961CCE;
-	Wed,  7 Jul 2021 18:34:22 +0000 (UTC)
-Subject: Re: [PATCH v4] kallsyms: strip LTO suffixes from static functions
-To: Nick Desaulniers <ndesaulniers@google.com>,
- Kees Cook <keescook@chromium.org>
-Cc: Fangrui Song <maskray@google.com>, "KE . LI" <like1@oppo.com>,
- Stephen Rothwell <sfr@canb.auug.org.au>,
- Andrew Morton <akpm@linux-foundation.org>, Miroslav Benes <mbenes@suse.cz>,
- Miguel Ojeda <ojeda@kernel.org>, Joe Perches <joe@perches.com>,
- Stephen Boyd <swboyd@chromium.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Randy Dunlap <rdunlap@infradead.org>, Sami Tolvanen
- <samitolvanen@google.com>, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-References: <08a2e179-3f5f-639e-946f-54cd07ae12fa@kernel.org>
- <20210707181814.365496-1-ndesaulniers@google.com>
-From: Nathan Chancellor <nathan@kernel.org>
-Message-ID: <1fd40e80-283f-62e9-a0fa-84ad68047a23@kernel.org>
-Date: Wed, 7 Jul 2021 11:34:20 -0700
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 07 Jul 2021 11:47:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of chriswailes@google.com designates 2a00:1450:4864:20::334 as permitted sender) client-ip=2a00:1450:4864:20::334;
+Received: by mail-wm1-x334.google.com with SMTP id k31-20020a05600c1c9fb029021727d66d33so718921wms.0
+        for <clang-built-linux@googlegroups.com>; Wed, 07 Jul 2021 11:47:57 -0700 (PDT)
+X-Received: by 2002:a7b:c5c8:: with SMTP id n8mr545454wmk.124.1625683676848;
+ Wed, 07 Jul 2021 11:47:56 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20210707181814.365496-1-ndesaulniers@google.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: nathan@kernel.org
+References: <CAKwvOdncyTGCrjeNBLnZoo_NM7qOdBCw1CEmxUGt135OKzMXEQ@mail.gmail.com>
+In-Reply-To: <CAKwvOdncyTGCrjeNBLnZoo_NM7qOdBCw1CEmxUGt135OKzMXEQ@mail.gmail.com>
+From: "'Chris Wailes' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 7 Jul 2021 11:47:46 -0700
+Message-ID: <CAKfqHeq7+VFg2XqhC7MAJ9RnH40qAYA3i2mRhx4yUZfi8b0Yew@mail.gmail.com>
+Subject: Re: [RFC] inlining and mismatched function attributes
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: llvm-dev <llvm-dev@lists.llvm.org>, Fangrui Song <maskray@google.com>, 
+	Marco Elver <elver@google.com>, =?UTF-8?Q?Martin_Li=C5=A1ka?= <mliska@suse.cz>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Johannes Doerfert <jdoerfert@anl.gov>
+Content-Type: multipart/alternative; boundary="00000000000013df9b05c68cfad5"
+X-Original-Sender: chriswailes@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=sM0sNH3f;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b=MsfW9BtZ;       spf=pass
+ (google.com: domain of chriswailes@google.com designates 2a00:1450:4864:20::334
+ as permitted sender) smtp.mailfrom=chriswailes@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Chris Wailes <chriswailes@google.com>
+Reply-To: Chris Wailes <chriswailes@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,113 +130,385 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 7/7/2021 11:18 AM, Nick Desaulniers wrote:
-> Similar to:
-> commit 8b8e6b5d3b01 ("kallsyms: strip ThinLTO hashes from static
-> functions")
-> 
-> It's very common for compilers to modify the symbol name for static
-> functions as part of optimizing transformations. That makes hooking
-> static functions (that weren't inlined or DCE'd) with kprobes difficult.
-> 
-> LLVM has yet another name mangling scheme used by thin LTO.  Strip off
-> these suffixes so that we can continue to hook such static functions.
-> 
-> Reported-by: KE.LI(Lieke) <like1@oppo.com>
-> Suggested-by: Nathan Chancellor <nathan@kernel.org>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+--00000000000013df9b05c68cfad5
+Content-Type: text/plain; charset="UTF-8"
 
-Code looks fine, small comment about a comment below.
+Nick,
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Thanks for bringing up this topic.
 
-> ---
-> Changes v3 -> v4:
-> * Convert this function to use IS_ENABLED rather than provide multiple
->    definitions based on preprocessor checks.
-> * Add Nathan's suggested-by.
-> 
-> Changes v2 -> v3:
-> * Un-nest preprocessor checks, as per Nathan.
-> 
-> Changes v1 -> v2:
-> * Both mangling schemes can occur for thinLTO + CFI, this new scheme can
->    also occur for thinLTO without CFI. Split cleanup_symbol_name() into
->    two function calls.
-> * Drop KE.LI's tested by tag.
-> * Do not carry Fangrui's Reviewed by tag.
-> * Drop the inline keyword; it is meaningless.
-> 
->   kernel/kallsyms.c | 43 ++++++++++++++++++++++++++++++-------------
->   1 file changed, 30 insertions(+), 13 deletions(-)
-> 
-> diff --git a/kernel/kallsyms.c b/kernel/kallsyms.c
-> index 4067564ec59f..a10dab216f4f 100644
-> --- a/kernel/kallsyms.c
-> +++ b/kernel/kallsyms.c
-> @@ -171,26 +171,43 @@ static unsigned long kallsyms_sym_address(int idx)
->   	return kallsyms_relative_base - 1 - kallsyms_offsets[idx];
->   }
->   
-> -#if defined(CONFIG_CFI_CLANG) && defined(CONFIG_LTO_CLANG_THIN)
-> -/*
-> - * LLVM appends a hash to static function names when ThinLTO and CFI are
-> - * both enabled, i.e. foo() becomes foo$707af9a22804d33c81801f27dcfe489b.
-> - * This causes confusion and potentially breaks user space tools, so we
-> - * strip the suffix from expanded symbol names.
-> - */
-> -static inline bool cleanup_symbol_name(char *s)
-> +static bool cleanup_symbol_name(char *s)
->   {
->   	char *res;
->   
-> +	/*
-> +	 * LLVM appends a suffix for local variables that must be promoted to
+Another issue to consider is the performance impact of the interaction
+between `no_stack_protector` and inlining.  If the translation unit is
+compiled with stack protectors and you want to remove them from a specific
+function you have to prevent all inlining into the function in question or
+recursively annotate all called functions with `no_stack_protector`.  This
+can lead to disastrous consequences for performance if it is a hot function.
 
-This says local variables but the example uses a function? Is that correct?
+Sometimes, I wish in C we had the ability to express at a given callsite
+> that inlining the callee should not occur.
+>
 
-> +	 * global scope as part of ThinLTO. foo() becomes
-> +	 * foo.llvm.974640843467629774. This can break hooking of static
-> +	 * functions with kprobes.
-> +	 */
-> +	if (!IS_ENABLED(CONFIG_LTO_CLANG_THIN))
-> +		return false;
-> +
-> +	res = strstr(s, ".llvm.");
-> +	if (res) {
-> +		*res = '\0';
-> +		return true;
-> +	}
-> +
-> +	/*
-> +	 * LLVM appends a hash to static function names when ThinLTO and CFI
-> +	 * are both enabled, i.e. foo() becomes
-> +	 * foo$707af9a22804d33c81801f27dcfe489b. This causes confusion and
-> +	 * potentially breaks user space tools, so we strip the suffix from
-> +	 * expanded symbol names.
-> +	 */
-> +	if (!IS_ENABLED(CONFIG_CFI_CLANG))
-> +		return false;
-> +
->   	res = strrchr(s, '$');
-> -	if (res)
-> +	if (res) {
->   		*res = '\0';
-> +		return true;
-> +	}
->   
-> -	return res != NULL;
-> +	return false;
->   }
-> -#else
-> -static inline bool cleanup_symbol_name(char *s) { return false; }
-> -#endif
->   
->   /* Lookup the address for this symbol. Returns 0 if not found. */
->   unsigned long kallsyms_lookup_name(const char *name)
-> 
+This would solve the usability problem that you are discussing (you
+wouldn't have to go chasing down all callees that are marked as
+`alwaysinline`) but it wouldn't solve the performance problem.  Another
+solution might be to have an annotation that says "my `no_stack_protector`
+or `no_profile_instrument_function` annotation overrides the values from
+inlined functions".  This would allow the inlining to occur but gives the
+callee control over their own behavior.  If we had had this annotation it
+would have made one of the several solutions to stack protectors in the
+Zygote that we tried actually viable.
+
+- Chris
+
+On Thu, Jun 24, 2021 at 11:52 AM Nick Desaulniers <ndesaulniers@google.com>
+wrote:
+
+> Hey folks,
+> It was suggested that I bring up a peculiarity from an individual code
+> review to the list.
+>
+> We have a couple function attributes (in C) where inlining can produce
+> unexpected or surprising results.
+>
+> Let's take for example, stack protectors, which help me prevent stack
+> buffer overruns from rewriting a return address pushed on the stack
+> (sometimes). Now let's say I'm an operating system kernel and I need
+> to restore register state after suspend (ie. during resume).  That
+> register state would conflict with the generated stack protector code,
+> so I use a function attribute like __attribute__((no_stack_protector)
+> to prevent my compiler from inserting such code in my resume handler
+> which has to initialize a new stack canary.  But I wasn't careful to
+> check that all of the functions I call from said handler have a
+> matching function attribute, and due to inlining, I wind up with a
+> stack protector, even though I requested a function not have a stack
+> protector!  Suddenly I load the incorrect stack canary value from
+> garbage register state, fail the stack check guard, and now I fail to
+> resume due to a kernel panic. (True story)
+>
+> Another stack protector issue that came up recently has to do with
+> forking "zygote-like" processes, and having unique stack protector
+> values per process.  Point being, there are a few cases where we want
+> stack protectors generally, but need the fine grain control provided
+> by function attributes.  Moving code into separate translation units
+> in order to use different flags, is tedious and commonly runs into
+> issues with LTO in LLVM when flags that aren't encoded in IR are
+> dropped by LTO.
+>
+> Similar problems crop up again with coverage, and profiling
+> instrumentation in "delicate" code.  Sanitizers, shadow call stack,
+> and a few others run into similar situations.
+>
+> As a developer without knowledge of my toolchain, how do I go about
+> debugging this myself?  (Debugging the suspend/resume issue was not
+> fun).
+>
+> What are some ways developers can fix this?  Well, if I know my call
+> chain, I can go through and start marking my callees
+> __attribute__((no_stack_protector)) or __attribute__((noinline))
+> recursively.  Eventually, I should get to the point where none of my
+> callees have stack protectors or are inlined. But that strips off more
+> stack protectors perhaps than I'd like, and leaves a lot of code
+> unprotected.  This begins to feel like "what color is your function?"
+> "Red" functions may only call other "red" functions; "blue" functions
+> may only call other "blue" functions.
+> https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/
+>
+> Maybe my callees have different callers with different constraints.
+> Aliases can be used for callees.  Example:
+>
+> // has a stack protector
+> void callee_bad(void) { ... }
+>
+> __attribute__((alias("callee_bad"),noinline))
+> void callee_good(void);
+>
+> // requires no stack protector
+> __attribute__((no_stack_protector))
+> void caller(void) {
+>   callee_good();
+> }
+>
+> However, caller() could be inlined into yet another (not defined
+> above) call site that does have/need a stack protector.
+>
+> And other call sites (that don't care about stack protectors) can just
+> call callee_bad like normal.  If I don't have too many callees, it's
+> not too bad.  But very quickly it can become difficult as a developer
+> to tell which callee was problematic.
+>
+> Another possibility is that the compiler could have knowledge of
+> certain conflicting function attributes, and skip inline substitution
+> of callee into caller upon mismatch.  We provide "remarks" to help
+> developers understand why inline substitution failed, if they care to
+> know why.  ie.
+> $ clang -O1 -O1 -Rpass-missed=inline foo.c
+> foo.c:6:10: remark: foo not inlined into bar because it should never
+> be inlined (cost=never): <really good reason why here>
+>
+> Indeed, that's exactly the tact I took with no_stack_protector in
+> commit bc044a88ee3c ("[Inline] prevent inlining on stack protector
+> mismatch").
+>
+> It's what GCC is proposing for
+> __attribute__((no_profile_instrument_function)) (coverage and
+> profiling) in:
+> https://gcc.gnu.org/pipermail/gcc-patches/2021-June/573511.html
+> https://gcc.gnu.org/bugzilla/show_bug.cgi?id=80223
+> and I'm looking to match in
+> https://reviews.llvm.org/D104810 .
+>
+> We already have precedence for this in LLVM; checkout `CompatRule` in
+> llvm/include/llvm/IR/Attributes.td and
+> `llvm::getAttributeBasedInliningDecision` in
+> llvm/lib/Analysis/InlineCost.cpp.
+>
+> I'd argue it's also less surprising for a function not to be inlined
+> than for a stack protector or profile/coverage instrumentation to show
+> up when a function is explicitly attributed to not have those things.
+> These attributes describe a desired property of the function. If
+> inlined, we wish the new copies have the same property. However,
+> function attribute applies to the whole function, not a subset of
+> instructions.
+>
+> But, now we're making IR function attributes that could have been
+> orthogonal (nossp, noinline) entangled.  That hurts the composition of
+> such attributes.  (I will note, nossp does not unconditionally imply
+> noinline; it implies "noinline for mismatched callers, and noinline on
+> callees that are mismatched, on a per call site basis."
+> __attribute__((always_inline)) will override this exception, and we
+> don't provide helpful diagnostics in such case; good luck! :-/ )  We
+> likely will have such conflicts with additional function attributes in
+> the future. Should the inliner scan the caller and callee at every
+> call site for such attribute lists? Should the LangRef document such
+> inlining behavior?
+>
+> Another concern is diverging from GCC here; while we're both
+> discussing no_profile_instrument_function it would be good to gather
+> more feedback.
+>
+> Sometimes, I wish in C we had the ability to express at a given
+> callsite that inlining the callee should not occur.
+>
+> You can see more discussion
+> https://gcc.gnu.org/bugzilla/show_bug.cgi?id=80223 .  Surely there are
+> additional solutions we have not yet conceived of. At this point, I
+> don't particularly care what color we paint this bikeshed; I just need
+> a bikeshed built so that my kernel boots.  We all want all software to
+> be better, and can have a gentle-person's disagreement. Thoughts?
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1fd40e80-283f-62e9-a0fa-84ad68047a23%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKfqHeq7%2BVFg2XqhC7MAJ9RnH40qAYA3i2mRhx4yUZfi8b0Yew%40mail.gmail.com.
+
+--00000000000013df9b05c68cfad5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Nick,<div><br></div><div>Thanks for bringing up this topic=
+.</div><div><br></div><div>Another issue to consider is the performance imp=
+act of the interaction between `no_stack_protector` and inlining.=C2=A0 If =
+the translation unit is compiled with stack protectors and you want to remo=
+ve them from a specific function you have=C2=A0to prevent all inlining into=
+ the function in question or recursively annotate all called functions with=
+ `no_stack_protector`.=C2=A0 This can lead to disastrous=C2=A0consequences =
+for performance if it is a hot function.</div><div><br></div><blockquote cl=
+ass=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid=
+ rgb(204,204,204);padding-left:1ex">Sometimes, I wish in C we had the abili=
+ty to express at a given callsite that inlining the callee should not occur=
+.<br></blockquote><div><br></div><div>This would solve the usability proble=
+m that you are discussing (you wouldn&#39;t have to go chasing down all cal=
+lees that are marked as `alwaysinline`) but it wouldn&#39;t solve the perfo=
+rmance problem.=C2=A0 Another solution might be to have an annotation that =
+says &quot;my `no_stack_protector` or `no_profile_instrument_function` anno=
+tation=C2=A0overrides the values from inlined functions&quot;.=C2=A0 This w=
+ould allow the inlining to occur but gives the callee control over their ow=
+n behavior.=C2=A0 If we had had this annotation it would have made one of t=
+he several solutions to stack protectors in the Zygote that we tried actual=
+ly viable.</div><div><br></div><div>- Chris</div></div><br><div class=3D"gm=
+ail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Thu, Jun 24, 2021 at 11=
+:52 AM Nick Desaulniers &lt;<a href=3D"mailto:ndesaulniers@google.com">ndes=
+aulniers@google.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quot=
+e" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204)=
+;padding-left:1ex">Hey folks,<br>
+It was suggested that I bring up a peculiarity from an individual code<br>
+review to the list.<br>
+<br>
+We have a couple function attributes (in C) where inlining can produce<br>
+unexpected or surprising results.<br>
+<br>
+Let&#39;s take for example, stack protectors, which help me prevent stack<b=
+r>
+buffer overruns from rewriting a return address pushed on the stack<br>
+(sometimes). Now let&#39;s say I&#39;m an operating system kernel and I nee=
+d<br>
+to restore register state after suspend (ie. during resume).=C2=A0 That<br>
+register state would conflict with the generated stack protector code,<br>
+so I use a function attribute like __attribute__((no_stack_protector)<br>
+to prevent my compiler from inserting such code in my resume handler<br>
+which has to initialize a new stack canary.=C2=A0 But I wasn&#39;t careful =
+to<br>
+check that all of the functions I call from said handler have a<br>
+matching function attribute, and due to inlining, I wind up with a<br>
+stack protector, even though I requested a function not have a stack<br>
+protector!=C2=A0 Suddenly I load the incorrect stack canary value from<br>
+garbage register state, fail the stack check guard, and now I fail to<br>
+resume due to a kernel panic. (True story)<br>
+<br>
+Another stack protector issue that came up recently has to do with<br>
+forking &quot;zygote-like&quot; processes, and having unique stack protecto=
+r<br>
+values per process.=C2=A0 Point being, there are a few cases where we want<=
+br>
+stack protectors generally, but need the fine grain control provided<br>
+by function attributes.=C2=A0 Moving code into separate translation units<b=
+r>
+in order to use different flags, is tedious and commonly runs into<br>
+issues with LTO in LLVM when flags that aren&#39;t encoded in IR are<br>
+dropped by LTO.<br>
+<br>
+Similar problems crop up again with coverage, and profiling<br>
+instrumentation in &quot;delicate&quot; code.=C2=A0 Sanitizers, shadow call=
+ stack,<br>
+and a few others run into similar situations.<br>
+<br>
+As a developer without knowledge of my toolchain, how do I go about<br>
+debugging this myself?=C2=A0 (Debugging the suspend/resume issue was not<br=
+>
+fun).<br>
+<br>
+What are some ways developers can fix this?=C2=A0 Well, if I know my call<b=
+r>
+chain, I can go through and start marking my callees<br>
+__attribute__((no_stack_protector)) or __attribute__((noinline))<br>
+recursively.=C2=A0 Eventually, I should get to the point where none of my<b=
+r>
+callees have stack protectors or are inlined. But that strips off more<br>
+stack protectors perhaps than I&#39;d like, and leaves a lot of code<br>
+unprotected.=C2=A0 This begins to feel like &quot;what color is your functi=
+on?&quot;<br>
+&quot;Red&quot; functions may only call other &quot;red&quot; functions; &q=
+uot;blue&quot; functions<br>
+may only call other &quot;blue&quot; functions.<br>
+<a href=3D"https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your=
+-function/" rel=3D"noreferrer" target=3D"_blank">https://journal.stuffwiths=
+tuff.com/2015/02/01/what-color-is-your-function/</a><br>
+<br>
+Maybe my callees have different callers with different constraints.<br>
+Aliases can be used for callees.=C2=A0 Example:<br>
+<br>
+// has a stack protector<br>
+void callee_bad(void) { ... }<br>
+<br>
+__attribute__((alias(&quot;callee_bad&quot;),noinline))<br>
+void callee_good(void);<br>
+<br>
+// requires no stack protector<br>
+__attribute__((no_stack_protector))<br>
+void caller(void) {<br>
+=C2=A0 callee_good();<br>
+}<br>
+<br>
+However, caller() could be inlined into yet another (not defined<br>
+above) call site that does have/need a stack protector.<br>
+<br>
+And other call sites (that don&#39;t care about stack protectors) can just<=
+br>
+call callee_bad like normal.=C2=A0 If I don&#39;t have too many callees, it=
+&#39;s<br>
+not too bad.=C2=A0 But very quickly it can become difficult as a developer<=
+br>
+to tell which callee was problematic.<br>
+<br>
+Another possibility is that the compiler could have knowledge of<br>
+certain conflicting function attributes, and skip inline substitution<br>
+of callee into caller upon mismatch.=C2=A0 We provide &quot;remarks&quot; t=
+o help<br>
+developers understand why inline substitution failed, if they care to<br>
+know why.=C2=A0 ie.<br>
+$ clang -O1 -O1 -Rpass-missed=3Dinline foo.c<br>
+foo.c:6:10: remark: foo not inlined into bar because it should never<br>
+be inlined (cost=3Dnever): &lt;really good reason why here&gt;<br>
+<br>
+Indeed, that&#39;s exactly the tact I took with no_stack_protector in<br>
+commit bc044a88ee3c (&quot;[Inline] prevent inlining on stack protector mis=
+match&quot;).<br>
+<br>
+It&#39;s what GCC is proposing for<br>
+__attribute__((no_profile_instrument_function)) (coverage and<br>
+profiling) in:<br>
+<a href=3D"https://gcc.gnu.org/pipermail/gcc-patches/2021-June/573511.html"=
+ rel=3D"noreferrer" target=3D"_blank">https://gcc.gnu.org/pipermail/gcc-pat=
+ches/2021-June/573511.html</a><br>
+<a href=3D"https://gcc.gnu.org/bugzilla/show_bug.cgi?id=3D80223" rel=3D"nor=
+eferrer" target=3D"_blank">https://gcc.gnu.org/bugzilla/show_bug.cgi?id=3D8=
+0223</a><br>
+and I&#39;m looking to match in<br>
+<a href=3D"https://reviews.llvm.org/D104810" rel=3D"noreferrer" target=3D"_=
+blank">https://reviews.llvm.org/D104810</a> .<br>
+<br>
+We already have precedence for this in LLVM; checkout `CompatRule` in<br>
+llvm/include/llvm/IR/Attributes.td and<br>
+`llvm::getAttributeBasedInliningDecision` in<br>
+llvm/lib/Analysis/InlineCost.cpp.<br>
+<br>
+I&#39;d argue it&#39;s also less surprising for a function not to be inline=
+d<br>
+than for a stack protector or profile/coverage instrumentation to show<br>
+up when a function is explicitly attributed to not have those things.<br>
+These attributes describe a desired property of the function. If<br>
+inlined, we wish the new copies have the same property. However,<br>
+function attribute applies to the whole function, not a subset of<br>
+instructions.<br>
+<br>
+But, now we&#39;re making IR function attributes that could have been<br>
+orthogonal (nossp, noinline) entangled.=C2=A0 That hurts the composition of=
+<br>
+such attributes.=C2=A0 (I will note, nossp does not unconditionally imply<b=
+r>
+noinline; it implies &quot;noinline for mismatched callers, and noinline on=
+<br>
+callees that are mismatched, on a per call site basis.&quot;<br>
+__attribute__((always_inline)) will override this exception, and we<br>
+don&#39;t provide helpful diagnostics in such case; good luck! :-/ )=C2=A0 =
+We<br>
+likely will have such conflicts with additional function attributes in<br>
+the future. Should the inliner scan the caller and callee at every<br>
+call site for such attribute lists? Should the LangRef document such<br>
+inlining behavior?<br>
+<br>
+Another concern is diverging from GCC here; while we&#39;re both<br>
+discussing no_profile_instrument_function it would be good to gather<br>
+more feedback.<br>
+<br>
+Sometimes, I wish in C we had the ability to express at a given<br>
+callsite that inlining the callee should not occur.<br>
+<br>
+You can see more discussion<br>
+<a href=3D"https://gcc.gnu.org/bugzilla/show_bug.cgi?id=3D80223" rel=3D"nor=
+eferrer" target=3D"_blank">https://gcc.gnu.org/bugzilla/show_bug.cgi?id=3D8=
+0223</a> .=C2=A0 Surely there are<br>
+additional solutions we have not yet conceived of. At this point, I<br>
+don&#39;t particularly care what color we paint this bikeshed; I just need<=
+br>
+a bikeshed built so that my kernel boots.=C2=A0 We all want all software to=
+<br>
+be better, and can have a gentle-person&#39;s disagreement. Thoughts?<br>
+</blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CAKfqHeq7%2BVFg2XqhC7MAJ9RnH40qAYA3i2mRhx4yUZf=
+i8b0Yew%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://gr=
+oups.google.com/d/msgid/clang-built-linux/CAKfqHeq7%2BVFg2XqhC7MAJ9RnH40qAY=
+A3i2mRhx4yUZfi8b0Yew%40mail.gmail.com</a>.<br />
+
+--00000000000013df9b05c68cfad5--
