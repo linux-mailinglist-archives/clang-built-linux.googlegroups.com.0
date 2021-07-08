@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBEEYTSDQMGQEQIL5GEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBENHTSDQMGQEIX5XW3A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id AEF0C3C1530
-	for <lists+clang-built-linux@lfdr.de>; Thu,  8 Jul 2021 16:30:43 +0200 (CEST)
-Received: by mail-pf1-x43c.google.com with SMTP id y1-20020a056a001801b029031e97eab9e5sf4032954pfa.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 08 Jul 2021 07:30:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625754642; cv=pass;
+Received: from mail-pj1-x103c.google.com (mail-pj1-x103c.google.com [IPv6:2607:f8b0:4864:20::103c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2A7C03C159E
+	for <lists+clang-built-linux@lfdr.de>; Thu,  8 Jul 2021 17:02:43 +0200 (CEST)
+Received: by mail-pj1-x103c.google.com with SMTP id q9-20020a17090a0649b029016ffc6b9665sf6274477pje.1
+        for <lists+clang-built-linux@lfdr.de>; Thu, 08 Jul 2021 08:02:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625756561; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kxgUzATqAP/3PcyA6lDCHjua9wOnzt6Z5h9FNtKFPta0iD1dO6xNqskAEntWuHQmhh
-         /xGFPLgau02vrqqlw0kgDz4jer3cRlNZRpwJOX6Wynke9zChfVB2jVkPL3eOyTcLez8i
-         pmwY0mHypLx6M2MWXhGzCZ6d6dNKyVbicZHwmiDvqnShwdrjdLlAjn00Bve8EsBmYhk9
-         vts3ICYLBlk7KP8ZCccSVCD1yjKCiislUbKKD/xzDh4RHF35uOzoTkXPSaA74zCXY+X3
-         IWqrNluWnB2CJ+6J51SDXZF/rTx7RJSTqQB7spQQKQozN7iYUTFH9Il7ZrT5/7u9zP9T
-         RCag==
+        b=NtWlgqMun4gdu6V9X0oTCJ/gKOrXmpQapHqo6SIyTq7cKy0+ZSYae0QZtNBusfZ04r
+         zLD8rreoT7uUa/s67PmPbw/L7LY4RgC0llFQV/ux/xAN8ePbdn0Uso7JEjnihsVevw3a
+         650vhS0EN0X1VZhSgDyEuMroMKibvpGdz3cEI5M1zGo6PuZ5TgrJAN5la0/4h9e8FFTV
+         Q8SttlABLOIOtC8mFhHSBFeHSom4kmGO/F0FtSFHIkC8scRMHBcqX8I3RpqWHAwfeF/O
+         9zi00INR44SXIjxRn/daEjBmyaIMivdLnHxcsa9BW+CLnyz1SnlGImNwkwGSKAgHsT33
+         wx/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=S91yKXiMnNaW+6EFRhKKUva5qUsXJtMcopHiRfwk9bI=;
-        b=S50NxYHLoNt4bEVongwZIzabRgkr7GFIRFBMLNGvV64kv0276hABDgwyqFiHRY+eaV
-         4/HR9pckM/Q0AwQjDs5wz0z2+u2zdqbJhvuFqS4Lu2KOOE/il0uGn4jyOBPQK9+yMEXw
-         aq1TDchBtceU+DgZYUNGQSLDgdHuvvQX3GbiuPwOOAKGk1/Zhb5BwEX3Qqb73XBMApjA
-         6PmdGi03T+XiRVMosFP0bdwfK95IphtKqKSl8KTZBSN5jKA+LMRrUwB9genjdqNEjWK7
-         gFeaf1h9eD2tVYQ5cRGxhZDxCBu3III5d5u4QOfPi5lLyTzZ0IVfwOjmId84mXF4tT88
-         6DgQ==
+        bh=nBFfyXQNQlDWlqSVMw4O46xiZgVbKabSJ3Mxvda74i8=;
+        b=zPCxU9QdCWKOKm5gPTELnJtigrYZn/bS9XBg55hsmAQJebAFOoylXq53mcjV0NUrFG
+         rLuhaytegAHrdcg9W0me73ShlJ8728Wzj2lH+0eXC8FBWNXTbjAHspXVyThxFZpeWXQz
+         5lsXo/DstkYWlS1IbMsWRXYbzQcMIwH++uon97JOoXhV1iLMXYAWCLxIgG+MqtDpcTMN
+         ZIc7KSLvW0fUXdu9YRMtKPI8d6tDVo8b+OOCKgxJBaO6bwF0TfvBgalZtgX0UYLe/tVW
+         NVFi68KuPnlMPhnSatHl3wKAeqOBY9VAnjjbeL2UGkH2K/KxycKJ7LGOkWpu9ySHu7EP
+         lLrw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=S91yKXiMnNaW+6EFRhKKUva5qUsXJtMcopHiRfwk9bI=;
-        b=kRBrvGVISdgUYOK4mZ4f9QyPT0qcolP4sN8mF9A0HjWTeIBZ0xcviQWeHPY5N2uHzr
-         JTzIAh2ixuqPJIQWtA7qoppEi++t89FIsQUHq/dAIuhGsje3m4xKhYEwC5iTzB+hNLAY
-         Yfgx7vTXhWhWNIPPqww5tcDRDrEXzbs1OD9Wlu+0+aziuuSDvUkW6CqH89I4ykuwsAw/
-         wo9aj+73q4zKEzjQtDQE0QP+lf8s4aJUkkG9w2yeOhb2ZH25wG/m2M9b0tC3Bq6bxi99
-         xhjN3vdtLgHOWZPKoqrY8ti3BJNAAT5wGTIKKm/b1aXeMhg6pMdMWndP+Vx2c2qK3XYG
-         YELw==
+        bh=nBFfyXQNQlDWlqSVMw4O46xiZgVbKabSJ3Mxvda74i8=;
+        b=IanZhzgjIk1rOdAbt6jS3BsbmdpIJI7gORNiS85jU5Xnvv9QsHX8iMUqIMyOz5qSl9
+         lIHOIZFmzT62cju4/T2Ov/BTx3smn6klEQIARTENem8gyFVOjez21trSRqxhP7GgthLu
+         blpCt5fXJply0SFB5fAdBI3YI1vma8MybaccEUU7rF2GaOG10c8y3omNmjR+ByGmuznE
+         KFhjmz+0wcrFqFk0UGR1sUMadAWlK/OwgTPF2FAfflcb8flwoje2L7cf9vTqERVdEBSl
+         s6DUx4jZuCNaH/Wdkz1E8EkvGnsfQos2BIr6rpWBDaA8WcxN/cKQiPOA+uJIQxAT6R2T
+         VThg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=S91yKXiMnNaW+6EFRhKKUva5qUsXJtMcopHiRfwk9bI=;
-        b=eDk4bYruce3opLFwiWr54y6ULH8PjDNq6I2zxgY0M8zfLdDZvSbmw8A/sMJ5tGNppu
-         Xw29wAkUilh83EFnQX46teqJ5ee4NGaTk8HZhFsG4kE8g5EVCtY0w1GgVM6GqDHbLmjI
-         XxtMp5a/JUYzSdJRqFnfVCDp7vtJuNW5WZSCDBm6G245+l/+95SyxfWXi3pKW0xtjN6R
-         gz/NeuajsJG0W8m/UonDDAbLA3NWh1Mvj+sao6ka93ZMldCCJBIbtTnAAaeLv78hAPxr
-         +ko00RcRkWBhTXh82tVslzBqQc5JXogKM9P6xX3bTIQyMhMXD7Uv83AUFSC+uhLHLNTI
-         1Fuw==
+        bh=nBFfyXQNQlDWlqSVMw4O46xiZgVbKabSJ3Mxvda74i8=;
+        b=OURXP9SqEyBW1UOQspdHm59FQZ9y00n6WOEItlusFxYCm4Y6ZcWdhFBALYgz+3d5bJ
+         JFw4y2uKLoiPFiOsKEpVsA8KqKA9fe/hh9ru9fxhjl9+iKwHlqYpuDvt3fGACN6/kj9D
+         CBQRGJiwEDuBFDBcbnsXiBid85o9IKr85O7c1UOwrm3UrZCUL37MrqKJPTh+XoV6nXry
+         flGQUXPZr0oMtdsN2BiPLBH5nbU84lRvB8jpcl4+5Of6UB3cir9VkU1Tt6SHMk2FBMyz
+         AvuhScyuDWMmmQANmS8lz46B5ePxd/zeWnIu5YmG8ICzWZOn/EYPyVZ3MKICS53cQlfa
+         BHkw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530x47QpfJl69raM+Noa6Z5ZDIW7m/EprFcbcSPuUg7oCAwS0WYP
-	Lk9epX0zUdIjf9DEdh32jJU=
-X-Google-Smtp-Source: ABdhPJwBYP0T/5eJwuPruD9uCIn6KIPlDY5njV72mMeFoAKKM9eSSjIfgoZnFlJvap/4/qxBCh7OMQ==
-X-Received: by 2002:a17:90a:9f06:: with SMTP id n6mr5128916pjp.219.1625754641026;
-        Thu, 08 Jul 2021 07:30:41 -0700 (PDT)
+X-Gm-Message-State: AOAM533jwu95V1fMkTSC2vWRaooFKQutMO+3oRzApAxlMOriAjnV3lD5
+	ToJxJkrHyobV7/uTWYQHYmU=
+X-Google-Smtp-Source: ABdhPJyI288Ro5nFBcDGRR6pvQCr4HRddggfU30ZGKQQRpoHtezZAJBrd/aA6Idnv3aYgnPFxfgQ0w==
+X-Received: by 2002:a17:902:a70f:b029:ea:d4a8:6a84 with SMTP id w15-20020a170902a70fb02900ead4a86a84mr26449540plq.42.1625756561349;
+        Thu, 08 Jul 2021 08:02:41 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6a00:1824:: with SMTP id y36ls1365345pfa.11.gmail; Thu,
- 08 Jul 2021 07:30:40 -0700 (PDT)
-X-Received: by 2002:a62:ce85:0:b029:316:8ca6:c2e with SMTP id y127-20020a62ce850000b02903168ca60c2emr31585271pfg.70.1625754640231;
-        Thu, 08 Jul 2021 07:30:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1625754640; cv=none;
+Received: by 2002:a17:90a:4a0e:: with SMTP id e14ls1613394pjh.2.gmail; Thu, 08
+ Jul 2021 08:02:40 -0700 (PDT)
+X-Received: by 2002:a17:902:bf4c:b029:129:c4f1:2ecc with SMTP id u12-20020a170902bf4cb0290129c4f12eccmr7195444pls.73.1625756560530;
+        Thu, 08 Jul 2021 08:02:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625756560; cv=none;
         d=google.com; s=arc-20160816;
-        b=spWsHgr9Mz9evGVLCFFTEJTdEfDrxY41RhNFFc3CjzzgaUVyyzlB2csU7Z00Gu9mVe
-         Z2NMqUsHE7OYrZDDELoHYnEB/VInf1mLep08P24e2NXpN7B0UCwOiWukmDTQrPFcIokK
-         KY9gYR2dm8p167BPiq9Q5O6qdAEUMuo91AF35L+4tpgEs+sTApTpTSG7uuo3LmU6i4qb
-         /9j45xr5jFYJBnCVmFsS86D26OenUSJRNZ0iqUnzChy9j3nJKhei5KLvwZR+zWgNZlp/
-         bchUbo0JPzMV1Hm4QEoaUcNWnqMqHbMN+R2VsaKDPQ7CdU5O8d5LyIVo/Fce+WzJWpiL
-         dDwQ==
+        b=skwvdsO5Nqclkt23fvAzDK6RsHbD3xZx0GhAy8qKj1UB2zFtFQFJCtsybY2XxJVMjy
+         8vccSf1hHcQgihU3wcPJrJDhd1VNBozMKvjwfmM2Sxs8nUjJD1ZmRMJsepwk/fFeBtqt
+         Q62qBDkylr1yb/6OqygucbnW4DxOr9pyQQqY0EFRU6+g/kTkax0JcbB7KtwbucGhEvmt
+         +ujPmZMh7dAES9+RQ/6tStQd0EEP2uBAYZ3cq6M6yFVUTo47flXS8jRX+6vXZVuV9F4A
+         q0Rw8H6S9MXs4QjJKdPDUuOYxsLe7E3dnQPun2EoPULRlKo38DPJDsaqXLbGQc8DzBoj
+         eFcQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=zCeEIiJrkRNUft9MadKkSzEmHmKVEL8UF83yvvjK8wE=;
-        b=0MdpOR7qt8dmIo15EVuD7RPvpMjtNfaIhQDpezlQy9S73kAawzE9qVUAjzZ/0NQJY8
-         YjIwf78uKF7ElQkpL6x36BvNbt93J9QFMDDkweKJSLeWrtSNMnY4dhqc4qKLkXHOrcjd
-         Gr+eWBHpL6kD6zyJt0RXO39jtlqN5x+IQgoRNZPqj3zz0oWvgqbnZB4utvqqEoG6uCTP
-         VI4AdynW1XB24uBjf0y9P2tyMnZNMO2Kt3+CwTT43hCl5V3x8lP8BcpwV/6kc2PcgarN
-         gFe6EAoHkqXKzbV59dAT/6/6VuwDDf3nOqvSIjyF7DjhYEue2CmXwOvk95YL9moOl4Tk
-         LrVg==
+        bh=b3LnzRkVINK2svBQmd+bQlvZ+rRsDHvZfqzvvPGIY9k=;
+        b=05C8VVxZUfVMhfu8CcYW5AYZ/tnqcK1MQJ4XQuBHM7LGPU3AiVqoj1VgfTcNMK8jDt
+         8jSZNo5bQrFoZoTGUUI05p7xh+CsT0MsNUV6l8FXT2hpKxX6QEPqCXC0kRZhbx/VjMri
+         Qsk9MXXmxdlo4ueHTsdsB7THhXmWvmHBcvycIrZlBcZnpCjzwZ0Qq6l4QwE2b5sXxOAv
+         GYs/cQssV1wqcCT0KVDD0mlauxxzSqEIJ85lTOukwH9B0/TqD1/rbyCt9R9SEElV5rYH
+         JNk5MlearR8zO/ZSPJyayzEvo/9TYP1hImTqqBx4SXQc17u0HeYVZkCxOCFDtTeJSod0
+         UeVA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id t1si428049pgj.4.2021.07.08.07.30.38
+Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
+        by gmr-mx.google.com with ESMTPS id g7si1116946pju.0.2021.07.08.08.02.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 08 Jul 2021 07:30:39 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
-X-IronPort-AV: E=McAfee;i="6200,9189,10038"; a="209476705"
+        Thu, 08 Jul 2021 08:02:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
+X-IronPort-AV: E=McAfee;i="6200,9189,10039"; a="189897497"
 X-IronPort-AV: E=Sophos;i="5.84,224,1620716400"; 
-   d="gz'50?scan'50,208,50";a="209476705"
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2021 07:30:38 -0700
+   d="gz'50?scan'50,208,50";a="189897497"
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Jul 2021 08:02:39 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.84,224,1620716400"; 
-   d="gz'50?scan'50,208,50";a="645927985"
+   d="gz'50?scan'50,208,50";a="628541732"
 Received: from lkp-server01.sh.intel.com (HELO 4aae0cb4f5b5) ([10.239.97.150])
-  by fmsmga006.fm.intel.com with ESMTP; 08 Jul 2021 07:30:35 -0700
+  by orsmga005.jf.intel.com with ESMTP; 08 Jul 2021 08:02:36 -0700
 Received: from kbuild by 4aae0cb4f5b5 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1m1V2w-000EKY-Ut; Thu, 08 Jul 2021 14:30:34 +0000
-Date: Thu, 8 Jul 2021 22:29:45 +0800
+	id 1m1VXw-000ELl-25; Thu, 08 Jul 2021 15:02:36 +0000
+Date: Thu, 8 Jul 2021 23:01:56 +0800
 From: kernel test robot <lkp@intel.com>
 To: John Ogness <john.ogness@linutronix.de>
 Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
 	linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [linux-rt-devel:linux-5.13.y-rt-rebase 9/222]
- kernel/printk/printk.c:2648:4: error: implicit declaration of function
- 'latched_seq_write'
-Message-ID: <202107082242.AwyKYuKd-lkp@intel.com>
+Subject: [linux-rt-devel:linux-5.13.y-rt-rebase 14/222]
+ kernel/printk/printk.c:3633:17: error: implicit declaration of function
+ 'read_console_seq'
+Message-ID: <202107082348.KEdCzS4q-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="gBBFr7Ir9EOA20Yy"
+Content-Type: multipart/mixed; boundary="4Ckj6UjgE2iN1+kY"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,13 +139,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---gBBFr7Ir9EOA20Yy
+--4Ckj6UjgE2iN1+kY
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git linux-5.13.y-rt-rebase
 head:   7e175e6b59975c8901ad370f7818937f68de45c1
-commit: 7995ace9ab04969b9d5577e5fd74d77765c7d917 [9/222] printk: use seqcount_latch for console_seq
+commit: 63cf1e4b564a46ec7bee5571cff518c70355dbdf [14/222] printk: add pr_flush()
 config: powerpc64-randconfig-r003-20210708 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 8d69635ed9ecf36fd0ca85906bfde17949671cbe)
 reproduce (this is a W=1 build):
@@ -153,10 +153,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install powerpc64 cross compiling tool for clang build
         # apt-get install binutils-powerpc64-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git/commit/?id=7995ace9ab04969b9d5577e5fd74d77765c7d917
+        # https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git/commit/?id=63cf1e4b564a46ec7bee5571cff518c70355dbdf
         git remote add linux-rt-devel https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git
         git fetch --no-tags linux-rt-devel linux-5.13.y-rt-rebase
-        git checkout 7995ace9ab04969b9d5577e5fd74d77765c7d917
+        git checkout 63cf1e4b564a46ec7bee5571cff518c70355dbdf
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=powerpc64 
 
@@ -175,194 +175,68 @@ All errors (new ones prefixed by >>):
    <built-in>:310:9: note: previous definition is here
    #define __lwsync __builtin_ppc_lwsync
            ^
-   kernel/printk/printk.c:176:5: warning: no previous prototype for function 'devkmsg_sysctl_set_loglvl' [-Wmissing-prototypes]
+   kernel/printk/printk.c:178:5: warning: no previous prototype for function 'devkmsg_sysctl_set_loglvl' [-Wmissing-prototypes]
    int devkmsg_sysctl_set_loglvl(struct ctl_table *table, int write,
        ^
-   kernel/printk/printk.c:176:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   kernel/printk/printk.c:178:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    int devkmsg_sysctl_set_loglvl(struct ctl_table *table, int write,
    ^
    static 
-   kernel/printk/printk.c:2282:2: error: FIXME
-   #error FIXME
-    ^
-   kernel/printk/printk.c:2642:9: error: implicit declaration of function 'latched_seq_read_nolock' [-Werror,-Wimplicit-function-declaration]
-                   seq = latched_seq_read_nolock(&console_seq);
-                         ^
->> kernel/printk/printk.c:2648:4: error: implicit declaration of function 'latched_seq_write' [-Werror,-Wimplicit-function-declaration]
-                           latched_seq_write(&console_seq, r.info->seq);
+   kernel/printk/printk.c:2674:4: error: implicit declaration of function 'latched_seq_write' [-Werror,-Wimplicit-function-declaration]
+                           latched_seq_write(&c->printk_seq, seq);
                            ^
-   kernel/printk/printk.c:2658:4: error: implicit declaration of function 'latched_seq_write' [-Werror,-Wimplicit-function-declaration]
-                           latched_seq_write(&console_seq, seq + 1);
-                           ^
-   kernel/printk/printk.c:2685:3: error: implicit declaration of function 'latched_seq_write' [-Werror,-Wimplicit-function-declaration]
-                   latched_seq_write(&console_seq, seq + 1);
-                   ^
-   kernel/printk/printk.c:2776:4: error: implicit declaration of function 'latched_seq_write' [-Werror,-Wimplicit-function-declaration]
-                           latched_seq_write(&console_seq, prb_first_valid_seq(prb));
-                           ^
-   kernel/printk/printk.c:3023:32: error: implicit declaration of function 'latched_seq_read_nolock' [-Werror,-Wimplicit-function-declaration]
-                   exclusive_console_stop_seq = latched_seq_read_nolock(&console_seq);
-                                                ^
-   kernel/printk/printk.c:3027:3: error: implicit declaration of function 'latched_seq_write' [-Werror,-Wimplicit-function-declaration]
-                   latched_seq_write(&console_seq, syslog_seq);
-                   ^
-   2 warnings and 8 errors generated.
+   kernel/printk/printk.c:2907:2: error: implicit declaration of function 'latched_seq_write' [-Werror,-Wimplicit-function-declaration]
+           latched_seq_write(&newcon->printk_seq, seq);
+           ^
+>> kernel/printk/printk.c:3633:17: error: implicit declaration of function 'read_console_seq' [-Werror,-Wimplicit-function-declaration]
+                           printk_seq = read_console_seq(con);
+                                        ^
+   kernel/printk/printk.c:3633:17: note: did you mean '__up_console_sem'?
+   kernel/printk/printk.c:238:13: note: '__up_console_sem' declared here
+   static void __up_console_sem(unsigned long ip)
+               ^
+   2 warnings and 3 errors generated.
 
 
-vim +/latched_seq_write +2648 kernel/printk/printk.c
+vim +/read_console_seq +3633 kernel/printk/printk.c
 
-  2576	
-  2577	/**
-  2578	 * console_unlock - unlock the console system
-  2579	 *
-  2580	 * Releases the console_lock which the caller holds on the console system
-  2581	 * and the console driver list.
-  2582	 *
-  2583	 * While the console_lock was held, console output may have been buffered
-  2584	 * by printk().  If this is the case, console_unlock(); emits
-  2585	 * the output prior to releasing the lock.
-  2586	 *
-  2587	 * If there is output waiting, we wake /dev/kmsg and syslog() users.
-  2588	 *
-  2589	 * console_unlock(); may be called from any context.
-  2590	 */
-  2591	void console_unlock(void)
-  2592	{
-  2593		static char ext_text[CONSOLE_EXT_LOG_MAX];
-  2594		static char text[CONSOLE_LOG_MAX];
-  2595		unsigned long flags;
-  2596		bool do_cond_resched, retry;
-  2597		struct printk_info info;
-  2598		struct printk_record r;
-  2599		u64 seq;
-  2600	
-  2601		if (console_suspended) {
-  2602			up_console_sem();
-  2603			return;
-  2604		}
-  2605	
-  2606		prb_rec_init_rd(&r, &info, text, sizeof(text));
-  2607	
-  2608		/*
-  2609		 * Console drivers are called with interrupts disabled, so
-  2610		 * @console_may_schedule should be cleared before; however, we may
-  2611		 * end up dumping a lot of lines, for example, if called from
-  2612		 * console registration path, and should invoke cond_resched()
-  2613		 * between lines if allowable.  Not doing so can cause a very long
-  2614		 * scheduling stall on a slow console leading to RCU stall and
-  2615		 * softlockup warnings which exacerbate the issue with more
-  2616		 * messages practically incapacitating the system.
-  2617		 *
-  2618		 * console_trylock() is not able to detect the preemptive
-  2619		 * context reliably. Therefore the value must be stored before
-  2620		 * and cleared after the "again" goto label.
-  2621		 */
-  2622		do_cond_resched = console_may_schedule;
-  2623	again:
-  2624		console_may_schedule = 0;
-  2625	
-  2626		/*
-  2627		 * We released the console_sem lock, so we need to recheck if
-  2628		 * cpu is online and (if not) is there at least one CON_ANYTIME
-  2629		 * console.
-  2630		 */
-  2631		if (!can_use_console()) {
-  2632			console_locked = 0;
-  2633			up_console_sem();
-  2634			return;
-  2635		}
-  2636	
-  2637		for (;;) {
-  2638			size_t ext_len = 0;
-  2639			size_t len;
-  2640	
-  2641	skip:
-  2642			seq = latched_seq_read_nolock(&console_seq);
-  2643			if (!prb_read_valid(prb, seq, &r))
-  2644				break;
-  2645	
-  2646			if (seq != r.info->seq) {
-  2647				console_dropped += r.info->seq - seq;
-> 2648				latched_seq_write(&console_seq, r.info->seq);
-  2649				seq = r.info->seq;
-  2650			}
-  2651	
-  2652			if (suppress_message_printing(r.info->level)) {
-  2653				/*
-  2654				 * Skip record we have buffered and already printed
-  2655				 * directly to the console when we received it, and
-  2656				 * record that has level above the console loglevel.
-  2657				 */
-  2658				latched_seq_write(&console_seq, seq + 1);
-  2659				goto skip;
-  2660			}
-  2661	
-  2662			/* Output to all consoles once old messages replayed. */
-  2663			if (unlikely(exclusive_console &&
-  2664				     seq >= exclusive_console_stop_seq)) {
-  2665				exclusive_console = NULL;
-  2666			}
-  2667	
-  2668			/*
-  2669			 * Handle extended console text first because later
-  2670			 * record_print_text() will modify the record buffer in-place.
-  2671			 */
-  2672			if (nr_ext_console_drivers) {
-  2673				ext_len = info_print_ext_header(ext_text,
-  2674							sizeof(ext_text),
-  2675							r.info);
-  2676				ext_len += msg_print_ext_body(ext_text + ext_len,
-  2677							sizeof(ext_text) - ext_len,
-  2678							&r.text_buf[0],
-  2679							r.info->text_len,
-  2680							&r.info->dev_info);
-  2681			}
-  2682			len = record_print_text(&r,
-  2683					console_msg_format & MSG_FORMAT_SYSLOG,
-  2684					printk_time);
-  2685			latched_seq_write(&console_seq, seq + 1);
-  2686	
-  2687			printk_safe_enter_irqsave(flags);
-  2688	
-  2689			/*
-  2690			 * While actively printing out messages, if another printk()
-  2691			 * were to occur on another CPU, it may wait for this one to
-  2692			 * finish. This task can not be preempted if there is a
-  2693			 * waiter waiting to take over.
-  2694			 */
-  2695			console_lock_spinning_enable();
-  2696	
-  2697			stop_critical_timings();	/* don't trace print latency */
-  2698			call_console_drivers(ext_text, ext_len, text, len);
-  2699			start_critical_timings();
-  2700	
-  2701			if (console_lock_spinning_disable_and_check()) {
-  2702				printk_safe_exit_irqrestore(flags);
-  2703				return;
-  2704			}
-  2705	
-  2706			printk_safe_exit_irqrestore(flags);
-  2707	
-  2708			if (do_cond_resched)
-  2709				cond_resched();
-  2710		}
-  2711	
-  2712		console_locked = 0;
-  2713	
-  2714		up_console_sem();
-  2715	
-  2716		/*
-  2717		 * Someone could have filled up the buffer again, so re-check if there's
-  2718		 * something to flush. In case we cannot trylock the console_sem again,
-  2719		 * there's a new owner and the console_unlock() from them will do the
-  2720		 * flush, no worries.
-  2721		 */
-  2722		retry = prb_read_valid(prb, latched_seq_read_nolock(&console_seq), NULL);
-  2723		if (retry && console_trylock())
-  2724			goto again;
-  2725	}
-  2726	EXPORT_SYMBOL(console_unlock);
-  2727	
+  3597	
+  3598	/**
+  3599	 * pr_flush() - Wait for printing threads to catch up.
+  3600	 *
+  3601	 * @timeout_ms:        The maximum time (in ms) to wait.
+  3602	 * @reset_on_progress: Reset the timeout if forward progress is seen.
+  3603	 *
+  3604	 * A value of 0 for @timeout_ms means no waiting will occur. A value of -1
+  3605	 * represents infinite waiting.
+  3606	 *
+  3607	 * If @reset_on_progress is true, the timeout will be reset whenever any
+  3608	 * printer has been seen to make some forward progress.
+  3609	 *
+  3610	 * Context: Any context.
+  3611	 * Return: true if all enabled printers are caught up.
+  3612	 */
+  3613	bool pr_flush(int timeout_ms, bool reset_on_progress)
+  3614	{
+  3615		int remaining = timeout_ms;
+  3616		struct console *con;
+  3617		u64 last_diff = 0;
+  3618		bool may_sleep;
+  3619		u64 printk_seq;
+  3620		u64 diff;
+  3621		u64 seq;
+  3622	
+  3623		may_sleep = (preemptible() && !in_softirq());
+  3624	
+  3625		seq = prb_next_seq(prb);
+  3626	
+  3627		for (;;) {
+  3628			diff = 0;
+  3629	
+  3630			for_each_console(con) {
+  3631				if (!(con->flags & CON_ENABLED))
+  3632					continue;
+> 3633				printk_seq = read_console_seq(con);
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -371,14 +245,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107082242.AwyKYuKd-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107082348.KEdCzS4q-lkp%40intel.com.
 
---gBBFr7Ir9EOA20Yy
+--4Ckj6UjgE2iN1+kY
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICCkG52AAAy5jb25maWcAjFxbc9w4rn6fX9GVednzsBPfE59TfqAoSmJaEhWSarf9onJs
+H4sICP4N52AAAy5jb25maWcAjFxbc9w4rn6fX9GVednzsBPfE59TfqAoSmJaEhWSarf9onJs
 Oeszjp1t29mZf78AdSMpqpOp2mwaAO8g8AGE8vtvv6/I2+vzt5vXh9ubx8e/V1/bp3Z389re
 re4fHtv/W8ViVQq9YjHXf4Bw/vD09tf778//aXffb1enfxwe/3GwWre7p/ZxRZ+f7h++vkHr
 h+en337/jYoy4WlDabNhUnFRNppt9cW728ebp6+rH+3uBeRW2AP08Y+vD6//+/49/PntYbd7
@@ -968,4 +842,4 @@ nXZRB4H3AB/lXTDUzgkt6W75nKd6naaqCHbzFERPqdHzAvjNParQgReFFyNIZaDGqtCyrMrq
 UOAstcgh/a2s+gYUxXCIqTB19hhTj+8jSX02yJA8g7VTNovSe9TzP/8TwdEfqWaIqsJSRxTT
 Z+DfIX3ZJlW1WWVYUc0RR9z+BVZ4rUIx6AEA
 
---gBBFr7Ir9EOA20Yy--
+--4Ckj6UjgE2iN1+kY--
