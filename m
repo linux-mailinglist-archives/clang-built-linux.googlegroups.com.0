@@ -1,128 +1,122 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB24ST2DQMGQEEERTXEA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBSMZT2DQMGQENJKL5QQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13e.google.com (mail-il1-x13e.google.com [IPv6:2607:f8b0:4864:20::13e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 499DC3C1C08
-	for <lists+clang-built-linux@lfdr.de>; Fri,  9 Jul 2021 01:25:33 +0200 (CEST)
-Received: by mail-il1-x13e.google.com with SMTP id f5-20020a92b5050000b02901ff388acf98sf4570383ile.2
-        for <lists+clang-built-linux@lfdr.de>; Thu, 08 Jul 2021 16:25:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625786732; cv=pass;
+Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 724D13C1C32
+	for <lists+clang-built-linux@lfdr.de>; Fri,  9 Jul 2021 01:39:54 +0200 (CEST)
+Received: by mail-io1-xd3f.google.com with SMTP id n23-20020a0566022217b02905125dedcd4esf3464505ion.16
+        for <lists+clang-built-linux@lfdr.de>; Thu, 08 Jul 2021 16:39:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625787593; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zbBeZyHSxllBt08YQitVbn7OWsXKVF00TOJvpvxfv3E1J3dBmuH+537WUZlMCZb2Hs
-         JsBqA+AkazVhggQex9vtPcj/Ic3AV9iLcDFUBtW0UbX1EEWptmnaxeYg2B5GtpXJhgmZ
-         r6zl0nd9wEpQCzTsho+yjZa5+Kg+w2+dL82yr+OxjpjKR8R0/DPAlVRJWEWcF+E4wpK1
-         U4OF7Wu+h8OGhGdA6PtmpDg94awSF4pYSue1NnjpV/pji2H5QdadM04J452sW5wnMKh3
-         aSsjhg9s9nBfj92XWm62Ls3C0GWATKYIXiKYdLG92DA6xyRAjR7VWpfqhI9iqGJqNuiN
-         exDA==
+        b=FgyGlEwJzg3Z1tEyHMrHwquwWdn7DKFmXRqKWWy/3jPmp/JO+Z1kjyNcCxFLUdSVDR
+         Fv7cFTSWT2csOMJD0finb94RB9HHin/8MFllfEP4UmIeiHS8WGfCm3DBMgHdMSEGmDrD
+         vb0l2mPuCFZx3cgfyYTo6G3b/XzaSFwrg2bvm+TaKfRmua076MCqQmqKVYy8bkZxp/rQ
+         PCwXS82dzAuj/shgH7cCyj7jhD4ZdsVfi0qqTOa2bs2uY0+NqZwFh8TuSSx8FsYZHig8
+         S2XXgrLCI8czRtmilivaCJZA6Tk1ckID2uFQ1oLD1Bo/HDYOD7ltTelY/HMp35qKxGqC
+         p8gA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=T1qFV6J5InC6kYke5bhxdY8nXddhXnBAx9pASxT2WCY=;
-        b=CFvxmFOCssSMYkxER0JUbLozykkzY3nG0GE4EhwgucGVuHs0yIhJgEI7vgz1XkakIA
-         XegzsN0TkB7mEI7QYTsZyPYxvtfQ6FkLuwVrAzZnG1GdVjLGyVb7SAOTedE592duJurv
-         b8ZTlyPamJph0QnQAbWE7khMS/OENdkACDHNY1X1d7oUp3hmYGG15mF9FA+r5lVzywbM
-         YUJL/jX+1kn4xcqnbickKTWEL4CVx6Jt9W8tRjT4DSs5RFW3VLJbcXfF6kQX+eUdQdN4
-         wHcVL72fs/yTM10IbuUEriDAwig+rHdI2T9vxx4uiGdn4hBjBynIPp31ZHuEhVdhuTt4
-         b0Fw==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=mSr2bBC0OSgfg6G+ANE0e39KahQB7X421ZZO0B8To2M=;
+        b=thpROuide/afUPXNJNN7YmhSd6hjE5HREOxr6tgZSq0Bnk9J0JJ6lJN0MY850XPV5G
+         uY51rzwMSc+8FaZyxI8pc6GNSbJ6fOH2IEKY8NmAXCu9NcL3fxM+Of9CgBaevCWdD9vN
+         gblgyUbq1B8UQ0c7UwCN0azDIFEd1nByJT/pUr95M9Hu9a5tWXc/3Sm/SYaM6DLmFBpI
+         tcqjUdCfolCEQho6h4M2XUV/IDsTWBb65Y21AiRg/Sm5XkreHULKTmT6uK3GtHG3t6Yz
+         LGZNBMLKf8ng+xp+ACv/tUJBixzvMZeueAiK3jYJr6WazIqdPiRvTCXdQLrIzWmUxWYy
+         DuCA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=PicVCFX7;
-       spf=pass (google.com: domain of 3a4nnyawkacotjkygartokxymuumrk.ius@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3a4nnYAwKACoTJKYGaRTOKXYMUUMRK.IUS@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=lXpCmUHc;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=T1qFV6J5InC6kYke5bhxdY8nXddhXnBAx9pASxT2WCY=;
-        b=WV2zMLspGtOLyC/wc5mbIiQXYXpctxRdLshVq8piJe7DzLNirF6LEr6Bpkcyn+BaF3
-         91GUO4J4veDPHzET4YZqcFKZtdc289AaNQ862/eKe+0gnijw9barkWbWDMTpvIeGs00Z
-         kO1ys7dQ4YU8vDt9hsp9Lkn/izOx4IDc7lDuH9YYOXohT4pZZBVAm08rvrlCoZeOT0St
-         lor7kzoowQia3MOuwc1PTpNmFI8i1lnsM79iYieLboCS2jkBPGD8uhnleA9wyfuDmqHf
-         tq3b8odXnHPPcj11fnOUf70AAqf24Zrs54B08g0zyu2tXZYtc+kFKjz7GN7+fgKaghO2
-         NKJw==
+        bh=mSr2bBC0OSgfg6G+ANE0e39KahQB7X421ZZO0B8To2M=;
+        b=pB9Frfx97PudxztwPuomX3QHsJa53q2cye4SDBc6CN42YnKhnjxnddlCKVvnPpjRUt
+         b6e5LS+/WLImzJGwtnvfDFgEapqCMjvqR23a0DMvfOVHGhPpzw6Y5CZpp3y/zq3wtpGO
+         w8l44gbHY26pcm01sdps6HOXfwhQYeurhohJsWqBpnPPL9lisecTMF9DY4fH+gGF+u5J
+         bXYEJ38XyVzNSizxrL5LTmirZbLBSmhWfNzXG9Url08O0alVnjiHaEJLQlNKjgBO/9+g
+         KtDmwO6cC8q7uExmLUspGvb8oDygVl6wDd1Uyza52uD39rOrr0NpcbRjn/aShPDWUTIV
+         WFdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
-         :references:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=T1qFV6J5InC6kYke5bhxdY8nXddhXnBAx9pASxT2WCY=;
-        b=eAjgKadsWkosAxCutKcrlRqshqt7PTk65t8Zpy3oBrKB+3enY0sWKfKEyjRXunY+rV
-         mULVMfPjXd5mkAVDtqa4woNRaZn3LgnsFCY9yoZkbEW0En8mD1iJc0sj3Pc6HAoH3TtV
-         qmrRfpo+R4KmaSGj+A0EjnDhZt9G76JCEzRkEQR153f4+pQmYHB3sd7uDCY3np7be/zd
-         O6CRkj/d0A8gaIUyv9y5tQAjMfP+xB64goSbl2Jkt/4ZCeDMLyJc+SBzs5dbAssdRVYd
-         DxnEpRsl1S4tavvLmRTqUG9EpXoOrSExvsGB4Y4vNqTN/aqWn3ckP2rOEmmkbINk1IsI
-         fEkw==
-X-Gm-Message-State: AOAM532Nj7ewKZo5usx8Kwjolbv5uU4FPdWP22TyBjJYzDk/rzX1C73Y
-	toaIwbzFA523gU/wSHfHkOc=
-X-Google-Smtp-Source: ABdhPJxYl4gStMv2a9RCCLelGjA8pUIH376CRT5DlDU2wnC4f0O+3LP0lkgpEjTSqA5l1j0wTTL66g==
-X-Received: by 2002:a92:1948:: with SMTP id e8mr23206238ilm.77.1625786732029;
-        Thu, 08 Jul 2021 16:25:32 -0700 (PDT)
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=mSr2bBC0OSgfg6G+ANE0e39KahQB7X421ZZO0B8To2M=;
+        b=HU2rXqfPQSg0gOr71HsxXxrb4zr9YexGnNfgi/NrRKY3y8VfPrf2x91rh1FcfMQ+Iy
+         bNLUJt8I1MXOEZQ2GtqpNgeby/7tjarogS7zz9ofcE5qXWbZnzf/IqLa/N94wxnpewS4
+         dza0Na72AWqNHmlPUMcxaSRXlXUQzDuC2mGeVWxI8W/bZ5Ki9zpyCQ3k2L+/0DWZoE7q
+         5OjzPQYrff4qQWENGdkAeZmEo+1+c/yCH/+h6MGNnXVYiY2FSto3D2LRoD1HIkLp58sZ
+         PcX44wHMe1VcpS+mL93ulKC+UJtM8J+R/uIoFTBmtQdx2UvP13d8pt5BejQCEdJ+PNtR
+         wYbw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531xlkH0WSIPS/wIk0fs9qhCqJ1ifkwKscInw0e0WiVGbgYWPLOZ
+	phK8iQgDkU/eFautz/q8xPo=
+X-Google-Smtp-Source: ABdhPJx3Xvm3GloYQFkrICpFwV7O2DxulIOOCQ8TFrYJreGs/57SDVY8HUBtcg7VRH+UVqpOVihm+g==
+X-Received: by 2002:a05:6602:2157:: with SMTP id y23mr10427120ioy.116.1625787593480;
+        Thu, 08 Jul 2021 16:39:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:39c7:: with SMTP id o7ls593268jav.0.gmail; Thu, 08
- Jul 2021 16:25:31 -0700 (PDT)
-X-Received: by 2002:a02:c00c:: with SMTP id y12mr28948792jai.99.1625786731744;
-        Thu, 08 Jul 2021 16:25:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1625786731; cv=none;
+Received: by 2002:a02:ccb6:: with SMTP id t22ls476466jap.2.gmail; Thu, 08 Jul
+ 2021 16:39:53 -0700 (PDT)
+X-Received: by 2002:a02:6946:: with SMTP id e67mr2527987jac.4.1625787593143;
+        Thu, 08 Jul 2021 16:39:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625787593; cv=none;
         d=google.com; s=arc-20160816;
-        b=1AKdSQxeS014ysOlbLELUYXFMENVejrP5Yl3fGFeZdC+nEb0gJlAO12E1KUm9uw4a8
-         gc2nXGWn1YLJl4ReQM/2y0J/Qdu/AeC1NSeK9Sw7YV+egklOw5WNyZ2kUiy1+YvBA7TH
-         Fu552bu/6M9ph6ijpd/iiNNeRgOryLtlW5knGm7b5Y07A096KdJpRcW+d8N6x+Z5V93D
-         mQGPhlqp8Z0TYHXEMA+Co10GRNxdazkPJcnBxim/OV91k2octRqzJ9fhX6oO7rcc3sBJ
-         /VrMfbKbu3DJNyoNWoq8/b7E8g8AoYOJ5t2JEug/ChRSAhHQxIxWaOJEoV9wYePK0Vxr
-         to9g==
+        b=EKbLklPQlpo5lMyt9V1IohnXCiklt6fcq8I4c+FZG0DtN2NNbMFW6/enjLar9C9wsV
+         Hy8U/5E7oglGYySwuBu2MFtVg3hFKB56fj4uUztzP2HTv0pm7MM8Zve/F7FkJY/qcgnm
+         ZqltyVLt6GcaxULWXiz+6QoSBsn7bsAjDN/Wv1sqr3pbcuby0dSoMzl3Ife+Maq9OqbW
+         vDIZ84LsqpS3sqAwR9LRDutrhgsLS+2uMQfgcsp3s16BvdhpNbBZEcXMRVR0A5bX43y7
+         2aoGGHvx1fCT803+b/BvcYF9X++R4mXw8beKFVuD1tZ5hYVZBj0HXhcJxqv9unTDUkI5
+         nKog==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:dkim-signature;
-        bh=SwO6fBZGz2iC3nN2qsSyi7QNR9xbovSrkFUoBq2YBxQ=;
-        b=UoFGruuP8KlK2eEKxC5kWCu7LsOrv3eMc8eN1goBzkkvScHJpB+BRDCeXNr8crDEK9
-         j/p07TpVPdKTnvfa5ungnPNugr4Li7K1uzascLD7ML/ZBanuuBBxxI8qLoAFLr0jvY/Y
-         pub5mbYyKiD98wF/aEA2ueWcU/dnvTwYhwBNm35j8uha9GpXnOezXQBWfeMQ49LkPDxF
-         /PFo11mXWHqjvtFGdZIsRD3MKU1esweN1rZgFe1y26EvWElX1Z4769+0p0V5+Xldbpj4
-         Lm/WIDhXOJKLKhVwjmqtF57J/mV3jsoDPKtovglNZLhsEIvd0L1ElMMt/iecihQUc46S
-         2Hkg==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=UMDziYGTDLHuvtoocSRasj+CIBK4JS2WyWX0AKRdHHc=;
+        b=eqKzE3YfzmwRUv5PhL/d1uvGADJVyV8CTgdpFd/fKNIBC/kpasvNE4VaCdtWQjbiAq
+         4mP26ORJox+Qu9PS779nuQLNUfo2hTVd0nzCq1wCFYcWq6IFVUupspxBU7UMdDykp5G8
+         xJSLC+iQ72kiMMCmvHWzwGd3NK9lEUE2vPI6D3ZRcRTS0pJs2DW13+fl+pW39Q4+OgYr
+         9IGZ2k9yjYHgVxDz1UHSjHkvqQwsC753u2WjCjz27P7Gpg/1UpxxrVdm2C29JsgHd2Ev
+         vbIIVxCSkwR+JaizXPV6ec11s2U6IkJRl/BMVAzpC8tGgQeL5maRTRP2apCjQACXwUko
+         uHZA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=PicVCFX7;
-       spf=pass (google.com: domain of 3a4nnyawkacotjkygartokxymuumrk.ius@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3a4nnYAwKACoTJKYGaRTOKXYMUUMRK.IUS@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qv1-xf49.google.com (mail-qv1-xf49.google.com. [2607:f8b0:4864:20::f49])
-        by gmr-mx.google.com with ESMTPS id j13si219430ila.0.2021.07.08.16.25.31
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=lXpCmUHc;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id j13si221210ila.0.2021.07.08.16.39.53
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 Jul 2021 16:25:31 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3a4nnyawkacotjkygartokxymuumrk.ius@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) client-ip=2607:f8b0:4864:20::f49;
-Received: by mail-qv1-xf49.google.com with SMTP id s14-20020ad4438e0000b02902c3cd066c0bso4504529qvr.18
-        for <clang-built-linux@googlegroups.com>; Thu, 08 Jul 2021 16:25:31 -0700 (PDT)
-X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:9fd:98a9:be3a:391d])
- (user=ndesaulniers job=sendgmr) by 2002:a05:6214:21cf:: with SMTP id
- d15mr33140677qvh.12.1625786731194; Thu, 08 Jul 2021 16:25:31 -0700 (PDT)
-Date: Thu,  8 Jul 2021 16:25:22 -0700
-In-Reply-To: <20210708232522.3118208-1-ndesaulniers@google.com>
-Message-Id: <20210708232522.3118208-3-ndesaulniers@google.com>
-Mime-Version: 1.0
-References: <20210708232522.3118208-1-ndesaulniers@google.com>
-X-Mailer: git-send-email 2.32.0.93.g670b81a890-goog
-Subject: [PATCH v2 2/2] Makefile: infer CROSS_COMPILE from SRCARCH for LLVM=1 LLVM_IAS=1
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Fangrui Song <maskray@google.com>, 
-	Michal Marek <michal.lkml@markovi.net>, Arnd Bergmann <arnd@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Christoph Hellwig <hch@infradead.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 08 Jul 2021 16:39:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 1BB7D61409;
+	Thu,  8 Jul 2021 23:39:50 +0000 (UTC)
+From: Nathan Chancellor <nathan@kernel.org>
+To: Brian Cain <bcain@codeaurora.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
 	Nathan Chancellor <nathan@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Subject: [PATCH] Hexagon: Export raw I/O routines for modules
+Date: Thu,  8 Jul 2021 16:38:50 -0700
+Message-Id: <20210708233849.3140194-1-nathan@kernel.org>
+X-Mailer: git-send-email 2.32.0.93.g670b81a890
+MIME-Version: 1.0
+X-Patchwork-Bot: notify
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=PicVCFX7;       spf=pass
- (google.com: domain of 3a4nnyawkacotjkygartokxymuumrk.ius@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3a4nnYAwKACoTJKYGaRTOKXYMUUMRK.IUS@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=k20201202 header.b=lXpCmUHc;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,113 +129,65 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-We get constant feedback that the command line invocation of make is too
-long. CROSS_COMPILE is helpful when a toolchain has a prefix of the
-target triple, or is an absolute path outside of $PATH, but it's mostly
-redundant for a given SRCARCH. SRCARCH itself is derived from ARCH
-(normalized for a few different targets).
+When building ARCH=hexagon allmodconfig, the following errors occur:
 
-If CROSS_COMPILE is not set, simply set --target= for CLANG_FLAGS,
-KBUILD_CFLAGS, and KBUILD_AFLAGS based on $SRCARCH.
+ERROR: modpost: "__raw_readsl" [drivers/i3c/master/svc-i3c-master.ko] undefined!
+ERROR: modpost: "__raw_writesl" [drivers/i3c/master/dw-i3c-master.ko] undefined!
+ERROR: modpost: "__raw_readsl" [drivers/i3c/master/dw-i3c-master.ko] undefined!
+ERROR: modpost: "__raw_writesl" [drivers/i3c/master/i3c-master-cdns.ko] undefined!
+ERROR: modpost: "__raw_readsl" [drivers/i3c/master/i3c-master-cdns.ko] undefined!
 
-Previously, we'd cross compile via:
-$ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make LLVM=1 LLVM_IAS=1
-Now:
-$ ARCH=arm64 make LLVM=1 LLVM_IAS=1
+Export these symbols so that modules can use them without any errors.
 
-For native builds (not involving cross compilation) we now explicitly
-specify a target triple rather than rely on the implicit host triple.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/1399
-Suggested-by: Arnd Bergmann <arnd@kernel.org>
-Suggested-by: Nathan Chancellor <nathan@kernel.org>
-Suggested-by: Masahiro Yamada <masahiroy@kernel.org>
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+Fixes: 013bf24c3829 ("Hexagon: Provide basic implementation and/or stubs for I/O routines.")
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
-Changes v1 -> v2:
-* Fix typos in commit message as per Geert and Masahiro.
-* Use SRCARCH instead of ARCH, simplifying x86 handling, as per
-  Masahiro. Add his sugguested by tag.
-* change commit oneline from 'drop' to 'infer.'
-* Add detail about explicit host --target and relationship of ARCH to
-  SRCARCH, as per Masahiro.
 
-Changes RFC -> v1:
-* Rebase onto linux-kbuild/for-next
-* Keep full target triples since missing the gnueabi suffix messes up
-  32b ARM. Drop Fangrui's sugguested by tag. Update commit message to
-  drop references to arm64.
-* Flush out TODOS.
-* Add note about -EL/-EB, -m32/-m64.
-* Add note to Documentation/.
+It would be nice if this could get into 5.14 at some point so that we
+can build ARCH=hexagon allmodconfig in our CI.
 
- Documentation/kbuild/llvm.rst |  5 +++++
- scripts/Makefile.clang        | 34 ++++++++++++++++++++++++++++++++--
- 2 files changed, 37 insertions(+), 2 deletions(-)
+ arch/hexagon/lib/io.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/kbuild/llvm.rst b/Documentation/kbuild/llvm.rst
-index b18401d2ba82..80c63dd9a6d1 100644
---- a/Documentation/kbuild/llvm.rst
-+++ b/Documentation/kbuild/llvm.rst
-@@ -46,6 +46,11 @@ example: ::
+diff --git a/arch/hexagon/lib/io.c b/arch/hexagon/lib/io.c
+index d35d69d6588c..55f75392857b 100644
+--- a/arch/hexagon/lib/io.c
++++ b/arch/hexagon/lib/io.c
+@@ -27,6 +27,7 @@ void __raw_readsw(const void __iomem *addr, void *data, int len)
+ 		*dst++ = *src;
  
- 	clang --target=aarch64-linux-gnu foo.c
+ }
++EXPORT_SYMBOL(__raw_readsw);
  
-+When both ``LLVM=1`` and ``LLVM_IAS=1`` are used, ``CROSS_COMPILE`` becomes
-+unnecessary and can be inferred from ``ARCH``. Example: ::
-+
-+	ARCH=arm64 make LLVM=1 LLVM_IAS=1
-+
- LLVM Utilities
- --------------
+ /*
+  * __raw_writesw - read words a short at a time
+@@ -47,6 +48,7 @@ void __raw_writesw(void __iomem *addr, const void *data, int len)
  
-diff --git a/scripts/Makefile.clang b/scripts/Makefile.clang
-index 297932e973d4..956603f56724 100644
---- a/scripts/Makefile.clang
-+++ b/scripts/Makefile.clang
-@@ -1,6 +1,36 @@
--ifneq ($(CROSS_COMPILE),)
-+# Individual arch/{arch}/Makfiles should use -EL/-EB to set intended endianness
-+# and -m32/-m64 to set word size based on Kconfigs instead of relying on the
-+# target triple.
-+ifeq ($(CROSS_COMPILE),)
-+ifneq ($(LLVM),)
-+ifeq ($(LLVM_IAS),1)
-+ifeq ($(SRCARCH),arm)
-+CLANG_FLAGS	+= --target=arm-linux-gnueabi
-+else ifeq ($(SRCARCH),arm64)
-+CLANG_FLAGS	+= --target=aarch64-linux-gnu
-+else ifeq ($(SRCARCH),hexagon)
-+CLANG_FLAGS	+= --target=hexagon-linux-gnu
-+else ifeq ($(SRCARCH),m68k)
-+CLANG_FLAGS	+= --target=m68k-linux-gnu
-+else ifeq ($(SRCARCH),mips)
-+CLANG_FLAGS	+= --target=mipsel-linux-gnu
-+else ifeq ($(SRCARCH),powerpc)
-+CLANG_FLAGS	+= --target=powerpc64le-linux-gnu
-+else ifeq ($(SRCARCH),riscv)
-+CLANG_FLAGS	+= --target=riscv64-linux-gnu
-+else ifeq ($(SRCARCH),s390)
-+CLANG_FLAGS	+= --target=s390x-linux-gnu
-+else ifeq ($(SRCARCH),x86)
-+CLANG_FLAGS	+= --target=x86_64-linux-gnu
-+else
-+$(error Specify CROSS_COMPILE or add '--target=' option to scripts/Makefile.clang)
-+endif # SRCARCH
-+endif # LLVM_IAS
-+endif # LLVM
-+else
- CLANG_FLAGS	+= --target=$(notdir $(CROSS_COMPILE:%-=%))
--endif
-+endif # CROSS_COMPILE
-+
- ifeq ($(LLVM_IAS),1)
- CLANG_FLAGS	+= -integrated-as
- else
+ 
+ }
++EXPORT_SYMBOL(__raw_writesw);
+ 
+ /*  Pretty sure len is pre-adjusted for the length of the access already */
+ void __raw_readsl(const void __iomem *addr, void *data, int len)
+@@ -62,6 +64,7 @@ void __raw_readsl(const void __iomem *addr, void *data, int len)
+ 
+ 
+ }
++EXPORT_SYMBOL(__raw_readsl);
+ 
+ void __raw_writesl(void __iomem *addr, const void *data, int len)
+ {
+@@ -76,3 +79,4 @@ void __raw_writesl(void __iomem *addr, const void *data, int len)
+ 
+ 
+ }
++EXPORT_SYMBOL(__raw_writesl);
+
+base-commit: f55966571d5eb2876a11e48e798b4592fa1ffbb7
 -- 
-2.32.0.93.g670b81a890-goog
+2.32.0.93.g670b81a890
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210708232522.3118208-3-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210708233849.3140194-1-nathan%40kernel.org.
