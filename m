@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBHW5U2DQMGQEFZCC53I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBQ76U2DQMGQENPK76EY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3A1513C34D7
-	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Jul 2021 16:28:48 +0200 (CEST)
-Received: by mail-pg1-x53b.google.com with SMTP id y1-20020a655b410000b02902235977d00csf9846880pgr.21
-        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Jul 2021 07:28:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1625927326; cv=pass;
+Received: from mail-qv1-xf40.google.com (mail-qv1-xf40.google.com [IPv6:2607:f8b0:4864:20::f40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 188E83C3537
+	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Jul 2021 17:39:49 +0200 (CEST)
+Received: by mail-qv1-xf40.google.com with SMTP id l4-20020a0ce0840000b02902cec39ab618sf9235266qvk.5
+        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Jul 2021 08:39:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1625931588; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nHt/AYF/s6BbGJH518zBOBn0KUPa/cJSSTAyeLB0KbdjE1QF3W8id+iXlpGOOtbU1O
-         wahaTCUxfqStJEPNP9qwNh2o0qYdaUX1ZGn2Q3amboUtDA8IE6b6uf+WpjqdC9W0c0sl
-         zz6H7yhbnSHebetQi8nzMglriJBg1Wkt3GfiX0B3VTx3Z3lj06RQOcVqJJjV/MgeXCTu
-         0AfPgXfh/+J4iTpaIYqJEpfR24q39FFrGSYjhnyJPtZksBz7inrW1QAe/XacxpAHGEP1
-         +Vvo3HMXvaN5hLM478ZT8AqASDTYlq9duQ8NyuhgPubx6ELvFF7azWYDXq201EMh3VkZ
-         Wq9w==
+        b=oR4hl5M5Yx3tnNEVXIveSZgeFwIHpOCK+YPGQJZH891Q4dYRWYBH3AUGCxsaEYAarq
+         YXSw7WVk4+JcaKRaUMJENfjCm1AqvMtWIx+20iFVqomHicWvIiH3rhU/HU4dix1f81UE
+         F9G+zkgLsuB2gFw8pYgA5NGsqV+7V6OvKcYtWdKn2XAX9K/9WphI2D/7/9nqDO1CztTw
+         pdwt+skqRyVQkHEwlBVTvKKxWE+7xrbbaSa1MlBdMiaB4eVKrF0b+4x9Qz1361NvYR/P
+         MHPMOUFEwtBbm+VCrH85kc+1yKhUQ9FMgKAE0+J4H6IT+OKLu6i0BtZYKvMXWz9WScPK
+         64KA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=qEfhceZjoPiePlI/xub8mH8qKY22hrh7AtZ9Pwk4EuU=;
-        b=h0Rq3QngYr637cuzEliOgGgNNOA5UlWWqNEZJ419s7DW7Oe6ziN5j4IfNmLCD8h6qd
-         5pAiB5NElbStKz6hkUmuoERqzCXLFZGL+hR5ex5LDRVLQ0IwWHx4XrBlCqzAAWl5jECF
-         kb0KzWQQZ4OF15WyobJC9BTd/VachpHyY/QxOM7e5s1whnt/gHO+6bd6pSyiQotdyFuo
-         fb6whV7LW/8UVV/VB4Xm1CFz2Z2vVqmDvk9rlYRhjB93RlNYo0KoRHsAyTRB8Z+hTz5G
-         lI0njtXkfBFUp4njnC7xfDXgpWEI4Zca7eAEEh3TIjUhz3SF4Fx7d/RSRG5mbtj/L7zr
-         1mjg==
+        bh=S+dCZkVMlHxhNTAU6dAynFUOsEK+NKLDa/4AH/sFLvM=;
+        b=HpHXGW0h9jrXhyM5RpV/kNAlFVHUNZWQKcMoBXdjTSdA3WPEYk+dZf7cPSEGhO7TNK
+         9okaZ5XN4pa43ZQVk6G80daFVF2T0ELI1UW/gje3nQ62ggW2zO51vAgtFlfXrS0uQo21
+         cQiPaH11gP7uaTqM1pXNK0Fo5oToj0zrPVg1ZWdWPIPZVfRVIFW5wEHane9Jdr/KrjC/
+         qHJj3VyXZLHlLkFTBcaEQ4wgIqonJMfMns/3x6SQjggfe7Vnk1v0QSSnVCVknR228l1F
+         jngWXrQTYQcAR1tWZ8TafJ4V/rLnbMaOb1QRReBUV9yqqSihgvCBDMsZkQR7/cgA4+87
+         yQ6g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=qEfhceZjoPiePlI/xub8mH8qKY22hrh7AtZ9Pwk4EuU=;
-        b=L5A/VEEmZgpDX/zohwfOigKclkVQSDA8eWzSL1O9qCfqcBvPYDs5NoxlXNCTbEJ2aN
-         ZnTllfEv6D+Magg76fvOIewC/8w8l805/sEyAYz1W+/I+bD06oiioJ/MaQ2E6FqrObrM
-         CEBAVR4EXwi+TDQnbMR6RA5p0RdWOE5NKKjQWIrFxiwSD65U9sYkVlefvW8/iz3yEMSf
-         qy50NDWd45d9CDYgGlvYOWckhyaN8YOByCxB7k/U6qj9VrbKReSl3wfx2LFG4ONSh76S
-         H3Yp3eGcoO8R+9GWPy3fGYwazAAQkXJ8s6QjEtA1GmypoWbEPvENGCppGFCCLDwZlB8z
-         5ejQ==
+        bh=S+dCZkVMlHxhNTAU6dAynFUOsEK+NKLDa/4AH/sFLvM=;
+        b=fHdelvH6I6zgFK9sFn8MihmQ3XNN16hxY8d2HBBspr9Pqjb3IyZme/12FDXnYqEOCP
+         9END0LZvZ2taMQlTloZQCvPjhdgRkCRQ3N7OMwfPuXyLyk7aHAWkfRb1430xOKU2K0Jq
+         yaW7z33bQ848DZP3Q0ntLzYa9RPDY63iRMwQ9Dnp7PxCdljFgZiwNFTxfOE2u9iqS9/E
+         o2op7CWQQd3QHXBYqsyQWxeBYGMQA48pFP9l/hsoC1Dniqc8adZyXUSTbByl4EgRMx5z
+         fY0c9xhF1+PQ1JsUJgMZDjRSSys85UmabhOMM7N8rDUkG5hMP7Gm5LSVdpYg3bRsNJeq
+         k5XQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qEfhceZjoPiePlI/xub8mH8qKY22hrh7AtZ9Pwk4EuU=;
-        b=XytaJRrL3x37zmcG9CD/ECUpZ7i7ST+k5ltptAJWHR0/AjiGZ0Q7JBUwJ2SbHzR4fl
-         Ry0UatZ+RBR/Jbz0NQ/1b3iXIMqs+HTZxClxKP7GrIy+JyRqbZ9pfYdNfKZHSxnsYkxk
-         nyGIlk7HvhW8mrp6VS8n+IQqEyHsyibWGT+hW7/W4Gtq3f7DWH7WiekeIETLOM6bcbij
-         Pp78V+BFpK0A6NJjLe7tUfsxxkqJrv9JomUmGwgIhhovdFGgHPxp1ecDosnW4cqYNu7B
-         g9HDGF5C2z+FC53uQX7l6NCD47FLpUbHNvR+tKe3giGq9J2yf05jJKNW/78RIdp8/4db
-         O4lg==
+        bh=S+dCZkVMlHxhNTAU6dAynFUOsEK+NKLDa/4AH/sFLvM=;
+        b=dBTPVE5W/aKpjUF3TywDiSqgN58lA1+5Ei/yA6YN+M+qYuRyuHSPV041qgvTBSmAQZ
+         5SriR/VLbHfOZQx6InAxCz2QcLQC61cD28xVJnKCT/4aemWK1UHbQwYUzQgA9NaJCNFB
+         g1tYB9DNjkNImvMtHVtfQyP8hPlJCh1flvhuXP6wEIb7llaYxp4eDDVTGLuOxu1OPsUy
+         wMO6iL8uizqqSQyR7NQ16T6SDXylY8XUZKZnI8CQtA43rtQWEejV60fiN3CsHsDqzMA0
+         mY50WM6n0LLFrA4ZP5l+CrguDJDnw/hdJL3TRzeHncKalfYMhxVNQYcK17oa85u2KaYc
+         liIQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5327FpxQxpN8/13QzPQvwWv8xzHMf7acqAIJMnCau7CkAmNqcZUi
-	fj5M08Qtyu67lVP951sMASw=
-X-Google-Smtp-Source: ABdhPJw+c/ldVRajQUtUfH1OPV7x2ILWhOlMEo1TCg+Jv65b90EmTWVcb1GTKmvrjHf6O4t8MJqNQg==
-X-Received: by 2002:a17:90b:3d4:: with SMTP id go20mr4609938pjb.170.1625927326650;
-        Sat, 10 Jul 2021 07:28:46 -0700 (PDT)
+X-Gm-Message-State: AOAM532XyZ6mc5sEPAH9DgAQvONxuikYG7c40yW33gS1MDEt8KN6vKcD
+	eRvJw+xmyXXqqe8eAf4Y37g=
+X-Google-Smtp-Source: ABdhPJyNtAB/neE78EqoRRTaSChH+Cf+GDZRJoHr8Gnd0Kp2CdV+ymfyfsbXEAtFPOvUHMWtiuwNYA==
+X-Received: by 2002:a05:620a:16b7:: with SMTP id s23mr21630394qkj.495.1625931587876;
+        Sat, 10 Jul 2021 08:39:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:6487:: with SMTP id e7ls4492704pgv.7.gmail; Sat, 10 Jul
- 2021 07:28:46 -0700 (PDT)
-X-Received: by 2002:a63:4765:: with SMTP id w37mr43151268pgk.400.1625927325988;
-        Sat, 10 Jul 2021 07:28:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1625927325; cv=none;
+Received: by 2002:a0c:8bca:: with SMTP id a10ls3111305qvc.2.gmail; Sat, 10 Jul
+ 2021 08:39:47 -0700 (PDT)
+X-Received: by 2002:a05:6214:1021:: with SMTP id k1mr42341136qvr.4.1625931587217;
+        Sat, 10 Jul 2021 08:39:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1625931587; cv=none;
         d=google.com; s=arc-20160816;
-        b=JeCMlbUgACQeaLcRiMJu58b8a8ImAEcRHuA3syYO6GfsqLaUk3V+CsQ5O2Oyw7AcIZ
-         XBpgz893oQOHbjZyWvGl9F8TVh3tigzWeu1Eu+u5pv+bkGK68GZZFrShRG3lf/ncFziR
-         vXrlL9ZWenye6FcfrXgBbP1ZgNPcJEAhprA6k81dFJeYsQ1/bW4P5VSU7PtLo+5i68MD
-         /o/pqcx+afjhzJfFDv40sX9ukO8/cA2t/katVj8PHDluHrj/FzqWbJSpfE9IAWdEx9Qs
-         xPkdZSzSY2KmyEXPoM4FE4SRiWh18G1JSSrLqBrKDU2upBOP4rcexxkTIQGuk6jTo8BB
-         I40A==
+        b=AXB6/vVTvxhx4xHhS9A6Io0PcA6IqFDz6+jSL6r+LE9nswU6D1C7tO/9AbSCBHrJNo
+         3APWJeeoYzPiZM/GCJ0ate3JHGF/m+2vZrJJZTR4QBAjMIc3Ye/0ayYLKmYAKzc6APaJ
+         Nm89/XNHgOAOXzOXFlyYjCBp/LTZMUkAsr/pbULVq2vIjiAracg9m1Xy0b/jWmSZpy4y
+         kHfOHExEFHv+KeLXkPNZ3gd6SGsmwI5t4U3b6b4V9YhmwnGrdn57cvieOus1e7xr1Ycb
+         hQJ0LPt9UVnqhJlOLAHFfgtouao/KgALh5Qt9SJQWM6pwiSuWtGcI8/V8ZVeqDT0h3pX
+         zbGg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=yUTq9ixtJjbKohB63fq/diPzn+PBaJYOvXJicCSlAsQ=;
-        b=hm9WtdRVQmJXgCoyn7MOVp0c9rnjtHaqBStBx62drJdBLCzCy1mtFTborxvaLjv8Lv
-         gQPtTEfQjlBTg+fnLfQy7yG3CfG+t60/TqYvJRNh00PIHyojMDHwCWIrtY6Ov8Mv0T2l
-         HPYnXk02Lt4ydZ0/TGATbmOuGHEmk3UJeYluI6+NLXQ6TyKUQseHnuDJObPs3rQZfiK6
-         CIt6Q6tJiOWnQoYkSczj6rB4sgaLs5+2ue5N3ub6BPpwFgo+thzai8mbV8zLW78SHKVV
-         jS9/UNauvuIcbBG/ddWpJmIjFPUF/DUfznhbCjN7M0cY5HVSf/2brJtcOTP/DPBqcDRv
-         tN1A==
+        bh=oZd1Nbge0+RRrgzLmZhQLVX+aqhgm5pZeguslE4OT2w=;
+        b=qYE+w2NPJPW2T4cVBr5XJ4mSYiRy1G5JG18ZEo01+DdFsrQew4Unrh3XLgvMrmD4Yo
+         tKgnGB+aV49wXFky0RoS5C9Sh2B7Miie03SEPRCd4Pq2qBXDNlahatQYmY/P9H+l5UH/
+         zXOrMEaW/0jCRgMfHCt+z1hP8KYkK64FLOmlH9JFOvdIgOAHmY2OwB44YnyDyKncYjbB
+         fhZGgd2CSChOYUapSbxqE7cES6+js5xyyu2dOu6tCbCKHM/Uo5CSlTzVAYskcg+Gv0vd
+         puZTfaPZ3iIbtjvRdr/lRpknCahXhyjd9chRp9qcP6s71YY581zOTDGDZFU6YLIff/T6
+         w13A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
-        by gmr-mx.google.com with ESMTPS id o2si1169313pjj.1.2021.07.10.07.28.45
+Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
+        by gmr-mx.google.com with ESMTPS id r17si916820qkp.1.2021.07.10.08.39.46
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 10 Jul 2021 07:28:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
-X-IronPort-AV: E=McAfee;i="6200,9189,10041"; a="209870833"
+        Sat, 10 Jul 2021 08:39:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
+X-IronPort-AV: E=McAfee;i="6200,9189,10041"; a="197105524"
 X-IronPort-AV: E=Sophos;i="5.84,229,1620716400"; 
-   d="gz'50?scan'50,208,50";a="209870833"
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2021 07:28:41 -0700
+   d="gz'50?scan'50,208,50";a="197105524"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jul 2021 08:39:43 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.84,229,1620716400"; 
-   d="gz'50?scan'50,208,50";a="647559249"
+   d="gz'50?scan'50,208,50";a="650195117"
 Received: from lkp-server01.sh.intel.com (HELO 4aae0cb4f5b5) ([10.239.97.150])
-  by fmsmga006.fm.intel.com with ESMTP; 10 Jul 2021 07:28:39 -0700
+  by fmsmga005.fm.intel.com with ESMTP; 10 Jul 2021 08:39:41 -0700
 Received: from kbuild by 4aae0cb4f5b5 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1m2DyA-000Fm7-LH; Sat, 10 Jul 2021 14:28:38 +0000
-Date: Sat, 10 Jul 2021 22:28:09 +0800
+	id 1m2F4u-000FoC-A7; Sat, 10 Jul 2021 15:39:40 +0000
+Date: Sat, 10 Jul 2021 23:39:13 +0800
 From: kernel test robot <lkp@intel.com>
-To: Vlastimil Babka <vbabka@suse.cz>
+To: Thomas Gleixner <tglx@linutronix.de>
 Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
-	linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>
-Subject: [linux-rt-devel:linux-5.13.y-rt-testing 57/226] mm/slub.c:376:1:
- warning: unused function 'slab_lock'
-Message-ID: <202107102202.PvaGVzCz-lkp@intel.com>
+	linux-kernel@vger.kernel.org
+Subject: [linux-rt-devel:linux-5.13.y-rt-testing 205/226]
+ kernel/sched/core.c:5459:19: warning: unused function 'preemptible_lazy'
+Message-ID: <202107102307.k9IInMV3-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="wRRV7LY7NUeQGEoC"
+Content-Type: multipart/mixed; boundary="0F1p//8PRICkK4MW"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,7 +137,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---wRRV7LY7NUeQGEoC
+--0F1p//8PRICkK4MW
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
@@ -145,8 +145,8 @@ Content-Transfer-Encoding: quoted-printable
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.g=
 it linux-5.13.y-rt-testing
 head:   2eb9270f1294b849cb310d6fb1f2675dfb3f9c75
-commit: dde8c73f2bd04af94cef72c96424d776537170af [57/226] mm, slub: optiona=
-lly save/restore irqs in slab_[un]lock()/
+commit: 2d1c3636a727647cffb1185ccac6897e551a4071 [205/226] sched: Add suppo=
+rt for lazy preemption
 config: mips-randconfig-r032-20210709 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 8d6963=
 5ed9ecf36fd0ca85906bfde17949671cbe)
@@ -157,47 +157,62 @@ make.cross -O ~/bin/make.cross
         # install mips cross compiling tool for clang build
         # apt-get install binutils-mips-linux-gnu
         # https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel=
-.git/commit/?id=3Ddde8c73f2bd04af94cef72c96424d776537170af
+.git/commit/?id=3D2d1c3636a727647cffb1185ccac6897e551a4071
         git remote add linux-rt-devel https://git.kernel.org/pub/scm/linux/=
 kernel/git/rt/linux-rt-devel.git
         git fetch --no-tags linux-rt-devel linux-5.13.y-rt-testing
-        git checkout dde8c73f2bd04af94cef72c96424d776537170af
+        git checkout 2d1c3636a727647cffb1185ccac6897e551a4071
         # save the attached .config to linux build tree
         mkdir build_dir
         COMPILER_INSTALL_PATH=3D$HOME/0day COMPILER=3Dclang make.cross O=3D=
-build_dir ARCH=3Dmips SHELL=3D/bin/bash
+build_dir ARCH=3Dmips SHELL=3D/bin/bash kernel/sched/
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> mm/slub.c:376:1: warning: unused function 'slab_lock'
-   slab_lock(struct page unsigned long
+   kernel/sched/core.c:2964:13: warning: variable 'rq' set but not used
+   struct rq
    ^
->> mm/slub.c:381:29: warning: unused function 'slab_unlock'
-   static __always_inline void slab_unlock(struct page unsigned long
+   kernel/sched/core.c:2954:20: warning: unused function 'rq_has_pinned_tas=
+ks'
+   static inline bool rq_has_pinned_tasks(struct rq
    ^
-   mm/slub.c:1507:29: warning: unused function 'node_nr_slabs'
-   static inline unsigned long node_nr_slabs(struct kmem_cache_node
+   kernel/sched/core.c:4858:20: warning: unused function 'sched_tick_start'
+   static inline void sched_tick_start(int cpu) { }
    ^
-   mm/slub.c:1525:21: warning: unused function 'kmalloc_large_node_hook'
-   static inline void size_t size, gfp_t flags)
+   kernel/sched/core.c:4859:20: warning: unused function 'sched_tick_stop'
+   static inline void sched_tick_stop(int cpu) { }
+   ^
+>> kernel/sched/core.c:5459:19: warning: unused function 'preemptible_lazy'
+   static inline int preemptible_lazy(void)
    ^
    fatal error: error in backend: Nested variants found in inline asm strin=
 g: ' .set push
-   .set mips64r2
+   .set noat
+   .set push
+   .set arch=3Dr4000
    .if ( 0x00 ) !=3D -1)) 0x00 ) !=3D -1)) : ($( static struct ftrace_branc=
 h_data __attribute__((__aligned__(4))) __attribute__((__section__("_ftrace_=
 branch"))) __if_trace =3D $( .func =3D __func__, .file =3D "arch/mips/inclu=
-de/asm/bitops.h", .line =3D 105, $); 0x00 ) !=3D -1)) : $))) ) && ( 0 ); .s=
-et push; .set mips64r2; .rept 1; sync 0x00; .endr; .set pop; .else; ; .endi=
-f
-   1: ll $0, $1
-   or $0, $2
-   sc $0, $1
-   beqz $0, 1b
+de/asm/cmpxchg.h", .line =3D 163, $); 0x00 ) !=3D -1)) : $))) ) && ( 0 ); .=
+set push; .set mips64r2; .rept 1; sync 0x00; .endr; .set pop; .else; ; .end=
+if
+   1: ll $0, $2 # __cmpxchg_asm
+   bne $0, ${3:z}, 2f
    .set pop
+   move $$1, ${4:z}
+   .set arch=3Dr4000
+   sc $$1, $1
+   beqz $$1, 1b
+   .set pop
+   2: .if ( 0x00 ) !=3D -1)) 0x00 ) !=3D -1)) : ($( static struct ftrace_br=
+anch_data __attribute__((__aligned__(4))) __attribute__((__section__("_ftra=
+ce_branch"))) __if_trace =3D $( .func =3D __func__, .file =3D "arch/mips/in=
+clude/asm/cmpxchg.h", .line =3D 163, $); 0x00 ) !=3D -1)) : $))) ) && ( 0 )=
+; .set push; .set mips64r2; .rept 1; sync 0x00; .endr; .set pop; .else; ; .=
+endif
    '
    clang-13: error: clang frontend command failed with exit code 70 (use -v=
  to see invocation)
@@ -211,21 +226,14 @@ f
 mm samples scripts security sound source usr virt
 
 
-vim +/slab_lock +376 mm/slub.c
+vim +/preemptible_lazy +5459 kernel/sched/core.c
 
-   374=09
-   375	static __always_inline void
- > 376	slab_lock(struct page *page, unsigned long *flags)
-   377	{
-   378		__slab_lock(page, flags, false);
-   379	}
-   380=09
- > 381	static __always_inline void slab_unlock(struct page *page, unsigned =
-long *flags)
-   382	{
-   383		__slab_unlock(page, flags, false);
-   384	}
-   385=09
+  5458=09
+> 5459	static inline int preemptible_lazy(void)
+  5460	{
+  5461		return 1;
+  5462	}
+  5463=09
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -237,14 +245,14 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/202107102202.PvaGVzCz-lkp%40intel.com.
+clang-built-linux/202107102307.k9IInMV3-lkp%40intel.com.
 
---wRRV7LY7NUeQGEoC
+--0F1p//8PRICkK4MW
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICGOn6WAAAy5jb25maWcAlDxrc9u2st/Pr9C0M3d6ZprGkh+x7x1/AEFQREQSLADKsr9w
+H4sICF+56WAAAy5jb25maWcAlDxrc9u2st/Pr9C0M3d6ZprGkh+x7x1/AEFQREQSLADKsr9w
 FFtJdWvLHknuaf793QVfAAkqvWfmpNHu4rXYN5b5+V8/T8j78fVlfdw+rp+fv0++bXab/fq4
 eZp83T5v/mcSikkm9ISFXP8GxMl29/73x5ft22Fy+dv0/LezyWKz322eJ/R193X77R2Gbl93
 //r5X1RkEZ+XlJZLJhUXWanZSt/+9Pi83n2b/LXZH4BugjPAHL982x7/++NH+PNlu9+/7j8+
@@ -702,4 +710,4 @@ KiVbD2pfZLhvGTyrFih97tPl5xd1TzTaqq+/y/fb+6WIsDgpB8ASJ8LqGDrGh8jMsBpQTtaq
 i9HuikcgJ+MLOIIwASpLJzIWnxMR7/MYcDZdSLBLSDI6rascGCVCV3daY+MiVyfa3EDz1/f0
 ZeMfJ2wM3Yx4AQA=
 
---wRRV7LY7NUeQGEoC--
+--0F1p//8PRICkK4MW--
