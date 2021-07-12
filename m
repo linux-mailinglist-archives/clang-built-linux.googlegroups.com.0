@@ -1,122 +1,131 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQXMWGDQMGQEWY6RA4Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB2PUWGDQMGQENDY2QXA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13c.google.com (mail-lf1-x13c.google.com [IPv6:2a00:1450:4864:20::13c])
-	by mail.lfdr.de (Postfix) with ESMTPS id A5BFD3C6177
-	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Jul 2021 19:05:07 +0200 (CEST)
-Received: by mail-lf1-x13c.google.com with SMTP id f22-20020a19dc560000b029036e2598ac2esf3812366lfj.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Jul 2021 10:05:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626109507; cv=pass;
+Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
+	by mail.lfdr.de (Postfix) with ESMTPS id F1AFE3C61CC
+	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Jul 2021 19:22:50 +0200 (CEST)
+Received: by mail-il1-x13c.google.com with SMTP id c7-20020a92b7470000b0290205c6edd752sf8826312ilm.14
+        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Jul 2021 10:22:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626110570; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FX5lejEexJj9eUbFwfgQz/vtvtZ/WfJKPR5Dklnd96vDw42fW+nqW7LHQmBBOVxABP
-         JKIwMYLIBI7CV1KolQApYfK2smJHBu/NHXVmVCUygf3jAA13o1/+8XkQcucmaEUzPrVW
-         KXEH22FN89R1hkx6M6yTeBhJ1LPMI19qDdMfPF1Ruc5wJudjWyh22ISbsGQMUpNLxXhE
-         RVwYuz7l+/xeUMyv0piBV5XXW2XwWrkfWl8MxAU5H3oE1dPDpo4GXmiw0hHCKWAxFnqU
-         vfVRQrWcikldAZ3sXvTCkdNYAn5QsmBGm/VAi/oVbQduBVqCdIkWpHxTF7fMLXIOIVFZ
-         FJmA==
+        b=hijlNKFpqfld5N/xXf/T6c3Dr6vvWFMLAx6ftZyLhCjibypQG5HKhf0lq2ZoRZP+7/
+         xt8+E0WdAw3x/YYmESrpsjJ4hI65Sy0q0R0rcREKooXBY0xlSh0NdZ22RLZf4PwpmIU9
+         25KlWNSunrgugdFWRJI4ZfvCSEP5of4taEELt2ok/T35xkTQzrpj4QIcPDOEZLaA2Yhv
+         vtxT/3PI1ReEHZgrQ/C/HTAvuAiZ6Eg4psSvy8N8+TfadUJ3q6jFhxx5x8iBKEdhKdKY
+         zYXWDIsTDzC0yXlJ+Ujkc9VBb3wCmViHvgWHaNL3kByBtmZ7A5QrY6fJEJ+/t3Ggqxv/
+         jUqA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=bz9fuWZLO/aoiAG7Fwt7pwHnUrTxHCy965AHss5eWM0=;
-        b=yDTSe5KGhZfk4llFQfvpWbPjV0+JdQ8V+56mFFkaB7iq9hLTh5E81ZPZfe4iOhTCjS
-         XaxOWUot1MUj8s1VLMTUtC91smkB4u5yt84XbpZWZpKskJMOlnyeqLehwwKa4LFdTlIn
-         73mvhi0n7MKgTmQHsFSGKCFnw9+4qXq6ux+9+gKrin/VN5n7h7kSl+jlk2p3Qwleq9OS
-         I3p1Rm18GLzj7PBGPDl7jlZhLAtFDR1NytGhdtow0NDj1Gg6hP0G2kntybeThFswRTGS
-         MEplQuRkw3sDP+Pi21GwdGBO2Cjcm8CvrMJSmczMvgKpV7s8kBlV5/yPx/FIK861oZB8
-         W1kw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=bkxdqcitgAYKFiAASDMucAnOQJEugZdyislP7Xg/fFM=;
+        b=LsB/dq2G9kWb5v0GHJ0nPlXf6wkNuoVo4xS0WvElrsEIJxnbGjJ2GwzYGDc9PXuoF4
+         U/qDrSVLVSvb3mO0Ji2IJ/rFs2UzoaDLq7UyvJym90cA6ZejTNes2N9S+8jl6imxaUR3
+         wf2FQC7jQ+0cpgPYJnIrr7qcVPJd5c1Fo4Za6Ycy8vNgGwg3yvEHh+WnbTuL/YsM8dJv
+         dvumc98qKrRFMPJbMKUaMg1hsq3JyPjJVaOniRsZTQZt6aV6AcqrVNFukDMCEaKXybkr
+         2KG+pIvmfjhcuAQ64kIME3b0hYhmvZTrRi5PiP12KCsm+mR1jQQDvJgttTaImjqvqGED
+         Xezw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=aApE6SaB;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::234 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=Mmcvc7l5;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=bz9fuWZLO/aoiAG7Fwt7pwHnUrTxHCy965AHss5eWM0=;
-        b=D6iN4HmujgwEkzyEmgDNMejp2iGypfL9lok9q4FBsF2VKTps9kegQ8GS0nFJKx3MCN
-         nBLlvwKA6XMiaJfGkXjgbs2V2+7nnP+FhBMR5S0MR9y55gp9Y7XzFS0QoL0eV3UgzJpk
-         qrGNGZM+a6wewq5ri/cWfUO5ll0mdWnalyVFqRe769GvGKqhxU1nF+4JP4sK4o85fXv9
-         PNFUX8H0a2zbbm9SOYqpPMAPY77MSBuHNWDr23w13MoEShkrrxAF5Hbu/kjCTss3UHNt
-         rPMfWaP/egeCuRsnYmTnnuyHY5lW4U/2Z4aW9J/78oYzvIdSI/Y/33uRZaXCHyBPN9vy
-         /Ihw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=bkxdqcitgAYKFiAASDMucAnOQJEugZdyislP7Xg/fFM=;
+        b=jIFY+eLTMY7Yz8gV22JWimwIK9G6BrifT5wU2VjIR0fNkfbn1Xwd9uQxT01+xnKLC5
+         Fd9+i9GEQcgJTAK11LdawhWDULYX+V+5XbPuhFVZAb2u6VE+0G22GLu1Zuo4JNeBh9KN
+         JNp98UKp9uEVkpt3YbQIKvdvapuk5ONcNW/IyCztwkgJ+incp9kIHM8m2RxIHaj5xoiE
+         Y6eziR3TuUJqrJSEWuJfmI5n7BtSjmc6u7JB+k+zldCJuGOZyvHvx7ijb8hZfJhlRPD4
+         6qgxkr+fNFLF2mD88RlxUdFhCZSYH7OPGJG5Szbwsjm47r9CKbNSjkVDvLyG7XYeiAoh
+         lKUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=bz9fuWZLO/aoiAG7Fwt7pwHnUrTxHCy965AHss5eWM0=;
-        b=JYmecCf8nGOUDZ+qGM7DCdHHkbpcTfGCuX53tT+mNAGCXVnGQM+Poz3gaPgHkA3Iyx
-         g/biQ01Ii2oFe8/06bBD2mySCjj3yhB49XXTni4jOIQ6AiCa0V35nq8Yn8y84eVKoQ9q
-         xL4V/z7GYU9TZiEh7UXyCL6qeSAdlhf98umjdmbnqIx3mZ31ddwF9qTBmDOSeB+DmeZj
-         Y5IyI1+BaDVccaoOEp71SgARw5vhJ6DQRrgHTiFeJ4GDWGDS5n4waUCa4IQFTm9pNcdc
-         PnnqmfSHxrKQ9lmAnPJHjGMLWC6O/evEv3n4qSnJEOj3/6KjwCzpT2LY2xUala5co955
-         PLpw==
-X-Gm-Message-State: AOAM533BPLlFfa6MwmBDr8XFza6UdH+GeBPCPVYUvDxhO7wv8RSQNfIv
-	aWSQbCr1yzsKXn/TVTRNc0g=
-X-Google-Smtp-Source: ABdhPJxu9MDEfxP7SImrwT1JMkt+HvMHKTRht6U88naLcHGC2tUG6DxpVL/edlUIi/xlQRO88o0wqw==
-X-Received: by 2002:a2e:8e81:: with SMTP id z1mr157373ljk.125.1626109507170;
-        Mon, 12 Jul 2021 10:05:07 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=bkxdqcitgAYKFiAASDMucAnOQJEugZdyislP7Xg/fFM=;
+        b=osESxDvRu56jyE4qwkC4OjON15JV31z2w3IendUObKKdBCDtdtfeapPwltg9x7HPXa
+         hqfx1108PRZVqYo1GfWyoSoMkbGP+HT21cfWkUwm69p2CKPJf5YpqDh546jg7kxUsNd8
+         boYUxaZ2aaVwnJWoRjOXXo+tCH25QnsXWvLTSmIislIsv+Us08tVXFozZG/Pm8xgMWAr
+         omEEovJr+Monq6pABSu6MaB8CxKouVEyUAaxvMlJXlfrhKVg3o/Szq54NqkLqvpPiGRP
+         WmKAWX66oB8FGQSUBUCW2XeQLFZy/15VhCAMtlTPlzYZw12VXdwbYRNct3VrQwceG5Nc
+         52cQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531kWdDKiIUvzLmM4omThhx2ayLC+P7l+tIqe0CreCZnirFO56ps
+	h/ePfUFWqqpvV3jO32eAR3g=
+X-Google-Smtp-Source: ABdhPJwJk10Sbts26ZLVuoNSZ3y/T/Fuh/AXw7FvzZZHkuPCvAY9Jw0jZbKC0vP+UDDBs+APUQ43Tg==
+X-Received: by 2002:a05:6e02:2144:: with SMTP id d4mr39802165ilv.136.1626110569731;
+        Mon, 12 Jul 2021 10:22:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:430b:: with SMTP id l11ls1507979lfh.1.gmail; Mon, 12 Jul
- 2021 10:05:06 -0700 (PDT)
-X-Received: by 2002:a19:ca54:: with SMTP id h20mr14685444lfj.258.1626109506260;
-        Mon, 12 Jul 2021 10:05:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626109506; cv=none;
+Received: by 2002:a05:6602:220a:: with SMTP id n10ls254095ion.5.gmail; Mon, 12
+ Jul 2021 10:22:49 -0700 (PDT)
+X-Received: by 2002:a6b:dc08:: with SMTP id s8mr16513ioc.7.1626110569369;
+        Mon, 12 Jul 2021 10:22:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626110569; cv=none;
         d=google.com; s=arc-20160816;
-        b=A0rjiCXA8MnppBacBYeau+3KFSFEcWLO24PzB20iZQaXs0jmUXHund6qMwU5hdKubD
-         U9MX5DgDh7KMNrtJflCnnJNd2BoKwEFk8OIx+Ke57Gb4QVQgpouekmEeZgdnD/Lub1UV
-         m6cqKuQvi5E0h4yrniglNDPr571teyHJY0k1uPeAxiYvCw1jaT5GvUz3KXrxSyPr/dhI
-         bNQfUNAMJcHHROy8dYIQTP23ppr+LvMoEtBs0RbOxKx4YL3hvWtNpvIv0d+G3GeUkqcT
-         oZ1LQ3iEsbmGO8gOeOOztGcxh/8QZODYzBOTKeh1PIhhHoQw6d4g2Ivwl1zYDsjCnN2E
-         zrDQ==
+        b=oLhW85bJhmrV/+6D1ekHX6MRWGy9L5E+rm3tVTNv9ujDHjIbiFEIrZgW4U4b8Xqt4E
+         xub7cIlUXGWv/UoOJKh/dRYNg376GLkif7WftStiuHE9nbD643BVYV022cl3W4D+Qdin
+         gi6fI3lOecDtc6qxEHlxBvN4N76N3H4nKTFzoisIyk9dboc/kwE9AVh7bB0rF1XmZaYI
+         Lr4KLyEeCa1trzKTLcev0Kvmee3ElRAsRIY0JMR7hG1Mks2x6YqER70ABfYMAYPjSrBP
+         GvXfzrM7UwZg2mkibwObvrggU25WmyRyVbgs64jcPilPbfjhcLolM5iMtxTrdh0H4GlW
+         3cMA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=1jZJrPjdUgS0Z2yjiY7d2Ru0LXr08Vx68ecg4BC7Ua4=;
-        b=08tcaYRlaLfPKTgApRooDG96g2pqBIY2JoibxvrNVBaysmBQ1km8zfZn/uMvQwaBtF
-         RWFSEvhRODgOetbwWO2G0+eEHYB/iSxPwTHabjBNpcGrHi9tNGkuybiiqFsC6Xtazl3K
-         s08tya68yWzwAtAP923pBYKOxlK2g/EFO6BiSESur13q99RZKnb1fFuR1ErOr4AvcfTD
-         eWLBA9/4UsCkCIYyIDy/Kgf5XLjJNFtigeGxDqoxkN4OCYm+JxzyGzgWLJp6UmDicqF8
-         yQkmi7+mBkvMaafD4UcEantw+WC7ikqg8bo9QnfeW4yhX3BYHHWJhpiCdT+z2UCr/miZ
-         AaGA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=vJSus6xqz4Py/YBsR2PyDSFXECwi8SLf51Zt42z9NT4=;
+        b=tHWE4Sjj8Hqwhs/8AAYzIhUpV5oaWKf+GV0bG3JAbQmAE2kQaLl7ni2ibj1uL6Udsb
+         ZewNGEyQ5ri2l+QxHTy463+GoeJlz65jR70roTqWNgjxq3rw1PwNtnInpTQtfe1nXdEn
+         E6xJ+WVegcQk5zCOAlFfxz/+soM/Vm8iCXFM8k1azeCjKGubrHvyq3+L1fmM0PU4fDqh
+         OBNQwp+addaKGfaicVXKV9tkhSVkXp37xSVzwkAkjgLHmldMcXZnOcD7xThQGM2Jop4k
+         jZ82eTeti3HCwUjmvKnhbPdcoW+xwHNqZl44VWoDkRcuf5PdWpz7Bhqks+6klZaLxUw7
+         F6hA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=aApE6SaB;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::234 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lj1-x234.google.com (mail-lj1-x234.google.com. [2a00:1450:4864:20::234])
-        by gmr-mx.google.com with ESMTPS id z4si613498lfs.0.2021.07.12.10.05.06
+       dkim=pass header.i=@chromium.org header.s=google header.b=Mmcvc7l5;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pf1-x430.google.com (mail-pf1-x430.google.com. [2607:f8b0:4864:20::430])
+        by gmr-mx.google.com with ESMTPS id g14si1354158ilf.4.2021.07.12.10.22.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 12 Jul 2021 10:05:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::234 as permitted sender) client-ip=2a00:1450:4864:20::234;
-Received: by mail-lj1-x234.google.com with SMTP id q4so25337880ljp.13
-        for <clang-built-linux@googlegroups.com>; Mon, 12 Jul 2021 10:05:06 -0700 (PDT)
-X-Received: by 2002:a2e:b5b5:: with SMTP id f21mr139300ljn.479.1626109505737;
- Mon, 12 Jul 2021 10:05:05 -0700 (PDT)
+        Mon, 12 Jul 2021 10:22:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::430 as permitted sender) client-ip=2607:f8b0:4864:20::430;
+Received: by mail-pf1-x430.google.com with SMTP id p36so7313850pfw.11
+        for <clang-built-linux@googlegroups.com>; Mon, 12 Jul 2021 10:22:49 -0700 (PDT)
+X-Received: by 2002:a63:1a12:: with SMTP id a18mr165366pga.269.1626110568824;
+        Mon, 12 Jul 2021 10:22:48 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id i8sm46529pjh.36.2021.07.12.10.22.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 12 Jul 2021 10:22:48 -0700 (PDT)
+Date: Mon, 12 Jul 2021 10:22:47 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Tor Vic <torvic9@mailbox.org>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	masahiroy@kernel.org, Nathan Chancellor <nathan@kernel.org>,
+	"ndesaulniers@google.com" <ndesaulniers@google.com>,
+	linux-kbuild@vger.kernel.org,
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH 1/1] Kbuild, clang: add option for choosing a ThinLTO
+ cache directory
+Message-ID: <202107121021.38F447EBE4@keescook>
+References: <b45b2430-3670-b310-b6ad-2d6db50c2d18@mailbox.org>
 MIME-Version: 1.0
-References: <20210709000627.3183718-1-nathan@kernel.org> <20210712122433.GA28536@willie-the-truck>
-In-Reply-To: <20210712122433.GA28536@willie-the-truck>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 12 Jul 2021 10:04:54 -0700
-Message-ID: <CAKwvOdmGhMbvtko2EVARg2E8zSX-LQKSPfdj6fbbAsCK4nw_Qg@mail.gmail.com>
-Subject: Re: [PATCH] arm64: Restrict ARM64_BTI_KERNEL to clang 12.0.0 and newer
-To: Will Deacon <will@kernel.org>, Nathan Chancellor <nathan@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <b45b2430-3670-b310-b6ad-2d6db50c2d18@mailbox.org>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=aApE6SaB;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::234
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@chromium.org header.s=google header.b=Mmcvc7l5;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::430
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,74 +138,119 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jul 12, 2021 at 5:24 AM Will Deacon <will@kernel.org> wrote:
->
-> Hi Nathan,
->
-> On Thu, Jul 08, 2021 at 05:06:27PM -0700, Nathan Chancellor wrote:
-> > Commit 97fed779f2a6 ("arm64: bti: Provide Kconfig for kernel mode BTI")
-> > disabled CONFIG_ARM64_BTI_KERNEL when CONFIG_GCOV_KERNEL was enabled and
-> > compilign with clang because of warnings that occur because LLVM was not
->
-> Typo: "compilign"
->
-> > emitting PAC/BTI instructions for compiler generated functions.
-> >
-> > This was an adequate fix to avoid the warnings with allmodconfig until
-> > commit 51c2ee6d121c ("Kconfig: Introduce ARCH_WANTS_NO_INSTR and
-> > CC_HAS_NO_PROFILE_FN_ATTR"), which prevented CONFIG_GCOV_KERNEL from
-> > being selected with clang 12.0.0 and older because it does not support
-> > the no_profile_instrument_function attribute. As a result,
-> > CONFIG_ARM64_BTI_KERNEL gets enabled and there are more warnings of this
-> > nature.
->
-> I'm half asleep today, but I'm struggling to follow what GCOV_KERNEL has
-> to do with the warnings here. Prior to 51c2ee6d121c, you could still go
-> and turn that option off and so wouldn't the same warnings be triggered
-> in that configuration?
+On Mon, Jul 12, 2021 at 11:10:04AM +0000, Tor Vic wrote:
+> On some distros and configurations, it might be useful to allow for
+> specifying a directory where Clang stores its ThinLTO cache.
+> 
+> More specifically, when building the VirtualBox extramodules on Arch with
+> its proper 'makepkg' build system and DKMS, against an already installed
+> ThinLTO kernel, the build fails because it tries to create the ThinLTO
+> cache in a directory that is not user-writable.
+> 
+> A similar problem has been reported with openSUSE's OBS build system.
+> 
+> Add a Kconfig option that allows users to choose a directory in which
+> Clang's ThinLTO can store its cache.
 
-Nathan, consider if any of the below can be reused to reword the commit message?
-```
-Prior to 51c2ee6d121c, allmodconfig with clang-11 would not select
-ARM64_BTI_KERNEL because GCOV_KERNEL already had been.
+Ah-ha, good idea. Thanks! Question below...
 
-After 51c2ee6d121c, allmodconfig with clang-11 does select
-ARM64_BTI_KERNEL because GCOV_KERNEL cannot be selected.
+> 
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1104
+> Signed-off-by: Tor Vic <torvic9@mailbox.org>
+> ---
+>  Makefile                  |  5 +++--
+>  arch/Kconfig              | 10 ++++++++++
+>  scripts/Makefile.lib      |  4 ++++
+>  scripts/Makefile.modfinal |  4 ++++
+>  4 files changed, 21 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Makefile b/Makefile
+> index c3f9bd191b89..472bc8bfff03 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -932,7 +932,8 @@ endif
+>  ifdef CONFIG_LTO_CLANG
+>  ifdef CONFIG_LTO_CLANG_THIN
+>  CC_FLAGS_LTO	:= -flto=thin -fsplit-lto-unit
+> -KBUILD_LDFLAGS	+= --thinlto-cache-dir=$(extmod_prefix).thinlto-cache
+> +export thinlto-dir = $(if
+> $(CONFIG_LTO_CLANG_THIN_CACHEDIR),$(CONFIG_LTO_CLANG_THIN_CACHEDIR)/)
+> +KBUILD_LDFLAGS	+=
+> --thinlto-cache-dir=$(thinlto-dir)$(extmod_prefix).thinlto-cache
+>  else
+>  CC_FLAGS_LTO	:= -flto
+>  endif
+> @@ -1728,7 +1729,7 @@ PHONY += compile_commands.json
+> 
+>  clean-dirs := $(KBUILD_EXTMOD)
+>  clean: rm-files := $(KBUILD_EXTMOD)/Module.symvers
+> $(KBUILD_EXTMOD)/modules.nsdeps \
+> -	$(KBUILD_EXTMOD)/compile_commands.json $(KBUILD_EXTMOD)/.thinlto-cache
+> +	$(KBUILD_EXTMOD)/compile_commands.json
+> $(thinlto-dir)$(KBUILD_EXTMOD)/.thinlto-cache
+> 
+>  PHONY += help
+>  help:
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> index 129df498a8e1..19e4d140e12a 100644
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -696,6 +696,16 @@ config LTO_CLANG_THIN
+>  	    https://clang.llvm.org/docs/ThinLTO.html
+> 
+>  	  If unsure, say Y.
+> +
+> +config LTO_CLANG_THIN_CACHEDIR
+> +	string "Clang ThinLTO cache directory"
+> +	depends on LTO_CLANG_THIN
+> +	default ""
+> +	help
+> +	  This option allows users to choose a directory that stores
+> +	  Clang's ThinLTO cache.
+> +	  Leave empty for default.
+> +
+>  endchoice
+> 
+>  config ARCH_SUPPORTS_CFI_CLANG
+> diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+> index 10950559b223..bca87a6aa35b 100644
+> --- a/scripts/Makefile.lib
+> +++ b/scripts/Makefile.lib
+> @@ -197,6 +197,10 @@ endif
+>  part-of-module = $(if $(filter $(basename $@).o, $(real-obj-m)),y)
+>  quiet_modtag = $(if $(part-of-module),[M],   )
+> 
+> +ifdef CONFIG_LTO_CLANG_THIN
+> +KBUILD_LDFLAGS	+=
+> --thinlto-cache-dir=$(thinlto-dir)$(extmod-prefix).thinlto-cache
+> +endif
+> +
+>  modkern_cflags =                                          \
+>  	$(if $(part-of-module),                           \
+>  		$(KBUILD_CFLAGS_MODULE) $(CFLAGS_MODULE), \
+> diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
+> index 5e9b8057fb24..ab0d72e21318 100644
+> --- a/scripts/Makefile.modfinal
+> +++ b/scripts/Makefile.modfinal
+> @@ -35,6 +35,10 @@ ifdef CONFIG_LTO_CLANG
+>  # avoid a second slow LTO link
+>  prelink-ext := .lto
+> 
+> +ifdef CONFIG_LTO_CLANG_THIN
+> +KBUILD_LDFLAGS	+=
+> --thinlto-cache-dir=$(thinlto-dir)$(extmod-prefix).thinlto-cache
+> +endif # CONFIG_LTO_CLANG_THIN
+> +
+>  # ELF processing was skipped earlier because we didn't have native code,
+>  # so let's now process the prelinked binary before we link the module.
 
-clang-11 had basic support for BTI, but failed to instrument compiler
-generated functions properly.  This produces the following stream of
-warnings for clang-11 allmodconfig builds of ARCH=arm64:
-
-warning: some functions compiled with BTI and some compiled without BTI
-warning: not setting BTI in feature flags
-
-This was fixed in clang-12 via https://reviews.llvm.org/D85649.
-```
-Perhaps its of interest to find which config in (allmodconfig minus
-GCOV_KERNEL) but not in (defconfig) produces these, since I don't
-think we see them in defconfig builds of clang-11?
-https://github.com/ClangBuiltLinux/continuous-integration2/runs/3009146591?check_suite_focus=true
-
->
-> In other words, I think there are two aspects to this patch:
->
->         1. Removing the (now useless) !GCOV_KERNEL dependency
->         2. Requiring Clang >= version 12
->
-> but the commit message doesn't really say where these warnings are coming
-> from or why Clang 12 gets rid of them.
->
-> Thanks,
->
-> Will
-
-
+Why are these changes needed in Makefile.lib and Makefile.modfinal?
+Isn't KBUILD_LDFLAGS already populated from the top-level Makefile?
 
 -- 
-Thanks,
-~Nick Desaulniers
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmGhMbvtko2EVARg2E8zSX-LQKSPfdj6fbbAsCK4nw_Qg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107121021.38F447EBE4%40keescook.
