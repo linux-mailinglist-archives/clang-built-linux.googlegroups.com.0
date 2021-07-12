@@ -1,137 +1,139 @@
-Return-Path: <clang-built-linux+bncBD763O5S5UARBFWGWCDQMGQEBFM4F2A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT4VV5O2QKBBHWMWCDQMGQENA6OI5Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 28F693C5B26
-	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Jul 2021 13:10:15 +0200 (CEST)
-Received: by mail-lj1-x23b.google.com with SMTP id b3-20020a05651c0323b029018ba0baeb6esf2078923ljp.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Jul 2021 04:10:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626088214; cv=pass;
+Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id 22FDC3C5B38
+	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Jul 2021 13:23:12 +0200 (CEST)
+Received: by mail-ot1-x339.google.com with SMTP id i24-20020a9d62580000b0290464ba1bb21esf13036654otk.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Jul 2021 04:23:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626088991; cv=pass;
         d=google.com; s=arc-20160816;
-        b=emsCrICYYrBBPcfgQ/4TEk0G6iWfBEQLw871RnTltXF7caBCb9XVavvH1fO8+QfPCE
-         vjTQ9TnPE7iu31wZn03kVgegSqBggyLYrSMdOYE3da7kIwYE+UpHQqWx8tO4DTDcpziz
-         H/eFAv8UGLKjiUgZzCNqYMakZpznKXsYNKz/3WkPBeHCrLKFWdXka1QrruW850RiXI7p
-         /5C0guUtZ4T/TDLV1iMXKeOqAwc0hSirnolY2VhY8RZmxVGZ3PX+Vjqk2S0L42v9YP3U
-         je4JrsGVDYPtc1TFVhfTOX2yevYeQZjk3IxnD94HbQbn2gV6yFs74lIyNMzEh0P1OTtX
-         z0/w==
+        b=nhzFfoyrqXkzigFBUigj/hLAId6bJsPyrPmqAJQjTOLcFbsrFrP4mUD7CD7B24eETp
+         Fisj4A+UgP3FV+ESGYaZGfaMunlmb5/TPlcu1ytoH7nlxhqeYamBXHsSK8cXT3Z/Yw9h
+         mANdy/y876iNMckMX95lHks4bS02ZgdveEVe8mFmUpqYvVBjhfxB4u7elpTew2H/7qxY
+         lg9pLEO64aa0TE1b/Hf1hyB3AIYE8vv8Ie/NycLuc7lkK+nUe9cj0k1CfVxoFy7ssf7H
+         ijpqeqF77XG5tSipvTWgiT086Wmo6D0nouANqYVcCOF2+t/BvvF0JuKqjpz2tro4NODM
+         IElQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-language
-         :mime-version:date:message-id:cc:to:subject:from:dkim-signature;
-        bh=m5sOyNJmlIXF8Yj2TIzyGrNW+n5dNLekb0a8V4qg014=;
-        b=NsMtgHzWOJCG6vLDsHwBo0q23TK5fNDT9Ki9TnoNbfa1q8ZhZwsX0qqska+WEN07rC
-         qPoGSQyA+w2eBK1Wgl2ry8SqF0/NvHYSXr2ZYMwsi1kuMysTWR6sH5VCzs9q196EPIS5
-         oTOxOrLG8uxPa9GBnM3GBL7hetfdwTAL7aQUPlJytalNJag30tc4nnWIPvWwlhyGgyr/
-         CxE18VMyliX0EdNTFGufa1DGfqXQlgaLc46C8D6GtMFlcerxuP6YNnpqL3yeKQ1wjY1Q
-         8UcO3ABiRa05zGca62CMIqDGNfNGqwDPExj5ssrPppsUmFomBBrhFALnsWxL1xwuAgf7
-         1FuA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=6YZ2LzefnQZNszzaUBybJEXq4xLRfwvLpfi2R0HYo2s=;
+        b=SwjDF3deniVY4/LaOhHvgQJxcrnfpzbSc6AkkJJFB8wIejNaPQXDtWRW05RX2JcwgJ
+         kR1kHmsMfyTng8etuOSYQTcKUMmPlLnX1sTug+ElCo95++r2FMsJaW65dZHl4I1LVHlw
+         INTfxUprl+U0lE8JD+f935irRMiUdXDfS88YvBplVYM/O1HFSa1nlstLVSd6sTx8R14Z
+         8QmelWfGgVNX2tKrq686SALkTD72iqNiR56rv6ZCmaKncSDhT8KPYtGhmRG2d/XghWP5
+         y4pMY0A3fLZd+lScIEXgdWFaWy1kHFIuc4KvpkDeDYUqXBixniEi1lBnGtHXaF/QyCEx
+         AVWw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=n1hP2uZj;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=j30PfgR9;
-       spf=pass (google.com: domain of torvic9@mailbox.org designates 80.241.56.172 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=s1ps5tGe;
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=from:subject:to:cc:message-id:date:mime-version:content-language
-         :x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=m5sOyNJmlIXF8Yj2TIzyGrNW+n5dNLekb0a8V4qg014=;
-        b=VuX8tpfH/umWdjDuhvqRJhZ0Hir/n1e8MS9zgMvbqrHbZpUpAB34MUZej5Me+zEe9E
-         toYi3YBCKwJaq2SoAjoYRz2EYvMK9IdnuyqeZDix+eB+T4ONOa6c/R/l5hAYZ+OrOppW
-         IdAZV+O6sCn0mH1Et2HxAW1j7CbVXbOW9Offxmm9w9/hCtOIJlzJYx1WAFPvacjFvVcv
-         DXsd26CNXMMhJ/x2stZm7FK3EKa8d1nZKN+oPqJRtVg+NSO2X+kt82z6NxHCEexPN4LL
-         ccJH54OCQjlEAZm/vZzo9qgYCcDx3h2TDtWM6rI2oji4Lqxu3LnSRoHsRj05NgNylfu7
-         ygZg==
+        bh=6YZ2LzefnQZNszzaUBybJEXq4xLRfwvLpfi2R0HYo2s=;
+        b=PFElSR2RkyMwuyo/4i//mCG6TnmIzEa9B/HvgLLOqBu/vcLSast4ojL9vFqy8Ed76H
+         tzupVFf5RdCPPM7R4nBkNqN2wz3TFDJqFKPQ0SMWgqGEiynjdt71uoo7XrjlZreVCJgG
+         22VRobqPs2jw9GNLLlRVeCqkw6WtaJEicMw6qMd7JpOhAP2GrAIVlsir4kFOZs+7lRjw
+         BqqYnaDBgpF5WoF1LO0oBDI4AihsIAteqdoNC0laKcJhvHhf20348d7zrTZvtt98J4pt
+         eXLaJokWRehT6qhrdO3m5c39VkVo8S6/WNhLKRuoit2MY44AshyNqacMG4m4Jm1QQeVm
+         xTMA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6YZ2LzefnQZNszzaUBybJEXq4xLRfwvLpfi2R0HYo2s=;
+        b=qrDpCQdlo2Z5k30O06CfihdGPt4SO/y+5H8Hlfqu8kBnjaTY1V4qVYmrZpPFzzi/wv
+         9nCRScRzh0+AF6gyNwkDFvmwOPLvI61Ux3gpLs1LYdRwdAqemol/poljqVVOtyleKzJb
+         RN/bZN+EI4cNIyrQJAMO0LWW4f1WYh0HCWF+Ql4PiXjdVIKgaZlGzWjEONzKNxKm/oyN
+         ISqPjoich/DkUxsfnYcwGU2f9LKDdtuXcLfN+II8UqID5+rxxfj8oHDvjBczZaMqk/L4
+         vLq3s4L/IdrF+m7QgT///pxu0YAqdnvsljAY0ISt+7eMsyyvrzRVy60ngiZwhc4fbabZ
+         oPvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:from:subject:to:cc:message-id:date:mime-version
-         :content-language:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=m5sOyNJmlIXF8Yj2TIzyGrNW+n5dNLekb0a8V4qg014=;
-        b=OXbqn7AhPfAjrkPMh4OoliAA4o2UjEz5cuYmFABnsAnuXpuQpNbFtqZF+K34QDdGQa
-         X0SJj18oBpzWRogdCEG5lLirodXUdCmnVILC11q1BQZ2sSi/LWRgV498HMWJmYG18euf
-         MtVfAme9tobagIaBByWYTDmlf+uRzoSleBY4e2gle0YAeqrH8WdJsRx6cUl/sjEKJ0cI
-         7bVEM/AgFnwk3g+EOAl71jxDWsxAY6qZqn+z6QI+aFIlczE7/cvHdDzfy7aQPiWQ2gaS
-         xaHmuHjrrBy3zBgA7AnqjCFzL5hygqqL+JVaqHym9SlM0X5hejemmbThCSqvGfzG+Bhn
-         p13A==
-X-Gm-Message-State: AOAM531jbsqkzy6Blcbe4AxLhiOTlWEIug7fnBazKCiGotM3Ztbi5W2l
-	ZdwKspk3nHxpfnnn77g5rPA=
-X-Google-Smtp-Source: ABdhPJzk+5SNMvaFDUO+e24RRKvmg5uWSED42IKUig2mfqqAfgRS3crmMJ8LwFmcRR5eoEuYPza7Fg==
-X-Received: by 2002:a05:651c:1a1:: with SMTP id c1mr19989862ljn.308.1626088214663;
-        Mon, 12 Jul 2021 04:10:14 -0700 (PDT)
+        bh=6YZ2LzefnQZNszzaUBybJEXq4xLRfwvLpfi2R0HYo2s=;
+        b=BPSau2Am46yoHgIrZg6KXUVNBSbDWgvI20yLge/0l7u2R42JEabx04RU6/gZmgj7Zx
+         lXPpOjyh3SF3uVav8icrIqUf3h7nHmeHdLQcjALxx3Igig/Rh0IUMziaRWohGPxmW17U
+         4xhvhFShJMPYpYKIS1aB2QgjFzb9/ZS/Zr2T+nrHOp1vk9oe/65/ZMINQtftIBBz6YQL
+         iFMK+mvt8zS8Jh0bh6kMNe1BA+A9NnqrZtGLg4y/8SXgY6R5hQUV8G6DrKoC/yVKTxKi
+         F/rmimd74/12vgu3r8VJlc+QsyMilispuZeJQUG+MqZbXyzKZRj8vHOZ8OgWghPqPg2e
+         VgmA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530p3Z/uj5dsKbV52Hn2G/cMReEFxBOG4tRMGKYaz26i6deuWp2e
+	qnLAe7vqbrLnsxuDzn/U/7Y=
+X-Google-Smtp-Source: ABdhPJzOD+SCC2b6OSUYi+pXIbyib2A3h5y0Sxzx5x7pQIYQlHzt4l5ApqmuugxGKAVPCM0Ld4RDYA==
+X-Received: by 2002:a05:6830:1f2b:: with SMTP id e11mr40732737oth.336.1626088990743;
+        Mon, 12 Jul 2021 04:23:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:508b:: with SMTP id f11ls427197lfm.2.gmail; Mon, 12 Jul
- 2021 04:10:13 -0700 (PDT)
-X-Received: by 2002:ac2:4578:: with SMTP id k24mr6495959lfm.521.1626088213654;
-        Mon, 12 Jul 2021 04:10:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626088213; cv=none;
+Received: by 2002:aca:edd2:: with SMTP id l201ls3107187oih.5.gmail; Mon, 12
+ Jul 2021 04:23:10 -0700 (PDT)
+X-Received: by 2002:aca:abd0:: with SMTP id u199mr33621010oie.125.1626088990402;
+        Mon, 12 Jul 2021 04:23:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626088990; cv=none;
         d=google.com; s=arc-20160816;
-        b=IY5uTRAFHZTKbH+vFEWj1130gqc1O7A9PV6yekym/wUp4DUXgfPInBj0X7SMNVaZqm
-         6mRacZjyeBESvHbscYy3z6NGaDZq2gsMiNpEKWb5jIJvLerPj8o9rmYJ931FPoUj+ItT
-         PdQxpJi+3l3ym1D/HqUWyaB+fi8bGvt77oGBlTRUcErshQZ43LH2x9PeZ11rOzolWrFk
-         kp+dvhbIfmbT4kEYx/9rFTJJ+BdwBW8ZqP1zkEcs0KxU5v/w1mjb2elh8ZlAB33xVJoN
-         93wFPMcC8D+BCWP4CTpBPKv6OlLZciVQCl75tCyQMBFIrz5qppPSQ/CIvi2wV3ezAe74
-         +FFg==
+        b=fim72ZQ+QPBfGahXqKgaohT5hMpWsTR9Z2EfIV/UF8LkdM5fPTsoNt5X2O2JrOxH26
+         ASaiTnbPt/p9tYmdO2Rtt1EtlMDEHD1z4WObE+PfxXWwPWUtt0H0XmGMoUEnwPLT0yy6
+         DG8w4aEpSXJSx9LGmTH5VsTZ4yWjStAv6o3vnF6Ft6Ayo9/omT+oDxjuIAosSBe1Phqp
+         /PgRKCoaGcExtGWeymvRnxGdrLAQZFFMJhIzw/yHDxzrROm5xIkautQNSynxT6mNqtJX
+         p08SJwiEddPekI9lwAb5eWvsi6lQOUZu0RxbAoGNbYIJ/gaQ7exbqgdODVab46XdgluA
+         WW4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:mime-version:date
-         :message-id:cc:to:subject:from:dkim-signature:dkim-signature;
-        bh=wOi1UYYQ8I3f24rxux4lFTLL6nRIrOruMYvcRjf03t4=;
-        b=FzcAdQx6n8AVpYE8lVR1JY1k4LnnFP35MWGexzZ7XNGVgRwZ58wFNYXuvFj6Jml7Bd
-         MXRRxj94JJyj7g5xn5SpJo7Ijz5IBEuzCJ8GNAFJTDYCayZ5OPsLZfKQvb5NQqVNG18/
-         7kDgKncBlIx2C1gDSl5Ff+nN13oU9YGGc4wLtQWLKqLKspSkeoBO4oFcu9SWHm00Q88t
-         zdAxL31r55cCgFvrROhjkVerM76gY532CqOLypXtZiDdLgz5+pqNThBuSZlWZBhA+yIS
-         X165n8kDwosLzEaPI99MjUwCn1HktvrYLkSkm7+dLnPhLPdCduOexvN2bjjaW6cRVsCj
-         GYsQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=kt2AGmYUjTDZkmm8PzAzZyi3di7YXnW8FBFskgtoS3g=;
+        b=A0lRrRndlAphiDoWhjGQe+O/YWuVWUtKZQqzaEyw/LsRPUOda1LeYfFcAyOAhWJ29o
+         t4VvXiiP96gsnKhnRAJnDBJllntHYMu5zZ62Y7La63Chke9zGcTNV5E6PLXN7I0a1CxM
+         3m1xXC+soEODKn5ELxzDsxHaw/7e6J3IIh8ODvrwlyIYmxsYAkhsKGH46p5kPADIGOyH
+         IjZdjsF1Klr9s+fYc0HT26yhaLke4M0gsYFt12P5efxg8TJuzUqxedANMh8eR2kUdmMW
+         vpeegor1vtis41KJODW19jYV2tP8VgwO/eXI4WfXReswTIbRsCetiwl8n2Q6UJghHweq
+         afyQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=n1hP2uZj;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=j30PfgR9;
-       spf=pass (google.com: domain of torvic9@mailbox.org designates 80.241.56.172 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
-Received: from mout-p-202.mailbox.org (mout-p-202.mailbox.org. [80.241.56.172])
-        by gmr-mx.google.com with ESMTPS id v138si644484lfa.6.2021.07.12.04.10.13
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=s1ps5tGe;
+       spf=pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pj1-x102e.google.com (mail-pj1-x102e.google.com. [2607:f8b0:4864:20::102e])
+        by gmr-mx.google.com with ESMTPS id h17si950764otl.0.2021.07.12.04.23.10
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Jul 2021 04:10:13 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvic9@mailbox.org designates 80.241.56.172 as permitted sender) client-ip=80.241.56.172;
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:105:465:1:2:0])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-384) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4GNgz86l8BzQk9Q;
-	Mon, 12 Jul 2021 13:10:12 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at heinlein-support.de
-Received: from smtp2.mailbox.org ([80.241.60.241])
-	by spamfilter06.heinlein-hosting.de (spamfilter06.heinlein-hosting.de [80.241.56.125]) (amavisd-new, port 10030)
-	with ESMTP id tO8fHc4YlX90; Mon, 12 Jul 2021 13:10:09 +0200 (CEST)
-From: "'Tor Vic' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Subject: [PATCH 1/1] Kbuild, clang: add option for choosing a ThinLTO cache
- directory
-To: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- masahiroy@kernel.org, Nathan Chancellor <nathan@kernel.org>,
- "ndesaulniers@google.com" <ndesaulniers@google.com>, keescook@chromium.org
-Cc: linux-kbuild@vger.kernel.org,
- "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
-Message-ID: <b45b2430-3670-b310-b6ad-2d6db50c2d18@mailbox.org>
-Date: Mon, 12 Jul 2021 11:10:04 +0000
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Jul 2021 04:23:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andy.shevchenko@gmail.com designates 2607:f8b0:4864:20::102e as permitted sender) client-ip=2607:f8b0:4864:20::102e;
+Received: by mail-pj1-x102e.google.com with SMTP id v18-20020a17090ac912b0290173b9578f1cso1457306pjt.0
+        for <clang-built-linux@googlegroups.com>; Mon, 12 Jul 2021 04:23:10 -0700 (PDT)
+X-Received: by 2002:a17:902:b08e:b029:129:a9a8:6dbb with SMTP id
+ p14-20020a170902b08eb0290129a9a86dbbmr29438350plr.21.1626088989908; Mon, 12
+ Jul 2021 04:23:09 -0700 (PDT)
 MIME-Version: 1.0
+References: <202107121816.wo6I99CS-lkp@intel.com>
+In-Reply-To: <202107121816.wo6I99CS-lkp@intel.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Mon, 12 Jul 2021 14:22:30 +0300
+Message-ID: <CAHp75Vc53u=Rgawnwn3nGCBn9Vqd24Z7fSkBiC35rzbC=VGKiQ@mail.gmail.com>
+Subject: Re: [gustavoars-linux:for-next/kspp 5/5] kernel/debug/gdbstub.c:1049:4:
+ warning: fallthrough annotation in unreachable code
+To: kernel test robot <lkp@intel.com>
+Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild-all@lists.01.org, 
+	"Gustavo A. R. Silva" <gustavo@embeddedor.com>, LKML <linux-kernel@vger.kernel.org>, 
+	Kees Cook <keescook@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-MBO-SPAM-Probability: 
-X-Rspamd-Score: -6.54 / 15.00 / 15.00
-X-Rspamd-Queue-Id: 88D25182B
-X-Rspamd-UID: d25e57
-X-Original-Sender: torvic9@mailbox.org
+X-Original-Sender: andy.shevchenko@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mailbox.org header.s=mail20150812 header.b=n1hP2uZj;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812
- header.b=j30PfgR9;       spf=pass (google.com: domain of torvic9@mailbox.org
- designates 80.241.56.172 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
-X-Original-From: Tor Vic <torvic9@mailbox.org>
-Reply-To: Tor Vic <torvic9@mailbox.org>
+ header.i=@gmail.com header.s=20161025 header.b=s1ps5tGe;       spf=pass
+ (google.com: domain of andy.shevchenko@gmail.com designates
+ 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=andy.shevchenko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,112 +146,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On some distros and configurations, it might be useful to allow for
-specifying a directory where Clang stores its ThinLTO cache.
+On Mon, Jul 12, 2021 at 2:11 PM kernel test robot <lkp@intel.com> wrote:
 
-More specifically, when building the VirtualBox extramodules on Arch with
-its proper 'makepkg' build system and DKMS, against an already installed
-ThinLTO kernel, the build fails because it tries to create the ThinLTO
-cache in a directory that is not user-writable.
 
-A similar problem has been reported with openSUSE's OBS build system.
+> All warnings (new ones prefixed by >>):
+>
+> >> kernel/debug/gdbstub.c:1049:4: warning: fallthrough annotation in unreachable code [-Wimplicit-fallthrough]
+>                            fallthrough;
+>                            ^
+>    include/linux/compiler_attributes.h:210:41: note: expanded from macro 'fallthrough'
+>    # define fallthrough                    __attribute__((__fallthrough__))
+>                                            ^
+>    1 warning generated.
 
-Add a Kconfig option that allows users to choose a directory in which
-Clang's ThinLTO can store its cache.
+> 53197fc4954924 Jason Wessel        2010-04-02  1039             case 'Z': /* Break point set */
+> 53197fc4954924 Jason Wessel        2010-04-02  1040                     gdb_cmd_break(ks);
+> 53197fc4954924 Jason Wessel        2010-04-02  1041                     break;
+> dcc7871128e994 Jason Wessel        2010-05-20  1042  #ifdef CONFIG_KGDB_KDB
+> dcc7871128e994 Jason Wessel        2010-05-20  1043             case '3': /* Escape into back into kdb */
+> dcc7871128e994 Jason Wessel        2010-05-20  1044                     if (remcom_in_buffer[1] == '\0') {
+> dcc7871128e994 Jason Wessel        2010-05-20  1045                             gdb_cmd_detachkill(ks);
+> dcc7871128e994 Jason Wessel        2010-05-20  1046                             return DBG_PASS_EVENT;
+> dcc7871128e994 Jason Wessel        2010-05-20  1047                     }
+> dcc7871128e994 Jason Wessel        2010-05-20  1048  #endif
+> df561f6688fef7 Gustavo A. R. Silva 2020-08-23 @1049                     fallthrough;
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/1104
-Signed-off-by: Tor Vic <torvic9@mailbox.org>
----
- Makefile                  |  5 +++--
- arch/Kconfig              | 10 ++++++++++
- scripts/Makefile.lib      |  4 ++++
- scripts/Makefile.modfinal |  4 ++++
- 4 files changed, 21 insertions(+), 2 deletions(-)
-
-diff --git a/Makefile b/Makefile
-index c3f9bd191b89..472bc8bfff03 100644
---- a/Makefile
-+++ b/Makefile
-@@ -932,7 +932,8 @@ endif
- ifdef CONFIG_LTO_CLANG
- ifdef CONFIG_LTO_CLANG_THIN
- CC_FLAGS_LTO	:= -flto=thin -fsplit-lto-unit
--KBUILD_LDFLAGS	+= --thinlto-cache-dir=$(extmod_prefix).thinlto-cache
-+export thinlto-dir = $(if
-$(CONFIG_LTO_CLANG_THIN_CACHEDIR),$(CONFIG_LTO_CLANG_THIN_CACHEDIR)/)
-+KBUILD_LDFLAGS	+=
---thinlto-cache-dir=$(thinlto-dir)$(extmod_prefix).thinlto-cache
- else
- CC_FLAGS_LTO	:= -flto
- endif
-@@ -1728,7 +1729,7 @@ PHONY += compile_commands.json
-
- clean-dirs := $(KBUILD_EXTMOD)
- clean: rm-files := $(KBUILD_EXTMOD)/Module.symvers
-$(KBUILD_EXTMOD)/modules.nsdeps \
--	$(KBUILD_EXTMOD)/compile_commands.json $(KBUILD_EXTMOD)/.thinlto-cache
-+	$(KBUILD_EXTMOD)/compile_commands.json
-$(thinlto-dir)$(KBUILD_EXTMOD)/.thinlto-cache
-
- PHONY += help
- help:
-diff --git a/arch/Kconfig b/arch/Kconfig
-index 129df498a8e1..19e4d140e12a 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -696,6 +696,16 @@ config LTO_CLANG_THIN
- 	    https://clang.llvm.org/docs/ThinLTO.html
-
- 	  If unsure, say Y.
-+
-+config LTO_CLANG_THIN_CACHEDIR
-+	string "Clang ThinLTO cache directory"
-+	depends on LTO_CLANG_THIN
-+	default ""
-+	help
-+	  This option allows users to choose a directory that stores
-+	  Clang's ThinLTO cache.
-+	  Leave empty for default.
-+
- endchoice
-
- config ARCH_SUPPORTS_CFI_CLANG
-diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-index 10950559b223..bca87a6aa35b 100644
---- a/scripts/Makefile.lib
-+++ b/scripts/Makefile.lib
-@@ -197,6 +197,10 @@ endif
- part-of-module = $(if $(filter $(basename $@).o, $(real-obj-m)),y)
- quiet_modtag = $(if $(part-of-module),[M],   )
-
-+ifdef CONFIG_LTO_CLANG_THIN
-+KBUILD_LDFLAGS	+=
---thinlto-cache-dir=$(thinlto-dir)$(extmod-prefix).thinlto-cache
-+endif
-+
- modkern_cflags =                                          \
- 	$(if $(part-of-module),                           \
- 		$(KBUILD_CFLAGS_MODULE) $(CFLAGS_MODULE), \
-diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
-index 5e9b8057fb24..ab0d72e21318 100644
---- a/scripts/Makefile.modfinal
-+++ b/scripts/Makefile.modfinal
-@@ -35,6 +35,10 @@ ifdef CONFIG_LTO_CLANG
- # avoid a second slow LTO link
- prelink-ext := .lto
-
-+ifdef CONFIG_LTO_CLANG_THIN
-+KBUILD_LDFLAGS	+=
---thinlto-cache-dir=$(thinlto-dir)$(extmod-prefix).thinlto-cache
-+endif # CONFIG_LTO_CLANG_THIN
-+
- # ELF processing was skipped earlier because we didn't have native code,
- # so let's now process the prelinked binary before we link the module.
+Obviously this should be inside ifdeffery. Easy to fix cases.
 
 -- 
-2.32.0
+With Best Regards,
+Andy Shevchenko
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/b45b2430-3670-b310-b6ad-2d6db50c2d18%40mailbox.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHp75Vc53u%3DRgawnwn3nGCBn9Vqd24Z7fSkBiC35rzbC%3DVGKiQ%40mail.gmail.com.
