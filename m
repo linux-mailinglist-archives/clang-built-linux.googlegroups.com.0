@@ -1,149 +1,138 @@
-Return-Path: <clang-built-linux+bncBDNYNPOAQ4GBBCPYW2DQMGQESHQLTRI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD763O5S5UARBT4EW6DQMGQEAMAHK2Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id A32453C7405
-	for <lists+clang-built-linux@lfdr.de>; Tue, 13 Jul 2021 18:15:07 +0200 (CEST)
-Received: by mail-pf1-x43f.google.com with SMTP id j10-20020a056a00174ab029031e1e93e88dsf15587028pfc.3
-        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Jul 2021 09:15:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626192906; cv=pass;
+Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id F017C3C751D
+	for <lists+clang-built-linux@lfdr.de>; Tue, 13 Jul 2021 18:41:51 +0200 (CEST)
+Received: by mail-lf1-x139.google.com with SMTP id z13-20020a056512376db0290329474fcc99sf8059592lft.0
+        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Jul 2021 09:41:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626194511; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nv0hkEkpV2CTqST2Ciz9jLGZtPaVMrtlsvF1z5D/6akaInQ4R37a+lo/+OKcZZzdzR
-         xbRU7Gf/lAMVxj9UDWpnj0N8vEcC5zkb1aKdcojnBEEUEEhU7f9NTcbkqJkbdQUAz7Si
-         LH7l6ikaS4faEHQfvh0IKVqZBahpFA828fTKQglObMPSyjbdamoQQtgrL/TmPLJ2gtgA
-         B5h/LZaOS0/MVGWpZcDrjataVxmD0QQeysQvBsKYt6NDfvrPHr3VAhZXarPBTn7cbtXG
-         dBQY2kh16ru6UdDJQ3MvOrh2jfQUQNO8nh5SUlEdMtjTrbLKjXf8JiXTBAbMtJk++Y8k
-         dvkA==
+        b=qMb1j2sZ+0+x1aRSkfHN13oy5B/E2S4AYt8sWLvgX7R2np5BNy+wmHdwYnM4ggD74e
+         grHdDD3aRomhUzWjTBEtqaJF6Z1Qsv0nvXIBlr60eTp4xcEaB/U9M4veOObtAaUEQpRs
+         Wn5yZPMDihZ6w2ixV/K5CDKlclpAlbgFwM2fB0aQei82oRqU9SrsfI1LxJtaqfpICyWv
+         s9GJpOBtCNK2zzge/BEMrSPM+D2KQ2TyY83qP3a9AQNzQpvpz7ToABKU2deJOlnLC/Qd
+         KZdtSqYkgRSbpIhZnH8jfL3VE8vCkZo9dbt6Aue5XCRoujsIcFV8ZgOP7L9kK7zYoSxW
+         Vqtg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=RyUApZossQkxMbxCWTtJB/MrNH+oXpfhIsCdAIK2uoE=;
-        b=Y4f7DalhNorlHgNrdikFenqsrFwFdHWu7O8EeiJzJELS5c8r3LDAdBNj3aOJKBdFfV
-         YNT4DM8l158Dtax3xdxRWxFU2JsVAW/6218yc1EWXXGi51WhegU8BOY+w7j1PKkYJT7B
-         /TDdOe82w4oMtiVeiUw1+g6NI7MGUUUuuWli48oBLw8Y7/Gm+kR7Rb7S73pazRCFPxTe
-         Iaju87WCTYBz0M69uQFjln5eN+ewYGNXo8Mmu+OK6bQJBvKftIzZ0fMrmoTWsO+Euo+L
-         DSG8LKhel3Dcmq/dpRC5/lyBUuN4t8+X0h0WGn6AkGV5cn9RqirxDj4NWXC7m21Bq8g5
-         5C2w==
+         :list-id:mailing-list:precedence:reply-to:content-language
+         :mime-version:date:message-id:cc:to:subject:from:dkim-signature;
+        bh=CkQXnWpqJDc0ZVQz6gahWZm+M7iXH1wIpvBhTJlvMks=;
+        b=SBvmcaHSqDb7XvjZi3sBtgWir1A4mcxzyhaWnB7vRhgSIOdvAZECB332OFaCUZOinL
+         YzE99dHhH9HrgkDhUqymwJkhfFF3bFMSQ2cjCEuogS76S2gtwuxdLl1/G8EtCzt0cOqp
+         kuX9Z4Am1dzmroA40hiYnoq0vyxSD8/E/Xg5IXE8pYKrRhAWUccrjQyZ0nGr2/wCoS3l
+         kZC3F7J/xCtwzfo6x1eflwpXD2jPPlehVIiW5zvl2JlegUuEqqPNc1FohkivfxT0Ktm3
+         R3OJEtqq6QBoO6i7RVbx0EKdGny3PDKI7rsQzvZ3o5jTT0rdWarYd7MBUkCGm/iA6RF3
+         qNuQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@embeddedor.com header.s=default header.b=a2Dkij9J;
-       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.145.171 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
+       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=L3LEee6P;
+       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b="oVta/ZFq";
+       spf=pass (google.com: domain of torvic9@mailbox.org designates 80.241.56.171 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RyUApZossQkxMbxCWTtJB/MrNH+oXpfhIsCdAIK2uoE=;
-        b=aA4DQ4OTynbLKqM8s/QKEAMCSGRIlnUZSKQ782mDVJ0XHqxgfXbT8rMjTBFvc/rWx5
-         zL/dF+yL6Ew4IshdWb0vb3lq9YcrUI3popmYQnLSa/71DuDc14mSrOyRQZEIRsESu8Q5
-         iDdu+kN2MJKnq7ApFxZ8Si2M1Ys5S7b6IYtJc1wdNswUShz/vYFGHtasU4PLRqW+zqCH
-         PJdM/yVeuJgwlpcnpgT/y9rDLeIh9utL7403m54fvnIOw6Xwcob15wifFebDlOCy3ayY
-         xkSYOtRlilgMjKLaZ3GnRgRI+TXmrNITAW7XAAm8Z36gajJ1NPU4z5fMIrUVARK9BGTX
-         vWmA==
+        h=from:subject:to:cc:message-id:date:mime-version:content-language
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=CkQXnWpqJDc0ZVQz6gahWZm+M7iXH1wIpvBhTJlvMks=;
+        b=PPgJbeU08QIDr90ocQ0htdDi2t7yD+mxGSJKflPiltzD2r0eyvBMC1h6kTDJiz7xEW
+         ejy2V85N7M4BJq77t+nfiFXRXkq6W4wj/uB4YNUGOv7Yfj8Sq1DCSD6jPYHRowd1q5nH
+         19KY6DQrd2wSj0/KACrkAFdicF4skyYZDZCs1BsabKG9/bYS5OwTY2gqozBfm57wwA+2
+         RyPAshb71IYxFWvIAYqje78s7vqPhMlGNxS81OMZYkdQ8YGRh08iVDMyiWRTm1HlcPMs
+         aTU0o/Q068nUha0JbMSopd7ZwuI+WCr0xk0xIPQ2xIiC3Q1EDTpacU8KoLQOlahn48qM
+         LaRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=RyUApZossQkxMbxCWTtJB/MrNH+oXpfhIsCdAIK2uoE=;
-        b=XIB6t/v5K3z7M70NpY9u3jgn8QKPRtBWyWLBeyjdq4w7twUol25ey0W4IqW3d6UbpB
-         Y/ljb+S8gIILdiTuxv4YRkn0zzGLZ5Y7xGynQCInJY66yb6Tqe2HnmztQ87nLhRXF5Xm
-         pZVmO3JSTZjMJKyUt5Ma69LSR2IHwINo8SesdxwTqo57pXIMz4JbIJlOuUUPj7dsG3hf
-         0gvPUP0msVUpoICoOQiKvhAcBHcuruya/BPriS1Bdm70amA0xd2q4iFaxYRAB/r7FGVf
-         EmRk4MaFGHSQUIxN5rE7P6dOp8MYBjDu1amCBXwKPatQ4JtcJmVEIpWWJrAx3SArT3N3
-         4nXg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532IDH9b7VKA2JTN+Lzl0J8Bxz2ahTEdc6FKn/ILlutOxV267CsV
-	/lwcrEbKjdY5rFT4Tuc1HCU=
-X-Google-Smtp-Source: ABdhPJwiBeprzM4vhDvBvLzQeuv6FX+myf1YjNNzKT9Ybop65OV2EUuGscRAR/ECZNRRg+DrcEVlrQ==
-X-Received: by 2002:a17:902:b717:b029:11a:fae3:ba7c with SMTP id d23-20020a170902b717b029011afae3ba7cmr3957918pls.28.1626192906114;
-        Tue, 13 Jul 2021 09:15:06 -0700 (PDT)
+        h=x-gm-message-state:from:subject:to:cc:message-id:date:mime-version
+         :content-language:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=CkQXnWpqJDc0ZVQz6gahWZm+M7iXH1wIpvBhTJlvMks=;
+        b=O+dXwUuz2pZ1xMfy6SohAuLvzqqynY3TueHjEeRtxN2r3MgG9mLEVq/P4IHZ1OsMPN
+         tCTjrcr0B0ETAzPovZC79QaGcgWiHaFQtVa3J8Ev8SMq8C51E9DsFAjccV4mMfbo3o4Y
+         AEc16xPFjJqy60cbWv8u1NAJRcLpS2IcVcB8reKQH8FewX12rIfiEqntPp6pBbY/icvA
+         El/X9eYyegDsJnaa0qhvBA8hrClJ7uoQpXWm0SK6g0vRMSRH/xdD7VffOC6TNu9OGFxC
+         Ug5JmuJ6fY+Op1lJLKqBv5qhO5LmTG4RSCG2HtlovWVXdnKl6PBHdR7Ojc/yYjszGhwy
+         uLyQ==
+X-Gm-Message-State: AOAM5307Fobx2zS6r50sATagKNEQinR5uc+NxiC8DaNVFG4J7BTWNUaK
+	tDMkBUvgB14FT9RR8I/eO3E=
+X-Google-Smtp-Source: ABdhPJzFknfodfXCAtCx+5R1c/D1gQy/Dgk+E1K+lE7ewR9iXmj2QZe8H/aKmRhTZFNnUrX2GTIb1A==
+X-Received: by 2002:a05:6512:1cf:: with SMTP id f15mr4230665lfp.261.1626194511306;
+        Tue, 13 Jul 2021 09:41:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6a00:24d5:: with SMTP id d21ls9412077pfv.1.gmail; Tue,
- 13 Jul 2021 09:15:05 -0700 (PDT)
-X-Received: by 2002:a65:6641:: with SMTP id z1mr5012289pgv.44.1626192905381;
-        Tue, 13 Jul 2021 09:15:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626192905; cv=none;
+Received: by 2002:a2e:a783:: with SMTP id c3ls4214548ljf.2.gmail; Tue, 13 Jul
+ 2021 09:41:50 -0700 (PDT)
+X-Received: by 2002:a2e:8e74:: with SMTP id t20mr4847540ljk.397.1626194510273;
+        Tue, 13 Jul 2021 09:41:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626194510; cv=none;
         d=google.com; s=arc-20160816;
-        b=tLGuXX4Uc8KQxMmqv3GUojl/OXV8+MfuGC24pIEIn+gUTLDF1kvZ23axmjNGSB0e/d
-         2CEJ2w5DTdcPg9ucnZCUcdvoUuzkINA2l4dVDKwZCl3IPMAvxK6l3E8js7Zve07ciIAI
-         1awV8eyfF2x/hyNHw/6GSLsZgXUVYL8AzpUQgv1k09La5fAcX6EaxAW1RvFPgi7/GF9O
-         BG2KnIBSHOPhMSeM0o5/iqJUS/uf37Lxwuk+h4IX2S/rrzOCGEWEaM3E+Bd7IDPwFCxt
-         QZ+mw2kniSgA/rUrSwV0UPECwMDzPfqGNifncDJngS5+xviaU/XAjqGn8eqZk6lk+DZF
-         Tvig==
+        b=nHJHbngIZdk6NuhbSMcvZ77TkhNbAk5s2mzVB4es2150mqBEbLcLShbZp35ijUYPRY
+         sXATFqbQDyemPVzswLkvrpAm3zGlwZY03rbP6Un48qzXtWJgty74AlJhjOZDQ21GgCRc
+         q0M3sQCWw0TbcShXgj3MVyXiPfMWn2yBY90DLfdigZeQ3U4QpMnwloOjpuR/W9jwor8v
+         +lkANMMDDOqIJi86eIZxhH39JMg2XyfTnKphJjrOrD0Wz0kxILDlSLkubs2SpS0P9ydX
+         qFHFT0wgqqjgmv+GQwqWM+I9H1mf06WWx/fPMxxxpxzEPPZASVap+UgLDWun0T/yO0WW
+         9O6w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=sob/jYZ+ICHMnKeN2+IbUq4k00ydiQQaht13e+sC9v8=;
-        b=EC0Tenq5eKLWpKyC/YvmScS07ht9KxNyW5QC3S0ansuTMp528M3X5eRjczutw0wrMY
-         rH4F64DJ0RihIp+4roO06+hxNdWg+ISFKh60cPZzHlrY1ikRKNlHAeA+epo1wUPUgA8n
-         wNklPWIjVDQvDBblqiDDCupwhWceewfPznAMyF9E5JtMS7XAciFC4qClXcvmk4S5s9h7
-         zx2cv9lQnR9ke13oAEwk2JSrDeEF3sxWm024gvyHhXnbKJ38laEmf0LTW3h4AYibrLcx
-         VoFQ7LiOd6zB+w+xNDmgsEVV0fh5fkUVXjYOLD+/NxPbnppPPWIiPWpQclZ/fghSEbx9
-         UHWg==
+        h=content-transfer-encoding:content-language:mime-version:date
+         :message-id:cc:to:subject:from:dkim-signature:dkim-signature;
+        bh=AdGwqYiU2Exy6QI/bwNjAGF2kjHGEu0qjw5lXgO0IGQ=;
+        b=jOSxq0oFgQiayMgsdav1Bla2X7kgGVf34ZPdxlFasu+IpUIoBZypTif4Q/kIEUFDTz
+         XLe35ua8WqZPknzTMDDYOuX6hZ5XGd46Vg3j3YaVJ0BPU7mh2rX2PvnV83qdiwrAqSx8
+         aiJLdLuslhJENtthM9NOSstR0s5hWeLVxuhoFdW/U/CpBqJZGMvrN1ImXtNiegjqa8jv
+         MBvaqJo/q7c2jPfayu7ybew8TkgFR8Ubx5pZ45HzAvmrUTZLiuuZz8SG6sS42GrxbXkP
+         qsUsUtmdYj3YigSh/8dqhNPTqHMWyPSkzgmxVV849YoECsOoiSiKiSC2oDCbbZfjFgdk
+         6qSw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@embeddedor.com header.s=default header.b=a2Dkij9J;
-       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.145.171 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
-Received: from gateway32.websitewelcome.com (gateway32.websitewelcome.com. [192.185.145.171])
-        by gmr-mx.google.com with ESMTPS id h13si88892plf.5.2021.07.13.09.15.04
+       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=L3LEee6P;
+       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b="oVta/ZFq";
+       spf=pass (google.com: domain of torvic9@mailbox.org designates 80.241.56.171 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
+Received: from mout-p-201.mailbox.org (mout-p-201.mailbox.org. [80.241.56.171])
+        by gmr-mx.google.com with ESMTPS id u17si878533ljg.6.2021.07.13.09.41.50
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 13 Jul 2021 09:15:04 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gustavo@embeddedor.com designates 192.185.145.171 as permitted sender) client-ip=192.185.145.171;
-Received: from cm13.websitewelcome.com (cm13.websitewelcome.com [100.42.49.6])
-	by gateway32.websitewelcome.com (Postfix) with ESMTP id 419683B53F
-	for <clang-built-linux@googlegroups.com>; Tue, 13 Jul 2021 11:15:01 -0500 (CDT)
-Received: from gator4166.hostgator.com ([108.167.133.22])
-	by cmsmtp with SMTP
-	id 3L3lmk8HdrJtZ3L3lmd30k; Tue, 13 Jul 2021 11:15:01 -0500
-X-Authority-Reason: nr=8
-Received: from 187-162-31-110.static.axtel.net ([187.162.31.110]:46140 helo=[192.168.15.8])
-	by gator4166.hostgator.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.94.2)
-	(envelope-from <gustavo@embeddedor.com>)
-	id 1m3L3j-003Zb6-PZ; Tue, 13 Jul 2021 11:14:59 -0500
-Subject: Re: -Wimplicit-fallthrough in -next
-To: Nathan Chancellor <nathan@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
-References: <CAEVzpNmJfWQrqaytnA19Vw8NSytS=3SWEBKF6qP6e2YeBXCKfg@mail.gmail.com>
-From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
-Message-ID: <91ca3e43-9fe1-ddc0-ac65-bd09950fb39a@embeddedor.com>
-Date: Tue, 13 Jul 2021 11:17:01 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.11.0
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 Jul 2021 09:41:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of torvic9@mailbox.org designates 80.241.56.171 as permitted sender) client-ip=80.241.56.171;
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [80.241.60.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-384) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4GPRHK3bh8zQkBw;
+	Tue, 13 Jul 2021 18:41:49 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at heinlein-support.de
+Received: from smtp2.mailbox.org ([80.241.60.241])
+	by spamfilter04.heinlein-hosting.de (spamfilter04.heinlein-hosting.de [80.241.56.122]) (amavisd-new, port 10030)
+	with ESMTP id Bf6s8kN6VwLN; Tue, 13 Jul 2021 18:41:46 +0200 (CEST)
+From: "'Tor Vic' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Subject: [PATCH v2 1/1] Kbuild, clang: add option for choosing a ThinLTO cache
+ directory
+To: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ masahiroy@kernel.org, Nathan Chancellor <nathan@kernel.org>,
+ "ndesaulniers@google.com" <ndesaulniers@google.com>, keescook@chromium.org
+Cc: linux-kbuild@vger.kernel.org,
+ "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
+Message-ID: <a6eea2c4-6d90-3ddf-33d6-973d1ae917e7@mailbox.org>
+Date: Tue, 13 Jul 2021 16:41:38 +0000
 MIME-Version: 1.0
-In-Reply-To: <CAEVzpNmJfWQrqaytnA19Vw8NSytS=3SWEBKF6qP6e2YeBXCKfg@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
-X-AntiAbuse: Original Domain - googlegroups.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - embeddedor.com
-X-BWhitelist: no
-X-Source-IP: 187.162.31.110
-X-Source-L: No
-X-Exim-ID: 1m3L3j-003Zb6-PZ
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 187-162-31-110.static.axtel.net ([192.168.15.8]) [187.162.31.110]:46140
-X-Source-Auth: gustavo@embeddedor.com
-X-Email-Count: 4
-X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
-X-Local-Domain: yes
-X-Original-Sender: gustavo@embeddedor.com
+X-MBO-SPAM-Probability: ***
+X-Rspamd-Score: 3.69 / 15.00 / 15.00
+X-Rspamd-Queue-Id: 478F21819
+X-Rspamd-UID: 1fac34
+X-Original-Sender: torvic9@mailbox.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@embeddedor.com header.s=default header.b=a2Dkij9J;       spf=pass
- (google.com: domain of gustavo@embeddedor.com designates 192.185.145.171 as
- permitted sender) smtp.mailfrom=gustavo@embeddedor.com
+ header.i=@mailbox.org header.s=mail20150812 header.b=L3LEee6P;
+       dkim=pass header.i=@mailbox.org header.s=mail20150812
+ header.b="oVta/ZFq";       spf=pass (google.com: domain of
+ torvic9@mailbox.org designates 80.241.56.171 as permitted sender)
+ smtp.mailfrom=torvic9@mailbox.org;       dmarc=pass (p=REJECT sp=REJECT
+ dis=NONE) header.from=mailbox.org
+X-Original-From: Tor Vic <torvic9@mailbox.org>
+Reply-To: Tor Vic <torvic9@mailbox.org>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -156,35 +145,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi!
+On some distros and configurations, it might be useful to allow for
+specifying a directory where Clang stores its ThinLTO cache.
 
-On 7/13/21 11:03, Nathan Chancellor wrote:
-> Hi Gustavo,
-> 
-> Apologies for the HTML email, as I am mobile for a few days but I wanted to
-> make sure you see this.
-> 
-> Looks like -Wimplicit-fallthrough is turned on in -next, thank you for all
-> the work you have put into it! Unfortunately, it looks like this breaks a
-> few builds due to -Werror and there are still a few warnings lingering in
-> architecture specific drivers. Would you mind taking a look? They can be
-> viewed at the link below.
-> 
-> https://github.com/ClangBuiltLinux/continuous-integration2/actions/runs/1026443499
+More specifically, when building the VirtualBox extramodules on Arch with
+its proper 'makepkg' build system and DKMS, against an already installed
+ThinLTO kernel, the build fails because it tries to create the ThinLTO
+cache in a directory that is not user-writable.
 
-I only see reports in this form:
+A similar problem has been reported with openSUSE's OBS build system.
 
-ARCH=mips LLVM=1 LLVM_VERSION=13 malta_defconfig+CONFIG_BLK_DEV_INITRD=y
-unannotated fall-through between switch labels [-Werror,-Wimplicit-fallthrough]
+Add a Kconfig option that allows users to choose a directory in which
+Clang's ThinLTO can store its cache.
 
-Is it possible to see the file and line of code that triggers the warnings?
-That'd be really helpful. :)
+Link: https://github.com/ClangBuiltLinux/linux/issues/1104
+Signed-off-by: Tor Vic <torvic9@mailbox.org>
+---
+Changes from v1 to v2: remove unneeded changes in scripts/Makefile
 
-Thanks
---
-Gustavo
+ Makefile     |  5 +++--
+ arch/Kconfig | 10 ++++++++++
+ 2 files changed, 13 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index c3f9bd191b89..472bc8bfff03 100644
+--- a/Makefile
++++ b/Makefile
+@@ -932,7 +932,8 @@ endif
+ ifdef CONFIG_LTO_CLANG
+ ifdef CONFIG_LTO_CLANG_THIN
+ CC_FLAGS_LTO	:= -flto=thin -fsplit-lto-unit
+-KBUILD_LDFLAGS	+= --thinlto-cache-dir=$(extmod_prefix).thinlto-cache
++export thinlto-dir = $(if
+$(CONFIG_LTO_CLANG_THIN_CACHEDIR),$(CONFIG_LTO_CLANG_THIN_CACHEDIR)/)
++KBUILD_LDFLAGS	+=
+--thinlto-cache-dir=$(thinlto-dir)$(extmod_prefix).thinlto-cache
+ else
+ CC_FLAGS_LTO	:= -flto
+ endif
+@@ -1728,7 +1729,7 @@ PHONY += compile_commands.json
+
+ clean-dirs := $(KBUILD_EXTMOD)
+ clean: rm-files := $(KBUILD_EXTMOD)/Module.symvers
+$(KBUILD_EXTMOD)/modules.nsdeps \
+-	$(KBUILD_EXTMOD)/compile_commands.json $(KBUILD_EXTMOD)/.thinlto-cache
++	$(KBUILD_EXTMOD)/compile_commands.json
+$(thinlto-dir)$(KBUILD_EXTMOD)/.thinlto-cache
+
+ PHONY += help
+ help:
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 129df498a8e1..19e4d140e12a 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -696,6 +696,16 @@ config LTO_CLANG_THIN
+ 	    https://clang.llvm.org/docs/ThinLTO.html
+
+ 	  If unsure, say Y.
++
++config LTO_CLANG_THIN_CACHEDIR
++	string "Clang ThinLTO cache directory"
++	depends on LTO_CLANG_THIN
++	default ""
++	help
++	  This option allows users to choose a directory that stores
++	  Clang's ThinLTO cache.
++	  Leave empty for default.
++
+ endchoice
+
+ config ARCH_SUPPORTS_CFI_CLANG
+-- 
+2.32.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/91ca3e43-9fe1-ddc0-ac65-bd09950fb39a%40embeddedor.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/a6eea2c4-6d90-3ddf-33d6-973d1ae917e7%40mailbox.org.
