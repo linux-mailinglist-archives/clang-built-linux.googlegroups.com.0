@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBMVAXGDQMGQEOV47WNQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBXW4XGDQMGQEPPDLTGI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8A6B13C7C02
-	for <lists+clang-built-linux@lfdr.de>; Wed, 14 Jul 2021 04:47:15 +0200 (CEST)
-Received: by mail-io1-xd3d.google.com with SMTP id c18-20020a5d9a920000b0290515fa57d24asf177276iom.20
-        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Jul 2021 19:47:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626230834; cv=pass;
+Received: from mail-vs1-xe3f.google.com (mail-vs1-xe3f.google.com [IPv6:2607:f8b0:4864:20::e3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 945113C7DB7
+	for <lists+clang-built-linux@lfdr.de>; Wed, 14 Jul 2021 06:55:59 +0200 (CEST)
+Received: by mail-vs1-xe3f.google.com with SMTP id v27-20020a67c89b0000b02902227f70aa8fsf514118vsk.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Jul 2021 21:55:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626238558; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ferhFPNhj2nzckUEtRhaO2QfpRdT+6LVKh5Hu5fDiQ9GowACBVksfGABdIKtz6HJre
-         wjuVI7Gwd3yTcmNJE5+wi7mZuk3tYvwnAk1jPX11lIhmmNAXR33hcAEslMDBEDcQFxua
-         2BSxpgLX1HzG8/aJhxqg8CaZZ0FeCqwptv9ZBVcyk7B5WgqNtILlwu+28+dO3yBni0uo
-         BcXUEKlsZAFH6Fn+lMj1GK0CRmaCp15//FMGg/FIHrS8Zutjx1cZol2f8x4AlcvBccdE
-         0N6XPUFHJab83FkVpZxLGyNj7W7SKRNZRt4jJ8zi8r/YZEarVCyLt9c3JKPyijchnio9
-         +/AA==
+        b=Y2ISWHTpvPxO60dHpLTtOxroiT8R7/SSk8ErD3HB6rt4q1kjuFrp9pateQ9zKlMLZO
+         /90UAESwlOBJTjRVbhYujlorqsDk4C/ORoFCbJzGbVhxnu/ODdfj9tGd0oku8hYM1t5m
+         GukFmqWibKo1YPd0/7nJS91TuFYzE1MghG0JIue7SoIro9ALZuMMDS+/HJDk4wFlXnps
+         mAWU1z+S6/NcrXOx058BcnadYXerWwg0Kwu2X2EK4OO6cgkZQ7tdsUhYQ22UiwTj/GEd
+         MpL4MBHv9up+ldAWsG50Sq/WlU4s4UawzbBL4wF2oUvaFS0sFCqBaWdS1obReMn6IFFE
+         wmPQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-filter:sender
          :dkim-signature;
-        bh=5vf+cvsTT4pKDoOWW/bbpt4qRssYYsd3gGzwzcX1+zQ=;
-        b=xR2qq3Yq3MhPn4c5GlJeoI0YvlezQWwa8RksdnyNiuN66ukHqFY+BzL7jZDclGWwIf
-         bE4hAF+JX2mGdTC4Dos8LwarPaMiPk3jiorI8LdsWUpCoV6uTtaLQZYNNe+773RoCNX2
-         9YLcEC+9MSUV4433CKCMlD31/SmA6wYJWrS7YvrZ8+Gc8CCpx2K7cJBX8htVBgc25QBj
-         D/qgi/O0dHdTwvUnT68eUcE9uYkm1dCw29tRFSCfOKeposUVR7orT5rV1Se84Ma8wil6
-         BRqEjvVzVp5C0sHzSFNzb9Dc4sQaY7uOkPva1AwRiVVqBVBPHMsbxws9v7y2tO6NsLj/
-         CXUg==
+        bh=AtMyU6j200G4lel30uXwYiqwt05CdBOqvuwXVXNbjwU=;
+        b=C4cvb4cmYg92T+T5IU9L4UwPYOzyUJ9ahmQJO6k4fHDNtySJ/6mWp0ouloH55upBfT
+         doHoKNdz1MWPyudFsGWwf5ugXhpfYVKomlURd8F5pdIMFDe2XsDDR9FBvwbPMxYVo8Y3
+         uiX+gaAVrJVOBi5gPgu/iXTYE+ssAt+OlSmcJSukDavq9hbPW37tYuBauoi7P5WSi4op
+         8mt1LcsNy5Rbm5s5MRJCtnj2srq0NtCf2EJcA9/AzBkKdjBjQJHe0hLsXs39WqHX1rns
+         K0m0UEKeVEIzsFvC2EwSoYS/ynpKvR0/+KEng1MrvDHdY5ZY5Jw2hbHH20u1XxUIHyB6
+         cpEw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=JR6rlsoJ;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=KX6SCE+7;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5vf+cvsTT4pKDoOWW/bbpt4qRssYYsd3gGzwzcX1+zQ=;
-        b=hHQ0thVkFVoFv+Ra+M3zhy74kopdbm1CsCly2He3xNoyCbQAimZsG65F1qXwv6Ggor
-         i+TAy/9rxtWl0saOhcfwu+JZVcNIPQJAl6Wb6qlTJ45Vcnhtvav9dXvpveIAUfPqM4PD
-         iSleQY8vBb5Af6Oaperu20q91HA3OU80YDziSHIjLwVz5qyJubzalWbCxN6a/fB4XkGz
-         GFf6nc4rMV2dZ7ei8uGbvbtBGfD1q6K0ThUATDT8NARtE3AVVo2CZH/lEhSv2Uqy8WbT
-         5u8Q7rMERfvVgDHRvEke36H+mVh9OE+b3mrf92+/jy8qV8TXiOzumV9gag36Z462oNIy
-         v42w==
+        bh=AtMyU6j200G4lel30uXwYiqwt05CdBOqvuwXVXNbjwU=;
+        b=TS41oZp9gKNm/1MzHJYfHzrCRyS8XpnQiQ7mXABEWdwJSLaGT7KmSJO7IrC4se6nHu
+         K31C7mbi2grz6ctMRG1ozAcgrIV3Au+UGV0ehmhlntjtT6tE2R/vTVRcjzxcirzIPnwL
+         uqqgMwZ5ShvTUSxwuRzevjTt20ZUiklfyOg/BBmB2nb5eG3z2vz++7cEHRl7ZiJD2JsE
+         zk3c0L3QRYa7svE7DQ+TRs+q8mnT4HJGC7oCTNQAm0AAUYwY9xoxTyEkUYJtowcsAgCZ
+         Zxe0/EzUnj2jtwrid/g3360mSNEyoWdbZYdfWFbUySPTl3D0vE7R+n45Gqjb27ad4nOY
+         4L3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:dkim-filter:mime-version:references
@@ -50,83 +50,82 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5vf+cvsTT4pKDoOWW/bbpt4qRssYYsd3gGzwzcX1+zQ=;
-        b=quafCCpslUgIbHpPlYkfax0bQgw9sHQSIE8y5noozmftgkS4UPlZBxlHN6cEHF+KYY
-         avu/0lt26Rs8Mr6pqFx5K6THj0/onu89avOsG3acUtunwUBAec4zfc6fVVEUq47l9rmF
-         NG55piCJyJeSq/s56kuBmXKyX33cYDFCl2Qz5NnFEgBVUrhBB3gve738mjaKVGgzImUB
-         0tqWRKhu1Ez0r7GPCW8o09dmavYaRUneo/01YpaW0zc1KSC3Ec7Hi/6/DySBvVtEeDZg
-         RjSsmbHK8BI5s17OyhMNtRfie6hLIr2BDleaBvjwwNuQONHcTdpwvOqW1tBXYS3vXvFI
-         FpTg==
+        bh=AtMyU6j200G4lel30uXwYiqwt05CdBOqvuwXVXNbjwU=;
+        b=G0a+pwhdR3X87CaOCdA/p3BBavivGABgHsd2d6TOZQVtf5+N7iQzdOQthW0c4kL302
+         +M8f3aWI4Ske7nXSOv2zMKlhT5Q2W5AV2c51470T42weVl/FQ8WKLYqrJWu7fScWMP/t
+         NO3bsdL/wU1NxVlS0HAsxSLq5BapHEWac2fBM7T73STF/kWlArRfS+Kr78lNPWAXoMXo
+         Zz16hopCJ5dfYoWGoNSNh45+6xr/9LT9E4sA7hLUDD/ZklY5kTsMiL9Qm9w6BosrqP/k
+         xA72/odKT3JtMh6Ilo3LKSlJtaUTfdoefezuYs0JxAJvshKJDT4NpEfY157K1QypLtgh
+         DAww==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531D1POrk3JtDTOg6vz/BPE+3e2UbRltCd/lnaSpiKquMiXMsIRA
-	pSQiprGTApZwbltovu+Pxyk=
-X-Google-Smtp-Source: ABdhPJwYxjmH67x6rpKevsnbrj6R3mHR5kEHTaocCYKAcBFF+EQ3rMUkV/x8YIhKhd2Nyk8r+du2Vw==
-X-Received: by 2002:a92:7d07:: with SMTP id y7mr5146617ilc.68.1626230834574;
-        Tue, 13 Jul 2021 19:47:14 -0700 (PDT)
+X-Gm-Message-State: AOAM530EEXJ8hvOHYkri2kfOaSL04sGi8Y+50oVUCKsQZFpCoE51+ixh
+	B8zuXJFByBYzrE7uNljHeSk=
+X-Google-Smtp-Source: ABdhPJxMPv0te6cUxbWwRqpxK6Q8zWlOikn24rwod31uagfKUONAnrQ5+Eq7N5K6vgRdL0lrpPd1wg==
+X-Received: by 2002:ab0:3b18:: with SMTP id n24mr11250975uaw.95.1626238558628;
+        Tue, 13 Jul 2021 21:55:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:1d19:: with SMTP id i25ls357346ila.10.gmail; Tue,
- 13 Jul 2021 19:47:14 -0700 (PDT)
-X-Received: by 2002:a92:509:: with SMTP id q9mr4982891ile.239.1626230834266;
-        Tue, 13 Jul 2021 19:47:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626230834; cv=none;
+Received: by 2002:a67:6996:: with SMTP id e144ls391041vsc.6.gmail; Tue, 13 Jul
+ 2021 21:55:58 -0700 (PDT)
+X-Received: by 2002:a67:ea98:: with SMTP id f24mr2157314vso.19.1626238558115;
+        Tue, 13 Jul 2021 21:55:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626238558; cv=none;
         d=google.com; s=arc-20160816;
-        b=LXOCCCjXM0v8naI2xg0o3MnAphxZFg+VQ+aNnY6UcG53hB0agHAJX9+/G8NZMoHtyp
-         hE4mbQy4q6pQkw/sQIswmizb6NvK111S/KCP0LGDmy2CG9xR/E0HfqRZ9F8r0Fe79NOa
-         pXSMbwZ/M1P3f1FlChGMPfiOa9GLIY/1vk830X+YWbKDTLZ8bWi32QJ/W8KUYrWyaAyl
-         U3iMIX1N5O76emBe/FnmGQQ1sLI9SmazMu8e+wcwG4iJhbA3DV36I/LZTFE7PZfSkQpK
-         I/u9bqJxpCFjXFkvdrw7TFin0QgeTUOEwrSjQQqz/yQsuZJ1qC7POocvMatVj8IZtZh7
-         46vA==
+        b=0DxE0QtK8LUQt0EfvOhmma8rmB7uXkte86gz6V5O0MP+ct/lYBJYNzlQaNn+7LlWJF
+         BiKrhlxl/sJK1M+faHlGBshp+ZTJzbcTz8KvLPXa3ljD3leoCtYgX2kG32qhqVGelHni
+         bod0i59nYvBQgJICuSI3Qfmj86RF5EadVc8n1KZgkxv5+LlvGy2NHP3Kj2aPzh9Y09/y
+         dNNjhNZjaa5mQhLiXHQNfZn0N7W5ojkXuuLS9mMX1V1L7tDHzQU4HlNmjM5xFjHaCyZr
+         7hCN8Oa6btU1/Z1iYX9IvR0xpbZalTeu7HO4iv8n9QOtiD7mdBOXEG5N1R4yvmWwwU1L
+         sI/w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature:dkim-filter;
-        bh=LnUl50BHavFxu7eFMFZuwtQbwZaQ3SxkzsrU6pPoM7I=;
-        b=EIv78VjmFqggnwjCYrQPpphYYzjtqlQ+mfLnoz6RYRgzQOuHTt7FNht6NNqhAunD44
-         SjjrFjno32OsjFjFzo3ckO5n32nLdUMw59HacQhXYRfFUIoxj4qx+AItnTaWxqPfY2cV
-         XWBl9StXb3EAUal/e3k7K0td1w/XAqhCdIzQrxFKc9l6KryIAezmtdKh2dHWts0RRABg
-         NkeXTRF1XHzynqg1hMixot89MmudJsPgxmY3zP75zo9L8igh9xveF2q0drrfmKY6ZPaE
-         6p6WlteMDGHLhkHrbFHDoSKsag5L+xi1Q5aHzwtRgLihjFg2/5500x8avIt2t2kO9pOW
-         WQow==
+        bh=RG3mFTWRkOy23j6Tuz6mqRZldb0E49OGrpWqNp//4bE=;
+        b=VduoYcsBnRuF1dSBY9GpKB5Q+TKCncKPrVLdewiCrmZZ6lqVYWdq8AqFgLbCX3tHfE
+         6Ki1OWZiwO3H97y/ClvFae0VIJ2kbKdIaIb8VvncTBwYeE9dbPgk6uX6BLxd+fGF1rin
+         PFNVmAgbHzSqnslc0KzkX2ykMWRq+eM/wO8n4B7ILY5s0Vk9xnxKRM8aHw0t0HMDKLlL
+         t+mmWAxr1/ncUnw+wVpnUTK/7zKJvrxM6Bu5OcMJipKYWFu9YD8G5zo+gk99bsF0OMwX
+         DJLjGNS7UC5jIPjKHnclhdb9ioSaahGQG/SL3y6PJXdVwL3/c2n5Xcz85wHevDjNoaQR
+         ssHA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=JR6rlsoJ;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=KX6SCE+7;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-02.nifty.com (conssluserg-02.nifty.com. [210.131.2.81])
-        by gmr-mx.google.com with ESMTPS id h15si64924ili.5.2021.07.13.19.47.13
+Received: from conssluserg-03.nifty.com (conssluserg-03.nifty.com. [210.131.2.82])
+        by gmr-mx.google.com with ESMTPS id f4si146306uap.1.2021.07.13.21.55.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 13 Jul 2021 19:47:14 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) client-ip=210.131.2.81;
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176]) (authenticated)
-	by conssluserg-02.nifty.com with ESMTP id 16E2kpO0003253
-	for <clang-built-linux@googlegroups.com>; Wed, 14 Jul 2021 11:46:52 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-02.nifty.com 16E2kpO0003253
-X-Nifty-SrcIP: [209.85.214.176]
-Received: by mail-pl1-f176.google.com with SMTP id o8so711897plg.11
-        for <clang-built-linux@googlegroups.com>; Tue, 13 Jul 2021 19:46:51 -0700 (PDT)
-X-Received: by 2002:a17:90a:c506:: with SMTP id k6mr1447795pjt.198.1626230811130;
- Tue, 13 Jul 2021 19:46:51 -0700 (PDT)
+        Tue, 13 Jul 2021 21:55:58 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) client-ip=210.131.2.82;
+Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43]) (authenticated)
+	by conssluserg-03.nifty.com with ESMTP id 16E4tb6B000914
+	for <clang-built-linux@googlegroups.com>; Wed, 14 Jul 2021 13:55:37 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com 16E4tb6B000914
+X-Nifty-SrcIP: [209.85.216.43]
+Received: by mail-pj1-f43.google.com with SMTP id bt15so840005pjb.2
+        for <clang-built-linux@googlegroups.com>; Tue, 13 Jul 2021 21:55:37 -0700 (PDT)
+X-Received: by 2002:a17:902:8ec7:b029:11b:acb4:ac43 with SMTP id
+ x7-20020a1709028ec7b029011bacb4ac43mr6217143plo.1.1626238536711; Tue, 13 Jul
+ 2021 21:55:36 -0700 (PDT)
 MIME-Version: 1.0
-References: <a6eea2c4-6d90-3ddf-33d6-973d1ae917e7@mailbox.org>
-In-Reply-To: <a6eea2c4-6d90-3ddf-33d6-973d1ae917e7@mailbox.org>
+References: <YO3txvw87MjKfdpq@localhost.localdomain>
+In-Reply-To: <YO3txvw87MjKfdpq@localhost.localdomain>
 From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Wed, 14 Jul 2021 11:46:13 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAT9oMkSthmCJ9sq3PFRcYgZoC6O0o==WQnKOU0znzT6hQ@mail.gmail.com>
-Message-ID: <CAK7LNAT9oMkSthmCJ9sq3PFRcYgZoC6O0o==WQnKOU0znzT6hQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/1] Kbuild, clang: add option for choosing a ThinLTO
- cache directory
-To: Tor Vic <torvic9@mailbox.org>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        Nathan Chancellor <nathan@kernel.org>,
-        "ndesaulniers@google.com" <ndesaulniers@google.com>,
-        Kees Cook <keescook@chromium.org>,
+Date: Wed, 14 Jul 2021 13:54:59 +0900
+X-Gmail-Original-Message-ID: <CAK7LNATVysAEkcq86AD75njoXis67M4i+QVEfg5LawWzfC1h9g@mail.gmail.com>
+Message-ID: <CAK7LNATVysAEkcq86AD75njoXis67M4i+QVEfg5LawWzfC1h9g@mail.gmail.com>
+Subject: Re: [PATCH] Decouple build from userspace headers
+To: Alexey Dobriyan <adobriyan@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
         Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        linux-arch <linux-arch@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=JR6rlsoJ;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=KX6SCE+7;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+ 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -140,96 +139,88 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jul 14, 2021 at 1:41 AM Tor Vic <torvic9@mailbox.org> wrote:
+On Wed, Jul 14, 2021 at 4:47 AM Alexey Dobriyan <adobriyan@gmail.com> wrote:
 >
-> On some distros and configurations, it might be useful to allow for
-> specifying a directory where Clang stores its ThinLTO cache.
+> In theory, userspace headers can be under incompatible license.
 >
-> More specifically, when building the VirtualBox extramodules on Arch with
-> its proper 'makepkg' build system and DKMS, against an already installed
-> ThinLTO kernel, the build fails because it tries to create the ThinLTO
-> cache in a directory that is not user-writable.
+> Linux by virtue of being OS kernel is fully independent piece of code
+> and should not require anything from userspace.
+
+As far as I know,
+<stdarg.h> was the only exception,
+which was borrowed from the compiler.
 
 
-Again, I do not understand.
+I like this as long as:
+  - license is clear (please add SPDX tag to the new header)
+  - it works for both gcc and clang (I guess the answer is yes)
 
-Is this fixing the root cause?
 
-To me, it looks like
-"Anyway, this worked for me" patch.
-
-Besides, 'make clean' will never clean up the
-cache directory.
+I think removing <stdbool.h> and <stddef.h> are non-controversial.
+Mayby, you can split it into 1/2.
 
 
 
 
-
-> A similar problem has been reported with openSUSE's OBS build system.
 >
-> Add a Kconfig option that allows users to choose a directory in which
-> Clang's ThinLTO can store its cache.
+> For this:
 >
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1104
-> Signed-off-by: Tor Vic <torvic9@mailbox.org>
+> * ship minimal <stdarg.h>
+>         2 types, 4 macros
+>
+> * delete "-isystem"
+>         This is what enables leakage.
+>
+> * fixup compilation where necessary.
+>
+> Signed-off-by: Alexey Dobriyan <adobriyan@gmail.com>
 > ---
-> Changes from v1 to v2: remove unneeded changes in scripts/Makefile
 >
->  Makefile     |  5 +++--
->  arch/Kconfig | 10 ++++++++++
->  2 files changed, 13 insertions(+), 2 deletions(-)
+>  Makefile                                                               |    2 +-
+>  arch/um/include/shared/irq_user.h                                      |    1 -
+>  arch/um/os-Linux/signal.c                                              |    2 +-
+>  crypto/aegis128-neon-inner.c                                           |    2 --
+>  drivers/net/wwan/iosm/iosm_ipc_imem.h                                  |    1 -
+>  drivers/pinctrl/aspeed/pinmux-aspeed.h                                 |    1 -
+>  drivers/staging/media/atomisp/pci/hive_isp_css_common/host/isp_local.h |    2 --
+>  include/stdarg.h                                                       |    9 +++++++++
+>  sound/aoa/codecs/onyx.h                                                |    1 -
+>  sound/aoa/codecs/tas.c                                                 |    1 -
+>  10 files changed, 11 insertions(+), 11 deletions(-)
 >
-> diff --git a/Makefile b/Makefile
-> index c3f9bd191b89..472bc8bfff03 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -932,7 +932,8 @@ endif
->  ifdef CONFIG_LTO_CLANG
->  ifdef CONFIG_LTO_CLANG_THIN
->  CC_FLAGS_LTO   := -flto=thin -fsplit-lto-unit
-> -KBUILD_LDFLAGS += --thinlto-cache-dir=$(extmod_prefix).thinlto-cache
-> +export thinlto-dir = $(if
-> $(CONFIG_LTO_CLANG_THIN_CACHEDIR),$(CONFIG_LTO_CLANG_THIN_CACHEDIR)/)
-> +KBUILD_LDFLAGS +=
-> --thinlto-cache-dir=$(thinlto-dir)$(extmod_prefix).thinlto-cache
->  else
->  CC_FLAGS_LTO   := -flto
->  endif
-> @@ -1728,7 +1729,7 @@ PHONY += compile_commands.json
->
->  clean-dirs := $(KBUILD_EXTMOD)
->  clean: rm-files := $(KBUILD_EXTMOD)/Module.symvers
-> $(KBUILD_EXTMOD)/modules.nsdeps \
-> -       $(KBUILD_EXTMOD)/compile_commands.json $(KBUILD_EXTMOD)/.thinlto-cache
-> +       $(KBUILD_EXTMOD)/compile_commands.json
-> $(thinlto-dir)$(KBUILD_EXTMOD)/.thinlto-cache
->
->  PHONY += help
->  help:
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index 129df498a8e1..19e4d140e12a 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -696,6 +696,16 @@ config LTO_CLANG_THIN
->             https://clang.llvm.org/docs/ThinLTO.html
->
->           If unsure, say Y.
-> +
-> +config LTO_CLANG_THIN_CACHEDIR
-> +       string "Clang ThinLTO cache directory"
-> +       depends on LTO_CLANG_THIN
-> +       default ""
-> +       help
-> +         This option allows users to choose a directory that stores
-> +         Clang's ThinLTO cache.
-> +         Leave empty for default.
-> +
->  endchoice
->
->  config ARCH_SUPPORTS_CFI_CLANG
-> --
-> 2.32.0
->
+
+> new file mode 100644
+> --- /dev/null
+> +++ b/include/stdarg.h
+> @@ -0,0 +1,9 @@
+
+
+This is a new file, so please add the SPDX tag.
+What project did you copy the code from?
+
+  If gcc, is it GPL v3 (but not compatible for GPL v2) ?
+  If clang, is it
+   SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+Or, can we license this small portion of code
+as GPL v2?
+
+
+
+> +#ifndef _LINUX_STDARG_H
+> +#define _LINUX_STDARG_H
+> +typedef __builtin_va_list __gnuc_va_list;
+
+Where is __gnuc_va_list needed?
+
+
+
+
+BTW, once this is accepted, I'd like to
+change all <stdarg.h>  to <linux/stdarg.h>.
+
+
+
 
 
 -- 
@@ -239,4 +230,4 @@ Masahiro Yamada
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAT9oMkSthmCJ9sq3PFRcYgZoC6O0o%3D%3DWQnKOU0znzT6hQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATVysAEkcq86AD75njoXis67M4i%2BQVEfg5LawWzfC1h9g%40mail.gmail.com.
