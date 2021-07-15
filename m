@@ -1,120 +1,127 @@
-Return-Path: <clang-built-linux+bncBCQJP74GSUDRBCF4X6DQMGQEKA3CN2I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCN7B3VUS4CRBPGLX6DQMGQE3E4QMZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103a.google.com (mail-pj1-x103a.google.com [IPv6:2607:f8b0:4864:20::103a])
-	by mail.lfdr.de (Postfix) with ESMTPS id B4B9C3C9954
-	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Jul 2021 09:04:42 +0200 (CEST)
-Received: by mail-pj1-x103a.google.com with SMTP id a16-20020a17090a6d90b0290172c6293174sf3043068pjk.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 15 Jul 2021 00:04:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626332681; cv=pass;
+Received: from mail-qt1-x839.google.com (mail-qt1-x839.google.com [IPv6:2607:f8b0:4864:20::839])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2B8923C99B5
+	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Jul 2021 09:37:34 +0200 (CEST)
+Received: by mail-qt1-x839.google.com with SMTP id d9-20020ac84e290000b0290256a44e9034sf3567453qtw.22
+        for <lists+clang-built-linux@lfdr.de>; Thu, 15 Jul 2021 00:37:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626334653; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sLmKx3+IcpQxOBOdsLf+n0VvvGkGnDYZsgptlclMSDC56JM08wsxPVwoAemDvNmv8e
-         ZwXARpnCuUIBuMczCLSKIWPUtSxGd/H232tWhD3uZYxmuI15JShVNbgZDSfYFdvwDmTl
-         lk6sMdCM7VqsZZNGn6yiwkg0VAihlLWnuMlB1XGNsYLXwLK0pnia/B5XzG5RNwiTlre4
-         esinmgU8H1HcQRnYvGzIuIkpi+X5sQ5tUqlm+2r3bnPwG9dFA0C2BMFFmpyUpvhrE8uE
-         hZqeD6xceiwsLL3jGY2XYBCCFejxGzMR8nwCm1kY6N8w7n4j0rXIC7Q4rDCwTrdKQBhd
-         cnUA==
+        b=XUvv/W8SbqOZhpTd8ezsti0zPPTJo7Df7Z4Oi73+lm3tZ2i+c8xBaQHnkUBInCLv1c
+         aOD+fpKjufwSyOrpYlJ1xdNOP4E3YroZw9U4CCcVl4rGDjlaBFUmUmqz/Z7ogf84LK7S
+         FRKnAUOSpT0W/NOgySb+x0te6H+5mZ0UE63hIdXK90FnbMkUSy1hkAUgMr3Gz757GvkB
+         2q04090+xWpUtqCsJKvuePAlbXWen9233eK8OVYkSsVupPptgMuSR7cdZ2i6XE+JKVu1
+         Y/y7KXKFR+1pRVjkUoUbJysQjoc4QlaWeYRUrvikyv71rmMildGqnuuYF2nMt3M2ZQHe
+         0hKA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=qB+d8rnAEY9Qwg9FZdegQsPRKxXGtMCMApVmdxjsuGE=;
-        b=w8qsS1r9NqVuBvDICo2We5DLKiGTx7S3hDxnyiIJjCBJET8D2/sXRNWfcBhWHf+8Po
-         fC8DC6Gk0aKUXBWWNlXfv5KNv4ZwRvCd+0AJ132M+oyRUJZPfFlBMNT6tBX7PcNf51rJ
-         zL0eVM0kxDqVK/sq/d6wSDn8VqHpUp1fV+Zbf6yUKZ69KTMQM6hxy1zuwRmBULRqxR2a
-         cqGtCiBddlUdXSSXSnIgKQM9dN3bGhOp8KGB8m5bvYKdaFzCzM5q5hCk2Pcy4WHiHOx9
-         61RbNxXOpUOZGiUMwH3/GgCc9HXByMjd/UU4kdhvFgP0zbuIUIRLcYPbGFi8GOx/+4Il
-         yX2Q==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=0cKtRiBRRuKMYnwZ6fzpPnGa0WaWNUvezlhXN0UPS/U=;
+        b=Gu/6in3I1DnNvlysealrrAHxUAFQQ7lIooWpDbuhLRSTBZofPVK13+mHtN/uHg7cd5
+         Np4Wk6pfdqgAHzi/uCpCvr84OrsNy1Hp0wxc4fm5qv5kBT5EkSD+SUdPFlxcCGq52NxX
+         n3XHs1BCiDVDuknYYd0nSrp4UZzNDLzRgMa+vLbLUK1yNIejcNgBIAG28Wfda2X9j/XU
+         EqJnl77IdaAx+Ugvx9Rn+0cJWxGz3NLX7tV9WXQhDzY4uac6uGiT2MjXEXQnEUx2nVZh
+         8k55mBnAEgwXSMU4sgRfBUL7GO04eK3YtA5cWc1vgP9xWJeOrmswaNJ1lS7Mmsgh9oSz
+         bcrA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.221.179 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+       spf=pass (google.com: domain of lecopzer.chen@mediatek.com designates 60.244.123.138 as permitted sender) smtp.mailfrom=lecopzer.chen@mediatek.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qB+d8rnAEY9Qwg9FZdegQsPRKxXGtMCMApVmdxjsuGE=;
-        b=jF2RzkaVe7VWHSPEYrDghagok5A5Cx2SWDdVmxgkuTuAodzALvu+GEvp0s32pztdvk
-         P7Uh+pgS0Rcc+53/bpDRn+6P3FzOVxcy/pPcTTE4DINkgoHieNodXnQRLQ+JYYs2cLMg
-         fCCwmU2jxYwHyPExSZclJgq6spZuaWy7UyOzWppJGxyc0Oksdh7l/aSgEScUxd5fHhyU
-         gVMtyTmk2MuwlBMg8+OHdN6sGVrqTsCI1+dwqnsM+SS6jrbP5gJO/0XtZAF+THFy994a
-         J9nxUt2Gy6kw8e8cVMqGa3+B9xH+BcoSLzVNEVRT8GJbxrKG+IGGmz/X+2enDPheFZfC
-         rdrQ==
+        bh=0cKtRiBRRuKMYnwZ6fzpPnGa0WaWNUvezlhXN0UPS/U=;
+        b=IWnHNNZGGu0z74oPMQPj2uOf/1oOn5iIioLbZNtg+GtsJCVc3MYNXA0Dt/iNMhgl/H
+         vDmZlteJkSgXQtZwKKz0yCHEf9noTHzMw5uafHnAbi/umBDcI7ZYn7KzFokd/hYAtaxY
+         c6WjMXiqfbo1yBk5YluAEFkD39T6BM6+o5rdNFlPfHkMpnupsIGOgDLfiwRSJF+pE1LY
+         8P2nwMGel5dHDtyQxFM93WF/YCUbU/3Gq9JHwIz7+ZQGzFq4ZhPH+xU6/p3e9Xap3sXT
+         RpHYFyFJ3mvy/lX2ZO78Z98rmAlMO8DENPCUM8gjiKodGqYlB/fGPmg46J4CooegmDaU
+         nwTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=qB+d8rnAEY9Qwg9FZdegQsPRKxXGtMCMApVmdxjsuGE=;
-        b=OlF/AjlCpjU8qAcTzmAd4pxWyMdg/BBCtP+B7vbk3qEUguo+n4HUPBtLddTpbuhOmC
-         AKtwP3wPo8XxjeUbakze8Ym57QCVWFLhCvZRr21Nlgdp3RzzgdmpmzNYCzk+ZPpSL1NB
-         WW39IS1aX11n4HdPuj8W6qLbwK0Fms8Fozv/poZPszvb67DGNu7yyU7rfD6/LJH158TD
-         trBO3UFR7gvzdLC19UJSJUKlQfveYoqOgwKF5Vbsv57pGLnRAsvqnjg9X/EkARRs85g4
-         nrPycZd//qbhO2qlqqSfo3/IqYySnrPw/eGQSezjujabdocfmSs8TRoqjUhN7WUmRWlY
-         dg9w==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=0cKtRiBRRuKMYnwZ6fzpPnGa0WaWNUvezlhXN0UPS/U=;
+        b=Fm6CjfKRA9EweMzI6whs1DzpOnjaVJCO3yV90DIPZ3Cuv+ysue4XNEUx4GAdvwIHFz
+         Hmqth4FjdqN9YBmw//PA4fyrWOEdXt5ZhxfacozklNbF6WytyHgpboZg0PG04vhKDmQ7
+         mRdyu/17SGDW2rr5Sk/vqO5PvdRAVzfwtON8blyfnVoorTuayDJbkOTjzE8OvZRqrHZ1
+         7dLwZidUzEnt5mi9jWMD0/T4x2THMg3RYO/sMOKWTWoy2mM8iNX0y83y2IFMY1JoYqiB
+         b/C8b4IrhivHpdlEi6qOi1BrueLn6XG4avHEOOxaSCCQfEhOsinPd4tkmmfqnvpSM3xk
+         ANRg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530NQ9P4bbekoyHCdEAOCyQoAHOPr1huo0lL1RyILe0L4l/IeRWz
-	s/z6GgjDn7Eo76H4bcWvLwM=
-X-Google-Smtp-Source: ABdhPJyZMB0/Y5sHeQlckPR1BwclgSb7tWDR/lHxUizIfC9ZFWjBUQpWk5Daiv5gHQin/QXu7SjyBw==
-X-Received: by 2002:a17:902:bcc3:b029:11c:5ffb:61fb with SMTP id o3-20020a170902bcc3b029011c5ffb61fbmr2211676pls.18.1626332680991;
-        Thu, 15 Jul 2021 00:04:40 -0700 (PDT)
+X-Gm-Message-State: AOAM53358nzM/K2Iwo/sOuxzdlQ4pRsgGfcZR12PaVeF52KzH6I+YJHq
+	c7n11A3/WP5Tt8bt3GgrdhY=
+X-Google-Smtp-Source: ABdhPJygto8QLpHu3FC4UsObpMZEE9zeaz2WwEEqE6RxQCfpRe/ZPupThA22zXCMvdRYPD+7dlxzeg==
+X-Received: by 2002:a05:622a:34c:: with SMTP id r12mr2777636qtw.196.1626334652800;
+        Thu, 15 Jul 2021 00:37:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:7e81:: with SMTP id z1ls1792667pla.10.gmail; Thu, 15
- Jul 2021 00:04:40 -0700 (PDT)
-X-Received: by 2002:a17:90a:ce02:: with SMTP id f2mr7678080pju.232.1626332680352;
-        Thu, 15 Jul 2021 00:04:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626332680; cv=none;
+Received: by 2002:a05:620a:1583:: with SMTP id d3ls4186823qkk.10.gmail; Thu,
+ 15 Jul 2021 00:37:32 -0700 (PDT)
+X-Received: by 2002:a37:bbc3:: with SMTP id l186mr2598596qkf.67.1626334652351;
+        Thu, 15 Jul 2021 00:37:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626334652; cv=none;
         d=google.com; s=arc-20160816;
-        b=yEVGQHWFu00gezXLHY0RkctVKXMuxA/NuljVWp/q9SEvFWy1rzWzZSt35BaGjXdXyk
-         +K+Bjitj1qoRca9uf/Gm5iotojqXQYgolylG6e+J7WMNu4xBavOgMobuR4i7Qd4DNwx+
-         X64z2TV22UBaVeJ1x8gksVVDbHUnrcuu7sLG1tRAsqzuXFu7I0/p3HM3IxGJqDiZDtio
-         Rgqbd2YtPzP5NyeSlsCs6e8SYsjafl2IFXCsnsM+GLgGq2jxfcvI3WaP6sMgXNeF6Dfl
-         2Qq+KjLfZyQHi8MqIE9haTu6yoYtj2bNCM8/PPGPGjtQ7PVuK9bE6zIWQeUzzzBKWkhw
-         8IIw==
+        b=qF0xIKDP8NK8h0bXtm6aXq9Mq5La/thxppbWc703N0v/NozeFZ76TVFiSsS2wBX3g9
+         96BQxEsSP9dDwYOhKx2LGIM7BDBmdGVGHM5ldHbAN8uKvU8gMoa/0WYahnbwBtXxA5lA
+         YAaUhR5hPDjBHIfo5PvE+WTH1iBtlvh7fSpvaSJ+NIG/MINE/7ZvBfeIizV/XjNZi8XJ
+         cJtqX1pTaQ8ciHZEoK+AuXzEsR0XSWB230F401VaZkgXfzy985o2WuVOPhkQB6zSs3nu
+         pEJvbzUg5XvJo+I5bwqGx2BcG9USmx219LVmyoPc1pAfbdU/XLukGuGBefkWqBAmQmby
+         guFw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=xBOQfVAHN/gMLaUVEeV1YaP5S3H67lxPpg5yEoNNiuo=;
-        b=nuLezQVql1hMi2yqzht1Y1dd17jAbO65HA6eq296rb6t6XLsz2sV1RjpA4KWduFrVu
-         C/9PDxTj9w8La1EScGvehYoZ06/Udg22YcxqhU5wU4nWqB2J5el7NYiDMdBRT0rAbxIi
-         c9uOeRXKuGrVP+wVnbnBAM6MUOs+FukImNEkeE/jCPzUd8eRdQ7NJO9EPkeRRCFQT6Np
-         WufQqE4WKaTmLtqu1jyK1e6aR+PvTcxY60Pjuuloc805JpS4TS0wd8yVOcE9xLioS7aP
-         mYL1ngFEQjEDiJ/kyum6huMtadoDViZX7zaDzfWMIUqDD3ASXOC215DYeH3RMITws0+D
-         QBQg==
+        h=mime-version:message-id:date:subject:cc:to:from;
+        bh=ToZfBe8kS0lvFzYISwayHbsPFm5t7G6SWdC4UdhfzCY=;
+        b=Hgk3X7UDdEJbssvMGPPslrAiJHNTGxJjOAtPOfVUQil8/94opx2z8pmzJ+JEB37tcb
+         YzpHzklO1CkqDmCtEAxbNBUYvrrUtWlwCFC//7DMaw7ye/RPk3l77OQ4YZx7w9IJLkq5
+         pbJj0zlrSYQ97XZApSAdCPs/DeqhEAJAVpK3lTf3C0EEbjo1HEoDsQFyojtdWL66jiqq
+         Pwu99tweclJzvYCw4dIUl8wBFupSm9sIdNm8X1Acgj5s4IPc1VNEt0sX6K0lli0Fx3/Q
+         sxRme8ZL3op1NbtaXR4xtTgM7tKKh+0dka1bI0BmszYyIHYL0IjgzWBQSWsph7ZUJCWD
+         Z6wA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.221.179 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
-Received: from mail-vk1-f179.google.com (mail-vk1-f179.google.com. [209.85.221.179])
-        by gmr-mx.google.com with ESMTPS id o13si1236728pji.3.2021.07.15.00.04.40
+       spf=pass (google.com: domain of lecopzer.chen@mediatek.com designates 60.244.123.138 as permitted sender) smtp.mailfrom=lecopzer.chen@mediatek.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
+Received: from mailgw01.mediatek.com ([60.244.123.138])
+        by gmr-mx.google.com with ESMTPS id f6si48751qko.3.2021.07.15.00.37.31
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 15 Jul 2021 00:04:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.221.179 as permitted sender) client-ip=209.85.221.179;
-Received: by mail-vk1-f179.google.com with SMTP id x20so1075760vkd.5
-        for <clang-built-linux@googlegroups.com>; Thu, 15 Jul 2021 00:04:40 -0700 (PDT)
-X-Received: by 2002:a05:6122:a12:: with SMTP id 18mr4016447vkn.1.1626332679580;
- Thu, 15 Jul 2021 00:04:39 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 15 Jul 2021 00:37:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lecopzer.chen@mediatek.com designates 60.244.123.138 as permitted sender) client-ip=60.244.123.138;
+X-UUID: 6d577b4522f542c0af4e6c6b7242da3c-20210715
+X-UUID: 6d577b4522f542c0af4e6c6b7242da3c-20210715
+Received: from mtkcas06.mediatek.inc [(172.21.101.30)] by mailgw01.mediatek.com
+	(envelope-from <lecopzer.chen@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-SHA384 256/256)
+	with ESMTP id 1235068172; Thu, 15 Jul 2021 15:37:26 +0800
+Received: from mtkcas11.mediatek.inc (172.21.101.40) by
+ mtkmbs05n2.mediatek.inc (172.21.101.140) with Microsoft SMTP Server (TLS) id
+ 15.0.1497.2; Thu, 15 Jul 2021 15:37:25 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by mtkcas11.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.0.1497.2 via Frontend
+ Transport; Thu, 15 Jul 2021 15:37:25 +0800
+From: Lecopzer Chen <lecopzer.chen@mediatek.com>
+To: <lecopzer.chen@mediatek.com>
+CC: <clang-built-linux@googlegroups.com>, <keescook@chromium.org>,
+	<linux-kbuild@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<masahiroy@kernel.org>, <michal.lkml@markovi.net>, <nathan@kernel.org>,
+	<ndesaulniers@google.com>, <samitolvanen@google.com>,
+	<yj.chiang@mediatek.com>
+Subject: [PATCH v4] Kbuild: lto: fix module versionings mismatch in GNU make 3.X
+Date: Thu, 15 Jul 2021 15:37:16 +0800
+Message-ID: <20210715073716.17477-1-lecopzer.chen@mediatek.com>
+X-Mailer: git-send-email 2.18.0
 MIME-Version: 1.0
-References: <20210714151130.2531831-20-geert@linux-m68k.org> <202107150434.SylYq7Cs-lkp@intel.com>
-In-Reply-To: <202107150434.SylYq7Cs-lkp@intel.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 15 Jul 2021 09:04:28 +0200
-Message-ID: <CAMuHMdUf4C=+vUk6QRm5rO8meZCRZat3MrhktPBW7wUkZOxhug@mail.gmail.com>
-Subject: Re: [PATCH v3 19/19] auxdisplay: ht16k33: Add LED support
-To: kernel test robot <lkp@intel.com>
-Cc: Robin van der Gracht <robin@protonic.nl>, Rob Herring <robh+dt@kernel.org>, 
-	Miguel Ojeda <ojeda@kernel.org>, Paul Burton <paulburton@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Pavel Machek <pavel@ucw.cz>, 
-	Marek Behun <marek.behun@nic.cz>, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	kbuild-all@lists.01.org, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-leds <linux-leds@vger.kernel.org>, 
-	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: geert@linux-m68k.org
+X-MTK: N
+X-Original-Sender: lecopzer.chen@mediatek.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.221.179
- as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+ (google.com: domain of lecopzer.chen@mediatek.com designates 60.244.123.138
+ as permitted sender) smtp.mailfrom=lecopzer.chen@mediatek.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,27 +134,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jul 14, 2021 at 10:50 PM kernel test robot <lkp@intel.com> wrote:
-> I love your patch! Yet something to improve:
+When building modules(CONFIG_...=m), I found some of module versions
+are incorrect and set to 0.
+This can be found in build log for first clean build which shows
 
-> >> ld.lld: error: undefined symbol: devm_led_classdev_register_ext
->    >>> referenced by ht16k33.c
->    >>>               auxdisplay/ht16k33.o:(ht16k33_probe) in archive drivers/built-in.a
+WARNING: EXPORT symbol "XXXX" [drivers/XXX/XXX.ko] version generation failed,
+symbol will not be versioned.
 
-Thank you, the driver needs to select LED_CLASS. Will fix in v4.
+But in second build(incremental build), the WARNING disappeared and the
+module version becomes valid CRC and make someone who want to change
+modules without updating kernel image can't insert their modules.
 
-Gr{oetje,eeting}s,
+The problematic code is
++	$(foreach n, $(filter-out FORCE,$^),				\
++		$(if $(wildcard $(n).symversions),			\
++			; cat $(n).symversions >> $@.symversions))
 
-                        Geert
+For example:
+  rm -f fs/notify/built-in.a.symversions    ; rm -f fs/notify/built-in.a; \
+llvm-ar cDPrST fs/notify/built-in.a fs/notify/fsnotify.o \
+fs/notify/notification.o fs/notify/group.o ...
 
+`foreach n` shows nothing to `cat` into $(n).symversions because
+`if $(wildcard $(n).symversions)` return nothing, but actually
+they do exist during this line was executed.
+
+-rw-r--r-- 1 root root 168580 Jun 13 19:10 fs/notify/fsnotify.o
+-rw-r--r-- 1 root root    111 Jun 13 19:10 fs/notify/fsnotify.o.symversions
+
+The reason is the $(n).symversions are generated at runtime, but
+Makefile wildcard function expends and checks the file exist or not
+during parsing the Makefile.
+
+Thus fix this by use `test` shell command to check the file
+existence in runtime.
+
+Rebase from both:
+1. [https://lore.kernel.org/lkml/20210616080252.32046-1-lecopzer.chen@mediatek.com/]
+2. [https://lore.kernel.org/lkml/20210702032943.7865-1-lecopzer.chen@mediatek.com/]
+
+Fixes: 38e89184900385 ("kbuild: lto: fix module versioning")
+Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+Signed-off-by: Lecopzer Chen <lecopzer.chen@mediatek.com>
+---
+ scripts/Makefile.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+index 10b2f2380d6f..02197cb8e3a7 100644
+--- a/scripts/Makefile.build
++++ b/scripts/Makefile.build
+@@ -386,7 +386,7 @@ ifeq ($(CONFIG_LTO_CLANG) $(CONFIG_MODVERSIONS),y y)
+       cmd_update_lto_symversions =					\
+ 	rm -f $@.symversions						\
+ 	$(foreach n, $(filter-out FORCE,$^),				\
+-		$(if $(wildcard $(n).symversions),			\
++		$(if $(shell test -s $(n).symversions && echo y),	\
+ 			; cat $(n).symversions >> $@.symversions))
+ else
+       cmd_update_lto_symversions = echo >/dev/null
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+2.18.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMuHMdUf4C%3D%2BvUk6QRm5rO8meZCRZat3MrhktPBW7wUkZOxhug%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210715073716.17477-1-lecopzer.chen%40mediatek.com.
