@@ -1,142 +1,138 @@
-Return-Path: <clang-built-linux+bncBDRPZAGFRAFBBJGXYWDQMGQETJ4IVHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSKPKGMYYBBBWPAYWDQMGQECBIQVFI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x540.google.com (mail-ed1-x540.google.com [IPv6:2a00:1450:4864:20::540])
-	by mail.lfdr.de (Postfix) with ESMTPS id 919B03CB6A4
-	for <lists+clang-built-linux@lfdr.de>; Fri, 16 Jul 2021 13:21:08 +0200 (CEST)
-Received: by mail-ed1-x540.google.com with SMTP id p13-20020a05640210cdb029039560ff6f46sf4666163edu.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Jul 2021 04:21:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626434468; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id E06233CB6D0
+	for <lists+clang-built-linux@lfdr.de>; Fri, 16 Jul 2021 13:41:14 +0200 (CEST)
+Received: by mail-pf1-x43f.google.com with SMTP id 15-20020aa7924f0000b029033034a332ecsf6796158pfp.16
+        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Jul 2021 04:41:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626435673; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hOjNrEt8WJAZCycdUUn/ji+V/bqOcnCdIvteNPsu5MgPaqGvfWsj5Nj8Z4lVGTznWK
-         wxrCzFKJ6l5rjp8HjuaoNaTlcVeH7y5YNzD8ChSxgj1+6CnYZWc4clTvaLI84wb2N8qI
-         I2G+SRrl6X+0dp+aMI/SEWmiIlux1oR3jseNrw3hZDEvDoFFMheTWX7qPjO1u5J5UHhm
-         CRWPcE2ZU+W3MbxNcGO2oQzz9zIN10i99fI80pQN9wWsjlVclBImfMxiVl1QRtJBEpCL
-         o/xRuCC3SY1K9nyRefNiKWQcCln2N2s4BvoJk2CVcqTkAmO4On+odH2YJTx21e7mzDcA
-         wh1A==
+        b=spukZHnnck8DKWVKChX61L330753hIV3+0SqdKaOTbuU932iXAKz5hbccL4FeQb+sN
+         EXB6JPzD3ngau0FTLw6VE9/CscAmkITvGUQcHJLkamJNVDvAeTlxVBUmxXYEguV4RjRq
+         n47nVcI7yd/zQBXJWRXSZoiI9hRMcBDggbQAbYrfYc9VxUGhPy0UBiCu1nLjxtGBCDDA
+         dl2HltWlBjgOjGDVXF/sCrNRUg8NEFsLTMhwC73n1FyXunyRLeJFOPJJE7ZdFmFsD354
+         dXZDI+trmDebBPhXD7zDuLoTX2x/n6KjjGc5VPjzCsBp81akxtUK0k1jM9sESb7SCsaP
+         WGeQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature
-         :dkim-signature;
-        bh=Aw/u3ppRoPsyOaCTMQAgQih1kenBIuJcNgIBUr8a+J8=;
-        b=iW8mOlgFZUrxiU5AsJEld4ljyVU5w1fRoSb9O/Sd0ZR+L0+p2v+zAC25vsOWjByNZB
-         8s8C7VUy+iUS/SgjYM4u8ywvjF0iNIx7udIWf6bU9BLnls0USaRrHGCXhikMO6OoUdDw
-         PswV1A0n/0emgGHNPjqDyHDf4EQpy1tK2EUJg5fbwLAIn4zB8mDaw81w0KPxmq/Bv8AC
-         RCzkJfgTuFTHPvXzvPPwS7V6fImtVWehkJ0lNZ/UBBqJNzoUrSUICQ3HTSYuEJXNso0d
-         GfIwav6UJenOv5vhRclSl8LWIH5CJ9ZLjnmCFwNKG1Ve1OzkyzlrWzyoAA+bE7JJLNJU
-         K4aQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=nYCcLRGzCWqgr3z9NTnBkfKfllUODjINaUL7LAzhvuQ=;
+        b=egKI0mUF5Wr0iGhdt5IH0F8q7TiXTydzTt+h8kRppZFcfW6L3u7KEUhaY0lMseiEdd
+         JJ/QkNw9GbREroZXZSs38zEgStrQnf3IJAnln7PO/Qaq0wOR87oowirebpJUddvL+2rv
+         vpbV0Gm4/dUEU0ORMjCOAyeHBxlIaXJJNr6HYCm/K3pu/HLB0TUiOloAxdEA4Qp7PrO3
+         /r2pK/9Ufw6JVd/2mUviHgjgjHiRlxNnMMLfCT3xuZKuB7WA/Gpo5htz63oNz10nERnL
+         1lfW7AsGBCqFbWug5FDdrcDWGPp6RNPToHUowtC5apYHKK21ZIp3JQrNHZRyx742rJWE
+         7yUA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=cA+tbdv6;
-       spf=pass (google.com: domain of paskripkin@gmail.com designates 2a00:1450:4864:20::62c as permitted sender) smtp.mailfrom=paskripkin@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: best guess record for domain of sakari.ailus@linux.intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=sakari.ailus@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Aw/u3ppRoPsyOaCTMQAgQih1kenBIuJcNgIBUr8a+J8=;
-        b=Gi4CJUpbu3yHuB7Cyvp9U7mgo6FpaTJ8s6eklAAJlUeUXxs+9qNzZXmOYbB+HS/Lyx
-         bLnmbJTYJR/7Tslwbc7bImp8H7qxM3J9qLxed6bilsgJ2D041r+pE7ZsC9tpaG2Fqavo
-         ldQElvpjUhp8bfKPHqvKl4hJhedDlAX9k/WZdMfHibmJaDu+2A45hNTSdT5WvgKqp/+4
-         T+C1+X7gQZ7sodNXxpZ51QbXexm81hBeiCfsaD5X9XGOJvScaq6+k4V74x/DzU5ZUqc3
-         7yyiveZyMwOleYZmDQjsbkYf0jQA6dfAUuBSNpdfsmKTzCxv3OYgoCRUMGCwaWAQfKx3
-         R5HA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Aw/u3ppRoPsyOaCTMQAgQih1kenBIuJcNgIBUr8a+J8=;
-        b=rSiiLsHNSFWMTcaG8CWCCvE0aFLsLxQOuCAPMh1CSUip0gr1PDb+U9GE4YAu34tdNb
-         +bJ/KfsZ6CL5AybXZsOkPMNoSngeNewS/+mEiDsStbRMoSlxp3Z4FtlYD6M3gC7eKqtz
-         iZASjjW8fr/hf/6yVwWhjpSsW3W+UiqoK3dFWHzi1YwONhMvUQ+cIs0Sh+F5Lj4XryFH
-         GXh7sTneqKS4dF6hR+oTGsWR6Kz/+X/b0KJxb3wtPrju/taZOO/v1EHJ5gAKLZQldAxV
-         qWWTjHW04nP7K0ZD5IXdB39VTNd7W8PUM8GO6aRBwBr8cWb2ybNp1CCBbbJPpUpVdu89
-         nTzw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=nYCcLRGzCWqgr3z9NTnBkfKfllUODjINaUL7LAzhvuQ=;
+        b=girpvS8kSv3vQPcy9sRw19JxsYUmp9w52Y2sVK6Wn1sMLh0jJJuUX2UYazNtL84Pjt
+         qoHa46eNhgUnfFBKM2MjXsokAqHLIc+AmSF0iqsq1Ru0BOy27cCl4EL/tRvK/8QpvZ/5
+         h3KdwEUMPwYa9WMbTTdbxZL5q2i8m5D5H3RvZuUzCfW8r3JEiddJNGKlpK3Aq2RLJVz6
+         EBclNofaewxSJJ0gvZulSCMOiQEPSFQCLsBUCzzfrWPX3XMTYRQV9Rye5gA+Wvy1L8c+
+         3aolobVAJW5PcbZWhT0hBRYSz5RRrynj6OWuXWpcieZPsnCg/XayTDRiBcFzP7Cbdi51
+         aukQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Aw/u3ppRoPsyOaCTMQAgQih1kenBIuJcNgIBUr8a+J8=;
-        b=rV7q3UJPt1O9LEwzfO2pOE7McrGHIgz16VHxJnyP6rQrqoclVRyvKuaoA1H2Crtv8S
-         a4ogOgXjC5oJKue2wCku/D6e2mEaeI7SgxfmNZzi9OKVt4LyC+UMLsg81f/Ijz5IJ3qC
-         Ay+ELbxOkTIsgH3TlCHaKR7zF6+FszsJ5T9DRMd/OAE+arMJrYmo9LTkiXJ1tIMe+2LY
-         XowOp1BmZW4wVQYAPs8dXlHg1JBk2aYVzep83tXSBx4DMw0YeIeiYZ6bGVnqWzTszsyq
-         aRz7qoAJM4K+8ikFEfZt+QzXo4rinkXno2l04zs+ZvmMBfYlxJpaZsR8lkvJHlax3Tz2
-         jqQg==
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=nYCcLRGzCWqgr3z9NTnBkfKfllUODjINaUL7LAzhvuQ=;
+        b=NuoGGyP1ZGl25Kai7jzWvqmlVLceugWhWe709Btmz2/TLe1811Gx2MSLdjTcqSClYm
+         +u/H9VYtFg488dQZHjne06qyjq+N/78vINhJjqUwrKEt+Qk4/+CkBIM/7gRT3oiJK9v8
+         8aWBkpSKFkx9QFJ0d4QPEUf99SLZDr+pOs8Q5sMLogTMa2VZTI4X+sIbwn4FtJQdy7dE
+         q6mNvxRVILtsRoFmFv64gAjfQWNisrMtd3UX4ITRpre0F8ITwtXC0NU/8cvjlwfzc9J/
+         kcCi5PFCIzau9D+k+eaAvU1dWUdLKz2a5+IgESX8A0pFQnAz02Zikb761b6fu5/K+hIA
+         6f3Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532bLol/AlEXzOrlRYAbaVSQtioR7ZM/rUTifUzFP8Ux3/zPC6dv
-	y6esSMBJYeiiZNEP8BF2DMg=
-X-Google-Smtp-Source: ABdhPJyujK25e5ryCFwqFltWwtXlEIoaUDrJ3K/uk3095iwGV+K8mTrI55XlgVljdECF+x9NGhjfEg==
-X-Received: by 2002:a17:906:3693:: with SMTP id a19mr11533303ejc.237.1626434468302;
-        Fri, 16 Jul 2021 04:21:08 -0700 (PDT)
+X-Gm-Message-State: AOAM531m6mz9qGrcEYUS4WVY4DSAQCpDJx+xNsi2Z48jLA+pxP81fDxg
+	BYzc2M5TArGce6IkTLYLLd4=
+X-Google-Smtp-Source: ABdhPJwuVVgiMrRfTWTeZJ53/GPLDQV2MdsN82wMfc/uyqexejiEz6EHzN7F4Rv/LWzt++HewV1T/Q==
+X-Received: by 2002:a17:90b:3756:: with SMTP id ne22mr9721065pjb.144.1626435673145;
+        Fri, 16 Jul 2021 04:41:13 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:925a:: with SMTP id c26ls4593695ejx.6.gmail; Fri, 16
- Jul 2021 04:21:07 -0700 (PDT)
-X-Received: by 2002:a17:907:a04e:: with SMTP id gz14mr11270667ejc.24.1626434467336;
-        Fri, 16 Jul 2021 04:21:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626434467; cv=none;
+Received: by 2002:a05:6a00:d69:: with SMTP id n41ls4622596pfv.9.gmail; Fri, 16
+ Jul 2021 04:41:12 -0700 (PDT)
+X-Received: by 2002:a65:5c01:: with SMTP id u1mr9628858pgr.181.1626435672619;
+        Fri, 16 Jul 2021 04:41:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626435672; cv=none;
         d=google.com; s=arc-20160816;
-        b=SGvYN6JFwHZ6ioEYEmNsfzb10TR9UTD4vOQxvQJ22yP7CjOCylNCSlzE7zU6goey6h
-         5lU0/UBKvAwmQLecsjnRcWxyxhLMrgnXaAuCg1VI4PQlFKUQDqMTD6c40z+LTaRBe+0S
-         r2vfsjx7jild5P/RMdx8TG3XxcZXGZ0cVS+0CpdWxwcWtsA0rrrgdu7eyZD6JR4Ml/Dd
-         xe9HNx55rlQpgJoTm4mNGE65ufJ0d12J3YJbL4eCvYIxRve0EqCSi+qj7lg2ieyHE7vv
-         M05seFaYwQ4Z+0MlXN0/n08tNPVXbOsAaEw/TDVorGEF/Kr+gBF+NEFBDYwlmbmFhlYz
-         DTgw==
+        b=qSf9FqMJRQYmKoRAHP8q2hHax4uNFTLKCpi84yQiY0VYbodkxXH4KNos5CY108nVaO
+         V1Aa3lWcIMtUOFrgCzTicCNsuP0C2VDppRQTZJ3mNgJIWMTWbe0c9k3PIdTN5iYPhCfx
+         n/e0dXavz6Ub/37Qe30AYfOFg3tddf0CTvO9tNVQoL9xowddSmiGj5jJF4pJFOaXs3o9
+         Zhi7kh6On2OeZqSmh7oggFXZybXc3JTawGA6fe/7Pt+Jgmk4e9FmxQ4kRRznQTHzZ3Wb
+         8jIVKCWpFooB2oiZgXA3DiW8FvaJY+7XR3ZQxVDWfvcZLFAWhqDFpcEiV8VL8yzySs/h
+         lz3g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=wnHGNPq7bMhUlKL335UJdlgKd8zJCtv0oGlTguK7nSw=;
-        b=mF/PXgt/JvoghYhMOelXJZ2iUqlffHL3SIqzxeCivzFFWWDXI1e/h1mjtICrUE3vp3
-         DcmACvd09dspx8LkDXKYPEsGieg32fUEJTojB9arMZq4CHPXv41sgeMeSFw8RwLCu8nS
-         5JOP50tKgrKb2aQrhVPAY97YbfrvPQ+08iT3zpq6jyUTENn5Q3h972aPkp/VZ4bOMM6P
-         qp6Zv7+oLOuvxE/K3ZjyvhB6Yc+sTHVTcDbTHKJQ+rpi+Uldx8EAjwHZZOyT6hAysLU8
-         dBkbvahccKTpJeYUlPVnI5cQAm5XJQLsLnpa/PsTB3ssxSJobfPizQrocK7qH519YOX0
-         VwEA==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=STYhmNu8VFsTTqVgqjDCT+wiT/8bfs7viH84BT1mTnc=;
+        b=N/OF0XtrPewxqED1oL/b18xpiqtra+INIa23hzOO730K7huBSEAv6wFTbdcY9EqMvf
+         F6zEmWxK1uaA1LKlpZaAcpxHvrj9uyku3Gm/VoyGWncBPjG+O5GpJvrutmWSx+N6Phu4
+         shwFbWHCJqE6LalcIOe+HswbYJHHdh9Cph4qb5rT/rAsw/LAWZlHpHz+5DOL/SebPJXP
+         996AROtflnjlSidb7cYnr99OZLcdjhlX8rGBagQGMAmpe3rLCNB5ZmYCOzgv9kBouSMw
+         fOe246aIxoq5EKd2Bd4oMCUgigxy3LtwphtpuK5c2LpwrfmrE5lEcNB0gY+lGyvd6Ery
+         6tkg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=cA+tbdv6;
-       spf=pass (google.com: domain of paskripkin@gmail.com designates 2a00:1450:4864:20::62c as permitted sender) smtp.mailfrom=paskripkin@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ej1-x62c.google.com (mail-ej1-x62c.google.com. [2a00:1450:4864:20::62c])
-        by gmr-mx.google.com with ESMTPS id s8si304251edd.4.2021.07.16.04.21.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Jul 2021 04:21:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of paskripkin@gmail.com designates 2a00:1450:4864:20::62c as permitted sender) client-ip=2a00:1450:4864:20::62c;
-Received: by mail-ej1-x62c.google.com with SMTP id nd37so14616947ejc.3;
-        Fri, 16 Jul 2021 04:21:07 -0700 (PDT)
-X-Received: by 2002:a17:906:af0e:: with SMTP id lx14mr11377132ejb.54.1626434467052;
-        Fri, 16 Jul 2021 04:21:07 -0700 (PDT)
-Received: from localhost.localdomain ([5.176.51.215])
-        by smtp.gmail.com with ESMTPSA id a25sm3590064edr.21.2021.07.16.04.21.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Jul 2021 04:21:06 -0700 (PDT)
-Date: Fri, 16 Jul 2021 14:20:57 +0300
-From: Pavel Skripkin <paskripkin@gmail.com>
-To: syzbot <syzbot+deb25600c2fd79ffd367@syzkaller.appspotmail.com>
-Cc: adilger.kernel@dilger.ca, clang-built-linux@googlegroups.com,
- linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org,
- nathan@kernel.org, ndesaulniers@google.com,
- syzkaller-bugs@googlegroups.com, tytso@mit.edu
-Subject: Re: [syzbot] INFO: task hung in ext4_put_super
-Message-ID: <20210716142057.0f1f6045@gmail.com>
-In-Reply-To: <000000000000f36f9505c73ae373@google.com>
-References: <0000000000006f809f05c284e0f1@google.com>
-	<000000000000f36f9505c73ae373@google.com>
-X-Mailer: Claws Mail 3.17.8git77 (GTK+ 2.24.33; x86_64-suse-linux-gnu)
+       spf=pass (google.com: best guess record for domain of sakari.ailus@linux.intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=sakari.ailus@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
+        by gmr-mx.google.com with ESMTPS id c9si1295683pfr.5.2021.07.16.04.41.12
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 16 Jul 2021 04:41:12 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of sakari.ailus@linux.intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
+X-IronPort-AV: E=McAfee;i="6200,9189,10046"; a="207693657"
+X-IronPort-AV: E=Sophos;i="5.84,244,1620716400"; 
+   d="scan'208";a="207693657"
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2021 04:41:09 -0700
+X-IronPort-AV: E=Sophos;i="5.84,244,1620716400"; 
+   d="scan'208";a="573640178"
+Received: from paasikivi.fi.intel.com ([10.237.72.42])
+  by fmsmga001-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2021 04:41:07 -0700
+Received: from paasikivi.fi.intel.com (localhost [127.0.0.1])
+	by paasikivi.fi.intel.com (Postfix) with SMTP id 41509204C0;
+	Fri, 16 Jul 2021 14:41:05 +0300 (EEST)
+Date: Fri, 16 Jul 2021 14:41:05 +0300
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: kernel test robot <lkp@intel.com>,
+	Nick Desaulniers <nick.desaulniers@gmail.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	kbuild-all@lists.01.org,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Petr Mladek <pmladek@suse.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Subject: Re: drivers/media/v4l2-core/v4l2-ioctl.c:303:28: warning: taking
+ address of packed member 'pixelformat' of class or structure
+ 'v4l2_pix_format_mplane' may result in an unaligned pointer value
+Message-ID: <20210716114105.GF3@paasikivi.fi.intel.com>
+References: <202107150148.RpWnKapX-lkp@intel.com>
+ <CAHp75Vfu1rhUV+SOq2ikFWd2G6x9j3BT6OLPhPcf8VZE5Umeqw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: paskripkin@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=cA+tbdv6;       spf=pass
- (google.com: domain of paskripkin@gmail.com designates 2a00:1450:4864:20::62c
- as permitted sender) smtp.mailfrom=paskripkin@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Disposition: inline
+In-Reply-To: <CAHp75Vfu1rhUV+SOq2ikFWd2G6x9j3BT6OLPhPcf8VZE5Umeqw@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: sakari.ailus@linux.intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of sakari.ailus@linux.intel.com
+ designates 192.55.52.93 as permitted sender) smtp.mailfrom=sakari.ailus@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,46 +145,22 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, 16 Jul 2021 03:17:09 -0700
-syzbot <syzbot+deb25600c2fd79ffd367@syzkaller.appspotmail.com> wrote:
+Hi Andy,
 
-> syzbot suspects this issue was fixed by commit:
+On Wed, Jul 14, 2021 at 10:45:26PM +0300, Andy Shevchenko wrote:
+> > >> drivers/media/v4l2-core/v4l2-ioctl.c:347:37: warning: taking address of packed member 'pixelformat' of class or structure 'v4l2_sdr_format' may result in an unaligned pointer value [-Waddress-of-packed-member]
 > 
-> commit 618f003199c6188e01472b03cdbba227f1dc5f24
-> Author: Pavel Skripkin <paskripkin@gmail.com>
-> Date:   Fri Apr 30 18:50:46 2021 +0000
-> 
->     ext4: fix memory leak in ext4_fill_super
-> 
-> bisection log:
-> https://syzkaller.appspot.com/x/bisect.txt?x=17ebaa22300000 start
-> commit:   2f7b98d1e55c Merge tag 'drm-fixes-2021-04-16' of
-> git://ano.. git tree:       upstream kernel config:
-> https://syzkaller.appspot.com/x/.config?x=398c4d0fe6f66e68 dashboard
-> link: https://syzkaller.appspot.com/bug?extid=deb25600c2fd79ffd367
-> syz repro:
-> https://syzkaller.appspot.com/x/repro.syz?x=170d645ad00000 C
-> reproducer:   https://syzkaller.appspot.com/x/repro.c?x=16a03a2ed00000
-> 
-> If the result looks correct, please mark the issue as fixed by
-> replying with:
-> 
-> #syz fix: ext4: fix memory leak in ext4_fill_super
-> 
-> For information about bisection process see:
-> https://goo.gl/tpsmEJ#bisection
+> Why is it packed in the first place? Is it used on unaligned addresses
+> in other structures? But even so, why should it matter?
 
+It's packed since we wanted to avoid having holes in the structs. There are
+other ways to do that but it's ABI dependent and is prone to human errors,
+too.
 
-This looks correct. I've tested this patch a long time ago, but forgot
-to mark it as fixed.
-
-#syz fix: ext4: fix memory leak in ext4_fill_super
-
- 
-With regards,
-Pavel Skripkin
+-- 
+Sakari Ailus
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210716142057.0f1f6045%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210716114105.GF3%40paasikivi.fi.intel.com.
