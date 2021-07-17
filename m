@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDY57XFCRMIBBYUFZWDQMGQEHVDP6CQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY57XFCRMIBBTU2ZWDQMGQESB4MAAY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3c.google.com (mail-yb1-xb3c.google.com [IPv6:2607:f8b0:4864:20::b3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 26E4E3CC661
-	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Jul 2021 22:51:48 +0200 (CEST)
-Received: by mail-yb1-xb3c.google.com with SMTP id g3-20020a256b030000b0290551bbd99700sf18431030ybc.6
-        for <lists+clang-built-linux@lfdr.de>; Sat, 17 Jul 2021 13:51:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626555107; cv=pass;
+Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
+	by mail.lfdr.de (Postfix) with ESMTPS id 67E1A3CC67B
+	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Jul 2021 23:36:15 +0200 (CEST)
+Received: by mail-il1-x138.google.com with SMTP id j6-20020a926e060000b02901f2f7ba704asf7742732ilc.20
+        for <lists+clang-built-linux@lfdr.de>; Sat, 17 Jul 2021 14:36:15 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626557774; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Jg3CHV2bD6cIBOZ1dLwvc0h7sluS0kIHYVyyarx2uUjet5TFOv75oW1d83R2xMVPIh
-         qy+RCd0DPSslsK0uZovQ13yh1X9+kMPYI9hguy3jj32NjOaBdoGn6KKHiBu8nI8pgLjE
-         wX30JfLkhdhA2kY1hT8wpQljGlmyTm8VA5rNyb/X8n9pD7Wym3u+TZW66KioufRTWkPx
-         sSiPUYLLESfdKTfnoUjEtGzJUrXIX+sTTwxDS1mKQokStwztch3dLPYPW4n2duzZ2FmM
-         GwhJbs7frOXQ0xI93pGc9bQVkIC3uH0W/BSZC9Yr5qg6URMhE17rEAI0VipP1MZJF1ak
-         aKlQ==
+        b=dg2U8ji+E/FOrRVzWueMWms0xj5fYvE8xc92S3fpMvvcL58+EEqyhmyL6qXV7hYiMl
+         4YUEwGLgDhlaOb4M3uDpCxxVLNo7JVaA63AK7K7Rimd7wzp43ziXZhomJF3dL3DH5OE6
+         IZCWTyo52+LgaiJgoOqPoCTKYKRuy3QNU6r6B0n6wywr441b+ahHmsWY3iLM8bu6/WzR
+         A9e5Y01GbR8dg+oRfEJavFqCVJ9AkzRq2O7BAzuiGq1b1bJtySaR6BQ8CHgocgi8Ax6I
+         40tOQy0ngKqjqllAYDaD6LdV6ed+NuN8m9CKoYfIRPGZtnqbei8mrnUDk9GEnC/hIyxZ
+         26lw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:message-id:date:subject:to:from
          :mime-version:sender:dkim-signature;
-        bh=BBK0ZOfwlsWmvCl27KYp4vZqPnm6KGR0+Y9I3h46DFQ=;
-        b=XPy4VTYiZCcQG7XVKB79tO16kSvobkMgpHj2ZCEv1n6AnV1KXyBW7DxTwaQHjEe95Y
-         V9zGxj8aHPxg4O9c7OFzDrvHPOL6y0k0ZCj9IITl2QGSU/GEU3EkKn+8ZP/1h8GCag/n
-         DqoI4u4OGGxejtAUwnAPzUxh7pms90iSB/EgLDHCDre26VZ6/3JNfgNAxzR5JEHVMv13
-         sxzvQJu+uX/g5XWOwDODi0uDwEkegLkT1Nr1u/4KBcllBlEams6Y7EfbrVi7p252mAHS
-         +O1LGpbXu8BpCLmZY5XNyJDpNPOKPcOaGje38EX7UFKunPcJU7XEn2pmLDsKbHph5Oyg
-         GaNA==
+        bh=AlLc05xYHWjKybM4zoAdCQqNkF4ly7TYfxY6XFk3RT0=;
+        b=M6xhS5OSXczaCw0eMM77QWc3IpyzO66DPJqg/z0DzBYwYdYZPkrmvx5sGbuAYnljKM
+         Pu+Fq83zQDAmSNvkIVaufNZa5vGzAqF9C4IloBtRZoPI58AjP5TLAN0DpHCxVyLwbvPl
+         M8YA/AhMJRq3/q5DfXZztwYYu1dAjmFUB6uI+362eEw+kPx2LI72/ICOW5RJHLLp6NH1
+         mH5NNP5tqVyWIZf3otY/aSVPIEV61P6YoGYnZNBlpae+YhyJ/utsW/7VJa8/NJyMoD1c
+         0k12quLcH2wb7KSKV2KcQhdUQrEEjwMsDLWgWIKs5rJcHxp/RK6vV4q9xH7RYFRbOOl8
+         3ljg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=GyKiTPSs;
-       spf=pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=TzsCt9Cm;
+       spf=pass (google.com: domain of cki-project@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,97 +35,97 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=BBK0ZOfwlsWmvCl27KYp4vZqPnm6KGR0+Y9I3h46DFQ=;
-        b=c9sOoxDTfjzv3qnQC3Qngkq60wqr5MbWpa3UGM2h24RnEIZ+gPXHFVkQ90uoV+iv//
-         tSZEPovClMkVOD9zl0oFxQ4U3uMBl+/dKwFhsqklaoVLDyW0AtNMEXxbxuTpMs/G9BhU
-         /hA9DyKmAjxRIepfxZ/Y2YbSGBItoBCflUbOs4eyd+Vkd94MfMKQo7ADrh8RBXmjlvLp
-         TQc0HBke9/Tcgxs+wHAzr64gxDMdcCfd+wm0Pc3f2QZPNJAiGH5VEY6W13x+nnNHKmPd
-         6jCvLJGvgYrL6JfR72/zaPINO8OTPcBdCXLSeMfhki2I1yYMSWM20DfSI5uhysNX7ZLN
-         cVEg==
+        bh=AlLc05xYHWjKybM4zoAdCQqNkF4ly7TYfxY6XFk3RT0=;
+        b=fHHDtk9pfL9UnJNY1XMWXXFV1z9agufpdv0XEPefyqLgYbp5KKb5JXuCRmIBwHJyIJ
+         HGC7+2ZPtLIexnriMw20U9d1//dS9Ld7s+kMkuynvXsKUImyabIglGEfQgE1iDlUJAOq
+         9n03OlQUyiwFoM4OUh5FkFeSz9z/6ccjMkbH/tf7kwA+0OFEago2Xm1uhLmayY53ZilQ
+         Wgln5pKoWV1XvMBVPzq4KRhbq9eaU8wNqYtWWSlZvTOlVuucQevopD/jK+WBfRuLDDRA
+         Gq1AnJoakA1zrpE+COurgOJBF3md5KX/MROw6osyS5oQ8TJEFxGDObC2pYfKhQe40bzh
+         Zq0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:subject:date
          :message-id:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=BBK0ZOfwlsWmvCl27KYp4vZqPnm6KGR0+Y9I3h46DFQ=;
-        b=Mn/sq6j81l0Xd+nFupe7qAJArAYabJ72zBxytOGIGBFMezkszcVbD7myXKOYkeQ/vW
-         y/eRelReQxUtvpezvJ/WW3Oq4/LRqn/ddTUn7PYpQY7vyzg0SfMIlfGRzKSuYSPyYkiB
-         /ZaiB+ICiJOMkGxna4mSapnpZPbPbUgwCmt2t7fDbdw4wDRyWZlthBkMfniS46UgmpNj
-         Ue8jTTYT4LB7UkwOFZSGSxAQ6M30dKuiJBlQMG8z+Z2uEqa7SoH+JA83BhsYJR9EEyIN
-         kQ725N0jE4ACJYy82tdAW48JgbhaL5ca85p+2rQnGtLvdiqVXsx0iDW8zxr7UpUkqsKt
-         PVFg==
+        bh=AlLc05xYHWjKybM4zoAdCQqNkF4ly7TYfxY6XFk3RT0=;
+        b=Ahc/9J1rIaZw+nQn105o2mUrJSgSlLuMEi9AyswocEngSXb2mK5/W7I38vrhiUrMLA
+         MCYQoZ68fZtqrKC1bbUf6vzwPYRJ4f7d79KHNB0g9UXAGpzgGWGAzjN4yI/CcyW5qwe7
+         YJI4WqPTdWoaRfVET5AYjGRcfPMkpmjQKxlK/eVJn8YMv4f1s3BKM/+I8OnoDq//iUmi
+         TsXI/7210u7NddVDEdmvCTheKDXcdFxRTr3pQg47g0NMxOuJxj876/dhRdsDDkOmms8t
+         DvyCUEaNoU6XTd+92zojly+mxC5Xi9N/jF84QXJ5wRH5N0GGpY9N8qq0RFgwWH3997Py
+         wrFQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531iG0sMnx9ktVWWRyQFmXWPj7S6B1jY1A7rBd1b9ymiJGCwTiGc
-	qJHf+3v9JZqVGhx2MMNmERw=
-X-Google-Smtp-Source: ABdhPJxEb0YoLJgf24OEzPygIHHKhegrJe5PGqAr+wjkIb5Z9MnFbpCUKD2D7PMnHQ1NyCvog0q2bw==
-X-Received: by 2002:a25:abf3:: with SMTP id v106mr21872282ybi.299.1626555106944;
-        Sat, 17 Jul 2021 13:51:46 -0700 (PDT)
+X-Gm-Message-State: AOAM5316Rue9Kq55FILSodO9/MRF+wLKW+dRYeIo/qSGqjHYdZbcUQgo
+	tQZupL3ReNxdMUYDdoH+Iyw=
+X-Google-Smtp-Source: ABdhPJzePqQGh0r5fLVftsfgmx+XMYHblQyDpjuTKgjztHCFE25TqycXo1+wTs3SibLrpJp9szbU4w==
+X-Received: by 2002:a92:c7a2:: with SMTP id f2mr10645042ilk.3.1626557774115;
+        Sat, 17 Jul 2021 14:36:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:a4c7:: with SMTP id g65ls906218ybi.8.gmail; Sat, 17 Jul
- 2021 13:51:46 -0700 (PDT)
-X-Received: by 2002:a25:32c1:: with SMTP id y184mr22628752yby.187.1626555106402;
-        Sat, 17 Jul 2021 13:51:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626555106; cv=none;
+Received: by 2002:a92:db11:: with SMTP id b17ls2027056iln.5.gmail; Sat, 17 Jul
+ 2021 14:36:13 -0700 (PDT)
+X-Received: by 2002:a92:1802:: with SMTP id 2mr10540710ily.139.1626557773757;
+        Sat, 17 Jul 2021 14:36:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626557773; cv=none;
         d=google.com; s=arc-20160816;
-        b=ou2SQGGWFchWhC69hiCpGQw+kO49GVmQm72SO90JMuF7lpoZHr9olNpFqeRB8COQ/5
-         grpxZfKg4Zbvt6FmLsfKzParcWNaymrMkBpUNBB8gnAYbQf7v6CqX3ZO2FHFwjz253KW
-         ZtHRgAlO9j/0dafYMGlJWtRlEbvaFC6DK1sWD4zwW9LzG7fYOy3m5K+Cdedm3LbooBPi
-         HRpkmGcuUwJG/MwQgTtMr8EQ8h83TZ2keKQ+INbJ3RdVn1LubG7CxIUhBOkMcP7ERGFO
-         PdLncctfTn2IIOYisgwD4HGALot5RbLEO9+1985z37TpJwMxNEDDf6eN2su3eEn6OTr2
-         5AIA==
+        b=DKBQI6JbA8+g3b4qkjJ2i+BvNt15ETIBudjuUGBxprUpij+8pMCSeeNCZ//rbUrid/
+         oucNsjx75v0ozcmm826Q0KKjUfuhDcFFDnFr8aZ1LMNjV5hTEnl/fpxb0JhXooxhKD70
+         6lYcu5QFesAdY1m+qFbeNpMEo/q1uxdeokWsr5I6ZmQMogATKSVy8nQx8livzKFc2BaH
+         8wC+lpbO1pCI2jofXG0Y0LdkQbrCz2vOlsfeWE4DNHlbPTHijkItb7CpTr+jML3hNS+x
+         azdJqvzAD7tC/Ps0H4azrZ35ql1nINoDr/nohgGjWQubP62bq+jqf2kRgll1NitYlfFJ
+         qJag==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=message-id:date:subject:to:from:mime-version:dkim-signature;
-        bh=7fX7tD+5o7Eel4id053QyDfn+F0/k1EiboCg7oIp9Pg=;
-        b=BGV9rIvwsZF3pjn8biKoQ7ZWizX20hhREOHez9ikEmfYmQEnAkqw3C9Qan4AzSTelM
-         X5YwIayWOsdN65lKaqbYxNtpWmMdL2jGVj/rot07rR0AK6fXML6zZb6gZNcvGAEkh++d
-         hBNHdN2jx38Q5N4cK4mO7qBgi+qIHu4vKPvTfLJkIY7+Hbz0H5RsmQRWdY6ixvREPDcE
-         HN/fjBRRnJ3uIuprkdfuxjR3sg/KTtEtzA2jgUclMf4kTUjDr3boU7pbGXhJP2XAga7u
-         3BaWYbMxAUkGTPFV9uFznxusutFA1Dnsh8IlcYgQkVJNFFoFufDrKEiURu+w8EOJeNv2
-         O1MQ==
+        bh=actIFjN6fI0oYhGDZC+hH8qRz2NnSo7WjbwJTzRRb7E=;
+        b=af5/Dsmo+4bWJIM2QitFwJ1UWqlWYnGSeIs+A+5kfbpUrvn8wkE4zjGXGVdnMj8pj3
+         Nup0UXxq4RGTrwquiKiQ8qFt3MPniyYBB5pTKY/nIkb01KHawV5/7fL3kPW20c4vFT71
+         Ac95RVID01WIf67P/636YXDoTqYRamyMkXIZZFUP5WW9reMuZ6N+MyXDv1vEyWted78K
+         J/dGfhWod0OS7V7gwif6SDJ6YDeTfldeLJMHsZ0ohx9LhpmiQRSu4fRmrODTiZzZPD/O
+         v00j/Ya+H6urOUTt+BRae+GqmnbrGyvf3+RvYmuKr8r4BBuEn4+LeNhUBu+igbThsnPE
+         9RYg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=GyKiTPSs;
-       spf=pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=TzsCt9Cm;
+       spf=pass (google.com: domain of cki-project@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id r3si1804930ybc.1.2021.07.17.13.51.46
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
+        by gmr-mx.google.com with ESMTPS id g23si1480544ioh.0.2021.07.17.14.36.13
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 17 Jul 2021 13:51:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+        Sat, 17 Jul 2021 14:36:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cki-project@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-599-uDp5rB4EPDKqQtkZwHRSwQ-1; Sat, 17 Jul 2021 16:51:43 -0400
-X-MC-Unique: uDp5rB4EPDKqQtkZwHRSwQ-1
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+ us-mta-528-Cl2W0IgtOeuzKd-6M_YXRA-1; Sat, 17 Jul 2021 17:36:10 -0400
+X-MC-Unique: Cl2W0IgtOeuzKd-6M_YXRA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5D0D41835AC2
-	for <clang-built-linux@googlegroups.com>; Sat, 17 Jul 2021 20:51:42 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 749D518414A0
+	for <clang-built-linux@googlegroups.com>; Sat, 17 Jul 2021 21:36:09 +0000 (UTC)
 Received: from [172.30.4.176] (worker-005.nodes.prod.psi.rdu2.redhat.com [10.0.180.236])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 9405360864;
-	Sat, 17 Jul 2021 20:51:38 +0000 (UTC)
+	by smtp.corp.redhat.com (Postfix) with ESMTP id C75815D9D5;
+	Sat, 17 Jul 2021 21:36:05 +0000 (UTC)
 MIME-Version: 1.0
 From: CKI Project <cki-project@redhat.com>
 To: clang-built-linux@googlegroups.com
 Subject: =?utf-8?b?4p2M?= FAIL: Test report for kernel 
- (mainline.kernel.org-clang, 5d766d55)
-Date: Sat, 17 Jul 2021 20:51:38 -0000
-Message-ID: <cki.54AF820ED3.S8ROZFTUEC@redhat.com>
-X-Gitlab-Pipeline-ID: 338774214
+ (mainline.kernel.org-clang, ae14c63a)
+Date: Sat, 17 Jul 2021 21:36:05 -0000
+Message-ID: <cki.7EF8DFCAFD.U6N9WND2X4@redhat.com>
+X-Gitlab-Pipeline-ID: 338776156
 X-Gitlab-Url: https://gitlab.com
 X-Gitlab-Path: =?utf-8?q?/redhat/red-hat-ci-tools/kernel/cki-internal-pipeli?=
- =?utf-8?q?nes/cki-trusted-contributors/pipelines/338774214?=
-X-DataWarehouse-Checkout-IID: None
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+ =?utf-8?q?nes/cki-trusted-contributors/pipelines/338776156?=
+X-DataWarehouse-Checkout-IID: 16150
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-Mimecast-Spam-Score: 0
 X-Mimecast-Originator: redhat.com
-Content-Type: multipart/mixed; boundary="===============3973079132528070442=="
+Content-Type: multipart/mixed; boundary="===============0893645814773809484=="
 X-Original-Sender: cki-project@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=GyKiTPSs;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=TzsCt9Cm;
        spf=pass (google.com: domain of cki-project@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+ 170.10.133.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -139,7 +139,7 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---===============3973079132528070442==
+--===============0893645814773809484==
 Content-Type: text/plain; charset="UTF-8"
 
 
@@ -148,7 +148,7 @@ Hello,
 We ran automated tests on a recent commit from this kernel tree:
 
        Kernel repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-            Commit: 5d766d55d163 - Merge tag 'scsi-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/jejb/scsi
+            Commit: ae14c63a9f20 - Revert "mm/slub: use stackdepot to save stack trace in objects"
 
 The results of these automated tests are provided below.
 
@@ -159,7 +159,7 @@ The results of these automated tests are provided below.
 
 All kernel binaries, config files, and logs are available for download here:
 
-  https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/index.html?prefix=datawarehouse-public/2021/07/17/338774214
+  https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/index.html?prefix=datawarehouse-public/2021/07/17/338776156
 
 We attempted to compile the kernel for multiple architectures, but the compile
 failed on one or more architectures:
@@ -208,9 +208,9 @@ You can find the full log (build-selftests.log) in the artifact storage above.
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/cki.54AF820ED3.S8ROZFTUEC%40redhat.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/cki.7EF8DFCAFD.U6N9WND2X4%40redhat.com.
 
---===============3973079132528070442==
+--===============0893645814773809484==
 Content-Type: application/x-xz
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="build-s390x.log.xz"
@@ -223,5 +223,5 @@ ZqxmAzBZFdk6i5s9fKYtfIg+ps7QBWbeSvTWAjBQBWLaGYRMJTXJG5OEYhlnaXQDO0YF/wFD3RM6
 hyfIviEXOy0gAolwR7p3aeUQJ7rabSbuvufyC7C5No+fenRAoRHdPkAxjbDBQtv4gwJ7CeCqPdOJ
 K74nrgAEXERsHzRNkLvR4OSglnoh10otfppEhJqFEKIYiUwi5HfBeL2vb65PdkAAAAAARooHiidK
 GAkAAckC6gUAAHarezCxxGf7AgAAAAAEWVo=
---===============3973079132528070442==--
+--===============0893645814773809484==--
 
