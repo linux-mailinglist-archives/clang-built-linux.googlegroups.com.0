@@ -1,136 +1,139 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBTP42CDQMGQEAVXN3GI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTJ7DM3WQOBBQ7W2GDQMGQEMTPPLJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 34F9E3CC9A6
-	for <lists+clang-built-linux@lfdr.de>; Sun, 18 Jul 2021 16:44:31 +0200 (CEST)
-Received: by mail-pf1-x43e.google.com with SMTP id y7-20020aa785470000b029032975990f92sf11216090pfn.14
-        for <lists+clang-built-linux@lfdr.de>; Sun, 18 Jul 2021 07:44:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626619470; cv=pass;
+Received: from mail-lj1-x240.google.com (mail-lj1-x240.google.com [IPv6:2a00:1450:4864:20::240])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0D8543CCA52
+	for <lists+clang-built-linux@lfdr.de>; Sun, 18 Jul 2021 21:04:36 +0200 (CEST)
+Received: by mail-lj1-x240.google.com with SMTP id v10-20020a2e480a0000b02901963cfa7ad6sf2494103lja.9
+        for <lists+clang-built-linux@lfdr.de>; Sun, 18 Jul 2021 12:04:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626635075; cv=pass;
         d=google.com; s=arc-20160816;
-        b=j2Ye4mUrecbRKc3+EDlc2pl9bjFYtcEpoLzJD5LTj9jXi6QAPq9yxDWb06pOWciG6D
-         KED+Q85rm1tz2RB6yXywylaVojxt+6mHUL0WmEUksVyQvxnkczU6IUl1TMZrl62FTRt8
-         /h4I5hQHM9o+0NceHR5JH5M9WipUW9trQZuB6MLfJTeDExnAwuekAY9qsqGSiuyYcI99
-         Kc9rYflL6qu6Amm1s/8pTYeMy7AW/a7e2P/N07SxbUAfaT++lua8TB3GcxENC3O8d2Zk
-         tUh8bv31v+MVdZR3qgILG8NoJQURMl/XLfC7chEQF2mrtxXKEZc87OPVCJYJdi+xmDIO
-         2VSg==
+        b=qA/fd/k7lKgXM96IV7MaDFCuj6IgRsEO4+BJRO+J1Mf+YPZVRFoBTuTCzM5hzCDtyv
+         6HuBLKQmGvHx0ncfnIIYvddz/Oa8mTEaPGDUyVk7yyaH+Ac/z4JpttYwoHLrOQG9l8ro
+         bQSwDSbLMWrmYukMpKvSAn1hIht9gTTPQo4au+HqINgntuYvi7wp3JIf6rkCNcuReaQL
+         HUUsQQTyyRqeUbMcRN3c6+Mg8wsD9OMatbPIJrrexnvZG8YcdVJC55Hytx7HiI4mkOAs
+         WVfFUVri3DVXeWAe/mzFz88mFrk9Xzt/g6Oz7uoWvj9A/ilHRFi5GnsDi89ookKL9+N7
+         Z3nQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=4daOCqTpBeV9w2uox1g2Hl55qN3yGxEezYvqUfq7ZEw=;
-        b=WMjy1612FnIC4nvEKETfJtfBwAVdrBjgei2a4zjCn8H9MifZ0aS8Bo1pcFgxbGznLZ
-         gx91tK6pVx30qBYYgObw9/x2CE/Cj3GEedGBkjVFxg6k0mcuMffcQDKlDdrtLUua5S9K
-         8aaqmMruIRmZH7Js+djGLSTY1bDbGUSQImVADjDxHCyEWXk6ZuTgO9/WH7trRUHegQXR
-         hER6efnyc9sKefIxu6C3SIDJcCa7KAZa1U8qeEv2d9/s2uj3PxKHbCjpDLb9YEKVH4K3
-         ryE7QYVsWQ3cI4zVuwVkVgSMr2a42IvnsGcJzMP5fKQT6DoxNqsOmjMnCiRFv8otp8QU
-         XgvQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=cgKPlTy3/QH9K1ZVNb5dRghokkh+tLu5ankjOtVkHp8=;
+        b=TNGnNfGKkQoM1sAkqUZ5q3S04hmfo4AVaybsj+6gfCGSvPjr4GOhM3PQniwThvkBYO
+         1TFgZhXHwt6sTXziDfqSseo8ZyqiCM6WM1ZTg8tccHXxw4ata2Pusf+d2rJDdokSW8RC
+         83mq5ZTPBWA6I8ApHa0dPC8LIVWqTBiSBu/Zxaqd2HMDhm1T2nadGTcOFq+81HcXtLEE
+         o797i+i48axynmYCO8uGqKaHNuebY/uST50VUcSOVZ2wa5pnnTNxPhpA4wcgw9gSHLiL
+         k9VzieQADSlMMofXSTJ0Qjfn4N9601W8plVlxLB6cm3CtDqi8+xXpV1a6BjpkTtlTHvV
+         h6sw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=tLbildqA;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) smtp.mailfrom=daniel@iogearbox.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=4daOCqTpBeV9w2uox1g2Hl55qN3yGxEezYvqUfq7ZEw=;
-        b=rcaVP7uIcVUoBptXi7Egvnj9EcCGT40NSMPZc3fq/mGlUJ36mqexap3xI9l/rvoals
-         VW/N6HP40MtlTKPjiaX7E25ApSs2M18EvgqVCCJGNJo4fydieWFxdJrMuZ3gEVGdBocz
-         Ivkll9021JAfhXf5PJ9Lfp8T8BqzC1HzLXjnbnLb4iT2D8rbKuy1vly+GPB5mI87L5EC
-         KkMPM1C+Wi5n9qMZihcOedgzeafYWI5TDizOGbLOGMfUldY8jDiTDqDUPBdlKcukE63x
-         vFVBsEaBi+1DBmAyZvBibQkNx4PYM0DaUflwEGh8Rg3UIJg0CA53B/iaPgt4ouh12Rfd
-         rjtg==
+        bh=cgKPlTy3/QH9K1ZVNb5dRghokkh+tLu5ankjOtVkHp8=;
+        b=YXpXPQmgd7MhQPgJNRBaLw9sUw4+sLv0Ba5VZuSs+Pu2VlsLBq04JQB4CfKbueCUFD
+         ZFkkorlJK5gOf+hEytxi2fJTNO+SImRkwA80KzOMu3Oe0gQsxA5c6kg4kYPXTjXw3vSr
+         VpqDl7Y2/uTRDpGf82O98pNjbP4SN7Fq+quyffCOsEh9qOUVSS4dBww6g4F9sayreGct
+         knxmg7UoWZGcqFMXqzpuNwU1DcQ7b8YaQIPlw9R9LN061VNQ7nw6fERqoj9SMj8jyh0x
+         RvMRqGq13WnkQwHaaPq3kCCWx6P0Qde/Ho6hIC1Y6X6H0aRfJdVHbIFbW6q477clt4Zh
+         IclQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=4daOCqTpBeV9w2uox1g2Hl55qN3yGxEezYvqUfq7ZEw=;
-        b=Ya5tonqJDEgtYsdz/Sb2IYVG81HRwBQ+QwpAte5UVDsvePhz0Ju/nWBX6xX2oOk3hL
-         gD0XtQ5Sz3imJkndNa70x1NDk6jQdVy2r+NW+8U5D8CjDj8gP89sTTJZdExf0mIIjvju
-         xDWGPmReS5thJX3a6q2mUohquHca1aWzNxhBywK+I+9giywTdCoVe7BYaHXwNGAoUpul
-         1ZscJYKp+lTovaLCtBKnxtqDxS3y02yUUzSbcXJeJyMYlURT+76A7BJqC40dpZbTb2P1
-         3V7ra02/ysaLWWem6xFSlNcvRjsGQW4R/IQNEV5b+UdlIDfKAgvbNuw3Fwk4tTE8yxHm
-         Argw==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=cgKPlTy3/QH9K1ZVNb5dRghokkh+tLu5ankjOtVkHp8=;
+        b=FPUW9F7iOV8SlegO9ulHIBNkwQe3Hm7w9IpORpw3ZZNg2SnH9pyJhw6yUGU4AdWl9F
+         7R7vpORWJSPUX0AcleNwKYE+0hTu/vCAWCtHU7d1lN/DrFIYbbHUBa4hUoBUsJVNtnMv
+         AxXoANm+89TzIdRaxsh+q8Gkw57aq6BJ5fGjfZu7oGoMyrVV0hJHWhuHNcgT8y0V5tKS
+         kc49MrWek67NhwGl1lUGT4z1yeauVISsjPWai3Z7JV/k3/LqkpVhI0dbpd1UHNkdUvdA
+         zRbo29rMqSTqu81Glf+rpvSrvnm6R+Y7383s3wMj15RVOVGfkKPKo15CagFTuOCwUsJe
+         yB9Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5338yTQXXIlqQKrtfq7r+Q2VUBWC4I9nHQF7V2iXSR+OjiIzcshN
-	2vGXMGxMIOOgEdWe1wX/8IE=
-X-Google-Smtp-Source: ABdhPJwieS/W8hilM09rZ7DkZG/4qWFP6gxIGrAfhJ8FA0m9ugcDwpaQONp1LFK9XzDoaPBUH0YrDg==
-X-Received: by 2002:a05:6a00:1305:b029:347:676:d38f with SMTP id j5-20020a056a001305b02903470676d38fmr1313851pfu.39.1626619469910;
-        Sun, 18 Jul 2021 07:44:29 -0700 (PDT)
+X-Gm-Message-State: AOAM533PWWPxPq4uDK56cRbix7LDZhe3aIuItnq46hwTujCnhv/yoNDD
+	L3keiasWUdxdtNILanWI8qM=
+X-Google-Smtp-Source: ABdhPJzl+voShE3+suxbc90Zh3HCYzZKmcRIPVrU6mOFOt1b3cHHJHbldElw1iUPCB04UrNs7kC94g==
+X-Received: by 2002:ac2:5e3c:: with SMTP id o28mr16621867lfg.592.1626635075477;
+        Sun, 18 Jul 2021 12:04:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:76c5:: with SMTP id j5ls3987379plt.7.gmail; Sun, 18
- Jul 2021 07:44:29 -0700 (PDT)
-X-Received: by 2002:a17:90a:104f:: with SMTP id y15mr19467550pjd.24.1626619469308;
-        Sun, 18 Jul 2021 07:44:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626619469; cv=none;
+Received: by 2002:a05:651c:1025:: with SMTP id w5ls3361163ljm.0.gmail; Sun, 18
+ Jul 2021 12:04:34 -0700 (PDT)
+X-Received: by 2002:a2e:9114:: with SMTP id m20mr13334676ljg.120.1626635074420;
+        Sun, 18 Jul 2021 12:04:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626635074; cv=none;
         d=google.com; s=arc-20160816;
-        b=ESphugpGjyxVs/3sNJ1iY2svX4wDF30Me2D6xQaSrTGZPbZ2gKS6ZlMCabZl4pGaKL
-         gTZQ/yPgstixQgV/tp4BhtDKvWaz8hUDYHI9F3Z2ZF2UrPVe/LwmHkmKFZJwhTspWLJz
-         Pj2FCDhQkHkh2El13VSP88HQJBUyh3qDjlZMNV1GA7XOBoLqMyo57uIh13TbIBtDr8dA
-         n0jOl9OVqJBhLwg3HAmO7zpJ65hDpxoGt8s1Bm4vGeDJQK4tfdY0yaCAY8nmbq3Es2km
-         veRVuKH4hRP8FWg+ab5hTA+mvlUSYS1au41ikiy8u5f5hsT5LQD72Sk8URpVDgthkeYx
-         0NtQ==
+        b=V3she7/DkEpGQ+Ia7/sQ83sVpKiHv+WQ39nx2bka1fSEjYj1fbesmlnSM/v1Zu6Z47
+         rjcz6OY++wQLhFC27kQoNNB3Qbtzqffk2tKu01748tSKaPZCOpqYNd2fyMru+Dt0NDHY
+         QAK/Ik94Bel9oBg+MF+cHsmTe7+4Re0dkHSHNjVRZNuCm12s6zgo9sAY6mmcZd/tccIw
+         iu/k+sAxbzfZoPmmgWGkq9VBaMQ6crcuTdE9cPb7oCEOh1ATSUzmY7PSw2EUDaJzxcAZ
+         d+OJ0qdsv54toqynHlONARyOCr9+0AcD2C2XqIRHgpBw5+ePQLWSxQXeU4A1YG6Mi5xb
+         VWfQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=Ca0tUUOo3zqHqqT5TxNA6woBdlp9NIaRb6HDjdsKCV0=;
-        b=oNemPwrMIKzG0OTpNd16x3kEg3ra09OZsRzy7m0Y4VsLKeYhKK3d3E5URNnsYU4ehq
-         rH0XLpva/nTisWqV+cvtDNrZi/Um113OJI3M8YeyP2BnKYnoMSzqj7/oxmx2hPUCYSeg
-         klROsjspb0jX0P5xdXiijcCuSRarzA6tA9kg3H+vnXV/hu7pEbM7uy7pDYzd87AW9pqR
-         nhP8e1mj0Bb4AlMLhD+ZWtMn63b8oTUXOECVsjHtKw7ViP1GpdweKgsj9vuSAHTgrpb1
-         a0o8JfWq859cvh8GdjEP6RSHtxiIh1y2LCVl/VHoYgqE3w+4LeSmikL6d4AcngwTAWoQ
-         Qnpg==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=QaVW9nnPVy4ttYqBKj2zKY4QGCBcva70uPdynT2YULE=;
+        b=WJRjaA1TapuEnZt+aEXQdwiZs1qyLSlNbftPXZH11sZfdjqaItbVvolSBToQnggDDO
+         kK2R8WO8PJP4CyiCW8Pn1EBdYCkxUcc+jyz4Auz301i6kyYniSdA5TJWe0qlxIHJfBfZ
+         Est7ApqhoLWUJXONG1a1NLSDkkaNDtCEkEs05E5FMvt2OuYi+KCfbeYQeQd1u6JywVDy
+         20RrjKKx5IE9HOqH+RKL0AB69VtZ1kBuDR04itZsY04ZR00bhzGImjb9XhXHVh1+cZgR
+         jWhX9PFBoFFYrz/8Q3qErGR2NCVtW6OUlnhcd/6HBzCD/c182VW1aUh1UF9VMYMHtC1n
+         wooA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=tLbildqA;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-03.nifty.com (conssluserg-03.nifty.com. [210.131.2.82])
-        by gmr-mx.google.com with ESMTPS id q7si2057953pgf.3.2021.07.18.07.44.28
+       spf=pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) smtp.mailfrom=daniel@iogearbox.net
+Received: from www62.your-server.de (www62.your-server.de. [213.133.104.62])
+        by gmr-mx.google.com with ESMTPS id w10si647373ljw.8.2021.07.18.12.04.34
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 18 Jul 2021 07:44:29 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) client-ip=210.131.2.82;
-Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44]) (authenticated)
-	by conssluserg-03.nifty.com with ESMTP id 16IEhwCD020080
-	for <clang-built-linux@googlegroups.com>; Sun, 18 Jul 2021 23:43:58 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com 16IEhwCD020080
-X-Nifty-SrcIP: [209.85.216.44]
-Received: by mail-pj1-f44.google.com with SMTP id h6-20020a17090a6486b029017613554465so443695pjj.4
-        for <clang-built-linux@googlegroups.com>; Sun, 18 Jul 2021 07:43:58 -0700 (PDT)
-X-Received: by 2002:a17:902:e8ce:b029:12b:3d80:a028 with SMTP id
- v14-20020a170902e8ceb029012b3d80a028mr15678239plg.47.1626619437827; Sun, 18
- Jul 2021 07:43:57 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Jul 2021 12:04:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) client-ip=213.133.104.62;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www62.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.92.3)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1m5C5J-000GiH-Bp; Sun, 18 Jul 2021 21:04:17 +0200
+Received: from [185.105.41.246] (helo=linux.fritz.box)
+	by sslproxy06.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1m5C5I-000OnZ-UA; Sun, 18 Jul 2021 21:04:16 +0200
+Subject: Re: [PATCH] libbpf: Remove from kernel tree.
+To: Michal Suchanek <msuchanek@suse.de>, bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+ Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
+ KP Singh <kpsingh@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, Magnus Karlsson <magnus.karlsson@intel.com>,
+ Jonathan Lemon <jonathan.lemon@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-riscv@lists.infradead.org,
+ clang-built-linux@googlegroups.com
+References: <20210718065039.15627-1-msuchanek@suse.de>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <c621c6c6-ad2d-5ce0-3f8c-014daf7cad64@iogearbox.net>
+Date: Sun, 18 Jul 2021 21:04:16 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
 MIME-Version: 1.0
-References: <20210715073716.17477-1-lecopzer.chen@mediatek.com>
-In-Reply-To: <20210715073716.17477-1-lecopzer.chen@mediatek.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Sun, 18 Jul 2021 23:43:21 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAToKcvCLSrAbjb9RJn3mmwt_fzGTq+3ejNb034PVNeG2g@mail.gmail.com>
-Message-ID: <CAK7LNAToKcvCLSrAbjb9RJn3mmwt_fzGTq+3ejNb034PVNeG2g@mail.gmail.com>
-Subject: Re: [PATCH v4] Kbuild: lto: fix module versionings mismatch in GNU
- make 3.X
-To: Lecopzer Chen <lecopzer.chen@mediatek.com>
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>,
-        Kees Cook <keescook@chromium.org>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        Michal Marek <michal.lkml@markovi.net>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Sami Tolvanen <samitolvanen@google.com>, yj.chiang@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=tLbildqA;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+In-Reply-To: <20210718065039.15627-1-msuchanek@suse.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.103.2/26236/Sun Jul 18 10:19:21 2021)
+X-Original-Sender: daniel@iogearbox.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as
+ permitted sender) smtp.mailfrom=daniel@iogearbox.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,96 +146,22 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jul 15, 2021 at 4:37 PM Lecopzer Chen
-<lecopzer.chen@mediatek.com> wrote:
->
-> When building modules(CONFIG_...=m), I found some of module versions
-> are incorrect and set to 0.
-> This can be found in build log for first clean build which shows
->
-> WARNING: EXPORT symbol "XXXX" [drivers/XXX/XXX.ko] version generation failed,
-> symbol will not be versioned.
->
-> But in second build(incremental build), the WARNING disappeared and the
-> module version becomes valid CRC and make someone who want to change
-> modules without updating kernel image can't insert their modules.
->
-> The problematic code is
-> +       $(foreach n, $(filter-out FORCE,$^),                            \
-> +               $(if $(wildcard $(n).symversions),                      \
-> +                       ; cat $(n).symversions >> $@.symversions))
->
-> For example:
->   rm -f fs/notify/built-in.a.symversions    ; rm -f fs/notify/built-in.a; \
-> llvm-ar cDPrST fs/notify/built-in.a fs/notify/fsnotify.o \
-> fs/notify/notification.o fs/notify/group.o ...
->
-> `foreach n` shows nothing to `cat` into $(n).symversions because
-> `if $(wildcard $(n).symversions)` return nothing, but actually
-> they do exist during this line was executed.
->
-> -rw-r--r-- 1 root root 168580 Jun 13 19:10 fs/notify/fsnotify.o
-> -rw-r--r-- 1 root root    111 Jun 13 19:10 fs/notify/fsnotify.o.symversions
->
-> The reason is the $(n).symversions are generated at runtime, but
-> Makefile wildcard function expends and checks the file exist or not
-> during parsing the Makefile.
->
-> Thus fix this by use `test` shell command to check the file
-> existence in runtime.
->
-> Rebase from both:
-> 1. [https://lore.kernel.org/lkml/20210616080252.32046-1-lecopzer.chen@mediatek.com/]
-> 2. [https://lore.kernel.org/lkml/20210702032943.7865-1-lecopzer.chen@mediatek.com/]
->
-> Fixes: 38e89184900385 ("kbuild: lto: fix module versioning")
-> Sign-off-byed: Sami Tolvanen <samitolvanen@google.com>
+On 7/18/21 8:50 AM, Michal Suchanek wrote:
+> libbpf shipped by the kernel is outdated and has problems. Remove it.
+> 
+> Current version of libbpf is available at
+> 
+> https://github.com/libbpf/libbpf
+> 
+> Link: https://lore.kernel.org/bpf/b07015ebd7bbadb06a95a5105d9f6b4ed5817b2f.camel@debian.org/
+> Signed-off-by: Michal Suchanek <msuchanek@suse.de>
 
-
-This Signed-off-by is not correct usage, I think.
-
-I replaced it with Co-developed-by.
-
-I usually use 'for ... do ... done' instead of $(foreach ...),
-and 'if ... then ... fi' instead of $(if ...).
-
-But, this is the minimal change without causing
-too long command line.
-
-Applied to linux-kbuild. Thanks.
-
-
-
-
-
-> Signed-off-by: Lecopzer Chen <lecopzer.chen@mediatek.com>
-> ---
->  scripts/Makefile.build | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-> index 10b2f2380d6f..02197cb8e3a7 100644
-> --- a/scripts/Makefile.build
-> +++ b/scripts/Makefile.build
-> @@ -386,7 +386,7 @@ ifeq ($(CONFIG_LTO_CLANG) $(CONFIG_MODVERSIONS),y y)
->        cmd_update_lto_symversions =                                     \
->         rm -f $@.symversions                                            \
->         $(foreach n, $(filter-out FORCE,$^),                            \
-> -               $(if $(wildcard $(n).symversions),                      \
-> +               $(if $(shell test -s $(n).symversions && echo y),       \
->                         ; cat $(n).symversions >> $@.symversions))
->  else
->        cmd_update_lto_symversions = echo >/dev/null
-> --
-> 2.18.0
->
-
-
--- 
-Best Regards
-Masahiro Yamada
+NAK, I'm not applying any of this. If there are issues, then fix them. If
+you would have checked tools/lib/bpf/ git history, you would have found
+that libbpf is under active development in the upstream kernel tree and
+you could have spared yourself this patch.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAToKcvCLSrAbjb9RJn3mmwt_fzGTq%2B3ejNb034PVNeG2g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c621c6c6-ad2d-5ce0-3f8c-014daf7cad64%40iogearbox.net.
