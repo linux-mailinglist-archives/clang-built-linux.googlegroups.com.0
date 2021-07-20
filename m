@@ -1,128 +1,139 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBYUO3WDQMGQEAL7NR7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCZ3LGVOUAFBBRUW3WDQMGQEBYFQLMA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3c.google.com (mail-vk1-xa3c.google.com [IPv6:2607:f8b0:4864:20::a3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id B06163D0429
-	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Jul 2021 00:00:03 +0200 (CEST)
-Received: by mail-vk1-xa3c.google.com with SMTP id n16-20020ac5c8900000b029025d809b26dbsf110003vkl.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 15:00:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626818402; cv=pass;
+Received: from mail-ej1-x637.google.com (mail-ej1-x637.google.com [IPv6:2a00:1450:4864:20::637])
+	by mail.lfdr.de (Postfix) with ESMTPS id 378833D045E
+	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Jul 2021 00:16:39 +0200 (CEST)
+Received: by mail-ej1-x637.google.com with SMTP id kf3-20020a17090776c3b0290536d9b62eb6sf77725ejc.2
+        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 15:16:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626819399; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hrd9ehSOh4lB0I60WHDvoe4u1jxaPZ9cDWtIYHggJfgX2tdcxOOdqhtXGUHJdC83Kl
-         knG1muucqOjRVmegykn+SE3kMrpMVfNcdOXPjtZBWwCO9/3xEhLtSZGQ5FC/AKm8UVan
-         xCHye0mjUpEd43/hbeaL/Di4S729+6qXG1UXr8hNtHfvZvOmYN0gMO2AnX3u2MrPsZ6u
-         Hd/fwyW+8hph3Rkel83KL8QuFnCnVHCniwaQMRdfSi7wRzF2W3HvKCNkX3kwFfu9vn5q
-         Mh4iAIzZ0xI5L9A8DcjNZ7bOOKfQUfceEwHlxiGy1CDznbJDCzbOaBPULw3e8kjFWclH
-         eFUA==
+        b=asF9qh3gNIygaqcYoSsFSjKKV9GG4ok2y6NaqGGROInsEyUhiyJH7wES/bCDR3n7zB
+         ng3+IHebyD6ruyuw42L1HT7+lLbB1zGxJEdAQGW/SslbInvjXjsMSUAMy6Bp4ZOkhnxB
+         1FqSGtc6b96PQsE2/jb3AWbMsj6w3XgWhs3pifF4j/kGbY8fXXvqrxa93a/wxf0cEsTv
+         TZnXNec6iQqQr/CczXCaGa6WzHzCRHdzGGlUgnb0cYOC5lc+f6SpX02QkC7ChKsXa1oJ
+         KDnbwpoPDUhvYLDu2PYIh6haRH73aMHQ7y6KBRk76HN4hnp3+NHKzS0IMaypCODzfkJS
+         Tn4A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=nLbE/kd5ZYSQuuHjzeX+/xQN87g/Zn6cQO9tDuFIVKA=;
-        b=NHInnJXPI5l5of+HZeG8S/fjwK7J5PGi3NRfxV1GtuQytClWeEqJOrC1aOCeNgj978
-         940SF3Kq60I2SvHcSuUVEE/d04bsF6WyPAhwPNUlSFYEPxMUIGLsjf0bertYoVY4+qt9
-         RYZOrsFOEbqX4NbU+z9denPjiurFsAQN7/i0NUftaBJy8zxwY8j9asY7l/EuogGXYnBO
-         Ik3buWmRA/UdgIReN8tooJyXx7vWQO/QJCstEXT5N5QUcVkzyXyQGyW7n4tVtkn/HLLV
-         ml18C2HcX1HZ6gLxwBvmMPjbkawbqSJLXIeQrPLntuhIewdX+KjZaftwNeSgqrJ2QFEO
-         yHEg==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature:dkim-signature;
+        bh=c+BMV0UXQlxW0lYC7RCRbOXyVm7JNBc5TEF/rWGN4YI=;
+        b=wee+uPaa0BDCMpZknrDQ9zz9+CCmACM9xMRVSvzd6lNj8NRGgWLpXLwOChyG4tCqaS
+         BIJ/N/BjV2CMyl5lA4Bd/lwIdCfVOiiKIcTEI+4m3lWVyM02Rler9T78QTRvqjIT75tV
+         BHz7gnvrvFBBePWO98oNZW9G3WyjA+Xwv9IRtu83udU/6YzgbUEUwN+33Uu+fVs6iDFv
+         QR9O/A4chGPlWC9DkNXLLMFGhmmTOql3TvjyEtDiZH1tzCJGMMlQnbBBjAqNO9G5Ej3R
+         JIuySLASp6lzIpuIRD4ify9mTTDxF05WVbFRDORH0PbuSO0gbJnsWqzXESehs4atUJg7
+         8NaA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=CvGYL7R+;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::631 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=DPN2qi0v;
+       spf=pass (google.com: domain of treasure4paddy@gmail.com designates 2a00:1450:4864:20::429 as permitted sender) smtp.mailfrom=treasure4paddy@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
+        h=sender:mime-version:from:to:cc:subject:date:message-id
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nLbE/kd5ZYSQuuHjzeX+/xQN87g/Zn6cQO9tDuFIVKA=;
-        b=miRFHepR19K4s1PjiB6rSUbWbtyCp+a4C63ikkPltELKCcxUW5UrcpIFk4c2qwSPSe
-         q86ZneC0mn5LvD0KwG6yE6bD93CXGUBCy1N+tbJ7orkEDnv/S0l9AbILlFHtG9nDwkhH
-         KnIdqXdY4BY/nGYJm9fT4Mt6xBE54D8vr20NXmj7zgnrc670cAS1DJ4LdMEakEYSVRC5
-         FmWIkURqaiMN/7nB0XzgYPVoXfRP2zkHxp2g0q1RpHF/09xGrRWhFCbPIAe860wQ7b+I
-         Siq/WSz3XJRe7hMKv5hfKQtuksyQPg7Y/bbgokaHpoPj/MR0Fy19Rne71gSUY28DNe3t
-         s1+Q==
+        bh=c+BMV0UXQlxW0lYC7RCRbOXyVm7JNBc5TEF/rWGN4YI=;
+        b=BElaDMjXYdcMaeiBwBVWjiqdahwdP1+4FXP4520W1yqvx1mNGbJB6M/K3exAbx4M4H
+         I99JZsmU8Wd1y0AQ0dtkcTZFM46YDe7kQChQmxyPX96916da2u7DIeDuOWVcLVcKC0X2
+         VWf9cNYeT1h9iaT0AnQ/8+rJwFNoRgPY0A4IYjvGkEI9UxdwJjZgaBkIkmdAoD+49lpa
+         eMEbPJ2ML0Dsl25Fyo1YWuVoW0+9jkzEoRUyqAr6eSdZsd2Syvnq4iDFGUk0glccnwwJ
+         i5I/B1tQZh7h2VVPgvK2kh4XxmUtE+cPju/p67eOd4avGVS0hSLWR6EUcB2lIzznCXxO
+         ajGA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:to:cc:subject:date:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=c+BMV0UXQlxW0lYC7RCRbOXyVm7JNBc5TEF/rWGN4YI=;
+        b=SR4NxJkzZt0Ky+W983zXN5bzHzCFcueFTpZp8XfpYJbIAOkM9ctpgi67I8SO63Ow46
+         U8uRhkhyDtmNH9hif7yXSpM/zHMkJh+gKwty73FXIEO7oRc8ByBBABzxDxCWYmD6/qOR
+         TYnCfh4q70jidwFWDwa+Irh6HIKTb9PS8H/ZYJSO8oG0SSOQHcFHVKzpzKI57nwizKdH
+         KB6eR4UzJrQCXOxUZAX1SdbIKNC7Ez7gwz1qwWmdbOAkTATVAwKb++4RTIBo1JaK8Vhm
+         vlBiexADKpfzZs51/2Htq/oSEvTl1u8gS0CUOYwBJLCrtB9nDae0WvSpW3oXZAviU5hW
+         yW7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=nLbE/kd5ZYSQuuHjzeX+/xQN87g/Zn6cQO9tDuFIVKA=;
-        b=c4GaHBcqLnQtv4gpfQe3rEyH7Rc2QxS8X9Mze6QO/EzF2b0vCXibe9eYsb+RTOi6+d
-         J/n/of24m67B04P/YZdDHN+qSrt/eqLAVIfN9/yG7Agdn5zGNJO2xRduslSN/YsgyYUl
-         P5jg0FlEyA9N83zv5ke39jkw/OBP0RV13qK8M9EuOfexGEllfQzcb7SYe0Fxmpsf4K6p
-         Qwa0jNEO8EC13eA7o/GY5gSioWVxuaeuvlX+ViUdI9qjvTUpToT5AcLtkx1ttFdh7b8r
-         NqoRLb/SwxWPhF3c+mbzYRH6/ztRsfet5YO4uRpvyeUniEwLLIIHb1wtFR9ePALEU9Fq
-         iLrg==
+        bh=c+BMV0UXQlxW0lYC7RCRbOXyVm7JNBc5TEF/rWGN4YI=;
+        b=GOWbE02nc94pMKJlQm0WvLxEs9cMnuBrp/9w4ts3uK71QCX1Oijp+vmW/rUB9q65gI
+         1AlpTwCgJdyUrEgav/Gr0mhCbQfk2QcFOffwKesXJZwVMxNXCZV+QkS0B5jPWlWcbtrC
+         PrPVOFoo99JulEsxqEqDgA72fKEEbhVcyu2gRdFHHRs0kY16T8hDj0cmH8MUcVlf9liA
+         jjmqsd/ofjZsfezYEq3lrcVu/YgdKfIVDkp0zXu+T6Rf5yqI8THl2PnoZlzF55KQedLH
+         Is6GUbuJ279qVxSx5+NngdgML8YuYiNzYTa91WERer/yz3CtNjWCwMGXCQKKyYShIeq1
+         10Ig==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5311tdot68TAqnxfG0gjzPrUEtQsSBLqleLf6FCqdROvmihbRX9X
-	TwwN7W9DHGk3nELnojIdQf8=
-X-Google-Smtp-Source: ABdhPJwabgPdtmPUPlewcZ08nqaRXnN9xiFEy5lf08nrZnC/eX4fsi1uoNnAh+rwHZPRbn87EDggjA==
-X-Received: by 2002:ab0:48c8:: with SMTP id y8mr34481324uac.36.1626818402810;
-        Tue, 20 Jul 2021 15:00:02 -0700 (PDT)
+X-Gm-Message-State: AOAM531kxP+dWraJ7HLnffxdecNAQYhtJvjMI39k3ualdERnKXlh5cJi
+	aesN1thC/Uh6ijxY5Gy8X7k=
+X-Google-Smtp-Source: ABdhPJyjgPDTFde8He+0rM/jOiD5YZDSKQlppxAHjl3HUu5yjoEIBsC7cM4AMJos69rulmBOx1aUTA==
+X-Received: by 2002:a05:6402:1396:: with SMTP id b22mr17695806edv.380.1626819398918;
+        Tue, 20 Jul 2021 15:16:38 -0700 (PDT)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:7e95:: with SMTP id j21ls55722uax.6.gmail; Tue, 20 Jul
- 2021 15:00:02 -0700 (PDT)
-X-Received: by 2002:ab0:378e:: with SMTP id d14mr34353987uav.18.1626818402324;
-        Tue, 20 Jul 2021 15:00:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626818402; cv=none;
+Received: by 2002:aa7:d48d:: with SMTP id b13ls346599edr.0.gmail; Tue, 20 Jul
+ 2021 15:16:38 -0700 (PDT)
+X-Received: by 2002:aa7:c799:: with SMTP id n25mr42897423eds.16.1626819398061;
+        Tue, 20 Jul 2021 15:16:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626819398; cv=none;
         d=google.com; s=arc-20160816;
-        b=nvjCLaG6HrJg4URwJsdh6Qu5eTKT7IjlT87KRK/UnX4auNjXPpJQhUFnwZBSjTV8et
-         g78p8of+IClT0Csz4wptdqQZFyzH3kwsF2xWUWMUGLCLvKJF39vZ1cnx6/4TcRurtmhp
-         mTN8tXayq/R+Ti3WlVRyIOQ9svcICVi8aKob+/SeYaRwKMKkzpckHDRk8CoiyTcKsvO7
-         pDMGp7BOkt/l+ZnN+ugDiYloa6a0GRJaovyWLj9ya/5TqfRsAht2puSWqSxhXSXxQJVm
-         R28+FUn8SccnOJWdDH0TnWL3Kg7i61x4UwU8pfSTXJfeP/67hXraYSkVxrbRM5/wk/mG
-         PtGQ==
+        b=UuIixXOjXurKNIDeY2LPqhra15LAXVoij4mFkP6vzX6tAaMZ3IkiTOzezD7vMwkpLj
+         mPQS1/aPzxGZ6grWKHhbcjry5R/A8lVVjsJO83uV1+CHfuts1gWfon688WhCKgXY77uC
+         16DzOmRg1vBYUz8nD7sdZHXlxlm8hEBo4A1hc8tCYpkGxON+uurmq0e8RxYL035zYx4c
+         uIO9Ay434sRkOwT0dmErWEB/NcNL3idH5ETDKKSC68XBDcAjNIgrnrKFbdO1orv2qn5C
+         A8qqtM0m0wmpZteW6C5O/k2EcFi5IS0nvTYMswCtAG4bgdFeL/2uIumfIAXYeke4x0xr
+         5QVA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=WyxGUW8l0i1+27gVKNpxMIuSdpPKu6kJDnkVFPaL1B8=;
-        b=QxmUU2ROdIDNK8bJdKBxe/yMmU2YL5/bYsmX7USmP7cDnGormfHiHow7PSdy+0s6Bn
-         ESR3DT687WPwyDzg1bviZZK0Yh32/Yfk9CHf6iPhqg5cYOe/Nvow9qwDF9btHgwk0wIo
-         G+PyyZR5PFCHg98AbomJPErbmLCWh5GJqNkiNRauvvOCoG41LxH1YadyDvAeutTgRm+w
-         MYEY0gXxDJKuEdM7mq87P52rxmTTzqzy0/AEz6KAC9KrqQDQTEV5Bh1ylxtI0Gp80Oi4
-         bHBbhkIwzXRH9NShyZ9X1zQ34LV2hlEsYwrNyxX+NgwyyAniXuJAGpBKiu+MRowX9jTf
-         pgdg==
+        h=message-id:date:subject:cc:to:from:dkim-signature;
+        bh=rOPRdCz8cQm0jFl0E5n8kfyoXFor2GcetLoZd95FWRg=;
+        b=Tj9UiBzAxK+q27y8cz62tRc9EqzWORkY195JzCESKti5XyDqaP0MJFXL+a7nBMTVS7
+         lveYel0kDdar/qfyqBAMuGZ5OLzN8dUqYnUQumxz10iBIGk2wzQpxfn6WrYHJcGHMiD5
+         qLVhmXyBAx8AspOxVMLRI3AWFFk8efB/v+apg7rVY1YKDqkO7Z3KjqI//jEM9/Lj7OG7
+         g8drR4UbzRljdpsuhGUEDT2dj6sJtgy/DbO8VSeuY5M5LJNfgA5jEJnZFmZD7fMQf0kj
+         Msy5jlnYXF3vaFYHoynMUiHdnzwwCDRLSQUvIVU/sEdlc7FuwoNLxK5WKeYGOO8386uB
+         LzwA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=CvGYL7R+;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::631 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x631.google.com (mail-pl1-x631.google.com. [2607:f8b0:4864:20::631])
-        by gmr-mx.google.com with ESMTPS id p66si1932337vkg.1.2021.07.20.15.00.02
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=DPN2qi0v;
+       spf=pass (google.com: domain of treasure4paddy@gmail.com designates 2a00:1450:4864:20::429 as permitted sender) smtp.mailfrom=treasure4paddy@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x429.google.com (mail-wr1-x429.google.com. [2a00:1450:4864:20::429])
+        by gmr-mx.google.com with ESMTPS id d26si275743edr.3.2021.07.20.15.16.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Jul 2021 15:00:02 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::631 as permitted sender) client-ip=2607:f8b0:4864:20::631;
-Received: by mail-pl1-x631.google.com with SMTP id j3so12111058plx.7
-        for <clang-built-linux@googlegroups.com>; Tue, 20 Jul 2021 15:00:02 -0700 (PDT)
-X-Received: by 2002:a17:90a:c8b:: with SMTP id v11mr505781pja.114.1626818401485;
-        Tue, 20 Jul 2021 15:00:01 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id e16sm28694557pgl.54.2021.07.20.15.00.00
+        Tue, 20 Jul 2021 15:16:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of treasure4paddy@gmail.com designates 2a00:1450:4864:20::429 as permitted sender) client-ip=2a00:1450:4864:20::429;
+Received: by mail-wr1-x429.google.com with SMTP id t5so14019wrw.12
+        for <clang-built-linux@googlegroups.com>; Tue, 20 Jul 2021 15:16:38 -0700 (PDT)
+X-Received: by 2002:adf:ff85:: with SMTP id j5mr38992354wrr.49.1626819397767;
+        Tue, 20 Jul 2021 15:16:37 -0700 (PDT)
+Received: from pswork.fritz.box (i59F72CF2.versanet.de. [89.247.44.242])
+        by smtp.gmail.com with ESMTPSA id j23sm3339045wmo.26.2021.07.20.15.16.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Jul 2021 15:00:00 -0700 (PDT)
-From: Kees Cook <keescook@chromium.org>
-To: linux-hardening@vger.kernel.org
-Cc: Kees Cook <keescook@chromium.org>,
-	glider@google.com,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Tue, 20 Jul 2021 15:16:37 -0700 (PDT)
+From: treasure4paddy@gmail.com
+To: rostedt@goodmis.org,
+	mingo@redhat.com
+Cc: samitolvanen@google.com,
+	treasure4paddy@gmail.com,
+	Padmanabha Srinivasaiah <padmanabha.srinivasaiah@harman.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
 	linux-kernel@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] hardening: Clarify Kconfig text for auto-var-init
-Date: Tue, 20 Jul 2021 14:59:57 -0700
-Message-Id: <20210720215957.3446719-1-keescook@chromium.org>
-X-Mailer: git-send-email 2.30.2
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4689; h=from:subject; bh=Z2jIdIqSWFjGjbsnH0q1H4OQWdcOHIzxX0E/vHpuz2Y=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBg90dclov0B+zGzREFyMibbwv9l5oqr9QJrpcMBRsN hb++VKyJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYPdHXAAKCRCJcvTf3G3AJvpfD/ 48Gq6fxhiEccbjQyQe+7IJXzIsYGWv+awOpA5DqwDe5ctfyYW5icxUSVx+Clzkn60bS8MOF5HK64Zs zu2EN8WIVWI53o/I7n8yieURnaJhOWRaodHPfz6sO8dvn3ddQAG2LF18ckn+L532AKdvPnDGhGHFDR Ez7EcJQoM2jNCTffA+Z7joyraqV4sL590QVJ6mB6CWtxsy2rB8JRIv73xRyHtajtELy3TJ9fExNdDZ ZIA26rgLKetjgMSKtz45O4khEwF0biQzfJw/pev0HXIzTOs5LZ+oxWMKyMM5dU9/77VKgTx6FDd9OE /Un9lPGCZKWTkGdyOUTXo4LNX2DYldun1e7zJ6Y73mo0HY//kluFhjJx/A84aNfge+v8JufRdH7ymD woQcwoMBkyRAWQFy4Jd/S91LPhyp1NA1uXoc4M8ZXvePbBtG201Awb2fCaYEAuXm7TiR18GmAtRqsB XR3rfGyHFvi/qRNpjBfAnvgOL2UY/r9TYrKZhNBEsMcIWpGLKjT6Jtlqf8MmXHsuNVElcnIPRCgom9 wdrabjtlA41UUFPBGhgsEF76FSR3UPI2v3gL/T+jL7RjJp++1nTkK5M38G1RKo8Zfda0wK3qcLIaVU vs2ym4j9tzZ8qvAreuqUY7R+rhMNrO4+Iyo4eQ8M6ZhUT9i1aYIRpPQ0uhQw==
-X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
-X-Original-Sender: keescook@chromium.org
+Subject: [PATCH] tracing/syscalls: Clang cfi enable syscall events
+Date: Wed, 21 Jul 2021 00:15:41 +0200
+Message-Id: <20210720221541.16164-1-padmanabha.srinivasaiah@harman.com>
+X-Mailer: git-send-email 2.17.1
+X-Original-Sender: treasure4paddy@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=CvGYL7R+;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::631
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@gmail.com header.s=20161025 header.b=DPN2qi0v;       spf=pass
+ (google.com: domain of treasure4paddy@gmail.com designates
+ 2a00:1450:4864:20::429 as permitted sender) smtp.mailfrom=treasure4paddy@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -136,117 +147,64 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clarify the details around the automatic variable initialization modes
-available. Specifically this details the values used for pattern init
-and expands on the rationale for zero init safety. Additionally makes
-zero init the default when available.
+From: Padmanabha Srinivasaiah <padmanabha.srinivasaiah@harman.com>
 
-Signed-off-by: Kees Cook <keescook@chromium.org>
+With clang cfi syscall symbols are appended with <syscall>.cfi_jt,
+hence syscall tracer can not find corresponding syscall name.
+And results in no syscall ftrace events with CFI.
+
+To fix this issue, this introduces custom cleanup_syscall_symbol_name()
+to strip postfix ".cfi_jt" before comparing syscall and symbol name.
+
+Signed-off-by: Padmanabha Srinivasaiah <padmanabha.srinivasaiah@harman.com>
 ---
- security/Kconfig.hardening | 52 +++++++++++++++++++++++---------------
- 1 file changed, 32 insertions(+), 20 deletions(-)
+ kernel/trace/trace_syscalls.c | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
-index 023aea5e117c..90cbaff86e13 100644
---- a/security/Kconfig.hardening
-+++ b/security/Kconfig.hardening
-@@ -29,6 +29,7 @@ choice
- 	prompt "Initialize kernel stack variables at function entry"
- 	default GCC_PLUGIN_STRUCTLEAK_BYREF_ALL if COMPILE_TEST && GCC_PLUGINS
- 	default INIT_STACK_ALL_PATTERN if COMPILE_TEST && CC_HAS_AUTO_VAR_INIT_PATTERN
-+	default INIT_STACK_ALL_ZERO if CC_HAS_AUTO_VAR_INIT_PATTERN
- 	default INIT_STACK_NONE
- 	help
- 	  This option enables initialization of stack variables at
-@@ -39,11 +40,11 @@ choice
- 	  syscalls.
+diff --git a/kernel/trace/trace_syscalls.c b/kernel/trace/trace_syscalls.c
+index 8bfcd3b09422..dbc253fea34d 100644
+--- a/kernel/trace/trace_syscalls.c
++++ b/kernel/trace/trace_syscalls.c
+@@ -79,6 +79,27 @@ trace_get_syscall_nr(struct task_struct *task, struct pt_regs *regs)
+ }
+ #endif /* ARCH_TRACE_IGNORE_COMPAT_SYSCALLS */
  
- 	  This chooses the level of coverage over classes of potentially
--	  uninitialized variables. The selected class will be
-+	  uninitialized variables. The selected class of variable will be
- 	  initialized before use in a function.
- 
- 	config INIT_STACK_NONE
--		bool "no automatic initialization (weakest)"
-+		bool "no automatic stack variable initialization (weakest)"
- 		help
- 		  Disable automatic stack variable initialization.
- 		  This leaves the kernel vulnerable to the standard
-@@ -80,7 +81,7 @@ choice
- 		  and is disallowed.
- 
- 	config GCC_PLUGIN_STRUCTLEAK_BYREF_ALL
--		bool "zero-init anything passed by reference (very strong)"
-+		bool "zero-init everything passed by reference (very strong)"
- 		depends on GCC_PLUGINS
- 		depends on !(KASAN && KASAN_STACK)
- 		select GCC_PLUGIN_STRUCTLEAK
-@@ -91,33 +92,44 @@ choice
- 		  of uninitialized stack variable exploits and information
- 		  exposures.
- 
-+		  As a side-effect, this keeps a lot of variables on the
-+		  stack that can otherwise be optimized out, so combining
-+		  this with CONFIG_KASAN_STACK can lead to a stack overflow
-+		  and is disallowed.
++#if defined(CONFIG_CFI_CLANG) && defined(CONFIG_LTO_CLANG_THIN)
++/*
++ * For a syscall symbol, clang generated non-canonical local jump tables
++ * will have entry as <syscall>.cfi_jt and address of this entry
++ * will be used to replace references to the syscall symbol.
++ * so we will strip the postfix from appended symbol name.
++ */
++static inline bool cleanup_syscall_symbol_name(char *s)
++{
++	char *res;
 +
- 	config INIT_STACK_ALL_PATTERN
--		bool "0xAA-init everything on the stack (strongest)"
-+		bool "pattern-init everything (strongest)"
- 		depends on CC_HAS_AUTO_VAR_INIT_PATTERN
- 		help
--		  Initializes everything on the stack with a 0xAA
--		  pattern. This is intended to eliminate all classes
--		  of uninitialized stack variable exploits and information
--		  exposures, even variables that were warned to have been
--		  left uninitialized.
-+		  Initializes everything on the stack (including padding)
-+		  with a specific debug value. This is intended to eliminate
-+		  all classes of uninitialized stack variable exploits and
-+		  information exposures, even variables that were warned about
-+		  having been left uninitialized.
- 
- 		  Pattern initialization is known to provoke many existing bugs
- 		  related to uninitialized locals, e.g. pointers receive
--		  non-NULL values, buffer sizes and indices are very big.
-+		  non-NULL values, buffer sizes and indices are very big. The
-+		  pattern is situation-specific; Clang on 64-bit uses 0xAA
-+		  repeating for all types and padding except float and double
-+		  which use 0xFF repeating (-NaN). Clang on 32-bit uses 0xFF
-+		  repeating for all types and padding.
- 
- 	config INIT_STACK_ALL_ZERO
--		bool "zero-init everything on the stack (strongest and safest)"
-+		bool "zero-init everything (strongest and safest)"
- 		depends on CC_HAS_AUTO_VAR_INIT_ZERO
- 		help
--		  Initializes everything on the stack with a zero
--		  value. This is intended to eliminate all classes
--		  of uninitialized stack variable exploits and information
--		  exposures, even variables that were warned to have been
--		  left uninitialized.
--
--		  Zero initialization provides safe defaults for strings,
--		  pointers, indices and sizes, and is therefore
--		  more suitable as a security mitigation measure.
-+		  Initializes everything on the stack (including padding)
-+		  with a zero value. This is intended to eliminate all
-+		  classes of uninitialized stack variable exploits and
-+		  information exposures, even variables that were warned
-+		  about having been left uninitialized.
++	res = strrchr(s, '.');
++	if (res)
++		*res = '\0';
 +
-+		  Zero initialization provides safe defaults for strings
-+		  (immediately NUL-terminated), pointers (NULL), indices
-+		  (index 0), and sizes (0 length), so it is therefore more
-+		  suitable as a production security mitigation than pattern
-+		  initialization.
++	return res != NULL;
++}
++#else
++static inline bool cleanup_syscall_symbol_name(char *s) { return false; }
++#endif
++
+ static __init struct syscall_metadata *
+ find_syscall_meta(unsigned long syscall)
+ {
+@@ -90,6 +111,7 @@ find_syscall_meta(unsigned long syscall)
+ 	start = __start_syscalls_metadata;
+ 	stop = __stop_syscalls_metadata;
+ 	kallsyms_lookup(syscall, NULL, NULL, NULL, str);
++	cleanup_syscall_symbol_name(str);
  
- endchoice
- 
+ 	if (arch_syscall_match_sym_name(str, "sys_ni_syscall"))
+ 		return NULL;
 -- 
-2.30.2
+2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210720215957.3446719-1-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210720221541.16164-1-padmanabha.srinivasaiah%40harman.com.
