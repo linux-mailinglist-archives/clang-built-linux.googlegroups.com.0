@@ -1,136 +1,147 @@
-Return-Path: <clang-built-linux+bncBC3ZPIWN3EFBBB7Y3SDQMGQEUBKJY5Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQPNZEG7UCBBR733SDQMGQEGJDJMYQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53f.google.com (mail-ed1-x53f.google.com [IPv6:2a00:1450:4864:20::53f])
-	by mail.lfdr.de (Postfix) with ESMTPS id C9F7D3D03B3
-	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 23:11:35 +0200 (CEST)
-Received: by mail-ed1-x53f.google.com with SMTP id j25-20020aa7ca590000b029039c88110440sf11460664edt.15
-        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 14:11:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626815495; cv=pass;
+Received: from mail-il1-x13e.google.com (mail-il1-x13e.google.com [IPv6:2607:f8b0:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 15FA93D03C9
+	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 23:19:05 +0200 (CEST)
+Received: by mail-il1-x13e.google.com with SMTP id a18-20020a92c7120000b029020757e7bf9fsf320654ilp.7
+        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 14:19:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626815943; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mOT1sWqPn0dVenCZo9j7h7iq3BR81V1vq0rWBozK/2bUgxwwXlalV46cxkLb9u1AX1
-         ekCJa3QZjqi/B5f2v1QtMj5YhqJMt5TZILeuozcdcrRFl+YgijdScXWR/kcDIf2RBZ2v
-         e9FPOS2z2HX5eAW+y0Zrr4CVMa5CN5hBp6s98ytQ8uF3ykbQpd9tbVdmWj5OOUltqGuw
-         LY0Zoau54fev7dY5EwjJ+biL6K38MWHg70p/jbr8SF97ITuaMbWtVAHgGaZSYh5QceLC
-         I6SdP0vOpkI0xukE3rX1QItmRjDE+uA5jpCiLxpvQ7xIHtN/0y4R6DSLttHBtLU6NA/7
-         4HFQ==
+        b=SfttPaJp1qkNjnkdKHdPm9l1JFKvthndebh2j+Iq7Gv3KQot73m8ycK/p4PUQgduZC
+         77oS8zPyx/P2orGk7+kc6emtJKrd8ey32yHWFhFQSLXL6xJEq54qLrxDbZmAgjpQBA3L
+         urt9mkvYk+EpsS2U9dx8eRxdvdMvC4yIoxsV/YSnmNqx3xPIUQzZNC6d43TOQ2ffQ7aS
+         odWr4M6wet2cOL06oMEyke4BxpxtcPpkwvaDxg7nTd3jaO3VOusAilJC0TGLuXJ+Js34
+         UzQWhvXxoPtbSSTyoVZ1q+Fw476BakyZKjgZPD67ZHpsMZ5Jr/KtK1Odf+hhw63SlC4l
+         he4A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=nX7gy7WsMwyPj4RGBrFNqpWG6NUAPM8ge2AajAeXgKE=;
-        b=pZ7tpOwRhSqQmNICh0sCprBto1+U4W05D+bcejhxi5ehwZ2yPEL10i6BGCnEBUzilZ
-         4RXIxBeF2L1GfIrKZAHim3w6pHAAEDpel1vm7DJPwa7yIxhnHYtrYG9dK91N/GTx+PcA
-         m+zDpW68kk2Bb/EiuLQIXuYwULqvSM6KaedIUOh7GH2ERdOsQDtKO5ANPuQJZaVXsjmf
-         /XWxSwg7M3J3+obb8U90DHogXDr2xyk46JKkNqu1lS7Okfg147Pw9BWSqS/Yt9H0NcZh
-         kwX2qeR4klPEfQo0RWVRnUbSsyQ9DJXVnipnXEmoLUohKJBAksVdJM6dmHyr1kLL7xXA
-         /1HQ==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :in-reply-to:mime-version:user-agent:date:message-id:references:cc
+         :to:from:subject:sender:dkim-signature:dkim-signature;
+        bh=Rf8zYuGwBGA4xbvoIQW6D7uTSm2fMb9yyYfUXBgBGIE=;
+        b=jyJRLl0SzyptAOmbhVzOr8Rco4dcDNWbaI/RpMuvSk1k14x8n7afkOaHlTA9LgS/dR
+         WRhEcuEtcPK7qjwVSoVgSZw3Byd9KZOp8hhFcBpP28h71pk2CxcO4iq6DUT92Zm1MxhN
+         TdWe8YEk5ALdf0nhR48rbmqPTITxMbZX3ipGlTC9pVso4cqLABW5067UfiJENc2Qe9h+
+         +5INJL1hFI08L4nPSxeZDf4epcyecuheosyDp3DZW8YGeTvLBocBTCxPVLdNfU3h0l4E
+         cBrGvLKVwlONdEWRpdjBAnxq/RH/4ak3wMiJpFppURxih+kHs4aopoUaQU0TbgP7l/ne
+         ruqw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=XQbW4ZTf;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::135 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Gyu9Rp2E;
+       spf=pass (google.com: domain of twd2.me@gmail.com designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=twd2.me@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:subject:from:to:cc:references:message-id:date:user-agent
+         :mime-version:in-reply-to:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nX7gy7WsMwyPj4RGBrFNqpWG6NUAPM8ge2AajAeXgKE=;
-        b=M9OnJiNdud+DtN87qg2TjgkHFUEuP/rBY6sIF9oCUtPXxmiKzBeBstAaDEcjoqlQpP
-         WmesTti7OXvkzmVsLaa29Jw4LoetwsRmi76fhQW69fAcIGiHKFe9ir6qvfAvT1blNWRk
-         wvgpVbqAskF7QE54rMSnwo7Jso3xKpI4x36+UhGX9+/wItRhKnPL80FLH/3yNCjDpnAT
-         6i7oPLBO6ROPSPju/ZM0fjO7Mb8aMC/bYiT4OPZS+08eWzssC4oXaTz4HWGUoRUgpz0Q
-         bOCQPtoxfJcnU/C1QepBvIttH1dhFLiZFNo/SJxIqsstb/+O03hZQg3I7Bc3lLm8rPPB
-         BakA==
+        bh=Rf8zYuGwBGA4xbvoIQW6D7uTSm2fMb9yyYfUXBgBGIE=;
+        b=DX4eKM0Zj/3eJSe2jPKatt/MxMtJGwfSnbSqeNt4uuMPHJwYagsV+rME40Xnph5lZy
+         YsXoShd+qG/pks5Dh71xAFx/oQrDp2LTwISYeq8MWH1znlt+8zt9xD9boCkAOF911mTA
+         UFdEnAe/LGmfn4mu03ju2JVjX/qjgSGKE86d5MDucdMfGbD3oj6hhMxtzo6gfh3x1SE1
+         zVOMODkEX8Tvy44JCgrtn3nse3f6Pri/6glbGStWci7iFOdnoHtQGC8YeQu/NuduHSzo
+         z51km8RbEJBbLQ3FuWt4FuGnhaP2dofWfDFKpuDXg9DEWVC0d+3s0ku/SUe5iGZxr79f
+         iT5w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=subject:from:to:cc:references:message-id:date:user-agent
+         :mime-version:in-reply-to:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Rf8zYuGwBGA4xbvoIQW6D7uTSm2fMb9yyYfUXBgBGIE=;
+        b=eYimKIVmi3bW/8bB3GAxViaG5VzdNFcuIliXDQ5k07u0UtMcPw3ccWyWWGdFOqogN/
+         F5i4vFns52LILDTx8RSHUtFiYu1v6kwr+82kdNBQdeg3k/Yb24VZS4kJR11tV+i39qiL
+         YNoQYJKOXoYg3lXqrCyQ/nue8ftM3ehTtorBqqKPmsyEjM8tQ49e/mVFmejXg1ZU1sqn
+         rle9ci/MUUlhFefdraR1lCqalJYYwhrMNdYKiFccsAyn8cza0nFGawgY4jhJ0u8unVAp
+         OgJeVsgJ1VRD84mgTByhbpBAvsk8pKkXlPzFeiUWU5vxNBDdCmkthnsKZTlB/b89/9Qj
+         qDEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=nX7gy7WsMwyPj4RGBrFNqpWG6NUAPM8ge2AajAeXgKE=;
-        b=ZmBgb4J9PuxKEDNW9zuD9tfH6sEY5S7UUL2XqSwzHrUuzuEQ8tRpDs4MMYVHRKUIop
-         9wV5/b/g6wMwpG+yAg/kfk/efTNIljuaHHxuJlvIKYmEU9SaRAdc183YKLoU+zEXsVS9
-         TO2c2qkXTRyv0ZTcxveyahTHKIVEDtXjBKDHQ4uOK4MSWnl71Yd7QIbuH/kqpP9l8LY6
-         mkxhjBCABsIATJt/do6gEc5ri8sUYhn0N2a+3X1R30FcXctygTm8bClfQVCfb656Aa5f
-         JiPxEW65pUu/7mqnnn0Q3H2HYvpYUwMyVJu1c6IdqbVFnjG6txr2Aar5R2oDkx/0LYhL
-         zQeg==
+        h=sender:x-gm-message-state:subject:from:to:cc:references:message-id
+         :date:user-agent:mime-version:in-reply-to:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Rf8zYuGwBGA4xbvoIQW6D7uTSm2fMb9yyYfUXBgBGIE=;
+        b=ujTSK6GW7VUZUnh5JnJtBysX/DkNqKdvtoGT+9wmhv6dLbmgE9jAuJbAFgP8QS1H1S
+         G8SAhBXJ+AW9xa+w7WLbpRtFy5KJZHEqNiqQOkAFxziHLP2jbYOHT1zZvgWpssfGMtuh
+         QDNSQBWznVQy4CXNVtytJUJ+tJh7ZKNqxtpRB9bpHHnE5tYDC0q2GbcRROvwsm42Jt7+
+         CKZdvvaKasYMZ56dz27wdaJVeaXRyUkiDYrjCLdzywhArMbwoE3Kv2SVa0GL6VTEH2SJ
+         B6oXKD9oIqCRTDvc1Zq6XOInFWu2E4BrdEeYFPbp18dYgvdnnvCx4T7HqO2tuEbtsgQ9
+         SddA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5302YxNw/nm29WoXA2VG+JOT94JzpGigxXZwrtqTVcvaEEmTFt4e
-	Rw8Y17wyYmYNFkRsqNOHaIU=
-X-Google-Smtp-Source: ABdhPJzn0Gq+j6Nan0mVkgLVEAX4RhB0Lb/zm4pSRnJs1N6UEtxCktODj+fcxyZl7dFGZlBuOO9soA==
-X-Received: by 2002:a17:907:7808:: with SMTP id la8mr35112486ejc.13.1626815495487;
-        Tue, 20 Jul 2021 14:11:35 -0700 (PDT)
+X-Gm-Message-State: AOAM532SJzirhkRM62vCp3StZ4qe1VVTJhvUsOTXbVqtj8fMCD/pesmi
+	pJ3wokThJ9gMoxZqooDvpuM=
+X-Google-Smtp-Source: ABdhPJxItQ3kxl0cEgXDDbymKJxaapfq0ANljjHfrABfIU513zezc1p/qadUhyFGTtVyjtI92x4iKQ==
+X-Received: by 2002:a02:90d0:: with SMTP id c16mr27983340jag.106.1626815943591;
+        Tue, 20 Jul 2021 14:19:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6402:2283:: with SMTP id cw3ls175864edb.3.gmail; Tue, 20
- Jul 2021 14:11:34 -0700 (PDT)
-X-Received: by 2002:a05:6402:2317:: with SMTP id l23mr43522226eda.265.1626815494459;
-        Tue, 20 Jul 2021 14:11:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626815494; cv=none;
+Received: by 2002:a5d:8d02:: with SMTP id p2ls8918ioj.6.gmail; Tue, 20 Jul
+ 2021 14:19:03 -0700 (PDT)
+X-Received: by 2002:a5d:9f11:: with SMTP id q17mr23086614iot.62.1626815943172;
+        Tue, 20 Jul 2021 14:19:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626815943; cv=none;
         d=google.com; s=arc-20160816;
-        b=Gi0Zt43o3HO53jRat7tXDtgBndUpPZY1NSk0fFpcxF3cAz8Iv0xHJp7dxsQqX7U4tX
-         /Yf/JWeI4FQ0UKT5vPLCBkt8D3eq6SW6V63S/PZVIDLIxtpB2UWpdNfOfkJIiqcKTzR9
-         0Bms6v0wjoovRr0Lys/iToGIbu17zbu+JjQUNylP8bsPsHeORxUkugRqc5oy309aonuz
-         gWu/I6p8s+3g1YHNRKTjoASDZ5VfiE+dpHaRmrBo6SF8r+PpnU9MMF42vXpBxZzI6ZD6
-         lzZ8ulj0i6bOaICejpugHUJhsdbllNJefL8LiQt7hIIcYIek2KEetJb/qiT4+OY/LXWT
-         tF0w==
+        b=Wgx53fFz3yMPaWOSmHG9c71dl8tSyNd1wMX1Eq7cT3zJnumCp0UhncHVVJKfycMQ5U
+         /SArtZaWwNcGwMegaG8hP7RvuvMwGK0r/K19ROL1MARtosZLrD98dYgz56E5mVd/SG1q
+         TIOflnJ+yPgQ8reTmsuk5AQNXL2Gu+KZwRf1OgNuDDNsGlBWiB3dzFQdTUgSR15fcKMI
+         ilU9FcnRpjbhfzkEsQZfLd4GwlCekxkuFM1eEej/zuK64BaegqagkhxrzxX+1VjbJES4
+         a/9qyHWZr3hU36njz/4SeD4d3gmg3XdfftK/WX/UQxxNcNjIp1lIWt/uy6phnVByWmGs
+         6jFQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=+VH/k2Wu9OUzA+EFcoMXodKgYXPRRgkgoLXFJfyCQtg=;
-        b=aSuLM/iFKGHKkOTupOVR1TioE6BBIneowXzqccgOZP92aRa1iCFQasYMDUEMWmUhjE
-         Ih5QpyR2OfBRnMO89xSWgwoLrJlWeeLBY6xBfszaX0FmCd4z/lRGT4LzpCncK2OxdTHR
-         b2YKufuASG8ZQEU1LigZv0DXRQC4XKuPat5cqeKyjzoDnXDp9X1ZjrgB2Ekybvan0bm8
-         l0VYcLEx0AZtS6f6h05HAHEPSwIi6f43xhlAxphu4qhbcKsIgdTGNgG07nxaVDcBz4wo
-         k268j8CHNUSLPfCpPbUSpzQlb2qAscNaREylf/GlMEQVW1EwfgoMM7PfTHgvv605/lqU
-         S4iA==
+        h=content-transfer-encoding:in-reply-to:mime-version:user-agent:date
+         :message-id:references:cc:to:from:subject:dkim-signature;
+        bh=B8o/q41XapjmWGG21qetVfphUKyjf05uB802S7fF9ZM=;
+        b=OIJUjRXqyLchApt0dfZqiwqrnFZJZIeMgpUtBWKdDWtoAcHrYjyCLTNrEVXUSilFOZ
+         i04ZBeSzOsR0AIAGmIAx9Ahrd8ZHFRcZp8CN1y1zfT7RnMRD8++/ccptiH4hf6sUecge
+         dhuGOINqQLoxbEbV5667UUjSJweY/mHYpVYkuw70NprvxoyuaDomvvGazGpldPDvs2Lu
+         MheRIyxH8xdhfj2+dfELHCo7yJwrI6VbHnV8GvRaEzk3WtUVqFWb0ThCQBmwA3XEfBS/
+         +8ij9Xl7VaqwHDQmVULXX+9tp6uOKKKdTgkXn5p4G0wvO+mliK3BWlBhw0jm/205QbMP
+         g0HA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=XQbW4ZTf;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::135 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
-Received: from mail-lf1-x135.google.com (mail-lf1-x135.google.com. [2a00:1450:4864:20::135])
-        by gmr-mx.google.com with ESMTPS id d26si265628edr.3.2021.07.20.14.11.34
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Gyu9Rp2E;
+       spf=pass (google.com: domain of twd2.me@gmail.com designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=twd2.me@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pj1-x102d.google.com (mail-pj1-x102d.google.com. [2607:f8b0:4864:20::102d])
+        by gmr-mx.google.com with ESMTPS id w12si1666867ilu.1.2021.07.20.14.19.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Jul 2021 14:11:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::135 as permitted sender) client-ip=2a00:1450:4864:20::135;
-Received: by mail-lf1-x135.google.com with SMTP id f30so75363lfj.1
-        for <clang-built-linux@googlegroups.com>; Tue, 20 Jul 2021 14:11:34 -0700 (PDT)
-X-Received: by 2002:a19:fc03:: with SMTP id a3mr23773067lfi.327.1626815493610;
-        Tue, 20 Jul 2021 14:11:33 -0700 (PDT)
-Received: from mail-lf1-f46.google.com (mail-lf1-f46.google.com. [209.85.167.46])
-        by smtp.gmail.com with ESMTPSA id i27sm1739227lfl.50.2021.07.20.14.11.32
-        for <clang-built-linux@googlegroups.com>
+        Tue, 20 Jul 2021 14:19:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of twd2.me@gmail.com designates 2607:f8b0:4864:20::102d as permitted sender) client-ip=2607:f8b0:4864:20::102d;
+Received: by mail-pj1-x102d.google.com with SMTP id p4-20020a17090a9304b029016f3020d867so392920pjo.3
+        for <clang-built-linux@googlegroups.com>; Tue, 20 Jul 2021 14:19:03 -0700 (PDT)
+X-Received: by 2002:a17:902:e807:b029:12b:43ce:18dc with SMTP id u7-20020a170902e807b029012b43ce18dcmr24801837plg.70.1626815942597;
+        Tue, 20 Jul 2021 14:19:02 -0700 (PDT)
+Received: from [0.0.0.0] (jp.bgp.twd2.net. [2a0c:b641:571::1])
+        by smtp.gmail.com with ESMTPSA id d2sm25025439pfa.84.2021.07.20.14.18.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Jul 2021 14:11:32 -0700 (PDT)
-Received: by mail-lf1-f46.google.com with SMTP id 8so20586lfp.9
-        for <clang-built-linux@googlegroups.com>; Tue, 20 Jul 2021 14:11:32 -0700 (PDT)
-X-Received: by 2002:a05:6512:3f82:: with SMTP id x2mr21979284lfa.421.1626815492489;
- Tue, 20 Jul 2021 14:11:32 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210708232522.3118208-1-ndesaulniers@google.com>
- <20210708232522.3118208-3-ndesaulniers@google.com> <CAK7LNARye5Opc0AdXpn+DHB7hTaphoRSCUWxJgXu+sjuNjWUCg@mail.gmail.com>
- <CAHk-=wgGxu4_hgzdYpFuKd95SfnkJbPTWAQ9-fMgmMN1Oxs2xQ@mail.gmail.com> <CAKwvOdn065OJpow=7VF=ujagFoyN4sYMKAA_E2_39ZC7uThchg@mail.gmail.com>
-In-Reply-To: <CAKwvOdn065OJpow=7VF=ujagFoyN4sYMKAA_E2_39ZC7uThchg@mail.gmail.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Tue, 20 Jul 2021 14:11:16 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wjDdDPDa6mfoC-QM=NZULsmQfcUbF2RdwMq0J4Ztm+UAw@mail.gmail.com>
-Message-ID: <CAHk-=wjDdDPDa6mfoC-QM=NZULsmQfcUbF2RdwMq0J4Ztm+UAw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] Makefile: infer CROSS_COMPILE from SRCARCH for
- LLVM=1 LLVM_IAS=1
+        Tue, 20 Jul 2021 14:19:01 -0700 (PDT)
+Subject: Re: [PATCH 3/3] RISC-V: build: Allow LTO to be selected
+From: twd2 <twd2.me@gmail.com>
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Fangrui Song <maskray@google.com>, Michal Marek <michal.lkml@markovi.net>, 
-	Arnd Bergmann <arnd@kernel.org>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Christoph Hellwig <hch@infradead.org>, 
-	Nathan Chancellor <nathan@kernel.org>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, clang-built-linux@googlegroups.com,
+ Nathan Chancellor <nathan@kernel.org>, arnd@arndb.de
+References: <20210719205339.1023572-1-twd2.me@gmail.com>
+ <CAKwvOd=H-UN7dgHYgsvubv7t82UiPaOHCF09GAi6kTvjxpT4iA@mail.gmail.com>
+ <475c3797-e048-97bb-095a-c55aff38bc42@gmail.com>
+Message-ID: <970c36ea-c5a6-2b47-3024-7cbbf428ebfa@gmail.com>
+Date: Wed, 21 Jul 2021 05:18:56 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.12.0
+MIME-Version: 1.0
+In-Reply-To: <475c3797-e048-97bb-095a-c55aff38bc42@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: torvalds@linux-foundation.org
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: twd2.me@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux-foundation.org header.s=google header.b=XQbW4ZTf;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates
- 2a00:1450:4864:20::135 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+ header.i=@gmail.com header.s=20161025 header.b=Gyu9Rp2E;       spf=pass
+ (google.com: domain of twd2.me@gmail.com designates 2607:f8b0:4864:20::102d
+ as permitted sender) smtp.mailfrom=twd2.me@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,37 +154,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 20, 2021 at 1:52 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
+Also, I tried `defconfig` with Full/Thin LTO.=C2=A0 It can boot and the
+busybox shell works.
+
+I'll put this information into the next version of the patch series.
+
+
+Thanks.
+Wende
+
+
+On 2021/7/21 2:29, twd2 wrote:
+> Hi, I just tried to compile with this patch and `allyesconfig` except
+> COMPILE_TEST, FTRACE, KASAN, GCOV, and XFS [1].=C2=A0 It finishes with no
+> issue, and takes ~22 min and ~25 GiB.=C2=A0 BTW, the kernel panics during=
+ boot
+> even built with GCC, so I didn't do further tests :( .
 >
-> >     -CC = $(CROSS_COMPILE)gcc
-> >     +CC = $(CROSS_COMPILE)clang
+> Command used: ARCH=3Driscv LLVM=3D1 LLVM_IAS=3D1 make HOSTCC=3Dgcc vmlinu=
+x -j16
+> Kernel version: commit 2734d6c1b1a0 ("Linux 5.14-rc2")
+> LLVM version: commit 1b61d837b9d0 ("[Inline] Add test for PR50589 (NFC)")
+> The `.config` file is attached.
 >
-> So you haven't been using LLD... :( (imagine using more than one
-> thread to link, and being faster than ld.gold)
+> [1] https://github.com/ClangBuiltLinux/linux/issues/1215
+>
+> On 2021/7/20 5:25, Nick Desaulniers wrote:
+>> On Mon, Jul 19, 2021 at 1:53 PM Wende Tan <twd2.me@gmail.com> wrote:
+>>
+>> Consider adding a little more detail to the commit message.
+>>
+>> In our experience with other architectures, we've hit numerous
+>> compiler and kernel issues especially with allyesconfigs. Has that
+>> been your experience with riscv?  It would be good to know if you've
+>> hit issues with LTO plus certain configs, so that we have confirmation
+>> others have seen these issues and so that we can triage fixes.
+>>
+>>> Signed-off-by: Wende Tan <twd2.me@gmail.com>
+>>> ---
+>>>  arch/riscv/Kconfig | 2 ++
+>>>  1 file changed, 2 insertions(+)
+>>>
+>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>>> index 8fcceb8eda07..b593e5031c79 100644
+>>> --- a/arch/riscv/Kconfig
+>>> +++ b/arch/riscv/Kconfig
+>>> @@ -34,6 +34,8 @@ config RISCV
+>>>         select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+>>>         select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+>>>         select ARCH_SUPPORTS_HUGETLBFS if MMU
+>>> +       select ARCH_SUPPORTS_LTO_CLANG
+>>> +       select ARCH_SUPPORTS_LTO_CLANG_THIN
+>>>         select ARCH_USE_MEMTEST
+>>>         select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+>>>         select ARCH_WANT_FRAME_POINTERS
+>>> --
 
-I started out just building my own clang - nothing else.
-
-And now that I'm using the distro clang, the linker isn't even _close_
-to a performance issue. Since clang is a big, slow, bloated pig.
-
-I posted profiles and performance numbers of clang being three times
-slower than gcc, and it was all just clang itself, not the linker. All
-due to insanely expensive startup costs.
-
-I suspect a lot of clang users build bloated C++ code where the time
-to compile a single object file is so big that the startup costs don't
-even show up. But for the (fairly) lean C kernel header files that
-don't bring in millions of lines of headers for some template library,
-startup costs are a big deal.
-
-So honestly, I don't care at all about "imagine being faster than ld.gold".
-
-I can only _dream_ of clang itself not being 3x slower than gcc.
-
-              Linus
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHk-%3DwjDdDPDa6mfoC-QM%3DNZULsmQfcUbF2RdwMq0J4Ztm%2BUAw%40mail.gmail.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/970c36ea-c5a6-2b47-3024-7cbbf428ebfa%40gmail.com.
