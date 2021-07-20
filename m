@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDU5DXUG4MFRBEEM3ODQMGQECJG76GA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDU5DXUG4MFRBHET3ODQMGQEQMUQU3Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 748713CF9DB
-	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 14:48:17 +0200 (CEST)
-Received: by mail-lf1-x13b.google.com with SMTP id v7-20020ac259270000b0290380ff758625sf4133558lfi.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 05:48:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626785297; cv=pass;
+Received: from mail-lj1-x240.google.com (mail-lj1-x240.google.com [IPv6:2a00:1450:4864:20::240])
+	by mail.lfdr.de (Postfix) with ESMTPS id F168B3CFA0B
+	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 15:03:24 +0200 (CEST)
+Received: by mail-lj1-x240.google.com with SMTP id b3-20020a05651c0323b029018ba0baeb6esf11315771ljp.5
+        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 06:03:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626786204; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Xqs5OB6suST5NBzOy8YNwdZWiiJq2hl2xoqfaGwXDheJV3W7C+bhtyKrwYfCKl3J3Y
-         KU756pYV8PA0QTuuoXx/TGna6rww9DQwQtRKyHtKvnPUPOwIo2ZzQysVb+wVud1VwiOU
-         ZhvmlxKiUFlaApWdQOGoaPnwIdI6ZtqxKkBJwmKnFLgnpgfqXZSpUFigt6MFI6STd0en
-         adxFpcZejKGGvidLoFy80LIIVUpSFZLyt4wB59niF44iIoTb65Lvj6zcMGMZC5PMDt/S
-         NKI0RvkBm0/3miDH7N/yMu8CZRb4hV4f4VUBdMg3lPii3CzQMT2lhkptoE3UNGn8r2HC
-         tcwA==
+        b=MOqs7Su+9Hw6LVdKCEoygfb/8vvPPRmw1T9A+vtVlf04uNjgE+9AgL0V7KZERPqNNv
+         w7oqdhmI29x4AleTsf7s/Od01tobD+JuaNzB+saztAuSZm2kBkP2X2+HxvG/YsPKXU6w
+         C/4j8O53ghMM4DuRYrH1MP6WPQL0+zOTad6sMjOmXtFwN2quYapEtWyEDYT7MWCGN73B
+         9+AfYgVoqkVfowexBs+HTCqYYsr5yoX5HvvsWJGJfyflffwpsKZoJpZgUxk2RV8Kwp2o
+         sI9CWUZ1ZJUw+diN13Fc0ERX2QL00edpKUUBd91OxnIgEAnN8rqOwsKcf0InqYu8dh6V
+         8/kw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=Vm8A9WKf1hlrK6udaioSP0Q5brGXNycpfwcrmKRKVaw=;
-        b=HNuOe6dOB1W6FQ2C7TReAIMGDIENJrFEmL39cE3vFiPNZuaozEhJoJR+6TQDprLtDo
-         z0QhXeKkuVNQHOP5lS9rPIQCTNDhI0BOmFQQ/DHyC59gYZDbenLxHPKsjZ5DyQ6Qz/Uo
-         MvUDpzj7Xmixk9VmRFysRqedgf3B1zZARc9GQ9TiagMICD0qcBpqD6AoRqARr/Q8pOZq
-         1rwi6nLEqzOB5j7dA6tW2E6rZlDEp+fCmc0bLV0PvOE1AQnV5pdM686WGIjZIdxXDNm4
-         8amtZ8x/Nx0a9susyRhAxxQZrLXOkRaMGTWHuqzbpanoqM1fqYqe0eCV1A6/wlB7PUqK
-         u+kQ==
+        bh=TW2KkW3TyoodV31kP8bkNvQqqjCDE2Y5KCS48jEj1AY=;
+        b=rIzw+dxauN4YSzkCNbfNprr7qjrB7uga0ZAGdIv8VXYrynvm0f9lwdUViT92Ob3bHr
+         9CyhHMGOKpsSYuyPS3/WEluT2Xg7hwlYzfRtJpry0m0peKxPbwXwHywF4oDkmvqbRbqD
+         uPQvZqBLmvC31t55wkAgSAb8VhJF2AI0F7hUyYPb432aqcOj8upN4tH6Z3UzcwAeoT1c
+         t2csea5nNcObIFScxjyFOb69itG0L7EsvJ18tQLaolzq1fIhMsoz1Kh8pXhYr4/ULSI/
+         rdJrU1uiGCqOFli6wcXIsw0muh+bTrwcCiX1Md8eItP92myf6Ov5P+ylYgqDHeXL1M4g
+         xgwg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@canonical.com header.s=20210705 header.b=Wr7zJECX;
-       spf=pass (google.com: domain of colin.king@canonical.com designates 185.125.188.121 as permitted sender) smtp.mailfrom=colin.king@canonical.com;
+       dkim=pass header.i=@canonical.com header.s=20210705 header.b=DIklFQHY;
+       spf=pass (google.com: domain of colin.king@canonical.com designates 185.125.188.120 as permitted sender) smtp.mailfrom=colin.king@canonical.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=canonical.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,90 +35,91 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Vm8A9WKf1hlrK6udaioSP0Q5brGXNycpfwcrmKRKVaw=;
-        b=KqaC1DSLj9Rkb/dRkUX+zPtZS2NLF753ISfNWnTHKGs3RawZ+0KnJ3BJSdNfsiKk7n
-         5VP+ITPRiANBa/pBeDVbS7YzT9yCg/whfYUIKEakVzZljRTL2RggXs6KFrQ52bWIBKQ6
-         BIKUKty1SXT2X1i8hvKjqLluKEKG+kwiMQPsa1WpwM2pzPmcZHXNHvNkV3/2gYC7bLHy
-         n6SpsQaTfJ4LzFoRnAuImlErCypHCypLsz6IAIX3iFlm860m5jGQXXzBdD2+Q4IXI6mZ
-         4wTSNUxxSwBxYI18yTX64rNuSZCA5NiDc39B5ytFma8ExEGW1ZkHmnwhppeWjslGusY0
-         TMYg==
+        bh=TW2KkW3TyoodV31kP8bkNvQqqjCDE2Y5KCS48jEj1AY=;
+        b=SSKeHiB0H9hP6FyMKk4aw5FS3+NYAqjUkWeX1AIb8D0Th4VHSna2snJ2kbDuYi4bxq
+         P34dboq/Pz1W7XGUUpE8F2ZnisleTccyyz8L1KUcd24xk5yn/yIU7DU5BS0qC/REsi5z
+         el65KHgT0RvOOXADjupps9cikuEEZ0ceMRZ7xcDh2mG3dI9WGB7T5NGuyuZsHLW0V/mT
+         mV8aip9ChRAw37uImNSIpdCD0rn1IX5bnZS0tWcsxYQy2IdBjRm5xkRbQJDDuX50ZP07
+         P3pcsYO/FZbg/qpPYGs0m7/Func1ppeptK0HANbmI6U1XEiHJcaFR9vxSClsaSnQCFRy
+         Wexg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Vm8A9WKf1hlrK6udaioSP0Q5brGXNycpfwcrmKRKVaw=;
-        b=IHVPlwYb/1YXfPB1kakpvFl5UZxkGDvck/LnT6qm79EMF6nAg5g/sGyo+Ut+cqfnJG
-         9xsIUnxU1O+IZYAhZ29LMNogy10UjiuUnRuyD5ClSZw60OXFHhLg1kpbrFfl7SHGG4KC
-         X6QCW6NfwLRS6JVmccMBTqoPL4bZ0ssjiV6IzcclFYH1lS1UeCcs8tDm8yWQCrHSQrvR
-         +pQVcRRps5kxTdgjZk/9vEjVeCsYkzmBCMh63M3np66RQ5mYbjQ4tbMps+gpD6AADhFb
-         +5fBho/+hCgJPVFE7MsF+kW6LgpB8M96Mfvn3u+9pD4aczolQOwYjMptI6UGZE7XxlF1
-         3arQ==
+        bh=TW2KkW3TyoodV31kP8bkNvQqqjCDE2Y5KCS48jEj1AY=;
+        b=sBuoBxz6LEic5Jxr161vke+ZIxs/F5SgW0NPl20e5Efq7PbQ9MvuYZHAtGHvBmtH6X
+         zClf3COFpt/8UqvmNsjlJljuUYAVpYoRc+hatlbR80f69Bq/2wEGiI3+szJgB1lwSHcP
+         OI6GM6zQ3L09nVyeEPC2U1ewNWTrM4pxIkEFQBKtdy9wBeOjbRliMcjH1pNZYcREmyrv
+         7VisZOCLydOQ5pIQp8ucCyPkb72BzIpkwRnRfJh1iJrZ9+zMDiWQTcUbJ+DTH2OOquTl
+         Fl32fN4T7Yh4vurslzq5z3OdP78SKwCcW3j8tnadelFaCXPxT2GC++q+33IF2rzJkEfO
+         tqBg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM53120D5L0PsLtUDPVXVQD98cbdxxCyriSDMjeY/+YmepkzcZMkJ2
-	4JkkE08xET81PPOrnXkqvjE=
-X-Google-Smtp-Source: ABdhPJx7b2v4yClSDIBKxU8Y4Uo1rz9paF2YT33H7urPuNc17m6k4SDCkIkGlHZkXzOURuFJnLcfbA==
-X-Received: by 2002:ac2:5e3c:: with SMTP id o28mr22865226lfg.592.1626785296969;
-        Tue, 20 Jul 2021 05:48:16 -0700 (PDT)
+X-Gm-Message-State: AOAM5311KWHlqi/aqkEuqEyZc8WxBEudbXv/K87FKjEOGrbUQK7VUxrh
+	y2V+SYmglgwgZkwtVKVMrmk=
+X-Google-Smtp-Source: ABdhPJz/1y4SX+k8PSPUBzGY/BXgYL3Th6BF4CdHqJBjUtiafgY0ie6LyPdQZ0OA8hcx1L3XXsslew==
+X-Received: by 2002:a19:790a:: with SMTP id u10mr22879005lfc.9.1626786204459;
+        Tue, 20 Jul 2021 06:03:24 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3b1e:: with SMTP id f30ls1388522lfv.0.gmail; Tue,
- 20 Jul 2021 05:48:15 -0700 (PDT)
-X-Received: by 2002:a05:6512:98b:: with SMTP id w11mr5799099lft.62.1626785295882;
-        Tue, 20 Jul 2021 05:48:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626785295; cv=none;
+Received: by 2002:a05:651c:1025:: with SMTP id w5ls4559386ljm.0.gmail; Tue, 20
+ Jul 2021 06:03:22 -0700 (PDT)
+X-Received: by 2002:a2e:9a09:: with SMTP id o9mr26843925lji.473.1626786201667;
+        Tue, 20 Jul 2021 06:03:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626786201; cv=none;
         d=google.com; s=arc-20160816;
-        b=oE5l1RofO+eTVe8Zv4uPmS0bjjitOMn4Xbyb33UVoSKPDBOB32l79BEKgUvdz0xd8h
-         UVal9EXPpqHgUsKVjSXO5KcAg89GksPn/ZNyVHqpQCVeu8kxaY7Xoc1THmGsSTDRDl0I
-         Cti4Ib/hYH6LvnABxKPjuFN147nB8OS4eaNSpr/x+4N7/6E+fevglRtKdMFXTcD0IfQq
-         JguK0sKV9e0hAX4yl9P+XoWJ/opMYAb54j5EetggIHgoS0pmmE3La8gGa7ZDvEL1gcoq
-         Hi0zR6ar7rASkcVAT7UazhfdxPgaHywmqD6sMIajmWl3LIJmG/feCmUxsXsSIJJHArb1
-         rHeQ==
+        b=M4wu9sHspNieQbPSWNpPWwXim4vDPfp4qaW0L+D/5XTdCwpFCOWCY/0OeZA2NfeK+u
+         TMA8V/j50ho9g6Tj5K1mc+HRgUY/5ZE07/lHv09ry2BbdLzYEaVcKoL12qSTsPvd/XGQ
+         5B3RdyjwNEt1KFH5jUgNy+ZbQOZnQLuxPcoURPkwCG1eaR3NKlsurzsos+SBjb8PrON7
+         yZcUoOKLs5UN8QKGTIyQth5TeOvgqk0lcByElABou7MhZ/4wu9zmfXdLXrOm3n7RaZ+e
+         cjDzUD9xKOUuUslGE/t8OT69m8N6zrwgyrLfiTjhR4ngK9nHKs9d0GSIMJ8wF4QQAoHS
+         m72Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:dkim-signature;
-        bh=0ItI7io0GTWcShfB9OXndSkWcyxA3F74Ps+6kGgGN+g=;
-        b=zZgFBlZwDI+PycM7w4nN+wZlrrTWIU6CXiPspABkPeCU7MdUJ8Y0CWauN6HT9cCK53
-         lZ0Pb/M0EokEp09n2aLC6kfKADSsa3zBd/F8knz1WdyMXOYB/XslG03mBcX/W7sBzYUM
-         +qOYUMLS2tdV1CGgjqNYxlWf4g1FXdna2AUva41+aiYsQscPPJjwo5uVB8GYebRetGI1
-         M8aHwKrl87gpqXL98t+NX4Yyr4XHap2ygT6Cwl9ujS3nV7NyvWQrHL8AuDXxbfQM7XPN
-         J6RtrezdwAyxoen4Fenr/sabcwuJ9Xvc0N65JWu+MZi2C+KjDj/jZ4AR372OKHFwmU8o
-         dSmQ==
+        bh=PQfJRURFWXwxKi9tGQBBw5EhD752Jp+9489PeReXm7s=;
+        b=rU0YlZQFEtTD7QVaXQOvht/lMw7woZa84KiP/XFRbY0v9VxLOWE34jkBebL1AP6YPT
+         CeQHS6gOWLlSlRQatQ9VgYHOJrWxpTxvRsIXVerMXxRTbNxB4oOF1ickznkik2Iv8coY
+         k/4AkeGGY0uUa3f0VRJWMHEAtdw+fkUG/HdfodK8ZhLAs70k6EonJsUrqj+Oal+xu2Oe
+         ES4r9xz8iXrVPXLuc5DDk3RZ8V9hAdnt43IMMR3YnhP8CmK5wgUUjobQB0rc15K413pe
+         OgFqs/QkEeAua0GtH6H0obciWxK+FPwgs9tkx3DkQJnNLOC858Q0KELWmxzrLY+h6FBE
+         nbew==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@canonical.com header.s=20210705 header.b=Wr7zJECX;
-       spf=pass (google.com: domain of colin.king@canonical.com designates 185.125.188.121 as permitted sender) smtp.mailfrom=colin.king@canonical.com;
+       dkim=pass header.i=@canonical.com header.s=20210705 header.b=DIklFQHY;
+       spf=pass (google.com: domain of colin.king@canonical.com designates 185.125.188.120 as permitted sender) smtp.mailfrom=colin.king@canonical.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=canonical.com
-Received: from smtp-relay-canonical-1.canonical.com (smtp-relay-canonical-1.canonical.com. [185.125.188.121])
-        by gmr-mx.google.com with ESMTPS id d9si932807lji.3.2021.07.20.05.48.15
+Received: from smtp-relay-canonical-0.canonical.com (smtp-relay-canonical-0.canonical.com. [185.125.188.120])
+        by gmr-mx.google.com with ESMTPS id v1si823226lfg.13.2021.07.20.06.03.21
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Jul 2021 05:48:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of colin.king@canonical.com designates 185.125.188.121 as permitted sender) client-ip=185.125.188.121;
+        Tue, 20 Jul 2021 06:03:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of colin.king@canonical.com designates 185.125.188.120 as permitted sender) client-ip=185.125.188.120;
 Received: from localhost (1.general.cking.uk.vpn [10.172.193.212])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-canonical-1.canonical.com (Postfix) with ESMTPSA id 665A4418F8;
-	Tue, 20 Jul 2021 12:48:13 +0000 (UTC)
+	by smtp-relay-canonical-0.canonical.com (Postfix) with ESMTPSA id 5CD2940624;
+	Tue, 20 Jul 2021 13:03:11 +0000 (UTC)
 From: Colin King <colin.king@canonical.com>
-To: Chas Williams <3chas3@gmail.com>,
+To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-atm-general@lists.sourceforge.net,
 	netdev@vger.kernel.org,
 	clang-built-linux@googlegroups.com
 Cc: kernel-janitors@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] atm: idt77252: clean up trigraph warning on ??) string
-Date: Tue, 20 Jul 2021 13:48:13 +0100
-Message-Id: <20210720124813.59331-1-colin.king@canonical.com>
+Subject: [PATCH] net: marvell: clean up trigraph warning on ??! string
+Date: Tue, 20 Jul 2021 14:03:11 +0100
+Message-Id: <20210720130311.59805-1-colin.king@canonical.com>
 X-Mailer: git-send-email 2.31.1
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: colin.king@canonical.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@canonical.com header.s=20210705 header.b=Wr7zJECX;       spf=pass
- (google.com: domain of colin.king@canonical.com designates 185.125.188.121 as
+ header.i=@canonical.com header.s=20210705 header.b=DIklFQHY;       spf=pass
+ (google.com: domain of colin.king@canonical.com designates 185.125.188.120 as
  permitted sender) smtp.mailfrom=colin.king@canonical.com;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=canonical.com
 Precedence: list
@@ -135,35 +136,35 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Colin Ian King <colin.king@canonical.com>
 
-The character sequence ??) is a trigraph and causes the following
+The character sequence ??! is a trigraph and causes the following
 clang warning:
 
-drivers/atm/idt77252.c:3544:35: warning: trigraph ignored [-Wtrigraphs]
+drivers/net/ethernet/marvell/mvneta.c:2604:39: warning: trigraph ignored [-Wtrigraphs]
 
 Clean this by replacing it with single ?.
 
 Signed-off-by: Colin Ian King <colin.king@canonical.com>
 ---
- drivers/atm/idt77252.c | 2 +-
+ drivers/net/ethernet/marvell/mvneta.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/atm/idt77252.c b/drivers/atm/idt77252.c
-index 9e4bd751db79..81ce81a75fc6 100644
---- a/drivers/atm/idt77252.c
-+++ b/drivers/atm/idt77252.c
-@@ -3536,7 +3536,7 @@ static int idt77252_preset(struct idt77252_dev *card)
- 		return -1;
+diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
+index 76a7777c746d..fc4dbcc58f5f 100644
+--- a/drivers/net/ethernet/marvell/mvneta.c
++++ b/drivers/net/ethernet/marvell/mvneta.c
+@@ -2666,7 +2666,7 @@ static int mvneta_tx_tso(struct sk_buff *skb, struct net_device *dev,
+ 		return 0;
+ 
+ 	if (skb_headlen(skb) < (skb_transport_offset(skb) + tcp_hdrlen(skb))) {
+-		pr_info("*** Is this even  possible???!?!?\n");
++		pr_info("*** Is this even possible?\n");
+ 		return 0;
  	}
- 	if (!(pci_command & PCI_COMMAND_IO)) {
--		printk("%s: PCI_COMMAND: %04x (???)\n",
-+		printk("%s: PCI_COMMAND: %04x (?)\n",
- 		       card->name, pci_command);
- 		deinit_card(card);
- 		return (-1);
+ 
 -- 
 2.31.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210720124813.59331-1-colin.king%40canonical.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210720130311.59805-1-colin.king%40canonical.com.
