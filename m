@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB7M53WDQMGQEZGTEUSI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB35P3WDQMGQEQQKGJFQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 237883D04AD
-	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Jul 2021 00:32:31 +0200 (CEST)
-Received: by mail-pg1-x53b.google.com with SMTP id j17-20020a63cf110000b0290226eb0c27acsf11700pgg.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 15:32:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626820350; cv=pass;
+Received: from mail-io1-xd3e.google.com (mail-io1-xd3e.google.com [IPv6:2607:f8b0:4864:20::d3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5BFBA3D04FC
+	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Jul 2021 01:10:45 +0200 (CEST)
+Received: by mail-io1-xd3e.google.com with SMTP id h7-20020a6bb7070000b0290525efa1b760sf167857iof.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 16:10:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626822639; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0pFIrC/LWf3XI+XaVOMxW84kVV5AsRkGhuF5t18DtGzD38wsSixla+O4U4RXGVijln
-         BJDn0Ste6OsnpuHsBHfthtTSdFSl9AUfKCs9z3mv50UhWKotHYwlQvnZH5+/w4sqgkPf
-         J6KxaYaM3quh1S7yj13iMMgObd8i2m1VKCQdbKR+RczT16gDZNJzClPQVgeSPr/a5/Nd
-         KA71ITpRTHR+hMkhT9VjekvN9vIfod4nVY+0LFrYuJAhuO7avsKciPYNnlpj+V1vvq+E
-         COTNUtBasN4OmgGI0KozKqFLBLXFZ4Rp2LN4oGNvZA8m9Bcm6NItfOVvM2zfDjl9GQxf
-         WaIA==
+        b=us6WLmrQJJrW57py4bBJn53vRG1nbpFqJVh8IRmy1X4AszntN4nalY9CFwkf/+YW27
+         aecZLSdhOMoHGv0YLygYdXLfcyxGP2xDcPnFa9LRHEv/SSpb8zDz3UUd84YeNB41PRk2
+         EmQ/eX3ASj35+kf4LO9PknOsZmQFjMPB/dmrx7l72MTY7C/UIOagFTeH1Kqx40FeDDVV
+         iaXmd7qNd2Dhg3ya4zMSr4FJR9hRo8kvB99IpjjWwQ1jVkfUmqSdKejil2wMXuj2NG/Y
+         wIY3jHhoK5oQ7xMdIwEqsGaW8OZgPMZwnXlMaSSOMQyyf8wRBi2q2S3v1iXbHmHAlpFy
+         p4+A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=O7NiMy/qBYWl1M0H/ip321kkumDo53xPBgi1wlPgv8o=;
-        b=RjxCJ3Gciooju13P0o17DeKQXmuAjkDXFCYrLJn2DJ1NuIyNiADbeu4RKb2B1VNCPW
-         slhsgrsh8kl/sWyL4XTa3SV0PLGdJ8SL5wMm8bvP3uY7egNuW+u4i2U5IXf1E2Sz66/o
-         p1te3BneYSB//bB3onlhXxF3wrY7WifgUoVaqbUEqbo0cIpnIUiy6EzIWTCjcVbOMg0b
-         QgHBhhxKUKRPxXem4DLIx0Gy0OnLnbuGLkJrLH0BEielTTl17r76s/EXmTzwGTfzvqIq
-         UnhlhzULwOiCNJjRaP53tgp0LhT6PkmvoZ9mfC4OHH/ILpJrSgqsRWs79hpe53B9V4yd
-         z4oA==
+        bh=Iz1lP08mj6DcCCK0k4WHMuvvbTDNOo2uGmhV1RaEw/A=;
+        b=HQCFjpcaxG8Y0/1MlZobge+l/YbuXOHtPUbxiqSAohxenQXnEZbrP6rTiFvilKhiZF
+         sNdn5HbPmaVCnFjWNrE5zb+QY4JE81OcMhplmi+J8gXt0icgHmsd2Ibwcsf+o+KgpBqv
+         dSOlo3i/YWWN4fpS0ClKYP6/Dy8bon5KJKXcM42uZapXCgzhIld45y9bljDW6rggK59l
+         e2PaIsvCrR/H6/7pToO7fo4BojHA5A2QsvPOaWkyakkArd5DQrT/R31jzVTbdU9f2a91
+         UW8pyr1u4xMLRyj3IU0Z5n9OrGhydwUsc2jX5C541Flxd/boBLl8oFSXEI1mnE4duofs
+         R0dg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=O7NiMy/qBYWl1M0H/ip321kkumDo53xPBgi1wlPgv8o=;
-        b=AayMJrvwuZ90ikCA80qz68Z5k1E6Ffpw1BI2sNDEsU6PaxJoXp78ukcX/qzt5ePnDt
-         WssEW43WSqwOmOL/fgHkWR4pEDY7GKoTZkGOYiS9/+EGCiVcOtG3F3hdYlQPKMlS+cjG
-         TynIh3BTA+yhBQUrzKReS4+eyPYFKzaWff5WNecRS83EDXflRkve679zxGpX3Pxr/9Q+
-         2qLSd5xVLke3Vtd1KxqXbZ3LGAsWZhbAcvzzqOzMNdjAiVmA6XiqO5RLBQKRTz+Qq/jQ
-         kHoH8HSb1GvrNP/Vs8j30PmCebZ2Mu/KgIqniIgCMZIdwH6uPOhctHOAU1QxtvmvHVO6
-         L0xg==
+        bh=Iz1lP08mj6DcCCK0k4WHMuvvbTDNOo2uGmhV1RaEw/A=;
+        b=BFvD1/UuIhUC/JIc1d658eek0O4DGqt8/4YAA7WhG5reuWm4MtNBCLgPyZpEjLlb/n
+         O3OonUvBMs+eMNNKWDjFnSjATkD6Zxifk69TyEUcxkoO4BqA2BEmmJx+eimA+a3M80Xi
+         q7gwBJyUjEB6NV92KGCpm5tjXCJneRNyXc0QpFbBnE5pz6oufvKw+cbfHsBiQgO/ceIp
+         drgGpqCbMyI2SHEwBby8y0Kt1CF8BTo/3B+j53wQDssdSBNCQ67OOUZJIeL/bt/2R1AK
+         5oCF1ZnzJ8xMTAWZVBMOhxcmncrytAoRGYQ/R8r0ivy2m2uTboMAYU9imyJLeCOGP8+v
+         xvpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=O7NiMy/qBYWl1M0H/ip321kkumDo53xPBgi1wlPgv8o=;
-        b=XQwbb6jHMDyqHnLIFPuYLmflNRCdN2RCEPKmGfJeaVmkEPt5tI5kCOXDGkDTjdy7zr
-         5LederfBl2geRjn5YKrZuOdG9VMzAOt1sAWRYXovQkUkmzP9HwW1Tw9UHF6duZvD4Lg2
-         ip+FjwXdyS4KNHCDaFT5mIVftblWs3uIjlIQ/4yXGY/ZfV3D6iq+Z9k3ejGFEczQ0umk
-         SOcJa43lK62XasHrd+5wfBUHEqH6o7ncNgNg30FoNz60F8ALAxdiHKqRG1/DJ0CVj3wb
-         O9egI0WxbgGCAtk/U4sxQvSvPy0ayAgKUVr0QWHDEbBFIMnUG/+gVJ7T15Pd6W8W4QBD
-         dsHw==
+        bh=Iz1lP08mj6DcCCK0k4WHMuvvbTDNOo2uGmhV1RaEw/A=;
+        b=MjJsWsPejYvN1PBq1AU8WssHLEs1wtFzeMo4g/5HjVOLOvGpfqbgiaHsUmXYnMn/PG
+         pwJxpPmbr505HBlML694jqb+8YyUcbmF4sEm/pc89zspvZYhzcWSSaFXdAnAI5Ydtzjj
+         XzX+VFdzFnSCcBXIvbkhrgeYaEJZ1/GxI9Sid2bov4FfLI6QX3at16pM9toWsX8tO6ZR
+         tLTv8jABCzVj1ENn88tTaTeSQl9ktTy6O9hyPfGS1yPfpYCY3bxyRDfdbOWaA2sluR2n
+         gYc4woMb7IFWhaHrD6Szr6tRXPK7rt25ttHYaf1++2r4Iu80bnpkQhkM/4pCSMvGB5QY
+         Dl+g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530ZP4yxS5cDMYqDBupvEk9vAz4LEaJB+qiP5PxRqLmoBmIyVQ1E
-	2mebC+HBxg7zwfzRKd9OeYo=
-X-Google-Smtp-Source: ABdhPJwa5NdmvN7LzO4cWDhSyknLFE7nkiUCdYRGR6EMt2re0pCVb1g5AWEWdEMrwpfh5hebn2zufg==
-X-Received: by 2002:a17:902:e8c2:b029:123:25ba:e443 with SMTP id v2-20020a170902e8c2b029012325bae443mr25546026plg.29.1626820349738;
-        Tue, 20 Jul 2021 15:32:29 -0700 (PDT)
+X-Gm-Message-State: AOAM532Mg2jTJp8ibySOG9rGT70jLfukApLTkG2bMWpQuG77vjK/+Ilj
+	DRvKaT5OVqprdCj6Qqc5HBo=
+X-Google-Smtp-Source: ABdhPJw0f66A5J27kqIACUVvRJRSHkrjXC8OhIr8B8EEouy3UXPPFjd5J699XgokcaysvlEB4Ju+Vg==
+X-Received: by 2002:a05:6638:289:: with SMTP id c9mr28810079jaq.14.1626822639246;
+        Tue, 20 Jul 2021 16:10:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:9f0a:: with SMTP id n10ls106387pjp.1.gmail; Tue, 20
- Jul 2021 15:32:29 -0700 (PDT)
-X-Received: by 2002:a17:902:da83:b029:129:9f09:bedb with SMTP id j3-20020a170902da83b02901299f09bedbmr25500523plx.56.1626820348963;
-        Tue, 20 Jul 2021 15:32:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626820348; cv=none;
+Received: by 2002:a05:6638:378b:: with SMTP id w11ls81800jal.5.gmail; Tue, 20
+ Jul 2021 16:10:38 -0700 (PDT)
+X-Received: by 2002:a02:93a3:: with SMTP id z32mr28902335jah.33.1626822638636;
+        Tue, 20 Jul 2021 16:10:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626822638; cv=none;
         d=google.com; s=arc-20160816;
-        b=OgOju24mQPPdt3Htd/L2/eMFW3bva05yaZ5rAEorLaRamv8MBdweas/BhNfbSwYn2W
-         K9jJMelpn8IftfgWVwFuvppmEE+VB5F9cxvaaZgPySTVDtZh4rd5qDYhg3CgTmCQ96PT
-         y/t7jdtcLGNCrX6wky/TswELBj7UaFEXxhgZ5QOv+7b+NJSQwI0ZbDcOMJqsmM7Sb1Ny
-         zwLWPy+tU9wdLI4cMFTspaOaRkZSBIdzBFbgiVx+/12Ih5A6KcEGLbWXInQeaTPIFxPK
-         4YyD1/8I7Ly2wcVAQ2c1FLF8tIZ3tWwSlCbyRWxw1KvEOYolTq/s5NCoqoGn0DGdp+vq
-         G4cA==
+        b=Z0NFxYTEDRXRUYyndvtQdAn20zWckPgwmk8Q1nzDCmxlQ8QxO5r7sjDzcXXo2jkE/z
+         2C0TTmC8H84feSBI9u0ImDREy/HlUQrYqqinvZMKql9xyflXw1ZE79EW2iVjSSYmI/99
+         u0d5ZVp5S+sjZd2CC1B2m0V7TJfE1MZG8Vq02KvLx1YykCHIJnmoG3TehEYRjPCXBm89
+         EbJ/7ppMq6Pf0wMWjAJcPjMQkQQpDU+uPcweZ6tA7gDhIX5WOB+crOsgjlMgx8vmaQqV
+         c934Rt08NGXE3JlKPUn0ROmUNdN3gH3/h98FpS0ZlyG/xPUNaacQDjNoHJN8cTQmJZ1b
+         LBxw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=8/b5utHF3m2MH7OskaJrdXIpz+9cLoOVXJRHJMwdu1I=;
-        b=yu1uuaM5Jkt1FRvakTjQQ4d4sIkbhIVhhwmsLgrMbInalwUWMYgKis0E97DpeeSxNP
-         qce1wuUhM8rp10PJNQ28yy5O/qnofzN2p3DuA8ibkkxFkzvriz0ajwv4IKrZZKCEJBaV
-         FB6IjK17W23M8YQOgC4TusgrbNlF48U6J0UeRpqCWCzBTb6Cr1bjxbL8aKqOY4rRVrcP
-         C16iVSd/fzs+JxHApRtGlZSbNwpyJ8JM8z3t8091tKZsQQa40FgLHkFGQXwliJC3dwkP
-         I2kfTzdfbIY8ktp1oLkOyh+s6DIOzGocqfNv7CDE3GjkWX3LiWAY9MTf6lnvyVxniZHq
-         cAjg==
+        bh=AMd0EdhJ9zs70FU77TJApq7OS+FyKnQmWzx4K6ou5sQ=;
+        b=jLJKDwr+tTY6hjUxcuMTeercmcWRReq+Ne4WM6oZKRykcHfTJlygt7O5bXaK/QGaF8
+         vn1MgWes6L5OdA3aJ9j76ATvWRWN6nXLuE1ArE7v9MoN3gskWvkuaKWWyIH/E2mZg4Kt
+         xwDgaVAUpKMHRcF0o78vncYTDkfW4go2jhdK+aIflKIZJm1ZJDBpehL2vpwxY+/9lxxN
+         Q3KYj63WtwqI9LuWPSJw1WoDpr/dQCql4ZJz4WCswD1vcUjeO2fwDPgwKnQht7VJZq83
+         TG69WUFWjOAHUvCqo7XPHtjY4Xs8KK8BEtbMwLV4giFShK7SfVUZBB/RmOVl3SoCCZIC
+         QJIA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id o13si467161pji.3.2021.07.20.15.32.28
+Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
+        by gmr-mx.google.com with ESMTPS id k3si2080342ioq.4.2021.07.20.16.10.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 20 Jul 2021 15:32:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
-X-IronPort-AV: E=McAfee;i="6200,9189,10051"; a="296899110"
+        Tue, 20 Jul 2021 16:10:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
+X-IronPort-AV: E=McAfee;i="6200,9189,10051"; a="190926154"
 X-IronPort-AV: E=Sophos;i="5.84,256,1620716400"; 
-   d="gz'50?scan'50,208,50";a="296899110"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2021 15:32:28 -0700
+   d="gz'50?scan'50,208,50";a="190926154"
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2021 16:10:36 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.84,256,1620716400"; 
-   d="gz'50?scan'50,208,50";a="495058226"
+   d="gz'50?scan'50,208,50";a="657767005"
 Received: from lkp-server02.sh.intel.com (HELO 1b5a72ed9419) ([10.239.97.151])
-  by fmsmga004.fm.intel.com with ESMTP; 20 Jul 2021 15:32:26 -0700
+  by fmsmga006.fm.intel.com with ESMTP; 20 Jul 2021 16:10:34 -0700
 Received: from kbuild by 1b5a72ed9419 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1m5yHp-0000Qf-ER; Tue, 20 Jul 2021 22:32:25 +0000
-Date: Wed, 21 Jul 2021 06:32:20 +0800
+	id 1m5ysj-0000RU-Jh; Tue, 20 Jul 2021 23:10:33 +0000
+Date: Wed, 21 Jul 2021 07:09:40 +0800
 From: kernel test robot <lkp@intel.com>
-To: Michal Simek <monstr@monstr.eu>
+To: Piyush Mehta <piyush.mehta@xilinx.com>
 Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
 	linux-arm-kernel@lists.infradead.org,
-	Piyush Mehta <piyush.mehta@xilinx.com>
-Subject: [xlnx:xlnx_rebase_v5.4 904/1765] ld.lld: error: duplicate symbol:
- dwc3_set_simple_data
-Message-ID: <202107210657.yqZCWCdf-lkp@intel.com>
+	Michal Simek <monstr@monstr.eu>,
+	Anurag Kumar Vulisha <anurag.kumar.vulisha@xilinx.com>
+Subject: [xlnx:xlnx_rebase_v5.4 906/1765] ld.lld: error: duplicate symbol:
+ dwc3_simple_check_quirks
+Message-ID: <202107210716.40RvPv8K-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="gKMricLos+KVdGMg"
+Content-Type: multipart/mixed; boundary="AqsLC8rIMeq19msA"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,17 +139,17 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---gKMricLos+KVdGMg
+--AqsLC8rIMeq19msA
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
-Hi Michal,
+Hi Piyush,
 
 FYI, the error/warning still remains.
 
 tree:   https://github.com/Xilinx/linux-xlnx xlnx_rebase_v5.4
 head:   2f686fa6c0bf7fa168dc45dd7ce1359217212911
-commit: 3d600fd776cbda29abdea084f7437f7d9102b2a5 [904/1765] usb: dwc3: Add support for removing vbus when suspended
+commit: 782658c51bbcd85a39a5d9a51b57224f185d7670 [906/1765] usb: dwc3: Correct errors when dwc3 loaded as module
 config: x86_64-randconfig-r013-20210720 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 87039c048c0cbc3d8cbba86187269b006bf2f373)
 reproduce (this is a W=1 build):
@@ -156,10 +157,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        # https://github.com/Xilinx/linux-xlnx/commit/3d600fd776cbda29abdea084f7437f7d9102b2a5
+        # https://github.com/Xilinx/linux-xlnx/commit/782658c51bbcd85a39a5d9a51b57224f185d7670
         git remote add xlnx https://github.com/Xilinx/linux-xlnx
         git fetch --no-tags xlnx xlnx_rebase_v5.4
-        git checkout 3d600fd776cbda29abdea084f7437f7d9102b2a5
+        git checkout 782658c51bbcd85a39a5d9a51b57224f185d7670
         # save the attached .config to linux build tree
         mkdir build_dir
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross O=build_dir ARCH=x86_64 SHELL=/bin/bash M=drivers/usb/dwc3
@@ -169,34 +170,41 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All error/warnings (new ones prefixed by >>):
 
-   In file included from drivers/usb/dwc3/core.c:35:
-   drivers/usb/dwc3/core.h:1419:6: warning: no previous prototype for function 'dwc3_simple_wakeup_capable' [-Wmissing-prototypes]
+   In file included from drivers/usb/dwc3/core.c:36:
+   drivers/usb/dwc3/core.h:1429:6: warning: no previous prototype for function 'dwc3_simple_wakeup_capable' [-Wmissing-prototypes]
    void dwc3_simple_wakeup_capable(struct device *dev, bool wakeup)
         ^
-   drivers/usb/dwc3/core.h:1419:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   drivers/usb/dwc3/core.h:1429:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void dwc3_simple_wakeup_capable(struct device *dev, bool wakeup)
    ^
    static 
->> drivers/usb/dwc3/core.h:1421:6: warning: no previous prototype for function 'dwc3_set_simple_data' [-Wmissing-prototypes]
+   drivers/usb/dwc3/core.h:1431:6: warning: no previous prototype for function 'dwc3_set_simple_data' [-Wmissing-prototypes]
    void dwc3_set_simple_data(struct dwc3 *dwc)
         ^
-   drivers/usb/dwc3/core.h:1421:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   drivers/usb/dwc3/core.h:1431:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
    void dwc3_set_simple_data(struct dwc3 *dwc)
    ^
    static 
-   2 warnings generated.
+>> drivers/usb/dwc3/core.h:1433:6: warning: no previous prototype for function 'dwc3_simple_check_quirks' [-Wmissing-prototypes]
+   void dwc3_simple_check_quirks(struct dwc3 *dwc)
+        ^
+   drivers/usb/dwc3/core.h:1433:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   void dwc3_simple_check_quirks(struct dwc3 *dwc)
+   ^
+   static 
+   3 warnings generated.
 --
->> ld.lld: error: duplicate symbol: dwc3_set_simple_data
+>> ld.lld: error: duplicate symbol: dwc3_simple_check_quirks
    >>> defined at core.c
-   >>> drivers/usb/dwc3/core.o:(dwc3_set_simple_data)
+   >>> drivers/usb/dwc3/core.o:(dwc3_simple_check_quirks)
    >>> defined at host.c
-   >>> drivers/usb/dwc3/host.o:(.text+0x10)
+   >>> drivers/usb/dwc3/host.o:(.text+0x20)
 --
->> ld.lld: error: duplicate symbol: dwc3_set_simple_data
+>> ld.lld: error: duplicate symbol: dwc3_simple_check_quirks
    >>> defined at core.c
-   >>> drivers/usb/dwc3/core.o:(dwc3_set_simple_data)
+   >>> drivers/usb/dwc3/core.o:(dwc3_simple_check_quirks)
    >>> defined at debugfs.c
-   >>> drivers/usb/dwc3/debugfs.o:(.text+0x10)
+   >>> drivers/usb/dwc3/debugfs.o:(.text+0x20)
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -205,14 +213,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107210657.yqZCWCdf-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107210716.40RvPv8K-lkp%40intel.com.
 
---gKMricLos+KVdGMg
+--AqsLC8rIMeq19msA
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICHJL92AAAy5jb25maWcAlFxbd9u2sn7fv0IrfWkf2vgW13uf5QcQBCVUJMEAoCz5hUtx
+H4sICOVT92AAAy5jb25maWcAlFxbd9u2sn7fv0IrfWkf2vgW13uf5QcQBCVUJMEAoCz5hUtx
 5NRn+5Ity93Jvz8zAC8ACCo9WV1NODO4DwbfDAb66R8/zcjb4eVpe3i42z4+fp992T3v9tvD
 7vPs/uFx9z+zVMxKoWcs5fo3EM4fnt++vf92ddlcXsw+/Hbx28lsuds/7x5n9OX5/uHLG5R9
 eHn+x0//gP9+AuLTV6hm/6/Z3eP2+cvsr93+Fdiz0/PfTqDoz18eDv96/x7+//Sw37/s3z8+
@@ -847,4 +855,4 @@ gCJHO10zyMjbuQS2mG3IeknZiq3Y8W5Vl/VshU9gzmSAyOCuWDecvaV8kukmhyVll2/g7YHr
 ESMbVU/jumC7twR8IAJVS+CVuYqoC4pVBwp0I/giZ6R1jDVQSnAOZOWuWvD2BkEj+NrcFnuZ
 2KKsLUPbHi7fmHCbCiTMct79nCtzzjgHISUpY9QbWh32f9DxVIWXFgIA
 
---gKMricLos+KVdGMg--
+--AqsLC8rIMeq19msA--
