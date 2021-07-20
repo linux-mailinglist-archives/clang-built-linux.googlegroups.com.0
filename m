@@ -1,131 +1,133 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB3V53SDQMGQE4JSWONA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB66V3SDQMGQEOYYMP2A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3c.google.com (mail-yb1-xb3c.google.com [IPv6:2607:f8b0:4864:20::b3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id C0F0C3D020B
-	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 21:07:27 +0200 (CEST)
-Received: by mail-yb1-xb3c.google.com with SMTP id g3-20020a256b030000b0290551bbd99700sf31633522ybc.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 12:07:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1626808046; cv=pass;
+Received: from mail-pj1-x103c.google.com (mail-pj1-x103c.google.com [IPv6:2607:f8b0:4864:20::103c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4AD773D026C
+	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 21:58:53 +0200 (CEST)
+Received: by mail-pj1-x103c.google.com with SMTP id s3-20020a17090a5d03b02901762367797bsf279882pji.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Jul 2021 12:58:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1626811132; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oVn8FQa0cGV8swtRBMIJuns3esubWt36H/te3S1eZUltnjmsyUECeKwprPEC2vSS7d
-         J10tk8ylKIMAzb3+8PDHhxqKbfiWm+zXVWYxTrf1eoIX1PZcBMqH1mfN5GbQug6QW4mD
-         qkKL+PoVDk9kKj984quRoWijHFmZj6nqZh+77mSxfz2+CIPaZHBStVvAPlSKUWb8CMLp
-         IPaN+ZiC1A5FSd1cfeue3NHw91y+3FtZioTLeBkaIMYCOEyB/5louzgLdtA11xX1OaIn
-         K2DQnajH+URGQpnrp6yaEAPKrB6iq9eByKBpUbPHHmQfNFyc4QOzSHfHyo/gggYDEbON
-         GZgA==
+        b=MLIG+aBFON+sZVf/Jf1wq9prhr0/9uREOQiECbe46c5ixdf3hNzyYwawObSx3oKCX6
+         R0kmvtNL835zDq4EF3/QFOPqQQj0P59bn7LK6g/DWzEkdHAZjpq8/tMhe4i0VU29SUmV
+         uhT2ptjKqwvb/Ttv8grY6Xu8uXcNSGa/PVPmya9hAEdcKtllBmTgfmTzn+rvvdY1P3YL
+         OPeiMOvMbB9wsSJLoT5e83O0qvG3RcSJ2FSryVHrZgYwhMnhs8yiLMKxRBinFBLFBZnQ
+         sbchyDSbaTYZDu3SxmQo2N6Ki3VD4EkyqC2mOIKRvzhioLK7tYGCNg1LkLRZn3WaGODS
+         f3eQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=zXJ2j4PzlaP/tcgeIMaHzsShAGJCoIGrJRbAPOrL6ow=;
-        b=mN8Zzswfu+bHFyRta7u2nALkkDHmQfEA4H27sOrIQ+r5VGWvBlDjr9tsLFXPhMBxWv
-         uvU8auOYUaqUYjz2C+vGxY2ncZl96wr96jh1Oo/ZuNF6U7dRODoSWtaIXOmovc/n41OR
-         Nh7TMZid1B+ZHNAIMPpCVrN2jQMDvsthPd5ymzcG8G46AjkFL4Yic4tLFD2I0KWthpTu
-         wVS5Af4pOFZzq5Thsh+nSy+EL0aQZtMs8hgZusgpI18tQ2L3w6b8nfed6Edez2/mmGHd
-         LuW0Ru67BBKNuWt5utvjZVNFVVwlKwPFyp3zCMXLmczkSyVrfuPMSwLnz3eOukAlLzvO
-         NxFw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=S/TJmVuBWx4ejOPqZ9UEzOz+E9GudW/M195ZHoQWn3o=;
+        b=0oRzc8j2DGSaB3aL4usxYDqFrmMQXKlO40PDYChhCtHaGJaJKYimC1CfCcA9Z7tx54
+         JeCEkNi/5wMIcJNhrCCjvifNB5S4KUgWOFqNY7dn67e3/GL/wCwut3XgFD4+UtncOVkf
+         D3B/db/QRUBHcZQaoRenQ+vTjcqnaaJDIcQN20pHSyzvhkAjsl90zDOjlp5I44Jsmt78
+         ek5rzV3YmIJ37hsdFXwd7+yr3AM8cj1hQz9wT4wNbVm2CZA/1G46DVXdnCu3iSTopXsq
+         y6/HW+yVD41AN8+G7iqOl8gMT9SqEUPnsT881HuSFHdLe/jQKPhP28HHSmfY3TYTCsZy
+         BF7Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=mcBrK9R8;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=MVTeDBI5;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=zXJ2j4PzlaP/tcgeIMaHzsShAGJCoIGrJRbAPOrL6ow=;
-        b=pAJddMQ66EItO6VgIZbMm4OYJM398de2+snONtiPpK6ZVqW7v1cww3Zi8s+qILpjn/
-         fpT44yjzinimMY8BV8hMr6L3atazzcBxPE/Q3QXx86uolu9AAyovnN000Rggkd+sp2Jn
-         emcy00fsL2zr1gvb3rXeHW+k6p6w1u/9rasMdK2bVvEiKwxr+9HO2MzWS6msHLXFxto2
-         8lQFzI919zwydyOfEooNuQ/jM8YSW8YcrgmLddfisY0S4sfp/x/G2O0wP8vdcf89zjVP
-         1uTKD4faUgZkYYH/DGW6eHLwJ46Bw+IhizW3CSdt/LbSSQ3pyGbEGD/5rj8SLTW/F9UK
-         PUyw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=S/TJmVuBWx4ejOPqZ9UEzOz+E9GudW/M195ZHoQWn3o=;
+        b=HqhhJ1SKTywZqyepxx+oPjvw74lvk3pdqK8aUYdZCFf8Yb+aXXg6bPlkieo4Cqi50f
+         ajqet7NC9wex68sD8+8DfM1ZQzxMlL0pjSKoyZJW26dhoNUyWxIu9XcsimgvHpDw2IEs
+         VkeSGCrfUrgOqISbg5c53wndsI2Pyi0xjFD5llclpZ1GksASWUjAgiD8q6WSVyfzBP5e
+         6niQe27/OrchPZ8EXb27CrfUjfmURqQj/p3W7PHq6mh81n48lK3aaijzbFPxNAHSCMVK
+         7o+Fe1c079vGAHvkG65YVaPLMnpRP/z1lxO8rqj5tfqThWv529mb3B2Gl6Lbil3QczSo
+         UAsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=zXJ2j4PzlaP/tcgeIMaHzsShAGJCoIGrJRbAPOrL6ow=;
-        b=ZCzVgw0k5u3B9lBJz27y4tXXsNpHjAX3JUTWc40m4c1A+5Imp91hwOySuo4yJLEm+k
-         fmjU0bNm6vDy4qkvgMG1SRCMwpTru9yiEjCplveE2dzZNyEWNxOzI2+IKjiyPOLodyzd
-         JlD1mta2ofHzKeQvshmQslds6oH8LGc8xv+w+r84uuUeq3+cvhOts/eUXNJOomC7/pIW
-         8XeXmrOpCftPR3kY03geCpXkEtZq7uDGKn0hNQuPmDcnpELAupIyya7hGan+TCsvCmjW
-         S0wQO04BAxvKWDBb6MiBTSCIgZ9nK0+LeGFiD0Cjq7IGVOEaXDFp+U437cSSznvh4AgV
-         SzXQ==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=S/TJmVuBWx4ejOPqZ9UEzOz+E9GudW/M195ZHoQWn3o=;
+        b=qiw8B9cpe8iy5UtXMh4e1A7qLcHQiLAHBBxKXWumbkArRdex5ePWuexvVC7dZH5Dno
+         LUbZtOUtfFPrx6H7a/Jcljdgk/lF2iGmM2vOni1W4uKpPJzipe3ULIlQZM4qL9u9fp6w
+         8vniin/cDlFm2dt1rW3vvKCHgjhGsUNSQEJVS3iqmaG/AmyKt8xmK0Og/2VgvItxz0xO
+         X9vxEzYY2/efhwCN5J+aXPjWbVrEE7Scy7pO1ALXGQapJGeklVUDzeFN7Sz9u4K82w9k
+         z1WNLEcyN1JBocMKtV9RMDO6WQ++lHeFodzxIgkWT66a+61K4/zJMJ8BIk4rEilmEFz1
+         omxg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530BFe14vC0H8iz26QFWTTuzZapuo8oX5IRheaM5kIg55Yl7qCmS
-	8tKyAooVBlnGl11e2LKLA+Y=
-X-Google-Smtp-Source: ABdhPJyvWY8hHQBct/VGrob9WAcjcRbFg96rg+Lyyq9azbb49wJHCuYV1slVBQBplidPZsHThd2pVQ==
-X-Received: by 2002:a25:ba08:: with SMTP id t8mr40243148ybg.111.1626808046870;
-        Tue, 20 Jul 2021 12:07:26 -0700 (PDT)
+X-Gm-Message-State: AOAM533DgScGiqh2mOV3MYKQxVK/WfDGcRD0RHSd6TYiQQW12fhzJlbi
+	lQFaCjxkBd0G7pp1Ew94ue0=
+X-Google-Smtp-Source: ABdhPJzSRAFCYU7r9SRRFu2GkoqRO+9VLDvj9QgiLROM1/mX/C6DEflhg3D/qh7DRlO4389rcZgrcw==
+X-Received: by 2002:a17:90b:46cc:: with SMTP id jx12mr104769pjb.26.1626811131969;
+        Tue, 20 Jul 2021 12:58:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:38c:: with SMTP id 134ls3413112ybd.3.gmail; Tue, 20 Jul
- 2021 12:07:26 -0700 (PDT)
-X-Received: by 2002:a25:b321:: with SMTP id l33mr41392831ybj.434.1626808046368;
-        Tue, 20 Jul 2021 12:07:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1626808046; cv=none;
+Received: by 2002:a17:903:20cc:: with SMTP id i12ls2877782plb.8.gmail; Tue, 20
+ Jul 2021 12:58:51 -0700 (PDT)
+X-Received: by 2002:a17:90a:da05:: with SMTP id e5mr84454pjv.176.1626811131465;
+        Tue, 20 Jul 2021 12:58:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1626811131; cv=none;
         d=google.com; s=arc-20160816;
-        b=1B9f1dVfJPI+IirweLbrw31vxHhQ8/uyux/xLdvw9UbzMu6QoXSjEYz4n/B2Lkh+Sn
-         98PyAFBs0aVy6OiTdKh3quaKuX2eYauEzY8gEvg7aS+CnPspxFI8gDtF0UZE40u7qezY
-         moSGjtd4VVyp6BdKmry8hbuCzpmUTbjQwq9BSJ5tq01cM6wOLdy+mbrBJ6PWPYm9x3nD
-         EvTPzEwCaSWbu250F+v9+zS+/7rM17SiVIzlsjtqugeW6ssju6NITYXjSLJDBjwtcH9A
-         4ZuB1DLJ5RHTMa5P8XfGVPLPI/x/dQGx5K+ijBUq/utgev0NOn/51Nu9gQaD6KIX1ACe
-         TooQ==
+        b=OME+eJl+gwfTqw0QMQ0nKqGdLA8ciOPaWj80T9YrxaM855wqomdR3/hz5MyfKEuFJW
+         I/ALiUBlx6xKY8POVo1b4uUZHZDT291PswLBqTfEz1FEDgRur1pH7DfQdwneJ6Ee7h6g
+         MEMndgogp2SoojuXcite+FarvbNOpHNtScYyGJ4pYNS0hsTzcr14Q3PmnEZtY+hTHdg1
+         jVMi6xmXuZq7qK2ZloYGZHBDRiz5XsS1xNGMqhMeZRaDt2/UgtegLdxQYKXo5XGw7KlY
+         hU3yMHmBUhVe2bk6ihwyjua4s6xK1VB8bS/F2VKIghQouiy/zFpAo32ysX/cVlSlnLjH
+         O63A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=bbgERejzgn85AyMw4PMDA3UeKeLvl15WOujdMF01D0k=;
-        b=rXqX68R5QoxWLZAxVHO74Mj2ZKioEYb2VDydnIKaqfYgLhb7bYcnZyhM9kWiO8b9YG
-         hxzxrtPHxvijYwsy70KpbKobMssbkCw7qKYozkwIap2IDKpcsz2Nd/eTZUlZdysNtZUN
-         Y44PIpXkPIvnY09WTG946Vrg47PIGzdtuN2SJ2xp1Nz+5Xe6Hb2QiScSK6E0N1epl2AL
-         ocnVWO6qI54nqBKowhmcRSRmk7ceuWPQokqXYSzJplprrc8M3E1Y8E92Ob/hGIlqrqFF
-         TAAtSSEpY04QFn399191t2dMNqTrn6FRCeENkk8JldTn5cSXvqWby+WEBGcasSHYb63n
-         Zi1g==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=1NAK6ReYdddIOpKLpri57J2o7TSWeKUSgE8SLOuORyc=;
+        b=SuuQUIqaZw0gGOv45LlhTzTcR8c9CDZN8k7yPRLNUMsGz4MYoBBLp6y40b8FbHcPF+
+         piJmIPJ8Q1oC/WXC3DaPw+en0JQVmw4J9hJB0Pd0/ANGSfC7KnSCIWmmum0n3WvRMO7x
+         3QIK1Th5JlSZkJOCZsxG0DId18/Kl3YMaaXIkQtlIhs1TJDO5vJh/AcHK+gDskY4z41Y
+         ZYBdknQhkIAu8Uxcvww0KUUJOicROQBkrWuG1IvwXXNBqf0YvY8SlwFjXJc0Ua3Nee/c
+         17eY0etk93ji/NiBMGdh9j3znPxCHDDbziEx5xg+8IP+YxVvhXZ+K2xwgYVq2n3G011N
+         4ooA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=mcBrK9R8;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=MVTeDBI5;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id o187si2325320ybo.0.2021.07.20.12.07.26
+        by gmr-mx.google.com with ESMTPS id 136si734103pfz.2.2021.07.20.12.58.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 20 Jul 2021 12:07:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9DF9B610CC;
-	Tue, 20 Jul 2021 19:07:24 +0000 (UTC)
-Subject: Re: [PATCH] compiler_attributes.h: move __compiletime_{error|warning}
-To: Nick Desaulniers <ndesaulniers@google.com>,
- Miguel Ojeda <ojeda@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Kees Cook <keescook@chromium.org>, Masahiro Yamada <masahiroy@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Marco Elver <elver@google.com>,
- Will Deacon <will@kernel.org>,
- Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
- Arvind Sankar <nivedita@alum.mit.edu>,
- Sami Tolvanen <samitolvanen@google.com>, Arnd Bergmann <arnd@arndb.de>,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-References: <20210720180441.2893919-1-ndesaulniers@google.com>
-From: Nathan Chancellor <nathan@kernel.org>
-Message-ID: <7c7d1639-7997-265e-aa77-ebe3d2fa05e6@kernel.org>
-Date: Tue, 20 Jul 2021 12:07:23 -0700
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.12.0
+        Tue, 20 Jul 2021 12:58:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 2D4E2611CE
+	for <clang-built-linux@googlegroups.com>; Tue, 20 Jul 2021 19:58:51 +0000 (UTC)
+Received: by mail-wm1-f45.google.com with SMTP id a23-20020a05600c2257b0290236ec98bebaso237785wmm.1
+        for <clang-built-linux@googlegroups.com>; Tue, 20 Jul 2021 12:58:51 -0700 (PDT)
+X-Received: by 2002:a1c:c90f:: with SMTP id f15mr123895wmb.142.1626811129717;
+ Tue, 20 Jul 2021 12:58:49 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20210720180441.2893919-1-ndesaulniers@google.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: nathan@kernel.org
+References: <20210708232522.3118208-1-ndesaulniers@google.com>
+ <20210708232522.3118208-3-ndesaulniers@google.com> <CAK7LNARye5Opc0AdXpn+DHB7hTaphoRSCUWxJgXu+sjuNjWUCg@mail.gmail.com>
+ <CAHk-=wgGxu4_hgzdYpFuKd95SfnkJbPTWAQ9-fMgmMN1Oxs2xQ@mail.gmail.com>
+In-Reply-To: <CAHk-=wgGxu4_hgzdYpFuKd95SfnkJbPTWAQ9-fMgmMN1Oxs2xQ@mail.gmail.com>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Tue, 20 Jul 2021 21:58:32 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a3=JBQow-Ws6tt81k93aw+OCV5C2CtSWxASkv=iQZPGUw@mail.gmail.com>
+Message-ID: <CAK8P3a3=JBQow-Ws6tt81k93aw+OCV5C2CtSWxASkv=iQZPGUw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] Makefile: infer CROSS_COMPILE from SRCARCH for
+ LLVM=1 LLVM_IAS=1
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Masahiro Yamada <masahiroy@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Miguel Ojeda <ojeda@kernel.org>, Fangrui Song <maskray@google.com>, 
+	Michal Marek <michal.lkml@markovi.net>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Christoph Hellwig <hch@infradead.org>, 
+	Nathan Chancellor <nathan@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=mcBrK9R8;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@kernel.org header.s=k20201202 header.b=MVTeDBI5;       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,130 +140,58 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 7/20/2021 11:04 AM, Nick Desaulniers wrote:
-> I'm working on adding support for __attribute__((__error__(""))) and
-> __attribute__((__warning__(""))) to Clang. To make use of these in
-> __compiletime_error and __compiletime_warning (as used by BUILD_BUG and
-> friends) for newer clang and detect/fallback for older versions of
-> clang, move these to compiler_attributes.h and guard them with
-> __has_attribute preprocessor guards.
-> 
-> Link: https://reviews.llvm.org/D106030
-> Link: https://bugs.llvm.org/show_bug.cgi?id=16428
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1173
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
-> Note that this feature hasn't landed yet in clang! I expect it to land
-> in clang-13 though soon. We can still move this in anticipation of the
-> feature landing, though perhaps the versions might not be precise if it
-> slips to clang-14 (though I don't anticipate that).
-> 
->   include/linux/compiler-gcc.h        |  3 ---
->   include/linux/compiler_attributes.h | 30 ++++++++++++++++++++++++++---
->   include/linux/compiler_types.h      |  6 ------
->   3 files changed, 27 insertions(+), 12 deletions(-)
-> 
-> diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
-> index cb9217fc60af..21c36b69eb06 100644
-> --- a/include/linux/compiler-gcc.h
-> +++ b/include/linux/compiler-gcc.h
-> @@ -43,9 +43,6 @@
->   
->   #define __compiletime_object_size(obj) __builtin_object_size(obj, 0)
->   
-> -#define __compiletime_warning(message) __attribute__((__warning__(message)))
-> -#define __compiletime_error(message) __attribute__((__error__(message)))
-> -
->   #if defined(LATENT_ENTROPY_PLUGIN) && !defined(__CHECKER__)
->   #define __latent_entropy __attribute__((latent_entropy))
->   #endif
-> diff --git a/include/linux/compiler_attributes.h b/include/linux/compiler_attributes.h
-> index 2487be0e7199..5f474b593425 100644
-> --- a/include/linux/compiler_attributes.h
-> +++ b/include/linux/compiler_attributes.h
-> @@ -30,14 +30,16 @@
->   # define __GCC4_has_attribute___assume_aligned__      1
->   # define __GCC4_has_attribute___copy__                0
->   # define __GCC4_has_attribute___designated_init__     0
-> +# define __GCC4_has_attribute___error__               1
->   # define __GCC4_has_attribute___externally_visible__  1
-> +# define __GCC4_has_attribute___fallthrough__         0
->   # define __GCC4_has_attribute___no_caller_saved_registers__ 0
-> -# define __GCC4_has_attribute___noclone__             1
->   # define __GCC4_has_attribute___no_profile_instrument_function__ 0
-> -# define __GCC4_has_attribute___nonstring__           0
->   # define __GCC4_has_attribute___no_sanitize_address__ 1
->   # define __GCC4_has_attribute___no_sanitize_undefined__ 1
-> -# define __GCC4_has_attribute___fallthrough__         0
-> +# define __GCC4_has_attribute___noclone__             1
-> +# define __GCC4_has_attribute___nonstring__           0
-> +# define __GCC4_has_attribute___warning__             1
->   #endif
->   
->   /*
-> @@ -137,6 +139,17 @@
->   # define __designated_init
->   #endif
->   
-> +/*
-> + * Optional: only supported since clang >= 13.0
-> + *
-> + *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-error-function-attribute
-> + */
-> +#if __has_attribute(__error__)
-> +# define __compiletime_error(msg)       __attribute__((__error__(msg)))
-> +#else
-> +# define __compiletime_error(msg)
-> +#endif
-> +
->   /*
->    * Optional: not supported by clang
->    *
-> @@ -298,6 +311,17 @@
->    */
->   #define __must_check                    __attribute__((__warn_unused_result__))
->   
-> +/*
-> + * Optional: only supported since clang >= 13.0
-> + *
-> + *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-warning-function-attribute
-> + */
-> +#if __has_attribute(warning)
+On Tue, Jul 20, 2021 at 7:43 PM Linus Torvalds
+<torvalds@linux-foundation.org> wrote:
+> On Tue, Jul 20, 2021 at 1:05 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> We do most of the other heavy lifting in this area in Kconfig anyway,
+> why not add that compiler choice?
+>
+> Obviously it would be gated by the tests to see which compilers are
+> _installed_ (and that they are valid versions), so that it doesn't ask
+> stupid things ("do you want gcc or clang" when only one of them is
+> installed and/or viable).
 
-Should this be
+I don't see a good way of making Kconfig options both select the
+compiler and defining variables based on the compiler, since that
+would mean teaching Kconfig about re-evaluating all compiler
+dependent settings whenever the first option changes.
 
-#if __has_attribute(__warning__)
+I do have another idea that I think would work though.
 
-?
+> Hmm? So then any "LLVM=1" thing would be about the "make config"
+> stage, not the actual build stage.
+>
+> (It has annoyed me for years that if you want to cross-compile, you
+> first have to do "make ARCH=xyz config" and then remember to do "make
+> ARCH=xyz" for the build too, but I cross-compile so seldom that I've
+> never really cared).
 
-> +# define __compiletime_warning(msg)     __attribute__((__warning__(msg)))
-> +#else
-> +# define __compiletime_warning(msg)
-> +#endif
-> +
->   /*
->    *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-weak-function-attribute
->    *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Variable-Attributes.html#index-weak-variable-attribute
-> diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
-> index e4ea86fc584d..b6ff83a714ca 100644
-> --- a/include/linux/compiler_types.h
-> +++ b/include/linux/compiler_types.h
-> @@ -294,12 +294,6 @@ struct ftrace_likely_data {
->   #ifndef __compiletime_object_size
->   # define __compiletime_object_size(obj) -1
->   #endif
-> -#ifndef __compiletime_warning
-> -# define __compiletime_warning(message)
-> -#endif
-> -#ifndef __compiletime_error
-> -# define __compiletime_error(message)
-> -#endif
->   
->   #ifdef __OPTIMIZE__
->   # define __compiletime_assert(condition, msg, prefix, suffix)		\
-> 
+The best thing that I have come up with is a pre-configure step, where
+an object tree gets seeded with a makefile fragment that gets included
+for any 'make' invocation. This would set 'ARCH=', 'CROSS_COMPILE',
+'CC=' and possibly any other option that gets passed to 'make' as
+a variable and has to exist before calling 'make *config'.
+
+This is probably the easiest part here, and it lets you set up multiple
+object directories in which you can then do
+
+make O=obj-x86 defconfig vmlinux modules -skj32
+make O=obj-x86-clang
+make O=obj-arm64 randconfig
+...
+
+without ever having to type the additional CC/CROSS_COMPILE/LLVM
+variables again.
+
+One step further is the script that automatically finds a working toolchain
+for a given architecture and sets up that object directory accordingly,
+or even downloads a working cross-toolchain from kernel.org when
+asked to do that.
+
+        Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/7c7d1639-7997-265e-aa77-ebe3d2fa05e6%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a3%3DJBQow-Ws6tt81k93aw%2BOCV5C2CtSWxASkv%3DiQZPGUw%40mail.gmail.com.
