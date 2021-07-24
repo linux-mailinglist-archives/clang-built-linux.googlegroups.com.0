@@ -1,131 +1,141 @@
-Return-Path: <clang-built-linux+bncBAABB76Z56DQMGQEMDV3KQI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBXNT6CDQMGQEJJLQDZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
-	by mail.lfdr.de (Postfix) with ESMTPS id 618CE3D472C
-	for <lists+clang-built-linux@lfdr.de>; Sat, 24 Jul 2021 12:35:45 +0200 (CEST)
-Received: by mail-pj1-x1038.google.com with SMTP id in8-20020a17090b4388b0290175556801d5sf4557290pjb.2
-        for <lists+clang-built-linux@lfdr.de>; Sat, 24 Jul 2021 03:35:45 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627122944; cv=pass;
+Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2F2833D47F2
+	for <lists+clang-built-linux@lfdr.de>; Sat, 24 Jul 2021 15:47:11 +0200 (CEST)
+Received: by mail-io1-xd3c.google.com with SMTP id z21-20020a5d84d50000b02904e00bb129f0sf4003901ior.18
+        for <lists+clang-built-linux@lfdr.de>; Sat, 24 Jul 2021 06:47:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627134430; cv=pass;
         d=google.com; s=arc-20160816;
-        b=n/K44+khGN2qpqeAm1O6YGatYbAncIl+M9JsXtmTiEwXkpXcu6DqMmFD8joi1yFRy4
-         u2L02hD2dtdi94u/tG080Ocyu9sq0f72hP2i1ksGVMVznSrA1Rbi0yVh0z+XZoM+Pdmo
-         HXpUZtl+ZlK7F84sMh42QJY0O4iJZfsLG9LN2OQsSfSrbC5fWRyJSpj4zvLiI+QqUKMs
-         WUZRKzLaozIBZAUdoeqSvtg2xfX65sIL35bkpymlk9/alLZ6QPvBYmqOA9JbknPIkTCB
-         jXk8eiv+QqPIB0Sh79QCZMQIkmiVAwDWT5TMfpjCelVmL6JkcxGjMdkHAowYJ+RYYjrx
-         yIzA==
+        b=n2V09qh69waEeUoJIPWVL0jv/srB38WJsN9cbBUeePcGtzNlY4k2BIEEYmsfBVbG68
+         L9UpRhHQBTA5CkNN6MIm17P8BEZRXSsNf6NrbPgXgEHtGh02O2hkwhWzuPe5KObHNYoF
+         UivyTrHvJQ0Tgm6CF1X9ca3PSgcJ06A7gu7QtNIWiA8EX/ckyt91Xtqgyh+yOg6ROkzp
+         ZS9PcqcVHwQD7pG5dUqhwjNz63e0QTi6GA0nWTA5Xp/JXr4wSwTyW1Nw209HE6vGSu6P
+         Atn0Kq9Bl/7kVFtqhOy2lppvpzNwNP7cZuT0mWpgg999eqGzCfBZpue+pqM34nyF3tWH
+         tqmA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:mime-version:user-agent
-         :date:message-id:from:cc:references:to:subject:sender:dkim-signature;
-        bh=vFuQJtQ4P8ZQbcglldiwTXE3RO7Z06/2rO1xz/fgu9U=;
-        b=YAQuI8ZxJhk4ahb1+HEd9nIVHTsDATReARvfmDrNB+xkGVRP9JsheLtuGEHaE06f1J
-         kUKMCnUVoDV53NpWkKInty7QC64s1AzSCJf0L+ItjyNPuZ0z3dTcoZ4M6cKO5GX5KsYB
-         SYe5kYhuK5M5bdMFtbqSnhogwPp4RrCfhLOAJNnKgbZ3iXHRGVelz7p6qlFtO17q1+JB
-         tQyRIoF0ca8UQ8fBX+oXcsvAQMmO2+m53unIVctc/APhqfkEt9s9RVxFPnXNfiavgAQz
-         zTa7oM9LcqPhwOky0SSVCcEEOWIM4ufYlBLfd/rGCSzG9WBf93C97ItUwl8F4ELvxg43
-         eV7A==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=c6WTzX6+2d0bmICucFZsjgpSc98/7qCCjkpDA8ycm60=;
+        b=LHWm5fe4RWRfBHk7MTvzFoZoUOySk6Wu2cw6KcH/ZY6hystJbRI39ns5GT36cM7WX/
+         yr3LrHNs3HQN3c+9NMzI9Aw59qQe1lFvVtTgVYZyUB+MZ7K25M8EzMQ4dRJjjG/ikXD4
+         fkFyFsjHfmpMP1VxB3fFI/kT1N+IkJ6AxNmMqSoiWB+geqQ4J7kcKpwFGTeEETscKb7G
+         i8uZEII7JZiBNBquauh/9njk9ODqxYc0mm6tiTlXuoW5csmAarIFZBB3ImRD2lm2G+1b
+         vfobljKmriOASmgOiLMBjHfk45GiCO6MXg4FXxa9HKx4yFfLsSEXbHE+6DrflFvSAnD/
+         ofNQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of liudongdong3@huawei.com designates 45.249.212.187 as permitted sender) smtp.mailfrom=liudongdong3@huawei.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=huawei.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=EbqaBoyO;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:references:cc:from:message-id:date:user-agent
-         :mime-version:in-reply-to:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vFuQJtQ4P8ZQbcglldiwTXE3RO7Z06/2rO1xz/fgu9U=;
-        b=Fd0fDM/k3xw6X0GioWqKT63W4RYK3DNwOohwapPMhAiO4gUg5T7VPMS/Sw1z1c6tMR
-         qrSk0/jf0Hse3A3WrcilmfvWMZ4njEoVjvyaRUMtB9Gn8YK/WfI/1BDI8h3pRXRWsFTF
-         sSXbkPns2AkXw0OPRflh5D5ljNeJEIAfwKSB2AjD7WfA4ywML5V/5ljrVLQHG/onN7vL
-         hSDXgMwawEYk5fn6VtBXKsHqbP9m6huGrJoK87T02SbhuHzUngs4p+dJtK6eWz4Pb2k/
-         cjyLsZ2swmZH07R7aVCeDQ5EMeqAp4/o7pwkik7IGf6Y6Eg7UHIujpI6xTEjvjiKR0Fp
-         hdRw==
+        bh=c6WTzX6+2d0bmICucFZsjgpSc98/7qCCjkpDA8ycm60=;
+        b=mSmaKjeMc5ZKYZblFeTlFiA2xDwXmnFxB3Ic0CgCyOHMT5ISeokABVq8yduFYlKF5E
+         jaSJwXpYYrEX/JXQhh0tstZmmnQDEOdP+5aAUT+UGs3MBfi8cNq0h1Ne5BG5JLJ6GGFd
+         SABuc2F1NwHHtgJKHJy9TkF3Kictu/UR8wCJhPX1JDemNn/I+HLGhfbaBD358GUPMz/n
+         T1xNgCggJB6AMGVellKKO5MwnRa72iiB3M4ASKu+3nHa+fYpF4bV+KNLWJB2v8MfA8yg
+         Cxg9x4n5m2FiEi2RLGP5T8knGA1U5jwCG0pf/n864NH3kXngI8qArV1iXqMp5J320DY/
+         IxJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:references:cc:from:message-id
-         :date:user-agent:mime-version:in-reply-to:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=vFuQJtQ4P8ZQbcglldiwTXE3RO7Z06/2rO1xz/fgu9U=;
-        b=VwbSG4V6ZOHCTsnHYPhFORtJS3Yaoj6iQM7tvE87/37hhr3x9gDtIjW87cppG5T81P
-         RdoSU7WHdXc5muEf6Qthc1P2T2YI4vrMVDGYFxd2UlqQY17TdkFZPMdYRBAQIK31ndSh
-         h8CT0Q79K03TbS09ABxwBToer/fWjY63X/8Pnmhh0sdaKTd07X6fZhf+e8NcnFBsg5f3
-         I0CFx7HEQ+XtALrusowOkEjYqDpoScL4VtWsPXwPEWTMsK5MOFyVV4tHf54YdtTl3OfJ
-         /mJ1ocabwKKRcA1NjCvj55ap/yBn6BTNGv7BUGB2mOsuh2qbWtjiDph2WwLy8J1dqouB
-         SDJg==
+        bh=c6WTzX6+2d0bmICucFZsjgpSc98/7qCCjkpDA8ycm60=;
+        b=N0myRZ83DyqNLZ/fOUMP9oV7raql/pF3QxtFGBJjHqeHYNofPGdeD9QXMB4TPS9tVZ
+         McvzVoVTvzMDEbmgQ6HMD4kIoJzPGZZT1Tgmr+1HqCqk7toVq7NHEAjnAOgEykAeZ8ZP
+         YK9enIRqDkTYz/NqJCr2V5kqelvSp20hLC/zdbrpq6jWQZm4X564frAnYzhwPP4oGmWy
+         nBwaEsLIJoS1JQjrl74N5Rc1djjvpSLTrf/K/mJVHPpAp0YJkyyrG7MTObt7khrGRvkQ
+         EZyjUNXNi/kAqZPayZVCS/E9OROpF2NDjIU/3NJg2mr5zRK2YMOafittSqQptaSx8RSc
+         UB3g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5314y+JfNtfHS6rAAT3H51kBwThVQJJ3Y6avLOentth5L6l/A/Jx
-	+hVKrupma8ElW936DkbGnR8=
-X-Google-Smtp-Source: ABdhPJxSDAPiO7qeLxb+zbnfXPywnkfgkSaqJg8RU8Ndmya2cgqJEV08eCNpuhD5OFO8K5dNof7z4g==
-X-Received: by 2002:a17:902:eb52:b029:129:bc24:ce5e with SMTP id i18-20020a170902eb52b0290129bc24ce5emr6954175pli.67.1627122944112;
-        Sat, 24 Jul 2021 03:35:44 -0700 (PDT)
+X-Gm-Message-State: AOAM530hJv/9W9Qq90QWC++rq6wIHeCzR783Wk9loJX99vPTpZVB8sLs
+	KqVoma5VOKb/IXsobnkk6Jw=
+X-Google-Smtp-Source: ABdhPJzJtq6UGHmaB2Z8/qtHecpnH471Lt+bKVDVUPyB09ikJ2/7EnAowmtj0ZhaFte42waub10KSQ==
+X-Received: by 2002:a02:a913:: with SMTP id n19mr8656335jam.7.1627134429849;
+        Sat, 24 Jul 2021 06:47:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6a00:c96:: with SMTP id a22ls5059978pfv.4.gmail; Sat, 24
- Jul 2021 03:35:43 -0700 (PDT)
-X-Received: by 2002:a63:6784:: with SMTP id b126mr8890669pgc.421.1627122943618;
-        Sat, 24 Jul 2021 03:35:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627122943; cv=none;
+Received: by 2002:a05:6638:141:: with SMTP id y1ls2180750jao.2.gmail; Sat, 24
+ Jul 2021 06:47:09 -0700 (PDT)
+X-Received: by 2002:a05:6638:1383:: with SMTP id w3mr8666427jad.32.1627134429363;
+        Sat, 24 Jul 2021 06:47:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627134429; cv=none;
         d=google.com; s=arc-20160816;
-        b=YhxK8L8tF05q+QBBYt1hTMMJsTZ+HBDf3MvbkiPmQ9ypTizQUE0hDy7qGUk3+0HBkp
-         jr60jEMY9WCIlojOOZ/+acMlXWoKBMvLgCW46kNBBKz6u3UtrlcxFrQl2o3LYN5VwdwD
-         YdaXkJljREWVuwWells4eJ7GzDvJ4FwOwZnBJpuFFO1cG+C8uL0rDy1RUgt0HcOTO/gM
-         +AZVwfY+Dc50eOmI5SJlnw7Z59eyTfYgdWbaTcPz/OTwOcBi5Yj8V/xNl91nRgKEdgX7
-         7DN5jt39bktVUXMIVW4sy21AggevPmikljz38Hw+my2kcgNKLkCPz7t5bMsKQzmxjorR
-         jCNg==
+        b=wUzHNI9PVNC8bR8t+hEYOtR4Uuo3kve5jBB4NTXRCHNJNMglX4/xZuVaeopT71uQ8P
+         FbX4xqRRyCoGHDbp2LgoVnikjE1ChC9HpTgaUDH4tppCF+wYQFnrX0J3jT2F+BItEgOp
+         siJTU0nRUIcsX2Kv6JpFwrPkcXzDDXOp4zFNaK5TqMy8nJ3Ed5Gy6BTpOEACn8MuJNEy
+         WWc821V5fWIjx2wVgwQWvIdvatjJ6lgmzPmMZOQpX+VJRN18d88lYXPozY/dAC9bCBZu
+         P79yxo2rs+zS2R8nxB5Iy8LfLoUwBSNVKRmzCWKNFrXPJye15JdZ4Hgy81N9/l4FEyh/
+         0YsA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:in-reply-to:mime-version:user-agent:date
-         :message-id:from:cc:references:to:subject;
-        bh=3EOupVM4vmFI9RvFrc19TEQ/FvCbw/7tY96fQIVF0Yg=;
-        b=mxtb6qn84judY5dCMkjI7d8+VYWjbAkqCUJH6ZlnvjW6fMC7xvtw+I2BpymCSwn5YJ
-         usf27t9iWCzU42/LSODtTYcP1noNZl2xoN+hXJHWQiBrt4DqHhT0f2oR5gvmDPrO4gR4
-         5jCKN0jcp0T7nzRPvRclJ+UF6lgLNX5qoL9GJ7txKxrT1LRxfQIA4r575ZrAs0BHSgQF
-         Ag77uqfdLGi49NqZJiuqrqYZ+EEOcNvjnjb+N2HDOZ5vBlUoF3oF9vNm19fWA4RZpLtF
-         Z4seTARfyvs+wkptVv49wTFb22PEc7zDYm1U+0fxFCSiPmHjJksh2HqJQQ/9Ih0oEn5l
-         e08A==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=xIH/ltmFtWJmcRQmRg8PWr+q47o4O2EpTM1yT4rZrmI=;
+        b=AmVgVJ610SBghF+ooOwapzYrcK3jcIM3t9wHVmLxSnmeUJ2I+qRbTlvCgGo9Mc3Wrj
+         qAm/l/Ip9/Scc3eRz8QBeQMFRtN29+SKw/P4boamvPHMPj5/db2u/slLaWsO9ehtTQMR
+         eNDy8kXTgkC4Mq4IvEXhbLM/gkwr68/reKg4IGap72J0Lg7b6OCqKqijxBLN+WTHQgvx
+         NnYeHVI03CnL+Smtg/zGsJyipIA6WylrnhpzQCrl38xl78ijAudTTG7O3+buD4iQer15
+         uiB+U5ZcFGMWzeeKbLVJowaPZ6zzklwNy2oqeDdhBpeNu9TuaFIZeECeTcpXNbQzd+ke
+         qBiQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of liudongdong3@huawei.com designates 45.249.212.187 as permitted sender) smtp.mailfrom=liudongdong3@huawei.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=huawei.com
-Received: from szxga01-in.huawei.com (szxga01-in.huawei.com. [45.249.212.187])
-        by gmr-mx.google.com with ESMTPS id cp24si108091pjb.3.2021.07.24.03.35.43
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=EbqaBoyO;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-01.nifty.com (conssluserg-01.nifty.com. [210.131.2.80])
+        by gmr-mx.google.com with ESMTPS id k3si3070930ioq.4.2021.07.24.06.47.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 24 Jul 2021 03:35:43 -0700 (PDT)
-Received-SPF: pass (google.com: domain of liudongdong3@huawei.com designates 45.249.212.187 as permitted sender) client-ip=45.249.212.187;
-Received: from dggeme758-chm.china.huawei.com (unknown [172.30.72.57])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4GX2YD1KWYzZsKR;
-	Sat, 24 Jul 2021 18:31:44 +0800 (CST)
-Received: from [10.67.103.235] (10.67.103.235) by
- dggeme758-chm.china.huawei.com (10.3.19.104) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id
- 15.1.2176.2; Sat, 24 Jul 2021 18:35:09 +0800
-Subject: Re: [PATCH V6 7/8] PCI: Add "pci=disable_10bit_tag=" parameter for
- peer-to-peer support
-To: kernel test robot <lkp@intel.com>, <helgaas@kernel.org>,
-	<hch@infradead.org>, <kw@linux.com>, <logang@deltatee.com>,
-	<linux-pci@vger.kernel.org>, <rajur@chelsio.com>, <hverkuil-cisco@xs4all.nl>
-References: <1627038402-114183-8-git-send-email-liudongdong3@huawei.com>
- <202107240055.m4UVeYyu-lkp@intel.com>
-CC: <clang-built-linux@googlegroups.com>, <kbuild-all@lists.01.org>,
-	<linux-media@vger.kernel.org>, <netdev@vger.kernel.org>
-From: Dongdong Liu <liudongdong3@huawei.com>
-Message-ID: <dac094c5-24ce-43bc-55be-30230e20e08f@huawei.com>
-Date: Sat, 24 Jul 2021 18:35:08 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.7.1
+        Sat, 24 Jul 2021 06:47:09 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) client-ip=210.131.2.80;
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49]) (authenticated)
+	by conssluserg-01.nifty.com with ESMTP id 16ODkfEq019342
+	for <clang-built-linux@googlegroups.com>; Sat, 24 Jul 2021 22:46:41 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com 16ODkfEq019342
+X-Nifty-SrcIP: [209.85.216.49]
+Received: by mail-pj1-f49.google.com with SMTP id a9so6228685pjw.5
+        for <clang-built-linux@googlegroups.com>; Sat, 24 Jul 2021 06:46:41 -0700 (PDT)
+X-Received: by 2002:a65:609a:: with SMTP id t26mr9654545pgu.175.1627134400955;
+ Sat, 24 Jul 2021 06:46:40 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <202107240055.m4UVeYyu-lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-Originating-IP: [10.67.103.235]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggeme758-chm.china.huawei.com (10.3.19.104)
-X-CFilter-Loop: Reflected
-X-Original-Sender: liudongdong3@huawei.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of liudongdong3@huawei.com designates 45.249.212.187 as
- permitted sender) smtp.mailfrom=liudongdong3@huawei.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=huawei.com
+References: <20210708232522.3118208-1-ndesaulniers@google.com>
+ <20210708232522.3118208-3-ndesaulniers@google.com> <CAK7LNARye5Opc0AdXpn+DHB7hTaphoRSCUWxJgXu+sjuNjWUCg@mail.gmail.com>
+ <CAHk-=wgGxu4_hgzdYpFuKd95SfnkJbPTWAQ9-fMgmMN1Oxs2xQ@mail.gmail.com>
+ <CAK8P3a3=JBQow-Ws6tt81k93aw+OCV5C2CtSWxASkv=iQZPGUw@mail.gmail.com>
+ <CAK7LNATLy2F-2zkHm4ENSufBT_o5p=9jc5k1K-xOV8cQf7kKDw@mail.gmail.com> <CAMuHMdXJBqrpzaSNDJgic14ESiHV6cCcb_5E-st6iniXdmm9_g@mail.gmail.com>
+In-Reply-To: <CAMuHMdXJBqrpzaSNDJgic14ESiHV6cCcb_5E-st6iniXdmm9_g@mail.gmail.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Sat, 24 Jul 2021 22:46:03 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARrP3jAbRxOr1F+k=Ho__s1+iqCtvrn4hH7uJ_sRvkO3A@mail.gmail.com>
+Message-ID: <CAK7LNARrP3jAbRxOr1F+k=Ho__s1+iqCtvrn4hH7uJ_sRvkO3A@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] Makefile: infer CROSS_COMPILE from SRCARCH for
+ LLVM=1 LLVM_IAS=1
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Arnd Bergmann <arnd@kernel.org>,
+        Linus Torvalds <torvalds@linux-foundation.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Miguel Ojeda <ojeda@kernel.org>, Fangrui Song <maskray@google.com>,
+        Michal Marek <michal.lkml@markovi.net>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Christoph Hellwig <hch@infradead.org>,
+        Nathan Chancellor <nathan@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: masahiroy@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nifty.com header.s=dec2015msa header.b=EbqaBoyO;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,167 +148,165 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Sat, Jul 24, 2021 at 4:54 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Hi Yamada-san,
+>
+> On Wed, Jul 21, 2021 at 6:05 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+> > On Wed, Jul 21, 2021 at 4:58 AM Arnd Bergmann <arnd@kernel.org> wrote:
+> > > On Tue, Jul 20, 2021 at 7:43 PM Linus Torvalds
+> > > <torvalds@linux-foundation.org> wrote:
+> > > > On Tue, Jul 20, 2021 at 1:05 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+> > > >
+> > > > We do most of the other heavy lifting in this area in Kconfig anyway,
+> > > > why not add that compiler choice?
+> > > >
+> > > > Obviously it would be gated by the tests to see which compilers are
+> > > > _installed_ (and that they are valid versions), so that it doesn't ask
+> > > > stupid things ("do you want gcc or clang" when only one of them is
+> > > > installed and/or viable).
+> > >
+> > > I don't see a good way of making Kconfig options both select the
+> > > compiler and defining variables based on the compiler, since that
+> > > would mean teaching Kconfig about re-evaluating all compiler
+> > > dependent settings whenever the first option changes.
+> > >
+> > > I do have another idea that I think would work though.
+> > >
+> > > > Hmm? So then any "LLVM=1" thing would be about the "make config"
+> > > > stage, not the actual build stage.
+> > > >
+> > > > (It has annoyed me for years that if you want to cross-compile, you
+> > > > first have to do "make ARCH=xyz config" and then remember to do "make
+> > > > ARCH=xyz" for the build too, but I cross-compile so seldom that I've
+> > > > never really cared).
+> > >
+> > > The best thing that I have come up with is a pre-configure step, where
+> > > an object tree gets seeded with a makefile fragment that gets included
+> > > for any 'make' invocation. This would set 'ARCH=', 'CROSS_COMPILE',
+> > > 'CC=' and possibly any other option that gets passed to 'make' as
+> > > a variable and has to exist before calling 'make *config'.
+> >
+> >
+> > There is no need to add a hook to include such makefile fragment(s).
+> >
+> > Quite opposite, you can put your Makefile (in a different filename)
+> > that includes the top Makefile.
+> >
+> >
+> > I think this is what people are already doing:
+> >
+> >
+> > GNU Make looks for 'GNUmakefile', 'makefile', and 'Makefile'
+> > in this order.
+>
+> Exactly. I only have a few source repositories, but lots of build directories
+> (I never build in a repo directory). Each build directory has a GNUmakefile:
+>
+>     build/linux-riscv-starlight$ cat GNUmakefile
+>     MAKEARGS = ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+>
+>     include ~/linux/default.mk
+>     build/linux-riscv-starlight$ cat ~/linux/default.mk
+>     MAKEFLAGS += --no-print-directory
+>
+>     .PHONY: all $(MAKECMDGOALS)
+>
+>     all := $(filter-out all Makefile,$(MAKECMDGOALS))
+>
+>     all:
+>             @$(MAKE) $(MAKEARGS) $(all) -f Makefile
+>
+>     Makefile:;
+>
+>     $(all): all
+>             @:
+>
+>     %/: all
+>             @:
+>     build/linux-riscv-starlight$
+>
+> Perhaps we could have a "make setup ARCH=foo CROSS_COMPILE=bar" target,
+> which creates such a GNUmakefile?
+
+No, I do not think so.
+
+Your GNUmakefile is customized in your way.
+Other people implement GNUmakefile in their own way.
+
+Upstream is not a place to merge everybody's local tools.
 
 
-On 2021/7/24 0:58, kernel test robot wrote:
-> Hi Dongdong,
->
-> Thank you for the patch! Perhaps something to improve:
->
-> [auto build test WARNING on pci/next]
-> [also build test WARNING on linuxtv-media/master linus/master v5.14-rc2 next-20210723]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
->
-> url:    https://github.com/0day-ci/linux/commits/Dongdong-Liu/PCI-Enable-10-Bit-tag-support-for-PCIe-devices/20210723-190930
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/helgaas/pci.git next
-> config: x86_64-randconfig-b001-20210723 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 9625ca5b602616b2f5584e8a49ba93c52c141e40)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install x86_64 cross compiling tool for clang build
->         # apt-get install binutils-x86-64-linux-gnu
->         # https://github.com/0day-ci/linux/commit/2ff0b803971a3df5815c96c5c4874f4eef64fa2f
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review Dongdong-Liu/PCI-Enable-10-Bit-tag-support-for-PCIe-devices/20210723-190930
->         git checkout 2ff0b803971a3df5815c96c5c4874f4eef64fa2f
->         # save the attached .config to linux build tree
->         mkdir build_dir
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross O=build_dir ARCH=x86_64 SHELL=/bin/bash drivers/pci/
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
->    drivers/pci/pci.c:6618:34: error: expected identifier
->            pcie_capability_clear_word(dev, PCI_EXP_DEVCTL2,
->                                            ^
->    include/uapi/linux/pci_regs.h:657:26: note: expanded from macro 'PCI_EXP_DEVCTL2'
->    #define PCI_EXP_DEVCTL2         40      /* Device Control 2 */
->                                    ^
->>> drivers/pci/pci.c:6618:2: warning: declaration specifier missing, defaulting to 'int'
->            pcie_capability_clear_word(dev, PCI_EXP_DEVCTL2,
->            ^
->            int
->    drivers/pci/pci.c:6618:28: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
->            pcie_capability_clear_word(dev, PCI_EXP_DEVCTL2,
->                                      ^
->    drivers/pci/pci.c:6618:2: error: conflicting types for 'pcie_capability_clear_word'
->            pcie_capability_clear_word(dev, PCI_EXP_DEVCTL2,
->            ^
->    include/linux/pci.h:1161:19: note: previous definition is here
->    static inline int pcie_capability_clear_word(struct pci_dev *dev, int pos,
->                      ^
->    drivers/pci/pci.c:6621:2: error: expected parameter declarator
->            pci_info(dev, "disabled 10-Bit Tag Requester\n");
->            ^
->    include/linux/pci.h:2472:46: note: expanded from macro 'pci_info'
->    #define pci_info(pdev, fmt, arg...)     dev_info(&(pdev)->dev, fmt, ##arg)
->                                                     ^
->    drivers/pci/pci.c:6621:2: error: expected ')'
->    include/linux/pci.h:2472:46: note: expanded from macro 'pci_info'
->    #define pci_info(pdev, fmt, arg...)     dev_info(&(pdev)->dev, fmt, ##arg)
->                                                     ^
->    drivers/pci/pci.c:6621:2: note: to match this '('
->    include/linux/pci.h:2472:37: note: expanded from macro 'pci_info'
->    #define pci_info(pdev, fmt, arg...)     dev_info(&(pdev)->dev, fmt, ##arg)
->                                            ^
->    include/linux/dev_printk.h:118:11: note: expanded from macro 'dev_info'
->            _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
->                     ^
->    drivers/pci/pci.c:6621:2: warning: declaration specifier missing, defaulting to 'int'
->            pci_info(dev, "disabled 10-Bit Tag Requester\n");
->            ^
->            int
->    include/linux/pci.h:2472:37: note: expanded from macro 'pci_info'
->    #define pci_info(pdev, fmt, arg...)     dev_info(&(pdev)->dev, fmt, ##arg)
->                                            ^
->    include/linux/dev_printk.h:118:2: note: expanded from macro 'dev_info'
->            _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
->            ^
->    drivers/pci/pci.c:6621:2: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
->    include/linux/pci.h:2472:37: note: expanded from macro 'pci_info'
->    #define pci_info(pdev, fmt, arg...)     dev_info(&(pdev)->dev, fmt, ##arg)
->                                            ^
->    include/linux/dev_printk.h:118:11: note: expanded from macro 'dev_info'
->            _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
->                     ^
->    drivers/pci/pci.c:6621:2: error: conflicting types for '_dev_info'
->    include/linux/pci.h:2472:37: note: expanded from macro 'pci_info'
->    #define pci_info(pdev, fmt, arg...)     dev_info(&(pdev)->dev, fmt, ##arg)
->                                            ^
->    include/linux/dev_printk.h:118:2: note: expanded from macro 'dev_info'
->            _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
->            ^
->    include/linux/dev_printk.h:56:6: note: previous declaration is here
->    void _dev_info(const struct device *dev, const char *fmt, ...);
->         ^
->    drivers/pci/pci.c:6622:1: error: extraneous closing brace ('}')
->    }
->    ^
->    2 warnings and 8 errors generated.
->
->
-> vim +/int +6618 drivers/pci/pci.c
->
->   6580	
->   6581		if (!disable_10bit_tag_param)
->   6582			return;
->   6583	
->   6584		p = disable_10bit_tag_param;
->   6585		while (*p) {
->   6586			ret = pci_dev_str_match(dev, p, &p);
->   6587			if (ret < 0) {
->   6588				pr_info_once("PCI: Can't parse disable_10bit_tag parameter: %s\n",
->   6589					     disable_10bit_tag_param);
->   6590	
->   6591				break;
->   6592			} else if (ret == 1) {
->   6593				/* Found a match */
->   6594				break;
->   6595			}
->   6596	
->   6597			if (*p != ';' && *p != ',') {
->   6598				/* End of param or invalid format */
->   6599				break;
->   6600			}
->   6601			p++;
->   6602		}
->   6603	
->   6604		if (ret != 1)
->   6605			return;
->   6606	
->   6607	#ifdef CONFIG_PCI_IOV
->   6608		if (dev->is_virtfn) {
->   6609			iov = dev->physfn->sriov;
->   6610			iov->ctrl &= ~PCI_SRIOV_CTRL_VF_10BIT_TAG_REQ_EN;
->   6611			pci_write_config_word(dev, iov->pos + PCI_SRIOV_CTRL,
->   6612					      iov->ctrl);
->   6613			pci_info(dev, "disabled PF SRIOV 10-Bit Tag Requester\n");
->   6614			return;
->   6615	#endif
->   6616		}
-I made a mistake here, will fix.
 
-Thanks,
-Dongdong
->   6617	
->> 6618		pcie_capability_clear_word(dev, PCI_EXP_DEVCTL2,
->   6619					   PCI_EXP_DEVCTL2_10BIT_TAG_REQ_EN);
->   6620	
->   6621		pci_info(dev, "disabled 10-Bit Tag Requester\n");
->   6622	}
->   6623	
+
+
+
+
+
+> P.S. I put the extra logic in ~/linux/default.mk, so I don't have to update all
+>      GNUmakefiles when I want to make a change to the main logic.
 >
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+>      For build dirs where I want to track a specific config, I have a slightly
+>      different version:
 >
+>          build/linux-m68k-allmodconfig-sun3$ cat GNUmakefile
+>          MAKEARGS = ARCH=m68k KCONFIG_ALLCONFIG=1
+>          DEFCONFIG = allmodconfig
+>
+>          include ~/linux/override-oldconfig.mk
+>          build/linux-m68k-allmodconfig-sun3$ cat ~/linux/override-oldconfig.mk
+>          MAKEFLAGS += --no-print-directory
+>
+>          .PHONY: all oldconfig realoldconfig $(MAKECMDGOALS)
+>
+>          all := $(filter-out all oldconfig realoldconfig
+> Makefile,$(MAKECMDGOALS))
+>
+>          all:
+>                  @$(MAKE) $(MAKEARGS) $(all) -f Makefile
+>
+>          # Replace oldconfig by $(DEFCONFIG)
+>          oldconfig:
+>                  @$(MAKE) $(MAKEARGS) $(DEFCONFIG) -f Makefile
+>
+>          realoldconfig:
+>                  @$(MAKE) $(MAKEARGS) oldconfig -f Makefile
+>
+>          Makefile:;
+>
+>          $(all): all
+>                  @:
+>
+>          %/: all
+>                  @:
+>          build/linux-m68k-allmodconfig-sun3$
+>
+>      That way I can always just type "make oldconfig", and it will do what
+>      I want.
+>
+> Gr{oetje,eeting}s,
+>
+>                         Geert
+>
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+>
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMuHMdXJBqrpzaSNDJgic14ESiHV6cCcb_5E-st6iniXdmm9_g%40mail.gmail.com.
+
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/dac094c5-24ce-43bc-55be-30230e20e08f%40huawei.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNARrP3jAbRxOr1F%2Bk%3DHo__s1%2BiqCtvrn4hH7uJ_sRvkO3A%40mail.gmail.com.
