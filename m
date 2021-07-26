@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBNN67CDQMGQEEXIACEQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBZWI7CDQMGQEAYKPFCY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id C83E53D5145
-	for <lists+clang-built-linux@lfdr.de>; Mon, 26 Jul 2021 04:34:30 +0200 (CEST)
-Received: by mail-yb1-xb3e.google.com with SMTP id q15-20020a25820f0000b029055bb0981111sf11838024ybk.7
-        for <lists+clang-built-linux@lfdr.de>; Sun, 25 Jul 2021 19:34:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627266870; cv=pass;
+Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
+	by mail.lfdr.de (Postfix) with ESMTPS id B75043D516F
+	for <lists+clang-built-linux@lfdr.de>; Mon, 26 Jul 2021 04:56:39 +0200 (CEST)
+Received: by mail-yb1-xb40.google.com with SMTP id 16-20020a250b100000b029055791ebe1e6sf11864623ybl.20
+        for <lists+clang-built-linux@lfdr.de>; Sun, 25 Jul 2021 19:56:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627268198; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PYTO794eXHbLwkJOOcmE69oBKG0aNdRD82PWAXF9KE1K8w1SHmPMrU8QIx3sKLalez
-         ED0bheJx+SlLPllxHGRPkHms81vpWfQX6wTtWlj15qHa3CKZUeDqeQHI8jS4axGghHBG
-         d0YHPOIulE12E/Hb2wk45lVFpezVPqwtLc2am3zxqfMawv2TKjTIidQ0oun9LlS3J5hA
-         weKRjvINWpzCAEIZ3w/2qvWcKEqZkAlGiH0eW9r8KlM5VraTSU0jWncuzFi/aKJIAjjr
-         hLekYpg2Lel1Xbfk44RYPvevAMkovJyTHFi2iZtG64mRuV3O9XCKkNMC32aXs81NRyYe
-         8HJQ==
+        b=djeRDPb84Q4h/0IR63W3IsO11GXqh3XYOaW9jklLnSsvpdBbk9HL7FUHncp03ouE19
+         5XTG5cWnXPRysFsrflBOo9GVTnxiDWM62ouI7/Z6vzI+ies2rQQAnj82qr4yTqaTsVpl
+         cB+e+hwKqtKs4/lV89ALee80NhTsH2R7npAfuE+xvk+1sE+BY2LVNicKJi59YSCKPhFR
+         gO2VcG0vbiqQIRvWRtotSAqo2/CNx0wIx+my/myzFNg0kVCIp6YCyOYAGPA9vEYKG2wT
+         yaVP8tqE719qYUAH5qieCY9ExcjZZggfqIcgdRfJs6Epx7yuXGagZj74gpIuba2sGoQc
+         HpiA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=V3NXaVhCNt9POxp9gFkp7YKgJdCbB+4qyjF9s4kGRyw=;
-        b=trtLXpZCHTtHol6y0iVw0VJTE9PUco/Y1jJPP199X/6tW355O2xA3u13K8kwGhVAQj
-         4k/P76rzmtUYg0nWPf6IsAVgXEx7raTD9p3BThgEdApSnrIaIwGU9J7KCoXIs0XJNZJR
-         6sHaGwFetLAVCMJKFl9EWCzU6edb4Bg90Nau7Tolq20CuP/xNv+HKoUAkOMV1luZwiXt
-         RwU2VL5htSSVxka31FQXbECup/FA9UjiIsK1f3h34kpvDmGCKYzgMW9rQS8vcB3h95+4
-         vuO/WwCkthECPBTQUZu5bgCgeHyHxuYJQjDCsyh7X4WtAmNuVb2O0PYpGoAn4A+p4P25
-         9Izw==
+        bh=szZ1O+PGB3eRAaU6k7yuWTiLhoFFO/hya34mjWK9/QI=;
+        b=sHoJmp3+3vEavS0oZYXFxeweKfIaPSn+sk6jCQ/kGDwCV6Yjn9ZL4dqjGsxiKNc6c0
+         j9jWJQQ9ff16ACnggwnKlLH15T68h4jqV/xRVUgxFcnjKRVJTCI9I6QwCvtnjajcoLkv
+         0IUN1n0pP6HPOXBrFgqb5o32JoW5G95TgEIep3VSUOVRb6uFc13gMR639FOEGKqZyeIB
+         3fAznTZIj4ywcXG1T3RteE4DCGoQdp6M+ZxxhO9ZhA2aNzzXNPbgUXPMwRZg2vLKCUYw
+         kap3eRiDPuPb7jDCSwzU7adkTc9HENUTf8U9T95N2IOKpgXU8MXNcqZBY8bZ8DXoZ7GP
+         TuwQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=V3NXaVhCNt9POxp9gFkp7YKgJdCbB+4qyjF9s4kGRyw=;
-        b=aAH6pGJQbx+PjM+U+Dv7wVcWSRTz/MTPMK72iE51gTmPcRL17t1OkyN6eoOewk80pT
-         dZEikl3ney3JhLLeR4NXSvwZFUszH+VY/K1u+CVRwEbnQP8Rm8n2PKPw9UKHQM/tYVB3
-         mgoR6zXPlCX/ALhJKFDNA8Xc367zUIRPX34l6tMvb7ZttCWp4TRpDbsvRHzuTcpS0jH2
-         JXKwDXgiNJNCXpSeV/SGzGU0XWslMRXDfC6OD5HlixQ4cT54Kbm74GR6SDcZGvqTR+Rc
-         SvbBysQwBLnIcOmFwdx1VEvY+L0UBdvUC1USQ1m9uz+TqPNij0SRPX5Bu8NvpGS+DgMa
-         UhSg==
+        bh=szZ1O+PGB3eRAaU6k7yuWTiLhoFFO/hya34mjWK9/QI=;
+        b=TbYmO6oF2dpBxuQH33AJZ3eIOuPW04p1KcFiIRB0BZj1/0Y9gQg5UGDYx3OAb7/zMg
+         Q3rzzpkjnnwtt3VCQXfz+pujnWfD1buJBm1FpbUmTYSK+LPVINIj3I7y/Db+dEMYZyT1
+         D/i4FdSYJ7Su8AowuA8SE3tD/5JUwPyWQpwxj3oOuDmB7ZxXSEvdcIwzSKZGXCW7lSxj
+         hkGiHN9aS3JoEImSPtDLDsQH55FiQhR/YYKcF656zkrivvjEKjqzmy0YKAOzmOCSppio
+         KesQc2MW2yODdTlzoQ9js761YRbuMRY5C88c5ykO3Z8GynWF5gwdMeqhFy98RKOfVRkC
+         ymhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=V3NXaVhCNt9POxp9gFkp7YKgJdCbB+4qyjF9s4kGRyw=;
-        b=PBpqAK3rcc4cOZbwtibupJDLsxQg4DzrQbWDKkaQ24FonQwN4cAgXzF9Mq2/MsDFG6
-         pD+MYDnNWxvGFuqCZIltwn+vCCQiUwZxNvNXxzlxoPF4+DBCF2MQ1fdPdk+1h4XTVqyW
-         pi1XUMhtTZLmrr6/3N9Q98XOzEna6sSXMOix1RKJusUrqjxMmCYS0M9Dgm7X54obvITg
-         FK0wZaiqoUm8ZE9QYmrblLqDs33+zqGu+/1EPfhQ+3H8l8tKmiVBp31qut4g0nFFJZKV
-         XuqDpBXNYV3fBv6xlfG0E/fe5qgDorUq337QvZ97keDTqm+vy4obaB6/1zoIudSIsc37
-         ad7A==
+        bh=szZ1O+PGB3eRAaU6k7yuWTiLhoFFO/hya34mjWK9/QI=;
+        b=TDCGGQ3L4wcb30lq/Ka0PqC09HQJuEE/LcX7uFkI+s8V3jx29bxhJbY62uqwi1fJWE
+         2Igng8OKJn471ZKWPQoAzed+ZRjoWXa+LXpHdS5wySBjvxbfGNOBbPf2ASBFa7nU4sh9
+         Z6DJCpbmave6g9kYgt7DSVhV0F8G3/qNSkmoYQDmD592P9Bl4cUkInLwaVhNFaKFJp/J
+         Fd+svW5DqpP7/kc8zxwvVGKRDRlUZz9nwMZXgDK4R1EGtx4Exz8m2NuecdXOnCrIziBF
+         Xy2yHxQCaqoNCnPu0NL8ZC/CdeZL8Cw948/4ybd3eVL0hiZORSufemBSGKOfLhNLb8Ij
+         aAMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532rSHomIUVrrXRaZtmmW+bnTUKu+l1JeJjh8nbmrWfwEelT9tiN
-	6N0rGUDiLPlHwmYpoNjw9a0=
-X-Google-Smtp-Source: ABdhPJyZz45ojU3j0ndep8Dkhr8m0V9NqqiWjT61NchUTvsdfBTxnGkWupD32KQfuXGShrcvXRHfsw==
-X-Received: by 2002:a25:38c7:: with SMTP id f190mr20606291yba.5.1627266869848;
-        Sun, 25 Jul 2021 19:34:29 -0700 (PDT)
+X-Gm-Message-State: AOAM531eNHjr/LqQJvXIo0QUyUYLkqUzsVrkYkkiM1JhURmlrMlUXWfi
+	RYmcPYOGrYvP4OPCkuP6MZ8=
+X-Google-Smtp-Source: ABdhPJwVIMViV5qgPzqvtNCrTjLWmHMAezlTWaHqfTCEXpdhbMOHpAULIcZ5fRwPlcKbyb3rGx8fYA==
+X-Received: by 2002:a25:ab41:: with SMTP id u59mr21318153ybi.218.1627268198737;
+        Sun, 25 Jul 2021 19:56:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:8748:: with SMTP id e8ls842273ybn.3.gmail; Sun, 25 Jul
- 2021 19:34:29 -0700 (PDT)
-X-Received: by 2002:a05:6902:124a:: with SMTP id t10mr16233169ybu.503.1627266869050;
-        Sun, 25 Jul 2021 19:34:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627266869; cv=none;
+Received: by 2002:a25:8748:: with SMTP id e8ls873068ybn.3.gmail; Sun, 25 Jul
+ 2021 19:56:38 -0700 (PDT)
+X-Received: by 2002:a25:8441:: with SMTP id r1mr20603915ybm.468.1627268198049;
+        Sun, 25 Jul 2021 19:56:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627268198; cv=none;
         d=google.com; s=arc-20160816;
-        b=QCUYAdJmfozwr8lToPWu/Z3yQu6lgd4SkKf1OB4KSVOpjeADj7eZRl+31hVi6jWZwp
-         1JZDBq2LuxecTBHmNS1dvFH9/m21L497FkHiporXOw8wu1gcwjjNU9TZO55HDbhzcUpT
-         YYeUFhdMDTgfr7TFclySH3nnNE5B0SttU1yze/hPSMUk00sHrFTC3bU2RlCTVxsw8c9k
-         xq0TZZRV+w98itVZdd0+PgOCNNFkxWWhKPxXeayfVEf+//tSfwPY+mz1ibbHWWr+a0aO
-         bJWBKofITfspWaSfO+2/MypEMUApzuWF34SElw85o7oxsYKaamLexELok2R2VGiKWIml
-         /Igg==
+        b=Xhy54voCtznZPUTj2vBUVqNNSEy+ZcEH1o2dTTT5z1y5+knKr8lqUyMVlLZkSe510b
+         CfarEc+Tx8g+cuPBDTa6RbKDmn451G1IWPrnjOvW24W43GKnI0/xS+RFIcJiH85lcEhj
+         WeQ0mvlA5t7BH6E6I55KCPnUrl5Eo2V+ckF3lhhfUKHvcm1IMxR85GkOutAgkbK8OP5V
+         SJkXO/IYM5zidqhaHiwFavqWUozMlFsLK0hNAU92LoW0HnJtr06T8GzTcqj3FdLb1auZ
+         Yw+3WOfyvFbumsy751rUQPKIpY3BKwTwjAFBdWRbPOSomhlZzmVhf+xsu7ALk/RmGc30
+         qDCw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=yz4ks0j8BNy4voKax03Cv++TSPCYWe4nr9Il7tp6ezo=;
-        b=E+Gk4mk1zRBjl7XQmJ6tTyTnBT6whl7L+5aFqp20Pkh3uZtT/dkHnDJK9KcRfkDIvA
-         kwl1myL0HM3H80nMi17TtF1/QbgYhNneb3t4fhpcxNuWOYaEkLkWlXGrK/hNqg7ohfSB
-         Qg5Mc+/P/WJ1Q7f6qAhrqcSOVrO7q81OQvr+8zkxB0Li3xAOJVGQWxX/X4Zssl6hcA/9
-         p+FR2chZV/Qc95IMI+To1huDLYdPzm3KtZfHVv5Gw0JVfwr4GdfDBIM3Q8cc/WPuMGMR
-         BYYPV74sys6z7XmT0AX00x+0+zKVkATcIzGbNj8VWstlCpLO9h8/wELwAsH4xI9J52UL
-         hLrw==
+        bh=8F6mbycBKXVYlTWNTQhgdIoMbietD9gfKoOKeeCSxC4=;
+        b=tR9+OqxVJYsfrxZxp19QuzIB+68IYd4sWFyBSi4JWXx97naiTzVkh+fE/gi+RGdOOZ
+         KZ9lNaiXlv4Z3hfRHBDJgt5mH8I2aXxtLG9RdMWGwo0qCN0QBGzV64B7U09U7FhiTq3s
+         jayVSItJ3Gp2FuwnpN6F/p2U11fRcoI/odlluXUDF5DKJrWx7tbumeDRiahpNxnAIcfJ
+         KcmH0zZyRr9BZG6Y2egPOQoX8S7xK/XzT+tSchNhpJqVOMSstKCB+pgF/7zfgeXZHiyB
+         oylZE9ghrhwhU3chXAAcryHXvwaJ1UPZLJ46gsGccm9bZfqULS/FbFjGRQ61+ZB2lAKH
+         Ym6Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id q62si4915115ybc.4.2021.07.25.19.34.28
+Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
+        by gmr-mx.google.com with ESMTPS id o8si968622ybu.5.2021.07.25.19.56.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 25 Jul 2021 19:34:29 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
-X-IronPort-AV: E=McAfee;i="6200,9189,10056"; a="211866315"
+        Sun, 25 Jul 2021 19:56:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
+X-IronPort-AV: E=McAfee;i="6200,9189,10056"; a="209031976"
 X-IronPort-AV: E=Sophos;i="5.84,269,1620716400"; 
-   d="gz'50?scan'50,208,50";a="211866315"
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2021 19:34:27 -0700
+   d="gz'50?scan'50,208,50";a="209031976"
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Jul 2021 19:56:35 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.84,269,1620716400"; 
-   d="gz'50?scan'50,208,50";a="473355041"
+   d="gz'50?scan'50,208,50";a="579188146"
 Received: from lkp-server01.sh.intel.com (HELO d053b881505b) ([10.239.97.150])
-  by fmsmga008.fm.intel.com with ESMTP; 25 Jul 2021 19:34:25 -0700
+  by fmsmga001.fm.intel.com with ESMTP; 25 Jul 2021 19:56:33 -0700
 Received: from kbuild by d053b881505b with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1m7qRl-00054j-17; Mon, 26 Jul 2021 02:34:25 +0000
-Date: Mon, 26 Jul 2021 10:34:16 +0800
+	id 1m7qnA-00055K-C9; Mon, 26 Jul 2021 02:56:32 +0000
+Date: Mon, 26 Jul 2021 10:55:57 +0800
 From: kernel test robot <lkp@intel.com>
 To: Allison Henderson <allison.henderson@oracle.com>
 Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
-	linux-kernel@vger.kernel.org
-Subject: [allisonhenderson-xfs_work:delayed_attrs_v22_extended 9/32]
- fs/xfs/xfs_attr_item.c:638:5: warning: variable 'rsvd' is uninitialized when
- used here
-Message-ID: <202107261013.qMOOMz9S-lkp@intel.com>
+	linux-kernel@vger.kernel.org, Dave Chinner <dchinner@redhat.com>
+Subject: [allisonhenderson-xfs_work:delayed_attrs_v22_extended 25/32]
+ fs/xfs/libxfs/xfs_parent.c:55:1: warning: no previous prototype for function
+ 'xfs_init_parent_name_rec'
+Message-ID: <202107261054.AO3vGDN7-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="y0ulUmNC+osPPQO6"
+Content-Type: multipart/mixed; boundary="qDbXVdCdHGoSgWSk"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,13 +138,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---y0ulUmNC+osPPQO6
+--qDbXVdCdHGoSgWSk
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://github.com/allisonhenderson/xfs_work.git delayed_attrs_v22_extended
 head:   43a95c4600b7c80ac410a00ac245ccf85b150d26
-commit: a081aa472665a7b050bb4b34949559a187507c24 [9/32] xfs: Implement attr logging and replay
+commit: 7afeb66fe35b1ff4b92ced29e2541f5f7a5c86f7 [25/32] xfs: parent pointer attribute creation
 config: x86_64-randconfig-a003-20210725 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project c63dbd850182797bc4b76124d08e1c320ab2365d)
 reproduce (this is a W=1 build):
@@ -152,10 +152,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install x86_64 cross compiling tool for clang build
         # apt-get install binutils-x86-64-linux-gnu
-        # https://github.com/allisonhenderson/xfs_work/commit/a081aa472665a7b050bb4b34949559a187507c24
+        # https://github.com/allisonhenderson/xfs_work/commit/7afeb66fe35b1ff4b92ced29e2541f5f7a5c86f7
         git remote add allisonhenderson-xfs_work https://github.com/allisonhenderson/xfs_work.git
         git fetch --no-tags allisonhenderson-xfs_work delayed_attrs_v22_extended
-        git checkout a081aa472665a7b050bb4b34949559a187507c24
+        git checkout 7afeb66fe35b1ff4b92ced29e2541f5f7a5c86f7
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=x86_64 
 
@@ -164,122 +164,61 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> fs/xfs/xfs_attr_item.c:638:5: warning: variable 'rsvd' is uninitialized when used here [-Wuninitialized]
-                                   rsvd ? XFS_TRANS_RESERVE : 0, &tp);
-                                   ^~~~
-   fs/xfs/xfs_attr_item.c:586:14: note: initialize the variable 'rsvd' to silence this warning
-           bool                            rsvd;
-                                               ^
-                                                = 0
-   1 warning generated.
+>> fs/xfs/libxfs/xfs_parent.c:55:1: warning: no previous prototype for function 'xfs_init_parent_name_rec' [-Wmissing-prototypes]
+   xfs_init_parent_name_rec(
+   ^
+   fs/xfs/libxfs/xfs_parent.c:54:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   void
+   ^
+   static 
+>> fs/xfs/libxfs/xfs_parent.c:70:1: warning: no previous prototype for function 'xfs_init_parent_name_irec' [-Wmissing-prototypes]
+   xfs_init_parent_name_irec(
+   ^
+   fs/xfs/libxfs/xfs_parent.c:69:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   void
+   ^
+   static 
+   2 warnings generated.
 
 
-vim +/rsvd +638 fs/xfs/xfs_attr_item.c
+vim +/xfs_init_parent_name_rec +55 fs/xfs/libxfs/xfs_parent.c
 
-   569	
-   570	/*
-   571	 * Process an attr intent item that was recovered from the log.  We need to
-   572	 * delete the attr that it describes.
-   573	 */
-   574	STATIC int
-   575	xfs_attri_item_recover(
-   576		struct xfs_log_item		*lip,
-   577		struct list_head		*capture_list)
-   578	{
-   579		struct xfs_attri_log_item	*attrip = ATTRI_ITEM(lip);
-   580		struct xfs_attr_item		*attr;
-   581		struct xfs_mount		*mp = lip->li_mountp;
-   582		struct xfs_inode		*ip;
-   583		struct xfs_da_args		*args;
-   584		struct xfs_trans		*tp;
-   585		struct xfs_trans_res		tres;
-   586		bool				rsvd;
-   587		struct xfs_attri_log_format	*attrp;
-   588		int				error, ret = 0;
-   589		int				total;
-   590		int				local;
-   591		struct xfs_attrd_log_item	*done_item = NULL;
-   592	
-   593		/*
-   594		 * First check the validity of the attr described by the ATTRI.  If any
-   595		 * are bad, then assume that all are bad and just toss the ATTRI.
-   596		 */
-   597		attrp = &attrip->attri_format;
-   598		if (!xfs_attri_validate(mp, attrip))
-   599			return -EFSCORRUPTED;
-   600	
-   601		error = xlog_recover_iget(mp,  attrp->alfi_ino, &ip);
-   602		if (error)
-   603			return error;
-   604	
-   605		attr = kmem_zalloc(sizeof(struct xfs_attr_item) +
-   606				   sizeof(struct xfs_da_args), KM_NOFS);
-   607		args = (struct xfs_da_args *)((char *)attr +
-   608			   sizeof(struct xfs_attr_item));
-   609	
-   610		attr->xattri_dac.da_args = args;
-   611		attr->xattri_op_flags = attrp->alfi_op_flags;
-   612	
-   613		args->dp = ip;
-   614		args->geo = mp->m_attr_geo;
-   615		args->op_flags = attrp->alfi_op_flags;
-   616		args->whichfork = XFS_ATTR_FORK;
-   617		args->name = attrip->attri_name;
-   618		args->namelen = attrp->alfi_name_len;
-   619		args->hashval = xfs_da_hashname(args->name, args->namelen);
-   620		args->attr_filter = attrp->alfi_attr_flags;
-   621	
-   622		if (attrp->alfi_op_flags == XFS_ATTR_OP_FLAGS_SET) {
-   623			args->value = attrip->attri_value;
-   624			args->valuelen = attrp->alfi_value_len;
-   625			args->total = xfs_attr_calc_size(args, &local);
-   626	
-   627			tres.tr_logres = M_RES(mp)->tr_attrsetm.tr_logres +
-   628					 M_RES(mp)->tr_attrsetrt.tr_logres *
-   629						args->total;
-   630			tres.tr_logcount = XFS_ATTRSET_LOG_COUNT;
-   631			tres.tr_logflags = XFS_TRANS_PERM_LOG_RES;
-   632			total = args->total;
-   633		} else {
-   634			tres = M_RES(mp)->tr_attrrm;
-   635			total = XFS_ATTRRM_SPACE_RES(mp);
-   636		}
-   637		error = xfs_trans_alloc(mp, &tres, total, 0,
- > 638					rsvd ? XFS_TRANS_RESERVE : 0, &tp);
-   639		if (error)
-   640			goto out;
-   641	
-   642		args->trans = tp;
-   643		done_item = xfs_trans_get_attrd(tp, attrip);
-   644	
-   645		xfs_ilock(ip, XFS_ILOCK_EXCL);
-   646		xfs_trans_ijoin(tp, ip, 0);
-   647	
-   648		ret = xfs_trans_attr_finish_update(&attr->xattri_dac, done_item,
-   649						   &attr->xattri_dac.leaf_bp,
-   650						   attrp->alfi_op_flags);
-   651		if (ret == -EAGAIN) {
-   652			/* There's more work to do, so add it to this transaction */
-   653			xfs_defer_add(tp, XFS_DEFER_OPS_TYPE_ATTR, &attr->xattri_list);
-   654		} else
-   655			error = ret;
-   656	
-   657		if (error) {
-   658			xfs_trans_cancel(tp);
-   659			goto out_unlock;
-   660		}
-   661	
-   662		error = xfs_defer_ops_capture_and_commit(tp, ip, capture_list);
-   663	
-   664	out_unlock:
-   665		xfs_iunlock(ip, XFS_ILOCK_EXCL);
-   666		xfs_irele(ip);
-   667	out:
-   668		if (ret != -EAGAIN)
-   669			kmem_free(attr);
-   670		return error;
-   671	}
-   672	
+    35	
+    36	/*
+    37	 * Parent pointer attribute handling.
+    38	 *
+    39	 * Because the attribute value is a filename component, it will never be longer
+    40	 * than 255 bytes. This means the attribute will always be a local format
+    41	 * attribute as it is xfs_attr_leaf_entsize_local_max() for v5 filesystems will
+    42	 * always be larger than this (max is 75% of block size).
+    43	 *
+    44	 * Creating a new parent attribute will always create a new attribute - there
+    45	 * should never, ever be an existing attribute in the tree for a new inode.
+    46	 * ENOSPC behavior is problematic - creating the inode without the parent
+    47	 * pointer is effectively a corruption, so we allow parent attribute creation
+    48	 * to dip into the reserve block pool to avoid unexpected ENOSPC errors from
+    49	 * occurring.
+    50	 */
+    51	
+    52	
+    53	/* Initializes a xfs_parent_name_rec to be stored as an attribute name */
+    54	void
+  > 55	xfs_init_parent_name_rec(
+    56		struct xfs_parent_name_rec	*rec,
+    57		struct xfs_inode		*ip,
+    58		uint32_t			p_diroffset)
+    59	{
+    60		xfs_ino_t			p_ino = ip->i_ino;
+    61		uint32_t			p_gen = VFS_I(ip)->i_generation;
+    62	
+    63		rec->p_ino = cpu_to_be64(p_ino);
+    64		rec->p_gen = cpu_to_be32(p_gen);
+    65		rec->p_diroffset = cpu_to_be32(p_diroffset);
+    66	}
+    67	
+    68	/* Initializes a xfs_parent_name_irec from an xfs_parent_name_rec */
+    69	void
+  > 70	xfs_init_parent_name_irec(
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -288,14 +227,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107261013.qMOOMz9S-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107261054.AO3vGDN7-lkp%40intel.com.
 
---y0ulUmNC+osPPQO6
+--qDbXVdCdHGoSgWSk
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICFIc/mAAAy5jb25maWcAlDxdd9wosu/zK/pkXmYfJvFXvNl7jx9oCXUzLQkNoHbbLzqO
+H4sICE0i/mAAAy5jb25maWcAlDxdd9wosu/zK/pkXmYfJvFXvNl7jx9oCXUzLQkNoHbbLzqO
 3cn4rmNn287s5N/fKkASoJKzm4ckTRVQQH1T6Oeffl6wby9PX25e7m9vHh6+Lz7vH/eHm5f9
 3eLT/cP+fxe5XNTSLHguzFtALu8fv/317q8P59352eL92+Ozt0e/Hm6PF5v94XH/sMieHj/d
 f/4GA9w/Pf7080+ZrAux6rKs23Klhaw7w3fm4s3tw83j58Wf+8Mz4C2OT98evT1a/PL5/uV/
@@ -960,4 +899,4 @@ Pql1hYWBwpBoozRrMtMpEiF8A+hYrZw2xnxj1pGPD+fRSg1542TpEKnSctB9wzRztPK8/jmm
 q4rLZ1Z22h++BmlAAATRRZ+tzmVwKafaqEFRIm2BzZEUFRlicBhxAdzNNU1pkLhA9q4GL90S
 eyb+H1GYRq6aLQIA
 
---y0ulUmNC+osPPQO6--
+--qDbXVdCdHGoSgWSk--
