@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBSHPQGEAMGQEOI62MCY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBHXHQGEAMGQEABGFCHA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0B2B23D8120
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 23:16:58 +0200 (CEST)
-Received: by mail-pj1-x1039.google.com with SMTP id s4-20020a17090aba04b0290173b4d6dd74sf729063pjr.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 14:16:57 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627420616; cv=pass;
+Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1E4193D7FA9
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 22:59:11 +0200 (CEST)
+Received: by mail-oi1-x237.google.com with SMTP id c6-20020aca35060000b029025c5504f461sf273920oia.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 13:59:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627419550; cv=pass;
         d=google.com; s=arc-20160816;
-        b=k0SES92jyq3/VApVXWsvH8FKJ80AXjpblUy/LR9mwhDcSReHdRXtEHTU05ZNacu/ue
-         sgBZKa4XwIKYeQnsvU096YhU5GezAeaIXIt+r+UifWYhDcSpVVtmuYV7yx3WjoxjgnmC
-         /VUNR5CQJ+v+tsoLcLhI4NXvHxpR62iJ31Eb7xiO0MAr+33mlWO9K/3GwRxgGEbZRrcz
-         BS+8dHHJWxl4R9naP8XwQ9aybIRbcu9/hi0WmZO9hhdR1oTawdHV00nuDJpAb+pgA1hh
-         E39sT6/ZEjp0pN8sSKdQjcj8s3VwjU2NxAiS0sJwcYBHWmmfdYJdXuGSZAzoWiUuhNnC
-         DlUw==
+        b=QQscM3dPaC4j7eTgOnD+l80TUdhlScJKg7ukByqUYgAjuNyyg0SKGqAZzBhrFaUahU
+         BHmu8YKl9wAjjKvLARAs4VFrOgvlzxPZ6JO5CZRbPL751QYzDOWRrQRJnT5uN2e3Z/hb
+         g+qX8KscHXeEAA6XmfmqTpVfbHzbTKVhdFwRAWSHH1el6vmNEYhDB6my2w0Z4awJ8xk5
+         RhMQK4va92hrHg917N8oLkzuQyrfKuq+G1V0OqNUNv8lexDUuAWLtwvSPlBEzG4A5dL0
+         Sl78FRM9tqzvWgqfXkyaeKQpQ8PeTfbAO4jKPc7DK4joBwmRLaCAIDJbJedsnWu8/cFf
+         5C/Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=v3tYIry1MjidAyG4Rw1nvzLorf8ipTBEotdSxCx0yJI=;
-        b=NPsR5mngHaCb7g78rKsi9jsvt+7QODtko5hCLWrwULciF+bk4n8j16O3XFrP6RDUiw
-         MN6EI0SrEAjMuxnNUZLayDs8hoPhVO8OKc4hxGQLCeEfZN4WSMpzdf8q8mzfSlL0MDsM
-         /huS0GXJ996tMd2UTHL7CjeOAX8EMhk6KkDYUfcPup5zoke8SYKOrmrSxoACjPBnnNxO
-         rvpPYgxg1nr/BOsUlVS0vWhQjNMzNmLUGkmVwTqE3EGNkT0SdBQWYas9FakqcmZGAfbw
-         Fh+lHHC+XG6SM7fhwtOp44mtswdIYSIHfs/iMQ09v3juzKwWYrvkWH4XPwSfs+ftbiDa
-         i+FA==
+        bh=CCkFfSezlXCGLvsbzxX4oB8Z6yD6W2kM1nLMm6qZQt0=;
+        b=TzrYjkv3f6UR+zqzWIEhQ9t8gGCEOHQjgk2iAnjGH6GsGbbABbjFeeNvHFNoaL52dF
+         ZP6RtmGE6H/MLUJ54j6WTGTT9jKpsoN8pVyL29WjRD1TgYEXfK+0XBo5/8ecwqhZDtN3
+         8XpPZ+bBaI/yNeNWR3ta6mtFdmrnVPMc2MjHV0NvuEDCYNslPfeKgNmxC12TrwRy+Nv2
+         /NaEfD6n5utL76cxyY/2ZfXZgtv23WbjmggHActkHZBkZw45w6c+ayPv/t8ZqTtDoRDX
+         GbIOOihlbTVn56GQkhTiuomVC1nvx8asC8KCq+71e+d5GZsDUsUtEhLG0SfwCvpciIsB
+         MT8A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=X2kAI627;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1029 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=BRJ6YXZF;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=v3tYIry1MjidAyG4Rw1nvzLorf8ipTBEotdSxCx0yJI=;
-        b=JeA4cV+SjXftIevIeFm9kekdH6Av9LQGzXegSB1mXc85x4f837xgbjewSC6R5ERWBj
-         nLB7SC9C0y5diOzUqyvLiaua3Gj+xGcgbahWmwcUOdigXkxSgnuzalVZYBQPwPlaTmx7
-         o+aSP987kj4Q3QxXyqxbuYqPmWXYPb/iGdlAR0o3OYZyRTCz1FcOEAq6aEcbBOk+DlnF
-         DUBNWL6uHW4xLajh9lk73wnqqhpMl0/WgLoLvwsJvt2ZmfC5L5JpOP/MWJuYTKYHS6y3
-         bJMR374GjFmPHFJx6w64cPdCKvVaY0f4QeMizwI8an6GAv5MfOuGnRFanp2pO677VK2O
-         ar8Q==
+        bh=CCkFfSezlXCGLvsbzxX4oB8Z6yD6W2kM1nLMm6qZQt0=;
+        b=nOdUWytWbLZajAd/zzWguGtH3m02i47AGoevkYgFJRLYIsU3IOTpTgQlt7FiyWA04L
+         S7FATITtNfznuLqtTXFjUSCeysij0qNoNCbYhEDEZQVlVwL3EsCysNaGpBZhMuG70qeK
+         EztI6RxWNVdLOsXh6PRxhagPWgfS5hF2bqlgDGxYclbMVSu0WcFVUB12QcDNaAlIEJw6
+         HhEeW81JJ7ij/YuZQTcmYUwKiTo/BFRe2L/HFW+hTfA7yymuEmVU4eoZKwIblxCJyxJF
+         gcX14HLo1GzHCZ4ySCUd5otUKKXSf8PiKcRPIo5aGh+K3WOUA7yYVBGwAG4iIAdIAWIB
+         rieg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,60 +49,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=v3tYIry1MjidAyG4Rw1nvzLorf8ipTBEotdSxCx0yJI=;
-        b=rpVBF+GWFhWl+wx5REA8aJ/G3YUu9gWYF0vx+c32yjJj/GnE15CZTe61XxBpINH2cY
-         g7/xSpe2qypkJu8k1BjjXLPfV3AzFFGJE8iSTcIbfpC9m7xrs+ppn/Hex7o1Tp+KHtZY
-         Qs7huXnFA5gqR5We7VLQzhgWXUUp+oY1ckTZAe9akBLsdL7mmX3Fd3BJ2qkzmh5PQSA4
-         3VPk/nqRZNYJhYzGSEQOcVuiXKsaeiULWHCevWFnKqxv9jixlKvhB9744g+HXipo3LJD
-         H5k/YNygz4sv293XRlnkLXnlr1EgctywKz6bf0vwKBHqUw82A0NNQZwuzsQH4CFgSrlY
-         mEPw==
+        bh=CCkFfSezlXCGLvsbzxX4oB8Z6yD6W2kM1nLMm6qZQt0=;
+        b=s6uCD7o02YFn2Ri8Nt3reSX8R/VTCV2JdJTAKJdtxZxj1Z2tGa0RTGW9yCzRsrQDdX
+         0DH5WMZmGlk4Vp6v9Iyi7q5r9JctG7Qc7U51VEgjOllG+8Hrw0siZkIIeA6K6kEVemiu
+         CYK5gHGuG6DpxAG5ollLBc8ZjS5xr9LSeY/uezLyqRX7y1biCWRz5CAxPzgX4WYwP4Hw
+         giyRzX3Mvkn6dQRrcNGHKQ9HRs7HnE1fP405F+icrKM8bHPq+YmHT3Goma8AhZ78XbdP
+         FAohn6e2gooNYC0UaYYOT/Y/A/Xsj/Cq+xFKwEUs64HO6vFiT3WCX1RqpSF9SHx7Jusy
+         uTKA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531jCxhx9ylujcMgr5ZGsJFTgyi6OP26JWVJUvC8Xd+frok5C0Zk
-	z8V/za/021c5f+xngcwwwyw=
-X-Google-Smtp-Source: ABdhPJx++0rUusBejzas0WuFqVn85ssMqTHtotz0SvBrcUf1Hehvr6n6gFuv0jvCbnfR/ZtveZu20Q==
-X-Received: by 2002:a65:64c9:: with SMTP id t9mr20039729pgv.378.1627420616726;
-        Tue, 27 Jul 2021 14:16:56 -0700 (PDT)
+X-Gm-Message-State: AOAM530TZFA85QmfKxTYEsnbKpTRwIvoNMZ4dKpJS+yWKUr3XdjUhdrE
+	GZYWVPFSfWsgx44wpTcuVkA=
+X-Google-Smtp-Source: ABdhPJzQ+flycvuTTHQhkP6uHE0x2feCQUcNmpayg5tyoKYRXUQKXw2H5e2UlcVQYVxIePBjQprCDg==
+X-Received: by 2002:aca:5802:: with SMTP id m2mr4190654oib.23.1627419550143;
+        Tue, 27 Jul 2021 13:59:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:a4c3:: with SMTP id l3ls27394pjw.0.gmail; Tue, 27
- Jul 2021 14:16:56 -0700 (PDT)
-X-Received: by 2002:a17:902:a9c6:b029:129:8fdb:698f with SMTP id b6-20020a170902a9c6b02901298fdb698fmr20381954plr.15.1627420616133;
-        Tue, 27 Jul 2021 14:16:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627420616; cv=none;
+Received: by 2002:aca:5e42:: with SMTP id s63ls53442oib.10.gmail; Tue, 27 Jul
+ 2021 13:59:09 -0700 (PDT)
+X-Received: by 2002:aca:41d7:: with SMTP id o206mr4136485oia.132.1627419549788;
+        Tue, 27 Jul 2021 13:59:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627419549; cv=none;
         d=google.com; s=arc-20160816;
-        b=e+D0JPvIaKiyS6ELyLbMZ6IF4qhIhz5iHvlLAEEGzU/nm7jgg56yIMvCo5jbpHKlsv
-         sl3p9Mp4FYT4S+Zt+sdBf/k04OwWnlvwgJhfRr0XV84xxW8UB9WO+tV5SbVZnKEPkcpA
-         +ONsnEwdq7a91Ufqi7L26kmoV72wHSC/POXs5yBTktpspkXnCxGEgJuKosXzTLYZjeX0
-         AASZtgp7iv0tQ5d6RPAxchSvhctFXItKgTkLl7vU0J+qbUxaWQf+YxR0S0NZroZVEvM4
-         Xzz/WWLbaNp9P3vL70132jl4TQkY1JiixRMCR7VxMsncuwHT9hlFqhtP50L1aorBtx9Z
-         JV3A==
+        b=vXpMwJ+6/4x8kz4vuo/YDVUuWwZdK4CHiLTExwbKhs3s/Kg9k/ehKeyFavQTesY/84
+         I0aBzpDnAo7uyTp2iUWrPmzsv9FDyD/yn2ul85cfDxN4PxaKUZlJ0sroozCUftnLDVgZ
+         BOi+AT57t0d471zrsndER+fyvaEl7OPqmUZJ/j5YqiAp8lVDFbg4/CIgSBSvMHv621qk
+         CHfdUyCB6D0tytlqkbuR9R2P1bTmyn+a1PlSS7r2+FdMUlX4oyqQ6RXjJ1NVOB6d8ZKK
+         uOxHeS/oeP3e8fPEmsx5wnwoiL7NDUi5/b4zi9tk6tR/tta9kRa9xZr9baWZOJIGmtJP
+         ZedQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=vvD4cE9CC0UwuFk0tFrxkl0FdzddHJztTx+G0lXko2o=;
-        b=CsI81GoBnwmnUch5XONIfHCtfiMneGSLAXFeog9fdJBWq934GD7Ncjsvdn+aDbXtMl
-         8Ob19qu/CPM4y3tuQjQjDSDB69acFNyXYWGBAMdAZlH4DIi0kqc8F2NtWi9oUcnn32dB
-         afeURcwBtJnsv4tE3JHepZsbvMAIk69iv1eBLjLQZ6LRPXFh3HSxqirJf7SBH5Axd1u5
-         c6R6LLPYJkrkbD+lZ9+ZHxFQ8frjHjID4K8L8L+HkTU8F7urdfwbq7rm9XROeQIW7KoI
-         cRdNvJ4JDdvBiLRbmwMg4HeGgUyObMGquXJnqerjQcUAXaBYQDxG8KX2qMk17dRuzAVI
-         6D5A==
+        bh=bokzvyrG/U6aqJMcplPprkAXMLOtluQLvxu28yduQ3I=;
+        b=TttjPvgSPHzatj3wzcR3H4XCwS5PiUmIajgRubchcg4KPLFzKXfwsiEuT94CJk3S9/
+         smpUw5FrW9OucYLOOlBjYswdisTzFzk3zVVKzZXzp3hfWEhTxLSxz0rSkJooqOf5JAo1
+         q7u6SXZjZMre06nB+reS3oImyTyTxQbGqKz9JERyqth6GMauFFgAMN0E9O+BFbFQuLBG
+         rIJpR0+zKOPIFIjac2EY90TUMcWXRWvSIOS6gCXg0k9yZ6Kl5rhmCthaGyLrUd0z8J83
+         PEmu5Ov8tOK218O9+mSaiYeEqubwUyxGqgxz2FXQNxC2dKYAS4XaixFMTwRaNAnxi3H2
+         y4bA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=X2kAI627;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1029 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=BRJ6YXZF;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x1029.google.com (mail-pj1-x1029.google.com. [2607:f8b0:4864:20::1029])
-        by gmr-mx.google.com with ESMTPS id o20si360469pgv.1.2021.07.27.14.16.56
+Received: from mail-pj1-x102d.google.com (mail-pj1-x102d.google.com. [2607:f8b0:4864:20::102d])
+        by gmr-mx.google.com with ESMTPS id u9si184079oiw.4.2021.07.27.13.59.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jul 2021 14:16:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1029 as permitted sender) client-ip=2607:f8b0:4864:20::1029;
-Received: by mail-pj1-x1029.google.com with SMTP id j1so1857984pjv.3
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 14:16:56 -0700 (PDT)
-X-Received: by 2002:a17:90a:3fc6:: with SMTP id u6mr9309818pjm.146.1627420615860;
-        Tue, 27 Jul 2021 14:16:55 -0700 (PDT)
+        Tue, 27 Jul 2021 13:59:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102d as permitted sender) client-ip=2607:f8b0:4864:20::102d;
+Received: by mail-pj1-x102d.google.com with SMTP id e2-20020a17090a4a02b029016f3020d867so1035794pjh.3
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 13:59:09 -0700 (PDT)
+X-Received: by 2002:aa7:80d3:0:b029:347:820c:fbf with SMTP id a19-20020aa780d30000b0290347820c0fbfmr25091421pfn.73.1627419549404;
+        Tue, 27 Jul 2021 13:59:09 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id t9sm5079279pgc.81.2021.07.27.14.16.51
+        by smtp.gmail.com with ESMTPSA id b7sm4526752pfl.195.2021.07.27.13.59.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jul 2021 14:16:54 -0700 (PDT)
+        Tue, 27 Jul 2021 13:59:09 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: linux-hardening@vger.kernel.org
 Cc: Kees Cook <keescook@chromium.org>,
@@ -118,19 +118,19 @@ Cc: Kees Cook <keescook@chromium.org>,
 	linux-block@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH 21/64] cxgb4: Use struct_group() for memcpy() region
-Date: Tue, 27 Jul 2021 13:58:12 -0700
-Message-Id: <20210727205855.411487-22-keescook@chromium.org>
+Subject: [PATCH 22/64] bnx2x: Use struct_group() for memcpy() region
+Date: Tue, 27 Jul 2021 13:58:13 -0700
+Message-Id: <20210727205855.411487-23-keescook@chromium.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210727205855.411487-1-keescook@chromium.org>
 References: <20210727205855.411487-1-keescook@chromium.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3924; h=from:subject; bh=y2sMUjTim/gIwxveSmmQhx7NYTt7b1pVbIiPi7Evl4M=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhAHOEnE25c6OQAZUZh7are7MybFphgO5c0XjmqaoM cypZk3uJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYQBzhAAKCRCJcvTf3G3AJrVgD/ 9EUipW/aGz8pZZO+KYM/hHRGzHn3eJ8lr6sIZd2kwgY/YenMRyXcbyazHaKtq9k4qFGDfasF7ov858 QgSo0FLS6kKdp77nml8K4O9E8I7ayBPKVtULTSDvCMtWKEqBcfC6Q7M0Nb1UixUrR2Z1JhZZK9WtWH ID8omgKPI4LnnaYo4ycEAVB9pzBuOp2dw3mX8jThZiOXisc1A8O6CIE/RAKv1Fno46ecBIpYI58Lfj Q2dLClrapmNlYoUxj2kteXxZy308YbZng7p0daoSE68G8Dm0g06bXBLPRLc/bImHPgA3klYnSoixgZ RMD6kvFN+5q7n8MnIJdaq7gJBYyPBy/9C6wwG2lmKxvmgPKgNj1zDkyb7ttS5FAEi0kc+f+uE/Qvc6 LxFFznj1facXXLvYjxYdFVv9TF/b9/6/BBeUCOHLnyB4kGzOqlN4zBCzSlX25q7Qr8HnPEr34tJ/mP 3QyTlF29k5BfJetxRga3bVSYt4eLe0vVj8bLZug1htSckQNfV4X1STPomfizJ8F8ssl8VR+AZqcEPZ ru/Rhw2gsydUoGnN1DHmcUDJjNa8iHRdhVeY0MaxkmG0p3DjmhYkpj3nmosca/JbyjnMdcrVrIyErT CYzNTxmbAjdwEJnwSyRPybVcS5R4LwUCJqb30qR0qVGXDBcsbP8DrEjKddqA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3598; h=from:subject; bh=A1ElP4tjKK6Dp0sFHqCrYLWenZcmBSW5YxsW0evE5y8=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhAHOFm863HXtOc8ZeFmq+4wnVfKZlM+JRATLTvRzZ tF2gptuJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYQBzhQAKCRCJcvTf3G3AJg5IEA CxuS8kVvtGTeWwaE8ktJ8PBB1PQTvGy+LqQckpDdbfcwdWpfpfUaRcWDUYeyxQViauxQkjKX+WtpGq hyus00PTGVEQ+WIyIaFXYIjua1ivJAE+8+FSub7TLXSsMnwjQ+LHHUYqIonTydXZVNbnI26vGNsNW7 ZiV9OdkeutbHuBOgoqWEev1HlbW4+SZ11/dsn9f2pkkzB8YIhMzFPMi81NohsNTWNaJi74eoKX6qCr e5hNPHv43bf04K61+a0YVVBBpstRQLsnB1CKmBSNAfoc0edgbIAlA0OMq9CdvWO82lwYn6tk73H1Th 7fuTfssESoKBnqznYLIApEuQg37xDIDAdFz4SIssl7up5lwyunQcndQRrMZj1Y0tXkcj5w6CCUCWPw lmJrQWyWwVSqc682o6B1DYKJ4oZqFDaiMvdanoCeHEjy6x8afQF7duJMQRMS14TygWN8NoWnEQuqEI a0XvMB5J/4Z8eLg8jRrtFzwMiR9aIWjrHcHSQ+Co9sVbkxRgedeTJXK3HctCj2xHW68hdTNWPREow9 XuwAmRn6yMPi0xBwSZ1DDYkz8HIa5o6cUScE4nvrwcxz17OQhpwTybWpV3OxK3O2n9Oi/oLBwMKtNZ ogeLRK3dAHlvMOQzHJDjzkWma5VuOaPCqM5XgIHjiRuhS4PU0czJaG8Sd63Q==
 X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=X2kAI627;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1029
+ header.i=@chromium.org header.s=google header.b=BRJ6YXZF;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102d
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -150,98 +150,95 @@ In preparation for FORTIFY_SOURCE performing compile-time and run-time
 field bounds checking for memcpy(), memmove(), and memset(), avoid
 intentionally writing across neighboring fields.
 
-Use struct_group() in struct fw_eth_tx_pkt_vm_wr around members ethmacdst,
-ethmacsrc, ethtype, and vlantci, so they can be referenced together. This
-will allow memcpy() and sizeof() to more easily reason about sizes,
-improve readability, and avoid future warnings about writing beyond the
-end of ethmacdst.
+Use struct_group() in struct nig_stats around members egress_mac_pkt0_lo,
+egress_mac_pkt0_hi, egress_mac_pkt1_lo, and egress_mac_pkt1_hi (and the
+respective members in struct bnx2x_eth_stats), so they can be referenced
+together. This will allow memcpy() and sizeof() to more easily reason
+about sizes, improve readability, and avoid future warnings about writing
+beyond the end of struct bnx2x_eth_stats's rx_stat_ifhcinbadoctets_hi.
 
-"pahole" shows no size nor member offset changes to struct
-fw_eth_tx_pkt_vm_wr. "objdump -d" shows no object code changes.
+"pahole" shows no size nor member offset changes to either struct.
+"objdump -d" shows no meaningful object code changes (i.e. only source
+line number induced differences and optimizations).
+
+Additionally adds BUILD_BUG_ON() to compare the separate struct group
+sizes.
 
 Signed-off-by: Kees Cook <keescook@chromium.org>
 ---
- drivers/net/ethernet/chelsio/cxgb4/sge.c      |  8 +++++---
- drivers/net/ethernet/chelsio/cxgb4/t4fw_api.h | 10 ++++++----
- drivers/net/ethernet/chelsio/cxgb4vf/sge.c    |  7 ++-----
- 3 files changed, 13 insertions(+), 12 deletions(-)
+ drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.c |  7 ++++---
+ drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.h | 14 ++++++++++----
+ 2 files changed, 14 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/chelsio/cxgb4/sge.c b/drivers/net/ethernet/chelsio/cxgb4/sge.c
-index 6a099cb34b12..9080b2c5ffe8 100644
---- a/drivers/net/ethernet/chelsio/cxgb4/sge.c
-+++ b/drivers/net/ethernet/chelsio/cxgb4/sge.c
-@@ -1842,8 +1842,10 @@ static netdev_tx_t cxgb4_vf_eth_xmit(struct sk_buff *skb,
- 	 * (including the VLAN tag) into the header so we reject anything
- 	 * smaller than that ...
- 	 */
--	fw_hdr_copy_len = sizeof(wr->ethmacdst) + sizeof(wr->ethmacsrc) +
--			  sizeof(wr->ethtype) + sizeof(wr->vlantci);
-+	BUILD_BUG_ON(sizeof(wr->firmware) !=
-+		     (sizeof(wr->ethmacdst) + sizeof(wr->ethmacsrc) +
-+		      sizeof(wr->ethtype) + sizeof(wr->vlantci)));
-+	fw_hdr_copy_len = sizeof(wr->firmware);
- 	ret = cxgb4_validate_skb(skb, dev, fw_hdr_copy_len);
- 	if (ret)
- 		goto out_free;
-@@ -1924,7 +1926,7 @@ static netdev_tx_t cxgb4_vf_eth_xmit(struct sk_buff *skb,
- 	wr->equiq_to_len16 = cpu_to_be32(wr_mid);
- 	wr->r3[0] = cpu_to_be32(0);
- 	wr->r3[1] = cpu_to_be32(0);
--	skb_copy_from_linear_data(skb, (void *)wr->ethmacdst, fw_hdr_copy_len);
-+	skb_copy_from_linear_data(skb, &wr->firmware, fw_hdr_copy_len);
- 	end = (u64 *)wr + flits;
+diff --git a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.c b/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.c
+index 0b193edb73b8..2bb133ae61c3 100644
+--- a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.c
++++ b/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.c
+@@ -849,7 +849,8 @@ static int bnx2x_hw_stats_update(struct bnx2x *bp)
  
- 	/* If this is a Large Send Offload packet we'll put in an LSO CPL
-diff --git a/drivers/net/ethernet/chelsio/cxgb4/t4fw_api.h b/drivers/net/ethernet/chelsio/cxgb4/t4fw_api.h
-index 0a326c054707..2419459a0b85 100644
---- a/drivers/net/ethernet/chelsio/cxgb4/t4fw_api.h
-+++ b/drivers/net/ethernet/chelsio/cxgb4/t4fw_api.h
-@@ -794,10 +794,12 @@ struct fw_eth_tx_pkt_vm_wr {
- 	__be32 op_immdlen;
- 	__be32 equiq_to_len16;
- 	__be32 r3[2];
--	u8 ethmacdst[6];
--	u8 ethmacsrc[6];
--	__be16 ethtype;
--	__be16 vlantci;
-+	struct_group(firmware,
-+		u8 ethmacdst[ETH_ALEN];
-+		u8 ethmacsrc[ETH_ALEN];
-+		__be16 ethtype;
-+		__be16 vlantci;
+ 	memcpy(old, new, sizeof(struct nig_stats));
+ 
+-	memcpy(&(estats->rx_stat_ifhcinbadoctets_hi), &(pstats->mac_stx[1]),
++	BUILD_BUG_ON(sizeof(estats->shared) != sizeof(pstats->mac_stx[1]));
++	memcpy(&(estats->shared), &(pstats->mac_stx[1]),
+ 	       sizeof(struct mac_stx));
+ 	estats->brb_drop_hi = pstats->brb_drop_hi;
+ 	estats->brb_drop_lo = pstats->brb_drop_lo;
+@@ -1634,9 +1635,9 @@ void bnx2x_stats_init(struct bnx2x *bp)
+ 			REG_RD(bp, NIG_REG_STAT0_BRB_TRUNCATE + port*0x38);
+ 	if (!CHIP_IS_E3(bp)) {
+ 		REG_RD_DMAE(bp, NIG_REG_STAT0_EGRESS_MAC_PKT0 + port*0x50,
+-			    &(bp->port.old_nig_stats.egress_mac_pkt0_lo), 2);
++			    &(bp->port.old_nig_stats.egress_mac_pkt0), 2);
+ 		REG_RD_DMAE(bp, NIG_REG_STAT0_EGRESS_MAC_PKT1 + port*0x50,
+-			    &(bp->port.old_nig_stats.egress_mac_pkt1_lo), 2);
++			    &(bp->port.old_nig_stats.egress_mac_pkt1), 2);
+ 	}
+ 
+ 	/* Prepare statistics ramrod data */
+diff --git a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.h b/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.h
+index d55e63692cf3..ae93c078707b 100644
+--- a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.h
++++ b/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.h
+@@ -36,10 +36,14 @@ struct nig_stats {
+ 	u32 pbf_octets;
+ 	u32 pbf_packet;
+ 	u32 safc_inp;
+-	u32 egress_mac_pkt0_lo;
+-	u32 egress_mac_pkt0_hi;
+-	u32 egress_mac_pkt1_lo;
+-	u32 egress_mac_pkt1_hi;
++	struct_group(egress_mac_pkt0,
++		u32 egress_mac_pkt0_lo;
++		u32 egress_mac_pkt0_hi;
++	);
++	struct_group(egress_mac_pkt1,
++		u32 egress_mac_pkt1_lo;
++		u32 egress_mac_pkt1_hi;
 +	);
  };
  
- #define FW_CMD_MAX_TIMEOUT 10000
-diff --git a/drivers/net/ethernet/chelsio/cxgb4vf/sge.c b/drivers/net/ethernet/chelsio/cxgb4vf/sge.c
-index 7bc80eeb2c21..671ca93e64ab 100644
---- a/drivers/net/ethernet/chelsio/cxgb4vf/sge.c
-+++ b/drivers/net/ethernet/chelsio/cxgb4vf/sge.c
-@@ -1167,10 +1167,7 @@ netdev_tx_t t4vf_eth_xmit(struct sk_buff *skb, struct net_device *dev)
- 	struct cpl_tx_pkt_core *cpl;
- 	const struct skb_shared_info *ssi;
- 	dma_addr_t addr[MAX_SKB_FRAGS + 1];
--	const size_t fw_hdr_copy_len = (sizeof(wr->ethmacdst) +
--					sizeof(wr->ethmacsrc) +
--					sizeof(wr->ethtype) +
--					sizeof(wr->vlantci));
-+	const size_t fw_hdr_copy_len = sizeof(wr->firmware);
+ enum bnx2x_stats_event {
+@@ -83,6 +87,7 @@ struct bnx2x_eth_stats {
+ 	u32 no_buff_discard_hi;
+ 	u32 no_buff_discard_lo;
  
- 	/*
- 	 * The chip minimum packet length is 10 octets but the firmware
-@@ -1267,7 +1264,7 @@ netdev_tx_t t4vf_eth_xmit(struct sk_buff *skb, struct net_device *dev)
- 	wr->equiq_to_len16 = cpu_to_be32(wr_mid);
- 	wr->r3[0] = cpu_to_be32(0);
- 	wr->r3[1] = cpu_to_be32(0);
--	skb_copy_from_linear_data(skb, (void *)wr->ethmacdst, fw_hdr_copy_len);
-+	skb_copy_from_linear_data(skb, &wr->firmware, fw_hdr_copy_len);
- 	end = (u64 *)wr + flits;
++	struct_group(shared,
+ 	u32 rx_stat_ifhcinbadoctets_hi;
+ 	u32 rx_stat_ifhcinbadoctets_lo;
+ 	u32 tx_stat_ifhcoutbadoctets_hi;
+@@ -159,6 +164,7 @@ struct bnx2x_eth_stats {
+ 	u32 tx_stat_dot3statsinternalmactransmiterrors_lo;
+ 	u32 tx_stat_bmac_ufl_hi;
+ 	u32 tx_stat_bmac_ufl_lo;
++	);
  
- 	/*
+ 	u32 pause_frames_received_hi;
+ 	u32 pause_frames_received_lo;
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727205855.411487-22-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727205855.411487-23-keescook%40chromium.org.
