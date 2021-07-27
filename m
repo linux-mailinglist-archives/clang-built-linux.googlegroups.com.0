@@ -1,46 +1,46 @@
-Return-Path: <clang-built-linux+bncBDG5FNNX5ECBBW5IQCEAMGQE324P7KY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDG5FNNX5ECBBYVIQCEAMGQE3XSBZAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8BB313D7836
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 16:12:44 +0200 (CEST)
-Received: by mail-lf1-x13b.google.com with SMTP id bi11-20020a0565120e8bb029037d602924c2sf5666073lfb.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 07:12:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627395164; cv=pass;
+Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 446AC3D783B
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 16:12:51 +0200 (CEST)
+Received: by mail-lf1-x137.google.com with SMTP id d28-20020a194f1c0000b029038a8405fc0fsf5702423lfb.7
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 07:12:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627395170; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DV6/FGJfctZBZWiGu3hnlEd5UHkhtBOBtbQTwwe8k1zfi8J6IX8PAiRIpuByDnbbRA
-         MtR9CHEg4UP+5nONktYoqrLgoMZb1t+zT+YEZ+vz1NwcgOZJ+ptLcPUD/Y6u3XkPvCbu
-         +Tv7OUjsTny9/zFwSGzSp6EHk1eRFA6jsOHNmDNSO/aovuqUtn6IjiWOsLNyKGZeFKI/
-         j1z+gf7KmXAkY6PJJlwiIFfXc3kNjl2GTbjZoIZyrev3xTX6Yl5pUrnH+CjOY7uYmDQx
-         NzYce/2ORQMvOYwmGg+mv9qK4/tXdfJulTGs4bj+XVAMRkiFJF6b+Wpl1XwNdJr7o5tT
-         ZT5w==
+        b=y0u2dFeGuY5Zs0mQZgkaWHGmkv75SDHFk06dreezTCqQWG3y0gCVjNPeMCfAR3nVpv
+         9dWMQiEi2Wij5XjQfikSGA7VTlurlVY+8QKzKzIQS0MjqXWUakPpP0SSFShuC4wBj7fK
+         eWD6ibZmvwYtOHsQMr7qtQkt+KWmFrw9an1UhKiFrsmBwubDqAcogREtpaNIlDTimtwc
+         G5XUXSE88k2KJ3mRenafayzRmDBQmsxOsZSGcnhKvPDMCwiEC5WG+j1Tn7E5YpoWxKRC
+         U5iI6pO5wgz649kryD8YEEwcz2lhZFyfeyKg6BHPScWq1w63HcVz88kX+3Wq0hWeq2ff
+         wjZQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:sender:dkim-signature;
-        bh=NEHDNIyfpaHVfzU5EcDJlSQ/n5PBEhkRj3u7Y5fBk1I=;
-        b=mNDjJDLeTrDWapA9wPgN2AtfOnr9+zbgcENw4YpA/lF9SffCJdKlCKEh/hXfqdn11M
-         JEuv+hrE4Xuev+V6Gq/k7RpQ/LhqlziVfWm2A/UdOtuEItK2abwDErQY5mBhoBEZxn/c
-         IVPpXRWvB0Bz8xaIxt2Y0jtgbqKVhAWkXbcv8jJtr7T6PP84M74HmOdBn+BY+ywOwlbj
-         lsMBYKgESE8OL3rRZYrngVKPGMg2h0tVyRHahkyRPgwrk1Nfg8kCOn4vwGEJYv6EWNAj
-         BBe4wv0qLQB0LBJFsKgc3VnHi2w2jiBwhYBg01zSO3/b4CXKH+3QV4OaDdoxN+5wiIch
-         2rYA==
+        bh=5B+g6mxVMSeIGxEKuGbKrlFdx6qmNxkJw699mYfso+8=;
+        b=hiDg1qDnDTcffkjGYQ+4qPc+ekWce+3ov37kO9w4d1xBSCcI1w6bkgZLDxfXGtU0er
+         eV9z8KSuLtfyzTpE+wlvIn4SlbMeZazVCrN5Hyk27n23xuL5ZVaGluq63I9xY4X53ef2
+         ufuf1y73YX3u7k4g4IzfwuPK4YOa9WaEFcTcwe7042Xvcs17drANdjbDFcFeWxvZmZED
+         Q1oVj1WsD4XYQIIs/m9ENddO32BoklS46MOEjzwWuYVXsiWnnZ1tYv6qW+89MC4mvqoV
+         nJhz3gtNw9xatB1ILWcCK+kgLCP4gYcX4GlVJqlzw6cBxhyQwDXmSFuGK5r9lfKKoBzF
+         qr1Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@sartura-hr.20150623.gappssmtp.com header.s=20150623 header.b=dZJmp177;
-       spf=pass (google.com: domain of pavo.banicevic@sartura.hr designates 2a00:1450:4864:20::329 as permitted sender) smtp.mailfrom=pavo.banicevic@sartura.hr
+       dkim=pass header.i=@sartura-hr.20150623.gappssmtp.com header.s=20150623 header.b="uLpt/P7S";
+       spf=pass (google.com: domain of pavo.banicevic@sartura.hr designates 2a00:1450:4864:20::42f as permitted sender) smtp.mailfrom=pavo.banicevic@sartura.hr
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=NEHDNIyfpaHVfzU5EcDJlSQ/n5PBEhkRj3u7Y5fBk1I=;
-        b=IhTY8C8Lm+uKMmeP+v1xuLaTj6ec/8iEpCHqrxQaZKdQ9T0ekf1WWGt4UqHzmzHqRh
-         Av6D9A1I7PlV9vYbRnlLDTAt6NRCm6NPvt7tg8gUpn5kR+cOvlALj/4O7fnv/14a6BZl
-         beigZC0KiW5z6ywYiqAWsAT196J/DIvN17200SxlBGDJRcGRU3IO8JmHERk/jQ81R8hM
-         31BuVSMy4+KqjzNPJQuPnbxl198KNTdikgfvVEp8lpDRW01ato3/trzXbLY+lbW9ZIP7
-         0FsvCBGbXOjApWECYILOjp8DfGbeuc+esq3cWmek9qxPRNyHTrVN8tUfcUNx5vt5P4Ew
-         obpA==
+        bh=5B+g6mxVMSeIGxEKuGbKrlFdx6qmNxkJw699mYfso+8=;
+        b=fe5nXRfr+KBolG+dQnPMxqgQG9ssj7oq54KLwL1Ndv+QcdgLtEno9ZNVrfl2g8cOtP
+         B48YPd6YG8gMMS3mypFPVfxegw6fIPFBjcRXPUXJVbanvOf+jBJ/0sOd+mm6T23YNYsA
+         6gtBS60G2HZMPPMzCUt1ardWP9HxTOLgP259V/nEyV6KqZ2S3B6DnW/8gR8s/4++yEu+
+         Des9F35gjcex2JCNiYljkakq/cX90gX0SoYAQPaoyHiEx5TUVXsAnP6o1hGFNoYe+jUP
+         5RzKr0gEUzWpIU7l33ttfqZSQCR3GEEARBWYjq1ZknIPsfImstRs2M1TbBJWja0WZJSA
+         P0xQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:subject:date:message-id
@@ -48,59 +48,59 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=NEHDNIyfpaHVfzU5EcDJlSQ/n5PBEhkRj3u7Y5fBk1I=;
-        b=UTpkQ2sGV1b7Ye4M6GD6jY27hZg7gZ5k2AfHTbF/ykJa7pOusoi2sBCm4a9CfC2b2x
-         pXPdBQ2d4H3+9x5dOdBiPSPqwzI9zzvcn+vi0jOZQHYQEHJ9NnUBSKMMwf/7R3aR+hFF
-         xyqqohWDQFGJHaAkU8udGmdRRLTFnM5WVhKIjqo7k8h3pSQJjh91hfOe1HdqEg5E/ong
-         6IM5r1Deu06U5PxeG3t9I0QjmQwg1DwqZtV4cwDMMP3Gvm4A+9rb5tnFbZ7hNyQY7kXC
-         dFYy/A8ztEVJQHdEDwJwB8cjj4Dbu+ea3A6bZk3pFRXxRWXavMbaq7NKt3obm2fp0Wkp
-         KdKA==
+        bh=5B+g6mxVMSeIGxEKuGbKrlFdx6qmNxkJw699mYfso+8=;
+        b=f2ZVVP95S3i9xZVJWvFBquJ2FH727AxKrutYxJjBn0acayVKpUCdCzhLGf+u3jy8a2
+         5/SMHLE62LFgj8fLWMsf8/uy+6IJNhwbWvNIiWUfCPXBSpk5NQJqBh2zGsfTKF9QD6Ln
+         1hKmUUijIh/JVE5NWZddQA37kBqB+9ywqH5DVR8EkCgLC/JqnH1EefLhrsiV4k23Laz+
+         EkbwCFGfaNLGeDhi7K2IGmt3ER7KV1yYpicMqt/+7ZCdX9KOAnvNKfHFAm/1mZsjlDfl
+         qVmiCrTg0Tu9qnIT5ig7vpB2Fe1jxIgsrxYDVKBa8lEi50hE2FZTQi9SaCyNJcYdyIep
+         j8aQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531YSAOqjTJFwSYgVvztQaPRMpjv4ffPveBPTNvZcvIAtZlflXni
-	WCr7VEH039+VEQyxZeW1Gh0=
-X-Google-Smtp-Source: ABdhPJyZbo7e4UebDQSEIW5QnJTz90vWLDyTwhMfnXN0eyIr2XaG9KWuDCGXuhL8IMB7mgiCbKDOCQ==
-X-Received: by 2002:a2e:8110:: with SMTP id d16mr15808601ljg.42.1627395164112;
-        Tue, 27 Jul 2021 07:12:44 -0700 (PDT)
+X-Gm-Message-State: AOAM530Hh652C+uGCX8hcaKcIGRpMmEcCoSvw7nJAlzseqBAux60PYAL
+	v9Z8MoZjb2HjXqUHXlXT58w=
+X-Google-Smtp-Source: ABdhPJx5XoZzV+y+njl5/1sein3vzh9qW8ITvLHsw/eh/dArZsgMT0thCcA8XtuZTY3+iD1U7j11LQ==
+X-Received: by 2002:a2e:b00f:: with SMTP id y15mr15893225ljk.213.1627395170809;
+        Tue, 27 Jul 2021 07:12:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:a7c4:: with SMTP id x4ls3364873ljp.8.gmail; Tue, 27 Jul
- 2021 07:12:43 -0700 (PDT)
-X-Received: by 2002:a2e:9e53:: with SMTP id g19mr16115400ljk.58.1627395162981;
-        Tue, 27 Jul 2021 07:12:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627395162; cv=none;
+Received: by 2002:a05:6512:36c2:: with SMTP id e2ls404019lfs.3.gmail; Tue, 27
+ Jul 2021 07:12:49 -0700 (PDT)
+X-Received: by 2002:ac2:5d4a:: with SMTP id w10mr10229143lfd.529.1627395169858;
+        Tue, 27 Jul 2021 07:12:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627395169; cv=none;
         d=google.com; s=arc-20160816;
-        b=H8y8ztjWVw4PWRWxke2LnyueRHobIrhRZbhVsNBcdZFFTst/CISk58QvUIfJ4rhV+y
-         UmnDeT4m/KyNZassYLjf0SFSQMwiTZMXcx3ZTp46uuQKnix5Kdzsb54+NGaj/MBfMIPj
-         Mhr7KXoFtgxfqimH1qJFbq3sKk05R2uqo8Ys03q4ZTQ9h5X5UBQHmTLXcWL+1iqBjgy+
-         xy4AUPHScBgm+ojjwfaCWWGblnkAfyhkxwNCL73g260ejHaTFrhegFN1djGEkALvrwp5
-         9N2RhJ/KXS6Y1ZDhtLwprdrLp6uxa5tekAu7r7H9SqkQH6059lB9oNXzep9+GOSzMi8p
-         /G7w==
+        b=K7X5GcQIuvEKkpyHLmffMXAUqzFmnaNTNGDXoaWw5bkBq2jZuve+Fnt23X3LoYcQd/
+         azsAJAdn3m275ewoGZpYkMWZE9tVIorlwHn3DX1kU8N07gmr+5QnAlU3DHSJbIwSHsEK
+         1j1PPLjFzFPjEW8uPO3qLCFtmzil73wuae0si+hBmdhPpxszW4f0IaiiRTMh2BBnS7fb
+         k2W/DDT3aAwjU6I0EH5jNlJe+FT24I+/Nzd3RaL8bVNQ134jXCdc4/CEmw93P3rEYwl6
+         ahGm4YoGKFEkoudzbwN7vDzm+81vYw99o5YRl1mp339fdpkOonAHZ1NnEN7HWv1NdV/P
+         zniw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:dkim-signature;
-        bh=qh2D1P9GbylvB9WoMcMMTns7dk4r496odHfS4e44Lvg=;
-        b=ZTQgk8H4eW87tmJu5o5QQnEtbaYK9jBUmVy/q7aoBmULZGtFHqugA9uHNAs3B+09W4
-         Mg2UGKtr33IGY6U2ba6u0onXzLdQ5aYNU8ea7Hb7lzPEJJLUe2Gx1QQ4dVf1VuCOEx6M
-         zgiCucA9ZEXSHhQBLYdAyPs1mxieUWtzGMAfPXUdJ26wZIUrrY0vuz93nrhalBcP00sp
-         JDfeOcHn9YHDaEmwex9JaAh3eh3TIH9SX1xLD+gFnGvj1MQO6t4nmc/C4mflYnjGY3hS
-         5hz+Wppb9kjZ3xqFnavPjH7N/19iwE7zAxrvhpTv5K+FUWzz9AWOP+1lX66cW8BLSYMn
-         UMjw==
+        bh=QR9jJL/Uvm+62LnA1ziwlgBrfvBLKf5QTJFduM8WRLQ=;
+        b=J3SPHnotKbuwXYZBYqFQANHTnV3lVpAa4KKakDw0wn5bJEgXmQ/ZPwlZhl5t9es1aB
+         H2SiZkzr92z167p8QtL4cITJu0FtaZEq84vVl7GMyBpU4kFagBIN9e8b4DutJ/wGFso4
+         8Qun3NffUODlLRY3sP+dFJyeoCHMhgGOUa56D3eSU0x3ATHxcUFagUwdLzatMljWocwN
+         mnR8+0C4llC5FWFhg/3yrj68sSpnTTXmXYRaOhLc8WmBTDNMAta5D+a73HCx/7QIerNv
+         v6UKf2PgvRJqpcr37BAV0pM7ff++bMykiobUcwgmgtLpU/PD9YJa4+Nfbfd05qZraGgO
+         KrtA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@sartura-hr.20150623.gappssmtp.com header.s=20150623 header.b=dZJmp177;
-       spf=pass (google.com: domain of pavo.banicevic@sartura.hr designates 2a00:1450:4864:20::329 as permitted sender) smtp.mailfrom=pavo.banicevic@sartura.hr
-Received: from mail-wm1-x329.google.com (mail-wm1-x329.google.com. [2a00:1450:4864:20::329])
-        by gmr-mx.google.com with ESMTPS id d9si138150lji.3.2021.07.27.07.12.42
+       dkim=pass header.i=@sartura-hr.20150623.gappssmtp.com header.s=20150623 header.b="uLpt/P7S";
+       spf=pass (google.com: domain of pavo.banicevic@sartura.hr designates 2a00:1450:4864:20::42f as permitted sender) smtp.mailfrom=pavo.banicevic@sartura.hr
+Received: from mail-wr1-x42f.google.com (mail-wr1-x42f.google.com. [2a00:1450:4864:20::42f])
+        by gmr-mx.google.com with ESMTPS id 14si168895lfq.2.2021.07.27.07.12.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jul 2021 07:12:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pavo.banicevic@sartura.hr designates 2a00:1450:4864:20::329 as permitted sender) client-ip=2a00:1450:4864:20::329;
-Received: by mail-wm1-x329.google.com with SMTP id a192-20020a1c7fc90000b0290253b32e8796so1506954wmd.0
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 07:12:42 -0700 (PDT)
-X-Received: by 2002:a05:600c:2907:: with SMTP id i7mr4369027wmd.184.1627395162452;
-        Tue, 27 Jul 2021 07:12:42 -0700 (PDT)
+        Tue, 27 Jul 2021 07:12:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pavo.banicevic@sartura.hr designates 2a00:1450:4864:20::42f as permitted sender) client-ip=2a00:1450:4864:20::42f;
+Received: by mail-wr1-x42f.google.com with SMTP id z4so3517688wrv.11
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 07:12:49 -0700 (PDT)
+X-Received: by 2002:adf:c3c5:: with SMTP id d5mr17081357wrg.76.1627395169375;
+        Tue, 27 Jul 2021 07:12:49 -0700 (PDT)
 Received: from localhost.localdomain ([89.18.44.40])
-        by smtp.gmail.com with ESMTPSA id t1sm3403912wrm.42.2021.07.27.07.12.41
+        by smtp.gmail.com with ESMTPSA id t1sm3403912wrm.42.2021.07.27.07.12.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jul 2021 07:12:42 -0700 (PDT)
+        Tue, 27 Jul 2021 07:12:49 -0700 (PDT)
 From: Pavo Banicevic <pavo.banicevic@sartura.hr>
 To: linux@armlinux.org.uk,
 	ast@kernel.org,
@@ -126,9 +126,9 @@ To: linux@armlinux.org.uk,
 	robert.marko@sartura.hr,
 	luka.perkov@sartura.hr,
 	jakov.petrina@sartura.hr
-Subject: [PATCH 1/3] arm: include: asm: swab: mask rev16 instruction for clang
-Date: Tue, 27 Jul 2021 16:11:17 +0200
-Message-Id: <20210727141119.19812-2-pavo.banicevic@sartura.hr>
+Subject: [PATCH 2/3] arm: include: asm: unified: mask .syntax unified for clang
+Date: Tue, 27 Jul 2021 16:11:18 +0200
+Message-Id: <20210727141119.19812-3-pavo.banicevic@sartura.hr>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20210727141119.19812-1-pavo.banicevic@sartura.hr>
 References: <20210727141119.19812-1-pavo.banicevic@sartura.hr>
@@ -136,8 +136,9 @@ MIME-Version: 1.0
 X-Original-Sender: pavo.banicevic@sartura.hr
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
  header.i=@sartura-hr.20150623.gappssmtp.com header.s=20150623
- header.b=dZJmp177;       spf=pass (google.com: domain of pavo.banicevic@sartura.hr
- designates 2a00:1450:4864:20::329 as permitted sender) smtp.mailfrom=pavo.banicevic@sartura.hr
+ header.b="uLpt/P7S";       spf=pass (google.com: domain of
+ pavo.banicevic@sartura.hr designates 2a00:1450:4864:20::42f as permitted
+ sender) smtp.mailfrom=pavo.banicevic@sartura.hr
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -153,46 +154,44 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
 
-The samples/bpf with clang -emit-llvm reuses linux headers to build
-bpf samples, and this w/a only for samples (samples/bpf/Makefile
-CLANG-bpf).
+The samples/bpf reuses linux headers, with clang -emit-llvm,
+so this w/a is only for samples/bpf (samples/bpf/Makefile CLANG-bpf).
 
-It allows to build samples/bpf for arm bpf using clang.
+It allows to build samples/bpf for arm on target board.
 In another way clang -emit-llvm generates errors like:
 
-CLANG-bpf  samples/bpf/tc_l2_redirect_kern.o
-<inline asm>:1:2: error: invalid register/token name
-rev16 r3, r0
+<inline asm>:1:1: error: unknown directive
+.syntax unified
 
-This decision is arguable, probably there is another way, but
-it doesn't have impact on samples/bpf, so it's easier just ignore
-it for clang, at least for now.
+I have verified it on clang 5, 6, 7, 8, 9, 10
+as on native platform as for cross-compiling. This decision is
+arguable, but it doesn't have impact on samples/bpf so it's easier
+just ignore it for clang, at least for now...
 
 Signed-off-by: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
 ---
- arch/arm/include/asm/swab.h | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm/include/asm/unified.h | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/include/asm/swab.h b/arch/arm/include/asm/swab.h
-index c6051823048b..a9fd9cd33d5e 100644
---- a/arch/arm/include/asm/swab.h
-+++ b/arch/arm/include/asm/swab.h
-@@ -25,8 +25,11 @@ static inline __attribute_const__ __u32 __arch_swahb32(__u32 x)
- 	__asm__ ("rev16 %0, %1" : "=r" (x) : "r" (x));
- 	return x;
- }
+diff --git a/arch/arm/include/asm/unified.h b/arch/arm/include/asm/unified.h
+index 1e2c3eb04353..8718f313e7c4 100644
+--- a/arch/arm/include/asm/unified.h
++++ b/arch/arm/include/asm/unified.h
+@@ -11,7 +11,9 @@
+ #if defined(__ASSEMBLY__)
+ 	.syntax unified
+ #else
+-__asm__(".syntax unified");
 +
 +#ifndef __clang__
- #define __arch_swahb32 __arch_swahb32
- #define __arch_swab16(x) ((__u16)__arch_swahb32(x))
-+#endif
++	__asm__(".syntax unified");
+ #endif
  
- static inline __attribute_const__ __u32 __arch_swab32(__u32 x)
- {
+ #ifdef CONFIG_CPU_V7M
 -- 
 2.32.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727141119.19812-2-pavo.banicevic%40sartura.hr.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727141119.19812-3-pavo.banicevic%40sartura.hr.
