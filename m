@@ -1,128 +1,124 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBG4YQKEAMGQEIKQOMOQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBTM6QKEAMGQESJTPE6A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1187B3D8349
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 00:43:40 +0200 (CEST)
-Received: by mail-wm1-x337.google.com with SMTP id u14-20020a7bcb0e0000b0290248831d46e4sf271962wmj.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 15:43:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627425819; cv=pass;
+Received: from mail-ua1-x93c.google.com (mail-ua1-x93c.google.com [IPv6:2607:f8b0:4864:20::93c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 823C73D8377
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 00:57:18 +0200 (CEST)
+Received: by mail-ua1-x93c.google.com with SMTP id g3-20020ab060c30000b029029fe93a4b32sf351484uam.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 15:57:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627426637; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pmzwgHNx28hzJJllerN/y5szuhe/wM0NCvZPx6WvnRDZR7YnalRJCQxqeGNYBaQRY0
-         seaZqckS2jjIHPKkIF1bez/70RyhS0vqSgmO/9UTyAnwkO0LTj7tntXcD1T+syPbrRQN
-         QweLXprIGUEuK0JnsBz1VQIJNr4/aIKpGU4drtsS6pRbf2iC0nnX7KAkUhl5KhCUKkid
-         KGpoiZTNs8qnnrwaJcTK4FVX/fVeYyzGNIGzdIsabpav/LuQHUYX56Fi3eSoNDnY2AHO
-         df0IYBlNaMYKuP+V0HJdvL7Okv4xOgUN0lff2RNxRYNqFqTUuCZEnPUixQKX7GnzX82B
-         Ge7g==
+        b=qfoD+m4FmQmuDdz6Qeujti7rf1Hs9nMJ1TOw4A+Cet1yap1u3B/xoqqAoTojmQvMRo
+         if/GOePKtPyPF3WU854TXJkVmC3eyTjcgaESGQDGq7IOB72r8WsgP5d1uvtXZgW+R/w/
+         +H5ZjgJRtRG9n1h0lqGnGako1SAYhN2748EII4wg16M4j1OH5J7eNvSM4JWNAD8encCH
+         IlhbIK00qHx8DNaEV5V0ztBX3xryKDEmhOil7mIpihsRcyNXwLMiPuoN6/hyZbh9557R
+         ApZyOhxjhFY2nGyzA3qBkEH3Zdx2UhacXkJcrzMxonwrJQBGGv3KbNcdqVXOwBvgFijh
+         dNMg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=2WBE+6AvRtIzB6xBuU/EPh9Wtjr0QufjRwLf5PyfyO8=;
-        b=My/ULAiLZJYAPKTQdf72qxzpTVOdr417eV2CZISqxqmzT6Kze/GmHGAR6cNZvS0mTb
-         1IoQj1dzPUpvrTCN4vsehSyMhDIyfx+IRNB+wrnE0G1l+BI4jnUt/ctj5D74h8py5CMN
-         kT1A8RpdfwmEn4WOVFtumU0j63pkeX2C4hj55vPNdK2rOSqk0BYQUUF8lhVjatFyEb2d
-         mK8fcOHIz3+LPE7Sj/yqGGiLuFIh+AfARO1ACiSmA4hxU4YiN3ld8B2JqtiZoIc6KOTQ
-         ovkVtPyWquLSirTEMIonkOKFL8Vg/YAjykYAyORkMRMX3rL9agPBR/6EJSelAMeNgUXj
-         lmNA==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=nlaBfPu7hWqClpM0urroBYakOiKWon81LTrhv+GOK9w=;
+        b=yxsACIete7BaZQkiamcDLeEY8BqCiKX3J7GoCqpRTr2PcUc1GWus/JrSt1Su316EhS
+         0QYZVkmWdQw4lDhtrqllZctT7idMm47W9Fx4K0sfw78nhGZmsHPHU3KGAfjk3K7Rngng
+         0lTGRasQGTQBTCdSK2gGuECeesq4D2LprlvV3LInvT7k1YNYk96gGzYdYAYeU6XuP3U7
+         GJ0jKtNdXI6Z2VxAinMtu2DjKaUv124xweT/s1IHGAoaAZYO1H3by6Q+Tpa7QU4VX75W
+         dmhsKR9tiTFvqpa2ffbhJUwKO70jEXST6S4RpMH+iwoprc07WE8XDIaflAjQnAqe7E6Q
+         JA+Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=oPdc+CQO;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=sXr1QkRU;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=2WBE+6AvRtIzB6xBuU/EPh9Wtjr0QufjRwLf5PyfyO8=;
-        b=UYy8jVGVS/d6nnKEq5d+jd+I+nuOjhxbX/Ow8HPoDXUfj9YthPHiJ3PI7+jEoLYH3k
-         Mg21u8AyjQO3nuh2uP0abPdYP4mDY6wYr0CB2uDQ1qgkE3WEBVn9vN38iDl6pmiHmnbZ
-         odI39GMYIiGgPxp6sOo3pUE88i6BdwvxBZ3seuZ7vNq833zmBqTWJjfInmLRvX/A147H
-         miLfj1NZo3DYeoc0jggyRB4V6VSy0E8nNMilA353bcQ9gSp172rDT0JKDssvByPn3AzM
-         tpR/fCB1FC52mdfLjjJ9+2dmSabfKuqLvkhtpSkaVFoRTKYxwRyFiOMazOtLNhKUacd4
-         cDYw==
+        bh=nlaBfPu7hWqClpM0urroBYakOiKWon81LTrhv+GOK9w=;
+        b=AkBHD6PKiIM0KYUNbIRtcs9UeM+qmLUTiunTtUV+Seiba+1E052V3xjNNgJnvSx51e
+         bf+adCjgufttZmG6EkCUU2MKp1LON739djN9aNdT4vxfBm46KjjoSNcZfyKHkADiRlks
+         vuVc49g4PTua4ZhqrRSIf76J9NscY+5n+jKpWeLJXxDAi0cl0UYNJR+8u0c96786RrFa
+         kFbAg7t4s5Arr3vx3sEojPW4cHlgitmnZNhdwpIfv/7m5y/iq6FKYeRflTy8UcM0HPNV
+         Ljc0tv85Iq4mN8D7Ie+ixRK6VLS44s7RMvcFwKIqKj0bWAPsFyytV3yndJZW+cbj8Z8i
+         ANKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=2WBE+6AvRtIzB6xBuU/EPh9Wtjr0QufjRwLf5PyfyO8=;
-        b=ce2f8BLIXZ+hTRHrKcr3K3DaRrJ74+6h/NphCL+E2sYXuBNTC0zKgx+QdDIFTuUnOK
-         yEQxYjSI7F83M0ka0PpCnsluNouV2kLFengSVqgkiK+KpRjOqk+STcVtSSZFXcQYnM4j
-         qKRWXXVnQJmkKwRCF1cJxiVnJfZhGrZV0hLt+75yHR65QH0C9N1+Oc8frAMA4sMBVTIx
-         jcAnVR4ES9spjZLXXEqIc4ZE72iVYbSt2tqkr6HxlRcJlO3Epw3dgcrZTJyp50absSCP
-         3uNzMLT4x36q4RziiwGStNvTw5kRatGOXSgnTCR2sM5xWwP99aCZI1V62ww5NTwFN2Sg
-         Qsyg==
-X-Gm-Message-State: AOAM5323JLsPMHl+87477V9t8C3CLI3225GbytdoDZdIZUxcObGyp2Nn
-	OJsezwLViieGlkrhSj+9j5Q=
-X-Google-Smtp-Source: ABdhPJx1zotAvMaKfqCu+Zc13QJC6lVmYNowwqeUn62IbbIR2gEzz0JwwojsFP0vR7h9G0+ayvHGkg==
-X-Received: by 2002:a05:600c:4c11:: with SMTP id d17mr6245887wmp.121.1627425819853;
-        Tue, 27 Jul 2021 15:43:39 -0700 (PDT)
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=nlaBfPu7hWqClpM0urroBYakOiKWon81LTrhv+GOK9w=;
+        b=i6gGPhoJxqJlKdDGTX8CrPmGrpHoEEmae8c7zAJRkktruEuCjrDPR2i5K9NcfxY9/x
+         IenhClV9lfc4Yhdou3eyK2zLihUFJ807J3CNwQL6JoMblKYuaTXIM3cDXvC9WRdY1Vrt
+         5WNpaUZ+DVcCC100GT0/2kaM/T78/Qj/AW1i/mL8CDs0Jy+3NpK8GnY8iBMqntriPSVd
+         C2Hb4batLGoS96VX0D7R09ELQsiR/oJmqWJDWMLv8ioD0KZInnvFqD5P1ff7/rSbvw9O
+         rmc8ouHa+MmqYJMSMNO4SFKwdb63SRL7rfDMvEceO7FpbOUmkWmNoUEvwLMOVcCx7wIs
+         Mscg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532nviQWg3jn7SqhEOomvKbRtb7zzG47z33AEEHVuRB3mpC9q+ud
+	Q0k0Y55+ciNvnFtZ4Kkt3NU=
+X-Google-Smtp-Source: ABdhPJx7sh0WntDmpKY5UCDiJ/M6rZNmDWKj02omGNJGRdEKmnh1uyjCyfW+Dn8S4AxmCYeXxYyvNQ==
+X-Received: by 2002:ab0:153:: with SMTP id 77mr20060087uak.25.1627426637533;
+        Tue, 27 Jul 2021 15:57:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:4dd1:: with SMTP id f17ls429058wru.0.gmail; Tue, 27 Jul
- 2021 15:43:39 -0700 (PDT)
-X-Received: by 2002:adf:f544:: with SMTP id j4mr2437963wrp.51.1627425819005;
-        Tue, 27 Jul 2021 15:43:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627425819; cv=none;
+Received: by 2002:ab0:1527:: with SMTP id o36ls26649uae.3.gmail; Tue, 27 Jul
+ 2021 15:57:17 -0700 (PDT)
+X-Received: by 2002:ab0:6dcb:: with SMTP id r11mr19989639uaf.128.1627426637023;
+        Tue, 27 Jul 2021 15:57:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627426637; cv=none;
         d=google.com; s=arc-20160816;
-        b=oF7ahGFxl+e9wWR3yQGHN/oCqWyJN9UZ7lI7kiUikc6IlQEzpaZ8zBNHPdqdN3TCsU
-         L4x2VjIEOTlIqFBP06x2aBih63aBD1zzYjghul1UNdXREmiCqNPIUXxuVsBFWHQMZZ0h
-         eZcubY5eBeraJBkzbm3+RfyVy4r9KpwPHOI2t+EGkzJBhgW9bKWNwv9EzG+mK1orXrr+
-         GjPfwpAHWDWPeGOZeEd1H7jBBca4o5+sDMshidJ01BOwswYAe6DwXklp49Z1JRjiVFCA
-         Y1+g//G19s95M81TJUtNCnQC2myiizFF8KOJ6itkhWZeh048bGDKqoIphodHT38DtJFy
-         Z+qA==
+        b=t+2KuCffal9JnVnMGkahYm/f9/hpk6WlnHN+MmhR+seqtzmCyWhWpKhBZedkRn3Y52
+         3cBgihV8bCJAPCWexxh2AYgh0ZORVJBsVW+Syre9Y30w8EIEv5KuT3/qNCranQpGTVIV
+         FrRdEFYip7+yDej98ySc5lHunNP+HTBH4/LNZUluhcADDaR9rJuAzjwjHtBXSDCFy8Fr
+         MWidvILZ30dlSiZTk9AdzjdQRpspDadTAwGoAO3IlInmV86FY0cJHHmL0j6w5uBuRtJP
+         0s89TcQ5ovloEr+Wv1wfqehxarmaTt8lBfsjup6S4feH6C0sLUJcWvv1eUFPYuCN8G6P
+         a+eA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=+SboYQvLEoV+Q5oWgHDYhiCn7Tx7IEj91yehwnQAbvM=;
-        b=XOXBJhLooXG7JkR7+BWI9Z2HhGh/Df+5BiwN4aiYms0FUX9dSTK69oZxeRR+ZNPqR1
-         UpzyQcDhctiCVECQd0LKZy55Uxx5AnEH/1DiWJCkYt4OwEtCYQ8FKINRYIzMiUl63Fp7
-         40WcZwKwBDt8dmR8casW7f1Vxi6jCizXxofSazHHnI2b/csEioAkbCx26dSL9J1ZbXri
-         2Tw1fMFvWmK5aP8lEKab9qWNOLaQ5vdASmNnphoL/OQDgNTbUxe6WLrnyzJrXjBNdMEp
-         DdjECjIwaRQw0tftUSwiVo789L9HZ5O1RF9JvfhvD/V3lDKxDhzHY2ttKemKYtnS9Xr1
-         4RoA==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=ntxTQduZ1mlHnKObWmvFncG8EhTRcBKan22pfmq5uns=;
+        b=pPDqDwk3WjboaU8cMgDkxxV34Q/iRUoQblFJBvGHMJ/8fjb9AaTyfeLQcS0mgoej3J
+         Wt+0e7HCvgDe540wb2RaPfalUFAHAda5nuVSToZYsVG2SHX9h9G5H4WtgRO90Dapvon1
+         CZWzcfdSWl0gd+5qoo9dvC1NmEhhjQNRrA9W976kU30Y7oR5/CzqHiy/+xIlGYtIzK87
+         pUMNrsrrFduXIbk331FaL+3yIcy9EqlpEaNU0+j08A2ixAu5c9d6jf3CiACIKdf90rcZ
+         IUXdMNL+Z3YwhguJ+IPlJYfaom7nOoxDP0npLRDk3dOeZmI0tjXcVK3vfbbcPxEtUOwn
+         zXpA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=oPdc+CQO;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x12b.google.com (mail-lf1-x12b.google.com. [2a00:1450:4864:20::12b])
-        by gmr-mx.google.com with ESMTPS id b15si236427wru.0.2021.07.27.15.43.38
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=sXr1QkRU;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id x18si340425vsn.0.2021.07.27.15.57.16
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jul 2021 15:43:39 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b as permitted sender) client-ip=2a00:1450:4864:20::12b;
-Received: by mail-lf1-x12b.google.com with SMTP id h14so219338lfv.7
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 15:43:38 -0700 (PDT)
-X-Received: by 2002:ac2:596a:: with SMTP id h10mr11005339lfp.374.1627425818438;
- Tue, 27 Jul 2021 15:43:38 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 27 Jul 2021 15:57:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 550AE60F90;
+	Tue, 27 Jul 2021 22:57:14 +0000 (UTC)
+From: Nathan Chancellor <nathan@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sasha Levin <sashal@kernel.org>
+Cc: stable@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <nathan@kernel.org>,
+	Andrey Ryabinin <arbn@yandex-team.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH 4.9 1/2] iommu/amd: Fix backport of 140456f994195b568ecd7fc2287a34eadffef3ca
+Date: Tue, 27 Jul 2021 15:56:49 -0700
+Message-Id: <20210727225650.726875-1-nathan@kernel.org>
+X-Mailer: git-send-email 2.32.0.264.g75ae10bc75
 MIME-Version: 1.0
-References: <20210727205855.411487-1-keescook@chromium.org> <20210727205855.411487-35-keescook@chromium.org>
-In-Reply-To: <20210727205855.411487-35-keescook@chromium.org>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 27 Jul 2021 15:43:27 -0700
-Message-ID: <CAKwvOdknit8DtWaFvLupmNEebjbwVa6R3xiGc2D4AqB_6+i52g@mail.gmail.com>
-Subject: Re: [PATCH 34/64] fortify: Detect struct member overflows in memcpy()
- at compile-time
-To: Kees Cook <keescook@chromium.org>
-Cc: linux-hardening@vger.kernel.org, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Keith Packard <keithpac@amazon.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org, 
-	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-staging@lists.linux.dev, linux-block@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Patchwork-Bot: notify
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=oPdc+CQO;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=k20201202 header.b=sXr1QkRU;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,279 +131,64 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 27, 2021 at 2:17 PM Kees Cook <keescook@chromium.org> wrote:
->
-> To accelerate the review of potential run-time false positives, it's
-> also worth noting that it is possible to partially automate checking
-> by examining memcpy() buffer argument fields to see if they have
-> a neighboring. It is reasonable to expect that the vast majority of
+Clang warns:
 
-a neighboring...field?
+drivers/iommu/amd_iommu.c:1335:6: warning: variable 'flags' is used
+uninitialized whenever 'if' condition is true
+[-Wsometimes-uninitialized]
+        if (!pte)
+            ^~~~
+drivers/iommu/amd_iommu.c:1352:40: note: uninitialized use occurs here
+        spin_unlock_irqrestore(&domain->lock, flags);
+                                              ^~~~~
+drivers/iommu/amd_iommu.c:1335:2: note: remove the 'if' if its condition
+is always false
+        if (!pte)
+        ^~~~~~~~~
+drivers/iommu/amd_iommu.c:1331:21: note: initialize the variable 'flags'
+to silence this warning
+        unsigned long flags;
+                           ^
+                            = 0
+1 warning generated.
 
-> diff --git a/include/linux/fortify-string.h b/include/linux/fortify-string.h
-> index 7e67d02764db..5e79e626172b 100644
-> --- a/include/linux/fortify-string.h
-> +++ b/include/linux/fortify-string.h
-> @@ -2,13 +2,17 @@
->  #ifndef _LINUX_FORTIFY_STRING_H_
->  #define _LINUX_FORTIFY_STRING_H_
->
-> +#include <linux/bug.h>
+The backport of commit 140456f99419 ("iommu/amd: Fix sleeping in atomic
+in increase_address_space()") to 4.9 as commit 1d648460d7c5 ("iommu/amd:
+Fix sleeping in atomic in increase_address_space()") failed to keep the
+"return false", which in 4.9 needs to be a regular "return" due to a
+lack of commit f15d9a992f90 ("iommu/amd: Remove domain->updated").
 
-What are you using from linux/bug.h here?
+This resolves the warning and matches the 4.14-4.19 backport.
 
-> +
->  #define __FORTIFY_INLINE extern __always_inline __attribute__((gnu_inline))
->  #define __RENAME(x) __asm__(#x)
->
->  void fortify_panic(const char *name) __noreturn __cold;
->  void __read_overflow(void) __compiletime_error("detected read beyond size of object (1st parameter)");
->  void __read_overflow2(void) __compiletime_error("detected read beyond size of object (2nd parameter)");
-> +void __read_overflow2_field(void) __compiletime_warning("detected read beyond size of field (2nd parameter); maybe use struct_group()?");
->  void __write_overflow(void) __compiletime_error("detected write beyond size of object (1st parameter)");
-> +void __write_overflow_field(void) __compiletime_warning("detected write beyond size of field (1st parameter); maybe use struct_group()?");
->
->  #if defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS)
->  extern void *__underlying_memchr(const void *p, int c, __kernel_size_t size) __RENAME(memchr);
-> @@ -182,22 +186,105 @@ __FORTIFY_INLINE void *memset(void *p, int c, __kernel_size_t size)
->         return __underlying_memset(p, c, size);
->  }
->
-> -__FORTIFY_INLINE void *memcpy(void *p, const void *q, __kernel_size_t size)
-> +/*
-> + * To make sure the compiler can enforce protection against buffer overflows,
-> + * memcpy(), memmove(), and memset() must not be used beyond individual
-> + * struct members. If you need to copy across multiple members, please use
-> + * struct_group() to create a named mirror of an anonymous struct union.
-> + * (e.g. see struct sk_buff.)
-> + *
-> + * Mitigation coverage
-> + *                                     Bounds checking at:
-> + *                                     +-------+-------+-------+-------+
-> + *                                     | Compile time  | Run time      |
-> + * memcpy() argument sizes:            | write | read  | write | read  |
-> + *                                     +-------+-------+-------+-------+
-> + * memcpy(known,   known,   constant)  |   y   |   y   |  n/a  |  n/a  |
-> + * memcpy(unknown, known,   constant)  |   n   |   y   |   V   |  n/a  |
-> + * memcpy(known,   unknown, constant)  |   y   |   n   |  n/a  |   V   |
-> + * memcpy(unknown, unknown, constant)  |   n   |   n   |   V   |   V   |
-> + * memcpy(known,   known,   dynamic)   |   n   |   n   |   b   |   B   |
-> + * memcpy(unknown, known,   dynamic)   |   n   |   n   |   V   |   B   |
-> + * memcpy(known,   unknown, dynamic)   |   n   |   n   |   b   |   V   |
-> + * memcpy(unknown, unknown, dynamic)   |   n   |   n   |   V   |   V   |
-> + *                                     +-------+-------+-------+-------+
-> + *
-> + * y = deterministic compile-time bounds checking
-> + * n = cannot do deterministic compile-time bounds checking
-> + * n/a = no run-time bounds checking needed since compile-time deterministic
-> + * b = perform run-time bounds checking
-> + * B = can perform run-time bounds checking, but current unenforced
-> + * V = vulnerable to run-time overflow
-> + *
-> + */
-> +__FORTIFY_INLINE void fortify_memcpy_chk(__kernel_size_t size,
-> +                                        const size_t p_size,
-> +                                        const size_t q_size,
-> +                                        const size_t p_size_field,
-> +                                        const size_t q_size_field,
-> +                                        const char *func)
->  {
-> -       size_t p_size = __builtin_object_size(p, 0);
-> -       size_t q_size = __builtin_object_size(q, 0);
-> -
->         if (__builtin_constant_p(size)) {
-> -               if (p_size < size)
-> +               /*
-> +                * Length argument is a constant expression, so we
-> +                * can perform compile-time bounds checking where
-> +                * buffer sizes are known.
-> +                */
-> +
-> +               /* Error when size is larger than enclosing struct. */
-> +               if (p_size > p_size_field && p_size < size)
->                         __write_overflow();
-> -               if (q_size < size)
-> +               if (q_size > q_size_field && q_size < size)
->                         __read_overflow2();
-> +
-> +               /* Warn when write size argument larger than dest field. */
-> +               if (p_size_field < size)
-> +                       __write_overflow_field();
-> +               /*
-> +                * Warn for source field over-read when building with W=1
-> +                * or when an over-write happened, so both can be fixed at
-> +                * the same time.
-> +                */
-> +               if ((IS_ENABLED(KBUILD_EXTRA_WARN1) || p_size_field < size) &&
-> +                   q_size_field < size)
-> +                       __read_overflow2_field();
->         }
-> -       if (p_size < size || q_size < size)
-> -               fortify_panic(__func__);
-> -       return __underlying_memcpy(p, q, size);
-> +       /*
-> +        * At this point, length argument may not be a constant expression,
-> +        * so run-time bounds checking can be done where buffer sizes are
-> +        * known. (This is not an "else" because the above checks may only
-> +        * be compile-time warnings, and we want to still warn for run-time
-> +        * overflows.)
-> +        */
-> +
-> +       /*
-> +        * Always stop accesses beyond the struct that contains the
-> +        * field, when the buffer's remaining size is known.
-> +        * (The -1 test is to optimize away checks where the buffer
-> +        * lengths are unknown.)
-> +        */
-> +       if ((p_size != (size_t)(-1) && p_size < size) ||
-> +           (q_size != (size_t)(-1) && q_size < size))
-> +               fortify_panic(func);
->  }
->
-> +#define __fortify_memcpy_chk(p, q, size, p_size, q_size,               \
-> +                            p_size_field, q_size_field, op) ({         \
-> +       size_t __fortify_size = (size_t)(size);                         \
-> +       fortify_memcpy_chk(__fortify_size, p_size, q_size,              \
-> +                          p_size_field, q_size_field, #op);            \
-> +       __underlying_##op(p, q, __fortify_size);                        \
-> +})
+Cc: Andrey Ryabinin <arbn@yandex-team.com>
+Cc: Joerg Roedel <joro@8bytes.org>
+Cc: Will Deacon <will@kernel.org>
+Fixes: 1d648460d7c5 ("iommu/amd: Fix sleeping in atomic in increase_address_space()")
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ drivers/iommu/amd_iommu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Are there other macro expansion sites for `__fortify_memcpy_chk`,
-perhaps later in this series? I don't understand why `memcpy` is
-passed as `func` to `fortify_panic()` rather than continuing to use
-`__func__`?
+diff --git a/drivers/iommu/amd_iommu.c b/drivers/iommu/amd_iommu.c
+index 8377bd388d67..14e9b06829d5 100644
+--- a/drivers/iommu/amd_iommu.c
++++ b/drivers/iommu/amd_iommu.c
+@@ -1333,7 +1333,7 @@ static void increase_address_space(struct protection_domain *domain,
+ 
+ 	pte = (void *)get_zeroed_page(gfp);
+ 	if (!pte)
+-		goto out;
++		return;
+ 
+ 	spin_lock_irqsave(&domain->lock, flags);
+ 
 
-> +
-> +/*
-> + * __builtin_object_size() must be captured here to avoid evaluating argument
-> + * side-effects further into the macro layers.
-> + */
-> +#define memcpy(p, q, s)  __fortify_memcpy_chk(p, q, s,                 \
-> +               __builtin_object_size(p, 0), __builtin_object_size(q, 0), \
-> +               __builtin_object_size(p, 1), __builtin_object_size(q, 1), \
-> +               memcpy)
-> +
->  __FORTIFY_INLINE void *memmove(void *p, const void *q, __kernel_size_t size)
->  {
->         size_t p_size = __builtin_object_size(p, 0);
-> @@ -277,27 +364,27 @@ __FORTIFY_INLINE void *kmemdup(const void *p, size_t size, gfp_t gfp)
->         return __real_kmemdup(p, size, gfp);
->  }
->
-> -/* defined after fortified strlen and memcpy to reuse them */
-> +/* Defined after fortified strlen to reuse it. */
->  __FORTIFY_INLINE char *strcpy(char *p, const char *q)
->  {
->         size_t p_size = __builtin_object_size(p, 1);
->         size_t q_size = __builtin_object_size(q, 1);
->         size_t size;
->
-> +       /* If neither buffer size is known, immediately give up. */
->         if (p_size == (size_t)-1 && q_size == (size_t)-1)
->                 return __underlying_strcpy(p, q);
->         size = strlen(q) + 1;
->         /* test here to use the more stringent object size */
->         if (p_size < size)
->                 fortify_panic(__func__);
-> -       memcpy(p, q, size);
-> +       __underlying_memcpy(p, q, size);
->         return p;
->  }
->
->  /* Don't use these outside the FORITFY_SOURCE implementation */
->  #undef __underlying_memchr
->  #undef __underlying_memcmp
-> -#undef __underlying_memcpy
->  #undef __underlying_memmove
->  #undef __underlying_memset
->  #undef __underlying_strcat
-> diff --git a/include/linux/string.h b/include/linux/string.h
-> index 9473f81b9db2..cbe889e404e2 100644
-> --- a/include/linux/string.h
-> +++ b/include/linux/string.h
-> @@ -261,8 +261,9 @@ static inline const char *kbasename(const char *path)
->   * @count: The number of bytes to copy
->   * @pad: Character to use for padding if space is left in destination.
->   */
-> -static inline void memcpy_and_pad(void *dest, size_t dest_len,
-> -                                 const void *src, size_t count, int pad)
-> +static __always_inline void memcpy_and_pad(void *dest, size_t dest_len,
-> +                                          const void *src, size_t count,
-> +                                          int pad)
-
-Why __always_inline here?
-
->  {
->         if (dest_len > count) {
->                 memcpy(dest, src, count);
-> diff --git a/lib/Makefile b/lib/Makefile
-> index 083a19336e20..74523fd394bd 100644
-> --- a/lib/Makefile
-> +++ b/lib/Makefile
-> @@ -370,7 +370,8 @@ TEST_FORTIFY_LOG = test_fortify.log
->  quiet_cmd_test_fortify = TEST    $@
->        cmd_test_fortify = $(CONFIG_SHELL) $(srctree)/scripts/test_fortify.sh \
->                         $< $@ "$(NM)" $(CC) $(c_flags) \
-> -                       $(call cc-disable-warning,fortify-source)
-> +                       $(call cc-disable-warning,fortify-source) \
-> +                       -DKBUILD_EXTRA_WARN1
->
->  targets += $(TEST_FORTIFY_LOGS)
->  clean-files += $(TEST_FORTIFY_LOGS)
-> diff --git a/lib/string_helpers.c b/lib/string_helpers.c
-> index faa9d8e4e2c5..4d205bf5993c 100644
-> --- a/lib/string_helpers.c
-> +++ b/lib/string_helpers.c
-> @@ -884,6 +884,12 @@ char *strreplace(char *s, char old, char new)
->  EXPORT_SYMBOL(strreplace);
->
->  #ifdef CONFIG_FORTIFY_SOURCE
-> +/* These are placeholders for fortify compile-time warnings. */
-> +void __read_overflow2_field(void) { }
-> +EXPORT_SYMBOL(__read_overflow2_field);
-> +void __write_overflow_field(void) { }
-> +EXPORT_SYMBOL(__write_overflow_field);
-> +
-
-Don't we rely on these being undefined for Clang to produce a linkage
-failure (until https://reviews.llvm.org/D106030 has landed)?  By
-providing a symbol definition we can link against, I don't think
-__compiletime_{warning|error} will warn at all with Clang?
-
->  void fortify_panic(const char *name)
->  {
->         pr_emerg("detected buffer overflow in %s\n", name);
-> diff --git a/lib/test_fortify/read_overflow2_field-memcpy.c b/lib/test_fortify/read_overflow2_field-memcpy.c
-> new file mode 100644
-> index 000000000000..de9569266223
-> --- /dev/null
-> +++ b/lib/test_fortify/read_overflow2_field-memcpy.c
-> @@ -0,0 +1,5 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +#define TEST   \
-> +       memcpy(large, instance.buf, sizeof(instance.buf) + 1)
-> +
-> +#include "test_fortify.h"
-> diff --git a/lib/test_fortify/write_overflow_field-memcpy.c b/lib/test_fortify/write_overflow_field-memcpy.c
-> new file mode 100644
-> index 000000000000..28cc81058dd3
-> --- /dev/null
-> +++ b/lib/test_fortify/write_overflow_field-memcpy.c
-> @@ -0,0 +1,5 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +#define TEST   \
-> +       memcpy(instance.buf, large, sizeof(instance.buf) + 1)
-> +
-> +#include "test_fortify.h"
-> --
-
-I haven't read the whole series yet, but I assume test_fortify.h was
-provided earlier in the series?
+base-commit: 0db822f6dee813f746ed196fc561945eee4cd4b9
 -- 
-Thanks,
-~Nick Desaulniers
+2.32.0.264.g75ae10bc75
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdknit8DtWaFvLupmNEebjbwVa6R3xiGc2D4AqB_6%2Bi52g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727225650.726875-1-nathan%40kernel.org.
