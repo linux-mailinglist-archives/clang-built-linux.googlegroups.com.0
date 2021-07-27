@@ -1,120 +1,123 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBTM6QKEAMGQESJTPE6A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBW46QKEAMGQEVET5O5I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93c.google.com (mail-ua1-x93c.google.com [IPv6:2607:f8b0:4864:20::93c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 823C73D8377
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 00:57:18 +0200 (CEST)
-Received: by mail-ua1-x93c.google.com with SMTP id g3-20020ab060c30000b029029fe93a4b32sf351484uam.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 15:57:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627426637; cv=pass;
+Received: from mail-oo1-xc3c.google.com (mail-oo1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 488453D8379
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 00:57:32 +0200 (CEST)
+Received: by mail-oo1-xc3c.google.com with SMTP id g3-20020a4ab0430000b02902677ea337a5sf348730oon.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 15:57:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627426651; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qfoD+m4FmQmuDdz6Qeujti7rf1Hs9nMJ1TOw4A+Cet1yap1u3B/xoqqAoTojmQvMRo
-         if/GOePKtPyPF3WU854TXJkVmC3eyTjcgaESGQDGq7IOB72r8WsgP5d1uvtXZgW+R/w/
-         +H5ZjgJRtRG9n1h0lqGnGako1SAYhN2748EII4wg16M4j1OH5J7eNvSM4JWNAD8encCH
-         IlhbIK00qHx8DNaEV5V0ztBX3xryKDEmhOil7mIpihsRcyNXwLMiPuoN6/hyZbh9557R
-         ApZyOhxjhFY2nGyzA3qBkEH3Zdx2UhacXkJcrzMxonwrJQBGGv3KbNcdqVXOwBvgFijh
-         dNMg==
+        b=MFJHA294gPaC8pb/tLYyVPzP/HMsMGb3y+z+PtdXN8cTI57gX7HwcvdvBF1ffT1kke
+         kQCbQrZAr3RZB0OmaJRpeBcB9VAMa69RWHlIWI6AnydmeYySAa02fKN8nvdJNfGbGpxQ
+         /jB0SuFd/Lknxnz7oGBtL0X2C6zLE4vYLpDO6BwGjxXUfp8D8WaU7Ht54VMyW+oK6KAp
+         uTlcNOp+THXPlZ7SFPTMpBjdC1dPq+WWp4ZUzwfiqfclAPOwj9C308RNelHsHJFC06Ot
+         YadRCOY+NHdUUE1GywjeqZ2+XZPP3sjTVOG8AdKoi1DMeVzsM4yDU4Yf/bxaJKac+BUq
+         91yw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=nlaBfPu7hWqClpM0urroBYakOiKWon81LTrhv+GOK9w=;
-        b=yxsACIete7BaZQkiamcDLeEY8BqCiKX3J7GoCqpRTr2PcUc1GWus/JrSt1Su316EhS
-         0QYZVkmWdQw4lDhtrqllZctT7idMm47W9Fx4K0sfw78nhGZmsHPHU3KGAfjk3K7Rngng
-         0lTGRasQGTQBTCdSK2gGuECeesq4D2LprlvV3LInvT7k1YNYk96gGzYdYAYeU6XuP3U7
-         GJ0jKtNdXI6Z2VxAinMtu2DjKaUv124xweT/s1IHGAoaAZYO1H3by6Q+Tpa7QU4VX75W
-         dmhsKR9tiTFvqpa2ffbhJUwKO70jEXST6S4RpMH+iwoprc07WE8XDIaflAjQnAqe7E6Q
-         JA+Q==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=O4Vy0YrWjjRDY9WLCkULCzvldRCAJPhx18pfw+F7XyE=;
+        b=JPe9oC0AtAEWuelJ0P+Y5BYsmCL9GGzWTWNZnhX8REcVc2t2Kicw00/KC6drJLkD7P
+         6EV438i69qSWni+qilmW0Ox6IxxLf2F+o/o6Gine/eZO1yoOhPrptYTS0cHNUKRkACg3
+         ZSYawVLaEVCpLEMUfkFjwcFNd/WPZ4LZNfKzsoD4EbC0Gw2URLo/phwuiUKwuNmSsDnH
+         3TOxh7gB8o3rgfI0WSbAhLkB1UDcIyO0Jn7Kj9Zl6YUEPLh1zPmw9w7WxMz6UAUn0UBs
+         p3lHkiArza5/qk5X4pMOk1N5+3RvUrUGYSQKriqDDidwspyvdExZSCAAgHFz2Y/1v4rn
+         IBvg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=sXr1QkRU;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ZoCmfX0T;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nlaBfPu7hWqClpM0urroBYakOiKWon81LTrhv+GOK9w=;
-        b=AkBHD6PKiIM0KYUNbIRtcs9UeM+qmLUTiunTtUV+Seiba+1E052V3xjNNgJnvSx51e
-         bf+adCjgufttZmG6EkCUU2MKp1LON739djN9aNdT4vxfBm46KjjoSNcZfyKHkADiRlks
-         vuVc49g4PTua4ZhqrRSIf76J9NscY+5n+jKpWeLJXxDAi0cl0UYNJR+8u0c96786RrFa
-         kFbAg7t4s5Arr3vx3sEojPW4cHlgitmnZNhdwpIfv/7m5y/iq6FKYeRflTy8UcM0HPNV
-         Ljc0tv85Iq4mN8D7Ie+ixRK6VLS44s7RMvcFwKIqKj0bWAPsFyytV3yndJZW+cbj8Z8i
-         ANKg==
+        bh=O4Vy0YrWjjRDY9WLCkULCzvldRCAJPhx18pfw+F7XyE=;
+        b=S3mJXLFlKt/Y/RqplOcZozB3ppo4lauej3iP7+7CHb+hS28NepfBYNsW6tGbTH0QZw
+         SSLSDK4bUTyBxkBdwOS+gWLXLfXuOuhLXS5rFKn4/Gf8ply+zo/OEwVlFlRLMogujOYG
+         ufO9RZjql6Uqzai5D1O1Jy8axmc0LUrX94jqS+AkBRKjTqBNgc+4nuIlq6blzjsvUjHP
+         eD5FT0aNuqLNi+SZx4aVAILMalT9gaJOqbPzWwthvhon1w/wwM7EZm/LeMB+CWMNRMF1
+         MmTS0efLLVXwInTkXsnAxwjULIWn5v7E1Oy24ygeX8b9EsG64HcBMJVxB/Mdo/fxZAWH
+         4AKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=nlaBfPu7hWqClpM0urroBYakOiKWon81LTrhv+GOK9w=;
-        b=i6gGPhoJxqJlKdDGTX8CrPmGrpHoEEmae8c7zAJRkktruEuCjrDPR2i5K9NcfxY9/x
-         IenhClV9lfc4Yhdou3eyK2zLihUFJ807J3CNwQL6JoMblKYuaTXIM3cDXvC9WRdY1Vrt
-         5WNpaUZ+DVcCC100GT0/2kaM/T78/Qj/AW1i/mL8CDs0Jy+3NpK8GnY8iBMqntriPSVd
-         C2Hb4batLGoS96VX0D7R09ELQsiR/oJmqWJDWMLv8ioD0KZInnvFqD5P1ff7/rSbvw9O
-         rmc8ouHa+MmqYJMSMNO4SFKwdb63SRL7rfDMvEceO7FpbOUmkWmNoUEvwLMOVcCx7wIs
-         Mscg==
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=O4Vy0YrWjjRDY9WLCkULCzvldRCAJPhx18pfw+F7XyE=;
+        b=fvH5iqmePICjsPLjvZDutUgQ8UY3dKD6xBZMryEtAF+wI9Bm96bO2AewvThjheKgfc
+         rmf/KpioXdhQXK672oMeMdL/Apb0RArfi6Kh8KabfiFqhUjM9beGVGZ3FSuKAtC54Kjo
+         a5fTjqSQG6kArXjkOw1VyNWJHXn+HCbHZ05CfM6dQ7LrguM9LIqaVfFrzXxJe49xG1tL
+         HcMjuQRzLKRC2ToEpHSh0vugN24Nq4UKj6UhjY9C4a9dZdHHMQXgcHxM64SAv/gd7Jyb
+         GtHvD6cgAogRShOwf83PDBBeph6Y6TPrdxHtlE2BiuhzVe6NKTweNarwuFdu7Pv9IFwl
+         Kokg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532nviQWg3jn7SqhEOomvKbRtb7zzG47z33AEEHVuRB3mpC9q+ud
-	Q0k0Y55+ciNvnFtZ4Kkt3NU=
-X-Google-Smtp-Source: ABdhPJx7sh0WntDmpKY5UCDiJ/M6rZNmDWKj02omGNJGRdEKmnh1uyjCyfW+Dn8S4AxmCYeXxYyvNQ==
-X-Received: by 2002:ab0:153:: with SMTP id 77mr20060087uak.25.1627426637533;
-        Tue, 27 Jul 2021 15:57:17 -0700 (PDT)
+X-Gm-Message-State: AOAM530yoYXnVZdLm+qkentRAU4yRGoil8HsI9CNDiOq6BXd6ouIAwOE
+	isCow87TuZavQMYv8sbk70I=
+X-Google-Smtp-Source: ABdhPJxmkVO5f2JBIu25uMuJziLcui85FJVEp+47jjhw7gtwFAbSgvsKFPZZrWFTIa8miqlVDCAUXw==
+X-Received: by 2002:a9d:6750:: with SMTP id w16mr17289208otm.177.1627426651110;
+        Tue, 27 Jul 2021 15:57:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:1527:: with SMTP id o36ls26649uae.3.gmail; Tue, 27 Jul
- 2021 15:57:17 -0700 (PDT)
-X-Received: by 2002:ab0:6dcb:: with SMTP id r11mr19989639uaf.128.1627426637023;
-        Tue, 27 Jul 2021 15:57:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627426637; cv=none;
+Received: by 2002:aca:c4c9:: with SMTP id u192ls125903oif.7.gmail; Tue, 27 Jul
+ 2021 15:57:30 -0700 (PDT)
+X-Received: by 2002:aca:400a:: with SMTP id n10mr16575619oia.127.1627426650753;
+        Tue, 27 Jul 2021 15:57:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627426650; cv=none;
         d=google.com; s=arc-20160816;
-        b=t+2KuCffal9JnVnMGkahYm/f9/hpk6WlnHN+MmhR+seqtzmCyWhWpKhBZedkRn3Y52
-         3cBgihV8bCJAPCWexxh2AYgh0ZORVJBsVW+Syre9Y30w8EIEv5KuT3/qNCranQpGTVIV
-         FrRdEFYip7+yDej98ySc5lHunNP+HTBH4/LNZUluhcADDaR9rJuAzjwjHtBXSDCFy8Fr
-         MWidvILZ30dlSiZTk9AdzjdQRpspDadTAwGoAO3IlInmV86FY0cJHHmL0j6w5uBuRtJP
-         0s89TcQ5ovloEr+Wv1wfqehxarmaTt8lBfsjup6S4feH6C0sLUJcWvv1eUFPYuCN8G6P
-         a+eA==
+        b=topU7+CUkKDTXYcJMqpKogBYLCZYDHvXVIMPLkUCIC6NLgaAU4LK+LrEy/GnfP+M6X
+         Qm8DwY1HgWxtoWs97B6TJ/pF+kQxvA9N7p8L1TmkGe8vWH1hDKr65q+PmQTZPMADW71i
+         wbAn5T29ps3qNXJ0OHWIpopMXNHcJRfotmRNv7bsgGKTaXGIqexqCFJY8BuCMegy2Za7
+         LpU0klB89dklB4DomfztiIRYBylodPT5jdlD8NKXSUyBrlg499uFM+rwZhIhs52jfRZ2
+         ICb6xnvMiRl3hiRYpxK4aebZXNCcM1TWU1++vWHElnjr2XvDt+khNSVT6sTog8pN1tmW
+         QS+w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=ntxTQduZ1mlHnKObWmvFncG8EhTRcBKan22pfmq5uns=;
-        b=pPDqDwk3WjboaU8cMgDkxxV34Q/iRUoQblFJBvGHMJ/8fjb9AaTyfeLQcS0mgoej3J
-         Wt+0e7HCvgDe540wb2RaPfalUFAHAda5nuVSToZYsVG2SHX9h9G5H4WtgRO90Dapvon1
-         CZWzcfdSWl0gd+5qoo9dvC1NmEhhjQNRrA9W976kU30Y7oR5/CzqHiy/+xIlGYtIzK87
-         pUMNrsrrFduXIbk331FaL+3yIcy9EqlpEaNU0+j08A2ixAu5c9d6jf3CiACIKdf90rcZ
-         IUXdMNL+Z3YwhguJ+IPlJYfaom7nOoxDP0npLRDk3dOeZmI0tjXcVK3vfbbcPxEtUOwn
-         zXpA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=Ti1u/DUr2olUQE+1Ny3+a9N92Z3sQ02wTr9Q9ULeRl0=;
+        b=TN6kseo8Hx6jVqrPZozSJk53e5ARv40LJ/jmAizdTXt27SCE3af4AmyDq7bZub+292
+         f2MnGYDpimrSm8R+LVRmqyKYxf7DFrNa7OrcX0/bE2OUVxSs8XlX1Q9hGUeXuueHkOlp
+         kJvsE/VOrKbjM6/Q34neRh8tL7ncYH5jkgJW32MJalnBAjiiRxlyo9NqIv3X2SHzNRfO
+         ZnTUGiWqLsrwxfngeoI+5Z74W/ycbFAIhG7mNOSha6d4KEHr3+AyLv5TyrGtLhMJtN5w
+         IF66Z0RQd3Ukm5w0aKB0t1wOFbLTm94aJHkuGYr+meeKKR/1YliXvGSPO444RB5hCizh
+         ZEFw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=sXr1QkRU;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ZoCmfX0T;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x18si340425vsn.0.2021.07.27.15.57.16
+        by gmr-mx.google.com with ESMTPS id o10si420449oic.3.2021.07.27.15.57.30
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Jul 2021 15:57:17 -0700 (PDT)
+        Tue, 27 Jul 2021 15:57:30 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 550AE60F90;
-	Tue, 27 Jul 2021 22:57:14 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 59E4560EB2;
+	Tue, 27 Jul 2021 22:57:28 +0000 (UTC)
 From: Nathan Chancellor <nathan@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Sasha Levin <sashal@kernel.org>
 Cc: stable@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Nathan Chancellor <nathan@kernel.org>,
-	Andrey Ryabinin <arbn@yandex-team.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
+	Hoang Le <hoang.h.le@dektech.com.au>,
+	Jon Maloy <jon.maloy@ericsson.com>,
+	Ying Xue <ying.xue@windriver.com>,
 	kernel test robot <lkp@intel.com>
-Subject: [PATCH 4.9 1/2] iommu/amd: Fix backport of 140456f994195b568ecd7fc2287a34eadffef3ca
-Date: Tue, 27 Jul 2021 15:56:49 -0700
-Message-Id: <20210727225650.726875-1-nathan@kernel.org>
+Subject: [PATCH 4.9 2/2] tipc: Fix backport of b77413446408fdd256599daf00d5be72b5f3e7c6
+Date: Tue, 27 Jul 2021 15:56:50 -0700
+Message-Id: <20210727225650.726875-2-nathan@kernel.org>
 X-Mailer: git-send-email 2.32.0.264.g75ae10bc75
+In-Reply-To: <20210727225650.726875-1-nathan@kernel.org>
+References: <20210727225650.726875-1-nathan@kernel.org>
 MIME-Version: 1.0
 X-Patchwork-Bot: notify
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=sXr1QkRU;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=ZoCmfX0T;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -133,62 +136,65 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 Clang warns:
 
-drivers/iommu/amd_iommu.c:1335:6: warning: variable 'flags' is used
-uninitialized whenever 'if' condition is true
-[-Wsometimes-uninitialized]
-        if (!pte)
-            ^~~~
-drivers/iommu/amd_iommu.c:1352:40: note: uninitialized use occurs here
-        spin_unlock_irqrestore(&domain->lock, flags);
-                                              ^~~~~
-drivers/iommu/amd_iommu.c:1335:2: note: remove the 'if' if its condition
-is always false
-        if (!pte)
-        ^~~~~~~~~
-drivers/iommu/amd_iommu.c:1331:21: note: initialize the variable 'flags'
-to silence this warning
-        unsigned long flags;
-                           ^
-                            = 0
+net/tipc/link.c:896:23: warning: variable 'hdr' is uninitialized when
+used here [-Wuninitialized]
+        imp = msg_importance(hdr);
+                             ^~~
+net/tipc/link.c:890:22: note: initialize the variable 'hdr' to silence
+this warning
+        struct tipc_msg *hdr;
+                            ^
+                             = NULL
 1 warning generated.
 
-The backport of commit 140456f99419 ("iommu/amd: Fix sleeping in atomic
-in increase_address_space()") to 4.9 as commit 1d648460d7c5 ("iommu/amd:
-Fix sleeping in atomic in increase_address_space()") failed to keep the
-"return false", which in 4.9 needs to be a regular "return" due to a
-lack of commit f15d9a992f90 ("iommu/amd: Remove domain->updated").
+The backport of commit b77413446408 ("tipc: fix NULL deref in
+tipc_link_xmit()") to 4.9 as commit 310014f572a5 ("tipc: fix NULL deref
+in tipc_link_xmit()") added the hdr initialization above the
 
-This resolves the warning and matches the 4.14-4.19 backport.
+    if (unlikely(msg_size(hdr) > mtu)) {
 
-Cc: Andrey Ryabinin <arbn@yandex-team.com>
-Cc: Joerg Roedel <joro@8bytes.org>
-Cc: Will Deacon <will@kernel.org>
-Fixes: 1d648460d7c5 ("iommu/amd: Fix sleeping in atomic in increase_address_space()")
+like in the upstream commit; however, in 4.9, that check is below imp's
+first use because commit 365ad353c256 ("tipc: reduce risk of user
+starvation during link congestion") is not present. This results in hdr
+being used uninitialized.
+
+Fix this by moving hdr's initialization before imp and after the if
+check like the original backport did.
+
+Cc: Hoang Le <hoang.h.le@dektech.com.au>
+Cc: Jon Maloy <jon.maloy@ericsson.com>
+Cc: Ying Xue <ying.xue@windriver.com>
+Fixes: 310014f572a5 ("tipc: fix NULL deref in tipc_link_xmit()")
 Reported-by: kernel test robot <lkp@intel.com>
 Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
- drivers/iommu/amd_iommu.c | 2 +-
+ net/tipc/link.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/amd_iommu.c b/drivers/iommu/amd_iommu.c
-index 8377bd388d67..14e9b06829d5 100644
---- a/drivers/iommu/amd_iommu.c
-+++ b/drivers/iommu/amd_iommu.c
-@@ -1333,7 +1333,7 @@ static void increase_address_space(struct protection_domain *domain,
+diff --git a/net/tipc/link.c b/net/tipc/link.c
+index 06327f78f203..6fc2fa75503d 100644
+--- a/net/tipc/link.c
++++ b/net/tipc/link.c
+@@ -893,6 +893,7 @@ int tipc_link_xmit(struct tipc_link *l, struct sk_buff_head *list,
+ 	if (pkt_cnt <= 0)
+ 		return 0;
  
- 	pte = (void *)get_zeroed_page(gfp);
- 	if (!pte)
--		goto out;
-+		return;
++	hdr = buf_msg(skb_peek(list));
+ 	imp = msg_importance(hdr);
+ 	/* Match msg importance against this and all higher backlog limits: */
+ 	if (!skb_queue_empty(backlogq)) {
+@@ -902,7 +903,6 @@ int tipc_link_xmit(struct tipc_link *l, struct sk_buff_head *list,
+ 		}
+ 	}
  
- 	spin_lock_irqsave(&domain->lock, flags);
- 
-
-base-commit: 0db822f6dee813f746ed196fc561945eee4cd4b9
+-	hdr = buf_msg(skb_peek(list));
+ 	if (unlikely(msg_size(hdr) > mtu)) {
+ 		skb_queue_purge(list);
+ 		return -EMSGSIZE;
 -- 
 2.32.0.264.g75ae10bc75
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727225650.726875-1-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727225650.726875-2-nathan%40kernel.org.
