@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB5XKQGEAMGQEKA6KUVA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB3HKQGEAMGQE3F32CEA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 430A43D8095
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 23:07:03 +0200 (CEST)
-Received: by mail-qt1-x83e.google.com with SMTP id i8-20020ac85c080000b029026ae3f4adc9sf4937224qti.13
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 14:07:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627420022; cv=pass;
+Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8E1BF3D807A
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 23:06:53 +0200 (CEST)
+Received: by mail-pl1-x63f.google.com with SMTP id w19-20020a170902d113b029012c1505a89fsf1327plw.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 14:06:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627420012; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gXuj6X3DyPaUlYTaDMeUwclXNIKdQCpJ5yJvM/8HJFy6HWC4d/GHlfRPsKHc7Dt6jp
-         q3tikf2o6OpDdjhqVW7cl8WyCHr+CRI7OLINPL3E3zth58GOfabBaqhVvOcPAL7TmP+A
-         Z69Kb2c+KzjWptj/5VE0UGmCaHYvET8WUis37z0DnoQidtb7VszjggEV6vfKsh8JjciO
-         0T/ZsbgI/tHKmtdPvmvQ9mbc2LgzNx542v2A2MY2MS6lscMaabcshlIhozSBpjtaE1KS
-         Qy//yZq9lxHaV9HB0robYG/1B6tzE8m3nAmbli4ZoSfz7YB1wv5S5+3tsZrm18PoSY6Y
-         vZIQ==
+        b=aY8ubBzGr8uAzXCfCoDGEPyb7oAjhLHBQXzfHXlPM73+/u7TIbXPIJNIwj/N5jKOuL
+         bMqjP7FjHPOUYTQio5F4saEIlhErUUjTDT8LKZu59AkfngaG7699C7YQlJ6j4np2Ztau
+         PYc5rLRaFSM5qjmsbdt4Gx++kQAiBKpIZPXAJcMpDydD6BPuwFUFJzhbrdFXA9V8klXk
+         Whe021xwYI1wcZ5KuiFhjRc2QhWoMZsoIRKtRCM2QdZyg6/5baGf6X59E7q5bYqqpI//
+         apDycUUzoC7fYB3kVjhDvire8wGMABEdS9zkgnrA0eQaXPbisQkMDl5VOv0pKWDDSGCc
+         NWKw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=CLca+nfvYmHSfPZVS1d3NC0NmOYtJ/jljsdHyFPInuE=;
-        b=ubRuCG1iw95dONflK8/xyk9+QMvymMWjnAb4R3jTET4CZmXs7s5DVL710PCSHsKxEw
-         QTP8UJ0VcxSda8B1f/C+zeI1Ax03sDDMHfJxRHDZ81Fi5pWcZKCKmyV1NHxhMBr9D+eK
-         PI1+6oAE8n3rAvTMpZB/YyPd7T5optufYpa7JX8pbV5ftPFwsoaHWgO277qL45/cov66
-         V517dHteVmXLiTKLbvVxm730EeCIWQbYvOiv8UB5tUuQXXiiq/ONIoiZSHM0vLyRjI9x
-         Rfs1F+z0JRCIF1qoYjFYyc95CqmHZYofAuZJC7me2EnJC4JSQq0crcQxgabzyNmBqYkR
-         cmvw==
+        bh=Lh/kBEGH1P3ujx0D9Y1BWs3Bs8cp7tNQ/Ct2CbHVB5k=;
+        b=OPAoaNvk9y9bm4VhYQzSyUI/awWqT7KiK2Ucl2l2tkdoL8BA9Ah7wBFWGs0R25a6H9
+         GCwkgmuIIG5cKULVHx6WosiKNFJAiLwFJ5chTUIdVIjHawqgfhIJZOi3XK3L6OCblOdc
+         xdM0gH+OM17xoMc8ChbBmsoljwU/NImZ0S4Cjql1EZzg6Y4y4KT/PO4L57xLp97/3rOc
+         BhXXp4iecfdaASzhw5Ph9UqjZxu7mYQbdMWrpyRLLF0Tf92FEDYnv/PLHnUaPcXuIDa1
+         WG1Gx/Mb/p2MuOpgzaRD4/q0HC23hE0zfKHX03TkBH80D6DPYD/znERqHj8ZsWEMzU5r
+         +ljw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=QpC9SEfv;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62c as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=bnW6f5ZW;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CLca+nfvYmHSfPZVS1d3NC0NmOYtJ/jljsdHyFPInuE=;
-        b=e9ywSUjhXKiDdzJVtsQU63qm2SlUOXY+Eo9F8tSRoL0ugQv/B3VxZIBceAbpjDkoT9
-         wEGoNtO/O8vBowKqz8mG+X5DHtm1Vg0+4S7vjf3Wjby6scwJkPTtIMp9ZqSQ23Sa7vGl
-         BC/D/iFDYHd2iwKbWpxAnlPhXk/r8bmxoSxYuS7Cxl4Qxm371bSyK2Nit1/vpx1MfyHA
-         aOz6OEa7kUsvgS2Wo+mKaApsn3PPb0jaXhuQWV2W5PoYUFL38H4gwHVmt1XHdAIoLMv2
-         4GtTQWR6FBfk4/beMJsiOyjyrgPMnQL4tYj3eWdcKf2MlyAw9Q3a3bdSBgGUaRVFjkAX
-         Faxw==
+        bh=Lh/kBEGH1P3ujx0D9Y1BWs3Bs8cp7tNQ/Ct2CbHVB5k=;
+        b=IO0/v1JN7Fh9/JNL0mvDGqIQoqPf2olNZ2v2eIxYTdbnA56fIMwoccPGJ0Ix3xxvlH
+         zc6wqJ82kEUa0NfVLUJOOAbCPZ8NUlvkONOF6Waau/sFApFKwjAGZ1lELwvuZRdcVdlJ
+         B9kDPVBcryH6tbFNIfTzC+zaVzYJTbtmx5SoLq+VxpnxWEFmTPgwwIFQ5qmvD9uo3Tpl
+         0TGAODRlHodfE5g+6Y51g+zppqo1p9eAOadAr/ja0GPmA2ZDHF70OGRDx6/NdZ2nZX1n
+         HtJgem2KZTuNzqLykVaaK8RYacCAB2vM5Fnw2c3vfHOzAAtDLKutTK5f017VPwlnPm9F
+         BECg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,60 +49,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CLca+nfvYmHSfPZVS1d3NC0NmOYtJ/jljsdHyFPInuE=;
-        b=ZiNO+jkFEHYCz9ls22OTf1IGxBN4hyZ1PqEvntLoXma86z4bLWyi2RYEGDyDE/xjUP
-         Tx2r0qeEkbRIaIqnWUmtfmNq8h8oUSQ8bi6dhMxRyzRWlyXcIU0GQ2l54+8mG4dx6dil
-         KhHki5ITT7d1HTxlXLWPW/Nxna+8gsIhH+A7G0Bnnisnen+moFY0zIn7ruoYmpyuEVM3
-         02JzzwlaD0iMbnYLgWiF+K/3o19De2UnyXP7A/OLf/tg1Lb976yBgADpmxeqlcu9TAT+
-         n7mDG3iSQbj76cLFzWLxAfiazTVQ9ZB5eGHX/EY02Cpit0j9qDteNUkziIL7qLg5foJG
-         vb+Q==
+        bh=Lh/kBEGH1P3ujx0D9Y1BWs3Bs8cp7tNQ/Ct2CbHVB5k=;
+        b=J9a+BVrnuZiJ4EECHTfuph/BC0XZOqkyErkha/zAiRiEldPCgNIPf7AAojlJPgsa3V
+         mZ6KqemtKNE4b/OZZ9m5UGU5LYuCGO1b7AZR8iy5481YCo1VGdBhsrFc+mOBKDd60cdm
+         7HX1e43Om1ZHaCEAhVganCAjP+9xlzHkDlNKC1r02a46ISf7Vr0gAp+/d4os/vq6cV87
+         l/bheZ/34HF+4c8Fbiuxpk2lwaHGUpg7mGoL6kHKCx5R7/CxpzgBKRk5um+MCUmeOfPK
+         mIFjDivCokkeso/fEcbOD8Uk6Ng/dO8nQDO5c8xOiePBwDXZ4O6Q79Vy0zE169lYnLfU
+         x6GA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533gEbFVZvk0va606p231iViXJcnfrhmWl9aJYdf31eMyoY+ztef
-	jv++OM3ddzNcM8Urwc2bzyo=
-X-Google-Smtp-Source: ABdhPJy1l8RwyLEz4jOaLSrxBsuhwqyjGeoVZ6mN85lDKouL/hqhWCuBZM/K4i6qmufSSBslv3ATdg==
-X-Received: by 2002:a05:620a:150f:: with SMTP id i15mr23774337qkk.41.1627420022397;
-        Tue, 27 Jul 2021 14:07:02 -0700 (PDT)
+X-Gm-Message-State: AOAM533OSLcbjOXUBlcL6nIz4I6XTAp21aiL89ZRJxiaYZxRKPeeG/kx
+	VjwPd4/4OdZQXuJiE2OXpLE=
+X-Google-Smtp-Source: ABdhPJwHSH+YfBElTYDyjoOzi6lFj+DhCHE+K74oVdWMIGPsvOL6KevYTF70dRBZcfx01MUC32sacg==
+X-Received: by 2002:a63:181d:: with SMTP id y29mr25301009pgl.113.1627420012266;
+        Tue, 27 Jul 2021 14:06:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:6396:: with SMTP id x144ls29685qkb.3.gmail; Tue, 27 Jul
- 2021 14:07:01 -0700 (PDT)
-X-Received: by 2002:a05:620a:d4e:: with SMTP id o14mr24812544qkl.402.1627420021853;
-        Tue, 27 Jul 2021 14:07:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627420021; cv=none;
+Received: by 2002:a63:e23:: with SMTP id d35ls83870pgl.5.gmail; Tue, 27 Jul
+ 2021 14:06:51 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1693:b029:333:da3a:8c86 with SMTP id k19-20020a056a001693b0290333da3a8c86mr25528620pfc.41.1627420011728;
+        Tue, 27 Jul 2021 14:06:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627420011; cv=none;
         d=google.com; s=arc-20160816;
-        b=FHuqDhIzf37f1aX/a1YU2QHikyayMyVFKvudBXiv7PnUVsOGzrv84SB+0JAzMULTxl
-         MWs/boo68Xny2P0revpSS37ocubBsjs/8dGTtEemAMUwCHAIOeJHY5Gmqe0a+0nc7UAC
-         UGSoEzxDjOYPbCPVtf8DWgzweGjJiQti9t54q6dfhDLHsoEfD7JqYllHrZbomAEZcJaB
-         gVXJP7n0FTFooDNYXjUsFYbh32ek2PVm2oDPUf0e4UkEtGUkEuFjzz1//JasVRANLRo8
-         RH08Sfd/GG8ZC2EGAyjTP4OCaIZt+lxO2wuj6W5s5iGT2iEE6DllNXDr4ZIpg4bHKWND
-         8uMw==
+        b=CO35e5uQwcJGn7V+/fg/S60M7xnMTd2NkU7yGyevFgpJASIaStqMrUqw0+TQsz0uMn
+         ESEblxF2hTWjWZReaZasahITK73OFol1FLH8VokdK88a3NTZk3S2S58I7IWMZHD1Arcn
+         IPeKLyAH2NokTVxFPOMwxnM8bHxL/DaeqoCmAshheUfKInnMRO/D3xPP3h3ce763Vfqw
+         kuWJTfMqHPtR3sTZ6svvxroyjWtSHG8uoqT5M/oV1vOeiybb4FRxvd9D4dB2cTSzHIjW
+         AUeWwYeDXpvU7fM6Lj8BCUzmi2Lm9Q/9dUXeYWN9h9AxuYfehIWIBsZToCrnzB9GYTt2
+         fpkA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=MXKHRxMVkVHDhZ+T8UiWjZTM6Vum4iJmblaVt4bfwFs=;
-        b=aaAnfSjc6GqNXa7NhIt5RYAJp2oIw/frhmX27GhiSrpnEpzjGyNaqGsU0fpkIpND6a
-         cZWRyLX0+CmJzF8ytuY/P/nUIDXHs6Kp39/i/HvHxv9SSrJGJ9fz+PkoXzOza8yUJO7K
-         Lb8PcVkhsqaRpWPeGTnA9mIikN3K+9UNS0+jSQIF/R8bPxCvQq8LIFQcSvxrEEMq2+ei
-         ER3S+QYQqrQDBtq1KNUtCKKdCJVRbOet837I69+RuXeFhDio4xZ8eUAVb6XHnrQciJeK
-         HipWrOOPkhTbBTckQyuDiIvUU4NV+o1fPzYGRWiJXageauhou3sj0ygVfK9vHC87Sivg
-         WUQw==
+        bh=ix+5YCGgtf4ASFZ4v/FG8sEQnqankYDKBfCTYQuGyCQ=;
+        b=A3JnI3bKd48HRdPm5sjg/4B09yNii2fkS9mF44uOqApx3POu5tMsPHwxTbA5eEHPxu
+         lnWvx6Lhdp+QxJ4ZgQCDTOLRQFHnP1Q2HRlO5LjU3AvhN48u9EDmibcJO6LWELgVUMBw
+         C1z461B3WIGG0W01ffwMGFi+Yscm4FtTXUlScm6wQnj2OTJE87rdkhpALWmzA/6YXhdm
+         kWaFgLIh9G74mI+FA4pXAHWLUzh0gZqUmqJPKuJ7RKiDUHBedirRztzTrRIF6gnpIcv0
+         +AemPoVCTHMtfLgIwbRq74iwLuGXLFfIpFpUugtTWkKNfmpOXrOrdr0hrmjKyg2NnjFU
+         tUJg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=QpC9SEfv;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62c as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=bnW6f5ZW;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x62c.google.com (mail-pl1-x62c.google.com. [2607:f8b0:4864:20::62c])
-        by gmr-mx.google.com with ESMTPS id 12si282347qtp.2.2021.07.27.14.07.01
+Received: from mail-pj1-x102e.google.com (mail-pj1-x102e.google.com. [2607:f8b0:4864:20::102e])
+        by gmr-mx.google.com with ESMTPS id p9si264520pfo.3.2021.07.27.14.06.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jul 2021 14:07:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62c as permitted sender) client-ip=2607:f8b0:4864:20::62c;
-Received: by mail-pl1-x62c.google.com with SMTP id n10so32988plf.4
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 14:07:01 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1582:b029:332:67bf:c196 with SMTP id u2-20020a056a001582b029033267bfc196mr25270650pfk.52.1627420021064;
-        Tue, 27 Jul 2021 14:07:01 -0700 (PDT)
+        Tue, 27 Jul 2021 14:06:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e as permitted sender) client-ip=2607:f8b0:4864:20::102e;
+Received: by mail-pj1-x102e.google.com with SMTP id b6so1806499pji.4
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 14:06:51 -0700 (PDT)
+X-Received: by 2002:a63:ee11:: with SMTP id e17mr25530642pgi.323.1627420011461;
+        Tue, 27 Jul 2021 14:06:51 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id h9sm3809707pjk.56.2021.07.27.14.06.54
+        by smtp.gmail.com with ESMTPSA id d67sm4856651pfd.81.2021.07.27.14.06.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jul 2021 14:06:55 -0700 (PDT)
+        Tue, 27 Jul 2021 14:06:50 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: linux-hardening@vger.kernel.org
 Cc: Kees Cook <keescook@chromium.org>,
@@ -118,19 +118,19 @@ Cc: Kees Cook <keescook@chromium.org>,
 	linux-block@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH 39/64] mac80211: Use memset_after() to clear tx status
-Date: Tue, 27 Jul 2021 13:58:30 -0700
-Message-Id: <20210727205855.411487-40-keescook@chromium.org>
+Subject: [PATCH 40/64] net: 802: Use memset_after() to clear struct fields
+Date: Tue, 27 Jul 2021 13:58:31 -0700
+Message-Id: <20210727205855.411487-41-keescook@chromium.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210727205855.411487-1-keescook@chromium.org>
 References: <20210727205855.411487-1-keescook@chromium.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2852; h=from:subject; bh=zkH2Je2qGKqyQkSiaJEoBpiopw/INo+50iT5U6QcyXI=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhAHOJovWFhW+3LgOdJB6YTmyNLx9mPkMh18BW/VNJ BOSsU16JAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYQBziQAKCRCJcvTf3G3AJj8qD/ 9f25pzpuHDI7d5bSyGKts0iDOiz738IV/yhdknEcL4rC+JiQ/OTrFsGvAMK4zbyT6SQdRvwS0HsQtW FYEY3eOTO0eTLsnAGwNaxw3v5PWM7YYyFygBYMhIhpCgVOighF6YCT2xPnQ7LTyYdpD6L907wxXQ8j oXJcLb9fiEh1t6mn0/dicUHKyTwKkM3fIt2Gx4jCa1Ahv5gyWFd8/4Lv2Yd8KCGn/qxkTG1noBJf5C 2f2h93mKKljmD+CJrJzh/ZYUKpdAY63NSAR4QmZHT60LwkIYj0Fml9G4YK2meArKeNsA1MmJjOiSI6 VkDc7dPKwda9+aKjazu66ex6TqkUbOA0oaukDd2Rq6affQhlkFzRMDK6xCOTPFSye9KgRo0AGn0Klz ni+fmXKvOFIQYweU5qyOYDeL9tYUxQqUBJ6xchOdLgNXFSn5zy34UvmTQoqrVdOTKt+ImUcuGG23jI EEF20MHn/CZclwSMToQj+7lt9iWIQlJAvkfgdTS5zOajot+7oVFGJNYCGUneXC6jvsB+pZPMryc6uu HiwAJXVMsA04PW1mZDRt3xVTJJXADFBiu1CYcDhtJQH//Kmpo9Ydh7kPS4mFHHztPd+qOEZ0St7xxf dvAPnwZQNjibJgICAOUq6/ISKZEK5Qq848MAz7EEKrmQeFoCi4Q4SxSehYJw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1002; h=from:subject; bh=W7mlz4eEFjlHgTTisxMegB0ZhUGQYb0aFf/Mmy3UOio=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhAHOJorvZuoNL45b35HsPI1mAinyEnA8ZX78L8pdJ 8EQ0wWuJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYQBziQAKCRCJcvTf3G3AJi3aD/ 9pKVrL7GGdaVZl4FyfYev6TME/fJq+q9IgkVKQ6QCoKY5T/n8lqb9wXu0sEDlYK/V1GqgYIyOt/r7B kfASageiRvyRg6nT+2AFkSJGPmwhPkUx2C0pnq6h2eqXzqar9s8LCEi8fZCrBkXObTwmGt5Elv2lL9 u3iRYv/VfrwevBjfH2MskR4OJDtdPLapzgjtDpmesjJgIuFqbLVbP0StJ/6qcp3046MFgobYGk5guX yTH4PNsJHtyrgdozwjttdVzeuhBt2WzgJQ1eaObNsLLLG37mPRxwCItRBkCwVkgMqOjQ4hE4IYAhXt A46hMy1iM0tpGB/EfZqHobJSxHkdDF8gcTzETtHJpWWBZYyLUvM2XIQ/jR1mne6xOpVdLMQUFxCFnn mY2w5SBcpciTvwuit/vfLui8lZtt29yIVecQbgt9pRHcNcLDYVr8lSjPmpO/H/Ey43fgftvpDaUE1K kZYNcM8o3ZI3ko0BO+gOPvhnYi1Hhu7xktOgZx9M3VFKye7+Rx5Hna1V2YsePjXkMGHbDlKaxCDbwc Es30R4/sgZcQr1pAtYhRgMIV9sd0TuiSf3pQyy3q5FvtNiOSMBvVO2cVjj+RDAqI4SNkvoAH2zrvou WNPNye5apRTKo4NrCQk68ENprSWgvKWfzUOE9H92IsOJCSP1oSa6QuA89TCQ==
 X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=QpC9SEfv;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62c
+ header.i=@chromium.org header.s=google header.b=bnW6f5ZW;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -154,68 +154,28 @@ Use memset_after() so memset() doesn't get confused about writing
 beyond the destination member that is intended to be the starting point
 of zeroing through the end of the struct.
 
-Note that the common helper, ieee80211_tx_info_clear_status(), does NOT
-clear ack_signal, but the open-coded versions do. All three perform
-checks that the ack_signal position hasn't changed, though.
-
 Signed-off-by: Kees Cook <keescook@chromium.org>
 ---
-Should these each be clearing the same region? Because they're currently not.
----
- drivers/net/wireless/ath/carl9170/tx.c   | 4 +---
- drivers/net/wireless/intersil/p54/txrx.c | 4 +---
- include/net/mac80211.h                   | 4 +---
- 3 files changed, 3 insertions(+), 9 deletions(-)
+ net/802/hippi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/wireless/ath/carl9170/tx.c b/drivers/net/wireless/ath/carl9170/tx.c
-index 88444fe6d1c6..6d2115639434 100644
---- a/drivers/net/wireless/ath/carl9170/tx.c
-+++ b/drivers/net/wireless/ath/carl9170/tx.c
-@@ -278,9 +278,7 @@ static void carl9170_tx_release(struct kref *ref)
- 	BUILD_BUG_ON(
- 	    offsetof(struct ieee80211_tx_info, status.ack_signal) != 20);
+diff --git a/net/802/hippi.c b/net/802/hippi.c
+index f80b33a8f7e0..00f6666b4b16 100644
+--- a/net/802/hippi.c
++++ b/net/802/hippi.c
+@@ -65,7 +65,7 @@ static int hippi_header(struct sk_buff *skb, struct net_device *dev,
+ 	hip->le.src_addr_type	= 2;	/* 12 bit SC address */
  
--	memset(&txinfo->status.ack_signal, 0,
--	       sizeof(struct ieee80211_tx_info) -
--	       offsetof(struct ieee80211_tx_info, status.ack_signal));
-+	memset_after(&txinfo->status, 0, rates);
+ 	memcpy(hip->le.src_switch_addr, dev->dev_addr + 3, 3);
+-	memset(&hip->le.reserved, 0, 16);
++	memset_after(&hip->le, 0, src_switch_addr);
  
- 	if (atomic_read(&ar->tx_total_queued))
- 		ar->tx_schedule = true;
-diff --git a/drivers/net/wireless/intersil/p54/txrx.c b/drivers/net/wireless/intersil/p54/txrx.c
-index 873fea59894f..f71b355f8583 100644
---- a/drivers/net/wireless/intersil/p54/txrx.c
-+++ b/drivers/net/wireless/intersil/p54/txrx.c
-@@ -431,9 +431,7 @@ static void p54_rx_frame_sent(struct p54_common *priv, struct sk_buff *skb)
- 	 * Clear manually, ieee80211_tx_info_clear_status would
- 	 * clear the counts too and we need them.
- 	 */
--	memset(&info->status.ack_signal, 0,
--	       sizeof(struct ieee80211_tx_info) -
--	       offsetof(struct ieee80211_tx_info, status.ack_signal));
-+	memset_after(&info->status, 0, rates);
- 	BUILD_BUG_ON(offsetof(struct ieee80211_tx_info,
- 			      status.ack_signal) != 20);
- 
-diff --git a/include/net/mac80211.h b/include/net/mac80211.h
-index d8a1d09a2141..7abc1427aa8c 100644
---- a/include/net/mac80211.h
-+++ b/include/net/mac80211.h
-@@ -1200,9 +1200,7 @@ ieee80211_tx_info_clear_status(struct ieee80211_tx_info *info)
- 
- 	BUILD_BUG_ON(
- 	    offsetof(struct ieee80211_tx_info, status.ack_signal) != 20);
--	memset(&info->status.ampdu_ack_len, 0,
--	       sizeof(struct ieee80211_tx_info) -
--	       offsetof(struct ieee80211_tx_info, status.ampdu_ack_len));
-+	memset_after(&info->status, 0, ack_signal);
- }
- 
- 
+ 	hip->snap.dsap		= HIPPI_EXTENDED_SAP;
+ 	hip->snap.ssap		= HIPPI_EXTENDED_SAP;
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727205855.411487-40-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727205855.411487-41-keescook%40chromium.org.
