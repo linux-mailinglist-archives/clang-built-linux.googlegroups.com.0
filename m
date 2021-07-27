@@ -1,125 +1,129 @@
-Return-Path: <clang-built-linux+bncBD66FMGZA4IKLSP6Q4DBUBGUFU53Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBGWV72DQMGQEUXNKG6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5C92F3D6F07
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 08:16:06 +0200 (CEST)
-Received: by mail-lf1-x138.google.com with SMTP id x33-20020a0565121321b02903ac51262781sf2966157lfu.9
-        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Jul 2021 23:16:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627366566; cv=pass;
+Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
+	by mail.lfdr.de (Postfix) with ESMTPS id DB0263D6F92
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 08:41:31 +0200 (CEST)
+Received: by mail-pj1-x1037.google.com with SMTP id t23-20020a17090aae17b0290176ee8653f8sf2158931pjq.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Jul 2021 23:41:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627368090; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eCMPZQiGY5pIBN9R8lJeXk3XLkiWiM5A7OncjcNN1uw6vEXZDPh5Ic/KqF/xo4IC4p
-         Uxtb/JJjIeFSfBBQRkkehITKjWe/pfMUAXRECZr0hwbUIP4ELuo26EDg1V2LSFc1rPb8
-         MUAZ5LtZnugBJErNSdqZ4rZnqgreydbZDq0sMIIlZRYU8TBwp1Ix5XECuV0lcEtVNSYQ
-         oB+OzGSR4pv7uEpgFf9hHLHEk8zh2jcJNT2hXuwSqtzRdCHnRyuzjAxgkcCHSWW+tm+i
-         v3aE6BlKAlceORM3Jtv0wYGR7lH6gUP/JgI+H+716qQuWe5/5btwvOeVjCg6FPegqQ1O
-         8SZA==
+        b=Noxm5dnYseqzd248L+fLqUYF0FgMy8q0qEEs0Tzexu3qEFai1OZMWWW7K1ZeWvZnRk
+         MJKEIpvtKdrR6LbGBLNO+tfdO1cyxVs9XfRNRI2dPoPr0OmO30k74+mB90ikYb007kDG
+         kFdMt0pxYeCzd9vlnYSpUXA8SH3CJoYU4iSqJTnN/NL+8EPqq73QcDyxYwds9vv9LoWv
+         5satugsL26/I4jJcboO4r6FC9fKB9iyS4pJLm8MJTviz5qzSXdAG76Of0hf/K9qU4RGw
+         9sR8AnGC/c4SE34zoJCLgm0bmlLWfDbF3YaXGXQg4nRpoJE2JOT9A6vcr0PMXPYPuNAn
+         m8Rw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=28XZBshqIMNV0pOkdfIzEq5IhmPkyjQ+6gzKq8U9Rl0=;
-        b=XlLPY+zzoUhz7VwxiiYJS04n/uzGtWGpoFZ0cf4mp4+69yp9jedns1jXVSX8AIaJ5C
-         8oXYlFuGNHk2cAUe3HYiCJA7S5H00J+LET3wqUmdUrAD/5VFdHu4aHKwBxXE75HWjnld
-         vtkoTPyS3cnJX4Dga2DilDTk6GzQmaOwdJIvtZhhCRaXKw4VjgqgPvrUDJyicLzBypKN
-         QeLSo6m7yD95vYiF683a2lLxs/3aYRLx8W+qpUbpsPTkYtZIkjQ8eau5vD8OHfV/UNnv
-         meGq2goP4n4wGY6byBIxFy6/udqR4Nc3nKhfM5jLyn6319I2KsObcFjPKzpXPCXSIWCH
-         Yilw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=bj6vH8ysycdAjapA/MhyYIubBH1RN0VAfR07u7CJxi4=;
+        b=Ih5sWPAqp5/qlCdU2atqqePON6mW7cH+La+FqdW1tWxOPUxA4nW+7XU1VUU2N2QF4g
+         wLwfceI8Go5bfAAwld0Nr3m1VFzreypsfe591WaGq8KDCFZapHPSoR8LT+3Q7IXdZYpc
+         jNR+0/ff/NCIzVnSFofuOxcL/LxE7yy47gNvHTVDM951sXDpyMO0gGZj9RdlQxDjpaJ4
+         n7tcemz43OfaTlEAZKVwz6G4ZpIgfXTzhsfPvvOUwsgffTSq7AMHNiOZTDS0wV5vj6+K
+         YQAoMCYJmZG4t02IcErOW8n8xKSNd5Sos0EOypPJz0MD9+srOMBvZ3Y6ng27ZHq2uxBC
+         6Sdw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="h/K4jENW";
-       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::535 as permitted sender) smtp.mailfrom=morbo@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=cUo++3tv;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=28XZBshqIMNV0pOkdfIzEq5IhmPkyjQ+6gzKq8U9Rl0=;
-        b=sKo7PB32xWCcfzI9wxGHag3KJKmfNVeQtsHNUiX9aoHHwbVDa8KjvOz/afOEPRtbrJ
-         fNqiyPkc6ZF9wDuqHwvXUAhT6Wgt7nwlUfz5pRcJPRWKjpWrOp+Y7ZWVPIOTPZ/YTDk3
-         rK7Qi5DWKD9w9TrobWCII7eRdEyaVIRyCBIdGpLDDZ+3pgz0hnpFUVGBCkYO0DRiryDL
-         O791NpMDKz+4Zg9cfmUFxDF8nsHNbOzKFA9M2ZDnHqOUFZpUhpr3BTMYmw4WfYJncEUW
-         eThdWcfESppgLZk1+f+RKXmIhUoLV9PZYBTTmjKfFIZqB0p4Nvj0cg6HAKrq1khUPBu6
-         9f5A==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=bj6vH8ysycdAjapA/MhyYIubBH1RN0VAfR07u7CJxi4=;
+        b=tKMkP9mvwO6/JGXM6TUfcOIOSohZCvK139m2T1qYfZBT4+PIJl+ASPvAZZoEVOvptB
+         6QCa6ldzjABeTF6k3FRpBAt8hNc/bqqqpZ/k5iiO6mhDMa0YDTwIt3SKNZXMxR9lwHjH
+         QwSONS20c6qzeCZvqgvgvWS1pXeCH9OPibWIBU7ibUWIbEAhxYvXJm5HereNchkAV7Db
+         Upmn3s1ovsHIcKicINPcKIGWKZHc0Bh9IzX6RATMXL3ZIsSRMn9DuNBpzZqzyrDmd9Tq
+         eSknvSDjK/7RNhtU5IMaEjconyVg4J80WsMzb/kDe1i9T59DJAcbcJrAM4wHz0JsDU2e
+         /R0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=28XZBshqIMNV0pOkdfIzEq5IhmPkyjQ+6gzKq8U9Rl0=;
-        b=FmV3TvP6Abrzl6/Gj1jWMSO32wXZOjAvBSo83tqVQQWJHAM4yifi8zqC6iLJxU78O2
-         3kFf70Fz2m5sDuvuWsCLfnTxW1S33xZS2KYLU2tnszSkWmaZJ2o7rwE02RnYK6cvdyy4
-         pSZyG7mwM92bwOchpEngVtEAuxaUbMlCf6Qqh41KN7C2Vbf1rWGAeEQwvp7X48JJFMpn
-         fdMCwQ21kGRjfbXGms4YmT6kgxz2i43B97GhW1g/PVmgY2pbzR9IYts62ACiBOj74Bt/
-         bozz8RaohE4i6GMSW2RhaTzCKCbpxOCFDvyPJp20yME9RsEgWV5jOdVQKCDCEfy8o4dn
-         FlPw==
-X-Gm-Message-State: AOAM531zXB6GGDWHvUgDlQvBuOmub2Ti8jphRrwwy5jfzrc03gQsenxP
-	lPXMzEt5pimawM54f3MnPEY=
-X-Google-Smtp-Source: ABdhPJwxlEaMQvwSdDQ6TujsUm2ZDIgRYT6n+2oAFYX0gU7sn0sSXjXUzL1PMH8gt05xEi32eUpDDA==
-X-Received: by 2002:ac2:5e71:: with SMTP id a17mr15164957lfr.465.1627366565925;
-        Mon, 26 Jul 2021 23:16:05 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=bj6vH8ysycdAjapA/MhyYIubBH1RN0VAfR07u7CJxi4=;
+        b=par0kvE+Y4EM5xRxsqzZWu5Nt1tq2W6IfS450WvD9FLKJGWx7I0LQyHUcea6bEPLRn
+         VTpXfWfMmUnLfzeUO5DMfBocwyg2NtqMQ6QRX/bLxbcwQAB/YADp8HixoHu7rAL2fSLE
+         panU52r2JzcA5tqSA2DD/8T2Wabmzqt8rBJw9kj20jaoU9Uq9zRJK+gFwkyqvurAxabW
+         WyLJosZBTqLjiCYoSElJFERfVDjLvjR4VGPwkVzBPNLPXlK/JU4WKZS40HW91QfOthO9
+         WcvWNO5MlBr0n2h/uIak61hCq8oidI+aZVQ/XzIzQNonrGFx2p9ur3wNJGnraAKFe2UG
+         F+yQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530vigajGhsbNTai0h7fGuCJhYYJng0LXVywtGRBxWnmLoJ3q2P+
+	4d4H5c4aSB7fAIpA9McsFgk=
+X-Google-Smtp-Source: ABdhPJzoHO/DOcnYzuHvzdv6ah0Ii03uWml6OvKj2ExgqXsSCRwHFIXxJdBIX23+iTbPs/AEZM5V9A==
+X-Received: by 2002:a62:d404:0:b029:3a1:8a54:728 with SMTP id a4-20020a62d4040000b02903a18a540728mr286309pfh.37.1627368090592;
+        Mon, 26 Jul 2021 23:41:30 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:88c:: with SMTP id d12ls3086354ljq.9.gmail; Mon, 26
- Jul 2021 23:16:05 -0700 (PDT)
-X-Received: by 2002:a2e:904b:: with SMTP id n11mr14220980ljg.104.1627366564943;
-        Mon, 26 Jul 2021 23:16:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627366564; cv=none;
+Received: by 2002:a17:902:bb8f:: with SMTP id m15ls10148509pls.3.gmail; Mon,
+ 26 Jul 2021 23:41:29 -0700 (PDT)
+X-Received: by 2002:a17:902:cec2:b029:12b:fbb7:1f9e with SMTP id d2-20020a170902cec2b029012bfbb71f9emr12381292plg.3.1627368089825;
+        Mon, 26 Jul 2021 23:41:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627368089; cv=none;
         d=google.com; s=arc-20160816;
-        b=CxTJ1N8ku58SHBm663wUhd4HSrPT8aazvTdM2KK/57Iqk4FMPx5qFkw5gibjci0Cic
-         hb0Q0Ss3kEI3fa/hG5TdV0n5rH2jX+yNCGHj2UkLiRUQJ1khZgokG3/SbVLW0HCqPov4
-         MNO4xzTgHLHdQ9IlU1fvPVi/QQiO/M6ZihitHfBXgGFcpxrQgx4j68gEKsFSgIxjSwxP
-         fAAykrwkYAO25undo2HBAMQOiRczgpmNpBNl+3WiQ3xtvP3p98eM45L2E2vvEwLehJzE
-         MVlowkkm7KDUjWLnhSBdmAXmm/M2u+n/5Wq768mX5i/izcOPuRMVByH696bKWs1Csrt5
-         r04A==
+        b=oWmr/5zDAEkF4lx4Y7jhXLcJF3H2cPGvtv05t9Cj5SSgUJq6AqaX6OjJ9N3CEp4l67
+         noBgFUByt5FwyjybPnb9y126rJ0D2MtT97Fha8tK7Me3F2uRhD+hlZTU226pe1cOzbR3
+         Ws1ecMR3+QaPjkF33KofzuTC19t1sYYER11Ozj6Go2FDXdTvsDkgSqwG03ioyU2y70Zz
+         2HX/srCWYxuv9L1HudWtgXX2rwhT2REbRJDGOTE5RtULa/cKDtJ0k1/MzxVh3GkoTtvi
+         EgQU5iX7/1KUAItLyCGi+C+04QndIJKOigq3OZV6d0l+9l2Vqx8tZrSIT+/d/688zSmz
+         oVvA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=tSvAlOWxEIRF8a5C8ywowBQChrZ2YBJxoLkazd7wXek=;
-        b=HrL4v8IrndExl8wjsPA+Wz7R+UhoSsZ7A5PBig+1WRHTBLff1HHuLqn+MUPXy7s0CE
-         gS0fAqYRe7j9Cl1WCK+g6cb5rkwTHHm1E0oI/EihzgMfr1g33DkdDOv3WtzEK7suN6PQ
-         KwTNGcF5CJ2lZ+Aee/Iknh7pcKrt1Mh+mH8edzrEUgfzPn2l9XdeIceuTT3NeYd82AYJ
-         0usKZ+/SClUPE68622mu/D4bV2QMGZayKf1O4vBhTOJstESd8AFsU20V2VEzWCubKzXS
-         GBslk/Wmv06aIZ8IpaRZIHJ1WTa5vDo2jY/Wz3+6IZ+4QihtaW3riqGdEyX6vhjKc8gh
-         VQOw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=fa4XM8PXSRyj5v6U0whiGtNcJw8mhDiRUu7t0frxJRY=;
+        b=TniOSQWHy7GZdsWCs/fnCHycCWb2FblmQVyNMzpBr6ydiufmoLQmo0JBD48Hg5aotI
+         79kC4+TCK3EsUxIHAaGcwP+9i6vAmCASVuptIuZTLyLVN3BmP1SNPL0jktPoEDaWgiAV
+         jsleb0HdVICO1LHrgP+iMfI7tN7CcoteBCSIUvVPHhgnV4IGxdQHrD3K1wvgpQKqxLmW
+         YxKWsFwcuVfDpVOr3GDRZCv5Q8fSPoCzz9trVJdNXwCNXcEKS/vKqS60r/OWMRFWj9SP
+         yThd6gux8bMVHovL1YhW3x45cjOFQgkkndYk3TSCuRkviegGe9l1vfespzXO2bEfhvq8
+         HGww==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="h/K4jENW";
-       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::535 as permitted sender) smtp.mailfrom=morbo@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ed1-x535.google.com (mail-ed1-x535.google.com. [2a00:1450:4864:20::535])
-        by gmr-mx.google.com with ESMTPS id x125si82587lff.9.2021.07.26.23.16.04
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=cUo++3tv;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id u5si165113pji.0.2021.07.26.23.41.29
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 26 Jul 2021 23:16:04 -0700 (PDT)
-Received-SPF: pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::535 as permitted sender) client-ip=2a00:1450:4864:20::535;
-Received: by mail-ed1-x535.google.com with SMTP id y12so5806391edo.6
-        for <clang-built-linux@googlegroups.com>; Mon, 26 Jul 2021 23:16:04 -0700 (PDT)
-X-Received: by 2002:a05:6402:27d2:: with SMTP id c18mr25855641ede.261.1627366564124;
- Mon, 26 Jul 2021 23:16:04 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210714091747.2814370-1-morbo@google.com> <20210726201924.3202278-1-morbo@google.com>
- <20210726201924.3202278-2-morbo@google.com> <c965006c-88e1-3265-eb9c-76dc0bbcb733@kernel.org>
- <YP+ZOx8BETgufxBS@kroah.com>
-In-Reply-To: <YP+ZOx8BETgufxBS@kroah.com>
-From: "'Bill Wendling' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 26 Jul 2021 23:15:52 -0700
-Message-ID: <CAGG=3QX68umw5Ws9_HuGkqoTNT=Q1+QB7YpSaqw3R_kPsbxwsg@mail.gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 26 Jul 2021 23:41:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 1522B610CC;
+	Tue, 27 Jul 2021 06:41:28 +0000 (UTC)
+Date: Tue, 27 Jul 2021 08:41:27 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Bill Wendling <morbo@google.com>
+Cc: Nathan Chancellor <nathan@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	LKML <linux-kernel@vger.kernel.org>
 Subject: Re: [PATCH v2 1/3] base: mark 'no_warn' as unused
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Nathan Chancellor <nathan@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>
+Message-ID: <YP+ql3QFYnefR/Cf@kroah.com>
+References: <20210714091747.2814370-1-morbo@google.com>
+ <20210726201924.3202278-1-morbo@google.com>
+ <20210726201924.3202278-2-morbo@google.com>
+ <c965006c-88e1-3265-eb9c-76dc0bbcb733@kernel.org>
+ <YP+ZOx8BETgufxBS@kroah.com>
+ <CAGG=3QX68umw5Ws9_HuGkqoTNT=Q1+QB7YpSaqw3R_kPsbxwsg@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: morbo@google.com
+Content-Disposition: inline
+In-Reply-To: <CAGG=3QX68umw5Ws9_HuGkqoTNT=Q1+QB7YpSaqw3R_kPsbxwsg@mail.gmail.com>
+X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="h/K4jENW";       spf=pass
- (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::535 as
- permitted sender) smtp.mailfrom=morbo@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Bill Wendling <morbo@google.com>
-Reply-To: Bill Wendling <morbo@google.com>
+ header.i=@linuxfoundation.org header.s=korg header.b=cUo++3tv;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,62 +136,98 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jul 26, 2021 at 10:27 PM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
-> On Mon, Jul 26, 2021 at 01:47:33PM -0700, Nathan Chancellor wrote:
-> > + Greg and Rafael as the maintainer and reviewer of drivers/base/module.c
-> > respectively, drop everyone else.
->
-> Odd no one cc:ed us originally, I guess they didn't want the patch ever
-> merged?  :(
->
+On Mon, Jul 26, 2021 at 11:15:52PM -0700, Bill Wendling wrote:
+> On Mon, Jul 26, 2021 at 10:27 PM Greg Kroah-Hartman
+> <gregkh@linuxfoundation.org> wrote:
+> > On Mon, Jul 26, 2021 at 01:47:33PM -0700, Nathan Chancellor wrote:
+> > > + Greg and Rafael as the maintainer and reviewer of drivers/base/module.c
+> > > respectively, drop everyone else.
 > >
-> > Original post:
+> > Odd no one cc:ed us originally, I guess they didn't want the patch ever
+> > merged?  :(
 > >
-> > https://lore.kernel.org/r/20210726201924.3202278-2-morbo@google.com/
-> >
-> > On 7/26/2021 1:19 PM, 'Bill Wendling' via Clang Built Linux wrote:
-> > > Fix the following build warning:
 > > >
-> > >    drivers/base/module.c:36:6: error: variable 'no_warn' set but not used [-Werror,-Wunused-but-set-variable]
-> > >          int no_warn;
->
-> That's not going to be a good warning to ever have the kernel use due to
-> how lots of hardware works (i.e. we need to do a read after a write but
-> we can throw the read away as it does not matter).
->
->
+> > > Original post:
 > > >
-> > > This variable is used to remove another warning, but causes a warning
-> > > itself. Mark it as 'unused' to avoid that.
+> > > https://lore.kernel.org/r/20210726201924.3202278-2-morbo@google.com/
 > > >
-> > > Signed-off-by: Bill Wendling <morbo@google.com>
+> > > On 7/26/2021 1:19 PM, 'Bill Wendling' via Clang Built Linux wrote:
+> > > > Fix the following build warning:
+> > > >
+> > > >    drivers/base/module.c:36:6: error: variable 'no_warn' set but not used [-Werror,-Wunused-but-set-variable]
+> > > >          int no_warn;
 > >
-> > Even though they evaluate to the same thing, it might be worth using
-> > "__always_unused" here because it is :)
->
-> But it is not unused, the value is written into it.
->
-I believe that only matters if the variable is marked "volatile".
-Otherwise, the variable itself is never used. A "variable that's
-written to but not read from," in fact, is the whole reason for the
-warning.
+> > That's not going to be a good warning to ever have the kernel use due to
+> > how lots of hardware works (i.e. we need to do a read after a write but
+> > we can throw the read away as it does not matter).
+> >
+> >
+> > > >
+> > > > This variable is used to remove another warning, but causes a warning
+> > > > itself. Mark it as 'unused' to avoid that.
+> > > >
+> > > > Signed-off-by: Bill Wendling <morbo@google.com>
+> > >
+> > > Even though they evaluate to the same thing, it might be worth using
+> > > "__always_unused" here because it is :)
+> >
+> > But it is not unused, the value is written into it.
+> >
+> I believe that only matters if the variable is marked "volatile".
 
-> So this isn't ok, sometimes we want to write to variables but never care
-> about the value, that does not mean the compiler should complain about
-> it.
->
-Typically, if you don't care about the return value, you simply don't
-assign it to a variable (cf. printf). However, the functions that
-assign to "no_warn" have the "warn_unused_result" attribute. The fact
-that the variable is named "no_warn" seems to indicate that it's meant
-to remain unused, even if it probably should be checked.
+"volatile" means nothing anymore, never use it or even think about it
+again please :)
 
-Would you rather the warning be turned off on some level?
+> Otherwise, the variable itself is never used. A "variable that's
+> written to but not read from," in fact, is the whole reason for the
+> warning.
 
--bw
+But that is ok!  Sometimes you need to do this with hardware (like all
+PCI devices).  This is a legitimate code flow for many hardware types
+and if a C compiler thinks that this is not ok, then it is broken.
+
+So be VERY careful when changing drivers based on this warning.  Because
+of this, I do not think you can enable it over the whole kernel without
+causing major problems in some areas.
+
+But that is independent of this specific issue you are trying to patch
+here, I say this to warn you of a number of stupid places where people
+have tried to "optimize away" reads based on this compiler warning in
+drivers, and we have had to add them back because it broke
+functionality.
+
+> > So this isn't ok, sometimes we want to write to variables but never care
+> > about the value, that does not mean the compiler should complain about
+> > it.
+> >
+> Typically, if you don't care about the return value, you simply don't
+> assign it to a variable (cf. printf). However, the functions that
+> assign to "no_warn" have the "warn_unused_result" attribute. The fact
+> that the variable is named "no_warn" seems to indicate that it's meant
+> to remain unused, even if it probably should be checked.
+
+These functions have warn_unused_result set on them because for 99% of
+the time, I want the value to be checked.  But as you can see in this
+use, as per the comments in the code, we do not care about the result
+for a very good reason.  So we just assign it to a variable to make the
+compiler quiet.
+
+> Would you rather the warning be turned off on some level?
+
+Which warning?
+
+The code here, as-is, is correct.  We already have 1 compiler warning
+work around in place, do you want to add another one?  How many can we
+stack on top of each other?
+
+And again, why did you not cc: the maintainers of this code for this
+change?  That's not good...
+
+thanks,
+
+greg k-h
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGG%3D3QX68umw5Ws9_HuGkqoTNT%3DQ1%2BQB7YpSaqw3R_kPsbxwsg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YP%2Bql3QFYnefR/Cf%40kroah.com.
