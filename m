@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHEQQGEAMGQEJ6XQTVQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBGURQGEAMGQEUR3BOZA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53c.google.com (mail-ed1-x53c.google.com [IPv6:2a00:1450:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3DB043D7C9C
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 19:53:33 +0200 (CEST)
-Received: by mail-ed1-x53c.google.com with SMTP id c16-20020aa7d6100000b02903bc4c2a387bsf198041edr.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 10:53:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627408413; cv=pass;
+Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0DAA43D7CBC
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 19:55:39 +0200 (CEST)
+Received: by mail-lj1-x239.google.com with SMTP id e5-20020a05651c0385b029019a306f998bsf2134020ljp.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 10:55:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627408538; cv=pass;
         d=google.com; s=arc-20160816;
-        b=y+7uDBIgTMkfn0kyZg/pasnSMQn4bnZfwB0x71TApl9SulxXUcoTHc74ai1U+NX9pQ
-         6ZMJuezra4vyHqwNwVyRegOSMmWs6xhcTfYrYg1hcxg+jRum8Ge2cDybv/Vr3mZ7ElVW
-         I0y++UFPkh4pU093iWM2Hnbvqo1fL6aBiRDx1TuGL7KWsR6PIHsh2iEE24atdNFSqNNF
-         LsyZRi61CFjB1ly+g/GhbuYeqMHpz/Z3qaQZSH6C+B/JNaxJMPKt7v7k1OJA4BXscnwe
-         iT8lCnEgIWmEZGbe5VGco5UPIOCcg7yJeFpjq9HacPDzJddUV/W7Ai7n0Ulb0sXSyrZ2
-         WEig==
+        b=zxcfDprIvfUEp1/JDvoh5If9RacB+YDagHJqmHcv9LNXJMti2wmYH2vWKt98ML+rwC
+         yOe4jl1dOpYXZPFIyUafdFS5DpDrHdJVJZ72ikyD0w1dAQsJvq8cGsH4K9ZReqKZSldb
+         F6nH5T441nbnr9gW7eRyLH0qn8u4ohPXOPchCL6HDmuigb2ANyU8pqtXwkbM5nkVmPYm
+         E3x98UfoqqyraNPGa+f0hSM0TmleYj8Pjl+JAbyiTUCT0pDB1CxeKUntSEeghu7/SCWi
+         tuRfepalOxmUJYyiB3ID32syq2evr1Belbm6Ux0g2LUJmyJYtEImQfoxV/ohVBjgMML7
+         JKtg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=wjILRtW54+tdc6gycU2VY8dwxTU7i40ZMZ7itmYhA4g=;
-        b=x+ThqE8Nh3GZP+ntGieziLroy3Ayhu9KTtkXjkVLJLPEBH7sY8U6TK8JiCdJ4hRSnL
-         rPrfybNZN8eFhJerdruJ1KdBPxVaErKNpM6e5vVkSOSAc6pYGXUVGN8fikVYmFJFC5DF
-         GNuHNN1fMWAJxdqgsjYU88LH9GvVKW7bq6QodadHm8TCwt12QQkJXD7H3NObSaNTPSHL
-         RbNnjVMmv5+ULKizBz+KxvuhqbI0gUVKtoIH4tHpcvs9Xj2woov5nrji+OtPibcd7+ZY
-         xuHd6bgpIEyWbBbvHK8Fusn48zyXT5YoJrSvvVLB2XPTBOBKczL1lhmBeSSvZ1C4ycoe
-         QG+Q==
+        bh=Yh5EaXGUFkV2Ovfylu6fPCB6H1v6i2n3R5bdknLGel0=;
+        b=1E2IX3VdOvx+0ZHT3QQOSt20GH/0l46+/IzGlV0I/9Hc9AkU718GzlTACfyIpIuIqH
+         TcTuBxJgKNafxrgV1XZ+hnD7gEYWjOnRP6xK8Q9mWN6OEHSRQVVSThi9jbYs9vJ8fYfi
+         A93U8r1Kbu67ZJb+wIG/G8EUuSMJphE3hmYFFCJLnm+Jq+lWZiFL9JL8ZGlIg/TZXx0i
+         vEDMnltaDRjHH3CjsO2ZC6tUL2wxy3msaRSqzU3fz3pna9v0YHV8cR7bDf5ZtYbAENf3
+         lg86APMZkutlOPpII8PfP2Jdj3zlXuPiD0hBhyMlnOlIE5MdXSppgmpPBHZd/y9hX9rq
+         8Eow==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="V2PLR/CA";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Q88+W4TP;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wjILRtW54+tdc6gycU2VY8dwxTU7i40ZMZ7itmYhA4g=;
-        b=Sx+NLid3F8AD2BCD7S+aQ7Dx/sHz+ZrrkzufLfpj2xIbnTt6ZOqTcCeqwks6zBH8P9
-         ucF5/yIffABrC/jJm/G08mZQt7a/m6ZNrsIgEZBb8THk8hhpTtodOsZhjUE5RN5rEGZi
-         MOcxhPzvgtcw6XCBnTCfbv7tltgDDeHMmXb8KJbHuWZS1qChS+oWDZ8UfxrZUA6f4a/w
-         vxG+jK5F9sQAg2uxsn4kNCyCI46eI97w47C+4OrCKqmdpOWqTBia0IMrXn3mT9G2bAAA
-         HBY8BVfQnRa6uJR3aRaBIypABYscksrj93HuWfCQNI9TJarCrotHITV33TFeO2tilsiT
-         GklA==
+        bh=Yh5EaXGUFkV2Ovfylu6fPCB6H1v6i2n3R5bdknLGel0=;
+        b=gLn3ZerKl7IP6xuUN1VdPLRcGkQrO9UI1whVMpyIDAO2INhii4xAdVjZPNR48ST4hW
+         lq1bSuI8Tlfze9kDPUTRRMwOVuB57X4GPlwyl+P2dg3XjsM8NvobtDTkLytazL7Ywgiy
+         XowujypqQ9sFmsTrx1Kyvsl856isXttouXweB2/GUQpLo+vcb3Te1O8cOMCGSYOMfgu4
+         NWu0VdPFx52x76LOoFZSaZmr2s9es81hVeKZgq9cIVpbRpnMwvCUF9W/vVClhvmyvNa8
+         CPZBft3OnzAn+UPytHEpK/BNhtlSogbvqEvj9DGPbmZQToKPPsPDExeZECum8bzgDeDx
+         +rDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,63 +49,63 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wjILRtW54+tdc6gycU2VY8dwxTU7i40ZMZ7itmYhA4g=;
-        b=nGeL0h0rg6KTBLiVQ5bc5BJZzquQuvr8iDs2AGgPZyYVCLcvMcHHIECuCOvO9NhZRE
-         A1ZzZ5r8m/c2IS0AdJF8bWCqjYhSEEtanYVqv+5AH9TigNT6ydKoMjn/adLa9Bnzz+Sa
-         KB8WI+fchCfsAj2/mTttBmwmAPvBAhq9OWeRcF/lw1okqfQI3DScLP8JYCdRBMH28lEf
-         GxAL2czYJDp2sIRTaobsKZDgoxTJ8aKwNwbd3+x+mtQPmrz7gZeKqYhb0vrWMXITsw16
-         rD9y7XQqZTBljyAnpFAT5Z9JyT3oncKy2lOhfRqlSsol/bpJg2UhJWGEv7pfG+4KWyhL
-         /gHQ==
-X-Gm-Message-State: AOAM530TGYk/6MZdfMk7iJf+m11kKb1Wwqr7+BuJdHBpWIqdYnW80BSp
-	l+bv9aCL+CGS4ZKsmA++Rro=
-X-Google-Smtp-Source: ABdhPJwobhlxiinEp3H4NynE5/pkcCaTVRCAKy9LsBUGysdeOnqG3NZkTGc/83W5/rz6RyJCcqYnrg==
-X-Received: by 2002:a17:906:2b58:: with SMTP id b24mr22055862ejg.141.1627408413046;
-        Tue, 27 Jul 2021 10:53:33 -0700 (PDT)
+        bh=Yh5EaXGUFkV2Ovfylu6fPCB6H1v6i2n3R5bdknLGel0=;
+        b=SYtPGi6pakUeg4ViPpdR74zAqrk8Zv97BPTh2LRX41qk6AcmtuHGQXohZqpCPyrbEx
+         zROS0bGLVBGaA8j3un0lzIRGpK0M9BzFO/mrO01LEZwLFnFGKs+GuMl4N8Xruaqyuzfm
+         bNcundMwfsT76Y67cP4GMFwiqsFwMaTHatz4t8ThFpA0t8Ypgror/d2SNVDPhgsz8OCO
+         /czvoUw8j0bFGBuk3inOSyrt3W3UE7jGgEywe1vR9cNVUAIUlsynkeNiSI5sgvWBC8jp
+         h+eAt5xoCz/o2PrgmI8P90lAZUwdHQ0CHz/xKVY0xAeKTINROPttE5NsX7TyzYnH1iQP
+         M30g==
+X-Gm-Message-State: AOAM532ASyHmL73jFN/4PWcoHiGUAOIC/IzI0a55vwX1hA0llcJxrV5g
+	I8Hts+njQOBAha1QDh9OOpY=
+X-Google-Smtp-Source: ABdhPJzMyntjLm4mC9RcZeZMjL1hCOK+WhzrVzFRpdTGrkzzH9tcJaOoVdH4mZve+VtTh4iRTrDG4g==
+X-Received: by 2002:a05:6512:20a:: with SMTP id a10mr16782565lfo.205.1627408538650;
+        Tue, 27 Jul 2021 10:55:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a50:fd13:: with SMTP id i19ls1062581eds.2.gmail; Tue, 27 Jul
- 2021 10:53:32 -0700 (PDT)
-X-Received: by 2002:aa7:d48f:: with SMTP id b15mr29623419edr.271.1627408412143;
-        Tue, 27 Jul 2021 10:53:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627408412; cv=none;
+Received: by 2002:a05:6512:b89:: with SMTP id b9ls922751lfv.1.gmail; Tue, 27
+ Jul 2021 10:55:37 -0700 (PDT)
+X-Received: by 2002:a05:6512:401a:: with SMTP id br26mr18031488lfb.236.1627408537579;
+        Tue, 27 Jul 2021 10:55:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627408537; cv=none;
         d=google.com; s=arc-20160816;
-        b=aeod31UTJzDYWscCS6kJ3+GFAHbrdTsQfdXOl1F0C/apFx1sIfCPktO0+FIGvSR6t/
-         EsvvQWmMOmpgCFcO/PpyVRPGGVVWzHpJbc3Q0qtJptfWbRHBgdwcjT2q2EpoXq8DPQdO
-         sHTCxrlP8sAD+Ty3QNHga0QYh9VINWqnZPN29RHzJuKBf55hjKIabT3hTdEfXzNDDIaR
-         vewLTqhgzwIwcCD8UBd0Y6trLgPhwJiru9WX8R7deGX5tLllJsrMY7bglvcrUmvqJ5pm
-         6CqXtkk2vYpVAqSebUDZKIgzKSp46k2MIYrhqPbjbE9Y2H5vD/2CZIQZqRwaLNOeDDt8
-         1aAw==
+        b=x4QUXUYT+slaTFTVHA0CrzmPhwiErw87IAlDE3EE08Ja1Z0SCSxGclIL9HwMcx1UpZ
+         XWO+fOSXUqHVcTGF3BFeePCl05XtpSriV1HoYSzaa5NkmRomfymXePl8TRL4iNK97V0I
+         kxKKvSKrhysF0b7Bgqpnu5UIB1IjcO2VtrY+xRhOAR+McUyycK0K1wm2Vq8YIGzr/ggq
+         W6gqWtUNjJuJgGcpVw8DTIgIwwp3yi7UVGsoCRR+TsD9XuWa/Q13/zQAjnomCqCcfX0+
+         w6lhHOL3alS5D4/3XJAMXJwxExSY2sL7tFxNgo3XviZWWJcYF2XeAp0VuyO60k+c9QYE
+         3UoA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=Awr/4hVZSQpR09EKl8Cxh+0W9sPXqPB7mEdVNsZFybE=;
-        b=kPnkpkPu6iwtRhBSG4DOVvON51VBW5Z8aIeZvL0CZYPzqsrO/hKV9HNr3Y+Z0c+rze
-         vR4NVv1aHmX6oPfPTYul3o2qpn4m/8YSVS2LP755Huh4VXx3EzmyAtsRwH4ms5JWXWiM
-         mcqLMk/YCS7T/ADFj7TwVdSuJJmB0oMMQ0MRR5efAp/GA3Q9dOkTxHqfEDk0XA9jj3Cq
-         iAqz9xnFBDf0crUQfxDxvtnrQdM29q10tqLqwd8RLRgqAjOGxifEjDRbGRbx6HsR9DG6
-         dcxkfiODZnAIWeA9E97YlHK5JulVJoCXf6u0efoI7V7nuZuU52+XWw8McwZgoD9EgpgN
-         F+IA==
+        bh=/VbJOr8r6+EQm5drNSCNTr2Un9oLoU3QNaM6UXCSAXY=;
+        b=zJ3xfVKpzQX/Sbn4MRk55vE1lY7mmBUio4eT9iWku0WbIzWvDrPNqGVYdCt4BJpT1t
+         ayUxetgOoNdYiFD9Pn28aQDv1sybc2RW/lepyumL46Uo8lqJxdFPmVVWlONJx++6cUt4
+         V+vI2Z0GMcZvjimSAYU9L0Tq399UJsSOyqHlvFGQ4MfdyJ+UmfzG1A2gtTNuT4LTHqsa
+         2ST/jOFGICDjJimq168N0bLxrkLZDgG2R1ZUDksbKzjHLRHvwm78v3wc3ovma9ZI8QMA
+         cmDsNluoD6YefEsS86e98uu42KkWMP39Fu6ZJAD+hIJqkV7VViWsAzBd/5DBkjMZVSBj
+         xYjw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="V2PLR/CA";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Q88+W4TP;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x131.google.com (mail-lf1-x131.google.com. [2a00:1450:4864:20::131])
-        by gmr-mx.google.com with ESMTPS id d26si211415edr.3.2021.07.27.10.53.32
+Received: from mail-lf1-x12a.google.com (mail-lf1-x12a.google.com. [2a00:1450:4864:20::12a])
+        by gmr-mx.google.com with ESMTPS id r190si148033lff.0.2021.07.27.10.55.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jul 2021 10:53:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131 as permitted sender) client-ip=2a00:1450:4864:20::131;
-Received: by mail-lf1-x131.google.com with SMTP id z2so23218543lft.1
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 10:53:32 -0700 (PDT)
-X-Received: by 2002:ac2:596a:: with SMTP id h10mr10205722lfp.374.1627408411608;
- Tue, 27 Jul 2021 10:53:31 -0700 (PDT)
+        Tue, 27 Jul 2021 10:55:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12a as permitted sender) client-ip=2a00:1450:4864:20::12a;
+Received: by mail-lf1-x12a.google.com with SMTP id d18so23129299lfb.6
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 10:55:37 -0700 (PDT)
+X-Received: by 2002:a05:6512:32aa:: with SMTP id q10mr16877203lfe.368.1627408537141;
+ Tue, 27 Jul 2021 10:55:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210727141119.19812-1-pavo.banicevic@sartura.hr> <20210727141119.19812-2-pavo.banicevic@sartura.hr>
-In-Reply-To: <20210727141119.19812-2-pavo.banicevic@sartura.hr>
+References: <20210727141119.19812-1-pavo.banicevic@sartura.hr> <20210727141119.19812-3-pavo.banicevic@sartura.hr>
+In-Reply-To: <20210727141119.19812-3-pavo.banicevic@sartura.hr>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 27 Jul 2021 10:53:20 -0700
-Message-ID: <CAKwvOdkwwXV9rN6bzRs_+hbq5thHNSbEtqwOZ7340a79=NqjSg@mail.gmail.com>
-Subject: Re: [PATCH 1/3] arm: include: asm: swab: mask rev16 instruction for clang
-To: Pavo Banicevic <pavo.banicevic@sartura.hr>, Arnd Bergmann <arnd@linaro.org>
+Date: Tue, 27 Jul 2021 10:55:26 -0700
+Message-ID: <CAKwvOdmgSxx-7o6GKd0aLESQvGssteq_GkNFW11a4fatgVeZpA@mail.gmail.com>
+Subject: Re: [PATCH 2/3] arm: include: asm: unified: mask .syntax unified for clang
+To: Pavo Banicevic <pavo.banicevic@sartura.hr>
 Cc: linux@armlinux.org.uk, ast@kernel.org, daniel@iogearbox.net, 
 	andrii@kernel.org, kafai@fb.com, songliubraving@fb.com, yhs@fb.com, 
 	john.fastabend@gmail.com, kpsingh@kernel.org, nathan@kernel.org, 
@@ -117,8 +117,8 @@ Cc: linux@armlinux.org.uk, ast@kernel.org, daniel@iogearbox.net,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="V2PLR/CA";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::131
+ header.i=@google.com header.s=20161025 header.b=Q88+W4TP;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12a
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -140,49 +140,43 @@ On Tue, Jul 27, 2021 at 7:12 AM Pavo Banicevic
 >
 > From: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
 >
-> The samples/bpf with clang -emit-llvm reuses linux headers to build
-> bpf samples, and this w/a only for samples (samples/bpf/Makefile
-> CLANG-bpf).
+> The samples/bpf reuses linux headers, with clang -emit-llvm,
+> so this w/a is only for samples/bpf (samples/bpf/Makefile CLANG-bpf).
 >
-> It allows to build samples/bpf for arm bpf using clang.
+> It allows to build samples/bpf for arm on target board.
 > In another way clang -emit-llvm generates errors like:
 >
-> CLANG-bpf  samples/bpf/tc_l2_redirect_kern.o
-> <inline asm>:1:2: error: invalid register/token name
-> rev16 r3, r0
+> <inline asm>:1:1: error: unknown directive
+> .syntax unified
 >
-> This decision is arguable, probably there is another way, but
-> it doesn't have impact on samples/bpf, so it's easier just ignore
-> it for clang, at least for now.
+> I have verified it on clang 5, 6, 7, 8, 9, 10
+> as on native platform as for cross-compiling. This decision is
+> arguable, but it doesn't have impact on samples/bpf so it's easier
+> just ignore it for clang, at least for now...
 
-NACK
-
-The way to fix these is to sort out the header includes, not turning
-off arbitrary things that are used by the actual kernel build for 32b
-ARM.
+Did you test ARCH=arm kernel builds with Clang with this series applied?
 
 >
 > Signed-off-by: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
 > ---
->  arch/arm/include/asm/swab.h | 3 +++
->  1 file changed, 3 insertions(+)
+>  arch/arm/include/asm/unified.h | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 >
-> diff --git a/arch/arm/include/asm/swab.h b/arch/arm/include/asm/swab.h
-> index c6051823048b..a9fd9cd33d5e 100644
-> --- a/arch/arm/include/asm/swab.h
-> +++ b/arch/arm/include/asm/swab.h
-> @@ -25,8 +25,11 @@ static inline __attribute_const__ __u32 __arch_swahb32(__u32 x)
->         __asm__ ("rev16 %0, %1" : "=r" (x) : "r" (x));
->         return x;
->  }
+> diff --git a/arch/arm/include/asm/unified.h b/arch/arm/include/asm/unified.h
+> index 1e2c3eb04353..8718f313e7c4 100644
+> --- a/arch/arm/include/asm/unified.h
+> +++ b/arch/arm/include/asm/unified.h
+> @@ -11,7 +11,9 @@
+>  #if defined(__ASSEMBLY__)
+>         .syntax unified
+>  #else
+> -__asm__(".syntax unified");
 > +
 > +#ifndef __clang__
->  #define __arch_swahb32 __arch_swahb32
->  #define __arch_swab16(x) ((__u16)__arch_swahb32(x))
-> +#endif
+> +       __asm__(".syntax unified");
+>  #endif
 >
->  static inline __attribute_const__ __u32 __arch_swab32(__u32 x)
->  {
+>  #ifdef CONFIG_CPU_V7M
 > --
 > 2.32.0
 >
@@ -195,4 +189,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkwwXV9rN6bzRs_%2Bhbq5thHNSbEtqwOZ7340a79%3DNqjSg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmgSxx-7o6GKd0aLESQvGssteq_GkNFW11a4fatgVeZpA%40mail.gmail.com.
