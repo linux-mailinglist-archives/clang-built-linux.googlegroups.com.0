@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBH7HQGEAMGQEYSLUDIY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB3XKQGEAMGQENTZKKLA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB01F3D7FAD
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 22:59:12 +0200 (CEST)
-Received: by mail-il1-x140.google.com with SMTP id a16-20020a92d3500000b02902087dbca2b6sf276838ilh.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 13:59:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627419552; cv=pass;
+Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
+	by mail.lfdr.de (Postfix) with ESMTPS id EEC7E3D807F
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 23:06:55 +0200 (CEST)
+Received: by mail-pj1-x103b.google.com with SMTP id cv14-20020a17090afd0eb0290176a28ffed8sf656862pjb.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 14:06:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627420014; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YfgI0G12HmAV9i2VYmMTbn03v5058iNgszqvnuYdyXVhsd07QBFylUO50JqJADodn4
-         n0znYN0z02wEAj7ZYjduu5WA9d8UsYBvCqlmGpAKPj5PvFvmv1FtvwsnctKURysmE4ir
-         kZVY+q0cg14CgOJ0tQH9/keZVvVap4zjW0xEc7GnKcMymYqVscml1zsi3YT6iu6qkV13
-         sYl5SP++FeJ5p6/L8aA5iv4TlP8aWLhjHKqoEmEzGxX3MAuVum7KdqT+WFC8WZy3av1g
-         ob9gOohISo1rXzsG7IZtUg00fpm8wsUUg8QaWUT0yG9NsZf7OkpjiBJtF6en9/8cTeXX
-         L+Rg==
+        b=bBHF7Eh7KyayOB1rtUwKz/1P+xzwohx8JfWA/hMb/XDuV1dQmIXSdXofJN3G4f7gmS
+         5irVAr5DySRYcMqvXHRQbZtj3BgcuinLDT6IabwbVqLZJ6leKRurE8EdDv7MJsjPliYv
+         rYMaeNzUieA3Py7RWqKFDA6JrG2F1WM2zjqkv7DCtlYW+rhgAOJQXzjljAdVGqZ7f578
+         08ftihdS6XXFIE1vVN2RmCkKU7w2cb4k9KTax1Ze5ZBwsj5j4W4zgRLGOrPxQkIYchbo
+         Fazo2kUgQeZAVWRb5n7Ya6UA8bSoO78ZW14XhJpMfRQ02RLsr/8burtxONME9tJPoqyx
+         3ICA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=A4ESzbuAPtGeGtrrh+vo9NPVjzcPmeEP7DW2AQxZXFs=;
-        b=waRxtBLFK9im2b54F6mD+7CBsH3E19Ue3tOwZX814ZJ5G8hk2XYkgvkfbyBuvUZtop
-         B04j7WU68vmcRNHM2+68KRpV0tqdX6hAC2dkgFfWIXt4I5AwAWN3puIWFcB4lYSuB4nT
-         Bn+s4w25k3KypwniRQabddSPU6Ww2/NlFJAVZaG686MaYrUzmxox10LItg5YsK0d99A0
-         1j/DlgUdsGT4yrB9Gzp1fHIJ47lo9e3aOKCi/uR4kq7PR2CxTniPt4IzChVJi6qzwY5z
-         isyTSjfOGwc9tEbAF8j6Qh3kBUkCZb5Em9Ek/g3II32/RrGtEM++st6DpvkrM/Jn7198
-         qIQA==
+        bh=TDftTre83lNCSNunOiHUFn4OAEPrNdIc73iyfgVbe3Q=;
+        b=FijmWaWapB64DG1v7yLmCZJPSRfxo2r8+iBStQabnFhI6JcOongAasNxrkD1zwF6c6
+         5RdtiqzQ1DOpEWYVilKV/CtUqYtS4PE9/60MNIc4C5fYRuCzguYp044BeaDLZUvxwjSw
+         kCDn0dIPj2rHLF0wrDILQRbIbrcj5iiTBP8nGEDFxN9VOUqIWq8NFUvHkOwOc96it74U
+         5wnyHy0G1g0k4PIAaJUYqRwZ9VS6x/RVghcYsHCx7yqtS0PzOtrAGZuLGkp/cThF3wdS
+         AJoFW03bYcN1w3a+l7i/hQFjlPkaLdXNjMXfzyKeG6x5Svt5WJQHORU2kjwiZt0lA433
+         j2nQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=a+dkLFxy;
+       dkim=pass header.i=@chromium.org header.s=google header.b=MBUIR3iB;
        spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1035 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=A4ESzbuAPtGeGtrrh+vo9NPVjzcPmeEP7DW2AQxZXFs=;
-        b=c8gqWkGvCs6luN6WkFVF4fMk9JLA4O7VnfGPkzuFGhEOOnlEOE/CO5V6S7G5gl8pg/
-         vgDzTb8VzEuehlXIVKKL9cJ/wGYRMcdTRGUfgcm95JgH/yTK06BCfq5eZYqi+HFZEJpT
-         A8vSDnQYJSlBH2wiXcRWv3RYTfMX0tI5OumIkGV3JqxGonUPLXLu3khZ8FesSHNLfSbu
-         oe6cRK5DIbM9piVNInrPloQwJ8Z30LL9X/ueK3ZL4s4vhw0vi8vhKK2khI2/DbScX/Gp
-         E7EFm3gwgyMpHBle0VvnYTUiU1N3NyrOek1cwNHRyboF5DOfQHyr3kT0LPjEB3FCWWK/
-         MZiA==
+        bh=TDftTre83lNCSNunOiHUFn4OAEPrNdIc73iyfgVbe3Q=;
+        b=o76+ld90kDZx9WeFl4Gy0hnwQtM49wnbUobKyekNZ6VGDef2sWvf4kzP9mPlqZMucm
+         sYo9TxnFZBTPMK6iUaoCOvSimCmQpcNsdnmESxWCK2gj7eu1NbN3TJVBYCoeXlXYCsYM
+         SmzfTBt2OZ4Wft41De84gAh2QB3gNCVX9C69/s9AFDKXJmHh0V77zOVucr17qJ7aaNnu
+         oebjqjzbF8shrtEKacubrg72qhf1v68obh9xRPT5VrllEi4TB0VXdlrqipqdmzGskF6a
+         BThuRoM4WNGCMVf+0ZevA8A08M76LpBNr4v3MOAMfiRAbxthdiSQZ3VLki8NKnIsBWuw
+         Q7nQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,60 +49,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=A4ESzbuAPtGeGtrrh+vo9NPVjzcPmeEP7DW2AQxZXFs=;
-        b=ZTlvchPXTnOj9oIYkqooNV6Lmvh7aRtQmisQ4AUe8yBNlKPeTyT3botR1sz8Dk5toO
-         FdK+Mrma5Z1Cjlh5FZMN5GBS3Q5FLkaYlyO5WtsiiG/uK0sODD8p+jfjImms12OqWAeI
-         c326NPgbHwn0koQz+WAHnnzQzEDHJk0nfA9KifzkTB/lzqaoAF1OSRRfcKvXEJ/Z5R/g
-         dZL83DN62PvMx9A4S2IHOXYttSnoqyq7FF9zE7636sGmoN6nwKG2gHPYYTVFuDUrHnF3
-         LIUrgVT0WM6W15obRjQNAVf3+89DpJbQXxJcZDtSm7zyn3oM22jAVS0CksH1OC7K7v61
-         vaSw==
+        bh=TDftTre83lNCSNunOiHUFn4OAEPrNdIc73iyfgVbe3Q=;
+        b=Da558zX/dENjFR5tvSmTdJMlR4OnlK4ZD5g+IUiwLV9ME9oCXA8GahXvsaSQvYQFFz
+         HFOaXW7NsVDK0mVMrVi+UZzt7nO+Swj8x+B73VkHuUBVBx3eRcxzyL4sJGD4Moum24UN
+         /k64UTzOl8vIbxH8rcJ0l4Su2z0hQuCQsHFJUej8vP8/flGt504AJANVqQe6oMXEZqEn
+         2eo2TcgLgEYtLfwcC+4aK1t2Mre065or/UWLVLpMMxQJqL7hEndyryLJCNltPG1wRw4I
+         7TjrSnLjYhP5kv0GlZuN8C4JuAFumQ9YDn71378dkruxruW5hfpq53O+Kz83IA1E2B7Z
+         2Dqw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532IZb0EX0xfarHoIj4wg37Ndi1ueg1DDPtQ+jGj+uYSfnecYhG7
-	0vRpTHxWNge5RR+kihWi9cI=
-X-Google-Smtp-Source: ABdhPJxyxJF/yWeW6khdZniwQqNi5SLoXweC5vpKl2TsyN4pXoXvBxpgYXM+nhCrxIZR9T3gmdWhZw==
-X-Received: by 2002:a92:de0a:: with SMTP id x10mr18170845ilm.215.1627419551934;
-        Tue, 27 Jul 2021 13:59:11 -0700 (PDT)
+X-Gm-Message-State: AOAM530fbB0fw5w3OmsR4gyVdBIqxFj0Dnsyj8CbFtGErZA9tmVxTjzc
+	JZw4vBdLn2UWeRD01IOJsWc=
+X-Google-Smtp-Source: ABdhPJxhpDYJiUTUiWb0q1DsB3WZY9tD3ZB+MnYWRidz82XZ7x5afwqREpzmckmkYFpSe5gxuyCiEA==
+X-Received: by 2002:a62:b413:0:b029:327:75dd:c8da with SMTP id h19-20020a62b4130000b029032775ddc8damr24913565pfn.34.1627420014555;
+        Tue, 27 Jul 2021 14:06:54 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6602:17cb:: with SMTP id z11ls27093iox.0.gmail; Tue, 27
- Jul 2021 13:59:11 -0700 (PDT)
-X-Received: by 2002:a05:6602:1647:: with SMTP id y7mr20674157iow.30.1627419551634;
-        Tue, 27 Jul 2021 13:59:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627419551; cv=none;
+Received: by 2002:a17:90a:b78f:: with SMTP id m15ls160448pjr.2.experimental-gmail;
+ Tue, 27 Jul 2021 14:06:53 -0700 (PDT)
+X-Received: by 2002:a17:902:e751:b029:12b:b418:3661 with SMTP id p17-20020a170902e751b029012bb4183661mr20243049plf.28.1627420013748;
+        Tue, 27 Jul 2021 14:06:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627420013; cv=none;
         d=google.com; s=arc-20160816;
-        b=rgoq8KRtkjzxjDh/J5Pn0vCsLI92POhwNtSrvwatd6w+AdJ+536feBKGGCJQhbR1R3
-         KWUq6qeI+U/gWCNWe41iCjWFaik79ic7FIiyaM5BDE4dUScw/KR1QarODT2J9BLDcnYT
-         cbR1u/I5sqKYkNzTU8j2oWZw9vPe+rMM7FYsa3rgnzIE4xeOLsPajRZma31W464ofDTL
-         Tr+jmN7Z9o5ZZgUj/4QsYVXnoNInJzE8j3k/WAIsmKHXYmbVGrV8sC0iodD2Iy4a2iqB
-         fMjnFww4rMS/SzQK3ChngYu3Z5eWSm5QwldqE4+aAMGDLFhIUX44CuAfuE/6VcSmCnUm
-         HoUw==
+        b=GL69NjCsHu8++dqNSO18TZJHtJ1Wfxzg9Y66cgMeROeuQIJE3SALmcdlm3Ujr5T0FP
+         AThg8sfUcUUUlKC9g05Q9X4QcfvX2pSnQbqX7tbcOht57PKtKeFdu7h3tZdqunMpCL2V
+         TSheRhwMIJeBFVcO2UnSrOmGpO2946/HHMUVnxegs5QffnsCCgFo57Sgvha6U978QtGA
+         vV+7kTx91cdmK5ANK/z6b/6BMrZX14ALREM3XucQuKG5Bfid9fnO0hYY8+7vsJYSYLER
+         86/R4HZkkPq6grZUKLBvsvtr79zQPuvrLG1pC03Q5u9PeVn39fzOuGLkITStwYEGt2yx
+         RhvQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=niMj9CXz4ejnw+kzGNZe1+bUFXSbgDhe9sFS3VQ9miI=;
-        b=gflmmRtLhM1+og5pLqH1OOOSBeIHgKGZI6BfW88tvTSBWzpcupuHJ+QVOKRor5z9X9
-         oriuCw/HYH6lPbkLFwjbVXsmokEolS72pFtdzT19U5jNOtlFVnY3E3z0kl/Ovif/hVP7
-         HvEn+Cvx8sAbea61ToNgR0OoAdY07AfxDZu892ZDlYaf9Wt9ykslEJT4IxMJhCFonluW
-         dUMCqjENLxD7gl82iZwhy4xhJae0VvcBb7g0c5Q8LUyS4N+3JupRgCS9g719Q37/syZ5
-         Vko8FvJiTxjxltSRQr9V60h8KFeIDX6/LRxiw8L38+IXVrtDJYhkRRsUMrIqoVGevDtO
-         lUdw==
+        bh=clRlkcTWzJOWdb6SjT1HZu+AyElzVwLtoYPXziOiXRE=;
+        b=K/AKhHHIPKmCtE6vM1zGQwW1kU8zrvWt1Q+Z2hRFgrWRqpQk2wTbFXK7zqxzqw5eRx
+         Qg7gkXcqyCKciYYym3cG10FFbe1m3WuBPLpsHkm8h6XYuyXmgG9Zb83cwYlWvOJwS2NQ
+         7DrrzpNSpYrXjaRWc7EwYQP9Hb8EafCRWK9JJSDNjbt5tDK4TLYbtU5MXIglFSfM9zmS
+         5Cxli9mDiDpj2kwuw/HY7thVd7ZH3+FRW2VFbNKQj1JuKI9EFnzXWhE/uvg+viDxRoVC
+         Q6ZZax50durk4ToTkNGjS3ozgAb5wuNJBhEgwKUzwwuLHxTQnjVgfPjcSnRqYUy9VLmy
+         8wVQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=a+dkLFxy;
+       dkim=pass header.i=@chromium.org header.s=google header.b=MBUIR3iB;
        spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1035 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Received: from mail-pj1-x1035.google.com (mail-pj1-x1035.google.com. [2607:f8b0:4864:20::1035])
-        by gmr-mx.google.com with ESMTPS id b11si269188iln.5.2021.07.27.13.59.11
+        by gmr-mx.google.com with ESMTPS id a6si263601pls.4.2021.07.27.14.06.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jul 2021 13:59:11 -0700 (PDT)
+        Tue, 27 Jul 2021 14:06:53 -0700 (PDT)
 Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1035 as permitted sender) client-ip=2607:f8b0:4864:20::1035;
-Received: by mail-pj1-x1035.google.com with SMTP id g23-20020a17090a5797b02901765d605e14so997047pji.5
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 13:59:11 -0700 (PDT)
-X-Received: by 2002:a63:2586:: with SMTP id l128mr26012275pgl.68.1627419551372;
-        Tue, 27 Jul 2021 13:59:11 -0700 (PDT)
+Received: by mail-pj1-x1035.google.com with SMTP id ca5so1790338pjb.5
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 14:06:53 -0700 (PDT)
+X-Received: by 2002:a65:420d:: with SMTP id c13mr9244079pgq.123.1627420013548;
+        Tue, 27 Jul 2021 14:06:53 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id j13sm5025493pgp.29.2021.07.27.13.59.06
+        by smtp.gmail.com with ESMTPSA id l1sm3813994pjq.1.2021.07.27.14.06.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jul 2021 13:59:08 -0700 (PDT)
+        Tue, 27 Jul 2021 14:06:50 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: linux-hardening@vger.kernel.org
 Cc: Kees Cook <keescook@chromium.org>,
@@ -118,18 +118,18 @@ Cc: Kees Cook <keescook@chromium.org>,
 	linux-block@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH 15/64] ipw2x00: Use struct_group() for memcpy() region
-Date: Tue, 27 Jul 2021 13:58:06 -0700
-Message-Id: <20210727205855.411487-16-keescook@chromium.org>
+Subject: [PATCH 16/64] thermal: intel: int340x_thermal: Use struct_group() for memcpy() region
+Date: Tue, 27 Jul 2021 13:58:07 -0700
+Message-Id: <20210727205855.411487-17-keescook@chromium.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210727205855.411487-1-keescook@chromium.org>
 References: <20210727205855.411487-1-keescook@chromium.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3321; h=from:subject; bh=0Nhl+lV3cEcT5lOU4zXDLwJTWM/l7DZ+/5ez9PThfHU=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhAHODmdLOpeLBo/X7lz0zzh+JJDwEkaDN00Z8kMzv sILJmNmJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYQBzgwAKCRCJcvTf3G3AJqu3EA CgffJsGtT8m9lsKheu7s+yA1eAMukcAQ13t72QJcc8A2IdLK2lwV9x8QVh9uUd3041NW91qDNI+Czs 3k2PBePcLrqYo+rdGa4Fs/X3zYzBDuEQKSmIYIkoJBe2xr+niqqh7xhFf/5ghdEYzaVZ0zGolFf8it 26bmcWDMOOoHxklGwf6NXQYQfYTg0hdDkG2BM1l7UXEbXz2oREhTB+LtbTnn0Hj4OfW7ZiO0CPrkhI lKRNotmC8/XbWEzRldEuybAi7+tknghi8uuLE+9GIz7AC4Fe6UXopDTqzxyP6j+beO0cI5K8QQPYQl 42woosmLzvhziq8Gj3/SzeQTJF9WacNXul30sJfOMm0mwZMl3y9Z2UvHeW2Q1tzzCZvtSChEQJMlJv VPnGbrapT0zmmokAsquizS99ri3WqvRQ4aa/1HPQLQxPLdEV0mfXlCZyBdS9Di0az/9jo4GTt6+4dk xw6s52TxDhSNMdH0X/j3Rd4x2bK4G+3/LG6bbP73GrzRSX/7cr5SQeJiichuQ2tAPPZLG3xktu+SBj GylM+395+DNTumAg5AwAJownhHXWSpyplcyTrQ9IxdGJW3YqhHop4Auz1mygoryurP3HSPSQoF2pzP k0+9FvuNGVyc4wPzxm3gvya7bZvJas+dThlg4d+oB8lbja/QIUDEBiG3BoIw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3277; h=from:subject; bh=FXb9nQQ+9raXNRheCnPL/rsMtfpVZSmOVeEiPUzBx+k=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhAHOD97boEQtghYWjunVAHXryqRBeKslQ/U0/9Z2K SuHsN8WJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYQBzgwAKCRCJcvTf3G3AJs4JD/ 4t9krlI0msPh0DWMgqWRsM+X+y+HiMVgVUi7JkKAiBNJZoty9G4c1eS7yLV6TgLer2yFH8Ds58wUxF O6n5C18sFXheNiEEW+6vqVVeyQpO6nOPUonTlA8hTYBZp6CBNW7L7fqFalI7RlROQmukoEwMQZpWKx EuiGE22FT/3gJFEHq6KV61yPGYruCiyqaRADMcMMvyaJddy1qUkMgv0+9MsD6Pk/GN14+iLJT/WvX/ +Ncg6xMtv77TZnfLggNoIAXvzxqKTuj4YKPXx37SB2DDRCzdDh7R0hdU6WnJYEDwR5nd28AxRY9pW0 3/vFBrVdXmb5M1ePJqtCrbIM24arQveQJ0OFOeHTeWVNTcpF2rYY6HkYdqN5OgBXbagUUrHLo5sTJT oCoXT0USJzevlZoW3hXd+qGHUmuaA7+oUpf8ERJftB1gtBZ5+mAE3oNp6XoGlqZWXKaZOqEXohtJdE JKAKoqmW3JI+EQI+YUWLhorOoexqDCL3tG1VxN6M8wVEznEOVlCPdgcKjMwd4TvvKajC88ejnODvYX Yx+uFlSgaEFH992Tzy+Sem73iwT45T1pxFzlgXi6UKZ/H5V8dY1HWDHhQdWkFNrA7YldsHu5LMPO23 EVZMhiu2pPLzAvDWB389kz3t6FqAo/HGYnm8kfHnyCibi/cFhsXVyBwQujpg==
 X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=a+dkLFxy;       spf=pass
+ header.i=@chromium.org header.s=google header.b=MBUIR3iB;       spf=pass
  (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1035
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
@@ -147,93 +147,110 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 In preparation for FORTIFY_SOURCE performing compile-time and run-time
-field array bounds checking for memcpy(), memmove(), and memset(),
-avoid intentionally writing across neighboring fields.
+field bounds checking for memcpy(), avoid intentionally writing across
+neighboring fields.
 
-Use struct_group() in struct libipw_qos_information_element around
-members qui, qui_type, qui_subtype, version, and ac_info, so they can be
-referenced together. This will allow memcpy() and sizeof() to more easily
-reason about sizes, improve readability, and avoid future warnings about
-writing beyond the end of qui.
+Use struct_group() in struct art around members weight, and ac[0-9]_max,
+so they can be referenced together. This will allow memcpy() and sizeof()
+to more easily reason about sizes, improve readability, and avoid future
+warnings about writing beyond the end of weight.
 
-"pahole" shows no size nor member offset changes to struct
-libipw_qos_information_element.
-
-Additionally corrects the size in libipw_read_qos_param_element() as
-it was testing the wrong structure size (it should have been struct
-libipw_qos_information_element, not struct libipw_qos_parameter_info).
+"pahole" shows no size nor member offset changes to struct art.
+"objdump -d" shows no meaningful object code changes (i.e. only source
+line number induced differences).
 
 Signed-off-by: Kees Cook <keescook@chromium.org>
 ---
- drivers/net/wireless/intel/ipw2x00/libipw.h    | 12 +++++++-----
- drivers/net/wireless/intel/ipw2x00/libipw_rx.c |  8 ++++----
- 2 files changed, 11 insertions(+), 9 deletions(-)
+ .../intel/int340x_thermal/acpi_thermal_rel.c  |  5 +-
+ .../intel/int340x_thermal/acpi_thermal_rel.h  | 48 ++++++++++---------
+ 2 files changed, 29 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/net/wireless/intel/ipw2x00/libipw.h b/drivers/net/wireless/intel/ipw2x00/libipw.h
-index 7964ef7d15f0..4006a0db2eea 100644
---- a/drivers/net/wireless/intel/ipw2x00/libipw.h
-+++ b/drivers/net/wireless/intel/ipw2x00/libipw.h
-@@ -537,11 +537,13 @@ struct libipw_txb {
- struct libipw_qos_information_element {
- 	u8 elementID;
- 	u8 length;
--	u8 qui[QOS_OUI_LEN];
--	u8 qui_type;
--	u8 qui_subtype;
--	u8 version;
--	u8 ac_info;
+diff --git a/drivers/thermal/intel/int340x_thermal/acpi_thermal_rel.c b/drivers/thermal/intel/int340x_thermal/acpi_thermal_rel.c
+index a478cff8162a..e90690a234c4 100644
+--- a/drivers/thermal/intel/int340x_thermal/acpi_thermal_rel.c
++++ b/drivers/thermal/intel/int340x_thermal/acpi_thermal_rel.c
+@@ -250,8 +250,9 @@ static int fill_art(char __user *ubuf)
+ 		get_single_name(arts[i].source, art_user[i].source_device);
+ 		get_single_name(arts[i].target, art_user[i].target_device);
+ 		/* copy the rest int data in addition to source and target */
+-		memcpy(&art_user[i].weight, &arts[i].weight,
+-			sizeof(u64) * (ACPI_NR_ART_ELEMENTS - 2));
++		BUILD_BUG_ON(sizeof(art_user[i].data) !=
++			     sizeof(u64) * (ACPI_NR_ART_ELEMENTS - 2));
++		memcpy(&art_user[i].data, &arts[i].data, sizeof(art_user[i].data));
+ 	}
+ 
+ 	if (copy_to_user(ubuf, art_user, art_len))
+diff --git a/drivers/thermal/intel/int340x_thermal/acpi_thermal_rel.h b/drivers/thermal/intel/int340x_thermal/acpi_thermal_rel.h
+index 58822575fd54..78d942477035 100644
+--- a/drivers/thermal/intel/int340x_thermal/acpi_thermal_rel.h
++++ b/drivers/thermal/intel/int340x_thermal/acpi_thermal_rel.h
+@@ -17,17 +17,19 @@
+ struct art {
+ 	acpi_handle source;
+ 	acpi_handle target;
+-	u64 weight;
+-	u64 ac0_max;
+-	u64 ac1_max;
+-	u64 ac2_max;
+-	u64 ac3_max;
+-	u64 ac4_max;
+-	u64 ac5_max;
+-	u64 ac6_max;
+-	u64 ac7_max;
+-	u64 ac8_max;
+-	u64 ac9_max;
 +	struct_group(data,
-+		u8 qui[QOS_OUI_LEN];
-+		u8 qui_type;
-+		u8 qui_subtype;
-+		u8 version;
-+		u8 ac_info;
++		u64 weight;
++		u64 ac0_max;
++		u64 ac1_max;
++		u64 ac2_max;
++		u64 ac3_max;
++		u64 ac4_max;
++		u64 ac5_max;
++		u64 ac6_max;
++		u64 ac7_max;
++		u64 ac8_max;
++		u64 ac9_max;
 +	);
  } __packed;
  
- struct libipw_qos_ac_parameter {
-diff --git a/drivers/net/wireless/intel/ipw2x00/libipw_rx.c b/drivers/net/wireless/intel/ipw2x00/libipw_rx.c
-index 5a2a723e480b..75cc3cab4992 100644
---- a/drivers/net/wireless/intel/ipw2x00/libipw_rx.c
-+++ b/drivers/net/wireless/intel/ipw2x00/libipw_rx.c
-@@ -948,13 +948,13 @@ static int libipw_read_qos_param_element(struct libipw_qos_parameter_info
- 					    *info_element)
- {
- 	int ret = 0;
--	u16 size = sizeof(struct libipw_qos_parameter_info) - 2;
-+	u16 size = sizeof(element_param->info_element.data);
- 
- 	if ((info_element == NULL) || (element_param == NULL))
- 		return -1;
- 
- 	if (info_element->id == QOS_ELEMENT_ID && info_element->len == size) {
--		memcpy(element_param->info_element.qui, info_element->data,
-+		memcpy(&element_param->info_element.data, info_element->data,
- 		       info_element->len);
- 		element_param->info_element.elementID = info_element->id;
- 		element_param->info_element.length = info_element->len;
-@@ -975,7 +975,7 @@ static int libipw_read_qos_info_element(struct
- 					   *info_element)
- {
- 	int ret = 0;
--	u16 size = sizeof(struct libipw_qos_information_element) - 2;
-+	u16 size = sizeof(element_info->data);
- 
- 	if (element_info == NULL)
- 		return -1;
-@@ -983,7 +983,7 @@ static int libipw_read_qos_info_element(struct
- 		return -1;
- 
- 	if ((info_element->id == QOS_ELEMENT_ID) && (info_element->len == size)) {
--		memcpy(element_info->qui, info_element->data,
-+		memcpy(&element_info->data, info_element->data,
- 		       info_element->len);
- 		element_info->elementID = info_element->id;
- 		element_info->length = info_element->len;
+ struct trt {
+@@ -47,17 +49,19 @@ union art_object {
+ 	struct {
+ 		char source_device[8]; /* ACPI single name */
+ 		char target_device[8]; /* ACPI single name */
+-		u64 weight;
+-		u64 ac0_max_level;
+-		u64 ac1_max_level;
+-		u64 ac2_max_level;
+-		u64 ac3_max_level;
+-		u64 ac4_max_level;
+-		u64 ac5_max_level;
+-		u64 ac6_max_level;
+-		u64 ac7_max_level;
+-		u64 ac8_max_level;
+-		u64 ac9_max_level;
++		struct_group(data,
++			u64 weight;
++			u64 ac0_max_level;
++			u64 ac1_max_level;
++			u64 ac2_max_level;
++			u64 ac3_max_level;
++			u64 ac4_max_level;
++			u64 ac5_max_level;
++			u64 ac6_max_level;
++			u64 ac7_max_level;
++			u64 ac8_max_level;
++			u64 ac9_max_level;
++		);
+ 	};
+ 	u64 __data[ACPI_NR_ART_ELEMENTS];
+ };
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727205855.411487-16-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727205855.411487-17-keescook%40chromium.org.
