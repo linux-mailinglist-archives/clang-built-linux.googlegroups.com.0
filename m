@@ -1,126 +1,126 @@
-Return-Path: <clang-built-linux+bncBCQJP74GSUDRBQ7B72DQMGQECLWQDIQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD66FMGZA4IIFYX6Q4DBUBFWFXVU6@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id DE85F3D6FFC
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 09:07:48 +0200 (CEST)
-Received: by mail-ot1-x340.google.com with SMTP id j8-20020a9d3a080000b02904d1a21b3fbcsf6952001otc.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 00:07:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627369668; cv=pass;
+Received: from mail-lj1-x23a.google.com (mail-lj1-x23a.google.com [IPv6:2a00:1450:4864:20::23a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1A62B3D6FFE
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 09:08:51 +0200 (CEST)
+Received: by mail-lj1-x23a.google.com with SMTP id s15-20020a2eb8cf0000b029019a4da37b65sf1589333ljp.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 00:08:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627369730; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BADZsPf+AubDyDqUdMht0kxlJ8r0way+gqzwS6szyflX9dM4dWuRSKdvVtUUMRVeCq
-         S6ySdc/gCi9y6PSHuf9dKXsPnjlv3zIxjUmOayjsqNa6/+lK6uDspC/+tekTc6iaWtgV
-         9PmGWBFkVBo1JlaphLXmaU9vYh243VaPgzGBHW33dhsE+Dg93I+4g+6cGOm9SJtXS/Zo
-         1EHs8U39RgRVodbxVnlf0GfKn5bZk1Ogvm/y7k4ghec5B9jkitPSUw/pMxeq9WDq2lcT
-         tJudxhOT0k08u8uD2oxaFkHkULscE+u0TrgpWTEI8q53ql8dgebUhXJJ8rv/mrXukrHY
-         DdDA==
+        b=oJD3DcWjIltfpi/xAA1JPqbAYALHAs/Lqu0iu6cGJtU8yhUNFs9/JqWxgnTOfoPHA9
+         DO4z5nCNFIH8ko7p9ze3bJWaTAHmEk8Rtj6ghsE6P5HwECsO00zGN0phavWmNhQ2OlxV
+         syl+mRtMCgI59TRZwDtxNkQR+v/btt0jAWUthhMIKEX9d3dN7IvG2vaVwAs8pNjHL9V4
+         TcXJFDRxmvdseI9oykF4I3wpUzC5iwBPzaViqkcPloKNAPfS78NxJT9l+yBaywUCvqZ1
+         HCFHvrBZfznRyTmTFZmHGst615NwdKfnFT4uvIinVdMqX8c48eCAzPxCukkQ8LEX9yK6
+         3s4g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=WlSBClHAVaF2sVGckWhZUSZeFggQhDvDg8x2hduZNCw=;
-        b=xIxBmSsS7v4yoNTXi08ZTSLauNdv9W5GskStYIXmA2gGekh3nrFivAaSfUYXRj4b6y
-         eSymo716U5XYkLdnU8lEN4TtpHgci5jevuYU+4GWNBlGj3wUkXsZuRzI9V5vwdXETmIx
-         PFV3kNAB40flLRBl3LhdMI4h3XPU/xKhhQKRKcsPXalzZ+xI6A4ZnVKg+R9UIBFRt+ie
-         x5+Evb2x23xrmS/Sw8h3UTg2u6fS/wzrwGrQlVMo+K93fpMJuSa7fNBIZjZ2d/0y6y3a
-         sJBkXJSRNEcW2pmASgV1vNGVB1t8x4ehcyWrK/72hbGIZWPAGPlC2wgq+JJjUfquJYlU
-         bBpA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=Er157VsiSCgP71elepVHNbIMIysOg/Q5O3SjZym1olc=;
+        b=dsdkFVPxFnvg0hNo6KXQupUIEalyclvBF0JeIVevTiuqTi+9Fvttb6qR1NXMhusQoN
+         QYuz5BKsUnQ/zkMS5uEKPDQ51VV8vvEj4q6GKKJIN07D5nS1kAQ/ym6P0FCMvw/q943/
+         8PeaZD0O4qB8/MyD5uY0Y4tWWX06KFZ6r9z9uCRr0SgGXxcz9sq0bXS4feq/Djqr77Wm
+         9HhfEM1PQbDTk+YV4vOvpznhNveDl0QbUgO80FYTqUDnCZpMw0zT66GOGtuKE+ncZXD1
+         l02JMkXN/YawwLh3vT9XiLnvqcrKBFrorQzdQfwnZpmimBiyANYsuKcF0fPcuzIjsTe4
+         iujg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.217.44 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=uhzcnEfM;
+       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::629 as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=WlSBClHAVaF2sVGckWhZUSZeFggQhDvDg8x2hduZNCw=;
-        b=T5jgTBxuOf0MQCzjU7KZrvAtr40eqKHbfjPhwXRA2c8FqBDHYkq6TtRo2p31kYhELQ
-         oKwrluwlNLOLPQpXsWtz2zs5KLrDGkfsUR4DMQd8etXz0Fltzb+Xs0f5/6zqv6YoJwAp
-         ZG/KTEY/IhNYUxPMNkC/HjkSWpW3u9JcugKqUEj8IgrGJy6ObKe6K9orJ+IqC15cBssH
-         9Zn/cnGFryop52jJ0oDWawPXH2ywl5tyqpGSpVHqv4OwyOtl01R8fNrMrlv7y2TXW+90
-         eMg4g1F0QrU7y2+ZU0KOH0FVlmr5FpqN49GC5k/xBBuP0EBU0HYjkc8/nfmT8QhBSUHb
-         x5IA==
+        bh=Er157VsiSCgP71elepVHNbIMIysOg/Q5O3SjZym1olc=;
+        b=KFUf6uca16vf8y926QFauW1VAvVLNJRNqDaEukTpaTXGa3SkTniDxExp1Gs/MGO71m
+         LqwdsP7yH30Mw3OYbNeUVHOyy0cPmwqp867/UB7dbE6+7rjDh77+svkhfxRFtWLgy5pj
+         J3mT/gJoFlgXtLn2cgt9gKpe0TydXM3Odi4XVEldwm9yLIuFd904qgTNOCecfrlqWSU/
+         iZi0UIFzFAOfHhvtIHkBtrCcpeeAA9gmiUFdZi7o7PUmiFbwTAVXzuvUiWmrARcFPFzt
+         1y9+ORkXPApg4kaglmRQ7SWGOGWUTlIfdoTET/xE5R7thmMQoz3HEQuJ3DzUelmLgJPe
+         AFBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=WlSBClHAVaF2sVGckWhZUSZeFggQhDvDg8x2hduZNCw=;
-        b=lRlbLMU/YhjnJGCflqbqIz/iPrjhzZZwl6AFHdkWx9DiBDOvkJTpWQFHa8r2ZgefjV
-         8WHV2eRTOobXiyb6jahF+0+5MyM2F5+LmvRCuOZA5lwAjIPn+v99+xllySpHfluHLbKE
-         PfAI2z6RoYZP6tUeWFyXCseCuR/9vILsF1BCDkA136aueI9IiHmWdu8pBf2b/7P5lqPy
-         8cUnMZDgGyJWDgBiDbtP/36wRevB+MWpz2NLWu3e2uf9czZ4cMfVyU0whXwXvcjj9avn
-         U3efnPHQSv5/t1yzS1VgvV0ZesekjgSsVzCh4tzh9WRWlgw+UrPE2+thb9WjQnfnh9j4
-         6aKQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530wdY+SwzpvyBruYAYWLkUtHdrl7WAieRWuM1iW366sKkWWZFAH
-	sLwkOxc0a9kFsJmJ6KV6wJw=
-X-Google-Smtp-Source: ABdhPJxGjUFU3PrvaqTjTJzltCMhB+dHeAQtXzlEpQBsbpbzyrdDH3nMwaAFcNFCcsu1wCi5Y0+REg==
-X-Received: by 2002:a54:440f:: with SMTP id k15mr1930831oiw.169.1627369667915;
-        Tue, 27 Jul 2021 00:07:47 -0700 (PDT)
+        bh=Er157VsiSCgP71elepVHNbIMIysOg/Q5O3SjZym1olc=;
+        b=d+tN+OZodSyTCbnHDyaBOr+mykdRslUpO92jMYwoVsE/0Sh3sI0XIXSCSN1bisvAV/
+         Aoqv6gR35umwL98nfr7FZ3JVCS92ljcZnDH+ewDjuS7eP8aEbG8poTNMN345ODgdPVJr
+         OrJxbQOeOpMUisTrsB6paMW6ypX7Wzn5YlzKd7jEsx3P54B78/LTosjZVhbAkSKYmirk
+         cuLmPSS2jrqobNuZVoJqGY6CfqfPcU0L+RibEGHQ+5xnkSfEyCJXNlzUbMf2Q/oEkz7x
+         LjbINI6ELOkn0N28yVlVClOGet3Mz4C5WoW2LYqFaUwssXT05EP/G3/Ukt1nFBbn8kJV
+         Rc3g==
+X-Gm-Message-State: AOAM532JZJ1Uze8Otxg6HhFO5fqxPuTm0QVymTiGl5imRtC+17P1ooHJ
+	uGg+GNl+lP1tVcHUhTkWJqk=
+X-Google-Smtp-Source: ABdhPJwhqipoSfwM7hCFhq99roYoRP/FYZY4k+uQd+SKF0An7yphYg/sb7tSLEOL2E9JMIdNg/jVcA==
+X-Received: by 2002:a05:6512:2215:: with SMTP id h21mr14918928lfu.419.1627369730519;
+        Tue, 27 Jul 2021 00:08:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:5a01:: with SMTP id v1ls6509243oth.3.gmail; Tue, 27 Jul
- 2021 00:07:47 -0700 (PDT)
-X-Received: by 2002:a9d:8d3:: with SMTP id 77mr14385424otf.6.1627369667334;
-        Tue, 27 Jul 2021 00:07:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627369667; cv=none;
+Received: by 2002:a2e:b4b3:: with SMTP id q19ls2260115ljm.0.gmail; Tue, 27 Jul
+ 2021 00:08:49 -0700 (PDT)
+X-Received: by 2002:a2e:b16b:: with SMTP id a11mr13852811ljm.346.1627369729384;
+        Tue, 27 Jul 2021 00:08:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627369729; cv=none;
         d=google.com; s=arc-20160816;
-        b=WpnbFg2r7OycRzN8IQ69wNwE2K7+8mRY6E1cizkI3lkGWaM8+KK0nWHVj7m82GUOPa
-         j4eX9UAkZA0Qbo7z2eTBaM9vO1ALkpjiTL7tyFZ4IUOtxdeCoXlejIXXsowyNw3C2KXS
-         J/8FsG2kcooE138CYK89XYP0NNfQmCkpvpPeVTaRsNid6sFm0KVL/5wlYbyVNtIjAPsc
-         wVXfGlIB0mCgzdSfoByxroBzvPqxTXBiRpaHlgE/Yij6amQby3Ha6toBFJfmjwBk9ZCW
-         bVVFxOjpW1IIW4+dLJWIfpsH0WlO+4i6ljAhP3DZGMLv//VHRKnej7PE0YdA2EIH3/OT
-         Tctg==
+        b=JWQ+2Ivl26HXUyi2XxcWihHUqlSf2r4q3o/1CpFjDmP3sUPyAo+hOhBJRwF7TNqD/B
+         4FaV8wU+ylxeoHsxt7RHw8mLAldEmdXMvJsOTwkhgJln1wHtdAI928mWojSe9YYHVjD7
+         zsEmZxLehPMd2dE7Sn+iJJ8VZDSiqnnT86kmZn5oKx75tqLTnvkYI4IBO5jQq7mx8Wvb
+         mZP0qfKrMyYuid7/A7+4iUpDMJf3RAdSzSShEpQzz31JUrVJ0wz8qYAL05bUCgcWP788
+         S76+cSSG7B94Dm5b/xMo8DWmGeRhkl7FBpG4eG7McT1UiCogoTfPJg2TF+YSngokJye7
+         +BKw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=OWWpSAtCNA4RpYoScDMo7iZfNSeN3Kj8E95aS29aW0c=;
-        b=NOSxSLVeIKlftlgNmLhKahu9AbrhbH8XrWl6JP5zoQp2MsKoMedWOzojtZMiK3KodG
-         CZJ+dR+MQxEwwnTU09jkoqMpxZhF19SMQM/926PPSC1jEU1cIfEHN7WCUhu72UN8jySA
-         Fq4ljRgcdSOTX4hYMQrSifG5EOpShcYTLXL7BU8HC/73FkD6OHsdlDfphvcAi4lL8LnM
-         HLHoj063nkjzo09u2DZiLCqx6BiC7Jz+9QVefJYhf5XX2aYk0UfdvLApWGrVXl+JKbNf
-         agDMTC96Nw8PQgeVuJcxoB8NmCMK5FulSB+TbUXt/0TJ4V6RyPt16/nh1Ue+740xLJe1
-         TkIg==
+         :mime-version:dkim-signature;
+        bh=61u8UCMEnO7wATC11PhF1oS3yaK+Qc9yAnlIV6nisfQ=;
+        b=SmnxJI4VzJrofAl6dFxvIDUZStiZIW9C7GJ4/+brHEOG8ateIkdKq5jEjisDKhFjAp
+         DJ6TKgj6TV3vPGteVHOpxptyAZid4kwMBbfYs0kS7l6lKnSqAmGInXy6z/E2h4cr17dd
+         iXMKgUlNSxQEa5/3v6lPjDID9ghD87j4jfW0jlLpUzc9PZnpXKiG8Cphzve5+SVonx8J
+         E/mn3EwjmYtqQO1tEgAwkE9pzJTVuO7L1SVN8Nuh2hVUXJPzTuNprlL0tgrN9Yt47zIV
+         4mdHiRmfGTfCEiNqAkmGymY0TmuAQECbz48B4a21C3KNgrxUsBrmNFhgceURc9pm/Gef
+         YhMw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.217.44 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
-Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com. [209.85.217.44])
-        by gmr-mx.google.com with ESMTPS id q1si262096oij.1.2021.07.27.00.07.47
+       dkim=pass header.i=@google.com header.s=20161025 header.b=uhzcnEfM;
+       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::629 as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-ej1-x629.google.com (mail-ej1-x629.google.com. [2a00:1450:4864:20::629])
+        by gmr-mx.google.com with ESMTPS id i12si109015lfc.10.2021.07.27.00.08.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jul 2021 00:07:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.217.44 as permitted sender) client-ip=209.85.217.44;
-Received: by mail-vs1-f44.google.com with SMTP id o8so6630130vss.4
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 00:07:47 -0700 (PDT)
-X-Received: by 2002:a67:7789:: with SMTP id s131mr12340280vsc.40.1627369666722;
- Tue, 27 Jul 2021 00:07:46 -0700 (PDT)
+        Tue, 27 Jul 2021 00:08:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::629 as permitted sender) client-ip=2a00:1450:4864:20::629;
+Received: by mail-ej1-x629.google.com with SMTP id gn26so14406570ejc.3
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 00:08:49 -0700 (PDT)
+X-Received: by 2002:a17:906:404:: with SMTP id d4mr20426224eja.449.1627369728555;
+ Tue, 27 Jul 2021 00:08:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210708232522.3118208-1-ndesaulniers@google.com>
- <20210708232522.3118208-3-ndesaulniers@google.com> <CAK7LNARye5Opc0AdXpn+DHB7hTaphoRSCUWxJgXu+sjuNjWUCg@mail.gmail.com>
- <CAHk-=wgGxu4_hgzdYpFuKd95SfnkJbPTWAQ9-fMgmMN1Oxs2xQ@mail.gmail.com>
- <CAK8P3a3=JBQow-Ws6tt81k93aw+OCV5C2CtSWxASkv=iQZPGUw@mail.gmail.com>
- <CAK7LNATLy2F-2zkHm4ENSufBT_o5p=9jc5k1K-xOV8cQf7kKDw@mail.gmail.com> <87r1fkizxl.fsf@disp2133>
-In-Reply-To: <87r1fkizxl.fsf@disp2133>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 27 Jul 2021 09:07:35 +0200
-Message-ID: <CAMuHMdVzNFqAdxK+QTp7ub7LyhDL_3GbVMoAah_s3nGuJ5JN_Q@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] Makefile: infer CROSS_COMPILE from SRCARCH for
- LLVM=1 LLVM_IAS=1
-To: "Eric W. Biederman" <ebiederm@xmission.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Arnd Bergmann <arnd@kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Fangrui Song <maskray@google.com>, 
-	Michal Marek <michal.lkml@markovi.net>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Christoph Hellwig <hch@infradead.org>, 
-	Nathan Chancellor <nathan@kernel.org>
-Content-Type: multipart/mixed; boundary="000000000000e7813405c815864b"
-X-Original-Sender: geert@linux-m68k.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.217.44
- as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+References: <20210714091747.2814370-1-morbo@google.com> <20210726201924.3202278-1-morbo@google.com>
+ <20210726201924.3202278-2-morbo@google.com> <c965006c-88e1-3265-eb9c-76dc0bbcb733@kernel.org>
+ <YP+ZOx8BETgufxBS@kroah.com> <CAGG=3QX68umw5Ws9_HuGkqoTNT=Q1+QB7YpSaqw3R_kPsbxwsg@mail.gmail.com>
+ <YP+ql3QFYnefR/Cf@kroah.com>
+In-Reply-To: <YP+ql3QFYnefR/Cf@kroah.com>
+From: "'Bill Wendling' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 27 Jul 2021 00:08:37 -0700
+Message-ID: <CAGG=3QVc_OZoKi2J8tqRoBKcPekgAMMi=6Uphg1hNGNDK1qJUA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] base: mark 'no_warn' as unused
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Nathan Chancellor <nathan@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: morbo@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=uhzcnEfM;       spf=pass
+ (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::629 as
+ permitted sender) smtp.mailfrom=morbo@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Bill Wendling <morbo@google.com>
+Reply-To: Bill Wendling <morbo@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,128 +133,132 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---000000000000e7813405c815864b
-Content-Type: text/plain; charset="UTF-8"
+On Mon, Jul 26, 2021 at 11:41 PM Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+> On Mon, Jul 26, 2021 at 11:15:52PM -0700, Bill Wendling wrote:
+> > On Mon, Jul 26, 2021 at 10:27 PM Greg Kroah-Hartman
+> > <gregkh@linuxfoundation.org> wrote:
+> > > On Mon, Jul 26, 2021 at 01:47:33PM -0700, Nathan Chancellor wrote:
+> > > > + Greg and Rafael as the maintainer and reviewer of drivers/base/module.c
+> > > > respectively, drop everyone else.
+> > >
+> > > Odd no one cc:ed us originally, I guess they didn't want the patch ever
+> > > merged?  :(
+> > >
+I don't believe I saw you or Rafael listed in the
+"script/get_maintainers" output. I tried to copy everyone who showed
+up.
 
-Hi Eric,
-
-On Mon, Jul 26, 2021 at 10:27 PM Eric W. Biederman
-<ebiederm@xmission.com> wrote:
-> Masahiro Yamada <masahiroy@kernel.org> writes:
-> > On Wed, Jul 21, 2021 at 4:58 AM Arnd Bergmann <arnd@kernel.org> wrote:
-> >> On Tue, Jul 20, 2021 at 7:43 PM Linus Torvalds
-> >> <torvalds@linux-foundation.org> wrote:
-> >> > On Tue, Jul 20, 2021 at 1:05 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
-> >> >
-> >> > We do most of the other heavy lifting in this area in Kconfig anyway,
-> >> > why not add that compiler choice?
-> >> >
-> >> > Obviously it would be gated by the tests to see which compilers are
-> >> > _installed_ (and that they are valid versions), so that it doesn't ask
-> >> > stupid things ("do you want gcc or clang" when only one of them is
-> >> > installed and/or viable).
-> >>
-> >> I don't see a good way of making Kconfig options both select the
-> >> compiler and defining variables based on the compiler, since that
-> >> would mean teaching Kconfig about re-evaluating all compiler
-> >> dependent settings whenever the first option changes.
-> >>
-> >> I do have another idea that I think would work though.
-> >>
-> >> > Hmm? So then any "LLVM=1" thing would be about the "make config"
-> >> > stage, not the actual build stage.
-> >> >
-> >> > (It has annoyed me for years that if you want to cross-compile, you
-> >> > first have to do "make ARCH=xyz config" and then remember to do "make
-> >> > ARCH=xyz" for the build too, but I cross-compile so seldom that I've
-> >> > never really cared).
-> >>
-> >> The best thing that I have come up with is a pre-configure step, where
-> >> an object tree gets seeded with a makefile fragment that gets included
-> >> for any 'make' invocation. This would set 'ARCH=', 'CROSS_COMPILE',
-> >> 'CC=' and possibly any other option that gets passed to 'make' as
-> >> a variable and has to exist before calling 'make *config'.
-> >
-> >
-> > There is no need to add a hook to include such makefile fragment(s).
-> >
-> > Quite opposite, you can put your Makefile (in a different filename)
-> > that includes the top Makefile.
-> >
-> >
-> > I think this is what people are already doing:
-> >
-> >
-> > GNU Make looks for 'GNUmakefile', 'makefile', and 'Makefile'
-> > in this order.
-> >
-> >
-> > So, you can put 'GNUmakefile' with your favorite setups.
-> >
-> >
-> > $ cat GNUmakefile
-> > ARCH=arm64
-> > CROSS_COMPILE=aarch64-linux-gnu-
-> > CC=clang
-> > include Makefile
+> > > >
+> > > > Original post:
+> > > >
+> > > > https://lore.kernel.org/r/20210726201924.3202278-2-morbo@google.com/
+> > > >
+> > > > On 7/26/2021 1:19 PM, 'Bill Wendling' via Clang Built Linux wrote:
+> > > > > Fix the following build warning:
+> > > > >
+> > > > >    drivers/base/module.c:36:6: error: variable 'no_warn' set but not used [-Werror,-Wunused-but-set-variable]
+> > > > >          int no_warn;
+> > >
+> > > That's not going to be a good warning to ever have the kernel use due to
+> > > how lots of hardware works (i.e. we need to do a read after a write but
+> > > we can throw the read away as it does not matter).
+> > >
+> > >
+> > > > >
+> > > > > This variable is used to remove another warning, but causes a warning
+> > > > > itself. Mark it as 'unused' to avoid that.
+> > > > >
+> > > > > Signed-off-by: Bill Wendling <morbo@google.com>
+> > > >
+> > > > Even though they evaluate to the same thing, it might be worth using
+> > > > "__always_unused" here because it is :)
+> > >
+> > > But it is not unused, the value is written into it.
+> > >
+> > I believe that only matters if the variable is marked "volatile".
 >
-> Very weird.
+> "volatile" means nothing anymore, never use it or even think about it
+> again please :)
 >
-> I just tested this and it does not work.
-> I did this:
+Never use what? ;-)
+
+> > Otherwise, the variable itself is never used. A "variable that's
+> > written to but not read from," in fact, is the whole reason for the
+> > warning.
 >
-> $ cat GNUmakefile
-> ARCH = alpha
-> CROSS_COMPILE = $(arch-prefix alpha)
-> include Makefile
+> But that is ok!  Sometimes you need to do this with hardware (like all
+> PCI devices).  This is a legitimate code flow for many hardware types
+> and if a C compiler thinks that this is not ok, then it is broken.
 >
-> In one of my build directories and the main makefile simply does not see
-> the value of ARCH or CROSS_COMPILE I set.  I have confirmed that my
-> GNUmakefile is being read, because everything breaks if I remove the
-> include line.
+Well, no. A C compiler cares about the C language. A variable that's
+assigned to but not otherwise used isn't useful in the language. Like
+most warnings, the compiler warns because these situations have led to
+errors in the past (e.g. maybe someone assigned to the wrong variable
+because they mistyped the name or something). So this is a perfectly
+valid warning for a C compiler to emit. This especially holds true
+when the function being called is marked as requiring the return value
+to be checked, as is the case with the functions whose values are
+assigned 'no_warn'.
+
+> So be VERY careful when changing drivers based on this warning.  Because
+> of this, I do not think you can enable it over the whole kernel without
+> causing major problems in some areas.
 >
-> Does anyone have any ideas?
+> But that is independent of this specific issue you are trying to patch
+> here, I say this to warn you of a number of stupid places where people
+> have tried to "optimize away" reads based on this compiler warning in
+> drivers, and we have had to add them back because it broke
+> functionality.
 >
-> Something so we don't have to specify all of these variables on the make
-> command line would be nice.
+I definitely agree that we shouldn't blindly remove code just because
+the return value assigned to a variable isn't used. That's not what
+this patch is doing.
 
-Just including the main Makefile does not work.
-That's why I went with the more convoluted solution in
-https://lore.kernel.org/linux-kbuild/CAMuHMdXJBqrpzaSNDJgic14ESiHV6cCcb_5E-st6iniXdmm9_g@mail.gmail.com/
+> > > So this isn't ok, sometimes we want to write to variables but never care
+> > > about the value, that does not mean the compiler should complain about
+> > > it.
+> > >
+> > Typically, if you don't care about the return value, you simply don't
+> > assign it to a variable (cf. printf). However, the functions that
+> > assign to "no_warn" have the "warn_unused_result" attribute. The fact
+> > that the variable is named "no_warn" seems to indicate that it's meant
+> > to remain unused, even if it probably should be checked.
+>
+> These functions have warn_unused_result set on them because for 99% of
+> the time, I want the value to be checked.  But as you can see in this
+> use, as per the comments in the code, we do not care about the result
+> for a very good reason.  So we just assign it to a variable to make the
+> compiler quiet.
+>
+Right. And because you[1] had to hack around that warning, it led to
+another warning. This is typical with hacks.
 
-Please try the attached, which combines everything above in a single
-file, and which works for me. Note that "$(arch-prefix alpha)" didn't
-work for me (it resolved to "gcc"?), so I used "alpha-linux-gnu-"
-instead.
+[1] Okay, maybe not *you* explicitly, but "you" in the general sense
+of "the person who wrote this code."
 
-Good luck!
+> > Would you rather the warning be turned off on some level?
+>
+> Which warning?
+>
+The one this patch is for.
 
-Gr{oetje,eeting}s,
+> The code here, as-is, is correct.  We already have 1 compiler warning
+> work around in place, do you want to add another one?  How many can we
+> stack on top of each other?
+>
+This one change should suffice.
 
-                        Geert
+> And again, why did you not cc: the maintainers of this code for this
+> change?  That's not good...
+>
+I guess the maintainers didn't show up in the scripts/get_maintainers
+list when I ran it. I CC'ed everyone that did show up. There's a long
+list of emails in the "To" section. I don't know what else to say...
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+-bw
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMuHMdVzNFqAdxK%2BQTp7ub7LyhDL_3GbVMoAah_s3nGuJ5JN_Q%40mail.gmail.com.
-
---000000000000e7813405c815864b
-Content-Type: application/octet-stream; name=GNUmakefile
-Content-Disposition: attachment; filename=GNUmakefile
-Content-Transfer-Encoding: base64
-Content-ID: <f_krlpouog0>
-X-Attachment-Id: f_krlpouog0
-
-TUFLRUFSR1MgPSBBUkNIPWFscGhhIENST1NTX0NPTVBJTEU9YWxwaGEtbGludXgtZ251LQoKTUFL
-RUZMQUdTICs9IC0tbm8tcHJpbnQtZGlyZWN0b3J5CgouUEhPTlk6IGFsbCAkKE1BS0VDTURHT0FM
-UykKCmFsbAk6PSAkKGZpbHRlci1vdXQgYWxsIE1ha2VmaWxlLCQoTUFLRUNNREdPQUxTKSkKCmFs
-bDoKCUAkKE1BS0UpICQoTUFLRUFSR1MpICQoYWxsKSAtZiBNYWtlZmlsZQoKTWFrZWZpbGU6OwoK
-JChhbGwpOiBhbGwKCUA6CgolLzogYWxsCglAOgo=
---000000000000e7813405c815864b--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGG%3D3QVc_OZoKi2J8tqRoBKcPekgAMMi%3D6Uphg1hNGNDK1qJUA%40mail.gmail.com.
