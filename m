@@ -1,129 +1,136 @@
-Return-Path: <clang-built-linux+bncBDHYV67X5UKBBNPT72DQMGQEBTVGFZQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBCHV72DQMGQE6YVVWUY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
-	by mail.lfdr.de (Postfix) with ESMTPS id A8BAA3D7088
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 09:45:58 +0200 (CEST)
-Received: by mail-qt1-x83d.google.com with SMTP id l7-20020ac848c70000b0290252173fe79csf5943999qtr.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 00:45:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627371957; cv=pass;
+Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id F413C3D7093
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 09:49:29 +0200 (CEST)
+Received: by mail-yb1-xb3d.google.com with SMTP id x7-20020a0569021027b029055b9b68cd3esf17596647ybt.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 00:49:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627372169; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ztm+dYyEgeM3oT3C4xiExedPaV/0Y6m5l48hLGrGeuk91j+EDpZy97DZW3nwwKVJUK
-         iy3iU49Wf9MYLOqer13GNgIpc+gbeO4wrwL0YrPBUvc3DXmoIoertnSCRIMbNjt/HUi5
-         jkoB/rfyDzcjf+uq6TMCAHpBIx6a4bj+3QMH2YSSbv2DtL+cVfw9Wzc/dm1XGFSvDiu/
-         FxbC632PeEbSrIYgsCBnAlLOqtqsvEnrO6bkvrVYHf1qVZRpC2KVDXc9mwpoN15obxVJ
-         /nLKo/Xuv1Svm4cQ/AyMIs9m3pjblfaj0e7DHGna9tRwh4RFQgs7FVI3pKUgZ1njccYz
-         /qYg==
+        b=P91T8ienwIyARSi/I69oosZbSfZuEX4pbgpw07YMmVC8Yzvg9KIolipaVvRM/KNYpL
+         bF9nf1/lra3xt0OfyAy/asQiCcDkbm1uUUIuqUEswfuUqKZ+bxJhduS7nj3yEKlpzFH6
+         QMS2GvDQVrBMrgtp8XgNXKq571WqsbPXsHO5vOCZzmrAD5ZoQriHSZXt9ScbOy/TlMc1
+         r9B7gS3C7v/Poe35C/PX3OvPUn7kU0YBtltxls6lEngYu0t/gVI7Y0Jxsys9aEtldz9q
+         2aOm5Av6/7zwLhodYsxygVRT1HpGXEowY9M82gAm9s/GjREKEe5/NMgmIs3rL8lBxw6u
+         /bQQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=4If6ztDvUbMP+TgfR4oaXWfSU5lXMG+r6oDDMJBZZqU=;
-        b=Na2d/0LDKQVk++aNwEBOJxMiLEjgmp1rrMT2+vUJsfesdwkdpblk18r14wY1Kj3Wsb
-         tLgq8QJC6VYQTQzYcFUjx3Flb52CGEQsPmtd6M89VKgAXPSiShecG0Ra0C5oHHUJGvfc
-         EsnQKSH/T3dKlvAJdY0ey4XQNRxG/EBj25BnWeBUc7CFBhobpJTCIonywU2GCod5DZfN
-         s71gyrcG42l7WPVTRc+xUnNe5n6lk5nNPT1p1erag9Fk2Eu2c1jTg7Eat55nmTHDPTr4
-         HST+6kcPwXxCSfThDTWbq0jIyzfHFa7YwLg174vx0bRexmIICkvqGhyWmW86QQOTPG+/
-         N4Pg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=ln4bd4npLg3vJLtt7zxV1miALP/PVCaS24l9JGDMU9E=;
+        b=y9f2RoagVz6UqVUDx/lFaj130puVE5+aK/6F0MQoWvKJDYhMzvOmx2jQvAAxr3Uxa4
+         h2mr5k32Y8WB+XRZPWgXCSVOMsa7WA7Wv2Zsw2d5avSnvrRdZ0h4bhK1nJixK17owp+g
+         gW5up7xBGVXLtoYcQlS+1l7emPxArXXed+VYWUHzhYa7uUtPNiNWNRAI9ApoCxfnTKDz
+         SBEsQGOa8dle3SXmViBQqLRBe28dj5iM65ISwS07vkOHnlPpin7pFqlm78sz6SaI+NIl
+         eOCopUhrvoTwUy1Ub9nD7S0wo0AVLTdDXw3dhjbWZGdr2ExhH12edwKDPU6+7xGFEcCo
+         gwWA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of cheng-jui.wang@mediatek.com designates 60.244.123.138 as permitted sender) smtp.mailfrom=cheng-jui.wang@mediatek.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=KQG8FJrS;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=4If6ztDvUbMP+TgfR4oaXWfSU5lXMG+r6oDDMJBZZqU=;
-        b=DAajd6jihDLm2hgy1pqftLWm/+InjqHslm3/C3wtuVJIFDmETkorKSXz9G3bcqm+ZI
-         7Tz4A2jplX2VdFK55vfBdTt+06L/z4w0fNU8dUsYJlaSnODFUkx0b3DYLW2NBcKGrAWE
-         oid7uTc7DUSJgDHSbwCkuWV2mPB8HESojhwg+T8Z9asZMdc9KpPAWmayg8WGmD/MbKWn
-         WNHJq9XsnbzKJofxTOyhprysRinwmbdnfOviDzZvK6/G4aZTIdNqEFnzx0Gcbp/EYyIy
-         TVoeHgNYnqoTRSj3rO8/K6fE10vxU+ydq5sYfvNM14kRMZy5Q1smr5Ul/BS5t7u54oJ9
-         Yk0Q==
+        bh=ln4bd4npLg3vJLtt7zxV1miALP/PVCaS24l9JGDMU9E=;
+        b=GFjU+OUQWBoUEfbzRxrLXHwkVn1Hd09140xnaRyN2Sqihjdlathb9bGdOoV5j2HIBw
+         fqF8df+9xMKSGrtYnwbQCwmDJjq7HwHjWZsOs/0oUEBJRkSpB8kH5zo1oMv321QcsNoi
+         7GO3BZ6DHLHx82jJhMRmy6dEj1hhbHMHFgqjdTzC3Pg64Ku38Fb4cpcnBq/OoefiZYwh
+         rI3YaEhEh9FSP/bNcAoOOyCHJUvZQ/l3SCX3cE2kb2STXYa9G4xvPpCIyql0wUE2Q2gQ
+         Wy3iPJB3fTXZ3YPiZdbPPGmZE+CGAe5mW3X/ZKef4TIkpNqu13Q0G5MSTHZPrKicaRlJ
+         70Uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=4If6ztDvUbMP+TgfR4oaXWfSU5lXMG+r6oDDMJBZZqU=;
-        b=jLc+1ZQMVQPSUrZyBmfYtCTBfKRWJzIDn8A3dW/2Ge7vAKXImozK9des3byCsPeFqk
-         FqiazNN4Vwg6MuwnI9exMsMEDKJzsMALdKyLC2VEyo9RS/LXQWMILZPQ3O+camNTFCMu
-         EWj7jmXjCUjwMDexO6fVFPPRw92fbZjlLJh+5ji2K7rOQuZlPzTeApVCLPqTD0yafMBd
-         fK4BX8k960uZ4EZSUnWZKs3ynV9WNN9d1UXKS0lyCPw32e8XUqHlSwdZJ8Tv7u6kg6ty
-         wJ1OfN5sSaAzFzjLMMQmxoDP7+FPrLyZ8PMvBt3HhM5kLDf36JLjT6oBYnMcp0PSR37C
-         1/8g==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ln4bd4npLg3vJLtt7zxV1miALP/PVCaS24l9JGDMU9E=;
+        b=j4Y9+zxVfGVz21pDXhbkfTnGK33bN/rlP+EOqb099O5drohVRr9z6BK/8zb1g+pLSt
+         L3PDFej/OPtF2MlFYWApUEEivao/13MvnkECGJ+7qsP7se5W2g0cl5I+QIUSY3t48iu3
+         4nrlVfcypH/Njk10ZQIvusdRQ3H5Pnya2ZWrKiXT2sCAY+0a6vsFsmrIMRcEmaPvQp3l
+         XasoA3Vbc5BJ9XiE9NxE+6rDDtSNXwHrWiwP4pJlF8/NdbRS2DRZi1tISLMX8UClXSHB
+         xUvlveLeiBWHhFBcmY2pjlXKDUbgb/pezEiVXCbc2P2KlwfLtm3TZISjKjx/Id4ds/SE
+         URow==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531ZcmFvG67BHU3E0D08aDERV1yZ5Asv1m6WBg4iRcMH4oRYgErO
-	OgLzZaJNpejVbaoysEi+Riw=
-X-Google-Smtp-Source: ABdhPJwQIYUP1JgPVXHKVzJlNQcXI46Trn8rw9VTxm7jRqj30uQCUfBNfD3geyoZyFAWYV0r15Q9nw==
-X-Received: by 2002:ae9:ed56:: with SMTP id c83mr20664990qkg.101.1627371957519;
-        Tue, 27 Jul 2021 00:45:57 -0700 (PDT)
+X-Gm-Message-State: AOAM532C1ErAe2eh2OkD1IT565x9peoQlxPKQ7XZG+jpquG/uXKW10G3
+	ACX+m5JeQ37Ot5E+de/oLOw=
+X-Google-Smtp-Source: ABdhPJy8VrzGfOtbgn37nazJUnatbDXP0Ux6XAsIcqxxwLONFtg8U0pGEC0O7qrCSWE2TCQF8NJEvg==
+X-Received: by 2002:a25:3615:: with SMTP id d21mr25553703yba.163.1627372168872;
+        Tue, 27 Jul 2021 00:49:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:72c5:: with SMTP id o5ls10037180qtp.6.gmail; Tue, 27 Jul
- 2021 00:45:57 -0700 (PDT)
-X-Received: by 2002:ac8:6a06:: with SMTP id t6mr18478198qtr.378.1627371957079;
-        Tue, 27 Jul 2021 00:45:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627371957; cv=none;
+Received: by 2002:a25:add4:: with SMTP id d20ls2516670ybe.5.gmail; Tue, 27 Jul
+ 2021 00:49:28 -0700 (PDT)
+X-Received: by 2002:a25:7804:: with SMTP id t4mr31093998ybc.355.1627372168413;
+        Tue, 27 Jul 2021 00:49:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627372168; cv=none;
         d=google.com; s=arc-20160816;
-        b=iyXGOHQboYrDyHHZswBu2g6RWYwzF3rY9l1NzAKqzN3tNor3ZaDuEt9QDRPg6mnRYI
-         R5BGRFccrUPZnmyRtsWnh7iPhaOyGkSkOYMBtJnhriZkzG3DLQcIlGFThMLLXQT64Y0i
-         7JkjbtdHkwsSJKIrELR0HMv1qMnYKnyu6SM66o7yL4SV6C6aTMuwgtvCBCFQNW+UVB8U
-         uFm44Fm21hsSeBX6FzP7mqinaTCVh7+tqWmWd5f354mt8N8lCt8iuLxVD2ed8ipSkBwG
-         GiedasnbuEyYP6Yl1CXHr8TqnytyvyOurpflyCWGf2Y4FMDV6DF3DMzwslgJXC7Jiz1L
-         GJSw==
+        b=X5Rq/wLUJ4laZNZQmDnmcgDs3cojQVN+3WctjAj12qaYN9mt7ntB/g9UnqQ+KWw481
+         THuOYimMYEVZ1R/PlcxyDx1YRrV0M0RuOt47CHSoIvtO7eE/GIup2IHtOprHT+l6KNGk
+         DImfCDH3PGG6tY/oXJldEtwypyqgyhM0ir18YJIOeeUJ+Y5pgHUWAIY2CaWNUmksnGSn
+         Fa2fq+bKAbADWyudga9iFUrcaCa6n8Shu3G6s/ApesRbnSsSocCerkqO8YjJdVcHM5mv
+         lgEyJcZctGqXNmde86eYe4ccW4x+FVZ2hKfSbO/qo7dmTNMz2Z0EbAAZWzpinp93lKkc
+         43VA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:subject:cc:to:from;
-        bh=z6B7qfAC9iMgLDAZ0YZlHy9xrWSx9oUcIjDvonuFoNc=;
-        b=wIxocGQk1NOFrV3U+Du51kEjj+kPeMnggOtxKxcIeg5J0O7AE+nwbS7BMVteHxUidK
-         qzyjIITy4iFA6yWGx8RrpevBC5Yf69MXCpdhLYFgOEidbTEAmD8tYNMLDBxr/tW26V4D
-         z3I18g7qYsDEKbTnoDPDAXePkPsMOooGNgrslwuTbFr3aAcixBUpx9Jc4rpS4nsiQ7CT
-         Ro5hg9AHs/PNME8nOKaEbOeaXpsEftb4L0TP0h47jT27p83dCKpT6IFqWn6pW/kj+2NR
-         Au+KzvA9cIShoVDkDr++EuSKdF4dFKyQAWgyF8CpXbY5NRDRJEu9zr0/0lOWinp6W6sL
-         cYGg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=sCChZZowN53YjVCvNzx0Q/C60z6U0K1cUjPsSvZ8WJo=;
+        b=0n44DAWlMPib+qERXbAodUVrvJTTlryPbb0PlrLPQ2o5C51AON/MkDxyxJ9N5Z3nk7
+         HqeWeAx2jjNhWGlwx9mHWyeuSh8lxTZvS8oanBCBYjVmTOQk1MHQuEoval/qkwUInQrh
+         VFnB+u/WpJuYhXV08WsBpy9LUTHUTKGiCbOYfavA/nUmlCfOhSaEpnqJAgwXQ13BnyGt
+         NvAhS8InpIKMNcWLexkExdalrpeEP9spPT/RSqK/HmexsvHN6E3qI1jsdNMiFY+pXPDJ
+         G5/B0rqAtcCIos4JYy5bqkTTNpR2zJBkPrGMYWgz6mQd5RlRtkVaUBNITfs177LR+l9T
+         OXyw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of cheng-jui.wang@mediatek.com designates 60.244.123.138 as permitted sender) smtp.mailfrom=cheng-jui.wang@mediatek.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
-Received: from mailgw01.mediatek.com ([60.244.123.138])
-        by gmr-mx.google.com with ESMTPS id d11si5990qtd.0.2021.07.27.00.45.56
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=KQG8FJrS;
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id n10si27698ybj.2.2021.07.27.00.49.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Jul 2021 00:45:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of cheng-jui.wang@mediatek.com designates 60.244.123.138 as permitted sender) client-ip=60.244.123.138;
-X-UUID: 87635f62e5434238bf905967941fe625-20210727
-X-UUID: 87635f62e5434238bf905967941fe625-20210727
-Received: from mtkcas07.mediatek.inc [(172.21.101.84)] by mailgw01.mediatek.com
-	(envelope-from <cheng-jui.wang@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-SHA384 256/256)
-	with ESMTP id 297846516; Tue, 27 Jul 2021 15:45:50 +0800
-Received: from mtkcas10.mediatek.inc (172.21.101.39) by
- mtkmbs01n1.mediatek.inc (172.21.101.68) with Microsoft SMTP Server (TLS) id
- 15.0.1497.2; Tue, 27 Jul 2021 15:45:49 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by mtkcas10.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.0.1497.2 via Frontend
- Transport; Tue, 27 Jul 2021 15:45:49 +0800
-From: Cheng Jui Wang <cheng-jui.wang@mediatek.com>
-To: <rcu@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<clang-built-linux@googlegroups.com>
-CC: <paulmck@kernel.org>, <josh@joshtriplett.org>, <rostedt@goodmis.org>,
-	<mathieu.desnoyers@efficios.com>, <jiangshanlai@gmail.com>,
-	<joel@joelfernandes.org>, <matthias.bgg@gmail.com>, <nathan@kernel.org>,
-	<ndesaulniers@google.com>, <wsd_upstream@mediatek.com>,
-	<eason-yh.lin@mediatek.com>, Cheng Jui Wang <cheng-jui.wang@mediatek.com>
-Subject: [PATCH] rcu: Add missing unlock in rcu_print_task_stall
-Date: Tue, 27 Jul 2021 15:45:42 +0800
-Message-ID: <20210727074542.25095-1-cheng-jui.wang@mediatek.com>
-X-Mailer: git-send-email 2.18.0
+        Tue, 27 Jul 2021 00:49:28 -0700 (PDT)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 6B617611F2
+	for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 07:49:27 +0000 (UTC)
+Received: by mail-wr1-f47.google.com with SMTP id b9so13168813wrx.12
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 00:49:27 -0700 (PDT)
+X-Received: by 2002:a5d:44c7:: with SMTP id z7mr14268753wrr.286.1627372166012;
+ Tue, 27 Jul 2021 00:49:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/alternative;
-	boundary="__=_Part_Boundary_002_1815489618.2078721404"
-X-Original-Sender: Cheng-Jui.Wang@mediatek.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of cheng-jui.wang@mediatek.com designates 60.244.123.138
- as permitted sender) smtp.mailfrom=cheng-jui.wang@mediatek.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=mediatek.com
+References: <20210708232522.3118208-1-ndesaulniers@google.com>
+ <20210708232522.3118208-3-ndesaulniers@google.com> <CAK7LNARye5Opc0AdXpn+DHB7hTaphoRSCUWxJgXu+sjuNjWUCg@mail.gmail.com>
+ <CAHk-=wgGxu4_hgzdYpFuKd95SfnkJbPTWAQ9-fMgmMN1Oxs2xQ@mail.gmail.com>
+ <CAK8P3a3=JBQow-Ws6tt81k93aw+OCV5C2CtSWxASkv=iQZPGUw@mail.gmail.com>
+ <CAK7LNATLy2F-2zkHm4ENSufBT_o5p=9jc5k1K-xOV8cQf7kKDw@mail.gmail.com>
+ <87r1fkizxl.fsf@disp2133> <CAMuHMdVzNFqAdxK+QTp7ub7LyhDL_3GbVMoAah_s3nGuJ5JN_Q@mail.gmail.com>
+In-Reply-To: <CAMuHMdVzNFqAdxK+QTp7ub7LyhDL_3GbVMoAah_s3nGuJ5JN_Q@mail.gmail.com>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Tue, 27 Jul 2021 09:49:09 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a2kb2Zzgd1wvi4m2fJeHWA9aONXUriEVfnsOfYTquJ3eA@mail.gmail.com>
+Message-ID: <CAK8P3a2kb2Zzgd1wvi4m2fJeHWA9aONXUriEVfnsOfYTquJ3eA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] Makefile: infer CROSS_COMPILE from SRCARCH for
+ LLVM=1 LLVM_IAS=1
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: "Eric W. Biederman" <ebiederm@xmission.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Miguel Ojeda <ojeda@kernel.org>, Fangrui Song <maskray@google.com>, 
+	Michal Marek <michal.lkml@markovi.net>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Christoph Hellwig <hch@infradead.org>, 
+	Nathan Chancellor <nathan@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: arnd@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=k20201202 header.b=KQG8FJrS;       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,225 +143,40 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---__=_Part_Boundary_002_1815489618.2078721404
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Tue, Jul 27, 2021 at 9:07 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> On Mon, Jul 26, 2021 at 10:27 PM Eric W. Biederman <ebiederm@xmission.com> wrote:
+> > Masahiro Yamada <masahiroy@kernel.org> writes:
+> > > On Wed, Jul 21, 2021 at 4:58 AM Arnd Bergmann <arnd@kernel.org> wrote:
+> >
+> > Does anyone have any ideas?
+> >
+> > Something so we don't have to specify all of these variables on the make
+> > command line would be nice.
+>
+> Just including the main Makefile does not work.
+> That's why I went with the more convoluted solution in
+> https://lore.kernel.org/linux-kbuild/CAMuHMdXJBqrpzaSNDJgic14ESiHV6cCcb_5E-st6iniXdmm9_g@mail.gmail.com/
 
-<pre>
-We encouterd a deadlock with following lockdep warning. The
-rcu_print_task_stall is supposed to release rnp-&gt;lock, but may just
-return without unlock.
+This is roughly what I use as well, but it does have the downside that
+it confuses
+the inner 'make' when you build multiple targets in parallel, e.g.
 
-	if (!rcu_preempt_blocked_readers_cgp(rnp))
-		return 0;
+make -skj30 kernel/ mm/ init/
 
-Add missing unlock before return to fix it.
+works with the normal Makefile, but fails spectacularly with my nested
+GNUmakefile because it starts multiple sub-processes that each try to
+build the same preparation files (I did not try your version).
 
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-WARNING: possible recursive locking detected
-5.10.43
---------------------------------------------
-swapper/7/0 is trying to acquire lock:
-ffffffc01268c018 (rcu_node_0){-.-.}-{2:2}, at: rcu_dump_cpu_stacks+0x94/0x1=
-38
+What I had in mind was to use something like (but not exactly)
 
-but task is already holding lock:
-ffffffc01268c018 (rcu_node_0){-.-.}-{2:2}, at: check_cpu_stall+0x34c/0x6f8
+-include $(O)/Makefile.cross
 
-other info that might help us debug this:
- Possible unsafe locking scenario:
+to conditionally include another file from the top-level Makefile before
+doing anything else.
 
-       CPU0
-       ----
-  lock(rcu_node_0);
-  lock(rcu_node_0);
-
- *** DEADLOCK ***
-
- May be due to missing lock nesting notation
-
-1 lock held by swapper/7/0:
- #0: ffffffc01268c018 (rcu_node_0){-.-.}-{2:2},  at: check_cpu_stall+0x34c/=
-0x6f8
-
-stack backtrace:
-CPU: 7 PID: 0 Comm: swapper/7
-Call trace:
- dump_backtrace.cfi_jt+0x0/0x8
- show_stack+0x1c/0x2c
- dump_stack_lvl+0xd8/0x16c
- validate_chain+0x2124/0x2d34
- __lock_acquire+0x7e4/0xed4
- lock_acquire+0x114/0x394
- _raw_spin_lock_irqsave+0x88/0xd4
- rcu_dump_cpu_stacks+0x94/0x138
- check_cpu_stall+0x498/0x6f8
- rcu_sched_clock_irq+0xd4/0x214
- update_process_times+0xb4/0xf4
- tick_sched_timer+0x98/0x110
- __hrtimer_run_queues+0x19c/0x2bc
- hrtimer_interrupt+0x10c/0x3a8
- arch_timer_handler_phys+0x5c/0x98
- handle_percpu_devid_irq+0xe0/0x2a8
- __handle_domain_irq+0xd0/0x19c
- gic_handle_irq+0x6c/0x134
- el1_irq+0xe0/0x1c0
- arch_cpu_idle+0x1c/0x30
- default_idle_call+0x58/0xcc
- do_idle.llvm.13807299673429836468+0x118/0x2e8
- cpu_startup_entry+0x28/0x2c
- secondary_start_kernel+0x1d0/0x23c
-
-Signed-off-by: Cheng Jui Wang &lt;cheng-jui.wang@mediatek.com&gt;
----
- kernel/rcu/tree_stall.h | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/kernel/rcu/tree_stall.h b/kernel/rcu/tree_stall.h
-index 6c76988cc019..3dc464d4d9a5 100644
---- a/kernel/rcu/tree_stall.h
-+++ b/kernel/rcu/tree_stall.h
-@@ -267,8 +267,10 @@ static int rcu_print_task_stall(struct rcu_node *rnp, =
-unsigned long flags)
- 	struct task_struct *ts[8];
-=20
- 	lockdep_assert_irqs_disabled();
--	if (!rcu_preempt_blocked_readers_cgp(rnp))
-+	if (!rcu_preempt_blocked_readers_cgp(rnp)) {
-+		raw_spin_unlock_irqrestore_rcu_node(rnp, flags);
- 		return 0;
-+	}
- 	pr_err(&quot;\tTasks blocked on level-%d rcu_node (CPUs %d-%d):&quot;,
- 	       rnp-&gt;level, rnp-&gt;grplo, rnp-&gt;grphi);
- 	t =3D list_entry(rnp-&gt;gp_tasks-&gt;prev,
---=20
-2.18.0
-
-</pre><!--type:text--><!--{--><pre>************* MEDIATEK Confidentiality N=
-otice ********************
-The information contained in this e-mail message (including any=20
-attachments) may be confidential, proprietary, privileged, or otherwise
-exempt from disclosure under applicable laws. It is intended to be=20
-conveyed only to the designated recipient(s). Any use, dissemination,=20
-distribution, printing, retaining or copying of this e-mail (including its=
-=20
-attachments) by unintended recipient(s) is strictly prohibited and may=20
-be unlawful. If you are not an intended recipient of this e-mail, or believ=
-e=20
-that you have received this e-mail in error, please notify the sender=20
-immediately (by replying to this e-mail), delete any and all copies of=20
-this e-mail (including any attachments) from your system, and do not
-disclose the content of this e-mail to any other person. Thank you!
-</pre><!--}-->
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/20210727074542.25095-1-cheng-jui.wang%40mediat=
-ek.com?utm_medium=3Demail&utm_source=3Dfooter">https://groups.google.com/d/=
-msgid/clang-built-linux/20210727074542.25095-1-cheng-jui.wang%40mediatek.co=
-m</a>.<br />
-
---__=_Part_Boundary_002_1815489618.2078721404
-Content-Type: text/plain; charset="UTF-8"
-
-We encouterd a deadlock with following lockdep warning. The
-rcu_print_task_stall is supposed to release rnp->lock, but may just
-return without unlock.
-
-	if (!rcu_preempt_blocked_readers_cgp(rnp))
-		return 0;
-
-Add missing unlock before return to fix it.
-
-============================================
-WARNING: possible recursive locking detected
-5.10.43
---------------------------------------------
-swapper/7/0 is trying to acquire lock:
-ffffffc01268c018 (rcu_node_0){-.-.}-{2:2}, at: rcu_dump_cpu_stacks+0x94/0x138
-
-but task is already holding lock:
-ffffffc01268c018 (rcu_node_0){-.-.}-{2:2}, at: check_cpu_stall+0x34c/0x6f8
-
-other info that might help us debug this:
- Possible unsafe locking scenario:
-
-       CPU0
-       ----
-  lock(rcu_node_0);
-  lock(rcu_node_0);
-
- *** DEADLOCK ***
-
- May be due to missing lock nesting notation
-
-1 lock held by swapper/7/0:
- #0: ffffffc01268c018 (rcu_node_0){-.-.}-{2:2},  at: check_cpu_stall+0x34c/0x6f8
-
-stack backtrace:
-CPU: 7 PID: 0 Comm: swapper/7
-Call trace:
- dump_backtrace.cfi_jt+0x0/0x8
- show_stack+0x1c/0x2c
- dump_stack_lvl+0xd8/0x16c
- validate_chain+0x2124/0x2d34
- __lock_acquire+0x7e4/0xed4
- lock_acquire+0x114/0x394
- _raw_spin_lock_irqsave+0x88/0xd4
- rcu_dump_cpu_stacks+0x94/0x138
- check_cpu_stall+0x498/0x6f8
- rcu_sched_clock_irq+0xd4/0x214
- update_process_times+0xb4/0xf4
- tick_sched_timer+0x98/0x110
- __hrtimer_run_queues+0x19c/0x2bc
- hrtimer_interrupt+0x10c/0x3a8
- arch_timer_handler_phys+0x5c/0x98
- handle_percpu_devid_irq+0xe0/0x2a8
- __handle_domain_irq+0xd0/0x19c
- gic_handle_irq+0x6c/0x134
- el1_irq+0xe0/0x1c0
- arch_cpu_idle+0x1c/0x30
- default_idle_call+0x58/0xcc
- do_idle.llvm.13807299673429836468+0x118/0x2e8
- cpu_startup_entry+0x28/0x2c
- secondary_start_kernel+0x1d0/0x23c
-
-Signed-off-by: Cheng Jui Wang <cheng-jui.wang@mediatek.com>
----
- kernel/rcu/tree_stall.h | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/kernel/rcu/tree_stall.h b/kernel/rcu/tree_stall.h
-index 6c76988cc019..3dc464d4d9a5 100644
---- a/kernel/rcu/tree_stall.h
-+++ b/kernel/rcu/tree_stall.h
-@@ -267,8 +267,10 @@ static int rcu_print_task_stall(struct rcu_node *rnp, unsigned long flags)
- 	struct task_struct *ts[8];
- 
- 	lockdep_assert_irqs_disabled();
--	if (!rcu_preempt_blocked_readers_cgp(rnp))
-+	if (!rcu_preempt_blocked_readers_cgp(rnp)) {
-+		raw_spin_unlock_irqrestore_rcu_node(rnp, flags);
- 		return 0;
-+	}
- 	pr_err("\tTasks blocked on level-%d rcu_node (CPUs %d-%d):",
- 	       rnp->level, rnp->grplo, rnp->grphi);
- 	t = list_entry(rnp->gp_tasks->prev,
--- 
-2.18.0
+          Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727074542.25095-1-cheng-jui.wang%40mediatek.com.
-
---__=_Part_Boundary_002_1815489618.2078721404--
-
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a2kb2Zzgd1wvi4m2fJeHWA9aONXUriEVfnsOfYTquJ3eA%40mail.gmail.com.
