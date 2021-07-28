@@ -1,129 +1,156 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBGXDQOEAMGQEC5CYULQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDNYNPOAQ4GBBQHKQOEAMGQEUL6D2JY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4F1283D8790
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 07:56:44 +0200 (CEST)
-Received: by mail-pj1-x1039.google.com with SMTP id pg12-20020a17090b1e0cb0290177328fc06dsf1976113pjb.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 22:56:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627451803; cv=pass;
+Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
+	by mail.lfdr.de (Postfix) with ESMTPS id C081C3D87B2
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 08:12:16 +0200 (CEST)
+Received: by mail-lf1-x13d.google.com with SMTP id t10-20020a056512208ab029037e853a8057sf529565lfr.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 23:12:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627452736; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gD708kGZ80ZA3MzODnb1y8btHQW/LYt9/mVK30N0Eng93nO1mhcRmdFcu3rL9dKUPw
-         6cuQgvsPG0duQK/udD35FHsYsb5TSKkgNiNgKr3TG/H1TT+jUnwhIemCinzTIVJKDhfZ
-         mOCfsT56bJjo4Vtig2GqpdQ2CBfTO2YmXVoF4CtT6/hHN6m7IM9dAn6gC0TTAeuPlc5b
-         yBLjx9d/fJLluGvynCC8YPZFD/XUdPTfpg7UYSsSIe94ErwkD3jz/vXpkmm4/4c/ATTw
-         xFWr3jW5L1H6kTcaJ+JO4ASZhdOFSd0b6f43znH3jx5MrrNoPwRX1Jt9jn5HoHZVczlu
-         li0g==
+        b=vu/iJgkttx8mx+s7nwfxrV9skod3vl8WKa6ZzBNk+TZb9JCtLK80y7PuELBYKDgZz6
+         I7eRp/yNvvUg35RMItw3Vu0RcHf9VIcn14fgfnNpvavqkuikF7L1p6YxjR7sVmc5wMuo
+         TYsGc4ZvcsRCXXZR2Nn6KXg7YuSo9oaqb446Vqh0onhUJIIhfaQ6pTbYgSnOETG0WN6t
+         hAul3uXdb7vnJ+xTcCPL17EMkhLVL4UI3wI6fydsi8QYZm48nKQnNpniWBql4QdxQEwA
+         nXoIzr3alXj5drXAaDvAblww8Hnqqr2xgsuDJmvxB2MaR400xTD9SJfjXSrlGjxzFP2t
+         IVEw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=KQyRUkxgf4gHbr4KMAvi9+AOeZduFzjtvz6vCNuP4ms=;
-        b=SjVUhy2dcD5NqWiuBzyGVztIEWLIvqkbC9ZRFECww21GmzrJ/zQ+vNurx9VHhZgzCk
-         e2aFTh/pBMoNias0bKBvz9/XXSx9lztzag7F4018qhCRHTK1gwF11vmgixY0bPjqmtHP
-         5sGz7sKrRTh5nAizfH38A+quVNIxWNgS5yfOEmA+IeBzyR6JsV0QZw5HJSPmVWr5aDKY
-         qy5Zf3xPoCnWglz8ihxQEhh+o9zItJNm69Uu/0+ixIwrWNUeVCxd3zpTVO5Nk53w0hcG
-         /mzZEy3QAt/rqKY1brrzam1RlimBpqLNfg6ZMGWoD16gk480+CyZPYTtJUVibAR6SpmY
-         HKzw==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=7zsGLtPxTUxqHTsA0N/qHT8Fn3eL13SIoCEE0ZUfsYw=;
+        b=yGJcZ4eK0NpybzLqn1P4uGPSSWzcLgsnoIMpIRe8Vi9hknsP6eaUqZyoukqUyRGB9y
+         fRgVZAN3mh7eVn/de7eEvlPYvOERij9u8SbZxR3r5cueagPMwB4bbJezy6OyU2mf5J9X
+         Y0qpv2NKllYGkFgxgHiiaylBfvqMShMFgVovZlSqn8OmGC83vWBh9S+XCqG6nMPFWp5G
+         jqbMKVvFn0Sv1NiMR1GM/CkH+GiBVbXSgO16Hmzj2IVfFQdsnlKznnW6AjIKtflQ+UE7
+         YrmdZMpSyUCpIgoI9XDBABlZe4fsuGOdlPBItHPdlm0CYgcA2R4PFOIwEyOXYLPrlhY6
+         sZfA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=q9ANBjbN;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       dkim=pass header.i=@embeddedor.com header.s=default header.b=VcIfYrm9;
+       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.50.84 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=KQyRUkxgf4gHbr4KMAvi9+AOeZduFzjtvz6vCNuP4ms=;
-        b=EA0Sn9YhD3Gut8iMuo08/1lOwVbLpotVIiuQapt/eOL7fM8utcE8RGwZvihObNC/Y8
-         i3OlclRB8QvzxIDIHXa2F72FB3ME4gA7I2bKdZNyYr5KGJskCIgTDCyJK38TQGvHp99A
-         HU7jyIxK4DPDrIEyxlGDxPQR6fo5/+5ztozL6CcudcuLGL1H9AEDDDQYFwU11Vridjv9
-         aR40ik8bO9SeRxgvBYiM7NCZKYUMvjD4qhixTaYZdOqPW9AgSwy3sFgVCuUSFQGSJMNK
-         zBaDrYIZYYMmM0Ky+pvu+//3esRT0GCCOvi59r7Ra16lADMGKvAEyPMw7xNlMLtiNWFi
-         UfYQ==
+        bh=7zsGLtPxTUxqHTsA0N/qHT8Fn3eL13SIoCEE0ZUfsYw=;
+        b=AkhlTF3div26SC6ZIiW+7hB8QpcF3xRWBNsYZQKtI3okg9wMK6PUPmPL/mEwuuIB3G
+         /zKd3NjMn8xNZXqlCkErol65VWZMW0cksNA5DX+OivBNEtUHWoNbEy/a/wowbkVz54NH
+         9NaJX9Qit9E8V1/4TTJ1fex78rGJi66hRjbZvo7L6h2+csyvKbi/84HIJTel78ohroBl
+         q5ZxLk3nw+BMdiz6nFyXTtoSSJ3b5IaZlw/BxZgttzrzkqH7hU4c9Rx3bHADFEeJn14q
+         caiDTKrzjF3qh3cDtWa288ovB0lKhL4KnXE1O43PC8h44HyBwzdb40t76uaxy476LO6M
+         X/fw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=KQyRUkxgf4gHbr4KMAvi9+AOeZduFzjtvz6vCNuP4ms=;
-        b=DhSxZmOQe7pMV9qAPmcQvbm3l85A1vv7nWu3owBruQTkGfoewVAKoOA8dr5JURnURG
-         ty7ULJrSA5OYaSWBYYtFvvWKoQaywfae9ZUwt8RvX311NzEzBt2/P2VA+692u1SZn5Tm
-         E5QeWiBUG9CKl8ZmdWYAGSZ/LSqI0gdKnGWZt/GZ9oFQCujDiEawtm5AyhL7VLqQ+jCe
-         zdfPuHJpBa7/HpNFx9Lr6K+E7Cg0HoIfM/7LiAwjkRP0GdlTFua1JFMkcNMLKTz+g7OQ
-         J061o9fSijVO0hpnMTPhWuBvqCZsDywgeBJXIcq5sdovLQjkShVbvVTjt884ngAJVdtZ
-         7Q/Q==
+        bh=7zsGLtPxTUxqHTsA0N/qHT8Fn3eL13SIoCEE0ZUfsYw=;
+        b=hCHfaYhlDE3IR5hAtM6rL4fW4wuM9MJ/2diTXm0U8+snWs5NOO6PXTKJ904uTkbB8R
+         4Kn7biyElJxfRdzI71s15B1Y39RAh9wEiO5qX8OZc36GH3vlEbeP4kGyV+Xu7j5Jk4u9
+         auEIfsfewddR5JDFE1Kp9JQamRX1TeA2O7wWLEqc+yE8We250GW0U7gvyldGuVTsTZb3
+         0vLQNf1mHcw35sMyqMi6w9bR4XE6op5q/1Xo6SM/nt60iFKI+6mdOTDfdUG/jLkSU+Ww
+         qCWI3o/bB8kaQsgMFKB8EICDIfqoIAqCiySsCmEGqGVuqCJc/jTOSEKvUm1LF/dKwlK5
+         zLfw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Qy3hCiiU54EQRHouPH7qr2QbAnt5rbCFjVB77GwCX9OvsIyTu
-	XoC4azvmn04gSiUWkTLyR3Q=
-X-Google-Smtp-Source: ABdhPJyXzZo8P2SBZzBtufnEQL/nSzA2RfhUd4FiQ1+g9tSy7wFmphCXvmFPT/dZtTrW2UGm/c2yTg==
-X-Received: by 2002:a63:5020:: with SMTP id e32mr14771708pgb.366.1627451803050;
-        Tue, 27 Jul 2021 22:56:43 -0700 (PDT)
+X-Gm-Message-State: AOAM531F6uK64/BkRQao2FjT0u3WY0bRudzk7WMdFCXoMACyLJedidvg
+	Zkyjt52w8YSx9KN1e1IITn4=
+X-Google-Smtp-Source: ABdhPJwewCU/TwwvMQ8hj4YZOv3bWOmHXatrCm3+a+oDkEIasW5WNER78b9Rz4AmeVQYxpMInFoOWw==
+X-Received: by 2002:a05:6512:4004:: with SMTP id br4mr19243771lfb.2.1627452736327;
+        Tue, 27 Jul 2021 23:12:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:903:1203:: with SMTP id l3ls660257plh.9.gmail; Tue, 27
- Jul 2021 22:56:42 -0700 (PDT)
-X-Received: by 2002:a17:903:31d5:b029:129:18a9:6267 with SMTP id v21-20020a17090331d5b029012918a96267mr21333085ple.43.1627451802468;
-        Tue, 27 Jul 2021 22:56:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627451802; cv=none;
+Received: by 2002:a05:6512:36c2:: with SMTP id e2ls725434lfs.3.gmail; Tue, 27
+ Jul 2021 23:12:15 -0700 (PDT)
+X-Received: by 2002:ac2:58ef:: with SMTP id v15mr18442163lfo.408.1627452735295;
+        Tue, 27 Jul 2021 23:12:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627452735; cv=none;
         d=google.com; s=arc-20160816;
-        b=WXVnpRPk/feHL44EgNyXWarYKebdtoigkiZiE+1wyPhxJd8VFsmIcSsoTho4hj0xsz
-         DiwVQ0tWnyT9YmfzFK3/c4yixcoHLZbypXnSvg44PrF/hexBYc8/ErwvNTw502MgZFcV
-         /aqtaiJLcXKubJ82+Psj0m5UOvliZFcL8Yc0uxjevIXBfwhHhpxLontI1hfmcyYzZ56t
-         Kc7J5glvS1rZudWYDev741/syTnuZ6F/YPU2W81e/Z5sARLQWac9u9853FchVH2W/XAz
-         x/q0U9+UtBzWj0U5xOHw8tytvmroqwORX/lsr+SUykFpBJgloPvwQKrLxsmCk6KnKBcp
-         dJMw==
+        b=zhWKRBQUsLWOpNFW6U+mZMcHF76UzlqhZE51Unl8PzzHlRbAUwqhPS0M9TG1xDOJHI
+         VUyT44zIXVqd3D3B23J8TQ5QqzX2phMDSWyR14luvZD6ec3w9EcIVcxvZ6Mx7qW/onON
+         Yzu0cjw9Pvseh7w55HXr/tAuuYn3nMTCimojtj0INBK9yd1PBUBCIOHZiQB8f59Klk2S
+         bs4XsmctWVTNbNCBe6sqHICgK4ZrNP+rv1R7IL9MBsatCXasUSDjHmDuT7suWmXfTJun
+         ZovdtMYeAv2KwWEYKzgsOWARzst8Omeh3jJfpoys3w5aI5QrhXtt0jIG6B9fFKEuuD6a
+         +E4g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=C9cCzzMckpSU6AASpMf+2UNvhjzaPeSQgd2TJzWmUf8=;
-        b=C7SDpu/Kf0uc9rAoC4tTUBkksU2aoxnukeM6Ei171DGeQ0XknqFOm2bcH3tg49H2FX
-         2f0ysEaAtPVxjUFCrNe2WL+08JYeVRHZDsSpJ+OnoNrCbQ8AfNKR33zdO3KkfKkS1yf3
-         rdLtK/cUmOf7Sw8aRtpAotwkHaF5N0qMKT2SgH2p1DO7TGwZP8zG8K3KjVuA9BhhNY6r
-         0x+EKTlNgaPpR1O/zFyu7KIMEVsmOQxhXNoC3sQiacj2LKS5EP9f56/JmJ31biukrqwY
-         1qIodPC6AfmuojuqIUeb0ri+HKCTMKQPxY+Ezlih1tEseMtiqIdBgYIFBQxw1E1pWjSa
-         YToA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=/gCRywG3p9gdzDsdnfCiyJuRt7hlhcIRTlf1DfYGxQk=;
+        b=pTQJDdiCr1icJ1d69hAROCaL0NMUQpPHu82rQKME2DpPk3VrKnUuJnkkAFtxvHc/5Q
+         /BBHaXsc8oh2BoqfvyBhEn8K6BnszoDn3yQOJ62F6OvKPwGYcZlSH6GiMAIyEIVCo30E
+         Ph1+zskXNqaa1f5pBnLq32SHXQ0qvj9yGqSOdeeUyxGHDdv2OYcpCeLblOOTZQesfLHW
+         g9AceLFMXC3XDlsyK/jjunBqJUVlOxyMe1yL4w/CiAfexWyN51VLhnkmAQTsNt8hR4DJ
+         7wLX54J4COBzIDBcpAdyufmr0YjBVZ1jbYF262zdst3/Fj3JTHTnSBEI5HyQNFhJyYIZ
+         NVMw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=q9ANBjbN;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t33si194153pfg.4.2021.07.27.22.56.42
+       dkim=pass header.i=@embeddedor.com header.s=default header.b=VcIfYrm9;
+       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.50.84 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
+Received: from gateway24.websitewelcome.com (gateway24.websitewelcome.com. [192.185.50.84])
+        by gmr-mx.google.com with ESMTPS id c40si218696lfv.12.2021.07.27.23.12.14
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Jul 2021 22:56:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 8D5B060F91;
-	Wed, 28 Jul 2021 05:56:41 +0000 (UTC)
-Date: Wed, 28 Jul 2021 07:56:40 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Kees Cook <keescook@chromium.org>
+        Tue, 27 Jul 2021 23:12:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gustavo@embeddedor.com designates 192.185.50.84 as permitted sender) client-ip=192.185.50.84;
+Received: from cm12.websitewelcome.com (cm12.websitewelcome.com [100.42.49.8])
+	by gateway24.websitewelcome.com (Postfix) with ESMTP id 446037861
+	for <clang-built-linux@googlegroups.com>; Wed, 28 Jul 2021 01:12:11 -0500 (CDT)
+Received: from gator4166.hostgator.com ([108.167.133.22])
+	by cmsmtp with SMTP
+	id 8cnbmBitvsCiy8cnbmumei; Wed, 28 Jul 2021 01:12:11 -0500
+X-Authority-Reason: nr=8
+Received: from 187-162-31-110.static.axtel.net ([187.162.31.110]:44814 helo=[192.168.15.8])
+	by gator4166.hostgator.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.94.2)
+	(envelope-from <gustavo@embeddedor.com>)
+	id 1m8cna-003PI6-Vi; Wed, 28 Jul 2021 01:12:11 -0500
+Subject: Re: [PATCH 19/64] ip: Use struct_group() for memcpy() regions
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Kees Cook <keescook@chromium.org>
 Cc: linux-hardening@vger.kernel.org,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Keith Packard <keithpac@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org,
-	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 25/64] drm/mga/mga_ioc32: Use struct_group() for memcpy()
- region
-Message-ID: <YQDxmEYfppJ4wAmD@kroah.com>
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Keith Packard <keithpac@amazon.com>,
+ Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org,
+ linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-staging@lists.linux.dev,
+ linux-block@vger.kernel.org, linux-kbuild@vger.kernel.org,
+ clang-built-linux@googlegroups.com
 References: <20210727205855.411487-1-keescook@chromium.org>
- <20210727205855.411487-26-keescook@chromium.org>
+ <20210727205855.411487-20-keescook@chromium.org> <YQDxaYrHu0PeBIuX@kroah.com>
+From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
+Message-ID: <baead202-569f-775f-348c-aa64e69f03ed@embeddedor.com>
+Date: Wed, 28 Jul 2021 01:14:33 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
+In-Reply-To: <YQDxaYrHu0PeBIuX@kroah.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210727205855.411487-26-keescook@chromium.org>
-X-Original-Sender: gregkh@linuxfoundation.org
+Content-Language: en-US
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
+X-AntiAbuse: Original Domain - googlegroups.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - embeddedor.com
+X-BWhitelist: no
+X-Source-IP: 187.162.31.110
+X-Source-L: No
+X-Exim-ID: 1m8cna-003PI6-Vi
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 187-162-31-110.static.axtel.net ([192.168.15.8]) [187.162.31.110]:44814
+X-Source-Auth: gustavo@embeddedor.com
+X-Email-Count: 14
+X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
+X-Local-Domain: yes
+X-Original-Sender: gustavo@embeddedor.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=q9ANBjbN;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+ header.i=@embeddedor.com header.s=default header.b=VcIfYrm9;       spf=pass
+ (google.com: domain of gustavo@embeddedor.com designates 192.185.50.84 as
+ permitted sender) smtp.mailfrom=gustavo@embeddedor.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,151 +163,141 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 27, 2021 at 01:58:16PM -0700, Kees Cook wrote:
-> In preparation for FORTIFY_SOURCE performing compile-time and run-time
-> field bounds checking for memcpy(), memmove(), and memset(), avoid
-> intentionally writing across neighboring fields.
-> 
-> Use struct_group() in struct drm32_mga_init around members chipset, sgram,
-> maccess, fb_cpp, front_offset, front_pitch, back_offset, back_pitch,
-> depth_cpp, depth_offset, depth_pitch, texture_offset, and texture_size,
-> so they can be referenced together. This will allow memcpy() and sizeof()
-> to more easily reason about sizes, improve readability, and avoid future
-> warnings about writing beyond the end of chipset.
-> 
-> "pahole" shows no size nor member offset changes to struct drm32_mga_init.
-> "objdump -d" shows no meaningful object code changes (i.e. only source
-> line number induced differences and optimizations).
-> 
-> Note that since this includes a UAPI header, struct_group() has been
-> explicitly redefined local to the header.
-> 
-> Signed-off-by: Kees Cook <keescook@chromium.org>
-> ---
->  drivers/gpu/drm/mga/mga_ioc32.c | 30 ++++++++++++++------------
->  include/uapi/drm/mga_drm.h      | 37 ++++++++++++++++++++++++---------
->  2 files changed, 44 insertions(+), 23 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/mga/mga_ioc32.c b/drivers/gpu/drm/mga/mga_ioc32.c
-> index 4fd4de16cd32..fbd0329dbd4f 100644
-> --- a/drivers/gpu/drm/mga/mga_ioc32.c
-> +++ b/drivers/gpu/drm/mga/mga_ioc32.c
-> @@ -38,16 +38,21 @@
->  typedef struct drm32_mga_init {
->  	int func;
->  	u32 sarea_priv_offset;
-> -	int chipset;
-> -	int sgram;
-> -	unsigned int maccess;
-> -	unsigned int fb_cpp;
-> -	unsigned int front_offset, front_pitch;
-> -	unsigned int back_offset, back_pitch;
-> -	unsigned int depth_cpp;
-> -	unsigned int depth_offset, depth_pitch;
-> -	unsigned int texture_offset[MGA_NR_TEX_HEAPS];
-> -	unsigned int texture_size[MGA_NR_TEX_HEAPS];
-> +	struct_group(always32bit,
-> +		int chipset;
-> +		int sgram;
-> +		unsigned int maccess;
-> +		unsigned int fb_cpp;
-> +		unsigned int front_offset;
-> +		unsigned int front_pitch;
-> +		unsigned int back_offset;
-> +		unsigned int back_pitch;
-> +		unsigned int depth_cpp;
-> +		unsigned int depth_offset;
-> +		unsigned int depth_pitch;
-> +		unsigned int texture_offset[MGA_NR_TEX_HEAPS];
-> +		unsigned int texture_size[MGA_NR_TEX_HEAPS];
-> +	);
->  	u32 fb_offset;
->  	u32 mmio_offset;
->  	u32 status_offset;
-> @@ -67,9 +72,8 @@ static int compat_mga_init(struct file *file, unsigned int cmd,
->  
->  	init.func = init32.func;
->  	init.sarea_priv_offset = init32.sarea_priv_offset;
-> -	memcpy(&init.chipset, &init32.chipset,
-> -		offsetof(drm_mga_init_t, fb_offset) -
-> -		offsetof(drm_mga_init_t, chipset));
-> +	memcpy(&init.always32bit, &init32.always32bit,
-> +	       sizeof(init32.always32bit));
->  	init.fb_offset = init32.fb_offset;
->  	init.mmio_offset = init32.mmio_offset;
->  	init.status_offset = init32.status_offset;
-> diff --git a/include/uapi/drm/mga_drm.h b/include/uapi/drm/mga_drm.h
-> index 8c4337548ab5..61612e5ecab2 100644
-> --- a/include/uapi/drm/mga_drm.h
-> +++ b/include/uapi/drm/mga_drm.h
-> @@ -265,6 +265,16 @@ typedef struct _drm_mga_sarea {
->  #define DRM_IOCTL_MGA_WAIT_FENCE    DRM_IOWR(DRM_COMMAND_BASE + DRM_MGA_WAIT_FENCE, __u32)
->  #define DRM_IOCTL_MGA_DMA_BOOTSTRAP DRM_IOWR(DRM_COMMAND_BASE + DRM_MGA_DMA_BOOTSTRAP, drm_mga_dma_bootstrap_t)
->  
-> +#define __struct_group(name, fields) \
-> +	union { \
-> +		struct { \
-> +			fields \
-> +		}; \
-> +		struct { \
-> +			fields \
-> +		} name; \
-> +	}
-> +
->  typedef struct _drm_mga_warp_index {
->  	int installed;
->  	unsigned long phys_addr;
-> @@ -279,20 +289,25 @@ typedef struct drm_mga_init {
->  
->  	unsigned long sarea_priv_offset;
->  
-> -	int chipset;
-> -	int sgram;
-> +	__struct_group(always32bit,
-> +		int chipset;
-> +		int sgram;
->  
-> -	unsigned int maccess;
-> +		unsigned int maccess;
->  
-> -	unsigned int fb_cpp;
-> -	unsigned int front_offset, front_pitch;
-> -	unsigned int back_offset, back_pitch;
-> +		unsigned int fb_cpp;
-> +		unsigned int front_offset;
-> +		unsigned int front_pitch;
-> +		unsigned int back_offset;
-> +		unsigned int back_pitch;
->  
-> -	unsigned int depth_cpp;
-> -	unsigned int depth_offset, depth_pitch;
-> +		unsigned int depth_cpp;
-> +		unsigned int depth_offset;
-> +		unsigned int depth_pitch;
->  
-> -	unsigned int texture_offset[MGA_NR_TEX_HEAPS];
-> -	unsigned int texture_size[MGA_NR_TEX_HEAPS];
-> +		unsigned int texture_offset[MGA_NR_TEX_HEAPS];
-> +		unsigned int texture_size[MGA_NR_TEX_HEAPS];
-> +	);
->  
->  	unsigned long fb_offset;
->  	unsigned long mmio_offset;
-> @@ -302,6 +317,8 @@ typedef struct drm_mga_init {
->  	unsigned long buffers_offset;
->  } drm_mga_init_t;
->  
-> +#undef __struct_group
-> +
 
-Why can you use __struct_group in this uapi header, but not the
-networking one?
 
-thanks,
+On 7/28/21 00:55, Greg Kroah-Hartman wrote:
+> On Tue, Jul 27, 2021 at 01:58:10PM -0700, Kees Cook wrote:
+>> In preparation for FORTIFY_SOURCE performing compile-time and run-time
+>> field bounds checking for memcpy(), memmove(), and memset(), avoid
+>> intentionally writing across neighboring fields.
+>>
+>> Use struct_group() in struct flowi4, struct ipv4hdr, and struct ipv6hdr
+>> around members saddr and daddr, so they can be referenced together. This
+>> will allow memcpy() and sizeof() to more easily reason about sizes,
+>> improve readability, and avoid future warnings about writing beyond the
+>> end of saddr.
+>>
+>> "pahole" shows no size nor member offset changes to struct flowi4.
+>> "objdump -d" shows no meaningful object code changes (i.e. only source
+>> line number induced differences.)
+>>
+>> Note that since this is a UAPI header, struct_group() has been open
+>> coded.
+>>
+>> Signed-off-by: Kees Cook <keescook@chromium.org>
+>> ---
+>>  include/net/flow.h            |  6 ++++--
+>>  include/uapi/linux/if_ether.h | 12 ++++++++++--
+>>  include/uapi/linux/ip.h       | 12 ++++++++++--
+>>  include/uapi/linux/ipv6.h     | 12 ++++++++++--
+>>  net/core/flow_dissector.c     | 10 ++++++----
+>>  net/ipv4/ip_output.c          |  6 ++----
+>>  6 files changed, 42 insertions(+), 16 deletions(-)
+>>
+>> diff --git a/include/net/flow.h b/include/net/flow.h
+>> index 6f5e70240071..f1a3b6c8eae2 100644
+>> --- a/include/net/flow.h
+>> +++ b/include/net/flow.h
+>> @@ -81,8 +81,10 @@ struct flowi4 {
+>>  #define flowi4_multipath_hash	__fl_common.flowic_multipath_hash
+>>  
+>>  	/* (saddr,daddr) must be grouped, same order as in IP header */
+>> -	__be32			saddr;
+>> -	__be32			daddr;
+>> +	struct_group(addrs,
+>> +		__be32			saddr;
+>> +		__be32			daddr;
+>> +	);
+>>  
+>>  	union flowi_uli		uli;
+>>  #define fl4_sport		uli.ports.sport
+>> diff --git a/include/uapi/linux/if_ether.h b/include/uapi/linux/if_ether.h
+>> index a0b637911d3c..8f5667b2ea92 100644
+>> --- a/include/uapi/linux/if_ether.h
+>> +++ b/include/uapi/linux/if_ether.h
+>> @@ -163,8 +163,16 @@
+>>  
+>>  #if __UAPI_DEF_ETHHDR
+>>  struct ethhdr {
+>> -	unsigned char	h_dest[ETH_ALEN];	/* destination eth addr	*/
+>> -	unsigned char	h_source[ETH_ALEN];	/* source ether addr	*/
+>> +	union {
+>> +		struct {
+>> +			unsigned char h_dest[ETH_ALEN];	  /* destination eth addr */
+>> +			unsigned char h_source[ETH_ALEN]; /* source ether addr	  */
+>> +		};
+>> +		struct {
+>> +			unsigned char h_dest[ETH_ALEN];	  /* destination eth addr */
+>> +			unsigned char h_source[ETH_ALEN]; /* source ether addr	  */
+>> +		} addrs;
+> 
+> A union of the same fields in the same structure in the same way?
+> 
+> Ah, because struct_group() can not be used here?  Still feels odd to see
+> in a userspace-visible header.
+> 
+>> +	};
+>>  	__be16		h_proto;		/* packet type ID field	*/
+>>  } __attribute__((packed));
+>>  #endif
+>> diff --git a/include/uapi/linux/ip.h b/include/uapi/linux/ip.h
+>> index e42d13b55cf3..33647a37e56b 100644
+>> --- a/include/uapi/linux/ip.h
+>> +++ b/include/uapi/linux/ip.h
+>> @@ -100,8 +100,16 @@ struct iphdr {
+>>  	__u8	ttl;
+>>  	__u8	protocol;
+>>  	__sum16	check;
+>> -	__be32	saddr;
+>> -	__be32	daddr;
+>> +	union {
+>> +		struct {
+>> +			__be32	saddr;
+>> +			__be32	daddr;
+>> +		} addrs;
+>> +		struct {
+>> +			__be32	saddr;
+>> +			__be32	daddr;
+>> +		};
+> 
+> Same here (except you named the first struct addrs, not the second,
+> unlike above).
+> 
+> 
+>> +	};
+>>  	/*The options start here. */
+>>  };
+>>  
+>> diff --git a/include/uapi/linux/ipv6.h b/include/uapi/linux/ipv6.h
+>> index b243a53fa985..1c26d32e733b 100644
+>> --- a/include/uapi/linux/ipv6.h
+>> +++ b/include/uapi/linux/ipv6.h
+>> @@ -130,8 +130,16 @@ struct ipv6hdr {
+>>  	__u8			nexthdr;
+>>  	__u8			hop_limit;
+>>  
+>> -	struct	in6_addr	saddr;
+>> -	struct	in6_addr	daddr;
+>> +	union {
+>> +		struct {
+>> +			struct	in6_addr	saddr;
+>> +			struct	in6_addr	daddr;
+>> +		} addrs;
+>> +		struct {
+>> +			struct	in6_addr	saddr;
+>> +			struct	in6_addr	daddr;
+>> +		};
+> 
+> addrs first?  Consistancy is key :)
 
-greg k-h
+I think addrs should be second. In general, I think all newly added
+non-anonymous structures should be second.
+
+Thanks
+--
+Gustavo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YQDxmEYfppJ4wAmD%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/baead202-569f-775f-348c-aa64e69f03ed%40embeddedor.com.
