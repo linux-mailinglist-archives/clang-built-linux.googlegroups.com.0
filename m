@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDPYNU65Q4NRBXHWQKEAMGQE6KDTSMY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPYNU65Q4NRBHECQOEAMGQE52A2UWI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id BF8093D85BF
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 04:05:17 +0200 (CEST)
-Received: by mail-ot1-x33f.google.com with SMTP id j8-20020a9d3a080000b02904d1a21b3fbcsf205315otc.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 19:05:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627437916; cv=pass;
+Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id E8D753D85E2
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 04:29:49 +0200 (CEST)
+Received: by mail-yb1-xb3d.google.com with SMTP id s123-20020a2577810000b02904f84a5c5297sf1060069ybc.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 19:29:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627439389; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OkDeEoAIq/KJSX/YhAOIIbewVGf8RHwWNKgSBZDTocEKnsU4RB6iyu3qWSBn8q0z52
-         o6A08tLHoKbv/VpztRlzfqhdeIpD0t829oJqxKU4cXv3qgNFbAAqwxgcZYLNVu+l3npN
-         oUIMJCTctPafa/lFnBZXBAIK2P6RDgo+ks+aidS1JwO4KxQgo18wpqakbu60HmCbYMUv
-         5xLiUL6bpoxAz6vOnmt+xmQD/gYTs3vcL73U9KQTZgD+9FteZxxL0Wpjpt9y+hNd2Blr
-         b8CHye/Lx9MAcBffpCoyOfBFatSSFr7fUh9Ey7ZsgYZI+O1vPQbtrMBr7BFMUxT47HC2
-         ppng==
+        b=fKxyzAqoidwH/KUcQqQpu4qBpkZTpHqPXXIBySm0Xb1uYfb9VDJJZG6p7w8LUE97UE
+         YByN44rNcer1b/Mx5Ed5cGwOhkc6NnN7CWp2duSFoSQ2fPSnrJgX3cZCkTiWsD62Q54Z
+         v9jIHFJO/yQZftlcz3vkRdPebnlyTW96wACnKZxtxBpE0pKtQnvXDKhmsMH7Qmwn5UmW
+         KRPMS28JEXfudPhCUI8iOJxndeNRN/kLN6crCjUqQ5w8USVGispTa+JYALn+qQQX2tFr
+         uf0Lz2y7ntdSSVe5qcsSfZZeNFp/JYGepfdGs5B0dC62AMzDB3TEP/dllRuyCiXkkHFS
+         B/GA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=dvLBWXU4FeQFAjt13mY7r2jrx0CJ1EiQZgVhPM1zUPg=;
-        b=g4yeF//pf0f3RQsm6fWCmU2ODRvxsu8v2GGpcJFsABZ1aB4H19+qdsvUS1U85Xi2z5
-         YKUkexi83tLqxTfE2yGO2eNYYzhWTjPY29dxCHembNzAsWmBOpxbvCNB9mwb+9iafdOu
-         YKcz/fyitswcSWlXM2u+bAhk1paBg2k+iGIMjMYtJIH10yJmya9rmf+54HoyxMT6cCHK
-         yuTiVEcbCGV2+MdBF7qf3PHR9vtZkwByagVkfI//7hcs3AkzvTNxIerc+yWo4GDIFh0r
-         Pwb05Ys2mP1tj2m58GWoPPAdWIcB6ayxFI9Ua+px+USnHn8uhoHG7n33hiSqVyilhQVd
-         WtFQ==
+        bh=wfoD3KUxMRD8nQNxfpnKaxJhLj/R2t0aeKVcyBGd3qg=;
+        b=b69LIeTKdzjgxb7a+XxRj6zKdmMLv7GjBsvJLHkRZBosufAU/KnrKYMuA+k+iHFu2H
+         RcMTgxE4Zb0VmWjpbXHdAVu29n7EDoJ9rkPgckBIBZqVo60vFtNwFPLNBp0mvZWdutks
+         C1EeVgMG5OYdj7XzoZLHrnti4nTzFgGJrJjPLM8bWVkoTxfXjUGrVy0PFNSicAQ0y+Zu
+         SN+eztv4VZzJD1f0nlVF5TKqDV8q2T46/DnJVouPFshPOsAI4zv+ywkx3rduxAJVRVs4
+         2zQ39c2GAo+DQBSVhghw0yL8g2I0LxJBLUc3YnydVcGgn4ih2cUn0+s9sSVABFg86WOF
+         DYhQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=A90UDbvY;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=l6M3v8Dq;
        spf=pass (google.com: domain of gustavoars@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gustavoars@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dvLBWXU4FeQFAjt13mY7r2jrx0CJ1EiQZgVhPM1zUPg=;
-        b=o6xBfvrme7GSaaRoS5JMu5ZX+DKIvM6T4T2i7gmr4K0G1MohIUh23cPytYg3TNQGax
-         5CvNUHpCFIvhQ8/7TlVJUJ1VinP8hR44zrCSZuzwzjssYF3NHkaH4JWJr+18bimY02/C
-         2uQVe/Pr6dh5R7Vk6kDBm6Kf2JRYdY8aU34hw64hJfFzvzghEL+uLD8V1xI/O3crSK1z
-         Z5a4d3oVmNfgalEURxjhsm/nhDQ/bPp3dsndnlXIwzrQK9oAQ9wM/mGHmD/b4dNsDOyq
-         voo9zojOELW6xdSZOiKF66q9uXMB3DPQeLd2WOZLLLSzmbQKp9eSJSoJTZ7j2O+29hnV
-         8XSA==
+        bh=wfoD3KUxMRD8nQNxfpnKaxJhLj/R2t0aeKVcyBGd3qg=;
+        b=olGN8pG2ZdbIM8TPSQuyfMm8adGYyiVAacGu+PfliQ7lum9b8upfEVPcOO6RJP7/ww
+         GQqGcT8zJY7OKuy/0wGbTR5mRx5BPqmHQNSqCSYGKpCeHJjSET7RqBf5f7wbqUBHUJM9
+         HXyhLg/p1Ds7HxIaklGOvRatxXxb9VIeL3RwJcRVN658qE4YiVhFbbc0cXOImJQDO5rt
+         rKHKOj1wLT4iVQNStSvSk79kZiuH3q2E4nloR+C1Ju1JSrZObFROVrGOYp7sZyC6OlfS
+         +5QnCh8UAGuyd7NDavRAENLGjQxPGz5blJoU/OGGRkWPSEkYY7kd4WdM9HzWc8X+0nJE
+         HLaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,55 +50,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=dvLBWXU4FeQFAjt13mY7r2jrx0CJ1EiQZgVhPM1zUPg=;
-        b=mQvSvCZtZeodOplgnmPCxeqVpIdLRj3+zgUCZygNG+3hl/AJqNjXoAda+7WjRxgcBw
-         Z8+8/n4bOA61f/X8VK1V+SfF7uvJIsUTEMSdGSNJH7wodTX3LS6AcXzoD8cCqpe4R8O4
-         35qFqEfWdBylNb2n3pLlBu9KVArj6FN+A1gNZvcAD0IyJtPm0j18qxguBy9jOjMlFPxv
-         5OQSNqfAUQMwbhXeUdWmXZbsDhJpUEX8wOulhG+taiD+zLsoC1UI+q67uILZI4jZOudP
-         gQbIrbE1nMLxrt7d9lW3hECyZBBQK5HNCN45ISh5qUKRtOHp1hNW8FdvWesRPgrIvRh7
-         guXQ==
+        bh=wfoD3KUxMRD8nQNxfpnKaxJhLj/R2t0aeKVcyBGd3qg=;
+        b=esmlJUHXzYJ0IIvIddn6fdWp+BDr0ApGMFDRF2wGC+C15bcmvFuM8NPBcGRGpcEh2j
+         odiQC9xKMX2GvGgDsVlID3fDRUawxBU6Vj8SnEdGNVhrgwhTqPXIaTBW/RVd4SiwJ61J
+         Q5S4kKzvTWMuRuaXBszYBl4nNXI/swim/KOiDxBW7GgSwSP48AJUcjjezcXPiXdsn48f
+         8avDuOs7twe4VFCWYrm2o1KGI9jraU/DbB1uvG5LkLEVojQpOk9fcPv2XAEDl6DDeDm+
+         YJS2r7rYu+OLLYcnGEE5oP0NYhFLPg7y/X7CeqVKdyixldFbhFtmm1VsTQYn8DoA8BCO
+         fTtQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531AzaflcS2LpT5dwKhMQbZ5oarzdiaHYBRK6oMBOqY3O/cciW9E
-	WnZqKw/3Lju6ZVIdFgb2eiQ=
-X-Google-Smtp-Source: ABdhPJz3/h18VphA26w1NNAOiWZZpjf2c4ZG8WTeaE3vh10TtQ1Z2u+eYSjNQ+9qBIuoEYle1bAKlw==
-X-Received: by 2002:a54:4e8f:: with SMTP id c15mr4812901oiy.107.1627437916755;
-        Tue, 27 Jul 2021 19:05:16 -0700 (PDT)
+X-Gm-Message-State: AOAM533kgkiHuEHg7UIL7EDaA/fUdLRq6sb+QvDGAnANMtEXbbQRjonn
+	eTs2+JxebYauWP2jY4H+2LY=
+X-Google-Smtp-Source: ABdhPJwvpzbDKxRNlvojU8rE67TF375QebSfNj9yy7gWBx3MWJ3bzCbR/lJ0ItIFxjtTp54jT2VVvg==
+X-Received: by 2002:a5b:403:: with SMTP id m3mr36601632ybp.62.1627439389026;
+        Tue, 27 Jul 2021 19:29:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:352:: with SMTP id 76ls191145otv.0.gmail; Tue, 27 Jul
- 2021 19:05:16 -0700 (PDT)
-X-Received: by 2002:a05:6830:2413:: with SMTP id j19mr17594030ots.332.1627437916399;
-        Tue, 27 Jul 2021 19:05:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627437916; cv=none;
+Received: by 2002:a25:a4c7:: with SMTP id g65ls485022ybi.8.gmail; Tue, 27 Jul
+ 2021 19:29:48 -0700 (PDT)
+X-Received: by 2002:a25:6d43:: with SMTP id i64mr34422454ybc.252.1627439388473;
+        Tue, 27 Jul 2021 19:29:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627439388; cv=none;
         d=google.com; s=arc-20160816;
-        b=HeuOAKs/BxHZ3z32ZwCrl4jXLKgA+h1esfpAd4FppA5LzCGYYl5VtT1AacM7Zq0/Iq
-         81pv2W07f4hyvyAzInHM2xE/RfAhBUZQFa56YrL23yRxjtVSl5JXi3Xm1Uk6ofOfdoTA
-         ljolIMdOMf5/wv9uIzaR3pgrr6wrHzt3DWxXJMnKWoKLr9MOCPmHTDFkKg7im3Z7gFtE
-         KEgz23gKjiKpnHwJVU/P0G5LsMdtDLaiSqaI4PBGapruXHrGeKUxVPdfV0wxJUO8iNgk
-         TvTEMr2/tSn/HviQf6VQ6c7u4UGjgGVHI/Ol4nLz/eI9ueTlTMVICToQox6x77EixvFN
-         nFVA==
+        b=BCQP2TRTDd7cUKFWc+gketAWZ963LcTrqy/OfejAbc63tAjFuf7BaKEq1FSRui3VTQ
+         WRkhF+zhZfX21/iHZ3yYnObQCiIDvP9mQXd0O4x0G7epCqJKVvOAlalziITmsvfCOZDG
+         jjJuYwR8voGMkxhRYlH7anRxFQIGT8TFhlxeHg+kS+lRAxj9vfRN2RUdfH4qHgzn7ILe
+         H8qCtnNaoZFls4yVSCBMEYVuwJvPTlGx9bexzRcTEx8swuE1RAsdjAw8uLVMKm5QPg0V
+         Pf9iny1I7gn4NgnfvG+xcvetpwo8Oy8s2BUCjiVr/KCmQy6Mg5V3XxptACUG66HdHMWJ
+         9X+w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=W+YMTp1kyJ6bwSA3MQ+8dlvMsDgDO/2R4KMBsuo5BFs=;
-        b=EF4LzPp3Ubc6boWWVjsUjKXMPAt5Ulq6kToRQmT8QcfK0R/aqpzuY7nEpntlqNKkgM
-         ZVibh1AZoB2+ndFVrz45i++Xm+MzYUre0heb8BT+G79c/ZPkx2gOWk5KuGYtDje3lRxZ
-         NX1pIYsZ3RyZQXqgUfhm2hMUQN+FKaTkSOYB9kT9xyXXf7GFC3Xb3rJ66uDMzMaxTXsD
-         Wi/Os8cE3znbbPlBUzEoEj7GGc3sKfd+iS9w6vYwlyP9CJppizX1T0tiiHcZLQla1EIs
-         PTqKQMJgrKv9ik9UR2zTG/nGQIZ7Zg6jvvDQExoJqRTCo5v797BEsLwro2w37hS38lvg
-         YubA==
+        bh=IslmFDdbqK4Ubz71C9UOYwz5CpIkxpVc+uyG2W1Pup4=;
+        b=cSRL6zUnf9bOnjKSL+Ht6oGXnCWGrxiWu/uE2OPLFt/87G9IDGRTnEjn/Pjhgs9eJ3
+         LBq3oOYNpRLFhzLHUEKLALtUJgJLWM2hf/plJUgh2qNqAI7DuyLz4eJu2dji3aAzum2T
+         4n849uvlLUvznSmQK/OBjanQPu6EvNRDMf9m/uL6WuKz9bnSMe5zUZXx1sM5Ay4yH1o+
+         00wpliTYWc6RkcAfjV2nl396cQcWaATxJ8s4h2G/SOcHmN87URpPVVr796IdeSuT7gqL
+         p30rhgbQX1HAQTf3V91o5k6eLfmAZn6OGw+yShCDxKeIN6NDB9R0MovoNY8WweR5tJhU
+         RjnQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=A90UDbvY;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=l6M3v8Dq;
        spf=pass (google.com: domain of gustavoars@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gustavoars@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c20si298793ots.0.2021.07.27.19.05.16
+        by gmr-mx.google.com with ESMTPS id n10si256082ybj.2.2021.07.27.19.29.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Jul 2021 19:05:16 -0700 (PDT)
+        Tue, 27 Jul 2021 19:29:48 -0700 (PDT)
 Received-SPF: pass (google.com: domain of gustavoars@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9266560F9C;
-	Wed, 28 Jul 2021 02:05:14 +0000 (UTC)
-Date: Tue, 27 Jul 2021 21:07:45 -0500
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 84F0D60F9D;
+	Wed, 28 Jul 2021 02:29:46 +0000 (UTC)
+Date: Tue, 27 Jul 2021 21:32:17 -0500
 From: "Gustavo A. R. Silva" <gustavoars@kernel.org>
 To: Kees Cook <keescook@chromium.org>
 Cc: linux-hardening@vger.kernel.org, Keith Packard <keithpac@amazon.com>,
@@ -108,17 +108,17 @@ Cc: linux-hardening@vger.kernel.org, Keith Packard <keithpac@amazon.com>,
 	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
 	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
 	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 03/64] rpmsg: glink: Replace strncpy() with strscpy_pad()
-Message-ID: <20210728020745.GB35706@embeddedor>
+Subject: Re: [PATCH 04/64] stddef: Introduce struct_group() helper macro
+Message-ID: <20210728023217.GC35706@embeddedor>
 References: <20210727205855.411487-1-keescook@chromium.org>
- <20210727205855.411487-4-keescook@chromium.org>
+ <20210727205855.411487-5-keescook@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210727205855.411487-4-keescook@chromium.org>
+In-Reply-To: <20210727205855.411487-5-keescook@chromium.org>
 X-Original-Sender: gustavoars@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=A90UDbvY;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=l6M3v8Dq;       spf=pass
  (google.com: domain of gustavoars@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=gustavoars@kernel.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -134,51 +134,187 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 27, 2021 at 01:57:54PM -0700, Kees Cook wrote:
-> The use of strncpy() is considered deprecated for NUL-terminated
-> strings[1]. Replace strncpy() with strscpy_pad() (as it seems this case
-> expects the NUL padding to fill the allocation following the flexible
-> array). This additionally silences a warning seen when building under
-> -Warray-bounds:
+On Tue, Jul 27, 2021 at 01:57:55PM -0700, Kees Cook wrote:
+> Kernel code has a regular need to describe groups of members within a
+> structure usually when they need to be copied or initialized separately
+> from the rest of the surrounding structure. The generally accepted design
+> pattern in C is to use a named sub-struct:
 > 
-> ./include/linux/fortify-string.h:38:30: warning: '__builtin_strncpy' offset 24 from the object at '__mptr' is out of the bounds of referenced subobject 'data' with type 'u8[]' {aka 'unsigned char[]'} at offset 24 [-Warray-bounds]
->    38 | #define __underlying_strncpy __builtin_strncpy
->       |                              ^
-> ./include/linux/fortify-string.h:50:9: note: in expansion of macro '__underlying_strncpy'
->    50 |  return __underlying_strncpy(p, q, size);
->       |         ^~~~~~~~~~~~~~~~~~~~
-> drivers/rpmsg/qcom_glink_native.c: In function 'qcom_glink_work':
-> drivers/rpmsg/qcom_glink_native.c:36:5: note: subobject 'data' declared here
->    36 |  u8 data[];
->       |     ^~~~
+> 	struct foo {
+> 		int one;
+> 		struct {
+> 			int two;
+> 			int three;
+> 		} thing;
+> 		int four;
+> 	};
 > 
-> [1] https://www.kernel.org/doc/html/latest/process/deprecated.html#strncpy-on-nul-terminated-strings
+> This would allow for traditional references and sizing:
 > 
+> 	memcpy(&dst.thing, &src.thing, sizeof(dst.thing));
+> 
+> However, doing this would mean that referencing struct members enclosed
+> by such named structs would always require including the sub-struct name
+> in identifiers:
+> 
+> 	do_something(dst.thing.three);
+> 
+> This has tended to be quite inflexible, especially when such groupings
+> need to be added to established code which causes huge naming churn.
+> Three workarounds exist in the kernel for this problem, and each have
+> other negative properties.
+> 
+> To avoid the naming churn, there is a design pattern of adding macro
+> aliases for the named struct:
+> 
+> 	#define f_three thing.three
+> 
+> This ends up polluting the global namespace, and makes it difficult to
+> search for identifiers.
+> 
+> Another common work-around in kernel code avoids the pollution by avoiding
+> the named struct entirely, instead identifying the group's boundaries using
+> either a pair of empty anonymous structs of a pair of zero-element arrays:
+> 
+> 	struct foo {
+> 		int one;
+> 		struct { } start;
+> 		int two;
+> 		int three;
+> 		struct { } finish;
+> 		int four;
+> 	};
+> 
+> 	struct foo {
+> 		int one;
+> 		int start[0];
+> 		int two;
+> 		int three;
+> 		int finish[0];
+> 		int four;
+> 	};
+> 
+> This allows code to avoid needing to use a sub-struct name for member
+> references within the surrounding structure, but loses the benefits of
+> being able to actually use such a struct, making it rather fragile. Using
+> these requires open-coded calculation of sizes and offsets. The efforts
+> made to avoid common mistakes include lots of comments, or adding various
+> BUILD_BUG_ON()s. Such code is left with no way for the compiler to reason
+> about the boundaries (e.g. the "start" object looks like it's 0 bytes
+> in length and is not structurally associated with "finish"), making bounds
+> checking depend on open-coded calculations:
+> 
+> 	if (length > offsetof(struct foo, finish) -
+> 		     offsetof(struct foo, start))
+> 		return -EINVAL;
+> 	memcpy(&dst.start, &src.start, length);
+> 
+> However, the vast majority of places in the kernel that operate on
+> groups of members do so without any identification of the grouping,
+> relying either on comments or implicit knowledge of the struct contents,
+> which is even harder for the compiler to reason about, and results in
+> even more fragile manual sizing, usually depending on member locations
+> outside of the region (e.g. to copy "two" and "three", use the start of
+> "four" to find the size):
+> 
+> 	BUILD_BUG_ON((offsetof(struct foo, four) <
+> 		      offsetof(struct foo, two)) ||
+> 		     (offsetof(struct foo, four) <
+> 		      offsetof(struct foo, three));
+> 	if (length > offsetof(struct foo, four) -
+> 		     offsetof(struct foo, two))
+> 		return -EINVAL;
+> 	memcpy(&dst.two, &src.two, length);
+> 
+> And both of the prior two idioms additionally appear to write beyond the
+> end of the referenced struct member, forcing the compiler to ignore any
+> attempt to perform bounds checking.
+> 
+> In order to have a regular programmatic way to describe a struct
+> region that can be used for references and sizing, can be examined for
+> bounds checking, avoids forcing the use of intermediate identifiers,
+> and avoids polluting the global namespace, introduce the struct_group()
+> macro. This macro wraps the member declarations to create an anonymous
+> union of an anonymous struct (no intermediate name) and a named struct
+> (for references and sizing):
+> 
+> 	struct foo {
+> 		int one;
+> 		struct_group(thing,
+> 			int two,
+> 			int three,
+> 		);
+> 		int four;
+> 	};
+> 
+> 	if (length > sizeof(src.thing))
+> 		return -EINVAL;
+> 	memcpy(&dst.thing, &src.thing, length);
+> 	do_something(dst.three);
+> 
+> There are some rare cases where the resulting struct_group() needs
+> attributes added, so struct_group_attr() is also introduced to allow
+> for specifying struct attributes (e.g. __align(x) or __packed).
+> 
+> Co-developed-by: Keith Packard <keithpac@amazon.com>
+> Signed-off-by: Keith Packard <keithpac@amazon.com>
 > Signed-off-by: Kees Cook <keescook@chromium.org>
 
-Reviewed-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+Acked-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+
+Love it! :)
 
 Thanks
 --
 Gustavo
 
 > ---
->  drivers/rpmsg/qcom_glink_native.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  include/linux/stddef.h | 34 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 34 insertions(+)
 > 
-> diff --git a/drivers/rpmsg/qcom_glink_native.c b/drivers/rpmsg/qcom_glink_native.c
-> index 05533c71b10e..c7b9de655080 100644
-> --- a/drivers/rpmsg/qcom_glink_native.c
-> +++ b/drivers/rpmsg/qcom_glink_native.c
-> @@ -1440,7 +1440,7 @@ static int qcom_glink_rx_open(struct qcom_glink *glink, unsigned int rcid,
->  		}
+> diff --git a/include/linux/stddef.h b/include/linux/stddef.h
+> index 998a4ba28eba..cf7f866944f9 100644
+> --- a/include/linux/stddef.h
+> +++ b/include/linux/stddef.h
+> @@ -36,4 +36,38 @@ enum {
+>  #define offsetofend(TYPE, MEMBER) \
+>  	(offsetof(TYPE, MEMBER)	+ sizeof_field(TYPE, MEMBER))
 >  
->  		rpdev->ept = &channel->ept;
-> -		strncpy(rpdev->id.name, name, RPMSG_NAME_SIZE);
-> +		strscpy_pad(rpdev->id.name, name, RPMSG_NAME_SIZE);
->  		rpdev->src = RPMSG_ADDR_ANY;
->  		rpdev->dst = RPMSG_ADDR_ANY;
->  		rpdev->ops = &glink_device_ops;
+> +/**
+> + * struct_group_attr(NAME, ATTRS, MEMBERS)
+> + *
+> + * Used to create an anonymous union of two structs with identical
+> + * layout and size: one anonymous and one named. The former can be
+> + * used normally without sub-struct naming, and the latter can be
+> + * used to reason about the start, end, and size of the group of
+> + * struct members. Includes structure attributes argument.
+> + *
+> + * @NAME: The name of the mirrored sub-struct
+> + * @ATTRS: Any struct attributes (normally empty)
+> + * @MEMBERS: The member declarations for the mirrored structs
+> + */
+> +#define struct_group_attr(NAME, ATTRS, MEMBERS) \
+> +	union { \
+> +		struct { MEMBERS } ATTRS; \
+> +		struct { MEMBERS } ATTRS NAME; \
+> +	}
+> +
+> +/**
+> + * struct_group(NAME, MEMBERS)
+> + *
+> + * Used to create an anonymous union of two structs with identical
+> + * layout and size: one anonymous and one named. The former can be
+> + * used normally without sub-struct naming, and the latter can be
+> + * used to reason about the start, end, and size of the group of
+> + * struct members.
+> + *
+> + * @NAME: The name of the mirrored sub-struct
+> + * @MEMBERS: The member declarations for the mirrored structs
+> + */
+> +#define struct_group(NAME, MEMBERS)	\
+> +	struct_group_attr(NAME, /* no attrs */, MEMBERS)
+> +
+>  #endif
 > -- 
 > 2.30.2
 > 
@@ -186,4 +322,4 @@ Gustavo
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210728020745.GB35706%40embeddedor.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210728023217.GC35706%40embeddedor.
