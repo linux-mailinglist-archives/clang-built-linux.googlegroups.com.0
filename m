@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBDW6QOEAMGQEG4I6WIQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBGW6QOEAMGQEMUV3RII@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93a.google.com (mail-ua1-x93a.google.com [IPv6:2607:f8b0:4864:20::93a])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF5883D874B
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 07:45:51 +0200 (CEST)
-Received: by mail-ua1-x93a.google.com with SMTP id f3-20020ab06f830000b02902a95451351dsf937482uav.11
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 22:45:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627451150; cv=pass;
+Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id BBA2F3D8753
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 07:46:03 +0200 (CEST)
+Received: by mail-ot1-x33b.google.com with SMTP id a16-20020a0568300090b02904bbc3b57656sf333393oto.9
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 22:46:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627451162; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PCuaSJrQKV/Z3VWO+LczrOFWDVx5erZlZp2oK2RTFrb15yOWkAIdaMFruCdfIj/rpL
-         FUpYH4nSuE1gLgRUKUr3OyCR26lIgn48oDsb03r8Ot2CAcD1FYASmAOlORN0iToPHY+q
-         rh5a+Iue7m9vseK/vHjJ0YqUnrNM3uYiEJjs7z1qu0OiY0KWsLQmRe5DNScFU11J5GX2
-         ef6w28a4gN6/PEt2zNlBIhqWlUh6qJc9xbuW6+kbwZ+mJrUzJ1YnAQV/eZKMbNivWbpt
-         Pt7Q6hEuVPJyG9YeByvvr32BtlbIMQsd5BwYaao20XXEWuhkiHzSIN3i1h/NU5Q37ped
-         uSxA==
+        b=aXFWFoItCaGmpNgVfz4xC9xoqvMemH7LJuMGtSxBthSrwyOTFqSc5e9H41uWD4p8zo
+         HMmI1zCclOxru4t0UMc9KJv1xia8fPWm9hyu16ZD/vE7mIcyoQS/QdqbIk/ZNHZ7bRyK
+         rIk8aYSBO2UKzrgIp4nPuc+XVtPXxoy64CStuDUNqu17HlUVPSYipw0iAFhngsvtIn2U
+         Nmi+X49ZAmf16QAZtnu0Z+AJQg04MC0maL34vp0Q44BZ6qEilg++h2s3P6EfpLH3Wpzy
+         8lARftPXvrCtz+2PWjWuAZ2eBS+ygCCahHcueC0LTy/lNtJbEJfGLytMoMS2pEYUq2H9
+         9Yqg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=b1+oGWc0Sv+J/5RKYJGHkR5ck3viBLdIqnXhfDMlsoM=;
-        b=K56DLztrYpEj9fff/PA+jE1wo4XsEAG7vZaiAAiEnNtxSd36UWuAkOes0N9zowtp7m
-         aDRl9JLjmbm79uena68jEwghkZbt0eWEI+PAuyBGBQDmNvTAtiZF7iWnA51LJUKLEAus
-         EP6ybznrawXHjfnGQsC8yGhElK0HwuZMv3adbLoxBCVsBoUK7/bj0ED3o6Zft9kVGowL
-         yMyJZlNwALiSeCV9RSNyTRPMS3uyRVWt860AEon8hHXC+UKClxko2OjVtoptKhwJuZ1T
-         rKLiVTU4BTH8BNsUbRe8jVPrxdk76loT1kH2yL366ZIqcka73/9I2lN04fk2e9d050Dx
-         C5IA==
+        bh=AnZLYHaduEE8dHCJ0r7dpyJ1QiXTqVVLeAwLdvXsxkM=;
+        b=zsyZkVvsuv+Kxz1yNV8p8XJmtIHHFAoQAinrW3J7y7lnyQ9BqWWSjGRpr4iHlp6LX/
+         D+28nOV1yZ1+JXfiSST279ywCWPiqJrwAX4egLRb7mObVx1y74qTmrjIaWds+uR6L+UT
+         n0Km32SB2JrOZfg7CIi12CgSuFpBL3Zqp3b3sieDsG50EobN0Ivs8LIHXHMdNVf0U4He
+         WltEL/z1+bj/BFBnFNCsu9Q9/wuyn3DQLXwH2Nw0ylPpuOVaTDMGUfZUpm3SPZdLGwZF
+         /Y9yWXXXpInlXvZEMWlc+ukRvKEosa21KwPx+NRzMgKEMmxRqtD+wY54J44D47bKAFwx
+         pQbA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=mTu0LkN+;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=F6DkcU1t;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=b1+oGWc0Sv+J/5RKYJGHkR5ck3viBLdIqnXhfDMlsoM=;
-        b=tELUJCa3Lbeb73CnVT82bvNtLsRq2PyynegzxAyb4xGd9HxRRDNqInV9ViCKhmlcYa
-         zcY0y87qJlV7ryXLGZ+Fen/2XhXZZnQDx5aHkcdZ2Nz3xRmn+iF8D54u3/V3+iUmxmr7
-         FCrtcu4OKlnkZPvbZu9ihLUpGEJpADXsUy6Mc/VlQpuvTQk+Wmmq+u0rNjKHVcfW4h1t
-         rseEv/snS/taGLrGM8UTuifz729VhMS2pTJuM29hus0vRQluFktwoq1KgIiF8zjlipaq
-         ntGfDX3k/Ku476pWLS34GQwu1cydlQ3624DohPkx/uO4NSKu/+pxMw+ds5dUyNKMjToX
-         KICA==
+        bh=AnZLYHaduEE8dHCJ0r7dpyJ1QiXTqVVLeAwLdvXsxkM=;
+        b=UhfRWXEUZDmjYultUvbBIPzXuJ0NbdMi9TS/+j91pm9EA0lqfKDy6qv2TEaxILja7l
+         qEA0BqIiSN/hJsW66Z7UoBloLVjnvp+r8t8vNM8gi2V4g9O9Lt9NHQ7dteKw0fUtjRam
+         pEtzYliFZPc7fEtbFhrTo/e7GEobNAha8rJmo7HzgfMPnq2nC2PqlJRKFplqv+KL+ssx
+         ZBTtMIWTF/kWAxHdofviyaCgGj4PJfBChZdU4lDJcTAIaRCS/hRDIFc/U4cZwPxDtVh/
+         Fb0Pua2kMQ3ygB++Jgg8o8ncyv+0DlfAx5LSgpJy9Eq7AqDgTvMyKKiK4Ura1pWQdtXS
+         5pww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,55 +50,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=b1+oGWc0Sv+J/5RKYJGHkR5ck3viBLdIqnXhfDMlsoM=;
-        b=tWHDlG8D+O2ZCbxXf+QB928gHGZhIFhrYJif0U6ZPihpvHJSszdKmcf+Xc1hwac4Zb
-         rR0RtpONuysZ78t77pufqE0ZBctaMT8AQeGtGpaFuak0WDK2d+GWFMsIMqMjjxnuPZtp
-         p+33j6qGCD2U9EBor3I37fIp9HatCTZ5W4YfnEZWr6KCdF4Q4767ywwpfXf3LSwgmAJf
-         sNQ/6GwUta7MK2/j7t/qI+A9p9jzCgLjG+Z8jqfRHuQ52G0NXHRDsPqPg6/dZVMrK0t/
-         6poJ7huOc/DpIpdqvhgFb4NVMQeHVLeI4mNKqsA2Qf3Q1zj4qA3MJ/iEGL3v1zBGGYHZ
-         5AMA==
+        bh=AnZLYHaduEE8dHCJ0r7dpyJ1QiXTqVVLeAwLdvXsxkM=;
+        b=tAHNRKi9bgQH4tShATJmrsUKPAazf9+KwHuo/wQu2KugYGS2x7XSaqWMZxloVigxUd
+         WTYZipEWvA43uq6/AHn4k3QaZAE6RotzESxoyc1UhzyaUaMWtqlpD6CmD6g1en1z/RBt
+         86W0WCG3ia505169HhNOObDl9SP+xqH1L+O4yK7qopwyBT0qIfnvatcta+ny+dIL468T
+         OwP0LaVEFDd39ctjLPuS1VxIVL+SaSM+3tn9rMh0fqlxiyuw+SlG7RtW7IZFvrkifSCL
+         ULDFJSwfZJ9sHIlTwRIWMkZ/ZkEwGZGssfD29aHga0ShhLufqeObGcoBVh5lYY/oSLpg
+         Wzow==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533EGyu8hGmWPC5il08hXyaMKn2VqDqbc4d55FpobamgOOuoLNl0
-	6u15T9kOzgNRvWzm9pYh33o=
-X-Google-Smtp-Source: ABdhPJxaXyfuuD5Y00y9V1W94LEIaXzypvxq/QJpw68D+Z4pCVU9BCeIcF9Lkx8t2BVjzrL4sf055Q==
-X-Received: by 2002:a1f:6048:: with SMTP id u69mr11172981vkb.13.1627451150819;
-        Tue, 27 Jul 2021 22:45:50 -0700 (PDT)
+X-Gm-Message-State: AOAM53081I3c9M2NmHSHbQcoNOsQnMFAC8P0t3u/6/ERfCsRnKZYyp6a
+	C2TPaxDPSHYZmn2rdxSDdWo=
+X-Google-Smtp-Source: ABdhPJyDl3QN9RJmFb9dEwrgKY5cvZgEyL6yFe5kVQaCZRg28/bC4ZRZSsmNeu6ioYv1hFQKZj9pJA==
+X-Received: by 2002:a4a:94e2:: with SMTP id l31mr15968961ooi.62.1627451162450;
+        Tue, 27 Jul 2021 22:46:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9f:36a8:: with SMTP id p37ls116958uap.5.gmail; Tue, 27 Jul
- 2021 22:45:50 -0700 (PDT)
-X-Received: by 2002:ab0:35d3:: with SMTP id x19mr21344031uat.124.1627451150365;
-        Tue, 27 Jul 2021 22:45:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627451150; cv=none;
+Received: by 2002:a9d:7c1:: with SMTP id 59ls293831oto.8.gmail; Tue, 27 Jul
+ 2021 22:46:02 -0700 (PDT)
+X-Received: by 2002:a9d:14e:: with SMTP id 72mr17949688otu.232.1627451162110;
+        Tue, 27 Jul 2021 22:46:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627451162; cv=none;
         d=google.com; s=arc-20160816;
-        b=pE0GUvpQ2p//lO3kf2m9YzLbFuJMOasjPXsF7TO9498cHmUo/mvq5pKGruZmFAG1cx
-         E3MSa27T9C71T67Qv3UmCsKCrRBqVp5BcOW60KByIFN/HmGmctzOvhhljD/CiIfL+/iA
-         iGHpamHQjsz3rYAAQWYmeJrRwDjMTtcPkCekCgfhr0hEcy0aEm7SxxHj5e+wT7Pt8CxL
-         FMTzZ3yvpxOo0asigAjMmEH2WgReB9PxaCpxTY/C4OmYtPcpp9cPH4tNRY9Oh0uAjlAw
-         XdIgJXieRS31g1K1aClyBYWxQnG+CzKzM3b46ZxjQAMenvW9dTCV0dJygbB9IUwAAtxc
-         hA2w==
+        b=S+xmoJUnYdttRs72RplTZW9FT5J/QvBvDznjfnQC9d+EPkBLqT2Z0MDzOiq0gxcn5j
+         ohJZw8/RMEwVCNmCHUYiT+TxyuTO7lIGR23N1YKZm2TUvsimAJ98xM5ddnUZ7YIBeBpE
+         gUD7SyluTftupPj4dcdA8xDjbyQUB/iS/F151Xzzd0p3qbqUb2toh8x6AUljayCeuIKL
+         S0CzCZ9ShQLa9JB3nJzbqub5XThWcWFL88KXZrhc5yYEQhli/zGQRSbRtBdB8wVcyyq5
+         IfgWJVE1PlTs9zQFVQxmck2K4qen6RUfYQuIHDnH7/hChRp5dBy+kKBfIZgdli/YMkKE
+         uHWA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=m/oGyw9PfUxPOtsb/j+8QS2GuwmwKah47oriAntVGbs=;
-        b=zPjQsLbeT5cQNMT0lDrwkGJSHI04Pva1RhaiHm9YWen+olKYvj9p8LBrziczwbSGZy
-         brp1CclJL2H2oFkkv17KI1miyfCHcnZA0JJXji8chQMxilJYkO452QN8XcVL8uNDYqAi
-         leUa1m5lRdSoN8m4B+vECSVtT8HDv6vyf0MDvmlRnyBWYt7DKtxNNeSiU3svLVAWPweV
-         lTrmK63RmITbdpHh2TcYXgQ8tN951BpLinma/DixWaNx5tvedPs85m+38IJN7mJlT6lk
-         AoR2W2zrj0PSbn4FfJX24EwemEWIqiNIydDOyynl24baxVe+9n/aocM0+y3BJ8sVxYpr
-         dADg==
+        bh=VB398ruaATolEYiSRB7ksOByl+NtOrmxCsuI6mYg1yI=;
+        b=hzf56wz2fi+A49w4P2v0eYQM800bv3Pt4KPuGiTkE7ZAxLL7xzJ8RCjB8zpak6GP8v
+         SWSHkAg1+LLKLkfGkhwTz2Zsq/cMwm8/nR/xetsZkOfbQCVCV9dYh0DP1X6aQKbPF1EG
+         p8BTy78aC1TVqAX1pAvK9kEvfcu730a8hNvo9LLHLSskS5WZOfX3cHJNQ7lVlzGgh5CD
+         t03V884BtTqphjNVgLdnxevvJ5NNwO0NlYcfXA4pGFNhcUkQe1Wyirku/XaD3f4+T17I
+         mGmZt7Xe5bzo2lOFh8UtlkYKHEstlZ3MMyylFKsCUs4Vi7fUsJ5sJSW+ZFE8QhkvaZdv
+         j+2w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=mTu0LkN+;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=F6DkcU1t;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id y18si441883vko.4.2021.07.27.22.45.50
+        by gmr-mx.google.com with ESMTPS id b9si518849ooq.1.2021.07.27.22.46.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Jul 2021 22:45:50 -0700 (PDT)
+        Tue, 27 Jul 2021 22:46:02 -0700 (PDT)
 Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D74CB60F91;
-	Wed, 28 Jul 2021 05:45:48 +0000 (UTC)
-Date: Wed, 28 Jul 2021 07:45:47 +0200
+Received: by mail.kernel.org (Postfix) with ESMTPSA id B91F460BD3;
+	Wed, 28 Jul 2021 05:46:00 +0000 (UTC)
+Date: Wed, 28 Jul 2021 07:45:59 +0200
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: Kees Cook <keescook@chromium.org>
 Cc: linux-hardening@vger.kernel.org,
@@ -109,18 +109,18 @@ Cc: linux-hardening@vger.kernel.org,
 	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
 	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
 	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 24/64] staging: wlan-ng: Use struct_group() for memcpy()
+Subject: Re: [PATCH 08/64] staging: rtl8192u: Use struct_group() for memcpy()
  region
-Message-ID: <YQDvC4CghCazix4w@kroah.com>
+Message-ID: <YQDvF2syaThTs7sx@kroah.com>
 References: <20210727205855.411487-1-keescook@chromium.org>
- <20210727205855.411487-25-keescook@chromium.org>
+ <20210727205855.411487-9-keescook@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210727205855.411487-25-keescook@chromium.org>
+In-Reply-To: <20210727205855.411487-9-keescook@chromium.org>
 X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=mTu0LkN+;       spf=pass
+ header.i=@linuxfoundation.org header.s=korg header.b=F6DkcU1t;       spf=pass
  (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
@@ -136,30 +136,29 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 27, 2021 at 01:58:15PM -0700, Kees Cook wrote:
+On Tue, Jul 27, 2021 at 01:57:59PM -0700, Kees Cook wrote:
 > In preparation for FORTIFY_SOURCE performing compile-time and run-time
 > field bounds checking for memcpy(), memmove(), and memset(), avoid
 > intentionally writing across neighboring fields.
 > 
-> Use struct_group() in struct hfa384x_tx_frame around members
-> frame_control, duration_id, address[1-4], and sequence_control, so they
-> can be referenced together. This will allow memcpy() and sizeof() to
-> more easily reason about sizes, improve readability, and avoid future
-> warnings about writing beyond the end of frame_control.
+> Use struct_group() around members addr1, addr2, and addr3 in struct
+> rtl_80211_hdr_4addr, and members qui, qui_type, qui_subtype, version,
+> and ac_info in struct ieee80211_qos_information_element, so they can be
+> referenced together. This will allow memcpy() and sizeof() to more easily
+> reason about sizes, improve readability, and avoid future warnings about
+> writing beyond the end of addr1 and qui. Additionally replace zero sized
+> arrays with flexible arrays in struct ieee_param.
 > 
 > "pahole" shows no size nor member offset changes to struct
-> hfa384x_tx_frame. "objdump -d" shows no meaningful object code changes
-> (i.e. only source line number induced differences.)
+> rtl_80211_hdr_4addr nor struct ieee80211_qos_information_element. "objdump
+> -d" shows no meaningful object code changes (i.e. only source line number
+> induced differences and optimizations).
 > 
 > Signed-off-by: Kees Cook <keescook@chromium.org>
-> ---
->  drivers/staging/wlan-ng/hfa384x.h     | 16 +++++++++-------
->  drivers/staging/wlan-ng/hfa384x_usb.c |  4 +++-
->  2 files changed, 12 insertions(+), 8 deletions(-)
 
 Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YQDvC4CghCazix4w%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YQDvF2syaThTs7sx%40kroah.com.
