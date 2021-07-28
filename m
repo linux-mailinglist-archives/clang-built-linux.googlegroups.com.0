@@ -1,122 +1,152 @@
-Return-Path: <clang-built-linux+bncBDB77PFGVUPBBW44QSEAMGQELO6EZ3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIJL6NQQ4CRBEF2QSEAMGQEFIKVKEQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x63b.google.com (mail-ej1-x63b.google.com [IPv6:2a00:1450:4864:20::63b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B33F3D893C
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 09:59:24 +0200 (CEST)
-Received: by mail-ej1-x63b.google.com with SMTP id yl23-20020a17090693f7b029051a448bab28sf515693ejb.17
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 00:59:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627459163; cv=pass;
+Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9E7153D8A2D
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 11:02:09 +0200 (CEST)
+Received: by mail-lf1-x137.google.com with SMTP id bi11-20020a0565120e8bb029037d602924c2sf727359lfb.17
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 02:02:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627462929; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YLrMcpkwPmSLHEz5iUp1SVu+C3KW3A9pXBDr+fYAjN12zqKMltJgNdeWTbPLICdzlO
-         7Bku5DRhmJRipEB7+t/TVlJvuwR88HykGBBhujYh+i2KGfX7twu5K/Ea7/8HcODIKcEi
-         7Z8B8JeUm90e1XQSfsRZSs6buqrlS5E3KA4Z8enfFPNgHElw5d1TdUGQ4wMmUOjTL1wg
-         45n1i4IkF9lRDQ4dCtb1Iedx6u+C7BdDXjqO580mi5eqLHYdWe5PyjR5EgaNoJy1qBeg
-         BaxIUTR7FKriyiGtmOLXtuko48xwhTnT+au1ASkr8x1Azzurx5gDaS9XosPUYtZnmYCA
-         LtDQ==
+        b=LJY7iinrOVh8fRJMWhLkIa9P1gXH5ajtaicB1YcwpYkA0WdL+6pbg0dj6S2hD9Gmry
+         8+YB/scQcpmrdDuYq9VfUvEVciAtUkiXViVcRQ8Gk0JuAK5YSkhxpKjVzWoHySgqYv91
+         HKYHZAKsiYw9y90WSVGxbSc5bIyWe2nYUAsBVAxkAfiMRnzOp+hcwiTY4XIkXboa9ASg
+         A8RAqr37gEjmB/TjFWik2hoPllUJJGqhI9IM4NA7LzeSCLmVwe9WfCVz9mBLcEK1K9oY
+         5u36cW2uYLZMJ4XawgagJuw7h768kgkpkq9AAmoRgkIpTRy27UWFOdWe2BIRpG74NLlU
+         3BUA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=LR0TccIg0FYBdFqsyeBDi+LLdlsXuZgnU4GQPlV4Wvc=;
-        b=n1K/FOaXfNIiJqhLa6nU/ngmM4MG4NzRVLlqngJ7/bHrjrK0zy21ocwzSARIlk6ojj
-         VBehsTNzTTnAFnLyZzF1FmJcwPRMkMDdDL6yw0iX5nKfpQLW7hhFYDo/Wu9wJb7Q1WOT
-         cCUJ8huO5w388gLq3T58OfHGCOr6FXyUBg3bZRZMOcdIf4yWiUoZWmcJFWegJCuuTeX9
-         yZUhFWwqw+cGTp2rZ/0K1LUWh2AHWVKMoTdOqLd4SSRAQtxowIVf+ajCx/avlgcmH8qS
-         u4UyZBEQCUlXZprhgOtfSqC/CvzALlQItnANrLsQ8Vjon8gUf1HZBMb466P0/yTcqDqt
-         cPAA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:mail-followup-to
+         :reply-to:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=HB58JC1v/+Gku/eSVhFttv1wMQWBNM3NkoTkAsxvUv8=;
+        b=BOb8EQq2d3a78H4VLWvSSW39jQNjuIUGhV0JMBuwqInXu74CnVVTswgYdQykkQs5nz
+         xNEefqWttLk36Sw9el+MelNa32K2QczePvRT1dS+WsCWZQD83HPt2sALgWwAnTMLXdK0
+         7PVJHyiY3NagOx4cEYptsAsh9aQwwgq9IbmU0gK9S+/fFwAGJwky1m9CrYA4vaOzQBLi
+         qjbbVfT0S6ibRY0DYZE7hUA7YqxT8XUeRA4I3ROL6QqBlRbXoVY1+Hb/b/Mn0CVu5L6R
+         7bi1dwzi32TGx6WJkQvZZbmAH7dYTL2NQIQYj0mvdcpOqwkcBnoAjGAfoKUGK9zTTDCg
+         Id9w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of joro@8bytes.org designates 2a01:238:4383:600:38bc:a715:4b6d:a889 as permitted sender) smtp.mailfrom=joro@8bytes.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=8bytes.org
+       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=QJtqaRDe;
+       dkim=neutral (no key) header.i=@suse.cz;
+       spf=pass (google.com: domain of dsterba@suse.cz designates 195.135.220.28 as permitted sender) smtp.mailfrom=dsterba@suse.cz
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=LR0TccIg0FYBdFqsyeBDi+LLdlsXuZgnU4GQPlV4Wvc=;
-        b=al5Ecr+nbzjAa4FWA9BUx8BZmvrSeHnAnSoBkUvxka5fcfHok6UnJQYtF9Mr4n/mBS
-         apSGB+V9ssC48OorfdBwy0nC8KBStjEqfpF1KXdLFjSraol8xALpeUA1zwepTYRsyPHu
-         ZwKJ6F5DcUg60UO4VkL2aum88LMKCpHvTkWnzHQQ78EzgOdj886au6fxwuvI3V0KQY+i
-         vcNZceW1uz8Y8A/K66e9T/TgdoZG5uI2SMP8xL2S8BJW3zb/o5AozYV8UzFqt6QzH53e
-         uoB4wLmHZGENxFRI7WGcA+rTlS65Ppsm8WYJJtI3OX4g/VzmfQdAJBPtZNqeDsLs2ayI
-         FtUQ==
+        h=sender:date:from:to:cc:subject:message-id:reply-to:mail-followup-to
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=HB58JC1v/+Gku/eSVhFttv1wMQWBNM3NkoTkAsxvUv8=;
+        b=KhhWe0CvnzEmSO7w4GH3zgoHqC6+4WCqG3vkLg/P53KrHpsKCTY5Ys594CGLPBIic/
+         0rzVsb7EYz0iQyt3898ztfljl1qhLr3FHZxMk6iJvyqIVAkYH/c68FbRqXRElBL6bhWB
+         B9uD6j4W1TrKyndCP/HpMpOy9z9nGtVAoshtnAPrZXSWmCEAvviiW4uD1vLfZB1Rpmpb
+         B7nVNk75NBPhHB+q2nNbyVNqAAiM4NNxvM38o7QvS+Q2ICJuvCJqEQ6+0WwGTmmbiOJY
+         CSbsScHeSrUezKt8as3rX4J6pgVKu9NBYRvx01dEq/SQ3r2gy/G6+3+DhR86EgznVViu
+         Kwjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=LR0TccIg0FYBdFqsyeBDi+LLdlsXuZgnU4GQPlV4Wvc=;
-        b=okW22UMtolk/IHBjoIgnm4MClAW5wE9tUDQqdkErevVwFQ/KDSJXR167ruwh906+3o
-         gUHPUMcOh01iNNeZB3uLu94xyJ0onqcXjDZH+78mA1BsuTOvtV6qqp5MyQzV9fUg2nIB
-         YYaeOdW6+VjIwz4cq/i2rrFA46wzHVK64DaTOTDbdzFn6YYugZthqVwdEecuQgcfnOLN
-         ma6DC/yXuUi6Xsgwn/ypfK/3CeY66eBlqvYpR8Cl7ALryf0VecfoHLnynYyTzOWzRJLj
-         evdjq1xVEOW0k/fJSAWT2uG0Fivh/Jxs7RpseocILtCY/BtnvmqcrQw34rdvHhGHQMNL
-         PH9g==
+         :reply-to:mail-followup-to:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=HB58JC1v/+Gku/eSVhFttv1wMQWBNM3NkoTkAsxvUv8=;
+        b=MEO5jGKrsFGKWE1PPSbWrOrSAh4gkn4rBjx8hdEuSkDFVCjH6mTeW3N0r5ExWwu4Ph
+         mG3D5S4jkF0Ww6ugJNE2rbi+gIQNQLp5Ibzk7SLwBzwUVFwKqEDKSA4qZSbQojMimaCu
+         srvkfPBPi1PXDTrNthYHm7S30CpGd6T6gshMX5tZPMwi6x3HiGGRi3710+CeWtHsFs1Z
+         12fEjLbHtd6JhYdAHQhKlPmmvVyMoAmau4abdEzHhPI4WQn1dfClF3cdlrP2CMFIotx0
+         wKEpY1lyOz428MrbayypPMANmw6HUmkpmnWrBh1pGXuxcP4rHxukfMdmfPQNpfabZ/XR
+         aHhA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532w4KjO+3rDNfMvL16Ubyz43MMN1M1HldM7VMV6xieP34BxWCNl
-	+JLNPD2eUeg8GQxi1sllMeA=
-X-Google-Smtp-Source: ABdhPJyG1UsKBiuIRQkobPdMYvHRH6bedGEahzLCm2ARExnUGFBAIOVckBvxhqDSmA30XHekw9wvLQ==
-X-Received: by 2002:a17:906:94cb:: with SMTP id d11mr6285191ejy.17.1627459163880;
-        Wed, 28 Jul 2021 00:59:23 -0700 (PDT)
+X-Gm-Message-State: AOAM533cnjxVulOrgqRDrh5Dg3914/MZ70MMMBWNefYJUUH63kD8pLAZ
+	W3ns1ppIddbXoYK/6SmjZ+g=
+X-Google-Smtp-Source: ABdhPJzx8Up/pBciIX2h6QOLNqTnruHRxU++NIeuxte9Xyyq8RRLB6nxNYIQmoQsagDvXlzPqAmy2A==
+X-Received: by 2002:a2e:8590:: with SMTP id b16mr19064610lji.31.1627462929144;
+        Wed, 28 Jul 2021 02:02:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a50:fd13:: with SMTP id i19ls1795921eds.2.gmail; Wed, 28 Jul
- 2021 00:59:23 -0700 (PDT)
-X-Received: by 2002:a05:6402:615:: with SMTP id n21mr33101861edv.139.1627459162962;
-        Wed, 28 Jul 2021 00:59:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627459162; cv=none;
+Received: by 2002:a05:6512:36c2:: with SMTP id e2ls1105364lfs.3.gmail; Wed, 28
+ Jul 2021 02:02:08 -0700 (PDT)
+X-Received: by 2002:a05:6512:3d26:: with SMTP id d38mr18832282lfv.411.1627462927994;
+        Wed, 28 Jul 2021 02:02:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627462927; cv=none;
         d=google.com; s=arc-20160816;
-        b=TG+OTYGilseWVlQiM0keiHXqOibDndeFLm1uybcWzOeyZq6CuKIwVAvrvT/0pYRqDe
-         jhwq9NGxKS6psqChV4lNBzg704rC5xn8vEEs8rAPT5Q63pEXhU+yTpNkSLMJWfDG2u6e
-         M2+hRZh7xhKD2KTklBxlST6mwRdGU6bcyCOrCVZJZJeYxjSggLinOAUJtPxhCHXH/mCC
-         kMnG8PXHxpvgw/IdgDi4U4OugjnifNv7OmE58pN7EV8nFt/7EKZkHA4dB/AqwqOn71ZL
-         OvdMKmMWwatrxZt4c4R8L9olqID50bfyDs2g4wBlWZ5IG1gZU0pm9YFSnaZ4q1SsTRvN
-         mFag==
+        b=XZ/iK2qc6DMPFR/EMfVy7MYAhJ7+//nPOtDYPdngqKd8Becbqav3iX/DJJeFA3qjZu
+         TIz+OVKhnhXjBdcM5Aq4Rbt7XiWkL5LbtEaFkCwWGPSCMDh79xBxLsO3IyN97fDQrl4e
+         ej1Oa7ZsV0SWcXKiIgfc5WhXasGdYAVkzKtysTpESvtM6oDsKTIID9jDvGxe7tBH6XYN
+         I46EMf78J6ewrsF0oSa4PNSApzyrwBXkUv66BlIZVS/i4Re3ln9Ojwwx5C6NLC+SBsUL
+         UJlUvt7mjvpd59M/DGE8ik0UFxU71O1KlBhevxd+JXKT3eJWg5PBGPzGiz2q0EeAf9Jo
+         5TCQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date;
-        bh=K6zBMU2eeNZw5JoNglM40QXLBqTcurqfJTV5FFR6JkY=;
-        b=XiLYwPnglyXj5i8NbzkZddG1p85gGewoeJtUKq3SM4fgvum88or5ECgcNyy7WYWMYj
-         tlshv23VXpJHexgYxjHZnf3ED87OnzzKw+F+hTeLZmeVyE2Xqua3RZejhIbCVleE5M+d
-         39j4rtFRXsW+sFxx+b3bOfZFSMcLSag14z77dW0cUhErlN6E3Ua40z24wmpSvAvdcsQ8
-         SQXblGzlEl75yBUHjA2UBVJiGOt0atfrwhnHOm6900DFWg9qZzVVB3tDOSjfWpZx0A24
-         e42EPVtFx2FrV8WEUTY6SAuOcR8lbMiK4htqYkkfB9T/qaewLoxI4aOUBl6ZjyWtbcor
-         9QOQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:reply-to:message-id:subject:cc:to:from:date
+         :dkim-signature:dkim-signature;
+        bh=sp2fXaO4+VkU0ewmSUxyDBIfoqxWZ/YmzoRuKp72TwU=;
+        b=HCrjshFxWr4FJB+fWLFUEODE0XGScBU5LkjlNG964Hl3SeaGjcNswtWuJzdz3GL+Kq
+         bg6/fXjk2SknswDGi78MxogbXy5NlTjyQN/ZDkJ5lz60L9X1PqggRGd8P4etrqq+raOe
+         zEdyhYo8aXb9KWl+PwGB2Df71iHJCwUeuDzoLGCkYvK8TQ4A0mTOsKZYQ11gsCQHWqEH
+         mfI3nkQTtfKGbeIwXubMYuuNc7xAmhSNPR4Cs2bTltIKDQxCdpp2IEoSN1oBf6wwoj5O
+         oIZwe6UesZM/OGDjzhpb07Ww5luLBG0UCXlnA3bvnaVi1M/qfkVseK/9u6ZAyxwiMqo3
+         mgYw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of joro@8bytes.org designates 2a01:238:4383:600:38bc:a715:4b6d:a889 as permitted sender) smtp.mailfrom=joro@8bytes.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=8bytes.org
-Received: from theia.8bytes.org (8bytes.org. [2a01:238:4383:600:38bc:a715:4b6d:a889])
-        by gmr-mx.google.com with ESMTPS id h22si241024edr.2.2021.07.28.00.59.22
+       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=QJtqaRDe;
+       dkim=neutral (no key) header.i=@suse.cz;
+       spf=pass (google.com: domain of dsterba@suse.cz designates 195.135.220.28 as permitted sender) smtp.mailfrom=dsterba@suse.cz
+Received: from smtp-out1.suse.de (smtp-out1.suse.de. [195.135.220.28])
+        by gmr-mx.google.com with ESMTPS id v194si57279lfa.1.2021.07.28.02.02.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 Jul 2021 00:59:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of joro@8bytes.org designates 2a01:238:4383:600:38bc:a715:4b6d:a889 as permitted sender) client-ip=2a01:238:4383:600:38bc:a715:4b6d:a889;
-Received: by theia.8bytes.org (Postfix, from userid 1000)
-	id CDBAF310; Wed, 28 Jul 2021 09:59:21 +0200 (CEST)
-Date: Wed, 28 Jul 2021 09:59:12 +0200
-From: Joerg Roedel <joro@8bytes.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sasha Levin <sashal@kernel.org>, stable@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Andrey Ryabinin <arbn@yandex-team.com>,
-	Will Deacon <will@kernel.org>, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH 4.9 1/2] iommu/amd: Fix backport of
- 140456f994195b568ecd7fc2287a34eadffef3ca
-Message-ID: <YQEOUD0uP6v/i3Y0@8bytes.org>
-References: <20210727225650.726875-1-nathan@kernel.org>
+        Wed, 28 Jul 2021 02:02:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dsterba@suse.cz designates 195.135.220.28 as permitted sender) client-ip=195.135.220.28;
+Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
+	by smtp-out1.suse.de (Postfix) with ESMTP id 2DF0A22262;
+	Wed, 28 Jul 2021 09:02:07 +0000 (UTC)
+Received: from ds.suse.cz (ds.suse.cz [10.100.12.205])
+	by relay2.suse.de (Postfix) with ESMTP id 15362A3B8B;
+	Wed, 28 Jul 2021 09:02:07 +0000 (UTC)
+Received: by ds.suse.cz (Postfix, from userid 10065)
+	id 4CA03DA8A7; Wed, 28 Jul 2021 10:59:22 +0200 (CEST)
+Date: Wed, 28 Jul 2021 10:59:22 +0200
+From: David Sterba <dsterba@suse.cz>
+To: Kees Cook <keescook@chromium.org>
+Cc: linux-hardening@vger.kernel.org,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Keith Packard <keithpac@amazon.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org,
+	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com,
+	nborisov@suse.com
+Subject: Re: [PATCH 01/64] media: omap3isp: Extract struct group for memcpy()
+ region
+Message-ID: <20210728085921.GV5047@twin.jikos.cz>
+Reply-To: dsterba@suse.cz
+Mail-Followup-To: dsterba@suse.cz, Kees Cook <keescook@chromium.org>,
+	linux-hardening@vger.kernel.org,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Keith Packard <keithpac@amazon.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org,
+	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com,
+	nborisov@suse.com
+References: <20210727205855.411487-1-keescook@chromium.org>
+ <20210727205855.411487-2-keescook@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210727225650.726875-1-nathan@kernel.org>
-X-Original-Sender: joro@8bytes.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of joro@8bytes.org designates 2a01:238:4383:600:38bc:a715:4b6d:a889
- as permitted sender) smtp.mailfrom=joro@8bytes.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=8bytes.org
+In-Reply-To: <20210727205855.411487-2-keescook@chromium.org>
+User-Agent: Mutt/1.5.23.1-rc1 (2014-03-12)
+X-Original-Sender: dsterba@suse.cz
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@suse.cz header.s=susede2_rsa header.b=QJtqaRDe;       dkim=neutral
+ (no key) header.i=@suse.cz;       spf=pass (google.com: domain of
+ dsterba@suse.cz designates 195.135.220.28 as permitted sender) smtp.mailfrom=dsterba@suse.cz
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,46 +159,72 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 27, 2021 at 03:56:49PM -0700, Nathan Chancellor wrote:
-> Clang warns:
+On Tue, Jul 27, 2021 at 01:57:52PM -0700, Kees Cook wrote:
+> In preparation for FORTIFY_SOURCE performing compile-time and run-time
+> field bounds checking for memcpy(), memmove(), and memset(), avoid
+> intentionally writing across neighboring fields.  Wrap the target region
+> in a common named structure. This additionally fixes a theoretical
+> misalignment of the copy (since the size of "buf" changes between 64-bit
+> and 32-bit, but this is likely never built for 64-bit).
 > 
-> drivers/iommu/amd_iommu.c:1335:6: warning: variable 'flags' is used
-> uninitialized whenever 'if' condition is true
-> [-Wsometimes-uninitialized]
->         if (!pte)
->             ^~~~
-> drivers/iommu/amd_iommu.c:1352:40: note: uninitialized use occurs here
->         spin_unlock_irqrestore(&domain->lock, flags);
->                                               ^~~~~
-> drivers/iommu/amd_iommu.c:1335:2: note: remove the 'if' if its condition
-> is always false
->         if (!pte)
->         ^~~~~~~~~
-> drivers/iommu/amd_iommu.c:1331:21: note: initialize the variable 'flags'
-> to silence this warning
->         unsigned long flags;
->                            ^
->                             = 0
-> 1 warning generated.
+> FWIW, I think this code is totally broken on 64-bit (which appears to
+> not be a "real" build configuration): it would either always fail (with
+> an uninitialized data->buf_size) or would cause corruption in userspace
+> due to the copy_to_user() in the call path against an uninitialized
+> data->buf value:
 > 
-> The backport of commit 140456f99419 ("iommu/amd: Fix sleeping in atomic
-> in increase_address_space()") to 4.9 as commit 1d648460d7c5 ("iommu/amd:
-> Fix sleeping in atomic in increase_address_space()") failed to keep the
-> "return false", which in 4.9 needs to be a regular "return" due to a
-> lack of commit f15d9a992f90 ("iommu/amd: Remove domain->updated").
+> omap3isp_stat_request_statistics_time32(...)
+>     struct omap3isp_stat_data data64;
+>     ...
+>     omap3isp_stat_request_statistics(stat, &data64);
 > 
-> This resolves the warning and matches the 4.14-4.19 backport.
+> int omap3isp_stat_request_statistics(struct ispstat *stat,
+>                                      struct omap3isp_stat_data *data)
+>     ...
+>     buf = isp_stat_buf_get(stat, data);
 > 
-> Cc: Andrey Ryabinin <arbn@yandex-team.com>
-> Cc: Joerg Roedel <joro@8bytes.org>
-> Cc: Will Deacon <will@kernel.org>
-> Fixes: 1d648460d7c5 ("iommu/amd: Fix sleeping in atomic in increase_address_space()")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> static struct ispstat_buffer *isp_stat_buf_get(struct ispstat *stat,
+>                                                struct omap3isp_stat_data *data)
+> ...
+>     if (buf->buf_size > data->buf_size) {
+>             ...
+>             return ERR_PTR(-EINVAL);
+>     }
+>     ...
+>     rval = copy_to_user(data->buf,
+>                         buf->virt_addr,
+>                         buf->buf_size);
+> 
+> Regardless, additionally initialize data64 to be zero-filled to avoid
+> undefined behavior.
+> 
+> Fixes: 378e3f81cb56 ("media: omap3isp: support 64-bit version of omap3isp_stat_data")
+> Signed-off-by: Kees Cook <keescook@chromium.org>
+> ---
+>  drivers/media/platform/omap3isp/ispstat.c |  5 +--
+>  include/uapi/linux/omap3isp.h             | 44 +++++++++++++++++------
+>  2 files changed, 36 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/media/platform/omap3isp/ispstat.c b/drivers/media/platform/omap3isp/ispstat.c
+> index 5b9b57f4d9bf..ea8222fed38e 100644
+> --- a/drivers/media/platform/omap3isp/ispstat.c
+> +++ b/drivers/media/platform/omap3isp/ispstat.c
+> @@ -512,7 +512,7 @@ int omap3isp_stat_request_statistics(struct ispstat *stat,
+>  int omap3isp_stat_request_statistics_time32(struct ispstat *stat,
+>  					struct omap3isp_stat_data_time32 *data)
+>  {
+> -	struct omap3isp_stat_data data64;
+> +	struct omap3isp_stat_data data64 = { };
 
-Acked-by: Joerg Roedel <jroedel@suse.de>
+Should this be { 0 } ?
+
+We've seen patches trying to switch from { 0 } to {  } but the answer
+was that { 0 } is supposed to be used,
+http://www.ex-parrot.com/~chris/random/initialise.html
+
+(from https://lore.kernel.org/lkml/fbddb15a-6e46-3f21-23ba-b18f66e3448a@suse.com/)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YQEOUD0uP6v/i3Y0%408bytes.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210728085921.GV5047%40twin.jikos.cz.
