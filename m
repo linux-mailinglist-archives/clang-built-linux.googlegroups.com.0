@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBB7O7QOEAMGQEL7W5XZY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBD7BQOEAMGQEZDFTXTY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 16CE13D876B
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 07:49:51 +0200 (CEST)
-Received: by mail-io1-xd3d.google.com with SMTP id w4-20020a5ec2440000b029053e3f025a44sf940376iop.15
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 22:49:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627451390; cv=pass;
+Received: from mail-ua1-x937.google.com (mail-ua1-x937.google.com [IPv6:2607:f8b0:4864:20::937])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4C31D3D8775
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 07:52:16 +0200 (CEST)
+Received: by mail-ua1-x937.google.com with SMTP id e19-20020ab02b130000b02902a1de813977sf938756uar.10
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 22:52:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627451535; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Y1fsi8DczQjRinEdzBNCV2BKCj1r2uRBLSlpfsYKsdO5Zl/GTfMQNpHnPgy4tYXsUY
-         vOgn9a+K57zSnS4M9ObJtxbPEE+wd/Qgp1LuGesUpEVSWy8j+jt75m6Iy7/4nyPZlNeC
-         rZeG/cy/xaw9A1XT6GJKJw6W7/WUMRPdb5l3/0xG/JojBX5bM4PVmK4ioTGcRBcZvDtC
-         vyAw+FJcpAh/0dGGrEbw9Xa61LwQc2Kvmfj5Z3VloDjn9VizIOVNkHQjc/uniKYu0TlD
-         cb32F4KbrBs9mvGjctLMyYaK+tN2fhuIJt/TntIZK+awS/T+1hUcBJIvl/sI4x6is/3e
-         eR+Q==
+        b=q+8PiWIxQmgpcM0gPZSAmdFXOMDv9yj106KEeI4/F/M7aRCd3EDR5+XXDPOCIbNMw7
+         XvCAEdXQefZeQPXKtMMC42GqmVU6tIswuY2bKUm1t+QGX/76ya+aTDwQ/kOoQAvvJ59Y
+         318btdjxbVu6/rC9p/Yaur9BRvAdgUztINm8KxIHI0bqL9UnHO2qG80WgOFL4OBQg9Ql
+         6JXGbOf7M1Ct4OYJBnYR7oLygmkDUvwT+pyUKBzOnQxJrdMoHeiOgrL9JJNQ2S/txCeA
+         cJ2P5rpa+f38SeCMCD6hoSgjFOC71VJEZnte/ZLQQAa2LkW+O2d8e0oUlTY5JUxFVT+a
+         OpDA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=RmkeWmiURhdPBQQ8fgtvUqCcJOjOgsonaa3JXQf/nbM=;
-        b=T+azROa8+UEH8gA8pMyPme/BKZjKjRp28QB7vleGr7Y6H9UlEAfBqWiaqnHEOZZ9BH
-         DKpHGkAgEaJjPjfVmo+Q6Zf+RwdCBw0L/MV+hBfcqeEAVf6Qv4TzFyg6ft/NZebCPevt
-         QrCHCGf8mhm1hcCvF7bNV9rYTnNZGKotC1hsCtxFULt4U+lA9QkzfkPqkgjOkEGdT/Ze
-         ClLaWp12azV/hJuScZv8wIbGb7aBjB2Vo49MU5/DSCRU/CtE+zxWy7fUC6c15bjBxNE1
-         izTMxZn4VloujVJdtGPFbbh2gaIWJXJs/mF24s5mza0nmR37w5XE3Qf4CM0QDBC8/qO0
-         NYUg==
+        bh=erHOviC5eAUfdhfXNfHsGkl65czI9kobh3Hr/C32fHg=;
+        b=mG3GSvc8lv50hHqj7qPRDho8R/bWyOQvNk6Ag6rWjuchtRVWYtOh/yJLwq8P9/cbx4
+         i0lLb2uUIxKmH/vKRu7l7l8vjpgXT9/gLHa6+/r0sKV9LhfPEzY+0RU2y3uMe7S3OdZh
+         rzb4eOc9ytqL8aa27t1tmCNG+SRrLvUtK+kD6tAdWtF2Al1IuUlXPeg4yGrIoyC0qIQ2
+         cptnRUY9jaFHSMXsmN3Jaw2DLVPN08nXY2+QMrysKOxqGWGqfIaCpQD+6sdn8pHthFQt
+         XKbn85lblvscMhJYgBC7LrM7s5Qa/Nyyee04kG1Ov5Alwj3dt7OqBBzeBGeqRqSN1ZN2
+         2J+g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=xXqgpI3g;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=SIJyCaqr;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RmkeWmiURhdPBQQ8fgtvUqCcJOjOgsonaa3JXQf/nbM=;
-        b=s32VJerCp4MLVkg8hKc6dqYjC9EKZNP3WhBCflMX0GSsG93LEJNApcOTAYE6xIqP6e
-         1zskmraLThmrNjwxnj5Q2m79lib/RAYWPgl0NfPxSKljUu/Lp6A4hpxsaLkL/DpagphY
-         Z9g7ouSYYOMJJCCheZOut8jMRgji9dgZr8WmKVD14J9lKD7xl4qykb3MPdHn5dQvD4eB
-         yfg4FmwN+00nYJ/UDwvvM0eKIbKJn71Vy8mrBZdT/5+UznS5qZ0lfmuwcCfmaM9DEY6I
-         b/0EguP+GaHFrTCpbeBNKUuW+bJ/o6tGPzCHGipybTUI0E5vBwiGVGw+3ZRzYJA2W3Uu
-         ufvA==
+        bh=erHOviC5eAUfdhfXNfHsGkl65czI9kobh3Hr/C32fHg=;
+        b=Wxr/hcV3fnYwNDAs/RA/dMXuKre8qEJMlAE4PbiGNgLB6zPKdTHP2v9OJxr4bd/rKd
+         6QhfWe9P8siVlUfIU1O0uSt4G2euXPKiWq22g58kCic0H45OlVbrIZt0tGFrLUQ+lD9/
+         LcHu/AsKm2Dno7Uk0D7YCGylnOAcNGWFrZyq7Img0IyFxsjBY+h8OVlhhS4OcHK7eF76
+         Kw4BoUj9exn5D1AQuUOBlHHC1FQuPyimArjGpiWX4NZhxhEuqQNUrBW/hX3Vbk9AMXZq
+         l9lDvpdjAZRN7NDAAwfWTN4Xp4bCLq3HrDESItC1rZtAu14tkevii8avDjsE191pr9l2
+         GSTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,55 +50,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=RmkeWmiURhdPBQQ8fgtvUqCcJOjOgsonaa3JXQf/nbM=;
-        b=UxBZ5u4xKpE4gItFBRguAFhR1rIqdYNY9t6LVawTD60fYR+b1xWoMIGciTI1upwPiY
-         YlFzu5EqA1jKSOZv/ZYtDNkt5ckyoZXVqMmwbg6XBkjuPHIdtSmc5BAQrF1HmutugYzy
-         Ggt25gaq5e08gVFykgF18SQOTZHJL7PpP1+2jugWcEBGfvX3JuK/6asvq9CxcViqxyUN
-         lB+LGs3am3vmawNcCCHOdiZ4v2QUIXOPMdJ7flJQ7nN1ZlGTaOpoK/vUz/GKUiPNTiTk
-         23ZkCTNb9fk0Kz4o1kK5xNh9jWxDxLIXkJGA2EocSlnV1ghi2JLWRTXzihh5OMm2fDCk
-         BMiw==
+        bh=erHOviC5eAUfdhfXNfHsGkl65czI9kobh3Hr/C32fHg=;
+        b=e5f4GMlIW167lhrzLBV7awWmuH7l2mxvFj1KySKZmF/wSmwS/Jk5Sx7KavGEQdfWe9
+         bHc79Jgtuj2EeSlPK1DCn4xDuSmL/pfK6Nxqis8RThkaaIrpJeZY5+/YZbyOoiccOdAX
+         hYVcVIRoVSSdaZS2Z2xjCQcfSzi0+q5dl0/XTLLCAJbEyPK9Hv2r4KX2kF0Vmg7mFN6K
+         cfaVA9M42Sr0G+53c7s5KERcZAjfeoVwq3f/JNcLJiANnC4m/VBnlHzqAS7jI3Yq9d+z
+         daqX6HIRwR3LeuCD8dxJKsJUrK747DhShZ8a0o4b/DjhwKpQhSF1ZlTPUyYoemIgqYif
+         mnCg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530NupF99lr1nVonQs29tQHCkVZI/gegzCzeSL+cNaQJs7oGDdek
-	yz7U/2zdYIC/EkoOMI1C3ZA=
-X-Google-Smtp-Source: ABdhPJxrA31oKVYEC5QxpyamkEZ31SHZ6b9rBgJAkS8+t2L/0fdqlAAA6fZGhMNo/5Ta6ZiEyUb2FA==
-X-Received: by 2002:a05:6e02:ecd:: with SMTP id i13mr20460981ilk.182.1627451389840;
-        Tue, 27 Jul 2021 22:49:49 -0700 (PDT)
+X-Gm-Message-State: AOAM532QgKJvOeI+H5zoYJFOPjcEQY9IpJP8nfQ5J3YLAnWLNPovJ5L/
+	D9aYjFov3BGLPdnWIQISLJ4=
+X-Google-Smtp-Source: ABdhPJzdf/8moDZTr//g8Y/8eLxrGshi7fbvfa+tosh5alrEhjjzIKQ1Eq64qfzsBfUA8vIyUYeyFQ==
+X-Received: by 2002:ab0:25c5:: with SMTP id y5mr21436134uan.142.1627451535460;
+        Tue, 27 Jul 2021 22:52:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:32a4:: with SMTP id f36ls196493jav.1.gmail; Tue, 27
- Jul 2021 22:49:49 -0700 (PDT)
-X-Received: by 2002:a05:6638:1350:: with SMTP id u16mr24659807jad.19.1627451389373;
-        Tue, 27 Jul 2021 22:49:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627451389; cv=none;
+Received: by 2002:a9f:2183:: with SMTP id 3ls115782uac.9.gmail; Tue, 27 Jul
+ 2021 22:52:15 -0700 (PDT)
+X-Received: by 2002:ab0:7299:: with SMTP id w25mr21292569uao.45.1627451534967;
+        Tue, 27 Jul 2021 22:52:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627451534; cv=none;
         d=google.com; s=arc-20160816;
-        b=h1lwM/p4JFez1Mb27VhN6DKX659Z+veadoIwqH6FLTfyr/WjORJ6aH7W8BC/rOLi0O
-         sFXmYNSMYpzlnYGysufQ+mZDvkR+7/tapEfS4Xt06HtDEtTO0XMtFvLDTUFDPUqYLvig
-         jA0Pz0HbVTCBbjSiIcomQiJaUkbm9N0okNfMVitp2GcZjWq0OjchmJ45rtddI5EcLLjI
-         pFvv/Q4sZN2f/aDRnrbs5iECguxCprblckTFL8Da/3NfSv/GoGJ1/L/IPlVTeTi8wJw7
-         UdWpKuuUUJYnT9Z0GGQYBp8mbjvYlafjPPrJdx+LLFwtD4h0FkZxZxGBiFgU9d5w0dIu
-         cuJA==
+        b=NFAY0gOoPwYa0y2gbq4OoQsohzaDn4SNmOPw1tO7p32pHz+R3rkKIpQAqmMVDZPBZu
+         k3h8N9vynSSx3OW1I6XWFH4RUWMvYp5RzQW87PsIybJcS6ngIjfl4GWQp3UwXTUHaFt0
+         EybejifVRB/6kSHfYjLjUFv4JuinVawFJ7o1ZGNPp/htef8LCxEF0WrNRk+AqdrLTVGy
+         Xq/84U7y3noTaMmOBd0dbrsjVFWpKctqjIxAEBwbzRlOebgHQse6SZ+DEE79xPLzmpUt
+         38jUxHVNx2Cl8tYX7OmtCs8hb+IPe9UZcdOY57Vu07c7XqYoQ7lI6xswg58mAfkDucfk
+         J+kw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=itCVzuy6swbe8OiMARAQwS8Y1kYaolo/xAWScNaa674=;
-        b=WaZHs4R6eU8eeSjLKPKWARrJggR3SNrwW0RhA+jzKiEF6DW+s3+v6HmvNv0SpRutEE
-         SnD5yMkOewlFreEM31sFbqXeQ8XWQGUZMx0wyeQ9KfG6rtMIXoP/KTwss7MQL8NtIAFd
-         BuF5JC0Mkpsj1b1PTAnEN2r03Wm5wK4RIeIJOVPX+J90hFUMUwaTdArrUTlQdUSV2Lcs
-         xybpL6QV1axOq+TyxpLfRcBijNHy7UCiEYy+Ir4H7ZCCJKsRAIRu8egMwFDnkuDeTg63
-         HTrhdiQuWJ6ZLEg/w2gO3mOUwNCruDY471CRGbFHOanu9Ix9IReHu2kYJQ3L4JV1e1MF
-         9hQw==
+        bh=/29qfXWrwNbL8AkOZFd719LJBo2PXzLTWYUQn8/xpuI=;
+        b=g6E7Bb2NyripYsfsok6m+d4rnbOFJ6iwrYf6e2vw+4XChNH/N7KCgm8GL16FfWwHVG
+         dub76z2czYVfkEwZhIdQ7QeGwGSpRKkJr/kFMqqmgILIPBJC2hk35PgJgHbO7PNnqxqo
+         wUOKVoijzkV6gkGSPgLFQOgbCWPODPyh7AzwQtEbZiKGj9xiZm4boYNoPJv/WgH+Wcsu
+         65BrpM1KAzVHJTK5I63ZhpLWe4Cu2yOok42XwziqDuZ1IYsJZs/m6EQuPdyflLcxRuKw
+         +wIA9T4QMhAhJ4Aefc/fY+A7d3AHck/UzmgJK7odSVNSyHCEVVTWHIAaw5v+o3QBg+7A
+         UbOA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=xXqgpI3g;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=SIJyCaqr;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id k3si416600ioq.4.2021.07.27.22.49.49
+        by gmr-mx.google.com with ESMTPS id a1si351617uaq.0.2021.07.27.22.52.14
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Jul 2021 22:49:49 -0700 (PDT)
+        Tue, 27 Jul 2021 22:52:14 -0700 (PDT)
 Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 1AAED60F00;
-	Wed, 28 Jul 2021 05:49:48 +0000 (UTC)
-Date: Wed, 28 Jul 2021 07:49:46 +0200
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 6233F60F91;
+	Wed, 28 Jul 2021 05:52:13 +0000 (UTC)
+Date: Wed, 28 Jul 2021 07:52:11 +0200
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: Kees Cook <keescook@chromium.org>
 Cc: linux-hardening@vger.kernel.org,
@@ -109,17 +109,17 @@ Cc: linux-hardening@vger.kernel.org,
 	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
 	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
 	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 62/64] netlink: Avoid false-positive memcpy() warning
-Message-ID: <YQDv+oG7ok0T1L+r@kroah.com>
+Subject: Re: [PATCH 10/64] lib80211: Use struct_group() for memcpy() region
+Message-ID: <YQDwiz1SdrzFKOWw@kroah.com>
 References: <20210727205855.411487-1-keescook@chromium.org>
- <20210727205855.411487-63-keescook@chromium.org>
+ <20210727205855.411487-11-keescook@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210727205855.411487-63-keescook@chromium.org>
+In-Reply-To: <20210727205855.411487-11-keescook@chromium.org>
 X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=xXqgpI3g;       spf=pass
+ header.i=@linuxfoundation.org header.s=korg header.b=SIJyCaqr;       spf=pass
  (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
@@ -135,41 +135,33 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 27, 2021 at 01:58:53PM -0700, Kees Cook wrote:
+On Tue, Jul 27, 2021 at 01:58:01PM -0700, Kees Cook wrote:
 > In preparation for FORTIFY_SOURCE performing compile-time and run-time
 > field bounds checking for memcpy(), memmove(), and memset(), avoid
 > intentionally writing across neighboring fields.
 > 
-> Add a flexible array member to mark the end of struct nlmsghdr, and
-> split the memcpy() to avoid false positive memcpy() warning:
+> Use struct_group() around members addr1, addr2, and addr3 in struct
+> ieee80211_hdr so they can be referenced together. This will allow memcpy()
+> and sizeof() to more easily reason about sizes, improve readability,
+> and avoid future warnings about writing beyond the end of addr1.
 > 
-> memcpy: detected field-spanning write (size 32) of single field (size 16)
+> "pahole" shows no size nor member offset changes to struct ieee80211_hdr.
+> "objdump -d" shows no meaningful object code changes (i.e. only source
+> line number induced differences and optimizations).
 > 
 > Signed-off-by: Kees Cook <keescook@chromium.org>
 > ---
->  include/uapi/linux/netlink.h | 1 +
->  net/netlink/af_netlink.c     | 4 +++-
->  2 files changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/include/uapi/linux/netlink.h b/include/uapi/linux/netlink.h
-> index 4c0cde075c27..ddeaa748df5e 100644
-> --- a/include/uapi/linux/netlink.h
-> +++ b/include/uapi/linux/netlink.h
-> @@ -47,6 +47,7 @@ struct nlmsghdr {
->  	__u16		nlmsg_flags;	/* Additional flags */
->  	__u32		nlmsg_seq;	/* Sequence number */
->  	__u32		nlmsg_pid;	/* Sending process port ID */
-> +	__u8		contents[];
+>  drivers/staging/rtl8723bs/core/rtw_security.c | 5 +++--
+>  drivers/staging/rtl8723bs/core/rtw_xmit.c     | 5 +++--
+>  include/linux/ieee80211.h                     | 8 +++++---
+>  net/wireless/lib80211_crypt_ccmp.c            | 3 ++-
+>  4 files changed, 13 insertions(+), 8 deletions(-)
 
-Is this ok to change a public, userspace visable, structure?
+For the staging portion:
 
-Nothing breaks?
-
-thanks,
-
-greg k-h
+Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YQDv%2BoG7ok0T1L%2Br%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YQDwiz1SdrzFKOWw%40kroah.com.
