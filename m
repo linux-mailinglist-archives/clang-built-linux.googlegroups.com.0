@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBS7OQKEAMGQEKATXYVY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB27PQKEAMGQEURXFLDY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id 596B03D859C
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 03:47:56 +0200 (CEST)
-Received: by mail-il1-x140.google.com with SMTP id q3-20020a056e0220e3b029020d99b97ad3sf659237ilv.4
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 18:47:56 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627436875; cv=pass;
+Received: from mail-qv1-xf3d.google.com (mail-qv1-xf3d.google.com [IPv6:2607:f8b0:4864:20::f3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id B5AA23D85A7
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 03:50:36 +0200 (CEST)
+Received: by mail-qv1-xf3d.google.com with SMTP id j13-20020a0cf30d0000b029032dd803a7edsf1045315qvl.2
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 18:50:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627437035; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ahfnN24i/x+4tMwp2pNC+tCl0d1ps52jY8wQ/19WYrs1uRx07rWFFBDpPy6gxZDvcZ
-         6MltmdK5bv2GZVJzQf8stc+14hxsZSIGk9M8FXE7OlTjBHmU2EX/ms6DKSM0Z/VEyJun
-         ssRrVLNFWcJTHsiAtKLjTfSyw6+z8/wNAuCwWp2KNPfX4z+mJhk4WN3A5Et7NLXKB96A
-         /dazHjXAMp1KYFn+YY+e6AlCnsy4Is92wGOCINxS4q9ZjkOKJ6hyxGJw6y6B3Nc80Ptv
-         UL3GfFTvJNCgLGajh5gbVpYe3Auwu7GaQpbW+mtJCjkABJh+WkATh+VcT/oR6hQjDQR5
-         hZmg==
+        b=IcvmFjDn27R75/XYaJfdplI+AvUDcy3V1wUvaUkCt5d+uh1WVQ9dOWKg4STsp2t7JV
+         XiswFBAh/UvBz4PxKzGo+Iwxoi89C3jhDZ7mpMiEDVjKB4AppM9UqwKsOus0Gmo6i5A2
+         Ljlr6hDxflFLRk20yZ2reYVk/GrUvr6ZZWTVcGtsdB4HUpPMcBn428Vnl3ktl74PQZyt
+         2o2KZzhrxkgWfKVJLhmoMYd5TMx6HyK29k8+7xxVig3XKseqnaylrEWMGe6i8hYRH2Gp
+         BqI8/U3Kcy5kYwo/mgv3oQFSaucQTzYFIEep5KP2gC5SjCtNCtDgFloraM/w1zGPXU+r
+         tVbQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=dVh0OgJgpIr45lqsgObFTlLEqyv6fX6NYfnBi25u4nc=;
-        b=yiLy5/NR+A72x7BpEcJHHLHh82cH9m95iSK5V+f8AwC5yv/eKHCW51L6vAtXo2yw/T
-         TsgMyOz8FOgRZ7fdIQ7pjjaaHuZDNu7JCtSFxJUJAgWYS45kDvAQoS8irpHclMZZZHzB
-         faUchXQjrJsvW9RQ/mJZTCu1H8KnLTumLlUrv/G4UPHGlTnrPQ2iZRhPWFx9w0DBp7Kf
-         MQ/P3DTx1chiwJOnZv+0kD7C3e5GFI7QOU6PYdhOKyyAahHgLQmOo9pGF/HBAu8KlNJ9
-         Avxttug68hTVONNx1e+qEJR94MhdMB7k1yHD5YSXPbYzRW5bV0ciiPmUmBcNwczy4fkC
-         hHkA==
+        bh=b9UySD5qmv5+f5Cg9G8+HOjmYiGWaeOZlwl+DhX5zFA=;
+        b=dgk88SPTNZFXYhCwtKQPtipwcQO9lm3HRDNPJ6bFB/rQ+ywlxU3j1yexJLtJ9zXom4
+         sYxqYUKOiDq9WMNkUulsiwtDZjbDjc5PJiGqtthvEW0OGWJxt5LgjEiMkXLCn4Xe4sM3
+         xeXRD6lbMMIl7ZLuO7vFS4OVNh0fttzFuvzifY9RET8v459jlQ7B4OxN2eW/SEm8pR1x
+         TfS/yjXohWvBQe+agO40IZtAsX85tbCCkXzmuGFyQ0SYqif7R/i4yKZyfJbU3MFbkhNm
+         iJ0w+X6L6/2+uFiaWRrsPj4JMeZt4h/HG4ot/IjwfnSS6czYrRLoX4ilm6GIJTWw0jZl
+         sh4Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=ULjzXag2;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=LrIioahO;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1032 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dVh0OgJgpIr45lqsgObFTlLEqyv6fX6NYfnBi25u4nc=;
-        b=iz0IuwCnTDm4Y53gkVgNCIkNHwpMqt81lvl34X1ScdeL97YkjEun1MQB8lB+ed19v/
-         vYzFGC9mMzLznJiH/aFYaFBRywMeNsNpBGb7qGbHXWZufqOweIdGE8fPvPB7O9emOxBb
-         Q5VXA2scwUeAMK0r3LAMHCpmkJjx7ZsSp4AkWsfQCcEvAcdtRg3xMelZWWXR3LujGs1L
-         QZvX4meVg8IlKSTJ0ihSNzjXIJuY3ClcY8BeB7XG3FfVM5ta8IsggpRnui4ofD8LRPc2
-         fT77JykHc+pTCtpXXDZ3zzhTPuhv+CylSKwK6aj4/42lNvr5wV9GqHe7ASAxgJ/nQkeC
-         0PVg==
+        bh=b9UySD5qmv5+f5Cg9G8+HOjmYiGWaeOZlwl+DhX5zFA=;
+        b=GGpaCpDC+7fXU/OGtwxV1MgdcLcephqHylEmB8+yacGngO57f/EnyI2GcrkNffh91t
+         ZL6gH/Tebe44hzs17Dqj6JU7LLgcojzVvsOC99j2qCWXpxFpn2qZnzqKiefd3dwjhAv9
+         u2dytPAyJNMfzCmrobal1HsnjrYwsFE+KusHImCsvumvSr3ZNf1naIDGNxa3scdqPxEz
+         u40uvPOs95NeuhOTwMTFPv459LY1ouvPeaQjERpp5mViO14+TeKS5mKjSsRbm5lVli3Y
+         QJD8j+rNjpBT0I/dzhooM2IxDcdfUjgeWF7KqjaIo7JrONhs6gzQK1jEGG+2+q1PpGhr
+         537Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,86 +50,84 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=dVh0OgJgpIr45lqsgObFTlLEqyv6fX6NYfnBi25u4nc=;
-        b=say5qzuLxfba3xXJ78UQPvSZONvTAyz8k19abS7aYXU35qhjgcCxrsN8D7hEbUXxPH
-         q/8aaOFLotjFmaR0UO/snGeriN+O8It2x9mnJrPSO30nq8/S7aUfiLsF61+XtcZcT7Rr
-         QlluZoYDhfRcEQhlo0+rREm5GKKE4P8rKdPvmjNWLwxXELLZqxhD84CPQ4OOwdZMa+a/
-         XMmgn0kUYI9Iu2M5l+IExHmEVCiHpYrKgbk0FRFoNYAH78Qk/tDEwoIDVbWWbHohCd1Q
-         0ZbxmzBz2jddH3QfOQiOmMjAnzS8m/sH/DR6xTMs0xfL8ynWTemMBc87gYDA/MgecBAv
-         r0TQ==
+        bh=b9UySD5qmv5+f5Cg9G8+HOjmYiGWaeOZlwl+DhX5zFA=;
+        b=gEx/lzwWUjF1qNmV2xi9/uK2ssOOg/9rhuVUkyIA1Hu02Z1KqNGZmB7TBPc+3ZiAT8
+         khoWdspsc3vQRDyY1fb27m1l34nN+UTzCsKu2LqViO0JCQPRrXYHXfiOOi7miPWxhxVu
+         DiJnmiPlANoprFF7Khl3jLY3toMkTW2HSBz58DDdQC1fdeJMuX5IltZVy9ZVm+RsVVaE
+         y3Y4WQYim3o08mntMCY8iOXU1zS/BCkj7UGc9J6A5nqGNrcJ0WBIe1uuFjaEZYk+oi/z
+         uGdTxl9mUXsB9YmizE8MhwmNhjTf/PIbF9iV1T13/NjTVK5rq1QBva/XDuzYUcGT2Hky
+         aPwQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530MftMbupNVHM+sPIR8fP/cNr0t2EG0sY3dUbvI1/ufZlG5jOSo
-	S6lLZXOugc/LGL5jyqCUaoM=
-X-Google-Smtp-Source: ABdhPJxXGnwNxSNixcqBg/Wx/eRAZAi0E0b8/pf09jZhkLkuwgHbW+33wXgpwHTSg/ctj9A2oTY25w==
-X-Received: by 2002:a05:6602:134b:: with SMTP id i11mr11812088iov.81.1627436875184;
-        Tue, 27 Jul 2021 18:47:55 -0700 (PDT)
+X-Gm-Message-State: AOAM531pPAVc6kcIJ+cuhVrMi7LF/WeFTDvX9OV4CcLjV+vTkixCg2DN
+	eFwN46NRhVdpr7D2sT0leo0=
+X-Google-Smtp-Source: ABdhPJzLtoBPFFDZRTufp3A/VCJI2s2xElsS3r3LLBFPs4e+aO8I4eXYUXi87djRp6kCAzJayeredg==
+X-Received: by 2002:a05:622a:1805:: with SMTP id t5mr22482608qtc.340.1627437035871;
+        Tue, 27 Jul 2021 18:50:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:1608:: with SMTP id t8ls150184ilu.2.gmail; Tue, 27
- Jul 2021 18:47:54 -0700 (PDT)
-X-Received: by 2002:a92:d441:: with SMTP id r1mr18627596ilm.106.1627436874822;
-        Tue, 27 Jul 2021 18:47:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627436874; cv=none;
+Received: by 2002:ae9:eb8a:: with SMTP id b132ls33512qkg.11.gmail; Tue, 27 Jul
+ 2021 18:50:35 -0700 (PDT)
+X-Received: by 2002:a05:620a:12e5:: with SMTP id f5mr561472qkl.97.1627437035387;
+        Tue, 27 Jul 2021 18:50:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627437035; cv=none;
         d=google.com; s=arc-20160816;
-        b=rw0NSDXtDWifxy2/S4kqLDyie1lPDFCpq+asGEjd+YC8aD6DtPc4iDKa73e8/sZsBn
-         KZD6GndaNx9w0AloWfLeT4eWdCi4X1Fj5fxDoif73Lii/Kj+p1Q8aD08miOvhLQkgDxr
-         OPr074T+koCks2W4DJGjDXGGiXc86I+2M31qFfzXwsdlnT4PHxFqD0nooGRnEUZyj6Yd
-         6ZiZZ0CfK07n7ehrKApymSdlgG4AsH9Lt0COmIygGuPilLW2c5P++UV/YzNWM44aMZeE
-         GJ2bwjMIza+NZMIEuavtB7HXNrh3fvZQobnKmEnTaO1OBiyYqnEYJt0Nyw6NSvcRi+aw
-         PUyQ==
+        b=uv71xqxcuPwKyei5giB92NEUJoLR0u23oZT+jQzmvYgWk3BciwYnVP1kn51Xh5Tuil
+         2tssTwbIhz+yYMZ0UsQZjtzvNi49mgiEDo4T0wBvdaM8EfCR8B2dkvUcNNDv9AE5NxND
+         TsiPZkzBYn2pEsqMwClmhKpU77Ajts7d1QmzQFTjsql19kOU19XSAgTHSGokMfKbgD/8
+         q9+ixYL4BdltkOGin2byx3ULucUZChZ3gEUxOEUQ5vOrv7BBfqmVY15laXGK7evpwtR0
+         xbJzuFUvvA4taXggJrCLiFiDzJTOWE1pSNcMgECloWUEneSvpH93/XmrqHoUP3VHbYWV
+         UqmA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=b56RRYUTS03XICd8fA2qtUp0AUHb/enzxmkYpgfS6mQ=;
-        b=O1cm3vHj+O5XUl66W0IMSGbaGJJ4uuv6JGamSlaNClBUVhckjsqgVnPB4YF3TDYB/P
-         gz+pq9/MMxZQ5Ba3ox7BmJNG4zLnWmvDVgR2BlQRZGsv+3Ba3EuvNFeVdkG32pgkt3gK
-         I5bm803Ky7+OHu0LwV5ak2FdaIhjssDVoSiPTx1eN2Ifeooj802S3aX8ryXfVRCwat3Q
-         C77A30z3Jf9PSI9Nt94YZTP5Xk28KsBVBtHoMI9kox4y6606zffXTykKclyYtwxxnE8E
-         RBZkWDzDIWs3yjEaoT6aInbUz9NxbBHHgpWA7Z/wYXn9TtSIW/4UtrP4PhCNLK/YwHB7
-         PzYA==
+        bh=Uxwg9y2D5FscAC8WTII8k+Fl1MaCKaIyqWX2425pbwg=;
+        b=RrcfXHHAj7IkS4Hg5kVeYZPehOpi8yRGb08DhCohIj8pRC2J5ZRBilBXU6CtyXDVqV
+         e+57htYSzXhzW8EcpLjbYWVG7QDzUAc9sx15OYQb5Vm2lcFTiS+OYhirZ2XWtAhMC8Ko
+         DwieRH5XqJpI7Zli2hirRX9sDWqKoclqbrDzbsQfBVFFUvvFys5Z4TO+8fQCP83Lw0Al
+         nBFyLNTUsLJ3HxrykR5BteLDBuoTfxXqKHg2F58kXxTgpyfeIz8ed4B5mkXYHXfeouwE
+         XT8wXvwCllmEkyS8uqJRxy9SMdmtI0g4+5/1wumRbm6O73vjBUhpsgnnMrW3YtZQ7NyM
+         /z+A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=ULjzXag2;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=LrIioahO;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1032 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x102e.google.com (mail-pj1-x102e.google.com. [2607:f8b0:4864:20::102e])
-        by gmr-mx.google.com with ESMTPS id q5si330650iof.0.2021.07.27.18.47.54
+Received: from mail-pj1-x1032.google.com (mail-pj1-x1032.google.com. [2607:f8b0:4864:20::1032])
+        by gmr-mx.google.com with ESMTPS id v31si227460qtc.4.2021.07.27.18.50.35
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jul 2021 18:47:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e as permitted sender) client-ip=2607:f8b0:4864:20::102e;
-Received: by mail-pj1-x102e.google.com with SMTP id mz5-20020a17090b3785b0290176ecf64922so7608629pjb.3
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 18:47:54 -0700 (PDT)
-X-Received: by 2002:a17:90a:8c8a:: with SMTP id b10mr15819262pjo.23.1627436874109;
-        Tue, 27 Jul 2021 18:47:54 -0700 (PDT)
+        Tue, 27 Jul 2021 18:50:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1032 as permitted sender) client-ip=2607:f8b0:4864:20::1032;
+Received: by mail-pj1-x1032.google.com with SMTP id q17-20020a17090a2e11b02901757deaf2c8so2113281pjd.0
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 18:50:35 -0700 (PDT)
+X-Received: by 2002:a17:90a:bb0d:: with SMTP id u13mr25562521pjr.88.1627437035064;
+        Tue, 27 Jul 2021 18:50:35 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id 30sm5933732pgq.31.2021.07.27.18.47.53
+        by smtp.gmail.com with ESMTPSA id s193sm5105347pfc.183.2021.07.27.18.50.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jul 2021 18:47:53 -0700 (PDT)
-Date: Tue, 27 Jul 2021 18:47:52 -0700
+        Tue, 27 Jul 2021 18:50:34 -0700 (PDT)
+Date: Tue, 27 Jul 2021 18:50:33 -0700
 From: Kees Cook <keescook@chromium.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: linux-hardening@vger.kernel.org,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Keith Packard <keithpac@amazon.com>,
+To: "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: linux-hardening@vger.kernel.org, Keith Packard <keithpac@amazon.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org,
 	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
 	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
 	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 34/64] fortify: Detect struct member overflows in
- memcpy() at compile-time
-Message-ID: <202107271830.3DB03F3CF@keescook>
+Subject: Re: [PATCH 01/64] media: omap3isp: Extract struct group for memcpy()
+ region
+Message-ID: <202107271849.00A81539B@keescook>
 References: <20210727205855.411487-1-keescook@chromium.org>
- <20210727205855.411487-35-keescook@chromium.org>
- <CAKwvOdknit8DtWaFvLupmNEebjbwVa6R3xiGc2D4AqB_6+i52g@mail.gmail.com>
+ <20210727205855.411487-2-keescook@chromium.org>
+ <20210728005546.GA35706@embeddedor>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAKwvOdknit8DtWaFvLupmNEebjbwVa6R3xiGc2D4AqB_6+i52g@mail.gmail.com>
+In-Reply-To: <20210728005546.GA35706@embeddedor>
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=ULjzXag2;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e
+ header.i=@chromium.org header.s=google header.b=LrIioahO;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1032
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
@@ -144,119 +142,82 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 27, 2021 at 03:43:27PM -0700, Nick Desaulniers wrote:
-> On Tue, Jul 27, 2021 at 2:17 PM Kees Cook <keescook@chromium.org> wrote:
-> >
-> > To accelerate the review of potential run-time false positives, it's
-> > also worth noting that it is possible to partially automate checking
-> > by examining memcpy() buffer argument fields to see if they have
-> > a neighboring. It is reasonable to expect that the vast majority of
+On Tue, Jul 27, 2021 at 07:55:46PM -0500, Gustavo A. R. Silva wrote:
+> On Tue, Jul 27, 2021 at 01:57:52PM -0700, Kees Cook wrote:
+> > In preparation for FORTIFY_SOURCE performing compile-time and run-time
+> > field bounds checking for memcpy(), memmove(), and memset(), avoid
+> > intentionally writing across neighboring fields.  Wrap the target region
+> > in a common named structure. This additionally fixes a theoretical
+> > misalignment of the copy (since the size of "buf" changes between 64-bit
+> > and 32-bit, but this is likely never built for 64-bit).
+> > 
+> > FWIW, I think this code is totally broken on 64-bit (which appears to
+> > not be a "real" build configuration): it would either always fail (with
+> > an uninitialized data->buf_size) or would cause corruption in userspace
+> > due to the copy_to_user() in the call path against an uninitialized
+> > data->buf value:
+> > 
+> > omap3isp_stat_request_statistics_time32(...)
+> >     struct omap3isp_stat_data data64;
+> >     ...
+> >     omap3isp_stat_request_statistics(stat, &data64);
+> > 
+> > int omap3isp_stat_request_statistics(struct ispstat *stat,
+> >                                      struct omap3isp_stat_data *data)
+> >     ...
+> >     buf = isp_stat_buf_get(stat, data);
+> > 
+> > static struct ispstat_buffer *isp_stat_buf_get(struct ispstat *stat,
+> >                                                struct omap3isp_stat_data *data)
+> > ...
+> >     if (buf->buf_size > data->buf_size) {
+> >             ...
+> >             return ERR_PTR(-EINVAL);
+> >     }
+> >     ...
+> >     rval = copy_to_user(data->buf,
+> >                         buf->virt_addr,
+> >                         buf->buf_size);
+> > 
+> > Regardless, additionally initialize data64 to be zero-filled to avoid
+> > undefined behavior.
+> > 
+> > Fixes: 378e3f81cb56 ("media: omap3isp: support 64-bit version of omap3isp_stat_data")
+> > Signed-off-by: Kees Cook <keescook@chromium.org>
+> > ---
+> >  drivers/media/platform/omap3isp/ispstat.c |  5 +--
+> >  include/uapi/linux/omap3isp.h             | 44 +++++++++++++++++------
+> >  2 files changed, 36 insertions(+), 13 deletions(-)
+> > 
+> > diff --git a/drivers/media/platform/omap3isp/ispstat.c b/drivers/media/platform/omap3isp/ispstat.c
+> > index 5b9b57f4d9bf..ea8222fed38e 100644
+> > --- a/drivers/media/platform/omap3isp/ispstat.c
+> > +++ b/drivers/media/platform/omap3isp/ispstat.c
+> > @@ -512,7 +512,7 @@ int omap3isp_stat_request_statistics(struct ispstat *stat,
+> >  int omap3isp_stat_request_statistics_time32(struct ispstat *stat,
+> >  					struct omap3isp_stat_data_time32 *data)
+> >  {
+> > -	struct omap3isp_stat_data data64;
+> > +	struct omap3isp_stat_data data64 = { };
+> >  	int ret;
+> >  
+> >  	ret = omap3isp_stat_request_statistics(stat, &data64);
+> > @@ -521,7 +521,8 @@ int omap3isp_stat_request_statistics_time32(struct ispstat *stat,
+> >  
+> >  	data->ts.tv_sec = data64.ts.tv_sec;
+> >  	data->ts.tv_usec = data64.ts.tv_usec;
+> > -	memcpy(&data->buf, &data64.buf, sizeof(*data) - sizeof(data->ts));
+> > +	data->buf = (uintptr_t)data64.buf;
+> > +	memcpy(&data->frame, &data64.buf, sizeof(data->frame));
 > 
-> a neighboring...field?
-
-Whoops, sorry, this should say "array member". I've fixed this to read:
-
-  To accelerate the review of potential run-time false positives, it's
-  also worth noting that it is possible to partially automate checking
-  by examining the memcpy() buffer argument to check for the destination
-  struct member having a neighboring array member. It is reasonable to
-  expect that the vast majority of run-time false positives would look like
-  the already evaluated and fixed compile-time false positives, where the
-  most common pattern is neighboring arrays. (And, FWIW, several of the
-  compile-time fixes were actual bugs.)
-
-> > diff --git a/include/linux/fortify-string.h b/include/linux/fortify-string.h
-> > index 7e67d02764db..5e79e626172b 100644
-> > --- a/include/linux/fortify-string.h
-> > +++ b/include/linux/fortify-string.h
-> > @@ -2,13 +2,17 @@
-> >  #ifndef _LINUX_FORTIFY_STRING_H_
-> >  #define _LINUX_FORTIFY_STRING_H_
-> >
-> > +#include <linux/bug.h>
+> I think this should be:
 > 
-> What are you using from linux/bug.h here?
-
-Thanks; yes, that should have been added in patch 64, when the WARN_ONCE()
-use is introduced:
-https://lore.kernel.org/lkml/20210727205855.411487-65-keescook@chromium.org/
-
-> > [...]
-> > +#define __fortify_memcpy_chk(p, q, size, p_size, q_size,               \
-> > +                            p_size_field, q_size_field, op) ({         \
-> > +       size_t __fortify_size = (size_t)(size);                         \
-> > +       fortify_memcpy_chk(__fortify_size, p_size, q_size,              \
-> > +                          p_size_field, q_size_field, #op);            \
-> > +       __underlying_##op(p, q, __fortify_size);                        \
-> > +})
-> > +
-> > +/*
-> > + * __builtin_object_size() must be captured here to avoid evaluating argument
-> > + * side-effects further into the macro layers.
-> > + */
-> > +#define memcpy(p, q, s)  __fortify_memcpy_chk(p, q, s,                 \
-> > +               __builtin_object_size(p, 0), __builtin_object_size(q, 0), \
-> > +               __builtin_object_size(p, 1), __builtin_object_size(q, 1), \
-> > +               memcpy)
+> 	memcpy(..., &data64.frame, ...);
 > 
-> Are there other macro expansion sites for `__fortify_memcpy_chk`,
-> perhaps later in this series? I don't understand why `memcpy` is
-> passed as `func` to `fortify_panic()` rather than continuing to use
-> `__func__`?
+> instead.
 
-Yes, memmove() follows exactly the same pattern. Rather than refactoring
-the declaration in that patch, this felt cleaner.
-https://lore.kernel.org/lkml/20210727205855.411487-36-keescook@chromium.org/
-
-> > [...]
-> >   * @count: The number of bytes to copy
-> >   * @pad: Character to use for padding if space is left in destination.
-> >   */
-> > -static inline void memcpy_and_pad(void *dest, size_t dest_len,
-> > -                                 const void *src, size_t count, int pad)
-> > +static __always_inline void memcpy_and_pad(void *dest, size_t dest_len,
-> > +                                          const void *src, size_t count,
-> > +                                          int pad)
-> 
-> Why __always_inline here?
-
-Without it, we run the risk of it being made out of line, and
-potentially losing access to the __builtin_object_size() checking of
-arguments. Though given some of the Clang bugs, it's possible this needs
-to be strictly converted into a macro.
-
-> > [...]
-> >  #ifdef CONFIG_FORTIFY_SOURCE
-> > +/* These are placeholders for fortify compile-time warnings. */
-> > +void __read_overflow2_field(void) { }
-> > +EXPORT_SYMBOL(__read_overflow2_field);
-> > +void __write_overflow_field(void) { }
-> > +EXPORT_SYMBOL(__write_overflow_field);
-> > +
-> 
-> Don't we rely on these being undefined for Clang to produce a linkage
-> failure (until https://reviews.llvm.org/D106030 has landed)?  By
-> providing a symbol definition we can link against, I don't think
-> __compiletime_{warning|error} will warn at all with Clang?
-
-This was intentional because I explicitly do not want to break the build
-for new warnings, and there is no way currently for Clang to _warn_
-(rather than fail to link). This could be adjusted to break only Clang's
-builds, but at this point, it seemed best.
-
-> > [...]
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +#define TEST   \
-> > +       memcpy(instance.buf, large, sizeof(instance.buf) + 1)
-> > +
-> > +#include "test_fortify.h"
-> > --
-> 
-> I haven't read the whole series yet, but I assume test_fortify.h was
-> provided earlier in the series?
-
-Yup, it's part of the compile-time tests in patch 32:
-https://lore.kernel.org/lkml/20210727205855.411487-33-keescook@chromium.org/
+Whoops; thanks! This is what I get for temporarily silencing the
+read-overflow warnings. :)
 
 -Kees
 
@@ -266,4 +227,4 @@ Kees Cook
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107271830.3DB03F3CF%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107271849.00A81539B%40keescook.
