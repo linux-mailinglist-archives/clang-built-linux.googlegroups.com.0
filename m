@@ -1,128 +1,118 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBIFRQKEAMGQEAZ5RHBQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQPF57GUQHBBF6CQKEAMGQEN2HKIJY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
-	by mail.lfdr.de (Postfix) with ESMTPS id 687783D8421
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 01:37:06 +0200 (CEST)
-Received: by mail-pl1-x638.google.com with SMTP id n16-20020a170902d2d0b029012c52457579sf285816plc.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 16:37:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627429025; cv=pass;
+Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
+	by mail.lfdr.de (Postfix) with ESMTPS id A25603D8483
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 02:13:12 +0200 (CEST)
+Received: by mail-ot1-x33e.google.com with SMTP id w4-20020a0568301444b0290405cba3beedsf78132otp.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 17:13:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627431191; cv=pass;
         d=google.com; s=arc-20160816;
-        b=E2t4BVWsQLuJp5B6YRUCuwb2U7VM4i9KQiHYFWV76rZSOdvaxX2/Zq3cSizZfWPck0
-         GzF6Xk1PhrIa8JlPBjJCF99kY5ycaYQwsL4jDQr+wmusdwcSQybgg9+yVtgxZYsP5/bI
-         /5WJV3jia53PBiPMDAxpAfHPpkqEemaA0wV2hBuD3WFxtJZQAzpKZDMsXFmHhHiG7Ycg
-         l2KByuoaIYNumPMgNN5u3CBu13aUVUU3VEQOFS/NpS0dGfQ8Bi0mnIn0vlxy26ArQ84k
-         aVwgdR7+FFU89nkGe+DbMkXY1LGCE41258lsWkXUmIblXzaBNXM1nTZ2jOw2UZ5SuJBc
-         6j5g==
+        b=gOidZU/x48dRat9UnjVUpuvM8q6s/La3fG5juFIVkHhdYQ7u6rr+WmSgGSguWLOZxH
+         JOkXgBFIMdfYCs6KDeqZhXO47VGMsL+ouXCnglInmuu7u1vADJqORAnnCJaBPcRgX14q
+         LZ414U4RmHHWgFNyQoTbu4Vj6LjODMptQdI2NRQaoMKzMnAcRMjKP5cXNripgkQZ917l
+         P6WxhIcira/M0iCifWj24GxtyKwbpsDkxRPJf4pdOvTg/vImf2Dajd55bxsgEG/RPMgb
+         0UKiMH/ezNS99yWMKocRglatUHd5pDJGNYsKQsqN8SqkdmoyF+v03CGJET8XHIX8PVja
+         Nv4A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=ZYKAO7AoReInIA/bL9w6hHvD8mXFxo3W4QXN0Nmy8+c=;
-        b=PRS/3/Yprn4c6CnOfMyMPsXf04emy32WPW75Jw0xLbn3W0EzL2lkMbs39lw+dGpVxv
-         TDWKFynkN4sJixlk2IMx/J4jE/V7QPX5J1l29nlf7tJmejNkwla0dKh4r861rmSrzamE
-         VwP9u9dtcWXvWndhvfvHQ/ovt6Qkrhs868FrwhtLPqCQWmGjSjc+3M7AbzI9o+9R8QBN
-         05CU2rvSJO90XGKcZG8JYm24YblASCrVPlvLqlOgnBG++YWrRgLqplc0L23Au0ubJ3II
-         65MTLqBkWSpU+LusUrxsNUWYnquyWZUBdHwmQ0F7LHifGjA5ViiHkfao3CYzy3fZVuMh
-         CMog==
+         :list-id:mailing-list:precedence:to:from:subject:message-id
+         :in-reply-to:date:mime-version:sender:dkim-signature;
+        bh=tRQIrlSqtUntansAHWr4r7iVgu4wmUdm/CUvOdwSkfw=;
+        b=m25jZ4TfruVaZZoccscQhaizNKCMbxpgF28MrxMF5nV9+EwKXRuyF7ajYVNDLTDIiI
+         vkECMDJeFfrFgg9UPYbjg4Uzv32ZJSxWK5fuakEX2mEScU1rSpklY8i5nvDdvza07Y2o
+         B+UD3ek/o1gE6+ljr5cpNEXZClBLhBhvk7FUeNLbFY865vp8Jd0T4X565fh+gaPoEUcq
+         Xa4QOCDTfg3SLTgat2UmnKWS0aYkKMOi+E25r0+9El8Uy/phYg9zNQUSZ4qV+CO6VB7E
+         LYfbhPGiAsfg0oxFSJ4v7F/wcYPLPBleAXWEfTDWX+jAlv6OSgMZj+XzCJMiZJbswrL2
+         DGnQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=FibbjNdx;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of 3fqeayqkbagkzfgrhsslyhwwpk.nvvnslbzlyjvualua.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.200 as permitted sender) smtp.mailfrom=3FqEAYQkbAGkZfgRHSSLYHWWPK.NVVNSLbZLYJVUaLUa.JVT@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
+        h=sender:mime-version:date:in-reply-to:message-id:subject:from:to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZYKAO7AoReInIA/bL9w6hHvD8mXFxo3W4QXN0Nmy8+c=;
-        b=QQUF+zSU3nEV+YOrsNqBQ31/VLjGMVgX5Hwc4XJAEBtG92Iu4dUNMpbjvp+dvFdQcz
-         jECIwL82APC/lM24se9598zqDPQ0HI0psztsHmP6t7MIJGivswFuVOr4UWMX5uNy3Yxk
-         9zrUHyUvcnl5nZMqXYYsVpTBD4A+WqJxV10FN7BhG17px56tkm3HjTQx1M8MBszhNDJq
-         vL6RXyu+1BKD3vTcJyVhYo9TrZyg5SzR2GaLIHjQcRP73+fiSTs/SM8zVdQI4olFO4EQ
-         ddFGkzoDOgkMSzSkNSTTdyIsnNz10HmHHkGdzjxSd5DFPHMgHgrnmQ2Y2eVfxMEjXnkA
-         AYlQ==
+        bh=tRQIrlSqtUntansAHWr4r7iVgu4wmUdm/CUvOdwSkfw=;
+        b=Q0yAyyOKJO8ch30nWqLW5pxT2l4f9ONkUGoTxmZiVsnTXo3uxrBNG0K+GQdwZAW9HW
+         74IvOUe3Jd61m++dLpTiLpl2tAqQNjvn1vawA5x/WWhAt/8niAE9GFhyiYTXIE8QzD7v
+         ISPcYsz18rTLt2cUAGSQvA+o978Obp/6qfp2bc9TBOpVkiCEWLSXJsjKIkepmTlxAIXz
+         PfNMHawSRl8ZxuQ9iCMBfhEGT2TcUK1stoF2QuEvbcEay2rT1MI07UQqJxltdjs1rFCq
+         d4ERnA6rbqgHWZUDpfHTshVJxFXKmg+2MhMxdAai73kiZCaDaXkgClSmCKEDAM35xXJE
+         CKvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=sender:x-gm-message-state:mime-version:date:in-reply-to:message-id
+         :subject:from:to:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ZYKAO7AoReInIA/bL9w6hHvD8mXFxo3W4QXN0Nmy8+c=;
-        b=CfNu8BQGPoBI7v4eoZeZZKXm8qTPQg0EdsL1GuCGRPIzlJUju9oCjUPw9RfkwqUhBM
-         ksqmYurd5xHSgIPuNOf6REeJ4MfipbolZqBXainr1MbkQwRteqz+E8D2AJfjhGGQOsJA
-         d6jG0HhBqfZR1mUDfk7Mhc/OqRbh0e7anHxv8IDRKSRZV8GQLlLbUTLC+0fapyjF8FJq
-         3vrL9ik9TfXelVHv3pF6UNSXDjbWCmVRBTfk7QKChNx5ziS2dE+Tw7SZQH2zp0burD8w
-         hR7V8DH2FfdkX0xyTiaA7phzcYJxqu30Tu7PqcgSQswPTLq9Fv24c6fky9niT5w0Ltny
-         QLsQ==
+        bh=tRQIrlSqtUntansAHWr4r7iVgu4wmUdm/CUvOdwSkfw=;
+        b=iXWdiIMptshlfDXhgUJ/CFJb8LGHi02tzcSVDgO3yZtLKVktxX2+6vDnh3NAsmVqfN
+         bVm24Aef9PicAD+LilNV8+VdANRc0p6Px5IciTKGXMceG4429H29atz0r3Gpj+agkx9+
+         vTwU7TowCV/xzLp6gcdfJ3yRYEKLEJCarhcsOw8VM8FN0tPvjRmoqw2cXp0I/rpSJaI4
+         hF1ubWVP45Xdekhclqf3iSF+J3baN4mAyqHmUee+ss6ale8tS8n+FsTe/G5KoG3fA4cz
+         gdJ6qYHavxdW/ZNGIeyK0HpPQtm6+wv/QO/GKO+6Ycdfo2c0gof1/4iwDZzsKNzi/DxY
+         y9wA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530vZA6nvkZcpT/PIUwbcyfjKcObuofWt2roriS5tjCFi84OSuTM
-	l9hAENp8zY8AUATruunbwuU=
-X-Google-Smtp-Source: ABdhPJxo+V+6suX6JAOBJN2jKyi3d5x/K0lXItD0uLITD3isZHD3ofl2zOnC9YUML8WarSjqpzt3rQ==
-X-Received: by 2002:a65:5083:: with SMTP id r3mr7602590pgp.161.1627429024980;
-        Tue, 27 Jul 2021 16:37:04 -0700 (PDT)
+X-Gm-Message-State: AOAM532BzZcWLMH3k6dsOHF/BgO/Scv1jeiZPswuv2Gex6wxt8pni/Ky
+	DZS1ZvF5YJwS7ZcaXBTb9aQ=
+X-Google-Smtp-Source: ABdhPJxWHnDpq1hszrXe1GVPxbIyz7eV2bzMnbmdBVk6c0CxCNJqlL00V+4KWLpyArScQ7qXHqoZWw==
+X-Received: by 2002:a9d:ba3:: with SMTP id 32mr16941508oth.126.1627431191625;
+        Tue, 27 Jul 2021 17:13:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:5348:: with SMTP id w8ls255897pgr.10.gmail; Tue, 27 Jul
- 2021 16:37:04 -0700 (PDT)
-X-Received: by 2002:a65:6494:: with SMTP id e20mr26431426pgv.101.1627429024473;
-        Tue, 27 Jul 2021 16:37:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627429024; cv=none;
+Received: by 2002:a9d:7c1:: with SMTP id 59ls117314oto.8.gmail; Tue, 27 Jul
+ 2021 17:13:11 -0700 (PDT)
+X-Received: by 2002:a05:6830:2786:: with SMTP id x6mr17562815otu.359.1627431191210;
+        Tue, 27 Jul 2021 17:13:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627431191; cv=none;
         d=google.com; s=arc-20160816;
-        b=Y4g5UwQFMLlBA5jCe3wBmeOB1npvI84+OJuFoDka9T5eiM+w4fybcJT1Pcojzm+ejy
-         ZaKs+VwER+g6yiOJk4kE7bYAnxN54DEb6D759I3JbnLd8XT9FWClxRkBYXna3EXNSjJI
-         BWADBy6EamR1qgVDH6rmCEdzWxDMbcRLg3rOXg3YthmMiso12Kkszhy/PyQWAdpch5Hy
-         tvZLs4GSxX2cXjnU4mAOKhwQ26JJtNfsVumr1t9b2I5VtKybSw0avFr71ccsXcpxcezA
-         wTJi5ruX7iOCefQlrw58riEbeGOemVtxP4MKgt6Fx4kNpR1N4aMaWiK1P2wM9ef3jxLs
-         iegg==
+        b=cP3w36CK2LW4vINktgFHFgLbNfnXkrPHNHjL4NqeoG02cJ3oiZWk5XdduZHOPH9hzN
+         +JVpchm9kBBWQMAEmvgh5OJv6lo8oI1Ko2nq6ikyleZtownJQtblYZuFViJyy9BrCTUd
+         Ap3CDjerH+s/z4KR2JVQSitsEzVaSeRhxaoXGlX0KwDK+gm0xhb/AYhWxBFoPQQdTom6
+         oZ/B7Knu8TTmooqwRHtzUWgn6BOn+gH+qD36Z09WSHm8aJBrOPSHD3VZ2/ucl2vNGLPa
+         NPg2yJ0kDF6EV/wtlHAltKxPTP6+kcfiUR1z36/JfHY2JOI9xHIXYLoVCDw0cKlXtzGL
+         WDLQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=hXn5APmbFENFD6LULot3PPLQLh3TE4NnKqAYmBbJeAs=;
-        b=Gkadh9Y+bcMCKkRYVSJsX3XVooU8p+Dqap8Sx/BtueJz3zNHqxYgbe9iWv4AXcAmog
-         +f6HkalFEBq4juA59Y1sXHViYMiW3WF2K6U1hEiKSN/1Ln0EDxG9JdudRpX1k1vvPOfU
-         KM82kudc+7OvfnIfALbC6yd4M9MvTI390Y0LxcqGT3PjyWoFbmYPReOvsfplYRaPlLfI
-         oS0QzjovAVRZlhPANy9nhkHYGTnkYFohJWYaKtrnubj6fNABPDuGl8i7CMBoNi7JUPRf
-         3rjdFJycM5Hs3lueqDz4k4LvvhDomxdIcVfHmwJLdIMc+GAd+GjdxmpcErJAU4zntfxX
-         5XGQ==
+        h=to:from:subject:message-id:in-reply-to:date:mime-version;
+        bh=+kXQhJa+fJj1oLGUaLeoaXrUy7DzmhQ5FyS3er5MIC8=;
+        b=jY7db40lr1wKXHL69KKbiCad/QtV6RF4GYbz02S1wcBEto2lyM/ubUqDSDJOrdH3PD
+         AYutRjL/vLzwXjFMSrUArT+QJZvum5fSXoUuXFmlEk7jCFdIkHKn9sQNI0ryLCplIlfD
+         FrTm/L+r8mjcsLoeK0ri8Fihc1ANVpmY/4Zf3X9AyzjmbpiAkQOvvXnlhtQlN4TyirCk
+         S8XwPOfgPx1QHGTaaQ+poyV0A9yYesnFUC4cGn92oHUsNAI5oMJDLej+6zgR9LNK12Hq
+         cKGXG836RtJk0poYWuzRFKV1xpoO+LHGgYoTTZ+qwkxrjTpENq1S4Ca1V+aoMKCT4Jjc
+         5JKg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=FibbjNdx;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id 14si163057pjd.0.2021.07.27.16.37.04
+       spf=pass (google.com: domain of 3fqeayqkbagkzfgrhsslyhwwpk.nvvnslbzlyjvualua.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.200 as permitted sender) smtp.mailfrom=3FqEAYQkbAGkZfgRHSSLYHWWPK.NVVNSLbZLYJVUaLUa.JVT@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
+Received: from mail-il1-f200.google.com (mail-il1-f200.google.com. [209.85.166.200])
+        by gmr-mx.google.com with ESMTPS id j26si525339ooj.0.2021.07.27.17.13.11
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Jul 2021 16:37:04 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id BE69C60F6B;
-	Tue, 27 Jul 2021 23:37:01 +0000 (UTC)
-From: Nathan Chancellor <nathan@kernel.org>
-To: Inki Dae <inki.dae@samsung.com>,
-	Joonyoung Shim <jy0922.shim@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Nathan Chancellor <nathan@kernel.org>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] drm/exynos: Always initialize mapping in exynos_drm_register_dma()
-Date: Tue, 27 Jul 2021 16:36:56 -0700
-Message-Id: <20210727233656.753002-1-nathan@kernel.org>
-X-Mailer: git-send-email 2.32.0.264.g75ae10bc75
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 27 Jul 2021 17:13:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3fqeayqkbagkzfgrhsslyhwwpk.nvvnslbzlyjvualua.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.200 as permitted sender) client-ip=209.85.166.200;
+Received: by mail-il1-f200.google.com with SMTP id x16-20020a9206100000b02902166568c213so500058ilg.22
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Jul 2021 17:13:11 -0700 (PDT)
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: nathan@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=FibbjNdx;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+X-Received: by 2002:a92:d912:: with SMTP id s18mr18841949iln.172.1627431190997;
+ Tue, 27 Jul 2021 17:13:10 -0700 (PDT)
+Date: Tue, 27 Jul 2021 17:13:10 -0700
+In-Reply-To: <20210727203056.377e5758@gmail.com>
+X-Google-Appengine-App-Id: s~syzkaller
+Message-ID: <00000000000009346505c823da46@google.com>
+Subject: Re: [syzbot] UBSAN: shift-out-of-bounds in xfrm_set_default
+From: syzbot <syzbot+9cd5837a045bbee5b810@syzkaller.appspotmail.com>
+To: clang-built-linux@googlegroups.com, davem@davemloft.net, 
+	herbert@gondor.apana.org.au, kbuild-all@lists.01.org, kuba@kernel.org, 
+	linux-kernel@vger.kernel.org, lkp@intel.com, netdev@vger.kernel.org, 
+	paskripkin@gmail.com, steffen.klassert@secunet.com, 
+	syzkaller-bugs@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: syzbot@syzkaller.appspotmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of 3fqeayqkbagkzfgrhsslyhwwpk.nvvnslbzlyjvualua.jvt@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com
+ designates 209.85.166.200 as permitted sender) smtp.mailfrom=3FqEAYQkbAGkZfgRHSSLYHWWPK.NVVNSLbZLYJVUaLUa.JVT@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,62 +125,24 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-In certain randconfigs, clang warns:
+Hello,
 
-drivers/gpu/drm/exynos/exynos_drm_dma.c:121:19: warning: variable
-'mapping' is uninitialized when used here [-Wuninitialized]
-                priv->mapping = mapping;
-                                ^~~~~~~
-drivers/gpu/drm/exynos/exynos_drm_dma.c:111:16: note: initialize the
-variable 'mapping' to silence this warning
-                void *mapping;
-                             ^
-                              = NULL
-1 warning generated.
+syzbot has tested the proposed patch and the reproducer did not trigger any issue:
 
-This occurs when CONFIG_EXYNOS_IOMMU is enabled and both
-CONFIG_ARM_DMA_USE_IOMMU and CONFIG_IOMMU_DMA are disabled, which makes
-the code look like
+Reported-and-tested-by: syzbot+9cd5837a045bbee5b810@syzkaller.appspotmail.com
 
-  void *mapping;
+Tested on:
 
-  if (0)
-    mapping = arm_iommu_create_mapping()
-  else if (0)
-    mapping = iommu_get_domain_for_dev()
+commit:         42d0b5f5 Add linux-next specific files for 20210727
+git tree:       linux-next
+kernel config:  https://syzkaller.appspot.com/x/.config?x=e5bd567a6f50f462
+dashboard link: https://syzkaller.appspot.com/bug?extid=9cd5837a045bbee5b810
+compiler:       gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.1
+patch:          https://syzkaller.appspot.com/x/patch.diff?x=1204e0dc300000
 
-  ...
-  priv->mapping = mapping;
-
-Add an else branch that initializes mapping to the -ENODEV error pointer
-so that there is no more warning and the driver does not change during
-runtime.
-
-Reported-by: kernel test robot <lkp@intel.com>
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
- drivers/gpu/drm/exynos/exynos_drm_dma.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_dma.c b/drivers/gpu/drm/exynos/exynos_drm_dma.c
-index 0644936afee2..bf33c3084cb4 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_dma.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_dma.c
-@@ -115,6 +115,8 @@ int exynos_drm_register_dma(struct drm_device *drm, struct device *dev,
- 				EXYNOS_DEV_ADDR_START, EXYNOS_DEV_ADDR_SIZE);
- 		else if (IS_ENABLED(CONFIG_IOMMU_DMA))
- 			mapping = iommu_get_domain_for_dev(priv->dma_dev);
-+		else
-+			mapping = ERR_PTR(-ENODEV);
- 
- 		if (IS_ERR(mapping))
- 			return PTR_ERR(mapping);
-
-base-commit: 7d549995d4e0d99b68e8a7793a0d23da6fc40fe8
--- 
-2.32.0.264.g75ae10bc75
+Note: testing is done by a robot and is best-effort only.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210727233656.753002-1-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/00000000000009346505c823da46%40google.com.
