@@ -1,142 +1,139 @@
-Return-Path: <clang-built-linux+bncBDGNVC4WY4BRBQGQQ2EAMGQECQZHSEA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBDORQ2EAMGQECZWCWXA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
-	by mail.lfdr.de (Postfix) with ESMTPS id 27B683D9596
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 20:56:02 +0200 (CEST)
-Received: by mail-pl1-x638.google.com with SMTP id g12-20020a1709026b4cb029012c0d2e483csf2696105plt.5
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 11:56:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627498560; cv=pass;
+Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
+	by mail.lfdr.de (Postfix) with ESMTPS id 45E1F3D959D
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 20:57:18 +0200 (CEST)
+Received: by mail-qt1-x837.google.com with SMTP id l12-20020a05622a050cb029025ca4fbcc12sf1501528qtx.18
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 11:57:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627498637; cv=pass;
         d=google.com; s=arc-20160816;
-        b=P3YNaogmHS5hk/dVT8ggEd/M9o7CAPIBW4qSm8s/dDLtWa8wgIdkqGz5qfB/gejanc
-         LJ32XHaPzkyFFPOSU46JwTBVO2V/gxIvRgWsAwTkZxGxharNV5DFoo6YaL5SY0dw7ilo
-         8T+brzJH99VzcQQ6GnGDUTvh+d89WVSFhrnL/Qdt2gHYHSbkIZjxsd+D22sGtMHdHX8/
-         NG4/gBPHr/yVCTPen1fFRfwoKNfbCCr8Dx0WzFytvf8mLmcwtil4Krm0sJppanjunNo4
-         YICm6UXThZ2gjzHepnmX4o4Yf66Zi/Oqn2kwRTGgmMDbpILlxnxHOJ9ND0jptPA+ILzk
-         OV+g==
+        b=dCJpPVn3dg89qzrg8kYnB3pNp3plCE7xh8UzMGh7YTN9Rdwe/EjoahsP18rUyK1Xw5
+         36lb5YaKekjx1dG19EiektPNM9Jo0rVpQC/+5pK6Mkfznd3VaG6p4BzZry6KvvNQ0fBm
+         SpwWqdN6z+A99oR/Xp6jU5cKOo0fKL3c50XU+CQ67NNcmOI4ALpJ5VIsD2ZTFZ7SNX2t
+         Bt+CTLGumYfPzssl1UZUd11A9fQHAAVK6pqN0Mfd3Tg5WsTtlR/sbZmskhOmjC0XW1G1
+         ISRtOjWAosGKBAZKNSpc6Mp0kLMQjPfEQdHflOOhhdmGYvnmj3O+uNpLT8hzYHwwUEqV
+         MFOA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :references:in-reply-to:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=ZFoEWsSOa3zw4Vde7gGEl55jKaaVOhdyzN7U0hVJvSw=;
-        b=XldO4EaA+eZnyCvAnbexyieJOxvN63siY8IgfewtHZ8xYOv71R6Zf7bqFqXTAsImrC
-         zVT9zL7otOV2/7yZsgPnkmnQJzLAp/DrTvxiMblwduT6VVfo8QA4tBBRqACOSnZOgJtp
-         N0wbl+N8vrxDZXLR5BzzrVDRRC9x4eXIA4SZlLvj0w2kcSQr9J9wb7NVgWRChlq0spVx
-         S2kiDUNkoDBuUBNDP2dMsk9qb8pwIxRQK3vQz2LUfdSGVBFti26AIlIe+673j6mD6D01
-         8ULErGVnqJ2nUzNx4s93Nd6b3MzKdjSwzPre+OP2gfqq3J9i2smHqTTmCYL5C392jMCp
-         xFtg==
+        bh=52okd+lSIkvNIJBtu38VZLY4MPqhRdANhlj3Qh7kr1Y=;
+        b=hLlPQGEXmATzqb06JfDqmxgvtQkm10OmOs6b0hLukqCQRaSczVwjO5jJExNDWlMxdU
+         IG6U37O7iaOA3NoB1kTnSm1uBU62UWyQUdiANVbxsVM5AzIzLP5JTBi0SqzISpUEAccO
+         iDj+w+MKSgF2iWGNMzjHWU/60VsQ9qgJpF7NNSGPoflNB/QrPgDTcjIckIpkqfiqDLNg
+         Vec86uwkcXfjNLfHKHEXF8/2CZrN+k0DUUJbS50aF9zF2jhZ//IY7kbFuuzpLZcVsaDW
+         dRk6PPtBqxk5YRUfPQBH+lA56fgjoHOLVcTCjDZXPqxx772Z4ppFmpbFm2vlXdpzR5/R
+         Wsfg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SmUnU1tP;
-       spf=pass (google.com: domain of stas.yakovlev@gmail.com designates 2607:f8b0:4864:20::12f as permitted sender) smtp.mailfrom=stas.yakovlev@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@chromium.org header.s=google header.b="CT/CUy6V";
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:in-reply-to:references:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ZFoEWsSOa3zw4Vde7gGEl55jKaaVOhdyzN7U0hVJvSw=;
-        b=kh2gbBIRObTUlyH+Vag2maD0iay4CWZZfDDTPWS9XbSj7day7y0+cPY2EuvEaQQzEH
-         7eb+V9VXX083f6gxgMPII9dquSCxLY1hSeQx/S1sPEydOc1sb0ueV2GWxWDK+SwxHGiM
-         WwesiiIxovweIGrv0kxaUYOV4vCjhqik1loQiQxlt/JR4agRhN3VKM7GvjS8lof1hD9R
-         Ch4qaCAtGuAouOl3Et0vjrHa0+upWj07fORKnJqCOerqOZbFqx8GK+z76StqasPDeBFl
-         mHy7pWBowysGvoQjntVy7i23J8lYWFXI5Bi/wVsOit30gqogirLgAJqfmVvZEvlzbT6V
-         pB+w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:in-reply-to:references:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ZFoEWsSOa3zw4Vde7gGEl55jKaaVOhdyzN7U0hVJvSw=;
-        b=YWhA2QVnJRD2X9PaY3PkdH1WJUiVXXrPtrKE1nuwbdWZfwrUd4RvJkp8zt8yv+VtUJ
-         /CdNuKJ7lpHHWho50s/Pmw8mkKcmHi1Mi9Iremf+dWuJCvaA+vvrOgAl2WVt57dbFRGe
-         cXmgFA+Bn7036VnqOzKxkrIO6KgXi2hSLNZ8F/HbAGpzxuioaAekxVvSu9/JuRETI+3H
-         LonKM+2h/128S6ugJVjdj9kOOFB7EdHt9zKBPV6MSHl9ZzV1U3JBsIz+CpZxdicvpSC3
-         FG8O5UqyQ9qgTPWLdsb2j5Uydt/0Zjl/kcx+ix1ZytMs3yfceshR0WqSMEaelGyNqwbH
-         50vg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=52okd+lSIkvNIJBtu38VZLY4MPqhRdANhlj3Qh7kr1Y=;
+        b=kwBQF7mItTaC8zxQ0gdI4cYBpUDkss8mRJYrUCETMcTcFscofyeb53UjQ+z+dHLxt5
+         LCAxqWWrGGbdJAUlMKwDsWzmxZ7cf17wKCLxaAYawPigaIQ2oK35ohjL3HiCOeKtSxz1
+         TKOHIt1Cv0IlKXNktfSr3W1mzX4Un3zR+EB0L0XJMUA/PaPNHMDQYMLK2xzF9x/1e3Vo
+         hRJyOL4ooUr0OLVWPuDcsfBdCU+72+HKZLsFW8OjU6K+2g272LB9sWkXtxvEL8tFIWL8
+         BQdxxX3NkcaOYeQKuvm0TgMbf1L1wn59bxFYtiBwBfSvT5y00eTJCS0JzFVWfOGcPjN/
+         eJug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:in-reply-to:references:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ZFoEWsSOa3zw4Vde7gGEl55jKaaVOhdyzN7U0hVJvSw=;
-        b=FCkcTNpltr6u6ryK/c6LcQ2sdqGNGb/DKKoHyouYG3xHWrOmI0aK+s43seX6PkIh74
-         P+XXuD8kCxBcLZf5OH+0vhU9QNTqs8ydTwLPkLZOiphV9aXUlm0G9sq/8rCHfF01NVhG
-         1rflQIXOOkbBdmy4YPEVJHjbWlvtEWRk/AA+AWUZa5n+ZT1r6hg7rgiukV8V1fhS2BA6
-         mx2Br4bdWsUQIx6ZYyIfi5MysVFPrTWwGdqpyeUSS/vCPN6qAM8UN5wepQCarBod6Ja1
-         KCw7vtUedxq4VAcARPvOicSGb8e6/5bicH2M7qlaaXeD+aeTA2aNesGu6u8MhOcfleEs
-         nW6w==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=52okd+lSIkvNIJBtu38VZLY4MPqhRdANhlj3Qh7kr1Y=;
+        b=WBwaFCJvRjNq9uX34YyxCw3NxpecZOzelO04/iDciD+mmyFijzQmCpjxajacee+CXE
+         65zbyiqUTG12JXLxYRVOJ5fWOGyAaXleq04KGRwxMTOk3ocnSXuKMtCWiBnK4OG6tJ4l
+         kqhVs0RHlM1Fyzm43DTIIdfe6886i4+q2aVcSn5HQGBRKKHkxinlUBvQL71FrZrCDVVP
+         7QraAELEnOeeAhAjvZcKOgFO7FX4tSaHZCDxzzhxLMFzOR/BASLQziCjkn2DcVSl2cz9
+         jFhtX/FXTdldjwznlF9cKFVzhq1TVgCtgsbB6Mq/bXtLqvIQPH4AMZQaQAvU+DMf1nhu
+         IbRA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531Z71D3pkebMqieeYdk58BnaFYD0FoaeNfCvEXBdWDLH8UnZdgj
-	wfGKOV69zJvHvjad+6ag3Nw=
-X-Google-Smtp-Source: ABdhPJyib7BAD3oJo3bmYX6xHP7W05KEm45GgwzaJBrvVP7MRYZuYAvaf4SbegCbJOhNdn2VQH+Sqw==
-X-Received: by 2002:a62:1b58:0:b029:33a:e814:312d with SMTP id b85-20020a621b580000b029033ae814312dmr1265279pfb.62.1627498560416;
-        Wed, 28 Jul 2021 11:56:00 -0700 (PDT)
+X-Gm-Message-State: AOAM531qq4EgNhsURnbL2KaoXI/zGLAD9/JXF0KImCLCMHxVx5EqDHOh
+	DpGofIBStP1Y19Tr4NQyrfo=
+X-Google-Smtp-Source: ABdhPJzv8N7JRDgrRfP08dmGE+Cecud4t/uzxJ3qBqQpCfolC43xUiJQf8N8yXDTo5x0gUVYkECAKA==
+X-Received: by 2002:ae9:c119:: with SMTP id z25mr1216681qki.40.1627498637414;
+        Wed, 28 Jul 2021 11:57:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:903:1203:: with SMTP id l3ls1621062plh.9.gmail; Wed, 28
- Jul 2021 11:55:59 -0700 (PDT)
-X-Received: by 2002:a17:90b:4b08:: with SMTP id lx8mr1192973pjb.66.1627498559751;
-        Wed, 28 Jul 2021 11:55:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627498559; cv=none;
+Received: by 2002:a0c:d686:: with SMTP id k6ls986524qvi.11.gmail; Wed, 28 Jul
+ 2021 11:57:17 -0700 (PDT)
+X-Received: by 2002:a05:6214:2463:: with SMTP id im3mr1472357qvb.53.1627498636932;
+        Wed, 28 Jul 2021 11:57:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627498636; cv=none;
         d=google.com; s=arc-20160816;
-        b=SDK3E+QbL7od1i16Glkx2gz56CI3l1ft/ank427EbZZFn106RPqe5uv8+VboZyac1m
-         Kcqi1PDzXbyw6dzR56IsynXsdhtuk8JBb6AuKpcLB5EDlDTqn8kdaF6pfJmUBEBS51sA
-         0lHF+V6lXXciMGGotZYrPcgF5Aay9NK7W2bPoyAI7XFz2X5RtAzESYUga75WolwagA/N
-         PYLvaL1yYA30/UG4KrTheZ63FLKOVUf9Go/+hAGINf5P2gI8A+umZoufTnNk896YADny
-         3D/Mnn8//B7z+yGRzBthm5T8EiN2P6gi6IiodVCLp8vFWa38Ix24+1oz622j50uwZFsG
-         2ZQg==
+        b=JNt0KNRTzbfHiCImKR4bR36q3afokDalyP0WGx3qX8OX378v+0FrcDYqijEkvMmLac
+         vZ85wR80nzCA30qYKuujjn9kYaTy7yy3cWUKe4WtDC8VlEt7n2OUiVfiAl7095B55BJe
+         Fa1B9jR06L+CNKC/1ROGDicioraxsgC7bbQvGrDV+C+u0QY3+bihtgqDPrm+SxsBfsyo
+         RUrJc0icmYXJAX0Huzk9T06MDZXGSQ5Iez6mP+RnyM9zBF3qR+9X5LHRJd5vWMDHP5T9
+         xsUCCMU/L/miVJq+egpHjDZz4U4f0CEQde6elDCa41ugPkgt+Y1Y8a5vi7PGbP5+sIEp
+         q4rA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:references:in-reply-to
-         :mime-version:dkim-signature;
-        bh=pg9Oc8FexJdwg++WGxFIyzfbO7HtZXQu4+lhfbZZJSA=;
-        b=B/gyrCBHGYTbV5CqVzcK0ArOOCReUetUnyfgZjdEXVxLB1G7to1fk1lNrKyPRBfVOE
-         M+81UCidDa/e2/pbh618ePZ60y72sOYbvWTIBlLrwfdK0JXwZOJv2E1IPPqatEGTe3HU
-         fnH5JmDbQ7rTyeaPvGf/2hRKBD7w48pnCPUQKVqag6785GP53qXA3csJYJjXgP5P89nw
-         h7lkluJg48/90AnICKglqtnnl1i2u2YmFcbbLZLyXtGTtk73l/N7t82GsepLlN/6Pf4B
-         9X5ccrXbVDqM+tIzgMXj+7jAJ1eQb87fWG+su7vMhOgGGLSN9yK8CiQ514wBu+EWq5Xh
-         5pIg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=127Od1Z5L5mrPERJlQTktPz34XXJuvOrvHqT3KKh12Q=;
+        b=TnQ282SGyWe8283YB20DbYjpDBRu/IIVXnABhoxFoZ2Ym3pfp86GcbUmkhCK79C+Qa
+         Z2z3Vx9IljqMwVBG1ks3xlsaMlwpsjayDJOtR2H49TtCt9xOuqgk6b3kXkRvko2En53Q
+         Zqmv8R1nCWqL5rgRKuvBKLy6MOS7xhr1iTXfeLvWOqNhEj1CDYLZU0SQT3xEBtWRMUsh
+         2cksfJtqW3NVUf6B7VyIetS00wxVLJj08kRawj4enT8IkgO2N7ozI0ivTso/fGSkZT3B
+         pmeMmGu+c4TqGW/8tvojV5qwl8YhitasBh3cl0KUD/lzo+j+qZ0bhhTqq1RH4ZStqEzz
+         /23Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SmUnU1tP;
-       spf=pass (google.com: domain of stas.yakovlev@gmail.com designates 2607:f8b0:4864:20::12f as permitted sender) smtp.mailfrom=stas.yakovlev@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x12f.google.com (mail-il1-x12f.google.com. [2607:f8b0:4864:20::12f])
-        by gmr-mx.google.com with ESMTPS id 136si42316pfz.2.2021.07.28.11.55.59
+       dkim=pass header.i=@chromium.org header.s=google header.b="CT/CUy6V";
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pl1-x629.google.com (mail-pl1-x629.google.com. [2607:f8b0:4864:20::629])
+        by gmr-mx.google.com with ESMTPS id s29si50472qtc.5.2021.07.28.11.57.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Jul 2021 11:55:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of stas.yakovlev@gmail.com designates 2607:f8b0:4864:20::12f as permitted sender) client-ip=2607:f8b0:4864:20::12f;
-Received: by mail-il1-x12f.google.com with SMTP id z3so3400974ile.12
-        for <clang-built-linux@googlegroups.com>; Wed, 28 Jul 2021 11:55:59 -0700 (PDT)
-X-Received: by 2002:a05:6e02:dcd:: with SMTP id l13mr851205ilj.300.1627498559514;
- Wed, 28 Jul 2021 11:55:59 -0700 (PDT)
+        Wed, 28 Jul 2021 11:57:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::629 as permitted sender) client-ip=2607:f8b0:4864:20::629;
+Received: by mail-pl1-x629.google.com with SMTP id e21so3841598pla.5
+        for <clang-built-linux@googlegroups.com>; Wed, 28 Jul 2021 11:57:16 -0700 (PDT)
+X-Received: by 2002:a63:4c26:: with SMTP id z38mr313058pga.376.1627498636621;
+        Wed, 28 Jul 2021 11:57:16 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id d14sm5792859pjc.0.2021.07.28.11.57.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 28 Jul 2021 11:57:16 -0700 (PDT)
+Date: Wed, 28 Jul 2021 11:57:15 -0700
+From: Kees Cook <keescook@chromium.org>
+To: "Martin K. Petersen" <martin.petersen@oracle.com>
+Cc: linux-hardening@vger.kernel.org,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Keith Packard <keithpac@amazon.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org,
+	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com,
+	Brian King <brking@linux.vnet.ibm.com>,
+	Tyrel Datwyler <tyreld@linux.ibm.com>
+Subject: Re: [PATCH 36/64] scsi: ibmvscsi: Avoid multi-field memset()
+ overflow by aiming at srp
+Message-ID: <202107281152.515A3BA@keescook>
+References: <20210727205855.411487-1-keescook@chromium.org>
+ <20210727205855.411487-37-keescook@chromium.org>
+ <yq135rzp79c.fsf@ca-mkp.ca.oracle.com>
 MIME-Version: 1.0
-Received: by 2002:a05:6e04:29b:0:0:0:0 with HTTP; Wed, 28 Jul 2021 11:55:58
- -0700 (PDT)
-In-Reply-To: <20210727205855.411487-16-keescook@chromium.org>
-References: <20210727205855.411487-1-keescook@chromium.org> <20210727205855.411487-16-keescook@chromium.org>
-From: Stanislav Yakovlev <stas.yakovlev@gmail.com>
-Date: Wed, 28 Jul 2021 22:55:58 +0400
-Message-ID: <CA++WF2M464stM5Cb8EpX+ecda5yymSZ0Z8PFPFEoqZ_iFhaScQ@mail.gmail.com>
-Subject: Re: [PATCH 15/64] ipw2x00: Use struct_group() for memcpy() region
-To: Kees Cook <keescook@chromium.org>
-Cc: linux-hardening@vger.kernel.org, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Keith Packard <keithpac@amazon.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org, 
-	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-staging@lists.linux.dev, linux-block@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: stas.yakovlev@gmail.com
+Content-Disposition: inline
+In-Reply-To: <yq135rzp79c.fsf@ca-mkp.ca.oracle.com>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=SmUnU1tP;       spf=pass
- (google.com: domain of stas.yakovlev@gmail.com designates 2607:f8b0:4864:20::12f
- as permitted sender) smtp.mailfrom=stas.yakovlev@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@chromium.org header.s=google header.b="CT/CUy6V";       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::629
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,38 +146,74 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 28/07/2021, Kees Cook <keescook@chromium.org> wrote:
-> In preparation for FORTIFY_SOURCE performing compile-time and run-time
-> field array bounds checking for memcpy(), memmove(), and memset(),
-> avoid intentionally writing across neighboring fields.
->
-> Use struct_group() in struct libipw_qos_information_element around
-> members qui, qui_type, qui_subtype, version, and ac_info, so they can be
-> referenced together. This will allow memcpy() and sizeof() to more easily
-> reason about sizes, improve readability, and avoid future warnings about
-> writing beyond the end of qui.
->
-> "pahole" shows no size nor member offset changes to struct
-> libipw_qos_information_element.
->
-> Additionally corrects the size in libipw_read_qos_param_element() as
-> it was testing the wrong structure size (it should have been struct
-> libipw_qos_information_element, not struct libipw_qos_parameter_info).
->
-> Signed-off-by: Kees Cook <keescook@chromium.org>
-> ---
->  drivers/net/wireless/intel/ipw2x00/libipw.h    | 12 +++++++-----
->  drivers/net/wireless/intel/ipw2x00/libipw_rx.c |  8 ++++----
->  2 files changed, 11 insertions(+), 9 deletions(-)
->
+On Tue, Jul 27, 2021 at 09:39:39PM -0400, Martin K. Petersen wrote:
+> 
+> Kees,
+> 
+> > In preparation for FORTIFY_SOURCE performing compile-time and run-time
+> > field bounds checking for memset(), avoid intentionally writing across
+> > neighboring fields.
+> >
+> > Instead of writing beyond the end of evt_struct->iu.srp.cmd, target the
+> > upper union (evt_struct->iu.srp) instead, as that's what is being wiped.
+> >
+> > Signed-off-by: Kees Cook <keescook@chromium.org>
+> 
+> Orthogonal to your change, it wasn't immediately obvious to me that
+> SRP_MAX_IU_LEN was the correct length to use for an srp_cmd. However, I
+> traversed the nested unions and it does look OK.
 
-Acked-by: Stanislav Yakovlev <stas.yakovlev@gmail.com>
+Yeah, I had the same fun. Maybe I should add a BUILD_BUG_ON() here to
+help illustrate the relationship? I did that in a few other places where
+the equalities weren't very clear.
 
-Looks fine, thanks!
+For example, change it to:
 
-Stanislav.
++	BUILD_BUG_ON(sizeof(evt_struct->iu.srp) != SRP_MAX_IU_LEN);
++	memset(&evt_struct->iu.srp, 0x00, sizeof(evt_struct->iu.srp));
+ 	srp_cmd = &evt_struct->iu.srp.cmd;
+-	memset(srp_cmd, 0x00, SRP_MAX_IU_LEN);
+
+> 
+> For good measure I copied Tyrel and Brian.
+> 
+> Acked-by: Martin K. Petersen <martin.petersen@oracle.com>
+
+For the moment, I'll leave the patch as-is unless you prefer having
+the BUILD_BUG_ON(). :)
+
+Thanks!
+
+-Kees
+
+> 
+> > ---
+> >  drivers/scsi/ibmvscsi/ibmvscsi.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/scsi/ibmvscsi/ibmvscsi.c b/drivers/scsi/ibmvscsi/ibmvscsi.c
+> > index e6a3eaaa57d9..7e8beb42d2d3 100644
+> > --- a/drivers/scsi/ibmvscsi/ibmvscsi.c
+> > +++ b/drivers/scsi/ibmvscsi/ibmvscsi.c
+> > @@ -1055,8 +1055,8 @@ static int ibmvscsi_queuecommand_lck(struct scsi_cmnd *cmnd,
+> >  		return SCSI_MLQUEUE_HOST_BUSY;
+> >  
+> >  	/* Set up the actual SRP IU */
+> > +	memset(&evt_struct->iu.srp, 0x00, SRP_MAX_IU_LEN);
+> >  	srp_cmd = &evt_struct->iu.srp.cmd;
+> > -	memset(srp_cmd, 0x00, SRP_MAX_IU_LEN);
+> >  	srp_cmd->opcode = SRP_CMD;
+> >  	memcpy(srp_cmd->cdb, cmnd->cmnd, sizeof(srp_cmd->cdb));
+> >  	int_to_scsilun(lun, &srp_cmd->lun);
+> 
+> -- 
+> Martin K. Petersen	Oracle Linux Engineering
+
+
+-- 
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2B%2BWF2M464stM5Cb8EpX%2Becda5yymSZ0Z8PFPFEoqZ_iFhaScQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107281152.515A3BA%40keescook.
