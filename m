@@ -1,152 +1,134 @@
-Return-Path: <clang-built-linux+bncBDNNRXXFQEGRB4GAQWEAMGQEMUJJGAQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC7457HKSMPRBWXFQWEAMGQEV6EI7MY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
-	by mail.lfdr.de (Postfix) with ESMTPS id 815E23D8F8C
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 15:49:37 +0200 (CEST)
-Received: by mail-lf1-x139.google.com with SMTP id br20-20020a0565124014b02903a914ebbb21sf1068780lfb.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 06:49:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627480177; cv=pass;
+Received: from mail-ot1-f61.google.com (mail-ot1-f61.google.com [209.85.210.61])
+	by mail.lfdr.de (Postfix) with ESMTPS id 48D0C3D9183
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 17:08:12 +0200 (CEST)
+Received: by mail-ot1-f61.google.com with SMTP id 79-20020a9d08d50000b02903daf90867besf979648otf.11
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 08:08:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627484891; cv=pass;
         d=google.com; s=arc-20160816;
-        b=u1qCkVnmEkhxXxjqKy9pd6TY2iQGvEPixSANL2FwwLi1xpXrBrn+LL2Zg0OMKDcJaS
-         quMzXiJdIqQvllsthFSk+5pUtl+6paNV1h3wf/1W4McQKmODuy8BfnKeCMTbYWavabpm
-         zVeFIQpxFKAEXN0/Pv3xB/IF7hIFrQTItTiqvH3dVziR0hQkvCaURNlyAn1enjd1wHP1
-         bp8ONwkwJhJATzxoVh3deZ82foRWxT1E8vugCqUojweG6TWabZlyeDbRSayqkTH4/iZP
-         kJFcw4cDR0n/jmjdgvX1Wa9EsQ56HL5WcPEWzG3FOHsFwS0fTchyPkUiutVchusLdX93
-         Ikag==
+        b=srp2qe2tM8tbP/qiPBdLkoNeOOSSTYOi6jq3B2gExXUnv72UultLk3gi9LKDueGRjd
+         zpFBrxQSiuHJOL4iNCABdLMqDmuXkvBQjCNw3bQaXV+TWcCl7Av+QeNnyNYSHxnOqeHD
+         OsiDJM72JJtI1gHqZtF6FfJfsxJFIcLG0pFXYNXXWPFuKQMlg2kyoLdjjP23I7uOrGhZ
+         /5naiRpI5WI2W8Z0UdLN3pP5ULyK2Bene/4u0YF+LZU8vYaHKo/Q+cXLkJ4qsz5o22vM
+         udqRpTr2h5R2bTtunC3Xpl59Sx3OoguxI/THAhhuimmIM6OK3bNXnAid4VahV56T8gGx
+         zkVg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=MRSuQnqBwSCHkTKniMJTzxURkBvpOtgA08KrKI8MrtI=;
-        b=NRKF/PYDIo01oGjWZuFDLYNezLF7RQ72xmKAS9ADw2vkFk1F4QWP6Mb7We8J8DFXZX
-         rWlSF9FDow/iwClkhanQASjXvaDk0w49qq6OA2TrFTdjxN0bR8T9MzL9Fddw8yLyToyX
-         yRISGMDRufQ16yQAYmqxC47h0xLSAsyMQCV4pFhWQ7jxKyVOvlwms+J3OfRA6DHprCPm
-         d2GpXzttnNTVEu3f+3El2KD9N25dtygKRKHoS0ANPGBTHwOzLbTGxuo3aS0zXBjsdtJ4
-         /soZDCf7y+th1nHugJbWHeNXg5bZj9XsruaBay9i9/cnnmICpAsarpKlbigDi5A+N34u
-         tq6w==
+         :list-id:mailing-list:precedence:thread-index:content-language
+         :mime-version:message-id:date:subject:in-reply-to:references:cc:to
+         :from:reply-to:dmarc-filter:sender;
+        bh=Yrefw+B7xNplrpUXBUvJT+xqJvk+Q9V8NEyeYEm3BSM=;
+        b=PGovyhsBu7a7F7zMpAmfZFqsI9dLeGpFv6IkFfskU2pAanoP5/+1ylEokC1NmuFZUA
+         mwEvC1pIMWOl2rO3nONBQPgrOBsFgdDC7IhkTSE35mGtlaC4dyU4KnR9l/zv1Gqh20Tf
+         fRhvdVbEpqAMoSZhlVYiLBroxWVV9a06AKhhn6gdhfRWUTydhR+pH5zvM7FMMYueH5Ps
+         0SxYba5shd6yMx7E7OyHpXBUfGaneJeC8CPmkJAjBGJr5M31ifegKPxXzjRbu/bTSIpq
+         H+hUc/ZyVcESPVtom61s761ynfNaFuXgBd9JSemuDLuGoLFFdLMWSwFs2/e9qUEjDSvq
+         kwHQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@atlas.cz header.s=mail header.b=eTjGvc+8;
-       spf=pass (google.com: domain of arkamar@atlas.cz designates 2a00:da80:0:502::3 as permitted sender) smtp.mailfrom=arkamar@atlas.cz;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=atlas.cz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=MRSuQnqBwSCHkTKniMJTzxURkBvpOtgA08KrKI8MrtI=;
-        b=qR6vGNDrU+pHikucHnbIChlOnU1TJ4AEIxzOATRvyJxnT6kzUzkqTRuHU93uOASW0b
-         LRWX88hj6QE5KIGwXx6CvA3Tk10rfBNstC4qzRlD/ZvPP47/ZUCa/umWUSXSfhnWwfke
-         N5qkwbCepGqiZagEIr0YohaIs1kkcRxGPAWzMGFISN0f8+8riYfrvO/VncL4OfFLS+0p
-         0b38vz1d/c0SgISoL6SeO2okhsvQBaihzebCXEnYTY+7yo0ICxJYdBdatwhIX9bX461X
-         bRmBVREjsCsba0kDS7yPDgNskm4n4Ec7cc9wT0DNKf0hlcsW7A2BC4zcaQqli/ZSrkHd
-         C0AQ==
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=FH5AMZjr;
+       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition
-         :content-transfer-encoding:in-reply-to:x-original-sender
+        h=x-gm-message-state:sender:dmarc-filter:reply-to:from:to:cc
+         :references:in-reply-to:subject:date:message-id:mime-version
+         :content-language:thread-index:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MRSuQnqBwSCHkTKniMJTzxURkBvpOtgA08KrKI8MrtI=;
-        b=XkLiM/JFc9KKbTf9fUq5Nma7OSFJLFHnJpJ9I7GefLbZFxYKyCE65+ALqlYiyVDM/o
-         KpT4G1MN7XLE6pnSw4Y07FKFgA5mx0jSGzmILTY/sRvaEDvKjlcpo/af24uEzx5IBIzy
-         4a8UStWaidpgOTGh3/22Sb9zEHZVfmH5GhI/J7eiHrzVinhl/uzZbIslE6t5YStBRgLe
-         rf+EgZwW5hi+QRKCjOOpfmH3y3TSFGQCk1entbzdhwpMfBlKGjngMEfhcZOH1Rtedimf
-         zQbUfjRrZUirdCBBL54ZM7UE6AXkxpgH6GDY6Zhe8qpkv9XMANpgYn25nxJZx4BqmHoQ
-         rp4Q==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532W/Tpb1AMLlE7QW+OTH2/3ve/TYPod7O4mm0VfWWPSYDKpeQat
-	2HR9kXa4ffuLUAnctwVEujU=
-X-Google-Smtp-Source: ABdhPJxYE1U/F5dVeJU4LDFWhBuMK0I4Y4PTgKes1vUrspypDgVuY4v1VRjHFfW4VGwTt7iaUX787Q==
-X-Received: by 2002:a2e:381a:: with SMTP id f26mr18901564lja.416.1627480177029;
-        Wed, 28 Jul 2021 06:49:37 -0700 (PDT)
+        bh=Yrefw+B7xNplrpUXBUvJT+xqJvk+Q9V8NEyeYEm3BSM=;
+        b=P4zd12St0f/6kFW+ie6nOSLJWeITuohkEVy4pCZyP5Xl/eJM3BZBoo8PguK+a0XjfY
+         di2j3LYDPDIO3bV35+K6a0Wi+m09/lT0fYJa+NZBdZGcBkShgEI43W8oWalaLTXwin8N
+         xoBhfYckr1hEPoJo10PLBHNWgaJZqinVsdVcxSNrn+Txbis8mx/3FIgRCeh+GpU0lH1z
+         CKzPB+ok904YzumB+X9YonXrAQYN1ycGc1VgauXdaxLWcQbqBD9AojDd72UvZf0u+iu9
+         NzISdvwsDe8gtSAMyYNuT+tShq0N/xbWjcQQVTdupspLQ5nlQGIHzfzo77KMR56QR3Zs
+         23gw==
+X-Gm-Message-State: AOAM533bYbfaePEyqMwj1qCEgzfbyCnqMEngv1hjifY2UOaSfKUvFC3w
+	E7+sjdODQNrOq+BU/8tpFzk=
+X-Google-Smtp-Source: ABdhPJxneHCoPSTQ2BPBaqrwn13J1JKvHrnBqb27npV1qENGaBVWBLhvkZ4pjS10VOnavGBcWeDOkw==
+X-Received: by 2002:aca:d4cf:: with SMTP id l198mr6518464oig.14.1627484890879;
+        Wed, 28 Jul 2021 08:08:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:b89:: with SMTP id b9ls1817284lfv.1.gmail; Wed, 28
- Jul 2021 06:49:36 -0700 (PDT)
-X-Received: by 2002:ac2:560d:: with SMTP id v13mr20426693lfd.518.1627480176029;
-        Wed, 28 Jul 2021 06:49:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627480176; cv=none;
+Received: by 2002:a05:6830:2a05:: with SMTP id y5ls666308otu.2.gmail; Wed, 28
+ Jul 2021 08:08:10 -0700 (PDT)
+X-Received: by 2002:a9d:600a:: with SMTP id h10mr357891otj.144.1627484890501;
+        Wed, 28 Jul 2021 08:08:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627484890; cv=none;
         d=google.com; s=arc-20160816;
-        b=cuNJ0ffck0zdgt5qnAqdiBpHyIUvsnHBOyJHfcuJnqJYB5bbtgL9By5OC1QpSjx8cY
-         +k/oZfhWxUiRjmPAzMTPrj87bKKEjZRT5PYSWaFnAlwWZCECGYJph3fPUVGHCChWyG5c
-         BWlRO/qxT+ATcnnPExAiRgHxdz5BHMMQVeqhplEMTWndfOPamhI0keDBIIA9rJqr5PHx
-         Q1qA1xS92uqL3UrJPkWgyYbMsfDYzSsiX7+OfuTXuu6cEzdAuXhrOyAnfQfjpNJPrFJ5
-         ArmRNv+Vn7xGzc9HU8i7+Hl2F+tSmD/vuqG1oKYB4ZzLhAQF7xo53qNYQ7ya6pSsM7T2
-         dv0Q==
+        b=JLtx9rnDrQfJoj87SWVMzde0yXOFwIJnY+6a0tMGhqHsolX/49KZNK+jjrH0VYvGWJ
+         GvI1oPKbkTbNNaxQXh5ujYQH8IqQUsfXNYtw6InmI2qdPzP3yDJLqfJOd+TOTDnr97BH
+         hpLxisH4ZB18Cl1Jg3OxM4LjpMD9Sy/zJePvwme82UphYIm24K7/wIMY+442ZgpufS/F
+         Fo031YwxLIkXBtYuoqxwmXsk5wjjmAAPQynerYJqQQhMiyAU7vy9dCM7g01gCBA3rYqS
+         uWZUsZPi3+0WCN1oViaT/NASnTjKkKgiVJBVYJtbC6R2rBnDvoVW4JvqU7Gcue+A097E
+         XaJg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :dkim-signature;
-        bh=btdGKWwqdzolFUEYa7m2BSrGTcmJuco6D2JUC+cfccY=;
-        b=tUsgKMhUMt4Oy6uh1TXt7q47SnRvJaQydoxJxSLjqkE1r7AxJIuB4sU4YuCJYc2vc4
-         j6ZEB7d2okJ3GsGdxGzABhlXW4jHRK/5K3sBRGRV9hmowKq3N7Yti1XmU9Y8/AIqaGvU
-         0K6bB+unN5LZUQD8xpjfJ49nn3pPKg+t640gmsznAtRbFS0SXZlcZwuS0H+1fzc4vwnM
-         LY/yIdj7+1sYAi0xLRPUZtvoZDG94EBxXx7Tj5qFQG5D8GpDoqQwRcaCqQTrBLYzYK+7
-         l6WDZAcGp/fancbliMbZZj4cdOlf326UbQjK42sfbfrvTlIlt1X1hdb5552WOZiCPQYm
-         +kdw==
+        h=thread-index:content-language:content-transfer-encoding
+         :mime-version:message-id:date:subject:in-reply-to:references:cc:to
+         :from:reply-to:dmarc-filter:sender:dkim-signature;
+        bh=sj2A2zR3rcI8P9VUMF3/9Yk8xk+GhmmV1rwmsS/dDMU=;
+        b=RDI+AltUWThqeMFAnov1CnrBzwRNcYfZjM2a2hezGgo+YCQYzScUiRvAZNxa5AaTOe
+         63c1gu4c92hT0EPII48YNPXCjUnFeDzDlVMrOAEKUKEhfBaaFUNx3ZNxC0+uGMjhBLrx
+         XeO1xYmFia7MFD93dKA/mn83hBLZFJ4GUeh380ETk+54JQZ8gV6g5ho7gzpm7Rcx2MSp
+         IFntspPPsiihX0s0RHB4nTokZGkOH0TJ0/rcEr5/5UPUZdZWDuVr2iY4VUqitnlocuzW
+         9UOSM6CJQZN9TTjPyNPqlVkS2uGlFAqViZARPC83aLX7w2nlEhjTot4omGuS5M6tiK4a
+         iOPQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@atlas.cz header.s=mail header.b=eTjGvc+8;
-       spf=pass (google.com: domain of arkamar@atlas.cz designates 2a00:da80:0:502::3 as permitted sender) smtp.mailfrom=arkamar@atlas.cz;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=atlas.cz
-Received: from gmmr3.centrum.cz (gmmr3.centrum.cz. [2a00:da80:0:502::3])
-        by gmr-mx.google.com with ESMTPS id v194si2018lfa.1.2021.07.28.06.49.35
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=FH5AMZjr;
+       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+Received: from so254-9.mailgun.net (so254-9.mailgun.net. [198.61.254.9])
+        by gmr-mx.google.com with UTF8SMTPS id o10si12598oic.3.2021.07.28.08.08.05
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1 cipher=AES128-SHA bits=128/128);
-        Wed, 28 Jul 2021 06:49:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of arkamar@atlas.cz designates 2a00:da80:0:502::3 as permitted sender) client-ip=2a00:da80:0:502::3;
-Received: from gmmr-2.centrum.cz (unknown [10.255.254.15])
-	by gmmr3.centrum.cz (Postfix) with ESMTP id 527B718007FA5;
-	Wed, 28 Jul 2021 15:49:35 +0200 (CEST)
-Received: from vm2.excello.cz (vm2.excello.cz [212.24.139.173])
-	by gmmr-2.centrum.cz (Postfix) with QMQP
-	id 5029F77DE; Wed, 28 Jul 2021 15:49:35 +0200 (CEST)
-Received: from vm2.excello.cz by vm2.excello.cz
- (VF-Scanner: Clear:RC:0(2a00:da80:1:502::8):SC:0(-20.5/5.0):CC:0:;
- processed in 0.3 s); 28 Jul 2021 13:49:35 +0000
-X-VF-Scanner-ID: 20210728134935.001014.21804.vm2.excello.cz.0
-X-Spam-Status: No, hits=-20.5, required=5.0
-Received: from gmmr-4.centrum.cz (2a00:da80:1:502::8)
-  by out1.virusfree.cz with ESMTPS (TLSv1.3, TLS_AES_256_GCM_SHA384); 28 Jul 2021 15:49:34 +0200
-Received: from gm-smtp10.centrum.cz (unknown [10.255.254.32])
-	by gmmr-4.centrum.cz (Postfix) with ESMTP id EC69A20056064;
-	Wed, 28 Jul 2021 15:49:34 +0200 (CEST)
-Received: from arkam (unknown [94.113.86.190])
-	by gm-smtp10.centrum.cz (Postfix) with ESMTPA id 815C4C063A35;
-	Wed, 28 Jul 2021 15:49:34 +0200 (CEST)
-Date: Wed, 28 Jul 2021 15:49:33 +0200
-From: Petr =?utf-8?B?VmFuxJtr?= <arkamar@atlas.cz>
-To: Pavo Banicevic <pavo.banicevic@sartura.hr>
-Cc: linux@armlinux.org.uk, ast@kernel.org, daniel@iogearbox.net,
-	andrii@kernel.org, kafai@fb.com, songliubraving@fb.com, yhs@fb.com,
-	john.fastabend@gmail.com, kpsingh@kernel.org, nathan@kernel.org,
-	ndesaulniers@google.com, ivan.khoronzhuk@linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, bpf@vger.kernel.org,
-	clang-built-linux@googlegroups.com, matt.redfearn@mips.com,
-	mingo@kernel.org, dvlasenk@redhat.com, juraj.vijtiuk@sartura.hr,
-	robert.marko@sartura.hr, luka.perkov@sartura.hr,
-	jakov.petrina@sartura.hr
-Subject: Re: [PATCH 3/3] include/uapi/linux/swab: Fix potentially missing
- __always_inline
-Message-ID: <YQFgbRXKIeZ7H6mo@arkam>
-References: <20210727141119.19812-1-pavo.banicevic@sartura.hr>
- <20210727141119.19812-4-pavo.banicevic@sartura.hr>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 28 Jul 2021 08:08:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) client-ip=198.61.254.9;
+X-Mailgun-Sending-Ip: 198.61.254.9
+X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
+Received: from smtp.codeaurora.org
+ (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
+ smtp-out-n05.prod.us-east-1.postgun.com with SMTP id
+ 610172c417c2b4047d4b1f7e (version=TLS1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Wed, 28 Jul 2021 15:07:48
+ GMT
+Sender: bcain=codeaurora.org@mg.codeaurora.org
+Received: by smtp.codeaurora.org (Postfix, from userid 1001)
+	id B88C1C4338A; Wed, 28 Jul 2021 15:07:47 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	aws-us-west-2-caf-mail-1.web.codeaurora.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.9 required=2.0 tests=ALL_TRUSTED,BAYES_00,SPF_FAIL,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+Received: from BCAIN (i-global254.qualcomm.com [199.106.103.254])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: bcain)
+	by smtp.codeaurora.org (Postfix) with ESMTPSA id 497DBC433F1;
+	Wed, 28 Jul 2021 15:07:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org 497DBC433F1
+Reply-To: <bcain@codeaurora.org>
+From: "Brian Cain" <bcain@codeaurora.org>
+To: "'Nathan Chancellor'" <nathan@kernel.org>,
+	"'Andrew Morton'" <akpm@linux-foundation.org>
+Cc: "'Nick Desaulniers'" <ndesaulniers@google.com>,
+	<linux-hexagon@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>,
+	<clang-built-linux@googlegroups.com>,
+	"'Manning, Sid'" <sidneym@quicinc.com>
+References: <20210728001729.1960182-1-nathan@kernel.org>
+In-Reply-To: <20210728001729.1960182-1-nathan@kernel.org>
+Subject: RE: [PATCH] hexagon: Clean up timer-regs.h
+Date: Wed, 28 Jul 2021 10:07:45 -0500
+Message-ID: <03bc01d783c2$52e6f200$f8b4d600$@codeaurora.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20210727141119.19812-4-pavo.banicevic@sartura.hr>
-X-Original-Sender: arkamar@atlas.cz
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: en-us
+Thread-Index: AQHsvcFl/v/yGvN+KqOPEWg6PsqxiKsuCMEw
+X-Original-Sender: bcain@codeaurora.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@atlas.cz header.s=mail header.b=eTjGvc+8;       spf=pass
- (google.com: domain of arkamar@atlas.cz designates 2a00:da80:0:502::3 as
- permitted sender) smtp.mailfrom=arkamar@atlas.cz;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=atlas.cz
+ header.i=@mg.codeaurora.org header.s=smtp header.b=FH5AMZjr;       spf=pass
+ (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
+ designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -159,50 +141,144 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 27, 2021 at 04:11:19PM +0200, Pavo Banicevic wrote:
-> From: Matt Redfearn <matt.redfearn@mips.com>
->=20
-> Commit bc27fb68aaad ("include/uapi/linux/byteorder, swab: force inlining
-> of some byteswap operations") added __always_inline to swab functions
-> and commit 283d75737837 ("uapi/linux/stddef.h: Provide __always_inline to
-> userspace headers") added a definition of __always_inline for use in
-> exported headers when the kernel's compiler.h is not available.
->=20
-> However, since swab.h does not include stddef.h, if the header soup does
-> not indirectly include it, the definition of __always_inline is missing,
-> resulting in a compilation failure, which was observed compiling the
-> perf tool using exported headers containing this commit:
->=20
-> In file included from /usr/include/linux/byteorder/little_endian.h:12:0,
->                  from /usr/include/asm/byteorder.h:14,
->                  from tools/include/uapi/linux/perf_event.h:20,
->                  from perf.h:8,
->                  from builtin-bench.c:18:
-> /usr/include/linux/swab.h:160:8: error: unknown type name `__always_inlin=
-e'
->  static __always_inline __u16 __swab16p(const __u16 *p)
->=20
-> Fix this by replacing the inclusion of linux/compiler.h with
-> linux/stddef.h to ensure that we pick up that definition if required,
-> without relying on it's indirect inclusion. compiler.h is then included
-> indirectly, via stddef.h.
->=20
-> Fixes: 283d75737837 ("uapi/linux/stddef.h: Provide __always_inline to use=
-rspace headers")
->=20
-> Signed-off-by: Matt Redfearn <matt.redfearn@mips.com>
+> -----Original Message-----
+> From: Nathan Chancellor <nathan@kernel.org>
+...
+> When building allmodconfig, there is a warning about TIMER_ENABLE being
+> redefined:
+> 
+>  drivers/clocksource/timer-oxnas-rps.c:39:9: warning: 'TIMER_ENABLE'
+>  macro redefined [-Wmacro-redefined]
+>  #define TIMER_ENABLE            BIT(7)
+>          ^
+>  arch/hexagon/include/asm/timer-regs.h:13:9: note: previous definition
+>  is here
+>  #define TIMER_ENABLE            0
+>          ^
+>  1 warning generated.
+> 
+> The values in this header are only used in one file each, if they are
+> used at all. Remove the header and sink all of the constants into their
+> respective files.
+> 
+> TCX0_CLK_RATE is only used in arch/hexagon/include/asm/timex.h
+> 
+> TIMER_ENABLE, RTOS_TIMER_INT, RTOS_TIMER_REGS_ADDR are only used in
+> arch/hexagon/kernel/time.c.
+> 
+> SLEEP_CLK_RATE and TIMER_CLR_ON_MATCH have both been unused since
+> the
+> file's introduction in commit 71e4a47f32f4 ("Hexagon: Add time and timer
+> functions").
+> 
+> TIMER_ENABLE is redefined as BIT(0) so the shift is moved into the
+> definition, rather than its use.
+> 
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 > ---
+>  arch/hexagon/include/asm/timer-regs.h | 26 --------------------------
+>  arch/hexagon/include/asm/timex.h      |  3 +--
+>  arch/hexagon/kernel/time.c            | 12 ++++++++++--
+>  3 files changed, 11 insertions(+), 30 deletions(-)
+>  delete mode 100644 arch/hexagon/include/asm/timer-regs.h
+> 
+> diff --git a/arch/hexagon/include/asm/timer-regs.h
+> b/arch/hexagon/include/asm/timer-regs.h
+> deleted file mode 100644
+> index ee6c61423a05..000000000000
+> --- a/arch/hexagon/include/asm/timer-regs.h
+> +++ /dev/null
+> @@ -1,26 +0,0 @@
+> -/* SPDX-License-Identifier: GPL-2.0-only */
+> -/*
+> - * Timer support for Hexagon
+> - *
+> - * Copyright (c) 2010-2011, The Linux Foundation. All rights reserved.
+> - */
+> -
+> -#ifndef _ASM_TIMER_REGS_H
+> -#define _ASM_TIMER_REGS_H
+> -
+> -/*  This stuff should go into a platform specific file  */
+> -#define TCX0_CLK_RATE		19200
+> -#define TIMER_ENABLE		0
+> -#define TIMER_CLR_ON_MATCH	1
+> -
+> -/*
+> - * 8x50 HDD Specs 5-8.  Simulator co-sim not fixed until
+> - * release 1.1, and then it's "adjustable" and probably not defaulted.
+> - */
+> -#define RTOS_TIMER_INT		3
+> -#ifdef CONFIG_HEXAGON_COMET
+> -#define RTOS_TIMER_REGS_ADDR	0xAB000000UL
+> -#endif
+> -#define SLEEP_CLK_RATE		32000
+> -
+> -#endif
+> diff --git a/arch/hexagon/include/asm/timex.h
+> b/arch/hexagon/include/asm/timex.h
+> index 8d4ec76fceb4..dfe69e118b2b 100644
+> --- a/arch/hexagon/include/asm/timex.h
+> +++ b/arch/hexagon/include/asm/timex.h
+> @@ -7,11 +7,10 @@
+>  #define _ASM_TIMEX_H
+> 
+>  #include <asm-generic/timex.h>
+> -#include <asm/timer-regs.h>
+>  #include <asm/hexagon_vm.h>
+> 
+>  /* Using TCX0 as our clock.  CLOCK_TICK_RATE scheduled to be removed. */
+> -#define CLOCK_TICK_RATE              TCX0_CLK_RATE
+> +#define CLOCK_TICK_RATE              19200
+> 
+>  #define ARCH_HAS_READ_CURRENT_TIMER
+> 
+> diff --git a/arch/hexagon/kernel/time.c b/arch/hexagon/kernel/time.c
+> index feffe527ac92..febc95714d75 100644
+> --- a/arch/hexagon/kernel/time.c
+> +++ b/arch/hexagon/kernel/time.c
+> @@ -17,9 +17,10 @@
+>  #include <linux/of_irq.h>
+>  #include <linux/module.h>
+> 
+> -#include <asm/timer-regs.h>
+>  #include <asm/hexagon_vm.h>
+> 
+> +#define TIMER_ENABLE		BIT(0)
+> +
+>  /*
+>   * For the clocksource we need:
+>   *	pcycle frequency (600MHz)
+> @@ -33,6 +34,13 @@ cycles_t	pcycle_freq_mhz;
+>  cycles_t	thread_freq_mhz;
+>  cycles_t	sleep_clk_freq;
+> 
+> +/*
+> + * 8x50 HDD Specs 5-8.  Simulator co-sim not fixed until
+> + * release 1.1, and then it's "adjustable" and probably not defaulted.
+> + */
+> +#define RTOS_TIMER_INT		3
+> +#define RTOS_TIMER_REGS_ADDR	0xAB000000UL
+> +
+>  static struct resource rtos_timer_resources[] = {
+>  	{
+>  		.start	= RTOS_TIMER_REGS_ADDR,
+> @@ -80,7 +88,7 @@ static int set_next_event(unsigned long delta, struct
+> clock_event_device *evt)
+>  	iowrite32(0, &rtos_timer->clear);
+> 
+>  	iowrite32(delta, &rtos_timer->match);
+> -	iowrite32(1 << TIMER_ENABLE, &rtos_timer->enable);
+> +	iowrite32(TIMER_ENABLE, &rtos_timer->enable);
+>  	return 0;
+>  }
+> 
+> 
+> base-commit: 7d549995d4e0d99b68e8a7793a0d23da6fc40fe8
 
-I use this patch in order to fix __always_inline issue for kernels
-5.12+, see https://lore.kernel.org/lkml/YPGXXt6Z3O1W0AYS@arkam/ .
-I believe this is the correct solution.
+Acked-by: Brian Cain <bcain@codeaurora.org>
 
-Reviewed-by: Petr Van=C4=9Bk <arkamar@atlas.cz>
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/YQFgbRXKIeZ7H6mo%40arkam.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/03bc01d783c2%2452e6f200%24f8b4d600%24%40codeaurora.org.
