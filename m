@@ -1,134 +1,127 @@
-Return-Path: <clang-built-linux+bncBC7457HKSMPRBBXGQWEAMGQEQGDKBTY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBWVYQ2EAMGQEKFWSMVQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-f58.google.com (mail-oo1-f58.google.com [209.85.161.58])
-	by mail.lfdr.de (Postfix) with ESMTPS id A3C353D9185
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 17:08:55 +0200 (CEST)
-Received: by mail-oo1-f58.google.com with SMTP id s7-20020a4ae5470000b02902690a9a92fesf1336085oot.0
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 08:08:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627484934; cv=pass;
+Received: from mail-pj1-x103c.google.com (mail-pj1-x103c.google.com [IPv6:2607:f8b0:4864:20::103c])
+	by mail.lfdr.de (Postfix) with ESMTPS id E93723D94F6
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 20:05:15 +0200 (CEST)
+Received: by mail-pj1-x103c.google.com with SMTP id mu13-20020a17090b388db02901769cf3d01asf3685561pjb.7
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 11:05:15 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627495514; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wVEkt52dle5PvobEZVgBRLU6+5n1VirBR/8GOs/nm4vYcUGlM0jxu4G53tBZS8jyxW
-         e4wdQk+zHiEB3T102M1tM9YSAe2hUJnYpuVhImvnid8m/lMqZ6Arzsvox2ZYFzwm/5s7
-         CPoXBNjG6IC7UA+lVi7vdOFxIRBtRjFGfwEJZleR1zF1TB82xxS4I1x2+QmS04+IcxR7
-         WRE2KXNOVdVeZF0qXLWpPKFkwmJoKDFt+0bRbbzzf6N8l5uYgPczoz8fbuCCryQJvHqP
-         4zRaZiHMAIO/9oPGrpUBZDIo2d9d0DTcjqwlkFoOXOvrZ9XdU0grTsKu9dS9+zsKS+kD
-         OA3g==
+        b=V7H/w8wvGml04Vo/DM5GPx/57uvU9BkeXcUjfbX7EgmSwtIIrsXfEWjgnk2LJklCix
+         uuayAFV9juglcwwbzhaKbQG6caB8lwwDiGRUbx8ju7lcUCrwVcOHP4Mp6G3Qr58NhMCE
+         oGfunXnUGywslGqAetKQXDCNrVKn7GICd+Nz7tGl95Ca86up9LvW0InIqqpY1EKSv/x7
+         KaP68VxyVjjWqIAFtS7yKPdd5NFeBqAeCKjrB3Q2I0BsC0XJSJuIvCxprBvAgANlqV4n
+         WtMnvWO+lwkehvnqP+Om1XxG0h524+E3xtnw1m4X+71DoHb+AcWnSbVz26xU0hg5flHV
+         8FsQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:thread-index:content-language
-         :mime-version:message-id:date:subject:in-reply-to:references:cc:to
-         :from:reply-to:dmarc-filter:sender;
-        bh=nSLykRmPTvYwF/2qRdWyhgtHTwkPGBn7/nTg1yRVong=;
-        b=Ol0tOAXyt/ED95N0YpsZv+oTGLfjosA6MnGtvx0B6RHhefyXSkAoXB2XdkvSnflGbY
-         6PP70nLI64zihNTzMpMi0lhdGikIjxEkWQ/0RkRCAWISN1rf/dAKBaoHUxPOA+HmmQ5z
-         Jx3vBXI0LNI+mCk1e4aeOEaFKJlYbR3JgqeHzPNa9IPiiCqPv64tAwhAuMSv4NXRjjVK
-         GVppiNCa697CblMHxIERnzlEPuQqTiJq+UR+5WAFRjmc9tXpbvQQ3sWD8KfsVXQMzsQu
-         A/CMGrYtLlRRLZ76SA3QgkQzbNztpV5B1tev7A7ki66ZXuxxfgiR9FLNeUKC7qmWZUKZ
-         YWNg==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=HslNOYFCIoelR+HIUSQ7/H2Q2hVOfZewfrVtoLgh3aQ=;
+        b=prmgG9HCVs/c9L7IJZGmlcf/biUFm+QRzdj6dVhkC6d3bD3RO3TJXvQVgmhSbZX+PI
+         rYWr67+wsZDgvqJ6aeK43XM2ggXui99tvNdm5hPu/nWu7Y/51x2NZ+IL2+psRB+aHRma
+         3irEmZcSwMkvmKTLYwuHvA5GF8wZxMbIfyUJMsWilL3KeotUsXr6ugD5/Ixr047n5ony
+         eorm7chftEPgSIshH6WvpwlbhN6dB/frT6PCnDrnwwgBSEArbXKrDZiCaoc97Cwr/XS9
+         Oi7EP7EOUa6YlvyL6KpMD5NnT9sr5rba+BK7eitWsNbCKJ1aR44Wr8kXe5huqp/H07vl
+         92dg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=XONcEKVq;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=JWeXhwoX;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=HslNOYFCIoelR+HIUSQ7/H2Q2hVOfZewfrVtoLgh3aQ=;
+        b=gM7IIvjZsk/P7NCWIN1caix9Juru5rGNalnlhM6r+S8N6XsgeMGmV6epUUo7ei923t
+         /PxiKp72TKMh1QMBqWtJXnAblNJ9TJgPUwzIS2NxECRzF5ewxe3iGsu1M9LYQGxMfeaZ
+         LsbAqwrCoYLEq2DsU1T/QetZcPmknFBgfwUIpMJFmczyO6HD7KY7vsW233W89Jt7jFz4
+         3R5a+Ychu49wMmQ4hE7AGgXremxzH8YLgnYQ6p2cK9s7gVN+LNEcZzrBLP6ciS3Kf2L2
+         eWE0F+qb58bfUgLGmJ44JH+1u/G87LK61NvlHDrWzjR2Bvzgr/KDSnjLM32KvGe2TYHM
+         LdGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:dmarc-filter:reply-to:from:to:cc
-         :references:in-reply-to:subject:date:message-id:mime-version
-         :content-language:thread-index:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=nSLykRmPTvYwF/2qRdWyhgtHTwkPGBn7/nTg1yRVong=;
-        b=iMzjG2Xn6gjsp51DVdq/Kn5rEQyn87NiIr+b6oU0lI7CNcAhHKCePRqnIaHoLjViwE
-         M4CJFM2AZFUAtgqL+IgJiNvpVUj9l6gZQd8krAcQ/rWvdM10qz7HBg/EM0I5Rrv9cRnp
-         HJP5B1Q+A6ASh9F0p7TdEzih83eyNie5+0SOhyBhy9i0FnLm3MZUuAXzKj6grdZ2AGby
-         i/3L6vJV48ZGVC1VozeACDM9ltDkmarZtZ7BrJ96RDJuBCygA/aXil84e373AavMHS5i
-         v/Lh6Ws6RzbSg55kGiyxw134cTFpCrhoJZWGIXkHUTFY2y9GopGqS20SXwPOlU8ve/yJ
-         skcA==
-X-Gm-Message-State: AOAM532gZJRGVYtwYSZcDSoCQOAMdYFKHs9VquAqWjQIlR2f0AdrsRjm
-	HaveEtJfE+7kYxPIRjq9Lyg=
-X-Google-Smtp-Source: ABdhPJxLe5KzS3HjuSqgrD/cioC1VvDqao2O9C370kSrnGrjp7/9GtG4u/ZuO+BWzFXKXWoH4EvG4Q==
-X-Received: by 2002:a4a:d2c9:: with SMTP id j9mr46270oos.88.1627484934305;
-        Wed, 28 Jul 2021 08:08:54 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=HslNOYFCIoelR+HIUSQ7/H2Q2hVOfZewfrVtoLgh3aQ=;
+        b=aZGv0PZD7IJKFotUlboKXmD2Po7y8++AZJAMA/H4F6x/qfB6/nGCvRxPKe9SAMg1Et
+         e0DdcKRYqK4RiOUkCivTrMZ7pyqA0//duSqn+aHUqbPsbQXhPMqd6mYS03TOd0UOu59w
+         r2xuLtqk/OOJ0zgmlvIJi8SqKCxYC7U5bCuYrfcSrtJFwoOwpv7EkEESHGqNxOwUeUGV
+         DwwWBHH3JbsZM2McWA86YU6t0KiCCMCXfQeJbCcJSYZANR4Ti0s4Z08XVdSfWfXsNPdo
+         1fV4fzBXsR1FHgqap/djc4Eme7zw+Wpqz0cAZC00TlWoPThrDEUk4St3CG5EpmrqfmVn
+         19jg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM532XIJC32sMELA5c6zXOMOJM/OYFMJ65pXFw3sRauWpatFRgkQ1c
+	/H9C/n2dU58ixcIYWRhNbeA=
+X-Google-Smtp-Source: ABdhPJx+eKZH9el+CBYfYcDZYbiQKrZqlh6/VtkzmWc4PA4/wk/hmgvQ3TYqhQMoO09/gGhSuU0/1w==
+X-Received: by 2002:a65:64cf:: with SMTP id t15mr103048pgv.131.1627495514500;
+        Wed, 28 Jul 2021 11:05:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7c1:: with SMTP id 59ls660288oto.8.gmail; Wed, 28 Jul
- 2021 08:08:54 -0700 (PDT)
-X-Received: by 2002:a05:6830:25c6:: with SMTP id d6mr371563otu.226.1627484933937;
-        Wed, 28 Jul 2021 08:08:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627484933; cv=none;
+Received: by 2002:a17:902:7b8c:: with SMTP id w12ls1574569pll.0.gmail; Wed, 28
+ Jul 2021 11:05:14 -0700 (PDT)
+X-Received: by 2002:a17:902:b711:b029:11e:6480:258a with SMTP id d17-20020a170902b711b029011e6480258amr911377pls.41.1627495513907;
+        Wed, 28 Jul 2021 11:05:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627495513; cv=none;
         d=google.com; s=arc-20160816;
-        b=RHH3AbRV7jQffdpLxb8CNZH6V6/JXO0UKX+ZyZ4B5m7AIFKC6na/jc6MMst8Rs0Y7m
-         +kZXBBjMOWrsYxfHln297Rd65HXsyTRXgXm9M+oHnBwir30jIWUUTMfml18dcpLw6xEn
-         WX3zFkY1wmQgRqe9iEhc3RtsA45MBvpTabC+rhod1wN/z9o3KkVVDi9r4NP4tcNEYNQK
-         /9QEENix7P/DLKkN5cKheHeqEjMO5LVz4TgbYpshf7QAfMQnWRSrUVu2Kw3FomygujD7
-         p0SNW5toJxh3YTUAKoq7YlkAdJvckXwVTto8yDcOXWTSWGhuNlErJB4mfsRQhZ2wmYDa
-         NPTA==
+        b=0kJaOHbgDtuEp7SMHKwreywjglPMubnAZF2VhUVU/cDCaATwh3QgpBPzK0AYRIsWuB
+         9O3yFRoiZRjvKqO16+OeJA6sCl1UrcwG0/TMWfjnAgbve9SOTYxWUIu0EGs0nbCfXAOC
+         OthKjTe707qddCfVIqDbC/BBzNNBJw5P3swVI9bMq5+Gmyd0yfuzjolNZHz729/hb/YL
+         qRea+psG1dGG8PFXDqcM9qw0utJNXLSW4+QmN3BM0f+k2FlWXoeCAeGsCWQGDVoG4LOw
+         cOqA00dnichalYPgVmgRMnTio7A6ngqVpWK75LzNNqObxDRRHQXOChyJti01oK48RufM
+         zDBA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=thread-index:content-language:content-transfer-encoding
-         :mime-version:message-id:date:subject:in-reply-to:references:cc:to
-         :from:reply-to:dmarc-filter:sender:dkim-signature;
-        bh=3wwq0AErdGICOZ9un5uPRzTUaZOh9Woef+N1yP+Q6P8=;
-        b=H2xMZ+b+Fw77gNDX6Cvtfmv6J33NLejl/xVdSEeUdAyzZwIyKFcULwIiWwgj/vxD0x
-         EmcFJHpwElTw9jVw02Pavl2JkcreZA54fZhE/ZIw2edu8J/hDQ3c9u9LMKxD9JCwZwn6
-         RGa5m6yJrN9dhaMoe0266wxKDS2X6X0YqY/ha4BhpZkTBokhUywrsY/5uH0zJJgKSOIv
-         Fxy+md+BSnLWQdOfNgaOneSYlVnAIzzLl7lai8OSmh8M9Ef4gK17T72WTs2Fi2UaGuXh
-         /rWbMxlb/ePS+XjX1saaBIjHq6rBcNqPX22a6nkqPhlewasplTDTW4LICx7bxDRng56e
-         IyHg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=xL0KoJ8/9cX2NbNyCl74IccCUyyQluUQ2StJPiCADcU=;
+        b=kq3Op2+izTLoNYJyIXkYP2F3xMW3lhyM33S2TnjEC6Ortd7bbU1iVlcEroBIKeNfkv
+         sxRDxEAfuSErBS27OE7PNU/PX29rw8q0icAhjLg8tvJHzgxawhs5CR1UMUHO3+8PZfpE
+         4JJfuZR0VaFPT1oXCb/234xyEyc0qAJDVXH5Pq/DE8iqG44lrVYoN7XCG0LWlurqAwpw
+         zK1sq+mD/HD0KXmPJgBnVkt0AvG3N89yPAYAxlCa08SNWJkYDLfD+5yoq+tYAvlmY2ON
+         cfMe+Zwl2zVuDmj7l5HVSU7vGujD0fATcuXJwz2RUZYh+kslOwvH/y+0PxKVF4zXpnrO
+         c63Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=XONcEKVq;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
-Received: from so254-9.mailgun.net (so254-9.mailgun.net. [198.61.254.9])
-        by gmr-mx.google.com with UTF8SMTPS id o10si12598oic.3.2021.07.28.08.08.50
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=JWeXhwoX;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id y6si19118pgb.3.2021.07.28.11.05.13
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Jul 2021 08:08:53 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) client-ip=198.61.254.9;
-X-Mailgun-Sending-Ip: 198.61.254.9
-X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
-Received: from smtp.codeaurora.org
- (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
- smtp-out-n02.prod.us-west-2.postgun.com with SMTP id
- 610172f196a66e66b2ac45d0 (version=TLS1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Wed, 28 Jul 2021 15:08:33
- GMT
-Sender: bcain=codeaurora.org@mg.codeaurora.org
-Received: by smtp.codeaurora.org (Postfix, from userid 1001)
-	id DBD26C433F1; Wed, 28 Jul 2021 15:08:33 +0000 (UTC)
-X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-	aws-us-west-2-caf-mail-1.web.codeaurora.org
-X-Spam-Level: 
-X-Spam-Status: No, score=-2.9 required=2.0 tests=ALL_TRUSTED,BAYES_00,SPF_FAIL,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
-Received: from BCAIN (i-global254.qualcomm.com [199.106.103.254])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: bcain)
-	by smtp.codeaurora.org (Postfix) with ESMTPSA id 74E43C433D3;
-	Wed, 28 Jul 2021 15:08:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org 74E43C433D3
-Reply-To: <bcain@codeaurora.org>
-From: "Brian Cain" <bcain@codeaurora.org>
-To: "'Nathan Chancellor'" <nathan@kernel.org>,
-	"'Andrew Morton'" <akpm@linux-foundation.org>
-Cc: "'Nick Desaulniers'" <ndesaulniers@google.com>,
-	<linux-hexagon@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>,
-	<clang-built-linux@googlegroups.com>,
-	"'Manning, Sid'" <sidneym@quicinc.com>
-References: <20210708233849.3140194-1-nathan@kernel.org> <YQCiZSj1gfnF5x/d@Ryzen-9-3900X.localdomain>
-In-Reply-To: <YQCiZSj1gfnF5x/d@Ryzen-9-3900X.localdomain>
-Subject: RE: [PATCH] Hexagon: Export raw I/O routines for modules
-Date: Wed, 28 Jul 2021 10:08:31 -0500
-Message-ID: <03be01d783c2$6e684420$4b38cc60$@codeaurora.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 28 Jul 2021 11:05:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 2F15C60EB9;
+	Wed, 28 Jul 2021 18:05:13 +0000 (UTC)
+Date: Wed, 28 Jul 2021 20:05:11 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Sasha Levin <sashal@kernel.org>, stable@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Hoang Le <hoang.h.le@dektech.com.au>,
+	Jon Maloy <jon.maloy@ericsson.com>,
+	Ying Xue <ying.xue@windriver.com>,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH 4.9 2/2] tipc: Fix backport of
+ b77413446408fdd256599daf00d5be72b5f3e7c6
+Message-ID: <YQGcVymPkS6+HZm3@kroah.com>
+References: <20210727225650.726875-1-nathan@kernel.org>
+ <20210727225650.726875-2-nathan@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Mailer: Microsoft Outlook 16.0
-Content-Language: en-us
-Thread-Index: AQFUlYLPOGQsXIMzH6S1xuiFiwykdgGu9yYgrFDh67A=
-X-Original-Sender: bcain@codeaurora.org
+Content-Disposition: inline
+In-Reply-To: <20210727225650.726875-2-nathan@kernel.org>
+X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mg.codeaurora.org header.s=smtp header.b=XONcEKVq;       spf=pass
- (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
- designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+ header.i=@linuxfoundation.org header.s=korg header.b=JWeXhwoX;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,75 +134,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-
-
-> -----Original Message-----
-> From: Nathan Chancellor <nathan@kernel.org>
-...
-> On Thu, Jul 08, 2021 at 04:38:50PM -0700, Nathan Chancellor wrote:
-...
-> > Export these symbols so that modules can use them without any errors.
-> >
-> > Fixes: 013bf24c3829 ("Hexagon: Provide basic implementation and/or stubs
-> for I/O routines.")
-> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> > ---
-> >
-> > It would be nice if this could get into 5.14 at some point so that we
-> > can build ARCH=hexagon allmodconfig in our CI.
-> >
-> >  arch/hexagon/lib/io.c | 4 ++++
-> >  1 file changed, 4 insertions(+)
-> >
-> > diff --git a/arch/hexagon/lib/io.c b/arch/hexagon/lib/io.c
-> > index d35d69d6588c..55f75392857b 100644
-> > --- a/arch/hexagon/lib/io.c
-> > +++ b/arch/hexagon/lib/io.c
-> > @@ -27,6 +27,7 @@ void __raw_readsw(const void __iomem *addr, void
-> *data, int len)
-> >  		*dst++ = *src;
-> >
-> >  }
-> > +EXPORT_SYMBOL(__raw_readsw);
-> >
-> >  /*
-> >   * __raw_writesw - read words a short at a time
-> > @@ -47,6 +48,7 @@ void __raw_writesw(void __iomem *addr, const void
-> *data, int len)
-> >
-> >
-> >  }
-> > +EXPORT_SYMBOL(__raw_writesw);
-> >
-> >  /*  Pretty sure len is pre-adjusted for the length of the access
-already */
-> >  void __raw_readsl(const void __iomem *addr, void *data, int len)
-> > @@ -62,6 +64,7 @@ void __raw_readsl(const void __iomem *addr, void
-> *data, int len)
-> >
-> >
-> >  }
-> > +EXPORT_SYMBOL(__raw_readsl);
-> >
-> >  void __raw_writesl(void __iomem *addr, const void *data, int len)
-> >  {
-> > @@ -76,3 +79,4 @@ void __raw_writesl(void __iomem *addr, const void
-> *data, int len)
-> >
-> >
-> >  }
-> > +EXPORT_SYMBOL(__raw_writesl);
-> >
-> > base-commit: f55966571d5eb2876a11e48e798b4592fa1ffbb7
-> > --
-> > 2.32.0.93.g670b81a890
+On Tue, Jul 27, 2021 at 03:56:50PM -0700, Nathan Chancellor wrote:
+> Clang warns:
 > 
-> Ping? Brian, if you do not want to carry this, can you give an ack so
-> that Andrew can?
+> net/tipc/link.c:896:23: warning: variable 'hdr' is uninitialized when
+> used here [-Wuninitialized]
+>         imp = msg_importance(hdr);
+>                              ^~~
+> net/tipc/link.c:890:22: note: initialize the variable 'hdr' to silence
+> this warning
+>         struct tipc_msg *hdr;
+>                             ^
+>                              = NULL
+> 1 warning generated.
+> 
+> The backport of commit b77413446408 ("tipc: fix NULL deref in
+> tipc_link_xmit()") to 4.9 as commit 310014f572a5 ("tipc: fix NULL deref
+> in tipc_link_xmit()") added the hdr initialization above the
+> 
+>     if (unlikely(msg_size(hdr) > mtu)) {
+> 
+> like in the upstream commit; however, in 4.9, that check is below imp's
+> first use because commit 365ad353c256 ("tipc: reduce risk of user
+> starvation during link congestion") is not present. This results in hdr
+> being used uninitialized.
+> 
+> Fix this by moving hdr's initialization before imp and after the if
+> check like the original backport did.
+> 
+> Cc: Hoang Le <hoang.h.le@dektech.com.au>
+> Cc: Jon Maloy <jon.maloy@ericsson.com>
+> Cc: Ying Xue <ying.xue@windriver.com>
+> Fixes: 310014f572a5 ("tipc: fix NULL deref in tipc_link_xmit()")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+>  net/tipc/link.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/net/tipc/link.c b/net/tipc/link.c
+> index 06327f78f203..6fc2fa75503d 100644
+> --- a/net/tipc/link.c
+> +++ b/net/tipc/link.c
+> @@ -893,6 +893,7 @@ int tipc_link_xmit(struct tipc_link *l, struct sk_buff_head *list,
+>  	if (pkt_cnt <= 0)
+>  		return 0;
+>  
+> +	hdr = buf_msg(skb_peek(list));
+>  	imp = msg_importance(hdr);
+>  	/* Match msg importance against this and all higher backlog limits: */
+>  	if (!skb_queue_empty(backlogq)) {
+> @@ -902,7 +903,6 @@ int tipc_link_xmit(struct tipc_link *l, struct sk_buff_head *list,
+>  		}
+>  	}
+>  
+> -	hdr = buf_msg(skb_peek(list));
+>  	if (unlikely(msg_size(hdr) > mtu)) {
+>  		skb_queue_purge(list);
+>  		return -EMSGSIZE;
+> -- 
+> 2.32.0.264.g75ae10bc75
+> 
 
-Acked-by: Brian Cain <bcain@codeaurora.org>
+Thanks for these, now both queued up.
+
+greg k-h
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/03be01d783c2%246e684420%244b38cc60%24%40codeaurora.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YQGcVymPkS6%2BHZm3%40kroah.com.
