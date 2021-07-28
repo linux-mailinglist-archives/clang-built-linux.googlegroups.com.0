@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBB3HCQOEAMGQEENR7QBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBGXDQOEAMGQEC5CYULQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 15A943D8782
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 07:55:57 +0200 (CEST)
-Received: by mail-oo1-xc40.google.com with SMTP id e25-20020a4ab9990000b0290260d4063992sf819490oop.4
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 22:55:57 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627451756; cv=pass;
+Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4F1283D8790
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Jul 2021 07:56:44 +0200 (CEST)
+Received: by mail-pj1-x1039.google.com with SMTP id pg12-20020a17090b1e0cb0290177328fc06dsf1976113pjb.2
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Jul 2021 22:56:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627451803; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tQ1zA0YjFPPpgXjIRBJU91s8m1XriphKp69eNonOmwG8gjw3hw573WAFbM+yrsnHFB
-         IRmH1QJD3XwV4lIUvAnbT6kujAmDnR50O4JM0UdbWB/UE5NfdXT+cdmAWfYzz/XCF3gD
-         IOMfZa71zoyDBg4Vx5A2onVbkL7DVJtQHefdEAjDxwi7GhKfPEdPTA3tx3dYMmD+3koB
-         Cpl0UBQOVjiNJrhMN+lP1UzXfAEA/1PPlhbMok0m67p4Pa76mItoNF+dJLRsH8YEffp6
-         1TzFlK1giGeeiLWO+D11Kh760UWwSy7A8rXQSfFubiEpo7waheSTlZoMl9YfZMS83kkj
-         6OaQ==
+        b=gD708kGZ80ZA3MzODnb1y8btHQW/LYt9/mVK30N0Eng93nO1mhcRmdFcu3rL9dKUPw
+         6cuQgvsPG0duQK/udD35FHsYsb5TSKkgNiNgKr3TG/H1TT+jUnwhIemCinzTIVJKDhfZ
+         mOCfsT56bJjo4Vtig2GqpdQ2CBfTO2YmXVoF4CtT6/hHN6m7IM9dAn6gC0TTAeuPlc5b
+         yBLjx9d/fJLluGvynCC8YPZFD/XUdPTfpg7UYSsSIe94ErwkD3jz/vXpkmm4/4c/ATTw
+         xFWr3jW5L1H6kTcaJ+JO4ASZhdOFSd0b6f43znH3jx5MrrNoPwRX1Jt9jn5HoHZVczlu
+         li0g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=YfNf7KP5zIgQhf1TfSohdD/eJ76Rly9RVBe61qDIy7U=;
-        b=xU86wLVnFIvWHsVmFyVLqQz6Iqt32DPfBJqqsrGgyo0l8v/uOS/Nh/ZLZ7FF5TAOS8
-         i4X0Esvp/zyoX+nHnK2JjiCfEbYy2zD9tnCOI2eLrhidxtB+mhbbF112b1Kh3aQQLOrb
-         Iymqr8zTeIVX4UKPAVUDQBoD2XtkBC4edX3oA7P8fuIl2690O65juRbN8P5KyFOtUN4f
-         fmHLK0LnoGK3V31tRXIL9tUYOclpLh+sFwyDSNbLRV1+bZnlqh4DjXbU9gIXezOAmvWJ
-         iP+6LkVcxRvq2PqAukisn7KO8NZeWtZ8vrPnD04oAkGxlHt2jAdASAN5DqAbjRgm3ljS
-         1FuA==
+        bh=KQyRUkxgf4gHbr4KMAvi9+AOeZduFzjtvz6vCNuP4ms=;
+        b=SjVUhy2dcD5NqWiuBzyGVztIEWLIvqkbC9ZRFECww21GmzrJ/zQ+vNurx9VHhZgzCk
+         e2aFTh/pBMoNias0bKBvz9/XXSx9lztzag7F4018qhCRHTK1gwF11vmgixY0bPjqmtHP
+         5sGz7sKrRTh5nAizfH38A+quVNIxWNgS5yfOEmA+IeBzyR6JsV0QZw5HJSPmVWr5aDKY
+         qy5Zf3xPoCnWglz8ihxQEhh+o9zItJNm69Uu/0+ixIwrWNUeVCxd3zpTVO5Nk53w0hcG
+         /mzZEy3QAt/rqKY1brrzam1RlimBpqLNfg6ZMGWoD16gk480+CyZPYTtJUVibAR6SpmY
+         HKzw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="qLN7/AfF";
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=q9ANBjbN;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=YfNf7KP5zIgQhf1TfSohdD/eJ76Rly9RVBe61qDIy7U=;
-        b=QVaWEfkjkURftbxPwdRYLv7mFx+GxMwk8wkbzi4ndBJJvGr1t9ddooDW+m4wzLbbdb
-         EoHfDClQNnPHPa0njJwosNr06m449KDWHhc80iwvXA2c2F4TTx9XKN4EbeslPuHPp8Fo
-         YWxBstVhdASFygEvZmvmNSccci02fTy9mG5G/n+DZ7fkNHQpiDBxdC/QqcvaiXUam34r
-         B5Tx5iaY0wo+YJL9hUmJBkE6VvdQDOp7pasUi4/YriAizX2ScVPsj7YAxYWXBmstCk/p
-         DlShZlm988Lx/O4og/OEqjPXmbGtro9mTgNMhv240dnbdSefhIdnJh1wi4lgPPQmqMRt
-         xWRA==
+        bh=KQyRUkxgf4gHbr4KMAvi9+AOeZduFzjtvz6vCNuP4ms=;
+        b=EA0Sn9YhD3Gut8iMuo08/1lOwVbLpotVIiuQapt/eOL7fM8utcE8RGwZvihObNC/Y8
+         i3OlclRB8QvzxIDIHXa2F72FB3ME4gA7I2bKdZNyYr5KGJskCIgTDCyJK38TQGvHp99A
+         HU7jyIxK4DPDrIEyxlGDxPQR6fo5/+5ztozL6CcudcuLGL1H9AEDDDQYFwU11Vridjv9
+         aR40ik8bO9SeRxgvBYiM7NCZKYUMvjD4qhixTaYZdOqPW9AgSwy3sFgVCuUSFQGSJMNK
+         zBaDrYIZYYMmM0Ky+pvu+//3esRT0GCCOvi59r7Ra16lADMGKvAEyPMw7xNlMLtiNWFi
+         UfYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,55 +50,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=YfNf7KP5zIgQhf1TfSohdD/eJ76Rly9RVBe61qDIy7U=;
-        b=HE6EXNADPrUxSg1OcKZRxvGek9KrmEqEGTh7scuiHkjIbc4lSFO6U6Ysp/rw18sS1Z
-         N6pp5GRxDM2i/4CdRFbcSZdsWQI6+Ttjy4Ej+qpEro3/+PbQC7Trq2reCkA6K7GI75Cc
-         M1ebapwYaOdmYQG30g43CJU34rZgps4D3e+hRfU5epPKiOkpuxNqIUn2jDLinFZ1PZia
-         BVioAiNJqwEokEbz+RLnjucegQBJbB7eQYbL81fD8dDb79b+ZsUeDEi2pH1zy2E80nXu
-         Zo/4fmRmKcW0zWvnnxO6O2/TA80yWP2D6nAL6Sz9iCeMuN2HaH3wqELCxc3X5WHIB45Y
-         WWfA==
+        bh=KQyRUkxgf4gHbr4KMAvi9+AOeZduFzjtvz6vCNuP4ms=;
+        b=DhSxZmOQe7pMV9qAPmcQvbm3l85A1vv7nWu3owBruQTkGfoewVAKoOA8dr5JURnURG
+         ty7ULJrSA5OYaSWBYYtFvvWKoQaywfae9ZUwt8RvX311NzEzBt2/P2VA+692u1SZn5Tm
+         E5QeWiBUG9CKl8ZmdWYAGSZ/LSqI0gdKnGWZt/GZ9oFQCujDiEawtm5AyhL7VLqQ+jCe
+         zdfPuHJpBa7/HpNFx9Lr6K+E7Cg0HoIfM/7LiAwjkRP0GdlTFua1JFMkcNMLKTz+g7OQ
+         J061o9fSijVO0hpnMTPhWuBvqCZsDywgeBJXIcq5sdovLQjkShVbvVTjt884ngAJVdtZ
+         7Q/Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532sH29WXDpyA2bWCnkxEMIVA988WUi7ErhAXJ4gjHWC1eRcZNYU
-	KVFp+LABfLt48gXUWYKeExg=
-X-Google-Smtp-Source: ABdhPJxYF1cqBHkR+gNBJ+6P8iqxwrSTEZrFGECnC1Cz91bn+eSnTz8WBb0booazYi904Wvwn2+7+w==
-X-Received: by 2002:aca:1e12:: with SMTP id m18mr5288907oic.95.1627451756063;
-        Tue, 27 Jul 2021 22:55:56 -0700 (PDT)
+X-Gm-Message-State: AOAM530Qy3hCiiU54EQRHouPH7qr2QbAnt5rbCFjVB77GwCX9OvsIyTu
+	XoC4azvmn04gSiUWkTLyR3Q=
+X-Google-Smtp-Source: ABdhPJyXzZo8P2SBZzBtufnEQL/nSzA2RfhUd4FiQ1+g9tSy7wFmphCXvmFPT/dZtTrW2UGm/c2yTg==
+X-Received: by 2002:a63:5020:: with SMTP id e32mr14771708pgb.366.1627451803050;
+        Tue, 27 Jul 2021 22:56:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:c7c8:: with SMTP id x191ls367941oif.2.gmail; Tue, 27 Jul
- 2021 22:55:55 -0700 (PDT)
-X-Received: by 2002:aca:b342:: with SMTP id c63mr5196978oif.83.1627451755720;
-        Tue, 27 Jul 2021 22:55:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627451755; cv=none;
+Received: by 2002:a17:903:1203:: with SMTP id l3ls660257plh.9.gmail; Tue, 27
+ Jul 2021 22:56:42 -0700 (PDT)
+X-Received: by 2002:a17:903:31d5:b029:129:18a9:6267 with SMTP id v21-20020a17090331d5b029012918a96267mr21333085ple.43.1627451802468;
+        Tue, 27 Jul 2021 22:56:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627451802; cv=none;
         d=google.com; s=arc-20160816;
-        b=sMd7dFcDaAFDrZGPkl4dpv37WoC/amO2lIUWmFf7GkuQHCJDlAiSyzOrfSfW8/qgaD
-         TamQqH+Q9R9UbyCua1RyaLB+XDvT2ezv1/B2s8POmDYa1jTprWjvoBMkWupTDpOh1EDe
-         esBaCFKRVll347TzqEXrf29LEbUlqs+bX5GacPqOzz4vekeCTRI3hKG1m43vn/wBgNer
-         EBlMk2f6N6m8R9s36CdZGWEtMPjaBCTVJ0HGIBO9ixKasbXknFgP05PT+pZLUFcNlSyT
-         YXZriPJan3sgvQEqDX7K70S3M1zmMf1VqhFkttvn1aZOSt8sTiRZ6leY68QP0Qqun67B
-         Q0tA==
+        b=WXVnpRPk/feHL44EgNyXWarYKebdtoigkiZiE+1wyPhxJd8VFsmIcSsoTho4hj0xsz
+         DiwVQ0tWnyT9YmfzFK3/c4yixcoHLZbypXnSvg44PrF/hexBYc8/ErwvNTw502MgZFcV
+         /aqtaiJLcXKubJ82+Psj0m5UOvliZFcL8Yc0uxjevIXBfwhHhpxLontI1hfmcyYzZ56t
+         Kc7J5glvS1rZudWYDev741/syTnuZ6F/YPU2W81e/Z5sARLQWac9u9853FchVH2W/XAz
+         x/q0U9+UtBzWj0U5xOHw8tytvmroqwORX/lsr+SUykFpBJgloPvwQKrLxsmCk6KnKBcp
+         dJMw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=SFrNUFMlu/iW83UKx+o9aeYCoQIFKildXabT/9eDDF4=;
-        b=m/NG7OYE0S62T27A5SXTGNIxK7D0e/pPiLC6qUs3omAq1hC3DLEfj8E2hcaIa4EZe/
-         XVKA87xwEbs5UuVH16D6yc47eiQp1/F7ADYyRHO/qosSL4uFd6Q7+i2cEhgwwD9o9iLg
-         mKbbi6ZiQ3FNc10PfppvTlpBgeI/wgzMluAoBHeqLqEBtP2WBbBhrAy40IhhIc9JUAZC
-         zW7NENrm245Bh6iJpUC6zZMDk+gH0qWfpmcGR4ARpz8zkVD3CXIhQbV4f7kQDse7AItd
-         0LcqEAH1XZxxzP0g5s6DFS5GbNxIRAxn93VEzfhA4Ob6Swfbgzb4L29K6RTNxUSrwfG3
-         LqTg==
+        bh=C9cCzzMckpSU6AASpMf+2UNvhjzaPeSQgd2TJzWmUf8=;
+        b=C7SDpu/Kf0uc9rAoC4tTUBkksU2aoxnukeM6Ei171DGeQ0XknqFOm2bcH3tg49H2FX
+         2f0ysEaAtPVxjUFCrNe2WL+08JYeVRHZDsSpJ+OnoNrCbQ8AfNKR33zdO3KkfKkS1yf3
+         rdLtK/cUmOf7Sw8aRtpAotwkHaF5N0qMKT2SgH2p1DO7TGwZP8zG8K3KjVuA9BhhNY6r
+         0x+EKTlNgaPpR1O/zFyu7KIMEVsmOQxhXNoC3sQiacj2LKS5EP9f56/JmJ31biukrqwY
+         1qIodPC6AfmuojuqIUeb0ri+HKCTMKQPxY+Ezlih1tEseMtiqIdBgYIFBQxw1E1pWjSa
+         YToA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="qLN7/AfF";
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=q9ANBjbN;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id g9si335411ots.5.2021.07.27.22.55.55
+        by gmr-mx.google.com with ESMTPS id t33si194153pfg.4.2021.07.27.22.56.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Jul 2021 22:55:55 -0700 (PDT)
+        Tue, 27 Jul 2021 22:56:42 -0700 (PDT)
 Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9539F60F91;
-	Wed, 28 Jul 2021 05:55:54 +0000 (UTC)
-Date: Wed, 28 Jul 2021 07:55:53 +0200
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8D5B060F91;
+	Wed, 28 Jul 2021 05:56:41 +0000 (UTC)
+Date: Wed, 28 Jul 2021 07:56:40 +0200
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: Kees Cook <keescook@chromium.org>
 Cc: linux-hardening@vger.kernel.org,
@@ -109,20 +109,21 @@ Cc: linux-hardening@vger.kernel.org,
 	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
 	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
 	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 19/64] ip: Use struct_group() for memcpy() regions
-Message-ID: <YQDxaYrHu0PeBIuX@kroah.com>
+Subject: Re: [PATCH 25/64] drm/mga/mga_ioc32: Use struct_group() for memcpy()
+ region
+Message-ID: <YQDxmEYfppJ4wAmD@kroah.com>
 References: <20210727205855.411487-1-keescook@chromium.org>
- <20210727205855.411487-20-keescook@chromium.org>
+ <20210727205855.411487-26-keescook@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210727205855.411487-20-keescook@chromium.org>
+In-Reply-To: <20210727205855.411487-26-keescook@chromium.org>
 X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b="qLN7/AfF";
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates
- 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+ header.i=@linuxfoundation.org header.s=korg header.b=q9ANBjbN;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,129 +136,145 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 27, 2021 at 01:58:10PM -0700, Kees Cook wrote:
+On Tue, Jul 27, 2021 at 01:58:16PM -0700, Kees Cook wrote:
 > In preparation for FORTIFY_SOURCE performing compile-time and run-time
 > field bounds checking for memcpy(), memmove(), and memset(), avoid
 > intentionally writing across neighboring fields.
 > 
-> Use struct_group() in struct flowi4, struct ipv4hdr, and struct ipv6hdr
-> around members saddr and daddr, so they can be referenced together. This
-> will allow memcpy() and sizeof() to more easily reason about sizes,
-> improve readability, and avoid future warnings about writing beyond the
-> end of saddr.
+> Use struct_group() in struct drm32_mga_init around members chipset, sgram,
+> maccess, fb_cpp, front_offset, front_pitch, back_offset, back_pitch,
+> depth_cpp, depth_offset, depth_pitch, texture_offset, and texture_size,
+> so they can be referenced together. This will allow memcpy() and sizeof()
+> to more easily reason about sizes, improve readability, and avoid future
+> warnings about writing beyond the end of chipset.
 > 
-> "pahole" shows no size nor member offset changes to struct flowi4.
+> "pahole" shows no size nor member offset changes to struct drm32_mga_init.
 > "objdump -d" shows no meaningful object code changes (i.e. only source
-> line number induced differences.)
+> line number induced differences and optimizations).
 > 
-> Note that since this is a UAPI header, struct_group() has been open
-> coded.
+> Note that since this includes a UAPI header, struct_group() has been
+> explicitly redefined local to the header.
 > 
 > Signed-off-by: Kees Cook <keescook@chromium.org>
 > ---
->  include/net/flow.h            |  6 ++++--
->  include/uapi/linux/if_ether.h | 12 ++++++++++--
->  include/uapi/linux/ip.h       | 12 ++++++++++--
->  include/uapi/linux/ipv6.h     | 12 ++++++++++--
->  net/core/flow_dissector.c     | 10 ++++++----
->  net/ipv4/ip_output.c          |  6 ++----
->  6 files changed, 42 insertions(+), 16 deletions(-)
+>  drivers/gpu/drm/mga/mga_ioc32.c | 30 ++++++++++++++------------
+>  include/uapi/drm/mga_drm.h      | 37 ++++++++++++++++++++++++---------
+>  2 files changed, 44 insertions(+), 23 deletions(-)
 > 
-> diff --git a/include/net/flow.h b/include/net/flow.h
-> index 6f5e70240071..f1a3b6c8eae2 100644
-> --- a/include/net/flow.h
-> +++ b/include/net/flow.h
-> @@ -81,8 +81,10 @@ struct flowi4 {
->  #define flowi4_multipath_hash	__fl_common.flowic_multipath_hash
+> diff --git a/drivers/gpu/drm/mga/mga_ioc32.c b/drivers/gpu/drm/mga/mga_ioc32.c
+> index 4fd4de16cd32..fbd0329dbd4f 100644
+> --- a/drivers/gpu/drm/mga/mga_ioc32.c
+> +++ b/drivers/gpu/drm/mga/mga_ioc32.c
+> @@ -38,16 +38,21 @@
+>  typedef struct drm32_mga_init {
+>  	int func;
+>  	u32 sarea_priv_offset;
+> -	int chipset;
+> -	int sgram;
+> -	unsigned int maccess;
+> -	unsigned int fb_cpp;
+> -	unsigned int front_offset, front_pitch;
+> -	unsigned int back_offset, back_pitch;
+> -	unsigned int depth_cpp;
+> -	unsigned int depth_offset, depth_pitch;
+> -	unsigned int texture_offset[MGA_NR_TEX_HEAPS];
+> -	unsigned int texture_size[MGA_NR_TEX_HEAPS];
+> +	struct_group(always32bit,
+> +		int chipset;
+> +		int sgram;
+> +		unsigned int maccess;
+> +		unsigned int fb_cpp;
+> +		unsigned int front_offset;
+> +		unsigned int front_pitch;
+> +		unsigned int back_offset;
+> +		unsigned int back_pitch;
+> +		unsigned int depth_cpp;
+> +		unsigned int depth_offset;
+> +		unsigned int depth_pitch;
+> +		unsigned int texture_offset[MGA_NR_TEX_HEAPS];
+> +		unsigned int texture_size[MGA_NR_TEX_HEAPS];
+> +	);
+>  	u32 fb_offset;
+>  	u32 mmio_offset;
+>  	u32 status_offset;
+> @@ -67,9 +72,8 @@ static int compat_mga_init(struct file *file, unsigned int cmd,
 >  
->  	/* (saddr,daddr) must be grouped, same order as in IP header */
-> -	__be32			saddr;
-> -	__be32			daddr;
-> +	struct_group(addrs,
-> +		__be32			saddr;
-> +		__be32			daddr;
+>  	init.func = init32.func;
+>  	init.sarea_priv_offset = init32.sarea_priv_offset;
+> -	memcpy(&init.chipset, &init32.chipset,
+> -		offsetof(drm_mga_init_t, fb_offset) -
+> -		offsetof(drm_mga_init_t, chipset));
+> +	memcpy(&init.always32bit, &init32.always32bit,
+> +	       sizeof(init32.always32bit));
+>  	init.fb_offset = init32.fb_offset;
+>  	init.mmio_offset = init32.mmio_offset;
+>  	init.status_offset = init32.status_offset;
+> diff --git a/include/uapi/drm/mga_drm.h b/include/uapi/drm/mga_drm.h
+> index 8c4337548ab5..61612e5ecab2 100644
+> --- a/include/uapi/drm/mga_drm.h
+> +++ b/include/uapi/drm/mga_drm.h
+> @@ -265,6 +265,16 @@ typedef struct _drm_mga_sarea {
+>  #define DRM_IOCTL_MGA_WAIT_FENCE    DRM_IOWR(DRM_COMMAND_BASE + DRM_MGA_WAIT_FENCE, __u32)
+>  #define DRM_IOCTL_MGA_DMA_BOOTSTRAP DRM_IOWR(DRM_COMMAND_BASE + DRM_MGA_DMA_BOOTSTRAP, drm_mga_dma_bootstrap_t)
+>  
+> +#define __struct_group(name, fields) \
+> +	union { \
+> +		struct { \
+> +			fields \
+> +		}; \
+> +		struct { \
+> +			fields \
+> +		} name; \
+> +	}
+> +
+>  typedef struct _drm_mga_warp_index {
+>  	int installed;
+>  	unsigned long phys_addr;
+> @@ -279,20 +289,25 @@ typedef struct drm_mga_init {
+>  
+>  	unsigned long sarea_priv_offset;
+>  
+> -	int chipset;
+> -	int sgram;
+> +	__struct_group(always32bit,
+> +		int chipset;
+> +		int sgram;
+>  
+> -	unsigned int maccess;
+> +		unsigned int maccess;
+>  
+> -	unsigned int fb_cpp;
+> -	unsigned int front_offset, front_pitch;
+> -	unsigned int back_offset, back_pitch;
+> +		unsigned int fb_cpp;
+> +		unsigned int front_offset;
+> +		unsigned int front_pitch;
+> +		unsigned int back_offset;
+> +		unsigned int back_pitch;
+>  
+> -	unsigned int depth_cpp;
+> -	unsigned int depth_offset, depth_pitch;
+> +		unsigned int depth_cpp;
+> +		unsigned int depth_offset;
+> +		unsigned int depth_pitch;
+>  
+> -	unsigned int texture_offset[MGA_NR_TEX_HEAPS];
+> -	unsigned int texture_size[MGA_NR_TEX_HEAPS];
+> +		unsigned int texture_offset[MGA_NR_TEX_HEAPS];
+> +		unsigned int texture_size[MGA_NR_TEX_HEAPS];
 > +	);
 >  
->  	union flowi_uli		uli;
->  #define fl4_sport		uli.ports.sport
-> diff --git a/include/uapi/linux/if_ether.h b/include/uapi/linux/if_ether.h
-> index a0b637911d3c..8f5667b2ea92 100644
-> --- a/include/uapi/linux/if_ether.h
-> +++ b/include/uapi/linux/if_ether.h
-> @@ -163,8 +163,16 @@
+>  	unsigned long fb_offset;
+>  	unsigned long mmio_offset;
+> @@ -302,6 +317,8 @@ typedef struct drm_mga_init {
+>  	unsigned long buffers_offset;
+>  } drm_mga_init_t;
 >  
->  #if __UAPI_DEF_ETHHDR
->  struct ethhdr {
-> -	unsigned char	h_dest[ETH_ALEN];	/* destination eth addr	*/
-> -	unsigned char	h_source[ETH_ALEN];	/* source ether addr	*/
-> +	union {
-> +		struct {
-> +			unsigned char h_dest[ETH_ALEN];	  /* destination eth addr */
-> +			unsigned char h_source[ETH_ALEN]; /* source ether addr	  */
-> +		};
-> +		struct {
-> +			unsigned char h_dest[ETH_ALEN];	  /* destination eth addr */
-> +			unsigned char h_source[ETH_ALEN]; /* source ether addr	  */
-> +		} addrs;
+> +#undef __struct_group
+> +
 
-A union of the same fields in the same structure in the same way?
-
-Ah, because struct_group() can not be used here?  Still feels odd to see
-in a userspace-visible header.
-
-> +	};
->  	__be16		h_proto;		/* packet type ID field	*/
->  } __attribute__((packed));
->  #endif
-> diff --git a/include/uapi/linux/ip.h b/include/uapi/linux/ip.h
-> index e42d13b55cf3..33647a37e56b 100644
-> --- a/include/uapi/linux/ip.h
-> +++ b/include/uapi/linux/ip.h
-> @@ -100,8 +100,16 @@ struct iphdr {
->  	__u8	ttl;
->  	__u8	protocol;
->  	__sum16	check;
-> -	__be32	saddr;
-> -	__be32	daddr;
-> +	union {
-> +		struct {
-> +			__be32	saddr;
-> +			__be32	daddr;
-> +		} addrs;
-> +		struct {
-> +			__be32	saddr;
-> +			__be32	daddr;
-> +		};
-
-Same here (except you named the first struct addrs, not the second,
-unlike above).
-
-
-> +	};
->  	/*The options start here. */
->  };
->  
-> diff --git a/include/uapi/linux/ipv6.h b/include/uapi/linux/ipv6.h
-> index b243a53fa985..1c26d32e733b 100644
-> --- a/include/uapi/linux/ipv6.h
-> +++ b/include/uapi/linux/ipv6.h
-> @@ -130,8 +130,16 @@ struct ipv6hdr {
->  	__u8			nexthdr;
->  	__u8			hop_limit;
->  
-> -	struct	in6_addr	saddr;
-> -	struct	in6_addr	daddr;
-> +	union {
-> +		struct {
-> +			struct	in6_addr	saddr;
-> +			struct	in6_addr	daddr;
-> +		} addrs;
-> +		struct {
-> +			struct	in6_addr	saddr;
-> +			struct	in6_addr	daddr;
-> +		};
-
-addrs first?  Consistancy is key :)
+Why can you use __struct_group in this uapi header, but not the
+networking one?
 
 thanks,
 
@@ -266,4 +283,4 @@ greg k-h
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YQDxaYrHu0PeBIuX%40kroah.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YQDxmEYfppJ4wAmD%40kroah.com.
