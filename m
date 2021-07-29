@@ -1,154 +1,146 @@
-Return-Path: <clang-built-linux+bncBCIJL6NQQ4CRBAUPRKEAMGQEAHFKHFY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYZDG4VSMIRB45VRKEAMGQE2UU5D2Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
 Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id E55A73DA179
-	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Jul 2021 12:48:34 +0200 (CEST)
-Received: by mail-wm1-x338.google.com with SMTP id 132-20020a1c018a0000b029025005348905sf1864656wmb.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Jul 2021 03:48:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627555714; cv=pass;
+	by mail.lfdr.de (Postfix) with ESMTPS id 8BD183DA2DE
+	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Jul 2021 14:11:31 +0200 (CEST)
+Received: by mail-wm1-x338.google.com with SMTP id k13-20020a05600c1c8db029025018ac4f7dsf1940756wms.2
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Jul 2021 05:11:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627560691; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hpNmI76W41y+GPQEvXi96cRWOZORnSwbyxG3gV4NSOYMFIiO5PvDF9PxdZoZGg5c2D
-         KyeWoFkrpHCY11yEqSNNPZmDfjWLyOYBy29RjCdbj4iBQt9TCd0VWznh0tNc3CZVEN1M
-         zXmPfsi1p7eevwj/PAecRhP+LIQfH5eX9BS1aM48pA/4sFCR7tEIeslvjdu+i3uBdxeX
-         5zn9hfm1lfC5tB0E6F+Msf3CNuqWbmVsiUPrjg/QZv8M6p7DqXtZvsEDvmYUeAWZOBUF
-         MlT7Z8TG9NLZMoCP3Uii+PUg7h2KMV+HedDkog7GmnIkAUmsPukDSeX39iGxmXBXnQYq
-         K3Gw==
+        b=tQy+wp2Qf7g2rf9vdnLFT4XIUNPczsYsxPUa1/NFDqBZpYucYU32h9J/2aUg24pFPL
+         U6lG5KGHt1NOQgJuS52xJaN+dMtTKiZSoSEUzUG1WVj5CQ/Tz/h0a6WMeP8bN2LKYf+r
+         JKZRz2HDTuObykGb3NzVXAEvvwcDhIAnkCfPt+OSSzhwXIA6UpzgSmm4m1YKk9Q9DTlO
+         yMqc7OGyuMXaBj2kUdgvia2ePBBd6Bnl/SGhGKVMqv0JE4dIZLxV/AeHyYhFxkjjeT8D
+         H2JidkJu1Cc9rOr+IZdpi/GQGp84w+b+V2MOqMzC6BQxZ0qu56fIZ3ZBvyWca3HsIQN2
+         fFeg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:mail-followup-to
-         :reply-to:message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=gZBavJuu4bAaAD3aBoIs9Opc0iqOgvduRkERf3q3NfI=;
-        b=rf9LhYt7gn5+SDLtO9dRn3V4q7Md3MWreLk6A0KeBYSf29S49uwutssPGRp9r5fbqw
-         +TSKjEAD0edZYsqtRMPqyQzGdfKlh6kYgiF3OwA7gD5+nMySYTuW84nCGVXJu+Ux4inz
-         S2fNHrOkS+ATT8SoA4urDboBhjsmEm/AtpyAkE7bkeo8L7MvxY7r2B4xPDkQsb7aFnzW
-         K36+jRPDEc53WsZpcehhGwKukKRmkIdoBs6ZXgPXC8cABJ6qgPXpMpFbK6IiHv5/M7iF
-         ESR2OPlq5gy/FiB4DGcVyTbJezhaewMj5sjvQQpmjI1nOGoiRwDaFo29Ebrb2dJiwnNf
-         G9VQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:mail-followup-to:message-id:subject:cc:to
+         :from:date:sender:dkim-signature;
+        bh=xL2pNJCHgE29NVnHCsd0T4faHT/Fcl66HUsPEfwvoCw=;
+        b=uDG9Cq1+rF9NXxkvGQwig5sa3j7HYTSKV2yVkUtJOQ+RfU+ke2qqLD0viu0RReK69P
+         phTJhPYIV4Dh+/rTo1SDVPsE7RAoLkUbWIJsr1F5KxfJleC5uABSb+oMygPUXf62OBwm
+         vjApP67Nj3MLmtmgdxUbmv4RFXMURRTeOj8eDIQr9t2TQGLyOWIQNPlnDY+6FTSGRKuE
+         GNLbpohFpgtOvj9e9RQf+oMWl9pc+jVvwCnx23Ok8DkZyknIxZ7kBYB1iup3dOq3lHCR
+         wD7hAAbNWP9GabANfNV3V2jo4ADPEvxBkectwP3RfOPSpFbcih6DwxYY1dN10v7C6JtR
+         RWaw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=abeCZgaO;
-       dkim=neutral (no key) header.i=@suse.cz;
-       spf=pass (google.com: domain of dsterba@suse.cz designates 195.135.220.29 as permitted sender) smtp.mailfrom=dsterba@suse.cz
+       dkim=pass header.i=@ffwll.ch header.s=google header.b=IX9QYptY;
+       spf=neutral (google.com: 2a00:1450:4864:20::432 is neither permitted nor denied by best guess record for domain of daniel@ffwll.ch) smtp.mailfrom=daniel@ffwll.ch
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:reply-to:mail-followup-to
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+        h=sender:date:from:to:cc:subject:message-id:mail-followup-to
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gZBavJuu4bAaAD3aBoIs9Opc0iqOgvduRkERf3q3NfI=;
-        b=M1zLSDGXGlCL3g+oGmSAjDnvgXmyYuEZfFP3oGGbsRx8joEQ1rhO5ouvitoCanTHwt
-         Y0ole1WuNH7oHRhWWrbBd0qmquHXn218xEZ3k7+6iT6F1Y4LKszEIUQbHOVSa2clj+cf
-         UjsXHacqmK4WcwYp/PdE23KbYEwctDl3txg7vzPhYNSWQBM3RgvW5s4dV+B9W4sPBjlW
-         pUck5te0Nymm9AA+49KPYPJ9VHrYbtQT1G7aDUMGj4j2ZJ+H119wt34Jz80GeFyrEood
-         ++ASxPDf7vz6YsWrnXRnKHUiSOYCsnxVksVHju5aHs3O3tgManYHAjmutKDTFudoLBgw
-         sqsg==
+        bh=xL2pNJCHgE29NVnHCsd0T4faHT/Fcl66HUsPEfwvoCw=;
+        b=CGjj7CyGe1JUc2k9lCH8ICETWcXh/oeM1lVKQjOjAohDwTGApIMJnh5kpgk9b5iJOl
+         adAIW271THoduud5ACB0BE3hcTrJYx05GrGCqZPEfX90Si/qphj0au4ngibzXu5Pk+E/
+         kVlVKKB4qHkedqq8oJmIqtJrYjkisGymmwwChBnMhq/cTm5Zrqr89wLagixFMmi3CdyV
+         HeL2DEfABHDIUqvxPzaHGoX0FEt5+j6Nf7mQWsnDrZB4lmy33jhnjcK2cf0/IOzcFMp7
+         fcxMWmFqmsEDtuzp8YnWFsG9mODmooSgY/NRFptS1SUjTnkMFE9CsOMZHUDB/MmeA1q3
+         Fekg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :reply-to:mail-followup-to:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=gZBavJuu4bAaAD3aBoIs9Opc0iqOgvduRkERf3q3NfI=;
-        b=f6TqA5M0Xb91CHCLvvH79M9hlJ+kYB+RyAueG0c+qkUeOO3khZkVobFUhlUXeyhNQe
-         JFamjXINijy10TEZRYzgNAABgUBBfuU+ftlrlC/N9kiWXGPtH5KspeGoCd6LWtFEqai8
-         g5fP3z0ivsiwiErV6s2Kfb7prAGDxe4pJE8H69WSixHFWV2tude/0hJHhWgDOSubQ+Aw
-         e7MRRZcrDUCEC8xnVQLWCG8WbUTvaKEGGhki5H+cZeTFWI5w6WDfURK2xMZncMQmHN/8
-         i3OXYlQ4aPcG+2FB8sTQQ1Qeu2GteUnuDrE+h5NDQv7bdLyDQc4v/N2TMqi4GCU+CoRx
-         8baQ==
+         :mail-followup-to:references:mime-version:content-disposition
+         :in-reply-to:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=xL2pNJCHgE29NVnHCsd0T4faHT/Fcl66HUsPEfwvoCw=;
+        b=bqWxFZMigdZdmXp91Rti+dwwhD0K5lAHH/GJrDItQFwQeYrisfn3gCmVCn4BHwLmWt
+         x6t0KqG4esEZKA4Hq8HjI284AVKvILRfoAgB1spsqs7rMJk+nD8fHgAt1i77WUblO3cQ
+         UGjKYMbxuBEtTJhChZIUYOct9+USnt6V0glqseqa2i1uMUWj85B9+9cBB/VM/xF0YWA2
+         9wtAWPuzoX1WQ3NuXXpLtAy6DZosx4nFpyKhPvkr+8yzeswPa7rtUOzHZFgH1+1ruHar
+         w3oysYkGFUR8OT3cExM+2s91eMxHKjZI9AX2MJCkN/XouUqaqPjaC28cmPKHr7JJiLeD
+         zaPw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532EoDRYurkgSSfW9kejjc+3hl36rT2JlDx7jV7vs9HpnffPyMkG
-	YrqYWTruV5Z+8VyVDtOxEkU=
-X-Google-Smtp-Source: ABdhPJwHxKFy4t5QYTsDHHph7pYN88kDASG/RJ8NFbpyJajOV6we3BvBM6+1G+hY+zJjoCfCbNl8Eg==
-X-Received: by 2002:a5d:4207:: with SMTP id n7mr4153667wrq.326.1627555714635;
-        Thu, 29 Jul 2021 03:48:34 -0700 (PDT)
+X-Gm-Message-State: AOAM53157J9m5PFt3k+GzkSVWsta3Cgjx+Lo5RXvMwwpi0rFcxQzTLph
+	DqoM1/OwyZCc14eudIyJQls=
+X-Google-Smtp-Source: ABdhPJzgs1uvBLKxALY2lIZjiHhHFv5VBvqRHTL57MeJXG0BFSGrr1KRh92rogYIwRX28qzEVtLz3Q==
+X-Received: by 2002:a7b:c318:: with SMTP id k24mr4555902wmj.144.1627560691287;
+        Thu, 29 Jul 2021 05:11:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:cb09:: with SMTP id u9ls2745348wmj.1.gmail; Thu, 29 Jul
- 2021 03:48:33 -0700 (PDT)
-X-Received: by 2002:a05:600c:198a:: with SMTP id t10mr13728184wmq.32.1627555713762;
-        Thu, 29 Jul 2021 03:48:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627555713; cv=none;
+Received: by 2002:a5d:4dd1:: with SMTP id f17ls93030wru.0.gmail; Thu, 29 Jul
+ 2021 05:11:30 -0700 (PDT)
+X-Received: by 2002:a5d:5384:: with SMTP id d4mr4544949wrv.193.1627560690385;
+        Thu, 29 Jul 2021 05:11:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627560690; cv=none;
         d=google.com; s=arc-20160816;
-        b=b6Jdpct4eOONUgEFTMGmroXUsLVniZ2MWzRbM7DWGZLpMu8mAcMZkYIwNFjGXTrZqv
-         RdMITiJJj8+FpJvkYvPZMNCJ2ynRcpm25bmCft2gQpCGJ//smKHelLN9ep09hjgXyT2O
-         47g+ooAAThb4KOvp1u6AVqBlZ9LfLp764Oh6Kl5+XlrIOw1lprRdydpEKjDs3r6LI7CW
-         0gtryraMYNSvDDjPG8RUGqlQ8sYHgm621Iu8IWq91Ciff4aKsO3bOC8oIfOQ3rEqbwPE
-         UCt+uPRHFbp2mdg4BcbZh0eL/mReAKG0TKMYICgHvlD9pP2Xx+zx2obNmj3AyEAyBIT4
-         G5ng==
+        b=L8I5TKnfgk7ptStWny6Io6+bbwtAkY6Gyub4KfppWigtBmWjHtyXfjqHyLxUfPSu90
+         ryQQUEYWqlS7WsPEla5i6DMD75a36wQQwunxpe2mKFEI9N885zXWkz4DZhFrOg82/r2v
+         ojrKRUIIZcNHScH5Qj+lh0rPke4u91AL77LwNyAMqc0yrionoVana41Cot0uepPuyJvg
+         lS3a7JjyUibiph9uyGTP2+F9fpyTebgSWuf/p26zSeXXoD8DfMUZWtLtpqZhpkY1CJ/W
+         du/8D3jIaPFEKDozYisPMj5t/dfKqOWhyx4Sr3txzkm4WfJLeI0Y61kJgkKbS/NwgQja
+         0VKw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:reply-to:message-id:subject:cc:to:from:date
-         :dkim-signature:dkim-signature;
-        bh=Ao638iMTTjsA+VNcKLaQE/T5PYOWw6rLSmI4SdHNaOg=;
-        b=ZtAqi6klOCA/FEiT0U0hWEQy9QvPCY6sHGxASB6EeFZko0lun1WAHM7Vv2eQ2b8+D6
-         o/wE/pmlp20ChbHmX8k1IIUEdyUDaW4NHgrpSH2Df7VXBgmpoHkHfgIxTILKj+D5hCYx
-         Yoce+JjOTCAOBj7DCHTCFcpTk3kUUT0DzrapoYBnfjYywbdZS+ibHgLGhbgHkXVR+pYf
-         Zk9P/GRS4GsZ1ZXcwwkNBFer5LDOAclwF9UXw79OF5rDo6poc6p09eNrnUBvL1SfJkj3
-         V06IM1N1mKX1gg1ogutNjPwa6WXNqHZoGhGbPKwMVH8UiWLR5vpgc7Xru/bEbTdNBeAs
-         lGLg==
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:dkim-signature;
+        bh=8Nz6vB9p8A0wBJs6kkDYFIrrTzDZDT+uS9XB0IAUyko=;
+        b=vvPWyA84lARC5fCVC8kwYpy8OinjzzFEtMHumX6UoGgRGQHK0EdiDUH2Ym18iHtB8+
+         usVOzH8UxmxMnLdM6WT4nWhO3d9L1qGLMgqFNEjAO6X3LTamAoNPeyrQGzR4Q+qvTuqs
+         pWn/z7PhNVGQRKiKKbHuccNEOS3icVAcvHjHwNoPIuQCsbdbh2vpE4urTX44NzoW8TeQ
+         P338caB/YKz5SoNqkenhfIfp6ConcNlrg7gGTxMEcRdmZR2tgfO/VUSWpZ7by85AZVeJ
+         npQlddpq15BSbTk5n6xV4DeFkFD+R6SIy+YrO+dhvE3rqaGZJBNdgMcTN/I1A8ZP43ob
+         Jw0A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=abeCZgaO;
-       dkim=neutral (no key) header.i=@suse.cz;
-       spf=pass (google.com: domain of dsterba@suse.cz designates 195.135.220.29 as permitted sender) smtp.mailfrom=dsterba@suse.cz
-Received: from smtp-out2.suse.de (smtp-out2.suse.de. [195.135.220.29])
-        by gmr-mx.google.com with ESMTPS id 189si373521wmb.2.2021.07.29.03.48.33
+       dkim=pass header.i=@ffwll.ch header.s=google header.b=IX9QYptY;
+       spf=neutral (google.com: 2a00:1450:4864:20::432 is neither permitted nor denied by best guess record for domain of daniel@ffwll.ch) smtp.mailfrom=daniel@ffwll.ch
+Received: from mail-wr1-x432.google.com (mail-wr1-x432.google.com. [2a00:1450:4864:20::432])
+        by gmr-mx.google.com with ESMTPS id 189si383851wmb.2.2021.07.29.05.11.30
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 29 Jul 2021 05:11:30 -0700 (PDT)
+Received-SPF: neutral (google.com: 2a00:1450:4864:20::432 is neither permitted nor denied by best guess record for domain of daniel@ffwll.ch) client-ip=2a00:1450:4864:20::432;
+Received: by mail-wr1-x432.google.com with SMTP id q3so6713591wrx.0
+        for <clang-built-linux@googlegroups.com>; Thu, 29 Jul 2021 05:11:30 -0700 (PDT)
+X-Received: by 2002:a5d:4e91:: with SMTP id e17mr4462754wru.7.1627560689971;
+        Thu, 29 Jul 2021 05:11:29 -0700 (PDT)
+Received: from phenom.ffwll.local ([2a02:168:57f4:0:efd0:b9e5:5ae6:c2fa])
+        by smtp.gmail.com with ESMTPSA id a14sm3323850wrf.97.2021.07.29.05.11.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Jul 2021 03:48:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dsterba@suse.cz designates 195.135.220.29 as permitted sender) client-ip=195.135.220.29;
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
-	by smtp-out2.suse.de (Postfix) with ESMTP id 6BCE0201ED;
-	Thu, 29 Jul 2021 10:48:33 +0000 (UTC)
-Received: from ds.suse.cz (ds.suse.cz [10.100.12.205])
-	by relay2.suse.de (Postfix) with ESMTP id 53E3BA3B81;
-	Thu, 29 Jul 2021 10:48:33 +0000 (UTC)
-Received: by ds.suse.cz (Postfix, from userid 10065)
-	id E0A69DA7AF; Thu, 29 Jul 2021 12:45:47 +0200 (CEST)
-Date: Thu, 29 Jul 2021 12:45:47 +0200
-From: David Sterba <dsterba@suse.cz>
-To: Kees Cook <keescook@chromium.org>
-Cc: Dan Carpenter <dan.carpenter@oracle.com>,
-	linux-hardening@vger.kernel.org,
+        Thu, 29 Jul 2021 05:11:29 -0700 (PDT)
+Date: Thu, 29 Jul 2021 14:11:27 +0200
+From: Daniel Vetter <daniel@ffwll.ch>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Kees Cook <keescook@chromium.org>, linux-kbuild@vger.kernel.org,
+	netdev@vger.kernel.org, linux-staging@lists.linux.dev,
+	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-block@vger.kernel.org, clang-built-linux@googlegroups.com,
 	Keith Packard <keithpac@amazon.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org,
-	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 02/64] mac80211: Use flex-array for radiotap header bitmap
-Message-ID: <20210729104547.GT5047@suse.cz>
-Reply-To: dsterba@suse.cz
-Mail-Followup-To: dsterba@suse.cz, Kees Cook <keescook@chromium.org>,
-	Dan Carpenter <dan.carpenter@oracle.com>,
 	linux-hardening@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH 25/64] drm/mga/mga_ioc32: Use struct_group() for memcpy()
+ region
+Message-ID: <YQKa76A6XuFqgM03@phenom.ffwll.local>
+Mail-Followup-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kees Cook <keescook@chromium.org>, linux-kbuild@vger.kernel.org,
+	netdev@vger.kernel.org, linux-staging@lists.linux.dev,
+	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-block@vger.kernel.org, clang-built-linux@googlegroups.com,
 	Keith Packard <keithpac@amazon.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org,
-	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com
+	linux-hardening@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>
 References: <20210727205855.411487-1-keescook@chromium.org>
- <20210727205855.411487-3-keescook@chromium.org>
- <20210728073556.GP1931@kadam>
- <20210728092323.GW5047@twin.jikos.cz>
- <202107281454.F96505E15@keescook>
+ <20210727205855.411487-26-keescook@chromium.org>
+ <YQDxmEYfppJ4wAmD@kroah.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <202107281454.F96505E15@keescook>
-User-Agent: Mutt/1.5.23.1-rc1 (2014-03-12)
-X-Original-Sender: dsterba@suse.cz
+In-Reply-To: <YQDxmEYfppJ4wAmD@kroah.com>
+X-Operating-System: Linux phenom 5.10.0-7-amd64
+X-Original-Sender: daniel@ffwll.ch
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@suse.cz header.s=susede2_rsa header.b=abeCZgaO;       dkim=neutral
- (no key) header.i=@suse.cz;       spf=pass (google.com: domain of
- dsterba@suse.cz designates 195.135.220.29 as permitted sender) smtp.mailfrom=dsterba@suse.cz
+ header.i=@ffwll.ch header.s=google header.b=IX9QYptY;       spf=neutral
+ (google.com: 2a00:1450:4864:20::432 is neither permitted nor denied by best
+ guess record for domain of daniel@ffwll.ch) smtp.mailfrom=daniel@ffwll.ch
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -161,60 +153,170 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jul 28, 2021 at 02:54:52PM -0700, Kees Cook wrote:
-> On Wed, Jul 28, 2021 at 11:23:23AM +0200, David Sterba wrote:
-> > On Wed, Jul 28, 2021 at 10:35:56AM +0300, Dan Carpenter wrote:
-> > > @@ -372,7 +372,7 @@ ieee80211_add_rx_radiotap_header(struct ieee80211_local *local,
-> > >  			ieee80211_calculate_rx_timestamp(local, status,
-> > >  							 mpdulen, 0),
-> > >  			pos);
-> > > -		rthdr->it_present |= cpu_to_le32(1 << IEEE80211_RADIOTAP_TSFT);
-> > > +		rthdr->data.it_present |= cpu_to_le32(1 << IEEE80211_RADIOTAP_TSFT);
+On Wed, Jul 28, 2021 at 07:56:40AM +0200, Greg Kroah-Hartman wrote:
+> On Tue, Jul 27, 2021 at 01:58:16PM -0700, Kees Cook wrote:
+> > In preparation for FORTIFY_SOURCE performing compile-time and run-time
+> > field bounds checking for memcpy(), memmove(), and memset(), avoid
+> > intentionally writing across neighboring fields.
 > > 
-> > A drive-by comment, not related to the patchset, but rather the
-> > ieee80211 driver itself.
+> > Use struct_group() in struct drm32_mga_init around members chipset, sgram,
+> > maccess, fb_cpp, front_offset, front_pitch, back_offset, back_pitch,
+> > depth_cpp, depth_offset, depth_pitch, texture_offset, and texture_size,
+> > so they can be referenced together. This will allow memcpy() and sizeof()
+> > to more easily reason about sizes, improve readability, and avoid future
+> > warnings about writing beyond the end of chipset.
 > > 
-> > Shift expressions with (1 << NUMBER) can be subtly broken once the
-> > NUMBER is 31 and the value gets silently cast to a 64bit type. It will
-> > become 0xfffffffff80000000.
+> > "pahole" shows no size nor member offset changes to struct drm32_mga_init.
+> > "objdump -d" shows no meaningful object code changes (i.e. only source
+> > line number induced differences and optimizations).
 > > 
-> > I've checked the IEEE80211_RADIOTAP_* defintions if this is even remotely
-> > possible and yes, IEEE80211_RADIOTAP_EXT == 31. Fortunatelly it seems to
-> > be used with used with a 32bit types (eg. _bitmap_shifter) so there are
-> > no surprises.
+> > Note that since this includes a UAPI header, struct_group() has been
+> > explicitly redefined local to the header.
 > > 
-> > The recommended practice is to always use unsigned types for shifts, so
-> > "1U << ..." at least.
+> > Signed-off-by: Kees Cook <keescook@chromium.org>
+> > ---
+> >  drivers/gpu/drm/mga/mga_ioc32.c | 30 ++++++++++++++------------
+> >  include/uapi/drm/mga_drm.h      | 37 ++++++++++++++++++++++++---------
+> >  2 files changed, 44 insertions(+), 23 deletions(-)
+> > 
+> > diff --git a/drivers/gpu/drm/mga/mga_ioc32.c b/drivers/gpu/drm/mga/mga_ioc32.c
+> > index 4fd4de16cd32..fbd0329dbd4f 100644
+> > --- a/drivers/gpu/drm/mga/mga_ioc32.c
+> > +++ b/drivers/gpu/drm/mga/mga_ioc32.c
+> > @@ -38,16 +38,21 @@
+> >  typedef struct drm32_mga_init {
+> >  	int func;
+> >  	u32 sarea_priv_offset;
+> > -	int chipset;
+> > -	int sgram;
+> > -	unsigned int maccess;
+> > -	unsigned int fb_cpp;
+> > -	unsigned int front_offset, front_pitch;
+> > -	unsigned int back_offset, back_pitch;
+> > -	unsigned int depth_cpp;
+> > -	unsigned int depth_offset, depth_pitch;
+> > -	unsigned int texture_offset[MGA_NR_TEX_HEAPS];
+> > -	unsigned int texture_size[MGA_NR_TEX_HEAPS];
+> > +	struct_group(always32bit,
+> > +		int chipset;
+> > +		int sgram;
+> > +		unsigned int maccess;
+> > +		unsigned int fb_cpp;
+> > +		unsigned int front_offset;
+> > +		unsigned int front_pitch;
+> > +		unsigned int back_offset;
+> > +		unsigned int back_pitch;
+> > +		unsigned int depth_cpp;
+> > +		unsigned int depth_offset;
+> > +		unsigned int depth_pitch;
+> > +		unsigned int texture_offset[MGA_NR_TEX_HEAPS];
+> > +		unsigned int texture_size[MGA_NR_TEX_HEAPS];
+> > +	);
+> >  	u32 fb_offset;
+> >  	u32 mmio_offset;
+> >  	u32 status_offset;
+> > @@ -67,9 +72,8 @@ static int compat_mga_init(struct file *file, unsigned int cmd,
+> >  
+> >  	init.func = init32.func;
+> >  	init.sarea_priv_offset = init32.sarea_priv_offset;
+> > -	memcpy(&init.chipset, &init32.chipset,
+> > -		offsetof(drm_mga_init_t, fb_offset) -
+> > -		offsetof(drm_mga_init_t, chipset));
+> > +	memcpy(&init.always32bit, &init32.always32bit,
+> > +	       sizeof(init32.always32bit));
+> >  	init.fb_offset = init32.fb_offset;
+> >  	init.mmio_offset = init32.mmio_offset;
+> >  	init.status_offset = init32.status_offset;
+> > diff --git a/include/uapi/drm/mga_drm.h b/include/uapi/drm/mga_drm.h
+> > index 8c4337548ab5..61612e5ecab2 100644
+> > --- a/include/uapi/drm/mga_drm.h
+> > +++ b/include/uapi/drm/mga_drm.h
+> > @@ -265,6 +265,16 @@ typedef struct _drm_mga_sarea {
+> >  #define DRM_IOCTL_MGA_WAIT_FENCE    DRM_IOWR(DRM_COMMAND_BASE + DRM_MGA_WAIT_FENCE, __u32)
+> >  #define DRM_IOCTL_MGA_DMA_BOOTSTRAP DRM_IOWR(DRM_COMMAND_BASE + DRM_MGA_DMA_BOOTSTRAP, drm_mga_dma_bootstrap_t)
+> >  
+> > +#define __struct_group(name, fields) \
+> > +	union { \
+> > +		struct { \
+> > +			fields \
+> > +		}; \
+> > +		struct { \
+> > +			fields \
+> > +		} name; \
+> > +	}
+> > +
+> >  typedef struct _drm_mga_warp_index {
+> >  	int installed;
+> >  	unsigned long phys_addr;
+> > @@ -279,20 +289,25 @@ typedef struct drm_mga_init {
+> >  
+> >  	unsigned long sarea_priv_offset;
+> >  
+> > -	int chipset;
+> > -	int sgram;
+> > +	__struct_group(always32bit,
+> > +		int chipset;
+> > +		int sgram;
+> >  
+> > -	unsigned int maccess;
+> > +		unsigned int maccess;
+> >  
+> > -	unsigned int fb_cpp;
+> > -	unsigned int front_offset, front_pitch;
+> > -	unsigned int back_offset, back_pitch;
+> > +		unsigned int fb_cpp;
+> > +		unsigned int front_offset;
+> > +		unsigned int front_pitch;
+> > +		unsigned int back_offset;
+> > +		unsigned int back_pitch;
+> >  
+> > -	unsigned int depth_cpp;
+> > -	unsigned int depth_offset, depth_pitch;
+> > +		unsigned int depth_cpp;
+> > +		unsigned int depth_offset;
+> > +		unsigned int depth_pitch;
+> >  
+> > -	unsigned int texture_offset[MGA_NR_TEX_HEAPS];
+> > -	unsigned int texture_size[MGA_NR_TEX_HEAPS];
+> > +		unsigned int texture_offset[MGA_NR_TEX_HEAPS];
+> > +		unsigned int texture_size[MGA_NR_TEX_HEAPS];
+> > +	);
+> >  
+> >  	unsigned long fb_offset;
+> >  	unsigned long mmio_offset;
+> > @@ -302,6 +317,8 @@ typedef struct drm_mga_init {
+> >  	unsigned long buffers_offset;
+> >  } drm_mga_init_t;
+> >  
+> > +#undef __struct_group
+> > +
 > 
-> Ah, good catch! I think just using BIT() is the right replacement here,
-> yes? I suppose that should be a separate patch.
+> Why can you use __struct_group in this uapi header, but not the
+> networking one?
 
-I found definition of BIT in vdso/bits.h, that does not sound like a
-standard header, besides that it shifts 1UL, that may not be necessary
-everywhere. IIRC there were objections against using the macro at all.
+If there's others, maybe we can stuff the uapi __struct_group into
+linux/types.h where all the other __ uapi types hang out?
 
-Looking for all the definitions, there are a few that are wrong in the
-sense they're using the singed type, eg.
+Anyway mga is very dead, I don't anyone cares.
 
-https://elixir.bootlin.com/linux/v5.14-rc3/source/arch/arm/mach-davinci/sleep.S#L7
+Acked-by: Daniel Vetter <daniel.vetter@ffwll.ch>
 
-#define BIT(nr)			(1 << (nr))
-...
-#define DEEPSLEEP_SLEEPENABLE_BIT	BIT(31)
+I'm assuming this goes in through a topic pull from you?
 
-but that's an assembly file so the C integer promotions don't apply.
+I'll leave the drm/amd one to figure out between you and Alex.
+-Daniel
 
-https://elixir.bootlin.com/linux/v5.14-rc3/source/drivers/staging/rtl8723bs/include/osdep_service.h#L18
-https://elixir.bootlin.com/linux/v5.14-rc3/source/drivers/staging/rtl8723bs/include/wifi.h#L15
-https://elixir.bootlin.com/linux/v5.14-rc3/source/tools/perf/util/intel-pt-decoder/intel-pt-pkt-decoder.c#L15
+> 
+> thanks,
+> 
+> greg k-h
 
-#define BIT(x)	(1 << (x))
-
-Auditing and cleaning that up is for another series, yeah, I'm just
-pointing it here if somebody feels like doing the work. It's IMO low
-hanging fruit but can reveal real bugs.
+-- 
+Daniel Vetter
+Software Engineer, Intel Corporation
+http://blog.ffwll.ch
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210729104547.GT5047%40suse.cz.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YQKa76A6XuFqgM03%40phenom.ffwll.local.
