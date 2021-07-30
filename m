@@ -1,134 +1,171 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB77DSCEAMGQEZ5YBB5I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD2MFOHTXMBBBBMESGEAMGQEGAZQ73A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x538.google.com (mail-ed1-x538.google.com [IPv6:2a00:1450:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6D7B03DBD76
-	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Jul 2021 19:08:16 +0200 (CEST)
-Received: by mail-ed1-x538.google.com with SMTP id s8-20020a0564020148b02903948b71f25csf4903231edu.4
-        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Jul 2021 10:08:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627664896; cv=pass;
+Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
+	by mail.lfdr.de (Postfix) with ESMTPS id B453A3DBE35
+	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Jul 2021 20:16:38 +0200 (CEST)
+Received: by mail-qk1-x73b.google.com with SMTP id c5-20020a05620a2005b02903b8d1e253a9sf6206801qka.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Jul 2021 11:16:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627668998; cv=pass;
         d=google.com; s=arc-20160816;
-        b=orpaVnI5v6YkCrR6cdIfowJgjfOTz+MfXmvzcmlpr8WVI0d+DJZ6P2m5diz1qHv9Eo
-         jWtTG3xDlPZZH8paiA91qPqQVU/IH1uvMFStxSg1i4kbXTTb8sEQQJc+HAoW/XaSXS26
-         QEBIQ9PiiIje7MHeVs+0E8aqcQiW4Vjk+Qp/N8fWt95Qr5a7d/oHUd6pvIN7wIejXrG5
-         wzvC+Xw2PQfl7UV6gTGuPUUvtPDSByObt5d9MiywsJ4hw/h6r/bISsFeVjRPItEUlpEO
-         inX5Kf6/tgjFbLeRhJ+upTF5EE/C646KJzmy7czSuM1kK8aLeE1BdarXkxB8Cm8R0Fxd
-         jvMA==
+        b=NXcuuVDlOqp5y1BWcQ2WwzbyKMnMUgUvutyE8G2JrP7f09fKCkgQ7b8AV9glTIUn0/
+         aH6V7TSpQibl6zpIvesXzagFBmBuRLlayPVptyC58cHhu1/bmlxOdkKc6I3NzpcWJnUM
+         w+130S3D0C/Y1Uh3JgRxMeBTM8cisGXRMZoAx+zfeW46QhMLn25JZm6XLhiR//Gz8GmW
+         HQnE4OoSjD9eMP3czslpopOsEswbIMLEluzdCEWuuDGsx1JmCrsly27/uJy3dMloV/O1
+         ATImsS6bwV9B/eWxKLQsfcKpSoGKls3FbD+jfCFhH2AFKEucvD3GaZovGUDpuibXODmW
+         TDKQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=2ybPtoRy4veXumJljCyckeCBDNMyXCz41xzBhpyHHgY=;
-        b=yi6Wb9iuUqWzQmFj1rvMxZ4b0IvBtAhox5D3bNevuH/Ci4FzmIfy9B3qk7cc5dyo5B
-         GVPqCbBxJiCb/LR6t3kK3EXKSFWQYsuZA2LwxAp19z5ZHfsXI2J4ryVejx5z96f/VyhW
-         4wSRvUDOuvKXWt23Wrl1jqEDz7mdB46/AcfxhC45LwmaTL7aTAsl8XIs0ZemZXTdjhEG
-         63nS5u03iqSPPcrTCovDxumleZOVw8su6T+f5jyjVAAcIV6HlfdET7qzyTgB95RFbR2v
-         ph9I9QeMkoRtJ7KVMeu72xPFS1Th9jp+HnxLQAkIB+VTbAJUwvmLDQKmSLl66rzJz088
-         S6Mw==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=LzgQ5qWgyMWolQs6wTxXxhOsH+nzIctxIAdy4rsIrVI=;
+        b=ftiwH9Tc0o3Y2VIQWHCtfNYnqji9IYq7cjLKgvZMtlhbi2ORzNfc7idCVzutAmfrTZ
+         IGdir6q3ehwlI57ZCoVQnHexGgSl1h54smOYHXcR8ZNRq7nDGFQfKZy/0GWFvNaFrNrq
+         5HPVtysTzjV/o41YoTJ9NmrF3OwCm7DbLqYvoqklxwHxidnBdzOP+2YGb2FshpwSakWb
+         Fku6LxR+QmNd4IgYsJONo5Cw9rdcdJBFyaYKcdQFnAYzIB4zJ6r/hzzi/ixwNOEuzBf0
+         uh/rR53A5q27DljT9a83QKZYLCbM84Fmq/VEoFQhKdMf20y/dh2qJjkNKJC3uYVqejMw
+         1ymQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=C6FDsp9e;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=MmozcAgt;
+       spf=pass (google.com: domain of tyreld@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=tyreld@linux.ibm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=2ybPtoRy4veXumJljCyckeCBDNMyXCz41xzBhpyHHgY=;
-        b=fNpK2WQRiib833JL+uI1AGQ+g9C3+fRrC80uTra0TnpQCReBvVbLj+cJSkNQvP6Czo
-         IE3rIbz3iM7PNTEVTVneBJpQexUqPbz26PmOYtpFkLXhAKT7a773BNP+ABlhC/HX44qQ
-         YHn+Nw7kxYePtZpo9gluy7rIsoDPgn9n7ro7AQTG0EHs/W8vKnJ1QVnGC56HXx8E8KGb
-         k+yvCXHeTL9g6TNa91RQtonUyuPJqTbBGcBDE4HIIN1p6XQa48degQ0eAqD2i8sZAJdG
-         wGZjvn957XFSXzeN65UyW3rNryoPW6qdG4QyZmf7w8gEvPEpKWXM4FZEXKXdWpEpj/8P
-         yY+w==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=LzgQ5qWgyMWolQs6wTxXxhOsH+nzIctxIAdy4rsIrVI=;
+        b=tcVuXBjBW5vY+HJVzK0xT4gkSwUsw0I3I0j66qAeCsZXOuTebgThUUdfcEZe4/RlF2
+         U/VviKKbbGbqMhhjgq1hSITdJC5qLJEj0fehLks9eW/lbZO9x1q9p/+qHU0CMoCQ/7Dk
+         qWSTTQ9UN7hAn0FKxLqI9nL4VV5kL7kGYxdhyVgcbedcz3/uwXx6spC0gCSN3fv/OWFj
+         VoYNdZ47UFsjjrf3/IXrE5u+gG0Tz/a+pDzwMd+3H0iLnCxrFn96OIsBsuEyKgePOVdV
+         b+8AU4zeTDEP6YDRKTHS1DzkV1d/fIG5J9txHbMHOPheLj6Q6NG8sal4OPm0LYKEkECz
+         cP1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=2ybPtoRy4veXumJljCyckeCBDNMyXCz41xzBhpyHHgY=;
-        b=JyJZ1zaJBgMSYLuAS+OAywdLf4IDvj7Wh6R3GHcJ82Dnr/oc9CA5UPJG6NFxmtLgu1
-         z+1URhedgmds7NvsTCge1+Mi6Uw/SN+hoRJqR4UrgERbApgBUEhhh/yygMMXeZu+wSfz
-         oSPy+b81REy8PHMeLQSQWKL7747eBzNllaBFyhgNDSMaxppKCiVt51ti8RRCKgPz7t5t
-         xWg+hFxD2rWVzTD40cQfc1f+NbG85FNMcz/vy4yW+kg2r/Nxixc42BVp+1oCNiLSWxr2
-         a38+LJK4JUUQihorDRrHZ+gBmkWQXy+e3bAzbpli7OCdcgyh40dPDu/zVMLO7IeL0Phz
-         dGdA==
-X-Gm-Message-State: AOAM5329a+2UNAjUekO6irsVCVgLIFARfY8PSNeXMQAao3bENPmic/4/
-	XP7OnJtfYI38OTi7kJi6PnI=
-X-Google-Smtp-Source: ABdhPJyQPBFYNLW+W+MKPI7IZ5XD5FbXR85YzQ+QB+GFuKE7lF9rnsL2b7toNxObA0htE89G+et/cg==
-X-Received: by 2002:a50:fe10:: with SMTP id f16mr4160188edt.208.1627664896149;
-        Fri, 30 Jul 2021 10:08:16 -0700 (PDT)
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=LzgQ5qWgyMWolQs6wTxXxhOsH+nzIctxIAdy4rsIrVI=;
+        b=fMBGebtqAq6tkCCpPjblDaCo9Q46QtTkkZVqdAi8FtQlfON7zgxGqSmVyF1Ih0kdQj
+         stKeKyhCFABHg62pzv/DBciGs7Do34TdxKP89S/IYV7xAx/qSvIweSidpSMtjVItY6yT
+         0Us1IoEYBZkdVUJCrVp6ddc31mtvR5TapjmdOzRzR4qhxVGd+bmHOyi28c21iZLMUqF3
+         /XEnR4qB+CIR5tMEX14VG+JbjQeok4u6DDmsru3/yJbOZJRUDMQGDnwHL7NlLPeDUkJ1
+         7+2KcvpQl4c20fBQ9Xn2MSSVKzRIfWaE2JbWDm0/4hbEABYx4Iz1zBcOgJEXaJEgr27C
+         IDdQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531PviXyFXcHonNWkPmnK/ugE440qgPSyyIdIKeiuCBHeYs16DRt
+	8dBwL40WsXvsgwfNb8Hamb4=
+X-Google-Smtp-Source: ABdhPJzOMQPL+wYxW4rDE6V2sGCiFXzZ8+ggZisLf24MlVjM6Vk4GBWIXQLxzOoGHv6GpJwxXAks1A==
+X-Received: by 2002:a37:74c:: with SMTP id 73mr3435155qkh.104.1627668997859;
+        Fri, 30 Jul 2021 11:16:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:5604:: with SMTP id f4ls1097537ejq.6.gmail; Fri, 30
- Jul 2021 10:08:15 -0700 (PDT)
-X-Received: by 2002:a17:906:7302:: with SMTP id di2mr3405104ejc.409.1627664895229;
-        Fri, 30 Jul 2021 10:08:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627664895; cv=none;
+Received: by 2002:a0c:d686:: with SMTP id k6ls866564qvi.11.gmail; Fri, 30 Jul
+ 2021 11:16:37 -0700 (PDT)
+X-Received: by 2002:ad4:4e8f:: with SMTP id dy15mr4288070qvb.24.1627668997483;
+        Fri, 30 Jul 2021 11:16:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627668997; cv=none;
         d=google.com; s=arc-20160816;
-        b=nCVWUVk3dGN9baUSI02tA58E0lBXHnXOJDEYRRgsth/V7li35zUxv4jtLzFeARV6Dw
-         3aDPxekUmCIqhRlszghaWz345VlJfIvaV77e6E0UgGc8Y1Fe3AGzLttaYpMTAwt1pj4i
-         Uq4Y2tzcbgmT+KIG1j8Xw/c62Q4Z+ZcsY64VY/UWCLbBGE0U2m4pPHA71RGWefrnezlX
-         W4FpBHhl9MKEljxa1oCpffp5bd31oQ8R2VHHTCF4H+fzI5V3h9VlzAa5Ay0TaDzzgUpM
-         YfgIRsZLCly2Yy3K6m5QJFw8Tdq0za3FvObvhm1eA7vKZkkGLdZZjFN+SbWK17/IuVQc
-         gLgw==
+        b=NPdqfFuMQL4Bq2Wxnw8ju1bS4yiSvuX3Q5Sdnvr6NP3NBq439UesfrVifGCfVoyPMq
+         mgeIe+B33YOjCOUP+76KJgm0pbL9qZADn1Zym5ioMHAp06AcFT9QiO5piDISmLiJ0oLB
+         aAq8gYCOrJj1VlGru2oqBrCFdaOwQroW9uykOxplwkD4LayKZtd06NxW7p3+eQjR73+2
+         Q2cxXazH3n6h9hlr0bvfBFezoph7sDn5dJGOOTYQwJbtO7PypB2i9IyKsXaywVcJCHMe
+         oTd0+NnHOynlAFTSYbB39fA/YzM8IRazKAuqRdidcnijrZcJCSfFbaTsrDouXeUoVMh7
+         /FrQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=IV0tGa4+rpa0rWOKVy/RYqy1amnye8o4Jt6/b1EaRas=;
-        b=kBj2NKOeis2d4SRBL8WT49qp2bg0I4mQny4LmYmrOGwg5ivLa70RuuibIPi6nZPGnZ
-         4DIFiuvpoUfaiJWfrPxBa9K9R2zgMsrsSYuPa5QACqk9aEgGUlirA35mN9YBmkGWlHlF
-         Qib6lFGodFtR5AHAO6GjlJEt6QVPoC2/eS6SnWuXFyo0QZNpmM4VJTamTtP4cyvlCR/E
-         UwPldJ6DRQCYEAYFDZMou0F0DUhKPfBWV4sEkJvwV7UoXPwIk3rF2Bs9slcgcyll5UYg
-         nU0pJLL03p4s7j8HtwJQ8AigRN2k/2jSQ2OxC9hQnyewBvjfdftMfFH8T/xB2HwSFwmQ
-         QWwg==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=47G+jOd9ft2urcdZVKEMDZ0W/umlhqgBNQoiaG8/OGA=;
+        b=UeafFgN/CvCfuBV4eV62sHNZSpkJ3WR6x/FLwcn/gAcE5Owc3Q//o8tLiTBhxgZnkW
+         SYX1KHh+aWU6pjoWRhO3bSwLwudW56kRzbO+lTLqUnbzvSaw2Nh+d5kHD/eU8eP1thHh
+         Y67l1VO9uT+7VWMpDD+NIkYC6VrTxJrZuo78L1BGRC+J3VeVOM+RpSkV8s94JYS3o4PH
+         WXWj/0/86QNOppFKzhS0f0IatbLl2KLu4K6WA727+jIUfm2C9zS+tg1Mp6jVRrgp53FY
+         hzGQsfHQ8p25GEZHCWck7OGwTjP1QrPwgAfTMKwux527WuTEMhRk2yzrYBW045Mz4b1c
+         iDmw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=C6FDsp9e;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x135.google.com (mail-lf1-x135.google.com. [2a00:1450:4864:20::135])
-        by gmr-mx.google.com with ESMTPS id d26si141423edr.3.2021.07.30.10.08.15
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=MmozcAgt;
+       spf=pass (google.com: domain of tyreld@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=tyreld@linux.ibm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com. [148.163.156.1])
+        by gmr-mx.google.com with ESMTPS id 138si126069qkl.5.2021.07.30.11.16.37
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 Jul 2021 10:08:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) client-ip=2a00:1450:4864:20::135;
-Received: by mail-lf1-x135.google.com with SMTP id r26so19262633lfp.5
-        for <clang-built-linux@googlegroups.com>; Fri, 30 Jul 2021 10:08:15 -0700 (PDT)
-X-Received: by 2002:a05:6512:32aa:: with SMTP id q10mr2512533lfe.368.1627664894662;
- Fri, 30 Jul 2021 10:08:14 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 30 Jul 2021 11:16:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tyreld@linux.ibm.com designates 148.163.156.1 as permitted sender) client-ip=148.163.156.1;
+Received: from pps.filterd (m0098404.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 16UI3vac158050;
+	Fri, 30 Jul 2021 14:16:34 -0400
+Received: from ppma03dal.us.ibm.com (b.bd.3ea9.ip4.static.sl-reverse.com [169.62.189.11])
+	by mx0a-001b2d01.pphosted.com with ESMTP id 3a4p568pj3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 30 Jul 2021 14:16:34 -0400
+Received: from pps.filterd (ppma03dal.us.ibm.com [127.0.0.1])
+	by ppma03dal.us.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 16UI75qd019316;
+	Fri, 30 Jul 2021 18:16:33 GMT
+Received: from b01cxnp23033.gho.pok.ibm.com (b01cxnp23033.gho.pok.ibm.com [9.57.198.28])
+	by ppma03dal.us.ibm.com with ESMTP id 3a235u95p7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 30 Jul 2021 18:16:33 +0000
+Received: from b01ledav001.gho.pok.ibm.com (b01ledav001.gho.pok.ibm.com [9.57.199.106])
+	by b01cxnp23033.gho.pok.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 16UIGWiZ34472428
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 30 Jul 2021 18:16:32 GMT
+Received: from b01ledav001.gho.pok.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 75B7D28060;
+	Fri, 30 Jul 2021 18:16:32 +0000 (GMT)
+Received: from b01ledav001.gho.pok.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6A40028059;
+	Fri, 30 Jul 2021 18:16:29 +0000 (GMT)
+Received: from oc6857751186.ibm.com (unknown [9.160.21.31])
+	by b01ledav001.gho.pok.ibm.com (Postfix) with ESMTP;
+	Fri, 30 Jul 2021 18:16:29 +0000 (GMT)
+Subject: Re: [PATCH 36/64] scsi: ibmvscsi: Avoid multi-field memset() overflow
+ by aiming at srp
+To: "Martin K. Petersen" <martin.petersen@oracle.com>,
+        Kees Cook <keescook@chromium.org>
+Cc: linux-hardening@vger.kernel.org,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Keith Packard <keithpac@amazon.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org,
+        netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
+        linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com,
+        Brian King <brking@linux.vnet.ibm.com>
+References: <20210727205855.411487-1-keescook@chromium.org>
+ <20210727205855.411487-37-keescook@chromium.org>
+ <yq135rzp79c.fsf@ca-mkp.ca.oracle.com>
+From: Tyrel Datwyler <tyreld@linux.ibm.com>
+Message-ID: <6eae8434-e9a7-aa74-628b-b515b3695359@linux.ibm.com>
+Date: Fri, 30 Jul 2021 11:16:28 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-References: <20210727205855.411487-2-keescook@chromium.org>
- <20210728085921.GV5047@twin.jikos.cz> <20210728091434.GQ1931@kadam>
- <c52a52d9-a9e0-5020-80fe-4aada39035d3@acm.org> <20210728213730.GR5047@suse.cz>
- <YQJDCw01gSp1d1/M@kroah.com> <20210729082039.GX25548@kadam>
- <202107291952.C08EAE039B@keescook> <20210730083845.GD5047@suse.cz>
- <20210730090054.GX1931@kadam> <202107300937.C7016A82@keescook>
-In-Reply-To: <202107300937.C7016A82@keescook>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 30 Jul 2021 10:08:03 -0700
-Message-ID: <CAKwvOdmtKszUS0-OyGMHuhqjyXQC_283KOQOouWWtimYCvsAoA@mail.gmail.com>
-Subject: Re: [PATCH 01/64] media: omap3isp: Extract struct group for memcpy() region
-To: Kees Cook <keescook@chromium.org>
-Cc: Dan Carpenter <dan.carpenter@oracle.com>, dsterba@suse.cz, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Bart Van Assche <bvanassche@acm.org>, 
-	linux-hardening@vger.kernel.org, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Keith Packard <keithpac@amazon.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org, 
-	linux-wireless@vger.kernel.org, netdev@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-staging@lists.linux.dev, 
-	linux-block@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	clang-built-linux@googlegroups.com, nborisov@suse.com
+In-Reply-To: <yq135rzp79c.fsf@ca-mkp.ca.oracle.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Language: en-US
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: gc5JE-Gvwp4LjpvIX5-GdEcqjSPid7w2
+X-Proofpoint-GUID: gc5JE-Gvwp4LjpvIX5-GdEcqjSPid7w2
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.790
+ definitions=2021-07-30_11:2021-07-30,2021-07-30 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ suspectscore=0 priorityscore=1501 spamscore=0 malwarescore=0
+ impostorscore=0 mlxscore=0 clxscore=1011 adultscore=0 bulkscore=0
+ phishscore=0 mlxlogscore=999 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.12.0-2107140000 definitions=main-2107300121
+X-Original-Sender: tyreld@linux.ibm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=C6FDsp9e;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@ibm.com header.s=pp1 header.b=MmozcAgt;       spf=pass (google.com:
+ domain of tyreld@linux.ibm.com designates 148.163.156.1 as permitted sender)
+ smtp.mailfrom=tyreld@linux.ibm.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=ibm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,51 +178,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jul 30, 2021 at 9:44 AM Kees Cook <keescook@chromium.org> wrote:
->
-> On Fri, Jul 30, 2021 at 12:00:54PM +0300, Dan Carpenter wrote:
-> > On Fri, Jul 30, 2021 at 10:38:45AM +0200, David Sterba wrote:
-> > > Then is explicit memset the only reliable way accross all compiler
-> > > flavors and supported versions?
-> > >
-> >
-> > The = { } initializer works.  It's only when you start partially
-> > initializing the struct that it doesn't initialize holes.
->
-> No, partial works. It's when you _fully_ initialize the struct where the
-> padding doesn't get initialized. *sob*
+On 7/27/21 6:39 PM, Martin K. Petersen wrote:
+> 
+> Kees,
+> 
+>> In preparation for FORTIFY_SOURCE performing compile-time and run-time
+>> field bounds checking for memset(), avoid intentionally writing across
+>> neighboring fields.
+>>
+>> Instead of writing beyond the end of evt_struct->iu.srp.cmd, target the
+>> upper union (evt_struct->iu.srp) instead, as that's what is being wiped.
+>>
+>> Signed-off-by: Kees Cook <keescook@chromium.org>
+> 
+> Orthogonal to your change, it wasn't immediately obvious to me that
+> SRP_MAX_IU_LEN was the correct length to use for an srp_cmd. However, I
+> traversed the nested unions and it does look OK.
+> 
+> For good measure I copied Tyrel and Brian.
 
-I'm pretty sure that this has more to do with whether or not the
-compiler applies SROA then observes uses of the individual members or
-not.
+LGTM
 
->
-> struct foo {
->         u8 flag;
->         /* padding */
->         void *ptr;
-> };
->
-> These are fine:
->
-> struct foo ok1 = { };
-> struct foo ok2 = { .flag = 7 };
-> struct foo ok3 = { .ptr = NULL };
->
-> This is not:
->
-> struct foo bad = { .flag = 7, .ptr = NULL };
->
-> (But, of course, it depends on padding size, compiler version, and
-> architecture. i.e. things remain unreliable.)
->
-> --
+Acked-by: Tyrel Datwyler <tyreld@linux.ibm.com>
 
--- 
-Thanks,
-~Nick Desaulniers
+> 
+> Acked-by: Martin K. Petersen <martin.petersen@oracle.com>
+> 
+>> ---
+>>  drivers/scsi/ibmvscsi/ibmvscsi.c | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/scsi/ibmvscsi/ibmvscsi.c b/drivers/scsi/ibmvscsi/ibmvscsi.c
+>> index e6a3eaaa57d9..7e8beb42d2d3 100644
+>> --- a/drivers/scsi/ibmvscsi/ibmvscsi.c
+>> +++ b/drivers/scsi/ibmvscsi/ibmvscsi.c
+>> @@ -1055,8 +1055,8 @@ static int ibmvscsi_queuecommand_lck(struct scsi_cmnd *cmnd,
+>>  		return SCSI_MLQUEUE_HOST_BUSY;
+>>  
+>>  	/* Set up the actual SRP IU */
+>> +	memset(&evt_struct->iu.srp, 0x00, SRP_MAX_IU_LEN);
+>>  	srp_cmd = &evt_struct->iu.srp.cmd;
+>> -	memset(srp_cmd, 0x00, SRP_MAX_IU_LEN);
+>>  	srp_cmd->opcode = SRP_CMD;
+>>  	memcpy(srp_cmd->cdb, cmnd->cmnd, sizeof(srp_cmd->cdb));
+>>  	int_to_scsilun(lun, &srp_cmd->lun);
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmtKszUS0-OyGMHuhqjyXQC_283KOQOouWWtimYCvsAoA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/6eae8434-e9a7-aa74-628b-b515b3695359%40linux.ibm.com.
