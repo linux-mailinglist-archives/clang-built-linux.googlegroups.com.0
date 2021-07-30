@@ -1,125 +1,124 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBY76SGEAMGQE645PKRI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBTEASKEAMGQEVTVZRMA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3d.google.com (mail-vs1-xe3d.google.com [IPv6:2607:f8b0:4864:20::e3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 208273DC12E
-	for <lists+clang-built-linux@lfdr.de>; Sat, 31 Jul 2021 00:38:29 +0200 (CEST)
-Received: by mail-vs1-xe3d.google.com with SMTP id u75-20020a67794e0000b0290292c808d508sf2079596vsc.23
-        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Jul 2021 15:38:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627684708; cv=pass;
+Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5AD9F3DC136
+	for <lists+clang-built-linux@lfdr.de>; Sat, 31 Jul 2021 00:42:21 +0200 (CEST)
+Received: by mail-lf1-x13a.google.com with SMTP id j6-20020ac253a60000b02903b68cc7d130sf2661718lfh.16
+        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Jul 2021 15:42:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627684941; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kRYp3j6BC9OdY5lGh74WOIWjONqGlWlvWkT7spuIzybH2t+VHzzriCkJXk2w5vqfAt
-         6eV9JchexXiQdna3CnJsQhit0aCw9/8sSm739C9U2PzbxVd7hFzntd9wu3Txa4obH2wU
-         VFj5WX7sCLzbLDvSC9NR/0oHoy17bjhb+LtMazgPF+nHLsmcq9Wrtmj+DLdZxA0ESnlj
-         mytmZEBihpyM8TBYdcn+bV0X95rGkaZj7kkeZ7rg+RkdS0Wsi/SM1truaoTlOVnrNSN1
-         tCZRW8f/WRovwOtRUXKdzxvu+IiBF+tB3WWtxAurErLTNnM6FDGfmpQAvHdrbsOKLubi
-         yfhw==
+        b=MNoEqf1kYcl1e4EmgiIUVqDI832tkY5NdIa/Zufx6x6Ld/NRUGg9LZ3G96Gsn5dIt1
+         0b+Ex54+NFVbgOxtnD0563zPD8tw+rmOFIAviO9N18QMvc4uN/B05BXeEK3RJHR5F2EZ
+         vsBSRSL024ul8PN1EOU7GdmXu4afkCduDgG6Rt2uaAX2x09exlfsv15Vx35iWcRKOHBu
+         lVY5kXBa6guCw9BE+SplfBpGTzFhC0+MQb05WmDggBsTutsJq+pkZSQoWXyOFZPMm/6b
+         VNVH+DjbpXqUXzXw25IHM48/mWHsQf8/oARqGmDsd5aP4xzx6SbT0CwxQhscFEtslYVE
+         2m2Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=GnsMsteIeqR8p4hK7ITHgJbMfRK5mJNzUYoNuUQcfAA=;
-        b=eE0VekLJvIxTAiEbW+ZB0bBp6vPNySNf6cfj3e/G50YW4Xspagri5D17v/WsJ4hvfj
-         yauqYbU6qIW2VelV01N78CSxk4iFq1CgQ3wIyer0BIRCwpM5kPFbagy1z+k8KQ/Qhjn9
-         t4a4WP8axDhSz48c4s/GlfCNFLRTrBDxmAjaT3Kv99rHv8R0PkXX1jlQ5EllY8rPK/r+
-         JrD3wSxkvnt1QjR4dRXDBXbdcb/G4728HsfRCay0fyxF/B5sl8TbkHs0Qmt8Pqj8n79O
-         WB/WEASpUhzQDKsFx7GAFrFypSnOJT+Mf709l/5I/YH82GHMwf+NP4A5b2baaH5AFrjI
-         p3ZQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=xjrJdUjrbsHCHLR2y2nqgTVDmzqSzgs/TMrZ/wxqyTQ=;
+        b=atorkhn4t9v6ZCeFCdEuXqLwM5RGLbxDvAwm+jxK0Mh/gOdyeMMMGai+aEcQ64ep7p
+         4g39k48OttyncNpgLc6febHaxzQyjOUVPfUATNJCkWpl0C1oIh+TpxzIFgMnag5qgE87
+         3VwZjtxsDljxAVrDe29qbhUKgBr3v+S+XRaXnMb6LYfZLtHL/uffihkfpKhNbUdHvDus
+         ygVh0UYXe8UqMpBV58PCp4iZ7ZvZ6kwl+NK435q6qrpFutHv3zE672fSkVuu17L1Pp0K
+         7TRQ0YPnD3hiaAKE1lk2PiKvkMixCuazI6GdiXbbx3zOpwMb0Stfq+ruc+H4ZuGR0vQw
+         AMFA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=CBLwAqSq;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CamcDOtb;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=GnsMsteIeqR8p4hK7ITHgJbMfRK5mJNzUYoNuUQcfAA=;
-        b=p/NAj7fDI7p1j33xuCiihDg+YZHRmiz4Wy+H/VCsbgOWYlKg0IxvrlGc2rBkdvNQX1
-         6UZlkI1zPw/Nf99P1jigqAn9ugBhIXfI7bQ2tFUHK/uM0ETDYFzPiXylL3UAsz4nzeDK
-         sFpa0DQznuMOfUncnepkLtuopshiTNwHJufYl6Idvo1BYcSVyzhx1ppB1gl3YQI3nXDC
-         78hIqblk7E3PPv51UPLtgxVYjbonME3WfKmZwC8o9Hn66Of+4OrNb5s8GLrubdNjpXET
-         Tr+NWyW7gxRe/Yjp4FgjxKdBRix0iN+tFtMGmvF2Oa9gESPWmJHXIRBl8YYbABynnr+i
-         q+tw==
+        bh=xjrJdUjrbsHCHLR2y2nqgTVDmzqSzgs/TMrZ/wxqyTQ=;
+        b=VKNnyZAOf649CwJQmmlZhEXOeJuaooGo80IPofGYRgSS47jCiMROh1cMNju6r/AR4m
+         pHQEAtW0TbRwSPaY1PJFyUYuEpzn4gmIo7TZeP8/f3H1LmTj5GJdCCoODoTmmrBEqa+E
+         E6fI4OxpnTqAU+fFmVIM0YxuCOdFcxQdMLxhoORL10Gfrv29Qm8v6gZDT/NUa1iaqJbu
+         z6h9DFVFXuM/c+yPqpHmix53FB2q/92QXWmCui0BY75g65ptSe1S4nvHmeyQ11Ky9Edk
+         JdknL1T8Nc2ENlHv/Y7+YX5jTwP00lRDtD0Wg7l4aMppQckj+2It0/3VXAPYakeopWA9
+         q8RQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GnsMsteIeqR8p4hK7ITHgJbMfRK5mJNzUYoNuUQcfAA=;
-        b=W5zroJQhfHl9ib/NvLnoKCQJJUpiLnhXq3xW19iPBGWv4ZhwFzfUdmJ3qnEUPHRNCs
-         an5uooh8kpJvTbptnJooYYPPcOm4Qht7ocOyF1PD5M46vX3Aa9PyesDipLFrNYShfY2U
-         VPokBx/mCwYbKFPJrRO/jz9J3DNnYfJEG14YcTRNuf/PnQIijcMV+MBh6C9eqWPtPWh2
-         QatXgXcowUScpNmNCdrcwGX5eO28SAmfHzx9Va/t4b49HjsrFhYomMcAIfx3gEte5xCt
-         PzjqBaC/MU8E3mglcPx7ryHoAo09w6XEMt+xKxlnLrbMYHAhUDyEnZVL672blIy5IAkZ
-         kNDA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5302mGZru785+ujN3bNuMtq1BFfXTQnpxGz4wOF0RV1TtcowSoMh
-	MmsZMh2HNRYLLIEPTRrJ6iM=
-X-Google-Smtp-Source: ABdhPJykmggy5r/6bKDA8NH5mv5/H5Zeh671P4p54iiWUBlRFxrIccdZFB7pFUbb7qVkGaXaw5EhZw==
-X-Received: by 2002:a1f:9d13:: with SMTP id g19mr3858395vke.15.1627684708054;
-        Fri, 30 Jul 2021 15:38:28 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xjrJdUjrbsHCHLR2y2nqgTVDmzqSzgs/TMrZ/wxqyTQ=;
+        b=dPaobogl725GtgIx6o/ZYN88nc5wnSO+BiX2qEh9tMPQHsfwRhJrxTdWR1mFDgCIUL
+         0Bp8oWmXPV4bTG3EbBbUU/rS3pQ94hOmtM+eHI82YMJ+LuxmAFOaxAL4PED6KAKenChF
+         fpT8WYiL+VzhXNGiPc5frWX2zOmeg84TyuK5wD0qUIsBhkzPHDadGOIRjvmQhj7adYve
+         yZxRYZnF0s9S5wSNk2RO1/09tS1pdS8XFNV8wcQLqNX5VS2N0GLC8GRAnr5QEtz3TaZn
+         P1aLGKA3CHUovh5Xe07Dz1WYcq+rPwwNkVTNlMRf0J+J/csmB2B7xmxAKUFi2Hi3V404
+         l7EQ==
+X-Gm-Message-State: AOAM530zacOJiEVGH7LN3DLWqvsEODDlLnOfCR69YBU/tz+/kCLjJq1l
+	AWr+GROwgZCiGjnNz6aWAag=
+X-Google-Smtp-Source: ABdhPJywHrTwAZ1b9MolBN0MAB5enIAa5nVO+L4TCU3HEFic6lED7bxuP75qOwF/90rNe8303mMySg==
+X-Received: by 2002:ac2:4310:: with SMTP id l16mr3605404lfh.481.1627684940884;
+        Fri, 30 Jul 2021 15:42:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:6701:: with SMTP id q1ls431422uam.11.gmail; Fri, 30 Jul
- 2021 15:38:27 -0700 (PDT)
-X-Received: by 2002:ab0:7455:: with SMTP id p21mr4860879uaq.73.1627684707577;
-        Fri, 30 Jul 2021 15:38:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627684707; cv=none;
+Received: by 2002:a05:6512:3f02:: with SMTP id y2ls1188848lfa.3.gmail; Fri, 30
+ Jul 2021 15:42:19 -0700 (PDT)
+X-Received: by 2002:ac2:5084:: with SMTP id f4mr1950748lfm.107.1627684939774;
+        Fri, 30 Jul 2021 15:42:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627684939; cv=none;
         d=google.com; s=arc-20160816;
-        b=mn2A9I7TjvRhNsZ6w+0OsZAlrSHdC+inWpyEQjrbZuPZtjcK2OKBdprrSY5ftXh/pP
-         3GuVF0O0l3H/XKgR5jlAqYmiVh1rdt1HSP5zISY294x/bXc/lnq62tTZrfDOFsw6NA8A
-         Bg61436kdypIjlVIBUMHIiaVBnSsW3l9pRpzV3wPsoGFvUecsR/a4w0egvzRjxNwqN8G
-         8l2lM0jcWnCfmvaHi1g8u8mVQKX44FDAmjVzIPJlYT2YZDCbmleiZMNb96+9ozppKl0Z
-         Qm4/qgVhZ+6SgURMNdZpuA3E5XleQzBCi0pCSleI9aOuDGsPZsr7YQTUeO2tV7ozdUak
-         G88g==
+        b=JrI4fuua+wQFjROtt+iizAkiaFVofpG5jKQ6zpYk+6NVJOVHpdmY8dSclTtzMG0c5M
+         p1OJWeyvY2i4M2hukH1VJo+3+9SwjiepVHMH6yPt/Na/GURwzZ46ArRAOMQ362JgyzY8
+         kZ3LKmu8Jh6NYjZIOxKg8RDkqHllaNMDFz0nXBwH1JIAIyT/y/9smcq3gK/OJCGvGqbo
+         drPGlWK1Uwqd7QSJXly+NYXi9upIsDCZx9U7/NMPO2fYcbleQmFfavmgr7S/7Sou+qf2
+         eT2oxLa+nwxs+4bAXJT8JElkiVOALiMlIzt/JCRbhG/OfHwGKUqwXXLo34leA9sznhzL
+         kXAw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=fR3YoTsGn10UoLhjKnWcrXTpAUviMKq9lqUMnVNwz2Y=;
-        b=g3LVbX3bOd3wfAe3Zi8xjiIMyjEHNlIBYXF4aCj6DQu+JH7WHzaQhyu6XA1qY0THSB
-         nShZ0jfcx3jzBnro6RNR2aI6SnnwOgLAFOGByahN33RUOv1Fq3B+hXnrGSjj4tE5UmX/
-         KQrpNK+XJdpbp7yC7luTFRKWv8ZFYqMUviJklzYxdx9E3q5p6g6BtPhPKeSp/W3HY//j
-         CA6CmLwaMQAfRcX5Mdiz6dnKHIbGqbtxGHerNg5l9+FCrY3nc/kvK0T8wyToZI/+wPx3
-         BAfQPGUxpWc7R3wv6U1Pxu6ISETtV/Hc6KU9sTq+1B0ZMHYH07NbTA+/r3Ve6BYmPXwL
-         gEDg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=MvaRlaXK64PpiXVCxXFWPZrJ6CRVJKhlEggaPSUWrrw=;
+        b=TqNRYepD+es0VdrYs4cx8iSGo2x8xpEJlwRnyq1vA5R6zAJQxApNpqFRDr8H6OOOE8
+         vk0DihjMZlYCn9VtXOv3HSOe8ew1jfuZ39uNLW5tyBhcWCLFoj8ffvtfqV6rnyUkQ+8u
+         3ALs6GPr/Zkzxo+fzKLysIURn1dGSpj79mc2cWsX9iSRB5Lu95j65MWE+K7cXOHdZMZZ
+         VZV4HEAIinCRFqIWRjoCbZKhPmV8Zc3kli6vlO4F/tNA1QozcZQ+cyvliylWvLHa7NzF
+         3H+/oCniMfBQJjjg/x6GWHO6hkZ7wdZEoGYVOKbWuG2dNvko0Jw/6qEKjtUAnYsxAlru
+         E67g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=CBLwAqSq;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id f11si203265vkp.2.2021.07.30.15.38.27
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 30 Jul 2021 15:38:27 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 8B00660F42;
-	Fri, 30 Jul 2021 22:38:24 +0000 (UTC)
-From: Nathan Chancellor <nathan@kernel.org>
-To: Kees Cook <keescook@chromium.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nick Desaulniers <ndesaulniers@google.com>
-Cc: Fangrui Song <maskray@google.com>,
-	Marco Elver <elver@google.com>,
-	linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com,
-	clang-built-linux@googlegroups.com,
-	Nathan Chancellor <nathan@kernel.org>,
-	stable@vger.kernel.org
-Subject: [PATCH] vmlinux.lds.h: Handle clang's module.{c,d}tor sections
-Date: Fri, 30 Jul 2021 15:38:15 -0700
-Message-Id: <20210730223815.1382706-1-nathan@kernel.org>
-X-Mailer: git-send-email 2.32.0.264.g75ae10bc75
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CamcDOtb;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lj1-x233.google.com (mail-lj1-x233.google.com. [2a00:1450:4864:20::233])
+        by gmr-mx.google.com with ESMTPS id d2si85302lfv.0.2021.07.30.15.42.19
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 30 Jul 2021 15:42:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) client-ip=2a00:1450:4864:20::233;
+Received: by mail-lj1-x233.google.com with SMTP id u20so14566672ljo.0
+        for <clang-built-linux@googlegroups.com>; Fri, 30 Jul 2021 15:42:19 -0700 (PDT)
+X-Received: by 2002:a2e:a911:: with SMTP id j17mr3212666ljq.341.1627684939283;
+ Fri, 30 Jul 2021 15:42:19 -0700 (PDT)
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: nathan@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=CBLwAqSq;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+References: <20210730223815.1382706-1-nathan@kernel.org>
+In-Reply-To: <20210730223815.1382706-1-nathan@kernel.org>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 30 Jul 2021 15:42:08 -0700
+Message-ID: <CAKwvOdnJ9VMZfZrZprD6k0oWxVJVSNePUM7fbzFTJygXfO24Pw@mail.gmail.com>
+Subject: Re: [PATCH] vmlinux.lds.h: Handle clang's module.{c,d}tor sections
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Fangrui Song <maskray@google.com>, Marco Elver <elver@google.com>, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, 
+	clang-built-linux@googlegroups.com, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=CamcDOtb;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,44 +131,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-A recent change in LLVM causes module_{c,d}tor sections to appear when
-CONFIG_K{A,C}SAN are enabled, which results in orphan section warnings
-because these are not handled anywhere:
+On Fri, Jul 30, 2021 at 3:38 PM Nathan Chancellor <nathan@kernel.org> wrote:
+>
+> A recent change in LLVM causes module_{c,d}tor sections to appear when
+> CONFIG_K{A,C}SAN are enabled, which results in orphan section warnings
+> because these are not handled anywhere:
+>
+> ld.lld: warning: arch/x86/pci/built-in.a(legacy.o):(.text.asan.module_ctor) is being placed in '.text.asan.module_ctor'
+> ld.lld: warning: arch/x86/pci/built-in.a(legacy.o):(.text.asan.module_dtor) is being placed in '.text.asan.module_dtor'
+> ld.lld: warning: arch/x86/pci/built-in.a(legacy.o):(.text.tsan.module_ctor) is being placed in '.text.tsan.module_ctor'
 
-ld.lld: warning: arch/x86/pci/built-in.a(legacy.o):(.text.asan.module_ctor) is being placed in '.text.asan.module_ctor'
-ld.lld: warning: arch/x86/pci/built-in.a(legacy.o):(.text.asan.module_dtor) is being placed in '.text.asan.module_dtor'
-ld.lld: warning: arch/x86/pci/built-in.a(legacy.o):(.text.tsan.module_ctor) is being placed in '.text.tsan.module_ctor'
+^ .text.tsan.*
 
-Place them in the TEXT_TEXT section so that these technologies continue
-to work with the newer compiler versions. All of the KASAN and KCSAN
-KUnit tests continue to pass after this change.
+>
+> Place them in the TEXT_TEXT section so that these technologies continue
+> to work with the newer compiler versions. All of the KASAN and KCSAN
+> KUnit tests continue to pass after this change.
+>
+> Cc: stable@vger.kernel.org
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1432
+> Link: https://github.com/llvm/llvm-project/commit/7b789562244ee941b7bf2cefeb3fc08a59a01865
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+>  include/asm-generic/vmlinux.lds.h | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+> index 17325416e2de..3b79b1e76556 100644
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -586,6 +586,7 @@
+>                 NOINSTR_TEXT                                            \
+>                 *(.text..refcount)                                      \
+>                 *(.ref.text)                                            \
+> +               *(.text.asan .text.asan.*)                              \
 
-Cc: stable@vger.kernel.org
-Link: https://github.com/ClangBuiltLinux/linux/issues/1432
-Link: https://github.com/llvm/llvm-project/commit/7b789562244ee941b7bf2cefeb3fc08a59a01865
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
- include/asm-generic/vmlinux.lds.h | 1 +
- 1 file changed, 1 insertion(+)
+Will this match .text.tsan.module_ctor?
 
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index 17325416e2de..3b79b1e76556 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -586,6 +586,7 @@
- 		NOINSTR_TEXT						\
- 		*(.text..refcount)					\
- 		*(.ref.text)						\
-+		*(.text.asan .text.asan.*)				\
- 		TEXT_CFI_JT						\
- 	MEM_KEEP(init.text*)						\
- 	MEM_KEEP(exit.text*)						\
+Do we want to add these conditionally on
+CONFIG_KASAN_GENERIC/CONFIG_KCSAN like we do for SANITIZER_DISCARDS?
 
-base-commit: 4669e13cd67f8532be12815ed3d37e775a9bdc16
+>                 TEXT_CFI_JT                                             \
+>         MEM_KEEP(init.text*)                                            \
+>         MEM_KEEP(exit.text*)                                            \
+>
+> base-commit: 4669e13cd67f8532be12815ed3d37e775a9bdc16
+> --
+
+
 -- 
-2.32.0.264.g75ae10bc75
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210730223815.1382706-1-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnJ9VMZfZrZprD6k0oWxVJVSNePUM7fbzFTJygXfO24Pw%40mail.gmail.com.
