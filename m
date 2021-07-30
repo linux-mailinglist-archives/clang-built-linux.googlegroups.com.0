@@ -1,140 +1,136 @@
-Return-Path: <clang-built-linux+bncBDPZFQ463EFRB3N5RWEAMGQEUZOJN4I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB3WIRWEAMGQEU2RZSQI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 55A623DB0FE
-	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Jul 2021 04:07:43 +0200 (CEST)
-Received: by mail-pj1-x103b.google.com with SMTP id fa13-20020a17090af0cdb02901731757d1a2sf7977554pjb.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Jul 2021 19:07:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627610861; cv=pass;
+Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6D4D73DB122
+	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Jul 2021 04:31:12 +0200 (CEST)
+Received: by mail-pl1-x63b.google.com with SMTP id c1-20020a170902aa41b02901298fdd4067sf3774298plr.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Jul 2021 19:31:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627612271; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nxO4C6oreBNdzmoyCz92hsirAhcVIwqMBRCP8OpNaoRpl8skvXmaBJiuHcYQDCP7/q
-         5Ny9PKF1ceNC44RyYumnvpJu4bzFjAj29ZE/MRCUKbcac/HLxCmVR3CTiP6FmXhkmxt4
-         h81w5HHWpDAjyRrKjePjtIRzOjVH1Mwkk+zL9/rQCtxnyx4h1aDk/ZfL28hOwX/9TV/u
-         e+rQSc2a4n6QemQgaFSq1dD1lAopqUBaJq974vEud5feYV9kYnDPr4qmkLBYdDRQmj24
-         pGnrbqpXNOyFh9HlknP2n3BAc4xCjhe+mhLCbGb2oyqN+YE3XMNK+KP/7yygV0WGyUu7
-         JiIw==
+        b=cES2c5ddh62j7tvUo8djkmuG2w/z+I+ROSfrGG9DYm/2p5FzmP8xCsEWZfUjNNh0Vy
+         Z2Vsegdng2avOJZovwDojhwEuzu1HRwhonFefWZPYKmpZYD34n2+5Z2QVkxvL+yo5DML
+         cYAPYb4RNMhBug736XsygdaTut4lR4Uip9SlZBlisNR/ZPeygUdZDg8OL7S4AHmMZxVZ
+         af17nqOkZFRVFf3AkOX7BMljvQfeTI8qaDlr/5HAe7sibEzH9/nCRz862IfDNxBpxeU7
+         URHuR8ZYqFAuSyrRIFOUrX42o2JhyfTUEjuWlD3nX3kuiQwuB50RxxzZP0tlhOmniZaU
+         o8kQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=AAhsJ4PyQn3RMdJx4X3FFKPkXuG5j8TEO75SLGqfDTU=;
-        b=N0kMPVMVymiBM2/9E/nNHyII0RON2ynQM+BdoNWbZITfeXCrIK3spNsw8UsG7zbO/q
-         mz2SvCICEQ7KzadV8g0IM+T2y+1VDUxRXcC6m6HCZvkH/KmYCMRlrhs97qTqkBEoeNuJ
-         hFhLI/JXXMCF53Sh3YSH4wBD5PDNcQtrrOksWqRAK+BaJYpiqyepYgiy3QdrOt2KncL+
-         P9gxj3RnjWISPeoK2qQuv3lVySAZw/DoLUE2SrDgDOmSZXhQPqVrPEFs72FFN+k9MaMe
-         04YzvVwAaqrjKQjCOjsh3l7YlVhOQ2cU9xQ0KFJDNf0TCJrv7QWzlv2nucx9v0YSEPBN
-         iBKw==
+        bh=ykbvsta+j2Hz6zmrFdWjp9InLg16iKETddPdoYJV+uw=;
+        b=rOjBXnbrw3vMEN3LqfsUFVZSsLT47nGXBc52+pohbjlJ4Ktx+07WQ6jimFv0Q3VzON
+         ATawAbXZMErok04ieFxk8KiG+0106beLXRrouMjevutK6vXiB1g9gYgW69lqsApefxaA
+         SD+zdXk6K31PXltUr9qLjAFWIK/VF+ijddnmWNcSIUVlBaICgXNEt3chmik2iPOlx8xI
+         CZdNlXHGibvYoYrck2FUK7UAjXdfXSJquMw3vcVkBW7DMd1sdz8jSmgEug074gB68dPi
+         Wl4Witu+S5kzVwFawPCrV8P9CoveIdUlB5fkoHcWO+5Nf0JWUHC0wvVR7eya+luDbLx5
+         7VjQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=UQ4StuH+;
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::22c as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=etYre1Aj;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::635 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=AAhsJ4PyQn3RMdJx4X3FFKPkXuG5j8TEO75SLGqfDTU=;
-        b=X7Kk6Qsgtwkbo3Ah/+dcI/efuY8GKKAlHFf4POYQZWRaNoOQ+Z7aaRA5V85DRF1ktQ
-         BjZN17RT13DroS6sAwgQaYPLjNkt0WEqPdMzpQmq7POOhPyUGwG8HVFBdHDOdxY7lFXP
-         9T2uH2wFL5+2hgydS62+v3XP0fGd/6q43yFmr3Pll4F5t5108krYrRmAQgeUKbfaxkHl
-         gmU22yJsqbU3cESPmz8+1d6QziRWvTqyaOksLGac7apNNlcZOT53fWiWUmo72IKoX/VB
-         AEfe4agUlFLzCn7teafJKTBzRVnhd8SPg54HuZXEOMLxRWwgQ/ztrUslXl9aBN0rzzRW
-         vIeA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=AAhsJ4PyQn3RMdJx4X3FFKPkXuG5j8TEO75SLGqfDTU=;
-        b=HoKQT63JcqQT7LsqPor8hn/Fxv8NzPZ1zvrU+DruxVJutn2LQDiytShWSloQ/z0pY+
-         bAvi7y+nm22LSakfBT1nTHKjpBKdqPA+qfmpSP3kk1RCk/IBADFfX7QoUSyidjMcjlD/
-         0Oqs9sgyodKcLFEopTFj7PUo80G+ZfAf4FHnZlAdvKiiPm93e1NDx+rNBX3+ETBJ1RoE
-         Zpu7Z3uBCmPf4hvzRDbvp229xA4dNzTIf0wgGOegu8LAf3ScUs2P5HWTBC7nYLwmoYvv
-         9RbrO0SC80cIZxyuNk5pGDDVhn+STjcT9kpi4Nd0vdM2fjl9lVzjrFMTEGrDXz4P0Qoq
-         imaQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ykbvsta+j2Hz6zmrFdWjp9InLg16iKETddPdoYJV+uw=;
+        b=R5eAPdpflCSZUmHoJ5wVbio+aPg3qCo/YtYzXTB0EBp33crjcjjetEiq6h5Fi5N1vu
+         +I+416vBr6jJQ/oj+JRp79+EyjaeZb0iAZ6AHsMzoazn8qaJt9tuK0Jx3hYSQnI191Dd
+         RUl1R4wyNHj2FdLKOfDYQdH22eBY/sIsfwgMzrchON9mn1rQPeHW4G3oXklpS9OSW2Du
+         d2urEKz00pj9sKHDsrGoxRbBmrrzpKQABe2mZmMoByAxbjZOQEtioV+u2/7R161VXzrM
+         iXU0IVRezZhQln5gVeOcms0r58EU3b3VpGHqnaBKoQIH9DZLauODz6v500AN97hWxLVQ
+         fi4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=AAhsJ4PyQn3RMdJx4X3FFKPkXuG5j8TEO75SLGqfDTU=;
-        b=LNExrMcHsyYqoDe7lUBLNB8p72PD0qj4+LGCFM1cA/frkRQcZ1/VvZn7fvo823J920
-         04g1xAgYb3mJBJ7VnfvsQAb7WHUWZ3MIRdGOfrHfntNdP1lnUCIi1LJflFCCPJ7BaDsY
-         sV8qmB5/SGCjQgSQzHnlXRr7FeBXp9QHgyr97hID9V1PE+e/JPuwTv28rTXTqNTnwFWq
-         3n/+TCm1iM/CcFqyOD5z/qTvnYbe2qOUMbJlH8TeRY6427uT93ZJGKn+T9w9patbp6hH
-         8F3kl7D24/yQYz3tdZo/UcJDok2M393qVJ0892qMR/rzqoolGvG7WwxoJK2suVapKdIr
-         YwHQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ykbvsta+j2Hz6zmrFdWjp9InLg16iKETddPdoYJV+uw=;
+        b=kmCDZp0izOt7Gzz2VoBySYDINV1Cwox2ANB0etmdZKJ69z6CYyvMLWNlkGleNLyFRC
+         JT/hfd/CGcOgMEs9287GkLy4yYcOVodOYrQG1KjvsMo64KdR6dDAHU6tkKCHl8nDLcu8
+         xvjku5XgLYg0mxbBEKSTnIIUCDBs+mqJ6uJN6H6CrrGsgB5sIhwkbP4gGJBsPgnpM9ri
+         N4WuwGxsXLOMGSZ3kMv7K4AB8kSwwZUJHDesaCLeRaCeh1A4GVLOTpRzAjZckZhjJpqX
+         c+533Cb4MnCNwZK60YVU0WGazD8hFtI/DUnrftJ2lZK/Wqj6+S5wKvdxcsVA2PQth3mW
+         ZkMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531csbCetKD5PpsFe8GjTPJtikz1QDN6prvzDR4I0Axak+OGeBls
-	43KMrrdTplINGO0m8D72ZdM=
-X-Google-Smtp-Source: ABdhPJzNS3OogW2upqlHMM5H5cZ+iUzMEQe3pcfrgFM2SnymGOOPpZby5y0OQCO9M1jLEoaiLqU4uw==
-X-Received: by 2002:a63:5a42:: with SMTP id k2mr94907pgm.301.1627610861601;
-        Thu, 29 Jul 2021 19:07:41 -0700 (PDT)
+X-Gm-Message-State: AOAM532760xswXT9Z0tbI99+QcrxpbUXaT1PZAgxiYwMqkrbYanqAlth
+	7w7RGM3EcSrHNM5CEwvWGEk=
+X-Google-Smtp-Source: ABdhPJxT/JMJHxIV2Y3LqIRIUGrRGwprA2LuQdrqLUqKKbhvSfAh4grBaIMhNlYwEBsqgbFhgoSxQQ==
+X-Received: by 2002:a17:90a:86:: with SMTP id a6mr571277pja.133.1627612270996;
+        Thu, 29 Jul 2021 19:31:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6a00:815:: with SMTP id m21ls96532pfk.1.gmail; Thu, 29
- Jul 2021 19:07:41 -0700 (PDT)
-X-Received: by 2002:a05:6a00:2494:b029:340:298b:acf7 with SMTP id c20-20020a056a002494b0290340298bacf7mr369323pfv.18.1627610861064;
-        Thu, 29 Jul 2021 19:07:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627610861; cv=none;
+Received: by 2002:a17:902:e5c1:: with SMTP id u1ls97878plf.11.gmail; Thu, 29
+ Jul 2021 19:31:10 -0700 (PDT)
+X-Received: by 2002:a17:90b:4c85:: with SMTP id my5mr619306pjb.196.1627612270423;
+        Thu, 29 Jul 2021 19:31:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627612270; cv=none;
         d=google.com; s=arc-20160816;
-        b=azShlgCti6kpBVVcO/SGD1txcArUhQ2JSEkG4Z+CUXaupRsr2D+8Atf4a3215lG1at
-         V+LoezhNSIDKuHOInd1ix6lauWOn67kDEipu3YG7uokATXYiPVMkO1PTEVMtUPlo3ST/
-         Ho+17y9CwIMjhZut9bCmS6ez2zx98IlMbL1kBHWX5vxT+VRMNxSzOjqubOBFUbS68Fhr
-         Xi+p8ezFJthAeloCJmoQ73MII4tOaA0IuGls9nqSh2XidzCigx5F8ucBZTMinRTl/kMl
-         zKpRKWV7rjiMS09IUtPmDUJGHupC7EXrJHo8JEtUcBVJiO1R4n8xne87haXzzsOzWw7J
-         v3rA==
+        b=Af/tO0RBZb8YExAUfTkHvUMhjdv3/YLFXvU9y7jfOiFGULeu0omUXfMpYg0GbS0qef
+         7pYjHmxOY/3gjrGCo2Eyir/PS8pqpHqPsom63v7xdf+unQPveXR5y3soDqIXp5HSANfM
+         cTEcbUH45Bl2xu3BnIWgWLNunccCTClIY45wVjz++B3JMVfXdz3dAleQ4SMEIbzdpk3n
+         ECRY0L8ah5araHu9JHmJsMh6PE/hSEOX9xToEEy5HM//Yjm5vUgy6F3z1C8SHG2wd5dm
+         dUVb7jdzvT5gWfJ+CudhxU0MAbXTdAdRjaC4DL6i0opu9XfiZnVKYop+YnTEFtZ2EryN
+         FHeA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=D0jPV269cYXFuIt6Gg1NVjQqzHNY0R6AeOaqh70FYAY=;
-        b=ociF+uFUi4ErAJh2uwbQGlHSpBYUPdqKxQ+6WYCOWWwkfAn8C4VkaIz4N52Ly4qNMb
-         EP8HIB1Dq6X/5ptROsmhxkjdmOkeZbeR8DhHB6w86usFMAOL7Ktgccxoc38aOg7PGfjM
-         gN/BoiGOawC6bZR2Ck6S1aY9k/S3wAoaTlQXdCdgqr57l44qL8CfPNJUbRRU/bAXOBf4
-         ox2PxPyJZujllG43XqYzEMZiMz8U0MUVMs9mnJDgYT1jb3qJTd3tTH4PCoGHAlu7KykL
-         YT1ovn5K8ymL4ZgmmiEMJ9ivBhxBzz8SRJXx4UKUcI0DFNIvEH/7yIGLUE2z4yAcWU9O
-         ZflA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=fUqZ0NLVZxg4yvCXyE1lEs/e7e2cakQ+3GgW8pZJCvA=;
+        b=NmjAvLgubpdpn/PQkwAHjDCqvEEjP0lw8JOubj6Rhdw9ysYHef3JdWKUq13xBKMmgR
+         jcn2+ztfmCVO24hGLD64z6Dns6JZ7tSPyrdUy4I3mZBS+ldA6/OAno19o8ykV4SRO1+p
+         lwr9LY0eY/J/obgPVhdtdFxYDSadf7xAh8XesQ3kNgyKOuNDmfF1+5wdmKhOLQWnO+WZ
+         kNKVz2ckPG1VfCVJFDDXcA7y1BGrKOAYb0/PD6YZBSkonKZYCLDBSqZqxO1kttA/9hDX
+         Y5HIzfi61pU8CttOd/OsU0Nw8G4L3rhBsGqTUjZWAEibBpqKNZlF/ZgOR6jCeM34Iclk
+         TzeQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=UQ4StuH+;
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::22c as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oi1-x22c.google.com (mail-oi1-x22c.google.com. [2607:f8b0:4864:20::22c])
-        by gmr-mx.google.com with ESMTPS id r9si6925pls.4.2021.07.29.19.07.41
+       dkim=pass header.i=@chromium.org header.s=google header.b=etYre1Aj;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::635 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pl1-x635.google.com (mail-pl1-x635.google.com. [2607:f8b0:4864:20::635])
+        by gmr-mx.google.com with ESMTPS id r7si22573pjp.0.2021.07.29.19.31.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Jul 2021 19:07:41 -0700 (PDT)
-Received-SPF: pass (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::22c as permitted sender) client-ip=2607:f8b0:4864:20::22c;
-Received: by mail-oi1-x22c.google.com with SMTP id y18so11087565oiv.3
-        for <clang-built-linux@googlegroups.com>; Thu, 29 Jul 2021 19:07:41 -0700 (PDT)
-X-Received: by 2002:a05:6808:1390:: with SMTP id c16mr178642oiw.123.1627610860403;
- Thu, 29 Jul 2021 19:07:40 -0700 (PDT)
+        Thu, 29 Jul 2021 19:31:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::635 as permitted sender) client-ip=2607:f8b0:4864:20::635;
+Received: by mail-pl1-x635.google.com with SMTP id u16so741931ple.2
+        for <clang-built-linux@googlegroups.com>; Thu, 29 Jul 2021 19:31:10 -0700 (PDT)
+X-Received: by 2002:a05:6a00:168a:b029:2fb:6bb0:aba with SMTP id k10-20020a056a00168ab02902fb6bb00abamr526959pfc.32.1627612270101;
+        Thu, 29 Jul 2021 19:31:10 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id q13sm218718pjq.10.2021.07.29.19.31.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 Jul 2021 19:31:09 -0700 (PDT)
+Date: Thu, 29 Jul 2021 19:31:08 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Bart Van Assche <bvanassche@acm.org>
+Cc: linux-hardening@vger.kernel.org,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Keith Packard <keithpac@amazon.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org,
+	netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH 48/64] drbd: Use struct_group() to zero algs
+Message-ID: <202107291845.1E1528D@keescook>
+References: <20210727205855.411487-1-keescook@chromium.org>
+ <20210727205855.411487-49-keescook@chromium.org>
+ <1cc74e5e-8d28-6da4-244e-861eac075ca2@acm.org>
 MIME-Version: 1.0
-References: <20210727205855.411487-1-keescook@chromium.org> <20210727205855.411487-24-keescook@chromium.org>
-In-Reply-To: <20210727205855.411487-24-keescook@chromium.org>
-From: Alex Deucher <alexdeucher@gmail.com>
-Date: Thu, 29 Jul 2021 22:07:29 -0400
-Message-ID: <CADnq5_Npb8uYvd+R4UHgf-w8-cQj3JoODjviJR_Y9w9wqJ71mQ@mail.gmail.com>
-Subject: Re: [PATCH 23/64] drm/amd/pm: Use struct_group() for memcpy() region
-To: Kees Cook <keescook@chromium.org>
-Cc: linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-staging@lists.linux.dev, 
-	Linux Wireless List <linux-wireless@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Maling list - DRI developers <dri-devel@lists.freedesktop.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-block@vger.kernel.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Keith Packard <keithpac@amazon.com>, 
-	Network Development <netdev@vger.kernel.org>, Andrew Morton <akpm@linux-foundation.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: alexdeucher@gmail.com
+Content-Disposition: inline
+In-Reply-To: <1cc74e5e-8d28-6da4-244e-861eac075ca2@acm.org>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=UQ4StuH+;       spf=pass
- (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::22c
- as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@chromium.org header.s=google header.b=etYre1Aj;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::635
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,256 +143,78 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 27, 2021 at 5:17 PM Kees Cook <keescook@chromium.org> wrote:
->
-> In preparation for FORTIFY_SOURCE performing compile-time and run-time
-> field bounds checking for memcpy(), memmove(), and memset(), avoid
-> intentionally writing across neighboring fields.
->
-> Use struct_group() in structs:
->         struct atom_smc_dpm_info_v4_5
->         struct atom_smc_dpm_info_v4_6
->         struct atom_smc_dpm_info_v4_7
->         struct atom_smc_dpm_info_v4_10
->         PPTable_t
-> so the grouped members can be referenced together. This will allow
-> memcpy() and sizeof() to more easily reason about sizes, improve
-> readability, and avoid future warnings about writing beyond the end of
-> the first member.
->
-> "pahole" shows no size nor member offset changes to any structs.
-> "objdump -d" shows no object code changes.
+On Wed, Jul 28, 2021 at 02:45:55PM -0700, Bart Van Assche wrote:
+> On 7/27/21 1:58 PM, Kees Cook wrote:
+> > In preparation for FORTIFY_SOURCE performing compile-time and run-time
+> > field bounds checking for memset(), avoid intentionally writing across
+> > neighboring fields.
+> > 
+> > Add a struct_group() for the algs so that memset() can correctly reason
+> > about the size.
+> > 
+> > Signed-off-by: Kees Cook <keescook@chromium.org>
+> > ---
+> >   drivers/block/drbd/drbd_main.c     | 3 ++-
+> >   drivers/block/drbd/drbd_protocol.h | 6 ++++--
+> >   drivers/block/drbd/drbd_receiver.c | 3 ++-
+> >   3 files changed, 8 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/block/drbd/drbd_main.c b/drivers/block/drbd/drbd_main.c
+> > index 55234a558e98..b824679cfcb2 100644
+> > --- a/drivers/block/drbd/drbd_main.c
+> > +++ b/drivers/block/drbd/drbd_main.c
+> > @@ -729,7 +729,8 @@ int drbd_send_sync_param(struct drbd_peer_device *peer_device)
+> >   	cmd = apv >= 89 ? P_SYNC_PARAM89 : P_SYNC_PARAM;
+> >   	/* initialize verify_alg and csums_alg */
+> > -	memset(p->verify_alg, 0, 2 * SHARED_SECRET_MAX);
+> > +	BUILD_BUG_ON(sizeof(p->algs) != 2 * SHARED_SECRET_MAX);
+> > +	memset(&p->algs, 0, sizeof(p->algs));
+> >   	if (get_ldev(peer_device->device)) {
+> >   		dc = rcu_dereference(peer_device->device->ldev->disk_conf);
+> > diff --git a/drivers/block/drbd/drbd_protocol.h b/drivers/block/drbd/drbd_protocol.h
+> > index dea59c92ecc1..a882b65ab5d2 100644
+> > --- a/drivers/block/drbd/drbd_protocol.h
+> > +++ b/drivers/block/drbd/drbd_protocol.h
+> > @@ -283,8 +283,10 @@ struct p_rs_param_89 {
+> >   struct p_rs_param_95 {
+> >   	u32 resync_rate;
+> > -	char verify_alg[SHARED_SECRET_MAX];
+> > -	char csums_alg[SHARED_SECRET_MAX];
+> > +	struct_group(algs,
+> > +		char verify_alg[SHARED_SECRET_MAX];
+> > +		char csums_alg[SHARED_SECRET_MAX];
+> > +	);
+> >   	u32 c_plan_ahead;
+> >   	u32 c_delay_target;
+> >   	u32 c_fill_target;
+> > diff --git a/drivers/block/drbd/drbd_receiver.c b/drivers/block/drbd/drbd_receiver.c
+> > index 1f740e42e457..6df2539e215b 100644
+> > --- a/drivers/block/drbd/drbd_receiver.c
+> > +++ b/drivers/block/drbd/drbd_receiver.c
+> > @@ -3921,7 +3921,8 @@ static int receive_SyncParam(struct drbd_connection *connection, struct packet_i
+> >   	/* initialize verify_alg and csums_alg */
+> >   	p = pi->data;
+> > -	memset(p->verify_alg, 0, 2 * SHARED_SECRET_MAX);
+> > +	BUILD_BUG_ON(sizeof(p->algs) != 2 * SHARED_SECRET_MAX);
+> > +	memset(&p->algs, 0, sizeof(p->algs));
+> 
+> Using struct_group() introduces complexity. Has it been considered not to
+> modify struct p_rs_param_95 and instead to use two memset() calls instead of
+> one (one memset() call per member)?
 
-These headers represent interfaces with firmware running on
-microcontrollers, so if the sizes or offsets change that could cause a
-problem.  That doesn't seem to be the case, but something to keep in
-mind.  Patch is:
-Acked-by: Alex Deucher <alexander.deucher@amd.com>
-Feel free to take this through whatever tree makes sense.
+I went this direction because using two memset()s (or memcpy()s in other
+patches) changes the machine code. It's not much of a change, but it
+seems easier to justify "no binary changes" via the use of struct_group().
 
-Alex
+If splitting the memset() is preferred, I can totally do that instead.
+:)
 
->
-> Signed-off-by: Kees Cook <keescook@chromium.org>
-> ---
->  drivers/gpu/drm/amd/include/atomfirmware.h           |  9 ++++++++-
->  .../gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h    |  3 ++-
->  drivers/gpu/drm/amd/pm/inc/smu11_driver_if_navi10.h  |  3 ++-
->  .../gpu/drm/amd/pm/inc/smu13_driver_if_aldebaran.h   |  3 ++-
->  drivers/gpu/drm/amd/pm/swsmu/smu11/arcturus_ppt.c    |  6 +++---
->  drivers/gpu/drm/amd/pm/swsmu/smu11/navi10_ppt.c      | 12 ++++++++----
->  drivers/gpu/drm/amd/pm/swsmu/smu13/aldebaran_ppt.c   |  6 +++---
->  7 files changed, 28 insertions(+), 14 deletions(-)
->
-> diff --git a/drivers/gpu/drm/amd/include/atomfirmware.h b/drivers/gpu/drm/amd/include/atomfirmware.h
-> index 3811e58dd857..694dee9d2691 100644
-> --- a/drivers/gpu/drm/amd/include/atomfirmware.h
-> +++ b/drivers/gpu/drm/amd/include/atomfirmware.h
-> @@ -2081,6 +2081,7 @@ struct atom_smc_dpm_info_v4_5
->  {
->    struct   atom_common_table_header  table_header;
->      // SECTION: BOARD PARAMETERS
-> +  struct_group(dpm_info,
->      // I2C Control
->    struct smudpm_i2c_controller_config_v2  I2cControllers[8];
->
-> @@ -2159,7 +2160,7 @@ struct atom_smc_dpm_info_v4_5
->    uint32_t MvddRatio; // This is used for MVDD Vid workaround. It has 16 fractional bits (Q16.16)
->
->    uint32_t     BoardReserved[9];
-> -
-> +  );
->  };
->
->  struct atom_smc_dpm_info_v4_6
-> @@ -2168,6 +2169,7 @@ struct atom_smc_dpm_info_v4_6
->    // section: board parameters
->    uint32_t     i2c_padding[3];   // old i2c control are moved to new area
->
-> +  struct_group(dpm_info,
->    uint16_t     maxvoltagestepgfx; // in mv(q2) max voltage step that smu will request. multiple steps are taken if voltage change exceeds this value.
->    uint16_t     maxvoltagestepsoc; // in mv(q2) max voltage step that smu will request. multiple steps are taken if voltage change exceeds this value.
->
-> @@ -2246,12 +2248,14 @@ struct atom_smc_dpm_info_v4_6
->
->    // reserved
->    uint32_t   boardreserved[10];
-> +  );
->  };
->
->  struct atom_smc_dpm_info_v4_7
->  {
->    struct   atom_common_table_header  table_header;
->      // SECTION: BOARD PARAMETERS
-> +  struct_group(dpm_info,
->      // I2C Control
->    struct smudpm_i2c_controller_config_v2  I2cControllers[8];
->
-> @@ -2348,6 +2352,7 @@ struct atom_smc_dpm_info_v4_7
->    uint8_t      Padding8_Psi2;
->
->    uint32_t     BoardReserved[5];
-> +  );
->  };
->
->  struct smudpm_i2c_controller_config_v3
-> @@ -2478,6 +2483,7 @@ struct atom_smc_dpm_info_v4_10
->    struct   atom_common_table_header  table_header;
->
->    // SECTION: BOARD PARAMETERS
-> +  struct_group(dpm_info,
->    // Telemetry Settings
->    uint16_t GfxMaxCurrent; // in Amps
->    uint8_t   GfxOffset;     // in Amps
-> @@ -2524,6 +2530,7 @@ struct atom_smc_dpm_info_v4_10
->    uint16_t spare5;
->
->    uint32_t reserved[16];
-> +  );
->  };
->
->  /*
-> diff --git a/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h b/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h
-> index 43d43d6addc0..8093a98800c3 100644
-> --- a/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h
-> +++ b/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h
-> @@ -643,6 +643,7 @@ typedef struct {
->    // SECTION: BOARD PARAMETERS
->
->    // SVI2 Board Parameters
-> +  struct_group(v4_6,
->    uint16_t     MaxVoltageStepGfx; // In mV(Q2) Max voltage step that SMU will request. Multiple steps are taken if voltage change exceeds this value.
->    uint16_t     MaxVoltageStepSoc; // In mV(Q2) Max voltage step that SMU will request. Multiple steps are taken if voltage change exceeds this value.
->
-> @@ -728,10 +729,10 @@ typedef struct {
->    uint32_t     BoardVoltageCoeffB;    // decode by /1000
->
->    uint32_t     BoardReserved[7];
-> +  );
->
->    // Padding for MMHUB - do not modify this
->    uint32_t     MmHubPadding[8]; // SMU internal use
-> -
->  } PPTable_t;
->
->  typedef struct {
-> diff --git a/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_navi10.h b/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_navi10.h
-> index 04752ade1016..0b4e6e907e95 100644
-> --- a/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_navi10.h
-> +++ b/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_navi10.h
-> @@ -725,6 +725,7 @@ typedef struct {
->    uint32_t     Reserved[8];
->
->    // SECTION: BOARD PARAMETERS
-> +  struct_group(v4,
->    // I2C Control
->    I2cControllerConfig_t  I2cControllers[NUM_I2C_CONTROLLERS];
->
-> @@ -809,10 +810,10 @@ typedef struct {
->    uint8_t      Padding8_Loadline;
->
->    uint32_t     BoardReserved[8];
-> +  );
->
->    // Padding for MMHUB - do not modify this
->    uint32_t     MmHubPadding[8]; // SMU internal use
-> -
->  } PPTable_t;
->
->  typedef struct {
-> diff --git a/drivers/gpu/drm/amd/pm/inc/smu13_driver_if_aldebaran.h b/drivers/gpu/drm/amd/pm/inc/smu13_driver_if_aldebaran.h
-> index a017983ff1fa..5056d3728da8 100644
-> --- a/drivers/gpu/drm/amd/pm/inc/smu13_driver_if_aldebaran.h
-> +++ b/drivers/gpu/drm/amd/pm/inc/smu13_driver_if_aldebaran.h
-> @@ -390,6 +390,7 @@ typedef struct {
->    uint32_t spare3[14];
->
->    // SECTION: BOARD PARAMETERS
-> +  struct_group(v4_10,
->    // Telemetry Settings
->    uint16_t GfxMaxCurrent; // in Amps
->    int8_t   GfxOffset;     // in Amps
-> @@ -444,7 +445,7 @@ typedef struct {
->
->    //reserved
->    uint32_t reserved[14];
-> -
-> +  );
->  } PPTable_t;
->
->  typedef struct {
-> diff --git a/drivers/gpu/drm/amd/pm/swsmu/smu11/arcturus_ppt.c b/drivers/gpu/drm/amd/pm/swsmu/smu11/arcturus_ppt.c
-> index 6ec8492f71f5..19951399cb33 100644
-> --- a/drivers/gpu/drm/amd/pm/swsmu/smu11/arcturus_ppt.c
-> +++ b/drivers/gpu/drm/amd/pm/swsmu/smu11/arcturus_ppt.c
-> @@ -463,11 +463,11 @@ static int arcturus_append_powerplay_table(struct smu_context *smu)
->                         smc_dpm_table->table_header.format_revision,
->                         smc_dpm_table->table_header.content_revision);
->
-> +       BUILD_BUG_ON(sizeof(smc_pptable->v4_6) != sizeof(smc_dpm_table->dpm_info));
->         if ((smc_dpm_table->table_header.format_revision == 4) &&
->             (smc_dpm_table->table_header.content_revision == 6))
-> -               memcpy(&smc_pptable->MaxVoltageStepGfx,
-> -                      &smc_dpm_table->maxvoltagestepgfx,
-> -                      sizeof(*smc_dpm_table) - offsetof(struct atom_smc_dpm_info_v4_6, maxvoltagestepgfx));
-> +               memcpy(&smc_pptable->v4_6, &smc_dpm_table->dpm_info,
-> +                      sizeof(smc_dpm_table->dpm_info));
->
->         return 0;
->  }
-> diff --git a/drivers/gpu/drm/amd/pm/swsmu/smu11/navi10_ppt.c b/drivers/gpu/drm/amd/pm/swsmu/smu11/navi10_ppt.c
-> index 59ea59acfb00..cb6665fbe319 100644
-> --- a/drivers/gpu/drm/amd/pm/swsmu/smu11/navi10_ppt.c
-> +++ b/drivers/gpu/drm/amd/pm/swsmu/smu11/navi10_ppt.c
-> @@ -431,16 +431,20 @@ static int navi10_append_powerplay_table(struct smu_context *smu)
->
->         switch (smc_dpm_table->table_header.content_revision) {
->         case 5: /* nv10 and nv14 */
-> -               memcpy(smc_pptable->I2cControllers, smc_dpm_table->I2cControllers,
-> -                       sizeof(*smc_dpm_table) - sizeof(smc_dpm_table->table_header));
-> +               BUILD_BUG_ON(sizeof(smc_pptable->v4) !=
-> +                            sizeof(smc_dpm_table->dpm_info));
-> +               memcpy(&smc_pptable->v4, &smc_dpm_table->dpm_info,
-> +                      sizeof(smc_dpm_table->dpm_info));
->                 break;
->         case 7: /* nv12 */
->                 ret = amdgpu_atombios_get_data_table(adev, index, NULL, NULL, NULL,
->                                               (uint8_t **)&smc_dpm_table_v4_7);
->                 if (ret)
->                         return ret;
-> -               memcpy(smc_pptable->I2cControllers, smc_dpm_table_v4_7->I2cControllers,
-> -                       sizeof(*smc_dpm_table_v4_7) - sizeof(smc_dpm_table_v4_7->table_header));
-> +               BUILD_BUG_ON(sizeof(smc_pptable->v4) !=
-> +                            sizeof(smc_dpm_table_v4_7->dpm_info));
-> +               memcpy(&smc_pptable->v4, &smc_dpm_table_v4_7->dpm_info,
-> +                      sizeof(smc_dpm_table_v4_7->dpm_info));
->                 break;
->         default:
->                 dev_err(smu->adev->dev, "smc_dpm_info with unsupported content revision %d!\n",
-> diff --git a/drivers/gpu/drm/amd/pm/swsmu/smu13/aldebaran_ppt.c b/drivers/gpu/drm/amd/pm/swsmu/smu13/aldebaran_ppt.c
-> index 856eeaf293b8..c0645302fa50 100644
-> --- a/drivers/gpu/drm/amd/pm/swsmu/smu13/aldebaran_ppt.c
-> +++ b/drivers/gpu/drm/amd/pm/swsmu/smu13/aldebaran_ppt.c
-> @@ -407,11 +407,11 @@ static int aldebaran_append_powerplay_table(struct smu_context *smu)
->                         smc_dpm_table->table_header.format_revision,
->                         smc_dpm_table->table_header.content_revision);
->
-> +       BUILD_BUG_ON(sizeof(smc_pptable->v4_10) != sizeof(smc_dpm_table->dpm_info));
->         if ((smc_dpm_table->table_header.format_revision == 4) &&
->             (smc_dpm_table->table_header.content_revision == 10))
-> -               memcpy(&smc_pptable->GfxMaxCurrent,
-> -                      &smc_dpm_table->GfxMaxCurrent,
-> -                      sizeof(*smc_dpm_table) - offsetof(struct atom_smc_dpm_info_v4_10, GfxMaxCurrent));
-> +               memcpy(&smc_pptable->v4_10, &smc_dpm_table->dpm_info,
-> +                      sizeof(smc_dpm_table->dpm_info));
->         return 0;
->  }
->
-> --
-> 2.30.2
->
+-Kees
+
+-- 
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CADnq5_Npb8uYvd%2BR4UHgf-w8-cQj3JoODjviJR_Y9w9wqJ71mQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202107291845.1E1528D%40keescook.
