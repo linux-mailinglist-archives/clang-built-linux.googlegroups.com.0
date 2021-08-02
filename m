@@ -1,125 +1,119 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBXGAUGEAMGQEKLTTB6Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBNWCUGEAMGQEGIVJDCY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6DCB03DE148
-	for <lists+clang-built-linux@lfdr.de>; Mon,  2 Aug 2021 23:15:09 +0200 (CEST)
-Received: by mail-lf1-x13d.google.com with SMTP id 23-20020ac248370000b02903b63da2052asf5562306lft.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 02 Aug 2021 14:15:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627938909; cv=pass;
+Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1E85E3DE153
+	for <lists+clang-built-linux@lfdr.de>; Mon,  2 Aug 2021 23:18:47 +0200 (CEST)
+Received: by mail-lj1-x23e.google.com with SMTP id b12-20020a2e858c0000b02901990f5ca735sf3540004lji.22
+        for <lists+clang-built-linux@lfdr.de>; Mon, 02 Aug 2021 14:18:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627939126; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vz5Hei8aqUv7yQ3xej3qRhVSA7yMRPi4wWCmBAGZ1/+dzwQzGtQisIu9DGJMglpOg5
-         7GfFXbj+gtXX4vXxhKsY6NzWaHzCnUTsVuEMpuQwzZCTaGI9I632+qz1xo6MkwobWVYB
-         CUhw9wbFhzBxPEH1rA1VNZYkYIx5uvygPNpTsUoDgLDe9J8cIv//vqwx/UUb0I2Rui0Y
-         Km4DtQi8IafFasI0ZF8wAi0lU7GE0NY+jWMwmGgnojToaoeG/yauiWM4czih+efDz7IV
-         bG13AOEiAmpzGFeJWwVcaWeSzOJsu5x95IZ6I0Vl7J3Ghm6f/8k5aMK0KONuHcH9jH6u
-         klAQ==
+        b=qFtUem4iC3EDZNEeXbUap5xGLjFw1yV2ScMokwIXHsAr9ZzcOckKJSPzcj4sAvWukN
+         pu8TYYxPBSWW1INWLQHBfS7xRQUccqnnrYou5QRxDVWI6GeqERDfWczLT0w3/PhgyDBx
+         Se4H7Y3gEgFpNhyFSL3QAvEeyNAeXx0r+qr9+SJv8975dnA4YfH8DYhAc6N8bwwZqXYo
+         UYrz4at+PUZ/o0i8eP2Pm9DhD2V3BaNB6KHcu6tHye+LkKWe97RrA+TtDHJ1MzatkBGW
+         6f93YQ6qIPumHUSIX9UDExHD6xAjXE/boyx0oCSq+a3j6Ch6/BDHAJo+smb9et2XbeYt
+         s7zg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=W5mN69HD029nG5nqkp/8k2l2vK5HLp6oiX/rhfQ5Wgk=;
-        b=n0Ft+jlhIf6L6wvccd5lzF8mHCUraQT7O2HsbBC5tzHq4s5F0Mq7LR+hCxnl1qWLPH
-         y914A7AS6NqgdDfI6YGg3SsAQ5NjO1PwYVoryIhhHvIGgjft7TTSFVtBGojP5G3n24xf
-         +8x06a3fck9fc2wzhBEgt7ZIEiCR6fpWsD5DNZpgY789wCuuas7/QaKkM0nCGnd1ELUN
-         VdiYfC6QKGfx+rEMBOH2CzYa0sD8tvqTe5puQ6ElljkK5kWmHg560LJIag7oJkTDqTGv
-         0g14LAhAJCVXCpfZRn0ogeZ36vjlvuRPruWWNMJeg8kISOStRFfZ/DHkY4V7OjmFzbkL
-         yphw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=Bb0b5U9e5sSk4UojKw7bTIiCrzPRVLRQK6pxcqCyROw=;
+        b=WR6jR70iZ79S65PnEpnr9SULha/OuNt4t3WkJuYZJoGWDJjkW2nLsc6Rvts/dT2YC8
+         2C4uxVh7j+6etrKP0ATVUZ5iILd8NgNQBk1S0Nq5LC37m4gjTtcRlNNTQIiKdzoLaFqv
+         K4mMEpWpuHA3xZyqlnPlMID2dlJUS8oDYqGC8TK8RYEogjNW/lLiOVq/C5LVVJHEnX+T
+         YBqBYYJR8Ye4OzXDI0MeSuSAJ8Bl9omLotKvy4Xv8i92cqn65QUy6hINZP3sContuR9P
+         L7SGGlCn2FXH3gzcJcdQKk8+jfBeS/zcyb6tTpLblsfUi1YQkcwW6veKOGW7jZ62DYXA
+         AYAg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=fQuUBXMn;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=kXYzxNBo;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=W5mN69HD029nG5nqkp/8k2l2vK5HLp6oiX/rhfQ5Wgk=;
-        b=mrotQWhyO1YNR4IpCnz7LyhFSskYtPwmhlQ6q2zwHDIqxI2PtknWlH6xbVu3evQ4yM
-         j52ugmM9+wj0nLWMSfYC0LXl8QBfT416vtjr8jXzULnr6NtkCKJWdOycDpSqTHNxyN8W
-         +smG2XBlnFTka3olr4OIOaa2BfPwkEpM9/7lhzPoegnmWM2W6hkTDyI84m/7yOrfWUPS
-         xiyn8LGOmignvCEvRWJfmKpN/+N/VLCMM2W+pV12RToEQjoAWcvbvTrkZcX3DDVDOaz4
-         JyAnpbv8V1yQJydbEpmF5T3ltvaAWO5TcPBvOpsbl31Pjd5/PgFeVD2oBChzBlCqWAuN
-         MnMQ==
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Bb0b5U9e5sSk4UojKw7bTIiCrzPRVLRQK6pxcqCyROw=;
+        b=WzWO6S//53yzsQAOy+njrX18pH4gNSht8G/ERBFh3XSRVs9omU4KY8w33YFJrbnoSI
+         GyOSmXyQpkPGjjbv5rhIFyGZhIp73R66UMN8O5FRprRVVGLA9lpTrX9pidl8+82pkSMm
+         nYuxGJEaJb68RyXz76KGDuZy4NaqyR4+1e1aIKc+ISYw3A08OEmh+Coy5/GW0bSahX+6
+         goWklvp9ni47WUfiNvOloLJKYt8JBb5AEolYNqnyW17inIX1R6acrDy5PT2rKE+gAJkW
+         NQuxD/EKjIFNrcnmf7XepIQPzoqSAT+kwbMnZk0LlP11zxrRXF1ZBK+o14lWlzx0tt8f
+         ufng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=W5mN69HD029nG5nqkp/8k2l2vK5HLp6oiX/rhfQ5Wgk=;
-        b=j1LlwC7k5BIkWko66o8ixN9s3jNnBoWqHmoHOWn5xGg2CWUfEymPby5IeoY+4n8117
-         xKlktfntNI4NIXiKmkJqG8+KGkCQPJQFPrJNlBKlwW15JlDgqG18fXs7qgQv+yZSx4ky
-         ZYpeoabjKQSMoxsKJUq3lXvNSh8/B8AZUV8+UzRhra72ljeBwfDK4DdLySsQql/wisNx
-         /X+pqb4zaRb32LGaZi4s97ftszWPVWt+DKdVO1oZJkHfYSoyfLFjZ+CTgaHtmZbRtXoN
-         vwjZMMq27JI7wq4y2nhFNUCxrRtu/qRnJE1QWqkuM0XyvoDr0A3u8/N5au+zA8ffS6TE
-         KHDQ==
-X-Gm-Message-State: AOAM531lozXTtfIWkCiKk22AMDJneji6zCoWr8Rr9iXg3BkvLXWKUcgm
-	0aDHCpqjM5X/6owUv2WmPnk=
-X-Google-Smtp-Source: ABdhPJz6DKoVYr3m7bnCpDFI1gB8wZijOrriPmLAfuthR/TwNDx9MU98o3HJ39EBoXr+/7ZWPHrSgg==
-X-Received: by 2002:a05:6512:3a8d:: with SMTP id q13mr13621061lfu.401.1627938908998;
-        Mon, 02 Aug 2021 14:15:08 -0700 (PDT)
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Bb0b5U9e5sSk4UojKw7bTIiCrzPRVLRQK6pxcqCyROw=;
+        b=dgcc8tZp06ojXrsOjtYUGlN0NItkuKBZ9PlFsTeQ/bsiJLgJcVewKF2s7ggETDv9wa
+         tnR3KLBk7XKDqNrJpq+A7W59iKoNYyJb4OVuYrjkTCDdE/cDZ2r4p4mlVmGgR5XwWRK/
+         SiACq5VBdQqDou1Ab3X6zUQDJ09J8aZpAc0lWn581bDOHU5/UTi7a3IP+9FMx4gN9PB8
+         JsKk4NzHcfrcqQJdcGJ2R09+1Qe293d3sDetAeMmjVeYIw+gmdPHyh+87H4AbJhiSI6b
+         6+P1508t87m/dVsb657nV2y0OeDZhqePThlUiBsa6G6ymj2ddwuNlFR/PtM3oj+kzlPA
+         cwxg==
+X-Gm-Message-State: AOAM533HaYA5OPaYRtfXoQlLDp6vJ6V2uw3glJKbAUg6aZIQf1mxCt+Q
+	J60RoSd7GfACBwC86TkI6ck=
+X-Google-Smtp-Source: ABdhPJz0F15kix/TcjjyfsgwzoNpJnNIEp8dXHiwVEnv0VyERU8zT4lltURYwXS8S80ezLFmSHJw2A==
+X-Received: by 2002:a2e:95cc:: with SMTP id y12mr12221752ljh.387.1627939126681;
+        Mon, 02 Aug 2021 14:18:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:b171:: with SMTP id a17ls1726537ljm.4.gmail; Mon, 02 Aug
- 2021 14:15:08 -0700 (PDT)
-X-Received: by 2002:a2e:7c03:: with SMTP id x3mr12360824ljc.281.1627938907965;
-        Mon, 02 Aug 2021 14:15:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627938907; cv=none;
+Received: by 2002:a05:651c:1783:: with SMTP id bn3ls1726652ljb.10.gmail; Mon,
+ 02 Aug 2021 14:18:45 -0700 (PDT)
+X-Received: by 2002:a2e:80da:: with SMTP id r26mr1087503ljg.77.1627939125399;
+        Mon, 02 Aug 2021 14:18:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627939125; cv=none;
         d=google.com; s=arc-20160816;
-        b=mRdP8/pQEXJKou5QCW6MGTcTNmzEZHxfKrbvPcr7lAYpNUetqeEMftqYSGNQjRT2em
-         +wMr/kZBmnmKdqul05IAuMNm7wifJKAnIlo67jVDs/dkAEkUMnhdnCZl54fbNS+06vf/
-         OfC1tzNsazTy2ZBLLJJ7SA5DftH80IFev0VoqXQ1C1hNUcqrCb1FnTB76QsQMAj2+9JQ
-         l1w7MGUIcaD+mUoT3A/QUYPesXwjL4wdk8hhiekjbYPkGSoOG0RjXl13ohH8lkl0o/hu
-         DvB/vKukFmz4yPXYAbr7c6wdrAMStFVaBudrvsJB/2Ru4UeuVeX7EGqVMAx+QFGGwO8f
-         ELJQ==
+        b=bYS6KqkLYrDaDZvUFINAMfKD5irRVI6oYDCgIooqtvI2LqKpp1uZ+gcuSdI1yo8cyD
+         p5IU4auIZN8ATxHCFk/V0BVncpXeaNa0rbBPvGEOvChJCcwYTrpCI876hqvwpXEqY0Gz
+         eIxYd7zwoN2/dW2WUuPga4Kqwswp55qOY5SbcchlMD7eumwEXW9LWGQK7HqFdHFdZnOz
+         uFU68hjM4Vgr1PzQB2UL+hVKDZgZxl8KLjE83eAv4RdJ+GO/IP7OqNdJfIwabcOKlrRS
+         1XrszF430qeOgmbNIjdM3ffVXHTVe6jcsKPqVGqtFFimpZOQg594jg6uww7llB7a6qN9
+         n2jA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GKUZPtIuouVJE0jwShWzFKLTFn+mFU5OXAbT55ufFlc=;
-        b=m2pDoTCU/eMQNgNvRLhDR6cz29t3dYddhm4WCurcP+N+zQ3JAmWbUCMSRgjJcNnC2/
-         OnnAri1CePhyeh3iP0+0BnY118AV/VruZzz1ARIeFhPGxJ74yxw2vIz2z5JTK3T1xIR+
-         aw1cYQb71eyAHKwkkQu74F9dNfoXnBcAr1BsT6ZC8WyNolxDtKkhPlzb0GEACw8s8gtx
-         gvdIpXm/Tyn7hQHuDoUOjxv3GWDH5HDXz83Dp80gWTdWYVK/ch0uS+Izq1aDiep1Alw0
-         ufS6YOtl4a6ie3RfIkZmXBXq1DEcctrJIoHFgaXv9enTNfkQy/ye/MVjXhTcRHkNSncm
-         yf1g==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=1Z9yRMRPvPvhNhspEK5nK4+ikbIcB7z17ForMSSXLIM=;
+        b=jzfcnV7B87w0QV8hX0tjMcmByluzeYNOeTmWpGnArQdvuSwiV1hc6gWqwQu1o1Oozv
+         N4EIQYqB0pK8yHZ5nb9dQWHWptaaLzO6QGJceP4seZU1hWA8ol+KD6cHgf7fJLTF+1ka
+         LjxpCosT8lti7iKldkj5HZjUclVoRTgqy1PMBBIGbYgDzg8BVqNzh01dsonWyic4z//G
+         qORoUl0OCK9q4clSIOjrDh7SHjv/zDuWU+HMZXNbIBdeazqWOG+O+BiejNdYN1uFSxkL
+         Dnf24mr37MptCkXNoOY87g200e9YY6wilKzZg+S6dEWdSG0vZkbA1OlWlyxW8ipBWpzV
+         C+WQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=fQuUBXMn;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=kXYzxNBo;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x12d.google.com (mail-lf1-x12d.google.com. [2a00:1450:4864:20::12d])
-        by gmr-mx.google.com with ESMTPS id j7si718582ljc.1.2021.08.02.14.15.07
+Received: from mail-lj1-x22b.google.com (mail-lj1-x22b.google.com. [2a00:1450:4864:20::22b])
+        by gmr-mx.google.com with ESMTPS id q4si623242lji.2.2021.08.02.14.18.45
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Aug 2021 14:15:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12d as permitted sender) client-ip=2a00:1450:4864:20::12d;
-Received: by mail-lf1-x12d.google.com with SMTP id h2so36198331lfu.4
-        for <clang-built-linux@googlegroups.com>; Mon, 02 Aug 2021 14:15:07 -0700 (PDT)
-X-Received: by 2002:a05:6512:3041:: with SMTP id b1mr1255638lfb.122.1627938907382;
- Mon, 02 Aug 2021 14:15:07 -0700 (PDT)
+        Mon, 02 Aug 2021 14:18:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b as permitted sender) client-ip=2a00:1450:4864:20::22b;
+Received: by mail-lj1-x22b.google.com with SMTP id m9so25621929ljp.7
+        for <clang-built-linux@googlegroups.com>; Mon, 02 Aug 2021 14:18:45 -0700 (PDT)
+X-Received: by 2002:a2e:9304:: with SMTP id e4mr12467173ljh.244.1627939124801;
+ Mon, 02 Aug 2021 14:18:44 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210802183910.1802120-1-ndesaulniers@google.com>
- <20210802183910.1802120-2-ndesaulniers@google.com> <CAFP8O3Jc=iwzAQojgBZZzdT8iVBY9TO6GLTq+0vkXoo6L5JJ-A@mail.gmail.com>
-In-Reply-To: <CAFP8O3Jc=iwzAQojgBZZzdT8iVBY9TO6GLTq+0vkXoo6L5JJ-A@mail.gmail.com>
+References: <20210802210307.3202472-1-nathan@kernel.org>
+In-Reply-To: <20210802210307.3202472-1-nathan@kernel.org>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 2 Aug 2021 14:14:55 -0700
-Message-ID: <CAKwvOdkSzuMpjwP=_vPfs0QFAytA9=fZ00Aw4dn8fk7=P5WhLA@mail.gmail.com>
-Subject: Re: [PATCH v6 1/3] Makefile: move initial clang flag handling into scripts/Makefile.clang
-To: =?UTF-8?B?RsSBbmctcnXDrCBTw7JuZw==?= <maskray@google.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Michal Marek <michal.lkml@markovi.net>, Arnd Bergmann <arnd@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Christoph Hellwig <hch@infradead.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Nathan Chancellor <nathan@kernel.org>
+Date: Mon, 2 Aug 2021 14:18:33 -0700
+Message-ID: <CAKwvOdmG0Ahieq27y29zqqEfjDu4NiC8j1fDg8c6RPnWVhdSsA@mail.gmail.com>
+Subject: Re: [PATCH] scripts/recordmcount.pl: Remove check_objcopy() and $can_use_local
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: "Steven Rostedt (VMware)" <rostedt@goodmis.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=fQuUBXMn;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12d
+ header.i=@google.com header.s=20161025 header.b=kXYzxNBo;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22b
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -136,46 +130,130 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Aug 2, 2021 at 2:06 PM F=C4=81ng-ru=C3=AC S=C3=B2ng <maskray@google=
-.com> wrote:
+On Mon, Aug 2, 2021 at 2:05 PM Nathan Chancellor <nathan@kernel.org> wrote:
 >
-> On Mon, Aug 2, 2021 at 11:39 AM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
-> > diff --git a/scripts/Makefile.clang b/scripts/Makefile.clang
-> > new file mode 100644
-> > index 000000000000..297932e973d4
-> > --- /dev/null
-> > +++ b/scripts/Makefile.clang
-> > @@ -0,0 +1,14 @@
-> > +ifneq ($(CROSS_COMPILE),)
-> > +CLANG_FLAGS    +=3D --target=3D$(notdir $(CROSS_COMPILE:%-=3D%))
-> > +endif
-> > +ifeq ($(LLVM_IAS),1)
-> > +CLANG_FLAGS    +=3D -integrated-as
+> When building ARCH=riscv allmodconfig with llvm-objcopy, the objcopy
+> version warning from this script appears:
 >
-> -i* options are for includes. -fintegrated-as is the canonical spelling.
-> Since -fintegrated-as is the default (for most llvm/lib/Target/
-> targets and the ones clang builds actually support),
-> it can even be deleted.
+> WARNING: could not find objcopy version or version is less than 2.17.
+>         Local function references are disabled.
+>
+> The check_objcopy() function in scripts/recordmcount.pl is set up to
+> parse GNU objcopy's version string, not llvm-objcopy's, which triggers
+> the warning.
+>
+> Commit 799c43415442 ("kbuild: thin archives make default for all archs")
+> made binutils 2.20 mandatory and commit ba64beb17493 ("kbuild: check the
+> minimum assembler version in Kconfig") enforces this at configuration
+> time so just remove check_objcopy() and $can_use_local instead, assuming
+> --globalize-symbol is always available.
+>
+> llvm-objcopy has supported --globalize-symbol since LLVM 7.0.0 in 2018
+> and the minimum version for building the kernel with LLVM is 10.0.1 so
+> there is no issue introduced:
+>
+> https://github.com/llvm/llvm-project/commit/ee5be798dae30d5f9414b01f76ff807edbc881aa
 
-It was made explicit by Masahiro in
-git.kernel.org/linus/ba64beb17493a4bfec563100c86a462a15926f24
-So I don't think we need to go back to the implicit default.
+^ should this be a Link: tag?
 
-It's definitely nicer to use groupings rather than these raw prefixed
-flags IMO.  If you sent a patch for that I would approve of it.
-Otherwise we don't really need to change this as this is how it's
-worked in LLVM for as long as we've been able to build the kernel with
-LLVM.
---=20
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+
+>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+>  Makefile                |  1 -
+>  scripts/recordmcount.pl | 40 ----------------------------------------
+>  2 files changed, 41 deletions(-)
+>
+> diff --git a/Makefile b/Makefile
+> index 27a072cffcb9..b6ee64dd435e 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -546,7 +546,6 @@ export RCS_TAR_IGNORE := --exclude SCCS --exclude BitKeeper --exclude .svn \
+>  PHONY += scripts_basic
+>  scripts_basic:
+>         $(Q)$(MAKE) $(build)=scripts/basic
+> -       $(Q)rm -f .tmp_quiet_recordmcount
+>
+>  PHONY += outputmakefile
+>  ifdef building_out_of_srctree
+> diff --git a/scripts/recordmcount.pl b/scripts/recordmcount.pl
+> index c17e48020ec3..8f6b13ae46bf 100755
+> --- a/scripts/recordmcount.pl
+> +++ b/scripts/recordmcount.pl
+> @@ -173,39 +173,6 @@ my $mcount_regex;  # Find the call site to mcount (return offset)
+>  my $mcount_adjust;     # Address adjustment to mcount offset
+>  my $alignment;         # The .align value to use for $mcount_section
+>  my $section_type;      # Section header plus possible alignment command
+> -my $can_use_local = 0;         # If we can use local function references
+> -
+> -# Shut up recordmcount if user has older objcopy
+> -my $quiet_recordmcount = ".tmp_quiet_recordmcount";
+> -my $print_warning = 1;
+> -$print_warning = 0 if ( -f $quiet_recordmcount);
+> -
+> -##
+> -# check_objcopy - whether objcopy supports --globalize-symbols
+> -#
+> -#  --globalize-symbols came out in 2.17, we must test the version
+> -#  of objcopy, and if it is less than 2.17, then we can not
+> -#  record local functions.
+> -sub check_objcopy
+> -{
+> -    open (IN, "$objcopy --version |") or die "error running $objcopy";
+> -    while (<IN>) {
+> -       if (/objcopy.*\s(\d+)\.(\d+)/) {
+> -           $can_use_local = 1 if ($1 > 2 || ($1 == 2 && $2 >= 17));
+> -           last;
+> -       }
+> -    }
+> -    close (IN);
+> -
+> -    if (!$can_use_local && $print_warning) {
+> -       print STDERR "WARNING: could not find objcopy version or version " .
+> -           "is less than 2.17.\n" .
+> -           "\tLocal function references are disabled.\n";
+> -       open (QUIET, ">$quiet_recordmcount");
+> -       printf QUIET "Disables the warning from recordmcount.pl\n";
+> -       close QUIET;
+> -    }
+> -}
+>
+>  if ($arch =~ /(x86(_64)?)|(i386)/) {
+>      if ($bits == 64) {
+> @@ -434,8 +401,6 @@ if ($filename =~ m,^(.*)(\.\S),) {
+>  my $mcount_s = $dirname . "/.tmp_mc_" . $prefix . ".s";
+>  my $mcount_o = $dirname . "/.tmp_mc_" . $prefix . ".o";
+>
+> -check_objcopy();
+> -
+>  #
+>  # Step 1: find all the local (static functions) and weak symbols.
+>  #         't' is local, 'w/W' is weak
+> @@ -473,11 +438,6 @@ sub update_funcs
+>
+>      # is this function static? If so, note this fact.
+>      if (defined $locals{$ref_func}) {
+> -
+> -       # only use locals if objcopy supports globalize-symbols
+> -       if (!$can_use_local) {
+> -           return;
+> -       }
+>         $convert{$ref_func} = 1;
+>      }
+>
+>
+> base-commit: c500bee1c5b2f1d59b1081ac879d73268ab0ff17
+> --
+> 2.32.0.264.g75ae10bc75
+>
+
+
+-- 
 Thanks,
 ~Nick Desaulniers
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOdkSzuMpjwP%3D_vPfs0QFAytA9%3DfZ00Aw4dn8fk7%3DP5WhLA=
-%40mail.gmail.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmG0Ahieq27y29zqqEfjDu4NiC8j1fDg8c6RPnWVhdSsA%40mail.gmail.com.
