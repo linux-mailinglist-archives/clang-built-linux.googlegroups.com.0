@@ -1,132 +1,121 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBM5LUGEAMGQEZLY2FGY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCCNZCEGVYEBBAN2UGEAMGQETJVL2DY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103c.google.com (mail-pj1-x103c.google.com [IPv6:2607:f8b0:4864:20::103c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 850683DE0A9
-	for <lists+clang-built-linux@lfdr.de>; Mon,  2 Aug 2021 22:29:40 +0200 (CEST)
-Received: by mail-pj1-x103c.google.com with SMTP id ep15-20020a17090ae64fb02901772983d308sf360048pjb.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 02 Aug 2021 13:29:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627936179; cv=pass;
+Received: from mail-vs1-xe40.google.com (mail-vs1-xe40.google.com [IPv6:2607:f8b0:4864:20::e40])
+	by mail.lfdr.de (Postfix) with ESMTPS id D4C953DE12C
+	for <lists+clang-built-linux@lfdr.de>; Mon,  2 Aug 2021 23:00:50 +0200 (CEST)
+Received: by mail-vs1-xe40.google.com with SMTP id a186-20020a671ac30000b0290289c309d3b2sf3249772vsa.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 02 Aug 2021 14:00:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627938050; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mgmTKJYdERE6ri6SSrnaPGQgnin+OLH0WT0ShiVFqV0dWp1ri7jURFV7eGPdfVieD5
-         FTWqF1LxoRfv4hJHDVDWY6E6Zz674HbQ3jzkJzgsRXPRc/jGwCXWCdf4lsDbvkswUjE2
-         Xj0AXJbInWBkX9IewbrGr7eBm7yw+yw1/52eioSg0wqSiAUqU/m3KQWr7JZOW6ugr8FL
-         4EUo/yO8NKIOpxVfl8fLj4+Sua3sMyQEiAqfQ/B6zRaYHxhsChP751togc9CGmZU4X3F
-         n/G4O+cyNiKCpvwxxd/D3/dTUF29PKBRYh+MmE/DCg3+0M+A3uGnlmTt3zRhw8rvZ4fO
-         g/+w==
+        b=YOS7CUFkGh2/PiRwkLOEFmEyWSI3H81U789M1aaE25CUUUsWEQ/pB480KADrjlc7c6
+         gbcrS8lzpqaeNAasekgXq7YNMERIjh2EKwkRKwFjf4btlUdEiW3d2EkESmTPyoELUWYF
+         PfV4XO6A7y3lRi8g1sNT3801YLKAqv0eOWYZ2iOrG3y4kQOgMX/FDQ7ObjjMBvkC4TUj
+         0Lf24/hinL0G9ImVHsBAuBUUp8l6csXYExTaVCXGlxe29b+QPrGXU3/awyF52OjqqUxx
+         rS/qeoEcqeINIFeXoTVpuGLFw/fe8FdhVIElL96mbmTbEME1K1usFWroQb1mu52ZhTlk
+         LqPA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=lbGCecQc42rpXwHQSM2lynFUxXo7r+LyIaXW/CGdkcA=;
-        b=EXPVbVCNhnb8NE8JntWSXNm+PyXoi2783s7uTpJv+mpACklqMM9uEk/x3Jm1zU37zo
-         b+DP+CDWlF16Fedzd87twa9iJi5xawpCnxXOHn6RyxeOFlZYlItg8PQ8oQxez0GamvVK
-         5v6eNtFsbF/u20Tb4uoFNj9yGpkmlkTVW42URsI0GfN4lOFUlWNyfLnaKzye8+Fs7LZa
-         VdZzm3OWOHpponOEFg2eQo3XaJbUDR0pdCPkalkhRQphQ52NJW3mbwwGjigKjTraBZDc
-         Sjt+qQWKq06MFjKXXYHoX509jl0ras2ePz0HNlQKdG41QejxGibQsIFNvLFH/vDY0qEf
-         /4GA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :mime-version:message-id:date:dkim-signature;
+        bh=WeqfKkSAqvKw8MX9vL+PYSlGoW/tGH/u7ilUoasW39g=;
+        b=D2YfrZBLkEtRFKGBYomKdmPfFx4JiOAhrGyn98HXDZdDRA54YG6XE/8KyZdA+NDKuR
+         eqKr2YByaowiLOLUUpmgwddzeTD5OTOvnDxLPFnq/av8jU/oAog7KiHR+voXhRudRs46
+         +NIjwYAwRZX3ezfe9dBJ2gpzWAHmHftSYVgSzCrt7DY6/RoiETfrgNt/g8ngN3WgoddJ
+         hRbVRUZqY2tn2lbSJmDre7qeMFg6frJDEbRdzy2kX2LhcVtS6Cim+whysz7rOjtrZDsN
+         iXHPCdZyjNVzNva15unuSSEIV0n1XEo3Pq/YxhVBZvxCEA3KkDxjMEkbj8gyflgBSNns
+         WO4w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=TX40QJ9d;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=XJtClUzY;
+       spf=pass (google.com: domain of 3af0iyqgkeeklmofwcldrzzrwp.nzxnwlyr-mftwe-wtyfirzzrwprczfad.nzx@flex--abdulras.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3AF0IYQgKEekLMOfWcLdRZZRWP.NZXNWLYR-MfTWe-WTYfiRZZRWPRcZfad.NZX@flex--abdulras.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=lbGCecQc42rpXwHQSM2lynFUxXo7r+LyIaXW/CGdkcA=;
-        b=aj1pmKZ5mhVrDfWotUEQL/lxljMkmLrjtRQzFedItss+G9jWW1SdvWL7upBp978oj6
-         buZBQ0lB84ETU93rePF90L5Jyl9/MWS4XoAwoENMdSJHaVcn3fpWmGiVPgENrRStoATb
-         b5CFibVubK7ovvp8zBMkrq+B12yNZUjEL56Ho+6wj2l7k/jwBiZLAFp/LLhOGMMJkIGY
-         f65uH4xjt0+v9ZPIh8nEx2HjOeoCqQZa34BNKIlfQYAu33A7p9FZINsvSPayvy690Kea
-         /corNt3XedPNgKdwmei25oIEIIoP9CJN98h8WMe9IpIHR9w8OtnDNBECv0LBBdqmthk+
-         z07w==
+        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=WeqfKkSAqvKw8MX9vL+PYSlGoW/tGH/u7ilUoasW39g=;
+        b=ftt2YwxElhE7WUt9hiWi4mqeRG6YHyBCBi671hfkTBSfCQZgAtgeQA+HaxxRainEAG
+         jAL2DcQEsJQ5uP56JIrHaClKjNGMh96tkgev15K0ze2e1pgMUd4PXJrARmgG8UVcd4Xu
+         2njRhELMtlr+DZ4IFDKM33NOWzNYgk2dPSXKc7T/NhI1ZGSSX6ozlifSmjSRYxZjMB6J
+         YySNoq2Rit/EzclrYfttk2q0htmoNt4Hw0GyEqaQQMhHHzeb+HCGf34KcbeOPU3OViug
+         23iJ7D2FT8mRjQ+SUm8Df1SrCUL+cVoq+N5Tvo6FoEcfipV6ZifbyeYKW0Jv9QVH6an5
+         rvIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=lbGCecQc42rpXwHQSM2lynFUxXo7r+LyIaXW/CGdkcA=;
-        b=dnWckRN1tirz4su/NGfXp27aEHbmb8K0cNtWaClxEhkhaWxrw1VRZA/LYkluxHoSw+
-         mJ7NTTx0srTaBa413koFeRZHUp5hSo2AO9m5PtHNId19gsvG21nZb7A5aVEuCawlcSP6
-         Y8qZYmauuIzrKsy0idnK/TqTfP7j8Pu6LuIzEAkxGaSJ3YiuW07vOVEi2JHxER9LXQkB
-         AmCdWjt1cKiUalj4y1i9BrCiHtCRDbJ/6h2p4jPsFnOIlXtN4fLhzYlQxIPZaAMcsHwJ
-         LYnB/YNZxk3+uXjQESJYzg0JDP8lgaygQSZhxnHjQSwaxto3BfU7YnnbPOODVacLeX43
-         HooA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532dqKYpviTPkgq2xgOB1YOI4L84ch9vxI00UWBmirF75L0Bwkre
-	VhBuZe4PD9zo0w0uhf0MQQY=
-X-Google-Smtp-Source: ABdhPJwdbgiwObELtBGtCqP7eCkj8nht9InPaFFWXijfTWj8bGNQNLC0kEMwWAN4cl1/3GNVkSX5VA==
-X-Received: by 2002:a17:90a:ba8e:: with SMTP id t14mr19161616pjr.176.1627936179261;
-        Mon, 02 Aug 2021 13:29:39 -0700 (PDT)
+        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=WeqfKkSAqvKw8MX9vL+PYSlGoW/tGH/u7ilUoasW39g=;
+        b=EfH/YTikTnK0hQuVDXcKklAvz/keVPKGtO0+G8tj6OI9rVNDFnUNMPJ/99nhuYvxxK
+         EODyGdBjeB5aV1HM6NEXdKuzWaWxdVABhHs9+h2UCuV9YXMDVD09Hw/cYGS6T01Vq507
+         J6AvcYnXGw8B3bQLUHY66Hk1KncA2WiGeKQPN2OHcNdjTv9bcW7I3ms6REsOeGs9pNk0
+         Nok3AJLFaKB7QTuehIBtUb6232v+U1ApMexvRnMWMahe8FcOvd11Lh+H+ibKFflUfloo
+         eXTClTl92eWlhnU01t0khth67EmANDtuiz5ORwRmG2jdAr2HnAW6i1Z5cozRCoBKwARF
+         mPhw==
+X-Gm-Message-State: AOAM532W82GIRZGORjtuiw9ozyyITQtun8DAyLgZyXKTOitTbygtmlDZ
+	yt8DrPZ//jclV1uLWIIOjgY=
+X-Google-Smtp-Source: ABdhPJxmJ54Dax3MGTzTFhDA5cU9fokoA1oHnzyVmEKeEzmYg1YsM+cS0eCeAbaZEeQx1E2xR4eGrw==
+X-Received: by 2002:a9f:3645:: with SMTP id s5mr12453240uad.101.1627938049883;
+        Mon, 02 Aug 2021 14:00:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:600e:: with SMTP id y14ls5981942pji.3.gmail; Mon, 02
- Aug 2021 13:29:38 -0700 (PDT)
-X-Received: by 2002:a17:903:248f:b029:128:d5ea:18a7 with SMTP id p15-20020a170903248fb0290128d5ea18a7mr15496461plw.83.1627936178718;
-        Mon, 02 Aug 2021 13:29:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627936178; cv=none;
+Received: by 2002:ab0:c01:: with SMTP id a1ls1169917uak.4.gmail; Mon, 02 Aug
+ 2021 14:00:49 -0700 (PDT)
+X-Received: by 2002:ae9:e005:: with SMTP id m5mr1433628qkk.207.1627938049360;
+        Mon, 02 Aug 2021 14:00:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627938049; cv=none;
         d=google.com; s=arc-20160816;
-        b=XLaw2xpsdoggv6+x0ovQ+bGPju2Ma8qDjzhAf+NkKtmH/wyJ3NoxBQboM4fJmu3XWg
-         ogHMHrnBWY2vrvcOrV7tTR/QNphIHYiaBV70ZvMhY7X3oiBETRl062bzcIfPMV70Hqh9
-         RkdeX2D6g8d01waGEFl2/jC+MmzpsS4fm39HtXukPl/AA8jOQVuTXW62KCPwaE8DAfgJ
-         kS3ZkVTFGCZRLPsSSKTpvn3ZPGkAzPZQsTUCBzbNoaxYWsPm1nJ6nN7QnDbJ8dJKptin
-         tal5BAeFinj126CVH4zyUYOq1XmHmtpA9aueqFYbNhZo4t04LohPAL76xMYeM33CnyUl
-         kBOg==
+        b=qvUIdo9Hy0EYr75j1as9Qw+iAw7gDraL4DcP+0fCdfCX/GiW8LftaEYoWP5TPA9zY3
+         uEMVlGPNTR47/gWhwuldHT8sRTp5i2BEzUN13lCp10T8P8YIuu3fdtbHrv7qm8xeWKD8
+         gy0ZOd/12J5HrcrlhsFPctNKCoIJUwWMerNmqQmQpJ3T3D0glzhAiIcLaM8fTsFgDA9T
+         rCyH0EtK4XWKC/N/IP7MjvUN6cmIpjmsKfmYamXOA7djWBvVIMneJt6RWBUw3iLlbDnp
+         W/mdilE1Af5n8R358DvU0fX/Yi47JNnCGyV0n6hOGNS+NWJ8wXgzkOYIME+FZKNE28iw
+         6jCg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=Ok1V2wcvtMzF6sT8Y34scgnxcIQxohCIO9ShRjHBIhU=;
-        b=F5Bd+YQ8c7C1/ys4at0NphAl0NiQp67ZzO+uLPDCQdIrIq0T0gkDgwl+kFvVnVVOvv
-         oQ5Tpni416Wi+mxulYyXiv64r8+RmZiCvk6kJYpLHYW4PYVk7D4nFMb2lu6fQPZDTttK
-         oH7COSA2A4TvF4xxNhrq/OG56QF7FXnJT5XkR9JFWdxYGKYvOreEs/aaalYVvKL7hTlA
-         bfxb2r2XjwA1aLVKwnr6egW8GgFe9KRaxvyQEFdZFLcZPCOI9WMSE2W9DltylsAIRvCV
-         3BN9rNPJNFG0bVIL1cr66F9dg7qAaExOd/bLz1hQZdBwpzRHG9OvRz0x/pvPYek+oUUw
-         j6Og==
+        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
+        bh=OoLM5GDms1jfZ6y4Gk1k9eO6cWXtYL+TWzyRucDvVfA=;
+        b=U9gM8B5gO7jE7A3zqxk+M1fTGrXrP2iO7VLeVOa+INDoT3fXVQIay2lA7wN8q7fQC7
+         Xw2ZfqOSWgRTScdrqmlve5l7cE2c5JZTGsksaDyrboELjO9zJ+8WMSnK4de+TV/RtaOh
+         namPBJx/kLxXUWJSSqWO+NxOhqZ/uf6Q1oG5naZunlklq1IoPqJg9kGvdp5kfn4MYSOs
+         XFyWSvQYmEpKwdIQAoz9C717fZsPevo7CNFv9OIaXxUNOhLVLimV4HCE2LijT9TxqX4y
+         F/ZLBvS1vxNrJFF9k1ogf47tOrH5slHfa/brJ5V9/NuuX0omYeGsLKO+FnhEYxYI2dd0
+         Tu9g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=TX40QJ9d;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id p1si567937plo.3.2021.08.02.13.29.38
+       dkim=pass header.i=@google.com header.s=20161025 header.b=XJtClUzY;
+       spf=pass (google.com: domain of 3af0iyqgkeeklmofwcldrzzrwp.nzxnwlyr-mftwe-wtyfirzzrwprczfad.nzx@flex--abdulras.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3AF0IYQgKEekLMOfWcLdRZZRWP.NZXNWLYR-MfTWe-WTYfiRZZRWPRcZfad.NZX@flex--abdulras.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
+        by gmr-mx.google.com with ESMTPS id u10si560935qtc.1.2021.08.02.14.00.49
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 02 Aug 2021 13:29:38 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 3C577610A8;
-	Mon,  2 Aug 2021 20:29:37 +0000 (UTC)
-Subject: Re: [PATCH v2] compiler_attributes.h: move
- __compiletime_{error|warning}
-To: Nick Desaulniers <ndesaulniers@google.com>,
- Miguel Ojeda <ojeda@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Kees Cook <keescook@chromium.org>, Marco Elver <elver@google.com>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
- Arvind Sankar <nivedita@alum.mit.edu>, Will Deacon <will@kernel.org>,
- Sami Tolvanen <samitolvanen@google.com>, Arnd Bergmann <arnd@arndb.de>,
- Ard Biesheuvel <ardb@kernel.org>, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com
-References: <20210802202326.1817503-1-ndesaulniers@google.com>
-From: Nathan Chancellor <nathan@kernel.org>
-Message-ID: <1847b77a-093a-ce59-5c3b-1a21d3bb66c7@kernel.org>
-Date: Mon, 2 Aug 2021 13:29:36 -0700
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.12.0
-MIME-Version: 1.0
-In-Reply-To: <20210802202326.1817503-1-ndesaulniers@google.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: nathan@kernel.org
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Aug 2021 14:00:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3af0iyqgkeeklmofwcldrzzrwp.nzxnwlyr-mftwe-wtyfirzzrwprczfad.nzx@flex--abdulras.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
+Received: by mail-yb1-xb4a.google.com with SMTP id f3-20020a25cf030000b029055a2303fc2dso20429879ybg.11
+        for <clang-built-linux@googlegroups.com>; Mon, 02 Aug 2021 14:00:49 -0700 (PDT)
+X-Received: from abdulras.c.googlers.com ([fda3:e722:ac3:cc00:24:72f4:c0a8:41e1])
+ (user=abdulras job=sendgmr) by 2002:a25:ac18:: with SMTP id
+ w24mr25228768ybi.289.1627938048937; Mon, 02 Aug 2021 14:00:48 -0700 (PDT)
+Date: Mon,  2 Aug 2021 21:00:17 +0000
+Message-Id: <20210802210016.642262-1-abdulras@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.32.0.554.ge1b32706d8-goog
+Subject: [PATCH] riscv: explicitly use symbol offsets for VDSO v2
+From: "'Saleem Abdulrasool' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	clang-built-linux@googlegroups.com, Saleem Abdulrasool <abdulras@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: abdulras@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=TX40QJ9d;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b=XJtClUzY;       spf=pass
+ (google.com: domain of 3af0iyqgkeeklmofwcldrzzrwp.nzxnwlyr-mftwe-wtyfirzzrwprczfad.nzx@flex--abdulras.bounces.google.com
+ designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3AF0IYQgKEekLMOfWcLdRZZRWP.NZXNWLYR-MfTWe-WTYfiRZZRWPRcZfad.NZX@flex--abdulras.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Saleem Abdulrasool <abdulras@google.com>
+Reply-To: Saleem Abdulrasool <abdulras@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,130 +128,162 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 8/2/2021 1:23 PM, 'Nick Desaulniers' via Clang Built Linux wrote:
-> I'm working on adding support for __attribute__((__error__(""))) and
-> __attribute__((__warning__(""))) to Clang. To make use of these in
-> __compiletime_error and __compiletime_warning (as used by BUILD_BUG and
-> friends) for newer clang and detect/fallback for older versions of
-> clang, move these to compiler_attributes.h and guard them with
-> __has_attribute preprocessor guards.
-> 
-> Link: https://reviews.llvm.org/D106030
-> Link: https://bugs.llvm.org/show_bug.cgi?id=16428
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1173
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+The current implementation of the `__rt_sigaction` reference computed an
+absolute offset relative to the mapped base of the VDSO.  While this can
+be handled in the medlow model, the medany model cannot handle this as
+it is meant to be position independent.  The current implementation
+relied on the BFD linker relaxing the PC-relative relocation into an
+absolute relocation as it was a near-zero address allowing it to be
+referenced relative to `zero`.
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+We now extract the offsets and create a generated header allowing the
+build with LLVM and lld to succeed as we no longer depend on the linker
+rewriting address references near zero.  This change was largely
+modelled after the ARM64 target which does something similar.
 
-One comment below, please carry my tag forward in further revisions 
-unless they are significant.
+Signed-off-by: Saleem Abdulrasool <abdulras@google.com>
+---
+ arch/riscv/Makefile                        |  4 ++++
+ arch/riscv/include/asm/vdso.h              | 11 ++--------
+ arch/riscv/kernel/vdso/Makefile            | 25 ++++++++++------------
+ arch/riscv/kernel/vdso/gen_vdso_offsets.sh |  5 +++++
+ arch/riscv/kernel/vdso/so2s.sh             |  6 ------
+ 5 files changed, 22 insertions(+), 29 deletions(-)
+ create mode 100755 arch/riscv/kernel/vdso/gen_vdso_offsets.sh
+ delete mode 100755 arch/riscv/kernel/vdso/so2s.sh
 
-> ---
-> Changes v1 -> v2:
-> * Use __warning__ rather than warning in __has_attribute check, as per
->    Nathan.
-> * Don't sort existing __GCC4_has_attribute_* defines.
-> 
->   include/linux/compiler-gcc.h        |  3 ---
->   include/linux/compiler_attributes.h | 24 ++++++++++++++++++++++++
->   include/linux/compiler_types.h      |  6 ------
->   3 files changed, 24 insertions(+), 9 deletions(-)
-> 
-> diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
-> index cb9217fc60af..21c36b69eb06 100644
-> --- a/include/linux/compiler-gcc.h
-> +++ b/include/linux/compiler-gcc.h
-> @@ -43,9 +43,6 @@
->   
->   #define __compiletime_object_size(obj) __builtin_object_size(obj, 0)
->   
-> -#define __compiletime_warning(message) __attribute__((__warning__(message)))
-> -#define __compiletime_error(message) __attribute__((__error__(message)))
-> -
->   #if defined(LATENT_ENTROPY_PLUGIN) && !defined(__CHECKER__)
->   #define __latent_entropy __attribute__((latent_entropy))
->   #endif
-> diff --git a/include/linux/compiler_attributes.h b/include/linux/compiler_attributes.h
-> index 67c5667f8042..fb08b843ab47 100644
-> --- a/include/linux/compiler_attributes.h
-> +++ b/include/linux/compiler_attributes.h
-> @@ -30,6 +30,7 @@
->   # define __GCC4_has_attribute___assume_aligned__      1
->   # define __GCC4_has_attribute___copy__                0
->   # define __GCC4_has_attribute___designated_init__     0
-> +# define __GCC4_has_attribute___error__               1
->   # define __GCC4_has_attribute___externally_visible__  1
->   # define __GCC4_has_attribute___no_caller_saved_registers__ 0
->   # define __GCC4_has_attribute___noclone__             1
-> @@ -39,6 +40,7 @@
->   # define __GCC4_has_attribute___no_sanitize_undefined__ 1
->   # define __GCC4_has_attribute___no_sanitize_coverage__ 0
->   # define __GCC4_has_attribute___fallthrough__         0
-> +# define __GCC4_has_attribute___warning__             1
->   #endif
->   
->   /*
-> @@ -138,6 +140,17 @@
->   # define __designated_init
->   #endif
->   
-> +/*
-> + * Optional: only supported since clang >= 13.0
-
-Are you planning on petitioning for D106030 to be applied to 
-release/13.x when it is merged into main? If not, this should be updated 
-to 14.0.0 since that is main's current version.
-
-> + *
-> + *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-error-function-attribute
-> + */
-> +#if __has_attribute(__error__)
-> +# define __compiletime_error(msg)       __attribute__((__error__(msg)))
-> +#else
-> +# define __compiletime_error(msg)
-> +#endif
-> +
->   /*
->    * Optional: not supported by clang
->    *
-> @@ -299,6 +312,17 @@
->    */
->   #define __must_check                    __attribute__((__warn_unused_result__))
->   
-> +/*
-> + * Optional: only supported since clang >= 13.0
-> + *
-> + *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-warning-function-attribute
-> + */
-> +#if __has_attribute(__warning__)
-> +# define __compiletime_warning(msg)     __attribute__((__warning__(msg)))
-> +#else
-> +# define __compiletime_warning(msg)
-> +#endif
-> +
->   /*
->    *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-weak-function-attribute
->    *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Variable-Attributes.html#index-weak-variable-attribute
-> diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
-> index e4ea86fc584d..b6ff83a714ca 100644
-> --- a/include/linux/compiler_types.h
-> +++ b/include/linux/compiler_types.h
-> @@ -294,12 +294,6 @@ struct ftrace_likely_data {
->   #ifndef __compiletime_object_size
->   # define __compiletime_object_size(obj) -1
->   #endif
-> -#ifndef __compiletime_warning
-> -# define __compiletime_warning(message)
-> -#endif
-> -#ifndef __compiletime_error
-> -# define __compiletime_error(message)
-> -#endif
->   
->   #ifdef __OPTIMIZE__
->   # define __compiletime_assert(condition, msg, prefix, suffix)		\
-> 
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index bc74afdbf31e..e026b2d0a5a4 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -108,6 +108,10 @@ PHONY += vdso_install
+ vdso_install:
+ 	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
+ 
++prepare: vdso_prepare
++vdso_prepare: prepare0
++	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso include/generated/vdso-offsets.h
++
+ ifneq ($(CONFIG_XIP_KERNEL),y)
+ ifeq ($(CONFIG_RISCV_M_MODE)$(CONFIG_SOC_CANAAN),yy)
+ KBUILD_IMAGE := $(boot)/loader.bin
+diff --git a/arch/riscv/include/asm/vdso.h b/arch/riscv/include/asm/vdso.h
+index 1453a2f563bc..098795262b92 100644
+--- a/arch/riscv/include/asm/vdso.h
++++ b/arch/riscv/include/asm/vdso.h
+@@ -9,24 +9,17 @@
+ #define _ASM_RISCV_VDSO_H
+ 
+ #include <linux/types.h>
++#include <generated/vdso-offsets.h>
+ 
+ #ifndef CONFIG_GENERIC_TIME_VSYSCALL
+ struct vdso_data {
+ };
+ #endif
+ 
+-/*
+- * The VDSO symbols are mapped into Linux so we can just use regular symbol
+- * addressing to get their offsets in userspace.  The symbols are mapped at an
+- * offset of 0, but since the linker must support setting weak undefined
+- * symbols to the absolute address 0 it also happens to support other low
+- * addresses even when the code model suggests those low addresses would not
+- * otherwise be availiable.
+- */
+ #define VDSO_SYMBOL(base, name)							\
+ ({										\
+ 	extern const char __vdso_##name[];					\
+-	(void __user *)((unsigned long)(base) + __vdso_##name);			\
++	(void __user *)((unsigned long)(base) + __vdso_##name##_offset);	\
+ })
+ 
+ asmlinkage long sys_riscv_flush_icache(uintptr_t, uintptr_t, uintptr_t);
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 24d936c147cd..f8cb9144a284 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -23,10 +23,10 @@ ifneq ($(c-gettimeofday-y),)
+ endif
+ 
+ # Build rules
+-targets := $(obj-vdso) vdso.so vdso.so.dbg vdso.lds vdso-syms.S
++targets := $(obj-vdso) vdso.so vdso.so.dbg vdso.lds
+ obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
+ 
+-obj-y += vdso.o vdso-syms.o
++obj-y += vdso.o
+ CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
+ 
+ # Disable -pg to prevent insert call site
+@@ -43,20 +43,22 @@ $(obj)/vdso.o: $(obj)/vdso.so
+ # link rule for the .so file, .lds has to be first
+ $(obj)/vdso.so.dbg: $(obj)/vdso.lds $(obj-vdso) FORCE
+ 	$(call if_changed,vdsold)
+-LDFLAGS_vdso.so.dbg = -shared -s -soname=linux-vdso.so.1 \
++LDFLAGS_vdso.so.dbg = -shared -S -soname=linux-vdso.so.1 \
+ 	--build-id=sha1 --hash-style=both --eh-frame-hdr
+ 
+-# We also create a special relocatable object that should mirror the symbol
+-# table and layout of the linked DSO. With ld --just-symbols we can then
+-# refer to these symbols in the kernel code rather than hand-coded addresses.
+-$(obj)/vdso-syms.S: $(obj)/vdso.so FORCE
+-	$(call if_changed,so2s)
+-
+ # strip rule for the .so file
+ $(obj)/%.so: OBJCOPYFLAGS := -S
+ $(obj)/%.so: $(obj)/%.so.dbg FORCE
+ 	$(call if_changed,objcopy)
+ 
++# Generate VDSO offsets using helper script
++gen-vdsosym := $(srctree)/$(src)/gen_vdso_offsets.sh
++quiet_cmd_vdsosym = VDSOSYM $@
++	cmd_vdsosym = $(NM) $< | $(gen-vdsosym) | LC_ALL=C sort > $@
++
++include/generated/vdso-offsets.h: $(obj)/vdso.so.dbg FORCE
++	$(call if_changed,vdsosym)
++
+ # actual build commands
+ # The DSO images are built using a special linker script
+ # Make sure only to export the intended __vdso_xxx symbol offsets.
+@@ -65,11 +67,6 @@ quiet_cmd_vdsold = VDSOLD  $@
+                    $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
+                    rm $@.tmp
+ 
+-# Extracts symbol offsets from the VDSO, converting them into an assembly file
+-# that contains the same symbols at the same offsets.
+-quiet_cmd_so2s = SO2S    $@
+-      cmd_so2s = $(NM) -D $< | $(srctree)/$(src)/so2s.sh > $@
+-
+ # install commands for the unstripped file
+ quiet_cmd_vdso_install = INSTALL $@
+       cmd_vdso_install = cp $(obj)/$@.dbg $(MODLIB)/vdso/$@
+diff --git a/arch/riscv/kernel/vdso/gen_vdso_offsets.sh b/arch/riscv/kernel/vdso/gen_vdso_offsets.sh
+new file mode 100755
+index 000000000000..c2e5613f3495
+--- /dev/null
++++ b/arch/riscv/kernel/vdso/gen_vdso_offsets.sh
+@@ -0,0 +1,5 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++
++LC_ALL=C
++sed -n -e 's/^[0]\+\(0[0-9a-fA-F]*\) . \(__vdso_[a-zA-Z0-9_]*\)$/\#define \2_offset\t0x\1/p'
+diff --git a/arch/riscv/kernel/vdso/so2s.sh b/arch/riscv/kernel/vdso/so2s.sh
+deleted file mode 100755
+index e64cb6d9440e..000000000000
+--- a/arch/riscv/kernel/vdso/so2s.sh
++++ /dev/null
+@@ -1,6 +0,0 @@
+-#!/bin/sh
+-# SPDX-License-Identifier: GPL-2.0+
+-# Copyright 2020 Palmer Dabbelt <palmerdabbelt@google.com>
+-
+-sed 's!\([0-9a-f]*\) T \([a-z0-9_]*\)\(@@LINUX_4.15\)*!.global \2\n.set \2,0x\1!' \
+-| grep '^\.'
+-- 
+2.32.0.554.ge1b32706d8-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1847b77a-093a-ce59-5c3b-1a21d3bb66c7%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210802210016.642262-1-abdulras%40google.com.
