@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBD26TVH6RINBBEG3T6EAMGQEMQF5KPQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD26TVH6RINBBDO5T6EAMGQEDMFFEHI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
-	by mail.lfdr.de (Postfix) with ESMTPS id C43E33DD669
-	for <lists+clang-built-linux@lfdr.de>; Mon,  2 Aug 2021 15:05:22 +0200 (CEST)
-Received: by mail-pj1-x103b.google.com with SMTP id gt7-20020a17090af2c7b02901773c999dcbsf16040846pjb.6
-        for <lists+clang-built-linux@lfdr.de>; Mon, 02 Aug 2021 06:05:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1627909521; cv=pass;
+Received: from mail-oo1-xc38.google.com (mail-oo1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
+	by mail.lfdr.de (Postfix) with ESMTPS id F3B433DD686
+	for <lists+clang-built-linux@lfdr.de>; Mon,  2 Aug 2021 15:09:34 +0200 (CEST)
+Received: by mail-oo1-xc38.google.com with SMTP id u64-20020a4a21430000b029026aefcb0601sf7257691oou.10
+        for <lists+clang-built-linux@lfdr.de>; Mon, 02 Aug 2021 06:09:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1627909774; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DEIY5k632f1BRps14CwjirHATMGMZOXbgWfqv5YUpTpiUvUIb2HqdmrsDGUhF5+Xho
-         pWAHpAZq1+BAic5lMasdoX2Mcx5Jaw2kPwxx3HS471Gi6m/rIGnVOdLTlH9XUjXajWpX
-         P3Vjb2ov7h+3QBLpxU8XY8CtB7Ay68O3h359uoTXTJyjU8WdJ4Uvz7Z0SeoOjBTF4vcp
-         RmB1H8B2Mw8M8kM/Du5hov6JCuCyTP/wQiDu897RZW1qLMaAUkPYYHpGktZYNG+PqLY1
-         fSSEzYr6gFEVhMWDHZWjd26c6IHgLdVZmL97Ls6gsk8+nPc1ToEHx0rqmobdnQ0LgJXU
-         DzhQ==
+        b=caYCDc869YMyV+2cvKJl4wZ0mHr5+3c4WQSlJIfWYMwhHnCFXZXP4SXHeeYu9mCymj
+         aaxTXTqAQcSQKCvyHHjHp+dKzsdJQwh7I12EmykeGK5IlLOSKrIYjETu9vGI7Y1/QZlI
+         1gWTuhH15/mWrsZSv1DVhLTzxKqWS9xT/50q67pv3p9zYGuUlWp6+mBuCe5yc9Cxh2Y8
+         7aP/195RLzafdLAuNjMVzPfcd0yfhtODhw5Gy9/2uLE01RevHfqQml8sqwux0lMmxtfK
+         PpsODyo8+k6PV2+AMbgaBvalUROQUyfms+8mSpDay1FvbiNySpVXGuUpo9vHRQHBRDdM
+         L4/g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-language:in-reply-to
          :mime-version:user-agent:date:message-id:from:cc:to:references
          :subject:sender:dkim-signature;
-        bh=6++vZQJ0q4pOvhTVZHHZBaqRImhw1mKT9drzyYPpddk=;
-        b=rkTH2IkcAds5wPDgeBDoKwbld7Nw2Gy4hoWBD8mTuQzolNPR2kAvKZpNVMyCkhcdDn
-         HSBGlZjszfX+NairQnee6K9/+fsq8bTspjtYapM+V2gCrKqvwgwKu20QUYEc9BsrEomh
-         K3izZA3940vghrO9Y4Y3ajOpYXDQsXlAfemJR+/CLmdM7Yin/9n36zVFM/b4scA3Owpa
-         JVxn8izqYBVapZ25MNslFJV0a4gWn4HVJmavlp4MYMFzpdc2QAFesTy5qdwcYfumZjyq
-         XHxKx1dVOBS5HA18yjydfP6JMT8C7Tom0tHsoukAZ2p6UpPnMxWZacSABH2Q5JaQD/LI
-         XB3w==
+        bh=YSg8iAGRb7I7iL1QobKDAKa0QytMLK6d1mTC3gXN+X8=;
+        b=F2qq2jiBK/gkbsnGE2+HwWwRaaoAuwvn/JYDTw18lqDT79mz5H4RUH6ocvjj2VBiFd
+         RnYwNq47ZIoSaKsjHi4AHqigx5EpHeLO8MrC/mLtcfNWqMwyQ4I60s0eQx3AXVNHcQae
+         16Yipk8sITWWKj0JSdGsl3jEI9Srv/YXg9KW2W9jiaMeRix4UCnvCs4KrNvyUUFZd/ai
+         62tSS1FHfZu/wFmBmJ8wk1wFVZyybnU9yGm4EOhARfgfy0ZAY6vOJ+OQVI2bpwljn5It
+         6E/rH5z7w4P7rHzQumhwP6BqXevsJyjDcvuhqfpkLocY9TNMAj8bNknKpzcLLYHW9YH5
+         4yrg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=6++vZQJ0q4pOvhTVZHHZBaqRImhw1mKT9drzyYPpddk=;
-        b=UbD7fDbdBhBNFzas4O09U0Ta3wWd+CpEZBF5ZP2f8Y5X2Hhpiiy9xHZuc94iF8pX6T
-         2GupycQ8nhrEg2F4BHvur18pxzLGNw4jKv9CWv8CUmMl9b9PirpNqXKLwB+4h0uwsbCW
-         xg/m5uxwe8TlBWANQ1/0EEznhWGAXDdTmyztXlWJOCgi9F0qRhY77Ek8bzAPN03ASs17
-         EHplnfsOy/uZY1r+go4wMLXjldumIx9+Ds1leWxX0y5eV5pxH0kj4o/GhD7A+8TrvpJ+
-         f1JPnQxtyQ4ojJXjZBRjYkvLzzvr7CI9ZOr0oBMQ7mNGKMRcEhAEwPJt0usOyQK26xgY
-         2Jtw==
+        bh=YSg8iAGRb7I7iL1QobKDAKa0QytMLK6d1mTC3gXN+X8=;
+        b=D494JRqDSPZ03mzqLnLuLdNJx5UIhXxqs/4dkh7jbGkGdexvctvkf2xriVbkIqhz5c
+         peLA/cNBJCFT9vw+JCQaI7sXcz5BffxSLScwP+EUg7U9OOW2hCTSCW0KTOh0XnduQdBl
+         vdxKQeRk9JFomMgQlwyLLbUV2siLg4fzvhl8437ERC1EwPaYGpLgwBJTTgaDEwFTj+Vv
+         cZ+6vagEzpUCD8Tsyt3Pc44yu6/NIAS4ioa2+/GSDDDlJbLAlrBlx8UtdS2z86cBB6qZ
+         drWwjc8s3QMKYv5YYIgR+U1XHr+gLYK0ejAziv7q6FO6sDe4vZt9uXD9/BaoKAqQjG4W
+         SQOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:subject:references:to:cc:from:message-id
@@ -49,82 +49,82 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=6++vZQJ0q4pOvhTVZHHZBaqRImhw1mKT9drzyYPpddk=;
-        b=PlmYoKcmFMLQrGQqAfhoNMiLBfrIlwWQRr5NHH8N6YxFXrGvdH45Bopd0dyrK+WPbG
-         Zbz8XZtzbnkz00UhHsPbYzdbZ2815Qyu6qZftVowTkiNmkEQW3VLJv+/yJIYnwrbZZUG
-         7PzxaOgcNZhDK6IKLRVPeZbSwFM/mapzd4BEjH3nL84JHLMRwB0HDH5I5A3cQVErlD7X
-         63OJoU4LFMWIZK2YulET26b9LyXhTnKivplUyyHsCWqmqYWU4j9CtPQgSxKHdGYYNmqd
-         vQUKkUzisGK+Lxs6uMF++vVDAadrRMuy9qnO8/YMWs9BG7tmpjrXCL9Zh9OvxQQM89Ar
-         dDWA==
+        bh=YSg8iAGRb7I7iL1QobKDAKa0QytMLK6d1mTC3gXN+X8=;
+        b=OMTuzy+4vTT/RiBKShoccSN3SVMUHKh3XdYsmf47IiIdRkfGSSbmRtFgOjUtzXU9vA
+         XJkvZ5tgzVNFRNGP/FtBGRtjG8DIc4rogbnAJNVMjdCTbIzU0UDDwGOhaqjfqRTMn/a7
+         ZFy1yWQ/Hw/xuMQ9p5tGmxz09ybuXrBKdP20ugfqHbTBa6+y03GMD97T18s3t7v5o/Oe
+         gotOuP6c7s/uNmCLrEVYphs71Hfa0K0b7dwoASCQr+q1nbKAtGgvaFsd0gNZPzXKuFTj
+         qoFG863UlG300MPFLNLn7ZnrKYhubZtGoH1hsskXAaTUXOtRjDLkIhEfG1rXamoqCT9h
+         Mc7g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533o5rrRZIDGe77hEKLV3BqfOieO366dj/k3RHsW52mwU2dPmJ5C
-	mriwXqscDevfnTD04ZUOfvk=
-X-Google-Smtp-Source: ABdhPJyHRT+7F9R3CfridGYOKw0e68SgF2/Jm5woX1EcF+knYQH8weRaK8W9gbs51IOMGVS4q4hIjw==
-X-Received: by 2002:a05:6a00:26f7:b029:3be:5428:3994 with SMTP id p55-20020a056a0026f7b02903be54283994mr4238514pfw.42.1627909520868;
-        Mon, 02 Aug 2021 06:05:20 -0700 (PDT)
+X-Gm-Message-State: AOAM530XmCrfr3eFpmfTt9Uq8bI0q1aQGthSgtnK5Y7ugan9hy0nw0Sg
+	ldxELoBqUWEULqbdgTUM3rs=
+X-Google-Smtp-Source: ABdhPJxlUlfJawSYh30DgeGAapjtH/HFJGkMEL2qKVC5zjnt7w/30sTfJRr/1NmU+LGwNNoZW8qKgg==
+X-Received: by 2002:a05:6808:bcd:: with SMTP id o13mr10445983oik.61.1627909773859;
+        Mon, 02 Aug 2021 06:09:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:8410:: with SMTP id j16ls5454369pjn.2.canary-gmail;
- Mon, 02 Aug 2021 06:05:20 -0700 (PDT)
-X-Received: by 2002:a17:90b:1049:: with SMTP id gq9mr17094229pjb.163.1627909520244;
-        Mon, 02 Aug 2021 06:05:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1627909520; cv=none;
+Received: by 2002:a05:6830:1403:: with SMTP id v3ls2280838otp.7.gmail; Mon, 02
+ Aug 2021 06:09:33 -0700 (PDT)
+X-Received: by 2002:a05:6830:19cd:: with SMTP id p13mr11801442otp.362.1627909773154;
+        Mon, 02 Aug 2021 06:09:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1627909773; cv=none;
         d=google.com; s=arc-20160816;
-        b=XWEo9DZm2YMTJi3U4ShElcsL5ENR4T1w6QrUIPH7g0GqzLz63zW6hYd6AQb1/8DS1O
-         GM1Tj3KAYOltAiALd3vj46jmtyFM3+mzdZtATgB49NmN3TYTLt+ekFGgXm8ZELNxctgT
-         R6OwbMdFLcNpj5UOouJZDV/+iDzs7H/uKvoKhJQFQ/RU+rSLQTUhdOEUQjjfZYNpw4U7
-         RJspm8xpo24+I6b1Gqyk/5adp85KoMZZGs3ZxM/iKRcGkylLEoiTaSiVQNUqQVTe0pDA
-         V4ZRQe3HO1ULEfP13wZ2zJHcJH8fRym6SioluyeTdmsHn4BPf3qsYkfBuYiGnyjWKCdk
-         z45g==
+        b=IaQDUDxIH9GRrnaeSf+LU7ejAQr6FewnRrH1jrSvNkuMXRF1UTbSNZIJvRxX2SFFN8
+         QWLOzQ/lr0GuTnnQvAE+WqN7+6z5jb8jlcWCkjpYPgMUPMLCy/d/wQCHL64B4rBGkZAK
+         2qum4Yf9euPPY/7bb+uJ7FqPQwVKRHXzFn1dYuqfdRbHmtTwZZuP34pPaZE5aOb6uu46
+         7tRZ3FB7apdPNcvu4QHZ0Qkfu5IfY3jfzqlVDKm6pCxl2ARR+eoMQoqRWpjmcIzKNoEd
+         TNcrrTUJvAOgwjTZRWLm0CnkxCgup7BrIxVJlEYmKcjLeg/Xtb+nUHNEBvxBshjiNzPz
+         g+zA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-language:in-reply-to:mime-version:user-agent:date
          :message-id:from:cc:to:references:subject;
-        bh=cZYC2GqyZH4LBlK52FR194WlxndbHqvxoiXsIyw/GEQ=;
-        b=iyByHcGB+RzrSvHabyIEF7tDdve/atKSIRw3yfLSbDQmaH2JurbE2DIVts6zcj7lXM
-         q52tP+4vOGFAXvlA9VondRrzazyi9Lw9RPy7f5AMiooD65aA7Uupme1CT96nuDrf/mGs
-         PqheHod295x026B+N+S/c1dmvB5g5S6Gh51jNcGZO9lMtJFfVbfD8Nth9g6Y1C+sUMrF
-         ujXpyqHfRhdFpQ9kgny6c4za1JdtLj8BIxETLKJ7i7uKPSGIevIBNB0xIKGWqoY1wsYO
-         Gtw+5XSa9vYfDhiGG7T7rzgeNMfohdpD0iWhFbbXYbYNkqk4U4PhjlHGi6xqQq0aAlPe
-         vxuw==
+        bh=I78faa6XVKxS/kwI9pRzRCKWttMCa3g+pegf7fehXkY=;
+        b=wQ24Lp/Q8cIXUXSrkBDk3n+QrcQIU460fuzJGJpukSO1T/hXPQ/3jEmcSitt8M9SQP
+         8hz/IgD/6Do9jfEXgq8zV5q0b/X30rrUt63fRQ8EGQaHW3CZSbEMG8S3AwALWQMLJSyl
+         Bk7pDCJJVCKdwAMomzzkNTd1dgRuregRojVa/Z8N14VUpzQ56IyYX4Zl0glzIsIGXgeC
+         9WNAvbtY7N/bxScDXB53uST5rZc2BvHeeeosz14f/azbzdEvn+/qqf84KaqeyK4gPBh7
+         lwdTm1EDTIrTjlVOR0p57TNJu/O7zNvSgmSSnmC4XMVhy8R5vm1gnVlN8+jX+Q9iBtAp
+         Lz+w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id e1si595760pgk.0.2021.08.02.06.05.19
+Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
+        by gmr-mx.google.com with ESMTPS id b9si810916ooq.1.2021.08.02.06.09.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 02 Aug 2021 06:05:20 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
-X-IronPort-AV: E=McAfee;i="6200,9189,10063"; a="213178275"
-X-IronPort-AV: E=Sophos;i="5.84,288,1620716400"; 
-   d="gz'50?scan'50,208,50";a="213178275"
+        Mon, 02 Aug 2021 06:09:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+X-IronPort-AV: E=McAfee;i="6200,9189,10063"; a="200623241"
+X-IronPort-AV: E=Sophos;i="5.84,289,1620716400"; 
+   d="gz'50?scan'50,208,50";a="200623241"
 Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Aug 2021 06:02:56 -0700
-X-IronPort-AV: E=Sophos;i="5.84,288,1620716400"; 
-   d="gz'50?scan'50,208,50";a="510148537"
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Aug 2021 06:06:01 -0700
+X-IronPort-AV: E=Sophos;i="5.84,289,1620716400"; 
+   d="gz'50?scan'50,208,50";a="510150211"
 Received: from rongch2-mobl.ccr.corp.intel.com (HELO [10.249.168.54]) ([10.249.168.54])
-  by fmsmga003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Aug 2021 06:02:53 -0700
-Subject: [linux-next:master 3868/4668] fs/btrfs/verity.c:125:4: warning: Value
- stored to 'ret' is never read [clang-analyzer-deadcode.DeadStores]
-References: <202107311755.ClwYt9Z6-lkp@intel.com>
-To: Boris Burkov <boris@bur.io>
+  by fmsmga003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Aug 2021 06:05:58 -0700
+Subject: [linux-next:master 4029/4668] fs/btrfs/ioctl.c:2421:3: warning: Value
+ stored to 'dirid' is never read [clang-analyzer-deadcode.DeadStores]
+References: <202108010234.MIVDpHJy-lkp@intel.com>
+To: Marcos Paulo de Souza <mpdesouza@suse.com>
 Cc: clang-built-linux <clang-built-linux@googlegroups.com>,
  "kbuild-all@lists.01.org" <kbuild-all@lists.01.org>,
  Linux Memory Management List <linux-mm@kvack.org>,
- David Sterba <dsterba@suse.com>, Chris Mason <chris.mason@fusionio.com>
+ David Sterba <dsterba@suse.com>
 From: kernel test robot <rong.a.chen@intel.com>
-X-Forwarded-Message-Id: <202107311755.ClwYt9Z6-lkp@intel.com>
-Message-ID: <023679c7-eafc-d7b3-6b16-1d6bdf32b23d@intel.com>
-Date: Mon, 2 Aug 2021 21:02:50 +0800
+X-Forwarded-Message-Id: <202108010234.MIVDpHJy-lkp@intel.com>
+Message-ID: <d07813e1-5367-d17a-0a83-1e3e185d2170@intel.com>
+Date: Mon, 2 Aug 2021 21:05:56 +0800
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
  Firefox/78.0 Thunderbird/78.12.0
 MIME-Version: 1.0
-In-Reply-To: <202107311755.ClwYt9Z6-lkp@intel.com>
+In-Reply-To: <202108010234.MIVDpHJy-lkp@intel.com>
 Content-Type: multipart/mixed;
- boundary="------------97E9029FE6B3AB69F7792480"
+ boundary="------------39F71032EC2836D0F5346617"
 Content-Language: en-US
 X-Original-Sender: rong.a.chen@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of rong.a.chen@intel.com designates 192.55.52.115 as
+ (google.com: domain of rong.a.chen@intel.com designates 134.134.136.20 as
  permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
@@ -140,16 +140,17 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 This is a multi-part message in MIME format.
---------------97E9029FE6B3AB69F7792480
+--------------39F71032EC2836D0F5346617
 Content-Type: text/plain; charset="UTF-8"; format=flowed
+
 
 tree: 
 https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
 head:   8d4b477da1a807199ca60e0829357ce7aa6758d5
-commit: 6875cbd232c7c516e6b2dd2b40c6eda6a552d619 [3868/4668] btrfs: 
-initial fsverity support
-:::::: branch date: 17 hours ago
-:::::: commit date: 3 days ago
+commit: 2315a282149bab4e37c8ecd5c6cad4e62704c65a [4029/4668] btrfs: 
+introduce btrfs_search_backwards function
+:::::: branch date: 27 hours ago
+:::::: commit date: 2 days ago
 config: x86_64-randconfig-c001-20210729 (attached as .config)
 compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project 
 c49df15c278857adecd12db6bb1cdc96885f7079)
@@ -161,11 +162,11 @@ https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross
          # install x86_64 cross compiling tool for clang build
          # apt-get install binutils-x86-64-linux-gnu
          # 
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=6875cbd232c7c516e6b2dd2b40c6eda6a552d619
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=2315a282149bab4e37c8ecd5c6cad4e62704c65a
          git remote add linux-next 
 https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
          git fetch --no-tags linux-next master
-         git checkout 6875cbd232c7c516e6b2dd2b40c6eda6a552d619
+         git checkout 2315a282149bab4e37c8ecd5c6cad4e62704c65a
          # save the attached .config to linux build tree
          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross 
 ARCH=x86_64 clang-analyzer
@@ -174,350 +175,379 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 
 clang-analyzer warnings: (new ones prefixed by >>)
-                            ^
-    drivers/char/agp/isoch.c:344:2: note: Assuming the condition is false
-            for_each_pci_dev(dev) {
+                ^
+    drivers/hid/hid-ite.c:50:6: note: Assuming the condition is true
+                (usage->hid & HID_USAGE_PAGE) == 0x00880000) {
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    drivers/hid/hid-ite.c:49:2: note: Taking true branch
+            if ((quirks & QUIRK_TOUCHPAD_ON_OFF_REPORT) &&
             ^
-    include/linux/pci.h:522:36: note: expanded from macro 'for_each_pci_dev'
-    #define for_each_pci_dev(d) while ((d = pci_get_device(PCI_ANY_ID, 
-PCI_ANY_ID, d)) != NULL)
- 
-^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    drivers/char/agp/isoch.c:344:2: note: Loop condition is false. 
-Execution continues on line 387
-            for_each_pci_dev(dev) {
-            ^
-    include/linux/pci.h:522:29: note: expanded from macro 'for_each_pci_dev'
-    #define for_each_pci_dev(d) while ((d = pci_get_device(PCI_ANY_ID, 
-PCI_ANY_ID, d)) != NULL)
-                                ^
-    drivers/char/agp/isoch.c:387:2: note: Loop condition is false. 
-Execution continues on line 441
-            list_for_each(pos, head) {
-            ^
-    include/linux/list.h:571:2: note: expanded from macro 'list_for_each'
-            for (pos = (head)->next; pos != (head); pos = pos->next)
-            ^
-    drivers/char/agp/isoch.c:441:6: note: 'isoch' is not equal to 0
-            if (isoch) {
-                ^~~~~
-    drivers/char/agp/isoch.c:441:2: note: Taking true branch
-            if (isoch) {
-            ^
-    drivers/char/agp/isoch.c:443:7: note: Assuming 'ret' is not equal to 0
-                    if (ret) {
-                        ^~~
-    drivers/char/agp/isoch.c:443:3: note: Taking true branch
-                    if (ret) {
+    drivers/hid/hid-ite.c:51:7: note: Assuming field 'hid' is equal to 
+8913016
+                    if (usage->hid == 0x00880078) {
+                        ^~~~~~~~~~~~~~~~~~~~~~~~
+    drivers/hid/hid-ite.c:51:3: note: Taking true branch
+                    if (usage->hid == 0x00880078) {
                     ^
-    drivers/char/agp/isoch.c:451:55: note: Passing the value 0 via 3rd 
-parameter 'ndevs'
-            agp_3_5_nonisochronous_node_enable(bridge, dev_list, ndevs);
-                                                                 ^~~~~
-    drivers/char/agp/isoch.c:451:2: note: Calling 
-'agp_3_5_nonisochronous_node_enable'
-            agp_3_5_nonisochronous_node_enable(bridge, dev_list, ndevs);
+    drivers/hid/hid-ite.c:53:4: note: Calling 'hid_map_usage_clear'
+                            hid_map_usage_clear(hi, usage, bit, max, 
+EV_KEY, KEY_F22);
+ 
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    include/linux/hid.h:1035:2: note: Calling 'hid_map_usage'
+            hid_map_usage(hidinput, usage, bit, max, type, c);
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    include/linux/hid.h:982:2: note: 'input' initialized here
+            struct input_dev *input = hidinput->input;
+            ^~~~~~~~~~~~~~~~~~~~~~~
+    include/linux/hid.h:986:2: note: Control jumps to 'case 1:'  at line 995
+            switch (type) {
+            ^
+    include/linux/hid.h:998:3: note:  Execution continues on line 1005
+                    break;
+                    ^
+    include/linux/hid.h:1005:15: note: 'c' is <= 'limit'
+            if (unlikely(c > limit || !bmap)) {
+                         ^
+    include/linux/compiler.h:78:42: note: expanded from macro 'unlikely'
+    # define unlikely(x)    __builtin_expect(!!(x), 0)
+                                                ^
+    include/linux/hid.h:1005:15: note: Left side of '||' is false
+            if (unlikely(c > limit || !bmap)) {
+                         ^
+    include/linux/hid.h:1005:28: note: Assuming 'bmap' is null
+            if (unlikely(c > limit || !bmap)) {
+                                      ^
+    include/linux/compiler.h:78:42: note: expanded from macro 'unlikely'
+    # define unlikely(x)    __builtin_expect(!!(x), 0)
+                                                ^
+    include/linux/hid.h:1005:28: note: Assuming pointer value is null
+            if (unlikely(c > limit || !bmap)) {
+                                      ^
+    include/linux/compiler.h:78:42: note: expanded from macro 'unlikely'
+    # define unlikely(x)    __builtin_expect(!!(x), 0)
+                                                ^
+    include/linux/hid.h:1005:2: note: Taking true branch
+            if (unlikely(c > limit || !bmap)) {
+            ^
+    include/linux/hid.h:1006:3: note: Assuming the condition is true
+                    pr_warn_ratelimited("%s: Invalid code %d type %d\n",
+                    ^
+    include/linux/printk.h:557:2: note: expanded from macro 
+'pr_warn_ratelimited'
+            printk_ratelimited(KERN_WARNING pr_fmt(fmt), ##__VA_ARGS__)
             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    drivers/char/agp/isoch.c:295:12: note: Division by zero
-            mrq = trq / ndevs;
-                  ~~~~^~~~~~~
-    Suppressed 3 warnings (3 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    5 warnings generated.
-    Suppressed 5 warnings (5 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    5 warnings generated.
-    Suppressed 5 warnings (5 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    9 warnings generated.
-    Suppressed 9 warnings (9 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    9 warnings generated.
-    Suppressed 9 warnings (9 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    9 warnings generated.
-    Suppressed 9 warnings (9 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    9 warnings generated.
-    Suppressed 9 warnings (9 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    9 warnings generated.
-    Suppressed 9 warnings (9 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    9 warnings generated.
-    Suppressed 9 warnings (9 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    9 warnings generated.
-    Suppressed 9 warnings (9 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    10 warnings generated.
-    fs/nfs/direct.c:703:19: warning: Value stored to 'req' during its 
-initialization is never read [clang-analyzer-deadcode.DeadStores]
-            struct nfs_page *req = nfs_list_entry(hdr->pages.next);
-                             ^~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    fs/nfs/direct.c:703:19: note: Value stored to 'req' during its 
-initialization is never read
-            struct nfs_page *req = nfs_list_entry(hdr->pages.next);
-                             ^~~   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Suppressed 9 warnings (9 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    6 warnings generated.
-    drivers/gpu/vga/vga_switcheroo.c:861:3: warning: Value stored to 
-'ret' is never read [clang-analyzer-deadcode.DeadStores]
-                    ret = vgasr_priv.handler->switchto(client_id);
-                    ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    drivers/gpu/vga/vga_switcheroo.c:861:3: note: Value stored to 'ret' 
-is never read
-                    ret = vgasr_priv.handler->switchto(client_id);
-                    ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Suppressed 5 warnings (5 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    3 warnings generated.
-    Suppressed 3 warnings (3 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    3 warnings generated.
-    Suppressed 3 warnings (3 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    3 warnings generated.
-    Suppressed 3 warnings (3 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    3 warnings generated.
-    Suppressed 3 warnings (3 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    6 warnings generated.
->> fs/btrfs/verity.c:125:4: warning: Value stored to 'ret' is never read [clang-analyzer-deadcode.DeadStores]
-                            ret = 0;
-                            ^     ~
-    fs/btrfs/verity.c:125:4: note: Value stored to 'ret' is never read
-                            ret = 0;
-                            ^     ~
-    Suppressed 5 warnings (5 in non-user code).
-    Use -header-filter=.* to display errors from all non-system headers. 
-Use -system-headers to display errors from system headers as well.
-    4 warnings generated.
+    include/linux/printk.h:540:6: note: expanded from macro 
+'printk_ratelimited'
+            if (__ratelimit(&_rs)) 
+     \
+                ^~~~~~~~~~~~~~~~~
+    include/linux/ratelimit_types.h:41:28: note: expanded from macro 
+'__ratelimit'
+    #define __ratelimit(state) ___ratelimit(state, __func__)
+                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    include/linux/hid.h:1006:3: note: Taking true branch
+                    pr_warn_ratelimited("%s: Invalid code %d type %d\n",
+                    ^
+    include/linux/printk.h:557:2: note: expanded from macro 
+'pr_warn_ratelimited'
+            printk_ratelimited(KERN_WARNING pr_fmt(fmt), ##__VA_ARGS__)
+            ^
+    include/linux/printk.h:540:2: note: expanded from macro 
+'printk_ratelimited'
+            if (__ratelimit(&_rs)) 
+     \
+            ^
+    include/linux/hid.h:1007:9: note: Access to field 'name' results in 
+a dereference of a null pointer (loaded from variable 'input')
+                                        input->name, c, type);
+                                        ^
+    include/linux/printk.h:557:49: note: expanded from macro 
+'pr_warn_ratelimited'
+            printk_ratelimited(KERN_WARNING pr_fmt(fmt), ##__VA_ARGS__)
+                                                           ^~~~~~~~~~~
+    include/linux/printk.h:541:17: note: expanded from macro 
+'printk_ratelimited'
+                    printk(fmt, ##__VA_ARGS__); 
+     \
+                                  ^~~~~~~~~~~
     Suppressed 4 warnings (4 in non-user code).
     Use -header-filter=.* to display errors from all non-system headers. 
 Use -system-headers to display errors from system headers as well.
-    12 warnings generated.
-    fs/gfs2/bmap.c:1848:3: warning: 6th function call argument is an 
-uninitialized value [clang-analyzer-core.CallAndMessage]
-                    metapointer_range(&mp, mp_h, start_list, start_aligned,
-                    ^
-    fs/gfs2/bmap.c:2460:7: note: Calling 'gfs2_is_stuffed'
-            if (!gfs2_is_stuffed(ip)) {
-                 ^~~~~~~~~~~~~~~~~~~
-    fs/gfs2/inode.h:22:9: note: Assuming field 'i_height' is not equal to 0
-            return !ip->i_height;
-                   ^~~~~~~~~~~~~
-    fs/gfs2/inode.h:22:2: note: Returning zero, which participates in a 
-condition later
-            return !ip->i_height;
-            ^~~~~~~~~~~~~~~~~~~~
-    fs/gfs2/bmap.c:2460:7: note: Returning from 'gfs2_is_stuffed'
-            if (!gfs2_is_stuffed(ip)) {
-                 ^~~~~~~~~~~~~~~~~~~
-    fs/gfs2/bmap.c:2460:2: note: Taking true branch
-            if (!gfs2_is_stuffed(ip)) {
-            ^
-    fs/gfs2/bmap.c:2465:7: note: Assuming 'start_off' is 0
-                    if (start_off) {
-                        ^~~~~~~~~
-    fs/gfs2/bmap.c:2465:3: note: Taking false branch
-                    if (start_off) {
-                    ^
-    fs/gfs2/bmap.c:2475:7: note: Assuming 'end_len' is 0
-                    if (end_len) {
-                        ^~~~~~~
-    fs/gfs2/bmap.c:2475:3: note: Taking false branch
-                    if (end_len) {
-                    ^
-    fs/gfs2/bmap.c:2486:6: note: Assuming 'error' is 0
-            if (error)
+    5 warnings generated.
+    Suppressed 5 warnings (5 in non-user code).
+    Use -header-filter=.* to display errors from all non-system headers. 
+Use -system-headers to display errors from system headers as well.
+    9 warnings generated.
+    fs/btrfs/ioctl.c:1420:16: warning: Value stored to 'cluster' during 
+its initialization is never read [clang-analyzer-deadcode.DeadStores]
+            unsigned long cluster = max_cluster;
+                          ^~~~~~~   ~~~~~~~~~~~
+    fs/btrfs/ioctl.c:1420:16: note: Value stored to 'cluster' during its 
+initialization is never read
+            unsigned long cluster = max_cluster;
+                          ^~~~~~~   ~~~~~~~~~~~
+    fs/btrfs/ioctl.c:2107:3: warning: Value stored to 'i' is never read 
+[clang-analyzer-deadcode.DeadStores]
+                    i = nritems;
+                    ^   ~~~~~~~
+    fs/btrfs/ioctl.c:2107:3: note: Value stored to 'i' is never read
+                    i = nritems;
+                    ^   ~~~~~~~
+>> fs/btrfs/ioctl.c:2421:3: warning: Value stored to 'dirid' is never read [clang-analyzer-deadcode.DeadStores]
+                    dirid = key.objectid;
+                    ^       ~~~~~~~~~~~~
+    fs/btrfs/ioctl.c:2421:3: note: Value stored to 'dirid' is never read
+                    dirid = key.objectid;
+                    ^       ~~~~~~~~~~~~
+    fs/btrfs/ioctl.c:4660:2: warning: Call to function 'strcpy' is 
+insecure as it does not provide bounding of the memory buffer. Replace 
+unbounded copy functions with analogous functions that support length 
+arguments such as 'strlcpy'. CWE-119 
+[clang-analyzer-security.insecureAPI.strcpy]
+            strcpy(super_block->label, label);
+            ^~~~~~
+    fs/btrfs/ioctl.c:4660:2: note: Call to function 'strcpy' is insecure 
+as it does not provide bounding of the memory buffer. Replace unbounded 
+copy functions with analogous functions that support length arguments 
+such as 'strlcpy'. CWE-119
+            strcpy(super_block->label, label);
+            ^~~~~~
+    Suppressed 5 warnings (5 in non-user code).
+    Use -header-filter=.* to display errors from all non-system headers. 
+Use -system-headers to display errors from system headers as well.
+    5 warnings generated.
+    Suppressed 5 warnings (5 in non-user code).
+    Use -header-filter=.* to display errors from all non-system headers. 
+Use -system-headers to display errors from system headers as well.
+    5 warnings generated.
+    Suppressed 5 warnings (5 in non-user code).
+    Use -header-filter=.* to display errors from all non-system headers. 
+Use -system-headers to display errors from system headers as well.
+    5 warnings generated.
+    Suppressed 5 warnings (5 in non-user code).
+    Use -header-filter=.* to display errors from all non-system headers. 
+Use -system-headers to display errors from system headers as well.
+    19 warnings generated.
+    fs/btrfs/ctree.h:2152:1: warning: Array access (via field 'pages') 
+results in a null pointer dereference [clang-analyzer-core.NullDereference]
+    BTRFS_SETGET_HEADER_FUNCS(header_nritems, struct btrfs_header, 
+nritems, 32);
+    ^
+    fs/btrfs/ctree.h:1612:31: note: expanded from macro 
+'BTRFS_SETGET_HEADER_FUNCS'
+            const type *p = page_address(eb->pages[0]) + 
+     \
+                                         ^
+    fs/btrfs/tree-log.c:6288:6: note: Assuming 'path' is non-null
+            if (!path)
                 ^~~~~
-    fs/gfs2/bmap.c:2486:2: note: Taking false branch
-            if (error)
+    fs/btrfs/tree-log.c:6288:2: note: Taking false branch
+            if (!path)
             ^
-    fs/gfs2/bmap.c:2489:6: note: Assuming the condition is false
-            if (gfs2_is_jdata(ip))
-                ^~~~~~~~~~~~~~~~~
-    fs/gfs2/bmap.c:2489:2: note: Taking false branch
-            if (gfs2_is_jdata(ip))
+    fs/btrfs/tree-log.c:6294:2: note: Taking false branch
+            if (IS_ERR(trans)) {
             ^
-    fs/gfs2/bmap.c:2494:6: note: Assuming 'error' is 0
-            if (error)
+    fs/btrfs/tree-log.c:6302:8: note: Calling 'walk_log_tree'
+            ret = walk_log_tree(trans, log_root_tree, &wc);
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    fs/btrfs/tree-log.c:2892:6: note: Assuming 'path' is non-null
+            if (!path)
                 ^~~~~
-    fs/gfs2/bmap.c:2494:2: note: Taking false branch
-            if (error)
+    fs/btrfs/tree-log.c:2892:2: note: Taking false branch
+            if (!path)
             ^
-    fs/gfs2/bmap.c:2497:6: note: Calling 'gfs2_is_stuffed'
-            if (gfs2_is_stuffed(ip)) {
-                ^~~~~~~~~~~~~~~~~~~
-    fs/gfs2/inode.h:22:14: note: Field 'i_height' is not equal to 0
-            return !ip->i_height;
-                        ^
-    fs/gfs2/inode.h:22:2: note: Returning zero, which participates in a 
-condition later
-            return !ip->i_height;
-            ^~~~~~~~~~~~~~~~~~~~
-    fs/gfs2/bmap.c:2497:6: note: Returning from 'gfs2_is_stuffed'
-            if (gfs2_is_stuffed(ip)) {
-                ^~~~~~~~~~~~~~~~~~~
-    fs/gfs2/bmap.c:2497:2: note: Taking false branch
-            if (gfs2_is_stuffed(ip)) {
+    fs/btrfs/tree-log.c:2901:2: note: Loop condition is true.  Entering 
+loop body
+            while (1) {
             ^
-    fs/gfs2/bmap.c:2503:6: note: Calling 'gfs2_is_jdata'
-            if (gfs2_is_jdata(ip)) {
-                ^~~~~~~~~~~~~~~~~
-    fs/gfs2/inode.h:27:2: note: Returning zero, which participates in a 
-condition later
-            return ip->i_diskflags & GFS2_DIF_JDATA;
-            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    fs/gfs2/bmap.c:2503:6: note: Returning from 'gfs2_is_jdata'
-            if (gfs2_is_jdata(ip)) {
-                ^~~~~~~~~~~~~~~~~
-    fs/gfs2/bmap.c:2503:2: note: Taking false branch
-            if (gfs2_is_jdata(ip)) {
-            ^
-    fs/gfs2/bmap.c:2512:6: note: Assuming field 'journal_info' is null
-            if (current->journal_info)
-                ^
-    arch/x86/include/asm/current.h:18:17: note: expanded from macro 
-'current'
-    #define current get_current()
+    fs/btrfs/tree-log.c:2903:7: note: 'wret' is <= 0
+                    if (wret > 0)
+                        ^~~~
+    fs/btrfs/tree-log.c:2903:3: note: Taking false branch
+                    if (wret > 0)
                     ^
-    fs/gfs2/bmap.c:2512:2: note: Taking false branch
-            if (current->journal_info)
+    fs/btrfs/tree-log.c:2905:7: note: 'wret' is >= 0
+                    if (wret < 0) {
+                        ^~~~
+    fs/btrfs/tree-log.c:2905:3: note: Taking false branch
+                    if (wret < 0) {
+                    ^
+    fs/btrfs/tree-log.c:2910:10: note: Calling 'walk_up_log_tree'
+                    wret = walk_up_log_tree(trans, log, path, &level, wc);
+                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    fs/btrfs/tree-log.c:2831:19: note: Left side of '&&' is true
+            for (i = *level; i < BTRFS_MAX_LEVEL - 1 && path->nodes[i]; 
+i++) {
+                             ^
+    fs/btrfs/tree-log.c:2831:2: note: Loop condition is true.  Entering 
+loop body
+            for (i = *level; i < BTRFS_MAX_LEVEL - 1 && path->nodes[i]; 
+i++) {
             ^
-    fs/gfs2/bmap.c:2515:7: note: Calling 'gfs2_is_stuffed'
-            if (!gfs2_is_stuffed(ip))
-                 ^~~~~~~~~~~~~~~~~~~
-    fs/gfs2/inode.h:22:9: note: Assuming field 'i_height' is not equal to 0
-            return !ip->i_height;
+    fs/btrfs/tree-log.c:2833:7: note: Assuming the condition is false
+                    if (slot + 1 < btrfs_header_nritems(path->nodes[i])) {
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    fs/btrfs/tree-log.c:2833:3: note: Taking false branch
+                    if (slot + 1 < btrfs_header_nritems(path->nodes[i])) {
+                    ^
+    fs/btrfs/tree-log.c:2842:8: note: 'ret' is 0
+                            if (ret)
+                                ^~~
+    fs/btrfs/tree-log.c:2842:4: note: Taking false branch
+                            if (ret)
+                            ^
+    fs/btrfs/tree-log.c:2845:12: note: Field 'free' is 0
+                            if (wc->free) {
+                                    ^
+    fs/btrfs/tree-log.c:2845:4: note: Taking false branch
+                            if (wc->free) {
+                            ^
+    fs/btrfs/tree-log.c:2869:4: note: Storing null pointer value
+                            path->nodes[*level] = NULL;
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+    fs/btrfs/tree-log.c:2831:19: note: Left side of '&&' is true
+            for (i = *level; i < BTRFS_MAX_LEVEL - 1 && path->nodes[i]; 
+i++) {
+                             ^
+    fs/btrfs/tree-log.c:2831:2: note: Loop condition is true.  Entering 
+loop body
+            for (i = *level; i < BTRFS_MAX_LEVEL - 1 && path->nodes[i]; 
+i++) {
+            ^
+    fs/btrfs/tree-log.c:2833:7: note: Assuming the condition is false
+                    if (slot + 1 < btrfs_header_nritems(path->nodes[i])) {
 
-vim +/ret +125 fs/btrfs/verity.c
+vim +/dirid +2421 fs/btrfs/ioctl.c
 
-6875cbd232c7c5 Boris Burkov 2021-06-30   81  6875cbd232c7c5 Boris Burkov 
-2021-06-30   82  /*
-6875cbd232c7c5 Boris Burkov 2021-06-30   83   * Drop all the items for 
-this inode with this key_type.
-6875cbd232c7c5 Boris Burkov 2021-06-30   84   *
-6875cbd232c7c5 Boris Burkov 2021-06-30   85   * @inode:     inode to 
-drop items for
-6875cbd232c7c5 Boris Burkov 2021-06-30   86   * @key_type:  type of 
-items to drop (BTRFS_VERITY_DESC_ITEM or
-6875cbd232c7c5 Boris Burkov 2021-06-30   87   * 
-BTRFS_VERITY_MERKLE_ITEM)
-6875cbd232c7c5 Boris Burkov 2021-06-30   88   *
-6875cbd232c7c5 Boris Burkov 2021-06-30   89   * Before doing a verity 
-enable we cleanup any existing verity items.
-6875cbd232c7c5 Boris Burkov 2021-06-30   90   * This is also used to 
-clean up if a verity enable failed half way through.
-6875cbd232c7c5 Boris Burkov 2021-06-30   91   *
-6875cbd232c7c5 Boris Burkov 2021-06-30   92   * Returns number of 
-dropped items on success, negative error code on failure.
-6875cbd232c7c5 Boris Burkov 2021-06-30   93   */
-6875cbd232c7c5 Boris Burkov 2021-06-30   94  static int 
-drop_verity_items(struct btrfs_inode *inode, u8 key_type)
-6875cbd232c7c5 Boris Burkov 2021-06-30   95  {
-6875cbd232c7c5 Boris Burkov 2021-06-30   96  	struct btrfs_trans_handle 
-*trans;
-6875cbd232c7c5 Boris Burkov 2021-06-30   97  	struct btrfs_root *root = 
-inode->root;
-6875cbd232c7c5 Boris Burkov 2021-06-30   98  	struct btrfs_path *path;
-6875cbd232c7c5 Boris Burkov 2021-06-30   99  	struct btrfs_key key;
-6875cbd232c7c5 Boris Burkov 2021-06-30  100  	int count = 0;
-6875cbd232c7c5 Boris Burkov 2021-06-30  101  	int ret;
-6875cbd232c7c5 Boris Burkov 2021-06-30  102  6875cbd232c7c5 Boris Burkov 
-2021-06-30  103  	path = btrfs_alloc_path();
-6875cbd232c7c5 Boris Burkov 2021-06-30  104  	if (!path)
-6875cbd232c7c5 Boris Burkov 2021-06-30  105  		return -ENOMEM;
-6875cbd232c7c5 Boris Burkov 2021-06-30  106  6875cbd232c7c5 Boris Burkov 
-2021-06-30  107  	while (1) {
-6875cbd232c7c5 Boris Burkov 2021-06-30  108  		/* 1 for the item being 
-dropped */
-6875cbd232c7c5 Boris Burkov 2021-06-30  109  		trans = 
-btrfs_start_transaction(root, 1);
-6875cbd232c7c5 Boris Burkov 2021-06-30  110  		if (IS_ERR(trans)) {
-6875cbd232c7c5 Boris Burkov 2021-06-30  111  			ret = PTR_ERR(trans);
-6875cbd232c7c5 Boris Burkov 2021-06-30  112  			goto out;
-6875cbd232c7c5 Boris Burkov 2021-06-30  113  		}
-6875cbd232c7c5 Boris Burkov 2021-06-30  114  6875cbd232c7c5 Boris Burkov 
-2021-06-30  115  		/*
-6875cbd232c7c5 Boris Burkov 2021-06-30  116  		 * Walk backwards through 
-all the items until we find one that
-6875cbd232c7c5 Boris Burkov 2021-06-30  117  		 * isn't from our key 
-type or objectid
-6875cbd232c7c5 Boris Burkov 2021-06-30  118  		 */
-6875cbd232c7c5 Boris Burkov 2021-06-30  119  		key.objectid = 
-btrfs_ino(inode);
-6875cbd232c7c5 Boris Burkov 2021-06-30  120  		key.type = key_type;
-6875cbd232c7c5 Boris Burkov 2021-06-30  121  		key.offset = (u64)-1;
-6875cbd232c7c5 Boris Burkov 2021-06-30  122  6875cbd232c7c5 Boris Burkov 
-2021-06-30  123  		ret = btrfs_search_slot(trans, root, &key, path, -1, 1);
-6875cbd232c7c5 Boris Burkov 2021-06-30  124  		if (ret > 0) {
-6875cbd232c7c5 Boris Burkov 2021-06-30 @125  			ret = 0;
-6875cbd232c7c5 Boris Burkov 2021-06-30  126  			/* No more keys of this 
-type, we're done */
-6875cbd232c7c5 Boris Burkov 2021-06-30  127  			if (path->slots[0] == 0)
-6875cbd232c7c5 Boris Burkov 2021-06-30  128  				break;
-6875cbd232c7c5 Boris Burkov 2021-06-30  129  			path->slots[0]--;
-6875cbd232c7c5 Boris Burkov 2021-06-30  130  		} else if (ret < 0) {
-6875cbd232c7c5 Boris Burkov 2021-06-30  131  		 
-btrfs_end_transaction(trans);
-6875cbd232c7c5 Boris Burkov 2021-06-30  132  			goto out;
-6875cbd232c7c5 Boris Burkov 2021-06-30  133  		}
-6875cbd232c7c5 Boris Burkov 2021-06-30  134  6875cbd232c7c5 Boris Burkov 
-2021-06-30  135  		btrfs_item_key_to_cpu(path->nodes[0], &key, 
-path->slots[0]);
-6875cbd232c7c5 Boris Burkov 2021-06-30  136  6875cbd232c7c5 Boris Burkov 
-2021-06-30  137  		/* No more keys of this type, we're done */
-6875cbd232c7c5 Boris Burkov 2021-06-30  138  		if (key.objectid != 
-btrfs_ino(inode) || key.type != key_type)
-6875cbd232c7c5 Boris Burkov 2021-06-30  139  			break;
-6875cbd232c7c5 Boris Burkov 2021-06-30  140  6875cbd232c7c5 Boris Burkov 
-2021-06-30  141  		/*
-6875cbd232c7c5 Boris Burkov 2021-06-30  142  		 * This shouldn't be a 
-performance sensitive function because
-6875cbd232c7c5 Boris Burkov 2021-06-30  143  		 * it's not used as part 
-of truncate.  If it ever becomes
-6875cbd232c7c5 Boris Burkov 2021-06-30  144  		 * perf sensitive, change 
-this to walk forward and bulk delete
-6875cbd232c7c5 Boris Burkov 2021-06-30  145  		 * items
-6875cbd232c7c5 Boris Burkov 2021-06-30  146  		 */
-6875cbd232c7c5 Boris Burkov 2021-06-30  147  		ret = 
-btrfs_del_items(trans, root, path, path->slots[0], 1);
-6875cbd232c7c5 Boris Burkov 2021-06-30  148  		if (ret) {
-6875cbd232c7c5 Boris Burkov 2021-06-30  149  		 
-btrfs_end_transaction(trans);
-6875cbd232c7c5 Boris Burkov 2021-06-30  150  			goto out;
-6875cbd232c7c5 Boris Burkov 2021-06-30  151  		}
-6875cbd232c7c5 Boris Burkov 2021-06-30  152  		count++;
-6875cbd232c7c5 Boris Burkov 2021-06-30  153  		btrfs_release_path(path);
-6875cbd232c7c5 Boris Burkov 2021-06-30  154  		btrfs_end_transaction(trans);
-6875cbd232c7c5 Boris Burkov 2021-06-30  155  	}
-6875cbd232c7c5 Boris Burkov 2021-06-30  156  	ret = count;
-6875cbd232c7c5 Boris Burkov 2021-06-30  157  	btrfs_end_transaction(trans);
-6875cbd232c7c5 Boris Burkov 2021-06-30  158  out:
-6875cbd232c7c5 Boris Burkov 2021-06-30  159  	btrfs_free_path(path);
-6875cbd232c7c5 Boris Burkov 2021-06-30  160  	return ret;
-6875cbd232c7c5 Boris Burkov 2021-06-30  161  }
-6875cbd232c7c5 Boris Burkov 2021-06-30  162
+ac8e9819d71f90 Chris Mason               2010-02-28  2350 
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2351  /*
+ac8e9819d71f90 Chris Mason               2010-02-28  2352   * Search 
+INODE_REFs to identify path name of 'dirid' directory
+ac8e9819d71f90 Chris Mason               2010-02-28  2353   * in a 
+'tree_id' tree. and sets path name to 'name'.
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2354   */
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2355  static 
+noinline int btrfs_search_path_in_tree(struct btrfs_fs_info *info,
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2356  				u64 
+tree_id, u64 dirid, char *name)
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2357  {
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2358  	struct 
+btrfs_root *root;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2359  	struct 
+btrfs_key key;
+ac8e9819d71f90 Chris Mason               2010-02-28  2360  	char *ptr;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2361  	int ret = -1;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2362  	int slot;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2363  	int len;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2364  	int 
+total_len = 0;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2365  	struct 
+btrfs_inode_ref *iref;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2366  	struct 
+extent_buffer *l;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2367  	struct 
+btrfs_path *path;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2368 
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2369  	if (dirid == 
+BTRFS_FIRST_FREE_OBJECTID) {
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2370  		name[0]='\0';
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2371  		return 0;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2372  	}
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2373 
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2374  	path = 
+btrfs_alloc_path();
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2375  	if (!path)
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2376  		return -ENOMEM;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2377 
+c8bcbfbd239ed6 Nikolay Borisov           2017-12-01  2378  	ptr = 
+&name[BTRFS_INO_LOOKUP_PATH_MAX - 1];
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2379 
+56e9357a1e8167 David Sterba              2020-05-15  2380  	root = 
+btrfs_get_fs_root(info, tree_id, true);
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2381  	if 
+(IS_ERR(root)) {
+ad1e3d5672ddce Misono Tomohiro           2018-05-21  2382  		ret = 
+PTR_ERR(root);
+88234012beaaf6 Josef Bacik               2020-01-24  2383  		root = NULL;
+88234012beaaf6 Josef Bacik               2020-01-24  2384  		goto out;
+88234012beaaf6 Josef Bacik               2020-01-24  2385  	}
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2386 
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2387  	key.objectid 
+= dirid;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2388  	key.type = 
+BTRFS_INODE_REF_KEY;
+8ad6fcab564c5b Chris Mason               2010-03-18  2389  	key.offset = 
+(u64)-1;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2390 
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2391  	while (1) {
+2315a282149bab Marcos Paulo de Souza     2021-07-29  2392  		ret = 
+btrfs_search_backwards(root, &key, path);
+18674c6cc10e78 Filipe David Borba Manana 2013-08-14  2393  		if (ret < 0)
+18674c6cc10e78 Filipe David Borba Manana 2013-08-14  2394  			goto out;
+18674c6cc10e78 Filipe David Borba Manana 2013-08-14  2395  		else if 
+(ret > 0) {
+18674c6cc10e78 Filipe David Borba Manana 2013-08-14  2396  			ret = -ENOENT;
+18674c6cc10e78 Filipe David Borba Manana 2013-08-14  2397  			goto out;
+18674c6cc10e78 Filipe David Borba Manana 2013-08-14  2398  		}
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2399 
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2400  		l = 
+path->nodes[0];
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2401  		slot = 
+path->slots[0];
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2402 
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2403  		iref = 
+btrfs_item_ptr(l, slot, struct btrfs_inode_ref);
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2404  		len = 
+btrfs_inode_ref_name_len(l, iref);
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2405  		ptr -= len + 1;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2406  		total_len 
++= len + 1;
+a696cf3529cecd Filipe David Borba Manana 2013-08-14  2407  		if (ptr < 
+name) {
+a696cf3529cecd Filipe David Borba Manana 2013-08-14  2408  			ret = 
+-ENAMETOOLONG;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2409  			goto out;
+a696cf3529cecd Filipe David Borba Manana 2013-08-14  2410  		}
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2411 
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2412  		*(ptr + 
+len) = '/';
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2413  	 
+read_extent_buffer(l, ptr, (unsigned long)(iref + 1), len);
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2414 
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2415  		if 
+(key.offset == BTRFS_FIRST_FREE_OBJECTID)
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2416  			break;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2417 
+b3b4aa74b58bde David Sterba              2011-04-21  2418  	 
+btrfs_release_path(path);
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2419  	 
+key.objectid = key.offset;
+8ad6fcab564c5b Chris Mason               2010-03-18  2420  		key.offset 
+= (u64)-1;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18 @2421  		dirid = 
+key.objectid;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2422  	}
+77906a5075a4eb Li Zefan                  2011-07-14  2423 
+memmove(name, ptr, total_len);
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2424 
+name[total_len] = '\0';
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2425  	ret = 0;
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2426  out:
+0024652895e347 Josef Bacik               2020-01-24  2427 
+btrfs_put_root(root);
+98d377a0894e6b TARUISI Hiroaki           2009-11-18  2428 
+btrfs_free_path(path);
+ac8e9819d71f90 Chris Mason               2010-02-28  2429  	return ret;
+ac8e9819d71f90 Chris Mason               2010-02-28  2430  }
+ac8e9819d71f90 Chris Mason               2010-02-28  2431
+:::::: The code at line 2421 was first introduced by commit
+:::::: 98d377a0894e6bcca44eafd4d2eee74e8af4db83 Btrfs: add a function to 
+lookup a directory path by following backrefs
+
+:::::: TO: TARUISI Hiroaki <taruishi.hiroak@jp.fujitsu.com>
+:::::: CC: Chris Mason <chris.mason@oracle.com>
+
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
 https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
@@ -525,16 +555,16 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/023679c7-eafc-d7b3-6b16-1d6bdf32b23d%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d07813e1-5367-d17a-0a83-1e3e185d2170%40intel.com.
 
---------------97E9029FE6B3AB69F7792480
+--------------39F71032EC2836D0F5346617
 Content-Type: application/gzip;
  name=".config.gz"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment;
  filename=".config.gz"
 
-H4sICAv4BGEAAy5jb25maWcAlDzLdty2kvt8RR9nkyxiqyVZ48wcLUASJJEmCRoAW93a8LSl
+H4sICIyLBWEAAy5jb25maWcAlDzLdty2kvt8RR9nkyxiqyVZ48wcLUASJJEmCRoAW93a8LSl
 lqO5evi2pFz776cK4AMAwU4mC0eNKrwK9UaBP//084K8vT4/7l7vb3YPDz8WX/dP+8PudX+7
 uLt/2P/PIuGLiqsFTZh6D8jF/dPb9w/fP120F+eLj++X5+9PfjvcnC1W+8PT/mERPz/d3X99
 gwHun59++vmnmFcpy9o4btdUSMarVtGNunx387B7+rr4a394AbzF8uz9yfuTxS9f71//+8MH
@@ -1152,7 +1182,7 @@ zPTiyPQcKcFD1HNcZSI6lrivQJmIIxS6YihqkFjX2PktotZF7FYhdD2eEjsdptwPidegYwNx
 ANlUUQbGfQxy+JCJeP6BEo9idwdRHv8e85Gk5FC3tapW7ZKJBdH59ZuC6N4k4hJfb0YqQRWt
 uckbsu0T2wR0wzyDbZnsBD1ikZww00gaQKV+UAIlxkmmlb7k6jmlGE8YQKduTHR7sKVt3cPX
 fGfYregySCoCQZ0hzo/8HxBUjTNsEgIA
---------------97E9029FE6B3AB69F7792480
+--------------39F71032EC2836D0F5346617
 Content-Type: text/plain; charset=UTF-8;
  name="Attached Message Part"
 Content-Transfer-Encoding: 7bit
@@ -1164,4 +1194,4 @@ kbuild mailing list -- kbuild@lists.01.org
 To unsubscribe send an email to kbuild-leave@lists.01.org
 
 
---------------97E9029FE6B3AB69F7792480--
+--------------39F71032EC2836D0F5346617--
