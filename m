@@ -1,125 +1,123 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBEXEU2EAMGQEB36NQNQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDXJDZXNUMORBB7XU2EAMGQEELQKHXA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4ED443DF6C1
-	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Aug 2021 23:16:04 +0200 (CEST)
-Received: by mail-oi1-x23e.google.com with SMTP id n27-20020a0568080a1bb029025a01bc9839sf120258oij.13
-        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Aug 2021 14:16:04 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628025363; cv=pass;
+Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
+	by mail.lfdr.de (Postfix) with ESMTPS id 311943DF71F
+	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Aug 2021 23:56:25 +0200 (CEST)
+Received: by mail-il1-x140.google.com with SMTP id z18-20020a9232120000b0290216ae9088ffsf10985713ile.9
+        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Aug 2021 14:56:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628027784; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rgNwcL2LHsfE+rwkUQDXE8sR5MVKgq0kGHl7vGSkjZtUpArIXr8fFOASUQMVGSh7AE
-         z7RIkMUkQ5FaPAAXut7s2R0LlK1Edc4wGygK/3PEvqnqfu75oNPqYXr0Ozicx2hg+SVs
-         Fq8HQ2q9L3+Tptg42aKItadfGZjizkIRIRpXmX5mLd5l/F46f5pAoT9WvPuyOOHeBtoy
-         pau3248ar4fU28fHsAPeVyLvvO3DxNm/oeXSdiVupGPIBOl//bLJDbr65pdngGnZy6HG
-         Rf/Hh8p86UZ72LV1rxST/Lcmd+IDENJlbhvO8fiY5fxMlaPwyCB1yfuXmtKnxw4oEP+D
-         UoqA==
+        b=oNaY0+juX5xpONXlwgbLZQ3lRYIYjls7727egjhSL/+opohJCmeTTQv0BxTFUoPIfw
+         wrQL/VnGuNFgrH9s8AZTNvPBM3QfTU7iIR4II20uSyLFnKL7DDjbqAvbThi8x54iUssC
+         isIolxB3uARJ33P4t1e7DhOu9ax0zHYVGp1lSar97WRbdGKoeeXODTQUi/ynizhU/7ao
+         L+Rrg7x67Y6WER16R0Lnwsey28SRNMWhXwVhOViXVSDnO7W+s3RkTwjjhGsjZRtYVsfn
+         oRCQ1/VJCAIlhMwaxZN4VR7j3oNXRYztQFgkjNGNlu6iJAx8mSN6N2m0r3iwlNzVMXFA
+         xsJw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=Ljo6OgSBiYkChXA/t1tobInsuFyk2UhQNRvic+X9i80=;
-        b=yqE1IqnCOuT0fNN+SWPTxAvdTYGetWL9RCCgX1QSC0D3si+7SZLO5C69/dm/qITIIB
-         Xrnz9IqBZf0PYkwOO8bWdMmq7WfnrH/4cb28Oc7RAi6bV1d7x0iOHMd/In8BpA4dA6/n
-         nNcDLuMOSncATMduLVRs2IT8kriX4N5GSVagWt3ZVlUBJIYV8Lzb8y+mbL63Ov1Azwmu
-         tol8S7VqzT5VZySBXexfGkrgiPfItiiXQg6yyt0N3ARAWJIX78G9sOngov0uxOtV/E9D
-         Kdg7YsUpFsHxmPVAjcfVGed3MbzzMe9k+f0cdfIMSMG2rJslq+FmjM+V4AfqFc+wMQuq
-         L7Fw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=WtIdXnxvUVg4zRhKez/zDDGpi3YMcoGJ+KjSERl4ipQ=;
+        b=K3P9BAUWXt8tQHCPpBXqJ8TeDc6yXQQuGZ0CIVFH6OaIyjR6qe2bYCeTYYb75XnF7q
+         vr1SbQNpyV1NEmQNePMQDOu9FNhor4ENZhPApJh3EQqF+HortyfSuqswz72DchIuiQdR
+         9KKpNJ3TwoG+pHZPfgrJ7Rly9knlcFZJjWyLk0bh3eC+bp2ZNQ2iTsMjWxee96Q+gfkw
+         QEEC3Jm1hQIduYeJJ8wxqPKlqg2qltl0d2Zkn/GdNjMzpUlkYhNZsSuyvXkitrkaAvhg
+         ToC+B9k3e6c2/8j8Klol9bF56rRGI9TbxZ9FKHrNflRvw9LeY+WUs8fX6gra1IDXuqav
+         LLcQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=D7Z+CKbg;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=n9acgLJE;
+       spf=pass (google.com: domain of helgaas@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=helgaas@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Ljo6OgSBiYkChXA/t1tobInsuFyk2UhQNRvic+X9i80=;
-        b=J5xiwtxZn7cD9un6dH+DvGqydalvhqIjO/fVBNoKPW/q/wdOw5q1GT+ElvVJX591BS
-         a/rD+u5XTXX7Ngshyv/qVv9yCQwq7UnqxFnCUYCgU4ucIKHXgnNn0TAdaRxa9GjiED/E
-         AFhjhHFiKnoL4G3L2cIMrNdqvvpAx6EXI/35i0QBElJm/730S3ZyjQimlkCL0OVFi1uE
-         An8PkKilG3o924a39VM6H4zWiMmvqwpfKao4TZOArmsgtLiNlUKsFl19nIE4K+BPYD+Q
-         QpJeICB6ki6dOBiJQDNw6LyPT7agF5PqaOoHpWMvSX6j7tkGWGrD6KuOup5RV3UR2IJS
-         knbQ==
+        h=sender:date:from:to:cc:subject:message-id:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=WtIdXnxvUVg4zRhKez/zDDGpi3YMcoGJ+KjSERl4ipQ=;
+        b=SyMp2CtatHp8o4Rcf8WMNE+DUn4tsKXbr9w2n+KIh02uJv4t1vQYoc5R5rySqtu0Vs
+         75gy3mv76oW6H7xvfHkiz6aKaoKeAF1GiWxfIc+9dj98itnRiHgWdLiUftxAAtJ4ZYVO
+         isdp4M6N6ZFX6c1XVMrzPAfiWGNMn0X3eOZ3Uq+5sihlvHb8VkK2fADI0o5ijVbRrRFZ
+         endU/DTJXszJ8bwPEp/tNOjVZFJhgFmCEXBO8u6s/mm89PPCxhQMiALoWogoYSHO0FZO
+         jkOiEzMGqVAc52+czBBg931WxKY4TEPWywb+ZtjsD+AbqPpaRyUVQEbghTeQNM6wPHlv
+         7+6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Ljo6OgSBiYkChXA/t1tobInsuFyk2UhQNRvic+X9i80=;
-        b=Kutt8OjKyfVW6Xe74Rdltk9+lrhG3fN096Iff9mLcTBPXzwGfCnjz7aDJ/MBAFDVlf
-         iMSCERsJbCaXOqokqVOs8k9vS5gpbcLjtAy/l9qpkZ3kZb9PIph0NRWQW/g38+hTlYr2
-         LxUYOdcLdE45qoKuHFtOUaiBh9FIJNk5acSuUxXZ3d9R+2/io0XK4neZGCBZs1uruiHh
-         z9K9+ZeDxQfNig7lJIq6dQVH0lwTPSSNTPrQEBIfr4MyL6k82vMf7OJoOQxhmBXX+vgN
-         WbeT1d6wMhPZnNSDw/uAlzjLb95EACjmJH5l1eBMcjjPoryZoMCSpVHWqketWZojsn72
-         fLHg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=WtIdXnxvUVg4zRhKez/zDDGpi3YMcoGJ+KjSERl4ipQ=;
+        b=qugCqqh0Bp4QQzApR4N9UKxOTqOQEAs4vevK6EXiakJiQa9zGGA4afuPNqr8t4usE9
+         5QLdtwAWaQ8/2QYYqpRjWCjjqW5pFRtHsNnBgJ39+kWs0psVoYbYhDDjwdcezM6xGR6U
+         khVt7u1g37HFzDVPkh3ixpKMckTnhWh8oUJCiKSGNCW4csUAqmqWU+W2cvwhbTCxoIkI
+         ydUgO8k2lu7bnDdcXFIPC/BVIUGztHFuOS4RhCrATLpEuuW/SYtiRJiEIXmRmK/m8op5
+         x6VLKLSM20D7CFrfDISIKIfcNgSr1fO3yac5BL1vQT5JKuhkuDNuHk/7KQS+kiufIf1h
+         yNow==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533rL4QN0diTKa6Svk8i9vOpL0LOIqCiDO/vdrRKsfhU0o1ZoDLp
-	skZ0IeppL/GWDeu4F7O/Xbg=
-X-Google-Smtp-Source: ABdhPJysUuPdY7tD6sT6MoMXdETxSjSlhDgOLnXC3IaixnWWMDMew4BMWW5JTH6YG4h0ncLu/CDFog==
-X-Received: by 2002:aca:230f:: with SMTP id e15mr4736352oie.108.1628025363007;
-        Tue, 03 Aug 2021 14:16:03 -0700 (PDT)
+X-Gm-Message-State: AOAM5335iJgTmZtLMs0Bx1OaoGY6LKkEfWHp/yf1ATzieRgKXje9b5pe
+	rJywGcJqhgkaKGr6rbuAvnI=
+X-Google-Smtp-Source: ABdhPJzrxATLPi1BcYyeNxnFF3YHn0rtncUGHNMzRMO+QOeV4SO9kl4DxXANX6TTEcMrOr2xzpY9xw==
+X-Received: by 2002:a02:11c6:: with SMTP id 189mr21065446jaf.20.1628027783993;
+        Tue, 03 Aug 2021 14:56:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:1292:: with SMTP id a18ls31285oiw.4.gmail; Tue, 03
- Aug 2021 14:16:02 -0700 (PDT)
-X-Received: by 2002:aca:2316:: with SMTP id e22mr4495141oie.103.1628025362630;
-        Tue, 03 Aug 2021 14:16:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628025362; cv=none;
+Received: by 2002:a05:6e02:1d19:: with SMTP id i25ls70325ila.10.gmail; Tue, 03
+ Aug 2021 14:56:23 -0700 (PDT)
+X-Received: by 2002:a05:6e02:dcf:: with SMTP id l15mr370806ilj.196.1628027783627;
+        Tue, 03 Aug 2021 14:56:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628027783; cv=none;
         d=google.com; s=arc-20160816;
-        b=jd3qSiOER5pmzaAu28WmiqdDIACTIXH5PcSjmqFnA5+g5obkNPJ41xRi1Z/63N+gyP
-         uJI4odKATrdBocO/+p6MtSlmMNk71HOaH04d/vOXV1d9VGm3XTA0+YM/bS+JyhOSPxMC
-         SMfSfpzA2J++n0rxzYHujyZftRvAc7kafhXv4FxVHElfRLbK/A5KNd8GsF3F6wizmTo/
-         CNCOwa1N+8nwIwF2pnlD9AmrqW3GHx0SBmb8POqk8GNSXL/qnYPOyXagrH9JIh10Q1Rr
-         qkdsalp8nM73n7EFdJr56p8s2zO6FIts7MRxkpUpTS9zNkNIYtW52Ew3VC5ZJgWzwzTo
-         c/Rg==
+        b=rHZixYYeVblfuA3MPT3QXRrAFRhq++8Zr9Q4kSa0+L6yR3+6pXP1yFLT0la8U+5Q2A
+         ovrMuVYxtNMfOd0Js2YgIM0RubVnioTK+x7Syf7oErAMQPh+4uvxneQ0EAI2duugCrMS
+         zAdNvVmqEjhGCQ5YqzenF8U68v10HqfcXmyWc8qUlsq2NSykSZNEKTN38+Nt4HSU69Jt
+         acopdUzaBxeMcdBH7+NP6SJmE8jxy8fg0CFBlCmMstR3lICEg3mdE6+mGa4vNEIHhgfM
+         caeO3pTNUoKgaOXt4/a3LqrY0frg1vwj0ke1teAh9R3U+t1YWSf7Bo/E8OjjKEFSc8GQ
+         DTDg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=OJs0PqkckE8ymSIEc2HUlj/+2SVYdf5KfxuCIGo6MXg=;
-        b=Dc1xOoET6QQnUZtw0fBJJRyp6d/epA0VLDvh+FFMk3CG8/oMfjw5BWVJvAsXQ4ct4h
-         NaqI5yz/gjzeQJTlNNkdERWz00fn8e0psiOFF/WSi6eqJSFQYeaVRtUWjKW/nZulFxL1
-         oPrWl/hxnUl0nJQi9QtP5yBdZkwOEXveHkT8dlhlz873SA60CPcL1UbXrewKfORZLSRX
-         7ym2xIaJ+pCFcUfMyx45os27g05BnwcQpS4NMJMlDCB8kv8XUtoJKr5jjYjXbx+rme2P
-         jWnbTk05yifT1ja1AJMZPjUq+avUWqQKYM6pXcoaW6AKYjfeVfgXeMOC5TsrG373Fv6w
-         ECwg==
+        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=womH4GzBKyUWfhBZy0RhxgOLIzYBQf80DF5ml4hLXKc=;
+        b=c3MPnIdKXOJHgSn+pN16SUeqAOW9qXp6m9BNfcfzZUigzjv4/ENqcrX8MwJm5C5jkZ
+         7OwVSBg5+0sT24rZX7KnKjNzGU5lDR3+gnOEo5D709V2Dw4Kj1IqBcjCJ75BOKxbUTaW
+         px1gaxCSC6JTLfGdPFlqDXDej8JSW5IsaKkEXZQeCZlsfuZz0eJ0p3Efbfodq3gPVkxh
+         7BQVc2+/8beJK8qsaJ/ARoDjEiKQ7RYjRDCEQg24IF2rlJSYE4N2hACxa1O1Xv+8OmDd
+         lcH5zawLrCyPUPURr8SvWvDUJVcqaWC8iCV+x6RpwTx+ZxWv2KFdOz8cxVP4jCcoWhdH
+         z+KQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=D7Z+CKbg;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=n9acgLJE;
+       spf=pass (google.com: domain of helgaas@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=helgaas@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id m22si4042oie.5.2021.08.03.14.16.02
+        by gmr-mx.google.com with ESMTPS id 8si14616ilx.2.2021.08.03.14.56.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 03 Aug 2021 14:16:02 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id E3A1A60F0F;
-	Tue,  3 Aug 2021 21:15:59 +0000 (UTC)
-From: Nathan Chancellor <nathan@kernel.org>
-To: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Paul Mackerras <paulus@samba.org>,
+        Tue, 03 Aug 2021 14:56:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of helgaas@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 9CC8860724;
+	Tue,  3 Aug 2021 21:56:22 +0000 (UTC)
+Date: Tue, 3 Aug 2021 16:56:21 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	"Gautham R. Shenoy" <ego@linux.vnet.ibm.com>,
-	linux-pm@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Nathan Chancellor <nathan@kernel.org>
-Subject: [PATCH] cpuidle: pseries: Mark pseries_idle_proble() as __init
-Date: Tue,  3 Aug 2021 14:15:47 -0700
-Message-Id: <20210803211547.1093820-1-nathan@kernel.org>
-X-Mailer: git-send-email 2.33.0.rc0
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] PCI: Always initialize dev in pciconfig_read
+Message-ID: <20210803215621.GA1576408@bjorn-Precision-5520>
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: nathan@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=D7Z+CKbg;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20210803200836.500658-1-nathan@kernel.org>
+X-Original-Sender: helgaas@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=k20201202 header.b=n9acgLJE;       spf=pass
+ (google.com: domain of helgaas@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=helgaas@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,49 +130,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-After commit 7cbd631d4dec ("cpuidle: pseries: Fixup CEDE0 latency only
-for POWER10 onwards"), pseries_idle_probe() is no longer inlined when
-compiling with clang, which causes a modpost warning:
+On Tue, Aug 03, 2021 at 01:08:36PM -0700, Nathan Chancellor wrote:
+> Clang warns:
+> 
+> drivers/pci/syscall.c:25:6: warning: variable 'dev' is used
+> uninitialized whenever 'if' condition is true
+> [-Wsometimes-uninitialized]
+>         if (!capable(CAP_SYS_ADMIN))
+>             ^~~~~~~~~~~~~~~~~~~~~~~
+> drivers/pci/syscall.c:81:14: note: uninitialized use occurs here
+>         pci_dev_put(dev);
+>                     ^~~
+> drivers/pci/syscall.c:25:2: note: remove the 'if' if its condition is
+> always false
+>         if (!capable(CAP_SYS_ADMIN))
+>         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/pci/syscall.c:18:21: note: initialize the variable 'dev' to
+> silence this warning
+>         struct pci_dev *dev;
+>                            ^
+>                             = NULL
+> 1 warning generated.
+> 
+> pci_dev_put accounts for a NULL pointer so initialize dev to NULL before
+> the capability check so that there is no use of uninitialized memory.
+> 
+> Fixes: 61a6199787d9 ("PCI: Return ~0 data on pciconfig_read() CAP_SYS_ADMIN failure")
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
-WARNING: modpost: vmlinux.o(.text+0xc86a54): Section mismatch in
-reference from the function pseries_idle_probe() to the function
-.init.text:fixup_cede0_latency()
-The function pseries_idle_probe() references
-the function __init fixup_cede0_latency().
-This is often because pseries_idle_probe lacks a __init
-annotation or the annotation of fixup_cede0_latency is wrong.
+Squashed in locally, thanks!
 
-pseries_idle_probe() is a non-init function, which calls
-fixup_cede0_latency(), which is an init function, explaining the
-mismatch. pseries_idle_probe() is only called from
-pseries_processor_idle_init(), which is an init function, so mark
-pseries_idle_probe() as __init so there is no more warning.
-
-Fixes: 054e44ba99ae ("cpuidle: pseries: Add function to parse extended CEDE records")
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
- drivers/cpuidle/cpuidle-pseries.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/cpuidle/cpuidle-pseries.c b/drivers/cpuidle/cpuidle-pseries.c
-index bba449b77641..7e7ab5597d7a 100644
---- a/drivers/cpuidle/cpuidle-pseries.c
-+++ b/drivers/cpuidle/cpuidle-pseries.c
-@@ -403,7 +403,7 @@ static void __init fixup_cede0_latency(void)
-  * pseries_idle_probe()
-  * Choose state table for shared versus dedicated partition
-  */
--static int pseries_idle_probe(void)
-+static int __init pseries_idle_probe(void)
- {
- 
- 	if (cpuidle_disable != IDLE_NO_OVERRIDE)
-
-base-commit: a6cae77f1bc89368a4e2822afcddc45c3062d499
--- 
-2.33.0.rc0
+> ---
+>  drivers/pci/syscall.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/pci/syscall.c b/drivers/pci/syscall.c
+> index 525f16caed1d..61a6fe3cde21 100644
+> --- a/drivers/pci/syscall.c
+> +++ b/drivers/pci/syscall.c
+> @@ -22,6 +22,7 @@ SYSCALL_DEFINE5(pciconfig_read, unsigned long, bus, unsigned long, dfn,
+>  	int err, cfg_ret;
+>  
+>  	err = -EPERM;
+> +	dev = NULL;
+>  	if (!capable(CAP_SYS_ADMIN))
+>  		goto error;
+>  
+> 
+> base-commit: 21d8e94253eb09f7c94c4db00dc714efc75b8701
+> -- 
+> 2.33.0.rc0
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210803211547.1093820-1-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210803215621.GA1576408%40bjorn-Precision-5520.
