@@ -1,131 +1,127 @@
-Return-Path: <clang-built-linux+bncBDWPPHX24QLBBYVSU2EAMGQEXEYVMGA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRB5N4U2EAMGQEQF6OTRA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id 369503DF5B3
-	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Aug 2021 21:30:44 +0200 (CEST)
-Received: by mail-lj1-x237.google.com with SMTP id z17-20020a2e8e910000b029015d8fce4f1bsf4453153ljk.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Aug 2021 12:30:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628019043; cv=pass;
+Received: from mail-wm1-x33b.google.com (mail-wm1-x33b.google.com [IPv6:2a00:1450:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 232FA3DF602
+	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Aug 2021 21:52:22 +0200 (CEST)
+Received: by mail-wm1-x33b.google.com with SMTP id f10-20020a7bcc0a0000b0290229a389ceb2sf1267120wmh.0
+        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Aug 2021 12:52:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628020341; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZxFmHqyw5gxsEuAQ1ooIBeMKMHiZ7TCKLL7nuj4FGCvnNT1xB59mhLJKyzQL1FgEV9
-         ybnqzGN7q7kRrVG0wC7BjWInEJEdZDpVMoaiB1oDuwCzhVtkARkkzxYoa9cujLBZ2p0V
-         TU/SZ0P3zFaRmMj1ltSitmasff6BIAkpo9DH96QZtoWaahEl4ndJ0VexK5MJJwZtoFwm
-         9rLFhANUu3+8t1jy3apQG31kx/FiwbhDtIRA+x23l6mTUpp/ajRj8tUqlpU5W608tmVT
-         qO4JdplA02WJ6wSlXbSvIw6G2kjyav3beQNcq9Le4I8/ycrODenXEQrDDoWOEnHKvy5V
-         NrEw==
+        b=IiBxClEdiH6FYNtZeyWvJVjSgii28AA8yTizCNTrCCx+Jm03xKPozovS4IiPxv4pqO
+         qmPRgkD3oqLhLlGPI+m4CVB2J3psM0o0lKxgrmRn8NntdYm26iVCJRahLyV204gPUygC
+         StgaqAxkVTRuOLv76iXaLEUQ7uXqKV3eLWybeOBzNfz29bFhW7K0L9s18kWqd5J21s5u
+         gvxV6Xxgv/Nzh+KfepaTlkl97/58iKGVB+Kfy/S6CSM+qr0osu0hPBTMtjrFtE0PJMKf
+         ruSVuZC98nPjMFrujP5BOsGfMY1hqip9E14XUD47Ip08t3PMZoVt/R6rB2/ooktSejEn
+         5HDA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:message-id
-         :in-reply-to:subject:cc:to:from:date:sender:dkim-signature;
-        bh=xIi16Y0g5WCEIiD+GUjGJ8SDfe/e9BimYsyiOEgIoEY=;
-        b=WN7TwUxZ/q5w+V33KpfbIUQ14lQbRe0Ah0Jhs+mM/GrUzINEaLuzkVrNj5zuM6o0zX
-         /AyradaSIj3L403lmglIZrfOMGzUZ4ogxdNqVkxiFqAtWuxXsID8PC4FnS5h+DBcWTuw
-         oK34Ik4Zv5wspMPvrcQaZpvk6E5UDhC/2Cl3iw7kPB6N1h7wLItLaPl339m86e/ivla1
-         1SRqc7oNrRt3dNpisW5UWFs4OOyqSy1BTrtHY460RIeo36M+RNl2QZjkJf9rEYITiryp
-         vIvf9lGsaEE0sajtpywchMEHWZulSJhjXjQuhijhvVRBUV05VhuDTa0oZFxGBGC9/tzR
-         svUw==
+         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
+         :date:from:sender:dkim-signature;
+        bh=COAynnIu+U+Fvq66SXZDYz0BL/EN/eScaLSNYxH1vEs=;
+        b=lyb9tc2Cjq0PI2jWjW0stWSgX6tiZM1RhyCOJSioSCIcOKlnfX2pDwkCnpEGJyBdCX
+         Jk5HnXrFV9k9j6pAHLXeQ+JKbeP7AJrxbOs3YCk8LGYv3uXgBsKoo9Rv6fKxAJZ9iB/4
+         fbWcO63klC1bR24zzPFVKGGnzWee1vLMCIwqTpjaD6pEOqv5Uy9chhNoiI+kCKqm4cFo
+         4mxyCnbWGa98CP2faVRDDdFft5Uqugf07qOr27mIK+tZlnCPOBVWR0zJDBewxHC9Gg9Y
+         XT+10lWIZI0l5UCNozC907C7ulp+V5GnZKLZjK3BA4SKDD+iZA0te4IUU8kc1ETCBTYc
+         0sfg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of kadlec@netfilter.org designates 148.6.0.48 as permitted sender) smtp.mailfrom=kadlec@netfilter.org
+       dkim=pass header.i=@linaro.org header.s=google header.b="e/ioDodh";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::431 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:date:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xIi16Y0g5WCEIiD+GUjGJ8SDfe/e9BimYsyiOEgIoEY=;
-        b=fKcxnT322FmHqeoo2P5fOOkatZKns/V3Znf+K4HzufZaiYNSbI3RHXWbLC+5t/5UtT
-         2JETViAyDHh71LSM6zlzbTS1ypD6ui7ZAJWfWTTqwS0Hizn7w2dkkzZ719S0vM+NLGOe
-         WCShVYwbidqtMsJs0H6ecOpRndA777eTFzw08ZHZpZQnryQP+FV+UhWkHb/im6mZdgCz
-         Ss6Y4m/ygDnDYzUd2hNyodwGRJV7a3X0ffkPKrDleGQELWCGLg2ZwSoRRz1cZp8k+g2q
-         fa29raJ17VfpaeZ9izpniMo8LVwKYo7fC89QMJHXSQPX7tKbMjDlGWCgVHJGbtfcG//8
-         LSYw==
+        bh=COAynnIu+U+Fvq66SXZDYz0BL/EN/eScaLSNYxH1vEs=;
+        b=RJmhGPWqDQYVnqHXbpSodL1xoZ6M5OgKEU/XTmAfa7y9bwz2oeeLLB7uWMJN2SUu0k
+         9z71y7Mz+e7oEdYtvyWCdSOeiapxYaA+NikBoHphHP9njcevH2ZtcDGhdwuKJIHTc7wL
+         dJV5wYHi92DDTAmTZ68rkIlTWc/wmZScIPjJ/AUK+mjdzCNocjMY7Z2n2N13OEFV7cYe
+         aqt2DiDO18Mzf6W314lIznjW0ihs5uCDZW1x+rJP1j/DIvPohLZ8tOUEFc+lN5PhCDRV
+         KfU7cQLu45ZYy/kp3A2z4UqqIpuIQbX7PiP33e+9KRGFVV+d0yCXllDZkGUJrK4PooIo
+         NKSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
-         :message-id:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=xIi16Y0g5WCEIiD+GUjGJ8SDfe/e9BimYsyiOEgIoEY=;
-        b=hRK9m/eLwTJCOPtaLSMbU/Ch5l3kUPEQ2PAZetZozvMz7lGIkt61Jie3QdXlQ5JdlY
-         vMQuHxrTsH/Ykg+9ukJycO8xP8kbouTBEoqw/3MhwXDko1Cr4WWcEFjej802r+Qn071I
-         nt9HUrURJLt5muzj4u8ConKXmgSMgqbiqk8AbwKKRHmdlBt9k7UwRXCJDcox3L8hoBnQ
-         WaTpcyOePPdrs4+pxCidRg87nyJ4Bl1M0/KVReMCrc2xnvhG2B3rn4MRmYQVo0PqKcrt
-         x7qEQ+g6myOJVvdAK7y/Ot2kcIJbJjBz5dSCQ29CdKzAVxWos7SHHNKsrROe6rYqt9AE
-         eKsA==
+        h=sender:x-gm-message-state:from:date:to:message-id:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=COAynnIu+U+Fvq66SXZDYz0BL/EN/eScaLSNYxH1vEs=;
+        b=TmpAu9XfdcaWnEgNk8EkorwuXO0t1KN/pEDn574Zesaw8Qkx4FU9tMw/PWAAO58pMT
+         X7BNF3CLyscL0E+YDbuh9gNmIiSVXBdmVnQk9gQpaw9wEXmywghQTo7xVnHWKnqGH7qc
+         3KJ5fxfA4B9YYtD2I1iRYOevNH5UJ7JhNytWNp9qfx0CeUCjlvjxjRrnFRqY2GP0zJr2
+         jFZEIBKwm2KCQ41r2tQXrKKA6S5WNrWcI04OicTpeLn3nzXKHoHwVVP+YnfvEEH4wcow
+         v2CWVGBRt9ADDQbclNdV5kA3x0UekGKuxBMImaMUS1q5SawoB5XQ0QvMbpDWcBeesGLy
+         L/SQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530e0eKuZz9OOeaCPrhwexx3RpursrPQq2YwXyFwsxuBqDieT4X8
-	2alNpKM3Be4LoSHy5t54gqk=
-X-Google-Smtp-Source: ABdhPJzUTxg4YYzTDC8DGL/Ptew8MCW8Fl5Grqw6GUTXEdjl7pVzmL1z4yZFoNgXz46Op2o7C3MPEg==
-X-Received: by 2002:ac2:50c5:: with SMTP id h5mr16931094lfm.642.1628019042735;
-        Tue, 03 Aug 2021 12:30:42 -0700 (PDT)
+X-Gm-Message-State: AOAM532ebShhv+ExM5QDeF8d9d3nHCo6FVH9UBc7lRgtEOTb7gMeAcDH
+	3uh8Zs+B2JhaHA4uQ4vmrTM=
+X-Google-Smtp-Source: ABdhPJwYaSZFMe1KOq0xpyWE6/eInK/ZOlxaaoX4BSlUX7YLQb812loKtLpQZDK0+54GJLkdufPxcQ==
+X-Received: by 2002:a5d:518a:: with SMTP id k10mr24764218wrv.400.1628020341857;
+        Tue, 03 Aug 2021 12:52:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:160f:: with SMTP id f15ls2342341ljq.3.gmail; Tue,
- 03 Aug 2021 12:30:41 -0700 (PDT)
-X-Received: by 2002:a05:651c:4cb:: with SMTP id e11mr15274500lji.79.1628019041648;
-        Tue, 03 Aug 2021 12:30:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628019041; cv=none;
+Received: by 2002:adf:db90:: with SMTP id u16ls71332wri.2.gmail; Tue, 03 Aug
+ 2021 12:52:21 -0700 (PDT)
+X-Received: by 2002:a05:6000:1818:: with SMTP id m24mr24772705wrh.49.1628020340944;
+        Tue, 03 Aug 2021 12:52:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628020340; cv=none;
         d=google.com; s=arc-20160816;
-        b=IeInyZwMZT1f3AYXuPU0Vq+VNthdwwIlv/WvYNtjj1Zh6jUaUMaQPQsTetcAJZvbkP
-         b7xjr9pWorahe7jN/5d/Uk0KUGrmvKcdCHNCsOJqR+NV2o+ZfZJnTDceiySMbKhYbwJ1
-         99X4fz9ousmaP0HglLuOf87ngCEz1W0h+BkUr5OJVEzYy8T4RJU5feYRJi7/oK6dmeDd
-         PF41IfjrdITgqf05DhVZKT11qC4tGTV/JGxnpeocl3YYja9wntHoJoWe0mHT4gJclioI
-         Bl9ym0M8Agf90bkNPBwvYYVJ4dTFsLiTpA/nvpaVG0X+QVCTe/85vkBvhvoodCtSLY6k
-         548Q==
+        b=XGvdpdLM7hpUgZ/Y64MJ1FdxqjVwmwUT7adDgR73F6cU07Yd3VsCuSrFWCjpjHMu+9
+         1Az/Rz3JRcG6gKSE65siYPcVE/GhFV7W4TI5lmBPfoK4OGmBZoXBlB5Glx9C8iYCHxFc
+         khrh73YzDhgFb5XpFyNruAV2exkqKr55otwJpD82Any8kE+nYw3ESYSSVn/Mbr7XMagh
+         p8+jyuEFt3okeuor5hby9bG42zcVTEZeQZ+TfF6Kb/PxRJSnlrEHEigpv8ipBYoT9z1k
+         aD7ODNBA01L0dER9d0yqbutKciugN/11jEzBywVXupXEqQ/EqHXtOygSC9sOBsQ6IkOb
+         w5wQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date;
-        bh=ZHThKTdP9i2PjaJRcdsiu/5K+FphL3LGV0w2PIpMMc8=;
-        b=ihA0bITXR61JZ9MX3e1ZncDytI8M3LQ9cOAUhEoXC6xOMZvFfJdYED0zfMJnzGOLcj
-         KJXOtIVZcVbXUuvy8W3yl6S9lmeV2gDdn7MQnaz50Gu8AFlOcHDGfyElzyHywlUfKAe0
-         fT/RapNrKFixKyAaboKX39Td0fsZIE9ABcNbAc2JmahebUdMYcy7szHRiCzw/9yclOWT
-         qNi/0YZLBKt+DJON5hsSzq/QDE/9rCEZeDbHa0mYR626iC4PpnJ0gk7IcI4gqNmQ+Guc
-         5q7bgGaHlNTDwoFDckQGbfMWm/289v3MIpwmIMWQyVbbNOv4KCM/DgAwq7RdNGtayst6
-         D41w==
+        h=mime-version:subject:message-id:to:date:from:dkim-signature;
+        bh=L+A58lVx8E8jUhD08V32KRZ7XwiQQ6qezN8XolPd/JA=;
+        b=sa8vX9Ttm7Cx+GO15jNiVibrmMR5DyyxuG5JOJkL3nbpjLN1yB5D3z1GYFyxL7TOsG
+         WzLOoA5g356BUguWTHLAIL1DSCpsfVpTSIAoobtPWN107rsNsuZdOhgeYr8O9jlopTNy
+         U3C7/iDTIj6XigC1AXsZ2JKxILqslwHGjTiOReaJMdkJawlr2Xh+N4JvThao/XzkN+mb
+         baahIekYHus+uTgWQiOZLipvDXrpvJ0WhSGAuYJ61jCBoHWbPtc4yEi4movIl/BX+Pi6
+         0Z33/+97WObXQIUYWMBRJV5LlyIyTge0UFLyURQvGOsD98Y6eZflA5qpjh+If6YPDmZJ
+         Td9Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of kadlec@netfilter.org designates 148.6.0.48 as permitted sender) smtp.mailfrom=kadlec@netfilter.org
-Received: from smtp-out.kfki.hu (smtp-out.kfki.hu. [148.6.0.48])
-        by gmr-mx.google.com with ESMTPS id h20si705630lfv.7.2021.08.03.12.30.40
+       dkim=pass header.i=@linaro.org header.s=google header.b="e/ioDodh";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::431 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wr1-x431.google.com (mail-wr1-x431.google.com. [2a00:1450:4864:20::431])
+        by gmr-mx.google.com with ESMTPS id z70si268580wmc.0.2021.08.03.12.52.20
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Aug 2021 12:30:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of kadlec@netfilter.org designates 148.6.0.48 as permitted sender) client-ip=148.6.0.48;
-Received: from localhost (localhost [127.0.0.1])
-	by smtp2.kfki.hu (Postfix) with ESMTP id 613E7CC0101;
-	Tue,  3 Aug 2021 21:30:39 +0200 (CEST)
-X-Virus-Scanned: Debian amavisd-new at smtp2.kfki.hu
-Received: from smtp2.kfki.hu ([127.0.0.1])
-	by localhost (smtp2.kfki.hu [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP; Tue,  3 Aug 2021 21:30:37 +0200 (CEST)
-Received: from blackhole.kfki.hu (blackhole.szhk.kfki.hu [148.6.240.2])
-	by smtp2.kfki.hu (Postfix) with ESMTP id E13B9CC00FC;
-	Tue,  3 Aug 2021 21:30:36 +0200 (CEST)
-Received: by blackhole.kfki.hu (Postfix, from userid 1000)
-	id D08AB340D60; Tue,  3 Aug 2021 21:30:36 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by blackhole.kfki.hu (Postfix) with ESMTP id CBB7B340D5D;
-	Tue,  3 Aug 2021 21:30:36 +0200 (CEST)
-Date: Tue, 3 Aug 2021 21:30:36 +0200 (CEST)
-From: Jozsef Kadlecsik <kadlec@netfilter.org>
-To: Nathan Chancellor <nathan@kernel.org>
-cc: Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>, 
-    netfilter-devel@vger.kernel.org, coreteam@netfilter.org, 
-    netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-    clang-built-linux@googlegroups.com, 
-    Nick Desaulniers <ndesaulniers@google.com>, 
-    kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] netfilter: ipset: Fix maximal range check in
- hash_ipportnet4_uadt()
-In-Reply-To: <20210803191813.282980-1-nathan@kernel.org>
-Message-ID: <df715f3-9a2a-5a88-5ab4-1f176ede79ed@netfilter.org>
-References: <20210803191813.282980-1-nathan@kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Aug 2021 12:52:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::431 as permitted sender) client-ip=2a00:1450:4864:20::431;
+Received: by mail-wr1-x431.google.com with SMTP id n12so26534231wrr.2
+        for <clang-built-linux@googlegroups.com>; Tue, 03 Aug 2021 12:52:20 -0700 (PDT)
+X-Received: by 2002:a5d:4951:: with SMTP id r17mr24065786wrs.208.1628020339817;
+        Tue, 03 Aug 2021 12:52:19 -0700 (PDT)
+Received: from 172.17.0.5 (ci.linaro.org. [88.99.136.175])
+        by smtp.gmail.com with ESMTPSA id f15sm14940780wrp.12.2021.08.03.12.52.19
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 03 Aug 2021 12:52:19 -0700 (PDT)
+From: ci_notify@linaro.org
+Date: Tue, 3 Aug 2021 19:52:18 +0000 (UTC)
+To: tcwg-validation@linaro.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+	linaro-toolchain@lists.linaro.org,
+	clang-built-linux@googlegroups.com, arnd@linaro.org
+Message-ID: <725376535.1725.1628020339453@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-master-aarch64-next-allyesconfig - Build # 14 -
+ Successful!
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: kadlec@netfilter.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of kadlec@netfilter.org designates 148.6.0.48 as
- permitted sender) smtp.mailfrom=kadlec@netfilter.org
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_1724_1475781216.1628020339048"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-next-allyesconfig
+X-Jenkins-Result: SUCCESS
+X-Original-Sender: ci_notify@linaro.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@linaro.org header.s=google header.b="e/ioDodh";       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::431
+ as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,88 +134,253 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi,
+------=_Part_1724_1475781216.1628020339048
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, 3 Aug 2021, Nathan Chancellor wrote:
+Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-master-aarch64-next-allyesconfig.  So far, this commit has regressed CI configurations:
+ - tcwg_kernel/llvm-master-aarch64-next-allyesconfig
 
-> Clang warns:
-> 
-> net/netfilter/ipset/ip_set_hash_ipportnet.c:249:29: warning: variable
-> 'port_to' is uninitialized when used here [-Wuninitialized]
->         if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
->                                    ^~~~~~~
-> net/netfilter/ipset/ip_set_hash_ipportnet.c:167:45: note: initialize the
-> variable 'port_to' to silence this warning
->         u32 ip = 0, ip_to = 0, p = 0, port, port_to;
->                                                    ^
->                                                     = 0
-> net/netfilter/ipset/ip_set_hash_ipportnet.c:249:39: warning: variable
-> 'port' is uninitialized when used here [-Wuninitialized]
->         if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
->                                              ^~~~
-> net/netfilter/ipset/ip_set_hash_ipportnet.c:167:36: note: initialize the
-> variable 'port' to silence this warning
->         u32 ip = 0, ip_to = 0, p = 0, port, port_to;
->                                           ^
->                                            = 0
-> 2 warnings generated.
-> 
-> The range check was added before port and port_to are initialized.
-> Shuffle the check after the initialization so that the check works
-> properly.
-> 
-> Fixes: 7fb6c63025ff ("netfilter: ipset: Limit the maximal range of consecutive elements to add/delete")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Culprit:
+<cut>
+commit 3d463dd5023b5a58b3c37207d65eeb5acbac2be3
+Author: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Date:   Thu Jul 29 12:40:19 2021 +0200
 
-Yes, good catch!
+    nfc: fdp: constify several pointers
+    
+    Several functions do not modify pointed data so arguments and local
+    variables can be const for correctness and safety.  This allows also
+    making file-scope nci_core_get_config_otp_ram_version array const.
+    
+    Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+    Signed-off-by: David S. Miller <davem@davemloft.net>
+</cut>
 
-Acked-by: Jozsef Kadlecsik <kadlec@netfilter.org>
+Results regressed to (for first_bad == 3d463dd5023b5a58b3c37207d65eeb5acbac2be3)
+# reset_artifacts:
+-10
+# build_abe binutils:
+-9
+# build_llvm:
+-5
+# build_abe qemu:
+-2
+# linux_n_obj:
+19928
+# First few build errors in logs:
+# 00:02:04 drivers/nfc/fdp/fdp.c:116:60: error: passing 'const char *' to parameter of type '__u8 *' (aka 'unsigned char *') discards qualifiers [-Werror,-Wincompatible-pointer-types-discards-qualifiers]
+# 00:02:04 make[3]: *** [scripts/Makefile.build:271: drivers/nfc/fdp/fdp.o] Error 1
+# 00:02:05 make[2]: *** [scripts/Makefile.build:514: drivers/nfc/fdp] Error 2
+# 00:02:23 make[1]: *** [scripts/Makefile.build:514: drivers/nfc] Error 2
+# 00:04:16 make: *** [Makefile:1842: drivers] Error 2
 
-Best regards,
-Jozsef
-> ---
->  net/netfilter/ipset/ip_set_hash_ipportnet.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/net/netfilter/ipset/ip_set_hash_ipportnet.c b/net/netfilter/ipset/ip_set_hash_ipportnet.c
-> index b293aa1ff258..7df94f437f60 100644
-> --- a/net/netfilter/ipset/ip_set_hash_ipportnet.c
-> +++ b/net/netfilter/ipset/ip_set_hash_ipportnet.c
-> @@ -246,9 +246,6 @@ hash_ipportnet4_uadt(struct ip_set *set, struct nlattr *tb[],
->  		ip_set_mask_from_to(ip, ip_to, cidr);
->  	}
->  
-> -	if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
-> -		return -ERANGE;
-> -
->  	port_to = port = ntohs(e.port);
->  	if (tb[IPSET_ATTR_PORT_TO]) {
->  		port_to = ip_set_get_h16(tb[IPSET_ATTR_PORT_TO]);
-> @@ -256,6 +253,9 @@ hash_ipportnet4_uadt(struct ip_set *set, struct nlattr *tb[],
->  			swap(port, port_to);
->  	}
->  
-> +	if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
-> +		return -ERANGE;
-> +
->  	ip2_to = ip2_from;
->  	if (tb[IPSET_ATTR_IP2_TO]) {
->  		ret = ip_set_get_hostipaddr4(tb[IPSET_ATTR_IP2_TO], &ip2_to);
-> 
-> base-commit: 4d3fc8ead710a06c98d36f382777c6a843a83b7c
-> -- 
-> 2.33.0.rc0
-> 
-> 
+from (for last_good == c3e26b6dc1b4e3e8f57be4f004b1f2a410c5c468)
+# reset_artifacts:
+-10
+# build_abe binutils:
+-9
+# build_llvm:
+-5
+# build_abe qemu:
+-2
+# linux_n_obj:
+20000
+# linux build successful:
+all
 
--
-E-mail  : kadlec@blackhole.kfki.hu, kadlecsik.jozsef@wigner.hu
-PGP key : https://wigner.hu/~kadlec/pgp_public_key.txt
-Address : Wigner Research Centre for Physics
-          H-1525 Budapest 114, POB. 49, Hungary
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/14/artifact/artifacts/build-c3e26b6dc1b4e3e8f57be4f004b1f2a410c5c468/
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/14/artifact/artifacts/build-3d463dd5023b5a58b3c37207d65eeb5acbac2be3/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/14/
+
+Configuration details:
+rr[linux_git]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git#cb163627e6d32dbaca4d89b2292788cee895b06d"
+
+Reproduce builds:
+<cut>
+mkdir investigate-linux-3d463dd5023b5a58b3c37207d65eeb5acbac2be3
+cd investigate-linux-3d463dd5023b5a58b3c37207d65eeb5acbac2be3
+
+git clone https://git.linaro.org/toolchain/jenkins-scripts
+
+mkdir -p artifacts/manifests
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/14/artifact/artifacts/manifests/build-baseline.sh --fail
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/14/artifact/artifacts/manifests/build-parameters.sh --fail
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/14/artifact/artifacts/test.sh --fail
+chmod +x artifacts/test.sh
+
+# Reproduce the baseline build (build all pre-requisites)
+./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+
+# Save baseline build state (which is then restored in artifacts/test.sh)
+mkdir -p ./bisect
+rsync -a --del --delete-excluded --exclude /bisect/ --exclude /artifacts/ --exclude /linux/ ./ ./bisect/baseline/
+
+cd linux
+
+# Reproduce first_bad build
+git checkout --detach 3d463dd5023b5a58b3c37207d65eeb5acbac2be3
+../artifacts/test.sh
+
+# Reproduce last_good build
+git checkout --detach c3e26b6dc1b4e3e8f57be4f004b1f2a410c5c468
+../artifacts/test.sh
+
+cd ..
+</cut>
+
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-next-allyesconfig
+
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/14/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-next-allyesconfig/14/consoleText
+
+Full commit (up to 1000 lines):
+<cut>
+commit 3d463dd5023b5a58b3c37207d65eeb5acbac2be3
+Author: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+Date:   Thu Jul 29 12:40:19 2021 +0200
+
+    nfc: fdp: constify several pointers
+    
+    Several functions do not modify pointed data so arguments and local
+    variables can be const for correctness and safety.  This allows also
+    making file-scope nci_core_get_config_otp_ram_version array const.
+    
+    Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>
+    Signed-off-by: David S. Miller <davem@davemloft.net>
+---
+ drivers/nfc/fdp/fdp.c | 18 +++++++++---------
+ drivers/nfc/fdp/fdp.h |  2 +-
+ drivers/nfc/fdp/i2c.c |  6 +++---
+ 3 files changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/nfc/fdp/fdp.c b/drivers/nfc/fdp/fdp.c
+index 3f5fba922c4d..c6b3334f24c9 100644
+--- a/drivers/nfc/fdp/fdp.c
++++ b/drivers/nfc/fdp/fdp.c
+@@ -52,7 +52,7 @@ struct fdp_nci_info {
+ 	u32 limited_otp_version;
+ 	u8 key_index;
+ 
+-	u8 *fw_vsc_cfg;
++	const u8 *fw_vsc_cfg;
+ 	u8 clock_type;
+ 	u32 clock_freq;
+ 
+@@ -65,7 +65,7 @@ struct fdp_nci_info {
+ 	wait_queue_head_t setup_wq;
+ };
+ 
+-static u8 nci_core_get_config_otp_ram_version[5] = {
++static const u8 nci_core_get_config_otp_ram_version[5] = {
+ 	0x04,
+ 	NCI_PARAM_ID_FW_RAM_VERSION,
+ 	NCI_PARAM_ID_FW_OTP_VERSION,
+@@ -111,7 +111,7 @@ static inline int fdp_nci_patch_cmd(struct nci_dev *ndev, u8 type)
+ }
+ 
+ static inline int fdp_nci_set_production_data(struct nci_dev *ndev, u8 len,
+-					      char *data)
++					      const char *data)
+ {
+ 	return nci_prop_cmd(ndev, NCI_OP_PROP_SET_PDATA_OID, len, data);
+ }
+@@ -236,7 +236,7 @@ static int fdp_nci_send_patch(struct nci_dev *ndev, u8 conn_id, u8 type)
+ 
+ static int fdp_nci_open(struct nci_dev *ndev)
+ {
+-	struct fdp_nci_info *info = nci_get_drvdata(ndev);
++	const struct fdp_nci_info *info = nci_get_drvdata(ndev);
+ 
+ 	return info->phy_ops->enable(info->phy);
+ }
+@@ -260,7 +260,7 @@ static int fdp_nci_request_firmware(struct nci_dev *ndev)
+ {
+ 	struct fdp_nci_info *info = nci_get_drvdata(ndev);
+ 	struct device *dev = &info->phy->i2c_dev->dev;
+-	u8 *data;
++	const u8 *data;
+ 	int r;
+ 
+ 	r = request_firmware(&info->ram_patch, FDP_RAM_PATCH_NAME, dev);
+@@ -269,7 +269,7 @@ static int fdp_nci_request_firmware(struct nci_dev *ndev)
+ 		return r;
+ 	}
+ 
+-	data = (u8 *) info->ram_patch->data;
++	data = info->ram_patch->data;
+ 	info->ram_patch_version =
+ 		data[FDP_FW_HEADER_SIZE] |
+ 		(data[FDP_FW_HEADER_SIZE + 1] << 8) |
+@@ -610,9 +610,9 @@ static int fdp_nci_core_get_config_rsp_packet(struct nci_dev *ndev,
+ {
+ 	struct fdp_nci_info *info = nci_get_drvdata(ndev);
+ 	struct device *dev = &info->phy->i2c_dev->dev;
+-	struct nci_core_get_config_rsp *rsp = (void *) skb->data;
++	const struct nci_core_get_config_rsp *rsp = (void *) skb->data;
+ 	unsigned int i;
+-	u8 *p;
++	const u8 *p;
+ 
+ 	if (rsp->status == NCI_STATUS_OK) {
+ 
+@@ -691,7 +691,7 @@ static const struct nci_ops nci_ops = {
+ int fdp_nci_probe(struct fdp_i2c_phy *phy, const struct nfc_phy_ops *phy_ops,
+ 			struct nci_dev **ndevp, int tx_headroom,
+ 			int tx_tailroom, u8 clock_type, u32 clock_freq,
+-			u8 *fw_vsc_cfg)
++			const u8 *fw_vsc_cfg)
+ {
+ 	struct device *dev = &phy->i2c_dev->dev;
+ 	struct fdp_nci_info *info;
+diff --git a/drivers/nfc/fdp/fdp.h b/drivers/nfc/fdp/fdp.h
+index dc048d4b977e..2e9161a4d7bf 100644
+--- a/drivers/nfc/fdp/fdp.h
++++ b/drivers/nfc/fdp/fdp.h
+@@ -23,7 +23,7 @@ struct fdp_i2c_phy {
+ 
+ int fdp_nci_probe(struct fdp_i2c_phy *phy, const struct nfc_phy_ops *phy_ops,
+ 		  struct nci_dev **ndev, int tx_headroom, int tx_tailroom,
+-		  u8 clock_type, u32 clock_freq, u8 *fw_vsc_cfg);
++		  u8 clock_type, u32 clock_freq, const u8 *fw_vsc_cfg);
+ void fdp_nci_remove(struct nci_dev *ndev);
+ 
+ #endif /* __LOCAL_FDP_H_ */
+diff --git a/drivers/nfc/fdp/i2c.c b/drivers/nfc/fdp/i2c.c
+index 98e1876c9468..051c43a2a52f 100644
+--- a/drivers/nfc/fdp/i2c.c
++++ b/drivers/nfc/fdp/i2c.c
+@@ -36,7 +36,7 @@
+ 	print_hex_dump(KERN_DEBUG, prefix": ", DUMP_PREFIX_OFFSET,	\
+ 		       16, 1, (skb)->data, (skb)->len, 0)
+ 
+-static void fdp_nci_i2c_reset(struct fdp_i2c_phy *phy)
++static void fdp_nci_i2c_reset(const struct fdp_i2c_phy *phy)
+ {
+ 	/* Reset RST/WakeUP for at least 100 micro-second */
+ 	gpiod_set_value_cansleep(phy->power_gpio, FDP_POWER_OFF);
+@@ -47,7 +47,7 @@ static void fdp_nci_i2c_reset(struct fdp_i2c_phy *phy)
+ 
+ static int fdp_nci_i2c_enable(void *phy_id)
+ {
+-	struct fdp_i2c_phy *phy = phy_id;
++	const struct fdp_i2c_phy *phy = phy_id;
+ 
+ 	fdp_nci_i2c_reset(phy);
+ 
+@@ -56,7 +56,7 @@ static int fdp_nci_i2c_enable(void *phy_id)
+ 
+ static void fdp_nci_i2c_disable(void *phy_id)
+ {
+-	struct fdp_i2c_phy *phy = phy_id;
++	const struct fdp_i2c_phy *phy = phy_id;
+ 
+ 	fdp_nci_i2c_reset(phy);
+ }
+</cut>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/df715f3-9a2a-5a88-5ab4-1f176ede79ed%40netfilter.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/725376535.1725.1628020339453%40localhost.
+
+------=_Part_1724_1475781216.1628020339048--
