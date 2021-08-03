@@ -1,126 +1,131 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBBFNU2EAMGQEA2XW5IA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDWPPHX24QLBBYVSU2EAMGQEXEYVMGA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4600E3DF548
-	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Aug 2021 21:18:30 +0200 (CEST)
-Received: by mail-pj1-x103e.google.com with SMTP id n4-20020a17090ac684b0290177656cfbc7sf68101pjt.7
-        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Aug 2021 12:18:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628018308; cv=pass;
+Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id 369503DF5B3
+	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Aug 2021 21:30:44 +0200 (CEST)
+Received: by mail-lj1-x237.google.com with SMTP id z17-20020a2e8e910000b029015d8fce4f1bsf4453153ljk.17
+        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Aug 2021 12:30:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628019043; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wjFihrdLO1cjTUK3/nVxjbHemLNWZCVTh2n7dmX55eWZ0hJTI2Z91K0Wsw3zPrh6Sb
-         iYdlgHy9s0Ki5XDbqztm5E0CsjSUHf3OXcj53tu4upMkZ1fhCaqZZNgE8S6IezCOBsLL
-         udxl0D2Pd7WhfSWN/2W13bWeiHZ9NNJb3U4mIwaGC5+ZT/VcCbs/BBBFdct9DUE5AbZI
-         QxlYypwZRO+dSBmRI4s4WW3wSRKDBVqvkOQyGeCAqHjFpvWji8G0M9XuUYCB3bm3xPaZ
-         eq+mNh32JZjhoS8hpiqMb1asBSRr+fQyLqc0S0c9m+3BES3p521BKnaO3PzXgFEbMpga
-         zvfg==
+        b=ZxFmHqyw5gxsEuAQ1ooIBeMKMHiZ7TCKLL7nuj4FGCvnNT1xB59mhLJKyzQL1FgEV9
+         ybnqzGN7q7kRrVG0wC7BjWInEJEdZDpVMoaiB1oDuwCzhVtkARkkzxYoa9cujLBZ2p0V
+         TU/SZ0P3zFaRmMj1ltSitmasff6BIAkpo9DH96QZtoWaahEl4ndJ0VexK5MJJwZtoFwm
+         9rLFhANUu3+8t1jy3apQG31kx/FiwbhDtIRA+x23l6mTUpp/ajRj8tUqlpU5W608tmVT
+         qO4JdplA02WJ6wSlXbSvIw6G2kjyav3beQNcq9Le4I8/ycrODenXEQrDDoWOEnHKvy5V
+         NrEw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=cQnAGfdnLb6atToJDxhBK2XVXmIILARuf2feAHEaAiU=;
-        b=e9Nw03Xb4ueyVmx4qv/k65WulPSKHBQcIpoIaIZgw1/jsXjpuiSYShuIIkD00PyfWi
-         YpdDyXDlAivN2JZyHUB4UrQPbYO939Gq/RaexgV89b1ZL6xmCs6UqM+tgTqcxI8SJkUt
-         aUzhcHczPKwY3+azrf6Lk+dXLQDGaTEHevEofAhcHH50dFLZoMdY0sWGQ24GFgsgCOCl
-         qS7he33D+uORaL/WrCM/4I4URCkv0myud2lJ+ug9UGLHa5rWJ7RabnYj5llt04DmLz6Q
-         QOVXCv390iM3qS1K4T/EZ6f3Mzsup4K8SHNUXYCAiLS5DrUoAQ/aaOHzM0z3CNCH+Lmu
-         S61A==
+         :list-id:mailing-list:precedence:mime-version:references:message-id
+         :in-reply-to:subject:cc:to:from:date:sender:dkim-signature;
+        bh=xIi16Y0g5WCEIiD+GUjGJ8SDfe/e9BimYsyiOEgIoEY=;
+        b=WN7TwUxZ/q5w+V33KpfbIUQ14lQbRe0Ah0Jhs+mM/GrUzINEaLuzkVrNj5zuM6o0zX
+         /AyradaSIj3L403lmglIZrfOMGzUZ4ogxdNqVkxiFqAtWuxXsID8PC4FnS5h+DBcWTuw
+         oK34Ik4Zv5wspMPvrcQaZpvk6E5UDhC/2Cl3iw7kPB6N1h7wLItLaPl339m86e/ivla1
+         1SRqc7oNrRt3dNpisW5UWFs4OOyqSy1BTrtHY460RIeo36M+RNl2QZjkJf9rEYITiryp
+         vIvf9lGsaEE0sajtpywchMEHWZulSJhjXjQuhijhvVRBUV05VhuDTa0oZFxGBGC9/tzR
+         svUw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=kLqXMEY8;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of kadlec@netfilter.org designates 148.6.0.48 as permitted sender) smtp.mailfrom=kadlec@netfilter.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cQnAGfdnLb6atToJDxhBK2XVXmIILARuf2feAHEaAiU=;
-        b=ISNaPUCFuHZabuxFnhBxj8XODIyrs6hS6OILZDU2l+QercHU6OcplyKJjelyVxBbKW
-         Rbg6cAUvqtDVKeEgozFqZXnKQG52G3xJFOdqB8pBCqo1CNBABPrmdBOVRGz+1oOvB50S
-         DcWT6yhXL3WzNxRKDQpIZxpoJgf8v9e7JpThvT5IIKaEl1riqNTU8Bwxu+Lfdi0KyWkG
-         73PzhUmRAASarvuKxH/CHJph92iof0yvazM50Hh5Vz2grRx/QHA5kzapJovR+aNCJ4ey
-         tPs8K5zPbf4lAkypgrlOAJt8S+4Cp9UZm7cwb6DbMzkDlCYfkUOa6e7MCOc2+uOBT4Il
-         qtRQ==
+        bh=xIi16Y0g5WCEIiD+GUjGJ8SDfe/e9BimYsyiOEgIoEY=;
+        b=fKcxnT322FmHqeoo2P5fOOkatZKns/V3Znf+K4HzufZaiYNSbI3RHXWbLC+5t/5UtT
+         2JETViAyDHh71LSM6zlzbTS1ypD6ui7ZAJWfWTTqwS0Hizn7w2dkkzZ719S0vM+NLGOe
+         WCShVYwbidqtMsJs0H6ecOpRndA777eTFzw08ZHZpZQnryQP+FV+UhWkHb/im6mZdgCz
+         Ss6Y4m/ygDnDYzUd2hNyodwGRJV7a3X0ffkPKrDleGQELWCGLg2ZwSoRRz1cZp8k+g2q
+         fa29raJ17VfpaeZ9izpniMo8LVwKYo7fC89QMJHXSQPX7tKbMjDlGWCgVHJGbtfcG//8
+         LSYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cQnAGfdnLb6atToJDxhBK2XVXmIILARuf2feAHEaAiU=;
-        b=nWC1brbYtUP40Dzdv+1CDqoGo5SC/5zLnFS+zkKAhJb8R02nN+i4SyqVCptGCwtOse
-         aMcE5V1xyWskNAP4gT4bCbHvAiguZ1XmrHWYqDA6qtyMQpErepVq7sfIt+FfTnEj3Fvt
-         00o4eYr+Xk6MRUSzAHY3h+uIu+moUunR5ecd/V+G4RVwh+zFXoFhN+VfXjAbISz8ifFO
-         jvPbrnqHYAMPth3FefzhJphcOmVGUIZ2NEsu8vjPM0t8Adj8OOqY8PSIm7eNlOpy7ZDK
-         in/w9+V7RAb/fWFRqTXyW68WcmIgIp7yynN9Fni6MDqedvg+ThbUZDhmAzMuAyTeHY+e
-         qKzg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
+         :message-id:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=xIi16Y0g5WCEIiD+GUjGJ8SDfe/e9BimYsyiOEgIoEY=;
+        b=hRK9m/eLwTJCOPtaLSMbU/Ch5l3kUPEQ2PAZetZozvMz7lGIkt61Jie3QdXlQ5JdlY
+         vMQuHxrTsH/Ykg+9ukJycO8xP8kbouTBEoqw/3MhwXDko1Cr4WWcEFjej802r+Qn071I
+         nt9HUrURJLt5muzj4u8ConKXmgSMgqbiqk8AbwKKRHmdlBt9k7UwRXCJDcox3L8hoBnQ
+         WaTpcyOePPdrs4+pxCidRg87nyJ4Bl1M0/KVReMCrc2xnvhG2B3rn4MRmYQVo0PqKcrt
+         x7qEQ+g6myOJVvdAK7y/Ot2kcIJbJjBz5dSCQ29CdKzAVxWos7SHHNKsrROe6rYqt9AE
+         eKsA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530ih/fCOxruKNIXEyF+nuSvLXzROP12tLIQqTjEiezbsPTujvYh
-	pthIawny1S5oBC5bEg2dX5U=
-X-Google-Smtp-Source: ABdhPJw8R0Ssf0UHwtxiIWc5Omi2oS97tJEeBnidltJm29u7vgI/wWEedElwB+TDQurlbZyRWrIWnQ==
-X-Received: by 2002:a17:90b:1d81:: with SMTP id pf1mr12497251pjb.88.1628018308784;
-        Tue, 03 Aug 2021 12:18:28 -0700 (PDT)
+X-Gm-Message-State: AOAM530e0eKuZz9OOeaCPrhwexx3RpursrPQq2YwXyFwsxuBqDieT4X8
+	2alNpKM3Be4LoSHy5t54gqk=
+X-Google-Smtp-Source: ABdhPJzUTxg4YYzTDC8DGL/Ptew8MCW8Fl5Grqw6GUTXEdjl7pVzmL1z4yZFoNgXz46Op2o7C3MPEg==
+X-Received: by 2002:ac2:50c5:: with SMTP id h5mr16931094lfm.642.1628019042735;
+        Tue, 03 Aug 2021 12:30:42 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:8f05:: with SMTP id x5ls5612914pfr.5.gmail; Tue, 03 Aug
- 2021 12:18:28 -0700 (PDT)
-X-Received: by 2002:a62:fb13:0:b029:309:8d89:46b2 with SMTP id x19-20020a62fb130000b02903098d8946b2mr23708696pfm.67.1628018308198;
-        Tue, 03 Aug 2021 12:18:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628018308; cv=none;
+Received: by 2002:a05:651c:160f:: with SMTP id f15ls2342341ljq.3.gmail; Tue,
+ 03 Aug 2021 12:30:41 -0700 (PDT)
+X-Received: by 2002:a05:651c:4cb:: with SMTP id e11mr15274500lji.79.1628019041648;
+        Tue, 03 Aug 2021 12:30:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628019041; cv=none;
         d=google.com; s=arc-20160816;
-        b=GMGf/nULHcv8//xLOpB3XNO6ErNyZafEh9N7dIRCUiJ4qzCGtqfNZqVHxdXo0G8eyL
-         ulQ12cJhGTNGAVMnd2jr+EoEbJljDWySgt3iYlABnMoCOYEKwjbRFVRISBPhFZgpEh2E
-         eRAWJ3YYBtzP/qan80Jn16LvTEXxSeyHedL0v27i3rbdGRs933LuyC7ElKXbOR4r50Wi
-         URA7+L8jCW1i3S8D2iE+PBrgcYGUpxsq1bSvncisuLhEheMWqzTXGZknL8nvbmVYKDVw
-         JTLlKtvmF+7EX9CyQae/JQq/9S78JTVOclIVpSXEMIvzroXbadDIr8zm2/iCOiPEUIQv
-         AAQQ==
+        b=IeInyZwMZT1f3AYXuPU0Vq+VNthdwwIlv/WvYNtjj1Zh6jUaUMaQPQsTetcAJZvbkP
+         b7xjr9pWorahe7jN/5d/Uk0KUGrmvKcdCHNCsOJqR+NV2o+ZfZJnTDceiySMbKhYbwJ1
+         99X4fz9ousmaP0HglLuOf87ngCEz1W0h+BkUr5OJVEzYy8T4RJU5feYRJi7/oK6dmeDd
+         PF41IfjrdITgqf05DhVZKT11qC4tGTV/JGxnpeocl3YYja9wntHoJoWe0mHT4gJclioI
+         Bl9ym0M8Agf90bkNPBwvYYVJ4dTFsLiTpA/nvpaVG0X+QVCTe/85vkBvhvoodCtSLY6k
+         548Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=0T1C78ShifMoFbiaZNPa2s0ERFU8Gd4A7QQcsOMyic8=;
-        b=EXYBN1UKrgtWGDHrNI1ms0q1/QNmUA/d48lL+s4PX78yldkBE0xSVwV7BJs0RO48Bb
-         XeVMeKMm36DoATpTqSbVbwaDpH3RlikWz+qApEPytYLQBbPDz1IufqY6+AzzwB0LMC1W
-         6TrkIHVhLH2pAKKmTIFcEIDVtG2pOvtR0KmCabhJBu4MJS+TWh7uRoqeE3/Tf7DLVmFO
-         S2qCJuKR0klTQDE6vJjGv7kiRWDQa6DXdSWsVlXZHtCxxtQRyzzJU76aVg+OK3jw4mxm
-         keGnRj13rKAPIY4EaXy+NrZNxpRK5hbVmW+G0AVPVDNL0/ObRnzrh26vhSA/Mnn+EuUJ
-         +oWA==
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date;
+        bh=ZHThKTdP9i2PjaJRcdsiu/5K+FphL3LGV0w2PIpMMc8=;
+        b=ihA0bITXR61JZ9MX3e1ZncDytI8M3LQ9cOAUhEoXC6xOMZvFfJdYED0zfMJnzGOLcj
+         KJXOtIVZcVbXUuvy8W3yl6S9lmeV2gDdn7MQnaz50Gu8AFlOcHDGfyElzyHywlUfKAe0
+         fT/RapNrKFixKyAaboKX39Td0fsZIE9ABcNbAc2JmahebUdMYcy7szHRiCzw/9yclOWT
+         qNi/0YZLBKt+DJON5hsSzq/QDE/9rCEZeDbHa0mYR626iC4PpnJ0gk7IcI4gqNmQ+Guc
+         5q7bgGaHlNTDwoFDckQGbfMWm/289v3MIpwmIMWQyVbbNOv4KCM/DgAwq7RdNGtayst6
+         D41w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=kLqXMEY8;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id r9si685232plo.0.2021.08.03.12.18.28
+       spf=pass (google.com: domain of kadlec@netfilter.org designates 148.6.0.48 as permitted sender) smtp.mailfrom=kadlec@netfilter.org
+Received: from smtp-out.kfki.hu (smtp-out.kfki.hu. [148.6.0.48])
+        by gmr-mx.google.com with ESMTPS id h20si705630lfv.7.2021.08.03.12.30.40
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 03 Aug 2021 12:18:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D2D4661037;
-	Tue,  3 Aug 2021 19:18:25 +0000 (UTC)
-From: Nathan Chancellor <nathan@kernel.org>
-To: Pablo Neira Ayuso <pablo@netfilter.org>,
-	Jozsef Kadlecsik <kadlec@netfilter.org>,
-	Florian Westphal <fw@strlen.de>
-Cc: netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] netfilter: ipset: Fix maximal range check in hash_ipportnet4_uadt()
-Date: Tue,  3 Aug 2021 12:18:13 -0700
-Message-Id: <20210803191813.282980-1-nathan@kernel.org>
-X-Mailer: git-send-email 2.33.0.rc0
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Aug 2021 12:30:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kadlec@netfilter.org designates 148.6.0.48 as permitted sender) client-ip=148.6.0.48;
+Received: from localhost (localhost [127.0.0.1])
+	by smtp2.kfki.hu (Postfix) with ESMTP id 613E7CC0101;
+	Tue,  3 Aug 2021 21:30:39 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at smtp2.kfki.hu
+Received: from smtp2.kfki.hu ([127.0.0.1])
+	by localhost (smtp2.kfki.hu [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP; Tue,  3 Aug 2021 21:30:37 +0200 (CEST)
+Received: from blackhole.kfki.hu (blackhole.szhk.kfki.hu [148.6.240.2])
+	by smtp2.kfki.hu (Postfix) with ESMTP id E13B9CC00FC;
+	Tue,  3 Aug 2021 21:30:36 +0200 (CEST)
+Received: by blackhole.kfki.hu (Postfix, from userid 1000)
+	id D08AB340D60; Tue,  3 Aug 2021 21:30:36 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by blackhole.kfki.hu (Postfix) with ESMTP id CBB7B340D5D;
+	Tue,  3 Aug 2021 21:30:36 +0200 (CEST)
+Date: Tue, 3 Aug 2021 21:30:36 +0200 (CEST)
+From: Jozsef Kadlecsik <kadlec@netfilter.org>
+To: Nathan Chancellor <nathan@kernel.org>
+cc: Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>, 
+    netfilter-devel@vger.kernel.org, coreteam@netfilter.org, 
+    netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+    clang-built-linux@googlegroups.com, 
+    Nick Desaulniers <ndesaulniers@google.com>, 
+    kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] netfilter: ipset: Fix maximal range check in
+ hash_ipportnet4_uadt()
+In-Reply-To: <20210803191813.282980-1-nathan@kernel.org>
+Message-ID: <df715f3-9a2a-5a88-5ab4-1f176ede79ed@netfilter.org>
+References: <20210803191813.282980-1-nathan@kernel.org>
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: nathan@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=kLqXMEY8;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: kadlec@netfilter.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of kadlec@netfilter.org designates 148.6.0.48 as
+ permitted sender) smtp.mailfrom=kadlec@netfilter.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,69 +138,88 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clang warns:
+Hi,
 
-net/netfilter/ipset/ip_set_hash_ipportnet.c:249:29: warning: variable
-'port_to' is uninitialized when used here [-Wuninitialized]
-        if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
-                                   ^~~~~~~
-net/netfilter/ipset/ip_set_hash_ipportnet.c:167:45: note: initialize the
-variable 'port_to' to silence this warning
-        u32 ip = 0, ip_to = 0, p = 0, port, port_to;
-                                                   ^
-                                                    = 0
-net/netfilter/ipset/ip_set_hash_ipportnet.c:249:39: warning: variable
-'port' is uninitialized when used here [-Wuninitialized]
-        if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
-                                             ^~~~
-net/netfilter/ipset/ip_set_hash_ipportnet.c:167:36: note: initialize the
-variable 'port' to silence this warning
-        u32 ip = 0, ip_to = 0, p = 0, port, port_to;
-                                          ^
-                                           = 0
-2 warnings generated.
+On Tue, 3 Aug 2021, Nathan Chancellor wrote:
 
-The range check was added before port and port_to are initialized.
-Shuffle the check after the initialization so that the check works
-properly.
+> Clang warns:
+> 
+> net/netfilter/ipset/ip_set_hash_ipportnet.c:249:29: warning: variable
+> 'port_to' is uninitialized when used here [-Wuninitialized]
+>         if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
+>                                    ^~~~~~~
+> net/netfilter/ipset/ip_set_hash_ipportnet.c:167:45: note: initialize the
+> variable 'port_to' to silence this warning
+>         u32 ip = 0, ip_to = 0, p = 0, port, port_to;
+>                                                    ^
+>                                                     = 0
+> net/netfilter/ipset/ip_set_hash_ipportnet.c:249:39: warning: variable
+> 'port' is uninitialized when used here [-Wuninitialized]
+>         if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
+>                                              ^~~~
+> net/netfilter/ipset/ip_set_hash_ipportnet.c:167:36: note: initialize the
+> variable 'port' to silence this warning
+>         u32 ip = 0, ip_to = 0, p = 0, port, port_to;
+>                                           ^
+>                                            = 0
+> 2 warnings generated.
+> 
+> The range check was added before port and port_to are initialized.
+> Shuffle the check after the initialization so that the check works
+> properly.
+> 
+> Fixes: 7fb6c63025ff ("netfilter: ipset: Limit the maximal range of consecutive elements to add/delete")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
-Fixes: 7fb6c63025ff ("netfilter: ipset: Limit the maximal range of consecutive elements to add/delete")
-Reported-by: kernel test robot <lkp@intel.com>
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
- net/netfilter/ipset/ip_set_hash_ipportnet.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Yes, good catch!
 
-diff --git a/net/netfilter/ipset/ip_set_hash_ipportnet.c b/net/netfilter/ipset/ip_set_hash_ipportnet.c
-index b293aa1ff258..7df94f437f60 100644
---- a/net/netfilter/ipset/ip_set_hash_ipportnet.c
-+++ b/net/netfilter/ipset/ip_set_hash_ipportnet.c
-@@ -246,9 +246,6 @@ hash_ipportnet4_uadt(struct ip_set *set, struct nlattr *tb[],
- 		ip_set_mask_from_to(ip, ip_to, cidr);
- 	}
- 
--	if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
--		return -ERANGE;
+Acked-by: Jozsef Kadlecsik <kadlec@netfilter.org>
+
+Best regards,
+Jozsef
+> ---
+>  net/netfilter/ipset/ip_set_hash_ipportnet.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/net/netfilter/ipset/ip_set_hash_ipportnet.c b/net/netfilter/ipset/ip_set_hash_ipportnet.c
+> index b293aa1ff258..7df94f437f60 100644
+> --- a/net/netfilter/ipset/ip_set_hash_ipportnet.c
+> +++ b/net/netfilter/ipset/ip_set_hash_ipportnet.c
+> @@ -246,9 +246,6 @@ hash_ipportnet4_uadt(struct ip_set *set, struct nlattr *tb[],
+>  		ip_set_mask_from_to(ip, ip_to, cidr);
+>  	}
+>  
+> -	if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
+> -		return -ERANGE;
+> -
+>  	port_to = port = ntohs(e.port);
+>  	if (tb[IPSET_ATTR_PORT_TO]) {
+>  		port_to = ip_set_get_h16(tb[IPSET_ATTR_PORT_TO]);
+> @@ -256,6 +253,9 @@ hash_ipportnet4_uadt(struct ip_set *set, struct nlattr *tb[],
+>  			swap(port, port_to);
+>  	}
+>  
+> +	if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
+> +		return -ERANGE;
+> +
+>  	ip2_to = ip2_from;
+>  	if (tb[IPSET_ATTR_IP2_TO]) {
+>  		ret = ip_set_get_hostipaddr4(tb[IPSET_ATTR_IP2_TO], &ip2_to);
+> 
+> base-commit: 4d3fc8ead710a06c98d36f382777c6a843a83b7c
+> -- 
+> 2.33.0.rc0
+> 
+> 
+
 -
- 	port_to = port = ntohs(e.port);
- 	if (tb[IPSET_ATTR_PORT_TO]) {
- 		port_to = ip_set_get_h16(tb[IPSET_ATTR_PORT_TO]);
-@@ -256,6 +253,9 @@ hash_ipportnet4_uadt(struct ip_set *set, struct nlattr *tb[],
- 			swap(port, port_to);
- 	}
- 
-+	if (((u64)ip_to - ip + 1)*(port_to - port + 1) > IPSET_MAX_RANGE)
-+		return -ERANGE;
-+
- 	ip2_to = ip2_from;
- 	if (tb[IPSET_ATTR_IP2_TO]) {
- 		ret = ip_set_get_hostipaddr4(tb[IPSET_ATTR_IP2_TO], &ip2_to);
-
-base-commit: 4d3fc8ead710a06c98d36f382777c6a843a83b7c
--- 
-2.33.0.rc0
+E-mail  : kadlec@blackhole.kfki.hu, kadlecsik.jozsef@wigner.hu
+PGP key : https://wigner.hu/~kadlec/pgp_public_key.txt
+Address : Wigner Research Centre for Physics
+          H-1525 Budapest 114, POB. 49, Hungary
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210803191813.282980-1-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/df715f3-9a2a-5a88-5ab4-1f176ede79ed%40netfilter.org.
