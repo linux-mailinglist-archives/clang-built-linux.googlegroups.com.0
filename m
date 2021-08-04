@@ -1,123 +1,141 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBEFFVOEAMGQEJTBX4GY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRBDNGVOEAMGQEKMPJT6Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 552673E06EA
-	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Aug 2021 19:46:57 +0200 (CEST)
-Received: by mail-lj1-x23e.google.com with SMTP id k6-20020a2e92060000b0290199022fba24sf617131ljg.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Aug 2021 10:46:57 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628099217; cv=pass;
+Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
+	by mail.lfdr.de (Postfix) with ESMTPS id 51F8A3E06ED
+	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Aug 2021 19:49:03 +0200 (CEST)
+Received: by mail-pj1-x1040.google.com with SMTP id p1-20020a17090a3481b029017757e8c762sf3142404pjb.1
+        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Aug 2021 10:49:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628099342; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rTV+bovUSm7nSDjF/GfJEyoDFl3R1b8FSuLqcCYAKwVnT2fXK4079Jj71xIyP1hTWE
-         YbPL2MsaO9lcnyhIfrp5CF5XxCIEKBKpNk5HGXliDJKv2M9PQMLfNL8neoHEJAzpg90T
-         hfCecVcAt1Z3YLW0sHMtWoKkvkUHmphviz+lvYLuYgzPxkcWm1Z/Wx2SEQ4Vbmt78y1K
-         Ib2DczBjxFSDHWQTy5XXpjmMxbcYkt64bdlW9wAE7Msuib4Ed8CyF3e4K5lHTS6TeqyW
-         tkGfyjm/C54zz7/waTx/wShkfuey9IXRhpyA/92pMhk5fpmhPo68cGf1WMDkKOKn1apf
-         tc2g==
+        b=G3pMztPTGZ9gkrwv5Tl3EhV4RpGOrv0ICVcsQnKRKD9REaqxrw4Thku3Vx5Ab2yCNZ
+         mtC4Cz7fYhXmANTGYrJEkFmeYtka300a/0LSQZBYcKOX7x3VW9/Y3ClcpJ4apgO58n/d
+         4KRd2GsJmoGkFkVEa8n1NA7gZDwfBtz6b4kUz4YzKaG9qiMHSk16MDUnuBssyAQ4zKlU
+         x7zrBOu2uGXN9mtW0lbrnRVHnaZga2aZvXxNZhy2Lk+vPa1uAo9P3ROoSrUphS5uVuHk
+         1GoWzbZC7ZS6SazB8A5724ikH8F/z0tzOjOTFIfaUTGApv3ZOtEdXWG3YeWA+nPmW0M8
+         VAmQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=CGeqbu7cTNg5OjltsAJ6L+LWhkGAFKS7KYC1Fi634o8=;
-        b=DYMG36dmf8kQ5Lsgtr38Ko9oJufdsoeY/hHDu6JSrtjsBveNCFkxhd1RwxTR7fjb3j
-         HFW6Wj0WcC0kWxjlWrYkhMI3x5fseAoBlNkLlicG86wYTothwhTg1j/e+/Sa6HM40h6P
-         TO/uI18+Df9g7y6JiYEXZAxDSpQW07y1A6eqEwJD3IMARCk32NaoiTJz/PK4trU6TWZI
-         eWBUn3yWASOkM+8Em1lUY4b6ZKtZdRqUj/YXbWmu2e1yW5TlZDXAM5Tcf2VEROOxg+Zd
-         c0foBzcx7udUKabqEPu+SkSGPsKTtARF7k3SgzsVOywrSsX999PQuhC4NzfXhpK0cXUP
-         cWQw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=1/UANLy1yLwPhsiFTat+NQViS/AFzCuCDTpZNfclLf8=;
+        b=ezifbH8JaY65TVt6G+MuERJaeNIBZ8qGBKilly5o75g5QBLlZXLS5OfPt1ZBK5sfK9
+         tjjTVKafi9ms0mchSwPdU383yFMqZSrvknILFiSu4HXWArsOzWmtJDh2JS8u8xWUdw7x
+         O8QbBLwkPePXPSJsObCY3VxXxGD5JzfVBO207a/Vqg7E7NJ85joYZ7sFvRn22YlEbDAT
+         H7+PmtWFl5xuLjsJKwf8OPWIS65COTZ45fqCUEv2AcmrIZsX2zlDIADLv0XPeEiH2Rvl
+         C9N5RmbOS/9EqHN6pg1gt8ZBd9TEW0bOcHkshQB3DT0ICPlySJZNuGDuDplNj9/TnEKG
+         69fw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=RRWCky2C;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=GlX1ALSN;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::d2e as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CGeqbu7cTNg5OjltsAJ6L+LWhkGAFKS7KYC1Fi634o8=;
-        b=ZyfNvIi/n6IIXjDgm9QgxegpOJv9AYps5k846xDSgLz/cw4xu/zJtc2lWt+41S7T8k
-         cmXPjps3WMIir7Fr4zYZW0kbegcSjBIV0CdhgeGiF+D0utGz+CJgic02vJwBr/KdEc2M
-         YDCfDFMPrDSOolox4NWyEhEGd0aCbFiVuOBWXgyze9gTyl1if++gYhJ2BUiz2IUGHtk6
-         bqw43RZKaYOIfWXg5CbFep4SbVpZCQMQcirdFE912ndZxIuPc/Rn7L0KpOnpjsRnQOUa
-         KatBVJbFubFZC7Q0mKCDEWEkqnoXR+o6AyFR3SPVj6yujrUeNaeI4Z3Xsd2QEFA3RgL2
-         AYBQ==
+        bh=1/UANLy1yLwPhsiFTat+NQViS/AFzCuCDTpZNfclLf8=;
+        b=qUAaAgXF+Ylv9GGJfR0PE5jH0yEn7qgFBDrR+sVg+krgj7mb8YF/VMfSxxZjt7Liib
+         3KjuPXK6LfRg5zjHgokNIxmv1f+GhjoXNjNqtrcEXubkQ7vmlOOPXqkmrhWHlI+J6ukN
+         9EKmtTdVGySRXIkZK78BiWYKz7NJdqhjQY/7myJKkWYlhPR0oBS03oq3Wxti46PkcFlQ
+         MN4zChR7fXN+LYl9aNuJyrUQXhOQH8zfQK3gJ50nAfl7cXJTKaekH2ESq42pNvW7R6cd
+         TwEn/wpRQ+I9tYq5h/eiheLsQKgDeskzLtPpg/8cRACrY/z/93DtfceUx4lnkXw0Kwp2
+         WCqQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=1/UANLy1yLwPhsiFTat+NQViS/AFzCuCDTpZNfclLf8=;
+        b=hkY2CZkRB5BIPN5h3nyDmmyd2m0Im2rGr3HdKa4nVbiL0xmyVdkGM89lf09IJ69GyH
+         SPtwApXfV/bMqVB8F5PY3DMadw81Bqt9MVhVkkEX7aIGBPSweJGT902lBvejAKGHP7Xr
+         Wxhn1VujPMWMurZsO6sKw4wlbvhqTcx18pAaEebp2Qvc5EEpbbfpuhIqmi592T9HTHRi
+         Fge/H7VDG1cJKSLHRGnQSe+JtdxTBuy3YPkX1+DX7TkfTvaWGav2KYd3tlyI+2hetXfj
+         1KQjKgTiZAehBF9UmYEWF3wYAVNQc6sAfCAjOay+qT4Qs8iP3QXNSjlv4yhoIDytdML4
+         urww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CGeqbu7cTNg5OjltsAJ6L+LWhkGAFKS7KYC1Fi634o8=;
-        b=VXKvAD4rS7/0wVKpY2d+NxF0BE66XXBZIDbXFcyawfDIA4JzC/CMNRReTMyKyWN6nL
-         t+9aWWeM6v86UEeBiVD6ZWJcY0KZtpWiazQgVxQQNT1diZoZsVwzgX3XqU2VWevGvCs6
-         B2efDRtRitBGgGzVMB/Y2TmaMgkHt4cNZV4eSem3G5dUbpMOOAd1W05Lpa+5UFPYo4qy
-         CjT45KOBokSy8wXJ2rdNwH5B6q+T06YEfymr0V0cjXfnsO1f8yV0pGooSWRlZk+/jW6/
-         qgXmqFRiK68tSJRTRrXZ/M8MDvzusQYnD6l2nFfZ5BaMkw0ViN2c4z0Rd0IfQdLetGnx
-         wyQQ==
-X-Gm-Message-State: AOAM5325QT8LM0SANMr0qk9Ic9WVMTvA5OSLLyylQ5vGfeGf28kOQlko
-	Lu7pYJRDro/Bw3Bxlmjm+Yw=
-X-Google-Smtp-Source: ABdhPJz/mwMU106wTlyLrsXxwQNeDysTJAYcbvWfGOk0uatweP9PRApOI2xlHUcXgY9G8Q+8W1Khfw==
-X-Received: by 2002:a05:6512:e8e:: with SMTP id bi14mr271950lfb.191.1628099216775;
-        Wed, 04 Aug 2021 10:46:56 -0700 (PDT)
+        bh=1/UANLy1yLwPhsiFTat+NQViS/AFzCuCDTpZNfclLf8=;
+        b=gGJQFkzfr+jUeHU8XIeute9gw78Ve/IDNWj2zfwEqV12A8bJqeEszEJpT0c1zhOaur
+         oRBzMuss8MVNTkIxpDUGhDaqSYOEmVmn9WZ8qHMGXvV/JVApfWf52uhpsdAvYAgK3ChH
+         xPXXcp1yAAxRxhANUO/pIWZ5VQNsDG9slPTb8rBG5cJKqdJijbATGlIUXyJRzJC6nV6M
+         mlMgndl94ZK3HKc3uJ9Dhab6mcpNNtjbWz/7AGfit7OS++lKW1thUhnXUlVo86J2b6vl
+         RpGpej+qYRAU2iS0cI0HPL0ib8Wft3U+xv2sVkwM9+Gc2naBCnBXisHZFyil7pZM+6pz
+         Gc8Q==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533Dn0M3KBron9XpEkwMy17NZnUWpJuvBzUUhAxC6XahXSjIczdy
+	m65YzqAHHWwvEnh2eQ8qZ9g=
+X-Google-Smtp-Source: ABdhPJwYiulj6QYt3/ITqgA8/XAYnYEihAHLXQ0ir7s7WFl2BBSpM7PhXpFOyWWDtYZB/2ODS2dU5A==
+X-Received: by 2002:a17:90b:1d81:: with SMTP id pf1mr329580pjb.88.1628099341997;
+        Wed, 04 Aug 2021 10:49:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:a167:: with SMTP id u7ls484133ljl.1.gmail; Wed, 04 Aug
- 2021 10:46:55 -0700 (PDT)
-X-Received: by 2002:a2e:8057:: with SMTP id p23mr62802ljg.80.1628099215767;
-        Wed, 04 Aug 2021 10:46:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628099215; cv=none;
+Received: by 2002:a63:656:: with SMTP id 83ls1385149pgg.9.gmail; Wed, 04 Aug
+ 2021 10:49:01 -0700 (PDT)
+X-Received: by 2002:a62:b604:0:b029:39a:c5d6:58 with SMTP id j4-20020a62b6040000b029039ac5d60058mr724244pff.51.1628099341375;
+        Wed, 04 Aug 2021 10:49:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628099341; cv=none;
         d=google.com; s=arc-20160816;
-        b=j1D9nuyBlYybcrjxscjGGKSq9/dPlLWqd8Wi9cPJroecHUlRh3CrzLsc70yy+elI2i
-         gZurCeZ0Mbw5L7kGs3XTNRuRnCwz6Asi0msgVhKUKgD+rZ2I+NC0jR/XM0C9Bii9DISI
-         dULTiQIuOqP+gQ84ZvbOvEt0I7vKdlJDvcUiueCFuRbqV5t6tZdP1rlZIHsPJ75cqwXn
-         5D+kH4JRgP4cpjFSrMu+Fl3wgsw30QHsG2Ltt45p9qcGSbD5GdX5LD14hZ1gmDps/lkO
-         xU8bK/uv/UQY8mRhpxHupG+Mek8SsxEy9A16ouaCrPuyg8eAUh7vFX9zJizacFxq7bKF
-         lZXA==
+        b=tCgdfOUT7XvmuJ8YeMMJVq8SG8XHy1e7arax945fbDedW/JZyrCCSEbvpIaAjUKq8a
+         qRtq+sm8UvuYCQsYJT73kc75g9BaJwkiD0HWzXrYy3X0AegTagJDJmMgI/4i1KjoXAti
+         aJcTYot8CPGFpzijHJnNnsu+gsBhZ6kt7qoutuF40zZKSE3fjLLWEVBKwfSF+NeKRqYk
+         FKzsWWPMoO+jdP6t2GztjbmGYQm0+4Jd5BLJl8mAuNczKoLGODGnyMctiDn/t32vFjWv
+         Gn1leNt837sYwL18PvD+O1q3cEFp7Z0AOrOXARY5+lNci2gxIocbuiF44guJCoPAG0XF
+         pHIw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=i0fTnqSIwvP+B7/OhEc8RR4PahnQd+RFyLdkyhqe4Tc=;
-        b=fwtP7Fd8iNwDBKuuQR6vg+gUWyDAqp9i9LgBzwObMrqNS0eOBn3WjPoeaerBfZDHzJ
-         SZQ+0CTc+2u8+5ZItlxWrCu2+hxYUr07cB9gjniFBoFdYRCGBPjuZSutyxljVkw5kCW0
-         J9G9YKr+sB8ijWWHxWQQaGUNtrWwElUvJ2B980Ok+LeXpGaE5/9jh94LfkhwFUoB0zhV
-         LvfhV3d93V2YT0nP4wGQVdJwmzwyGA1amQEh/1KmeG+7jR1UY1cwxsq4AB8NT9D7S6QV
-         YUAyhDlwt0qo2N9b0krUUvPxzcuM9u8JO1aFM0Ml1wIRGcSSDa50rO/Zkh9xYp2jTeiY
-         UhWA==
+        bh=V1tRU+J2S/v/0zLqyOv0CCFlndM1M4TGM5gcBC/vm+0=;
+        b=Kk5k0rGVs/JfweEFAI1fKFVeYKgv/qsazWRHSjCpgMpkCtPCcl/DSiW2yPcYGsQsu3
+         Hx9et/iaT/I+gsc4CyOh+mNgD6hloUrJsu06/IrUfUyvNELpCpXBVT+6DKZAJNe+wi6H
+         EDCwEoi9OUBp/TQMIzcoyzt8+rVpnVsRbyXGb+BYq67TNVGDMCfjPz5SWuQxBU0sCrja
+         S/dajVWWUYpPC7x2vTLBcQvzXDitsm6EC5aj6TIgWWCmEqy9TgSoi2eV5LmErhi/x3Fm
+         znVJRrYcwU8tkSEgXmw/3Cfd+NLXjZ1PTxt9zyB2W/cyyoARh7aYeDLZM2OHQvCSWVX/
+         Ch2Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=RRWCky2C;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x12f.google.com (mail-lf1-x12f.google.com. [2a00:1450:4864:20::12f])
-        by gmr-mx.google.com with ESMTPS id x17si141821ljp.0.2021.08.04.10.46.55
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=GlX1ALSN;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::d2e as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd2e.google.com (mail-io1-xd2e.google.com. [2607:f8b0:4864:20::d2e])
+        by gmr-mx.google.com with ESMTPS id 136si183180pfz.2.2021.08.04.10.49.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Aug 2021 10:46:55 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f as permitted sender) client-ip=2a00:1450:4864:20::12f;
-Received: by mail-lf1-x12f.google.com with SMTP id t9so5836982lfc.6
-        for <clang-built-linux@googlegroups.com>; Wed, 04 Aug 2021 10:46:55 -0700 (PDT)
-X-Received: by 2002:a05:6512:71:: with SMTP id i17mr297370lfo.368.1628099215326;
- Wed, 04 Aug 2021 10:46:55 -0700 (PDT)
+        Wed, 04 Aug 2021 10:49:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::d2e as permitted sender) client-ip=2607:f8b0:4864:20::d2e;
+Received: by mail-io1-xd2e.google.com with SMTP id 188so1663812ioa.8
+        for <clang-built-linux@googlegroups.com>; Wed, 04 Aug 2021 10:49:01 -0700 (PDT)
+X-Received: by 2002:a05:6602:2bc9:: with SMTP id s9mr445272iov.64.1628099340837;
+ Wed, 04 Aug 2021 10:49:00 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210803223609.1627280-1-nathan@kernel.org> <20210803223609.1627280-3-nathan@kernel.org>
-In-Reply-To: <20210803223609.1627280-3-nathan@kernel.org>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 4 Aug 2021 10:46:44 -0700
-Message-ID: <CAKwvOdmMH6V1yK42Y9xBQX2+2UoCF38q5g=6NXVtk3EWNGz2oQ@mail.gmail.com>
-Subject: Re: [PATCH 2/4] staging: r8188eu: Remove unnecessary parentheses
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Phillip Potter <phil@philpotter.co.uk>, 
-	Larry Finger <Larry.Finger@lwfinger.net>, linux-staging@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+References: <20210802202326.1817503-1-ndesaulniers@google.com>
+ <1847b77a-093a-ce59-5c3b-1a21d3bb66c7@kernel.org> <CAKwvOd=F_OexmHctcW6x7d6up8+zOb5-iLWU9-Ji1dv9-S3F+A@mail.gmail.com>
+In-Reply-To: <CAKwvOd=F_OexmHctcW6x7d6up8+zOb5-iLWU9-Ji1dv9-S3F+A@mail.gmail.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Wed, 4 Aug 2021 19:48:49 +0200
+Message-ID: <CANiq72mGnjy50kd4gMrOsWwmnM3YFp01qO5JzSyZyPGwCL0CwA@mail.gmail.com>
+Subject: Re: [PATCH v2] compiler_attributes.h: move __compiletime_{error|warning}
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Kees Cook <keescook@chromium.org>, 
+	Marco Elver <elver@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Arvind Sankar <nivedita@alum.mit.edu>, 
+	Will Deacon <will@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Ard Biesheuvel <ardb@kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Tom Stellard <tstellar@redhat.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: miguel.ojeda.sandonis@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=RRWCky2C;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12f
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=GlX1ALSN;       spf=pass
+ (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
+ 2607:f8b0:4864:20::d2e as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,134 +148,21 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Aug 3, 2021 at 3:36 PM Nathan Chancellor <nathan@kernel.org> wrote:
+On Wed, Aug 4, 2021 at 7:44 PM Nick Desaulniers <ndesaulniers@google.com> wrote:
 >
-> Clang warns several times across the driver along the lines of:
+> Ah, I forgot the release/13.x branch was cut before I sent this.  I'd
+> rather this feature "ride the trains" so that it gets more soak time.
 >
-> drivers/staging/r8188eu/core/rtw_pwrctrl.c:222:21: warning: equality
-> comparison with extraneous parentheses [-Wparentheses-equality]
->         if ((pwrpriv->rpwm == pslv)) {
->              ~~~~~~~~~~~~~~^~~~~~~
-> drivers/staging/r8188eu/core/rtw_pwrctrl.c:222:21: note: remove
-> extraneous parentheses around the comparison to silence this warning
->         if ((pwrpriv->rpwm == pslv)) {
->             ~              ^      ~
-> drivers/staging/r8188eu/core/rtw_pwrctrl.c:222:21: note: use '=' to turn
-> this equality comparison into an assignment
->         if ((pwrpriv->rpwm == pslv)) {
->                            ^~
->                            =
-> 1 warning generated.
->
-> The compilers have agreed that single parentheses are used for equality
-> and double parentheses are used for assignment within control flow
-> statements such as if and while so remove them in these places to fix
-> the warning.
->
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
->  drivers/staging/r8188eu/core/rtw_pwrctrl.c   | 2 +-
->  drivers/staging/r8188eu/core/rtw_security.c  | 4 ++--
->  drivers/staging/r8188eu/core/rtw_wlan_util.c | 2 +-
->  drivers/staging/r8188eu/hal/odm.c            | 2 +-
->  drivers/staging/r8188eu/hal/usb_halinit.c    | 2 +-
->  5 files changed, 6 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/staging/r8188eu/core/rtw_pwrctrl.c b/drivers/staging/r8188eu/core/rtw_pwrctrl.c
-> index d67eeb045002..598c32d7eaa5 100644
-> --- a/drivers/staging/r8188eu/core/rtw_pwrctrl.c
-> +++ b/drivers/staging/r8188eu/core/rtw_pwrctrl.c
-> @@ -219,7 +219,7 @@ void rtw_set_rpwm(struct adapter *padapter, u8 pslv)
->                         pslv = PS_STATE_S3;
->         }
->
-> -       if ((pwrpriv->rpwm == pslv)) {
-> +       if (pwrpriv->rpwm == pslv) {
->                 RT_TRACE(_module_rtl871x_pwrctrl_c_, _drv_err_,
->                          ("%s: Already set rpwm[0x%02X], new=0x%02X!\n", __func__, pwrpriv->rpwm, pslv));
->                 return;
-> diff --git a/drivers/staging/r8188eu/core/rtw_security.c b/drivers/staging/r8188eu/core/rtw_security.c
-> index 2c1b9a6dcdf2..45fd8b1aeb59 100644
-> --- a/drivers/staging/r8188eu/core/rtw_security.c
-> +++ b/drivers/staging/r8188eu/core/rtw_security.c
-> @@ -1211,7 +1211,7 @@ u32       rtw_aes_encrypt(struct adapter *padapter, u8 *pxmitframe)
->         pframe = ((struct xmit_frame *)pxmitframe)->buf_addr + hw_hdr_offset;
->
->         /* 4 start to encrypt each fragment */
-> -       if ((pattrib->encrypt == _AES_)) {
-> +       if (pattrib->encrypt == _AES_) {
->                 if (pattrib->psta)
->                         stainfo = pattrib->psta;
->                 else
-> @@ -1454,7 +1454,7 @@ u32       rtw_aes_decrypt(struct adapter *padapter, u8 *precvframe)
->
->         pframe = (unsigned char *)((struct recv_frame *)precvframe)->rx_data;
->         /* 4 start to encrypt each fragment */
-> -       if ((prxattrib->encrypt == _AES_)) {
-> +       if (prxattrib->encrypt == _AES_) {
->                 stainfo = rtw_get_stainfo(&padapter->stapriv, &prxattrib->ta[0]);
->                 if (stainfo != NULL) {
->                         RT_TRACE(_module_rtl871x_security_c_, _drv_err_, ("rtw_aes_decrypt: stainfo!= NULL!!!\n"));
-> diff --git a/drivers/staging/r8188eu/core/rtw_wlan_util.c b/drivers/staging/r8188eu/core/rtw_wlan_util.c
-> index 15edccef9f1d..4a8e52484cfd 100644
-> --- a/drivers/staging/r8188eu/core/rtw_wlan_util.c
-> +++ b/drivers/staging/r8188eu/core/rtw_wlan_util.c
-> @@ -1306,7 +1306,7 @@ int support_short_GI(struct adapter *padapter, struct HT_caps_element *pHT_caps)
->         if (!(pmlmeinfo->HT_enable))
->                 return _FAIL;
->
-> -       if ((pmlmeinfo->assoc_AP_vendor == HT_IOT_PEER_RALINK))
-> +       if (pmlmeinfo->assoc_AP_vendor == HT_IOT_PEER_RALINK)
->                 return _FAIL;
->
->         bit_offset = (pmlmeext->cur_bwmode & HT_CHANNEL_WIDTH_40) ? 6 : 5;
-> diff --git a/drivers/staging/r8188eu/hal/odm.c b/drivers/staging/r8188eu/hal/odm.c
-> index 0bc836311036..65a117408d50 100644
-> --- a/drivers/staging/r8188eu/hal/odm.c
-> +++ b/drivers/staging/r8188eu/hal/odm.c
-> @@ -1631,7 +1631,7 @@ void odm_EdcaTurboCheckCE(struct odm_dm_struct *pDM_Odm)
->         struct mlme_ext_priv    *pmlmeext = &(Adapter->mlmeextpriv);
->         struct mlme_ext_info    *pmlmeinfo = &(pmlmeext->mlmext_info);
->
-> -       if ((pregpriv->wifi_spec == 1))/*  (pmlmeinfo->HT_enable == 0)) */
-> +       if (pregpriv->wifi_spec == 1)
+> Miguel, would you like a v3 updating the comment above (and the
+> comment below) to s/13.0/14.0/g, or can you simply fold that change
+> into this one when applying it?
 
-^ was the comment you removed important?
+I can do the replacements on my side, no worries!
 
-If not:
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
->                 goto dm_CheckEdcaTurbo_EXIT;
->
->         if (pmlmeinfo->assoc_AP_vendor >=  HT_IOT_PEER_MAX)
-> diff --git a/drivers/staging/r8188eu/hal/usb_halinit.c b/drivers/staging/r8188eu/hal/usb_halinit.c
-> index d985894c0f30..ec7badfd72aa 100644
-> --- a/drivers/staging/r8188eu/hal/usb_halinit.c
-> +++ b/drivers/staging/r8188eu/hal/usb_halinit.c
-> @@ -1300,7 +1300,7 @@ static void hw_var_set_opmode(struct adapter *Adapter, u8 variable, u8 *val)
->                 StopTxBeacon(Adapter);
->
->                 rtw_write8(Adapter, REG_BCN_CTRL, 0x19);/* disable atim wnd */
-> -       } else if ((mode == _HW_STATE_ADHOC_)) {
-> +       } else if (mode == _HW_STATE_ADHOC_) {
->                 ResumeTxBeacon(Adapter);
->                 rtw_write8(Adapter, REG_BCN_CTRL, 0x1a);
->         } else if (mode == _HW_STATE_AP_) {
-> --
-> 2.33.0.rc0
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210803223609.1627280-3-nathan%40kernel.org.
-
-
-
--- 
-Thanks,
-~Nick Desaulniers
+Cheers,
+Miguel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmMH6V1yK42Y9xBQX2%2B2UoCF38q5g%3D6NXVtk3EWNGz2oQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72mGnjy50kd4gMrOsWwmnM3YFp01qO5JzSyZyPGwCL0CwA%40mail.gmail.com.
