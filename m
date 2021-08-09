@@ -1,125 +1,148 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBAHCYWEAMGQE3TKI7UQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDGIRY5JYYKRBQXLYWEAMGQE7RXNCAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33c.google.com (mail-wm1-x33c.google.com [IPv6:2a00:1450:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5D6E63E4BF9
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Aug 2021 20:16:33 +0200 (CEST)
-Received: by mail-wm1-x33c.google.com with SMTP id 85-20020a1c01580000b02902511869b403sf6326wmb.8
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Aug 2021 11:16:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628532993; cv=pass;
+Received: from mail-ed1-x537.google.com (mail-ed1-x537.google.com [IPv6:2a00:1450:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2BFAF3E4C39
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Aug 2021 20:36:51 +0200 (CEST)
+Received: by mail-ed1-x537.google.com with SMTP id y39-20020a50bb2a0000b02903bc05daccbasf9348293ede.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Aug 2021 11:36:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628534211; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rH1MVxdHRo8SIatqcZ3EAOLd3UeVNvEfpgT3w0PQpVq/Pxv3r2UHWi0Vjz0lqMxbyL
-         /E1bRXsQvuHNOuqvnNze8IYGDV3iASSrmN18cf1fku75ZB3duHe0hlVBm7egmKgNrXuh
-         F6XQQV6zcl+6dq84JcRr2/ECONPjF4xyimtAoyq7Q+tTaEqKpLZM+AoNgKAtF6fAz8lU
-         n1DlEZ5zPM6mpGd70bWAvsBlhq9s5vWwU6x87E2YYIcewijsoM9d6S38SELagGtcrDFn
-         FtPlgWLU4KtNp9UL7mVtILFJZZ4PYWfLQgNKFncKRR43qVzlLybRccC1b/5TtR3Zy1TQ
-         cSHQ==
+        b=NUCx8BBLJOWozOXCh8WLi6DukfFnY57nxcDQM4wos4FMWDqdmgY6PAPOSYrp152KW3
+         QGzlyhnxz7w56MwTAhtBjMzLSu8Dudj+hzwaziTnyeZQOC5yVeA4UuApv/F27iurThz3
+         O7Tpm1cVlcoMeuwo6FHZ30qqCx/UQa6D1BfMwz109EkPpehM9Rj7qlTp8czW/McLPfD7
+         ftBdtkiKTelUeNAxAZMDlvNhs0PQLd6ef/CAhje305suZxnw0jvnOARY/opjnfTvGjw0
+         1ZlL7oin/JWRRRmZr1wnXVzx6RGNxSLTfNMesOJ+Pshx3kPZI0qsLRJHLpTlbTqFV4EC
+         TXWw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=DI3r9M0XFyNCxYz3xWT08xkeKoTdrf3clouM/z6nQOI=;
-        b=NjEbYaRdt01Gnv3NaZnGICOD0w3N52cDxuzoR5VlRd/iGim4j6fDgm0MFT064HmLPm
-         rXGSqKISbwipxsuenMxbTYGfOzrwgeQCoiWoKcoJUlgG9lloMYW16Gg+ipywbDmwAJvF
-         tjkrn4mGxTG8hCiifoJWbgF2bR2kR2mt2zcn9Jwxh4Xr//Hsol6K2eNrQo1ZL1qwi/rb
-         D2U+ZelOWUnOhgEdqCd7sRPAnq+t2bCqbEl2+vrKkhHTn60UJax31bIfDC3gpIXod5wd
-         fRGxfVAyyBi1Hlsz5uwUaW+joQR+iHxchMSh8rLNu8BmDHiL+aMVvoIW9vKMbKN8v2D0
-         75Gg==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:mail-followup-to:message-id:subject:cc:to
+         :from:date:sender:dkim-signature;
+        bh=+tZAFK0674Snztruy/qeU/H4k6r3KeK6apvnVnPAEqQ=;
+        b=VGOPDAZufrSV5UVrb8gSHtvvlHgkH07yAsN1NRZcsJIoVCcCE+O2mHZvZbG4br6Zo/
+         4J/fZ1UVot2CldToo6azW5k8xZSIKKmiakJhO9mZd+AsGkVHU839hFK81035d2wWZevN
+         KwHH8n9AyGle3LrB5LmvI2xdv1Niho0wIf5VIDE2g34tIOn1tCfaTmhN/OKK+2t5z9Vs
+         YOtiIhKhE4DDp0KtfBs/ebTWBSWVfzFzLlws2UNj6ZNOfMHbJYAAx8VH0Xb+7G6equKj
+         b7T7mojpWV/ZkZEYVelHI4MOFvYMulP/b/O8cLosl8lIFI4AZk2heK1yEjVYdRz9dofI
+         5ddg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=oRKTlK00;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@nucleusys.com header.s=x header.b=fths+KCx;
+       spf=pass (google.com: domain of petkan@nucleusys.com designates 92.247.61.126 as permitted sender) smtp.mailfrom=petkan@nucleusys.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:date:from:to:cc:subject:message-id:mail-followup-to
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=DI3r9M0XFyNCxYz3xWT08xkeKoTdrf3clouM/z6nQOI=;
-        b=PIivk8Tnvu/jI+i9I6ejyy/IiJEPI2lmQHNFhLXK6jPJf00GeU6GDgL2HQKwLd0jIq
-         IToM51xLFlAlCWIl1vj9Vd7JFeXMIZ8bfEE9STtsg0Cnb91WPjTEha/oXO5X9H5+SzxH
-         uKf5mf2KX4Vdi1SS07zq7b+ibpLzsRS+ujvg3qMxqyn/dABGBNPN5i6VKnPhz4j9wr6F
-         6S9xBbnT8mU9sV1qyfgbDhgsSEJeS9wij0/TYqO05L16nF4hQRt0UyJWzAv1CU5bwJvj
-         Vrr5KlzEdgaaWXD4SiJAgo0GRczu4ququujU7dfZ2+E2vo3xM6MqBFbllXxmkabKpuUj
-         7QCQ==
+        bh=+tZAFK0674Snztruy/qeU/H4k6r3KeK6apvnVnPAEqQ=;
+        b=bDmG62I47ip+fOJJftRXnRyENYt2/kLYZun1s7D6Tz6nIABSfb0ZLQ6QgZEFlcWOB4
+         hS0TpBL+gXQGTggFTdDwGbOKmQRGar6MKt+N2oPeWDioteI38oY8gc3m1OvFz8Gvifie
+         SnXTQ0MHn+kYqCWBO+c9aw33c88RwxUGbgVYKOauxr280RUzqW7WJCu0XLRyCvuQ9YMd
+         QgVP0bQ4AybRzy5heSziVWqpu36V/1xM/IDvhjNUy3oKldZ+vuelqbPqDRdHK03ZceQL
+         rFnw4vvQ8YrdxuMOX2fJyRueVXIVDpXi3xH0d1z8szzSTr0PdAhCNK97aYPSoN9twNxu
+         zTTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=DI3r9M0XFyNCxYz3xWT08xkeKoTdrf3clouM/z6nQOI=;
-        b=FE0WCX9B7JWRxlV5UQw0l+YpOh9ioEmDDjyQRDcPlyhTvsrb92maSVifQ7GT85K+k0
-         fQ3PX3s9bLlblbvnuGEzBAmMYis0xQGS2NhhcEggxSnCAbMbQpzHUFn50lZz6DL++eus
-         AeiIcQlJxzX7XUJGBA7jGfhNHatBk4kzHvOb2yzbK+FmJ5IxC/uNxileYnwTueg3INaa
-         Ph3gwh+StDbjDZQ4COMhcEB79KVDxH0LkkYi8La68JK5HUmtITCDs/U538XgDVJkrAhJ
-         x54D9jk/q8ceEAfpkZuUHPd0TdnQpzYGlCH1JodGOlDbtbrn+s1jPNmH2ix1+lh6XZ2n
-         r62Q==
-X-Gm-Message-State: AOAM531rkUyi7AJR7F+e9tUmzrYM2IrEg9WSYw+gOtqsMCG6WbF0Lhc4
-	Hjz46YAIjS/bKHe+pLZVP+8=
-X-Google-Smtp-Source: ABdhPJwKXRs2i1Kxs/FwfPsmGvxhuBzVkmya45xmI6NWApOdknOs6tktzlWAALvUWGkidP0r5jOiSg==
-X-Received: by 2002:a5d:5745:: with SMTP id q5mr25581579wrw.409.1628532993107;
-        Mon, 09 Aug 2021 11:16:33 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :mail-followup-to:references:mime-version:content-disposition
+         :in-reply-to:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=+tZAFK0674Snztruy/qeU/H4k6r3KeK6apvnVnPAEqQ=;
+        b=FPhKSKsDh93UVNEYyt9v9N/41o+P3HI2C/Deuj2OzWdOCoRM80LMtYxksSC372SoZO
+         ud4bipgDWkOSOKjRFGOV3/7g8HB/qb6ucDYAV4V9m3dnRm0h7MbQlrenIOUpag8EyeNt
+         pFZE98s8ssFM86eG/sUyCBaHlh22YgQUV8hukqIr1iHQvuOYNj9uCLbnscFOXx4HTRVg
+         tsWcyTObGtmIsD7nfo5ujme/ddaDoMAWwTBiU7N+tozB6zxDsbFJ5fX+ilP/xgYfLOLn
+         GZcLHCec2YMbWQ4yjYmo5lcFgLKryzl/bvWXoicBznbE+XtbOu0VyqtH/K431Oj5iPXX
+         8vMw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM5325AYxFlwYjtf2oDJSEW02B11H8QFaLwZTuUUrtx/aR8raBUNpH
+	o6NWdx5ackbr/ldct+M9Yno=
+X-Google-Smtp-Source: ABdhPJwx8+ZfWwbLwcixMWabF6NN+tB82NuqNyVpCfTyAEXh4cStnYBIwmQ1z5NtripVrdkjs8sMuA==
+X-Received: by 2002:aa7:c603:: with SMTP id h3mr31531911edq.165.1628534210973;
+        Mon, 09 Aug 2021 11:36:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:c7c7:: with SMTP id z7ls6253912wmk.3.gmail; Mon, 09 Aug
- 2021 11:16:32 -0700 (PDT)
-X-Received: by 2002:a1c:46c2:: with SMTP id t185mr412518wma.107.1628532992240;
-        Mon, 09 Aug 2021 11:16:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628532992; cv=none;
+Received: by 2002:a17:906:1644:: with SMTP id n4ls7562822ejd.7.gmail; Mon, 09
+ Aug 2021 11:36:50 -0700 (PDT)
+X-Received: by 2002:a17:906:fc6:: with SMTP id c6mr23517093ejk.65.1628534209973;
+        Mon, 09 Aug 2021 11:36:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628534209; cv=none;
         d=google.com; s=arc-20160816;
-        b=Mgzk833AqnEmR4h35HIxlQLIdK5C1m68liVaH2pGAFBbcKxfBgrH0nJ6LjS/nTeFIu
-         jLT/C5WxRBiozUc1bfqhYTpqItZdjO2bq38J/8oXHI90Vw+b3AhqKHebJqVkxuvBbxYC
-         7ogfNWYGzgf/jEYCszL+2R7uxtIZVJUl1B/+f5er+dQavRZHmpaXW/h9zHnSVRnV83Jl
-         Ab8qLyC6THHwN9MJa6c5dZublVTvEWyxZy4/KER+EMY8dWZL/roLq5JPmMK0YCM1Cqbi
-         Dro2EUahbg1jr94BIwbA8oddMnw486ST3EYnp7phgVhW7+6u9hJEJkjYx9WaCbe3cAXy
-         AEHw==
+        b=al3A7fjDQ9eU3y58FhIvVcAChybc3CTv6w2z9/N+7opKdDk0lmLzBSS5ToN1u+tOS+
+         NWrneSfFtmCXaXig8IUdfP60h7L43ToGmWqMvlqCQ0jLGmCC5TC4uH4b5/rxF01JQNAO
+         Rf8fFPL6QLL3v0zFJnPFy8a+7ePsEhMwlH3N0VRxy1Wy3uKiVqxyf8mV87k9RZ1dQW4U
+         Ygm+yUFtpQDb/4XNWK/g4bnzSoDDopNDACtD40KDjVGoNDWPXDLgrte00oEu2pRmgcr3
+         Exuwfo7KhLC9peApGXrOrhdZvSfdEg6f7/juvGtrW61Aw8RBFeIDTLhOYbF7+hLWj6aI
+         cHfw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=6VbiwDcS7LINT1uLUnNtYgAA00vFfnOMefiQlwTi9YY=;
-        b=TfRF9Du5FqzIwOdMXkbSGzTAjTbKQdXkolLpUO3nFu983SOywjqOUodJ7pKGEf05Gw
-         TJy64eYX85bi4ZBIPEji7UXpVK0wlLY4kMD6T8d4neVsOYjlhgLl5M+Rsd8/Je4kHOrU
-         hMjxxQtKcmHnaY3yhTFwqM578pL8jMOc9Elj5kmctgI9LzSugHPad6KFUHoTv+GJvzSV
-         gf5Y0aVMitCavY9sjIOG/9yscHqR9R4mxcbaEI+YkrzFoMIhj8xoOHuFCx/HKqnEXCe4
-         p21dIeb2NP+erXeT3Lmgh0T/HgT328H7SiH8paeuuZS7OKf4b7WnC2Gz3/jMZg7vdwXg
-         SoRg==
+        h=in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:dkim-signature;
+        bh=kJtEPbz3HBfjcS7eIEk4ujeRQjWezW+oEUGElqZZsfI=;
+        b=BWXzR0eg8HSAjGqxiHrXYD8p5AOlBJcYehDFpmRLKDGfhjz1rSQ9XSJKxL5/X/uzwi
+         RKAhu/kV+N/eSVmgWMbIkHGDTlzvwLGcY4E5mJcxZAMllwx4o+BJsnjSx2FofZi4MG2o
+         CxlJyIdvxQAObNhbE3fCHhxVisz0oH8dyQRsquB0TzBwFXpYQIkS3oMqtvOIGAQ3NbnP
+         DOos8xURkEizX4YAj102J5rpCHdV//rzFjN836/o6Jm78i23sAYSSF/eIm3ntCYuTZB9
+         0IFqkgwRykZ9Q0rTBiMEOj4j0X8a3pe5x+R+3SLZWrJ/FB5Y75MNOd/Dr+ee1IZFIEYY
+         dB6A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=oRKTlK00;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x133.google.com (mail-lf1-x133.google.com. [2a00:1450:4864:20::133])
-        by gmr-mx.google.com with ESMTPS id z70si15316wmc.0.2021.08.09.11.16.32
+       dkim=pass header.i=@nucleusys.com header.s=x header.b=fths+KCx;
+       spf=pass (google.com: domain of petkan@nucleusys.com designates 92.247.61.126 as permitted sender) smtp.mailfrom=petkan@nucleusys.com
+Received: from zzt.nucleusys.com (lan.nucleusys.com. [92.247.61.126])
+        by gmr-mx.google.com with ESMTPS id o10si716139edc.4.2021.08.09.11.36.49
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Aug 2021 11:16:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133 as permitted sender) client-ip=2a00:1450:4864:20::133;
-Received: by mail-lf1-x133.google.com with SMTP id g30so3561389lfv.4
-        for <clang-built-linux@googlegroups.com>; Mon, 09 Aug 2021 11:16:32 -0700 (PDT)
-X-Received: by 2002:a05:6512:3041:: with SMTP id b1mr18140580lfb.122.1628532991192;
- Mon, 09 Aug 2021 11:16:31 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Aug 2021 11:36:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of petkan@nucleusys.com designates 92.247.61.126 as permitted sender) client-ip=92.247.61.126;
+Received: from 78-83-68-78.spectrumnet.bg ([78.83.68.78] helo=carbon)
+	by zzt.nucleusys.com with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <petkan@nucleusys.com>)
+	id 1mDA8d-0002Mp-R5; Mon, 09 Aug 2021 21:36:43 +0300
+Date: Mon, 9 Aug 2021 21:36:39 +0300
+From: Petko Manolov <petkan@nucleusys.com>
+To: Pavel Skripkin <paskripkin@gmail.com>
+Cc: kernel test robot <rong.a.chen@intel.com>,
+	clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: drivers/net/usb/pegasus.c:461:2: warning: Value stored to 'ret'
+ is never read [clang-analyzer-deadcode.DeadStores]
+Message-ID: <YRF1t5kx6hTrv5LC@carbon>
+Mail-Followup-To: Pavel Skripkin <paskripkin@gmail.com>,
+	kernel test robot <rong.a.chen@intel.com>,
+	clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
+	linux-kernel@vger.kernel.org
+References: <202108080902.ZhmxmJZr-lkp@intel.com>
+ <28df02cc-8b34-3d4e-2ed6-30af0ff44a42@intel.com>
+ <94550f41-1204-8996-ef32-c25429481ceb@gmail.com>
 MIME-Version: 1.0
-References: <CACku6g7x2bsY-nN0eyjhPtWNkXGSQ9csb7i7HgugF_TL8BAshQ@mail.gmail.com>
- <CAENS6EsBYGbjp7jbtG=8o6nQHBY35FJMvsaAtdubXf4F5BWZAQ@mail.gmail.com>
- <20210730171554.r5uvfkwzylrq6sw3@google.com> <CACku6g7Q_k2mP351++qhGqwzdEQxozr8bi+50hp1VSHXKktBzg@mail.gmail.com>
- <eaa6a67a-b818-d451-3f13-84006c0ab934@cl.cam.ac.uk>
-In-Reply-To: <eaa6a67a-b818-d451-3f13-84006c0ab934@cl.cam.ac.uk>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 9 Aug 2021 11:16:19 -0700
-Message-ID: <CAKwvOdnB8UtfBPwgWS0UzicC6tG+MOVyAZQt=ZNcb-etPyZNKg@mail.gmail.com>
-Subject: Re: [llvm-dev] Inline function not eventually inlined is removed
-To: David Chisnall <David.Chisnall@cl.cam.ac.uk>
-Cc: llvm-dev@lists.llvm.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <94550f41-1204-8996-ef32-c25429481ceb@gmail.com>
+X-Spam_score: -1.0
+X-Spam_bar: -
+X-Spam_report: Spam detection software, running on the system "zzt.nucleusys.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ @@CONTACT_ADDRESS@@ for details.
+ 
+ Content preview:  On 21-08-09 14:06:11, Pavel Skripkin wrote: > On 8/9/21 1:37
+    PM, kernel test robot wrote: > > > > tree: > > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+    master > > head: 85a90500 [...] 
+ 
+ Content analysis details:   (-1.0 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -1.0 ALL_TRUSTED            Passed through trusted hosts only via SMTP
+  0.0 TVD_RCVD_IP            Message was received from an IP address
+X-Original-Sender: petkan@nucleusys.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=oRKTlK00;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@nucleusys.com header.s=x header.b=fths+KCx;       spf=pass
+ (google.com: domain of petkan@nucleusys.com designates 92.247.61.126 as
+ permitted sender) smtp.mailfrom=petkan@nucleusys.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,88 +155,98 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 4, 2021 at 4:46 AM David Chisnall via llvm-dev
-<llvm-dev@lists.llvm.org> wrote:
->
->
-> On 02/08/2021 18:05, Mariusz Sikora via llvm-dev wrote:
->  > I'm just trying to understand is this _Code_ undefined behavior or
-> this is a bug in LLVM? Because why LLVM is removing functions without
-> inlining it? For example GCC is not removing function event after
-> inlining it.
->
-> C++ `inline` means 'the definition is provided in line with the
-> declaration, the compiler and linker are responsible for ensuring that
-> exactly one definition exists in the final binary'
->
-> C `inline` means 'this definition is provided in line with a declaration
-> and may be used by the compiler in preference to one that a linker finds'
->
-> C `inline extern` means 'a definition of this may appear in line with
-> the declaration but please provide a canonical definition here for when
-> the compiler decides not to emit it'
->
-> C `inline static` means 'a definition exists here inline and it is not
-> an error if this is not used.  If it is, then it is private to this
-> compilation unit and it is not an error for the same static function to
-> exist in multiple compilation units'.
->
-> *None* of these say anything about whether the compiler is required to
-> inline the function, but they all specify what must happen to the
-> original definition:
->
->   - C++ `inline`: Must exist in at least one compilation unit and the
-> linker must discard duplicates.
->   - C `inline`: Must be eliminated
->   - C `inline extern`: must be emitted, the linker should error if two
-> definitions of the same inline extern function exist in different
-> compilation units.
+On 21-08-09 14:06:11, Pavel Skripkin wrote:
+> On 8/9/21 1:37 PM, kernel test robot wrote:
+> > 
+> > tree:
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> > head:   85a90500f9a1717c4e142ce92e6c1cb1a339ec78
+> > commit: 8a160e2e9aeb8318159b48701ad8a6e22274372d net: usb: pegasus:
+> > Check the return value of get_geristers() and friends;
+> > date:   4 days ago
+> > :::::: branch date: 8 hours ago
+> > :::::: commit date: 4 days ago
+> > config: x86_64-randconfig-c001-20210808 (attached as .config)
+> > compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project
+> > 41a6b50c25961addc04438b567ee1f4ef9e40f98)
+> > reproduce (this is a W=1 build):
+> >           wget
+> > https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross
+> > -O ~/bin/make.cross
+> >           chmod +x ~/bin/make.cross
+> >           # install x86_64 cross compiling tool for clang build
+> >           # apt-get install binutils-x86-64-linux-gnu
+> >           #
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8a160e2e9aeb8318159b48701ad8a6e22274372d
+> >           git remote add linus
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+> >           git fetch --no-tags linus master
+> >           git checkout 8a160e2e9aeb8318159b48701ad8a6e22274372d
+> >           # save the attached .config to linux build tree
+> >           COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross
+> > ARCH=x86_64 clang-analyzer
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
+> 
+> Hi, @Petko!
+> 
+> For you not to scan all these warnings:
+> 
+> > > > drivers/net/usb/pegasus.c:461:2: warning: Value stored to 'ret' is never read [clang-analyzer-deadcode.DeadStores]
+> >              ret = set_registers(pegasus, EthCtrl0, 3, data);
+> >              ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> >      drivers/net/usb/pegasus.c:461:2: note: Value stored to 'ret' is
+> > never read
+> >              ret = set_registers(pegasus, EthCtrl0, 3, data);
+> >              ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> 
+> This is the real bug, I think. Can be fixed like this:
+> 
+> diff --git a/drivers/net/usb/pegasus.c b/drivers/net/usb/pegasus.c
+> index 22353bab76c8..f2b8891c7b36 100644
+> --- a/drivers/net/usb/pegasus.c
+> +++ b/drivers/net/usb/pegasus.c
+> @@ -459,6 +459,8 @@ static int enable_net_traffic(struct net_device *dev,
+> struct usb_device *usb)
+> 
+>  	memcpy(pegasus->eth_regs, data, sizeof(data));
+>  	ret = set_registers(pegasus, EthCtrl0, 3, data);
+> +	if (ret < 0)
+> +		goto fail;
+> 
+>  	if (usb_dev_id[pegasus->dev_index].vendor == VENDOR_LINKSYS ||
+>  	    usb_dev_id[pegasus->dev_index].vendor == VENDOR_LINKSYS2 ||
+> 
+> 
+> It was caused by our last refactoring: enable_net_traffic() now returns 0 on
+> success and this ret is never checked.
 
-Also, note that the meaning of `extern inline` changed between C90 and
-C99; it's one of the few semantic changes that are drastic changes
-that I know of between C standard revisions.  You can get the previous
-behavior by either compiling with -std=c89/c90/gnu89, -fgnu89-inline,
-or using __attribute__((gnu_inline)) on function definitions.  The
-behavior of the prior standard and gnu_inline was to NOT emit any
-symbol; a definition was provided only for the purposes of inline
-substitution.
+I'd rather remove the 'ret = ' part and leave set_registers() alone.  If this
+particular write operation fail, it doesn't mean the adapter won't work at all.
+Perhaps it won't be the most optimal mode, but it will work.  There are some
+legal checks after set_registers() that also make sense to pass.  So the patch i
+suggest looks like:
 
-We've actually used this in the Linux kernel to provide two
-definitions of a function; one in C for inlining, one in assembler to
-avoid stack protectors and other compiler instrumentation (such as
-coverage and sanitizers), though now we have better constructs for
-describing these intents.
 
->   - C `inline static`: It must be emitted if references to it exist in
-> the object code but it may be eliminated if it is unused (including if
-> all uses of it are inlined).
->
-> Clang is generating IR that makes LLVM do exactly what the language
-> semantics require: eliminate the definition.
->
-> The `inline` keyword is probably the most confusingly named keyword in
-> C/C++, though `static` comes close.  The general rule of thumb for C is:
->
->   - If you think you mean `inline` you probably mean `inline static`.
->   - If you're really sure you mean `inline`, you almost certainly mean
-> `__attribute__((always_inline))` or `__forceinline` (depending on
-> whether you're writing GNU or Microsoft-flavoured C)
+diff --git a/drivers/net/usb/pegasus.c b/drivers/net/usb/pegasus.c
+index 652e9fcf0b77..49cfc720d78f 100644
+--- a/drivers/net/usb/pegasus.c
++++ b/drivers/net/usb/pegasus.c
+@@ -433,7 +433,7 @@ static int enable_net_traffic(struct net_device *dev, struct usb_device *usb)
+        data[2] = loopback ? 0x09 : 0x01;
 
-It's also useful to note that always (in always_inline) doesn't mean
-always. The machinery handling inline substitution can still bail. Use
--Rpass-missed=inline (or maybe -Rpass-missed=always-inline) to learn
-*why*.
+        memcpy(pegasus->eth_regs, data, sizeof(data));
+-       ret = set_registers(pegasus, EthCtrl0, 3, data);
++       set_registers(pegasus, EthCtrl0, 3, data);
 
->   - If you're not sure but think you might mean `inline`, you really
-> mean to be writing C++ and not C.
->
-> David
+        if (usb_dev_id[pegasus->dev_index].vendor == VENDOR_LINKSYS ||
+            usb_dev_id[pegasus->dev_index].vendor == VENDOR_LINKSYS2 ||
 
--- 
-Thanks,
-~Nick Desaulniers
+
+cheers,
+Petko
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnB8UtfBPwgWS0UzicC6tG%2BMOVyAZQt%3DZNcb-etPyZNKg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YRF1t5kx6hTrv5LC%40carbon.
