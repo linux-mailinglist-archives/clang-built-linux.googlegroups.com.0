@@ -1,130 +1,131 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBUUKZSEAMGQE262LXQA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBYFIZSEAMGQEFL7KZ4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 38DA63E8649
-	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Aug 2021 01:01:40 +0200 (CEST)
-Received: by mail-ot1-x33d.google.com with SMTP id e96-20020a9d2ae90000b0290510b681513bsf309614otb.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Aug 2021 16:01:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628636499; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id F31183E86F9
+	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Aug 2021 02:05:53 +0200 (CEST)
+Received: by mail-pl1-x63c.google.com with SMTP id u8-20020a17090341c8b029012d5f2333bfsf133295ple.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Aug 2021 17:05:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628640352; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eqZcT/Wir6Z4slCk9NHVScCbl7BoD496v3qyTh88/buhpkQL9SktToDNSbcZTHR0oZ
-         d5XXqLjmT1sfApWsXN2IASs3xc9bGta5uV7Ou7AE90IrDRUHC1KoNYVGJvM0YKSpSRWb
-         +VKZfpb9LesaT/GVkXw0DBdj51OxHpsXjYcDxwj7FQGeuDXRiqY5L2u9uqDYp1plJAry
-         ARcX592Ge3qSJ/YzWfz3wN3SsTu5cR4buSP8lojdtoo90p9+HK+UMi0pFDLbx/DLmMzZ
-         ARgVohUAUahpX+UVT6NVKQcT2pEUG/aWRK0wyIaOtxjgJpNlyKyQL1K1XO+DrNIwRFYj
-         tvKA==
+        b=0ldhcCypCMQ0gOjVvUOLqBHjL9XUkYNSd43G1uYK/TqRMCSR/TEKgkjBhFpwBsIAc6
+         UwsxY7/hQiSUpO80m8XtrH40HczYjFHU4H7gVbjbJME8dmTUqpImUras3PT4t4mEtdbg
+         AHeK6DhIjhDMnCKIbQWAPyiUpAZA6NwlF4xOXnssTqNLvq66idxZnQTKkUvbkAUKq23n
+         zbSgS7Kz94zHG2sJ8Hg1CA5BdlLO0fpcRLdYavoZrJ3VpOoywuOnyPfcFLiaLa+OY4qt
+         o/l/WQJ/7rd70jok0CBPofb3qFSSKEtEcCJtf6BvJhkc6Cfgrj7rF9aBdl+8FYtJJyYH
+         YEoQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
          :dkim-signature;
-        bh=gV2guveMsSih8NovVhtRECzHLZEKmaIRGL/hg0X0lAY=;
-        b=GmI4rzmo5FOc4bQeojjAYSep6OF8DdDOWwzFrok6hAbCkCNR627J95yn0xtwRd6XDL
-         8s0hCMlUZql3S6QXFUtPDXz2wlvmkK0EwBftyT7GRz1lrYH3fPXwJO3huFYq+gUi9Iq0
-         l79dV+/y4FgDmPU8hVzSyp1Gw1SupS73iPsyuF/uXFb8axCDFQViTctLIcygd43iE9OA
-         aLt8cJHxoVP0T89lUFqdp5usMYPli/8yz6Gk618WV8dFkEJj1gd0jxcx1nzNl02tq1bY
-         UBriytmb4qboUjJfpywGuUr2Jf/1NZhmfXsnjpnQOWkc3AQVJUOwBSehOFuNFCOHfWTg
-         yBnw==
+        bh=GwCeX2fxEOzx8bMCoWxK5lL0DU5QiDrlMpIFLp7O0VQ=;
+        b=Cn1e6I0QdR+xTgBvWMhO2+onjfDuoMIz0kTAL6cmrgzodjKfW0rpcg2NxyYoIMryCQ
+         uYLgAt9egjrmCKsNojBkShNlJBCFgSRm+rvWRfF4fbjpUyHME5L4qTJPqwEAxEOOljwk
+         4jE98/9ppeOVe2oooJ/EgO2idy4WOoST0gHuhxUzOjWm1IGLRHnG75odhh5VwD8LzuFc
+         I8Fc3sBfMDaFIiKCxS2kGUGj2c9zx43TaOROo6PP6fp7qgcTMEFfb3Ffjyuqj9uz0acl
+         Spm8WCTn7aOnIlieTbPTjobv1FHSdp7DnV/vZLAc7c7FmpFVbrLmkORGzPK5EX+M49lB
+         xuQg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YOsC8JE3;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Jz36Syd5;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=gV2guveMsSih8NovVhtRECzHLZEKmaIRGL/hg0X0lAY=;
-        b=gy9HGXjEn2KQU3wAl1ftAgrf0tNjhbiVHwOgp4aMd8CcvpUAD5bNVPVnM1bdZZz//1
-         2AW4P19GEgAf4r9tLNhlG0XC9s+wVlVwb2okn8mDGo8Jz0rcOE2L1s66Orr3QRsH6Xnj
-         +jFGq2bK9UHe8hTgnAJfy79nE9YN0LFe0nrBB61tYNiJAW/uRkpaeI2hAm6GgTYFiJ9v
-         nV0a6iVCepp+UgeToTIOn8wgRmZ03NWpXvN2t1fH5qaLIfrwX0F8SH7Y7sKhPPAogVfh
-         zeAeBRDZGm6uGaRMiYG1aZJZHyBsyQpXUaE/7aoxNtnjQx33X4mFTEtm1QW5XLKoWdKF
-         9Q/g==
+        bh=GwCeX2fxEOzx8bMCoWxK5lL0DU5QiDrlMpIFLp7O0VQ=;
+        b=WM98xrKfv2WaDpn5SizqrbGcY0yVGEhQLBWxUkyjnZ6aCKheSkzuwT+2n2xgqII2TF
+         4QPjA3hshiV0BcPexQRZIsyQbEhXqU1MzQp3NZdxc4tnW+HN/CwmoKD2mH46KjMCxYlg
+         79jL7xbZluVO5kgwOzgF8YCwiToTti6AcAZYYBnHsdA/PwT/c3IAbtKBE7TSulO/I2Ch
+         jZuuJfHv87qXB9XkfteaAteZaOgENTdEy5uJ1EfETXgUQHkGAPkX7rrXzC2ilGCjiHi+
+         MJ7WgY4dTN9Qq5TzkrLAY2JmS3lida7CyGJNePRu6lytG6asAoUV/46nKouJhkgNhuh5
+         URIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=gV2guveMsSih8NovVhtRECzHLZEKmaIRGL/hg0X0lAY=;
-        b=YAXMI8pVdmpr4GHHWIgXXaAqcl5zB60a5IZMahlDhYyf7SJXMkdMTWXt7Ox30AlfHd
-         PKQTmHzrFhBFVLk71isTvQLyfJo01XvQhiQovRe09wjO5mlcILheDLdI2z2LsoZFaKZH
-         sfccKf+hw5f6GgXjCVO1Gt6AZwmmKMQZQ3hzTDnd64aFJxmX6lw16UtiAdAx/b3W59pJ
-         edb6ZAKGZ7TANs8eorRUJ7j0fP/TukIjDC1LWokcr2hbEqyJEaebDCNj+cHlVtYAQOH0
-         jkDSXFY2s09bDHs1lvtImPstwl4+dl04MtxlYvVqnhcebKrCtfE1T2fijvXig20EFCev
-         XmbA==
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=GwCeX2fxEOzx8bMCoWxK5lL0DU5QiDrlMpIFLp7O0VQ=;
+        b=pmV71dNEPZ447i1gVA7EgtxSyhdn2trfkdioUtAhH1Zutg3txjF6EgFBagnZ24zemF
+         seFZnueg60JyBXlKv7tRY5DpDiTzuofup3wJB05ywUClpu8ZlZgcCEA3PJvlMfOXtICN
+         odvPmaFahGAeXqLcuBV5pU5ul5AgeNNH4T/u1FEaOrqeCunCCv9w1HI7dRjTFTPRIzgq
+         A2mzr4TU4vkfqdSZ537MxiHc/ZQOKrCyNj92kGLZZnjquIA9Mg10t9Uz/C9OgMaSd4rR
+         dYQyXGluUzCmXlmKXp2KByzZHhmTHmI+vgX6BMGNr3zgKez/Qps9eXDmhyw+bamwG8Hx
+         RyqA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Hi3UmnkA7AE1mfv6/jbi47ft5acz1P9shOMWGzWt03fO1hmeV
-	Hf+/d++MZfc++5BYrMMZ9fA=
-X-Google-Smtp-Source: ABdhPJxSHnHKXWpw1kJ1XtW71YQsJEkzFYe33BiLA7bmjvpNi5oKuwKk61pSSecdccux22HKtjpwYw==
-X-Received: by 2002:aca:4587:: with SMTP id s129mr5162395oia.64.1628636498992;
-        Tue, 10 Aug 2021 16:01:38 -0700 (PDT)
+X-Gm-Message-State: AOAM532pWniLDzYPshMhy4vrzfltv0OrEdhT9PCAysrmZxDd8715A2L7
+	Uqnd32X//HMqeK24b9XCQVg=
+X-Google-Smtp-Source: ABdhPJxacKDnA7HObO6CUsAOaplwsTvh3FLlEc+bYGyh5TuOs77BABdUWk721KX4LHTKi9Xh16FD+w==
+X-Received: by 2002:a63:4f51:: with SMTP id p17mr417852pgl.29.1628640352701;
+        Tue, 10 Aug 2021 17:05:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:2689:: with SMTP id l9ls25435otu.8.gmail; Tue, 10
- Aug 2021 16:01:38 -0700 (PDT)
-X-Received: by 2002:a9d:12b5:: with SMTP id g50mr3233628otg.224.1628636498518;
-        Tue, 10 Aug 2021 16:01:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628636498; cv=none;
+Received: by 2002:a63:656:: with SMTP id 83ls179504pgg.9.gmail; Tue, 10 Aug
+ 2021 17:05:52 -0700 (PDT)
+X-Received: by 2002:a65:644e:: with SMTP id s14mr352544pgv.410.1628640352152;
+        Tue, 10 Aug 2021 17:05:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628640352; cv=none;
         d=google.com; s=arc-20160816;
-        b=etWq96lcynkYNxIgSkgr0dif0XXfNgLNMd2CHW7BfFvUJB7/UCuKqP82vnKm7ea0Te
-         Ixrp4IQIIpnBvItsSMUawgIYZv4yLNf1YXdBv4C2XXVb3DC+0bZTwLpMA3c7sa/AbHYj
-         m//LMVT9TgM0eWp7kH8KSp9um2gygJvfiP7zm+kp8ner1qAysDa3JS350Icsoe+sbJVn
-         cSwVCRQi5KI8AKFOSvALZRuXZMIlBVt/RGBYYWFjNTJJOCXK5xaBzqOEoDpegtixhgal
-         Y03e+wgu08auCjd/jf6GETZXpXM6a72LEQSSvP9uCgPw1CHvvfsZrwXYB0iermUdX0RC
-         +wOw==
+        b=vPJvVjWquIEjmz8FWyqPnENSkhv58vRtRgL7+rDYejfrXjgWBi4YOEQVolkJSRyXJY
+         4lqFk6hL3yidpdP2jwcZXVv0GnpXMPYbzdS83tTUbq4OxPDW3bho1tdEhTZMp4164r4T
+         qYIBrRaQ8e35aVa+oP4XIS64xNn7jgff5d1mkbO0cEkXFlnYYGJ3SC6CEjQoZb3ZUICS
+         XzXB1D6JuYFHmDOWfbs1D9jVW9ovys5uwlTvOl2bQ3ISWsR1usJlroEmZ+mow+o0lkag
+         rfQxmjd5CXFmMqnkeoLllu3ODgmL5MFsL2bUscdtBQydqooXotcS0BLACbAAXfs7jllc
+         jTtg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=24BU2y2LkSZnoIKeEEsAc1h/2zjJEF2izSvgfFomUyg=;
-        b=W8H7mJZ9XPAcOSXKQVky1iz3ZvR++5l/rjAvao+qDRUJk1C1Yr1jr/K+b22JvabPlP
-         vTrWvQK09UusDUXnzR6JMdR4zYI2Snp8ZDdJMhi8Lg6L9WEvM3kRHco/DVtPS4Rm432s
-         Fj7xycQwoZwCwloVDYHL3wbbsD7k+r4a+Ysw/9vp8u5zgxOtpfP7W8vvAhhX7az3XBa4
-         5MZyLtr3yrjeoJ+xSCbYm1VFRC1MVa2jAEBFXXv67r3B+Eu2IQZ7ej6crodVmSBb+13M
-         88nyajMCBT4wLtJudN8Y360ROrW9h1OnQD9IcO3ghVqGu6duhgpRjolLINkwOns/Q3Es
-         JUBA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=SJajvErMbsoEWkshmBzmdwnyevn7G1Ebp1GGHefGmJw=;
+        b=slXQv1CRCOEUiiAhAKfxBbvn6qH6q7dwvidzSnejNBMDKJA2Kq9gckUYdXrXrNekDV
+         0hC0DOuNJ4q70mhH8i0Kssv8nCjzSDYktDJJQpWH8L7jdFqXgjwfVKAqHz1A+1slfzIJ
+         L/dMLftZj5LU/Tzv71SgCrWoAR9hOfssHEkFKhCIQ+yfoA5AHpkEVdqgbQS+LQiNo7Ws
+         zg4JlJNHaTp1sdT30c2QKGg28aGFuQqEFl3d3X4J3Z2LsgciHQNBWUHvgn1ft8DynObd
+         Nvbqjvhpo2u3PWasVvz6jFj2ZspdrNrlB4XhXjzO9aM6exRt4p7WcwvvVSQoStfKj+NH
+         d6KQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YOsC8JE3;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id j26si1239723ooj.0.2021.08.10.16.01.38
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Jz36Syd5;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-01.nifty.com (conssluserg-01.nifty.com. [210.131.2.80])
+        by gmr-mx.google.com with ESMTPS id u5si271519pji.0.2021.08.10.17.05.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 10 Aug 2021 16:01:38 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 76C1661008;
-	Tue, 10 Aug 2021 23:01:36 +0000 (UTC)
-Date: Tue, 10 Aug 2021 16:01:34 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
-	Vitor Massaru Iha <vitor@massaru.org>,
-	Sedat Dilek <sedat.dilek@gmail.com>,
-	Daniel Latypov <dlatypov@google.com>, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] Makefile: remove stale cc-option checks
-Message-ID: <YRMFTm3EJWRqwZkM@Ryzen-9-3900X.localdomain>
-References: <20210810204240.4008685-1-ndesaulniers@google.com>
+        Tue, 10 Aug 2021 17:05:52 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.80 as permitted sender) client-ip=210.131.2.80;
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52]) (authenticated)
+	by conssluserg-01.nifty.com with ESMTP id 17B05RF0019260
+	for <clang-built-linux@googlegroups.com>; Wed, 11 Aug 2021 09:05:28 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com 17B05RF0019260
+X-Nifty-SrcIP: [209.85.216.52]
+Received: by mail-pj1-f52.google.com with SMTP id 28-20020a17090a031cb0290178dcd8a4d1so3312750pje.0
+        for <clang-built-linux@googlegroups.com>; Tue, 10 Aug 2021 17:05:27 -0700 (PDT)
+X-Received: by 2002:aa7:8e56:0:b029:3cd:c2ec:6c1c with SMTP id
+ d22-20020aa78e560000b02903cdc2ec6c1cmr6512919pfr.80.1628640327151; Tue, 10
+ Aug 2021 17:05:27 -0700 (PDT)
 MIME-Version: 1.0
+References: <CAKwvOdkPLrL6wkhSGaadAcj3HNi1W2q6TQHWFhSej8JvatSzfw@mail.gmail.com>
+In-Reply-To: <CAKwvOdkPLrL6wkhSGaadAcj3HNi1W2q6TQHWFhSej8JvatSzfw@mail.gmail.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Wed, 11 Aug 2021 09:04:50 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAS_VVpRuwAayeQY0AAVBU1CchtgGMKT_G=bTgNf9TQ1Tw@mail.gmail.com>
+Message-ID: <CAK7LNAS_VVpRuwAayeQY0AAVBU1CchtgGMKT_G=bTgNf9TQ1Tw@mail.gmail.com>
+Subject: Re: cc-option-yn necessary? (vs cc-option)
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Linus Torvalds <torvalds@linux-foundation.org>,
+        Arnd Bergmann <arnd@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210810204240.4008685-1-ndesaulniers@google.com>
-X-Original-Sender: nathan@kernel.org
+X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=YOsC8JE3;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@nifty.com header.s=dec2015msa header.b=Jz36Syd5;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.80 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,231 +138,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Aug 10, 2021 at 01:42:37PM -0700, Nick Desaulniers wrote:
-> cc-option, cc-option-yn, and cc-disable-warning all invoke the compiler
-> during build time, and can slow down the build when these checks become
-> stale for our supported compilers, whose minimally supported versions
-> increases over time. See Documentation/process/changes.rst for the
-> current supported minimal versions (GCC 4.9+, clang 10.0.1+). Compiler
-> version support for these flags may be verified on godbolt.org.
-> 
-> The following flags are GCC only and supported since at least GCC 4.9.
-> Remove cc-option and cc-disable-warning tests.
-> * -fno-tree-loop-im
-> * -Wno-maybe-uninitialized
-> * -fno-reorder-blocks
-> * -fno-ipa-cp-clone
-> * -fno-partial-inlining
-> * -femit-struct-debug-baseonly
-> * -fno-inline-functions-called-once
-> * -fconserve-stack
-> 
-> The following flags are supported by all supported versions of GCC and
-> Clang. Remove their cc-option, cc-option-yn, and cc-disable-warning tests.
-> * -fno-delete-null-pointer-checks
-> * -fno-var-tracking
-> * -mfentry
-> * -Wno-array-bounds
-> 
-> The following configs are made dependent on GCC, since they use GCC
-> specific flags.
-> * READABLE_ASM
-> * DEBUG_SECTION_MISMATCH
-> 
-> --param=allow-store-data-races=0 was renamed to --allow-store-data-races
-> in the GCC 10 release.
-> 
-> Also, base RETPOLINE_CFLAGS and RETPOLINE_VDSO_CFLAGS on CONFIC_CC_IS_*
-> then remove cc-option tests for Clang.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/1436
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+On Wed, Aug 11, 2021 at 2:58 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> Masahiro,
+> I was looking through the uses of cc-option, cc-option-yn, and
+> cc-disable-warning to see what we're missing support for in Clang.
+>
+> I have a short list of places where cc-option can be removed at
+> https://github.com/ClangBuiltLinux/linux/issues/1436#issuecomment-895557491
+> because all supported versions of supported toolchains support these
+> flags.  These should remove a few unnecessary compiler invocations.
+>
+> There are also a few cc-option tests that are very compiler specific,
+> so those might be convertible to just check CC_IS_* rather than
+> cc-option (I'll have to verify).
+>
+> Another thing I noticed is that it seems that most uses of
+> cc-option-yn are replaceable with simply cc-option when they use
+> cc-option-yn but check that the result is equal to y. I think even the
+> cases that check against n could be converted to:
+>
+> Examples:
+> arch/x86/Makefile
+> From:
+> ifeq ($(call cc-option-yn, -mfentry), n)
+> To:
+> ifeq ($(call cc-option,-mfentry),)
+> (Though technically, all supported versions of gcc and clang support
+> -mfentry, so this block should just be deleted)
+>
+> arch/powerpc/Makefile
+> From:
+> ifeq ($(call cc-option-yn,-mcmodel=medium),y)
+> To:
+> ifneq ($(call cc-option,-mcmodel=medium),)
+>
+> Then perhaps we could consolidate cc-option-yn into cc-option?  What
+> are your thoughts? Should I start sending you patches for all of the
+> above?
 
-Fewer pointless calls to the compiler is always a good thing :)
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Yes, I think it is a nice clean-up.
 
-Small comments inline.
+Patches are welcome.
 
-> ---
-> Note: It may be preferred to move the test for
-> -fno-inline-functions-called-once for DEBUG_SECTION_MISMATCH into
-> Kconfig. That one does seem relatively more reasonable to implement in
-> Clang.
-> 
->  Makefile          | 55 ++++++++++++++++++++++++++---------------------
->  lib/Kconfig.debug |  2 ++
->  2 files changed, 33 insertions(+), 24 deletions(-)
-> 
-> diff --git a/Makefile b/Makefile
-> index 027fdf2a14fe..3e3fb4affba1 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -730,9 +730,10 @@ endif # KBUILD_EXTMOD
->  # Defaults to vmlinux, but the arch makefile usually adds further targets
->  all: vmlinux
->  
-> -CFLAGS_GCOV	:= -fprofile-arcs -ftest-coverage \
-> -	$(call cc-option,-fno-tree-loop-im) \
-> -	$(call cc-disable-warning,maybe-uninitialized,)
-> +CFLAGS_GCOV	:= -fprofile-arcs -ftest-coverage
-> +ifdef CONFIG_CC_IS_GCC
-> +CFLAGS_GCOV	+= -fno-tree-loop-im
-> +endif
-
-Eliminating -Wno-maybe-uninitialized might warrant a comment in the
-commit message as I was initially confused then I realized that it is
-unconditionally added later.
-
->  export CFLAGS_GCOV
->  
->  # The arch Makefiles can override CC_FLAGS_FTRACE. We may also append it later.
-> @@ -740,12 +741,14 @@ ifdef CONFIG_FUNCTION_TRACER
->    CC_FLAGS_FTRACE := -pg
->  endif
->  
-> -RETPOLINE_CFLAGS_GCC := -mindirect-branch=thunk-extern -mindirect-branch-register
-> -RETPOLINE_VDSO_CFLAGS_GCC := -mindirect-branch=thunk-inline -mindirect-branch-register
-> -RETPOLINE_CFLAGS_CLANG := -mretpoline-external-thunk
-> -RETPOLINE_VDSO_CFLAGS_CLANG := -mretpoline
-> -RETPOLINE_CFLAGS := $(call cc-option,$(RETPOLINE_CFLAGS_GCC),$(call cc-option,$(RETPOLINE_CFLAGS_CLANG)))
-> -RETPOLINE_VDSO_CFLAGS := $(call cc-option,$(RETPOLINE_VDSO_CFLAGS_GCC),$(call cc-option,$(RETPOLINE_VDSO_CFLAGS_CLANG)))
-> +ifdef CONFIG_CC_IS_GCC
-> +RETPOLINE_CFLAGS	:= $(call cc-option,-mindirect-branch=thunk-extern -mindirect-branch-register)
-> +RETPOLINE_VDSO_CFLAGS	:= $(call cc-option,-mindirect-branch=thunk-inline -mindirect-branch-register)
-> +endif
-> +ifdef CONFIG_CC_IS_CLANG
-> +RETPOLINE_CFLAGS	:= -mretpoline-external-thunk
-> +RETPOLINE_VDSO_CFLAGS	:= -mretpoline
-> +endif
->  export RETPOLINE_CFLAGS
->  export RETPOLINE_VDSO_CFLAGS
->  
-> @@ -798,7 +801,7 @@ include/config/auto.conf:
->  endif # may-sync-config
->  endif # need-config
->  
-> -KBUILD_CFLAGS	+= $(call cc-option,-fno-delete-null-pointer-checks,)
-> +KBUILD_CFLAGS	+= -fno-delete-null-pointer-checks
->  KBUILD_CFLAGS	+= $(call cc-disable-warning,frame-address,)
->  KBUILD_CFLAGS	+= $(call cc-disable-warning, format-truncation)
->  KBUILD_CFLAGS	+= $(call cc-disable-warning, format-overflow)
-> @@ -844,17 +847,17 @@ KBUILD_RUSTFLAGS += -Copt-level=z
-
-Looks like this was generated against -next as it includes the rust
-patchset. I was able to apply it to mainline without any complaints but
-any follow ups should probably be based on Masahiro's tree.
-
->  endif
->  
->  # Tell gcc to never replace conditional load with a non-conditional one
-> -KBUILD_CFLAGS	+= $(call cc-option,--param=allow-store-data-races=0)
-> +ifdef CONFIG_CC_IS_GCC
-> +KBUILD_CFLAGS	+= $(call cc-option,--allow-store-data-races,--param=allow-store-data-races=0)
->  KBUILD_CFLAGS	+= $(call cc-option,-fno-allow-store-data-races)
-> +endif
->  
->  ifdef CONFIG_READABLE_ASM
->  # Disable optimizations that make assembler listings hard to read.
->  # reorder blocks reorders the control in the function
->  # ipa clone creates specialized cloned functions
->  # partial inlining inlines only parts of functions
-> -KBUILD_CFLAGS += $(call cc-option,-fno-reorder-blocks,) \
-> -                 $(call cc-option,-fno-ipa-cp-clone,) \
-> -                 $(call cc-option,-fno-partial-inlining)
-> +KBUILD_CFLAGS += -fno-reorder-blocks -fno-ipa-cp-clone -fno-partial-inlining
->  endif
->  
->  ifneq ($(CONFIG_FRAME_WARN),0)
-> @@ -959,8 +962,10 @@ DEBUG_CFLAGS	+= -gdwarf-$(dwarf-version-y)
->  endif
->  
->  ifdef CONFIG_DEBUG_INFO_REDUCED
-> -DEBUG_CFLAGS	+= $(call cc-option, -femit-struct-debug-baseonly) \
-> -		   $(call cc-option,-fno-var-tracking)
-> +DEBUG_CFLAGS	+= -fno-var-tracking
-> +ifdef CONFIG_CC_IS_GCC
-> +DEBUG_CFLAGS	+= -femit-struct-debug-baseonly
-> +endif
->  endif
->  
->  ifdef CONFIG_DEBUG_INFO_COMPRESSED
-> @@ -997,10 +1002,8 @@ ifdef CONFIG_FTRACE_MCOUNT_USE_RECORDMCOUNT
->    endif
->  endif
->  ifdef CONFIG_HAVE_FENTRY
-> -  ifeq ($(call cc-option-yn, -mfentry),y)
-> -    CC_FLAGS_FTRACE	+= -mfentry
-> -    CC_FLAGS_USING	+= -DCC_USING_FENTRY
-> -  endif
-> +  CC_FLAGS_FTRACE	+= -mfentry
-> +  CC_FLAGS_USING	+= -DCC_USING_FENTRY
->  endif
->  export CC_FLAGS_FTRACE
->  KBUILD_CFLAGS	+= $(CC_FLAGS_FTRACE) $(CC_FLAGS_USING)
-> @@ -1009,7 +1012,7 @@ endif
->  
->  # We trigger additional mismatches with less inlining
->  ifdef CONFIG_DEBUG_SECTION_MISMATCH
-> -KBUILD_CFLAGS += $(call cc-option, -fno-inline-functions-called-once)
-> +KBUILD_CFLAGS += -fno-inline-functions-called-once
->  endif
->  
->  ifdef CONFIG_LD_DEAD_CODE_DATA_ELIMINATION
-> @@ -1088,14 +1091,16 @@ KBUILD_CFLAGS += $(call cc-disable-warning, stringop-truncation)
->  
->  # We'll want to enable this eventually, but it's not going away for 5.7 at least
->  KBUILD_CFLAGS += $(call cc-disable-warning, zero-length-bounds)
-> -KBUILD_CFLAGS += $(call cc-disable-warning, array-bounds)
-> +KBUILD_CFLAGS += -Wno-array-bounds
->  KBUILD_CFLAGS += $(call cc-disable-warning, stringop-overflow)
->  
->  # Another good warning that we'll want to enable eventually
->  KBUILD_CFLAGS += $(call cc-disable-warning, restrict)
->  
->  # Enabled with W=2, disabled by default as noisy
-> -KBUILD_CFLAGS += $(call cc-disable-warning, maybe-uninitialized)
-> +ifdef CONFIG_CC_IS_GCC
-> +KBUILD_CFLAGS += -Wno-maybe-uninitialized
-> +endif
->  
->  # disable invalid "can't wrap" optimizations for signed / pointers
->  KBUILD_CFLAGS	+= -fno-strict-overflow
-> @@ -1104,7 +1109,9 @@ KBUILD_CFLAGS	+= -fno-strict-overflow
->  KBUILD_CFLAGS  += -fno-stack-check
->  
->  # conserve stack if available
-> -KBUILD_CFLAGS   += $(call cc-option,-fconserve-stack)
-> +ifdef CONFIG_CC_IS_GCC
-> +KBUILD_CFLAGS   += -fconserve-stack
-> +endif
->  
->  # Prohibit date/time macros, which would make the build non-deterministic
->  KBUILD_CFLAGS   += -Werror=date-time
-> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-> index b6b951b0ed46..a4a431606be2 100644
-> --- a/lib/Kconfig.debug
-> +++ b/lib/Kconfig.debug
-> @@ -364,6 +364,7 @@ config STRIP_ASM_SYMS
->  config READABLE_ASM
->  	bool "Generate readable assembler code"
->  	depends on DEBUG_KERNEL
-> +	depends on CC_IS_GCC
->  	help
->  	  Disable some compiler optimizations that tend to generate human unreadable
->  	  assembler output. This may make the kernel slightly slower, but it helps
-> @@ -382,6 +383,7 @@ config HEADERS_INSTALL
->  
->  config DEBUG_SECTION_MISMATCH
->  	bool "Enable full Section mismatch analysis"
-> +	depends on CC_IS_GCC
->  	help
->  	  The section mismatch analysis checks if there are illegal
->  	  references from one section to another section.
-> -- 
-> 2.32.0.605.g8dce9f2422-goog
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YRMFTm3EJWRqwZkM%40Ryzen-9-3900X.localdomain.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAS_VVpRuwAayeQY0AAVBU1CchtgGMKT_G%3DbTgNf9TQ1Tw%40mail.gmail.com.
