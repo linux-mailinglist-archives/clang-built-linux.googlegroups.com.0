@@ -1,123 +1,117 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRB4HG2CEAMGQEZK5KFPY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHXV2CEAMGQEFUERDWY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
-	by mail.lfdr.de (Postfix) with ESMTPS id D1F543E99B5
-	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Aug 2021 22:30:41 +0200 (CEST)
-Received: by mail-io1-xd39.google.com with SMTP id x13-20020a5eda0d0000b02905976d643e4csf2247078ioj.3
-        for <lists+clang-built-linux@lfdr.de>; Wed, 11 Aug 2021 13:30:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628713841; cv=pass;
+Received: from mail-qv1-xf3f.google.com (mail-qv1-xf3f.google.com [IPv6:2607:f8b0:4864:20::f3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 45CC33E9A26
+	for <lists+clang-built-linux@lfdr.de>; Wed, 11 Aug 2021 23:01:19 +0200 (CEST)
+Received: by mail-qv1-xf3f.google.com with SMTP id u8-20020a0cec880000b029035825559ec4sf1990693qvo.22
+        for <lists+clang-built-linux@lfdr.de>; Wed, 11 Aug 2021 14:01:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628715678; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TlxyaZ2cGF77luOEdM86amq6ySYDA+SaDLZuvMAT5J62hKkCs8pepYOuGSGL2FpOyh
-         Cfj600qDK66MfyAiyv2oojnG0MerqpLsCSu52OO7J/RkOxqRrmLlbFWkuUI9kSgWIN5Q
-         mjXxbgQhDkiCe/0X0eSZc+ntVzuawusGXaksuHaGKHtHXp6pwTJaXAmIGSJyUV9qPawQ
-         B6OprctmGN06IZzJ4ryuVR4ubFws4NFApAXMipJrNm60R7El5/lGtW1OXUW2Al4MQ7X0
-         UrvAYyezlPWuToOnRyxd/9bsOtRh8XkUHHt2oTyhi1mWw7pOh2LNq+X04xIgzLTVmuR6
-         PyKA==
+        b=Wx690HuMOjcwGcBjit+Ki8Uv/v9vWfvtbgf1UDXf1GSwPIoWC9zAxr1ns9cB1DFc45
+         U0ht2BrwSXr5QKFut+K9Mgvy0w+QN+Ag4QBTmCLisf2fTiqIo+mzCDBR/4W+wJSYw1RE
+         aIBk/BnIpkdCv+C9z5Hdc0z/OzlIEIg6YhmqSyf5gNQkIVYiksYpzyRFW/jp2nqiIcPx
+         5gPfY0ccdP4HOWnb/VGe73Y3kwQym7agKizSJnIIN0UFSQxOvBD1CCasGtvHIf38CXU+
+         m7feGT7qCJ9SDWso94e7rI0Tx1rLlaf0vfAUn/GRhdk8F3gDAKdmk2O1emWweKPPPXZG
+         5zIQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :mime-version:message-id:date:dkim-signature;
-        bh=3r1aRSX7jrFapwaGOF/JxjiWaQHg0h8aiHF1gu/Ugt0=;
-        b=0u6BnSU+0QFfX0lq8VACFlU+3jPtkW+yO2J1OUfPSAWwIXmeV6hhFlv+j0ps0ZrUUB
-         W+pIm9z+XRjP1f2BKSJItaHuI4wsxyNYfYcDFia3fYyEyRqMsfxna/0ATwDV9CAZAM1j
-         digWTtWYDxbjNlqmYMWfi+iTHwfLWvUZ9SP908hfAPgAA0N4MJp7H4MYVfrrLxkZy+RF
-         XiZXcCsinPCspkp7+XJAfP+K8vjafaiMstb2LXqG3D7Fy7rv4K//veLQ2Tisc1z04LeQ
-         V/rA41+cVNT1KJgcqwrYYePKffy/Oak+4QjAtoUzYlEKsQf4+akBSAK1HuzSlUSZItiN
-         ZShQ==
+         :list-id:mailing-list:precedence:reply-to:to:from:subject:date
+         :message-id:mime-version:dkim-signature;
+        bh=OotL/uRBhgSpr3Nkh6+67i9i7S6KSJqRmea3YKK1VXo=;
+        b=SgBiU1Han/fJpjWTifBHAEipUvwTaIXI/Z5APJzGY3SHx9bSLgVMUyPpglyLBoImqH
+         oc0+JH5sfTq/LwMWK4rmZcVjCPfqZYOTI97NZ7A5GSJfVn7vCXLNCdNAW05ior+dCoyF
+         j2PE3sLsC3V2Zid8MhG5PujqBb32H6726+w2/LsYNd51COTxx2cYPJjOdBI7pPTsKJCf
+         tgYEOndWo2DXcQRzPZarhWTGLjJxWbmK387ndlkNoiGQQJQo+Do9De33HrxPKigVojGc
+         clpxeEd4jZZOGiT1MuA6PkVtPqEhXGgMW5yQdmWbA96DqrX3BjZADmdffbqORLzTCRkF
+         yDPg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Bic0sYHp;
-       spf=pass (google.com: domain of 3bzmuyqwkadyksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3bzMUYQwKADYkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=oFeFIt6u;
+       spf=pass (google.com: domain of 3ntouyqwkahidtuiqkbdyuhiweewbu.sec@maestro.bounces.google.com designates 2607:f8b0:4864:20::d46 as permitted sender) smtp.mailfrom=3nToUYQwKAHIdTUiQkbdYUhiWeeWbU.Sec@maestro.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
+        h=mime-version:message-id:date:subject:from:to:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=3r1aRSX7jrFapwaGOF/JxjiWaQHg0h8aiHF1gu/Ugt0=;
-        b=c1vTaOJdtNWgt6IK7Y/9gRtyZlXpI70F7d9IVMgGpJ3MgfjaDzLJQGSBqlbrFsFj5V
-         SZvcemc4ACh4DMCfZ55zGfbczg8wu/ZopS01CH5A8ryofVPyxvbht5E+wZEnXjdVCzVp
-         Wh4xg+J9OrBBK8YhDdf1rXTB3KdQ5j84OnZtp47276bDk/jdwjJeDOVD1vB+j1FU79x7
-         hB+6if1kh1f9DbiAsO3GzSMh7G6GJc1WRI3xXeatMtK222jDag3+MvXRRjfNIweZXvNa
-         vj+1aLWSas035FFr3WF5diSqEUx7g9wh3j5NdHRXlAd1frYpHXvmKfpNixfNLrNbqPgm
-         Zsjw==
+        bh=OotL/uRBhgSpr3Nkh6+67i9i7S6KSJqRmea3YKK1VXo=;
+        b=SXTy5UP5YBp1dFWmTy5lO4V/B1IquobTOduRU61YykoAqzqMeRn1qTZd9O5zdpASG/
+         Qi3V7vhrmhQhiJNEINV+UGpwploeXsUv8C+FUzZdhAyvfiKCROIhdnMPbphXO1aZ7Ot7
+         AvATr9JkC1iQgQ0HQZ49RHhZrJf9lzEGHIxLytKnFsO5iUQmpK/NiJTobo+7tAiFoX/1
+         jluDjiGdvQq/m90rDP6F96U/GzTmlhuvOxmqCSvyozGHp6z6dLTPp4JK+c/YdapmJcqq
+         q8xgPkfipckvjBWD/hzAPyCDgwrJINAR6MzYFB+P2E1KYUwbeQ9Ti50F32Xk72WtF5hG
+         379A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
+        h=x-gm-message-state:mime-version:message-id:date:subject:from:to
          :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=3r1aRSX7jrFapwaGOF/JxjiWaQHg0h8aiHF1gu/Ugt0=;
-        b=TjlEC6fdjy/3QRRyKx8FB2yoPb6wk2Q502LhjWVb43Y9GlOSzgAMjCLJzaZn9VKZCO
-         leIqDkcx18UPERZY7WGyRGQYk7wu98L9FCwF7QctEu/icUzyQdNhuB1TbvG3zdGRgryt
-         kkLPhGtc3LIIQuExV36icU5FcQWUr43tb36LyRwJGC6jLfViqmpEqaMaLw1iH0toftYa
-         CJ+Z1to0Hrr2efJ8EWvtIDAku34AYClMchShFnXsPPMcgYxUhOttQvJ0DfV4ktktO2Ga
-         F0dI9VegTWiAbw9KQYg7nsbDndZ6Ew/Qc6QmXNfRlfAhfYo6mLvsHB2Vfu+fjdJDPo4n
-         Vc0A==
-X-Gm-Message-State: AOAM533WCMxzDjv7NmVjwrySWdYH4rABHIEvJ0V7nNiILv4XButoPwAM
-	wBtcIKI1ThDwg/KgwNiXdLQ=
-X-Google-Smtp-Source: ABdhPJyiAqNAMVdde/nMqfaCJPWPTmD+XKxBoCa8q+4z7qkKojhDrxHHAYadrFIVDJNuF7HOuwd3lQ==
-X-Received: by 2002:a05:6e02:216b:: with SMTP id s11mr208819ilv.288.1628713840825;
-        Wed, 11 Aug 2021 13:30:40 -0700 (PDT)
+        bh=OotL/uRBhgSpr3Nkh6+67i9i7S6KSJqRmea3YKK1VXo=;
+        b=jpfCa5NEr1Bhh4TKEv5aWQ/QYCmeNpQOZvfQ0I+X++D93ooPtAximi+jUubGaSraFn
+         nSOOl5sSr3lGr6asB0AT5JE/EjtZL83khcwttot4n1Zvz3Xk0rL0u4hlM/2VIVbLdnjH
+         OntrqW4C8DsW1oIIOdsnuasVkfbsuSnueCNz9GM64aToToI/zBcCDKfYIK+h+Y6dRfe2
+         0HvqDLSfFrS1vG/HvhN/qpbGyrxqz5xxbZj5nI6I9rG3CzEogdx34DymEFkpvyEHS+v3
+         3GYJlT9raLjkjVHtWEwRnO6oVkpECJJWSXZ9B6Q8JM2ghZt2/tQaEA0ggNm58K//eSJs
+         CS/A==
+X-Gm-Message-State: AOAM533BJh/rsOiSzg3ukP/rfadVOX0KwWfMvqEi0noNK4yeBr/kPr5t
+	D69WCCwW8JJp//r3TnGqA9I=
+X-Google-Smtp-Source: ABdhPJxkdS4G1N0xkU3t9lTVZZ8SQLd9HW5n+Ts/L/djHBMHpB8onXwrchRpH+F3k8DABNOGCY4IAA==
+X-Received: by 2002:a0c:aacd:: with SMTP id g13mr592139qvb.20.1628715678262;
+        Wed, 11 Aug 2021 14:01:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6602:27c6:: with SMTP id l6ls495012ios.6.gmail; Wed, 11
- Aug 2021 13:30:40 -0700 (PDT)
-X-Received: by 2002:a5d:9253:: with SMTP id e19mr324856iol.35.1628713840414;
-        Wed, 11 Aug 2021 13:30:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628713840; cv=none;
+Received: by 2002:ac8:71cc:: with SMTP id i12ls1479740qtp.9.gmail; Wed, 11 Aug
+ 2021 14:01:17 -0700 (PDT)
+X-Received: by 2002:ac8:140b:: with SMTP id k11mr651585qtj.48.1628715677711;
+        Wed, 11 Aug 2021 14:01:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628715677; cv=none;
         d=google.com; s=arc-20160816;
-        b=BnaP1p1fWIMyPB7vkegFEP8m6yPg+bbYt4tJAnGi+91u7pkBZX4jp+fYTp0V9bNrOY
-         DCPvsqvo6etgxxUP21CPv8DsECPVMRWYfUFgKplmxfximcxbz6kDzsZzqFPTDr56Fs7J
-         xDRGOwxnCqi/rPPjdHzTuwQJInu5CmY/H+C09h0hMhsWndHoh5msF8NwRLXMSbgXOYfx
-         GcU2Gt1Iwpe/EgzfsgrnZeHvbzfNBHfK2j0h0keqDVzcepw+/qwfjhfFHx/0/ukUNuYE
-         OA4zDNSlmwBiQ3IPApKJmiNoUp2lRuwZp1gLXE1L9P4tkUo0ccqJuEb+FUwHCSE0vsRW
-         nyKQ==
+        b=KL0RznwQdUYaW5MV7KehzSybSM9tD4YGBF+fZpdm2Icmk7o3W5XcZ+nEvtcQ9qtjId
+         CYLvAUNSEZZyMoJ3mZ1UupE4CAQCRJsDU+53eJng44N186ZXn8YnxYaXpHHhGoqgYYP0
+         jqxD7QyVHsyp7jRJ+TkD0lWm6YuVz6Bhqmd/jIGN5zEdw8GYtoknK4UT6LDAiRcedkOx
+         yFFLRjGGS+o8x6WT2lgusiHR6hAzoGDljAohffNzazgdVlqd36Ko93bzPxm9tvkBmzEa
+         uzhsM525xJSoLdojxQ7XXAarRSYgDwlNiE3C63eNaoeOQ8HmErErZxn6WqxUoV1F9egq
+         QcYg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
-        bh=yb6wLhOcRUPhCOqiLmn5Y+E5X6yFSzK4zbEE9m+mURA=;
-        b=veQ2FiOP3QcpE5Zk/fZ48jhO4sokbfximO0YyEjEme8PJ+ialfxfctKC2/7hNVszmE
-         qpsapjYFYzLZ3ZaOwZCC06PAxxhfCKCUVOmwvVMabzqMsunIojKbk/UWmPNMkMhqMgrf
-         rqicosrdkuN+ACc55gZYPffHBFDj0IhmmvRLoptvE/Du4jKza3qEna1DTuEpxNeZOswx
-         +slieKbhkQ/iHIzqbM+CFn7Qy8J4ydDjLpHtXHbtqbDF0mKooJ5Iv2np+WIL8CS/hg2E
-         I6IOObyCLYm8vl/Xtq0ZFZMWLSIMV/u0IHAga6eQLhrM1Jv5jmd3yfY/yBqRInEvkfwy
-         oPaA==
+        h=to:from:subject:date:message-id:mime-version:dkim-signature;
+        bh=wYtBBoR7x7vsTONZ5p9DBRBjuK950t3p/FlABEMGajI=;
+        b=BS7RRzkQfGXLAWUq0smb+T4DTNM5asOX/2lN54Gsm2/zyXxEZFZ3cctQIUMSKhjyw2
+         /HIFDR0dmVYUmhVQYulVFJ1rulkHpMZQMGWIUjJi3Y9y1oHqDWJoOtFGAXmKGVO8aynH
+         R8NjQfEEVH4ndjWy7z5DWcrPTY1tlAi/Sjes2Fg1a6GlVcuXxii+x92M1GbTdHQ/IFA5
+         S9g0DKX1jH5P2/MtyTdFv5kqsaS26K55Q1SICAC0VW5fKZFi7YaSszmrr9lkwMRXpWqO
+         g64idl7B469a3bquEC4EK0/tlvdyUcqE+CzkOWUlsXWgVyAnB6mgAbu7NyPs3PVAPVI8
+         oeww==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Bic0sYHp;
-       spf=pass (google.com: domain of 3bzmuyqwkadyksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3bzMUYQwKADYkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=oFeFIt6u;
+       spf=pass (google.com: domain of 3ntouyqwkahidtuiqkbdyuhiweewbu.sec@maestro.bounces.google.com designates 2607:f8b0:4864:20::d46 as permitted sender) smtp.mailfrom=3nToUYQwKAHIdTUiQkbdYUhiWeeWbU.Sec@maestro.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qv1-xf49.google.com (mail-qv1-xf49.google.com. [2607:f8b0:4864:20::f49])
-        by gmr-mx.google.com with ESMTPS id e12si24021ile.4.2021.08.11.13.30.40
+Received: from mail-io1-xd46.google.com (mail-io1-xd46.google.com. [2607:f8b0:4864:20::d46])
+        by gmr-mx.google.com with ESMTPS id s128si26623qkh.6.2021.08.11.14.01.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 11 Aug 2021 13:30:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3bzmuyqwkadyksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) client-ip=2607:f8b0:4864:20::f49;
-Received: by mail-qv1-xf49.google.com with SMTP id u11-20020ad45aab0000b029033e289c093aso1971418qvg.10
-        for <clang-built-linux@googlegroups.com>; Wed, 11 Aug 2021 13:30:40 -0700 (PDT)
-X-Received: from samitolvanen1.mtv.corp.google.com ([2620:15c:201:2:299:25a:1086:94b])
- (user=samitolvanen job=sendgmr) by 2002:a05:6214:9ce:: with SMTP id
- dp14mr474184qvb.42.1628713839917; Wed, 11 Aug 2021 13:30:39 -0700 (PDT)
-Date: Wed, 11 Aug 2021 13:30:35 -0700
-Message-Id: <20210811203035.2463343-1-samitolvanen@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.32.0.605.g8dce9f2422-goog
-Subject: [PATCH RESEND v2] kbuild: Fix TRIM_UNUSED_KSYMS with LTO_CLANG
-From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Kees Cook <keescook@chromium.org>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Michal Marek <michal.lkml@markovi.net>
-Cc: Alexander Lobakin <alobakin@pm.me>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, linux-kbuild@vger.kernel.org, 
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org, 
-	Sami Tolvanen <samitolvanen@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: samitolvanen@google.com
+        Wed, 11 Aug 2021 14:01:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3ntouyqwkahidtuiqkbdyuhiweewbu.sec@maestro.bounces.google.com designates 2607:f8b0:4864:20::d46 as permitted sender) client-ip=2607:f8b0:4864:20::d46;
+Received: by mail-io1-xd46.google.com with SMTP id 123-20020a6b14810000b029058718ca54cfso2254036iou.10
+        for <clang-built-linux@googlegroups.com>; Wed, 11 Aug 2021 14:01:17 -0700 (PDT)
+MIME-Version: 1.0
+X-Received: by 2002:a05:6e02:1a4f:: with SMTP id u15mr271033ilv.251.1628715677079;
+ Wed, 11 Aug 2021 14:01:17 -0700 (PDT)
+Message-ID: <0000000000005ff85f05c94eebe5@google.com>
+Date: Wed, 11 Aug 2021 21:01:17 +0000
+Subject: Clang-Built Linux Meeting Notes - Aug 11, 2021
+From: ndesaulniers via Clang Built Linux <clang-built-linux@googlegroups.com>
+To: ndesaulniers@google.com, android-llvm@google.com, 
+	clang-linux-fellowship@google.com, clang-built-linux@googlegroups.com
+Content-Type: multipart/alternative; boundary="0000000000005ff84b05c94eebe0"
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Bic0sYHp;       spf=pass
- (google.com: domain of 3bzmuyqwkadyksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3bzMUYQwKADYkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=oFeFIt6u;       spf=pass
+ (google.com: domain of 3ntouyqwkahidtuiqkbdyuhiweewbu.sec@maestro.bounces.google.com
+ designates 2607:f8b0:4864:20::d46 as permitted sender) smtp.mailfrom=3nToUYQwKAHIdTUiQkbdYUhiWeeWbU.Sec@maestro.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Sami Tolvanen <samitolvanen@google.com>
-Reply-To: Sami Tolvanen <samitolvanen@google.com>
+X-Original-From: ndesaulniers@google.com
+Reply-To: ndesaulniers@google.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,218 +124,199 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-With CONFIG_LTO_CLANG, we currently link modules into native
-code just before modpost, which means with TRIM_UNUSED_KSYMS
-enabled, we still look at the LLVM bitcode in the .o files when
-generating the list of used symbols. As the bitcode doesn't
-yet have calls to compiler intrinsics and llvm-nm doesn't see
-function references that only exist in function-level inline
-assembly, we currently need a whitelist for TRIM_UNUSED_KSYMS to
-work with LTO.
+--0000000000005ff84b05c94eebe0
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: quoted-printable
 
-This change moves module LTO linking to happen earlier, and
-thus avoids the issue with LLVM bitcode and TRIM_UNUSED_KSYMS
-entirely, allowing us to also drop the whitelist from
-gen_autoksyms.sh.
+http://go/clang-built-linux-notes
+Meeting: Hangouts Meet
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/1369
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-Reviewed-by: Alexander Lobakin <alobakin@pm.me>
-Tested-by: Alexander Lobakin <alobakin@pm.me>
----
-Changes in v2:
-- Fixed a couple of typos.
-- Fixed objtool arguments for .lto.o to always include --module.
 
----
- scripts/Makefile.build    | 24 +++++++++++++++++++++++-
- scripts/Makefile.lib      |  7 +++++++
- scripts/Makefile.modfinal | 21 ++-------------------
- scripts/Makefile.modpost  | 22 +++-------------------
- scripts/gen_autoksyms.sh  | 12 ------------
- 5 files changed, 35 insertions(+), 51 deletions(-)
+Aug 11, 2021
+------------
 
-diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-index 02197cb8e3a7..778dabea3a89 100644
---- a/scripts/Makefile.build
-+++ b/scripts/Makefile.build
-@@ -271,12 +271,34 @@ $(obj)/%.o: $(src)/%.c $(recordmcount_source) $$(objtool_dep) FORCE
- 	$(call if_changed_rule,cc_o_c)
- 	$(call cmd,force_checksrc)
- 
-+ifdef CONFIG_LTO_CLANG
-+# Module .o files may contain LLVM bitcode, compile them into native code
-+# before ELF processing
-+quiet_cmd_cc_lto_link_modules = LTO [M] $@
-+cmd_cc_lto_link_modules =						\
-+	$(LD) $(ld_flags) -r -o $@					\
-+		$(shell [ -s $(@:.lto.o=.o.symversions) ] &&		\
-+			echo -T $(@:.lto.o=.o.symversions))		\
-+		--whole-archive $^
-+
-+ifdef CONFIG_STACK_VALIDATION
-+# objtool was skipped for LLVM bitcode, run it now that we have compiled
-+# modules into native code
-+cmd_cc_lto_link_modules += ;						\
-+	$(objtree)/tools/objtool/objtool $(objtool_args) --module	\
-+		$(@:.ko=$(mod-prelink-ext).o)
-+endif
-+
-+$(obj)/%.lto.o: $(obj)/%.o
-+	$(call if_changed,cc_lto_link_modules)
-+endif
-+
- cmd_mod = { \
- 	echo $(if $($*-objs)$($*-y)$($*-m), $(addprefix $(obj)/, $($*-objs) $($*-y) $($*-m)), $(@:.mod=.o)); \
- 	$(undefined_syms) echo; \
- 	} > $@
- 
--$(obj)/%.mod: $(obj)/%.o FORCE
-+$(obj)/%.mod: $(obj)/%$(mod-prelink-ext).o FORCE
- 	$(call if_changed,mod)
- 
- quiet_cmd_cc_lst_c = MKLST   $@
-diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-index 10950559b223..af1c920a585c 100644
---- a/scripts/Makefile.lib
-+++ b/scripts/Makefile.lib
-@@ -225,6 +225,13 @@ dtc_cpp_flags  = -Wp,-MMD,$(depfile).pre.tmp -nostdinc                    \
- 		 $(addprefix -I,$(DTC_INCLUDE))                          \
- 		 -undef -D__DTS__
- 
-+ifeq ($(CONFIG_LTO_CLANG),y)
-+# With CONFIG_LTO_CLANG, .o files in modules might be LLVM bitcode, so we
-+# need to run LTO to compile them into native code (.lto.o) before further
-+# processing.
-+mod-prelink-ext := .lto
-+endif
-+
- # Objtool arguments are also needed for modfinal with LTO, so we define
- # then here to avoid duplication.
- objtool_args =								\
-diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
-index 5e9b8057fb24..ff805777431c 100644
---- a/scripts/Makefile.modfinal
-+++ b/scripts/Makefile.modfinal
-@@ -9,7 +9,7 @@ __modfinal:
- include include/config/auto.conf
- include $(srctree)/scripts/Kbuild.include
- 
--# for c_flags and objtool_args
-+# for c_flags and mod-prelink-ext
- include $(srctree)/scripts/Makefile.lib
- 
- # find all modules listed in modules.order
-@@ -30,23 +30,6 @@ quiet_cmd_cc_o_c = CC [M]  $@
- 
- ARCH_POSTLINK := $(wildcard $(srctree)/arch/$(SRCARCH)/Makefile.postlink)
- 
--ifdef CONFIG_LTO_CLANG
--# With CONFIG_LTO_CLANG, reuse the object file we compiled for modpost to
--# avoid a second slow LTO link
--prelink-ext := .lto
--
--# ELF processing was skipped earlier because we didn't have native code,
--# so let's now process the prelinked binary before we link the module.
--
--ifdef CONFIG_STACK_VALIDATION
--cmd_ld_ko_o +=								\
--	$(objtree)/tools/objtool/objtool $(objtool_args)		\
--		$(@:.ko=$(prelink-ext).o);
--
--endif # CONFIG_STACK_VALIDATION
--
--endif # CONFIG_LTO_CLANG
--
- quiet_cmd_ld_ko_o = LD [M]  $@
-       cmd_ld_ko_o +=							\
- 	$(LD) -r $(KBUILD_LDFLAGS)					\
-@@ -72,7 +55,7 @@ if_changed_except = $(if $(call newer_prereqs_except,$(2))$(cmd-check),      \
- 
- 
- # Re-generate module BTFs if either module's .ko or vmlinux changed
--$(modules): %.ko: %$(prelink-ext).o %.mod.o scripts/module.lds $(if $(KBUILD_BUILTIN),vmlinux) FORCE
-+$(modules): %.ko: %$(mod-prelink-ext).o %.mod.o scripts/module.lds $(if $(KBUILD_BUILTIN),vmlinux) FORCE
- 	+$(call if_changed_except,ld_ko_o,vmlinux)
- ifdef CONFIG_DEBUG_INFO_BTF_MODULES
- 	+$(if $(newer-prereqs),$(call cmd,btf_ko))
-diff --git a/scripts/Makefile.modpost b/scripts/Makefile.modpost
-index c383ba33d837..eef56d629799 100644
---- a/scripts/Makefile.modpost
-+++ b/scripts/Makefile.modpost
-@@ -41,7 +41,7 @@ __modpost:
- include include/config/auto.conf
- include $(srctree)/scripts/Kbuild.include
- 
--# for ld_flags
-+# for mod-prelink-ext
- include $(srctree)/scripts/Makefile.lib
- 
- MODPOST = scripts/mod/modpost								\
-@@ -118,22 +118,6 @@ $(input-symdump):
- 	@echo >&2 '         Modules may not have dependencies or modversions.'
- 	@echo >&2 '         You may get many unresolved symbol warnings.'
- 
--ifdef CONFIG_LTO_CLANG
--# With CONFIG_LTO_CLANG, .o files might be LLVM bitcode, so we need to run
--# LTO to compile them into native code before running modpost
--prelink-ext := .lto
--
--quiet_cmd_cc_lto_link_modules = LTO [M] $@
--cmd_cc_lto_link_modules =						\
--	$(LD) $(ld_flags) -r -o $@					\
--		$(shell [ -s $(@:.lto.o=.o.symversions) ] &&		\
--			echo -T $(@:.lto.o=.o.symversions))		\
--		--whole-archive $^
--
--%.lto.o: %.o
--	$(call if_changed,cc_lto_link_modules)
--endif
--
- modules := $(sort $(shell cat $(MODORDER)))
- 
- # KBUILD_MODPOST_WARN can be set to avoid error out in case of undefined symbols
-@@ -144,9 +128,9 @@ endif
- # Read out modules.order to pass in modpost.
- # Otherwise, allmodconfig would fail with "Argument list too long".
- quiet_cmd_modpost = MODPOST $@
--      cmd_modpost = sed 's/\.ko$$/$(prelink-ext)\.o/' $< | $(MODPOST) -T -
-+      cmd_modpost = sed 's/\.ko$$/$(mod-prelink-ext)\.o/' $< | $(MODPOST) -T -
- 
--$(output-symdump): $(MODORDER) $(input-symdump) $(modules:.ko=$(prelink-ext).o) FORCE
-+$(output-symdump): $(MODORDER) $(input-symdump) $(modules:.ko=$(mod-prelink-ext).o) FORCE
- 	$(call if_changed,modpost)
- 
- targets += $(output-symdump)
-diff --git a/scripts/gen_autoksyms.sh b/scripts/gen_autoksyms.sh
-index da320151e7c3..6ed0d225c8b1 100755
---- a/scripts/gen_autoksyms.sh
-+++ b/scripts/gen_autoksyms.sh
-@@ -26,18 +26,6 @@ if [ -n "$CONFIG_MODVERSIONS" ]; then
- 	needed_symbols="$needed_symbols module_layout"
- fi
- 
--# With CONFIG_LTO_CLANG, LLVM bitcode has not yet been compiled into a binary
--# when the .mod files are generated, which means they don't yet contain
--# references to certain symbols that will be present in the final binaries.
--if [ -n "$CONFIG_LTO_CLANG" ]; then
--	# intrinsic functions
--	needed_symbols="$needed_symbols memcpy memmove memset"
--	# ftrace
--	needed_symbols="$needed_symbols _mcount"
--	# stack protector symbols
--	needed_symbols="$needed_symbols __stack_chk_fail __stack_chk_guard"
--fi
--
- ksym_wl=
- if [ -n "$CONFIG_UNUSED_KSYMS_WHITELIST" ]; then
- 	# Use 'eval' to expand the whitelist path and check if it is relative
+ARMv4 LLD support discussion `--fix-v4bx`
+https://bugs.llvm.org/show_bug.cgi?id=3D51422
+cc-option-yn necessary?
+https://groups.google.com/g/clang-built-linux/c/PL9lE_eKhhs
+https://github.com/ClangBuiltLinux/linux/issues/1436
+https://lore.kernel.org/lkml/20210811175647.3851629-1-ndesaulniers@google.c=
+om/
+https://lore.kernel.org/lkml/20210810204240.4008685-1-ndesaulniers@google.c=
+om/
+Blog Posts
+Funded open source security work at the Linux Foundation
+https://linuxfoundation.org/blog/funded-open-source-security-work-at-the-li=
+nux-foundation/
+Linux Kernel Security Done Right
+https://security.googleblog.com/2021/08/linux-kernel-security-done-right.ht=
+ml
+Oops! Can=E2=80=99t require LLD for Android R=E2=80=A6
+https://android-review.googlesource.com/c/platform/test/vts-testcase/kernel=
+/+/1789650/
+Death to CROSS_COMPILE
+https://lore.kernel.org/lkml/20210802183910.1802120-1-ndesaulniers@google.c=
+om/
+https://github.com/ClangBuiltLinux/linux/issues/1399
+Death to LLVM_IAS=3D1
+https://lore.kernel.org/lkml/20210805150102.131008-1-masahiroy@kernel.org/
+https://lore.kernel.org/lkml/20210806172701.3993843-1-ndesaulniers@google.c=
+om/
+https://github.com/ClangBuiltLinux/linux/issues/1434
+https://github.com/ClangBuiltLinux/continuous-integration2/pull/181
+__attribute__((error(=E2=80=9C=E2=80=9D))) __attribute__((warning(=E2=80=9C=
+=E2=80=9D))) (Nick) for =20
+BUILD_BUG and friends
+https://lore.kernel.org/lkml/20210802202326.1817503-1-ndesaulniers@google.c=
+om/
+https://reviews.llvm.org/D107613
+https://reviews.llvm.org/D106030 (WIP)
+Distro configs now in CI (Fedora, Suse, Arch)
+https://github.com/ClangBuiltLinux/continuous-integration2/pull/172
+CFI fix for inline asm references to static functions
+https://reviews.llvm.org/D104058
+https://github.com/ClangBuiltLinux/linux/issues/1354
+LLVM13 CI coverage WIP
+https://github.com/ClangBuiltLinux/continuous-integration2/pull/179
+Sanitizer build+boot CI coverage WIP
+https://github.com/ClangBuiltLinux/continuous-integration2/pull/178
+CFI remove __typeid__ symbols from JT to aid debugging (Nick)
+ASAN ctor/dtor needed to boot test aarch64
+https://lore.kernel.org/linux-arch/20210731023107.1932981-1-nathan@kernel.o=
+rg/
+__builtin_object_size questions (Kees)
+How to determine if something is a flexible array member?
+int foo [0]; // no size, just a marker/symbol that=E2=80=99s addressable
+int foo []; // flexible array member, malloc + additional size
+Why can=E2=80=99t flex arrays be in union, or alone in anonymous struct?
+https://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git/commit/?h=3D=
+kspp/memcpy/next-20210803/v2-devel&id=3D8725f84346c1be20ccb21aedb3e46f25e3a=
+b9f3a
+https://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git/commit/?h=3D=
+kspp/memcpy/next-20210803/v2-devel&id=3D0f28d9daf643a1110bc7536f590e60035ba=
+17635
 
-base-commit: 761c6d7ec820f123b931e7b8ef7ec7c8564e450f
--- 
-2.32.0.605.g8dce9f2422-goog
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/0000000000005ff85f05c94eebe5%40google.com.
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210811203035.2463343-1-samitolvanen%40google.com.
+--0000000000005ff84b05c94eebe0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><style> h1 { font-size: 1.2em; font-weight: bold; } h2 { font-s=
+ize: 1.1em; font-weight: bold; } </style></head><body><a href=3D'go/clang-b=
+uilt-linux-notes'><span style=3D'text-decoration: underline'>http://go/clan=
+g-built-linux-notes</span></a><br />Meeting: <a href=3D'https://meet.google=
+.com/yjf-jyqk-iaz'><span style=3D'text-decoration: underline'>Hangouts Meet=
+</span></a><br /><br /><h1>Aug 11, 2021<br /></h1><ul><li>ARMv4 LLD support=
+ discussion `--fix-v4bx`</li><ul><li><a href=3D'https://bugs.llvm.org/show_=
+bug.cgi?id=3D51422'><span style=3D'text-decoration: underline'>https://bugs=
+.llvm.org/show_bug.cgi?id=3D51422</span></a> </li></ul><li>cc-option-yn nec=
+essary?</li><ul><li><a href=3D'https://groups.google.com/g/clang-built-linu=
+x/c/PL9lE_eKhhs'><span style=3D'text-decoration: underline'>https://groups.=
+google.com/g/clang-built-linux/c/PL9lE_eKhhs</span></a> </li><li><a href=3D=
+'https://github.com/ClangBuiltLinux/linux/issues/1436'><span style=3D'text-=
+decoration: underline'>https://github.com/ClangBuiltLinux/linux/issues/1436=
+</span></a> </li><li><a href=3D'https://lore.kernel.org/lkml/20210811175647=
+.3851629-1-ndesaulniers@google.com/'><span style=3D'text-decoration: underl=
+ine'>https://lore.kernel.org/lkml/20210811175647.3851629-1-ndesaulniers@goo=
+gle.com/</span></a> </li><li><a href=3D'https://lore.kernel.org/lkml/202108=
+10204240.4008685-1-ndesaulniers@google.com/'><span style=3D'text-decoration=
+: underline'>https://lore.kernel.org/lkml/20210810204240.4008685-1-ndesauln=
+iers@google.com/</span></a> </li></ul><li>Blog Posts</li><ul><li>Funded ope=
+n source security work at the Linux Foundation</li><ul><li><a href=3D'https=
+://linuxfoundation.org/blog/funded-open-source-security-work-at-the-linux-f=
+oundation/'><span style=3D'text-decoration: underline'>https://linuxfoundat=
+ion.org/blog/funded-open-source-security-work-at-the-linux-foundation/</spa=
+n></a> </li></ul><li>Linux Kernel Security Done Right</li><ul><li><a href=
+=3D'https://security.googleblog.com/2021/08/linux-kernel-security-done-righ=
+t.html'><span style=3D'text-decoration: underline'>https://security.googleb=
+log.com/2021/08/linux-kernel-security-done-right.html</span></a> </li></ul>=
+</ul><li>Oops! Can=E2=80=99t require LLD for Android R=E2=80=A6</li><ul><li=
+><a href=3D'https://android-review.googlesource.com/c/platform/test/vts-tes=
+tcase/kernel/+/1789650/'><span style=3D'text-decoration: underline'>https:/=
+/android-review.googlesource.com/c/platform/test/vts-testcase/kernel/+/1789=
+650/</span></a> </li></ul><li>Death to CROSS_COMPILE</li><ul><li><a href=3D=
+'https://lore.kernel.org/lkml/20210802183910.1802120-1-ndesaulniers@google.=
+com/'><span style=3D'text-decoration: underline'>https://lore.kernel.org/lk=
+ml/20210802183910.1802120-1-ndesaulniers@google.com/</span></a> </li><li><a=
+ href=3D'https://github.com/ClangBuiltLinux/linux/issues/1399'><span style=
+=3D'text-decoration: underline'>https://github.com/ClangBuiltLinux/linux/is=
+sues/1399</span></a> </li></ul><li>Death to LLVM_IAS=3D1</li><ul><li><a hre=
+f=3D'https://lore.kernel.org/lkml/20210805150102.131008-1-masahiroy@kernel.=
+org/'><span style=3D'text-decoration: underline'>https://lore.kernel.org/lk=
+ml/20210805150102.131008-1-masahiroy@kernel.org/</span></a> </li><li><a hre=
+f=3D'https://lore.kernel.org/lkml/20210806172701.3993843-1-ndesaulniers@goo=
+gle.com/'><span style=3D'text-decoration: underline'>https://lore.kernel.or=
+g/lkml/20210806172701.3993843-1-ndesaulniers@google.com/</span></a> </li><l=
+i><a href=3D'https://github.com/ClangBuiltLinux/linux/issues/1434'><span st=
+yle=3D'text-decoration: underline'>https://github.com/ClangBuiltLinux/linux=
+/issues/1434</span></a> </li><li><a href=3D'https://github.com/ClangBuiltLi=
+nux/continuous-integration2/pull/181'><span style=3D'text-decoration: under=
+line'>https://github.com/ClangBuiltLinux/continuous-integration2/pull/181</=
+span></a> </li></ul><li>__attribute__((error(=E2=80=9C=E2=80=9D))) __attrib=
+ute__((warning(=E2=80=9C=E2=80=9D))) (Nick) for BUILD_BUG and friends</li><=
+ul><li><a href=3D'https://lore.kernel.org/lkml/20210802202326.1817503-1-nde=
+saulniers@google.com/'><span style=3D'text-decoration: underline'>https://l=
+ore.kernel.org/lkml/20210802202326.1817503-1-ndesaulniers@google.com/</span=
+></a> </li><li><a href=3D'https://reviews.llvm.org/D107613'><span style=3D'=
+text-decoration: underline'>https://reviews.llvm.org/D107613</span></a> </l=
+i><li><a href=3D'https://reviews.llvm.org/D106030'><span style=3D'text-deco=
+ration: underline'>https://reviews.llvm.org/D106030</span></a> (WIP)</li></=
+ul><li>Distro configs now in CI (Fedora, Suse, Arch)</li><ul><li><a href=3D=
+'https://github.com/ClangBuiltLinux/continuous-integration2/pull/172'><span=
+ style=3D'text-decoration: underline'>https://github.com/ClangBuiltLinux/co=
+ntinuous-integration2/pull/172</span></a> </li></ul><li>CFI fix for inline =
+asm references to static functions</li><ul><li><a href=3D'https://reviews.l=
+lvm.org/D104058'><span style=3D'text-decoration: underline'>https://reviews=
+.llvm.org/D104058</span></a> </li><li><a href=3D'https://github.com/ClangBu=
+iltLinux/linux/issues/1354'><span style=3D'text-decoration: underline'>http=
+s://github.com/ClangBuiltLinux/linux/issues/1354</span></a> </li></ul><li>L=
+LVM13 CI coverage WIP</li><ul><li><a href=3D'https://github.com/ClangBuiltL=
+inux/continuous-integration2/pull/179'><span style=3D'text-decoration: unde=
+rline'>https://github.com/ClangBuiltLinux/continuous-integration2/pull/179<=
+/span></a> </li></ul><li>Sanitizer build+boot CI coverage WIP</li><ul><li><=
+a href=3D'https://github.com/ClangBuiltLinux/continuous-integration2/pull/1=
+78'><span style=3D'text-decoration: underline'>https://github.com/ClangBuil=
+tLinux/continuous-integration2/pull/178</span></a> </li></ul><li>CFI remove=
+ __typeid__ symbols from JT to aid debugging (Nick)</li><li>ASAN ctor/dtor =
+needed to boot test aarch64</li><ul><li><a href=3D'https://lore.kernel.org/=
+linux-arch/20210731023107.1932981-1-nathan@kernel.org/'><span style=3D'text=
+-decoration: underline'>https://lore.kernel.org/linux-arch/20210731023107.1=
+932981-1-nathan@kernel.org/</span></a> </li></ul><li>__builtin_object_size =
+questions (Kees)</li><ul><li>How to determine if something is a flexible ar=
+ray member?</li><li>int foo [0]; // no size, just a marker/symbol that=E2=
+=80=99s addressable</li><li>int foo []; // flexible array member, malloc + =
+additional size</li><li>Why can=E2=80=99t flex arrays be in union, or alone=
+ in anonymous struct?</li><li><a href=3D'https://git.kernel.org/pub/scm/lin=
+ux/kernel/git/kees/linux.git/commit/?h=3Dkspp/memcpy/next-20210803/v2-devel=
+&id=3D8725f84346c1be20ccb21aedb3e46f25e3ab9f3a'><span style=3D'text-decorat=
+ion: underline'>https://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.=
+git/commit/?h=3Dkspp/memcpy/next-20210803/v2-devel&id=3D8725f84346c1be20ccb=
+21aedb3e46f25e3ab9f3a</span></a> </li><li><a href=3D'https://git.kernel.org=
+/pub/scm/linux/kernel/git/kees/linux.git/commit/?h=3Dkspp/memcpy/next-20210=
+803/v2-devel&id=3D0f28d9daf643a1110bc7536f590e60035ba17635'><span style=3D'=
+text-decoration: underline'>https://git.kernel.org/pub/scm/linux/kernel/git=
+/kees/linux.git/commit/?h=3Dkspp/memcpy/next-20210803/v2-devel&id=3D0f28d9d=
+af643a1110bc7536f590e60035ba17635</span></a> </li></ul></ul><br /><hr /><br=
+ />Sent by http://go/sendnotes</body></html>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/0000000000005ff85f05c94eebe5%40google.com?utm_=
+medium=3Demail&utm_source=3Dfooter">https://groups.google.com/d/msgid/clang=
+-built-linux/0000000000005ff85f05c94eebe5%40google.com</a>.<br />
+
+--0000000000005ff84b05c94eebe0--
