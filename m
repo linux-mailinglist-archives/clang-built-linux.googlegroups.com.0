@@ -1,124 +1,120 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBWMU22EAMGQE7B43AYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJIT2UJ64IBBUM322EAMGQEOSETMYQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id 79F1C3EAC21
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 22:53:46 +0200 (CEST)
-Received: by mail-lj1-x238.google.com with SMTP id e4-20020a05651c0904b029018bc821fd31sf2423590ljq.11
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 13:53:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628801626; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id B13503EAC38
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 23:08:34 +0200 (CEST)
+Received: by mail-oi1-x23b.google.com with SMTP id i16-20020a0568080310b029025cd3c0e2bdsf3508616oie.1
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 14:08:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628802513; cv=pass;
         d=google.com; s=arc-20160816;
-        b=I2LAf2CgrqOd0/OlVefzVuTeSAv9Vf0ZNVW7mx13cLGPGyrw8f9S+DW1Pf8ycH2K84
-         ozGMqoaV5tigWpZSZVgk+CfBzgliskwQuRC0YA32tbYdxZ09uPWr9RnQHx/TXDej+dJS
-         bD00N8NuSdBa7+s4bEy6rKUYpq14zWE6M3icxb6V5joxmQX2uqrwxRq+pkLtrIoQ0sWO
-         TOiStxtPsyFMXePHpJQxByuJmoYzNlOR7PddCCgVfkCXiyrVIUBEOHWeawN1e6rHI+Sa
-         GxAHByjxfRzH68loMmESFyoluOXdA0+6FnU6dRoCuRzT96QmYVLt4QiPfSHpK1D4IzS6
-         HtdQ==
+        b=WZ6yPdCaihoHyrgcUy1hbGV19mt53842e1UtOxex7xHt40JocooD7p2x1Xv0yd5spO
+         0jSrxT7DzI0gGQ0gSektSFqyMTVJhwdHR6eaIaZ0W7drMFmdVhQUyVIm1ZGCmm+6goxR
+         0N/SRDYGQUmqz1/mLNQjfw8bKqphUNi7FgSnLFwTbY+/Leo2yq9Y7V1Pv4ChwjENzLug
+         UeJaHcI36jN8Vk+YjMgHmxRilj9uSgHdUyp+LAQrmxu1xkl9/UiuDyKG0qQjy6tLHWc1
+         BJZJ6BzvMA1cnR7MJpU1cukPvmOTcJ4pRj3GWfvEvYiG8j/cln0hYmY7okINMnfpOv7o
+         QecA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=Mb44J78lm+XNYHdhr+ILTCWfTv01HJgxrCCUX9qv8bs=;
-        b=I1S9gtUqBdMOoqi4aUw38KZ8lwqjp3WwaZp0fcmOudxDLQT+e8szEUuOgJUKcNhbia
-         bJPibMc0ZkcVxDuZIjE0xkKwj6JD0CC4wzJ56izxTcvoi5FZoHCFoqNB+2Ly0Wsipwtz
-         lwM4TKW4tN19NRUR+k1whIcIZLoDTqu0DL7/tyrDNqZL+XZQdveK4/v1zV0EczJV7W+D
-         jSzug4ryAif3U+z7+0pyx4umoIPCSg4qaWanaCoyvT0t+7dNgCIzizJQF8uDuw1zhu0Q
-         BvXGuUPaqb4gMY3lSZW437cdv8U1YD2vCrzgcwr2/59h1krrFfEPHMkW2VBetwnRztN9
-         6DDQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=ZM7GDzFizsN8C87dtSfPjd5jVsUHfEd7eiAiM0UrjAs=;
+        b=ZcztDBd3mM+D0/ZT3BLuKf94J3XHTH0A5lr29mRenM1fi6IvCxMls77YjWrA7OmZT5
+         kFVLrI/sQg5LKMwRYyw/tnbS4eJA5eULcVny8KBl9PWnjyNsz34j7evCWC0QoNqPtw2A
+         p55j/KY9WbEiYh+RlqufNOpWKUCSjPIaB7UDRQa2jPGDRY1OFdiucPsh4EWLnJ+pKArO
+         fSnXYl0LQN2gQniYWtH2R0iS7CLEFERFrFc02LFnUXmuu8CWGsYQvfcKGxUtkWnMMVJl
+         XpOQb8QYoGGvR+lhbqtnUrcvUGLaQbpJvAh9ouS1j5w/B2VjkGjfFLF5AUJBBiqBgbBG
+         k1wg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=na6Fi0rS;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623 header.b=Jsgo+mi3;
+       spf=pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Mb44J78lm+XNYHdhr+ILTCWfTv01HJgxrCCUX9qv8bs=;
-        b=JBOGu+7Q87SdzKC0Jv/2H+iN185CyKl1zDqtyMC91V2CPF2e2Z8CrNRVU47pI/DESY
-         WVDlAsSiZH83MKF+G5AM3PDzMu8AfUbY8WQ5vZx8jWShDdI2pZiz4i1uMCr+yXXfNglm
-         bwWtbZKV5gNcMbkaKjPHDurpj0litWp3d5LXkd/j+k6F0YFvTmbDHos/QvwkFLCP9SxZ
-         iwiUfqz9X3FttIjNt0bCC8MMqYqM0fKxXMYoI8cf4ne9HOa6a6dCFez7STZqSHpO66vA
-         8elJLRYPGGy2rUBoK8OGwFcjcX0OTdSGakyfmocsEQnIktwWIwPwSQEyagFngfNe3TRj
-         13PQ==
+        bh=ZM7GDzFizsN8C87dtSfPjd5jVsUHfEd7eiAiM0UrjAs=;
+        b=sVdv/e/vidwp8f8LApVMHfroqaOXYsFPujdi/l4xKAL7+WIxL9TnISuKVZgrEbiI0Y
+         6DJ7zwiNGUaUFtJ7//bFXKZmLY6q8IC5gmAaiJEd8whAaaTKNYH0bu8f/avJlgoGDMa7
+         qTwNz9UeIyfolK6Gb1OxtGD49PAqABCr0nVFgTQttLXTbn55W5qodHVSW6F5ID9stukO
+         I05t8YWTk4LA0ctsBE1OnIsJNOvFn1oz6wyKQJIoHMGglg0KCpHifIUmQQEZbE179+Rp
+         t3WZX/Y3gh4Imsy2WGLfF8dfTvmIGc5a5eDZOZnU3lwdxDVrGumFPFq/bnOhFayFPpH4
+         9BpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Mb44J78lm+XNYHdhr+ILTCWfTv01HJgxrCCUX9qv8bs=;
-        b=KnZ67lBwY9fLrOQkYVjy03uJR2Nf2pilwvYaAcgXddbkj3a2ztnid6ZAeuv/Mk0Asu
-         uHcFCuDC26j8zAKFFl1VXwXNZRQYQVHIs0ACKAibkMneCQfGblLxeM7byXy+BFTLTwRT
-         35nd6fHio8d227kweXDf59eQ3UouDEIXx1B7W3HNu9/vcnkYXijDCgHW0MJmWgy/SzC6
-         VdHYHSVSg2Hi+5pOpyHvFmiz7UNMDXjNct8jrW22Ad4D/2zdFerlfAOxjzFJa4ul6WLl
-         ziwQUt6iienQNBdUXmNey+xJnnxIcVuPz/v52gMSXenXQvKSNxAIIxcAqFMgBt8JHNu9
-         CaxA==
-X-Gm-Message-State: AOAM532g08cAMyEbsX1I1vk9cpAq1ZRWMvSZ8AbbPwTlsng7yUiHva7z
-	Ff2suBtHbay7vNyaJTwdbi4=
-X-Google-Smtp-Source: ABdhPJz9f7OdsevQwGgaG+ezvd6X8GnSRHSp46EuOzgocGhRslNA/Y8LW5+0nn3CIz2SffH8+G1+eQ==
-X-Received: by 2002:a19:d609:: with SMTP id n9mr3859521lfg.198.1628801625975;
-        Thu, 12 Aug 2021 13:53:45 -0700 (PDT)
+        bh=ZM7GDzFizsN8C87dtSfPjd5jVsUHfEd7eiAiM0UrjAs=;
+        b=PWkyLsJppb7/TJnRj/kU5tRjNsJZYqO9BBFEUQxnU1tsWDq2J+6ZA8J8tMwuobg7GT
+         KqYnkMAPN3tAkYTx9J5ycAj0ZrqjQPrOtdFnOZNry9TcVjPD31mXpsi7DoNSGddROI5G
+         Ixx7K0CKjCCa62SDyMBwojnrSkHpOLOW3/5oIpSQVWWA1jgiAmDVNHZMQCmKUO0QVS3y
+         6FJIXYteJGPZayiKyyVeAxbtHaBfNb6g2Xh9+GkyEeCQ3hxXmdpE/0acAVtOgB5We64T
+         d6c2MaiqAzyP0Bo4DUAroCRJ/MKNX3dDVswBUfgmULO8cJg1IvCVtHlN26Mu8+awW2tg
+         sPiw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530NWAF9QENigl27QaHcqxGk8SlHYX8owQtzA+pqqnAVvQYqVsAN
+	vm2L3BBDjxWEhHjNhvttNx4=
+X-Google-Smtp-Source: ABdhPJyHzwXMXUo8JpyAey1NnHxjzHGnEbu4asllhMhAoU1NwNm0y28GAPgmPb0bXU+ED//ONzyQsg==
+X-Received: by 2002:a05:6808:68d:: with SMTP id k13mr4953324oig.83.1628802513746;
+        Thu, 12 Aug 2021 14:08:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9d43:: with SMTP id y3ls1211777ljj.4.gmail; Thu, 12 Aug
- 2021 13:53:44 -0700 (PDT)
-X-Received: by 2002:a2e:824e:: with SMTP id j14mr113349ljh.77.1628801624872;
-        Thu, 12 Aug 2021 13:53:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628801624; cv=none;
+Received: by 2002:a05:6808:15a6:: with SMTP id t38ls1700201oiw.0.gmail; Thu,
+ 12 Aug 2021 14:08:33 -0700 (PDT)
+X-Received: by 2002:aca:c46:: with SMTP id i6mr12280939oiy.76.1628802513264;
+        Thu, 12 Aug 2021 14:08:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628802513; cv=none;
         d=google.com; s=arc-20160816;
-        b=UroRbdIbF9a2uYOzNG9Lzt45tRSywJPmfDuoPCzdL35/ph0ja9nFfX6KTkqaZ4eP0o
-         si3k2MeuvpOSBbGKi5e46wRynu8XChZ5IKQHI3kGAxjOL3qbhUksJIMKrwOt6kp+8guq
-         jWsnMvxWOxC5yaNSIqsjwgM9HH3LXELIERU58+SNaCnYZXUpIxM+SghoZzyQdaBSPwEd
-         pLlGGVXFg7G0BUCmsCse2V8/u2b5n5dhDO0QvHJUcFLdHSmjpWsTfF9SuWLjZ9rR5OdX
-         Rmtw41f17EsVyUr9fyABMaT44cYCnMD7YlPN3j1KTwzKVBUwwPQe65GdaaY7iRXNf7VY
-         ZDJw==
+        b=jyosSX1Ik0I8xQYunXZcK0jg2fYqCKrlhPS9D7EOw0zG/doIDJV+OX7fq36mq3hAcP
+         ZafUl8lI+VzV30nJqK6qxwX7lWJlqQNdjZWNBn3z137Q7Y90+QtVXdsudHVupyxyLbrL
+         NeGxDyi7dWlA/lCfB6eIsFTAQv63Rzoi7SKvfmblQIiVfbkwGRmy0f8Fj4w1HzbGMi6W
+         U0WQ7gpzhFlW/q+bpZFZAC0gXnUMu9VhbJ6N976Jhr4mnH5CobSpuVw8y29jEqCnupzc
+         uHf9DHlXeE7dptvCq8qxUMFuck9xFEpQNYfQzm/wqu/MOiB7290rhdfuf+yKTBY+WZXI
+         JHiA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=9RfJTrGHwJUwvzLhHrIbGQA08huI6dzioQ3vdmozHz8=;
-        b=qjve+CSjBlleFpwviA36DXVjXEOFRRG6KdP6tAAsFyQbkHW43UFVngDjDO+bGa+jmQ
-         YLfJLZ19uilwrZuXB643HJ48Hx7tqfFElPDoExrZYTHDxbywneKuvzOJ9cuiASzmD0d3
-         Q8P+n4MAjv5NybyoqKvFjxeLASdpXB3Iqoluczvznw2zpAz91Zf5Z31yvK//9TOv/uuG
-         P9bx0m8+oOHJw7O6NuYU6zmj6dZ6UR/SI9AMfGTNNDgV7O0QmAOnKx25c3Pv/Liv6HdI
-         IzwfZZ4Gxo5ZnFYFONIDbTjQM73OIRopTHGxurjZt7m2mz5rbLF7Hqs4k5zAiWM993Xj
-         ABEA==
+        bh=s7RmTXV1rtgfdtsCI73hdM+Qxlp56ePZYyS2TvYXHy0=;
+        b=ISkN5bCjhjVsehYzlqN0kfF4PoR6aPcTHt+71V68qXrtPLJjb2abaEfbuxBW6l8z89
+         NhHqGPz1J9BH//+b58iXnDGNfWrCnx/oE7z1eWD0yJbCniCA9itNL4Ceysv1itD4TYkF
+         oPf/F/dpPni4O+y0LfrqNX16yI/rYWk/YgPg/m3kej9qvcvtY4Q+xaLnvoxvufv3vSkf
+         YR+9VK/5n+uwH3o/9eMoQyesm5D8tVtKWTGvgeUeKeIXHmCnx5oPbqbP1lIHI3YWvOoV
+         5SMI09wz4qh5kX5Gj976xbw94kZmC1GR4UfUGNVT+hRh7I5jcD+nNXZ3h4N+8Txee7sS
+         NfbQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=na6Fi0rS;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x134.google.com (mail-lf1-x134.google.com. [2a00:1450:4864:20::134])
-        by gmr-mx.google.com with ESMTPS id p17si230205lfs.8.2021.08.12.13.53.44
+       dkim=pass header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623 header.b=Jsgo+mi3;
+       spf=pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
+Received: from mail-pj1-x102e.google.com (mail-pj1-x102e.google.com. [2607:f8b0:4864:20::102e])
+        by gmr-mx.google.com with ESMTPS id c20si229906ots.0.2021.08.12.14.08.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Aug 2021 13:53:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134 as permitted sender) client-ip=2a00:1450:4864:20::134;
-Received: by mail-lf1-x134.google.com with SMTP id d4so15782185lfk.9
-        for <clang-built-linux@googlegroups.com>; Thu, 12 Aug 2021 13:53:44 -0700 (PDT)
-X-Received: by 2002:a05:6512:3989:: with SMTP id j9mr3957811lfu.73.1628801624318;
- Thu, 12 Aug 2021 13:53:44 -0700 (PDT)
+        Thu, 12 Aug 2021 14:08:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::102e as permitted sender) client-ip=2607:f8b0:4864:20::102e;
+Received: by mail-pj1-x102e.google.com with SMTP id cp15-20020a17090afb8fb029017891959dcbso17337536pjb.2
+        for <clang-built-linux@googlegroups.com>; Thu, 12 Aug 2021 14:08:33 -0700 (PDT)
+X-Received: by 2002:a17:90a:1f49:: with SMTP id y9mr18061147pjy.225.1628802512865;
+ Thu, 12 Aug 2021 14:08:32 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210812204951.1551782-1-morbo@google.com>
-In-Reply-To: <20210812204951.1551782-1-morbo@google.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 12 Aug 2021 13:53:32 -0700
-Message-ID: <CAKwvOdm8R1zh-NPCRZX=_BZhUEey5v=0jjz=ca82tzMn2kFqYg@mail.gmail.com>
-Subject: Re: [PATCH] ppc: add "-z notext" flag to disable diagnostic
-To: Bill Wendling <morbo@google.com>
-Cc: Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	Paul Mackerras <paulus@samba.org>, Nathan Chancellor <nathan@kernel.org>, linuxppc-dev@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, 
-	itaru.kitayama@riken.jp
+References: <20210812204027.338872-1-nathan@kernel.org> <20210812204027.338872-2-nathan@kernel.org>
+In-Reply-To: <20210812204027.338872-2-nathan@kernel.org>
+From: Phillip Potter <phil@philpotter.co.uk>
+Date: Thu, 12 Aug 2021 22:08:22 +0100
+Message-ID: <CAA=Fs0meOs0uzN-3AS2a_Gwzs5eVvD6+xxPUkjhNFZ5L4WNx2g@mail.gmail.com>
+Subject: Re: [PATCH 1/3] staging: r8188eu: Remove unused static inline
+ functions in rtw_recv.h
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Larry Finger <Larry.Finger@lwfinger.net>, 
+	Nick Desaulniers <ndesaulniers@google.com>, linux-staging@lists.linux.dev, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: phil@philpotter.co.uk
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=na6Fi0rS;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::134
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623
+ header.b=Jsgo+mi3;       spf=pass (google.com: domain of phil@philpotter.co.uk
+ designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,70 +127,113 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Aug 12, 2021 at 1:49 PM Bill Wendling <morbo@google.com> wrote:
+On Thu, 12 Aug 2021 at 21:40, Nathan Chancellor <nathan@kernel.org> wrote:
 >
-> The "-z notext" flag disables reporting an error if DT_TEXTREL is set on
-> PPC with CONFIG=kdump:
+> After commit 987219ad34a6 ("staging: r8188eu: remove lines from Makefile
+> that silence build warnings"), clang warns several times:
 >
->   ld.lld: error: can't create dynamic relocation R_PPC64_ADDR64 against
->     local symbol in readonly segment; recompile object files with -fPIC
->     or pass '-Wl,-z,notext' to allow text relocations in the output
->   >>> defined in built-in.a(arch/powerpc/kernel/misc.o)
->   >>> referenced by arch/powerpc/kernel/misc.o:(.text+0x20) in archive
->       built-in.a
+> In file included from
+> drivers/staging/r8188eu/os_dep/../include/drv_types.h:22:
+> drivers/staging/r8188eu/os_dep/../include/rtw_recv.h:395:9: warning:
+> variable 'buf_desc' is uninitialized when used here [-Wuninitialized]
+>         return buf_desc;
+>                ^~~~~~~~
+> drivers/staging/r8188eu/os_dep/../include/rtw_recv.h:391:25: note:
+> initialize the variable 'buf_desc' to silence this warning
+>         unsigned char *buf_desc;
+>                                ^
+>                                 = NULL
+> drivers/staging/r8188eu/os_dep/../include/rtw_recv.h:412:52: warning:
+> variable 'buf_star' is uninitialized when used here [-Wuninitialized]
+>         precv_frame = rxmem_to_recvframe((unsigned char *)buf_star);
+>                                                           ^~~~~~~~
+> drivers/staging/r8188eu/os_dep/../include/rtw_recv.h:410:14: note:
+> initialize the variable 'buf_star' to silence this warning
+>         u8 *buf_star;
+>                     ^
+>                      = NULL
+> 2 warnings generated.
 >
-> The BFD linker disables this by default (though it's configurable in
-> current versions). LLD enables this by default. So we add the flag to
-> keep LLD from emitting the error.
+> The functions that these warnings come from are not used or are called
+> from functions that are not used so just remove them to remove the
+> warnings.
 >
-> Signed-off-by: Bill Wendling <morbo@google.com>
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/811
-Reported-by: Itaru Kitayama <itaru.kitayama@riken.jp>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
->
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 > ---
-> The output of the "get_maintainer.pl" run just in case no one believes me. :-)
-
-LOL!
-
+>  drivers/staging/r8188eu/include/rtw_recv.h | 46 ----------------------
+>  1 file changed, 46 deletions(-)
 >
-> $ ./scripts/get_maintainer.pl arch/powerpc/Makefile
-> Michael Ellerman <mpe@ellerman.id.au> (supporter:LINUX FOR POWERPC (32-BIT AND 64-BIT))
-> Benjamin Herrenschmidt <benh@kernel.crashing.org> (reviewer:LINUX FOR POWERPC (32-BIT AND 64-BIT))
-> Paul Mackerras <paulus@samba.org> (reviewer:LINUX FOR POWERPC (32-BIT AND 64-BIT))
-> Nathan Chancellor <nathan@kernel.org> (supporter:CLANG/LLVM BUILD SUPPORT)
-> Nick Desaulniers <ndesaulniers@google.com> (supporter:CLANG/LLVM BUILD SUPPORT)
-> linuxppc-dev@lists.ozlabs.org (open list:LINUX FOR POWERPC (32-BIT AND 64-BIT))
-> linux-kernel@vger.kernel.org (open list)
-> clang-built-linux@googlegroups.com (open list:CLANG/LLVM BUILD SUPPORT)
-> ---
->  arch/powerpc/Makefile | 1 +
->  1 file changed, 1 insertion(+)
+> diff --git a/drivers/staging/r8188eu/include/rtw_recv.h b/drivers/staging/r8188eu/include/rtw_recv.h
+> index 857269ae4209..81594e7aed51 100644
+> --- a/drivers/staging/r8188eu/include/rtw_recv.h
+> +++ b/drivers/staging/r8188eu/include/rtw_recv.h
+> @@ -386,52 +386,6 @@ static inline u8 *recvframe_pull_tail(struct recv_frame *precvframe, int sz)
+>         return precvframe->rx_tail;
+>  }
 >
-> diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
-> index 6505d66f1193..17a9fbf9b789 100644
-> --- a/arch/powerpc/Makefile
-> +++ b/arch/powerpc/Makefile
-> @@ -122,6 +122,7 @@ endif
->
->  LDFLAGS_vmlinux-y := -Bstatic
->  LDFLAGS_vmlinux-$(CONFIG_RELOCATABLE) := -pie
-> +LDFLAGS_vmlinux-$(CONFIG_RELOCATABLE) += -z notext
->  LDFLAGS_vmlinux        := $(LDFLAGS_vmlinux-y)
->
->  ifdef CONFIG_PPC64
+> -static inline unsigned char *get_rxbuf_desc(struct recv_frame *precvframe)
+> -{
+> -       unsigned char *buf_desc;
+> -
+> -       if (precvframe == NULL)
+> -               return NULL;
+> -       return buf_desc;
+> -}
+> -
+> -static inline struct recv_frame *rxmem_to_recvframe(u8 *rxmem)
+> -{
+> -       /* due to the design of 2048 bytes alignment of recv_frame,
+> -        * we can reference the struct recv_frame */
+> -       /* from any given member of recv_frame. */
+> -       /*  rxmem indicates the any member/address in recv_frame */
+> -
+> -       return (struct recv_frame *)(((size_t)rxmem >> RXFRAME_ALIGN) << RXFRAME_ALIGN);
+> -}
+> -
+> -static inline struct recv_frame *pkt_to_recvframe(struct sk_buff *pkt)
+> -{
+> -       u8 *buf_star;
+> -       struct recv_frame *precv_frame;
+> -       precv_frame = rxmem_to_recvframe((unsigned char *)buf_star);
+> -
+> -       return precv_frame;
+> -}
+> -
+> -static inline u8 *pkt_to_recvmem(struct sk_buff *pkt)
+> -{
+> -       /*  return the rx_head */
+> -
+> -       struct recv_frame *precv_frame = pkt_to_recvframe(pkt);
+> -
+> -       return  precv_frame->rx_head;
+> -}
+> -
+> -static inline u8 *pkt_to_recvdata(struct sk_buff *pkt)
+> -{
+> -       /*  return the rx_data */
+> -
+> -       struct recv_frame *precv_frame = pkt_to_recvframe(pkt);
+> -
+> -       return  precv_frame->rx_data;
+> -}
+> -
+>  static inline int get_recvframe_len(struct recv_frame *precvframe)
+>  {
+>         return precvframe->len;
 > --
-> 2.33.0.rc1.237.g0d66db33f3-goog
+> 2.33.0.rc2
 >
 
+Dear Nathan,
 
--- 
-Thanks,
-~Nick Desaulniers
+Thanks for this.
+
+Acked-by: Phillip Potter <phil@philpotter.co.uk>
+
+Regards,
+Phil
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm8R1zh-NPCRZX%3D_BZhUEey5v%3D0jjz%3Dca82tzMn2kFqYg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAA%3DFs0meOs0uzN-3AS2a_Gwzs5eVvD6%2BxxPUkjhNFZ5L4WNx2g%40mail.gmail.com.
