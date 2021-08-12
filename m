@@ -1,46 +1,46 @@
-Return-Path: <clang-built-linux+bncBDJIT2UJ64IBBB4422EAMGQEF7UKNRA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJIT2UJ64IBBGU722EAMGQEMCIJA7Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 74F463EAC3B
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 23:09:28 +0200 (CEST)
-Received: by mail-vk1-xa40.google.com with SMTP id m6-20020ac5cac60000b0290283342dc002sf1676857vkl.9
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 14:09:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628802567; cv=pass;
+Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
+	by mail.lfdr.de (Postfix) with ESMTPS id D2BEC3EAC4C
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 23:16:11 +0200 (CEST)
+Received: by mail-pj1-x103b.google.com with SMTP id 16-20020a17090a1990b0290178031dca45sf5106084pji.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 14:16:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628802970; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CoauA/DPUI+RSpzTgRcR3xvtYOU5L9bjf92xpBgUJLaZ8W/HU6aiceHcxArC3ApvGh
-         Ri4eIkIqZYJMqh+brERmHvXPYf8I2vYV9pQZgKdEPxJMdmO4am0zz1+oGLG1KpbL+P7j
-         zPXXfvHmU+ETM+a68HO11Sq5xNqx5dK685xQniCIM55hpWvp3vEtBAZ73njEOqWzd/qI
-         z1YoOqcmAXXRYbALwibzuEoIsPF91Z7EeKe+Tce+y/Kt4QCkBC2bewWrSejPf+Fh0dzX
-         5r7o82VSDsdeeS04MdI++1w462pQGqN+FTzF4S7+37OcHpJ+QKY/V1AjJWItM+ON/OOU
-         OM2w==
+        b=hzxEIebSXIE0hY4gYs7y+UD705jic2l242+AibC6g4lOEpn6xsygP5y1KnM4XvcF5M
+         3zOnCTCDOe5Q/dKfg601CcKlnhsnR1/Z2E+FPe4E+P9SDm/g62Cm5j7a0zdJ4WV1LBVl
+         eBIeO9Em7zIdhGKrMDx4Ih7LvHDhIAh2vPI07a501rqdXX4d66ZuYzDqd6NAf1inUnqE
+         g41UJx+nOzPPww/VWp8lFjVyjrwEqyGscfToVsLuEhefdX5ih9tWxsEbT9X6cBO5jhct
+         i2cF+7gDhN3jOLctbzBFQ5RiIL0m+OfLd6NQRc2ZQ5215clfaFOUhtOO+TnAywHg8HWp
+         3eXw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=7HZvh55+gE7wORy7ESZwpWXza0vJcrT/oUlSjvlMJ64=;
-        b=Xu4eg76rAVXdhhFSk1Lbw6ahcbllSaGbo+LzyXSBy8PFuKkb/MTNTx+tQxovK2r9Ku
-         LM4ALmXbG08UfTsHBYgIQCu9m++3a0IUEvnRAM2xs2oLQRhVavjiZsG2lqotd1AL30fa
-         NPy2IxZKc8Bus4se0x++F4cMgU3vSuIQRvriiIEHGguUJyDXYRpZkJAAQYUeblqp6SmY
-         BX17MFNaiprJE/WKwmO4O37O3FZeuRSEM6Gndp0Qrs2lHsGrVfUz7oGFB85zGwdncN60
-         Dmu2CkepsMeCIHbHlq9ehAg2UwYWonyKmWCt22qXtApv3RKsdd4ApFAAKrBTWmk61aK/
-         u1xw==
+        bh=uuFpwuLeytoBlU+V0wyYL+DgHf4/+bah8KFWw7kGx/4=;
+        b=hRcMWhYhlADaf95JHeVzLZ2cOUpGBA5G/a5gKLiWAVTg7MpIlUGkaA3Z37XRXve5Rp
+         U2khmOwxUtkBgK3Z5bLItaJHU86Zi3lxLXq94r+Wno35RKHoIy0A7QVgK91Ti0KRNHdh
+         64fhxY+ZZDOW5CfyIurk0SLneWPSzOTSZfBx9q4pOrEbm5Juvq5Mw3DUyixLDbkDiCG3
+         ctkgQxB7fC4/EwCJbRLEUAGVzOWW693HU4rjQDTgbUNyH/JGE3u8riWLT+5PFVUGY09Y
+         M75NydJ8ppknb091hv5S+xdZTEPW6HG+NC5pPloN4zC9dqwbhtzLjH4+hMHHPhEFM7NR
+         oHow==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623 header.b=IuuCgqYx;
-       spf=pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::62e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
+       dkim=pass header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623 header.b=rYySSj0V;
+       spf=pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::635 as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:mime-version:references:in-reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=7HZvh55+gE7wORy7ESZwpWXza0vJcrT/oUlSjvlMJ64=;
-        b=DIwAw6TMNMOroSmvEHGwMZVDtG+VriC0ZBOW0bUAN0UxQSfmMcyXzlrBvYXPMyjhiy
-         ouqRJwG1/Op29R9QIrYUMQ3/ZuFg7TRRIOFuMNKm9BKWG/EelHPRAMXExcXFoT3NlV2l
-         pwhiEZpfv0LoqJaep5v52FLN65Iia5UeLjWrjhaapeb806RcYbHZ+W3ZzVz+T89KwGUY
-         LJ23XAmH/Nddg9r7b2fLbcewAWSG93NVf3oBD3YG5l5VOlJz0pxa4THmQ9f5OhLccJCL
-         FE7gioInCxkozC4GLqxEBiq3Y+wFudLmD7r8lL3q/ihM/LVhZszC3kcwuEKRiEGTq9iF
-         ugFw==
+        bh=uuFpwuLeytoBlU+V0wyYL+DgHf4/+bah8KFWw7kGx/4=;
+        b=IHkI6dV11FcIyZkHnvzRxvmESS5Wqk4F0EKmUwJkG4jEC162e98whUqp54eQSUEKZt
+         wmcNTeuOBRU7IIA20QB5T3Uz4cguhm/RSV/9XXjllE5G9oTKZ5/aZ79KWIpio9bf/HO4
+         mE2chIk8lVnmk3qF/IBEhjY8QMB+77tzPFJr08Xl/O2U+qmfNJjJpDYx/YmOQV8r/YIl
+         +Hj/BN7HW02A4E43eo2CYfvwzmkYvGiJaE3V+jwKVJhvdyQ43ms2iKD0QMKQP2sI2VJy
+         VFoNEcXaw213hDU7iMT9eILKFnc8ElNDwCi+GDPmBrzVpv01WcFWONmEyKdGWA4G4BAJ
+         G/FQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -48,63 +48,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=7HZvh55+gE7wORy7ESZwpWXza0vJcrT/oUlSjvlMJ64=;
-        b=XpLjyvBGPLvmUQbdOWA1jI3701xHbWfQV9XLzoipJkLhuQo9GXaTda5fASMd0lsaey
-         IgwmUlvj6ohwLMfv0Eymmv2lRSyG9TOmOBnOtWGOhnNWMtWknVrWyiU9vE8YMhNWZlkr
-         IPWbycsb1QqsXDkheTshUcxsNHgROI4z+T8bIXavMjzBv39+BdPwAJO8TmbN/hFzATbi
-         wgABJncQE7+EY6sIs3Qd2E4IBVf/YJ1HcQRqNVz2jiun6D0fNkjvcPF5A7gYTyLyWIOv
-         xVi8/aRogV/PmII+lkvCXV/xo5YzZ28Hax/fHHeOTUL4WEUPJcVAi8NVfF4o/dUtPIms
-         Kn9g==
+        bh=uuFpwuLeytoBlU+V0wyYL+DgHf4/+bah8KFWw7kGx/4=;
+        b=WymBnlAoqWltEcb/io8MFJISgcN9r5++Ut7vPaZGR9iBA+M3bQZ0XR1MRfJhycdfUm
+         Jq8k6M9h7504TmWG8bnLHdnnhOVpBiwN/pbEqgQPOCr9BTJnBr1a/KH//L09QzXKgvpK
+         X1IBx3KyOkLdCnYGG95hszHWLtNFlFmfzM27kXDG/28vcDGUTmKf4Q7SOzvFnUYmv/ao
+         FNSW3T9FURPHEsHt50fTLbmOL0HfxcX/GG8A18FQ9vUjNc7NCCUjyuOPYLWmm8edApM9
+         Y0z7Virr78ViKUVZTRyy9hNFOfM4lLKcAtSNqG9aVQ/5TSwRFBD3w2vsK6K2+rr2q+v7
+         eJvg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533Y4KyCheR8ctxyZBIYsMJ1gTPa1+P+LDRMuUlis2wjaJb9yxo1
-	r/a4R6GQJKopUC1ayEd0224=
-X-Google-Smtp-Source: ABdhPJwsxhK+zQBjMOt9XNYvaycjDykSqPp1R7ncgkIbQULD6ZXsnI32EuqzVeFuc1XY9W8cc8marA==
-X-Received: by 2002:a67:de10:: with SMTP id q16mr5564555vsk.23.1628802567378;
-        Thu, 12 Aug 2021 14:09:27 -0700 (PDT)
+X-Gm-Message-State: AOAM533aa1fvesYCO6qw5z20N288QqT/NNK5bjn3MHF5kCQqHE6JBIJm
+	jWtmrh0oduK+6J3Nc64JSs4=
+X-Google-Smtp-Source: ABdhPJzm49STEqRoqe6uV7U7oLdsMIDpBFYVV+nzvAVfiby8Jmsd8eIRW3LhjZ9PCyQWRZ34Ys3RZA==
+X-Received: by 2002:a63:3501:: with SMTP id c1mr5519545pga.280.1628802970566;
+        Thu, 12 Aug 2021 14:16:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac5:cf0f:: with SMTP id y15ls173764vke.11.gmail; Thu, 12 Aug
- 2021 14:09:26 -0700 (PDT)
-X-Received: by 2002:a1f:b615:: with SMTP id g21mr5309067vkf.16.1628802566894;
-        Thu, 12 Aug 2021 14:09:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628802566; cv=none;
+Received: by 2002:a63:656:: with SMTP id 83ls2890436pgg.9.gmail; Thu, 12 Aug
+ 2021 14:16:10 -0700 (PDT)
+X-Received: by 2002:aa7:88ca:0:b029:3cd:cc14:9fc9 with SMTP id k10-20020aa788ca0000b02903cdcc149fc9mr5972408pff.80.1628802969865;
+        Thu, 12 Aug 2021 14:16:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628802969; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZDEDJ8kbWNYwPPARPF70bsJOozpIIYyCYPQY8M5WMZ/3zeUV97/MEjcdRVFCy798lu
-         Fu6HACGDdafhwUNCW8cQ65yz+Zhi/s26t8BtGvraRGj9bFCKMNpsXq5tc7Lndh8LImH4
-         FX+BEKsiBo1Fp2WkpF56QhRlEYG01j/RrL8OcNbWQEyCXqcKiSGxLtNNhtpo20EOhRtt
-         YcS7Wv90akGl+XIUJ+a6xgOvjlY5hp3PgL3NXAUX0sM99tkodb0i3uJtciYrrsGWXAh5
-         xTURgtj+BY/aKWvFF25xJCFAEIdwqnDtmwG/OeWeez7AOMdHs2pz9RY35FtsUNVKG72B
-         WcfQ==
+        b=1ECNNoFD6AQepX2kjRmL+g3sFoU0AL5OacnNhx8hMtmY7Dv5qYR1zNvGQvQCy7Zxjl
+         8IpK9OuBDZYWbEb6UbJSDHGqUj/vHTlhzsYNjQfF1f/rDmqdgyTeW1hTkqWlqfOsgWml
+         O5i8BUpKGADM9xgMhjwwEj4lW06EyEVqcQ5yWBGp2glWmAFZz7aSNEKNwT3KB5Bx/AN2
+         9OoyNbOGRxR1fV1TbpX6AF/ZLxbMDBaOWOybnVg10LkvvjbAJT8W+m0TUWrtMW8JXkAs
+         r5s1XUcJFXRMu+zwYI7213eTzDwJH8WjOVVqLPPC9S6dWxTII8y8eLcnd/lzw/YwHk+W
+         piNA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=AwF9gPVb6rSLv8TfNn020arGyAKk62BBC6M1h4xTevU=;
-        b=oASfg/YBmhhZqLeDRsgnwxz+l2x4vKjocglUldPe5/zmPjn3Bq/xer8yPKJYpCZCWD
-         jzknfgqAd/eDsPicNxqbgI4TiK519sO07sob4+ef7qe81GZuUMhN09OrlXFr9GAAsQ9r
-         zRr6UVXLLox4JXH3DTkmj4eUZV7TlXFSx1ySmRnsA8fyShlzcT79k6GSSOI3nEF77NMD
-         1lxT9OVIuzAoE1YvcJ8Cw8qdVN+b0etfDwnvee9u5QGzI3j4cnPdGxsabYHWIiwx2MYG
-         emIMIIDH6P3boixIWAttmfRezg+lmajt2l3ZMltVZLRDSXGeDJyKg/B8vfF0KdDrJGkA
-         /uBw==
+        bh=WyarTx/bV9rblC65snb3qvytdBQ7XGyyP0s6efBhIqA=;
+        b=bWyZdz+4Odo+pV3pBPEKqm+VJmtMWbAXgj5ElnT3YyQb3s4wFW/xyewuPi1bd7VLQE
+         WDjLKmuL4AsXIhpFFYy0I3wgA3w/M1/mIVXdXZzLR9r7gqdulH4OjOgnW1Y3MaFXBMLw
+         t8valu4PRUkygn4IMwQ4PYHWb0J9hTfdexs/IollgoXBqsUzlayof3xqmkNhrpyvL969
+         46maTJoI+CjmWp/6JfWDDOMoFj7PkVuNHTpkUeWEDVnq0lF/0GVO1x3JqLUN9RNBG6sT
+         Vj1gMrBYR4RgWC0jirW6fzwL0MSZQ0wDF96LcSaonel4e8N7aUfJbvmLS4wrfbA2m+lm
+         XRgw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623 header.b=IuuCgqYx;
-       spf=pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::62e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
-Received: from mail-pl1-x62e.google.com (mail-pl1-x62e.google.com. [2607:f8b0:4864:20::62e])
-        by gmr-mx.google.com with ESMTPS id i6si137319vko.5.2021.08.12.14.09.26
+       dkim=pass header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623 header.b=rYySSj0V;
+       spf=pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::635 as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
+Received: from mail-pl1-x635.google.com (mail-pl1-x635.google.com. [2607:f8b0:4864:20::635])
+        by gmr-mx.google.com with ESMTPS id o15si219651pfu.0.2021.08.12.14.16.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Aug 2021 14:09:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::62e as permitted sender) client-ip=2607:f8b0:4864:20::62e;
-Received: by mail-pl1-x62e.google.com with SMTP id k2so8977983plk.13
-        for <clang-built-linux@googlegroups.com>; Thu, 12 Aug 2021 14:09:26 -0700 (PDT)
-X-Received: by 2002:a17:90a:1b2e:: with SMTP id q43mr6086414pjq.217.1628802566538;
- Thu, 12 Aug 2021 14:09:26 -0700 (PDT)
+        Thu, 12 Aug 2021 14:16:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::635 as permitted sender) client-ip=2607:f8b0:4864:20::635;
+Received: by mail-pl1-x635.google.com with SMTP id e15so9043767plh.8
+        for <clang-built-linux@googlegroups.com>; Thu, 12 Aug 2021 14:16:09 -0700 (PDT)
+X-Received: by 2002:a63:aa43:: with SMTP id x3mr5645795pgo.208.1628802969580;
+ Thu, 12 Aug 2021 14:16:09 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210812204027.338872-1-nathan@kernel.org> <20210812204027.338872-3-nathan@kernel.org>
-In-Reply-To: <20210812204027.338872-3-nathan@kernel.org>
+References: <20210812204027.338872-1-nathan@kernel.org> <20210812204027.338872-4-nathan@kernel.org>
+In-Reply-To: <20210812204027.338872-4-nathan@kernel.org>
 From: Phillip Potter <phil@philpotter.co.uk>
-Date: Thu, 12 Aug 2021 22:09:15 +0100
-Message-ID: <CAA=Fs0k=MeBAHeCK4kFd9p5S5mqER931DGs-mp6Di92rCmAJGg@mail.gmail.com>
-Subject: Re: [PATCH 2/3] staging: r8188eu: Remove uninitialized use of
- ether_type in portctrl()
+Date: Thu, 12 Aug 2021 22:15:58 +0100
+Message-ID: <CAA=Fs0k00kWr-e+40uMVQy9gNfnYy+znaQ4OS5XqE4ouc4fpmg@mail.gmail.com>
+Subject: Re: [PATCH 3/3] staging: r8188eu: Reorganize error handling in rtw_drv_init()
 To: Nathan Chancellor <nathan@kernel.org>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Larry Finger <Larry.Finger@lwfinger.net>, 
 	Nick Desaulniers <ndesaulniers@google.com>, linux-staging@lists.linux.dev, 
@@ -113,8 +112,8 @@ Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: phil@philpotter.co.uk
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
  header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623
- header.b=IuuCgqYx;       spf=pass (google.com: domain of phil@philpotter.co.uk
- designates 2607:f8b0:4864:20::62e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
+ header.b=rYySSj0V;       spf=pass (google.com: domain of phil@philpotter.co.uk
+ designates 2607:f8b0:4864:20::635 as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,45 +131,104 @@ On Thu, 12 Aug 2021 at 21:40, Nathan Chancellor <nathan@kernel.org> wrote:
 > After commit 987219ad34a6 ("staging: r8188eu: remove lines from Makefile
 > that silence build warnings"), clang warns:
 >
-> drivers/staging/r8188eu/core/rtw_recv.c:499:8: warning: variable
-> 'ether_type' is uninitialized when used here [-Wuninitialized]
->                         if (ether_type == eapol_type)
->                             ^~~~~~~~~~
-> drivers/staging/r8188eu/core/rtw_recv.c:458:16: note: initialize the
-> variable 'ether_type' to silence this warning
->         u16     ether_type;
->                           ^
->                            = 0
+> drivers/staging/r8188eu/os_dep/usb_intf.c:726:6: warning: variable
+> 'status' is used uninitialized whenever 'if' condition is true
+> [-Wsometimes-uninitialized]
+>         if (!if1) {
+>             ^~~~
+> drivers/staging/r8188eu/os_dep/usb_intf.c:741:6: note: uninitialized use
+> occurs here
+>         if (status != _SUCCESS)
+>             ^~~~~~
+> drivers/staging/r8188eu/os_dep/usb_intf.c:726:2: note: remove the 'if'
+> if its condition is always false
+>         if (!if1) {
+>         ^~~~~~~~~~~
+> drivers/staging/r8188eu/os_dep/usb_intf.c:714:12: note: initialize the
+> variable 'status' to silence this warning
+>         int status;
+>                   ^
+>                    = 0
 > 1 warning generated.
 >
-> This if statement sets the exact same assignment as above so just remove
-> it.
+> status is not initialized if the call to usb_dvobj_init() or
+> rtw_usb_if1_init() fails.
+>
+> Looking at the error function as a whole, the error handling is odd
+> compared to the rest of the kernel, which prefers to set error codes on
+> goto paths, rather than a global "status" variable which determines the
+> error code at the end of the function and function calls in the case of
+> error.
+>
+> Rearrange the error handling of this function to bring it more inline
+> with how the kernel does it in most cases, which helps readability.
+>
+> The call to rtw_usb_if1_deinit() is eliminated because it is not
+> possible to ever hit it; if rtw_usb_if1_init() fails, the goto call
+> jumps over the call to rtw_usb_if1_deinit() and in the success case,
+> status is set to _SUCCESS.
 >
 > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 > ---
->  drivers/staging/r8188eu/core/rtw_recv.c | 4 ----
->  1 file changed, 4 deletions(-)
+>  drivers/staging/r8188eu/os_dep/usb_intf.c | 20 ++++++++++----------
+>  1 file changed, 10 insertions(+), 10 deletions(-)
 >
-> diff --git a/drivers/staging/r8188eu/core/rtw_recv.c b/drivers/staging/r8188eu/core/rtw_recv.c
-> index 9b3637e49052..8df38db9572c 100644
-> --- a/drivers/staging/r8188eu/core/rtw_recv.c
-> +++ b/drivers/staging/r8188eu/core/rtw_recv.c
-> @@ -495,10 +495,6 @@ static struct recv_frame *portctrl(struct adapter *adapter, struct recv_frame *p
->                         /* allowed */
->                         /* check decryption status, and decrypt the frame if needed */
->                         prtnframe = precv_frame;
-> -                       /* check is the EAPOL frame or not (Rekey) */
-> -                       if (ether_type == eapol_type)
-> -                               /* check Rekey */
-> -                               prtnframe = precv_frame;
->                 }
->         } else {
->                 prtnframe = precv_frame;
+> diff --git a/drivers/staging/r8188eu/os_dep/usb_intf.c b/drivers/staging/r8188eu/os_dep/usb_intf.c
+> index a462cb6f3005..667f41125a87 100644
+> --- a/drivers/staging/r8188eu/os_dep/usb_intf.c
+> +++ b/drivers/staging/r8188eu/os_dep/usb_intf.c
+> @@ -704,20 +704,23 @@ static void rtw_usb_if1_deinit(struct adapter *if1)
+>  static int rtw_drv_init(struct usb_interface *pusb_intf, const struct usb_device_id *pdid)
+>  {
+>         struct adapter *if1 = NULL;
+> -       int status;
+>         struct dvobj_priv *dvobj;
+> +       int ret;
+>
+>         /* step 0. */
+>         process_spec_devid(pdid);
+>
+>         /* Initialize dvobj_priv */
+>         dvobj = usb_dvobj_init(pusb_intf);
+> -       if (!dvobj)
+> -               goto exit;
+> +       if (!dvobj) {
+> +               ret = -ENODEV;
+> +               goto err;
+> +       }
+>
+>         if1 = rtw_usb_if1_init(dvobj, pusb_intf);
+>         if (!if1) {
+>                 DBG_88E("rtw_init_primarystruct adapter Failed!\n");
+> +               ret = -ENODEV;
+>                 goto free_dvobj;
+>         }
+>
+> @@ -726,15 +729,12 @@ static int rtw_drv_init(struct usb_interface *pusb_intf, const struct usb_device
+>                 rtw_signal_process(ui_pid[1], SIGUSR2);
+>         }
+>
+> -       status = _SUCCESS;
+> +       return 0;
+>
+> -       if (status != _SUCCESS && if1)
+> -               rtw_usb_if1_deinit(if1);
+>  free_dvobj:
+> -       if (status != _SUCCESS)
+> -               usb_dvobj_deinit(pusb_intf);
+> -exit:
+> -       return status == _SUCCESS ? 0 : -ENODEV;
+> +       usb_dvobj_deinit(pusb_intf);
+> +err:
+> +       return ret;
+>  }
+>
+>  /*
 > --
 > 2.33.0.rc2
 >
 
-Thanks again.
+Looks good as far as I can see, nicely done. Thanks.
 
 Acked-by: Phillip Potter <phil@philpotter.co.uk>
 
@@ -180,4 +238,4 @@ Phil
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAA%3DFs0k%3DMeBAHeCK4kFd9p5S5mqER931DGs-mp6Di92rCmAJGg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAA%3DFs0k00kWr-e%2B40uMVQy9gNfnYy%2BznaQ4OS5XqE4ouc4fpmg%40mail.gmail.com.
