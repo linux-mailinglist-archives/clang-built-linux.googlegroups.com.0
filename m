@@ -1,137 +1,132 @@
-Return-Path: <clang-built-linux+bncBCYIFQES4IBBBY4E2OEAMGQET22WT2I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY57XFCRMIBB24N2OEAMGQESHSX6JA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3C4503E9EB0
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 08:40:36 +0200 (CEST)
-Received: by mail-lf1-x13f.google.com with SMTP id s1-20020a0565122141b02903bf02f21443sf1595285lfr.17
-        for <lists+clang-built-linux@lfdr.de>; Wed, 11 Aug 2021 23:40:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628750435; cv=pass;
+Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
+	by mail.lfdr.de (Postfix) with ESMTPS id DF4BC3E9F1B
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 08:59:56 +0200 (CEST)
+Received: by mail-pl1-x63b.google.com with SMTP id w23-20020a170902d71700b0012d8286e44bsf182789ply.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 11 Aug 2021 23:59:56 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628751595; cv=pass;
         d=google.com; s=arc-20160816;
-        b=J7u9eaQYSqGp/zCJTb6gA4a9n0rXcuuaeyjswMQC4LeddX/gYGVd4ucoT8iFoho4zi
-         oL0psEKhqUU0N+X0xztMr9m+nfeDr1qSGMzefVJgMC2kGk+Bi5gCGUbW2oVL/DFp2A6j
-         28Tz77/p36WXQ5gkPbq6V5ABuSUjcwjikr3SkNqARsLykQmmJofcycLoxugKFoILoYN7
-         SisWrfGegqXZVjfVpwBNIA3BPohe7CTYNSozsfjbywMdES7Hp+/0XJlh/08tiYTNu6jf
-         V0SUxqXepXMtOXxiKqW5dpHPWUj8/3++t25mF/1N0d3MEqIyTNw8xmKhflcbJ8LHSK8f
-         ObpA==
+        b=dVPCLNvaIw/61qzhzcog3YThMSki5iYbp7ept234/OdqlYgwSoTCg5HUskFH0xyOA5
+         fH07Xw+u1ArPT7SbZNsCwOkzbGgmm6AGI3y55H6tU4EYBR3dbD/kYCQ+xd10D21wGXMS
+         4+32mgA/NULr0qMmCpASdoAl8/wkNBXXcl5rAh/jtYy4LHDNIj0l9kW8nEQSZDeOowbr
+         YSRIO6rv1zx5QLqTuzjKLooJ1SrbBkHHx0HLjwUiJ0p8xTHXkSeO5C1m4YVqQ7vdS6dv
+         8yfKRzpw56ut6OH3ODY32yhp2JpQVtOXuS4X8BaYQEtvk/NacNqxxghB4V0oXy6iKS29
+         iHSg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=G+LyTtZyTkiz190wh3ODeB2VEIECKPHVDCiHcyUvGU4=;
-        b=W19oVQr04PT7W2xijh5l5pg5cvslUP3bQaBTnR5VyKvJyYC+JQ+w3qlUS3lfpHezAG
-         4ZHdvzE2cNs2btwR7mcxuYRsDKKHx60WTfHbBpyzMj8ZCWbUG3EuFsZL/wYIoYEuoSFX
-         MVUtrf2bmg1relbvQRMXej9rs0mskAfT12uaiibpS9d2YcMr5JmImqFZhP1HHi1GR8DK
-         HKEfuxRmEp5SILfxhmiTaRxw6kz7zIigbBDM5uUlUdD3lnrOZWThOdN6dS0UywK80rmX
-         BexcRwTUt1SqMWnAveKsw94yZR04STJfjG9E7Pm7xAHBQTvlQa78GpfSc6xi48qkfQih
-         5N9A==
+         :list-id:mailing-list:precedence:message-id:date:subject:to:from
+         :mime-version:sender:dkim-signature;
+        bh=+BdmR8X2OGeba/lG3X0M2ps/sPdySSKdVLyxZFjMj1o=;
+        b=PPyxxGnDta0nBkuiRrojasDWu1YVas4+ThZCQ3hoWcOxZPMZSQ9EgmRdsCQHNvHn9V
+         FWfCAhS2tKzsGfZ0kgI3hTBBgGOCFqrBnPWPatKoydJ5wY25EUlOlnD0ZpMnxPnvGz0r
+         H2hKDChjrT20aSVMO5AdlTofhIWiSQWaDkIbeB4G/Afcge7kFcVA97nDCx5Vog6+NGdK
+         fWyby4ETtEjiRw8wlFG079ARw/pDdyOoMVIUoflGXmJDuGlb0ZF1M7Moe9qgkZyXd6Ne
+         DTTxu79xHsxeZq0Hs8hqOZVAEuUbVLslj7rB1XIqBN9NgeKlJLrrTOEx8zu4BycLahy0
+         sfPw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BZR2HXeM;
-       spf=pass (google.com: domain of zhang.lyra@gmail.com designates 2a00:1450:4864:20::335 as permitted sender) smtp.mailfrom=zhang.lyra@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=NH48j3mv;
+       spf=pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=G+LyTtZyTkiz190wh3ODeB2VEIECKPHVDCiHcyUvGU4=;
-        b=PNbNA5DvcihKC55sOh3amn2aUXWa0nC5EGd5aLzwnSZjiUqcW0vSpoBD0Xfr7xxPzd
-         U0IaMyRsgecvAfE/DaQEedHD0iiK60QS0H3lbu2lMZqfoLLpdw4+/Cp7yIftzypPp6s4
-         VOhHgvRmEty//R9if2dkYdC/n+U12UW2pMGth9n6BVmZeTtNXJFr3zpClHz3L5T175Ml
-         DbxBl8CzXzuaGut6uSBUPQs+ISzKRiF1pDeheHScF8rdzOz0jDl9nbXvfXttQgr+7Uv0
-         Cdaa/3l2J1YKCh3cdzPniR9g7VLmJyoqvJ5HWJeSoxQm97tR8mNheW1DpDceyapnPCNw
-         qbhg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:from:to:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=G+LyTtZyTkiz190wh3ODeB2VEIECKPHVDCiHcyUvGU4=;
-        b=ok8fqmqldDOUIySWK2KuTX0lAKzHs5uq90LVbVDoy7Z7RH2T0vkaXml3oDDlZKDSyf
-         vgrsf2ZN2prqQf0N6vVaTcidelqsmyMf9tQEKofgkRMwxfQByzNIcORtBMhn+nn/2b/5
-         sXRcA/PgRBtcP2qsfR7KIxlqVWhnomu5whc6vOzrXmtcFwAn/ZqNNYlal8n7dWfHz2ky
-         BAgrgJairo6fgTH5D9mhDlQ3bJneHlun2XTsgxlE9TQ2grEBaJmHhlZ+9uUSwy/Zboao
-         +ZIniTLHpa/GA8vaD0n/atIiQRwzsnFod6GMl9RvZCaOYS+gTv4xzM6XI34E1Gyw3jlb
-         witA==
+        bh=+BdmR8X2OGeba/lG3X0M2ps/sPdySSKdVLyxZFjMj1o=;
+        b=KLJVzRIcI4GUkQNq+ekWOfrDHtiDOqBik7qcz+Oo7kGbYZDCXpaAfm0EZsDLe4Ycrl
+         DEEl4XifmQ5krVqKlTsQlMpb8Z92APAACka0yE7FjlWFgJsGzT7W57wz2D0Y0WtHDyl6
+         hIEk/qYTU3QqhPje2UwLyev6uvqWRYBIgHltrj16ChMn1UZkBqJAseT6xqCTAs9JxJ5T
+         77WQNTL7memCswnJ3g4VspYA2URxKlpFf7pKNHeK39OGWHYu7u0FmiaoE8TSN+0PSKW1
+         IKMgIphAymafqGx4/KtHzk+cS+aSNAZxL+uBQB4CqGw56NNx24PqVtTgSjSRnkmR0h8+
+         /Z4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=G+LyTtZyTkiz190wh3ODeB2VEIECKPHVDCiHcyUvGU4=;
-        b=J6JMiyzrp7RW410Qv5fsLw4oWETWa4BeIccN7xoVRKVLiayk60fWKfJdXWRHxtyjrj
-         8vlK+VoM+Y+0XkzN11JUIUCOHrgpKkLrGbbQfYsJ5J3ONn/zZWObDb6HeWa4rsIeIcqD
-         XgP34DqG6J4QRf7hCnxCfe+ltuqspkOEaC/EDCVAEr3YBoU6zqfxtEBT7kVAyVqOfYAN
-         G7H2tFZ0vqMPiDFPe8Mt45DX+m6pfFt3+Gc4FoYfrFIZwF5N5YgKFLeFaoQPIuKxOlPm
-         Okp1+dRoEjv+YD8M1zhAe/UlPW7KzH43dZGgPHo8NyOkLUfQDRLTMDB3bfQegAmBUabL
-         hFow==
+        h=sender:x-gm-message-state:mime-version:from:to:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=+BdmR8X2OGeba/lG3X0M2ps/sPdySSKdVLyxZFjMj1o=;
+        b=BsuEWwEeKeZbaohCKnev8/5DsTY4cFQ+hZlypati2FBoUPr2Y2O5EMRt/9ABOCFSOo
+         /QEFLpF/CIXVesB/GhJf6QYYrAsNtRljluFz0LM0i177XXyBTrhR3kNkJKF2T3VrESiE
+         du3g6ss/bB355LbM4+xW/2mSRJIYhD2ay4SeUL/vuYynxuGBC8Zpqp3XZTb7RHfP3afH
+         M4Ik/c4KARZlApUlQ9EuBHtmlDAGoDGk5YgEd3aLIgGsB/1iPF4kVhHNeKTluW7NA9rd
+         YLOKepfI+LBP95byUR5oiYWfZPs6+3i8h2/fWhrgkinPmRVBK4PvHGW2IV9D9dflOS23
+         Kl7A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532rTQj8ReSdv/9BSGjObY8Xz/Mz1BxWpIRySgOuzDksZN6/txa2
-	7dTScDUqgNkX+qnGSg/rtWk=
-X-Google-Smtp-Source: ABdhPJwR3DYbwKJZrwVxKloOyvwbEpjm0UBasPxibeGIQmTDnaxy4h9JTB+GLb3KB0A6viLhfNApCw==
-X-Received: by 2002:a05:6512:b1f:: with SMTP id w31mr1403637lfu.617.1628750435743;
-        Wed, 11 Aug 2021 23:40:35 -0700 (PDT)
+X-Gm-Message-State: AOAM530pSxBPrPIkpJn9ob1iS0GrHscQ8GW//dWwmrFFOJRbnauGbBFM
+	zYOnFmdUj90dui6zcspcnAc=
+X-Google-Smtp-Source: ABdhPJxtXLBm7uS1WNj1kqDutzAv1jATBYZR3xuYI0NIo/9NIsnflgspYXFSobEdB8Fv9EN/f4o3Ag==
+X-Received: by 2002:a05:6a00:15d0:b029:3ca:5e92:1d42 with SMTP id o16-20020a056a0015d0b02903ca5e921d42mr2715778pfu.55.1628751595220;
+        Wed, 11 Aug 2021 23:59:55 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:3210:: with SMTP id y16ls795882ljy.7.gmail; Wed, 11 Aug
- 2021 23:40:34 -0700 (PDT)
-X-Received: by 2002:a2e:b8d3:: with SMTP id s19mr1850385ljp.388.1628750434647;
-        Wed, 11 Aug 2021 23:40:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628750434; cv=none;
+Received: by 2002:a17:902:aa8d:: with SMTP id d13ls2143773plr.4.gmail; Wed, 11
+ Aug 2021 23:59:54 -0700 (PDT)
+X-Received: by 2002:a17:90a:c7d5:: with SMTP id gf21mr8899804pjb.111.1628751594668;
+        Wed, 11 Aug 2021 23:59:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628751594; cv=none;
         d=google.com; s=arc-20160816;
-        b=HxlJ4G8XIO0CtFYb6E0k7KRIik1j2VNCpSaeFtYs8QVqVAM2Ottu2+wNBoyeQe6V2W
-         c4d5HIqmFuWk1rScBYXgojtLTHBIrSJGNRsHOswTkSjiQd3pl8E3Y6au/y3MRsKFJZ6I
-         /0InpiDDHj4c6ySSY9P9QcgeXn4t9rT9vOA3HA6EKN6jYc+leCUEJLNkbazYE8g4q9zj
-         sxVJ602r6j9JRMIfcjbr96OAmBDJmpCdt+09LNARkgMCu80QXPOHE1vkvB6tgskHbonb
-         nS/qxyWLbnjm340ohVqO8Hy1f3/dfU3JxlmWxw8vH0AwtIExXED9Qxk0ah6B8Xdn6gOf
-         jQQg==
+        b=tLt0dxkDsgZXv227tvnEpLEw6y4kzGNFfne0NzOS6c6vXJnKVyVBOH4tkCLDfc5lga
+         hVH9y/92aIZHYtVKOIJdX0qZ1aPoAl2JSOXPH0ZoiFAWmtm8gWEOAeHaeO5PvqgfF3TG
+         ZgEQyHOGo5lhkmtj46+OfBl3AwDT92+MMWUnYzAS8GnWJrg0yzfs4q7N42paWadVU59D
+         OmgiAnK1p5Ymh6qgj1Sz9EafbmusGCRYDFXyWUAT4jnW7FUM52gsoQ7yY+I3j0Cj/hhj
+         99vGQvZxzcS6ftdpqmCBz3L8I0LfODsWP6o9HVY62gYqzU2imDH4iMwInXz9+Lc3mLrn
+         d75w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=K41j9DktzdPkzZcW4NynOEKUrMsYRmyYnRWzSkHUVqU=;
-        b=0+4GHeQNxw1OwjOFIpesqbh80t+ztMNyXcF2XC5iovgqmMzcfLrTogpvwoeMyjKdTF
-         xelT53f12yeDLJtMsUpfpMWBh/jlpieGHrBy83yiPaQqDElFYpR5xwZOM8NVeIG8cNIC
-         ozl4j3X1xRNUgQIleUFrzwCCb97mGXh4/c6Rd1ON7+0S+MpCVamDz19GuI7lDBHiiwuj
-         AL2ZVyE2Aba3aPUv1dy2WHkzc3b2soOSW2CL7ygEe58PTa38xa7bToyKSL8xcoqQXhFb
-         IvK5bI6RnSkyKwlTGkqTBaylj967lzx6qUqFmhtpZ0fKSfsxjh3zDgbTObuAs0OmoL6N
-         S6iw==
+        h=message-id:date:subject:to:from:mime-version:dkim-signature;
+        bh=0/rfopSh46LqT+emtTJ3tWWSUzM1ws1XnCxpPcZHfTI=;
+        b=QP3DwRp8jkCvz31xBtumonuxtyqrZfMlYtxjAvuwdMBs3DqN1UHWpbRfNeRjIwy6bC
+         5BcsAj9LUpdckZO1YDV0su0STBRXReJWTbL4tBmU0FcIJ7iGLjcUqEBwXzKNVC7OAYTz
+         guRN1HK/rqXznTy46bzsLPsyHlFPDrqktdJwmUBoF4QTjcrMduLL8r46hKn9IVJqri6b
+         gjnUbnJMFlVlSVbPtlJzzexbr7dFKs3brX9fqJ2FG1mVtLN0wLyI3ucbJKF4gjdL/5xu
+         m8gwzOtIUo8AlKRAJchkNyF7JFVdnRs52zZ24McB9NOPbtEaooAdIx4dHby+SgLGVSD9
+         NITg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BZR2HXeM;
-       spf=pass (google.com: domain of zhang.lyra@gmail.com designates 2a00:1450:4864:20::335 as permitted sender) smtp.mailfrom=zhang.lyra@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wm1-x335.google.com (mail-wm1-x335.google.com. [2a00:1450:4864:20::335])
-        by gmr-mx.google.com with ESMTPS id q8si65166ljb.6.2021.08.11.23.40.34
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=NH48j3mv;
+       spf=pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
+        by gmr-mx.google.com with ESMTPS id q10si98830pgv.5.2021.08.11.23.59.54
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 11 Aug 2021 23:40:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of zhang.lyra@gmail.com designates 2a00:1450:4864:20::335 as permitted sender) client-ip=2a00:1450:4864:20::335;
-Received: by mail-wm1-x335.google.com with SMTP id l34-20020a05600c1d22b02902573c214807so6236009wms.2
-        for <clang-built-linux@googlegroups.com>; Wed, 11 Aug 2021 23:40:34 -0700 (PDT)
-X-Received: by 2002:a05:600c:5108:: with SMTP id o8mr2232936wms.97.1628750434144;
- Wed, 11 Aug 2021 23:40:34 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 11 Aug 2021 23:59:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cki-project@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-559-Ge5TznK4Pkadygpxvj2zdA-1; Thu, 12 Aug 2021 02:59:50 -0400
+X-MC-Unique: Ge5TznK4Pkadygpxvj2zdA-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B50EA801A92
+	for <clang-built-linux@googlegroups.com>; Thu, 12 Aug 2021 06:59:49 +0000 (UTC)
+Received: from [172.64.11.61] (unknown [10.30.34.114])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 126A5781E8;
+	Thu, 12 Aug 2021 06:59:45 +0000 (UTC)
 MIME-Version: 1.0
-References: <20210715065455.392923-2-zhang.lyra@gmail.com> <202108011431.Nx7sS0uY-lkp@intel.com>
-In-Reply-To: <202108011431.Nx7sS0uY-lkp@intel.com>
-From: Chunyan Zhang <zhang.lyra@gmail.com>
-Date: Thu, 12 Aug 2021 14:39:57 +0800
-Message-ID: <CAAfSe-vY9bkLb7Q2Tn=2ug6pau9VHkfZyvmoQNMqeKmxfquOHg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] drivers/clocksource/timer-of: Remove __init markings
-To: kernel test robot <lkp@intel.com>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	clang-built-linux@googlegroups.com, kbuild-all@lists.01.org, 
-	Saravana Kannan <saravanak@google.com>, Baolin Wang <baolin.wang7@gmail.com>, 
-	Orson Zhai <orsonzhai@gmail.com>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: zhang.lyra@gmail.com
+From: CKI Project <cki-project@redhat.com>
+To: clang-built-linux@googlegroups.com
+Subject: =?utf-8?b?4p2M?= FAIL: Test report for kernel 
+ (mainline.kernel.org-clang, 1746f4db)
+Date: Thu, 12 Aug 2021 06:59:45 -0000
+Message-ID: <cki.199FBBAAF0.0JI117FRY9@redhat.com>
+X-Gitlab-Pipeline-ID: 352001643
+X-Gitlab-Url: https://gitlab.com
+X-Gitlab-Path: =?utf-8?q?/redhat/red-hat-ci-tools/kernel/cki-internal-pipeli?=
+ =?utf-8?q?nes/cki-trusted-contributors/pipelines/352001643?=
+X-DataWarehouse-Checkout-IID: 17638
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Type: multipart/mixed; boundary="===============6998149704851664011=="
+X-Original-Sender: cki-project@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=BZR2HXeM;       spf=pass
- (google.com: domain of zhang.lyra@gmail.com designates 2a00:1450:4864:20::335
- as permitted sender) smtp.mailfrom=zhang.lyra@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@redhat.com header.s=mimecast20190719 header.b=NH48j3mv;
+       spf=pass (google.com: domain of cki-project@redhat.com designates
+ 216.205.24.124 as permitted sender) smtp.mailfrom=cki-project@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,101 +139,89 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, 1 Aug 2021 at 14:18, kernel test robot <lkp@intel.com> wrote:
->
-> Hi Chunyan,
->
-> I love your patch! Yet something to improve:
->
-> [auto build test ERROR on tip/timers/core]
-> [also build test ERROR on linux/master linus/master v5.14-rc3 next-20210730]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
->
-> url:    https://github.com/0day-ci/linux/commits/Chunyan-Zhang/Add-module-build-support-for-timer-driver/20210715-145711
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git 2d0a9eb23ccfdf11308bec6db0bc007585d919d2
-> config: s390-buildonly-randconfig-r003-20210728 (attached as .config)
-> compiler: clang version 13.0.0 (https://github.com/llvm/llvm-project c49df15c278857adecd12db6bb1cdc96885f7079)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install s390 cross compiling tool for clang build
->         # apt-get install binutils-s390x-linux-gnu
->         # https://github.com/0day-ci/linux/commit/8e3c2c4da32affdbca933979110050e564351c84
->         git remote add linux-review https://github.com/0day-ci/linux
->         git fetch --no-tags linux-review Chunyan-Zhang/Add-module-build-support-for-timer-driver/20210715-145711
->         git checkout 8e3c2c4da32affdbca933979110050e564351c84
->         # save the attached .config to linux build tree
->         mkdir build_dir
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross O=build_dir ARCH=s390 SHELL=/bin/bash
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
-> All errors (new ones prefixed by >>):
->
->    s390x-linux-gnu-ld: drivers/tty/ipwireless/main.o: in function `ipwireless_attach':
->    main.c:(.text+0x21a): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: main.c:(.text+0x270): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: drivers/tty/ipwireless/main.o: in function `ipwireless_detach':
->    main.c:(.text+0x478): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: main.c:(.text+0x4d4): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: drivers/tty/ipwireless/main.o: in function `ipwireless_probe':
->    main.c:(.text+0x70c): undefined reference to `ioremap'
->    s390x-linux-gnu-ld: main.c:(.text+0x83e): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: main.c:(.text+0x8b6): undefined reference to `ioremap'
->    s390x-linux-gnu-ld: main.c:(.text+0x93a): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: drivers/char/xillybus/xillybus_of.o: in function `xilly_drv_probe':
->    xillybus_of.c:(.text+0x9a): undefined reference to `devm_platform_ioremap_resource'
->    s390x-linux-gnu-ld: drivers/net/arcnet/arc-rimi.o: in function `check_mirror':
->    arc-rimi.c:(.text+0x5c): undefined reference to `ioremap'
->    s390x-linux-gnu-ld: arc-rimi.c:(.text+0xc2): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: drivers/net/arcnet/arc-rimi.o: in function `arc_rimi_exit':
->    arc-rimi.c:(.exit.text+0x44): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: drivers/net/arcnet/arc-rimi.o: in function `arcrimi_found':
->    arc-rimi.c:(.init.text+0x37c): undefined reference to `ioremap'
->    s390x-linux-gnu-ld: arc-rimi.c:(.init.text+0x3c8): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: arc-rimi.c:(.init.text+0x614): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: arc-rimi.c:(.init.text+0x674): undefined reference to `ioremap'
->    s390x-linux-gnu-ld: arc-rimi.c:(.init.text+0x6de): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: drivers/net/ethernet/fujitsu/fmvj18x_cs.o: in function `fmvj18x_probe':
->    fmvj18x_cs.c:(.text+0x756): undefined reference to `ioremap'
->    s390x-linux-gnu-ld: fmvj18x_cs.c:(.text+0x788): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: fmvj18x_cs.c:(.text+0x7e0): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: drivers/net/ethernet/fujitsu/fmvj18x_cs.o: in function `fmvj18x_detach':
->    fmvj18x_cs.c:(.text+0xce0): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: drivers/net/ethernet/fujitsu/fmvj18x_cs.o: in function `fmvj18x_get_hwinfo':
->    fmvj18x_cs.c:(.text+0x27d4): undefined reference to `ioremap'
->    s390x-linux-gnu-ld: fmvj18x_cs.c:(.text+0x2940): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: drivers/pcmcia/cistpl.o: in function `release_cis_mem':
->    cistpl.c:(.text+0x9c): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: drivers/pcmcia/cistpl.o: in function `set_cis_map':
->    cistpl.c:(.text+0x46c): undefined reference to `ioremap'
->    s390x-linux-gnu-ld: cistpl.c:(.text+0x4a8): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: cistpl.c:(.text+0x4e6): undefined reference to `iounmap'
->    s390x-linux-gnu-ld: cistpl.c:(.text+0x4f8): undefined reference to `ioremap'
->    s390x-linux-gnu-ld: drivers/crypto/ccree/cc_driver.o: in function `ccree_probe':
->    cc_driver.c:(.text+0x5a8): undefined reference to `devm_ioremap_resource'
->    s390x-linux-gnu-ld: drivers/crypto/ccree/cc_debugfs.o: in function `cc_debugfs_init':
->    cc_debugfs.c:(.text+0xac): undefined reference to `debugfs_create_regset32'
->    s390x-linux-gnu-ld: cc_debugfs.c:(.text+0x190): undefined reference to `debugfs_create_regset32'
->    s390x-linux-gnu-ld: drivers/clocksource/timer-of.o: in function `timer_of_init':
->    timer-of.c:(.text+0x104): undefined reference to `of_iomap'
-> >> s390x-linux-gnu-ld: timer-of.c:(.text+0x306): undefined reference to `iounmap'
-
-Seems TIMER_OF should depend on HAS_IOMEM, but this error is not
-related with changes in the above patch?
+--===============6998149704851664011==
+Content-Type: text/plain; charset="UTF-8"
 
 
->    s390x-linux-gnu-ld: drivers/clocksource/timer-of.o: in function `timer_of_cleanup':
->    timer-of.c:(.text+0x5f2): undefined reference to `iounmap'
->
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+Hello,
+
+We ran automated tests on a recent commit from this kernel tree:
+
+       Kernel repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+            Commit: 1746f4db5135 - Merge tag 'orphans-v5.14-rc6' of git://git.kernel.org/pub/scm/linux/kernel/git/kees/linux
+
+The results of these automated tests are provided below.
+
+    Overall result: FAILED (see details below)
+             Merge: OK
+           Compile: FAILED
+ Selftests compile: FAILED
+
+All kernel binaries, config files, and logs are available for download here:
+
+  https://arr-cki-prod-datawarehouse-public.s3.amazonaws.com/index.html?prefix=datawarehouse-public/2021/08/12/352001643
+
+We attempted to compile the kernel for multiple architectures, but the compile
+failed on one or more architectures:
+
+             s390x: FAILED (see build-s390x.log.xz attachment)
+
+We hope that these logs can help you find the problem quickly. For the full
+detail on our testing procedures, please scroll to the bottom of this message.
+
+Please reply to this email if you have any questions about the tests that we
+ran or if you have any suggestions on how to make future tests more effective.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+______________________________________________________________________________
+
+Compile testing
+---------------
+
+We compiled the kernel for 4 architectures:
+
+    aarch64:
+      make options: make LLVM=1 -j24 INSTALL_MOD_STRIP=1 targz-pkg
+
+    ppc64le:
+      make options: make CC=clang -j24 INSTALL_MOD_STRIP=1 targz-pkg
+
+    s390x:
+
+    x86_64:
+      make options: make LLVM=1 -j24 INSTALL_MOD_STRIP=1 targz-pkg
+
+
+We built the following selftests:
+
+  x86_64:
+      net: OK
+      bpf: fail
+      install and packaging: OK
+
+You can find the full log (build-selftests.log) in the artifact storage above.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAAfSe-vY9bkLb7Q2Tn%3D2ug6pau9VHkfZyvmoQNMqeKmxfquOHg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/cki.199FBBAAF0.0JI117FRY9%40redhat.com.
+
+--===============6998149704851664011==
+Content-Type: application/x-xz
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="build-s390x.log.xz"
+MIME-Version: 1.0
+
+/Td6WFoAAATm1rRGAgAhARYAAAB0L+Wj4ALpAS1dABBhHJ5VZcrATD5900+1yBZ1hAK8kjdaup6u
+qqQD0BeHnpNINE9JghAhltvtVA6oObhw9qMcxarTf0Mrii3CfdkPxtTRHb6s5t4yA6ObEisTt1Sg
+QOoAcF4eEMR1X/td4pdhVXTq8eiIzJCGOdQqLQl1OKtZMKuFZf51uyrhhAM+VWsUoY8qU9zgrT/R
+ZqxmAzBZFdk6i5s9fKYtfIg+ps7QBWbeSvTWAjBQBWLaGYRMJTXJG5OEYhlnaXQDO0YF/wFD3RM6
+hyfIviEXOy0gAolwR7p3aeUQJ7rabSbuvufyC7C5No+fenRAoRHdPkAxjbDBQtv4gwJ7CeCqPdOJ
+K74nrgAEXERsHzRNkLvR4OSglnoh10otfppEhJqFEKIYiUwi5HfBASJou0hRRAAAAAAAu3XhCy2F
+iGUAAckC6gUAAHarezCxxGf7AgAAAAAEWVo=
+--===============6998149704851664011==--
+
