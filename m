@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBUEO22EAMGQE4DRFY2Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBU4O22EAMGQEYMT6AHI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 828A73EABEA
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 22:40:49 +0200 (CEST)
-Received: by mail-pl1-x63d.google.com with SMTP id f9-20020a1709028609b0290128bcba6be7sf4499432plo.18
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 13:40:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628800848; cv=pass;
+Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 334503EABED
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 22:40:52 +0200 (CEST)
+Received: by mail-il1-x137.google.com with SMTP id a2-20020a9266020000b0290222005f354csf3847770ilc.4
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 13:40:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628800851; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PMsxUhhsAChSxc3Kfs3KhBjCTsNuRS2tGSrK0EuVB2o8LmYyU1FTo5UiSndGsFwkTB
-         +TUXRgZrARu4hmOssMU6LDyc3l4dcIkxbGAOFzgSKlYWQD6x4lYyWQZ8joFmsQbS+XKq
-         IHZ8GZYA+1pGijIVkvivwa9vstISCra4+7mzro7UpbqgFPwaCAGpo9jsTo3CpyvriwC9
-         kEocA/5RWRUJQpLnSHi8YU5EplC/JKDdaiVnwKyq5FZnZ8+YwL4dSrmnQ//vfLCwSoUY
-         AUssrSjJoABd6yf4glFwwxkHULMz2C3NhhaR1SIlnaQyCvO+kRCCljjfN1uewk+owHXz
-         x5HQ==
+        b=cMHctu1a0wCMagdw9OTr0EjgcXbowPI+QoH+TWW7ve27B4gX/enCg5k/wfrg95wSuv
+         iqfySPQMDdljoOO/Y4uIu7M9De5dtcRTDRW1EldekG8W0dDgH7nOb1A9YA9rDqW9Ik4T
+         yqyckmhfhrD22Jt0HkBiBTU2iPDIpiMTKOyBtNtZOdHIdTx/UdoYM9icAmVpp/0vR4Z5
+         EUXCIK6sHSM7j6MVREHNAw+LdTb6uL7AzJtXCOkkH8DUAMYiAbJsbakz+dFTV4bApqMz
+         lovaJ9n3Np0JD1709C1fdn2P/UDZw0K0QgQ80SSWzEigkXVOMn6godBW5Qc7jYBmpc6A
+         9VwQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=hfD9JHTc/CjwwIckaaRkhJ2jOKdamN/gs0j5JYcdTRU=;
-        b=Gm7f6f0IrMG/yyjjLalpiWR5+5Kog/w3JrHlC7W542+WuZ3TD87jMxkKh2uyOKh/si
-         kjnFUoUM0+6ZXpgpR7b6MLGxdQtN9ubOuStcOuCwKmtY/TfoUDPsgCpJJxw60vnvldw4
-         T4oCwMGyLmtrOTpEaIHufLUkE96OLJ7lX06eeSgTbrVLiblX9edL6wvF9Ye/G1tXahuE
-         NGMzoLYgFhqrc5jGe6clpgACMtDKVWwXZuXsHGk87sCSjMtnFtyEq+Virru3MheUUt/w
-         0pJ2fgaQxrLMJybYdHW9Ok6P4atN4jmhOL43QzZY0VNDlPdh9YZJscI7viHKg7k6B5nG
-         /Dnw==
+        bh=gTnmPYrbLjZGEHrcEUR0CanJnukTNiTuXRdRbfLPktM=;
+        b=EUQ4q9vbFxeaVEfS/jRU4jay65KrSZZMWiQzophwrC3fQHR08stlTs7FlUXbz0BYrK
+         wRizpxWRHSkF1W45NkblaRIY3ya6GrSpndF9LbEzo1SHsdiOc45Lx7/DakMfP993NWNI
+         DEvGJRL6vDtXjyXZFGB1gEie8TOPX5xdqEYACyGRzVtV08oyaOKIqxK5L5lDQUgHiKuO
+         aX7P89BE087J7cRQ4UU99pzAHCUIdv4zsyWx6mlcJFblTcBVBqggSR0NFnAt50iem7w6
+         j28MFC/iyU0OKo4OfBW/A2+/7obvBqzzHuIv2stKYVCMxH5+LDZ4AE+u0cFaGs95Gmcq
+         r+lQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=G+m6IC7F;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=uUJfM4YR;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=hfD9JHTc/CjwwIckaaRkhJ2jOKdamN/gs0j5JYcdTRU=;
-        b=WDq8lD64829JCclS2AoZEryD2aiegapOvJvigQvCHYkPMeVfaoHOF9ZYs+r/Sx5an2
-         hqqS4BzBZGhu0Uqhj/MzP0IJN+8kUSHCkK20D2XrEl9xbVPhji8+nERCDdfyYb6xFapH
-         sgBiBq/fPBa7Acy+8GGQbV/aPWQG/vlmhLXwH2TkLX93lHMDrs1QasecagG4KIs0VQje
-         j9tBD0A4uGMhEwndS4naAVGRMNSliJbPo8O7KDxCXp7unsWk9QQi/nd+sJbPILZVbrOg
-         ZVD1fCxJpJgHGz8As7NQtogFMHBKO0rf9Jb71/buJMSOy59MLgSKjMoPiF6WFH8PskVM
-         dW2Q==
+        bh=gTnmPYrbLjZGEHrcEUR0CanJnukTNiTuXRdRbfLPktM=;
+        b=DzhpV5Eu9sBZ+A6UYo2i+Mop89cOJDIDNYwfFhJzJewOi6QU1Kb+hqsa+IJegt6zEe
+         nNuIiSACkunyEuhddb3FhQmWRrWnBy2PpEyZ1ds9Upzw6HYdwvfhCGCQBBa0vd7+UFwY
+         BGVCuVBZHfJ/bPWnktlwbU2+W1y3MIfQ+jnl/rcCCX9lRTwSdK6+H1H6UHyW6jNgPeps
+         0uFcAN5aTQFkBkLXla8GF3DJhDK5ooOKZBY4W9/Pv9tJ51tHwmuuFLSimX27736kzBTe
+         vafPq07hfUiKcFw0EpNbNFyeycv6XXyUsnAzVNG+iT5Q6wechhnYfEPwUpUVYKEG7fAM
+         Feig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,54 +49,54 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=hfD9JHTc/CjwwIckaaRkhJ2jOKdamN/gs0j5JYcdTRU=;
-        b=NdKs2a7XHymowBGwOq5iEaggX99M9OIo2wj8W11UUvAPQ8wXNjQh6JhvhY0PVmBM86
-         ZKHG3dGxb4/MMHZrtBXLOjNm3874P5yaA3kbU8uVpBmdQUZxT0XnAXKDsyVlz3kXBiPB
-         WAR5Ibp93A9HIRnKFIX7li3o8RmE1IxJ5brXT4ZY1ZrOs5lqY3vbLpgd4t+YK72aBVU7
-         ZXF+aJBlMRAybt3IqzNTZ1MlOIU3/45YDhs079KC859Ozr/BoffXeYakdI5Nt136K6nb
-         n9IwtQVVCl17W+EZSMCYe40yO287+YFer2P+ukRb7OhhInvFYKvWh91mCbmyhwFU6bRV
-         Gnng==
+        bh=gTnmPYrbLjZGEHrcEUR0CanJnukTNiTuXRdRbfLPktM=;
+        b=CLp2KJ9e54OUQzrnBtI0Agfl8sqVymjYLnkeinJTRX4AV0P7vYIVRR68nxBWCDzrhC
+         WKLNyeO52JWliGJ2lIIiRqfEtCh9Cc9Bhl/n5ZZ1/VuyDEPAgBaTQthuouMXBuCL0SlF
+         7bo+mZAkLZjYmrXxZiGzTjU/19y0CNL24idKimYAq3Xoa/0/Z/EKthamy3OYo1Lld5j6
+         o0COphS59toeK2rwhaRnY2gkr3+KsbhvN4GAl6ED9SR3lP9jbodxTBd5rD/TVTSE2me0
+         1f0dY8ZdwwQuUjwyVK3KHFGaiqkYKlZgF8Eun6nvos9y4wWQ2Mo5jArj2H8qJZMwC0yd
+         13+Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530AKpKspmmfA+U/1Ug1lCGTV5yT651pRbTwJC80+OaRFuYP1ZVX
-	Oo7nOIJSKEx0qFTS5/TNCVU=
-X-Google-Smtp-Source: ABdhPJws/nMCaT3eKlW1zez+WUArzEA6e7wSB/9YijbXyllxd9DDYEkqq4pQ0Nw5x+KVEnY6knUJDw==
-X-Received: by 2002:aa7:8585:0:b029:3c7:e8ce:20a7 with SMTP id w5-20020aa785850000b02903c7e8ce20a7mr5838848pfn.64.1628800848242;
-        Thu, 12 Aug 2021 13:40:48 -0700 (PDT)
+X-Gm-Message-State: AOAM533oSQYzYxwDsQ40Qh8GaSj4XylU1FruMao7Mwj2vkeENdc+Avnv
+	Deb6C6vpcgYAU0hbDjdlSeU=
+X-Google-Smtp-Source: ABdhPJzZwz737iwmbfK9q57FMS8LKA1A36lIen0FBEcfs5/Z6k9b1GVypv4rdnBwyGIRpr0Obndfqg==
+X-Received: by 2002:a02:350a:: with SMTP id k10mr5402812jaa.55.1628800851196;
+        Thu, 12 Aug 2021 13:40:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:903:4094:: with SMTP id z20ls725445plc.7.gmail; Thu, 12
- Aug 2021 13:40:47 -0700 (PDT)
-X-Received: by 2002:a17:90b:1009:: with SMTP id gm9mr6142308pjb.2.1628800847690;
-        Thu, 12 Aug 2021 13:40:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628800847; cv=none;
+Received: by 2002:a02:910b:: with SMTP id a11ls816384jag.7.gmail; Thu, 12 Aug
+ 2021 13:40:50 -0700 (PDT)
+X-Received: by 2002:a02:340a:: with SMTP id x10mr5388208jae.13.1628800850811;
+        Thu, 12 Aug 2021 13:40:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628800850; cv=none;
         d=google.com; s=arc-20160816;
-        b=ar/IeuOBDbslVG0DgwmQkhVi80lHIlO2pZCg85cBQLaiSEOxikLLqvL/cN6wDT2Hwu
-         yEUXP1gKJn/Wiu1oChRR6OuS9hdijySxGH72JBzYqdNgRtC76v1hvZQH8cqH+JBrMQnV
-         LBboj8fyJ2x3yvwDOcwtcwvwxdmeAdloo5ZINYd80fYmeIcvRAZyZ3jGdp4zi9V74s9Y
-         TCZf39RX3zp7IjClUBxxqjfpglDNWYb6FKmnMdK0GER+QDNEcgLRqx4eKCpYHt/qdxLp
-         kKdsNuf8tEQWfKpjsylS7/GrjSpX2Ar9MD5DwSmzAdUEIB+l9xGFEzheG8kgYHFxH5EW
-         n1lA==
+        b=as3gc+RJFct6LqgvA9cThafoPSXhO4I2uIrtg8nMczJ+l5Ha7Iah88HqqHuUKcB4p8
+         zU10KmwmD22QDgvdonOUfsB6APqie8qkVXKKhCLZpiSU0+npe3MUO+T9rEF2u5JrVBYa
+         r1nXMcuQ2foohhF5E+pmTYe61OlzhxGnjcHHbLTyoB5RlZoyjfEPmItMZd/cev+mdtcP
+         sJpxGjLZIteyy+sONchfh4IqwcgnvCBYzVMEILwEgpvm/8v8rLFoIF+NbFo4UjtFZVZI
+         9gXA9uodsoksrjzVtZdOIJVRNj2+kLdbLzy29kbBXurz5SXjECn4efx00NN2+ejCfDGT
+         KhjQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=SlnzGQW7axixt5X911OZxQZrbiEKPn6lPxUyeOznze4=;
-        b=p7BKP0EKw4+XtaYk7RMHElUYNwZWrCTKRjBxj6tGmfcSYVrQCTNAPGeD1jXC5wfDUi
-         MdRAd7j8MLEmB4WFJ4jIqMjOJC6ChxnClCsPjyrUPSmjL7a8s27rmn+wWsjmm/wtxsJW
-         FOhZvFm/tzpn+nryuzojGv+X4cXzNGgD7PPnutEi+/xwivaKepnGoitypkfelh+y7RNg
-         mUoOzVzbZC1FkyrHgt2YPwPmVI8sQkTKC1E6x3tduOPaPbBnuYUa+EMGtenAKDoEME3X
-         90IYLTIwTqoPH6clRnMWnulEJ1Fst/Tmz+d3SFPRjX6crrWCf1rQBoa/O2z5SxZ6bx5y
-         2aUg==
+        bh=8V63ftERfHunnYY1+H6p/YGx56TRv6ZJFOSsnXcOYkc=;
+        b=zFC6i1AiSb5g9sa4x9Wsl4TeBRLENMn4CtPsGCy3MgOzjpWSJBJzvIh8S1ZyoTGLn3
+         19vIyBDdhquP3nkz/uO4XZU+eYvg1l3tOuJdAip7oS1va1ZKsxMMk5PKwzBQrl4JLr0h
+         yz5tP2/UrqOF37vjGGGRxICAmoW3a5jtpjRhbYXQ+rRqrJ8ziHixifx1wvAg9tQshWuj
+         ayzoOP2McvbVAcKnsV+vS9jaxqnWUvufkgiHeXC8dKeQhSfx3I+ZfQNxxcOAX175Q5Nr
+         IOIJAaq0xggWkeswvfGB4FpX5fESGOHHidPtJdFaJjamElFZPLkgFwfCzUwi9QcOl8T4
+         q4sQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=G+m6IC7F;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=uUJfM4YR;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id q10si259824pgv.5.2021.08.12.13.40.47
+        by gmr-mx.google.com with ESMTPS id y1si223234iol.2.2021.08.12.13.40.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 12 Aug 2021 13:40:47 -0700 (PDT)
+        Thu, 12 Aug 2021 13:40:50 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id DC46C610A8;
-	Thu, 12 Aug 2021 20:40:45 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 7A2AB610A3;
+	Thu, 12 Aug 2021 20:40:48 +0000 (UTC)
 From: Nathan Chancellor <nathan@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Phillip Potter <phil@philpotter.co.uk>,
@@ -106,16 +106,16 @@ Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Nathan Chancellor <nathan@kernel.org>
-Subject: [PATCH 2/3] staging: r8188eu: Remove uninitialized use of ether_type in portctrl()
-Date: Thu, 12 Aug 2021 13:40:26 -0700
-Message-Id: <20210812204027.338872-3-nathan@kernel.org>
+Subject: [PATCH 3/3] staging: r8188eu: Reorganize error handling in rtw_drv_init()
+Date: Thu, 12 Aug 2021 13:40:27 -0700
+Message-Id: <20210812204027.338872-4-nathan@kernel.org>
 X-Mailer: git-send-email 2.33.0.rc2
 In-Reply-To: <20210812204027.338872-1-nathan@kernel.org>
 References: <20210812204027.338872-1-nathan@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=G+m6IC7F;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=uUJfM4YR;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -135,44 +135,103 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 After commit 987219ad34a6 ("staging: r8188eu: remove lines from Makefile
 that silence build warnings"), clang warns:
 
-drivers/staging/r8188eu/core/rtw_recv.c:499:8: warning: variable
-'ether_type' is uninitialized when used here [-Wuninitialized]
-                        if (ether_type == eapol_type)
-                            ^~~~~~~~~~
-drivers/staging/r8188eu/core/rtw_recv.c:458:16: note: initialize the
-variable 'ether_type' to silence this warning
-        u16     ether_type;
-                          ^
-                           = 0
+drivers/staging/r8188eu/os_dep/usb_intf.c:726:6: warning: variable
+'status' is used uninitialized whenever 'if' condition is true
+[-Wsometimes-uninitialized]
+        if (!if1) {
+            ^~~~
+drivers/staging/r8188eu/os_dep/usb_intf.c:741:6: note: uninitialized use
+occurs here
+        if (status != _SUCCESS)
+            ^~~~~~
+drivers/staging/r8188eu/os_dep/usb_intf.c:726:2: note: remove the 'if'
+if its condition is always false
+        if (!if1) {
+        ^~~~~~~~~~~
+drivers/staging/r8188eu/os_dep/usb_intf.c:714:12: note: initialize the
+variable 'status' to silence this warning
+        int status;
+                  ^
+                   = 0
 1 warning generated.
 
-This if statement sets the exact same assignment as above so just remove
-it.
+status is not initialized if the call to usb_dvobj_init() or
+rtw_usb_if1_init() fails.
+
+Looking at the error function as a whole, the error handling is odd
+compared to the rest of the kernel, which prefers to set error codes on
+goto paths, rather than a global "status" variable which determines the
+error code at the end of the function and function calls in the case of
+error.
+
+Rearrange the error handling of this function to bring it more inline
+with how the kernel does it in most cases, which helps readability.
+
+The call to rtw_usb_if1_deinit() is eliminated because it is not
+possible to ever hit it; if rtw_usb_if1_init() fails, the goto call
+jumps over the call to rtw_usb_if1_deinit() and in the success case,
+status is set to _SUCCESS.
 
 Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
- drivers/staging/r8188eu/core/rtw_recv.c | 4 ----
- 1 file changed, 4 deletions(-)
+ drivers/staging/r8188eu/os_dep/usb_intf.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/staging/r8188eu/core/rtw_recv.c b/drivers/staging/r8188eu/core/rtw_recv.c
-index 9b3637e49052..8df38db9572c 100644
---- a/drivers/staging/r8188eu/core/rtw_recv.c
-+++ b/drivers/staging/r8188eu/core/rtw_recv.c
-@@ -495,10 +495,6 @@ static struct recv_frame *portctrl(struct adapter *adapter, struct recv_frame *p
- 			/* allowed */
- 			/* check decryption status, and decrypt the frame if needed */
- 			prtnframe = precv_frame;
--			/* check is the EAPOL frame or not (Rekey) */
--			if (ether_type == eapol_type)
--				/* check Rekey */
--				prtnframe = precv_frame;
- 		}
- 	} else {
- 		prtnframe = precv_frame;
+diff --git a/drivers/staging/r8188eu/os_dep/usb_intf.c b/drivers/staging/r8188eu/os_dep/usb_intf.c
+index a462cb6f3005..667f41125a87 100644
+--- a/drivers/staging/r8188eu/os_dep/usb_intf.c
++++ b/drivers/staging/r8188eu/os_dep/usb_intf.c
+@@ -704,20 +704,23 @@ static void rtw_usb_if1_deinit(struct adapter *if1)
+ static int rtw_drv_init(struct usb_interface *pusb_intf, const struct usb_device_id *pdid)
+ {
+ 	struct adapter *if1 = NULL;
+-	int status;
+ 	struct dvobj_priv *dvobj;
++	int ret;
+ 
+ 	/* step 0. */
+ 	process_spec_devid(pdid);
+ 
+ 	/* Initialize dvobj_priv */
+ 	dvobj = usb_dvobj_init(pusb_intf);
+-	if (!dvobj)
+-		goto exit;
++	if (!dvobj) {
++		ret = -ENODEV;
++		goto err;
++	}
+ 
+ 	if1 = rtw_usb_if1_init(dvobj, pusb_intf);
+ 	if (!if1) {
+ 		DBG_88E("rtw_init_primarystruct adapter Failed!\n");
++		ret = -ENODEV;
+ 		goto free_dvobj;
+ 	}
+ 
+@@ -726,15 +729,12 @@ static int rtw_drv_init(struct usb_interface *pusb_intf, const struct usb_device
+ 		rtw_signal_process(ui_pid[1], SIGUSR2);
+ 	}
+ 
+-	status = _SUCCESS;
++	return 0;
+ 
+-	if (status != _SUCCESS && if1)
+-		rtw_usb_if1_deinit(if1);
+ free_dvobj:
+-	if (status != _SUCCESS)
+-		usb_dvobj_deinit(pusb_intf);
+-exit:
+-	return status == _SUCCESS ? 0 : -ENODEV;
++	usb_dvobj_deinit(pusb_intf);
++err:
++	return ret;
+ }
+ 
+ /*
 -- 
 2.33.0.rc2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210812204027.338872-3-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210812204027.338872-4-nathan%40kernel.org.
