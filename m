@@ -1,46 +1,46 @@
-Return-Path: <clang-built-linux+bncBDJIT2UJ64IBBUM322EAMGQEOSETMYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDJIT2UJ64IBBB4422EAMGQEF7UKNRA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B13503EAC38
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 23:08:34 +0200 (CEST)
-Received: by mail-oi1-x23b.google.com with SMTP id i16-20020a0568080310b029025cd3c0e2bdsf3508616oie.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 14:08:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628802513; cv=pass;
+Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 74F463EAC3B
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 23:09:28 +0200 (CEST)
+Received: by mail-vk1-xa40.google.com with SMTP id m6-20020ac5cac60000b0290283342dc002sf1676857vkl.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Aug 2021 14:09:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628802567; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WZ6yPdCaihoHyrgcUy1hbGV19mt53842e1UtOxex7xHt40JocooD7p2x1Xv0yd5spO
-         0jSrxT7DzI0gGQ0gSektSFqyMTVJhwdHR6eaIaZ0W7drMFmdVhQUyVIm1ZGCmm+6goxR
-         0N/SRDYGQUmqz1/mLNQjfw8bKqphUNi7FgSnLFwTbY+/Leo2yq9Y7V1Pv4ChwjENzLug
-         UeJaHcI36jN8Vk+YjMgHmxRilj9uSgHdUyp+LAQrmxu1xkl9/UiuDyKG0qQjy6tLHWc1
-         BJZJ6BzvMA1cnR7MJpU1cukPvmOTcJ4pRj3GWfvEvYiG8j/cln0hYmY7okINMnfpOv7o
-         QecA==
+        b=CoauA/DPUI+RSpzTgRcR3xvtYOU5L9bjf92xpBgUJLaZ8W/HU6aiceHcxArC3ApvGh
+         Ri4eIkIqZYJMqh+brERmHvXPYf8I2vYV9pQZgKdEPxJMdmO4am0zz1+oGLG1KpbL+P7j
+         zPXXfvHmU+ETM+a68HO11Sq5xNqx5dK685xQniCIM55hpWvp3vEtBAZ73njEOqWzd/qI
+         z1YoOqcmAXXRYbALwibzuEoIsPF91Z7EeKe+Tce+y/Kt4QCkBC2bewWrSejPf+Fh0dzX
+         5r7o82VSDsdeeS04MdI++1w462pQGqN+FTzF4S7+37OcHpJ+QKY/V1AjJWItM+ON/OOU
+         OM2w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=ZM7GDzFizsN8C87dtSfPjd5jVsUHfEd7eiAiM0UrjAs=;
-        b=ZcztDBd3mM+D0/ZT3BLuKf94J3XHTH0A5lr29mRenM1fi6IvCxMls77YjWrA7OmZT5
-         kFVLrI/sQg5LKMwRYyw/tnbS4eJA5eULcVny8KBl9PWnjyNsz34j7evCWC0QoNqPtw2A
-         p55j/KY9WbEiYh+RlqufNOpWKUCSjPIaB7UDRQa2jPGDRY1OFdiucPsh4EWLnJ+pKArO
-         fSnXYl0LQN2gQniYWtH2R0iS7CLEFERFrFc02LFnUXmuu8CWGsYQvfcKGxUtkWnMMVJl
-         XpOQb8QYoGGvR+lhbqtnUrcvUGLaQbpJvAh9ouS1j5w/B2VjkGjfFLF5AUJBBiqBgbBG
-         k1wg==
+        bh=7HZvh55+gE7wORy7ESZwpWXza0vJcrT/oUlSjvlMJ64=;
+        b=Xu4eg76rAVXdhhFSk1Lbw6ahcbllSaGbo+LzyXSBy8PFuKkb/MTNTx+tQxovK2r9Ku
+         LM4ALmXbG08UfTsHBYgIQCu9m++3a0IUEvnRAM2xs2oLQRhVavjiZsG2lqotd1AL30fa
+         NPy2IxZKc8Bus4se0x++F4cMgU3vSuIQRvriiIEHGguUJyDXYRpZkJAAQYUeblqp6SmY
+         BX17MFNaiprJE/WKwmO4O37O3FZeuRSEM6Gndp0Qrs2lHsGrVfUz7oGFB85zGwdncN60
+         Dmu2CkepsMeCIHbHlq9ehAg2UwYWonyKmWCt22qXtApv3RKsdd4ApFAAKrBTWmk61aK/
+         u1xw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623 header.b=Jsgo+mi3;
-       spf=pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
+       dkim=pass header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623 header.b=IuuCgqYx;
+       spf=pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::62e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:mime-version:references:in-reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZM7GDzFizsN8C87dtSfPjd5jVsUHfEd7eiAiM0UrjAs=;
-        b=sVdv/e/vidwp8f8LApVMHfroqaOXYsFPujdi/l4xKAL7+WIxL9TnISuKVZgrEbiI0Y
-         6DJ7zwiNGUaUFtJ7//bFXKZmLY6q8IC5gmAaiJEd8whAaaTKNYH0bu8f/avJlgoGDMa7
-         qTwNz9UeIyfolK6Gb1OxtGD49PAqABCr0nVFgTQttLXTbn55W5qodHVSW6F5ID9stukO
-         I05t8YWTk4LA0ctsBE1OnIsJNOvFn1oz6wyKQJIoHMGglg0KCpHifIUmQQEZbE179+Rp
-         t3WZX/Y3gh4Imsy2WGLfF8dfTvmIGc5a5eDZOZnU3lwdxDVrGumFPFq/bnOhFayFPpH4
-         9BpQ==
+        bh=7HZvh55+gE7wORy7ESZwpWXza0vJcrT/oUlSjvlMJ64=;
+        b=DIwAw6TMNMOroSmvEHGwMZVDtG+VriC0ZBOW0bUAN0UxQSfmMcyXzlrBvYXPMyjhiy
+         ouqRJwG1/Op29R9QIrYUMQ3/ZuFg7TRRIOFuMNKm9BKWG/EelHPRAMXExcXFoT3NlV2l
+         pwhiEZpfv0LoqJaep5v52FLN65Iia5UeLjWrjhaapeb806RcYbHZ+W3ZzVz+T89KwGUY
+         LJ23XAmH/Nddg9r7b2fLbcewAWSG93NVf3oBD3YG5l5VOlJz0pxa4THmQ9f5OhLccJCL
+         FE7gioInCxkozC4GLqxEBiq3Y+wFudLmD7r8lL3q/ihM/LVhZszC3kcwuEKRiEGTq9iF
+         ugFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -48,63 +48,63 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZM7GDzFizsN8C87dtSfPjd5jVsUHfEd7eiAiM0UrjAs=;
-        b=PWkyLsJppb7/TJnRj/kU5tRjNsJZYqO9BBFEUQxnU1tsWDq2J+6ZA8J8tMwuobg7GT
-         KqYnkMAPN3tAkYTx9J5ycAj0ZrqjQPrOtdFnOZNry9TcVjPD31mXpsi7DoNSGddROI5G
-         Ixx7K0CKjCCa62SDyMBwojnrSkHpOLOW3/5oIpSQVWWA1jgiAmDVNHZMQCmKUO0QVS3y
-         6FJIXYteJGPZayiKyyVeAxbtHaBfNb6g2Xh9+GkyEeCQ3hxXmdpE/0acAVtOgB5We64T
-         d6c2MaiqAzyP0Bo4DUAroCRJ/MKNX3dDVswBUfgmULO8cJg1IvCVtHlN26Mu8+awW2tg
-         sPiw==
+        bh=7HZvh55+gE7wORy7ESZwpWXza0vJcrT/oUlSjvlMJ64=;
+        b=XpLjyvBGPLvmUQbdOWA1jI3701xHbWfQV9XLzoipJkLhuQo9GXaTda5fASMd0lsaey
+         IgwmUlvj6ohwLMfv0Eymmv2lRSyG9TOmOBnOtWGOhnNWMtWknVrWyiU9vE8YMhNWZlkr
+         IPWbycsb1QqsXDkheTshUcxsNHgROI4z+T8bIXavMjzBv39+BdPwAJO8TmbN/hFzATbi
+         wgABJncQE7+EY6sIs3Qd2E4IBVf/YJ1HcQRqNVz2jiun6D0fNkjvcPF5A7gYTyLyWIOv
+         xVi8/aRogV/PmII+lkvCXV/xo5YzZ28Hax/fHHeOTUL4WEUPJcVAi8NVfF4o/dUtPIms
+         Kn9g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530NWAF9QENigl27QaHcqxGk8SlHYX8owQtzA+pqqnAVvQYqVsAN
-	vm2L3BBDjxWEhHjNhvttNx4=
-X-Google-Smtp-Source: ABdhPJyHzwXMXUo8JpyAey1NnHxjzHGnEbu4asllhMhAoU1NwNm0y28GAPgmPb0bXU+ED//ONzyQsg==
-X-Received: by 2002:a05:6808:68d:: with SMTP id k13mr4953324oig.83.1628802513746;
-        Thu, 12 Aug 2021 14:08:33 -0700 (PDT)
+X-Gm-Message-State: AOAM533Y4KyCheR8ctxyZBIYsMJ1gTPa1+P+LDRMuUlis2wjaJb9yxo1
+	r/a4R6GQJKopUC1ayEd0224=
+X-Google-Smtp-Source: ABdhPJwsxhK+zQBjMOt9XNYvaycjDykSqPp1R7ncgkIbQULD6ZXsnI32EuqzVeFuc1XY9W8cc8marA==
+X-Received: by 2002:a67:de10:: with SMTP id q16mr5564555vsk.23.1628802567378;
+        Thu, 12 Aug 2021 14:09:27 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:15a6:: with SMTP id t38ls1700201oiw.0.gmail; Thu,
- 12 Aug 2021 14:08:33 -0700 (PDT)
-X-Received: by 2002:aca:c46:: with SMTP id i6mr12280939oiy.76.1628802513264;
-        Thu, 12 Aug 2021 14:08:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628802513; cv=none;
+Received: by 2002:ac5:cf0f:: with SMTP id y15ls173764vke.11.gmail; Thu, 12 Aug
+ 2021 14:09:26 -0700 (PDT)
+X-Received: by 2002:a1f:b615:: with SMTP id g21mr5309067vkf.16.1628802566894;
+        Thu, 12 Aug 2021 14:09:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628802566; cv=none;
         d=google.com; s=arc-20160816;
-        b=jyosSX1Ik0I8xQYunXZcK0jg2fYqCKrlhPS9D7EOw0zG/doIDJV+OX7fq36mq3hAcP
-         ZafUl8lI+VzV30nJqK6qxwX7lWJlqQNdjZWNBn3z137Q7Y90+QtVXdsudHVupyxyLbrL
-         NeGxDyi7dWlA/lCfB6eIsFTAQv63Rzoi7SKvfmblQIiVfbkwGRmy0f8Fj4w1HzbGMi6W
-         U0WQ7gpzhFlW/q+bpZFZAC0gXnUMu9VhbJ6N976Jhr4mnH5CobSpuVw8y29jEqCnupzc
-         uHf9DHlXeE7dptvCq8qxUMFuck9xFEpQNYfQzm/wqu/MOiB7290rhdfuf+yKTBY+WZXI
-         JHiA==
+        b=ZDEDJ8kbWNYwPPARPF70bsJOozpIIYyCYPQY8M5WMZ/3zeUV97/MEjcdRVFCy798lu
+         Fu6HACGDdafhwUNCW8cQ65yz+Zhi/s26t8BtGvraRGj9bFCKMNpsXq5tc7Lndh8LImH4
+         FX+BEKsiBo1Fp2WkpF56QhRlEYG01j/RrL8OcNbWQEyCXqcKiSGxLtNNhtpo20EOhRtt
+         YcS7Wv90akGl+XIUJ+a6xgOvjlY5hp3PgL3NXAUX0sM99tkodb0i3uJtciYrrsGWXAh5
+         xTURgtj+BY/aKWvFF25xJCFAEIdwqnDtmwG/OeWeez7AOMdHs2pz9RY35FtsUNVKG72B
+         WcfQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=s7RmTXV1rtgfdtsCI73hdM+Qxlp56ePZYyS2TvYXHy0=;
-        b=ISkN5bCjhjVsehYzlqN0kfF4PoR6aPcTHt+71V68qXrtPLJjb2abaEfbuxBW6l8z89
-         NhHqGPz1J9BH//+b58iXnDGNfWrCnx/oE7z1eWD0yJbCniCA9itNL4Ceysv1itD4TYkF
-         oPf/F/dpPni4O+y0LfrqNX16yI/rYWk/YgPg/m3kej9qvcvtY4Q+xaLnvoxvufv3vSkf
-         YR+9VK/5n+uwH3o/9eMoQyesm5D8tVtKWTGvgeUeKeIXHmCnx5oPbqbP1lIHI3YWvOoV
-         5SMI09wz4qh5kX5Gj976xbw94kZmC1GR4UfUGNVT+hRh7I5jcD+nNXZ3h4N+8Txee7sS
-         NfbQ==
+        bh=AwF9gPVb6rSLv8TfNn020arGyAKk62BBC6M1h4xTevU=;
+        b=oASfg/YBmhhZqLeDRsgnwxz+l2x4vKjocglUldPe5/zmPjn3Bq/xer8yPKJYpCZCWD
+         jzknfgqAd/eDsPicNxqbgI4TiK519sO07sob4+ef7qe81GZuUMhN09OrlXFr9GAAsQ9r
+         zRr6UVXLLox4JXH3DTkmj4eUZV7TlXFSx1ySmRnsA8fyShlzcT79k6GSSOI3nEF77NMD
+         1lxT9OVIuzAoE1YvcJ8Cw8qdVN+b0etfDwnvee9u5QGzI3j4cnPdGxsabYHWIiwx2MYG
+         emIMIIDH6P3boixIWAttmfRezg+lmajt2l3ZMltVZLRDSXGeDJyKg/B8vfF0KdDrJGkA
+         /uBw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623 header.b=Jsgo+mi3;
-       spf=pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
-Received: from mail-pj1-x102e.google.com (mail-pj1-x102e.google.com. [2607:f8b0:4864:20::102e])
-        by gmr-mx.google.com with ESMTPS id c20si229906ots.0.2021.08.12.14.08.33
+       dkim=pass header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623 header.b=IuuCgqYx;
+       spf=pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::62e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
+Received: from mail-pl1-x62e.google.com (mail-pl1-x62e.google.com. [2607:f8b0:4864:20::62e])
+        by gmr-mx.google.com with ESMTPS id i6si137319vko.5.2021.08.12.14.09.26
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Aug 2021 14:08:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::102e as permitted sender) client-ip=2607:f8b0:4864:20::102e;
-Received: by mail-pj1-x102e.google.com with SMTP id cp15-20020a17090afb8fb029017891959dcbso17337536pjb.2
-        for <clang-built-linux@googlegroups.com>; Thu, 12 Aug 2021 14:08:33 -0700 (PDT)
-X-Received: by 2002:a17:90a:1f49:: with SMTP id y9mr18061147pjy.225.1628802512865;
- Thu, 12 Aug 2021 14:08:32 -0700 (PDT)
+        Thu, 12 Aug 2021 14:09:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of phil@philpotter.co.uk designates 2607:f8b0:4864:20::62e as permitted sender) client-ip=2607:f8b0:4864:20::62e;
+Received: by mail-pl1-x62e.google.com with SMTP id k2so8977983plk.13
+        for <clang-built-linux@googlegroups.com>; Thu, 12 Aug 2021 14:09:26 -0700 (PDT)
+X-Received: by 2002:a17:90a:1b2e:: with SMTP id q43mr6086414pjq.217.1628802566538;
+ Thu, 12 Aug 2021 14:09:26 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210812204027.338872-1-nathan@kernel.org> <20210812204027.338872-2-nathan@kernel.org>
-In-Reply-To: <20210812204027.338872-2-nathan@kernel.org>
+References: <20210812204027.338872-1-nathan@kernel.org> <20210812204027.338872-3-nathan@kernel.org>
+In-Reply-To: <20210812204027.338872-3-nathan@kernel.org>
 From: Phillip Potter <phil@philpotter.co.uk>
-Date: Thu, 12 Aug 2021 22:08:22 +0100
-Message-ID: <CAA=Fs0meOs0uzN-3AS2a_Gwzs5eVvD6+xxPUkjhNFZ5L4WNx2g@mail.gmail.com>
-Subject: Re: [PATCH 1/3] staging: r8188eu: Remove unused static inline
- functions in rtw_recv.h
+Date: Thu, 12 Aug 2021 22:09:15 +0100
+Message-ID: <CAA=Fs0k=MeBAHeCK4kFd9p5S5mqER931DGs-mp6Di92rCmAJGg@mail.gmail.com>
+Subject: Re: [PATCH 2/3] staging: r8188eu: Remove uninitialized use of
+ ether_type in portctrl()
 To: Nathan Chancellor <nathan@kernel.org>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Larry Finger <Larry.Finger@lwfinger.net>, 
 	Nick Desaulniers <ndesaulniers@google.com>, linux-staging@lists.linux.dev, 
@@ -113,8 +113,8 @@ Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: phil@philpotter.co.uk
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
  header.i=@philpotter-co-uk.20150623.gappssmtp.com header.s=20150623
- header.b=Jsgo+mi3;       spf=pass (google.com: domain of phil@philpotter.co.uk
- designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
+ header.b=IuuCgqYx;       spf=pass (google.com: domain of phil@philpotter.co.uk
+ designates 2607:f8b0:4864:20::62e as permitted sender) smtp.mailfrom=phil@philpotter.co.uk
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,103 +130,47 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 On Thu, 12 Aug 2021 at 21:40, Nathan Chancellor <nathan@kernel.org> wrote:
 >
 > After commit 987219ad34a6 ("staging: r8188eu: remove lines from Makefile
-> that silence build warnings"), clang warns several times:
+> that silence build warnings"), clang warns:
 >
-> In file included from
-> drivers/staging/r8188eu/os_dep/../include/drv_types.h:22:
-> drivers/staging/r8188eu/os_dep/../include/rtw_recv.h:395:9: warning:
-> variable 'buf_desc' is uninitialized when used here [-Wuninitialized]
->         return buf_desc;
->                ^~~~~~~~
-> drivers/staging/r8188eu/os_dep/../include/rtw_recv.h:391:25: note:
-> initialize the variable 'buf_desc' to silence this warning
->         unsigned char *buf_desc;
->                                ^
->                                 = NULL
-> drivers/staging/r8188eu/os_dep/../include/rtw_recv.h:412:52: warning:
-> variable 'buf_star' is uninitialized when used here [-Wuninitialized]
->         precv_frame = rxmem_to_recvframe((unsigned char *)buf_star);
->                                                           ^~~~~~~~
-> drivers/staging/r8188eu/os_dep/../include/rtw_recv.h:410:14: note:
-> initialize the variable 'buf_star' to silence this warning
->         u8 *buf_star;
->                     ^
->                      = NULL
-> 2 warnings generated.
+> drivers/staging/r8188eu/core/rtw_recv.c:499:8: warning: variable
+> 'ether_type' is uninitialized when used here [-Wuninitialized]
+>                         if (ether_type == eapol_type)
+>                             ^~~~~~~~~~
+> drivers/staging/r8188eu/core/rtw_recv.c:458:16: note: initialize the
+> variable 'ether_type' to silence this warning
+>         u16     ether_type;
+>                           ^
+>                            = 0
+> 1 warning generated.
 >
-> The functions that these warnings come from are not used or are called
-> from functions that are not used so just remove them to remove the
-> warnings.
+> This if statement sets the exact same assignment as above so just remove
+> it.
 >
 > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 > ---
->  drivers/staging/r8188eu/include/rtw_recv.h | 46 ----------------------
->  1 file changed, 46 deletions(-)
+>  drivers/staging/r8188eu/core/rtw_recv.c | 4 ----
+>  1 file changed, 4 deletions(-)
 >
-> diff --git a/drivers/staging/r8188eu/include/rtw_recv.h b/drivers/staging/r8188eu/include/rtw_recv.h
-> index 857269ae4209..81594e7aed51 100644
-> --- a/drivers/staging/r8188eu/include/rtw_recv.h
-> +++ b/drivers/staging/r8188eu/include/rtw_recv.h
-> @@ -386,52 +386,6 @@ static inline u8 *recvframe_pull_tail(struct recv_frame *precvframe, int sz)
->         return precvframe->rx_tail;
->  }
->
-> -static inline unsigned char *get_rxbuf_desc(struct recv_frame *precvframe)
-> -{
-> -       unsigned char *buf_desc;
-> -
-> -       if (precvframe == NULL)
-> -               return NULL;
-> -       return buf_desc;
-> -}
-> -
-> -static inline struct recv_frame *rxmem_to_recvframe(u8 *rxmem)
-> -{
-> -       /* due to the design of 2048 bytes alignment of recv_frame,
-> -        * we can reference the struct recv_frame */
-> -       /* from any given member of recv_frame. */
-> -       /*  rxmem indicates the any member/address in recv_frame */
-> -
-> -       return (struct recv_frame *)(((size_t)rxmem >> RXFRAME_ALIGN) << RXFRAME_ALIGN);
-> -}
-> -
-> -static inline struct recv_frame *pkt_to_recvframe(struct sk_buff *pkt)
-> -{
-> -       u8 *buf_star;
-> -       struct recv_frame *precv_frame;
-> -       precv_frame = rxmem_to_recvframe((unsigned char *)buf_star);
-> -
-> -       return precv_frame;
-> -}
-> -
-> -static inline u8 *pkt_to_recvmem(struct sk_buff *pkt)
-> -{
-> -       /*  return the rx_head */
-> -
-> -       struct recv_frame *precv_frame = pkt_to_recvframe(pkt);
-> -
-> -       return  precv_frame->rx_head;
-> -}
-> -
-> -static inline u8 *pkt_to_recvdata(struct sk_buff *pkt)
-> -{
-> -       /*  return the rx_data */
-> -
-> -       struct recv_frame *precv_frame = pkt_to_recvframe(pkt);
-> -
-> -       return  precv_frame->rx_data;
-> -}
-> -
->  static inline int get_recvframe_len(struct recv_frame *precvframe)
->  {
->         return precvframe->len;
+> diff --git a/drivers/staging/r8188eu/core/rtw_recv.c b/drivers/staging/r8188eu/core/rtw_recv.c
+> index 9b3637e49052..8df38db9572c 100644
+> --- a/drivers/staging/r8188eu/core/rtw_recv.c
+> +++ b/drivers/staging/r8188eu/core/rtw_recv.c
+> @@ -495,10 +495,6 @@ static struct recv_frame *portctrl(struct adapter *adapter, struct recv_frame *p
+>                         /* allowed */
+>                         /* check decryption status, and decrypt the frame if needed */
+>                         prtnframe = precv_frame;
+> -                       /* check is the EAPOL frame or not (Rekey) */
+> -                       if (ether_type == eapol_type)
+> -                               /* check Rekey */
+> -                               prtnframe = precv_frame;
+>                 }
+>         } else {
+>                 prtnframe = precv_frame;
 > --
 > 2.33.0.rc2
 >
 
-Dear Nathan,
-
-Thanks for this.
+Thanks again.
 
 Acked-by: Phillip Potter <phil@philpotter.co.uk>
 
@@ -236,4 +180,4 @@ Phil
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAA%3DFs0meOs0uzN-3AS2a_Gwzs5eVvD6%2BxxPUkjhNFZ5L4WNx2g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAA%3DFs0k%3DMeBAHeCK4kFd9p5S5mqER931DGs-mp6Di92rCmAJGg%40mail.gmail.com.
