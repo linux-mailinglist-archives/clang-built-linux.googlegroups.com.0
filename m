@@ -1,133 +1,135 @@
-Return-Path: <clang-built-linux+bncBD2NJ5WGSUOBBQ4X3OEAMGQENUXZY2I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBB6VA3OEAMGQEJCGFHUQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id F164F3EBCA9
-	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Aug 2021 21:45:07 +0200 (CEST)
-Received: by mail-lf1-x138.google.com with SMTP id s1-20020a0565122141b02903bf02f21443sf2981286lfr.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Aug 2021 12:45:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628883907; cv=pass;
+Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6FD6D3EBD09
+	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Aug 2021 22:05:16 +0200 (CEST)
+Received: by mail-pl1-x637.google.com with SMTP id h19-20020a170902eed3b029012d3624d993sf6791558plb.2
+        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Aug 2021 13:05:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628885114; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KHHw3btT7Fe5fmpAS9SlIsrlql1lCWiM7scPqwIEqph2eHK18R2ZaohZVoTlwRGL1n
-         P53ziDP+WbkpfSR8ryJ8jyQNW5QYQf6+LjGeQDc2a0uRTWDMlItZPw8OICJ/Z1mudurf
-         8DVdnvPjiLwXCar5lCOiHeu2KM3FWCu3Bpk2XQYeK3H5PYKA6wcPOdbjHwhFPszCLjSh
-         ripMtkhxgWh6QFjBUMT+habgqK/e90hUg2DjwdevSz0j5e5fj3m1DScWuR1I2sKTJgUO
-         yrKxTec4H06jNkm0MxJ9tndHiqL4JmEUHXMztklRjfY/9w6qroHVK/iKOeTqpzEkgCcz
-         ROyA==
+        b=w21ASIa+UIFrWZkVdsDUsxEciQcJj00RSz3ehuMhF46ZIXPkgU/HUpkSPVgsYRYuJ2
+         82NmgTEVWImylWYsO3FjxEKueTA2rqIUsjC5TgoFHfSuHod/KvdUcWu6daAWBMTruOtR
+         NJsbpZFfLQISbMTGrBhRCzDb3X0LjvAa6JLZ94wLjtLxx+ienWEvZCCjjFOsg6XF3d7T
+         4H/leB6WLEAxrid3ijWK5k1veh9Oj2673RftswSkH4yLdV1d7T0d2+CJIkclqskZoD18
+         i2HBwZjHffGueLV1ZHB0x6gsMCe1m8aoIEuek7LjXEysCDWqBI+niGugK5Evxsg5fuRQ
+         PIsw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
-         :dkim-signature;
-        bh=APoBMUGvymA98yKs6THXyE7aejFU3ockb8W/yPev3Yc=;
-        b=Uk7AMdF8V/kohyedAN5151CjLGFYcRwVJCCh9pbNW0PB0ODvW37LIma3PqchA8AcUL
-         trRDwwadZFVuyQmQ+NAJi/SMD/IkLScotlcXgRM8GzlzLtSrPgJ3vpI0dNWhNShFvUic
-         yMWbgFCuynfMT+rV2j6GGTQF2TrCPlOxQW+fwOp5eai7XB+M+WzjkQFWSOdt5aqAXQi9
-         XG5V3c8qEC11Hm0qd4KOhEDVrhkWJ3sMWHUUz5gl7+3HThe/1K4atHkBr2nyeuZ0KHfG
-         VuXS1iX7VlyDLHD2o0kLbTCOhE5Cg6H/iCQuePrW2fk77ZwoqOQ93J2Gut/+Ncy7WVIz
-         Mm6Q==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=esz2t/znzLSxu1xTSSM8PgTwh06L3yvsUTcXjNoaoyU=;
+        b=OsRMmXzHdYBG48Kp4Y8HTDT7KURFVFzVK5jobURGM0dRC1ZW4guDxkSwlpVnTH7L88
+         4e7oAGW73bP1daF1lDmR62JRi+2XSoDTCHR4AGD1Sw4PL0g9OOG7UrHS4B/A5fA86+LM
+         WBjtDzDNVrrouUN9mdEDefI2GJXugBI6tluboPAf6sCNf3QGPq8bI2GCA4bQA036p/4D
+         uO46uM9Dl/5VAMcoLhXq4Ej7Zk1TfVBJzn/uR4Y74s8CQd8Axe1INW447tmjeS93b9Ay
+         rIaK7TaoHlpOZvJ5nBNirOoujj2aMTW6o5PVqbp9uhhJwM3TraioQc8x+RRUU+BRjpsI
+         PY5Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@sipsolutions.net header.s=mail header.b=S1xvMuBW;
-       spf=pass (google.com: domain of johannes@sipsolutions.net designates 2a01:4f8:191:4433::2 as permitted sender) smtp.mailfrom=johannes@sipsolutions.net;
-       dmarc=pass (p=NONE sp=REJECT dis=NONE) header.from=sipsolutions.net
+       dkim=pass header.i=@google.com header.s=20161025 header.b=tsbCgqA+;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102b as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=APoBMUGvymA98yKs6THXyE7aejFU3ockb8W/yPev3Yc=;
-        b=SOKIR2lST99QB7Sx5mu22Iq1Wh3yz9JHaxSLLcF5O60E5i0WsVEOJHhUGX9qKvyC7b
-         BqDGVkjO+F/YpHe+Hau2/k6klf3wcsqFipRjWvos6O3oGityRG6LQls2yOYbbm6DkW4p
-         nq/8gYJOe1LmW8t9Rk+V6haqpB6+Treb4R54JPsiQhwXvWnPTFsAdk8DES0mh9yiD/0L
-         exE7nQmqO+Tyk3UAslmhHFl7GC90zScO1oB20n+pIyWtWwUdXvsEXp2gLw8Z3ZzIqLV+
-         A9wu9iTp0S6a+q9u3SReiw/7J3WhB+JO2qOcxRgnfLiEpozW6SqKq27ewdcFI7lE89JU
-         BdAg==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=esz2t/znzLSxu1xTSSM8PgTwh06L3yvsUTcXjNoaoyU=;
+        b=B8ShT4h0ozIYUyL4mQlUdp3Ewcyb8vL41trAF+234gGHRQVBQu/XdjyTpXRPh+VH1E
+         MV0BDnjfFUZ/USYhn0mYLblR+tTU6D3fFQeHjD6IQIx1rXGfN6C9jd7m1mOe7aJyRBJ8
+         ywzEUPi6GP+OZ7IY8F7JzRBwT/RFIRrOgwViH7/m0qE2YglqNeNMsWQ5DuSlXFTKG/ku
+         481lchL3wZH/5VhniO2MeTmQhcOU9kTzFuaw3HPwKhi4iXHh05SqbyJoElxtz7EG7QPw
+         yeVdjqQpYK2opZMpxLsXOo4D3faIQ3R9dQ3oHODODe23/rX403UjqnWc2EEvNFh5aZEJ
+         7+nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=APoBMUGvymA98yKs6THXyE7aejFU3ockb8W/yPev3Yc=;
-        b=rxQyKdLjbY2zyM9brocqBlwAMhT5gfCSNWsXtqI3W+N6VOGM/nEQd6AXoaEXzqKKQ5
-         6BNox9EQeLKvCmFWzZUub6Ihp8X+SlrcdNSwA1AjJ7NxRaZLwp7vrVxqzgFF0XfwJ/TL
-         hytNqvXFX3Er26Rf3hYIeTG2Gj5v6kuQ4KtQWEWTF+Tob78mqogEpXYtnR5drOUdjVjF
-         m3JC27XcojgWWhyRUEZeLFghh0ZFz58HSEFvW9WFJw6XLXHVKckkmzQha+MJyg3X0Y43
-         T1l6s+VcPfH59ZvssPU3Zk/lpeMvpmLys1p2cig14fEQzZQJS0AssUUjp1Es7E5QDVWL
-         GghA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532rlPeYgZ7Osq/iafk4pKFVpfFdJP3vYFL8C+MPANjRY7BDfLxt
-	XX0cratQXS9EViI/JNqR9HQ=
-X-Google-Smtp-Source: ABdhPJwcBeui1SmKHla793aW4wCFHlah4oW1ZwpQIVUZyMGOO0VxkQ6Sj5aO5ieasZ/sboS9VTQMEA==
-X-Received: by 2002:a05:6512:3486:: with SMTP id v6mr2770533lfr.535.1628883907545;
-        Fri, 13 Aug 2021 12:45:07 -0700 (PDT)
+        bh=esz2t/znzLSxu1xTSSM8PgTwh06L3yvsUTcXjNoaoyU=;
+        b=QNAlWvnrtrMYj6PBzYJe0Gzck4qpqegROAzlRLJ/KKpjpF5czqYjSEh3LSFDB6SeCk
+         6XU0n73S/KkwtTM5oaOBMAvTNMU0Wfm5N7Kf304ThEBmIzZsVU+p6M768WjoyGzs0Fco
+         iDR5czMe4X0ehTvkMVB9rPcdhoMN+eHwqNjQd9dIscxg4pHCvMC4rKj1WWTx6dJFgiPO
+         lCsAzMOMdxTfKklKioda19tYC0j57Y/SUnnW+WbUrdWQKhQiP20oW8Y4WbVhrmONUSBc
+         jWY/MGPFlAtFxrH8NK0T5hIz5k3iXLjC/3N/1yVfGMIVXrWfx5azdbsNmwz45kDr2el7
+         38/w==
+X-Gm-Message-State: AOAM533T+tTITS5PyRWJz/Proxna19rcSG2rphie9Y80guoo3cijo9Aw
+	cSUAX6n4bsSWovSgfeUGcCg=
+X-Google-Smtp-Source: ABdhPJyWfaTogLnaHoxA021FSAQ1kazFYAVvj64AZ+PqWv41xlqvfLutvyp/aF1y+6w4+E3MqJSTTQ==
+X-Received: by 2002:a63:3c5d:: with SMTP id i29mr3770099pgn.147.1628885114540;
+        Fri, 13 Aug 2021 13:05:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3f02:: with SMTP id y2ls745336lfa.3.gmail; Fri, 13
- Aug 2021 12:45:06 -0700 (PDT)
-X-Received: by 2002:a05:6512:3c9a:: with SMTP id h26mr2756202lfv.300.1628883906583;
-        Fri, 13 Aug 2021 12:45:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628883906; cv=none;
+Received: by 2002:a17:902:848e:: with SMTP id c14ls1166338plo.1.gmail; Fri, 13
+ Aug 2021 13:05:13 -0700 (PDT)
+X-Received: by 2002:a17:902:8c83:b029:11b:3f49:f88c with SMTP id t3-20020a1709028c83b029011b3f49f88cmr3320394plo.63.1628885113859;
+        Fri, 13 Aug 2021 13:05:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628885113; cv=none;
         d=google.com; s=arc-20160816;
-        b=RiHWOlKpwx3etmIe83t7vckT8rrxd8IGuNBiUaxChFDw+RAnmBDYx0F6r0Lu+Bn6uV
-         MorGC3S8ULa/n52CfHwnsuYbM1OjeFbXURNlK1xqot49AkN416eGv2Rb8mO0GJ19qUa2
-         QbZsytpmfHf+ymqHlCeBGDBt4nop27mgV0QWdAjxyBTc2RJIgnhHWivHP1A1Jk+DcEay
-         EmHNuNEKEVk3TbZkqv/MJY9JgFL/MlmsD+w7Uz+FtHan8AyQHbbFzreTAZ1DI+GotO3c
-         ALEr0H+C+MYlUb2LKUQarGyR7D5hCpIOfaV9K0xfVYTt7TVg0c2Wrwqb/0WtQpkKP6lv
-         kqVw==
+        b=kJJTUYXxKkgHOEA6inMSFBN+5enurgRCceEAqEvkoNCW138ZQexfaHlhIwKucw7Ysm
+         6LdeH1g2r1hB5jsjqj9PWLopKivxYNa67MsnSdOAxkT4SflLWrBhk73BBaqw2X6oTQaN
+         TT5z087NFdcf3L7L+qlUMyQWL34QSgsyovMu4l4GIfZCIec0SxrjBZhR167t9R7evrZr
+         yHflGHC+JsXdzaGQRrlYiZUww6CA45gZHAV/cs8LrFn/1qtSnGzcoDR+RK4XgYDPlcT/
+         siEikSvuHnvC0YLcI6ecObx14Oo+cIfD2cH9wW6o7iSyjiwyrKh5xMhgQ/vwlC6D6BCX
+         HcSg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:dkim-signature;
-        bh=vGxwLQwFO2S7TTjs1yBKTvR75GNMnpeXiG3mZABQ1io=;
-        b=hs9oGXAbjO0BqBtxLa5wuHbacgOm4tm1NJ95cusCBY65OePGUWCX7BSv+AggHSf8dN
-         sPJ7haFF+oMiqH0cy+sIxmMk1d4lzI6dpzgnx+UP/Hxh6WHOd3a/hB9nVCFnmCSAqo/N
-         zH9jSApj+Zm1gpqlY55I4nQrbEyhQ9LUG5YwjP3mVSVFms5/Iztfp3XwAuwiICFxBXcw
-         SVGEfstUUN786PVIyhae+KiCRAZN6nupGtcupXPatPi6lhnf7sDTgoWq3GHNUYCP0qf1
-         xVXVayIZMP3yFs3BGkO+nVFU2h2hLR0bA6IdZ+D4qQYVcJQx3EXztG9Anmy9PaW1uY0h
-         47kQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=LLGFAtJMn9/g+hSmBB/R1jZF7zawczzcNya/wcap1qw=;
+        b=HfRnmrKX7mf+tRSaL8KQLzyAPEWLQRM+UU04BfqbSfbLJAzhdZQC0v374VFNLUc96P
+         CGvy9zydoEz1cmLPCXHIw+NSl9FylrarDyZxxSiWX3a5lIaZRFVVAxQAE5pZ3UBs/oTF
+         Vkftp5vtO6fxQ2PXNyAyacPmeAwhmbEBVZJE2MaDsYGJJzoc4fr8mIf11K0cE4UY+i6d
+         pgqazi6rzVtGM7X8f64hm8ctLadK13MA4TTXy6Dgc/4ff2138mo98M/E0x41zegIsIDP
+         yKXhP8PqHVqtOm7euvd9Zk9987+IvhpReuLBc4jUpRmOsuQfwdsTWrwLRDObAT+qTvW3
+         hieg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@sipsolutions.net header.s=mail header.b=S1xvMuBW;
-       spf=pass (google.com: domain of johannes@sipsolutions.net designates 2a01:4f8:191:4433::2 as permitted sender) smtp.mailfrom=johannes@sipsolutions.net;
-       dmarc=pass (p=NONE sp=REJECT dis=NONE) header.from=sipsolutions.net
-Received: from sipsolutions.net (s3.sipsolutions.net. [2a01:4f8:191:4433::2])
-        by gmr-mx.google.com with ESMTPS id v15si104178lfa.6.2021.08.13.12.45.06
+       dkim=pass header.i=@google.com header.s=20161025 header.b=tsbCgqA+;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102b as permitted sender) smtp.mailfrom=maskray@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x102b.google.com (mail-pj1-x102b.google.com. [2607:f8b0:4864:20::102b])
+        by gmr-mx.google.com with ESMTPS id b14si149864pjg.2.2021.08.13.13.05.13
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 13 Aug 2021 13:05:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102b as permitted sender) client-ip=2607:f8b0:4864:20::102b;
+Received: by mail-pj1-x102b.google.com with SMTP id hv22-20020a17090ae416b0290178c579e424so17557512pjb.3
+        for <clang-built-linux@googlegroups.com>; Fri, 13 Aug 2021 13:05:13 -0700 (PDT)
+X-Received: by 2002:a65:5686:: with SMTP id v6mr3851920pgs.174.1628885113391;
+        Fri, 13 Aug 2021 13:05:13 -0700 (PDT)
+Received: from google.com ([2620:15c:2ce:200:c94e:5de5:2819:8b32])
+        by smtp.gmail.com with ESMTPSA id g20sm3204758pfo.20.2021.08.13.13.05.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Aug 2021 12:45:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of johannes@sipsolutions.net designates 2a01:4f8:191:4433::2 as permitted sender) client-ip=2a01:4f8:191:4433::2;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.94.2)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1mEd6u-00ANL4-Up; Fri, 13 Aug 2021 21:44:57 +0200
-Message-ID: <6488ed24d2ce0ccb1987c271064e25bc72c30863.camel@sipsolutions.net>
-Subject: Re: [PATCH 10/64] lib80211: Use struct_group() for memcpy() region
-From: Johannes Berg <johannes@sipsolutions.net>
-To: Kees Cook <keescook@chromium.org>
-Cc: linux-hardening@vger.kernel.org, "Gustavo A. R. Silva"
- <gustavoars@kernel.org>, Keith Packard <keithpac@amazon.com>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Andrew Morton
- <akpm@linux-foundation.org>,  linux-kernel@vger.kernel.org,
- linux-wireless@vger.kernel.org,  netdev@vger.kernel.org,
- dri-devel@lists.freedesktop.org,  linux-staging@lists.linux.dev,
- linux-block@vger.kernel.org,  linux-kbuild@vger.kernel.org,
- clang-built-linux@googlegroups.com
-Date: Fri, 13 Aug 2021 21:44:55 +0200
-In-Reply-To: <202108130846.EC339BCA@keescook>
-References: <20210727205855.411487-1-keescook@chromium.org>
-	 <20210727205855.411487-11-keescook@chromium.org>
-	 <a9c8ae9e05cfe2679cd8a7ef0ab20b66cf38b930.camel@sipsolutions.net>
-	 <202108130846.EC339BCA@keescook>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.38.4 (3.38.4-1.fc33)
+        Fri, 13 Aug 2021 13:05:12 -0700 (PDT)
+Date: Fri, 13 Aug 2021 13:05:08 -0700
+From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Daniel Axtens <dja@axtens.net>
+Cc: Bill Wendling <morbo@google.com>, Michael Ellerman <mpe@ellerman.id.au>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Paul Mackerras <paulus@samba.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] ppc: add "-z notext" flag to disable diagnostic
+Message-ID: <20210813200508.7bqehxgd6ruerds5@google.com>
+References: <20210812204951.1551782-1-morbo@google.com>
+ <87sfzde8lk.fsf@linkitivity.dja.id.au>
 MIME-Version: 1.0
-X-malware-bazaar: not-scanned
-X-Original-Sender: johannes@sipsolutions.net
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Disposition: inline
+In-Reply-To: <87sfzde8lk.fsf@linkitivity.dja.id.au>
+X-Original-Sender: maskray@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@sipsolutions.net header.s=mail header.b=S1xvMuBW;       spf=pass
- (google.com: domain of johannes@sipsolutions.net designates
- 2a01:4f8:191:4433::2 as permitted sender) smtp.mailfrom=johannes@sipsolutions.net;
-       dmarc=pass (p=NONE sp=REJECT dis=NONE) header.from=sipsolutions.net
+ header.i=@google.com header.s=20161025 header.b=tsbCgqA+;       spf=pass
+ (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::102b
+ as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Fangrui Song <maskray@google.com>
+Reply-To: Fangrui Song <maskray@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,23 +142,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, 2021-08-13 at 08:49 -0700, Kees Cook wrote:
-> 
-> Ah! Yes, thanks for pointing this out. During earlier development I split
-> the "cross-field write" changes from the "cross-field read" changes, and
-> it looks like I missed moving lib80211_crypt_ccmp.c into that portion of
-> the series (which I haven't posted nor finished -- it's lower priority
-> than fixing the cross-field writes).
+On 2021-08-14, Daniel Axtens wrote:
+>Bill Wendling <morbo@google.com> writes:
+>
+>> The "-z notext" flag disables reporting an error if DT_TEXTREL is set on
+>> PPC with CONFIG=kdump:
+>>
+>>   ld.lld: error: can't create dynamic relocation R_PPC64_ADDR64 against
+>>     local symbol in readonly segment; recompile object files with -fPIC
+>>     or pass '-Wl,-z,notext' to allow text relocations in the output
+>>   >>> defined in built-in.a(arch/powerpc/kernel/misc.o)
+>>   >>> referenced by arch/powerpc/kernel/misc.o:(.text+0x20) in archive
+>>       built-in.a
+>>
+>> The BFD linker disables this by default (though it's configurable in
+>> current versions). LLD enables this by default. So we add the flag to
+>> keep LLD from emitting the error.
+>
+>You didn't provide a huge amount of context but I was able to reproduce
+>a similar set of errors with pseries_le_defconfig and
+>
+>make ARCH=powerpc CROSS_COMPILE=powerpc64-linux-gnu- CC="ccache clang-11" LD=ld.lld-11 AR=llvm-ar-11 -j4 vmlinux
+>
+>I also checked the manpage, and indeed the system ld does not issue this
+>warning/error by default.
+>
+>> ---
+>>  arch/powerpc/Makefile | 1 +
+>>  1 file changed, 1 insertion(+)
+>>
+>> diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
+>> index 6505d66f1193..17a9fbf9b789 100644
+>> --- a/arch/powerpc/Makefile
+>> +++ b/arch/powerpc/Makefile
+>> @@ -122,6 +122,7 @@ endif
+>>
+>>  LDFLAGS_vmlinux-y := -Bstatic
+>>  LDFLAGS_vmlinux-$(CONFIG_RELOCATABLE) := -pie
+>> +LDFLAGS_vmlinux-$(CONFIG_RELOCATABLE) += -z notext
+>
+>Is there any reason this should be gated on CONFIG_RELOCATABLE? (I tried
+>without it and got different but possibly related linker errors...)
+>
+>Also, is this behaviour new?
 
-Oh, OK. I think all of this patch was cross-field read though.
+This is a longstanding behavior.
 
-Anyway, the patch itself is fine, just seems incomplete and somewhat
-badly organised :)
+https://maskray.me/blog/2020-12-19-lld-and-gnu-linker-incompatibilities
+See "Text relocations"
 
-johannes
+.o files used to link .tmp_vmlinux.kallsyms1 have many R_PPC64_ADDR64
+relocations in non-SHF_WRITE sections. There are many text relocations (e.g. in
+.rela___ksymtab_gpl+* and .rela__mcount_loc sections) in a -pie link and are
+disallowed by LLD:
 
+   ld.lld: error: can't create dynamic relocation R_PPC64_ADDR64 against local symbol in readonly segment; recompile object files with -fPIC or pass '-Wl,-z,notext' to allow text relocations in the output
+   >>> defined in arch/powerpc/kernel/head_64.o
+   >>> referenced by arch/powerpc/kernel/head_64.o:(__restart_table+0x10)
+
+Newer GNU ld configured with --enable-textrel-check=error will report an error
+as well:
+
+   ld/ld-new: read-only segment has dynamic relocations
+
+
+
+Text relocations are considered very awful by linker developers.
+binutils 2.35 added --enable-textrel-check={no,warn,error}
+https://sourceware.org/bugzilla/show_bug.cgi?id=20824
+
+I can imagine that in the future some Linux distributions (especially those
+focusing on security) will default their binutils to use
+--enable-textrel-check={no,warn,error}.  CONFIG_RELOCATABLE build will break
+sooner or later.
+
+
+In -no-pie links, R_PPC64_ADDR64 relocations are link-time constants.
+There are no text relocations, therefore no need for -z notext.
+
+>Kind regards,
+>Daniel
+>
+>>  LDFLAGS_vmlinux	:= $(LDFLAGS_vmlinux-y)
+>>
+>>  ifdef CONFIG_PPC64
+>> --
+>> 2.33.0.rc1.237.g0d66db33f3-goog
+>
+>-- 
+>You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+>To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+>To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87sfzde8lk.fsf%40linkitivity.dja.id.au.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/6488ed24d2ce0ccb1987c271064e25bc72c30863.camel%40sipsolutions.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210813200508.7bqehxgd6ruerds5%40google.com.
