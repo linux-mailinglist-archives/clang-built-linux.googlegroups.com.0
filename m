@@ -1,129 +1,123 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBAFP3SEAMGQEG44SFQA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBM5P3SEAMGQEXXJDA7A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3c.google.com (mail-yb1-xb3c.google.com [IPv6:2607:f8b0:4864:20::b3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 298893EBF35
-	for <lists+clang-built-linux@lfdr.de>; Sat, 14 Aug 2021 03:08:18 +0200 (CEST)
-Received: by mail-yb1-xb3c.google.com with SMTP id f64-20020a2538430000b0290593bfc4b046sf10788723yba.9
-        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Aug 2021 18:08:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1628903297; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9B4733EBF37
+	for <lists+clang-built-linux@lfdr.de>; Sat, 14 Aug 2021 03:09:08 +0200 (CEST)
+Received: by mail-pl1-x638.google.com with SMTP id m4-20020a170902db04b029012d5b1d78d5sf7144463plx.15
+        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Aug 2021 18:09:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1628903347; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HOVWd4FF1bZGp1RwTWQ2eh0/k4ApT8DrFTgRce1+90VMlILDgG9HBp9XiCzBlaqAaM
-         cyRdgWNfUqmkbVYlo4LHLRoRwCVCFAyrLQZj5Mr+QIWRN0xigOFn/469hN8K+3XRfM9+
-         r8OLFNUfXbWook+ka0zQGF2shLcHeQBGWsloW47BiTjI/cIP6nPDvF5zKlUVGDLRUjKp
-         GeBxtYXb9iT+EUe/vkrqG0PUUj5BcIM8qrS/cjOxUjABaojn4DEl+xBg1wQ33SZdApnR
-         jxxrqn87c4hSYy19NswHCj6tW2xR2W1i8f592MYPgugpSqWYgPSjGNZVyTfeTQ77cq8U
-         wm9A==
+        b=QbDciVHPCSEsO7n+8caKXVdjyqGsgHtE8UviKfej35HpOXAgB1C+S1WM/JGIxS9+3O
+         T+6YgxUtJ9uGe6urupr7rWXqVxof+s3bAP5EcEL2vlN6k4I7zra8n76QPKoSHeNYTARF
+         gWxiQli0iq4EItUPcEj5FGEYNYSQmhVEs/nYzTYw0v0zSTwOGru6gw5G8XXP9CA2hvBe
+         7ZmhRXOjolKyR/HgX/DCRCMHBk+JaJ6NOPtKL5uK35yrzJexP3vnc6RWjUPGVNhB/TEs
+         AX1LRu4ul7WCX5xa8ADdAVyXNo113TQp+GYgRTBxsrpg6J/jmvkNXxLMQdxHOnH0pB7K
+         cJsQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=OE4kd9iFwRZcBjHm7g9XL4jOjxr18oLDq2mzJjgVx0g=;
-        b=fD0k9SkHpJ9XeTLaM8BSM818u264rqhftyCbL0go5PlPUgPPj1QoP4cZ6GdEietx9T
-         Ba1BNAuC80eK9gSD6tXQnMDMIi+cRdUfy1JRNJBuOGhau/EXqTa/uunclzex9+Hum1Yv
-         lJLdkPdsmq2Ucu51YK9W6B6f55b+8F9doIuf5pKqVbOZf/OcAcRdwJrekxDppxRPiwQ/
-         gJYMoZtFdXajH+mTI9zBnwkKXP5nCM3DSphPUJomenG588VRP2Zy6BCtHrWMd4bIyfXA
-         3qgxsSA9TYkkvGwEYHXd//Eu285GXz94m6ZUZuDA65sAqgFG+xlOhF7uqoWLBxo5+KJH
-         rdow==
+        bh=KBYK68azEcfQpa38PdK3MMsbhIU/+LTnqTfLJdfe9Hg=;
+        b=wx3WnqQbfarQS70NxeFyYk0ZDx9e6+cq5mos+WQ62mbRgZ5T2aSZTC+d2nd3k2lHMT
+         mxf1g8wRlcMfpcIDSQbGwTY5zfwSfMO/pVvP8ihhXDSiC174Vbd6ilpDcq3uIGVon9Os
+         52a60Fdq0XFeXe1zwya/FFtsFmP3x811hnDDPaUbRPHTIJAVtNgL7hTeBYfSJ8KufGPP
+         ISRXLQvYCZbLNXPDpVJcmC9X29jPKtY1vn0PQsa9n8y4X38P+AqlHscLtLSBrSMFIXu6
+         e9FoIN/W14+4z3PCHur+Y2N6v+zv5xgh0nXrlXOg0nfaN+vbicetHxFxkI7gUdv99OzN
+         9q0A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=VJ9LOAt5;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=MNhjakI1;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=OE4kd9iFwRZcBjHm7g9XL4jOjxr18oLDq2mzJjgVx0g=;
-        b=N1NAXAM9R4YU73yPie3jZ4HEhX3VQ+ZKvxV+nlK8uOUfZ+Zy5MhP3aedDru1LcZUKb
-         WnW0J1p1bcD+Mp7Df4I9rveXUPq1m28yX5uXVai3FtdvcgaJemqHFnmZhMtT3Sc90DPU
-         rDSoqCMxmT9PTrdVQ7NZjuOuLRunxTj7VGEVJC4rd3xRwu0c4gM62O3Y3cq0lTXHBNDZ
-         VNLo2bzCk5RapX7qaZK1naKs+flCgGtHlB/wyva76+SBFCM1HI69dzAhSbeSgVoYEjS8
-         G81oBJ0eWRyb0Pif2SROZmP6Pu/vHMnNaz4JLnLPRgtjYK/4TzW25ugQrsrg0tUXoaBW
-         3+Vw==
+        bh=KBYK68azEcfQpa38PdK3MMsbhIU/+LTnqTfLJdfe9Hg=;
+        b=SFEUbOsNdbi8n88/nYcGzGlwwORcPt1+x6su0cad+GDkuuhhM/ocXtActedroDIEA2
+         vOatqYMNXSnFdL0tQ22KrHAF61X2db84Sb8a0QElD83gBv3HByLfJpuug4e75OMvYNf8
+         LxJesMJx9eC/16BihH7oazOi4HJMtaTnzO52TLf6UNbx0Tqibre9UvYM0wTcXx0XH3SN
+         CtoW70QzFB6PovwIe1RxbWrGsjiWMWueosuDKdaOLxn1AeTdTE7tTqDxdY80FMCI+TSI
+         uBhKq1N//nOS5Zg7Str/c5AOik6B+vbX2G8mzlqsKObsmWqPelXblMC79+aHhRVF94Ok
+         rXyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=OE4kd9iFwRZcBjHm7g9XL4jOjxr18oLDq2mzJjgVx0g=;
-        b=j/vHw0JlkhPL7f0u0l3P4VZyHWJvM6kiao9su9vOBcrNL/otBKKgyLpq6dLNR3uZQ9
-         Hd3yql/RnFblX99uxjchl2/AGN7FOpg5CMjQwnXWiL5TmYPZjmTjI+t617gg+smh4QJy
-         bAe9XOqpa/q9zjfk6hyejNz+Urx6AQIY/qDTqMoIIbA6eHhp1I3VtGD50PPW4rQL+MTf
-         bzRjulCUnE4Vk1aVlZXbFeZF8Kq43n0TPNzUL9uz9DPAV6CoT8m0fh2T8EY9tQteXFl5
-         0GUhluovyPQnq92MgyxBXWZjjSTtV2EOH81RDJfmNmPiVh07oM0HcffB6ToaOUo6X3Wb
-         ARcA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=KBYK68azEcfQpa38PdK3MMsbhIU/+LTnqTfLJdfe9Hg=;
+        b=Uvaw1N2BW9yKf4pNrxAYM0q6yp0X0BzaMWWL6SLRc6i2QvFJi1lvJpxSe28AZBZvHz
+         R1WoSueyhjC0MINV/+uEOAcUf6TjFwWslnQGp+axpxplPZ1nPa9FNXkghOH2VWGYPvXz
+         dqowEOjy4HsPMcx9kzQ7wL9od7zVf6QRpk46xrPWTW9uvEO1litCPBHbC8hL6STTn5Wl
+         PtEZtFCgNsFlOWd+b0F+n/W/jFoagExg0fJgq/9Iru7Bo7YIGpVfzaaYkcRXYm4PDoQO
+         lkjYARrdOw16r7lkObJilZOx7DyyMTdlgUyNwGfdlrvayXqUbUKR5KXHdAgG7Kdgwm/9
+         /Nsw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5321eKBYLdPQKpZucr+94eaVB3Re3uieckwg5yELJCXqFviG/xjY
-	VNlQLPWwH9as+YlqWweMuL0=
-X-Google-Smtp-Source: ABdhPJxqT+0o/opkpvUGjDLhQmLAVq9/030mtsOVnSNyniJQNXOc3Am2kInqdHXAfFTYuWpi62zrnA==
-X-Received: by 2002:a05:6902:50d:: with SMTP id x13mr6810983ybs.278.1628903296839;
-        Fri, 13 Aug 2021 18:08:16 -0700 (PDT)
+X-Gm-Message-State: AOAM5328UI0ZBhsK/vMQ6Tept0KlStI5zFkHX8CLYBLrFvyhLzS9v38n
+	5MAkVaXNI8LmH74JKKBOxKQ=
+X-Google-Smtp-Source: ABdhPJw5LP0GXbwOPVJUh30IUwZ7Qdz6d6DCXXuoGt4AMW6PJw2L1LD5thkmHnTENUdSJvQ1FqfFhg==
+X-Received: by 2002:a63:b11:: with SMTP id 17mr4739985pgl.153.1628903347306;
+        Fri, 13 Aug 2021 18:09:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:6e04:: with SMTP id j4ls828035ybc.7.gmail; Fri, 13 Aug
- 2021 18:08:16 -0700 (PDT)
-X-Received: by 2002:a25:bd89:: with SMTP id f9mr6447418ybh.222.1628903296315;
-        Fri, 13 Aug 2021 18:08:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1628903296; cv=none;
+Received: by 2002:a62:1cc2:: with SMTP id c185ls1072038pfc.2.gmail; Fri, 13
+ Aug 2021 18:09:06 -0700 (PDT)
+X-Received: by 2002:a63:2214:: with SMTP id i20mr4615222pgi.131.1628903346763;
+        Fri, 13 Aug 2021 18:09:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1628903346; cv=none;
         d=google.com; s=arc-20160816;
-        b=QZHlDW53hSTQcfZ6X8PoCRj+lPv1n09Kn4zluFzD1Ti5RrlsdkKM8S/JiqrxetpjU5
-         bw27iSwnVfjoN1dvwXv88pkXod4yEm0wWHUb1K4WoGUz7dA22KqTyXP2zM6/LEoU6aed
-         ae0wFRf0E/8g8fkI0UoF65MT7O0DYUV0iny2Uq2DIYeSQY7wvbTYEnT1n8/1pBODQ0hF
-         kn/qcuJNnhANwrV66TFJ+6ILkEf1StjnLs6UnLZF+A4tCcqxiURjHs1+wC7qz0pPgbUm
-         cx+dla5Qjn5jNY0pcDBTCivfJThFgRj757UI+/BlsiAiIyo7DiyNzB2I3xLhoSsNqD93
-         o7tQ==
+        b=YJ8Jdgb6N3ooWzs86Bc9/huWfG+t0vgShYFd8mPh0dbhN65bgibu56Nc3X40Kuv/DT
+         ZUs4kI1B1TFO4+fTCLuL5pKhISP7W+GCPhU9sCUCYuEKebRAq1U0ddhStvDBsqBO8aKi
+         yhXyQ/ArTsvaC2WIwgUHWqDQEwEmQE81F+YW0eKbEV79JkcKKNfKMs80BrGzs3xg8lWx
+         pBGZH6Yv+gAyVE4ywbA4oFfZW4Nd33pF2hkny9Clp3FFpwbvqBhcNzjpIimH8rD+hZiJ
+         VnQl/lJkI3fOx5FIUdzzHuR7sAx9mXwGXJDrGtlnkQHGAfe6CaIRkB0aMIRhPnb3g4ul
+         eY8g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=IIOxmNpjJY0+mi9Qvj3dpkC38f3a/+t9vF+6h5pqjY4=;
-        b=ApAg5iTSG2chcVAabcLWDEd4NWtAaPTUT11NS5LNuaeZ3e2CbyMZ6bj7X5R2OYStQ3
-         xehyve40PeAFJ6EX10+Wwav7vTecHN9kqbyTQrFPhKdJfYWqZFOj1RRjZb7Ihs73kiOc
-         7IZDt00ALzZKm4mDKtFKlC+OiEVZFHaE2pKXtbjj9SNd9uZhc4R5VStqkQJ53IxTCeul
-         Y9oiocbme2TbZ2+vGOHPoz0kFJshHnGlHkDTANPnlVH7u5Nwfw/6UCA57PpnDcwiJAAs
-         p/5YP1pJrdjOQpqhstX0YTkwp0gLwoXiU4FpoGQsmgUSqqb+TB8MDpuspGHmS6UDNDwl
-         kRxQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=sU45yahTVzhwcAJLRJ6/qgokw662qpCcP0YElj7i6o8=;
+        b=z/IirWwvS5wVpHYoSGNfffApu/GT+X1hpghGCby2/7wkiaiJXGuw3HzTsPj3EkTKmQ
+         3FZ2O77TxVqZZxeU+iiG3VgX6ObIO7WsnbYQok2SuASA96PNZ9npioc/eJ4EjsivLrQR
+         msrNSEC/kfr2ohTaGK2jfPGQBKVtytZtYQaPlng60blwnp7zjusndUB9Atdy9c2RN3U7
+         Nf+EZZ3seg7n99J92ggRS1Mzeq4sh063985cfApEzuyqqysUtiBBmWfyDs0xrRogcch2
+         A3VKMdmRjfYd8qF4aZaarCo3wZ192asd369z9c7bXjg8KGvepXT+yWW92Sp72U4npvwL
+         ptlQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=VJ9LOAt5;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-04.nifty.com (conssluserg-04.nifty.com. [210.131.2.83])
-        by gmr-mx.google.com with ESMTPS id z205si169922ybb.0.2021.08.13.18.08.15
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=MNhjakI1;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id e1si142655pjs.3.2021.08.13.18.09.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 13 Aug 2021 18:08:16 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.83 as permitted sender) client-ip=210.131.2.83;
-Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179]) (authenticated)
-	by conssluserg-04.nifty.com with ESMTP id 17E182pL007975
-	for <clang-built-linux@googlegroups.com>; Sat, 14 Aug 2021 10:08:03 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-04.nifty.com 17E182pL007975
-X-Nifty-SrcIP: [209.85.214.179]
-Received: by mail-pl1-f179.google.com with SMTP id d1so14231944pll.1
-        for <clang-built-linux@googlegroups.com>; Fri, 13 Aug 2021 18:08:02 -0700 (PDT)
-X-Received: by 2002:a65:6459:: with SMTP id s25mr4768167pgv.7.1628903281994;
- Fri, 13 Aug 2021 18:08:01 -0700 (PDT)
+        Fri, 13 Aug 2021 18:09:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id DD825610FA;
+	Sat, 14 Aug 2021 01:09:05 +0000 (UTC)
+Date: Fri, 13 Aug 2021 18:09:03 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: kernel test robot <lkp@intel.com>
+Cc: Jens Axboe <axboe@kernel.dk>, clang-built-linux@googlegroups.com,
+	kbuild-all@lists.01.org, linux-kernel@vger.kernel.org,
+	Nick Desaulniers <ndesaulniers@google.com>
+Subject: Re: [block:io_uring-fops.v6 58/64] io_uring.c:undefined reference to
+ `__compiletime_assert_833'
+Message-ID: <YRcXr8o56PIYHY27@Ryzen-9-3900X.localdomain>
+References: <202108140731.bUZsdUjG-lkp@intel.com>
 MIME-Version: 1.0
-References: <20210810205611.4013424-1-ndesaulniers@google.com>
-In-Reply-To: <20210810205611.4013424-1-ndesaulniers@google.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Sat, 14 Aug 2021 10:07:24 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAT0KR_xjPNzdB1aJ9nj3=A-ktU-aoP0CWvAnMJ91djfyA@mail.gmail.com>
-Message-ID: <CAK7LNAT0KR_xjPNzdB1aJ9nj3=A-ktU-aoP0CWvAnMJ91djfyA@mail.gmail.com>
-Subject: Re: [PATCH] MAINTAINERS: add Nick to Kbuild reviewers
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Kees Cook <keescook@chromium.org>, Nathan Chancellor <nathan@kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+Content-Disposition: inline
+In-Reply-To: <202108140731.bUZsdUjG-lkp@intel.com>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=VJ9LOAt5;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.83 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@kernel.org header.s=k20201202 header.b=MNhjakI1;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,68 +130,115 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 11, 2021 at 5:56 AM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> Kees' post inspired me to get more involved. I still have a long way to
-> go in terms of mastery of GNU make, but at the least I can help with
-> more code review. It's also helpful for me to pick up on what's missing
-> from the LLVM ecosystem.
+On Sat, Aug 14, 2021 at 07:11:36AM +0800, kernel test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux-block.git io_uring-fops.v6
+> head:   4e0c34c9b129fe84c63d3f76053d2e55d944e8a9
+> commit: 834d3e42c71acf4653f840ac3998f8601f37021c [58/64] io_uring: add infrastructure around io_uring_cmd_sqe issue type
+> config: s390-randconfig-r033-20210813 (attached as .config)
+> compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project 62df4df41c939205b2dc0a2a3bfb75b8c1ed74fa)
+> reproduce (this is a W=1 build):
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # install s390 cross compiling tool for clang build
+>         # apt-get install binutils-s390x-linux-gnu
+>         # https://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux-block.git/commit/?id=834d3e42c71acf4653f840ac3998f8601f37021c
+>         git remote add block https://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux-block.git
+>         git fetch --no-tags block io_uring-fops.v6
+>         git checkout 834d3e42c71acf4653f840ac3998f8601f37021c
+>         # save the attached .config to linux build tree
+>         mkdir build_dir
+>         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross O=build_dir ARCH=s390 SHELL=/bin/bash
+> 
+> If you fix the issue, kindly add following tag as appropriate
+> Reported-by: kernel test robot <lkp@intel.com>
+> 
+> All errors (new ones prefixed by >>):
+> 
+>    s390x-linux-gnu-ld: kernel/dma/coherent.o: in function `dma_declare_coherent_memory':
+>    coherent.c:(.text+0xc4): undefined reference to `memunmap'
+>    s390x-linux-gnu-ld: coherent.c:(.text+0x1c4): undefined reference to `memunmap'
+>    s390x-linux-gnu-ld: kernel/dma/coherent.o: in function `dma_init_coherent_memory':
+>    coherent.c:(.text+0x2b4): undefined reference to `memremap'
+>    s390x-linux-gnu-ld: coherent.c:(.text+0x564): undefined reference to `memunmap'
+>    s390x-linux-gnu-ld: fs/io_uring.o: in function `io_uring_init':
+> >> io_uring.c:(.init.text+0x30): undefined reference to `__compiletime_assert_833'
+> >> s390x-linux-gnu-ld: io_uring.c:(.init.text+0x4a): undefined reference to `__compiletime_assert_835'
+>    s390x-linux-gnu-ld: drivers/dma/fsl-edma.o: in function `fsl_edma_probe':
+>    fsl-edma.c:(.text+0x1bc): undefined reference to `devm_ioremap_resource'
+>    s390x-linux-gnu-ld: fsl-edma.c:(.text+0x40a): undefined reference to `devm_ioremap_resource'
+>    s390x-linux-gnu-ld: drivers/dma/idma64.o: in function `idma64_platform_probe':
+>    idma64.c:(.text+0xc6): undefined reference to `devm_ioremap_resource'
+>    s390x-linux-gnu-ld: drivers/char/xillybus/xillybus_of.o: in function `xilly_drv_probe':
+>    xillybus_of.c:(.text+0xc4): undefined reference to `devm_platform_ioremap_resource'
+>    s390x-linux-gnu-ld: drivers/pcmcia/cistpl.o: in function `release_cis_mem':
+>    cistpl.c:(.text+0x1d6): undefined reference to `iounmap'
+>    s390x-linux-gnu-ld: drivers/pcmcia/cistpl.o: in function `set_cis_map':
+>    cistpl.c:(.text+0xb10): undefined reference to `ioremap'
+>    s390x-linux-gnu-ld: cistpl.c:(.text+0xbbe): undefined reference to `iounmap'
+>    s390x-linux-gnu-ld: cistpl.c:(.text+0xf4e): undefined reference to `iounmap'
+>    s390x-linux-gnu-ld: cistpl.c:(.text+0xf8c): undefined reference to `ioremap'
+>    s390x-linux-gnu-ld: drivers/clocksource/timer-of.o: in function `timer_of_base_init':
+>    timer-of.c:(.init.text+0x576): undefined reference to `of_iomap'
+>    s390x-linux-gnu-ld: drivers/clocksource/timer-of.o: in function `timer_of_base_exit':
+>    timer-of.c:(.init.text+0x17ba): undefined reference to `iounmap'
 
+Grabbing Nick's patch [1] to support the error function attribute turns
+this into:
 
-Reviews and tests are always appreciated.
-Of course, not only from those who are listed in
-the MAINTAINERS file, but everybody can provide
-reviews to any patches in their interests.
+fs/io_uring.c:10531:2: error: call to '__compiletime_assert_833' declared with 'error' attribute: BUILD_BUG_ON failed: offsetof(struct io_uring_cmd_sqe, user_data) != sqe_offsets[1].user_data
+        BUILD_BUG_SQEC_ELEM(sqe_offsets[1].user_data,   __u64,  user_data);
+        ^
+fs/io_uring.c:10528:2: note: expanded from macro 'BUILD_BUG_SQEC_ELEM'
+        __BUILD_BUG_VERIFY_ELEMENT(struct io_uring_cmd_sqe, eoffset, etype, ename)
+        ^
+fs/io_uring.c:10489:2: note: expanded from macro '__BUILD_BUG_VERIFY_ELEMENT'
+        BUILD_BUG_ON(offsetof(stype, ename) != eoffset); \
+        ^
+./include/linux/build_bug.h:50:2: note: expanded from macro 'BUILD_BUG_ON'
+        BUILD_BUG_ON_MSG(condition, "BUILD_BUG_ON failed: " #condition)
+        ^
+note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+./include/linux/compiler_types.h:310:2: note: expanded from macro '_compiletime_assert'
+        __compiletime_assert(condition, msg, prefix, suffix)
+        ^
+./include/linux/compiler_types.h:303:4: note: expanded from macro '__compiletime_assert'
+                        prefix ## suffix();                             \
+                        ^
+<scratch space>:17:1: note: expanded from here
+__compiletime_assert_833
+^
+fs/io_uring.c:10532:2: error: call to '__compiletime_assert_835' declared with 'error' attribute: BUILD_BUG_ON failed: offsetof(struct io_uring_cmd_sqe, personality) != sqe_offsets[1].personality
+        BUILD_BUG_SQEC_ELEM(sqe_offsets[1].personality, __u16,  personality);
+        ^
+fs/io_uring.c:10528:2: note: expanded from macro 'BUILD_BUG_SQEC_ELEM'
+        __BUILD_BUG_VERIFY_ELEMENT(struct io_uring_cmd_sqe, eoffset, etype, ename)
+        ^
+fs/io_uring.c:10489:2: note: expanded from macro '__BUILD_BUG_VERIFY_ELEMENT'
+        BUILD_BUG_ON(offsetof(stype, ename) != eoffset); \
+        ^
+./include/linux/build_bug.h:50:2: note: expanded from macro 'BUILD_BUG_ON'
+        BUILD_BUG_ON_MSG(condition, "BUILD_BUG_ON failed: " #condition)
+        ^
+note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+./include/linux/compiler_types.h:310:2: note: expanded from macro '_compiletime_assert'
+        __compiletime_assert(condition, msg, prefix, suffix)
+        ^
+./include/linux/compiler_types.h:303:4: note: expanded from macro '__compiletime_assert'
+                        prefix ## suffix();                             \
+                        ^
+<scratch space>:25:1: note: expanded from here
+__compiletime_assert_835
+^
+2 errors generated.
 
-Applied to linux-kbuild. Thanks.
+Is this a legitimate failure? I do not see this with GCC 11.2.0.
 
+[1]: https://reviews.llvm.org/D106030 + https://lore.kernel.org/r/20210802202326.1817503-1-ndesaulniers@google.com/
 
-BTW, one struggle about being a maintainter
-of this entry is I need to take a look
-into random stuff.
-
-KERNEL BUILD + files below scripts/ (unless maintained elsewhere)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-Another BTW, this patch reminds me of Michal.
-He is inactive for a long time.
-I should ask him if he wants to continue
-to be a kbuild maintainer.
-
-
-
-
-
-> Link: https://security.googleblog.com/2021/08/linux-kernel-security-done-right.html
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
->  MAINTAINERS | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index efac6221afe1..9768e4a19662 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -10091,6 +10091,7 @@ F:      fs/autofs/
->  KERNEL BUILD + files below scripts/ (unless maintained elsewhere)
->  M:     Masahiro Yamada <masahiroy@kernel.org>
->  M:     Michal Marek <michal.lkml@markovi.net>
-> +R:     Nick Desaulniers <ndesaulniers@google.com>
->  L:     linux-kbuild@vger.kernel.org
->  S:     Maintained
->  T:     git git://git.kernel.org/pub/scm/linux/kernel/git/masahiroy/linux-kbuild.git
-> --
-> 2.32.0.605.g8dce9f2422-goog
->
-
-
--- 
-Best Regards
-Masahiro Yamada
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAT0KR_xjPNzdB1aJ9nj3%3DA-ktU-aoP0CWvAnMJ91djfyA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YRcXr8o56PIYHY27%40Ryzen-9-3900X.localdomain.
