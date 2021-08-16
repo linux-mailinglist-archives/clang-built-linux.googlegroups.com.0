@@ -1,122 +1,140 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB7PF5KEAMGQEUTWB37A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPZFQ463EFRBTPI5KEAMGQEAA2HKDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id 042DA3EDD4F
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 20:48:30 +0200 (CEST)
-Received: by mail-lj1-x237.google.com with SMTP id u7-20020a2e2e070000b02901b56dc35bf0sf6343695lju.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 11:48:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629139709; cv=pass;
+Received: from mail-vs1-xe3e.google.com (mail-vs1-xe3e.google.com [IPv6:2607:f8b0:4864:20::e3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8D9B63EDD59
+	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 20:54:06 +0200 (CEST)
+Received: by mail-vs1-xe3e.google.com with SMTP id i2-20020a67e2c20000b02902bae9a0967fsf3064622vsm.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 11:54:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629140045; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Z5oWjtrQLzX3SuzwguvxOofN6g735WadjOxgvdADq/hw4EpGCghMC+KEXof24+U9vs
-         J/pYQtZOHnJwMCgBVcOViKpoIbS50Riz1AjcwbmbG8ozglEv9Z2fbyOPK966+BozM2TY
-         qzXLJfJLkgVPjUDZkYnMMeOTRfaBmMu0WUZAF8vD5SWWW10Qth8UHpLRbqH2+583XsKC
-         Ux/ejZmauZF+Dcrx9Jhc6b/55ryoBG7hElR7KLbea27J9/9e+Pju1mPXE/RKjrQUDmob
-         6YYsRGTRwAFw4D2LoaxUiCkQzvKmVBKJm04IFqeWCc15QObgw/iZptduHA21fRcm8qNf
-         K8IQ==
+        b=nLr68KKdUvuQ0ThoPi1gb1OH6WwrZoRuJcbQ/LJeyflgAGZ35o4GxRH+K3WFqSBQeI
+         4r8sXsrdsq0SQvBFsA/BDOjcwwlVkE51xGx4zhtooVMsGVRrcmzlDk/CDuDqo0QlhamZ
+         p5X8MhhH9KDpiuByAEjQxW6mA5rGMVGY9TRibTn4wI5/qBjCXe17y+09yqMfrYpme/TP
+         +Z/pfxvfMlg+hmtBNjuzjBDbXiQDJ/jc6vQfg8NOmpzPxpu9jqYU6miBxsgblPPiK8Bi
+         yE9UesCQ68FnUO3Scv5nSVldo0WXkDtcNCCT1QqpF12t6pvIh8jUIzkYUXbJPhaHfOs1
+         EVEg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=xRnvDWF3JgfA6guW9vsv1O/o/FB76wftp39jn8MoTeE=;
-        b=HcEziSarMG/OZPAUj7/RkW9vgSi2vgVeHONfOlUhRlTp6FXnkkqqTtQ/0AYLy2Y4X5
-         X9WyNKe3ozsIC1DGPkXqhX/Qndr9vm5MG8K1Ibxbqg0S1uVajCRyZ/UsTu0+djT6S/Em
-         ROPfb3zQCL1G2vEeXfVBsLpRUoL3EJxtUwP6F58qMwhjY4U61xPXzWEXr4LU1tAbAvVS
-         JQ1f59sH/ZEceBxtolPcO342QITS4mvzXUPZ+iMW7Txg1lSgYfCMxLtSKJJ7GM/RPLYa
-         SDRbJBDi7H2RQjhUw59agTJjloshB63DLJw8tJeVVOZnkDpjigZwkO83LLqAZ0tv2cCk
-         Kizw==
+         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
+         :subject:message-id:date:from:in-reply-to:references:mime-version
+         :sender:dkim-signature:dkim-signature;
+        bh=DH9KfOocOeKgIpB2LviSuR8oTsfsuZHyv4//A6hFBrY=;
+        b=psEraYjqAuujjVo7NzHgaWBXLC87oD/IGUZps8Jyd2yNSL9azFTgIpsjWK/UtmJt0T
+         9e72LE7+Qr+sRu1LdmLVsFCgUN5Q0Egk8BJUwNT9wRMT0v/Sy4JCq8jymSTMweso02Rm
+         wVf7ZS25mJopBYN0B0b8lA+iSLKfPO9jH7VjQVIt5bCHdATPv7ZvIyLFE8RxRB7WsNOq
+         E1PG5eIH358ypj7W6BonVzqqUbp7N2EGlXOJenVCB962toqDmSvADR4hkfq9FTS2ix13
+         0AQ2ty/A4XpCG0K7RCFB2WPrfkVgRx2D2tZI3A+e6aw5XE4QT0Ox4U2NMV4oLwhNiEZI
+         rg5w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="A4/F8buH";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=naoSBJkg;
+       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::230 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=DH9KfOocOeKgIpB2LviSuR8oTsfsuZHyv4//A6hFBrY=;
+        b=QpOAmTI1IWO66Zi+hnGo6m/ECYzVOuFaDhJJHPfaP7RAmkw6YtqMUdA63XB4liXu91
+         XlsQR08u3cBFZlFJkLKQPQ1hK7wamp+JVu+IE/2eujSQ1UOeh8AqbD2JuQbMUS6dU4C1
+         5Xs0zrM8tPzFXskV4mHeHYWviNWisvoCMEQ2WWZRu4EJhSFxjULH+kgn+1eCKCoYI+qv
+         gsrksMJxLnb1GdM5tQNYazBa9gLTNyvuAypfPFFFLg1prmTX0iJ6elwMUuelZJ7aV7YA
+         Vm1tPf+MUcJQaclMtTwcEfJhwjwyMe/BAMZLLuEHWX9zXCgN2ZztT6MwEK5QkpCT1gVT
+         lRPg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=xRnvDWF3JgfA6guW9vsv1O/o/FB76wftp39jn8MoTeE=;
-        b=PkbeuecY/YEQqYKKEHtyeKGVj+Td5REQjNjJ+6JEy/L/XUpKbteu6ANDTa6U/bpNNc
-         w98upmuWl8ZzWu8+KOf3lSdOs5bbao6FVecKQIOEwttC1ScEHf2lqrwZHR3JClvxfQBT
-         YlmzFV0jvfKF7V4RQp7zzPwE8vF23XQsypFduACFtspYX9xLboT9zwlpDk1JxMQwrEyL
-         qL6QsGU71kBmBWclAYFfXOFcu1u6gwFdEL/J+HI4Q9BngPSXmduO/cJGC57atbov9Hes
-         pgyWcUrrOKWP3VHr8ykb/vDv1TTbphaSMdArASlJr4DCMK+RB1AwdlkafGzLxFI2MUdy
-         xaqw==
+         :cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=DH9KfOocOeKgIpB2LviSuR8oTsfsuZHyv4//A6hFBrY=;
+        b=gH/3g1PIIfh/bhVIkYfGTX/FfWaFSpRPHKFtJoVMMEgS2FXFio94zSVkLKvb4ii0Vw
+         gcikIJ16oeB8FgZbzhira6QvKCndNh6ZtuIigZDyz4wsDr1qQXA0SsrBiHll2F2WXYOr
+         UW/ctuSq5NxXsuspkZ92RhaJffRqlPcv4xssdZTlGaJlBGPj2aYlcuNkbXIy0vfi9I7g
+         msR9MrbRkTC//1o7D1u0k5XyVGMo2EhDyvTstGlHWXQK6AMk7gjyyIhLdXtZ+UCdyZlu
+         fzy/X5d/DtN6IM/3ZGVFwMEsoDsQWpWeoXtkKMCwoOHW+KnH73LBP/71ANzWfnkT53bf
+         LXmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=xRnvDWF3JgfA6guW9vsv1O/o/FB76wftp39jn8MoTeE=;
-        b=GrV2tgUe5szmCbCkvZrwZalgPhGKnxeu0SjPCqQ971iOnHRrK1d6pcXejjRLtmkUul
-         Sic2huyKgzC0YIq1XakkHRoNSsPKpO2BToFlidtccki7iKUAf7tQb6qqRKq6mrCKxf7N
-         ai3EPl/FRiosFmRgxzFuv0uQmKNVTYw4gl6MmZlrRcov1hJrlK30B7s1hXhCBIyV2t5d
-         Tab5yCCwgSNT2wsWRnAKN0mp4G3M2pN90ngeIXvnW+OV/wWMe6V3kRs1HRdIElT/LToy
-         vlWl2nXup2cY/6Y5FvLT6nWt60NMgPv9boFG46/KtXluNU1pJPMO0QBvjxkIHnzSIFEY
-         g4/Q==
-X-Gm-Message-State: AOAM532e4GTjqwvC0IYCyj/qctBdCmXN+A8+GO0ZAXbVZBVH6oS/cRMv
-	t6lFVVtCMONRrI2Fv514v24=
-X-Google-Smtp-Source: ABdhPJyWitqZo4knA5adwHXmEWsgMno8Nsho8iJyKyJObrI2jHccaScJtMItM/C47nFZMdLWm6Exzw==
-X-Received: by 2002:a05:6512:1042:: with SMTP id c2mr12860752lfb.283.1629139709562;
-        Mon, 16 Aug 2021 11:48:29 -0700 (PDT)
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=DH9KfOocOeKgIpB2LviSuR8oTsfsuZHyv4//A6hFBrY=;
+        b=lyuTpmrBUC5yvQuLE8MyuEkx0a8G7mTM+0Bdr83frfDNVcMhCRkSXRpaNy3+AgXc29
+         7LHt8lgYdWPfGdd1y4ZYdWvlWay2vfAaw92JiTUSwcI3PQ4AWNl3xJwImhaFri1AXrvN
+         5KUcFuuplxmgxDgtjWVzqTaxtiVUA1thjP4Z/N26mhgnYmIKlkd3+07oPLomifz6OaSW
+         sgxxzBRqkMRXKNWkaWbpeZHpWBdFzpTtKvhPiduvDjaNaS+4yj5rZxQRoqrz9xI+zxfh
+         izf9qdsh59Z8AAVOmZNIqqtqns93DzIClHpItv1pdb0HeMVfd7rmHlP95bAusPuiD1LT
+         o/eg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530oX0tFHGZNKmwO5sM78tgGWnBOqYrWsk9vwXRR2jKIAhHWfx1K
+	32yHTlaqQ9m0foo9PQXKGqQ=
+X-Google-Smtp-Source: ABdhPJyGI6I9I4zw7TClBLie64Hv5UOWXjpKFwh+HLPRMTitdXOqiBu8rBaCrv79CpdSmY3GLI5+Jw==
+X-Received: by 2002:ab0:36dc:: with SMTP id v28mr177886uau.38.1629140045692;
+        Mon, 16 Aug 2021 11:54:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3f02:: with SMTP id y2ls1950716lfa.3.gmail; Mon, 16
- Aug 2021 11:48:28 -0700 (PDT)
-X-Received: by 2002:a19:4901:: with SMTP id w1mr13119749lfa.323.1629139708677;
-        Mon, 16 Aug 2021 11:48:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629139708; cv=none;
+Received: by 2002:a1f:5ec1:: with SMTP id s184ls3106vkb.1.gmail; Mon, 16 Aug
+ 2021 11:54:05 -0700 (PDT)
+X-Received: by 2002:a1f:3213:: with SMTP id y19mr227605vky.13.1629140045219;
+        Mon, 16 Aug 2021 11:54:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629140045; cv=none;
         d=google.com; s=arc-20160816;
-        b=IVy2+cYCs77Vm+oZe4R4bD01dnkd5TbYTwkxi7upUzjxWsssai7+viPoGPBcc4ctZl
-         ARTIoujquwB5RapNsr6ePQnKLz9TocxJ2Rm+Vtk1JnvzhW2v7MQ4+5QDMtlNaTNb1eLG
-         8cPKUZY6xdpw3a37TwnD23+oSbjdHTc+HNrX7bREBUMQJ5PnJ4ndrgfqqlrZLxrBC13V
-         sLfmxuKkOPb9HkhKbuJyAQwGCboOBeYr3YT+ubi69KJD+9SpjyU6SENCCUO2ZyyTzMTS
-         F/qQQ/jWqNXgJl5ja25DRGkETDCSp4hjSl/G9Ef8I+oaPa256Tlp0J0H94eP3D7yDFac
-         Hf8A==
+        b=yViG/hYPzL/OdTCF6AOxI2mv1oLxDic2Tesw4V4G9JY7dcdjwb5D3ZZs5qsMKNYbUp
+         7Yyepasb9O8mh51RNsgvDNhOSocPD52nrUHGYaUJSt2XNY6w7lTXQcRWmCUmYYQV8hir
+         hGj/fXiiD7oAB361l6NpGEkfpMarsczhpTiE2oLAoR5yEHAg1a6xaDPaI6WYAbW7rPJy
+         hD7PEYLVRWhbFMsEt5dVF4hMqyRUGDoEjRRlKAgMkOZdjaZbgcwlpObqecJIWyc8hn27
+         qJ4xlyTDAOu5mEb1KIv4Go5cyzN3QUXGHlehWbyYoz7C9PRrnlCbqlyWNsyl8Uh3QHXs
+         5BzQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=OzlvgX+vzoKG9kFQ3t7nTob1GcVIUZUb5mhb/Lw1pbk=;
-        b=c/gP4w4Stfv9wSdXH/FrQRMCsxA2wFUzH+1X4yxRtZpS2gl8PNFEK8RrRfrI1DRoSL
-         LFk3K7zraBnmcR5F3fgoGrOOGqDRhU0nBbvXIXjaGfd3FEkcLcRGDQa59ztNzf94AXPv
-         3RnOBzCfuhzV1qmvhJ5QjBpi8nzTomBeP5+gkyyy0vWnF9lSUR9rD3p6R1s/E7Zd5pIK
-         xR3bbmBBDjORJ+FMRDjDR2AkxpKuT8Us1FIfj41k5rOBa/o2W+cdQjAhV6kM/OEVqgBE
-         G6QrySfM0XqxKh4qLS1tvxfIvKKsSsy0Et+WQ712pOCYsIvdjNRzJokp15Py5J/32aDE
-         qd2A==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YoY9bHgtBFBdh+LL5q9r5ScpCfKdiLG+MRqaif3YEI8=;
+        b=LjY+WgzLHkLtpfNiOsYwhqz10O0AvyhreQB1i6xUDgCgqVW9hDCE3/VvauUZ8ATV3x
+         kJoNG2SIDO69tMq+inARkWuZLIPhJDCgS2P1tSad79WH7SlC+iSeaOCTZRsKlY3yq15s
+         lmQWzXEf8xnTrYpia6zOUJrG9HcigwYi9XTpdYm0yGq36xz9Xn+Zi3uowhHI5Ob1Vn/1
+         5bUKojI5Ja0jhzFdtEmMoiDYSLdRdI3zwBE8uhPFxHVCtDQWSRVckrEI7IE2Fwz/TWlf
+         7w9QyeREE0EIZXTNBx8r2UKL0pFq4MPXg4eSKeBUW8pgg22vNmEMMEjgN7c4Bmq4OrIR
+         ZKsA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="A4/F8buH";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lj1-x22a.google.com (mail-lj1-x22a.google.com. [2a00:1450:4864:20::22a])
-        by gmr-mx.google.com with ESMTPS id v2si4263ljh.8.2021.08.16.11.48.28
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=naoSBJkg;
+       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::230 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-oi1-x230.google.com (mail-oi1-x230.google.com. [2607:f8b0:4864:20::230])
+        by gmr-mx.google.com with ESMTPS id f11si8860vkp.2.2021.08.16.11.54.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Aug 2021 11:48:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a as permitted sender) client-ip=2a00:1450:4864:20::22a;
-Received: by mail-lj1-x22a.google.com with SMTP id h11so28673493ljo.12
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Aug 2021 11:48:28 -0700 (PDT)
-X-Received: by 2002:a2e:8109:: with SMTP id d9mr37188ljg.495.1629139708138;
- Mon, 16 Aug 2021 11:48:28 -0700 (PDT)
+        Mon, 16 Aug 2021 11:54:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::230 as permitted sender) client-ip=2607:f8b0:4864:20::230;
+Received: by mail-oi1-x230.google.com with SMTP id n27so3501850oij.0
+        for <clang-built-linux@googlegroups.com>; Mon, 16 Aug 2021 11:54:05 -0700 (PDT)
+X-Received: by 2002:a05:6808:1390:: with SMTP id c16mr128831oiw.123.1629140045025;
+ Mon, 16 Aug 2021 11:54:05 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210814235625.1780033-1-nathan@kernel.org>
-In-Reply-To: <20210814235625.1780033-1-nathan@kernel.org>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 16 Aug 2021 11:48:16 -0700
-Message-ID: <CAKwvOdkVP42MeA7j=ppjJD4-jgC0pcTo6xbPhsOT5mT2DBPW3w@mail.gmail.com>
-Subject: Re: [PATCH] staging: rtl8192u: Fix bitwise vs logical operator in TranslateRxSignalStuff819xUsb()
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-staging@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+References: <20210815192959.90142-1-nathan@kernel.org> <d2e9b2a0-49b9-42fe-47fc-66a44bef3b01@amd.com>
+In-Reply-To: <d2e9b2a0-49b9-42fe-47fc-66a44bef3b01@amd.com>
+From: Alex Deucher <alexdeucher@gmail.com>
+Date: Mon, 16 Aug 2021 14:53:53 -0400
+Message-ID: <CADnq5_N0o_6vCqE0tYq=yqtPWvOzZikLoVF1f4U9DJcb2bCgCA@mail.gmail.com>
+Subject: Re: [PATCH] drm/radeon: Add break to switch statement in radeonfb_create_pinned_object()
+To: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Alex Deucher <alexander.deucher@amd.com>, 
+	"Pan, Xinhui" <Xinhui.Pan@amd.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Kees Cook <keescook@chromium.org>, 
+	amd-gfx list <amd-gfx@lists.freedesktop.org>, 
+	Maling list - DRI developers <dri-devel@lists.freedesktop.org>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: alexdeucher@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="A4/F8buH";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=naoSBJkg;       spf=pass
+ (google.com: domain of alexdeucher@gmail.com designates 2607:f8b0:4864:20::230
+ as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,55 +147,63 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Aug 14, 2021 at 4:58 PM Nathan Chancellor <nathan@kernel.org> wrote:
->
-> clang warns:
->
-> drivers/staging/rtl8192u/r8192U_core.c:4268:20: warning: bitwise and of
-> boolean expressions; did you mean logical and? [-Wbool-operation-and]
->         bpacket_toself =  bpacket_match_bssid &
->                           ^~~~~~~~~~~~~~~~~~~~~
->                                               &&
-> 1 warning generated.
->
-> Replace the bitwise AND with a logical one to clear up the warning, as
-> that is clearly what was intended.
->
-> Fixes: 8fc8598e61f6 ("Staging: Added Realtek rtl8192u driver to staging")
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Applied.  Thanks!
 
-Thanks for the patch!
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Alex
 
-> ---
->  drivers/staging/rtl8192u/r8192U_core.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+On Mon, Aug 16, 2021 at 3:23 AM Christian K=C3=B6nig
+<christian.koenig@amd.com> wrote:
 >
-> diff --git a/drivers/staging/rtl8192u/r8192U_core.c b/drivers/staging/rtl8192u/r8192U_core.c
-> index db26edeccea6..b6698656fc01 100644
-> --- a/drivers/staging/rtl8192u/r8192U_core.c
-> +++ b/drivers/staging/rtl8192u/r8192U_core.c
-> @@ -4265,7 +4265,7 @@ static void TranslateRxSignalStuff819xUsb(struct sk_buff *skb,
->         bpacket_match_bssid = (type != IEEE80211_FTYPE_CTL) &&
->                                (ether_addr_equal(priv->ieee80211->current_network.bssid,  (fc & IEEE80211_FCTL_TODS) ? hdr->addr1 : (fc & IEEE80211_FCTL_FROMDS) ? hdr->addr2 : hdr->addr3))
->                                && (!pstats->bHwError) && (!pstats->bCRC) && (!pstats->bICV);
-> -       bpacket_toself =  bpacket_match_bssid &
-> +       bpacket_toself =  bpacket_match_bssid &&
->                           (ether_addr_equal(praddr, priv->ieee80211->dev->dev_addr));
+> Am 15.08.21 um 21:29 schrieb Nathan Chancellor:
+> > Clang + -Wimplicit-fallthrough warns:
+> >
+> > drivers/gpu/drm/radeon/radeon_fb.c:170:2: warning: unannotated
+> > fall-through between switch labels [-Wimplicit-fallthrough]
+> >          default:
+> >          ^
+> > drivers/gpu/drm/radeon/radeon_fb.c:170:2: note: insert 'break;' to avoi=
+d
+> > fall-through
+> >          default:
+> >          ^
+> >          break;
+> > 1 warning generated.
+> >
+> > Clang's version of this warning is a little bit more pedantic than
+> > GCC's. Add the missing break to satisfy it to match what has been done
+> > all over the kernel tree.
+> >
+> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 >
->         if (WLAN_FC_GET_FRAMETYPE(fc) == IEEE80211_STYPE_BEACON)
+> Reviewed-by: Christian K=C3=B6nig <christian.koenig@amd.com>
 >
-> base-commit: 0bd35146642bdc56f1b87d75f047b1c92bd2bd39
-> --
-> 2.33.0.rc2
+> > ---
+> >   drivers/gpu/drm/radeon/radeon_fb.c | 1 +
+> >   1 file changed, 1 insertion(+)
+> >
+> > diff --git a/drivers/gpu/drm/radeon/radeon_fb.c b/drivers/gpu/drm/radeo=
+n/radeon_fb.c
+> > index 0b206b052972..c8b545181497 100644
+> > --- a/drivers/gpu/drm/radeon/radeon_fb.c
+> > +++ b/drivers/gpu/drm/radeon/radeon_fb.c
+> > @@ -167,6 +167,7 @@ static int radeonfb_create_pinned_object(struct rad=
+eon_fbdev *rfbdev,
+> >               break;
+> >       case 2:
+> >               tiling_flags |=3D RADEON_TILING_SWAP_16BIT;
+> > +             break;
+> >       default:
+> >               break;
+> >       }
+> >
+> > base-commit: ba31f97d43be41ca99ab72a6131d7c226306865f
 >
 
-
--- 
-Thanks,
-~Nick Desaulniers
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkVP42MeA7j%3DppjJD4-jgC0pcTo6xbPhsOT5mT2DBPW3w%40mail.gmail.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CADnq5_N0o_6vCqE0tYq%3DyqtPWvOzZikLoVF1f4U9DJcb2bCgCA%40m=
+ail.gmail.com.
