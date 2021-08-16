@@ -1,127 +1,121 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBLEU5OEAMGQEMB4JTYI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBCUZ5OEAMGQES7DFEUY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id B67423EDEA6
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 22:27:25 +0200 (CEST)
-Received: by mail-ot1-x339.google.com with SMTP id y6-20020a0568302a0600b00518b08df4d2sf2244979otu.13
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 13:27:25 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629145644; cv=pass;
+Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
+	by mail.lfdr.de (Postfix) with ESMTPS id A29F33EDEB4
+	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 22:37:31 +0200 (CEST)
+Received: by mail-yb1-xb40.google.com with SMTP id b127-20020a25e485000000b005943f1efa05sf8399916ybh.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 13:37:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629146250; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nPCMhqGogEZQW2oESneJxLD6MrZXUMyBO1/h2imtz0jsS+fyniy466eMdRwi6TnPMt
-         ElgsYdozCwyK6Sf08gase2sb1hAKhKLnrLtvteCFvD8MeCFJkqCplscVLxJO0CtOyO3S
-         43EyixR56CNlq0jqQerSC0tnhQh4TPO/fYpUqPKYWqanMp8ReYoGbw+LZ9RJyLwUt4/S
-         IvJluCkI34vnfaPjnRnSMXyXkCYQeUQqgPgZMKHbrMr7zO4gha14vrAFGh8kfSKTHkIP
-         nmgAEvgclMDHzSgDwy6NK49/L1QkYBV7SCa+30Rof+R+RSY4ArIdE7gD2jNqIefQvlVQ
-         I0AQ==
+        b=a/nVJkDpzP0Ija9CX24U7352XfMdKUHNgA6s3zsTD8BjDLWG5rzhxnqg+fefvLRiOY
+         vvrHDYGi/rkUT9hCj500ou/UCr7yRw/wl3KMnxmJdtG3eRe2AYT78+T9EiOUzSEg7sd9
+         I7oojw3y/zPT1DXNNyKjLnDOayLD7rvpWNkyepkCipWtL6R7osPf0+m65rJOQ5QLC/2E
+         FlTBxIL5pahuueXbhG2fSeZkpBp5Xhnje3Xxyn/5vAXaoAotdB3y+CROv8JaLjNN5RZa
+         oejcgABQkkspDH5/5UoGRkBzKoGxTpPXuAn6SYdQtozwQYM+NndywW3cvMGWMQ//sil/
+         K41w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :mime-version:message-id:date:dkim-signature;
-        bh=WQi4jFcgTCanFF/n0RibA0hx+Axx4dhJC9EfCo6ybD4=;
-        b=sttvNdJZLseXhat9s91zCYVPdLjzRTgC2gnawmcFcIB8MUNG/vuN3bf0ENj7AoVl0n
-         cOrNuZUWx6+c8FlTrjrPuIiG6idYkKDtlOzSrB2NGsnVCs0PNXA0as9O6BnSMD89yzrI
-         wm3MxuLvKUylJZG3OmTLKnPVvVvBbeM0pplABIRXSVB7iYP3ApoX/sRzA1dSdcCrC5rw
-         bsbInjWZZezUBetS8G3UbbeJDfAv361OO2B1b9u7xPhvW/5NJUFimhRUBo450wSY8Vgx
-         4VH3RNXwi6LwlsUDIq3JWCaovZvtuulVCdBG4UPIEJkda2BCNhtkdCoX49B2qBiQ29l/
-         HUIA==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=X1INDS9XxnGdcktmOw7S7C4qf3Zbpt8+1qoiMDEjQWc=;
+        b=gohV3Ia/2eeGwJwgNOh8roMy61DwlxLud4oI/RQscGQsn8Ln+Y8vrDuXsl88PD2pss
+         M6/CN9P1P9iuLsDnFSeuBqt4CfT+UTLF+++9rz8M/rr161A7/sAfQJ2eW5Jb/ZnpAUX5
+         sxRh27d7uk7Wb1f+qI3cmtzYW/HWbjzyhumwcGQuqCdoRR+uLMssqueZZUHXWG4b373P
+         w65Fta/QjY57dCrkI5XsN0beQpiZZALd+8IZ9Xfg5OP2FW3MYuXe/H6Q3HSJeIdXbqAW
+         xB9MMf2IaByTV6IpkXhPRvpu6F4kqoX24OZ0/mGCCDEhoI7YQkJHWu4Re4m2I1+EAgsS
+         tXkQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=ka7J9qkV;
-       spf=pass (google.com: domain of 3k8oayqwkadojzaowqhjeanockkcha.yki@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3K8oaYQwKADojZaoWqhjeanockkcha.Yki@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=sUwYxK9i;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=WQi4jFcgTCanFF/n0RibA0hx+Axx4dhJC9EfCo6ybD4=;
-        b=QlaR+YRuuePlP5UbeUA1JXrTP07cMuvMA3PRLPMvw35QZVj6F9ps4F35BhDKpYlgiZ
-         3rXZjMD7CGq9G85aeZrg416vw84zEvxN2bsAahVTeGCvSrFtU5HZzUAchL6AXzqESaMq
-         En9u8JrzjwLIqiZ6f3pUfnkUZNtyUY6rCM+z64QToCtebg6rjSzufEp/SUsMI4ameRXN
-         IDbYR91EXtteWqISQ1kce1hXowNJlKzIsIH597xgJXP+NK/bBubXMrmK0wuUPxA7Rz1X
-         s8YODOV7+N7/kJNNY91w6iKJL44d4wiqBEcqS48uYKYLBk0TT5ZQFU9m0q9wrCZtnE01
-         86lA==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=X1INDS9XxnGdcktmOw7S7C4qf3Zbpt8+1qoiMDEjQWc=;
+        b=VsmWea25cePeOcoJ1B76eAlbvw28KnvuggIJhZbX0oaeDP6g8GUoW5tt6mk3Gdym61
+         6D6ikc0Kyu5HxDUjr6HFbT0DyHz2QgwllbEoxpTSJxbSS6MYdZX0aIYfs0xIBeSwbIO/
+         6YASgV2gcrb7kH2rgaFG9KktKRWvM3Hk4L1/FTpvrRea7QjxlqX4xNb3Nj3wHLy2IOCj
+         rrAbBYsrFxKjlX6+P0bz47MnABeQu0jQ9+TS6qsREkuosoHmyv4Rk3fRZI3b29vyDKT3
+         8RC2tX63D+69NWy36LuaBPn1n1dj7QdvG+a7XDBkUelB9Ic6Jo8QtQsLtQIkdayntg3W
+         +dVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
-         :x-original-sender:x-original-authentication-results:reply-to
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=WQi4jFcgTCanFF/n0RibA0hx+Axx4dhJC9EfCo6ybD4=;
-        b=DK4nsOUT8iAIzfnDMNn+ed1NyRE6v5F8/BWeT5tLS3cwIBwqwPn6MvV+Lpy4xOVFpY
-         9N1iIr20MN2mxmWbesUIrANfe8FykBws8ds+8Qnl1stLnMuMpm9Qgypt2yzEls6Lgli1
-         aJUWNkR8y2J5iszFBZKeVyONU44EFgTi23eCBbtGSMtv0/DxfQtZLnGEZsaCy2dY5cF3
-         Rs3W+PFe924EbxUcKqUG0rLOJFYmI7p8ikLmt0hrimokDKu6OEGvgSfKeLn2Cz7vllPs
-         Tk3GsCae2TJKJJWB1Kfb3WQVrHsfovy3eoNO6C8gq+xRqSy9STM+JesuG9RwyDpQICHB
-         MavA==
-X-Gm-Message-State: AOAM532RE/aNtgTLNz1LkuZqyxIcUUkAmFsLWDBJg9vmbSLRonUZ799T
-	/r5GG9vYsXOSlJWUTkipa7U=
-X-Google-Smtp-Source: ABdhPJxJuyd/zIywjEuxFsSbfbMKmuykJC7SmM2GGEg8Xvbns4PJGYtIHPtR0aDmfQ69usl5osr0JA==
-X-Received: by 2002:a54:4189:: with SMTP id 9mr484329oiy.45.1629145644365;
-        Mon, 16 Aug 2021 13:27:24 -0700 (PDT)
+        bh=X1INDS9XxnGdcktmOw7S7C4qf3Zbpt8+1qoiMDEjQWc=;
+        b=Qiyi/Oi2ON6xVP2t2bifhuQx/fxwi2QUbgy+K8bVmMSCyR7VrL6oJylUywG2RIUOtX
+         dQdfDuFaUa9HmsvLg7OaJVyfrK9VQ+1vCH8a1e6RvG4z1PtYFRBM2BkNIhjqKDz+SeVq
+         Z4eFbi2H3SesQsseCVRiWW9VNZfszi9o1f9qyO9qNvzs+lo3GybfXvkSIihsNLG2s9H5
+         OdJYxt84A4ergSJ99FPEkDmWdmIg6aI7dPTH7hcGnFa5ZFKNZahzt13xgo+ARpY3cogs
+         rfyn/yoOW6Rnk+BFO+aY2H9G2iuwTCk/Bx20Vj8Z9GSYlvOqFTpMK0VcSf9R487oWMsg
+         hakQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530d77WWfyqVMWVK/vTmncSONSMv2wFVUVH+RJUp8V/2mmu8tnr+
+	GNnuw7vGDn2G2mkR33eqKRY=
+X-Google-Smtp-Source: ABdhPJxvYqEU0aIX9gaLux4Nd6yy27a3D7W2hJWnmIaVTTX4pZZ5WhoS1oKEToGbSGjlWR8gfGJwKQ==
+X-Received: by 2002:a25:8746:: with SMTP id e6mr403336ybn.76.1629146250728;
+        Mon, 16 Aug 2021 13:37:30 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:18a5:: with SMTP id bi37ls108886oib.9.gmail; Mon,
- 16 Aug 2021 13:27:24 -0700 (PDT)
-X-Received: by 2002:a54:4789:: with SMTP id o9mr460385oic.50.1629145643966;
-        Mon, 16 Aug 2021 13:27:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629145643; cv=none;
+Received: by 2002:a25:7bc7:: with SMTP id w190ls218351ybc.2.gmail; Mon, 16 Aug
+ 2021 13:37:30 -0700 (PDT)
+X-Received: by 2002:a25:c013:: with SMTP id c19mr334375ybf.103.1629146250271;
+        Mon, 16 Aug 2021 13:37:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629146250; cv=none;
         d=google.com; s=arc-20160816;
-        b=ig6Q+Wp/P4sfTiCsQ51t69IA/wA0B2oevfahgwPNznEQvEeBkh3I9Hh7eQDYioB3Sn
-         DdU7ORNmwoz7ljdIFTizfuc6beniQj6hPz7hke8YolQCvqlA3YwyuO6QlQoPJq8CKTTG
-         VgVbAqsjPKKIiVeccIZrNoD/OGLSFWYRPvom54nLqnwGuM2etqtC2bcbK+QCr93uf6hg
-         /7r3EdVYr9bqq75dLgZDe6Qd01gZjQlnb4EwlJh/iMxzoG0bYJsbjAq0+onfIydS9o1K
-         jfWgWaKIlRwTnugBumAAL+J0uPB2Eefzs2+2txSbCevj8Pixz4ZPve9mYKghNqd8dOvk
-         viYQ==
+        b=nvQXy/9DIMflWlo4LTz9fNmOgMYZnFmGl72iAAAlYdgASiH9BziP3uqpCyrjWlmmzn
+         y6sIBOjXaMlIA2nG9dW7IQq+UJNVtjwR3sqanbhKIx8ZY486/SX6245szG/p99iNIyhO
+         fPHHSXPeEos+6LIwDU4eg5I5Cz/U8ErG7dO1gyTDtN/SZpuqfS4nBn5RcsEDZWtmXWL7
+         VFqvL+C9cn1FF8DfCYin/7DeJ4PxpuP9BmwTUVAMeEtY5saDgjAeuzgmLAyJ1q2tl6LA
+         sfwVotpofOVsRML9Ch0ptPmJDdW+Tl0Tn4IxTt/L+EXIwVw/ZAgPRX34AKN1LaBkfmYl
+         ABlQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
-        bh=8uTPw/oT5qHAdMdt5boTQuI0c3E5jP6CvarW8rtmPjg=;
-        b=Ejbsuref/brdV6wS7CTnN+9sSr6L3bqlQH9mE4sl4zyQaGHT5VKABnmxiGDHcUvHMx
-         J+pBDL19dMo+UyxGs/WG9h8VoUWIS2BxKfCReu/+RFXVv3/hzoOqS9x07wcIhcTaNqKS
-         IY8shyvg+BHFtqmOqz+iZ4KzTCER2kpY2miCRPJvu6sJoD+GN0RI/uYcSO7noSS6Ykva
-         Fb7vs8KFwn3qgjes8FSuYjEBWa7k/R53qcBlFbGOC0U75eYuv0LhuHI/goXjMj/wIqyN
-         BJcKgpAMxUlzpiUCCpZnOu3nXksTzS5CoYPkjCPXL6mMjAZg384Ewr2K3E/MNleIPOCU
-         QZ2A==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=UdQ+uXyI4PpK6l32jvalmrwbiZyoNJ98gjW/m4JlHYE=;
+        b=RWwr61bU08H1k7Jm8ayKRW/AfSSjmYNs7uQSii5naGrqd29Inb6uCY3cEzLisVWdwY
+         9I1F6p48DnfYRPIHk6arrlu71Oy9iqZirVO5yUL/IxREGFQSTIvFJsk7pKM1OpU4m44y
+         SZWDm6Ru5aqMaLht7B4T0UyuUdb0HGIsePsbK33QSFsVzb70fDWvSy6ETQV+uDhZuYMh
+         wpglxHs5fkYCXBtKsJgIiPplgViRPyG/hzQc51FZeN6xG7Qzma6G9c5C5Mm02syMBpnq
+         X2NLUereAlss62k+rY2J8RyPL457eAqlgSrdBLYsH6I3NzeBTnY1nXv8OAwC7uys/fln
+         vraQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=ka7J9qkV;
-       spf=pass (google.com: domain of 3k8oayqwkadojzaowqhjeanockkcha.yki@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3K8oaYQwKADojZaoWqhjeanockkcha.Yki@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qt1-x849.google.com (mail-qt1-x849.google.com. [2607:f8b0:4864:20::849])
-        by gmr-mx.google.com with ESMTPS id bg37si2658oib.5.2021.08.16.13.27.23
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=sUwYxK9i;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id u17si5065ybc.5.2021.08.16.13.37.30
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Aug 2021 13:27:23 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3k8oayqwkadojzaowqhjeanockkcha.yki@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) client-ip=2607:f8b0:4864:20::849;
-Received: by mail-qt1-x849.google.com with SMTP id x11-20020ac86b4b000000b00299d7592d31so344482qts.0
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Aug 2021 13:27:23 -0700 (PDT)
-X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:478:6e44:5cf7:fcde])
- (user=ndesaulniers job=sendgmr) by 2002:a05:6214:4b2:: with SMTP id
- w18mr534035qvz.47.1629145643423; Mon, 16 Aug 2021 13:27:23 -0700 (PDT)
-Date: Mon, 16 Aug 2021 13:25:01 -0700
-Message-Id: <20210816202504.2228283-1-ndesaulniers@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.33.0.rc1.237.g0d66db33f3-goog
-Subject: [PATCH v2] Makefile: remove stale cc-option checks
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Naresh Kamboju <naresh.kamboju@linaro.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Linux Kernel Functional Testing <lkft@linaro.org>, kernel test robot <lkp@intel.com>, Miguel Ojeda <ojeda@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Michal Marek <michal.lkml@markovi.net>, 
-	Andrew Morton <akpm@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Vitor Massaru Iha <vitor@massaru.org>, Sedat Dilek <sedat.dilek@gmail.com>, 
-	Zhen Lei <thunder.leizhen@huawei.com>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 16 Aug 2021 13:37:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 15DB860EFE;
+	Mon, 16 Aug 2021 20:37:27 +0000 (UTC)
+From: Nathan Chancellor <nathan@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>
+Cc: linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH] kbuild: Switch to 'f' variants of integrated assembler flag
+Date: Mon, 16 Aug 2021 13:36:35 -0700
+Message-Id: <20210816203635.53864-1-nathan@kernel.org>
+X-Mailer: git-send-email 2.33.0.rc2
+MIME-Version: 1.0
+X-Patchwork-Bot: notify
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=ka7J9qkV;       spf=pass
- (google.com: domain of 3k8oayqwkadojzaowqhjeanockkcha.yki@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3K8oaYQwKADojZaoWqhjeanockkcha.Yki@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=k20201202 header.b=sUwYxK9i;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,230 +128,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-cc-option, cc-option-yn, and cc-disable-warning all invoke the compiler
-during build time, and can slow down the build when these checks become
-stale for our supported compilers, whose minimally supported versions
-increases over time. See Documentation/process/changes.rst for the
-current supported minimal versions (GCC 4.9+, clang 10.0.1+). Compiler
-version support for these flags may be verified on godbolt.org.
+It has been brought up a few times in various code reviews that clang
+3.5 introduced -f{,no-}integrated-as as the preferred way to enable and
+disable the integrated assembler, mentioning that -{no-,}integrated-as
+are now considered legacy flags.
 
-The following flags are GCC only and supported since at least GCC 4.9.
-Remove cc-option and cc-disable-warning tests.
-* -fno-tree-loop-im
-* -Wno-maybe-uninitialized
-* -fno-reorder-blocks
-* -fno-ipa-cp-clone
-* -fno-partial-inlining
-* -femit-struct-debug-baseonly
-* -fno-inline-functions-called-once
-* -fconserve-stack
+Switch the kernel over to using those variants in case there is ever a
+time where clang decides to remove the non-'f' variants of the flag.
 
-The following flags are supported by all supported versions of GCC and
-Clang. Remove their cc-option, cc-option-yn, and cc-disable-warning tests.
-* -fno-delete-null-pointer-checks
-* -fno-var-tracking
-* -Wno-array-bounds
-
-The following configs are made dependent on GCC, since they use GCC
-specific flags.
-* READABLE_ASM
-* DEBUG_SECTION_MISMATCH
-
--mfentry was not supported by s390-linux-gnu-gcc until gcc-9+, add a
-comment.
-
---param=allow-store-data-races=0 was renamed to -fno-allow-store-data-races
-in the GCC 10 release; add a comment.
-
--Wmaybe-uninitialized (GCC specific) was being added for CONFIG_GCOV,
-then again unconditionally; add it only once.
-
-Also, base RETPOLINE_CFLAGS and RETPOLINE_VDSO_CFLAGS on CONFIC_CC_IS_*
-then remove cc-option tests for Clang.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/1436
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Reported-by: kernel test robot <lkp@intel.com>
-Acked-by: Miguel Ojeda <ojeda@kernel.org>
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+Link: https://releases.llvm.org/3.5.0/tools/clang/docs/ReleaseNotes.html#new-compiler-flags
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
-Changes v1 -> v2:
-* rebase on linux-kbuild/for-next from linux-next/master; patch was
-  dropped from linux-mm:
-  https://lore.kernel.org/mm-commits/20210814215814.W_qqW%25akpm@linux-foundation.org/.
-* Pick up Miguel & Nathan's AB/RB tags.
-* Pick up reports from LKFT/KTR.
-* Note in commit message about -Wmaybe-uninitialized as per Masahiro.
-* Undo changes to to -mfentry due to LKFT report:
-  https://lore.kernel.org/lkml/CA+G9fYtPBp_-Ko_P7NuOX6vN9-66rjJuBt21h3arrLqEaQQn6w@mail.gmail.com/.
-* Undo changes to --param=allow-store-data-races=0 &
-  -fno-allow-store-data-races due to KTR report:
-  https://lore.kernel.org/linux-mm/202108160729.Lx0IJzq3-lkp@intel.com/.
-* Add comments to Makefile about -mfentry, -fno-allow-store-data-races,
-  note in commit message.
+ scripts/Makefile.clang | 4 ++--
+ scripts/as-version.sh  | 6 +++---
+ 2 files changed, 5 insertions(+), 5 deletions(-)
 
- Makefile          | 50 +++++++++++++++++++++++++++++------------------
- lib/Kconfig.debug |  2 ++
- 2 files changed, 33 insertions(+), 19 deletions(-)
-
-diff --git a/Makefile b/Makefile
-index 891866af0787..ce5a297ecd7c 100644
---- a/Makefile
-+++ b/Makefile
-@@ -669,9 +669,10 @@ endif # KBUILD_EXTMOD
- # Defaults to vmlinux, but the arch makefile usually adds further targets
- all: vmlinux
+diff --git a/scripts/Makefile.clang b/scripts/Makefile.clang
+index 3ae63bd35582..4cce8fd0779c 100644
+--- a/scripts/Makefile.clang
++++ b/scripts/Makefile.clang
+@@ -23,11 +23,11 @@ CLANG_FLAGS	+= --target=$(notdir $(CROSS_COMPILE:%-=%))
+ endif # CROSS_COMPILE
  
--CFLAGS_GCOV	:= -fprofile-arcs -ftest-coverage \
--	$(call cc-option,-fno-tree-loop-im) \
--	$(call cc-disable-warning,maybe-uninitialized,)
-+CFLAGS_GCOV	:= -fprofile-arcs -ftest-coverage
-+ifdef CONFIG_CC_IS_GCC
-+CFLAGS_GCOV	+= -fno-tree-loop-im
-+endif
- export CFLAGS_GCOV
- 
- # The arch Makefiles can override CC_FLAGS_FTRACE. We may also append it later.
-@@ -679,12 +680,14 @@ ifdef CONFIG_FUNCTION_TRACER
-   CC_FLAGS_FTRACE := -pg
+ ifeq ($(LLVM_IAS),0)
+-CLANG_FLAGS	+= -no-integrated-as
++CLANG_FLAGS	+= -fno-integrated-as
+ GCC_TOOLCHAIN_DIR := $(dir $(shell which $(CROSS_COMPILE)elfedit))
+ CLANG_FLAGS	+= --prefix=$(GCC_TOOLCHAIN_DIR)$(notdir $(CROSS_COMPILE))
+ else
+-CLANG_FLAGS	+= -integrated-as
++CLANG_FLAGS	+= -fintegrated-as
  endif
+ CLANG_FLAGS	+= -Werror=unknown-warning-option
+ KBUILD_CFLAGS	+= $(CLANG_FLAGS)
+diff --git a/scripts/as-version.sh b/scripts/as-version.sh
+index 8b9410e329df..a0fc366728f1 100755
+--- a/scripts/as-version.sh
++++ b/scripts/as-version.sh
+@@ -21,13 +21,13 @@ get_canonical_version()
+ 	echo $((10000 * $1 + 100 * ${2:-0} + ${3:-0}))
+ }
  
--RETPOLINE_CFLAGS_GCC := -mindirect-branch=thunk-extern -mindirect-branch-register
--RETPOLINE_VDSO_CFLAGS_GCC := -mindirect-branch=thunk-inline -mindirect-branch-register
--RETPOLINE_CFLAGS_CLANG := -mretpoline-external-thunk
--RETPOLINE_VDSO_CFLAGS_CLANG := -mretpoline
--RETPOLINE_CFLAGS := $(call cc-option,$(RETPOLINE_CFLAGS_GCC),$(call cc-option,$(RETPOLINE_CFLAGS_CLANG)))
--RETPOLINE_VDSO_CFLAGS := $(call cc-option,$(RETPOLINE_VDSO_CFLAGS_GCC),$(call cc-option,$(RETPOLINE_VDSO_CFLAGS_CLANG)))
-+ifdef CONFIG_CC_IS_GCC
-+RETPOLINE_CFLAGS	:= $(call cc-option,-mindirect-branch=thunk-extern -mindirect-branch-register)
-+RETPOLINE_VDSO_CFLAGS	:= $(call cc-option,-mindirect-branch=thunk-inline -mindirect-branch-register)
-+endif
-+ifdef CONFIG_CC_IS_CLANG
-+RETPOLINE_CFLAGS	:= -mretpoline-external-thunk
-+RETPOLINE_VDSO_CFLAGS	:= -mretpoline
-+endif
- export RETPOLINE_CFLAGS
- export RETPOLINE_VDSO_CFLAGS
- 
-@@ -737,7 +740,7 @@ include/config/auto.conf:
- endif # may-sync-config
- endif # need-config
- 
--KBUILD_CFLAGS	+= $(call cc-option,-fno-delete-null-pointer-checks,)
-+KBUILD_CFLAGS	+= -fno-delete-null-pointer-checks
- KBUILD_CFLAGS	+= $(call cc-disable-warning,frame-address,)
- KBUILD_CFLAGS	+= $(call cc-disable-warning, format-truncation)
- KBUILD_CFLAGS	+= $(call cc-disable-warning, format-overflow)
-@@ -752,17 +755,19 @@ KBUILD_CFLAGS += -Os
- endif
- 
- # Tell gcc to never replace conditional load with a non-conditional one
-+ifdef CONFIG_CC_IS_GCC
-+# gcc-10 renamed --param=allow-store-data-races=0 to
-+# -fno-allow-store-data-races.
- KBUILD_CFLAGS	+= $(call cc-option,--param=allow-store-data-races=0)
- KBUILD_CFLAGS	+= $(call cc-option,-fno-allow-store-data-races)
-+endif
- 
- ifdef CONFIG_READABLE_ASM
- # Disable optimizations that make assembler listings hard to read.
- # reorder blocks reorders the control in the function
- # ipa clone creates specialized cloned functions
- # partial inlining inlines only parts of functions
--KBUILD_CFLAGS += $(call cc-option,-fno-reorder-blocks,) \
--                 $(call cc-option,-fno-ipa-cp-clone,) \
--                 $(call cc-option,-fno-partial-inlining)
-+KBUILD_CFLAGS += -fno-reorder-blocks -fno-ipa-cp-clone -fno-partial-inlining
- endif
- 
- ifneq ($(CONFIG_FRAME_WARN),0)
-@@ -854,8 +859,10 @@ DEBUG_CFLAGS	+= -gdwarf-$(dwarf-version-y)
- endif
- 
- ifdef CONFIG_DEBUG_INFO_REDUCED
--DEBUG_CFLAGS	+= $(call cc-option, -femit-struct-debug-baseonly) \
--		   $(call cc-option,-fno-var-tracking)
-+DEBUG_CFLAGS	+= -fno-var-tracking
-+ifdef CONFIG_CC_IS_GCC
-+DEBUG_CFLAGS	+= -femit-struct-debug-baseonly
-+endif
- endif
- 
- ifdef CONFIG_DEBUG_INFO_COMPRESSED
-@@ -889,6 +896,7 @@ ifdef CONFIG_FTRACE_MCOUNT_USE_RECORDMCOUNT
-   endif
- endif
- ifdef CONFIG_HAVE_FENTRY
-+  # s390-linux-gnu-gcc did not support -mfentry until gcc-9.
-   ifeq ($(call cc-option-yn, -mfentry),y)
-     CC_FLAGS_FTRACE	+= -mfentry
-     CC_FLAGS_USING	+= -DCC_USING_FENTRY
-@@ -901,7 +909,7 @@ endif
- 
- # We trigger additional mismatches with less inlining
- ifdef CONFIG_DEBUG_SECTION_MISMATCH
--KBUILD_CFLAGS += $(call cc-option, -fno-inline-functions-called-once)
-+KBUILD_CFLAGS += -fno-inline-functions-called-once
- endif
- 
- ifdef CONFIG_LD_DEAD_CODE_DATA_ELIMINATION
-@@ -980,14 +988,16 @@ KBUILD_CFLAGS += $(call cc-disable-warning, stringop-truncation)
- 
- # We'll want to enable this eventually, but it's not going away for 5.7 at least
- KBUILD_CFLAGS += $(call cc-disable-warning, zero-length-bounds)
--KBUILD_CFLAGS += $(call cc-disable-warning, array-bounds)
-+KBUILD_CFLAGS += -Wno-array-bounds
- KBUILD_CFLAGS += $(call cc-disable-warning, stringop-overflow)
- 
- # Another good warning that we'll want to enable eventually
- KBUILD_CFLAGS += $(call cc-disable-warning, restrict)
- 
- # Enabled with W=2, disabled by default as noisy
--KBUILD_CFLAGS += $(call cc-disable-warning, maybe-uninitialized)
-+ifdef CONFIG_CC_IS_GCC
-+KBUILD_CFLAGS += -Wno-maybe-uninitialized
-+endif
- 
- # disable invalid "can't wrap" optimizations for signed / pointers
- KBUILD_CFLAGS	+= -fno-strict-overflow
-@@ -996,7 +1006,9 @@ KBUILD_CFLAGS	+= -fno-strict-overflow
- KBUILD_CFLAGS  += -fno-stack-check
- 
- # conserve stack if available
--KBUILD_CFLAGS   += $(call cc-option,-fconserve-stack)
-+ifdef CONFIG_CC_IS_GCC
-+KBUILD_CFLAGS   += -fconserve-stack
-+endif
- 
- # Prohibit date/time macros, which would make the build non-deterministic
- KBUILD_CFLAGS   += -Werror=date-time
-diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index 5ddd575159fb..7d3d29203a72 100644
---- a/lib/Kconfig.debug
-+++ b/lib/Kconfig.debug
-@@ -365,6 +365,7 @@ config STRIP_ASM_SYMS
- config READABLE_ASM
- 	bool "Generate readable assembler code"
- 	depends on DEBUG_KERNEL
-+	depends on CC_IS_GCC
- 	help
- 	  Disable some compiler optimizations that tend to generate human unreadable
- 	  assembler output. This may make the kernel slightly slower, but it helps
-@@ -383,6 +384,7 @@ config HEADERS_INSTALL
- 
- config DEBUG_SECTION_MISMATCH
- 	bool "Enable full Section mismatch analysis"
-+	depends on CC_IS_GCC
- 	help
- 	  The section mismatch analysis checks if there are illegal
- 	  references from one section to another section.
+-# Clang fails to handle -Wa,--version unless -no-integrated-as is given.
+-# We check -(f)integrated-as, expecting it is explicitly passed in for the
++# Clang fails to handle -Wa,--version unless -fno-integrated-as is given.
++# We check -fintegrated-as, expecting it is explicitly passed in for the
+ # integrated assembler case.
+ check_integrated_as()
+ {
+ 	while [ $# -gt 0 ]; do
+-		if [ "$1" = -integrated-as -o "$1" = -fintegrated-as ]; then
++		if [ "$1" = -fintegrated-as ]; then
+ 			# For the intergrated assembler, we do not check the
+ 			# version here. It is the same as the clang version, and
+ 			# it has been already checked by scripts/cc-version.sh.
 
 base-commit: f12b034afeb3a977bbb1c6584dedc0f3dc666f14
 -- 
-2.33.0.rc1.237.g0d66db33f3-goog
+2.33.0.rc2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210816202504.2228283-1-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210816203635.53864-1-nathan%40kernel.org.
