@@ -1,125 +1,122 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBI5Q5KEAMGQEDF2PYLQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBONY5KEAMGQE63GOIDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe37.google.com (mail-vs1-xe37.google.com [IPv6:2607:f8b0:4864:20::e37])
-	by mail.lfdr.de (Postfix) with ESMTPS id DE19E3EDBC6
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 18:53:56 +0200 (CEST)
-Received: by mail-vs1-xe37.google.com with SMTP id a186-20020a671ac30000b0290289c309d3b2sf2975147vsa.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 09:53:56 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629132835; cv=pass;
+Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id BB7873EDC1C
+	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 19:11:21 +0200 (CEST)
+Received: by mail-wm1-x33d.google.com with SMTP id y206-20020a1c7dd70000b02902e6a442ea44sf7618854wmc.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 10:11:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629133881; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TijwHkiJuJ34mniWMPvqJT9Bw2yTJfGzP7LwxFAlgNlUmbEwLtUoasbqySvpGIIaWx
-         8HaZZSBf2VnpuaW+llNjmMygvohte0Vb4bBpLx9I3s4wexVGs78wySxer43cbrQUw0R4
-         3E7GH06vMIM1F+y5sqa96oBwLykaU8z7N2ZOIVz6yIMF099NgEteg4R+kBnidAbMbgof
-         DcBAtTDJai329yfGqkvmYhnoHynqISFB4C8kv917PuvA7AXolZQniSUuf89d6B8YtGjE
-         ynWWFDCl0Ij9kVbEm6v34e92JNDcHkErRLJQGY4qfUKmj5cMMFMKwGC6qYM8OCwt0XYa
-         YCGg==
+        b=YksBGXb5x3Tk74iJyAYC3lLAFE6Ger67OzWSqYiXryLnh4Su4dfKv/vPnK3cYL5fky
+         BNwZMP0NiCG4GUYLoX8kC7ZGUb9HCexRMMxpNkYmObVfE2QFvqLMOostyYjZ+P5IzBlm
+         SRmgwdV5GYl8qb2/XggOvB8UQOIqmw3e9gBaJlUKMWsfbLJhNuvLEqv8NyiwpzrquA7R
+         bvPjgjB+klODtHGlnhkVARfPZnPxmbx7RE3ryFG5X1U7Hpdkg0c4ZQ7kxZpv1YRa6vmf
+         RtO+xCICYkHhcVfUkXHFrkkwkWVUIW+aXwY6Yk2EwYdgVZESLVi/+KyV91T0cDknlwF3
+         nH6Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:to:subject
-         :sender:dkim-signature;
-        bh=/AjOwzy7zqc6wJAco813Ogkb7ylUYP8213npdPBaXbE=;
-        b=s6P0F6x8DltZZr6PsjGfb71mGTp5LxTGS8Kzy5sONO159dGq7wOjPkWNIBoohlGUyK
-         A9hU5b8wnLjmz6LIlbC05kMG8qJXZLhX8OrBFCPie58eYlc6oWj9eoQf6Xd0yL6WAjlb
-         IIsbdO3JJkjwlCYQJGJ43mHgtv2e/iD0/JTalqJXqNDL9OfZGXd04XCPgzgC+om1Tq1n
-         Bx20RmJUDDQE/kApfdNMzd0TQ0ovMA7gLkxOw76PDE12fjkCJWSpk1qJhLGQU7vuQKv9
-         hmed+g4kH0Qca15DtajdmIsPI3H01ve1PL6k2dwn7iT9DfXNINR+z2SidCDSHV0ESr7I
-         awLg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=Bj2tCS8CvGy4zecfz8LaYuJ/k/KwDF4Eu/jZ2CqnA3Y=;
+        b=S7Yg37YHDuOZUKyFROsNPMEfo66mCP1iBJIy5uDqEgzEDHh6GYaKtOPVd+OGGIzd/9
+         yrRmqweann9youpARoZx3W9AEdoRm3VgYxextDBHytLLlSxx9YdF/SVwH09m5hKMCqSF
+         QPrYyn+V94V9V/2t6fakuL76nmnONl77G+b4seKYcATt/dM90CcoyKljnEvdKQyii2C/
+         0YsipzVIVPcxiXSBkYbOMloESBHN8RhdYh1MXdlNrvs9X6ZXtsGp65fiBHxnTcsHWgF/
+         YFCkDJlPNacw5d+p57OTZE0BvsklgL62I/gQh2xZxBjlrx9p8Kpb01sQBBAZd0MKOd/9
+         2+BQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=AmkdrMNB;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=GUS5uGzP;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/AjOwzy7zqc6wJAco813Ogkb7ylUYP8213npdPBaXbE=;
-        b=KK6Td9fBHeZfSXP0XI7ywK4+ATWWVen59rArmKUkhEshaxcyJ4Z/CDMAwPxoavWzGw
-         95GLgvEs0G7PsjkI8kidF+Nnz3S1mGoVQtFEE94VZqBM42vqV8EB6mIRZ7ea927DQaKZ
-         2k1k/vqjBXuAe9OsIWVkfWvVCoCtBXs5h+0I9wPX74pr52UVe6cZGsQDtwd7VsigcP3G
-         ii/6RmajtXM7kgdBe4LX+fXE1vOwuRUUxXT5WgScaFf7lGA9KxsBzRRsPS11YMSXlEju
-         fIvjRW85bHLz8XEhPOjA5UVo+njFRb63MzITrUY5qoWzxafhGmcLYNna0XPmPzco11Mw
-         9VXQ==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Bj2tCS8CvGy4zecfz8LaYuJ/k/KwDF4Eu/jZ2CqnA3Y=;
+        b=E1KGP9S/zNNpMSrGFq/eJLYWtfxeMgwJBJqO21W7sWUu2Gexh+Iillmg/GSRRBdefV
+         SToUZnFXQQBbQfsGTpOXuNcTPSmQ9o/TcedBfRahn+FrOP9PFlA/4JtDIX/rTnQ0/0zy
+         odguaUZ8qpdPVmlG134Hags3WOM3otb5i8iX5tj/HoDl05NGKTn3Q9uZUQTOjrCgK1xg
+         pQfpPZ1pPAL7RRyo+hCrQy2cjDrTrEQrvUdOttvjFqt0p8y3SU7J4Hc0yH3/H0dQFrdo
+         Up8wlPUUgvFr41gMJU/hc99J/tkujE82V0HLhmkd6mbiFYRVuZHk1CcT1CvXY9sr2wJ3
+         r3ZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=/AjOwzy7zqc6wJAco813Ogkb7ylUYP8213npdPBaXbE=;
-        b=fjrgoJMHlq2Qy2girDgRBFc33hsSgUBy9t3acC+nUbEIjj3vOLDXUQrJTqmi00pGnV
-         UepPS+RM5HL+xTt6qzGPjR1u07xuQueJEH3sndoqCxHw+zudA6AJKIqPtmXRMoV7PZj1
-         HRePtvvfMUJPD+6oLN/ryHJvVyQVFcLivzz836MJTgdNdJwShlT+DOPJMpc92g2fyFt7
-         eyls995b9oxYtRGS7yD0o5WDQgUz01t2CPN3jv54/wjQg4/7M8Hv99RF/AtnJwVhZSap
-         vLLwtYIZZKOgrs/ehm2FQLBB3Uzunvcot/FbVnXgY/f5dZzKj+moh/VwMSvYo30hB+z/
-         JVvg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531fq4cN4+2kbeaThHxRmc1Z7OtIVgVbyP8tpqfaO/dbpeoPmgz+
-	ijEYBIL1mJ1aC/HN7tcApi4=
-X-Google-Smtp-Source: ABdhPJxPkxjxB0BpUTCkNvjjuqXYkD/CXkchu1zYN47sORkdjaC8/1a7iBoEg4d6iDBilCVQo7w2fQ==
-X-Received: by 2002:a67:3311:: with SMTP id z17mr4098094vsz.31.1629132835817;
-        Mon, 16 Aug 2021 09:53:55 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Bj2tCS8CvGy4zecfz8LaYuJ/k/KwDF4Eu/jZ2CqnA3Y=;
+        b=gTKW0LMh+uzH+jUlQABbX1mdJ+zI6YsLyWxWe30Nq4qjyonEFyVbwqabsX8DoTDIsK
+         TYbxMze2/LjqjGqDaqUVFhCxq7PLZ3xA9SfCrg6oPD+svQ2j6FthDLLGOd6/h86Rjm4m
+         NqL++vX+zpXfMmgotRbec/oHxN5kX3reFRiXd7AQ3DyPuxd3p9iBKw5Hdv6eZLNjzsNH
+         bHJcl5pPcTKbNIqEryKgUWjm1hWT8wxRMaU7JUVnrkfCypJmgPvAQ7YShOgZPLzCISJt
+         oEWeb2nYHl5+F8OL8g5srI28k7ggUl5lZ4Hsyb/BQErVaZZ1nnn8IgE5Grb/cudGg7wS
+         NPpg==
+X-Gm-Message-State: AOAM532/BhHkjiqrooSbTGxJ+/TQ5wqmO08SuJCszkWpgik6E5qo4gaK
+	EjeHwP5w0G6fZggWLkt7DFY=
+X-Google-Smtp-Source: ABdhPJyKL4lMFrDiOunBlIJNTaP5RzhGhIg78oMo+SIZ4/dd2H5V312jlM7J1kZyliyg4+axEqjYtA==
+X-Received: by 2002:a05:600c:3593:: with SMTP id p19mr110325wmq.95.1629133881490;
+        Mon, 16 Aug 2021 10:11:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:5ec1:: with SMTP id s184ls203832vkb.1.gmail; Mon, 16 Aug
- 2021 09:53:55 -0700 (PDT)
-X-Received: by 2002:a05:6122:d95:: with SMTP id bc21mr9792759vkb.23.1629132835271;
-        Mon, 16 Aug 2021 09:53:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629132835; cv=none;
+Received: by 2002:a05:600c:1:: with SMTP id g1ls35379wmc.3.canary-gmail; Mon,
+ 16 Aug 2021 10:11:20 -0700 (PDT)
+X-Received: by 2002:a05:600c:3581:: with SMTP id p1mr127507wmq.1.1629133880504;
+        Mon, 16 Aug 2021 10:11:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629133880; cv=none;
         d=google.com; s=arc-20160816;
-        b=R6ccvsjcJtT0zggEQgREn0GdL3FwgAwCtUvmXnJfRYQ/VhUH1EPiPQCSMxfgG1mwrR
-         0hj/6p8p4l5Q7iNLFFz69pCZ5H4emywcBAlXnNzLX4x8i1PtrdwrgjFVBfYKoVI6a4E7
-         aKBrl1Ut4htXPUbSKXsQO3ZWJOJF4xnqdrjR76fEReWgO+Whk5u1CLTeadHHLjp4sOYp
-         fVGxiqqIhl6PtR+7TfeTgfofsI25FchgPUSPpmjQE9wMS3RVfaHMgjxPYXR5k0koBQ7e
-         Weem34ro7aEaSJ3b9F1lESoNts1DIbhquBXRs5ES4I+leP6pT7rGU3nyTJpE3nLHkj8H
-         JtCA==
+        b=TzJ26cN1Vto0m87FTAlV8mzXxH3T2NouXBmD9O9PvTjnPoADLxiheTMqdYK9MOP4u1
+         XxBe5k01LdvP1tZJ6gHCWhPrdjfB6bKqDPvS9WMnT6P0j5gzelLWYnzY4MdpdHaCVkAh
+         VnemB2VKaiVcMIfQIu7hUABxlR7oD7RktvOK9k8K1NXV1HyGIZrO0AOrXXHa0sRoTB8o
+         Xc606SnpaHJ1iCh+t328bMVyitM3605oMd/nyE9CTl8XHxoHM0ACFJKy0H/R98WRlx7v
+         3k6b+17UnxQSdeAnvrcJHEipnns63q9a6oakh2KaZoOFHKA+66uSFz2Fq8Mr5KL4I+vI
+         YcLw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:to:subject
-         :dkim-signature;
-        bh=BrdTlgg54/HSObRsVZ8ThoDUQWW40OShtjqyEVmRdVk=;
-        b=bccRpMTh2qldqrjjFektjM2W6f37lSlJ/kPnF0wFfcbrp8yKZ0fGOGz5W2nQF/W/Zb
-         S82LG/sZk9wJzmZ+4mskpm0KRYJEzRvVEsQwuBCVtzvS+hAJUf9pY1zIJbYcwamq0bXA
-         FqZ5I/Ga7d9BnR+xHGabizZRwOHXC+CpowTsOUIRUuoduhQpRo3JkBqEqCGpk3Pbr9tk
-         ZqN9wiRN2Ha1hEqAzutkYi0G0LPkAJ3mwiCwJdxxxcuvF4UQCwtv4SJ8LiMBS7X2b0Vn
-         0vffHPVMQRF2kSHDelVSboG6wz2EIPA4tv1WXF+lMCz1NmbJzlL5u52qh/t5XU1Xn9H8
-         xIQA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=I+5s2IjYCm9VNRG19z4wqzmijC97Yf/esoVK52Hxj6E=;
+        b=gyZJ2fF1ket+/KtORjiE7U+RkciuQWOQmjt2Y1ABNc1KupYc72+nJuw2UsGkgys2ss
+         CzMMNSaq5OfdXCpnLuwTOhlaZgC6sCH01PX5vCG3Tfw8ALE3p7z/y6t1XcJJDZQ/O8dJ
+         10WrNE9kGZAN/t0RYeFWzeX3q+4oCeDYAVfjDtC2/E23T1MtMRAkmMAtOUuUR+qvUxIA
+         chng+I+4tIPpw5gcqBmG7WhW9YTppNsZMOH6g2XCBAMrzmEoOCzRaJRvdzcF7a5bgJ2J
+         7LZu0ez5Y8sjILXOojXgWEdTWTaeRmD9tEpMWRymMWu9Rf9aJ1Ny+vaMXSyBHE//HbXG
+         Ol3Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=AmkdrMNB;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id f11si637188vkp.2.2021.08.16.09.53.55
+       dkim=pass header.i=@google.com header.s=20161025 header.b=GUS5uGzP;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lj1-x235.google.com (mail-lj1-x235.google.com. [2a00:1450:4864:20::235])
+        by gmr-mx.google.com with ESMTPS id w3si40325wmk.1.2021.08.16.10.11.20
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Aug 2021 09:53:55 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id A9B19604DC;
-	Mon, 16 Aug 2021 16:53:53 +0000 (UTC)
-Subject: Re: [PATCH] lib/zstd: Fix bitwise vs logical operators
-To: dsterba@suse.cz, Andrew Morton <akpm@linux-foundation.org>,
- Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com, terrelln@fb.com
-References: <20210815004154.1781834-1-nathan@kernel.org>
- <20210816151450.GF5047@twin.jikos.cz>
-From: Nathan Chancellor <nathan@kernel.org>
-Message-ID: <bbb0a92c-4237-c651-3b8b-84dfaa2a2096@kernel.org>
-Date: Mon, 16 Aug 2021 09:53:53 -0700
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Aug 2021 10:11:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235 as permitted sender) client-ip=2a00:1450:4864:20::235;
+Received: by mail-lj1-x235.google.com with SMTP id x7so28288847ljn.10
+        for <clang-built-linux@googlegroups.com>; Mon, 16 Aug 2021 10:11:20 -0700 (PDT)
+X-Received: by 2002:a2e:9ec1:: with SMTP id h1mr13469111ljk.0.1629133879847;
+ Mon, 16 Aug 2021 10:11:19 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20210816151450.GF5047@twin.jikos.cz>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: nathan@kernel.org
+References: <202108140731.bUZsdUjG-lkp@intel.com> <YRcXr8o56PIYHY27@Ryzen-9-3900X.localdomain>
+In-Reply-To: <YRcXr8o56PIYHY27@Ryzen-9-3900X.localdomain>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 16 Aug 2021 10:11:08 -0700
+Message-ID: <CAKwvOdnD=s-FnoL-EOmLSeywEEYfULnkmbiEpyNKQkgVRxnhog@mail.gmail.com>
+Subject: Re: [block:io_uring-fops.v6 58/64] io_uring.c:undefined reference to `__compiletime_assert_833'
+To: Nathan Chancellor <nathan@kernel.org>, Jens Axboe <axboe@kernel.dk>
+Cc: kernel test robot <lkp@intel.com>, clang-built-linux@googlegroups.com, 
+	kbuild-all@lists.01.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=AmkdrMNB;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b=GUS5uGzP;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,117 +129,127 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 8/16/2021 8:14 AM, David Sterba wrote:
-> You should CC Nick Terell for ZSTD patches, added.
+On Fri, Aug 13, 2021 at 6:09 PM Nathan Chancellor <nathan@kernel.org> wrote:
+>
+> On Sat, Aug 14, 2021 at 07:11:36AM +0800, kernel test robot wrote:
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux-block.git io_uring-fops.v6
+> > head:   4e0c34c9b129fe84c63d3f76053d2e55d944e8a9
+> > commit: 834d3e42c71acf4653f840ac3998f8601f37021c [58/64] io_uring: add infrastructure around io_uring_cmd_sqe issue type
+> > config: s390-randconfig-r033-20210813 (attached as .config)
 
-Thanks for the info and adding him, I did not see an entry for lib/zstd/ 
-in MAINTAINERS and there is no consistent person picking up patches 
-according to git.
+^ Note: 390 randconfig. Not sure if that could have changed the offset
+of some members?
 
-Cheers,
-Nathan
+> > compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project 62df4df41c939205b2dc0a2a3bfb75b8c1ed74fa)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # install s390 cross compiling tool for clang build
+> >         # apt-get install binutils-s390x-linux-gnu
+> >         # https://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux-block.git/commit/?id=834d3e42c71acf4653f840ac3998f8601f37021c
+> >         git remote add block https://git.kernel.org/pub/scm/linux/kernel/git/axboe/linux-block.git
+> >         git fetch --no-tags block io_uring-fops.v6
+> >         git checkout 834d3e42c71acf4653f840ac3998f8601f37021c
+> >         # save the attached .config to linux build tree
+> >         mkdir build_dir
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross O=build_dir ARCH=s390 SHELL=/bin/bash
+> >
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
+> >
+> > All errors (new ones prefixed by >>):
+> >
+> >    s390x-linux-gnu-ld: kernel/dma/coherent.o: in function `dma_declare_coherent_memory':
+> >    coherent.c:(.text+0xc4): undefined reference to `memunmap'
+> >    s390x-linux-gnu-ld: coherent.c:(.text+0x1c4): undefined reference to `memunmap'
+> >    s390x-linux-gnu-ld: kernel/dma/coherent.o: in function `dma_init_coherent_memory':
+> >    coherent.c:(.text+0x2b4): undefined reference to `memremap'
+> >    s390x-linux-gnu-ld: coherent.c:(.text+0x564): undefined reference to `memunmap'
+> >    s390x-linux-gnu-ld: fs/io_uring.o: in function `io_uring_init':
+> > >> io_uring.c:(.init.text+0x30): undefined reference to `__compiletime_assert_833'
+> > >> s390x-linux-gnu-ld: io_uring.c:(.init.text+0x4a): undefined reference to `__compiletime_assert_835'
+> >    s390x-linux-gnu-ld: drivers/dma/fsl-edma.o: in function `fsl_edma_probe':
+> >    fsl-edma.c:(.text+0x1bc): undefined reference to `devm_ioremap_resource'
+> >    s390x-linux-gnu-ld: fsl-edma.c:(.text+0x40a): undefined reference to `devm_ioremap_resource'
+> >    s390x-linux-gnu-ld: drivers/dma/idma64.o: in function `idma64_platform_probe':
+> >    idma64.c:(.text+0xc6): undefined reference to `devm_ioremap_resource'
+> >    s390x-linux-gnu-ld: drivers/char/xillybus/xillybus_of.o: in function `xilly_drv_probe':
+> >    xillybus_of.c:(.text+0xc4): undefined reference to `devm_platform_ioremap_resource'
+> >    s390x-linux-gnu-ld: drivers/pcmcia/cistpl.o: in function `release_cis_mem':
+> >    cistpl.c:(.text+0x1d6): undefined reference to `iounmap'
+> >    s390x-linux-gnu-ld: drivers/pcmcia/cistpl.o: in function `set_cis_map':
+> >    cistpl.c:(.text+0xb10): undefined reference to `ioremap'
+> >    s390x-linux-gnu-ld: cistpl.c:(.text+0xbbe): undefined reference to `iounmap'
+> >    s390x-linux-gnu-ld: cistpl.c:(.text+0xf4e): undefined reference to `iounmap'
+> >    s390x-linux-gnu-ld: cistpl.c:(.text+0xf8c): undefined reference to `ioremap'
+> >    s390x-linux-gnu-ld: drivers/clocksource/timer-of.o: in function `timer_of_base_init':
+> >    timer-of.c:(.init.text+0x576): undefined reference to `of_iomap'
+> >    s390x-linux-gnu-ld: drivers/clocksource/timer-of.o: in function `timer_of_base_exit':
+> >    timer-of.c:(.init.text+0x17ba): undefined reference to `iounmap'
+>
+> Grabbing Nick's patch [1] to support the error function attribute turns
+> this into:
+>
+> fs/io_uring.c:10531:2: error: call to '__compiletime_assert_833' declared with 'error' attribute: BUILD_BUG_ON failed: offsetof(struct io_uring_cmd_sqe, user_data) != sqe_offsets[1].user_data
+>         BUILD_BUG_SQEC_ELEM(sqe_offsets[1].user_data,   __u64,  user_data);
+>         ^
+> fs/io_uring.c:10528:2: note: expanded from macro 'BUILD_BUG_SQEC_ELEM'
+>         __BUILD_BUG_VERIFY_ELEMENT(struct io_uring_cmd_sqe, eoffset, etype, ename)
+>         ^
+> fs/io_uring.c:10489:2: note: expanded from macro '__BUILD_BUG_VERIFY_ELEMENT'
+>         BUILD_BUG_ON(offsetof(stype, ename) != eoffset); \
+>         ^
+> ./include/linux/build_bug.h:50:2: note: expanded from macro 'BUILD_BUG_ON'
+>         BUILD_BUG_ON_MSG(condition, "BUILD_BUG_ON failed: " #condition)
+>         ^
+> note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+> ./include/linux/compiler_types.h:310:2: note: expanded from macro '_compiletime_assert'
+>         __compiletime_assert(condition, msg, prefix, suffix)
+>         ^
+> ./include/linux/compiler_types.h:303:4: note: expanded from macro '__compiletime_assert'
+>                         prefix ## suffix();                             \
+>                         ^
+> <scratch space>:17:1: note: expanded from here
+> __compiletime_assert_833
+> ^
+> fs/io_uring.c:10532:2: error: call to '__compiletime_assert_835' declared with 'error' attribute: BUILD_BUG_ON failed: offsetof(struct io_uring_cmd_sqe, personality) != sqe_offsets[1].personality
+>         BUILD_BUG_SQEC_ELEM(sqe_offsets[1].personality, __u16,  personality);
+>         ^
+> fs/io_uring.c:10528:2: note: expanded from macro 'BUILD_BUG_SQEC_ELEM'
+>         __BUILD_BUG_VERIFY_ELEMENT(struct io_uring_cmd_sqe, eoffset, etype, ename)
+>         ^
+> fs/io_uring.c:10489:2: note: expanded from macro '__BUILD_BUG_VERIFY_ELEMENT'
+>         BUILD_BUG_ON(offsetof(stype, ename) != eoffset); \
+>         ^
+> ./include/linux/build_bug.h:50:2: note: expanded from macro 'BUILD_BUG_ON'
+>         BUILD_BUG_ON_MSG(condition, "BUILD_BUG_ON failed: " #condition)
+>         ^
+> note: (skipping 2 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+> ./include/linux/compiler_types.h:310:2: note: expanded from macro '_compiletime_assert'
+>         __compiletime_assert(condition, msg, prefix, suffix)
+>         ^
+> ./include/linux/compiler_types.h:303:4: note: expanded from macro '__compiletime_assert'
+>                         prefix ## suffix();                             \
+>                         ^
+> <scratch space>:25:1: note: expanded from here
+> __compiletime_assert_835
+> ^
+> 2 errors generated.
+>
+> Is this a legitimate failure? I do not see this with GCC 11.2.0.
+>
+> [1]: https://reviews.llvm.org/D106030 + https://lore.kernel.org/r/20210802202326.1817503-1-ndesaulniers@google.com/
+>
+> Cheers,
+> Nathan
 
-> On Sat, Aug 14, 2021 at 05:41:54PM -0700, Nathan Chancellor wrote:
->> clang warns several times along the lines of:
->>
->> lib/zstd/compress.c:1043:7: warning: bitwise and of boolean expressions; did you mean logical and? [-Wbool-operation-and]
->>                  if ((offset_1 > 0) & (ZSTD_read32(ip + 1 - offset_1) == ZSTD_read32(ip + 1))) {
->>                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>                                     &&
->>
->> Bitwise ANDs do not short circuit, meaning that the ZSTD_read32 calls
->> will be evaluated even if the first condition is not true. This is not
->> always a problem but it is not a standard way to do conditionals so
->> replace the bitwise ANDs with logical ones to fix the warning and make
->> the code clearer.
->>
->> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
->> ---
->>   lib/zstd/compress.c | 16 ++++++++--------
->>   1 file changed, 8 insertions(+), 8 deletions(-)
->>
->> diff --git a/lib/zstd/compress.c b/lib/zstd/compress.c
->> index b080264ed3ad..0e515d1d4237 100644
->> --- a/lib/zstd/compress.c
->> +++ b/lib/zstd/compress.c
->> @@ -1040,7 +1040,7 @@ void ZSTD_compressBlock_fast_generic(ZSTD_CCtx *cctx, const void *src, size_t sr
->>   		const BYTE *match = base + matchIndex;
->>   		hashTable[h] = curr; /* update hash table */
->>   
->> -		if ((offset_1 > 0) & (ZSTD_read32(ip + 1 - offset_1) == ZSTD_read32(ip + 1))) {
->> +		if ((offset_1 > 0) && (ZSTD_read32(ip + 1 - offset_1) == ZSTD_read32(ip + 1))) {
->>   			mLength = ZSTD_count(ip + 1 + 4, ip + 1 + 4 - offset_1, iend) + 4;
->>   			ip++;
->>   			ZSTD_storeSeq(seqStorePtr, ip - anchor, anchor, 0, mLength - MINMATCH);
->> @@ -1072,7 +1072,7 @@ void ZSTD_compressBlock_fast_generic(ZSTD_CCtx *cctx, const void *src, size_t sr
->>   			hashTable[ZSTD_hashPtr(base + curr + 2, hBits, mls)] = curr + 2; /* here because curr+2 could be > iend-8 */
->>   			hashTable[ZSTD_hashPtr(ip - 2, hBits, mls)] = (U32)(ip - 2 - base);
->>   			/* check immediate repcode */
->> -			while ((ip <= ilimit) && ((offset_2 > 0) & (ZSTD_read32(ip) == ZSTD_read32(ip - offset_2)))) {
->> +			while ((ip <= ilimit) && ((offset_2 > 0) && (ZSTD_read32(ip) == ZSTD_read32(ip - offset_2)))) {
->>   				/* store sequence */
->>   				size_t const rLength = ZSTD_count(ip + 4, ip + 4 - offset_2, iend) + 4;
->>   				{
->> @@ -1291,7 +1291,7 @@ void ZSTD_compressBlock_doubleFast_generic(ZSTD_CCtx *cctx, const void *src, siz
->>   		const BYTE *match = base + matchIndexS;
->>   		hashLong[h2] = hashSmall[h] = curr; /* update hash tables */
->>   
->> -		if ((offset_1 > 0) & (ZSTD_read32(ip + 1 - offset_1) == ZSTD_read32(ip + 1))) { /* note : by construction, offset_1 <= curr */
->> +		if ((offset_1 > 0) && (ZSTD_read32(ip + 1 - offset_1) == ZSTD_read32(ip + 1))) { /* note : by construction, offset_1 <= curr */
->>   			mLength = ZSTD_count(ip + 1 + 4, ip + 1 + 4 - offset_1, iend) + 4;
->>   			ip++;
->>   			ZSTD_storeSeq(seqStorePtr, ip - anchor, anchor, 0, mLength - MINMATCH);
->> @@ -1350,7 +1350,7 @@ void ZSTD_compressBlock_doubleFast_generic(ZSTD_CCtx *cctx, const void *src, siz
->>   			hashLong[ZSTD_hashPtr(ip - 2, hBitsL, 8)] = hashSmall[ZSTD_hashPtr(ip - 2, hBitsS, mls)] = (U32)(ip - 2 - base);
->>   
->>   			/* check immediate repcode */
->> -			while ((ip <= ilimit) && ((offset_2 > 0) & (ZSTD_read32(ip) == ZSTD_read32(ip - offset_2)))) {
->> +			while ((ip <= ilimit) && ((offset_2 > 0) && (ZSTD_read32(ip) == ZSTD_read32(ip - offset_2)))) {
->>   				/* store sequence */
->>   				size_t const rLength = ZSTD_count(ip + 4, ip + 4 - offset_2, iend) + 4;
->>   				{
->> @@ -1929,7 +1929,7 @@ void ZSTD_compressBlock_lazy_generic(ZSTD_CCtx *ctx, const void *src, size_t src
->>   		const BYTE *start = ip + 1;
->>   
->>   		/* check repCode */
->> -		if ((offset_1 > 0) & (ZSTD_read32(ip + 1) == ZSTD_read32(ip + 1 - offset_1))) {
->> +		if ((offset_1 > 0) && (ZSTD_read32(ip + 1) == ZSTD_read32(ip + 1 - offset_1))) {
->>   			/* repcode : we take it */
->>   			matchLength = ZSTD_count(ip + 1 + EQUAL_READ32, ip + 1 + EQUAL_READ32 - offset_1, iend) + EQUAL_READ32;
->>   			if (depth == 0)
->> @@ -1953,7 +1953,7 @@ void ZSTD_compressBlock_lazy_generic(ZSTD_CCtx *ctx, const void *src, size_t src
->>   		if (depth >= 1)
->>   			while (ip < ilimit) {
->>   				ip++;
->> -				if ((offset) && ((offset_1 > 0) & (ZSTD_read32(ip) == ZSTD_read32(ip - offset_1)))) {
->> +				if ((offset) && ((offset_1 > 0) && (ZSTD_read32(ip) == ZSTD_read32(ip - offset_1)))) {
->>   					size_t const mlRep = ZSTD_count(ip + EQUAL_READ32, ip + EQUAL_READ32 - offset_1, iend) + EQUAL_READ32;
->>   					int const gain2 = (int)(mlRep * 3);
->>   					int const gain1 = (int)(matchLength * 3 - ZSTD_highbit32((U32)offset + 1) + 1);
->> @@ -1974,7 +1974,7 @@ void ZSTD_compressBlock_lazy_generic(ZSTD_CCtx *ctx, const void *src, size_t src
->>   				/* let's find an even better one */
->>   				if ((depth == 2) && (ip < ilimit)) {
->>   					ip++;
->> -					if ((offset) && ((offset_1 > 0) & (ZSTD_read32(ip) == ZSTD_read32(ip - offset_1)))) {
->> +					if ((offset) && ((offset_1 > 0) && (ZSTD_read32(ip) == ZSTD_read32(ip - offset_1)))) {
->>   						size_t const ml2 = ZSTD_count(ip + EQUAL_READ32, ip + EQUAL_READ32 - offset_1, iend) + EQUAL_READ32;
->>   						int const gain2 = (int)(ml2 * 4);
->>   						int const gain1 = (int)(matchLength * 4 - ZSTD_highbit32((U32)offset + 1) + 1);
->> @@ -2021,7 +2021,7 @@ void ZSTD_compressBlock_lazy_generic(ZSTD_CCtx *ctx, const void *src, size_t src
->>   		}
->>   
->>   		/* check immediate repcode */
->> -		while ((ip <= ilimit) && ((offset_2 > 0) & (ZSTD_read32(ip) == ZSTD_read32(ip - offset_2)))) {
->> +		while ((ip <= ilimit) && ((offset_2 > 0) && (ZSTD_read32(ip) == ZSTD_read32(ip - offset_2)))) {
->>   			/* store sequence */
->>   			matchLength = ZSTD_count(ip + EQUAL_READ32, ip + EQUAL_READ32 - offset_2, iend) + EQUAL_READ32;
->>   			offset = offset_2;
->>
->> base-commit: ba31f97d43be41ca99ab72a6131d7c226306865f
->> -- 
->> 2.33.0.rc2
+
+
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/bbb0a92c-4237-c651-3b8b-84dfaa2a2096%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnD%3Ds-FnoL-EOmLSeywEEYfULnkmbiEpyNKQkgVRxnhog%40mail.gmail.com.
