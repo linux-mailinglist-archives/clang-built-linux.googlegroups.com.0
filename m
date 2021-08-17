@@ -1,137 +1,161 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBHGP6CEAMGQETZ4LAKA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDNYNPOAQ4GBB4GV6CEAMGQEN2OSLWA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
-	by mail.lfdr.de (Postfix) with ESMTPS id D5EDE3EF4C5
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 23:18:21 +0200 (CEST)
-Received: by mail-pj1-x1038.google.com with SMTP id v3-20020a17090ac903b029017912733966sf3652349pjt.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 14:18:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629235100; cv=pass;
+Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
+	by mail.lfdr.de (Postfix) with ESMTPS id B0AC23EF508
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 23:32:33 +0200 (CEST)
+Received: by mail-pj1-x1039.google.com with SMTP id v3-20020a17090ac903b029017912733966sf3667980pjt.2
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 14:32:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629235952; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xnvLQJwNvoqscydbsexNTVynu3+9wUxIkG4/3kAKu5upDq4bdDENKliI4eTGoTo5pU
-         XTaJIT9bo7YoOyqgwv1/VgxRckKKgUpOUE4ddwSbRmqXYqq7uOwNWCENmjFfGoWreQjY
-         DCkNjG5W+vOXNB+UD673VzQjec5T/CrnjRSkxGC5nY1p3NwAn7s/+pAFpZyNrhXJmJUK
-         3R4aRtnMNNWe+K9fpaE+zsV1egqK6uGzNue4IiNwLuPnql0C572XSwmUIuMz5RESmYHq
-         4y+hPlXk8/AbLnWj5AVzRKLUdxknRJWnwQZFBvLNgeLq4hestGutwT8nNpa6mvnyDY7n
-         pbGA==
+        b=t2dJAx3KuF8Qs8EDzuCFXTHqoQt+uLYzAxZc635YXbcM2S0M5ON7q2E7mTJzEzqJHw
+         qZYBpqnCk2/ttJZiBZwwMsBUpMAyTxn1EtXPpRpYSr5srvUeieNTbjY5qMRcvG1NcNEr
+         LH1V9gpdtaV9Ghep66MVmbk+mv7AfEU6Rzs6Ih07PaS38Wy71KrigVjqOlX/kQV+F2Mb
+         c7PM3M+EVMhZ22kII9Xu3ld07+CTLPp4FdcYgQw8gsqCDGNolcaF1PtSIAUvaDTIPFRG
+         rxdPx9pBSf6QRDhJESLyHJj5xv5zvp7NxdcaWlSCXpn2fO5KEzUdAMSIx1xb/Kh9avv2
+         TGOA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=CdT3KZZ259NPTh0Fp94JRzxbKxaVCXLjiT/i2JvDNL0=;
-        b=UcwFuTpyLuo0VCrkbqp51d89f5edeB3tQcYekyZYaglkYEeLAhsVFB8yY/6yuOwX6j
-         UCPd2+EKE7HuO0sgFWOkViCZoItwzmKdwvnM2oWXjC33HF0BRvl2igXerEs5m+qN1v+5
-         mUZMwNWnZciHfpZRE1QsP85iJ2xr8HNOwvzROQt5gfgHob7Wy1WKWwKrrPM1hM2/0lEr
-         SryK6+0ZZjtbvecGv62sPcaBCz6KNA7WDcalkCXuh3M6vcI6HVNLm17Glct6rfp5OHMG
-         NLZmZWcWPx/Rmg5NOZB1TVSIOt4hC4MOhgAJVAF+DcLV2wjndQDiFr2oao6Fsba4lgeE
-         a3Qw==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=TZqGDy110Ofs89Ug1G6shnXtMqG8ZZn3TNxgGIBs8OI=;
+        b=weJGE5YRpFOmF2EgPFekGC0Q7K9fgrpecr6TvqLErWi0JKZ7+plhsBm7jbMF6mbOcU
+         4LWxMjfchQPSRs3rEGLR1plHLPrh4q8GybfeMkEAVVs5DpwMlE4lBucSBpzaCc158hxY
+         Gre/rPtnxRi3TY/F0QYRB0bzVGzmfgUuM0Ewdhitvb2lvXXDDYV6PsaeU/sABbFo5URI
+         tZjE6CZhAxsSHP7j1zV0AqWQvm5J6+gt3uVNUkpObzm4DRrk86G/z0B3JhfkfQ9DuAMf
+         VnWDK7l07e9AaZLcAB1Uq8h5FbzeOs+dv+BHT2g4a+InLyhReuI0P67/SG2IbBxngOo2
+         90eA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Ej+gNQWq;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@embeddedor.com header.s=default header.b=Vr2FF48p;
+       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.46.109 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=CdT3KZZ259NPTh0Fp94JRzxbKxaVCXLjiT/i2JvDNL0=;
-        b=LY3CJUPnvL5pnsulZB4sXs1jtT/2YyvxTFQcRJFX04lY+ecfSapX/V3nnbkVhLyhBj
-         IRBvrzWuzDmURUG5fe08Dz5M64Kmp9UDevJW1dB+mDb/uTqFhqM5ZaFOBOYzGX7U57N7
-         cMZCy68IU5+57VFMbwKXfku3FVeEVhlFFzwaNJu4B6w06DE3+qMnu0Ei/IJpizI/w6DD
-         uK1qKD6DfwvmCugsmKtkhH7y9JKtBkacPEpUDd2wNDgWhNn1HsEmJXgMztuu9ZJMYBav
-         j6f7KX6w3tuBH7FNlSAXPa6eZrWnx9gF9OD7ZBN20EFci/Z343ljHlOYOv6qVAyHePAZ
-         k0QA==
+        bh=TZqGDy110Ofs89Ug1G6shnXtMqG8ZZn3TNxgGIBs8OI=;
+        b=TvY+bKyKLqedEYyXZW4hwG+TVMzY/xvXPg+Og2zDc2D7Zj2/GVdoSg70qGDkaLcaQT
+         h0gJc74Flov0M8XtjkBGQcUPxyJUAX2wXdlgXhxL4E8Adytv7wniQ3RYRKPyXjbocd04
+         gPSeNDV+ztG7CVdvW/SAjfAA2r6HArmtLhGJCgidfww8jjOxq7XNcaBwhs8kZcK4CFqc
+         vFcR4oAwvwuzytLnHmHvlGmrY+DE0U8kJ2dmtje1zHpk5Q1IYLRckZYlLCuOqrooWabd
+         mmicRwQpPo/BwKfzjW/zRAalCw9z/dMuFKOykjxjeb3KgZsTf7MtSVzOa+hP/pJZg2oI
+         xMFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=CdT3KZZ259NPTh0Fp94JRzxbKxaVCXLjiT/i2JvDNL0=;
-        b=uakJbB/8yUyrPjmFWpQsZbezPIjD0AQQRCfdP9q0W9q/7Iff1OKICtEtdgFsFMztsz
-         63vNGFYoep7aKPg695TlLi9ihRGH1mpALQbqEVXhLPqcWvsfIP/Kbaw5NdZNXc5IfKn1
-         KI8Egbb9aQi52cHSOQGe4HodxzOelwZAF/SKCqA91n4Xsd85RPGRXRNe1/tfT/iBlid4
-         a+A+HgttSrpdCspD/Zkx+Nirr93LbNxFd8udXJeHDBlQPFMYw7fKk0yznoI7d8VlXI7v
-         ZP2qf8VBNwSzF0ZYJ2DVlis5TIK/d1AObb7UE+uN2JknZaI6UM8yM/jplF0NFsVbtPHI
-         9Olw==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=TZqGDy110Ofs89Ug1G6shnXtMqG8ZZn3TNxgGIBs8OI=;
+        b=FBBxIMNNRtuwf11Tw6QCCjTXr0B0u3vYJBwf5IsfKYqYPpV91HeRUjN5nJxpynuqjF
+         c7JSWOKLt+st3zVkOdMeI9y2zyIYRT8rT7Cj/8h/1usrix/9KmTuAzp3Ei1RNBhVwnkm
+         VqTddkdJIxcSybFQZJ74BM0YOJslVG5rc8RUsqDzawRKVub5kfnWAvIgWYjufVP95w9u
+         ktj76eJdyMeub8GeLQSa/Mv6p2nFWKedMks0mfvPz0ChR4O1T3H/65Za/lF1jqghFOH+
+         PKm9C3Z2LByRGL5Kiyl2CvB9o+voZdIrKNemdXkliihBdo/pHVGXdkAvUUJN5dpCazlI
+         rhZQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531B5q8KKiLLlOruQ19Hy7+zDqgmgS+UqxfnboDYCshKRq90TW+Z
-	wCvWW7FaWiM6GoZ6ldIzVNc=
-X-Google-Smtp-Source: ABdhPJwPEmL5Eb4+Fcflfj8N+QAJ62uFVvwoqlEOzG9gTaiFqA+11L2rJb/+G9cOWyoUf6v+cOjd9A==
-X-Received: by 2002:a63:1d5c:: with SMTP id d28mr5261679pgm.143.1629235100572;
-        Tue, 17 Aug 2021 14:18:20 -0700 (PDT)
+X-Gm-Message-State: AOAM532tQMdm4ppadUXLwm/YxM52XgAdkl9SiyqXuvqf1uFydJBEsF2v
+	e9HBuET/ZHkKb/8c4RIgl5A=
+X-Google-Smtp-Source: ABdhPJwf+SFac3NvQ7bNiAAxbnlhiF/eaxRDDD5Gj3Ih8J9qoteSJCk2MA4OsqI1ZCe8wl01mlaWyw==
+X-Received: by 2002:a63:f654:: with SMTP id u20mr5342125pgj.130.1629235952371;
+        Tue, 17 Aug 2021 14:32:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:494e:: with SMTP id q14ls71779pgs.10.gmail; Tue, 17 Aug
- 2021 14:18:20 -0700 (PDT)
-X-Received: by 2002:a63:8f4a:: with SMTP id r10mr3654053pgn.337.1629235099959;
-        Tue, 17 Aug 2021 14:18:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629235099; cv=none;
+Received: by 2002:a65:6802:: with SMTP id l2ls90219pgt.8.gmail; Tue, 17 Aug
+ 2021 14:32:31 -0700 (PDT)
+X-Received: by 2002:aa7:8a04:0:b029:3e0:ec4a:6e65 with SMTP id m4-20020aa78a040000b02903e0ec4a6e65mr5628211pfa.47.1629235951817;
+        Tue, 17 Aug 2021 14:32:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629235951; cv=none;
         d=google.com; s=arc-20160816;
-        b=raF66XTA0VRqXwXusiDfLjjotpn2Hp3JJcRcDq2R+tdvuzKDjx5qWh3d0Iw4l6arjy
-         9wBHPNJSSkREYlbcjR8weWoZ1Ag2cQYJQyZ7rZWrLDAx6+1YQo+ok/Y1/3bJN/UINanx
-         LqqOQrVDyUP0UQL9N9HF9H0xAnZDFolKZcFJdxIyvPAuXU8lHgzGINdKC/6fwfucuNS/
-         d7FTg46XrPeyFV3A+YtHGzICrweX9W7YdcvXYGHYskH7eLdvShMiu3spf6LpK6grrPY3
-         cd12Uhfl4EVUfVhBTMsE+S6auqhU0eqaaQqXzMLTT6BPx5zaYua+lGqK+I952+swwokt
-         AC8Q==
+        b=cGD2nL2PVglTKcqMSO/xL0YBEW/kAjpEpp7UkXFLuTBh2i+76/aVchJOzM9E0N8tQi
+         LVxeyh21uqdi25flk6/8zJwgsU81AGNZv0Z3g91PngtSYq6+KDAVI53dWdTfhY6Zlbsl
+         Hz2n3jPrjQE7rXzj/Sw85Db0iHaBJ3xGO5pA9R7j2kfa6WgcHj1hyb3Qv/7NmfGK1rv/
+         ujiIeifvYj740UYw5o2OenjmLF84DYEPOGTi0KytuJ2YxWOnKPzOGy0IBaQYP0NySwcZ
+         OhDMXTyssZb4TEFGOG3RHCYAVkxsJts99nmubw5HYTPnTSNV2zm1RWCeUdtamBcz2lrN
+         kiuA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=MSI1TD6DmtwAkIL5YhYjaZlAoHhedqI42UCC2a2qlt0=;
-        b=VBj2OMLVV3BAVlNKIlaRy+dwjuRZuZaze4rsciDEp6miy16tQIOEg0rzZUCPaAdRwn
-         cwUSTgD7hmbyoDOE0n8KrVmMDHDqY29C5j+1OafuQnHDrWkCiio8pXtEvLuRjMSNv/OX
-         ydi+Y/YxnSMrLE5sWRTDtJAJ35nYMoN+wt8nseaSzqcn6GYMDAvq2qVNVPlkdc6P78W3
-         9uXGKt1V8FGdtwNJxsnxKbDjq3T0kLE3WWod9+cGUzWoUs4sYCPPa7lr8iv8zHNlrJG8
-         U4JQlkScd0sHQIymSrUr+jcB47Xf/WXcxeW1jRWGHDOo+URBv2P1JuBc1EB2zyP/R8yA
-         fBbA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=4qKKDtGYKHJHsep4rHStScPnllMJG3PYx0Oahzc9bHw=;
+        b=poZiDwgryO2o+2gCBYGAylRVQThT20A082/6a0xN+Q0TP4srbFSzDvnFtAftkhJwLG
+         ww3ik7kxLsq75/GUM9y211mVn1uqSoqPyxerRWpLg14YvFbMA8SAscBObkYEmJ2/45nx
+         +txyZYMt0wvUXMaafyrbIt1+edsA+gTIl1pvkiz3tvq4rILqcTtF/rcrQW2TR7WyC3b2
+         5mP/bsoRBgaoYlt+dJvQjNm+rs2Jo8RikvRz4bZM1WibQ5RS3tpL7QLiOm68kcwy7WCj
+         fWfL9Ka4Uo87u5yDmtGaXdqOynhxpXbEfOfvB3RjOWr1BmRnzNPUeAPPyiQHNpWj0yho
+         Wq/Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=Ej+gNQWq;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-06.nifty.com (conssluserg-06.nifty.com. [210.131.2.91])
-        by gmr-mx.google.com with ESMTPS id 136si276774pfz.2.2021.08.17.14.18.19
+       dkim=pass header.i=@embeddedor.com header.s=default header.b=Vr2FF48p;
+       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.46.109 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
+Received: from gateway21.websitewelcome.com (gateway21.websitewelcome.com. [192.185.46.109])
+        by gmr-mx.google.com with ESMTPS id o2si255543pjj.1.2021.08.17.14.32.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Aug 2021 14:18:19 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) client-ip=210.131.2.91;
-Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41]) (authenticated)
-	by conssluserg-06.nifty.com with ESMTP id 17HLI1Vj019323
-	for <clang-built-linux@googlegroups.com>; Wed, 18 Aug 2021 06:18:02 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com 17HLI1Vj019323
-X-Nifty-SrcIP: [209.85.216.41]
-Received: by mail-pj1-f41.google.com with SMTP id u21-20020a17090a8915b02901782c36f543so7446770pjn.4
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 14:18:02 -0700 (PDT)
-X-Received: by 2002:a17:90a:7384:: with SMTP id j4mr5332691pjg.153.1629235081316;
- Tue, 17 Aug 2021 14:18:01 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210817005624.1455428-1-nathan@kernel.org> <80fa539a-b767-76ed-dafa-4d8d1a6b063e@kernel.org>
- <CAHk-=wgFXOf9OUh3+vmWjhp1PC47RVsUkL0NszBxSWhbGzx4tw@mail.gmail.com>
- <5c856f36-69a7-e274-f72a-c3aef195adeb@kernel.org> <202108171056.EDCE562@keescook>
- <3f28b45e-e725-8b75-042a-d34d90c56361@kernel.org>
-In-Reply-To: <3f28b45e-e725-8b75-042a-d34d90c56361@kernel.org>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Wed, 18 Aug 2021 06:17:24 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAQFgYgavTP2ZG9Y16XBVdPuJ98J_Ty1OrQy1GXHq6JjQQ@mail.gmail.com>
-Message-ID: <CAK7LNAQFgYgavTP2ZG9Y16XBVdPuJ98J_Ty1OrQy1GXHq6JjQQ@mail.gmail.com>
+        Tue, 17 Aug 2021 14:32:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gustavo@embeddedor.com designates 192.185.46.109 as permitted sender) client-ip=192.185.46.109;
+Received: from cm17.websitewelcome.com (cm17.websitewelcome.com [100.42.49.20])
+	by gateway21.websitewelcome.com (Postfix) with ESMTP id E1F7A401C0163
+	for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 16:30:29 -0500 (CDT)
+Received: from gator4166.hostgator.com ([108.167.133.22])
+	by cmsmtp with SMTP
+	id G6fFmmgvXMGeEG6fFmmzM2; Tue, 17 Aug 2021 16:30:29 -0500
+X-Authority-Reason: nr=8
+Received: from 187-162-31-110.static.axtel.net ([187.162.31.110]:44370 helo=[192.168.15.8])
+	by gator4166.hostgator.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.94.2)
+	(envelope-from <gustavo@embeddedor.com>)
+	id 1mG6fF-003v0R-7G; Tue, 17 Aug 2021 16:30:29 -0500
 Subject: Re: [PATCH] kbuild: Enable -Wimplicit-fallthrough for clang 14.0.0+
-To: Nathan Chancellor <nathan@kernel.org>
+To: Masahiro Yamada <masahiroy@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>
 Cc: Kees Cook <keescook@chromium.org>,
-        Linus Torvalds <torvalds@linux-foundation.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        linux-hardening@vger.kernel.org
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ linux-hardening@vger.kernel.org
+References: <20210817005624.1455428-1-nathan@kernel.org>
+ <80fa539a-b767-76ed-dafa-4d8d1a6b063e@kernel.org>
+ <CAHk-=wgFXOf9OUh3+vmWjhp1PC47RVsUkL0NszBxSWhbGzx4tw@mail.gmail.com>
+ <5c856f36-69a7-e274-f72a-c3aef195adeb@kernel.org>
+ <202108171056.EDCE562@keescook>
+ <3f28b45e-e725-8b75-042a-d34d90c56361@kernel.org>
+ <CAK7LNAQFgYgavTP2ZG9Y16XBVdPuJ98J_Ty1OrQy1GXHq6JjQQ@mail.gmail.com>
+From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
+Message-ID: <71d76c41-7f9b-6d60-ba4f-0cd84596b457@embeddedor.com>
+Date: Tue, 17 Aug 2021 16:33:25 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
+MIME-Version: 1.0
+In-Reply-To: <CAK7LNAQFgYgavTP2ZG9Y16XBVdPuJ98J_Ty1OrQy1GXHq6JjQQ@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+Content-Language: en-US
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
+X-AntiAbuse: Original Domain - googlegroups.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - embeddedor.com
+X-BWhitelist: no
+X-Source-IP: 187.162.31.110
+X-Source-L: No
+X-Exim-ID: 1mG6fF-003v0R-7G
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 187-162-31-110.static.axtel.net ([192.168.15.8]) [187.162.31.110]:44370
+X-Source-Auth: gustavo@embeddedor.com
+X-Email-Count: 9
+X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
+X-Local-Domain: yes
+X-Original-Sender: gustavo@embeddedor.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=Ej+gNQWq;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@embeddedor.com header.s=default header.b=Vr2FF48p;       spf=pass
+ (google.com: domain of gustavo@embeddedor.com designates 192.185.46.109 as
+ permitted sender) smtp.mailfrom=gustavo@embeddedor.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,114 +168,93 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 18, 2021 at 3:25 AM Nathan Chancellor <nathan@kernel.org> wrote:
->
-> On 8/17/2021 11:03 AM, Kees Cook wrote:
-> > On Mon, Aug 16, 2021 at 09:55:28PM -0700, Nathan Chancellor wrote:
-> >> If you/Gustavo would prefer, I can upgrade that check to
-> >>
-> >> ifneq ($(call cc-option, -Wunreachable-code-fallthrough),)
-> >>
-> >> I was just trying to save a call to the compiler, as that is more expensive
-> >> than a shell test call.
-> >
-> > I prefer the option test -- this means no changes are needed on the
-> > kernel build side if it ever finds itself backported to earlier versions
-> > (and it handles the current case of "14" not meaning "absolute latest").
-> >
-> > More specifically, I think you want this (untested):
->
-> That should work but since -Wunreachable-code-fallthrough is off by
-> default, I did not really see a reason to include it in KBUILD_CFLAGS. I
-> do not have a strong opinion though, your version is smaller than mine
-> is so we can just go with that. I'll defer to Gustavo on it since he has
-> put in all of the work cleaning up the warnings.
 
 
+On 8/17/21 16:17, Masahiro Yamada wrote:
+> On Wed, Aug 18, 2021 at 3:25 AM Nathan Chancellor <nathan@kernel.org> wrote:
+>>
+>> On 8/17/2021 11:03 AM, Kees Cook wrote:
+>>> On Mon, Aug 16, 2021 at 09:55:28PM -0700, Nathan Chancellor wrote:
+>>>> If you/Gustavo would prefer, I can upgrade that check to
+>>>>
+>>>> ifneq ($(call cc-option, -Wunreachable-code-fallthrough),)
+>>>>
+>>>> I was just trying to save a call to the compiler, as that is more expensive
+>>>> than a shell test call.
+>>>
+>>> I prefer the option test -- this means no changes are needed on the
+>>> kernel build side if it ever finds itself backported to earlier versions
+>>> (and it handles the current case of "14" not meaning "absolute latest").
+>>>
+>>> More specifically, I think you want this (untested):
+>>
+>> That should work but since -Wunreachable-code-fallthrough is off by
+>> default, I did not really see a reason to include it in KBUILD_CFLAGS. I
+>> do not have a strong opinion though, your version is smaller than mine
+>> is so we can just go with that. I'll defer to Gustavo on it since he has
+>> put in all of the work cleaning up the warnings.
+> 
+> 
+> 
+> https://github.com/llvm/llvm-project/commit/9ed4a94d6451046a51ef393cd62f00710820a7e8
+> 
+>    did two things:
+> 
+>  (1) Change the -Wimplicit-fallthrough behavior so that it fits
+>       to our use in the kernel
+> 
+>  (2) Add a new option -Wunreachable-code-fallthrough
+>       that works like the previous -Wimplicit-fallthrough of
+>       Clang <= 13.0.0
+> 
+> 
+> They are separate things.
+> 
+> Checking the presence of -Wunreachable-code-fallthrough
+> does not make sense since we are only interested in (1) here.
+> 
+> 
+> 
+> So, checking the Clang version is sensible and matches
+> the explanation in the comment block.
+> 
+> 
+> Moreover, using $(shell test ...) is less expensive than cc-option.
+> 
+> 
+> If you want to make it even faster, you can use only
+> built-in functions, like this:
+> 
+> 
+> # Warn about unmarked fall-throughs in switch statement.
+> # Clang prior to 14.0.0 warned on unreachable fallthroughs with
+> # -Wimplicit-fallthrough, which is unacceptable due to IS_ENABLED().
+> # https://bugs.llvm.org/show_bug.cgi?id=51094
+> ifeq ($(firstword $(sort $(CONFIG_CLANG_VERSION) 140000)),140000)
+> KBUILD_CFLAGS += -Wimplicit-fallthrough
+> endif
+> 
+> 
+> 
+> The $(sort ...) is alphabetical sort, not numeric sort.
+> It works for us because the minimum Clang version is 10.0.1
+> (that is CONFIG_CLANG_VERSION is always 6-digit)
+> 
+> It will break when Clang version 100.0.0 is released.
+> 
+> But, before that, we will raise the minimum supported clang version,
+> and this conditional will go away.
 
-https://github.com/llvm/llvm-project/commit/9ed4a94d6451046a51ef393cd62f00710820a7e8
+I like this. :)
 
-   did two things:
+I'm going to make the 0-day robot test it in my tree, first.
 
- (1) Change the -Wimplicit-fallthrough behavior so that it fits
-      to our use in the kernel
+Thanks!
+--
+Gustavo
 
- (2) Add a new option -Wunreachable-code-fallthrough
-      that works like the previous -Wimplicit-fallthrough of
-      Clang <= 13.0.0
-
-
-They are separate things.
-
-Checking the presence of -Wunreachable-code-fallthrough
-does not make sense since we are only interested in (1) here.
-
-
-
-So, checking the Clang version is sensible and matches
-the explanation in the comment block.
-
-
-Moreover, using $(shell test ...) is less expensive than cc-option.
-
-
-If you want to make it even faster, you can use only
-built-in functions, like this:
-
-
-# Warn about unmarked fall-throughs in switch statement.
-# Clang prior to 14.0.0 warned on unreachable fallthroughs with
-# -Wimplicit-fallthrough, which is unacceptable due to IS_ENABLED().
-# https://bugs.llvm.org/show_bug.cgi?id=51094
-ifeq ($(firstword $(sort $(CONFIG_CLANG_VERSION) 140000)),140000)
-KBUILD_CFLAGS += -Wimplicit-fallthrough
-endif
-
-
-
-The $(sort ...) is alphabetical sort, not numeric sort.
-It works for us because the minimum Clang version is 10.0.1
-(that is CONFIG_CLANG_VERSION is always 6-digit)
-
-It will break when Clang version 100.0.0 is released.
-
-But, before that, we will raise the minimum supported clang version,
-and this conditional will go away.
-
-
-
-
-> Cheers,
-> Nathan
->
-> > diff --git a/Makefile b/Makefile
-> > index b5fd51e68ae9..9845ea50a368 100644
-> > --- a/Makefile
-> > +++ b/Makefile
-> > @@ -859,11 +859,11 @@ KBUILD_CFLAGS += -Wno-gnu
-> >   # source of a reference will be _MergedGlobals and not on of the whitelisted names.
-> >   # See modpost pattern 2
-> >   KBUILD_CFLAGS += -mno-global-merge
-> > +# Warn about unmarked fall-throughs in switch statement only if we can also
-> > +# disable the bogus unreachable code warnings.
-> > +KBUILD_CFLAGS += $(call cc-option,-Wimplicit-fallthrough -Wno-unreachable-code-fallthrough,)
-> >   else
-> > -
-> >   # Warn about unmarked fall-throughs in switch statement.
-> > -# Disabled for clang while comment to attribute conversion happens and
-> > -# https://github.com/ClangBuiltLinux/linux/issues/636 is discussed.
-> >   KBUILD_CFLAGS += $(call cc-option,-Wimplicit-fallthrough=5,)
-> >   endif
-> >
-> >
-
-
-
--- 
-Best Regards
-Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAQFgYgavTP2ZG9Y16XBVdPuJ98J_Ty1OrQy1GXHq6JjQQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/71d76c41-7f9b-6d60-ba4f-0cd84596b457%40embeddedor.com.
