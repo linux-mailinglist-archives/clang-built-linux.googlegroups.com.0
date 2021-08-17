@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB7PV56EAMGQERK3V7DQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBPX256EAMGQELSGIJ5A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33a.google.com (mail-wm1-x33a.google.com [IPv6:2a00:1450:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 36B673EF164
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 20:07:58 +0200 (CEST)
-Received: by mail-wm1-x33a.google.com with SMTP id j33-20020a05600c1c21b02902e6828f7a20sf7541wms.7
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 11:07:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629223678; cv=pass;
+Received: from mail-lj1-x23f.google.com (mail-lj1-x23f.google.com [IPv6:2a00:1450:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 379C43EF1A0
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 20:17:35 +0200 (CEST)
+Received: by mail-lj1-x23f.google.com with SMTP id d17-20020a05651c0891b029019189dff65esf42903ljq.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 11:17:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629224254; cv=pass;
         d=google.com; s=arc-20160816;
-        b=S2psXpm7ke+ZDblUV1JGD146yU0D6vL+NeYflOBi29F3wMqfM+UGCXf5DocalyYEcO
-         QxPccsfNhfjhGnrPHexlgqDTaWEMe/xFdwvj41DGJQLlcZ46FmepoMjaGx4KnNSCbeoi
-         sU6JIXFHUMbjZ+XnynpFwIphNYtevbKgjbUvTm7QpU1F4rD0hA1/0APrfHJ9gTabEe8r
-         9U0Tqr41/iwZsTGaGTaWyOFaC9peH5r/hfaQ+Ssothr2aYkc4/T2HfeaF0+cythfMvxd
-         g1/RRBdo4AtOEhRoInoGKdg/LFfMOVeKxgVcZ8cTlOUDCwVmGE0ZGr8cVnmcx1vx4sJO
-         qsKQ==
+        b=QjQtt2Ogzz5xDkh/uj4swsLBxwJHEfn9jDBkaxr5PABDTF89hEo0zHlKElRI5cVKGg
+         25wHl5nZlgWyuMbfmmoZb9ymTACjOvf2bADWdEi5X0lOxy2+fxUwR5b7gMMMjDA8/9Vw
+         IWB/bPz8rvV1TRG9ZpoSiNN77l/09DN7gdTSyXsYgViC8Y0FqXmfg1jdyLoALpzJpX7F
+         PfjXq8JcpbTtqy7GZS6sF7XInNEH1cPgR/k11x3sk3SXBtphnbF+uomVSqlftNX6MgJs
+         dVCfE52/J6b60Bg4RZ58q1A7WVT8XUdnDQIbYMNLPw+f9uIye1UgTqi6/GsOr/MAdSZ1
+         En9w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=uOd0h4RlF0eBitlBl4ViFD7OcBAVzAucYzvtJ8Fcicg=;
-        b=KE0eb618TAiJL1kMYxMlivYhw761gdzYdba71Ot4fYFPhzHW9i0L08vmYOmqknrZhp
-         3JW1QIKLGb2fLAfcHUgbT6bF8oysLs5hes1crBJtAEcZfsK4YL0ooKleVh0oxsX+MFED
-         jQvXYNluGb+DZbbqpZJ0B5c4LQqg+yBdnjY3+dMoG3j+o4VBWFlBboDUMRtpSDVe5CzJ
-         39wQbKxTKvQLbt1Pw8BYtbjYA8jebLs6kOfzV/uOIKxDYhhtItYxEnOVbK9k1p14frq2
-         eAUKH8IPlKGfRV/+BHhLrXEUR4G71vfxB716UIXAzouMkYTJJF4B+PGFR+3MUVb6ywkB
-         N3fw==
+        bh=zBsOLQYhT2WhfNinhA7/r2N77WzoTmgAHicsCfqJOGA=;
+        b=UK3SapJWX0RaRAP8m3PCjM77700oKxBuSFVnDX7ssQEcvZdqCkdZarH4shCsY6vgc4
+         Dii1egbInOSdhlZFygcvqe6FUm/lnmK3r5/zjzDKM0xOn+FPw5GK3pNfOp4eN+YwWyxb
+         A18uHecoD9iam8Sq6Vywb9aWY32hgSkWhi969ilViTIXzXaiNOB6YHDg1/d/75pMsLsg
+         eXwdLqsmP0HLwwiKUwWTyxBAS3wzR207TfHUPSupzw0OK8YxHlqYmXIgULMCKgVfOAOS
+         I/wzRlSmcpicdQ66JevMy/1KbjEqBBIpjjzZjsBWhMypQzUMoX6/FJvE62Rja/jjmGRm
+         33eA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=NKdK8us0;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=h0gfcuKU;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::136 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=uOd0h4RlF0eBitlBl4ViFD7OcBAVzAucYzvtJ8Fcicg=;
-        b=WGfQZOmq97T8GeOboMRMTePsvpHkqQT0icdDUA2MBXgGZzLXkFnyvv5TGyrHNNb1m7
-         OyVGEQGTmmtTz0DpMW86qxEW/1VK0wnROt2FE0LW6dPGb5aCKVkrlbUioi/5tOrYqrUH
-         rTox4bTRPinQwJzjczTN4Fdp2Xr+mQl0NfPvQN7LMGyOsj5lw9ExLz05aFRIsRQalhsE
-         29d4Pr+l4zHbw4wd0nFYP9eV6gwsmX1JjWJXLmGjC4nbryrwjJcp3FKobSPjfy7d9Ug5
-         DeTPP2c+0Wezy1xVH7xb+YzcgREEyywSPhETXe0I1xw1K5cLe5eM8mf6jq59JeGzeBaY
-         dhQA==
+        bh=zBsOLQYhT2WhfNinhA7/r2N77WzoTmgAHicsCfqJOGA=;
+        b=H/LtRko5AsCtEhAgzBTAJUJeKjWrLnG1xf38mvO9kVeEZqe1JrdafRYwnxa3R4bqZi
+         Mn/4KddwhjCgD/DBMectxxPTrOAiudpb3iIbSlDag8BBr5FddmptbDI5LO23tScszokn
+         WnhK/vstbKK3bKW3O+kpwA9HhsTSKn3UP8PyoDN1EnEmpi0fjToY+Bagv2+3++4KzLlu
+         UFej/fTf0SoczdMtVlJaGophNHu0Nwq6/TWrVdTGE+Of2KHDnP6EpkPWNso3Vv/Uv6ac
+         cmuhc1ZJ3uktfU3d+XbpEFwa8TN4/db82wQbfasPomFL7CBQEuVbcpjN0KHRtXL8wRDl
+         px4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,72 +49,73 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=uOd0h4RlF0eBitlBl4ViFD7OcBAVzAucYzvtJ8Fcicg=;
-        b=C0vE3iSExgDcw4eNPpYLNxon4DLYlBvXfXhYZH6x7c2kqs3jI3nKvqZKLw/bEcmypP
-         sgBryWsvjf44YkkZIHIATPAAV854lyPeXoG21Qo0tnMFaC5TtTWucQ5mNxLYgzhByWCA
-         PA4ktIzQrtmj64mTSL+O7+XmH/flXaxDZ54pagwfvyr5OR9zOAab1gon3iNC3metdrLk
-         Vx51UQGtqVf7utLaL2q9kw0PO4Dfx7rAu3SaAIECu283jT2xtpOH/Tg05D9a/MPb0A4D
-         kCD33xeEdwpDCddeHy+G3pfaxIhuT5KAcAcgOkwTVGZrCTtOQ+x2NPp0xiDmLUbacCV0
-         AxAw==
-X-Gm-Message-State: AOAM532NjHwo7jRk9uz3MWkt7ehO0eNLOX3+I5NgZD3Q0gVVxRjkrooA
-	PFCikXsF9nRoDdegi6NTCe8=
-X-Google-Smtp-Source: ABdhPJzkCStW3MfhR98l9Lb8+dp87yWuxgeVnhWg1Aq1PAVPSr55V9lh8BXrVIuRn9+pYXwOYObjPg==
-X-Received: by 2002:a5d:510b:: with SMTP id s11mr6102281wrt.63.1629223677901;
-        Tue, 17 Aug 2021 11:07:57 -0700 (PDT)
+        bh=zBsOLQYhT2WhfNinhA7/r2N77WzoTmgAHicsCfqJOGA=;
+        b=ktGrD6oZWKAJFO5oTLjSn09DSiniVLoJP3Um61Vmn8MYBpnfhT5wCtg1w0EKfpBo7g
+         2wfuy02faooPGI/uNZMD5twd/RC7BLNvqqalO7tWdjQ3xL2dL6elIK14uuTOL88OihqB
+         AEMiGxLvoQfPIi0XYSePupViGm1E/YlnVrvuYIk6YB/hxFBGS7Eyx6Q99kTLJ7DJP/GM
+         0PyZp+SqhqRM/G9j+tTV1FkC3SbDoJAi9HcLDBadltbwHs8Ez2UbFla1sAj8lb4FU4//
+         rYFzEHpe2T9rRnB/40QCrzN88sx13Bu5RaqerFbGNMB2HGsht8ePbc+fSflqr/vKj8dz
+         TTaA==
+X-Gm-Message-State: AOAM533nw6wUeqYJfVr1QjnGpzr5w88addfeyNpS6CR9yND2QoVbDjog
+	MtRVkT9TwpPh20BWlwHXDgo=
+X-Google-Smtp-Source: ABdhPJwPFW/JzXeWHWdXg6tbZoruMRNzMaQuUBYYQ50We+ptawbVS5digFCQiDbLZRnpHaZiE1+vEg==
+X-Received: by 2002:ac2:5a1a:: with SMTP id q26mr3238754lfn.41.1629224254776;
+        Tue, 17 Aug 2021 11:17:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:c4c3:: with SMTP id g3ls1418844wmk.0.gmail; Tue, 17 Aug
- 2021 11:07:57 -0700 (PDT)
-X-Received: by 2002:a1c:1d84:: with SMTP id d126mr4566099wmd.160.1629223677027;
-        Tue, 17 Aug 2021 11:07:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629223677; cv=none;
+Received: by 2002:a2e:597:: with SMTP id 145ls693067ljf.7.gmail; Tue, 17 Aug
+ 2021 11:17:33 -0700 (PDT)
+X-Received: by 2002:a05:651c:10a:: with SMTP id a10mr4332690ljb.37.1629224253846;
+        Tue, 17 Aug 2021 11:17:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629224253; cv=none;
         d=google.com; s=arc-20160816;
-        b=Dw4mDJr82AOTgFqMmaIREBFEQSdpLAKr9tN9KbYm0YSGPOrEbUvBzPUFovNooXpfCc
-         PG96+1+JuDQXSU4AmICOG5VbfO5fyxUQlLLrsGh2mpsLQBnXXe7XT5JGJ8xrMZFy08xr
-         0Hxk51auhcwuuymbZnrgFDkdH0nwtYAihPOCjJOSL7YrvZjLAiSciEo9z7gMj9zHNEJm
-         eQ/uod+hpN6447Xomwpjf4kVNx2okyEGb7IYMVxupGcxuTG22QSA2LJM3h/gCLcY+T24
-         pt+xLvNE52KTjmHuhSeiRJPlq4befahOCp6v9q3DZwpTwmHLqY/LbUINpUXYR41Z+Kj0
-         2kCw==
+        b=XHuWb4uG1vskvUFS2YjcFYzIlUFdjl4cXDnzcPW9jYcJLiaewbwOx8ycM6oJEMuFNF
+         9MgdcyoQAkVcYJ/exV85MI3g2Oi4pcM/t6gIqBU3sWWxMSe17oJSckFL91r7ccmS+aM8
+         Y3mkqM2J7JDT1s43YnSpFADJk83gTFsLt8qB10Ioekv29M5HYjb9dug2jeww1peTsUYH
+         gC07Thgbm9vrI+qin966wsZ4VgM0OW2KGAJjeRMUF2ARP+XBbUYuY+Yl4EsPJtsPzRFz
+         qmN3wvTpy1vsGTptybPwREkzS6MCiKkviv8yBcAc/47y3W8n1X/8tTOwjJCCwCQ0NMhL
+         cwEA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=K3Ka4koAuO/eyWNzbf7wpZBKsg+7E2Iw97vQbCYohS0=;
-        b=lNvDkQ+VHQpdraZSv6XW4zgd+OTB/Aeywat7O5xgb89PRkkJffIMJDeIqjVbDB0OGq
-         6Mdjvi65gkpjjDx9J24XYoa3O8fo5U7QMdjCAa1AyEbxs+G645PREv5WwlCVr6o/Ng55
-         T4u9dLyq0dG38mLRO8j1oick4/lTnxVIfLh8HaW9Wv0GHJWcwdjptiD3hPC6lN+3NVca
-         ClRbXbY+/Qjpu8XUrDy23yhXc35DG/6Y6Vh98vYituSdN0TbSZzrjL/y0Lfv8wlemkHo
-         w25ZjGsnxBwveLnCG8sSsmV1HtJ8eREeo+H+gqm/fdjkOOhtceu6ys4AcuqJFv7CZ8fj
-         ltOg==
+        bh=eDdv2rzwUMD4SObVyB6gkvhjez+GHyH9zfR8+Ve+7sM=;
+        b=PF3Xt+dzOcFtNWVa34I7UKgMaNNLUKEdNLgHtwhKMZWRxxikSZ4bomd3dNJWqT96LO
+         id0oQcrjxh9xxQuGK5UzEitG/CWBDYzHvJatVxAdk5ZqDeQtOSP/icSKvCSaFcNd6EA7
+         K8MTccTs8LjL27ccfiIS1cf4YUh0dn7msGdAjqFwf+MJ6fE0iTXIBm0GmBKyxtp0zH/q
+         KMzgj1gh46nbzFi+fBYeBe/cCs7Z1JhdRrEDgNmtTw2hoag3CFrkWKWXYN6yeUnUCZN4
+         hKumG0EvCvtK0uco0GX5zdI6aKKczb6YzyAzbtMT22d9gE9uuxfbgdRKIYq7rkjQzD+B
+         pyTA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=NKdK8us0;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=h0gfcuKU;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::136 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x133.google.com (mail-lf1-x133.google.com. [2a00:1450:4864:20::133])
-        by gmr-mx.google.com with ESMTPS id c18si131091wru.3.2021.08.17.11.07.57
+Received: from mail-lf1-x136.google.com (mail-lf1-x136.google.com. [2a00:1450:4864:20::136])
+        by gmr-mx.google.com with ESMTPS id h8si75479lfu.0.2021.08.17.11.17.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Aug 2021 11:07:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133 as permitted sender) client-ip=2a00:1450:4864:20::133;
-Received: by mail-lf1-x133.google.com with SMTP id c24so42957218lfi.11
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 11:07:56 -0700 (PDT)
-X-Received: by 2002:a05:6512:3041:: with SMTP id b1mr3246042lfb.122.1629223676223;
- Tue, 17 Aug 2021 11:07:56 -0700 (PDT)
+        Tue, 17 Aug 2021 11:17:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::136 as permitted sender) client-ip=2a00:1450:4864:20::136;
+Received: by mail-lf1-x136.google.com with SMTP id z2so43118477lft.1
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 11:17:33 -0700 (PDT)
+X-Received: by 2002:a19:7117:: with SMTP id m23mr3507570lfc.73.1629224253295;
+ Tue, 17 Aug 2021 11:17:33 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210817002109.2736222-1-ndesaulniers@google.com>
- <20210817002109.2736222-5-ndesaulniers@google.com> <bc8cf0be-9e51-e769-0685-2594802eead0@kernel.org>
-In-Reply-To: <bc8cf0be-9e51-e769-0685-2594802eead0@kernel.org>
+References: <269701460.117528.1629210189833@office.mailbox.org> <796036867.117557.1629210288168@office.mailbox.org>
+In-Reply-To: <796036867.117557.1629210288168@office.mailbox.org>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 17 Aug 2021 11:07:45 -0700
-Message-ID: <CAKwvOdkO3ax7gN-n5OJO7-320BVK+B-JDs0v=3vZs9fPezwjDg@mail.gmail.com>
-Subject: Re: [PATCH 4/7] arc: replace cc-option-yn uses with cc-option
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org, 
-	clang-built-linux@googlegroups.com, Vineet Gupta <vgupta@kernel.org>, 
-	linux-snps-arc@lists.infradead.org
+Date: Tue, 17 Aug 2021 11:17:21 -0700
+Message-ID: <CAKwvOdkYgC4pU0Ta+vS-UkyAYFTkg8MaLuR+OAsSX63_BY+1vA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] x86, Makefile: Add new generic x86-64 settings v2/v3/v4
+To: torvic9@mailbox.org
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>, 
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, 
+	"graysky@archlinux.us" <graysky@archlinux.us>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=NKdK8us0;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::133
+ header.i=@google.com header.s=20161025 header.b=h0gfcuKU;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::136
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -131,61 +132,94 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Aug 16, 2021 at 7:05 PM Nathan Chancellor <nathan@kernel.org> wrote:
+On Tue, Aug 17, 2021 at 7:24 AM torvic9 via Clang Built Linux
+<clang-built-linux@googlegroups.com> wrote:
 >
-> On 8/16/2021 5:21 PM, 'Nick Desaulniers' via Clang Built Linux wrote:
-> > cc-option-yn can be replaced with cc-option. ie.
-> > Checking for support:
-> > ifeq ($(call cc-option-yn,$(FLAG)),y)
-> > becomes:
-> > ifneq ($(call cc-option,$(FLAG)),)
-> >
-> > Checking for lack of support:
-> > ifeq ($(call cc-option-yn,$(FLAG)),n)
-> > becomes:
-> > ifeq ($(call cc-option,$(FLAG)),)
-> >
-> > This allows us to pursue removing cc-option-yn.
-> >
-> > Cc: Vineet Gupta <vgupta@kernel.org>
-> > Cc: linux-snps-arc@lists.infradead.org
-> > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> > ---
-> >   arch/arc/Makefile | 3 +--
-> >   1 file changed, 1 insertion(+), 2 deletions(-)
-> >
-> > diff --git a/arch/arc/Makefile b/arch/arc/Makefile
-> > index c0d87ac2e221..8782a03f24a8 100644
-> > --- a/arch/arc/Makefile
-> > +++ b/arch/arc/Makefile
-> > @@ -18,8 +18,7 @@ ifeq ($(CONFIG_ARC_TUNE_MCPU),"")
-> >   cflags-y                            += $(tune-mcpu-def-y)
-> >   else
-> >   tune-mcpu                           := $(shell echo $(CONFIG_ARC_TUNE_MCPU))
-> > -tune-mcpu-ok                                 := $(call cc-option-yn, $(tune-mcpu))
-> > -ifeq ($(tune-mcpu-ok),y)
-> > +ifneq ($(call cc-option,$(tune-mcpu)),)
-> >   cflags-y                            += $(tune-mcpu)
+> Add new generic x86-64 CPU tunings introduced with recent versions of
+> gcc and clang, as documented in x86-64-psABI [1].
 >
-> Any reason not to just turn this into
+> This is taken straight from graysky's CPU optimization patch with minor
+> modifications [2].
 >
-> cflags-y += $(call cc-option,$(tune-mcpu))
+> [1] https://gitlab.com/x86-psABIs/x86-64-ABI/-/commit/77566eb03bc6a326811cb7e9a6b9396884b67c7c
+> [2] https://github.com/graysky2/kernel_compiler_patch
 >
-> ?
+> Signed-off-by: Tor Vic <torvic9@mailbox.org>
+> ---
+>  arch/x86/Kconfig.cpu  | 26 +++++++++++++++++++++++++-
+>  arch/x86/Makefile.cpu |  6 ++++++
+>  2 files changed, 31 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/x86/Kconfig.cpu b/arch/x86/Kconfig.cpu
+> index 814fe0d349b0..a2c872aa5a0b 100644
+> --- a/arch/x86/Kconfig.cpu
+> +++ b/arch/x86/Kconfig.cpu
+> @@ -294,6 +294,30 @@ config GENERIC_CPU
+>           Generic x86-64 CPU.
+>           Run equally well on all x86-64 CPUs.
+>
+> +config GENERIC_CPU_V2
+> +       bool "Generic-x86-64-v2"
+> +       depends on ( CC_IS_GCC && GCC_VERSION > 110000 ) || ( CC_IS_CLANG && CLANG_VERSION >= 120000 )
 
-Yes, you'll need to pull up the source; the diff doesn't provide
-enough context. tune-mcpu is used in the body of the else branch
-hinted at by the diff. PTAL
+Can we stick with either > or >=, but at least be consistent? Also,
+there's unnecessary whitespace inside the parens that could be
+removed.
 
+> +       depends on X86_64
+> +       help
+> +         Generic x86-64 CPU.
+> +         Run equally well on all x86-64 CPUs with min support of x86-64-v2.
+> +
+> +config GENERIC_CPU_V3
+> +       bool "Generic-x86-64-v3"
+> +       depends on ( CC_IS_GCC && GCC_VERSION > 110000 ) || ( CC_IS_CLANG && CLANG_VERSION >= 120000 )
+> +       depends on X86_64
+> +       help
+> +         Generic x86-64-v3 CPU with v3 instructions.
+> +         Run equally well on all x86-64 CPUs with min support of x86-64-v3.
+> +
+> +config GENERIC_CPU_V4
+> +       bool "Generic-x86-64-v4"
+> +       depends on ( CC_IS_GCC && GCC_VERSION > 110000 ) || ( CC_IS_CLANG && CLANG_VERSION >= 120000 )
+> +       depends on X86_64
+> +       help
+> +         Generic x86-64 CPU with v4 instructions.
+> +         Run equally well on all x86-64 CPUs with min support of x86-64-v4.
+> +
+>  endchoice
 >
-> If $(tune-mcpu) is empty or invalid, nothing will be added to cflags-y.
+>  config X86_GENERIC
+> @@ -318,7 +342,7 @@ config X86_INTERNODE_CACHE_SHIFT
+>  config X86_L1_CACHE_SHIFT
+>         int
+>         default "7" if MPENTIUM4 || MPSC
+> -       default "6" if MK7 || MK8 || MPENTIUMM || MCORE2 || MATOM || MVIAC7 || X86_GENERIC || GENERIC_CPU
+> +       default "6" if MK7 || MK8 || MPENTIUMM || MCORE2 || MATOM || MVIAC7 || X86_GENERIC || GENERIC_CPU || GENERIC_CPU_V2 || GENERIC_CPU_V3 || GENERIC_CPU_V4
+>         default "4" if MELAN || M486SX || M486 || MGEODEGX1
+>         default "5" if MWINCHIP3D || MWINCHIPC6 || MCRUSOE || MEFFICEON || MCYRIXIII || MK6 || MPENTIUMIII || MPENTIUMII || M686 || M586MMX || M586TSC || M586 || MVIAC3_2 || MGEODE_LX
 >
-> >   else
-> >   # The flag provided by 'CONFIG_ARC_TUNE_MCPU' option isn't known by this compiler
-> >
+> diff --git a/arch/x86/Makefile.cpu b/arch/x86/Makefile.cpu
+> index fb407ae94d90..f190feefe964 100644
+> --- a/arch/x86/Makefile.cpu
+> +++ b/arch/x86/Makefile.cpu
+> @@ -10,3 +10,9 @@ cflags-$(CONFIG_MCORE2) += \
+>  cflags-$(CONFIG_MATOM) += $(call cc-option,-march=atom) \
+>         $(call cc-option,-mtune=atom,$(call cc-option,-mtune=generic))
+>  cflags-$(CONFIG_GENERIC_CPU) += $(call cc-option,-mtune=generic)
+> +
+> +# New generic x86-64 CPU options.
+> +# Don't call the compiler, we have Kconfig compiler checks for these.
 
+You'd be surprised how quickly using time-relative words like "New"
+bitrot. My copy of "Modern C++" already doesn't feel very "modern" for
+example.  I'd just drop the comment block here; we don't need a
+comment every time we skip cc-option checks.  Thanks for the patches!
 
-
+> +cflags-$(CONFIG_GENERIC_CPU_V2) += -march=x86-64-v2
+> +cflags-$(CONFIG_GENERIC_CPU_V3) += -march=x86-64-v3
+> +cflags-$(CONFIG_GENERIC_CPU_V4) += -march=x86-64-v4
+> --
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -193,4 +227,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkO3ax7gN-n5OJO7-320BVK%2BB-JDs0v%3D3vZs9fPezwjDg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkYgC4pU0Ta%2BvS-UkyAYFTkg8MaLuR%2BOAsSX63_BY%2B1vA%40mail.gmail.com.
