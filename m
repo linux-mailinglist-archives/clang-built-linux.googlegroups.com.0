@@ -1,134 +1,143 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBI7656EAMGQEBFJCMMQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD763O5S5UARBZX756EAMGQE3RILPJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id C183C3EF1D2
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 20:25:40 +0200 (CEST)
-Received: by mail-io1-xd3c.google.com with SMTP id c14-20020a6bfd0e0000b02905b2d3028604sf6235445ioi.7
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 11:25:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629224739; cv=pass;
+Received: from mail-lj1-x23c.google.com (mail-lj1-x23c.google.com [IPv6:2a00:1450:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 12ED83EF1D7
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 20:28:55 +0200 (CEST)
+Received: by mail-lj1-x23c.google.com with SMTP id d17-20020a05651c0891b029019189dff65esf54642ljq.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 11:28:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629224934; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aSnJ6jkDQdpHwPwiCvCx8OWm/syj3VUypIHTUOm9S3xC5/7dTPXLbnhVurtkRV8Ra1
-         NFLWubaLk0SDA9/K1U2St6tMf4RSzVb0lWGweQrnHNe10zxdxWLH/d2pzeGojXa3ufyK
-         wJgi6YojFLZS2q0yYPS25UPOLN6/GEmcJUrsoOj8O6h3uLLEUCr1TnwhEnSPUIbRcp2P
-         W7fA3rRiTRLpnY1oRCbNOTI88X/DXwRiAeCEnNoJynNTBv2Z/w2XgsAcjeJC1CTyn4d9
-         gq49Uloe0OwAWMvClKdJHC39TOjFTHpdB6rFgbYiBm6lyLfnFI8AbQuwXMLCXcO6MkFl
-         rupg==
+        b=HF4/4mDtfiUUm7dhddf0cnCRIutgPv7TWsEHr8FrWFZYlRjjo1HOV4TFPHB1rlebk7
+         uvKm0af1oaaEy1b4UHYKHojxCGcaMIXbpk7wxBdI1u+e2ccufyr3gM2qW+X7krahgKhh
+         ittbtmR/OcBPnmDNC8mT4GwVsXNMAHzkVnE45rYzVanu+soa9OlFDTo5j/QoRMd5OvzU
+         t/VnkhpvAHvsONAwmz1Yc+JS2244EUda9TJ67rRTiny8YKE28eXIOaAYsQXxJJgwDT1A
+         nlbWAwJNMWN6ckQ+Hg5Zg7fvLtMpAIC/n4qRapx5ZYYkE5w0Vffbd+2bbNxCPbK6Dp8q
+         P5Vw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=jJ2qrOeEEu3fNwubWwVB9ffH/Knd+VopUItNXfqEy+M=;
-        b=n6oxrinlY9lDBJunzwH1dXchvCcKaY+Fs9YX8tVjUyjyV6Hu7xbGLehk1nRSnjDX3R
-         3j1one8ChTN4dM4tiQwcmMm8eKeZO3GMbIIj6HIhbg4belYTT9HDGl4iZHV3/a8GmuvI
-         OKUOV9wWzggslNiMAyIgSREPIq+inWkPtSlGu7lYeZjEQ3uP2euoTtCEJvIw35zpLTDM
-         KyJ6E5k5AAxpHl0H+3gLmVTrAA9O36bWtToacu1H+3WeBnT1O5F6GrH9n7xXgvpwfe3y
-         K//p59y9CFmHv7r16tY75XbdlAubQbZt1/qdlRBxQmJs/hgBH07hSU1a+qlSth/XmDHo
-         56ug==
+         :list-id:mailing-list:precedence:reply-to:content-language
+         :in-reply-to:mime-version:date:message-id:from:references:cc:to
+         :subject:dkim-signature;
+        bh=n8kXAHr7HVyqSSU+clWnfGOcWtViGoWHpEmT/R0zwoc=;
+        b=RFEBhCkesnr48T+CTdJfILdlDFNFN5uyorZAaozaKrNyfqQEo7pg9iS/v8fa9jWAoX
+         hUuyWGNvtWlsNl3/DDMzuJ6ih3+sIW0wwos2sujDWYl+JrEMdq3ViTS53OpFNQcpgOzx
+         9oCfkiAEPBxzvGaP5tBNiBenuLqDSeyjBWtwn701D8Z0LvVqRSk9TCq+CPYTyfR7v2Wc
+         xDRcZPMx+RVmEWpH6QwATo0E6HYhTclj5wJ1fym4RMFUVrn5+PcOEQHASSEB6ig7kRtK
+         06xFYKtNa6x33xe8/v7x34dxNsPBdmJ5c+QA5wQ19ns5kFOdQeznuns1Bi0J/FHEydFm
+         gZpA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ZToh53CS;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=Chd0fA7j;
+       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=flS0bCNw;
+       spf=pass (google.com: domain of torvic9@mailbox.org designates 80.241.56.161 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=jJ2qrOeEEu3fNwubWwVB9ffH/Knd+VopUItNXfqEy+M=;
-        b=X6piqY846/BHK5RNzRhgWGV8AQJZVVLKtgMwR/A65LgxdzvsYP0wdo/jDCSMv352KA
-         9wgnjKWwX2BRMZ+/15YcbPRnAaP7JSsUQVsKFol+jvt/dgn26ULW4TYBbZVJN9T/YdRo
-         Sq8e9J5YGgSL7MUM57NHNs+Um23zV+PQiOxk02LgmecMWeYOGen4Zo4yUAr0u7Wcd8JM
-         XeRQBYHWS76pa5srLVo4iWjm7oRWW8EbTxjaOPWMm1Hx5uJHpruUZSthwx8EfzKEEYPI
-         sUl6Lhp9L5fuNIh5rYUlI+RQwluyaI4CV0x8ZxMZQSFy2Yy3xKrL4HZ/Lyd9KIBMncth
-         LFSQ==
+        h=subject:to:cc:references:from:message-id:date:mime-version
+         :in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=n8kXAHr7HVyqSSU+clWnfGOcWtViGoWHpEmT/R0zwoc=;
+        b=QEHj+ugSDxssoHDZ/kUEzeIPmxQKTz/UZufXFF/poUMY6g6pOe6r1qk3dNDWWvjjHo
+         6YDubWlgeMN/9Zntid747fLOH1fV/Q/rrbYvjBbkJJ1xzs0hgfvkrV1DhSJ7BESoraW2
+         V5c7j6a+uZcwMHwrw9WOA9zJjibStpbPJohvRAiYZQcrI3m4t8b2F+y0wyZmujNbxfZP
+         dfiTOvyWb+n5PU6KqYxyzDleLH+K0xLUm6nBr62NZiGH2ueaSYyMzA9f4o3ZlY93b7Yk
+         VcALubv/q3/oT4FJX/mvr+EI/F1P6WzBC3T7noG6Nn1KlnkYptkImbKgR1NGGJ4kHQo6
+         KIqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=jJ2qrOeEEu3fNwubWwVB9ffH/Knd+VopUItNXfqEy+M=;
-        b=dedhmc+ZCZyACCsRyJi9kwXCsPCpKx02SnwBnvIC3yRNyEwjDp+tfaoXgdBIxkC2wB
-         1RK09JG5WSDIGZx6tyqHQYHm1kQ6YJnya37YyWKlh5/NVnFLFt1bTnMcboi4GFDRmq6a
-         /f4iwRmQOygooCItjpSV0MALhznijIAxYQ2zlUODtBQRaTogzRmmpCUrK7O4j2G4OJWW
-         GIMC6uusxGlF1yodaoOvUASWKV56Jk0dBomEfXAQh6F1ZBStfkLzmXKS+ELS7lGmmboL
-         ZdLs4ZbCekGHCapxjmqBcP3OQrkSiAM6nkfVDxe2o5qdpIF0F45iRpHyjMdqht+UO4qm
-         hp1Q==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530jIWBaLaX/yIXEaNkjsTa4WJOwGoUuBw8OXsLIxAKsoM67ipNJ
-	IZHkPrtmXIY/unrXpLeCQ/4=
-X-Google-Smtp-Source: ABdhPJz4u/Vygy3aDdB265QZ7LmyTzGXipJhZ7pm4beOMJpOYywBlBoWp8eXyhay5kTpSPez3o70LQ==
-X-Received: by 2002:a05:6638:168f:: with SMTP id f15mr4115880jat.85.1629224739717;
-        Tue, 17 Aug 2021 11:25:39 -0700 (PDT)
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=n8kXAHr7HVyqSSU+clWnfGOcWtViGoWHpEmT/R0zwoc=;
+        b=eJMIJoATIgkeS72jZ4VpDrSGSmgzBDrEkRWMfCOTpd2zR73nCoZAVyzNmuPlW5dlES
+         sK54TJd+hnyCCOdaj6/hRpZalN5m9lodIFz/o2+okzoKp/eUp/58ChyHdYGAtxi6F+oF
+         7HJmpu6XJKBBbK6NWTO6vTh8qK6YCtKEYqwCuC1Ef9VXCfZ8jRmeOceBWhC8/I6Ma50F
+         +/pTYRUEUddXpyvyaGPx57jWWubDr3UH+74AY8HpW47eYBKz2RxSiK4MAj2Rs69cC2nN
+         q8gr9/1VKIsOgHV4Sddpl+bRfrDq3z7MDWSxaHl47TQ0VLzY5qMzlpsShgRzijvFOCW1
+         C7ZA==
+X-Gm-Message-State: AOAM533yqg7z883es802/2Dk5zZ54inB6WGo5EETIUNbkf4f/JCAbawU
+	UI1DiZwNxtjX4Vk4r5IWjw8=
+X-Google-Smtp-Source: ABdhPJyZ8VXffRuDZjs56adQu1cPen8F7X15/3JPtEwi66cHbIj8NH2iKifI5wsIVn+tAhn8dDRG2g==
+X-Received: by 2002:a2e:b60d:: with SMTP id r13mr4422847ljn.218.1629224934370;
+        Tue, 17 Aug 2021 11:28:54 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:fb19:: with SMTP id h25ls472429iog.3.gmail; Tue, 17 Aug
- 2021 11:25:39 -0700 (PDT)
-X-Received: by 2002:a6b:8f4e:: with SMTP id r75mr3974824iod.172.1629224739376;
-        Tue, 17 Aug 2021 11:25:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629224739; cv=none;
+Received: by 2002:a05:651c:160f:: with SMTP id f15ls697076ljq.3.gmail; Tue, 17
+ Aug 2021 11:28:52 -0700 (PDT)
+X-Received: by 2002:a2e:86ce:: with SMTP id n14mr2933922ljj.421.1629224932565;
+        Tue, 17 Aug 2021 11:28:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629224932; cv=none;
         d=google.com; s=arc-20160816;
-        b=hpsHAvF+9SCxD2G3GSuRcekF57Nq0O9C8YhMpLNVTh/PCmMPX4DBJoaXMn722DrcBK
-         d1I1fhO7U+T06+uctBaqo48zyuaNw15liblgr2y+asnMWyqLHMYc8gAwJrfTSEPJAyfY
-         +1LWHI6GST3foB/MWX4JgOfeUlWL/VV5D3qgnYGTG3X2ebuayUuU6CtarKOxytf6mXqH
-         F72waRTRObLcANv32S6cVzFxqm8RGZSA1xKE056WRf8c7BFt/+G2G7hTZy61i7r8JCWP
-         0/eaykMAhWN4wEHysFVsgjvBTIWMY13CP4VTAEmEHtPkI1kQyc2vB5clI9EJsBG2WpVb
-         7kgQ==
+        b=ZrqgRVw+lHzL1lm7x9NLRB5rItS1rjm4i8OqYCEJrpKS7Nkm9V5nnOx8YZe/BX6uAY
+         AO62VVDGHLMFM68f4rjujUZK84gtepc9NdfSuJA+aJTY3DNIEFG6KAGCeaIonb2YPWBZ
+         0gKhY0uhGiUiEMHhPvSchRNROzzo+E5upKPMlc5soFW34YcdSqi+H6vc7qUDVAdW+bL/
+         6l/vOpBfcMjjg8xvF5Cy0oeqxKCz54g213ACcrTeAGmLlGepVt2X/V3kWTJdPwfPSqIl
+         cNf+U9Y+DzjEgoNlXf33UwrkrtPiHhr/5h94JnmmICpDei2P82GgpZjECFNAVWXWvH7b
+         cATA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
+         :date:message-id:from:references:cc:to:subject:dkim-signature
          :dkim-signature;
-        bh=DOVX/oFvrEr1yoGGSkepp1V2jv/aOK/FCzOvgtXevjs=;
-        b=JyUv4YNe45H47QrWDn0uO41RxSI1m8ZendSg1MxFfTDh1t/M7zYLnyc+gXrzWt8Qh4
-         V5x3g24p84z0UBMf87T5dWlefCwW7NE9hhjy6GAYgBdqi4SnLIHJ0WQKd5rVYQFVQbf1
-         G4HJV604LuM5mizZ8HQygXSP49q+QWYPY6GVgoCN9Lq54C/WCZUqX997y5B6huivuZ2+
-         MTAq7D2xVRhrHQ1/hzQRXVUf2iEGw0u+NJTTZYEEB/7sJoPo8PNs4h69T7EnGbe0tLiP
-         coCPEkQXPt8EtVa7Q6PIGwreunpVAlVN+o+ZF+jWZ9sWu6BQcVUfgbZCzSlB3dlCCCH7
-         xZ4w==
+        bh=41lZRdMf7DYVcwWiruJSCA+FLjLI0/wb06kdjBmxolE=;
+        b=aU0dwJck54uFSGJiZaNVEiMMZZ0WmvAAgiozuckyVlNisSucN0x3kihkUIBfpGcChe
+         cqme0/SPbffZLZ/vZKMHd6KLpxMIQHwZfgJkswd/6liau6tLilTXdgfMQrZkNrHuUaul
+         LMqOS3wO0xeodIwAx3+7hTMQwmrQ7YMcEXuKELLB16vRKz2B/lxgq21r+Uw78SpqiYZY
+         BdkBu2fz67nWe7YPgemtux7XCVOMbX9W8/l3i+jYqrpcuff7vra7utO/T3YCPeiFXv37
+         IdXp7ygVO8Yg5ZzWFjmSVPsRGofI9r0GwM8z4XpDvdAmDm5lSsz3NdX598k0D0/5Pliy
+         5LDg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ZToh53CS;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id o21si78369iov.2.2021.08.17.11.25.39
+       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=Chd0fA7j;
+       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=flS0bCNw;
+       spf=pass (google.com: domain of torvic9@mailbox.org designates 80.241.56.161 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
+Received: from mout-p-103.mailbox.org (mout-p-103.mailbox.org. [80.241.56.161])
+        by gmr-mx.google.com with ESMTPS id h13si76802ljj.7.2021.08.17.11.28.52
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Aug 2021 11:25:39 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id DD4F461042;
-	Tue, 17 Aug 2021 18:25:37 +0000 (UTC)
-Subject: Re: [PATCH] kbuild: Enable -Wimplicit-fallthrough for clang 14.0.0+
-To: Kees Cook <keescook@chromium.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- linux-hardening@vger.kernel.org
-References: <20210817005624.1455428-1-nathan@kernel.org>
- <80fa539a-b767-76ed-dafa-4d8d1a6b063e@kernel.org>
- <CAHk-=wgFXOf9OUh3+vmWjhp1PC47RVsUkL0NszBxSWhbGzx4tw@mail.gmail.com>
- <5c856f36-69a7-e274-f72a-c3aef195adeb@kernel.org>
- <202108171056.EDCE562@keescook>
-From: Nathan Chancellor <nathan@kernel.org>
-Message-ID: <3f28b45e-e725-8b75-042a-d34d90c56361@kernel.org>
-Date: Tue, 17 Aug 2021 11:25:36 -0700
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Aug 2021 11:28:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of torvic9@mailbox.org designates 80.241.56.161 as permitted sender) client-ip=80.241.56.161;
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:105:465:1:2:0])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-384) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4Gq00g6PG0zQkBZ;
+	Tue, 17 Aug 2021 20:28:51 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at heinlein-support.de
+Received: from smtp2.mailbox.org ([80.241.60.241])
+	by spamfilter03.heinlein-hosting.de (spamfilter03.heinlein-hosting.de [80.241.56.117]) (amavisd-new, port 10030)
+	with ESMTP id bEbpRvqyAJm2; Tue, 17 Aug 2021 20:28:45 +0200 (CEST)
+Subject: Re: [PATCH 1/2] x86, Makefile: Move the CPU-specific 64-bit tuning
+ settings to arch/x86/Makefile.cpu
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "x86@kernel.org" <x86@kernel.org>,
+ "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
+ Masahiro Yamada <masahiroy@kernel.org>
+References: <269701460.117528.1629210189833@office.mailbox.org>
+ <CAKwvOdkpJc66DWTJV1qTZ6ch-qLxf+g-mJnLmP0ea396P1oYmA@mail.gmail.com>
+From: "'Tor Vic' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Message-ID: <35f9422c-4cde-af6a-d56c-500b66d6f1f0@mailbox.org>
+Date: Tue, 17 Aug 2021 18:28:35 +0000
 MIME-Version: 1.0
-In-Reply-To: <202108171056.EDCE562@keescook>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+In-Reply-To: <CAKwvOdkpJc66DWTJV1qTZ6ch-qLxf+g-mJnLmP0ea396P1oYmA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Language: en-US
-X-Original-Sender: nathan@kernel.org
+X-Rspamd-Queue-Id: 64F00182B
+X-Rspamd-UID: e33ff5
+X-Original-Sender: torvic9@mailbox.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=ZToh53CS;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@mailbox.org header.s=mail20150812 header.b=Chd0fA7j;
+       dkim=pass header.i=@mailbox.org header.s=mail20150812
+ header.b=flS0bCNw;       spf=pass (google.com: domain of torvic9@mailbox.org
+ designates 80.241.56.161 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
+X-Original-From: Tor Vic <torvic9@mailbox.org>
+Reply-To: Tor Vic <torvic9@mailbox.org>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,52 +150,110 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 8/17/2021 11:03 AM, Kees Cook wrote:
-> On Mon, Aug 16, 2021 at 09:55:28PM -0700, Nathan Chancellor wrote:
->> If you/Gustavo would prefer, I can upgrade that check to
->>
->> ifneq ($(call cc-option, -Wunreachable-code-fallthrough),)
->>
->> I was just trying to save a call to the compiler, as that is more expensive
->> than a shell test call.
+
+
+On 17.08.21 17:58, Nick Desaulniers wrote:
+> Tor,
+> Thanks for the patches. One thing I always try to do is use
+> ./scripts/get_maintainer.pl to get the appropriate maintainers and
+> reviewers cc'ed. I prefer to explicitly put the maintainers that I
+> expect to pick up a patch in the To: line.
 > 
-> I prefer the option test -- this means no changes are needed on the
-> kernel build side if it ever finds itself backported to earlier versions
-> (and it handles the current case of "14" not meaning "absolute latest").
+
+I did use the script, but I wasn't sure whether to include groups,
+individuals, or both.
+Noted for next submission.
+
+> $ ./scripts/get_maintainer.pl arch/x86/Makefile -norolestats
+> Thomas Gleixner <tglx@linutronix.de>
+> Ingo Molnar <mingo@redhat.com>
+> Borislav Petkov <bp@alien8.de>
+> x86@kernel.org
+> "H. Peter Anvin" <hpa@zytor.com>
+> Nathan Chancellor <nathan@kernel.org>
+> Nick Desaulniers <ndesaulniers@google.com>
+> linux-kernel@vger.kernel.org
+> clang-built-linux@googlegroups.com
 > 
-> More specifically, I think you want this (untested):
+> added them to CC.  Probably needs a refresh at this point, but
+> https://nickdesaulniers.github.io/blog/2017/05/16/submitting-your-first-patch-to-the-linux-kernel-and-responding-to-feedback/
+> is still mostly relevant.
+> 
 
-That should work but since -Wunreachable-code-fallthrough is off by 
-default, I did not really see a reason to include it in KBUILD_CFLAGS. I 
-do not have a strong opinion though, your version is smaller than mine 
-is so we can just go with that. I'll defer to Gustavo on it since he has 
-put in all of the work cleaning up the warnings.
+Noted as well.
+Thanks!
 
-Cheers,
-Nathan
-
-> diff --git a/Makefile b/Makefile
-> index b5fd51e68ae9..9845ea50a368 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -859,11 +859,11 @@ KBUILD_CFLAGS += -Wno-gnu
->   # source of a reference will be _MergedGlobals and not on of the whitelisted names.
->   # See modpost pattern 2
->   KBUILD_CFLAGS += -mno-global-merge
-> +# Warn about unmarked fall-throughs in switch statement only if we can also
-> +# disable the bogus unreachable code warnings.
-> +KBUILD_CFLAGS += $(call cc-option,-Wimplicit-fallthrough -Wno-unreachable-code-fallthrough,)
->   else
-> -
->   # Warn about unmarked fall-throughs in switch statement.
-> -# Disabled for clang while comment to attribute conversion happens and
-> -# https://github.com/ClangBuiltLinux/linux/issues/636 is discussed.
->   KBUILD_CFLAGS += $(call cc-option,-Wimplicit-fallthrough=5,)
->   endif
->   
+> On Tue, Aug 17, 2021 at 7:23 AM torvic9 via Clang Built Linux
+> <clang-built-linux@googlegroups.com> wrote:
+>>
+>> In accordance with the FIXME comment in arch/x86/Makefile, move the
+>> CPU-specific 64-bit tuning settings to arch/x86/Makefile.cpu.
+>>
+>> Signed-off-by: Tor Vic <torvic9@mailbox.org>
+>> ---
+>>  arch/x86/Makefile     | 11 ++---------
+>>  arch/x86/Makefile.cpu | 12 ++++++++++++
+>>  2 files changed, 14 insertions(+), 9 deletions(-)
+>>  create mode 100644 arch/x86/Makefile.cpu
+>>
+>> diff --git a/arch/x86/Makefile b/arch/x86/Makefile
+>> index 307fd0000a83..94105d7ad22c 100644
+>> --- a/arch/x86/Makefile
+>> +++ b/arch/x86/Makefile
+>> @@ -119,15 +119,8 @@ else
+>>         # Use -mskip-rax-setup if supported.
+>>         KBUILD_CFLAGS += $(call cc-option,-mskip-rax-setup)
+>>
+>> -        # FIXME - should be integrated in Makefile.cpu (Makefile_32.cpu)
+>> -        cflags-$(CONFIG_MK8) += $(call cc-option,-march=k8)
+>> -        cflags-$(CONFIG_MPSC) += $(call cc-option,-march=nocona)
+>> -
+>> -        cflags-$(CONFIG_MCORE2) += \
+>> -                $(call cc-option,-march=core2,$(call cc-option,-mtune=generic))
+>> -       cflags-$(CONFIG_MATOM) += $(call cc-option,-march=atom) \
+>> -               $(call cc-option,-mtune=atom,$(call cc-option,-mtune=generic))
+>> -        cflags-$(CONFIG_GENERIC_CPU) += $(call cc-option,-mtune=generic)
+>> +        # CPU-specific tuning (64-bit).
+>> +        include arch/x86/Makefile.cpu
+> 
+> So we have arch/x86/Makefile_32.cpu, would it be more symmetrical to
+> have a new arch/x86/Makefile_64.cpu (rather than Makefile.cpu)?
+> 
+>>          KBUILD_CFLAGS += $(cflags-y)
+>>
+>>          KBUILD_CFLAGS += -mno-red-zone
+>> diff --git a/arch/x86/Makefile.cpu b/arch/x86/Makefile.cpu
+>> new file mode 100644
+>> index 000000000000..fb407ae94d90
+>> --- /dev/null
+>> +++ b/arch/x86/Makefile.cpu
+>> @@ -0,0 +1,12 @@
+>> +# SPDX-License-Identifier: GPL-2.0
+>> +# CPU tuning section (64-bit) - shared with UML.
+>> +# Must change only cflags-y (or [yn]), not CFLAGS! That makes a difference for UML.
+>> +
+>> +cflags-$(CONFIG_MK8) += $(call cc-option,-march=k8)
+>> +cflags-$(CONFIG_MPSC) += $(call cc-option,-march=nocona)
+>> +
+>> +cflags-$(CONFIG_MCORE2) += \
+>> +       $(call cc-option,-march=core2,$(call cc-option,-mtune=generic))
+>> +cflags-$(CONFIG_MATOM) += $(call cc-option,-march=atom) \
+>> +       $(call cc-option,-mtune=atom,$(call cc-option,-mtune=generic))
+>> +cflags-$(CONFIG_GENERIC_CPU) += $(call cc-option,-mtune=generic)
+> 
+> I was going to say we probably don't want to limit -mtune=genric to
+> 64b only, but it seems that arch/x86/Makefile_32.cpu has some
+> duplication here.
+> 
+>  47 cflags-$(CONFIG_X86_GENERIC)  += $(call tune,generic,$(call
+> tune,i686))
+> 
+> That probably could be hoisted back into arch/x86/Makefile before the
+> CONFIG_X86_32 check, but I'm not sure about the differences between
+> CONFIG_GENERIC_CPU vs CONFIG_X86_GENERIC?
 > 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/3f28b45e-e725-8b75-042a-d34d90c56361%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/35f9422c-4cde-af6a-d56c-500b66d6f1f0%40mailbox.org.
