@@ -1,122 +1,122 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBDMC5SEAMGQEY556INI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBT4D5SEAMGQEDLINTTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x939.google.com (mail-ua1-x939.google.com [IPv6:2607:f8b0:4864:20::939])
-	by mail.lfdr.de (Postfix) with ESMTPS id B36913EE0DB
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 02:21:34 +0200 (CEST)
-Received: by mail-ua1-x939.google.com with SMTP id b24-20020ab02398000000b002abb9087041sf2543126uan.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 17:21:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629159693; cv=pass;
+Received: from mail-lj1-x23f.google.com (mail-lj1-x23f.google.com [IPv6:2a00:1450:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 90A323EE0DE
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 02:24:48 +0200 (CEST)
+Received: by mail-lj1-x23f.google.com with SMTP id f11-20020a05651c160bb0290192ede80275sf6645020ljq.12
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Aug 2021 17:24:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629159888; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zhuQJldKfNlPAXgbPGsRn7Pq8LhK+U+bWkk0CUiX2zoZMr91DUr7tctUAR4+JZFrDp
-         BQL4ejuka9VGyhRVJLjAi7B6Ix/KnK15N+tgV+Tun/ytYZYyNHeu+M0qPJPuV6ej/aRo
-         mIZQ1FqPzwRDG7Z/0y2KDHKFWkhEwjUOBSDX3T69wzzlSsIsx9fVOiallqKYaMEOqp77
-         fWNWV+D0H1J4+3SMvq37mZb+D56R3C7S8RmtOkntvjdy3r8/yzAuh7uka+B9NFdTCZIq
-         176qtzsyeywSyXgMb5nHTJcyaJWs+ruU3TeY+ZIfeTPlCbW+feSwwNqjGip/1uDN4K9z
-         2Uvg==
+        b=H2XU5P0ueNy5vVD5bzC85kIrOm88T5/8yYpCgFVWsAIs53PfyJ8L2f7HNS+dKqGSZP
+         kxkKfAzkh21beHg4OI6YxeOxujGc2fGVNc3c7dIvzJuu+qMh7O8Hx4Q+qjbw/ZnKHZFA
+         FH8tPyQCMnXuPAFBAOWqW5zq+7dnEgYQpRwO16Kgi9tc7p9Y8HcoQsmzAP1E0WkE6VAA
+         waVzxLU3oDWDvcVeLCLBQV6gK9/kVG9oXpEqYT54FgmMd+CXonPm8HFnHksG/uKkikUR
+         Pc4fUP9FGszdMxyRMdgX3FZOZulKoL0k1Y3wsh1S9L31jUfxkYTDH8tDRn2ENw625hAz
+         ue9w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=PXjFI3KwL/dGtZ3gHI2yPQYDNUdqKUNKUYAliB6rz+A=;
-        b=ECndL/wWj7MCGOCmFXfti/th9S74fKwN82rm2JBGotHbQ2w2lqE4VQUQNZbL+51L9B
-         sBEn2DaQFHg/PDeoZe+sD4+JR8ihUeAWI9ciu6++iLONAXp6NZTW4IIQlWt9zP6eGN6o
-         MyBm46mKTcdM7W6WpW9ZNIdTBXguNMN+iZM2kOGG+7E4E/H7zYttt2A/28jdcEOreSGE
-         JpWgU66SlMXoxrryhiyq5XXr+AREKrp7rbx9LCeJENrAlsGqjN2jel+6cbsd/5szwQul
-         ppNKSn8TPj9RY9Hrv3tvSC3hulDbyTYZSYBtFFzjFUG+2GgMBnp2jbQXZ2M1THjHp8kL
-         7goQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=cW8DGBiQr9qLEVSIa1eXrOgjOOZ3hTNCxWrDpdSe5M8=;
+        b=GGYJeMMcJmUMAYaANVWVKt9xD0P7VZ5MeX8YKzqagr+b07LsRsfT8VDxTEOxCXJn9p
+         vqMAzyk2rjbh8vcURbFVWtdnQYFu4VE/rcx+ENqBqRZcpohiPgdc5uDewMvalvrGZv+Z
+         +KClq29YtLTQ+6ojJiIE1Q4PPrQrkRow1Y1JsvRIyXRFXqRBgIslHXhNNAuHEiXI/YLP
+         M8RSTCApfCqN/VrOxo3uSIluWPuRKvARtgAAMTB/ZjZXOAapmKmpIWJuZgcKpp2KL0PA
+         e2X+AO/fCPUT9Jow71TxmTC9cX/dOaSMZe+hDatqphL/rKy5ZI8UzDlJzUM59I1Ga9ds
+         jNzw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=JUWAV2ZY;
-       spf=pass (google.com: domain of 3daebyqwkaik0qr5n7y0vr45t11tyr.p1z@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3DAEbYQwKAIk0qr5n7y0vr45t11tyr.p1z@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=kAL8bVwY;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PXjFI3KwL/dGtZ3gHI2yPQYDNUdqKUNKUYAliB6rz+A=;
-        b=kdXoyzNR187sDTcLSuDdZsN3CsdRH58SOgNw0FXCvVJPtKlWjWJQiM9jnsrPovCb+C
-         nDqD8NhJwqPuq1vqh03mXK2cVleEjPHtth9Km2N+khxsYDyxinqx0/Mq91/+FU3wmw79
-         N7L8zOrGkSFRTqCuWi9aHtBMibx7zHocmfSJNWgKjLWaBWFNj9C5kt/9eLJTj7x0MwCy
-         9gY/ZI8Q2ZhLlDHed3Q56hZ6pxgM4BtNSvGak+KJtBoZJVmG6+ef25c9jfCuj0Xdl6KK
-         0GDdQfbip930Bl0eNa3A97gO//qDNVxDHvjozz3epj/KxhwMuN7XEjXvCKPtQswGmNcr
-         9Npw==
+        bh=cW8DGBiQr9qLEVSIa1eXrOgjOOZ3hTNCxWrDpdSe5M8=;
+        b=goJkov3mpn76wduIjCXx+cAnCeZaLuzCRCKcL+0gvPSxB/m0XIHUwB5r584qSpYSM0
+         ftL/2CDdfzLnPFqnQHBhl7hYH8qQ5u2cvrdreOPhiG6XeSVB/8tgSrxyIjSjz46VSNTz
+         nmsIt+7ADlP7AOgDOxpKKV+p3ZYUpVnkWCUmBl/5W36r/nUDf7cgv9EhB2jKeZ9io+hq
+         jvHLkgG/p0nf1w4FBxmMblVKe6o7KnMHActRB6jBMfFwWzGU5OG4aOSUcjC0UN9lzPIb
+         7Cf0+M3r1JjvfaN2wQAPKDr6ekz2VyBq8KFGft9jzrXq5IbBLKzcpw9gHV+DpkjHhV1O
+         EMQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
-         :references:subject:from:to:cc:x-original-sender
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PXjFI3KwL/dGtZ3gHI2yPQYDNUdqKUNKUYAliB6rz+A=;
-        b=ODXDx6ObqpQQQAeUWFDsrLRBpINKhcjxNJOU98MLnnchcvTRdXQDEiV5DDSrWpY3QW
-         RkRz4hJyHrDEAeT2tg6QrBUGSQ9M1a5Tct21ZCccPXpZ+ni5CgpAP1i3sNL3/nmjmTPP
-         wa4sdXCxt4MjkaFSEr9DgyJIkfgj4aVHmD4BrsLfhHLpXfFTZJrfq1Mz0ZwXm6MX8zOb
-         1H0AKLSPASBShCrRswQUyPmhZQkD0/4m6EKY7UzxvYJSA/tp8OhasSyUsM3Nj8rYXUs6
-         KrAUtr4CPfMm8WeJJLJAaeMRbd2InXplc7heOHijoGfULExveXG65ZghEAc2UbyZv9Sf
-         v15Q==
-X-Gm-Message-State: AOAM532MxN8RoVMCV+seudRbvOOUbB7SxBwdi9NbaQhAruZzG/BT0AtN
-	Cc9vibxUfmZ3frvDL8p1xkU=
-X-Google-Smtp-Source: ABdhPJyynWuNSAS8GCLFmmrs988l0TzYyqLMtu5+XJ5I/gRZKutldNs+Yj9IcceG7wcAr5zCBvR8QA==
-X-Received: by 2002:a05:6122:1143:: with SMTP id p3mr663284vko.1.1629159693801;
-        Mon, 16 Aug 2021 17:21:33 -0700 (PDT)
+        bh=cW8DGBiQr9qLEVSIa1eXrOgjOOZ3hTNCxWrDpdSe5M8=;
+        b=CzuNpLwHp7HTk4ZGey/AIa8vgndTBiVjUl8xHWw9KJ8iZi+KVW3TPz4sichrBOI+Dt
+         UTq8sxvX/R1at/t3xKyQ9mpf0nJPNc6ua6l0USmQn8hxSyeki9FMq+ygTpSOASbS4TlB
+         40hNUEh9L0L6L4NUhrplkOPH4t8fABzAkshmy4FragVYzLkReX9I6W6QDj23NQDMgy3J
+         rmRCzkjubU8EYT1PzWnqCX+iYtIOkjs9epwnZrMehoUYk/Cg/1wqwPStOp4Vv+cdtLiU
+         cvRlrG/WQaCPiabw14g75dXu7KFI9YNOmyKiTX+NqwFUB2HOOlGhXo/L94ynQCdG3wDR
+         kp6w==
+X-Gm-Message-State: AOAM531rAqSFF7wr8lD7/YA1quGa735MO55uSOZl0LBkDdv0OwrOZ7sL
+	NvjCe2HZQB0USCBwXf8TE00=
+X-Google-Smtp-Source: ABdhPJzdrunaILfTFrVoaGJXvF7rLYE/owhpOEKDbAh2RmwBhOfQ4mPh2SWo3ikzC+m+osB9txxktw==
+X-Received: by 2002:a2e:8504:: with SMTP id j4mr716331lji.352.1629159888175;
+        Mon, 16 Aug 2021 17:24:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:2429:: with SMTP id l9ls56303vsi.10.gmail; Mon, 16
- Aug 2021 17:21:33 -0700 (PDT)
-X-Received: by 2002:a67:7709:: with SMTP id s9mr564855vsc.57.1629159693335;
-        Mon, 16 Aug 2021 17:21:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629159693; cv=none;
+Received: by 2002:a05:6512:15a3:: with SMTP id bp35ls128689lfb.1.gmail; Mon,
+ 16 Aug 2021 17:24:47 -0700 (PDT)
+X-Received: by 2002:a05:6512:1148:: with SMTP id m8mr318868lfg.53.1629159887088;
+        Mon, 16 Aug 2021 17:24:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629159887; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZtwygDxqPGcAcwOU5/mABTFG6tPiNmoLR6GMaO+XTxfHNkZ0WpTJvqYh3IG92Cs27E
-         R7t0WdVS8YAI+/d2RNMx+NijFKvA2rqXNcV5cYOWgPdU2VYG9QePdim+uhOHCSJcr4f4
-         58KT/Meu5+afWr0jsgbrwY6OxkphMQGICt2fdZr4mib5zxdUn8U5Jt5aeM/DnWCzG8OS
-         9nZnUpxQ4+1BQXC4OVXHKGsqLd0Y/0m2Ev+8frqTJCpqGc8MBMC//A1GH+aCbEslinqT
-         r3QGV1RCE9rK4/bC1QG6inAg+RVyGiZVVAO2d41ZqYMZKViHkqG+Cju99mbmJBVM2lyD
-         GGLw==
+        b=LDJfUb0DLShcPyVwpVuDE3YtKLERBVaL/psLZ2/3fR/57nHh6Q9u+rolRO01B7IoLe
+         oZFFC/h4sZLl09Ykyk/zhKH84GwxQC4WjdXMrQ+DqMnx0U6fGkEQPtoGN0MMejaUWKZz
+         eRu3IUIMgWQGTD+KqDuPT5OWZPsLeHUcdtOM5gm0Qt4TAAdvv9FXc3ulbPEDdtfzG7Mk
+         k3WtsSGTqSrCsm4Sdlf2hO1aVIAkXJn8CZ9OgR56P5pYe9r9AJfCP8CAvmlTFIeVdaAa
+         s1ViXa2DTNGOhmUyyTF+9xWWYH2hOxRNpEXf/oRr53Wgt8fF+KKZPhG+8SfV2WSsv0nC
+         rTzA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:dkim-signature;
-        bh=qcMahTy1suowLl0Za6h1NGXvaZHNK4dybAs/n3NhjkY=;
-        b=sRpd1sYr/RW8v8K0OY7IVEB4v6I4lRS96RLf/8uJYSXWKGSfuSTW0fPkWCMLzF17OO
-         iVnLZNUeCcOwUhTD/5ff25vmOK6Fl6ghaGZ3hleRNShhx+m16GiHJEJL4E2CtK0C+H/S
-         TvxUtX7liVe/rVCJ3ZTy9eJjzSEgQnGez6KTv9k66oCE5+hYeusbBJDWTFE3NtTYCWkz
-         fzuoUVUZuxrU6IuzUMrTOq/lKn82C0s0J8SaniLbDazHMZA7NO5On99Fn7HFyDxoURj2
-         4IWG1Mz06GlREW3oNjK4W4oic1/d+ekPTFd2PQ0bh6CfAH+qaxg2ipG7tNKCrDi6ubgg
-         9vwg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=XH+M5jn9akfM4a0wOqQs1Q40q3Corb2RIBY1St6+LyY=;
+        b=QWrmfpGCa8ed6Bo5KKSS3ufV0LxfE8QJteuFcchnHKc/tEcViyzyA2//HzoXDIw9nb
+         4bus4V6N6yqMNo4O+LSNE2piOoqf9tV1xEl5b0lcldPVeF2Uo+LXdrAA3NdWh+gJzTju
+         u2w7TDqvmq81j/g2y/LAlJA2ujlrU3dG0D1EmI0GkQOx+mcfGnk0SonXdKCV6/nM+f1I
+         8cvW+fPf4HoL67obdWvKbxx9+m5tJwji3VI6gAOg7i0pOgJxeTPXAnOeX+86nDCMEwUN
+         C66j09BKmPYKYYzzcAjv7iSvI5GecP63XUoWYmWuwvKAqJnicFOjuskjMiOrzTE2+fxW
+         gEtg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=JUWAV2ZY;
-       spf=pass (google.com: domain of 3daebyqwkaik0qr5n7y0vr45t11tyr.p1z@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3DAEbYQwKAIk0qr5n7y0vr45t11tyr.p1z@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=kAL8bVwY;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb4a.google.com (mail-yb1-xb4a.google.com. [2607:f8b0:4864:20::b4a])
-        by gmr-mx.google.com with ESMTPS id k21si32913vko.3.2021.08.16.17.21.33
+Received: from mail-lf1-x12d.google.com (mail-lf1-x12d.google.com. [2a00:1450:4864:20::12d])
+        by gmr-mx.google.com with ESMTPS id q8si24831ljb.6.2021.08.16.17.24.47
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Aug 2021 17:21:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3daebyqwkaik0qr5n7y0vr45t11tyr.p1z@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::b4a as permitted sender) client-ip=2607:f8b0:4864:20::b4a;
-Received: by mail-yb1-xb4a.google.com with SMTP id o3-20020a2541030000b0290557cf3415f8so18776204yba.1
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Aug 2021 17:21:33 -0700 (PDT)
-X-Received: from ndesaulniers1.mtv.corp.google.com ([2620:15c:211:202:478:6e44:5cf7:fcde])
- (user=ndesaulniers job=sendgmr) by 2002:a25:83cd:: with SMTP id
- v13mr865069ybm.325.1629159692935; Mon, 16 Aug 2021 17:21:32 -0700 (PDT)
-Date: Mon, 16 Aug 2021 17:21:09 -0700
-In-Reply-To: <20210817002109.2736222-1-ndesaulniers@google.com>
-Message-Id: <20210817002109.2736222-8-ndesaulniers@google.com>
-Mime-Version: 1.0
-References: <20210817002109.2736222-1-ndesaulniers@google.com>
-X-Mailer: git-send-email 2.33.0.rc1.237.g0d66db33f3-goog
-Subject: [PATCH 7/7] kbuild: remove cc-option-yn, update Docs
+        Mon, 16 Aug 2021 17:24:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12d as permitted sender) client-ip=2a00:1450:4864:20::12d;
+Received: by mail-lf1-x12d.google.com with SMTP id t9so37949132lfc.6
+        for <clang-built-linux@googlegroups.com>; Mon, 16 Aug 2021 17:24:47 -0700 (PDT)
+X-Received: by 2002:a05:6512:3041:: with SMTP id b1mr333364lfb.122.1629159886521;
+ Mon, 16 Aug 2021 17:24:46 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAKwvOdkPLrL6wkhSGaadAcj3HNi1W2q6TQHWFhSej8JvatSzfw@mail.gmail.com>
+ <CAK7LNAS_VVpRuwAayeQY0AAVBU1CchtgGMKT_G=bTgNf9TQ1Tw@mail.gmail.com>
+In-Reply-To: <CAK7LNAS_VVpRuwAayeQY0AAVBU1CchtgGMKT_G=bTgNf9TQ1Tw@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 16 Aug 2021 17:24:35 -0700
+Message-ID: <CAKwvOdmo+o4P95fF+x14Kc_sfB2e08WJcybV04P-KpMJgLgC3Q@mail.gmail.com>
+Subject: Re: cc-option-yn necessary? (vs cc-option)
 To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com, 
-	Nick Desaulniers <ndesaulniers@google.com>
+Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Arnd Bergmann <arnd@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=JUWAV2ZY;       spf=pass
- (google.com: domain of 3daebyqwkaik0qr5n7y0vr45t11tyr.p1z@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::b4a as permitted sender) smtp.mailfrom=3DAEbYQwKAIk0qr5n7y0vr45t11tyr.p1z@flex--ndesaulniers.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+ header.i=@google.com header.s=20161025 header.b=kAL8bVwY;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12d
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
@@ -131,84 +131,60 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-cc-option-yn can be replaced with cc-option. ie.
-Checking for support:
-ifeq ($(call cc-option-yn,$(FLAG)),y)
-becomes:
-ifneq ($(call cc-option,$(FLAG)),)
+On Tue, Aug 10, 2021 at 5:05 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> On Wed, Aug 11, 2021 at 2:58 AM Nick Desaulniers
+> <ndesaulniers@google.com> wrote:
+> >
+> > Masahiro,
+> > I was looking through the uses of cc-option, cc-option-yn, and
+> > cc-disable-warning to see what we're missing support for in Clang.
+> >
+> > I have a short list of places where cc-option can be removed at
+> > https://github.com/ClangBuiltLinux/linux/issues/1436#issuecomment-895557491
+> > because all supported versions of supported toolchains support these
+> > flags.  These should remove a few unnecessary compiler invocations.
+> >
+> > There are also a few cc-option tests that are very compiler specific,
+> > so those might be convertible to just check CC_IS_* rather than
+> > cc-option (I'll have to verify).
+> >
+> > Another thing I noticed is that it seems that most uses of
+> > cc-option-yn are replaceable with simply cc-option when they use
+> > cc-option-yn but check that the result is equal to y. I think even the
+> > cases that check against n could be converted to:
+> >
+> > Examples:
+> > arch/x86/Makefile
+> > From:
+> > ifeq ($(call cc-option-yn, -mfentry), n)
+> > To:
+> > ifeq ($(call cc-option,-mfentry),)
+> > (Though technically, all supported versions of gcc and clang support
+> > -mfentry, so this block should just be deleted)
+> >
+> > arch/powerpc/Makefile
+> > From:
+> > ifeq ($(call cc-option-yn,-mcmodel=medium),y)
+> > To:
+> > ifneq ($(call cc-option,-mcmodel=medium),)
+> >
+> > Then perhaps we could consolidate cc-option-yn into cc-option?  What
+> > are your thoughts? Should I start sending you patches for all of the
+> > above?
+>
+>
+> Yes, I think it is a nice clean-up.
+>
+> Patches are welcome.
 
-Checking for lack of support:
-ifeq ($(call cc-option-yn,$(FLAG)),n)
-becomes:
-ifeq ($(call cc-option,$(FLAG)),)
+https://lore.kernel.org/linux-kbuild/20210817002109.2736222-8-ndesaulniers@google.com/
 
-This allows us to remove cc-option-yn. Do so and update the docs with
-examples.
-
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
----
- Documentation/kbuild/makefiles.rst | 22 +++++++++-------------
- scripts/Makefile.compiler          |  5 -----
- 2 files changed, 9 insertions(+), 18 deletions(-)
-
-diff --git a/Documentation/kbuild/makefiles.rst b/Documentation/kbuild/makefiles.rst
-index db3af0b45baf..4538c36d8df0 100644
---- a/Documentation/kbuild/makefiles.rst
-+++ b/Documentation/kbuild/makefiles.rst
-@@ -650,24 +650,20 @@ more details, with real examples.
- 	-march=pentium-mmx if supported by $(CC), otherwise -march=i586.
- 	The second argument to cc-option is optional, and if omitted,
- 	cflags-y will be assigned no value if first option is not supported.
--	Note: cc-option uses KBUILD_CFLAGS for $(CC) options
-+	Note: cc-option uses KBUILD_CFLAGS for $(CC) options.
- 
--   cc-option-yn
--	cc-option-yn is used to check if gcc supports a given option
--	and return 'y' if supported, otherwise 'n'.
-+	cc-option can be combined with conditionals to perform actions based on tool
-+	support.
- 
- 	Example::
- 
--		#arch/ppc/Makefile
--		biarch := $(call cc-option-yn, -m32)
--		aflags-$(biarch) += -a32
--		cflags-$(biarch) += -m32
-+		ifneq ($(call cc-option,$(FLAG)),)
-+		# $(FLAG) is supported
- 
--	In the above example, $(biarch) is set to y if $(CC) supports the -m32
--	option. When $(biarch) equals 'y', the expanded variables $(aflags-y)
--	and $(cflags-y) will be assigned the values -a32 and -m32,
--	respectively.
--	Note: cc-option-yn uses KBUILD_CFLAGS for $(CC) options
-+	Or::
-+
-+		ifeq ($(call cc-option,$(FLAG)),)
-+		# $(FLAG) is not supported
- 
-     cc-disable-warning
- 	cc-disable-warning checks if gcc supports a given warning and returns
-diff --git a/scripts/Makefile.compiler b/scripts/Makefile.compiler
-index 86ecd2ac874c..c19c0b544c0f 100644
---- a/scripts/Makefile.compiler
-+++ b/scripts/Makefile.compiler
-@@ -51,11 +51,6 @@ __cc-option = $(call try-run,\
- cc-option = $(call __cc-option, $(CC),\
- 	$(KBUILD_CPPFLAGS) $(KBUILD_CFLAGS),$(1),$(2))
- 
--# cc-option-yn
--# Usage: flag := $(call cc-option-yn,-march=winchip-c6)
--cc-option-yn = $(call try-run,\
--	$(CC) -Werror $(KBUILD_CPPFLAGS) $(KBUILD_CFLAGS) $(1) -c -x c /dev/null -o "$$TMP",y,n)
--
- # cc-disable-warning
- # Usage: cflags-y += $(call cc-disable-warning,unused-but-set-variable)
- cc-disable-warning = $(call try-run,\
 -- 
-2.33.0.rc1.237.g0d66db33f3-goog
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210817002109.2736222-8-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmo%2Bo4P95fF%2Bx14Kc_sfB2e08WJcybV04P-KpMJgLgC3Q%40mail.gmail.com.
