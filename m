@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBN6K6KEAMGQEAP3RFQI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBOOK6KEAMGQEGF4NQ7A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13d.google.com (mail-il1-x13d.google.com [IPv6:2607:f8b0:4864:20::13d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8E9DC3EFB87
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 08:14:16 +0200 (CEST)
-Received: by mail-il1-x13d.google.com with SMTP id r6-20020a92c506000000b002246015b2a4sf647287ilg.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 23:14:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629267255; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id DBFDB3EFB8C
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 08:14:18 +0200 (CEST)
+Received: by mail-pf1-x43f.google.com with SMTP id p40-20020a056a0026e8b02903e08239ba3csf708933pfw.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 23:14:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629267257; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zdkuhg8MSRKA+uI4yJvfjJh7rxCteWoIREoJEUy3/ENrPJtc3oNhcB/Abp3cufZwja
-         EF100iFK1ilC+EPMqkQgrFIBYNfxq2sEupn7TpvuVTXar1vm3M+WI12rjKvNj20phhiJ
-         W40vRhsImre0pQ4geWVmg272kUPxIzxUvl6+taEf6EomdXStyB1oTid5FdF1PSKRs4Uj
-         tpMA5eacCjmmdTYLdttSOWuXvI4z2KNpMgaUlCii5i/r3TDbZ5cc55nVSG6oH12MfZu/
-         mt8C8AlSj8lNCS8NQMZ2ly0WoVKORW2Fs5h5djF6gSAhT1thiz3hDs/cyA+FZP4tTVlf
-         z4Ww==
+        b=YOQuKNmyNA8cWiSKFMOmccMJhgLkGLUxn8X0z8xLgh5ZFciXTavCYMr/850gaFQF8H
+         WWzo7jXE8HOF1SJG8ZUybMYdQQ4DnF0tEl2tP2/x3FNfbBgii9i4gZuGdJQCUBXuqC8j
+         3wv8V6FDt4mvRuAB9BFbqUZ6b7ZE4LLj91mYb5HcTklxAB0fORLe270CMzVyU1TdaIid
+         6WO4HHqpl+RiWx5xqlGBM7SqJq2TbH+iL4GJweOpIXVfMJAnoKCw+CzWeHEXv4uTbu0n
+         oeFqgd2e+3n7k7HqH+EmLnWlvdcnvfaniW5GaeCzuKc0R7fXg9aWILP4cmX/EAaGTm8H
+         NUXA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=TkpuiBOKmU9Fn5CFrOCk7sHoKpPQ3x7XT6M/XlblzAM=;
-        b=x42jUeYvCBIHzU5G/Xo1KUvOdcEKneKd5/MMg+/qpWdwNPtY5znW/Ix1+aCw2Vjaei
-         o1Ugow1kg1hVAfZeDvpD6lpfRqhtFOGOep2oKvlG/NNpoRPAxkIwRc1tZKzsXkUi0GTA
-         v8fz/KQJo0fT2rqxCFHKAIr1U6Z6qofuLcYLEEoQm5FQcc14CGbN31w+o0iyMD3XBx57
-         JOmSWng3UDImx4pR2xQHZpJuSzoKFyzoaLaflhOjOxjAbdoa1B8PcpN+sZte/HzrbBC6
-         RaU8lgzf1k/xppc+/4HDPk10Jk/xgnJDXiZDh6dxnQbphu1De6DHSeHJLHEyHQWQgnnu
-         7C1g==
+        bh=ZDynXBEDbEtf2DViRTY7UXTF4xhb7ONLDUhWio1jV6E=;
+        b=kQKHxf/1bXTN7NqD2cZsSaX+h+zcCHTmtVdm77evjkPDm0q5Dkc/2gJDG4wTSjC1OZ
+         mSVo0o6g+o+dflc5wxLqdPU6oAAM6ohMcbJXQEAYYLW5sktvYn9p5EkWlfNfTCgNwIpJ
+         Q8r3LJDdkz23sl8/FDda2KfifxaH2FZ0Jeya9Aa5U91T5FYXJsVhaFmNq/d6f5fBBIhk
+         WEKW/IDrggqAyATKBkiRV4M4cRpW+kpy+k8UPkYzPJ/P7RQIA/clN+1g/0jdik3ApyP7
+         6o8xnPi6B95hJkDNz4Z+VUmzVAAWCYfbpITleL/GvYOYlGLQ5aa+OYokRTpfSy6Lvxwo
+         1Lvw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=LYUO69wY;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52e as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=lFnsOWBb;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::636 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TkpuiBOKmU9Fn5CFrOCk7sHoKpPQ3x7XT6M/XlblzAM=;
-        b=iR+3Wiym9qjV3X7iY6Z5dGTwAump7WsQwW9QEh6VwDfSS/6xGqpewu6kgqyQlQn3YP
-         1o0yu1T2X/1vYSifiyRqbh8KhzGL+xOKJZcb9djrXxOKKrv24jdOUJFrwjQdboD+SOJO
-         NmLq9PC5XejOvZnmrkUku6/2Am+2yYZ7ppSFETqjMZmFZQA9flvZlvPWBoySjFiXegdN
-         RpbFsgHKoNY+AVWegqLrLQDnLnIp9ScxPLS/Pa6HhpsFk1HxB6KGtWI4tNu0WgUqn6Ar
-         ehLkNxY1a/4jJPvQU9ug1j9Z2MscafTqcXzTBFZBg+2Bab9FKYU1b3IIuemM74Ido5wF
-         qPcg==
+        bh=ZDynXBEDbEtf2DViRTY7UXTF4xhb7ONLDUhWio1jV6E=;
+        b=UFMxSTZgWP4kxDkn9Ff9BBN3gWTsgL+vzqu4atkz1t0C2XPfe+fAubdH1aKlktriLR
+         HhaPJYagU4M4BZd7DIWmXNU5hNK1HmXQHJ3VbirUBRfTOtE9VDMIoJoPiVfsqfwWZG5y
+         fd99XLPyVQo7v7bCVWpenwiqM2Z8lSsy0bsBMA0Y49J3F5nA07gfuC4hwp8bWh+L1bOv
+         NwypEpz6f1TnSVecv3rNiUQRn1ydLN0sl5KCOiLCXJMZOuX0/CDUwFUsOCbk2gbIohJh
+         6CJ8wENJZwYzasuZX9M5MNmdVfQfvOWbYt8zXMlfmJG19aiZMJMn9BTSclUN1sQb8ya8
+         OUrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,92 +49,91 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TkpuiBOKmU9Fn5CFrOCk7sHoKpPQ3x7XT6M/XlblzAM=;
-        b=ne4yfigDWGfGdiu+Fy31rpQVHXRb7ChxLJQZ14G3ILh0gaFs4WdUn4VFIQQWk0iB1M
-         oAd4kreU9vKAHbdSv1FCq7f+xiTfVNvTy/62WylboXN1LXuAPm/Ld56UtTBwKCrZIHb3
-         AcHKxAtdfqcxyt2FkpLkqNdeO0esMCK/NvjdANw3ivjwtt60y7h3Sjz6ZPqBSHtf2ka6
-         RRuVw01d/NpOfYaLcl9PB/UXWTuKPmCYPJ1ro8osMO1csK7rp+3gHubMv9wJdizCUPSU
-         MmFkXaK/SBTOA+XZq1M4LZJ3nT8TmF9tJF0MVRPwVrFh7dj4957vaJ9nUhtLkeNKsRYJ
-         UbLw==
+        bh=ZDynXBEDbEtf2DViRTY7UXTF4xhb7ONLDUhWio1jV6E=;
+        b=Vh5QsG5yKvPFoGfDYID4Lj9894ClePVN0pfCnxqspu67jlvd2gAEICgLp9MEPQ5Mrz
+         42ljxYPRTTyTk4lMz4K/tavfXLOhdV63VoE4hidqpnq1qlgwqPKyn3o06k1P1/ti7yOj
+         Re7skgmOcjwf8mrSdGz135z4dcSLaEr6WVYuKNAuEW695Wpik5bcc9EwQZttAxdSbX36
+         PqWz1N3LZy5dJIYKxneDBGLDq0NFc7nWlE7qEDxKQdHn10Yh3ZnCvirEIo1T9MAa2x9J
+         ijy2C/BC2EhxNYcPBOC3CybhITpSyIicW5tqCpZuLI7hE8DI1YLg/YXl2u5+I/w3WN0e
+         DO6A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531d5MVTMfnICFNXt1taxFj3y2/zjJMkdU5mt3xBWiRsN9GAMfQ9
-	f8ilgQpnIktS1ylmGhfHYx0=
-X-Google-Smtp-Source: ABdhPJxy1v2vhyF1mYQn8yfVjI3TjUV9T0KF0WlRHeWc+DVMjFRTuJ4iuu93jEb4nVXyfSuiCi2ShA==
-X-Received: by 2002:a92:6610:: with SMTP id a16mr4769608ilc.71.1629267255580;
-        Tue, 17 Aug 2021 23:14:15 -0700 (PDT)
+X-Gm-Message-State: AOAM531PE6nWUDo9umDCZ0Kf4HyG6VU6tvqOxby7FlZm4v1SuuMN0FZH
+	MNMkof+0DLdCyDd6lq6JM/c=
+X-Google-Smtp-Source: ABdhPJyUxzuelJS1Nvz0UDFBJxg9WeO7/OXPImBtEv1+a9QT74YdcCi4zcryhDULnVS2UfDn6xXD9w==
+X-Received: by 2002:a17:902:e744:b029:12d:6479:83a3 with SMTP id p4-20020a170902e744b029012d647983a3mr5882275plf.30.1629267257624;
+        Tue, 17 Aug 2021 23:14:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:1582:: with SMTP id m2ls270981ilu.11.gmail; Tue, 17
- Aug 2021 23:14:15 -0700 (PDT)
-X-Received: by 2002:a05:6e02:4c3:: with SMTP id f3mr5094523ils.248.1629267255273;
-        Tue, 17 Aug 2021 23:14:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629267255; cv=none;
+Received: by 2002:a17:90b:218:: with SMTP id fy24ls2224711pjb.3.canary-gmail;
+ Tue, 17 Aug 2021 23:14:17 -0700 (PDT)
+X-Received: by 2002:a17:902:a710:b029:12b:9b9f:c461 with SMTP id w16-20020a170902a710b029012b9b9fc461mr5861012plq.59.1629267257095;
+        Tue, 17 Aug 2021 23:14:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629267257; cv=none;
         d=google.com; s=arc-20160816;
-        b=hbmUNqYK41tZQbmpvUfF3zqld1d/Tn6BliZXXYo6cGbvOvhWH68pDORoxped+cA/Kt
-         U0uXWGZ+dHR7oaaeKLSubutsPpKJ+8rqt66UPhTm+fP6jB6SPuC/Y/PEVn9rNBczrgSn
-         LxzrDHoou5UDHxIZWtNikb3fYUyBbld/Mn+ZrQ6lNYD9YfMqfds2MDZDCylNXIDxueOZ
-         PHFISantGoVhoiKZ19rn17unbUpCQ7q94jHO/qpzF8ln72J5EfxF0G6rdeBKEEeV3cyI
-         NBGPJaDBTiFk8hn+1EgrFbp1SOx5bE85/CAr0sV/U7OLtSEf8BHfwlOzms5KUOaiQc8n
-         3REg==
+        b=rGZvhYOQDMx5usHXt9wxFJAwQPZnIn5g86Y00qHloPINgMqPgeohwwe+8JI6FCPCBB
+         0u1PM0MUOOstyyg5EMnuf1CTD2vOS0FcnFmKumt9uKbuiGyu3PpXxOxotPMlru7mUTHk
+         myaYSLG3u7qdfkhszdbJFoSq2njqAuArodY54WW3nwUbG+chphxmNb4au3RZJTYl1Auo
+         b8XBv0o0ho9cyPRCYXiMkYHJ37I+SEuePUHC/g1/K6MKJRqdUy6n8jyLqyd8bHySZsQb
+         Bi3sw1yPjhYtSYQpA1i+5dBAdQr7hTUFJpWxiJp9vk2vEOjSdbP5muHk9Det2aDyig1D
+         lCyw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=f4O3R9w7Wsb1EUzo8wW0sX+4sR/BMGAQ/Nfx2MpJI38=;
-        b=nmUBf9VH2RzM0HdHuI6kPi4AZzqo2PIn4OPttXsSujAFlaEPof9nsSD37hrtI8tODL
-         u4iQwBG/cUGjgghkQO3gl0yAvvuWz45ZTE9UfBpx3wi17Am0BZ7enbEDmD0U02wJ4QcB
-         b6jIM9VcPooZLI6WhfjC3C6AmurPHh9exZu4Dh79Kls3JV0k4StwFZM6vsQ1vKZMjC2V
-         ih7XbKQl8sDXbezo5PrTop6twFNxcZMcMLReUtA/NemXI/NZAQPNqGsPUoPHramb5mmi
-         J09DhyM3phjd0KWzp644IFmupeE2+uchsckDKn0P9SmIcQnEZnwaAXhHcD4JLaMI/wxR
-         SoNA==
+        bh=0MMWsXNyPTiNeiAP5gS1SC+QG9nXJlmhwzZVB05s6vU=;
+        b=Yhiw7P4UzzbL2ZF8tcQaZlmPYHPEH88OV2/08GBH46IU9/1SlUBWZYnkKXUNkUEP4m
+         YW4gYm+dUIv5zX1df/s9lsz/zgaVL8LU1036yTyv4roH2TLfQXg+SEj295e/2BSxHvbm
+         6pBci1YqgjCGss0DYWkNLH0P9YXn+vOb41Hvs1IhPMjNPg2bUS32rS3bxva6LKzSN1nP
+         sslXACz8aIx4YynZ2R+PlBbiJW7QupQYD47ItgDB5RZ2zayyDoaHlh4G0ZEkpuMAtzMm
+         02LppZpKDexiBLwhF9BDqdn5suSCvvoJsxEYX4aL7xRzLskEZ7mHsMOHbH9levCzpbSi
+         j5dg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=LYUO69wY;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52e as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=lFnsOWBb;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::636 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x52e.google.com (mail-pg1-x52e.google.com. [2607:f8b0:4864:20::52e])
-        by gmr-mx.google.com with ESMTPS id v7si314137ilo.0.2021.08.17.23.14.15
+Received: from mail-pl1-x636.google.com (mail-pl1-x636.google.com. [2607:f8b0:4864:20::636])
+        by gmr-mx.google.com with ESMTPS id k15si139673pll.3.2021.08.17.23.14.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Aug 2021 23:14:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52e as permitted sender) client-ip=2607:f8b0:4864:20::52e;
-Received: by mail-pg1-x52e.google.com with SMTP id y23so1159790pgi.7
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 23:14:15 -0700 (PDT)
-X-Received: by 2002:a63:164e:: with SMTP id 14mr7225002pgw.246.1629267254757;
-        Tue, 17 Aug 2021 23:14:14 -0700 (PDT)
+        Tue, 17 Aug 2021 23:14:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::636 as permitted sender) client-ip=2607:f8b0:4864:20::636;
+Received: by mail-pl1-x636.google.com with SMTP id a5so1150449plh.5
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 23:14:17 -0700 (PDT)
+X-Received: by 2002:a17:90a:f3d2:: with SMTP id ha18mr7684231pjb.232.1629267256892;
+        Tue, 17 Aug 2021 23:14:16 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id a8sm729024pfo.79.2021.08.17.23.14.12
+        by smtp.gmail.com with ESMTPSA id y64sm5430806pgy.32.2021.08.17.23.14.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Aug 2021 23:14:12 -0700 (PDT)
+        Tue, 17 Aug 2021 23:14:15 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: linux-kernel@vger.kernel.org
 Cc: Kees Cook <keescook@chromium.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rustam Kovhaev <rkovhaev@gmail.com>,
-	syzbot+22794221ab96b0bab53a@syzkaller.appspotmail.com,
-	Allen Pais <apais@linux.microsoft.com>,
-	Romain Perier <romain.perier@gmail.com>,
-	linux-staging@lists.linux.dev,
+	David Airlie <airlied@linux.ie>,
+	Lee Jones <lee.jones@linaro.org>,
+	dri-devel@lists.freedesktop.org,
+	Daniel Vetter <daniel@ffwll.ch>,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	linux-wireless@vger.kernel.org,
 	netdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
+	linux-staging@lists.linux.dev,
 	linux-block@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v2 19/63] staging: wlan-ng: Use struct_group() for memcpy() region
-Date: Tue, 17 Aug 2021 23:04:49 -0700
-Message-Id: <20210818060533.3569517-20-keescook@chromium.org>
+Subject: [PATCH v2 20/63] drm/mga/mga_ioc32: Use struct_group() for memcpy() region
+Date: Tue, 17 Aug 2021 23:04:50 -0700
+Message-Id: <20210818060533.3569517-21-keescook@chromium.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210818060533.3569517-1-keescook@chromium.org>
 References: <20210818060533.3569517-1-keescook@chromium.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2774; h=from:subject; bh=aGp1hVfQLzgNKVTBWpK4bHAQRaqFRmqtt5a8sjY+csw=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhHKMizR57up2j4NPi4kVovJhubhBpYTgyg8yWF9zZ icJ94SKJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYRyjIgAKCRCJcvTf3G3AJpL6D/ 9OjwhbTRWiOOzSFBp8HIcdXHzLynmUDoremqboLQbbZFdvhzt0JN+X+5SXEKgIkDTabHGAyJJg7vbo zVrFanG+ya6KLCwo9BdiQAR/ueZXO5L+r/Giz1yPapqbt9k/nsEc5SYr5ucwOuJAxFE9KIGWEqYMrT i3E/cMd8/4hSpxFdVPIAs28n3YGzs5RdmJrvt0oE1gIolLyt89z92a2rYJdvxqr4c3EEmcmpORTtTP lkwRQ5y4dqKRSgda52wvAVbJiXwqCu+cZMKZbgEa3KUIL7s+H43Se99pCXw8Ub5zIFo+91KGljDQEx tb8lzPY0rRNNY0mbwRNYXf/W38QwRxZ3D5oUvC0N/0w4QQutHp9rU1gZioa3fOM/rHRt4HcprXi+nt 0aVMHLjt3F6niAccQBbHURhgEcp8WwIJfTi/bJ+gg4LPSpeEvVE4tQYywNI4FkILs77ejtC8wiZxw7 ocghlmQFrIyZuFFHQ08aqyrz9X6fmTVjexgK98h9oM/QBofgPJlUMtugzgwK/6v8LzRJ1jiml8GBZy OhAwKq8Jq0qW2GJdSkuk64fcF8WOlLGLlP1HErn6FXZfEY4MdumebnHUJDxpcnKVjQhgEciCCqBCSb /vsaJRVs0/wXUdwiP2kC/s1S+odfxQ0hXzojzVg0H0lmI3gP3DxmkZLDHg7Q==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4026; h=from:subject; bh=qstupb1mRvuiCQ1RTR6k6oV2NxQS+tS8y2enFqRpd68=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhHKMiDAfxk4XGgNDwyOny5QMoIdZacepKSLc24F9z Lo7XG+GJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYRyjIgAKCRCJcvTf3G3AJh6oD/ 9Ovp0Ql0AYVAVX1IIx8UFncQNMHylWbLYYu/pPeuq//n2vP3YxPODUvUsOhKeGvOP827UQo0zYW5iy tgiG1WBc8ebgh5QPmWb88QrAINPUhtbBp+Ot3NMw60te7sqbHEXsxkZV30DmTsosmCxyISKjyVvCWu k9+q0dosQewqL6/+1hWYp1uFW9SNaxLwoQPTdmTeeACtkvBcffo8L6czjWkLiNyOMCTdoqoQssvvRu zHaZ9swQIAAFRlHyaIwcnYCD8acVZhrpgLkn3SFlhEWx/CsFsuWCNm8ykKqoemb7waZs2mfagTLdNd j9c/hMpmgkGT5eBVZm8ZZc0VIpiQDZFHDrAdet4mxrXfRctgoALoLZZXdvZ6hovyaCJEmAL4dpEmzB SfbVedU11Uqk4gqtVGAPiExd0oEsgw9aH5Yi6f5Kq0NHSdjbUKSXAMoY/rdvqf/QkxZBOmr8Wsmgyh uaHkoAimq3GMz0bp3wb+4kSgsFxg4xCu45/FPrJc/fxu4K2kRpOUDG1wDjMc1G1trTeP21//dqz/DY dcmxUTtVuVe2fPww119RF2WXn3/GxtNi5RK7uTtxCgWr96J2MocjYw5//xWdXRfEEWLjXFK52hcX2N rEw10lDXzkEK6IQwMathNTugVFdbD4ID3UeC/FzYInnBnFPluTRksv4HTSmA==
 X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=LYUO69wY;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52e
+ header.i=@chromium.org header.s=google header.b=lFnsOWBb;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::636
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -154,76 +153,117 @@ In preparation for FORTIFY_SOURCE performing compile-time and run-time
 field bounds checking for memcpy(), memmove(), and memset(), avoid
 intentionally writing across neighboring fields.
 
-Use struct_group() in struct hfa384x_tx_frame around members
-frame_control, duration_id, address[1-4], and sequence_control, so they
-can be referenced together. This will allow memcpy() and sizeof() to
-more easily reason about sizes, improve readability, and avoid future
-warnings about writing beyond the end of frame_control.
+Use struct_group() in struct drm32_mga_init around members chipset, sgram,
+maccess, fb_cpp, front_offset, front_pitch, back_offset, back_pitch,
+depth_cpp, depth_offset, depth_pitch, texture_offset, and texture_size,
+so they can be referenced together. This will allow memcpy() and sizeof()
+to more easily reason about sizes, improve readability, and avoid future
+warnings about writing beyond the end of chipset.
 
-"pahole" shows no size nor member offset changes to struct
-hfa384x_tx_frame. "objdump -d" shows no meaningful object code changes
-(i.e. only source line number induced differences.)
+"pahole" shows no size nor member offset changes to struct drm32_mga_init.
+"objdump -d" shows no meaningful object code changes (i.e. only source
+line number induced differences and optimizations).
 
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Rustam Kovhaev <rkovhaev@gmail.com>
-Cc: syzbot+22794221ab96b0bab53a@syzkaller.appspotmail.com
-Cc: Allen Pais <apais@linux.microsoft.com>
-Cc: Romain Perier <romain.perier@gmail.com>
-Cc: linux-staging@lists.linux.dev
+Note that since this is a UAPI header, __struct_group() is used
+directly.
+
+Cc: David Airlie <airlied@linux.ie>
+Cc: Lee Jones <lee.jones@linaro.org>
+Cc: dri-devel@lists.freedesktop.org
 Signed-off-by: Kees Cook <keescook@chromium.org>
-Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Link: https://lore.kernel.org/lkml/YQDvC4CghCazix4w@kroah.com
+Acked-by: Daniel Vetter <daniel@ffwll.ch>
+Link: https://lore.kernel.org/lkml/YQKa76A6XuFqgM03@phenom.ffwll.local
 ---
- drivers/staging/wlan-ng/hfa384x.h     | 16 +++++++++-------
- drivers/staging/wlan-ng/hfa384x_usb.c |  4 +++-
- 2 files changed, 12 insertions(+), 8 deletions(-)
+ drivers/gpu/drm/mga/mga_ioc32.c | 27 ++++++++++++++-------------
+ include/uapi/drm/mga_drm.h      | 22 ++++++++++++----------
+ 2 files changed, 26 insertions(+), 23 deletions(-)
 
-diff --git a/drivers/staging/wlan-ng/hfa384x.h b/drivers/staging/wlan-ng/hfa384x.h
-index 88e894dd3568..87eb87e3beab 100644
---- a/drivers/staging/wlan-ng/hfa384x.h
-+++ b/drivers/staging/wlan-ng/hfa384x.h
-@@ -476,13 +476,15 @@ struct hfa384x_tx_frame {
- 
- 	/*-- 802.11 Header Information --*/
- 
--	u16 frame_control;
--	u16 duration_id;
--	u8 address1[6];
--	u8 address2[6];
--	u8 address3[6];
--	u16 sequence_control;
--	u8 address4[6];
-+	struct_group(p80211,
-+		u16 frame_control;
-+		u16 duration_id;
-+		u8 address1[6];
-+		u8 address2[6];
-+		u8 address3[6];
-+		u16 sequence_control;
-+		u8 address4[6];
+diff --git a/drivers/gpu/drm/mga/mga_ioc32.c b/drivers/gpu/drm/mga/mga_ioc32.c
+index 4fd4de16cd32..894472921c30 100644
+--- a/drivers/gpu/drm/mga/mga_ioc32.c
++++ b/drivers/gpu/drm/mga/mga_ioc32.c
+@@ -38,16 +38,18 @@
+ typedef struct drm32_mga_init {
+ 	int func;
+ 	u32 sarea_priv_offset;
+-	int chipset;
+-	int sgram;
+-	unsigned int maccess;
+-	unsigned int fb_cpp;
+-	unsigned int front_offset, front_pitch;
+-	unsigned int back_offset, back_pitch;
+-	unsigned int depth_cpp;
+-	unsigned int depth_offset, depth_pitch;
+-	unsigned int texture_offset[MGA_NR_TEX_HEAPS];
+-	unsigned int texture_size[MGA_NR_TEX_HEAPS];
++	struct_group(always32bit,
++		int chipset;
++		int sgram;
++		unsigned int maccess;
++		unsigned int fb_cpp;
++		unsigned int front_offset, front_pitch;
++		unsigned int back_offset, back_pitch;
++		unsigned int depth_cpp;
++		unsigned int depth_offset, depth_pitch;
++		unsigned int texture_offset[MGA_NR_TEX_HEAPS];
++		unsigned int texture_size[MGA_NR_TEX_HEAPS];
 +	);
- 	__le16 data_len;		/* little endian format */
+ 	u32 fb_offset;
+ 	u32 mmio_offset;
+ 	u32 status_offset;
+@@ -67,9 +69,8 @@ static int compat_mga_init(struct file *file, unsigned int cmd,
  
- 	/*-- 802.3 Header Information --*/
-diff --git a/drivers/staging/wlan-ng/hfa384x_usb.c b/drivers/staging/wlan-ng/hfa384x_usb.c
-index f2a0e16b0318..38aaae7a2d69 100644
---- a/drivers/staging/wlan-ng/hfa384x_usb.c
-+++ b/drivers/staging/wlan-ng/hfa384x_usb.c
-@@ -2516,7 +2516,9 @@ int hfa384x_drvr_txframe(struct hfa384x *hw, struct sk_buff *skb,
- 	cpu_to_le16s(&hw->txbuff.txfrm.desc.tx_control);
+ 	init.func = init32.func;
+ 	init.sarea_priv_offset = init32.sarea_priv_offset;
+-	memcpy(&init.chipset, &init32.chipset,
+-		offsetof(drm_mga_init_t, fb_offset) -
+-		offsetof(drm_mga_init_t, chipset));
++	memcpy(&init.always32bit, &init32.always32bit,
++	       sizeof(init32.always32bit));
+ 	init.fb_offset = init32.fb_offset;
+ 	init.mmio_offset = init32.mmio_offset;
+ 	init.status_offset = init32.status_offset;
+diff --git a/include/uapi/drm/mga_drm.h b/include/uapi/drm/mga_drm.h
+index 8c4337548ab5..2978a435dff9 100644
+--- a/include/uapi/drm/mga_drm.h
++++ b/include/uapi/drm/mga_drm.h
+@@ -279,20 +279,22 @@ typedef struct drm_mga_init {
  
- 	/* copy the header over to the txdesc */
--	memcpy(&hw->txbuff.txfrm.desc.frame_control, p80211_hdr,
-+	BUILD_BUG_ON(sizeof(hw->txbuff.txfrm.desc.p80211) !=
-+		     sizeof(union p80211_hdr));
-+	memcpy(&hw->txbuff.txfrm.desc.p80211, p80211_hdr,
- 	       sizeof(union p80211_hdr));
+ 	unsigned long sarea_priv_offset;
  
- 	/* if we're using host WEP, increase size by IV+ICV */
+-	int chipset;
+-	int sgram;
++	__struct_group(/* no tye */, always32bit, /* no attrs */,
++		int chipset;
++		int sgram;
+ 
+-	unsigned int maccess;
++		unsigned int maccess;
+ 
+-	unsigned int fb_cpp;
+-	unsigned int front_offset, front_pitch;
+-	unsigned int back_offset, back_pitch;
++		unsigned int fb_cpp;
++		unsigned int front_offset, front_pitch;
++		unsigned int back_offset, back_pitch;
+ 
+-	unsigned int depth_cpp;
+-	unsigned int depth_offset, depth_pitch;
++		unsigned int depth_cpp;
++		unsigned int depth_offset, depth_pitch;
+ 
+-	unsigned int texture_offset[MGA_NR_TEX_HEAPS];
+-	unsigned int texture_size[MGA_NR_TEX_HEAPS];
++		unsigned int texture_offset[MGA_NR_TEX_HEAPS];
++		unsigned int texture_size[MGA_NR_TEX_HEAPS];
++	);
+ 
+ 	unsigned long fb_offset;
+ 	unsigned long mmio_offset;
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210818060533.3569517-20-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210818060533.3569517-21-keescook%40chromium.org.
