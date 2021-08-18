@@ -1,144 +1,153 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBNWK6KEAMGQE5TYEJIQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBOWK6KEAMGQEEHDPKJQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id E80AB3EFB86
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 08:14:15 +0200 (CEST)
-Received: by mail-pf1-x43c.google.com with SMTP id o3-20020a625a030000b02903c9ba4d8a70sf708540pfb.12
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 23:14:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629267254; cv=pass;
+Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id E57413EFB8D
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 08:14:19 +0200 (CEST)
+Received: by mail-oi1-x23e.google.com with SMTP id n9-20020a0568080a0900b002689a4834e4sf970447oij.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 23:14:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629267259; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BScRt2pckSGhO/jlB6FFwIpmTpuOuSvdxCwVvRv1xRAIuMb+r31QacEh1cupMgIQp3
-         NYUM3hiVxXcjUYb0GqaTzmq5fub++neTqAq13VH4elGEhGEOSKuwV9HME4oPSbtNe9CB
-         bDChwsuAXK2RUkR8is6Z5HN1vXcEKbf7bMvx2Agxfw1W9dVq6teKpNlQ55nmILTa4B3b
-         Ek0zUPiaW8EmDRxzCiOfrcvY/6NL+C3zh6V2u0B5lZqOj5WtGb7fS23poxZ77UUTWQtF
-         f3bX4AZhuGegbwwlRfUG1H81e4uvEAfY0QJUwbpPQvHeHS/crzbUkmBQRgw6rGd21lvl
-         BsHQ==
+        b=ENMp+oEr8CVAC3UhRQBU/IdiEsqsd2dMuK12VjO3ZxEWtWL5P7fW3QPRQWYvQ2ygau
+         A32jUViEGcvx+30qhK4WHGHlKnT1jRsOyrG80Tg5rIoNY6JaEfXtQuJ5U7GA9aZriJf2
+         fS/HFlCK/nbMwzzKARSyGGVR0YjVolW4fmU7MHwHk/2PbnZ28T6WN4sOrst69wr8Zz3U
+         cjHVc4+zfqMz+1UvLV4Pol4onEBkMvaHu+BuJhOU9R3xSZFiw6sfyfeSvvSAA0nOHm/Y
+         i9q8z/SovDz8qWsCqkFuZRMc0iPoZWKUf/tKfKUY0TbGN/EoLsjY8GiPWc6QmGchv9IG
+         wk7w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=Yiv+TJNL6nB3iUXMIUAaQBbj1su1aMJ4geMXWW2Il0E=;
-        b=KwURmp3nF4d9TkeD/LkaJ+oTIWChyfXTiwqFBu4wjBEXbG+VqGgxfBfPjfMblIixKC
-         S9xJEZBZibGb3ufLWp1ptyvGdw8V5zhNty4t+xVRzj2PoMwMldmBF33PX/dc+I0eelh7
-         4B4VE6FkhYZLKlCJo1c0L7tkUUNEXlUBWeSS6icS92g+EgU5k3cAcb0UU9R7IzByRHB7
-         xAaMRJD3RK1pYOPU9mfVHSIwiixxh0mwe4Az6/HLZ0yMkK/glJZiXKzcPUdC2gxFvyxi
-         OlXVnve6f/5DetQnkJHQmLT3va2ELbmOjo+8gGlbQoNuUF8y4fsxe6qhztrsJjsJUvZd
-         04jA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:sender:dkim-signature;
+        bh=pfzPVyH66w9qyNa++wq9cp6t6/YMWYBZe/tuIuM8Fcw=;
+        b=t2iZg4Lwc0xqwqvgVo+DaTxZotxLWdhgL6w8wL6zt4GJ4yg7aX0yXIoxlJUJgJzjG3
+         ScFW4KUIdqtcAu2j+oopuKwkOoyPxJSSmnAeulygOPWJ+fMpLwVCXWAbdu+kOvDa3yyh
+         woCpuJeEJJEXLdY/jRrSTtXPXXTrsiPv+B4/KKhGdVHhpTNd3GQ8buA3GxwzXED0iXnN
+         bDhqigJyfNhiObkH5sZuwW24cdKy7R4jqeYxds/OJubneRRumG0tZILvHwjw9v5WjHxS
+         RvLZDcDSXnv9wi13zKGpOD1wk9vTXDkMNPVxYj81TpJKoIyG/Kyk58eYSu+9kdDyBQLp
+         tPOQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=N1IWhHeI;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1033 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=JpKHmXU+;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42c as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Yiv+TJNL6nB3iUXMIUAaQBbj1su1aMJ4geMXWW2Il0E=;
-        b=lgwCiPP1XjN2d2529RGy3d8FZRB7SW073Mp1w2Cudn+jU6LiM8LVh42kQddabKGRb4
-         5leFOErVC1BSvWTTrYljxilXnTB6xP7xSm397hnnIJVnWqX81NuDGV6Ux+li9z+EabJ9
-         sJ8e/33+XkfVe822c5qHnYk4RWpSun8qOGTnouSRGDWsFu5FayRObv1lFwCjO08pVyA+
-         GMKpxNdO3HCX//kbompZ7aHIEQfoo4GOpUmtvqtk0Iwa3bsRnHLJAq7Fwvl/ScRT/Ft7
-         666O/5qrae0w5vJ7TkBuI72xbj65Aelbq+gZXa9NGnGvi2er6ixdzUO8iSOPLMh+CnLv
-         m+9A==
+         :mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=pfzPVyH66w9qyNa++wq9cp6t6/YMWYBZe/tuIuM8Fcw=;
+        b=hZdtEXrEKWu/K7oPsYYrPycnMGKdme/XFYTO6yqbYTz7wOHuOP9qZ59EWOWpC343cV
+         2n6v8UIGm/+sYxeOFlFkFoBJ39o9F6tQ2SNhIMsc9y0qHZzIDst2ny0Hp2NIMqyeKm8H
+         3ZCiHBJoDyrwtVW5DMxcVzUG9aQtl2Ae6Jjp4+L2/H+q0rdzy9w9weo0GrpEaPRl6LtU
+         ZcvO+pVDoRqRaJSI1DSjmthk2nDJHxblcTe9QcyoH+lSjqVPUJhvg9Vniig6UF/1qoU+
+         FbTQM8mzxn9nFckNFtxj8IbyQ9+54Bff2LKhvMBwTw7YkEEDGQG+bSQJTh3PXT0sVht8
+         q4XA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Yiv+TJNL6nB3iUXMIUAaQBbj1su1aMJ4geMXWW2Il0E=;
-        b=lUDGdS68zpetQr4jMmr6mry5il6SRoQH5pXCAUa6YgtpWEJDC+vmHIHxvABV4xS/YF
-         LlrdvReWTSHGmgcYxWjkK/UMWBwOi1ctzlUQcsDwMyj7cthrxE6Pu8H2gl4r8Flj2Ik0
-         K0kyvRDMvyTRaZUSVwKkpzZ+yJRq8iyBi3hgRLYlP6DXKLJV6UB4G4gw4p5gRZnipc3Z
-         3OgD7+XlkmiD6yld09AVH7tPLXGEB/QWHU+N4jBqAUDZYc93QH+K4A69uBqk+X1M/5bM
-         XnwhMkeOqJk0j1pjuUFkGjcmlDeA3OY9qUXe0GjcyHvBEbjB2sUsY6Y60JMPUynL+94O
-         mqlQ==
+         :in-reply-to:references:mime-version:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=pfzPVyH66w9qyNa++wq9cp6t6/YMWYBZe/tuIuM8Fcw=;
+        b=F74IxSrH1ic8HHvce5YZuz7J2wgBC7v8kH2DvvWtAkvGK+OWstw4cZz8wnPclEyxVq
+         aELIILODy0d7L0ECKA+L/rc+I0mRRle4NOiDNQKSk57x8QH6dt7C3yts/VACg6R14Uc3
+         ataGVvAodXOK0UrhcrnJljp9cimWbrM8cIuLWiO380OVeASe4sfHx2G/9XQuuL2Y2TQy
+         unApbScq0x/dG+JgjnoJ6BaOqjiLxYf9s1h84i4NDbPsX8Mn8FejRTOfniMeZJIvo+/s
+         XohhbF1UV9BnvMd6/deUdlUf0FnTdYohBik2QolgV3IazFeF+c1s7UTP3SpQ6wvTY4ct
+         5CPQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530DJyfvZmGf6WUx300Fk8GIJNwGVVw2kYIKl0fH2RodmhKnpRNg
-	QD0vYHZlLEuvfETNLsY+RYQ=
-X-Google-Smtp-Source: ABdhPJwfJSPfVwzgjgHYFccXzFUtqy9YmgUmp+d64tIrgcYaAThyLPyBoqpCPTLFbbFDuH7M3Kd05A==
-X-Received: by 2002:a05:6a00:26ca:b0:3e1:acd9:bb96 with SMTP id p10-20020a056a0026ca00b003e1acd9bb96mr7464104pfw.35.1629267254677;
-        Tue, 17 Aug 2021 23:14:14 -0700 (PDT)
+X-Gm-Message-State: AOAM531K+D32Rfapa/8i+Mboy9DT9Pj5iUGFXhQf5EnFWzwbwMqtqCcb
+	PRz5MVHk1GodG1pfhZlO8Z0=
+X-Google-Smtp-Source: ABdhPJw1u07/fLGIDdJXU0UcCiX/vzQS9Na1CmU8/ByBAOegnzBPpDG03jCciaGUDy5miw0AebPOIg==
+X-Received: by 2002:a05:6808:1985:: with SMTP id bj5mr5777168oib.46.1629267258948;
+        Tue, 17 Aug 2021 23:14:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:ed82:: with SMTP id e2ls674969plj.2.gmail; Tue, 17
- Aug 2021 23:14:14 -0700 (PDT)
-X-Received: by 2002:a17:90a:f195:: with SMTP id bv21mr7692450pjb.218.1629267254083;
-        Tue, 17 Aug 2021 23:14:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629267254; cv=none;
+Received: by 2002:a05:6830:b84:: with SMTP id a4ls294832otv.9.gmail; Tue, 17
+ Aug 2021 23:14:18 -0700 (PDT)
+X-Received: by 2002:a05:6830:2808:: with SMTP id w8mr3392790otu.244.1629267258454;
+        Tue, 17 Aug 2021 23:14:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629267258; cv=none;
         d=google.com; s=arc-20160816;
-        b=GjrVTBA7mCWGMZQIozoW3f92azHAMy1HGs84DpvOw9ao0dD0COG6BM6CTH8fa5IHnN
-         XWotIYMBkA9ZVBXLzxlYRqS+qcUxp5d0ZwM7LA3DgHdDYrBy2D8V1ZLrioW3e262dRd+
-         82tutZZknNJWzJ9guF93lv9UiepFg65OXMRi+cMOM2HB28iFfsJmwdubyLG4nL5O50I7
-         5x6GCcUutJOSV8/JbvX+KaozqEirSH5GNGiGAs59lsbFP+aC05q3GEM4FRENXPP5JO+I
-         /T6FoB6eSTLSe1YQseCASw4xL7Nlzcjw/ziTkVsZ7MezV06tOvgTZsNPn5lJe3zF6870
-         0Z0Q==
+        b=mMSYtu4nygrvcOZ80OZjLCa9m7dO9G7zvPzMRvegjkvsQh77T/oLIyrfnJHfYDgSi8
+         K16fYCI5MN4333hBrg7u5jxBiFajUvVtdcRRSkAizvSIW9b2cSBG33xUt6MsvRqnPGZ5
+         BlvrZc0NTpxGA27G8xhWb1roQf6Ftvk05dQywSHJFN/vQF+Cg6AtorhVWUYQI+gCrgNN
+         Dfn+OPOtPAWVN0jfKxFeH5926dAsmzmyFpKfR/BE4AJkEz0Zpx052cPHiPBGD7vc4xX5
+         MERMj/DWBJt1UDZ73iguAXkRbHCodOB4sWsb6PPjDL3haiWZUNAIMDv2TfzxK48cym8l
+         gH/Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=2xy8/Tts2Q0pCjtb48qnJm2SajC5SEAfbYkA07Au0YI=;
-        b=niElX48JHA1BniFq3ZRTdLyUJG9mSCzFi41MZEFl1i7IADS/eETREbIxnFE38KoAcL
-         c0805tIvM0hDeO1OMnvsnduO3BYpdDHjTongmsUT4335L8EJer36lEBkR96sTNeRiMZb
-         6nQ20nEgbTrY3gm6jGLbWKg6tkxppkDVqI6L28G7bjPZCbNK0MbO+cq+sPty2Fb3aqDB
-         4faYddb2hwqxIrRgUz+E7VZJi7M2JccSUdHxjc10GxmTAzwY3vH6441C9KpF0DvX14nP
-         JEJTq3wB7rNlenCKi7JQ2AwW4MPH1YgB3suxJOEG3MkeAPZApcuYT3Wj+i4Wu8dURmGb
-         FOBQ==
+        bh=axRxl6XNvdHdnVEeMiGlhBK2fx1eWMP1p1J87ZwKUtU=;
+        b=s4/NkiPEZduTuWaRQA2nrD/9DodGXho8moGJxkx+fE+NGcCFFtVzXTAVWnwkdbYqIB
+         CRsU/POTAUebNwoR0vNkEFeiGgT7Ly8EokdgR4YoKjTUJgY6Vmd6NIQp36E13SzIKELD
+         d7j18Zyr2cYuKIi0VwolVt+NVqfZN/Df/OumaeQDgnfGsVAnQNOQEltlguRnWEw65ZPu
+         LYf8Rv7ZEgvs9+yZ1g9Mt4qfGmGft5oVlINNjsus7uv9nl7zixpj5+J/9kYRDQgtPP8c
+         elIn0GB9p9Vs5VXQGnNzt6O0+NZiZqHDQEOeWU/JxBq4zAO5+s5v6hrAsUdoXLLWYjxO
+         zGoA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=N1IWhHeI;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1033 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=JpKHmXU+;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42c as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x1033.google.com (mail-pj1-x1033.google.com. [2607:f8b0:4864:20::1033])
-        by gmr-mx.google.com with ESMTPS id r7si305734pjp.0.2021.08.17.23.14.14
+Received: from mail-pf1-x42c.google.com (mail-pf1-x42c.google.com. [2607:f8b0:4864:20::42c])
+        by gmr-mx.google.com with ESMTPS id b9si401133ooq.1.2021.08.17.23.14.18
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Aug 2021 23:14:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1033 as permitted sender) client-ip=2607:f8b0:4864:20::1033;
-Received: by mail-pj1-x1033.google.com with SMTP id u21-20020a17090a8915b02901782c36f543so8184483pjn.4
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 23:14:14 -0700 (PDT)
-X-Received: by 2002:a17:903:41c2:b0:12d:a7aa:40a8 with SMTP id u2-20020a17090341c200b0012da7aa40a8mr6069996ple.61.1629267253835;
-        Tue, 17 Aug 2021 23:14:13 -0700 (PDT)
+        Tue, 17 Aug 2021 23:14:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42c as permitted sender) client-ip=2607:f8b0:4864:20::42c;
+Received: by mail-pf1-x42c.google.com with SMTP id w68so1076403pfd.0
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 23:14:18 -0700 (PDT)
+X-Received: by 2002:a65:4581:: with SMTP id o1mr7206734pgq.349.1629267257822;
+        Tue, 17 Aug 2021 23:14:17 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id p29sm4918970pfw.141.2021.08.17.23.14.12
+        by smtp.gmail.com with ESMTPSA id k9sm4320391pfu.109.2021.08.17.23.14.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Aug 2021 23:14:12 -0700 (PDT)
+        Tue, 17 Aug 2021 23:14:15 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: linux-kernel@vger.kernel.org
 Cc: Kees Cook <keescook@chromium.org>,
-	Ariel Elior <aelior@marvell.com>,
-	Sudarsana Kalluru <skalluru@marvell.com>,
-	GR-everest-linux-l2@marvell.com,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	netdev@vger.kernel.org,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	"Pan, Xinhui" <Xinhui.Pan@amd.com>,
+	David Airlie <airlied@linux.ie>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Hawking Zhang <Hawking.Zhang@amd.com>,
+	Feifei Xu <Feifei.Xu@amd.com>,
+	Lijo Lazar <lijo.lazar@amd.com>,
+	Likun Gao <Likun.Gao@amd.com>,
+	Jiawei Gu <Jiawei.Gu@amd.com>,
+	Evan Quan <evan.quan@amd.com>,
+	amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	Alex Deucher <alexander.deucher@amd.com>,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	linux-wireless@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
+	netdev@vger.kernel.org,
 	linux-staging@lists.linux.dev,
 	linux-block@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v2 17/63] bnx2x: Use struct_group() for memcpy() region
-Date: Tue, 17 Aug 2021 23:04:47 -0700
-Message-Id: <20210818060533.3569517-18-keescook@chromium.org>
+Subject: [PATCH v2 18/63] drm/amd/pm: Use struct_group() for memcpy() region
+Date: Tue, 17 Aug 2021 23:04:48 -0700
+Message-Id: <20210818060533.3569517-19-keescook@chromium.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210818060533.3569517-1-keescook@chromium.org>
 References: <20210818060533.3569517-1-keescook@chromium.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3830; h=from:subject; bh=GkN0LVVLNQH/53cAo4VYkKN66rn+11NBIFFE2ztC6YM=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhHKMhRw9LfaYvUc+sf+L0uY8MlzrAk1ef7MCxvB9t k6OtDqOJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYRyjIQAKCRCJcvTf3G3AJifDD/ 9c0n+kvuNRhg8rqC3IlmdQj3GSvDZWsG+FKvThaAwsrcm5zgUTbPwQ6iL1wr4Jk3ViFO6PKwpuQs+W kYs8Ff8+E5QKNzTFYv9f3U+QrUgXZuliPkgx2C9OIEVvt2UEnDYPUhUqHBMLx0BXSCvr7kVoiYR8b2 iu457PTEfCQPJdDfKt78EEPnPsrqkubZweDgt/Gq/PsCcnEku9oGBRvz1KKVnO8QWy9TYdunjBP41s 792+Xj9Zh+GH4ISZfO3dP/vihbtHZcRxlUtqy2yT76MawS9BzD6PInHIpTeYQxnPOICMfQPusrHTT7 ndnKvr9GSg7peInc8FmZqYcs6y4mjJE/eklW07D6UJI9TtDjmKiqTTBOdNU43zM6qWjHal537hZmIe 9zFtdGwmUuRUgeltJDGJ4yXIugnOVn6G6DSwMAlT/S3hVGlxpguq6rEv6/0IWLa23jWt9JpGwJ1Jjj o+t/SbwzCJ0ClfKocBAik/2Za+ZKR9dJgOeM/G8xa98QQfHOvYYuIP//mv1JYcM1fvVbNymKySQfVs 8/HAgbbCc54arSAMkCFxkUT/fPiS/v1RbgtjVl9VmyC/p3ATw++a51ydTf5AAZxt2GMj+TS/xSz84B SiFL9TGxlTtdNqLwvPbVXHgt96CGuJjKFxAMufc9C7Zx6iAgBZyMu4MpCY0w==
+Content-Type: text/plain; charset="UTF-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9874; h=from:subject; bh=xkq/GgVQos4phY69YvlHwazwtJ7+oBoAW/iYv7WVAic=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhHKMhiWVzzmhBur+1cBk2O2ZXVSjeLlgxz10CkbR5 AKO/11yJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYRyjIQAKCRCJcvTf3G3AJht6EA CaYxNgC78NjMU3NXMgzorx6fRtH4BJwYIGJ74DB/m7swwaAHceyK1O/6lCQ7H812Aiiq4XK3QDmoUk qASs/4198qLTAEHhq7Q18FiMX2P3A7Q0631t7ABRcNNf+8sZXncmdOZPGYXpPAODBOCabM/f3/oDCx juRFOQ2unI6EojppuO7CJSyN6BitOl0EfAAVwzH5qdN0dbqjvmJWEk6DyGUh+uyHqAcClSWCqlrEC2 2OsaBqNYzf5j6vWeBx02EpyOWFqkO/XyPXBqw7kL7GIS2sxESQTqmhPrfGjlNI8aLc5oqP4Nz/mHlj izA+lyAMf9/CaxogHr7ad/WNivgAySk9xHsccW792p6SsKVbNUtuWM4hk2GkKJimH31lP9pcLQL2Ch j7xVH/dOlAV9Ftvi7+KvJI+v+DmQ/gRxe5YIRztukLnhmjPWcMqKsuKK44UwR65YeFh33G6UZWzhZj SwUBV/6zpAPgCZDoeJ5hTeN2HohgNJ0fijbEnaK+ifaUEslAh2R7Yxz9WjnXacxem2c2/Z6wGyyAdq 8GbFcwR+u8iKZLAOMc13DJT6zOgy8+ZXHxMay8F6GzxmI1F43Z0WF2KzMZDLs5tgRr/UrucI9TgIhX cizSF2eNXvheQca86HlnqqfZiLL7gsttRC6U5oD07PukPv3YeEniSDJPST0g==
 X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=N1IWhHeI;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1033
+ header.i=@chromium.org header.s=google header.b=JpKHmXU+;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42c
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -155,101 +164,278 @@ In preparation for FORTIFY_SOURCE performing compile-time and run-time
 field bounds checking for memcpy(), memmove(), and memset(), avoid
 intentionally writing across neighboring fields.
 
-Use struct_group() in struct nig_stats around members egress_mac_pkt0_lo,
-egress_mac_pkt0_hi, egress_mac_pkt1_lo, and egress_mac_pkt1_hi (and the
-respective members in struct bnx2x_eth_stats), so they can be referenced
-together. This will allow memcpy() and sizeof() to more easily reason
-about sizes, improve readability, and avoid future warnings about writing
-beyond the end of struct bnx2x_eth_stats's rx_stat_ifhcinbadoctets_hi.
+Use struct_group() in structs:
+	struct atom_smc_dpm_info_v4_5
+	struct atom_smc_dpm_info_v4_6
+	struct atom_smc_dpm_info_v4_7
+	struct atom_smc_dpm_info_v4_10
+	PPTable_t
+so the grouped members can be referenced together. This will allow
+memcpy() and sizeof() to more easily reason about sizes, improve
+readability, and avoid future warnings about writing beyond the end of
+the first member.
 
-"pahole" shows no size nor member offset changes to either struct.
-"objdump -d" shows no meaningful object code changes (i.e. only source
-line number induced differences and optimizations).
+"pahole" shows no size nor member offset changes to any structs.
+"objdump -d" shows no object code changes.
 
-Additionally adds BUILD_BUG_ON() to compare the separate struct group
-sizes.
-
-Cc: Ariel Elior <aelior@marvell.com>
-Cc: Sudarsana Kalluru <skalluru@marvell.com>
-Cc: GR-everest-linux-l2@marvell.com
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org
+Cc: "Christian K=C3=B6nig" <christian.koenig@amd.com>
+Cc: "Pan, Xinhui" <Xinhui.Pan@amd.com>
+Cc: David Airlie <airlied@linux.ie>
+Cc: Daniel Vetter <daniel@ffwll.ch>
+Cc: Hawking Zhang <Hawking.Zhang@amd.com>
+Cc: Feifei Xu <Feifei.Xu@amd.com>
+Cc: Lijo Lazar <lijo.lazar@amd.com>
+Cc: Likun Gao <Likun.Gao@amd.com>
+Cc: Jiawei Gu <Jiawei.Gu@amd.com>
+Cc: Evan Quan <evan.quan@amd.com>
+Cc: amd-gfx@lists.freedesktop.org
+Cc: dri-devel@lists.freedesktop.org
 Signed-off-by: Kees Cook <keescook@chromium.org>
+Acked-by: Alex Deucher <alexander.deucher@amd.com>
+Link: https://lore.kernel.org/lkml/CADnq5_Npb8uYvd+R4UHgf-w8-cQj3JoODjviJR_=
+Y9w9wqJ71mQ@mail.gmail.com
 ---
- drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.c |  7 ++++---
- drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.h | 14 ++++++++++----
- 2 files changed, 14 insertions(+), 7 deletions(-)
+ drivers/gpu/drm/amd/include/atomfirmware.h           |  9 ++++++++-
+ .../gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h    |  3 ++-
+ drivers/gpu/drm/amd/pm/inc/smu11_driver_if_navi10.h  |  3 ++-
+ .../gpu/drm/amd/pm/inc/smu13_driver_if_aldebaran.h   |  3 ++-
+ drivers/gpu/drm/amd/pm/swsmu/smu11/arcturus_ppt.c    |  6 +++---
+ drivers/gpu/drm/amd/pm/swsmu/smu11/navi10_ppt.c      | 12 ++++++++----
+ drivers/gpu/drm/amd/pm/swsmu/smu13/aldebaran_ppt.c   |  6 +++---
+ 7 files changed, 28 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.c b/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.c
-index 0b193edb73b8..2bb133ae61c3 100644
---- a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.c
-+++ b/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.c
-@@ -849,7 +849,8 @@ static int bnx2x_hw_stats_update(struct bnx2x *bp)
- 
- 	memcpy(old, new, sizeof(struct nig_stats));
- 
--	memcpy(&(estats->rx_stat_ifhcinbadoctets_hi), &(pstats->mac_stx[1]),
-+	BUILD_BUG_ON(sizeof(estats->shared) != sizeof(pstats->mac_stx[1]));
-+	memcpy(&(estats->shared), &(pstats->mac_stx[1]),
- 	       sizeof(struct mac_stx));
- 	estats->brb_drop_hi = pstats->brb_drop_hi;
- 	estats->brb_drop_lo = pstats->brb_drop_lo;
-@@ -1634,9 +1635,9 @@ void bnx2x_stats_init(struct bnx2x *bp)
- 			REG_RD(bp, NIG_REG_STAT0_BRB_TRUNCATE + port*0x38);
- 	if (!CHIP_IS_E3(bp)) {
- 		REG_RD_DMAE(bp, NIG_REG_STAT0_EGRESS_MAC_PKT0 + port*0x50,
--			    &(bp->port.old_nig_stats.egress_mac_pkt0_lo), 2);
-+			    &(bp->port.old_nig_stats.egress_mac_pkt0), 2);
- 		REG_RD_DMAE(bp, NIG_REG_STAT0_EGRESS_MAC_PKT1 + port*0x50,
--			    &(bp->port.old_nig_stats.egress_mac_pkt1_lo), 2);
-+			    &(bp->port.old_nig_stats.egress_mac_pkt1), 2);
- 	}
- 
- 	/* Prepare statistics ramrod data */
-diff --git a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.h b/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.h
-index d55e63692cf3..ae93c078707b 100644
---- a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.h
-+++ b/drivers/net/ethernet/broadcom/bnx2x/bnx2x_stats.h
-@@ -36,10 +36,14 @@ struct nig_stats {
- 	u32 pbf_octets;
- 	u32 pbf_packet;
- 	u32 safc_inp;
--	u32 egress_mac_pkt0_lo;
--	u32 egress_mac_pkt0_hi;
--	u32 egress_mac_pkt1_lo;
--	u32 egress_mac_pkt1_hi;
-+	struct_group(egress_mac_pkt0,
-+		u32 egress_mac_pkt0_lo;
-+		u32 egress_mac_pkt0_hi;
-+	);
-+	struct_group(egress_mac_pkt1,
-+		u32 egress_mac_pkt1_lo;
-+		u32 egress_mac_pkt1_hi;
-+	);
+diff --git a/drivers/gpu/drm/amd/include/atomfirmware.h b/drivers/gpu/drm/a=
+md/include/atomfirmware.h
+index 44955458fe38..7bf3edf15410 100644
+--- a/drivers/gpu/drm/amd/include/atomfirmware.h
++++ b/drivers/gpu/drm/amd/include/atomfirmware.h
+@@ -2081,6 +2081,7 @@ struct atom_smc_dpm_info_v4_5
+ {
+   struct   atom_common_table_header  table_header;
+     // SECTION: BOARD PARAMETERS
++  struct_group(dpm_info,
+     // I2C Control
+   struct smudpm_i2c_controller_config_v2  I2cControllers[8];
+=20
+@@ -2159,7 +2160,7 @@ struct atom_smc_dpm_info_v4_5
+   uint32_t MvddRatio; // This is used for MVDD Vid workaround. It has 16 f=
+ractional bits (Q16.16)
+  =20
+   uint32_t     BoardReserved[9];
+-
++  );
  };
- 
- enum bnx2x_stats_event {
-@@ -83,6 +87,7 @@ struct bnx2x_eth_stats {
- 	u32 no_buff_discard_hi;
- 	u32 no_buff_discard_lo;
- 
-+	struct_group(shared,
- 	u32 rx_stat_ifhcinbadoctets_hi;
- 	u32 rx_stat_ifhcinbadoctets_lo;
- 	u32 tx_stat_ifhcoutbadoctets_hi;
-@@ -159,6 +164,7 @@ struct bnx2x_eth_stats {
- 	u32 tx_stat_dot3statsinternalmactransmiterrors_lo;
- 	u32 tx_stat_bmac_ufl_hi;
- 	u32 tx_stat_bmac_ufl_lo;
-+	);
- 
- 	u32 pause_frames_received_hi;
- 	u32 pause_frames_received_lo;
--- 
+=20
+ struct atom_smc_dpm_info_v4_6
+@@ -2168,6 +2169,7 @@ struct atom_smc_dpm_info_v4_6
+   // section: board parameters
+   uint32_t     i2c_padding[3];   // old i2c control are moved to new area
+=20
++  struct_group(dpm_info,
+   uint16_t     maxvoltagestepgfx; // in mv(q2) max voltage step that smu w=
+ill request. multiple steps are taken if voltage change exceeds this value.
+   uint16_t     maxvoltagestepsoc; // in mv(q2) max voltage step that smu w=
+ill request. multiple steps are taken if voltage change exceeds this value.
+=20
+@@ -2246,12 +2248,14 @@ struct atom_smc_dpm_info_v4_6
+=20
+   // reserved
+   uint32_t   boardreserved[10];
++  );
+ };
+=20
+ struct atom_smc_dpm_info_v4_7
+ {
+   struct   atom_common_table_header  table_header;
+     // SECTION: BOARD PARAMETERS
++  struct_group(dpm_info,
+     // I2C Control
+   struct smudpm_i2c_controller_config_v2  I2cControllers[8];
+=20
+@@ -2348,6 +2352,7 @@ struct atom_smc_dpm_info_v4_7
+   uint8_t      Padding8_Psi2;
+=20
+   uint32_t     BoardReserved[5];
++  );
+ };
+=20
+ struct smudpm_i2c_controller_config_v3
+@@ -2478,6 +2483,7 @@ struct atom_smc_dpm_info_v4_10
+   struct   atom_common_table_header  table_header;
+=20
+   // SECTION: BOARD PARAMETERS
++  struct_group(dpm_info,
+   // Telemetry Settings
+   uint16_t GfxMaxCurrent; // in Amps
+   uint8_t   GfxOffset;     // in Amps
+@@ -2524,6 +2530,7 @@ struct atom_smc_dpm_info_v4_10
+   uint16_t spare5;
+=20
+   uint32_t reserved[16];
++  );
+ };
+=20
+ /*=20
+diff --git a/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h b/driver=
+s/gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h
+index 43d43d6addc0..8093a98800c3 100644
+--- a/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h
++++ b/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h
+@@ -643,6 +643,7 @@ typedef struct {
+   // SECTION: BOARD PARAMETERS
+=20
+   // SVI2 Board Parameters
++  struct_group(v4_6,
+   uint16_t     MaxVoltageStepGfx; // In mV(Q2) Max voltage step that SMU w=
+ill request. Multiple steps are taken if voltage change exceeds this value.
+   uint16_t     MaxVoltageStepSoc; // In mV(Q2) Max voltage step that SMU w=
+ill request. Multiple steps are taken if voltage change exceeds this value.
+=20
+@@ -728,10 +729,10 @@ typedef struct {
+   uint32_t     BoardVoltageCoeffB;    // decode by /1000
+=20
+   uint32_t     BoardReserved[7];
++  );
+=20
+   // Padding for MMHUB - do not modify this
+   uint32_t     MmHubPadding[8]; // SMU internal use
+-
+ } PPTable_t;
+=20
+ typedef struct {
+diff --git a/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_navi10.h b/drivers/=
+gpu/drm/amd/pm/inc/smu11_driver_if_navi10.h
+index 04752ade1016..0b4e6e907e95 100644
+--- a/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_navi10.h
++++ b/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_navi10.h
+@@ -725,6 +725,7 @@ typedef struct {
+   uint32_t     Reserved[8];
+=20
+   // SECTION: BOARD PARAMETERS
++  struct_group(v4,
+   // I2C Control
+   I2cControllerConfig_t  I2cControllers[NUM_I2C_CONTROLLERS];    =20
+=20
+@@ -809,10 +810,10 @@ typedef struct {
+   uint8_t      Padding8_Loadline;
+=20
+   uint32_t     BoardReserved[8];
++  );
+=20
+   // Padding for MMHUB - do not modify this
+   uint32_t     MmHubPadding[8]; // SMU internal use
+-
+ } PPTable_t;
+=20
+ typedef struct {
+diff --git a/drivers/gpu/drm/amd/pm/inc/smu13_driver_if_aldebaran.h b/drive=
+rs/gpu/drm/amd/pm/inc/smu13_driver_if_aldebaran.h
+index a017983ff1fa..5056d3728da8 100644
+--- a/drivers/gpu/drm/amd/pm/inc/smu13_driver_if_aldebaran.h
++++ b/drivers/gpu/drm/amd/pm/inc/smu13_driver_if_aldebaran.h
+@@ -390,6 +390,7 @@ typedef struct {
+   uint32_t spare3[14];
+=20
+   // SECTION: BOARD PARAMETERS
++  struct_group(v4_10,
+   // Telemetry Settings
+   uint16_t GfxMaxCurrent; // in Amps
+   int8_t   GfxOffset;     // in Amps
+@@ -444,7 +445,7 @@ typedef struct {
+=20
+   //reserved
+   uint32_t reserved[14];
+-
++  );
+ } PPTable_t;
+=20
+ typedef struct {
+diff --git a/drivers/gpu/drm/amd/pm/swsmu/smu11/arcturus_ppt.c b/drivers/gp=
+u/drm/amd/pm/swsmu/smu11/arcturus_ppt.c
+index 8ab58781ae13..341adf209240 100644
+--- a/drivers/gpu/drm/amd/pm/swsmu/smu11/arcturus_ppt.c
++++ b/drivers/gpu/drm/amd/pm/swsmu/smu11/arcturus_ppt.c
+@@ -463,11 +463,11 @@ static int arcturus_append_powerplay_table(struct smu=
+_context *smu)
+ 			smc_dpm_table->table_header.format_revision,
+ 			smc_dpm_table->table_header.content_revision);
+=20
++	BUILD_BUG_ON(sizeof(smc_pptable->v4_6) !=3D sizeof(smc_dpm_table->dpm_inf=
+o));
+ 	if ((smc_dpm_table->table_header.format_revision =3D=3D 4) &&
+ 	    (smc_dpm_table->table_header.content_revision =3D=3D 6))
+-		memcpy(&smc_pptable->MaxVoltageStepGfx,
+-		       &smc_dpm_table->maxvoltagestepgfx,
+-		       sizeof(*smc_dpm_table) - offsetof(struct atom_smc_dpm_info_v4_6, =
+maxvoltagestepgfx));
++		memcpy(&smc_pptable->v4_6, &smc_dpm_table->dpm_info,
++		       sizeof(smc_dpm_table->dpm_info));
+=20
+ 	return 0;
+ }
+diff --git a/drivers/gpu/drm/amd/pm/swsmu/smu11/navi10_ppt.c b/drivers/gpu/=
+drm/amd/pm/swsmu/smu11/navi10_ppt.c
+index 2e5d3669652b..e8b6e25a7815 100644
+--- a/drivers/gpu/drm/amd/pm/swsmu/smu11/navi10_ppt.c
++++ b/drivers/gpu/drm/amd/pm/swsmu/smu11/navi10_ppt.c
+@@ -431,16 +431,20 @@ static int navi10_append_powerplay_table(struct smu_c=
+ontext *smu)
+=20
+ 	switch (smc_dpm_table->table_header.content_revision) {
+ 	case 5: /* nv10 and nv14 */
+-		memcpy(smc_pptable->I2cControllers, smc_dpm_table->I2cControllers,
+-			sizeof(*smc_dpm_table) - sizeof(smc_dpm_table->table_header));
++		BUILD_BUG_ON(sizeof(smc_pptable->v4) !=3D
++			     sizeof(smc_dpm_table->dpm_info));
++		memcpy(&smc_pptable->v4, &smc_dpm_table->dpm_info,
++		       sizeof(smc_dpm_table->dpm_info));
+ 		break;
+ 	case 7: /* nv12 */
+ 		ret =3D amdgpu_atombios_get_data_table(adev, index, NULL, NULL, NULL,
+ 					      (uint8_t **)&smc_dpm_table_v4_7);
+ 		if (ret)
+ 			return ret;
+-		memcpy(smc_pptable->I2cControllers, smc_dpm_table_v4_7->I2cControllers,
+-			sizeof(*smc_dpm_table_v4_7) - sizeof(smc_dpm_table_v4_7->table_header))=
+;
++		BUILD_BUG_ON(sizeof(smc_pptable->v4) !=3D
++			     sizeof(smc_dpm_table_v4_7->dpm_info));
++		memcpy(&smc_pptable->v4, &smc_dpm_table_v4_7->dpm_info,
++		       sizeof(smc_dpm_table_v4_7->dpm_info));
+ 		break;
+ 	default:
+ 		dev_err(smu->adev->dev, "smc_dpm_info with unsupported content revision =
+%d!\n",
+diff --git a/drivers/gpu/drm/amd/pm/swsmu/smu13/aldebaran_ppt.c b/drivers/g=
+pu/drm/amd/pm/swsmu/smu13/aldebaran_ppt.c
+index c8eefacfdd37..492ba37bc514 100644
+--- a/drivers/gpu/drm/amd/pm/swsmu/smu13/aldebaran_ppt.c
++++ b/drivers/gpu/drm/amd/pm/swsmu/smu13/aldebaran_ppt.c
+@@ -407,11 +407,11 @@ static int aldebaran_append_powerplay_table(struct sm=
+u_context *smu)
+ 			smc_dpm_table->table_header.format_revision,
+ 			smc_dpm_table->table_header.content_revision);
+=20
++	BUILD_BUG_ON(sizeof(smc_pptable->v4_10) !=3D sizeof(smc_dpm_table->dpm_in=
+fo));
+ 	if ((smc_dpm_table->table_header.format_revision =3D=3D 4) &&
+ 	    (smc_dpm_table->table_header.content_revision =3D=3D 10))
+-		memcpy(&smc_pptable->GfxMaxCurrent,
+-		       &smc_dpm_table->GfxMaxCurrent,
+-		       sizeof(*smc_dpm_table) - offsetof(struct atom_smc_dpm_info_v4_10,=
+ GfxMaxCurrent));
++		memcpy(&smc_pptable->v4_10, &smc_dpm_table->dpm_info,
++		       sizeof(smc_dpm_table->dpm_info));
+ 	return 0;
+ }
+=20
+--=20
 2.30.2
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210818060533.3569517-18-keescook%40chromium.org.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20210818060533.3569517-19-keescook%40chromium.org.
