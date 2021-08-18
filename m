@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBQ6G6KEAMGQEH5HO7GY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBRGG6KEAMGQEKQVWBPY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5AE973EFA95
+Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 785D13EFA96
 	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 08:05:57 +0200 (CEST)
-Received: by mail-pg1-x53e.google.com with SMTP id 1-20020a630e41000000b002528846c9f2sf809757pgo.12
+Received: by mail-qk1-x73a.google.com with SMTP id g73-20020a379d4c000000b003d3ed03ca28sf1037108qke.23
         for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 23:05:57 -0700 (PDT)
 ARC-Seal: i=2; a=rsa-sha256; t=1629266756; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tMiOuX0f+7I4dIjwEzVG+BdrjBI6jNMGug2Td7CBwh/Ke21v5sjxwUGErwuFReVhkn
-         yuwHEKFDdamZO1ASez6b3uN3T2ZvAGy1AnSm5aqQTSO9GCsPGdD0kJW6a1e54c4Ow6hT
-         u+068VaPikZKzZgOxXqdzfLxW/uGxe5XcvV4XVvsexi5DOM70RgsfFsL5lVCGWpAPEUF
-         ZBbSf+SWRhtXxSd6h/+3XcKz4JQWijMsoAr+VQxvryov6mBRn931j2qY6ix3Ocs4k3r9
-         eneeF3oAnGj+Ges5Ok3BoJbLsfuXN0HgRRJgxtljG9uHwdvtqSt+HP5BmlAKGzex8S10
-         6Twg==
+        b=gmuoWM5LWYKdSwclxPx+Gx1uuRbn+BjOrk1ydLztPCmNRgVzurrPagJUt0dSUaIWUF
+         Sz3HBLG3sY+KjW97YJg+gEoRZ6RBa5/uiMSpTjLN9JvxDkK4RQ/Mj64H5d6m3z8COVl2
+         76L+0IGbXPy+o5ReeEiNZe0GHPLNYfAOvQeeZiyVbUIWVDdg8x6ci1QWl1zbCMCVGg8i
+         9soold1q7TtbgeLSu4cXIUXFRt/gbRWOn4TwR0XeWpqVBT08w83XsVXAOU2BKzQDPPKX
+         HbCNLpmXpCMFZv7XIPsdnPTP2gk6Pr+/ew6gFbh1mx5PpQ0wHvM4BtNR0uywc6DvzBxW
+         2tNw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=RmsM1qO9VsEBJu6dapyZt/NRrlU8pV/yK1oYVAg/Q0M=;
-        b=hoY0ZrQHoA6rVniS3ppOwoHg8/X6HMK+gCLAA+RoaGM1OOjSNrBO47uYlUu9qsK5HR
-         ymqBdaWhnh4Jx39djTZ7D6+oY3MdbXXIgXLYGjcTgElapHL4sSknZ7qb6R5pVdVwlGaV
-         slk34iQajH/onulJ+/I+e1j1rC4QoanOTJz+f+whZ9YPoUy+B2rpWM9hOWoLuruuywrE
-         r7fKd5EsNrlNM9znd8eROstH4M6o9nDSl20Zxt5WJjZSGqeaHpU71OXdu9NlUZZ+5OGm
-         KwUa39Zez50jCjI4CaTl1H04Ewi0+mm/ADIeY0EXF4qHqK9NRGRdIapOkczxyY7eddCS
-         mtoQ==
+        bh=Hg0S/UzaohlQM2pu7F8IM3PGOL3KMgcwG46vZVJarh4=;
+        b=ZBBfm93Z0tHo0SacmiyHBw+7ulBF+HjjYj71PsL8MINseaiMjwX6baIRh0O0POMaEF
+         slFVuWc2HQ47dKfQQMxb8jH586/003crsVF261WxW6oauo9NhIW91Ti+icGPGHuKkuKa
+         w4Ec00id10+VtvKTMBmrbaK0Xb7UyGGf79p4UWB0pSjduhEQ+XTUJJ0pMSBLNgyTIayH
+         nW6WSxu29csiU4aoajrMUMYN31RijpGC7So5AJXFXGLHEFuXfJxNpN2y+8OjZVyPFaju
+         F8RMhVbRjwDIhHvPotExMs1jvYf/6cBhbca1zHTV0TNT+OOXD/IHdR2jFx442uwFuUyJ
+         S+3g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=L0akKXK1;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=NeXzORZm;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1034 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RmsM1qO9VsEBJu6dapyZt/NRrlU8pV/yK1oYVAg/Q0M=;
-        b=Q8XLJad1ElO7TtXbQL5TSW6CAhvNp1nh6LWcjBE7VDElbLbYUBGZMMjo5vqehFudW1
-         BND5am2ddZWT7hfnm1uECJKT580wJsAqlDgUTDFDr3NZy45C+7i1onFqBWa+2LrNZPMb
-         nnNP0ji7wu9D3BquWP0dh1Ma4ANFC32l7xvs1KXGGypA33egd7qJYWmjxsLg00yP21HA
-         ry8creOGipUPZLLWwuWL0H8FZFmhtuebPrQAqce5ZE75r8flNvgLFa0gyUU72+t29FUk
-         02R/a3egCYATVx4Q2U5csHwWYQfbbG0FwDxu1rP0FL1A3SdzUyYMqcLBhAmCG2QxaxXV
-         39gQ==
+        bh=Hg0S/UzaohlQM2pu7F8IM3PGOL3KMgcwG46vZVJarh4=;
+        b=BRh+1v3r6gMr+ITMssdJMBy6JplD7Lm4Pwj0TWmh6L7rMQ9IgoWp2Xvw8n2zerrfV7
+         tCyFmCwhHO/GLu0idr0IPtsTbdidR2y90TDnloHe1nkAyR9fUzCi/fwitdinec0NwoV0
+         x/oZexikw1XFxfd8BxK8iCUewD8UEYBhL+8jZD4N0+Y5ldpqSeLqLTG+D+Xg1ubjoGta
+         wd4TCyqP/YMHWZDUHKq4D/k31TaqCo8g4JPpeq5UsH7G2B0LCPK4BFOcCHzGm7W//2Rz
+         l+kqbYT9f24Q58IA5pDcsXSSiXDp62LSAPeTv0qXpxv9vk+WiM3X+zLMp/90nJt0jqeE
+         RbYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,68 +49,70 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RmsM1qO9VsEBJu6dapyZt/NRrlU8pV/yK1oYVAg/Q0M=;
-        b=n+R+bk/QDt1O3geA5+H6LDehjK+xZ/7duaV1FKToY0LJBjY1o/rmONr0bd3wmHQb+G
-         2v3V5ZyvrFKjewDn4IKdt2WTr6ANOKYe+e5eF1j3D0lws+9qm7VviqDqR5WdNM/juc93
-         N93Aug13x6zs3O9GtEw0G6A1MOxg5VwQ78QlZ3VnLrkwRbYqh0f8RnQjYcXRUnDpZHYb
-         +9cyBP+TdHVARr0uaTq/EymoFucc9ttnREj+0FvLp274C3g0UxRpqD34jXN9RjyB/SY1
-         sR59C09MulpX63VoxQbu1TVIukCztkcoJfYumY6cGGGye1DLly6vb+lks6PTZW6N5crd
-         eEdQ==
+        bh=Hg0S/UzaohlQM2pu7F8IM3PGOL3KMgcwG46vZVJarh4=;
+        b=f2jkSaHoYH7sIFni0lRD9C7Pkn60I0ikr6UFNOvBd6l06zUQ1x7CaEpWDQa7VFpx/b
+         eb8c+jXEXgFzfjQoofPS0qykO50aQTQqUDOXFpGKM04k9Cd25v2+AQpxS/5Nd0ySkSbV
+         hk350WkQFfUU2x+HlUVWsw1m87Y1822zS7/NMAuIGIqYE5W1AVmRsMWUa46WtUZ5b6cE
+         oyhc8Y7V4BFnuR5/lD8soHXoXnc8y4lfocuboq9zXPRa4x0tlZ6iJpmNQ0OLkYXo+mk5
+         aiYLXq0QQehKY5n1MAbeJ/dKUMf8G6CrhZkWIP8vhFn6QURIoolFyNRLAmOhpytzXtTl
+         zjnQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532pshIkRT8cktkZVIci3PHL3kFSKBVopoOVg7E/sUNM/XyV53sq
-	jF6GfddupWOPL+QiGhC96a0=
-X-Google-Smtp-Source: ABdhPJxXsRtXW5Gh5Ymj9ST8GLGRLC6Cule65Gc9H1InRp5qx1DSIjH12QhVCOal0kgUkHuXU/cn3A==
-X-Received: by 2002:a05:6a00:a0b:b0:3e1:e511:1224 with SMTP id p11-20020a056a000a0b00b003e1e5111224mr7313643pfh.67.1629266756058;
+X-Gm-Message-State: AOAM530V4UjDe6rlPgFQHJqYi6FWpu5l8QipABkaPny14gfnT/LaF85/
+	mnBXJihj+WQ/0Z+2iYUNBjI=
+X-Google-Smtp-Source: ABdhPJyDin3AU1lGcv/i+YjM/+CWXFkyLziROleXaNhtlGp6KmZXspVoublNZqYVKBJlvGIBRKxErQ==
+X-Received: by 2002:a05:620a:24c1:: with SMTP id m1mr4164609qkn.309.1629266756613;
         Tue, 17 Aug 2021 23:05:56 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:eb15:: with SMTP id j21ls2217379pjz.0.canary-gmail;
- Tue, 17 Aug 2021 23:05:55 -0700 (PDT)
-X-Received: by 2002:a17:90a:e88:: with SMTP id 8mr7664388pjx.108.1629266755405;
-        Tue, 17 Aug 2021 23:05:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629266755; cv=none;
+Received: by 2002:a05:620a:4401:: with SMTP id v1ls744373qkp.11.gmail; Tue, 17
+ Aug 2021 23:05:56 -0700 (PDT)
+X-Received: by 2002:a37:96c2:: with SMTP id y185mr7922371qkd.6.1629266756159;
+        Tue, 17 Aug 2021 23:05:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629266756; cv=none;
         d=google.com; s=arc-20160816;
-        b=xQtzpErZKfi5o2XY+VdcewVnbLh6uJTvqtpZULP7F+lhRCuVFXN1kTjpJ89wmh118b
-         CBReie+6UxHLFyvYlfggdDzHT5GZIZOEPX+7z6E+NTc4rYpq3vPlNRaFjnl5WlOz1/Te
-         4CunWOWfXu2NsgpyYtZLCq1s9d+q3Q3JFxEpt9HqjZPXWKlBUo//aZIIHMP+9dSkm+CX
-         ICuch3jvcaVptWpRz6vpxH9k52w/gx/X+vyB0eFA4P0IHUGW0eq15BcAiS/xbCuHVS/V
-         VwDYsJy9xOFkiWvcYiQGwc81XMa9nzz+o/GhEzCH3LSC0xm3CjRLOUK24UO1ld6XkXC1
-         5z9Q==
+        b=WjUwBB/9Ah383KNENgR4LFA8dReZsLQnXGnhVTKz0r6Uuzrh+pMBvsAkd3pBPADOGr
+         OQ+J/idhXVF21MgjpTrTELC8UyhciefkJLJ+vNda7uH3Gux9k6s2xoY4zGNy/kFy11RZ
+         koFkZVhhWjkPkDM+w/eUoF2SgoujKb+7w30BOUcm+XXVHBt797/69CCUi0G94ziB4H5P
+         o5i+TCmFC6VpfrRFNH7N37ze/x6kXK+yTfzevs+wDrFeq/xfWCdTWiC1PKK5IOeXwkkM
+         rg+SRCzt0IKYV+nhmkgy+BFlG4ngnB/xXo1PSbQzp/tBR2WE6QH9RP1rZRaUwNYr30Yx
+         JhUg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=0+ejbkcqZbFXmITuXlL7CDyZypzmre+l3eRsA92DuBs=;
-        b=HqwhDU9wexxwuWF1Axd4XmMgi0rM8K+IhDAxWWDpz2ZaMmJ1S/s9Ycn4tnRB9NIlQ/
-         01ThPC4WY5uKn3nd7JEhw8PSpXKf0JpM7vj4lpPMbFRxmjSfQh5udBeyJFRnNaggaWCv
-         QWICX2CqBaxBNwyv3Q8JghBl1bUboIGKeUcXOLwxiXqJnbmpale5B6qKD/MAInFQC1ko
-         LNvwtDXKcYbCMDvMy/t+j+iE6nPFHSDOK0hw59Xag6Zy1kwFVY6XwaB7vgOpIZVf4TX5
-         E0UM1mIZlDacajL9yXiDFbevh3W6FZH3WWlLFm+ZEde+X6MfP3gft/R7fvXZQ3YUZ/no
-         qt/g==
+        bh=AvplAjAyy7Xo+ijXhvo31OZi4yHKm9FY1a+n2JGpi4g=;
+        b=DfSmY3h3CK/PyEcMsKjX9M0/+z1Ni2BDQPZ6CFMG6uBk1DTqF4n01UjHyo/AYTzFSt
+         BxtP8GZOm40TbVjuhdrn1WynYwW9UqgCQssqQlUiOALEHS7nRYbBdwzVQas5L8PG7q6f
+         WITiUNNRUBprTsYrroGHlgl9z/EiisjNuhaPH4qAm+kK78chC7pg1Hmp7NDizNFFA6x3
+         t5ywGsBlc9XSsCex8acHA/VsD62fA+FB+mnTsLLpfcZ3ttZBNUHNJiIp6As887Oum5xD
+         NFVTBx6vzLM0Rsd/+3fQe9DqPwmZ7wOEMOPv4aNncfCx+6v9Rc4b4Rk3TvDH+GwMNMAH
+         zWpw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=L0akKXK1;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=NeXzORZm;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1034 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x102c.google.com (mail-pj1-x102c.google.com. [2607:f8b0:4864:20::102c])
-        by gmr-mx.google.com with ESMTPS id q2si211715pfl.0.2021.08.17.23.05.55
+Received: from mail-pj1-x1034.google.com (mail-pj1-x1034.google.com. [2607:f8b0:4864:20::1034])
+        by gmr-mx.google.com with ESMTPS id b1si358765qtq.3.2021.08.17.23.05.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Aug 2021 23:05:55 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) client-ip=2607:f8b0:4864:20::102c;
-Received: by mail-pj1-x102c.google.com with SMTP id n13-20020a17090a4e0d00b0017946980d8dso8166040pjh.5
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 23:05:55 -0700 (PDT)
-X-Received: by 2002:a17:90b:3442:: with SMTP id lj2mr7420058pjb.81.1629266755106;
+        Tue, 17 Aug 2021 23:05:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1034 as permitted sender) client-ip=2607:f8b0:4864:20::1034;
+Received: by mail-pj1-x1034.google.com with SMTP id cp15-20020a17090afb8fb029017891959dcbso8235886pjb.2
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 23:05:56 -0700 (PDT)
+X-Received: by 2002:a17:902:e84f:b0:12d:c616:a402 with SMTP id t15-20020a170902e84f00b0012dc616a402mr5833254plg.77.1629266755373;
         Tue, 17 Aug 2021 23:05:55 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id b20sm4633796pfl.9.2021.08.17.23.05.52
+        by smtp.gmail.com with ESMTPSA id y67sm4550662pfg.218.2021.08.17.23.05.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Tue, 17 Aug 2021 23:05:53 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: linux-kernel@vger.kernel.org
 Cc: Kees Cook <keescook@chromium.org>,
-	Keith Packard <keithp@keithp.com>,
-	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Alison Schofield <alison.schofield@intel.com>,
+	Vishal Verma <vishal.l.verma@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	Ben Widawsky <ben.widawsky@intel.com>,
+	linux-cxl@vger.kernel.org,
 	Dan Williams <dan.j.williams@intel.com>,
-	Daniel Vetter <daniel.vetter@ffwll.ch>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	linux-wireless@vger.kernel.org,
@@ -120,20 +122,21 @@ Cc: Kees Cook <keescook@chromium.org>,
 	linux-block@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v2 05/63] stddef: Introduce struct_group() helper macro
-Date: Tue, 17 Aug 2021 23:04:35 -0700
-Message-Id: <20210818060533.3569517-6-keescook@chromium.org>
+Subject: [PATCH v2 06/63] cxl/core: Replace unions with struct_group()
+Date: Tue, 17 Aug 2021 23:04:36 -0700
+Message-Id: <20210818060533.3569517-7-keescook@chromium.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210818060533.3569517-1-keescook@chromium.org>
 References: <20210818060533.3569517-1-keescook@chromium.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8609; h=from:subject; bh=8Qg6O9rjkiwOKAeKIVGdgdvKDjqINmqyRAtZrlXXnIA=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhHKMeD0CHW+uuEt76ResWyKF8pbMpqH18BMp8/Pj9 U4ZtvnmJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYRyjHgAKCRCJcvTf3G3AJqb/D/ 93GZOK8t0sjGW1TI4a1tTQBtjO+BfS5KTMQeA3a7Uce4PVwGGMi8plmIGq+Rfhww6bDSGUR3D5Tq8i C/Jxt4JuoLgnD9VoTjkw5H7tFIpQ44zNRI+8ZDaxmiu1VD47VHbY1vE6wOYdGHBrNCSHNYWUAi2vaS E4fN8LuFsXWsMK8sLlZGt8eIxJGzmRPQOsOb31OTMfNyRY6gvuiRFsc+CYTgT/2Rwwg8x5TnOqMHLR 8LQNRHT7vu6QbAeAziCQskZWLxnFAg1+Wjkn7rq24wRdar7ztcqG5+psYuIvRugHU+Igp+JYFpGAxS 512FKT2Yno2+cAIO9/aKyo48MArIW0R0nMBtN9AeeF3y6C5I1GEiDLvBoWZrcmpSmxR/UPgex5+W50 5YzAGHXmLPDsRHR0GuHHnxgbjUWdMHHwN9EmP/KnqmG7v9csbjgCpZm8dBQu9viUOpVGFWXfMFRoAQ umTD8Z//E8AM9XTfe490LNcpHh/WNq93DLwwP5q3HrUb3G113UWGJx+nuf91GKOllfV3S/sJrASX23 sEQ2nIoj+nqPPAU77dYdz6kJa/SnPmKWce5NU111vhOoPjmDoZYruwnsDc3WCGZAmidp5Naz1aYPpb qsNP1TeGqq2MhskDz580+XWS+9E9gVOtBY6COlRwGVpPKMX4dGct/QGB5r4A==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2984; h=from:subject; bh=gH2l7MUrimYDJJHL5/kGu3UEiSd7agDYsUtnIqIDLGg=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhHKMfFeE+SAeXV7TlGs5W5Dan0qJQ1dt63HKDzfHG juo8T9CJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYRyjHwAKCRCJcvTf3G3AJlH/EA CnsBzSF5pyrctJZ6ieH+8X8zUFVzCAy3+BR6FX4EgEQJkJRkPWwnEynE2qGmzAQmsEHsp55I/GrJX4 JR1eEWAvgU7ZjlCsPIcv1hCYd1m27MgsvOjeZZPQo8r02lm4PTiaybJvP6THoSxUoZ7x7i+BLdqnLN CJ2Tai+1QWBg/z5BfgXsolu04ACMdQY4zZdNixxfxbVmz8EfwVyWUFyP3k0U0O43Mhc0n+Pi9sfLdY gqM7Y/4yJ/qOqjNqkAP2FR+u7pDMCwF5q6mugy3ReHQbJ3WUCsx/h6iW6XpvzpLtDmU4PnwCizNbDJ 65jHpkXZBwccb2yWZL3xbfcqAc4M9w9cYxNpLdtt8NZ+rde81+4KjY3RjmaYJ6kbOdG2jTQ2uB7QBR 8IB6Vp3VcelKvfe2D6gT91BL8IxzqodAw+yqwCP18Gg1nRBdVdzBLvr5+AFn9w0jjp98MtTKa6P7ii gkZ2UwvygAIG4rcijtB/7meDfJT0C/h40i2avmZ5bb1UndNmOtfoixIiUnumnomu9UUwzxEUdhNb57 KS5dfN7XmkBAwIOqhTGzOAtYHWmH1VyhVLJnBQ2VfGR39r5zOPfmnkT1aic2J3QdRCTgo2AZbLBI6F DcMPWmOtMJYmAJpqZMcje5nPsclSh7Hq7uJSZSzWOq0scZlLODKdzRVPuALg==
 X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=L0akKXK1;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102c
+ header.i=@chromium.org header.s=google header.b=NeXzORZm;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1034
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -149,234 +152,100 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Kernel code has a regular need to describe groups of members within a
-structure usually when they need to be copied or initialized separately
-from the rest of the surrounding structure. The generally accepted design
-pattern in C is to use a named sub-struct:
+Use the newly introduced struct_group_typed() macro to clean up the
+declaration of struct cxl_regs.
 
-	struct foo {
-		int one;
-		struct {
-			int two;
-			int three, four;
-		} thing;
-		int five;
-	};
-
-This would allow for traditional references and sizing:
-
-	memcpy(&dst.thing, &src.thing, sizeof(dst.thing));
-
-However, doing this would mean that referencing struct members enclosed
-by such named structs would always require including the sub-struct name
-in identifiers:
-
-	do_something(dst.thing.three);
-
-This has tended to be quite inflexible, especially when such groupings
-need to be added to established code which causes huge naming churn.
-Three workarounds exist in the kernel for this problem, and each have
-other negative properties.
-
-To avoid the naming churn, there is a design pattern of adding macro
-aliases for the named struct:
-
-	#define f_three thing.three
-
-This ends up polluting the global namespace, and makes it difficult to
-search for identifiers.
-
-Another common work-around in kernel code avoids the pollution by avoiding
-the named struct entirely, instead identifying the group's boundaries using
-either a pair of empty anonymous structs of a pair of zero-element arrays:
-
-	struct foo {
-		int one;
-		struct { } start;
-		int two;
-		int three, four;
-		struct { } finish;
-		int five;
-	};
-
-	struct foo {
-		int one;
-		int start[0];
-		int two;
-		int three, four;
-		int finish[0];
-		int five;
-	};
-
-This allows code to avoid needing to use a sub-struct named for member
-references within the surrounding structure, but loses the benefits of
-being able to actually use such a struct, making it rather fragile. Using
-these requires open-coded calculation of sizes and offsets. The efforts
-made to avoid common mistakes include lots of comments, or adding various
-BUILD_BUG_ON()s. Such code is left with no way for the compiler to reason
-about the boundaries (e.g. the "start" object looks like it's 0 bytes
-in length), making bounds checking depend on open-coded calculations:
-
-	if (length > offsetof(struct foo, finish) -
-		     offsetof(struct foo, start))
-		return -EINVAL;
-	memcpy(&dst.start, &src.start, offsetof(struct foo, finish) -
-				       offsetof(struct foo, start));
-
-However, the vast majority of places in the kernel that operate on
-groups of members do so without any identification of the grouping,
-relying either on comments or implicit knowledge of the struct contents,
-which is even harder for the compiler to reason about, and results in
-even more fragile manual sizing, usually depending on member locations
-outside of the region (e.g. to copy "two" and "three", use the start of
-"four" to find the size):
-
-	BUILD_BUG_ON((offsetof(struct foo, four) <
-		      offsetof(struct foo, two)) ||
-		     (offsetof(struct foo, four) <
-		      offsetof(struct foo, three));
-	if (length > offsetof(struct foo, four) -
-		     offsetof(struct foo, two))
-		return -EINVAL;
-	memcpy(&dst.two, &src.two, length);
-
-In order to have a regular programmatic way to describe a struct
-region that can be used for references and sizing, can be examined for
-bounds checking, avoids forcing the use of intermediate identifiers,
-and avoids polluting the global namespace, introduce the struct_group()
-macro. This macro wraps the member declarations to create an anonymous
-union of an anonymous struct (no intermediate name) and a named struct
-(for references and sizing):
-
-	struct foo {
-		int one;
-		struct_group(thing,
-			int two;
-			int three, four;
-		);
-		int five;
-	};
-
-	if (length > sizeof(src.thing))
-		return -EINVAL;
-	memcpy(&dst.thing, &src.thing, length);
-	do_something(dst.three);
-
-There are some rare cases where the resulting struct_group() needs
-attributes added, so struct_group_attr() is also introduced to allow
-for specifying struct attributes (e.g. __align(x) or __packed).
-Additionally, there are places where such declarations would like to
-have the struct be typed, so struct_group_typed() is added.
-
-Given there is a need for a handful of UAPI uses too, the underlying
-__struct_group() macro has been defined in UAPI so it can be used there
-too.
-
-Co-developed-by: Keith Packard <keithp@keithp.com>
-Signed-off-by: Keith Packard <keithp@keithp.com>
-Signed-off-by: Kees Cook <keescook@chromium.org>
-Acked-by: Gustavo A. R. Silva <gustavoars@kernel.org>
-Link: https://lore.kernel.org/lkml/20210728023217.GC35706@embeddedor
-Enhanced-by: Rasmus Villemoes <linux@rasmusvillemoes.dk>
-Link: https://lore.kernel.org/lkml/41183a98-bdb9-4ad6-7eab-5a7292a6df84@rasmusvillemoes.dk
-Enhanced-by: Dan Williams <dan.j.williams@intel.com>
+Cc: Alison Schofield <alison.schofield@intel.com>
+Cc: Vishal Verma <vishal.l.verma@intel.com>
+Cc: Ira Weiny <ira.weiny@intel.com>
+Cc: Ben Widawsky <ben.widawsky@intel.com>
+Cc: linux-cxl@vger.kernel.org
+Suggested-by: Dan Williams <dan.j.williams@intel.com>
 Link: https://lore.kernel.org/lkml/1d9a2e6df2a9a35b2cdd50a9a68cac5991e7e5f0.camel@intel.com
-Enhanced-by: Daniel Vetter <daniel.vetter@ffwll.ch>
-Link: https://lore.kernel.org/lkml/YQKa76A6XuFqgM03@phenom.ffwll.local
+Signed-off-by: Kees Cook <keescook@chromium.org>
 ---
- include/linux/stddef.h      | 47 +++++++++++++++++++++++++++++++++++++
- include/uapi/linux/stddef.h | 21 +++++++++++++++++
- 2 files changed, 68 insertions(+)
+ drivers/cxl/cxl.h | 61 ++++++++++++++---------------------------------
+ 1 file changed, 18 insertions(+), 43 deletions(-)
 
-diff --git a/include/linux/stddef.h b/include/linux/stddef.h
-index 998a4ba28eba..f2aefdb22d1d 100644
---- a/include/linux/stddef.h
-+++ b/include/linux/stddef.h
-@@ -36,4 +36,51 @@ enum {
- #define offsetofend(TYPE, MEMBER) \
- 	(offsetof(TYPE, MEMBER)	+ sizeof_field(TYPE, MEMBER))
+diff --git a/drivers/cxl/cxl.h b/drivers/cxl/cxl.h
+index 53927f9fa77e..9db0c402c9ce 100644
+--- a/drivers/cxl/cxl.h
++++ b/drivers/cxl/cxl.h
+@@ -75,52 +75,27 @@ static inline int cxl_hdm_decoder_count(u32 cap_hdr)
+ #define CXLDEV_MBOX_BG_CMD_STATUS_OFFSET 0x18
+ #define CXLDEV_MBOX_PAYLOAD_OFFSET 0x20
  
-+/**
-+ * struct_group(NAME, MEMBERS)
-+ *
-+ * Used to create an anonymous union of two structs with identical
-+ * layout and size: one anonymous and one named. The former can be
-+ * used normally without sub-struct naming, and the latter can be
-+ * used to reason about the start, end, and size of the group of
-+ * struct members.
-+ *
-+ * @NAME: The identifier name of the mirrored sub-struct
-+ * @MEMBERS: The member declarations for the mirrored structs
-+ */
-+#define struct_group(NAME, MEMBERS...)	\
-+	__struct_group(/* no tag */, NAME, /* no attrs */, MEMBERS)
-+
-+/**
-+ * struct_group_attr(NAME, ATTRS, MEMBERS)
-+ *
-+ * Used to create an anonymous union of two structs with identical
-+ * layout and size: one anonymous and one named. The former can be
-+ * used normally without sub-struct naming, and the latter can be
-+ * used to reason about the start, end, and size of the group of
-+ * struct members. Includes structure attributes argument.
-+ *
-+ * @NAME: The identifier name of the mirrored sub-struct
-+ * @ATTRS: Any struct attributes
-+ * @MEMBERS: The member declarations for the mirrored structs
-+ */
-+#define struct_group_attr(NAME, ATTRS, MEMBERS...) \
-+	__struct_group(/* no tag */, NAME, ATTRS, MEMBERS)
-+
-+/**
-+ * struct_group_tagged(TAG, NAME, MEMBERS)
-+ *
-+ * Used to create an anonymous union of two structs with identical
-+ * layout and size: one anonymous and one named. The former can be
-+ * used normally without sub-struct naming, and the latter can be
-+ * used to reason about the start, end, and size of the group of
-+ * struct members. Includes struct tag argument for the named copy.
-+ *
-+ * @TAG: The tag name for the named sub-struct
-+ * @NAME: The identifier name of the mirrored sub-struct
-+ * @MEMBERS: The member declarations for the mirrored structs
-+ */
-+#define struct_group_tagged(TAG, NAME, MEMBERS...) \
-+	__struct_group(TAG, NAME, /* no attrs */, MEMBERS)
-+
- #endif
-diff --git a/include/uapi/linux/stddef.h b/include/uapi/linux/stddef.h
-index ee8220f8dcf5..0fbdf2f711aa 100644
---- a/include/uapi/linux/stddef.h
-+++ b/include/uapi/linux/stddef.h
-@@ -4,3 +4,24 @@
- #ifndef __always_inline
- #define __always_inline inline
- #endif
-+
-+/**
-+ * __struct_group(TAG, NAME, ATTRS, MEMBERS)
-+ *
-+ * Used to create an anonymous union of two structs with identical layout
-+ * and size: one anonymous and one named. The former's members can be used
-+ * normally without sub-struct naming, and the latter can be used to
-+ * reason about the start, end, and size of the group of struct members.
-+ * The named struct can also be explicitly tagged, as well as both having
-+ * struct attributes.
-+ *
-+ * @TAG: The tag name for the named sub-struct (usually empty)
-+ * @NAME: The identifier name of the mirrored sub-struct
-+ * @ATTRS: Any struct attributes (usually empty)
-+ * @MEMBERS: The member declarations for the mirrored structs
-+ */
-+#define __struct_group(TAG, NAME, ATTRS, MEMBERS...) \
-+	union { \
-+		struct { MEMBERS } ATTRS; \
-+		struct TAG { MEMBERS } ATTRS NAME; \
-+	}
+-#define CXL_COMPONENT_REGS() \
+-	void __iomem *hdm_decoder
+-
+-#define CXL_DEVICE_REGS() \
+-	void __iomem *status; \
+-	void __iomem *mbox; \
+-	void __iomem *memdev
+-
+-/* See note for 'struct cxl_regs' for the rationale of this organization */
+-/*
+- * CXL_COMPONENT_REGS - Common set of CXL Component register block base pointers
+- * @hdm_decoder: CXL 2.0 8.2.5.12 CXL HDM Decoder Capability Structure
+- */
+-struct cxl_component_regs {
+-	CXL_COMPONENT_REGS();
+-};
+-
+-/* See note for 'struct cxl_regs' for the rationale of this organization */
+-/*
+- * CXL_DEVICE_REGS - Common set of CXL Device register block base pointers
+- * @status: CXL 2.0 8.2.8.3 Device Status Registers
+- * @mbox: CXL 2.0 8.2.8.4 Mailbox Registers
+- * @memdev: CXL 2.0 8.2.8.5 Memory Device Registers
+- */
+-struct cxl_device_regs {
+-	CXL_DEVICE_REGS();
+-};
+-
+ /*
+- * Note, the anonymous union organization allows for per
+- * register-block-type helper routines, without requiring block-type
+- * agnostic code to include the prefix.
++ * Using struct_group() allows for per register-block-type helper routines,
++ * without requiring block-type agnostic code to include the prefix.
+  */
+ struct cxl_regs {
+-	union {
+-		struct {
+-			CXL_COMPONENT_REGS();
+-		};
+-		struct cxl_component_regs component;
+-	};
+-	union {
+-		struct {
+-			CXL_DEVICE_REGS();
+-		};
+-		struct cxl_device_regs device_regs;
+-	};
++	/*
++	 * Common set of CXL Component register block base pointers
++	 * @hdm_decoder: CXL 2.0 8.2.5.12 CXL HDM Decoder Capability Structure
++	 */
++	struct_group_tagged(cxl_component_regs, component,
++		void __iomem *hdm_decoder;
++	);
++	/*
++	 * Common set of CXL Device register block base pointers
++	 * @status: CXL 2.0 8.2.8.3 Device Status Registers
++	 * @mbox: CXL 2.0 8.2.8.4 Mailbox Registers
++	 * @memdev: CXL 2.0 8.2.8.5 Memory Device Registers
++	 */
++	struct_group_tagged(cxl_device_regs, device_regs,
++		void __iomem *status, *mbox, *memdev;
++	);
+ };
+ 
+ struct cxl_reg_map {
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210818060533.3569517-6-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210818060533.3569517-7-keescook%40chromium.org.
