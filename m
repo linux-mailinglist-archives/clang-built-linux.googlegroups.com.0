@@ -1,126 +1,137 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBANS6KEAMGQELQPJWWI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBO5W6KEAMGQE6CNSTYA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9C8213EF9FC
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 07:22:10 +0200 (CEST)
-Received: by mail-lf1-x13f.google.com with SMTP id k11-20020ac257cb000000b003ce6a4383f3sf325378lfo.5
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 22:22:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629264130; cv=pass;
+Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 647C93EFA18
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 07:31:40 +0200 (CEST)
+Received: by mail-oi1-x23d.google.com with SMTP id n64-20020acabd430000b029025a4350857esf930922oif.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 22:31:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629264699; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UNUS7+Jj3SRfI/aS5D27PJ6up8Gubj+YU1z8qhDin973tVtNy7K98sAQ4rm7OE4Z7t
-         IknzabjgQdvNN74wZX53++kvYJLTLlsFoAZlAITtw4CgEWuulWgjZryvwq1oFlvSEa5u
-         TXgY7TNOTL4mfUR+77A611yreT/26KaeJTVTOWwc7h2Dad97e8+xdYsE6rtIK5BSgGCk
-         IFrm3LRIGAh6l1Quecrhc0sUNfSmqXdH/5Ys0mr5HY/ISDmVaQvvOn1gvhOwtn930Y+s
-         be3SpsqRedrZwKc/9JfllispCohAHXIifA8+EliXxGpk8Nm28aOyE8rEaxuSI9Pbr6b6
-         RR+w==
+        b=Q4MkGZBayJdN8XFV055ieOVm5btVsWGcCGDQMAdxxwJ3ODgM5QZhfBxJCnvgUA8RWj
+         W3w+xi7Dojo5AjSuZkA4omAoZzB3yERGrThala5afd9OSzc6lq3G0EsV8eJzQmwBeK8J
+         I6DNtU6G9CciIhB2ooNpT2tLnUSHPy1IuFkiIGZi2hvc2W4TZZS+mWXV3PaPuOWnqGqU
+         WjcIDCtGwiTPq33LHCpNam7qL38JVM2w892/nneOXwBS4QxdnbjBURtvY1a+MWPJs0Zu
+         3Zn0CoDHnksHWqu/JubweVecu0HCyYXYsYrJCmQ9boPI11lIW/kfLGR5Ps+ctmoKLt/+
+         E4Uw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=x11iy1jUQ7zkgcFNCw1dywkOmFuQib9TTjxQsj0+0c4=;
-        b=r26WHJyN+Kqr9liYNRrvHZ781aTkXPpYwRj2RAv6Ge+8yK6iCK9n4Hh+C02nDL0/XR
-         ljuqVM9Kp7LmisyzIylZY76dW0mRk8DydDvv9IXFFwWrtet5S7U8GO4WgJz3yfNKyiIP
-         gosB8AoKlrE/H7CFaqSwy12Z1u1t6WA3qPS4VxhhAsIvVUOkmhhxnip3puTuHzPfumwO
-         Vgi3/Knzr6T7x/pi9Nut/SRzLiST0ZTHEq/wQVm5Hovq2p3ni0pWLuoemJHcXRvEqMNn
-         grGKfldV7osSUljQaeHHprers4inVWOKmD7c3e2Yegnel+Cs3/EqcLzzQmaK6OybYIL8
-         exnw==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:sender:dkim-signature;
+        bh=ePoeZnSvQjPgPBkZn6BIJ0viMb1jhAnKnLWgQOgu3ls=;
+        b=ML73y4k+CUY2v9Kqi3JWQ7dp1xpFwUc6g7K1Cnf2q6O5hfCtsjEWw6N1nFD5yzvZyN
+         bww8ECfRhBWE+/+ZPK8nIoibw/vq5sF5nq83efFiDMoa25xd4+8okz1/Nu01nSToJdb2
+         o0ydNVpR7VKCNdS/k5ntTwVZgA0dimzfru1yB8qkBcidXalYfHQtghPedATGo86lzdp3
+         sM98aDtfTgno/bG16XUnIgBzBhvNioXIZJ3SZCHMwmnxIPYZnYYPmrFwobrcEjMDcJUS
+         NCW/+syPz0wDi9ImOoLMh+UQPgan2+FR5m4ufxeoXIYFxVhivJyMZYzinf+Jv2XnmCBn
+         Ndxg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=BKmKZHzY;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::334 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=neutral (google.com: 216.40.44.46 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=x11iy1jUQ7zkgcFNCw1dywkOmFuQib9TTjxQsj0+0c4=;
-        b=tcNhLYMzzIKRddQ4QQHFgPJJe9FC88mWSmP6mTIduAhQoK/rF69KSJISJRFCF+YYWe
-         Hnyr9eom5RshTwHskeuDmQ+lhhvqsuVBPOLGSgEnqH4Qm2IogK81BYYOhj2+DNx6Lwvq
-         RpgsSwc7qOyEYyYwk/Jafa+pA7xuOsRaaZMt61X1WeTBblD6PyQGdXG6ROWuS8DLR/Ni
-         YcmGfZm5N8W+hiLGZ4iSYo8Nmqij4Bhyz+mVO0KLXV1wUqfKn9iRR3RABL869oLByNYg
-         4qQGDkH0qzwtFKXJlQeRoPqd6dNOlnGxHtKg47nGPpLL73ulIoBDq3eS8x2xojW7O2KM
-         MYEg==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ePoeZnSvQjPgPBkZn6BIJ0viMb1jhAnKnLWgQOgu3ls=;
+        b=lLeCKGmPrsz8b4kQT7S2pa6HiPspL/+om/MsT7hQ7g/V/PMo35mieteNS3UJPZEKgA
+         dc845XtbTyye1KcA/O6E7uXP5VvWka3uE0XGjyGaehNhqaNyvFYGou8V+cIds5Ubxd6E
+         p/S0jjY1Uz/9H0gxKUZbSvolsg1y8SiDD8GqkvKL4NjVS5nH0s3D8D+A4KXR8eyzaYz0
+         3KKAxntdjLddt6rhUU9Z1h+Aah/vMAVcSSAc89ZDZ5gTIwURo+V0+C9Q3rs/Vb6fhbxs
+         Xhrhoik5HgrywCvheQSuviu9PBJiYc9xM3Zenb1AB0aQoFDQB1XrRqp9sNHY7SnNIAZk
+         HIPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=x11iy1jUQ7zkgcFNCw1dywkOmFuQib9TTjxQsj0+0c4=;
-        b=fukr7tpgDon2/qH/PrqZ57i0ULiztyem0MMWXwq8NTFcOS389bY+ue4Z5SWM5rXL5G
-         ScMmnsfZ3dxOi4aGymMoh7qSUxuZ94bFQ9BxXT6y7ACx65KpDQbfWbqP0tEZ5OCBlxu8
-         gkNCid883Wu5Y/9ht//O1tKIxocpntzoXSZKRG6PHi9wMomw6vzpz41dfcT30ph8dr52
-         t9ySJQB+Mp8xQBEC3SrMs9XzHhBZf/UixxDwgQY2+jERPzAjzGFFaIHuFgC2qr4Sh7Nb
-         Od5x3Zf1BjpjEVlpVNBheQgM636qxhCq9TZ/Sfk0tMyrYcXrigE7LcXufNClRxs4T+UK
-         oSIQ==
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ePoeZnSvQjPgPBkZn6BIJ0viMb1jhAnKnLWgQOgu3ls=;
+        b=lJwbhxkRs65WbFLNpv0udg0yxFUqFtmD9X9Td5N1ShYiSuVAY9EkRTqsCSIsBDf1Sk
+         xLYgexlKqFbywz8m2sveZkjFqSck0Io4Rbnf+BoZdPzNT1ZmPnTkrzVPgnOoLU1rwYni
+         FTSOo+97yTjanGNqLPzMIXPMd/tJyTdPga74QyAkmIa5ibnZ7VAe1jAYXSEFyWdr8PQ3
+         0OCb4HGr6duPYL+dF0hozRvF4UtB51CtWqcejMk8/Jl5iRu7BJOegD1cGQnOmwJU4vky
+         HYz+IEZsOnLMW+fEJvky8vhXzclBfpvNrK8XowwaW+mh7UOXhoAyg31Ymag1hTa9e8t4
+         blpw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531NqvUe8sQrPmdauwGuDWdDN0CLvJNFsIRu1F/g0v0ky6KgkLyz
-	hqwDVub4zYjkczA+Am0Lcyg=
-X-Google-Smtp-Source: ABdhPJzmMzt++oZ4HmqBfktql8JUNo+yOca6NEC21LzLBYmDJNGvms4hr19mi7hjgD7bAAGLPbX5xg==
-X-Received: by 2002:a05:6512:b27:: with SMTP id w39mr5139440lfu.129.1629264130190;
-        Tue, 17 Aug 2021 22:22:10 -0700 (PDT)
+X-Gm-Message-State: AOAM531xBUONjcY4Q8uTZZL1XClTUr9bWjc2tpAS6/TuHV0vNboowEyE
+	MtKBFnGTDfKnoN0UUIoXTFo=
+X-Google-Smtp-Source: ABdhPJyG8nc/HH3JNJqMUAMbXyUa3BRzp6UN+Z8aveVPpMXEkNBeQAeYEeu+c9/zkbNmBAyuJjv6uw==
+X-Received: by 2002:aca:bec2:: with SMTP id o185mr4409884oif.151.1629264699167;
+        Tue, 17 Aug 2021 22:31:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:15a3:: with SMTP id bp35ls516943lfb.1.gmail; Tue,
- 17 Aug 2021 22:22:09 -0700 (PDT)
-X-Received: by 2002:ac2:4350:: with SMTP id o16mr5299492lfl.184.1629264129014;
-        Tue, 17 Aug 2021 22:22:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629264129; cv=none;
+Received: by 2002:a05:6830:2143:: with SMTP id r3ls281293otd.0.gmail; Tue, 17
+ Aug 2021 22:31:38 -0700 (PDT)
+X-Received: by 2002:a9d:6414:: with SMTP id h20mr5656836otl.177.1629264698829;
+        Tue, 17 Aug 2021 22:31:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629264698; cv=none;
         d=google.com; s=arc-20160816;
-        b=tTXG33t3zXLv+pnayNXLzjQS2WEXjeJBIWYXAGeO7L/cdp4XsrKxUOpExRiuSOgbq1
-         4E3Ua8tZZ68g/v5k6EXqS1QphbzHx9Pb+fDF1PvL186UjU33A1muayFrXNeqI1S+6U4B
-         EF/MHbcQ2x+LnGuhtcezYn95hTYGu1h1ziyGpKy2hRnMbXBXfvOiA8f5ysRPWPf7zG2L
-         ass6DOfibdEgk9F0JORBKV4yAQW7bJcScH1tKHGx22QO+1fOl2FQzgbsUPRtnxVbzmr8
-         ZWZzG98ex+zbO2MoZLHySQPccKLZigiDYAG5TXDC3hB1475y0DB6KAAtIqyZM8+faHlg
-         /yBQ==
+        b=dw7ammmTzt0k4JgWEiLICvmBAOIOdSaNONwCUkNb7TYLxGlXaqL3xqidImEKasUKHK
+         PdJjMl+evikF4EZjchwVkJsYTYMdDttSMac7di6ZgOKL7avpy7y29RSQru8QAO+l7Iuf
+         uYe6/ZwtLOOy/wScDNv/2sBk/EBOdRSKDym2xFYcwFoEq6/EB+qbwRfiA9xXvRdMpCdP
+         jzlf0KEll6XP3RnqahgyrwkwvolL+HcrIRPNQhuzbbFtK1T9t7af2xmXHuagIKSiLidA
+         RPJxDv60kayWNOj+R9RaofndmTfcZgumzOVDZQYsfUtQbMTFZO6zQXNIonA90XLwBWy3
+         54oA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=7F0db05D5HakcbzQa7Uztc1dYwH+PZC+bJTXAK+rOKA=;
-        b=KmTNdDXmmWTM3MJxhrMkt+BBo7MtR+yvQw0Ma210oncLvvFFNsEYIFzJcYfqpB0jDd
-         P2UU0VCJTMY/W/t7/FT7j5E5jaMq3KNwndcaRVlwUfwAhl8hVzqa/8GOe1YRTfcu0z9I
-         Qr61nsAAG9tjRlmlu01zBI7nw4ZqttFqFYB0syrQYKklR/kpF30HwAkK1XKUlX2PT/yL
-         oHXHq5e77y52XAPzv/P9LLTqsQw+MLG4baiMD6UmdbLMNke0rbxL23whe0CX4CqxHqeX
-         x0aagDg1z9S1pFsAxZ30+WGwbAv/T59U2s7QO+FNFtYcVKzWLT8vGvEBMCb2DylrTdae
-         BGtA==
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=W7AH+2tc/DE49mYVBN3eONnEtb6ok97YeqcvI7RPPP0=;
+        b=biOhLIaNG2JlQvuuDOQS3hwgN71NV5ukKxer3rQtc70t7mdJwtFFolM6ChdrYqkWXW
+         WZ6/BRwXyrCtbcKQliiipqtDRIA3tElj0RAvBqDGlEVq6pVgl99gvM3XCxaB1pFLxqXg
+         leg9+7AcWxuL36x54qdzTfdY62BhdRWnwqca8jc9Y1ZWKOlJLpJ2fRkIW5AN1v2WKvZm
+         kJjdR5dYMItt3gkg2QEHdhx4osc2BpIJdcpILN8//CDvqaxeGFjvyYJddcGdoOpsVuIs
+         1DMX341IwHfqvtMFPYsLEQYIzdY709J0ZeqidVcfqJyBV8adjQzZVT4hdtBT22rjDOAG
+         r7OA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=BKmKZHzY;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::334 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x334.google.com (mail-wm1-x334.google.com. [2a00:1450:4864:20::334])
-        by gmr-mx.google.com with ESMTPS id j7si276670ljc.1.2021.08.17.22.22.08
+       spf=neutral (google.com: 216.40.44.46 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0046.hostedemail.com. [216.40.44.46])
+        by gmr-mx.google.com with ESMTPS id be33si43384oib.3.2021.08.17.22.31.38
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Aug 2021 22:22:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::334 as permitted sender) client-ip=2a00:1450:4864:20::334;
-Received: by mail-wm1-x334.google.com with SMTP id q11-20020a7bce8b0000b02902e6880d0accso3534877wmj.0
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 22:22:08 -0700 (PDT)
-X-Received: by 2002:a05:600c:22c2:: with SMTP id 2mr6557333wmg.3.1629264128419;
-        Tue, 17 Aug 2021 22:22:08 -0700 (PDT)
-Received: from 172.17.0.5 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id s14sm3951447wmc.25.2021.08.17.22.22.07
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Aug 2021 22:22:07 -0700 (PDT)
-From: ci_notify@linaro.org
-Date: Wed, 18 Aug 2021 05:22:07 +0000 (UTC)
-To: tcwg-validation@linaro.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linaro-toolchain@lists.linaro.org,
-	clang-built-linux@googlegroups.com, arnd@linaro.org
-Message-ID: <2088047326.3857.1629264127981@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-aarch64-lts-allmodconfig - Build # 6 - Successful!
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Aug 2021 22:31:38 -0700 (PDT)
+Received-SPF: neutral (google.com: 216.40.44.46 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.46;
+Received: from omf17.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay05.hostedemail.com (Postfix) with ESMTP id 0B102183F79A5;
+	Wed, 18 Aug 2021 05:31:38 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf17.hostedemail.com (Postfix) with ESMTPA id 9403D27DD38;
+	Wed, 18 Aug 2021 05:31:33 +0000 (UTC)
+Message-ID: <f3e56f56c36b32dc76e174886008a2a1ecf3fefa.camel@perches.com>
+Subject: Re: [PATCH 2/5] slab: Add __alloc_size attributes for better bounds
+ checking
+From: Joe Perches <joe@perches.com>
+To: Kees Cook <keescook@chromium.org>, linux-kernel@vger.kernel.org
+Cc: Daniel Micay <danielmicay@gmail.com>, Christoph Lameter <cl@linux.com>, 
+ Pekka Enberg <penberg@kernel.org>, David Rientjes <rientjes@google.com>,
+ Joonsoo Kim <iamjoonsoo.kim@lge.com>,  Andrew Morton
+ <akpm@linux-foundation.org>, Vlastimil Babka <vbabka@suse.cz>,
+ linux-mm@kvack.org, Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor
+ <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Dennis
+ Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>,
+ clang-built-linux@googlegroups.com,  linux-kbuild@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+Date: Tue, 17 Aug 2021 22:31:32 -0700
+In-Reply-To: <20210818050841.2226600-3-keescook@chromium.org>
+References: <20210818050841.2226600-1-keescook@chromium.org>
+	 <20210818050841.2226600-3-keescook@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
+User-Agent: Evolution 3.40.0-1
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_3856_841047430.1629264127110"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-lts-allmodconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=BKmKZHzY;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::334
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Content-Transfer-Encoding: quoted-printable
+X-Stat-Signature: kazeuswp33idfqrb7eqs6yyhwczrkq3u
+X-Rspamd-Server: rspamout03
+X-Rspamd-Queue-Id: 9403D27DD38
+X-Spam-Status: No, score=0.10
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Session-ID: U2FsdGVkX1/uEF5/fBpMfVSWUWGASCCc76xkvowtGVk=
+X-HE-Tag: 1629264693-636294
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.46 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,146 +144,65 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_3856_841047430.1629264127110
-Content-Type: text/plain; charset="UTF-8"
+On Tue, 2021-08-17 at 22:08 -0700, Kees Cook wrote:
+> As already done in GrapheneOS, add the __alloc_size attribute for
+> regular kmalloc interfaces, to provide additional hinting for better
+> bounds checking, assisting CONFIG_FORTIFY_SOURCE and other compiler
+> optimizations.
+[]
+> diff --git a/include/linux/slab.h b/include/linux/slab.h
+[]
+> @@ -181,7 +181,7 @@ int kmem_cache_shrink(struct kmem_cache *);
+> =C2=A0/*
+> =C2=A0=C2=A0* Common kmalloc functions provided by all allocators
+> =C2=A0=C2=A0*/
+> -void * __must_check krealloc(const void *, size_t, gfp_t);
+> +void * __must_check krealloc(const void *, size_t, gfp_t) __alloc_size(2=
+);
 
-Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-master-aarch64-lts-allmodconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/llvm-master-aarch64-lts-allmodconfig
+I suggest the __alloc_size attribute be placed at the beginning of the
+function declaration to be more similar to the common __printf attribute
+location uses.
 
-Culprit:
-<cut>
-commit 132a8267adabd645476b542b3b132c1b91988fe8
-Author: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Date:   Thu Aug 12 13:22:21 2021 +0200
+__alloc_size(2)
+void * __must_check krealloc(const void *, size_t, gfp_t);
 
-    Linux 5.10.58
-    
-    Link: https://lore.kernel.org/r/20210810172955.660225700@linuxfoundation.org
-    Tested-by: Fox Chen <foxhlchen@gmail.com>
-    Tested-by: Hulk Robot <hulkrobot@huawei.com>
-    Tested-by: Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>
-    Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-    Tested-by: Guenter Roeck <linux@roeck-us.net>
-    Tested-by: Shuah Khan <skhan@linuxfoundation.org>
-    Tested-by: Aakash Hemadri <aakashhemadri123@gmail.com>
-    Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-</cut>
+I really prefer the __must_check to be with the other attribute and that
+function declarations have argument names too like:
 
-Results regressed to (for first_bad == 132a8267adabd645476b542b3b132c1b91988fe8)
-# reset_artifacts:
--10
-# build_abe binutils:
--9
-# build_llvm:
--5
-# build_abe qemu:
--2
-# linux_n_obj:
-28702
-# linux build successful:
-all
-# First few build errors in logs:
+__alloc_size(2) __must_check
+void *krealloc(const void *ptr, size_t size, gfp_t gfp);
 
-from (for last_good == 3d7d1b0f5f41d66a2d177f9fdcdb32e23a4b2513)
-# reset_artifacts:
--10
-# build_abe binutils:
--9
-# build_llvm:
--5
-# build_abe qemu:
--2
-# linux_n_obj:
-28702
-# linux build successful:
-all
-# linux boot successful:
-boot
+but there are a _lot_ of placement of __must_check after the return type
 
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-lts-allmodconfig/6/artifact/artifacts/build-3d7d1b0f5f41d66a2d177f9fdcdb32e23a4b2513/
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-lts-allmodconfig/6/artifact/artifacts/build-132a8267adabd645476b542b3b132c1b91988fe8/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-lts-allmodconfig/6/
+Lastly __alloc_size should probably be added to checkpatch
 
-Configuration details:
-
-
-Reproduce builds:
-<cut>
-mkdir investigate-linux-132a8267adabd645476b542b3b132c1b91988fe8
-cd investigate-linux-132a8267adabd645476b542b3b132c1b91988fe8
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-lts-allmodconfig/6/artifact/artifacts/manifests/build-baseline.sh --fail
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-lts-allmodconfig/6/artifact/artifacts/manifests/build-parameters.sh --fail
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-lts-allmodconfig/6/artifact/artifacts/test.sh --fail
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-# Save baseline build state (which is then restored in artifacts/test.sh)
-mkdir -p ./bisect
-rsync -a --del --delete-excluded --exclude /bisect/ --exclude /artifacts/ --exclude /linux/ ./ ./bisect/baseline/
-
-cd linux
-
-# Reproduce first_bad build
-git checkout --detach 132a8267adabd645476b542b3b132c1b91988fe8
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach 3d7d1b0f5f41d66a2d177f9fdcdb32e23a4b2513
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-lts-allmodconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-lts-allmodconfig/6/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-lts-allmodconfig/6/consoleText
-
-Full commit (up to 1000 lines):
-<cut>
-commit 132a8267adabd645476b542b3b132c1b91988fe8
-Author: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Date:   Thu Aug 12 13:22:21 2021 +0200
-
-    Linux 5.10.58
-    
-    Link: https://lore.kernel.org/r/20210810172955.660225700@linuxfoundation.org
-    Tested-by: Fox Chen <foxhlchen@gmail.com>
-    Tested-by: Hulk Robot <hulkrobot@huawei.com>
-    Tested-by: Sudip Mukherjee <sudip.mukherjee@codethink.co.uk>
-    Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-    Tested-by: Guenter Roeck <linux@roeck-us.net>
-    Tested-by: Shuah Khan <skhan@linuxfoundation.org>
-    Tested-by: Aakash Hemadri <aakashhemadri123@gmail.com>
-    Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Maybe:
 ---
- Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ scripts/checkpatch.pl | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/Makefile b/Makefile
-index e9621a90e752..232dee1140c1 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- VERSION = 5
- PATCHLEVEL = 10
--SUBLEVEL = 57
-+SUBLEVEL = 58
- EXTRAVERSION =
- NAME = Dare mighty things
- 
-</cut>
+diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+index 161ce7fe5d1e5..1a166b5cf3447 100755
+--- a/scripts/checkpatch.pl
++++ b/scripts/checkpatch.pl
+@@ -489,7 +489,8 @@ our $Attribute	=3D qr{
+ 			____cacheline_aligned|
+ 			____cacheline_aligned_in_smp|
+ 			____cacheline_internodealigned_in_smp|
+-			__weak
++			__weak|
++			__alloc_size\s*\(\s*\d+\s*(?:,\s*d+\s*){0,5}\)
+ 		  }x;
+ our $Modifier;
+ our $Inline	=3D qr{inline|__always_inline|noinline|__inline|__inline__};
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/2088047326.3857.1629264127981%40localhost.
 
-------=_Part_3856_841047430.1629264127110--
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/f3e56f56c36b32dc76e174886008a2a1ecf3fefa.camel%40perches.=
+com.
