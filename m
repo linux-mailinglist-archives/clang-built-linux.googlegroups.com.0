@@ -1,145 +1,145 @@
-Return-Path: <clang-built-linux+bncBD763O5S5UARBAOF6SEAMGQELG65NYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCAIHYNQQ4IRBKGG6SEAMGQEKUB76YY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x437.google.com (mail-wr1-x437.google.com [IPv6:2a00:1450:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id 899703F0787
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 17:08:49 +0200 (CEST)
-Received: by mail-wr1-x437.google.com with SMTP id p4-20020a5d59a4000000b00156992180dbsf689114wrr.10
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 08:08:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629299329; cv=pass;
+Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 980373F0790
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 17:11:37 +0200 (CEST)
+Received: by mail-pj1-x103e.google.com with SMTP id m3-20020a17090b0683b0290178cb50bc1asf1587764pjz.7
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 08:11:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629299496; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qYBOBwqce9PGai2Kp1Rj7iPClotY8HnluB7xBYkqqBve+7IhRwuNGgSXj6LHzFBhXI
-         9w325g4dwYGeYsfdOUbwYkLfg65ZLnMvktnR8s9cd7U/Xhj1jz3sn0pNZ5lZ8W0Io4nD
-         gK8BAU7vZscb1FXMNMDS2GcK9e1MyuNag5gw32p11li9QKI/+zM2lhCpHI76sPt9hnSK
-         eJf/hfazfHvuGGsXdWhYpOHSGOmOlnQbimDcvofzX9Bi8tp2PuP9hhtEEjH4XhMQToIB
-         /mXymPqM9NXW6+cimOTa72jROMefeR8i52dCmHuHhFc28yGNyXrOTnllBUnyicGOF6Gz
-         kWgg==
+        b=oX1Grpo+8ZW1oMYsGIUmBD++Ac05Aqcmi0axE5L01hR7y3NbUfBa1HDGpywzz59mou
+         3a6HAQrjkJjCWyHPykHjBpQeMSvZrcFq+f5yBAAbUXy3qnqF9E5/LphrSOfTv76WNUNe
+         bxSFV5Hn7ZmcWCJXv8YnG7QDPPgoPBrCzTOhnvZS8YC1+oLFNZUWQQ3oTsAD2f4EZmvS
+         wx7fzK+ZStTvIHibKxGGKXMCyny42mwDCWLAvvx1sxEKR0P80bTpN8Lm/PagIi+B+5qu
+         confV2RHyKFN3W6Mrr4HnHFTk+RunGnIuRbYKNEi1zh7St9siPV+d8A2FwsMBx7yHcyg
+         rVsg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:importance:mime-version
-         :subject:references:in-reply-to:message-id:cc:to:from:date
-         :dkim-signature;
-        bh=lhEQUN9mgM9Lgvdb/DXlsHh7KfFvEjfQTqauAHXSoSo=;
-        b=yFw2NaD+0TwwcF0wLaP7w7OX/b1ZEAd2DUrydZbsEGSTrvmDqHwcgI854TlIlq+nK7
-         bZR5RWvMG8D7UACAjQrX9nTNoPuvNzdx27UJlHlxlOyknHuvuweLtSszXiB0ZiL+YQjN
-         Kl10aWZxyHX8u1iOhWJEWQ89XlPSrQEvM05wB8sMgA+YV6DkwB9gztHNFwLWju4aGwtD
-         lGF12VZqDU9+KLyc00yg2rZtI+F5cvGRnsuSWYtXbIY6F48me1b4+pnCX6tu7zOlpTpg
-         H+1DP7eKgyWO947EgEhazTF4/LanVZ+D8eTxPWTkvoA+380RvMEJdoO2+KU1RWGaCRU1
-         CHqg==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=SJgZZ8h4melthKtavBxQHQVaTGCArJ3x+O9Brysu1C0=;
+        b=yWjkraK5nB5ibtsUDD2EjhGUNbTBzQB3I+idS44p+/PAmDwCD/Nvra/4bkd6qY2lXY
+         /M15/Num4IABUuyl1uCfg5xgP6Nk6OhuWGEAa0PJcja2KpFhFX4q9ZZSsx6N77G9h0s7
+         w+O46b58q/2mkimxNakV2kW/bKusexiyvBmO0blJDTPOaUQshyvOvfyPEK3vZ9/SzpzD
+         +eDfHlw3mPreV2yJFES6FPxJdHAPEnykwSzCxgy6qxDgnvC1t/FLTW1elnXUxhWLLBFI
+         vqp3q9Pt8nJjGpLcB6CQc+9ppSf2rDFw0V/oxZh7DEXY5ysTMWgPQWv+Nf8dB0ylAAjA
+         FYRQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=mBZoSz8G;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=rvVYonya;
-       spf=pass (google.com: domain of torvic9@mailbox.org designates 2001:67c:2050::465:202 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=nKyY7H15;
+       spf=pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::630 as permitted sender) smtp.mailfrom=seanjc@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:from:to:cc:message-id:in-reply-to:references:subject
-         :mime-version:importance:x-original-sender
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=lhEQUN9mgM9Lgvdb/DXlsHh7KfFvEjfQTqauAHXSoSo=;
-        b=CRg0oJxR06etCNVtwB1qg0Bx0rEAk+Tp7rxcZau2TRfIWQuILUFbqKAo1T3JR8h6m2
-         f7DPahmpKCBZzbT5T1aFTwk01Fj66u3/L20suw4mpLausBTYhttARotrlaubxxGKUhRh
-         uScYCS+ZAiAPIaFvXusxqZb2nXjiv3j8fdcKrJKFlGq34h/po4ZHP+ywRYEvgDWxCnEf
-         wFdTnERWp4XOfyVAeJsNwB37uPK2/cTPbdr2tB7AOg09Zn7vzOUtaHmhW1boaNL0Go3P
-         s/Zxjqau//P4GOPomh4d/cTIm9wV9O4uFNLJez8DynPYmAxRM39J7tneaMBF/Pndf7d2
-         uBtA==
+        bh=SJgZZ8h4melthKtavBxQHQVaTGCArJ3x+O9Brysu1C0=;
+        b=TjE2HEsZo5fd1lsgEGrXVqHFsgQsOTGf83+Kd1qk1H56Q032akvfdkHfB8Q/+xqxfr
+         1do6BJFLa8VX5seMUJeCsQiJpiLcSr2eFnJhNPpEC+LvrIyx+bs+4Grv4+I++C21vj/0
+         WwiuMMfW2UychEeST7a7FT042hfXthIJ0mt9w76vXIJdhEkuc8zPSFRu6nR71eMT/DhH
+         Xi5HhmxhZwaHwPPeRghpKAKPzAIk2O/+Y6SKlttP1IPk0MLESFmAmG/TZWgOI4TSrRjC
+         NBiKreyNE/EpCxQnjcFc591hd+kkSmIsRmOEOHPi5kp0T1Hzv+bdeoLkY/rkbSZWeXSj
+         fKbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:message-id:in-reply-to
-         :references:subject:mime-version:importance:x-original-sender
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lhEQUN9mgM9Lgvdb/DXlsHh7KfFvEjfQTqauAHXSoSo=;
-        b=AlfwZYFWNqHYVhQP/vINfwRFMnv8mkm0z+aQMeend24Ifn9/W+g6rKR221YrNhbsma
-         IiAg1n4oUlwMojS36R2exk3jNt3ZZYjSkjkZ1toX61F88t3BOuoafieDv+G+zY76sTQd
-         JsBuPTryBRhRQsVcnOyaX6NLRC04NwNcU9HvXSnfkWjOED5e8iblc+IwKvR+qdfQkgEK
-         6sMlTeXucu4J20/zcPMiAaAzrFcSDU3vSe+K1HzERPqRQR5sV19TjobeOHOB/1yI/2Z5
-         v+F8EhCcBr9bya1dp1XLex861tpyymcy2KMYbJyJjc4x6ODY/Kxk2tpU48Ldeq2Nq/73
-         b/Cg==
-X-Gm-Message-State: AOAM532Y8hEW5pp9guCKnDzT65SRTY9/sNSit074X91rgG1V/5eQFEH6
-	Kaic4fpd/7GA42aZm5gXNos=
-X-Google-Smtp-Source: ABdhPJwPWzJA4PsTKZNx/PWaDY25bTFk9LR9oMI7UOGxcO+TkjZFvxRV6TaLTHxJLBkdQpABOlsgmA==
-X-Received: by 2002:a5d:510b:: with SMTP id s11mr11714794wrt.63.1629299329275;
-        Wed, 18 Aug 2021 08:08:49 -0700 (PDT)
+        bh=SJgZZ8h4melthKtavBxQHQVaTGCArJ3x+O9Brysu1C0=;
+        b=DQZYZNEZJLB4Ot0r7PpzuQpvBQv304sKVQ5OnqcYJt+O+KOa/IJg/ZuQOV/y4+gIYw
+         Ms/555+7cWfqgxoCk2AJIfmbJtZUJGf/PY54gdiw+B7ahDwTSGzC+HvnbShrxJUY2st5
+         74lJdt/gwMjVYiyyBp2Q6Fhqri1ajoFM9MQIclSFFg4Zonitn0vnd+pesluXvxh6/AsK
+         wFr9reoSvwbeuKKjeWcz9pgnN5ZtfUHdAIvn/nQxtzaRY63W0BJLbqLDmhv5Dt506rkU
+         WM9hUHRktcdxMI1cV42YGtJGjP9rupRm53aLTptEYPwMvJbgdp37Rm/ku3RT+WQWv1RH
+         jP9g==
+X-Gm-Message-State: AOAM531QzvC6VQxMCI6nUQX9t0Qt1kedRBGA+nCQ7aeTVku+4xyW8Aa8
+	J11J9kCbJX5GloCKRfVrwI0=
+X-Google-Smtp-Source: ABdhPJx6Quk6GKqu05jfhtktZfmZ2K4lpd7IU6rr7qCXhwy5FaylxOUJ8c09A6brIg1iVic0Ab9dbg==
+X-Received: by 2002:a17:90b:392:: with SMTP id ga18mr10070896pjb.156.1629299496244;
+        Wed, 18 Aug 2021 08:11:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:600c:1994:: with SMTP id t20ls2728050wmq.2.canary-gmail;
- Wed, 18 Aug 2021 08:08:48 -0700 (PDT)
-X-Received: by 2002:a1c:4384:: with SMTP id q126mr9139551wma.49.1629299328240;
-        Wed, 18 Aug 2021 08:08:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629299328; cv=none;
+Received: by 2002:a17:90a:eb15:: with SMTP id j21ls2884257pjz.0.canary-gmail;
+ Wed, 18 Aug 2021 08:11:35 -0700 (PDT)
+X-Received: by 2002:a17:902:f704:b029:11a:cdee:490 with SMTP id h4-20020a170902f704b029011acdee0490mr7766970plo.37.1629299495277;
+        Wed, 18 Aug 2021 08:11:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629299495; cv=none;
         d=google.com; s=arc-20160816;
-        b=L8Ktmz+V/sRsjEAMr/wJwMHC04Uhj4DAFbKfJyadSQ0o15LNGFRHqHZqvlmTbBMTq7
-         IdE9oLdLlH3/mf1EgU5ni029LiuIVibkg94Frmm8tiB64H1KEa/pHARElO6ubSYy2YPP
-         IQnadtI+2vRIf3/2/TVlalxAiLNfcivWYlaNDJHZOFYl2LJwJzE1VGlE66rqHcyA5A5N
-         2k0SZyxOgFAFBzUzSeqltEdrnk8/3BHDsTVbHQ3UHJzYQZt7RmXonW7AB/SQ+u5C0W0w
-         0teYdQFtToB63wyPL8FlgpuqM86yueNQE6yBTcrRtZcDiFyhFBojUzl1YZxREaW6j5lN
-         5A3g==
+        b=BIbQYaDw/AaztcQA7BB6PH5DhZw4viEeQGPtff98DsniGxJeertqt2jAT7elheC/PF
+         2mVEfF/rBgE7kp//JDAaYRvybs5vLPV8v+Kd5XrOLGiUa1mhFFCAQGHb6i57PZaWGSl7
+         oNBoYptz+DNe8sBCGDGpg/CL+TrCH4NW/P9MdnytzsNF0EEZVjuXBCk3RmOjfJvTUZ7v
+         CJPt+BpAUH7C5oaRCP8okgcMDypXwyT0b8v3ASgEc7oaQhH86i+8AJqRNLL7PB1WDV7P
+         o2Ozhp95nboKkgsQWFk4Oral8j/NGLBpK4cm6x7PZApoHZaufFRWa1/Oo5cNBV3/uWX+
+         KGWw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=importance:content-transfer-encoding:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:dkim-signature
-         :dkim-signature;
-        bh=zDnhRncZEBK7QOE1PSqSdUR/el9JR/iDyYbLw5ADBrw=;
-        b=XFqI0JE33Fz+Avl+l0ag0bXrLw5S/Z7Wj2kK81XG9Eo+IyPfvHaH0BSzS1WxMnlRT5
-         bQIbgyHpECcuEBZN6AT8OxfPSSTGpFG8hki8LtI66fhocoSSBtNZE2if2L7n8wYjvAII
-         41BJhjI+dvLduJhKkP0u1+L3nJR8ORkEgovMj837Nr1YzGNfGNM8ER4OhTsCboD6Ahog
-         p3TVEK1Mxb4f0ePsmzD/yuHOUw3/nNL8LP5pYizrTTX63rRfdEE8JSeNd6G1zrqIdNDG
-         VJBwu3GCFAEqFNN6FzmxKE1MuL0Lj5WeC7Cd1QVk0f3LmOGbmb2jQO4zB7KNwQa674wu
-         ZaMw==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=BATSV86SaK5afBXIFxzdzZX4j4EhGdui2K0OHBJGQcw=;
+        b=k7TPoO1+kPKY/tW3w9sp1rAO5rWWAfqrfhkiwysDVlPzzRkUiRpUY5Zhm474jqaCkz
+         H0cJPOaqvYHWeMPUvX7DJe6rhaJbBAcTffxVKoGOSSWx2P6T7ZMAsdsQAkburqZm4rO2
+         qMMRkSMC5bn5N5SEzRy87msOMgmxI8/E2KVoPgP9z/O/IdHtKlLodi6jQr+G9gEtVf88
+         Hf620yOJ9aSrccTSYeq+4Q9XToqM3XFCyT1dTpglk/1d6Z5Y8ywqK4JW6UOHKaw/gAJc
+         +iYNtdtgRfs6HRSTTzmkCTnOK0L2grS5wTNV7Q6mn8A9HJzQQonFiw/xGYiM4R8hD8QG
+         /2OA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=mBZoSz8G;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812 header.b=rvVYonya;
-       spf=pass (google.com: domain of torvic9@mailbox.org designates 2001:67c:2050::465:202 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
-Received: from mout-p-202.mailbox.org (mout-p-202.mailbox.org. [2001:67c:2050::465:202])
-        by gmr-mx.google.com with ESMTPS id c4si2491wmq.0.2021.08.18.08.08.48
+       dkim=pass header.i=@google.com header.s=20161025 header.b=nKyY7H15;
+       spf=pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::630 as permitted sender) smtp.mailfrom=seanjc@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x630.google.com (mail-pl1-x630.google.com. [2607:f8b0:4864:20::630])
+        by gmr-mx.google.com with ESMTPS id b15si16242pfl.6.2021.08.18.08.11.35
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Aug 2021 08:11:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::630 as permitted sender) client-ip=2607:f8b0:4864:20::630;
+Received: by mail-pl1-x630.google.com with SMTP id c4so1979969plh.7
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Aug 2021 08:11:35 -0700 (PDT)
+X-Received: by 2002:a17:90b:1e03:: with SMTP id pg3mr9751970pjb.203.1629299494765;
+        Wed, 18 Aug 2021 08:11:34 -0700 (PDT)
+Received: from google.com (157.214.185.35.bc.googleusercontent.com. [35.185.214.157])
+        by smtp.gmail.com with ESMTPSA id m7sm28291pfc.212.2021.08.18.08.11.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Aug 2021 08:08:48 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvic9@mailbox.org designates 2001:67c:2050::465:202 as permitted sender) client-ip=2001:67c:2050::465:202;
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:105:465:1:2:0])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-384) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4GqWWM6PTXzQkcq;
-	Wed, 18 Aug 2021 17:08:47 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at heinlein-support.de
-Received: from smtp2.mailbox.org ([80.241.60.241])
-	by spamfilter04.heinlein-hosting.de (spamfilter04.heinlein-hosting.de [80.241.56.122]) (amavisd-new, port 10030)
-	with ESMTP id z8NIfc79jt6B; Wed, 18 Aug 2021 17:08:41 +0200 (CEST)
-Date: Wed, 18 Aug 2021 17:08:40 +0200 (CEST)
-From: torvic9 via Clang Built Linux <clang-built-linux@googlegroups.com>
-To: Borislav Petkov <bp@alien8.de>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"graysky@archlinux.us" <graysky@archlinux.us>,
-	"masahiroy@kernel.org" <masahiroy@kernel.org>,
-	Christoph Hellwig <hch@infradead.org>
-Message-ID: <1708009975.124311.1629299321026@office.mailbox.org>
-In-Reply-To: <YRwBs89eogLJEiRn@zn.tnic>
-References: <269701460.117528.1629210189833@office.mailbox.org>
- <796036867.117557.1629210288168@office.mailbox.org>
- <YRwBs89eogLJEiRn@zn.tnic>
-Subject: Re: [PATCH 2/2] x86, Makefile: Add new generic x86-64 settings
- v2/v3/v4
+        Wed, 18 Aug 2021 08:11:34 -0700 (PDT)
+Date: Wed, 18 Aug 2021 15:11:28 +0000
+From: "'Sean Christopherson' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Kees Cook <keescook@chromium.org>
+Cc: linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Wanpeng Li <wanpengli@tencent.com>,
+	Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+	kvm@vger.kernel.org, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-staging@lists.linux.dev,
+	linux-block@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 53/63] KVM: x86: Use struct_group() to zero decode
+ cache
+Message-ID: <YR0jIEzEcUom/7rd@google.com>
+References: <20210818060533.3569517-1-keescook@chromium.org>
+ <20210818060533.3569517-54-keescook@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Priority: 3
-Importance: Normal
-X-Rspamd-Queue-Id: B96591838
-X-Rspamd-UID: b07b87
-X-Original-Sender: torvic9@mailbox.org
+Content-Disposition: inline
+In-Reply-To: <20210818060533.3569517-54-keescook@chromium.org>
+X-Original-Sender: seanjc@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mailbox.org header.s=mail20150812 header.b=mBZoSz8G;
-       dkim=pass header.i=@mailbox.org header.s=mail20150812
- header.b=rvVYonya;       spf=pass (google.com: domain of torvic9@mailbox.org
- designates 2001:67c:2050::465:202 as permitted sender) smtp.mailfrom=torvic9@mailbox.org;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=mailbox.org
-X-Original-From: torvic9@mailbox.org
-Reply-To: torvic9@mailbox.org
+ header.i=@google.com header.s=20161025 header.b=nKyY7H15;       spf=pass
+ (google.com: domain of seanjc@google.com designates 2607:f8b0:4864:20::630 as
+ permitted sender) smtp.mailfrom=seanjc@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Sean Christopherson <seanjc@google.com>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,82 +152,135 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-
-> Borislav Petkov <bp@alien8.de> hat am 17.08.2021 20:36 geschrieben:
+On Tue, Aug 17, 2021, Kees Cook wrote:
+>  arch/x86/kvm/emulate.c     |  3 +--
+>  arch/x86/kvm/kvm_emulate.h | 19 +++++++++++--------
+>  2 files changed, 12 insertions(+), 10 deletions(-)
 > 
+> diff --git a/arch/x86/kvm/emulate.c b/arch/x86/kvm/emulate.c
+> index 2837110e66ed..2608a047e769 100644
+> --- a/arch/x86/kvm/emulate.c
+> +++ b/arch/x86/kvm/emulate.c
+> @@ -5377,8 +5377,7 @@ static int fastop(struct x86_emulate_ctxt *ctxt, fastop_t fop)
 >  
-> On Tue, Aug 17, 2021 at 04:24:48PM +0200, torvic9@mailbox.org wrote:
-> > Add new generic x86-64 CPU tunings introduced with recent versions of
-> > gcc and clang, as documented in x86-64-psABI [1].
-> > 
-> > This is taken straight from graysky's CPU optimization patch with minor
-> > modifications [2].
-> > 
-> > [1] https://gitlab.com/x86-psABIs/x86-64-ABI/-/commit/77566eb03bc6a326811cb7e9a6b9396884b67c7c
-> > [2] https://github.com/graysky2/kernel_compiler_patch
-> > 
-> > Signed-off-by: Tor Vic <torvic9@mailbox.org>
-> > ---
-> >  arch/x86/Kconfig.cpu  | 26 +++++++++++++++++++++++++-
-> >  arch/x86/Makefile.cpu |  6 ++++++
-> >  2 files changed, 31 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/x86/Kconfig.cpu b/arch/x86/Kconfig.cpu
-> > index 814fe0d349b0..a2c872aa5a0b 100644
-> > --- a/arch/x86/Kconfig.cpu
-> > +++ b/arch/x86/Kconfig.cpu
-> > @@ -294,6 +294,30 @@ config GENERIC_CPU
-> >  	  Generic x86-64 CPU.
-> >  	  Run equally well on all x86-64 CPUs.
-> >  
-> > +config GENERIC_CPU_V2
-> > +	bool "Generic-x86-64-v2"
-> > +	depends on ( CC_IS_GCC && GCC_VERSION > 110000 ) || ( CC_IS_CLANG && CLANG_VERSION >= 120000 )
-> > +	depends on X86_64
-> > +	help
-> > +	  Generic x86-64 CPU.
-> > +	  Run equally well on all x86-64 CPUs with min support of x86-64-v2.
-> > +
-> > +config GENERIC_CPU_V3
-> > +	bool "Generic-x86-64-v3"
-> > +	depends on ( CC_IS_GCC && GCC_VERSION > 110000 ) || ( CC_IS_CLANG && CLANG_VERSION >= 120000 )
-> > +	depends on X86_64
-> > +	help
-> > +	  Generic x86-64-v3 CPU with v3 instructions.
-> > +	  Run equally well on all x86-64 CPUs with min support of x86-64-v3.
-> > +
-> > +config GENERIC_CPU_V4
-> > +	bool "Generic-x86-64-v4"
-> > +	depends on ( CC_IS_GCC && GCC_VERSION > 110000 ) || ( CC_IS_CLANG && CLANG_VERSION >= 120000 )
-> > +	depends on X86_64
-> > +	help
-> > +	  Generic x86-64 CPU with v4 instructions.
-> > +	  Run equally well on all x86-64 CPUs with min support of x86-64-v4.
-> 
-> Every once in a while, patches like that pop up without any real numbers
-> advocating for the additional and perhaps unnecessary complexity.
-> 
-> If those -march switches don't bring any measureable improvements - and
-> I highly doubt they do - you shouldn't waste time with submitting them.
+>  void init_decode_cache(struct x86_emulate_ctxt *ctxt)
+>  {
+> -	memset(&ctxt->rip_relative, 0,
+> -	       (void *)&ctxt->modrm - (void *)&ctxt->rip_relative);
+> +	memset(&ctxt->decode_cache, 0, sizeof(ctxt->decode_cache));
+>  
+>  	ctxt->io_read.pos = 0;
+>  	ctxt->io_read.end = 0;
+> diff --git a/arch/x86/kvm/kvm_emulate.h b/arch/x86/kvm/kvm_emulate.h
+> index 68b420289d7e..9b8afcb8ad39 100644
+> --- a/arch/x86/kvm/kvm_emulate.h
+> +++ b/arch/x86/kvm/kvm_emulate.h
+> @@ -341,14 +341,17 @@ struct x86_emulate_ctxt {
+>  	 * the rest are initialized unconditionally in x86_decode_insn
+>  	 * or elsewhere
+>  	 */
+> -	bool rip_relative;
+> -	u8 rex_prefix;
+> -	u8 lock_prefix;
+> -	u8 rep_prefix;
+> -	/* bitmaps of registers in _regs[] that can be read */
+> -	u32 regs_valid;
+> -	/* bitmaps of registers in _regs[] that have been written */
+> -	u32 regs_dirty;
+> +	struct_group(decode_cache,
 
-Borislav,
-I ran some quick checks and benchmarks, and your doubts seem to be justified.
-A 5.14-rc6 kernel compiled with the default 'generic' and one built with
-'x86-64-v3' even have the exact same uncompressed file size.
-Benchmarks were inconclusive as well.
-So I will only resubmit the first patch of this series, with the changes
-suggested by Masahiro and Christoph.
+This is somewhat misleading because half of this struct is the so called "decode
+cache", not just these six fields.
 
-> 
-> Thx.
-> 
+KVM's "optimization" is quite ridiculous as this has never been such a hot path
+that saving a few mov instructions would be noticeable.  And hilariously, the
+"optimization" is completely unnecessary because both gcc and clang are clever
+enough to batch the first five into a movq even when zeroing the fields individually.
+
+So, I would much prefer to go with the following:
+
+From dbdca1f4cd01fee418c252e54c360d518b2b1ad6 Mon Sep 17 00:00:00 2001
+From: Sean Christopherson <seanjc@google.com>
+Date: Wed, 18 Aug 2021 08:03:08 -0700
+Subject: [PATCH] KVM: x86: Replace memset() "optimization" with normal
+ per-field writes
+
+Explicitly zero select fields in the emulator's decode cache instead of
+zeroing the fields via a gross memset() that spans six fields.  gcc and
+clang are both clever enough to batch the first five fields into a single
+quadword MOV, i.e. memset() and individually zeroing generate identical
+code.
+
+Removing the wart also prepares KVM for FORTIFY_SOURCE performing
+compile-time and run-time field bounds checking for memset().
+
+No functional change intended.
+
+Reported-by: Kees Cook <keescook@chromium.org>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/kvm/emulate.c     | 9 +++++++--
+ arch/x86/kvm/kvm_emulate.h | 6 +-----
+ 2 files changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/arch/x86/kvm/emulate.c b/arch/x86/kvm/emulate.c
+index 2837110e66ed..bf81fd017e7f 100644
+--- a/arch/x86/kvm/emulate.c
++++ b/arch/x86/kvm/emulate.c
+@@ -5377,8 +5377,13 @@ static int fastop(struct x86_emulate_ctxt *ctxt, fastop_t fop)
+
+ void init_decode_cache(struct x86_emulate_ctxt *ctxt)
+ {
+-	memset(&ctxt->rip_relative, 0,
+-	       (void *)&ctxt->modrm - (void *)&ctxt->rip_relative);
++	/* Clear fields that are set conditionally but read without a guard. */
++	ctxt->rip_relative = false;
++	ctxt->rex_prefix = 0;
++	ctxt->lock_prefix = 0;
++	ctxt->rep_prefix = 0;
++	ctxt->regs_valid = 0;
++	ctxt->regs_dirty = 0;
+
+ 	ctxt->io_read.pos = 0;
+ 	ctxt->io_read.end = 0;
+diff --git a/arch/x86/kvm/kvm_emulate.h b/arch/x86/kvm/kvm_emulate.h
+index 68b420289d7e..bc1fecacccd4 100644
+--- a/arch/x86/kvm/kvm_emulate.h
++++ b/arch/x86/kvm/kvm_emulate.h
+@@ -336,11 +336,7 @@ struct x86_emulate_ctxt {
+ 		fastop_t fop;
+ 	};
+ 	int (*check_perm)(struct x86_emulate_ctxt *ctxt);
+-	/*
+-	 * The following six fields are cleared together,
+-	 * the rest are initialized unconditionally in x86_decode_insn
+-	 * or elsewhere
+-	 */
++
+ 	bool rip_relative;
+ 	u8 rex_prefix;
+ 	u8 lock_prefix;
+--
+2.33.0.rc1.237.g0d66db33f3-goog
+
+> +		bool rip_relative;
+> +		u8 rex_prefix;
+> +		u8 lock_prefix;
+> +		u8 rep_prefix;
+> +		/* bitmaps of registers in _regs[] that can be read */
+> +		u32 regs_valid;
+> +		/* bitmaps of registers in _regs[] that have been written */
+> +		u32 regs_dirty;
+> +	);
+> +
+>  	/* modrm */
+>  	u8 modrm;
+>  	u8 modrm_mod;
 > -- 
-> Regards/Gruss,
->     Boris.
+> 2.30.2
 > 
-> https://people.kernel.org/tglx/notes-about-netiquette
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1708009975.124311.1629299321026%40office.mailbox.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YR0jIEzEcUom/7rd%40google.com.
