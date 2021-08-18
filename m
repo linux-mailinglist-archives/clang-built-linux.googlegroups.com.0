@@ -1,144 +1,123 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBEXI6SEAMGQEEOAAJCI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDFLVGO2TQCBBQEJ6WEAMGQEA3GOHBA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7F7723F08FD
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 18:23:47 +0200 (CEST)
-Received: by mail-oi1-x23c.google.com with SMTP id p84-20020acabf570000b029026702f1769bsf1257231oif.10
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 09:23:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629303826; cv=pass;
+Received: from mail-wm1-x33f.google.com (mail-wm1-x33f.google.com [IPv6:2a00:1450:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id B3E283F0A57
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 19:34:56 +0200 (CEST)
+Received: by mail-wm1-x33f.google.com with SMTP id e12-20020a05600c218cb02902e6bbacdcd1sf907937wme.4
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 10:34:56 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629308096; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZvOzzat7c7TL4MozWF8Uztx+KWdsyrJzlwvRRKEvpo5C0LoQIDHIcrwKtjYmBIjEnu
-         PAQBeTUcP/Qv23e/5N3LrU6tiQDIJ6HAVXEl1YWCqoqEUs6kawVnAGXWBPU6VXaGlttN
-         Fg6FCjEchY4rVT2rgcBIYvfOyaTmoxmYSBXPHrFVxNC901KDQu4UKBpdRiNCIDUCqDt2
-         W8LoJnTYYDMDwh+g/WeY8NchbncHEj0w+O9Fd85rDLs2SPyjZryl5dR2OYFts3lEXq+d
-         TARMZ0Vle6dIUpvlYu4LIzxB95SFCvEmmmmiwh1UrFe/gGCWUiZgQ0hi21miW3AyD48E
-         UKdA==
+        b=hHus9YDb2JhkubThF5kTMnMH5zuONJBfaSjUVGYrpaEy+eHFWo1hsFJvkQr+P2nMTt
+         BA1UtG0+jDHax/H+DqRmnFXTm4tVdE8/rrURDtlWbnWLPtOpADG6dnGobhlMcgDz++O7
+         qWMCfMFqyq/oV7ZsYfPNmp+APbMa7RpPlZJOnntwzYNulhwOBhWIl2gFVVdaPPYOMSO/
+         mcWK+Yu+vtOt6rioaHLfTEeSidiOsMKd76uP3Ba4Djr1m4WDujv9XDGXyLCoW1LUhqYZ
+         dKKxkskKxU8IZwzGbIIzIgr7u0OLS1IUcHlWClyHZ4/2bgpDoK59Ebww92w1zees/4Sn
+         TbwA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=J1Aab63QvsvEW5asKuNwAGbkxa90BgPbEm/7LwcDyqI=;
-        b=DGHF8J8jJ3WFBARc7NPB5OmDMXAnCOaTNONHLHHVOEWi3Vvos9xpNF2LQaAKMkZeaG
-         Es66ntghGGXrD7vTYh1O9LQ8UGgbuM9iib+lx/VuAo5WkpDgiG16VJDZfb+DQKpyYAAe
-         9zIA/kVxMq65yfDFV0rl+PJOQPx+ys17qggUzovDRk8S7ndjziBolgkg0Lh+lN/5A4/Q
-         zkSnL0fZDpUYjb0tKeWkjxiDg8WLgUTq9W2PaRS7pY8Svux+o/g/GOFNg3DpAegDPdTG
-         I6xM3t7d2kdPyQgtCfjkdsY5pgbE6nOBs4BsUgsflfZAOI3UzDY0iezaeLkwvNZAjOAu
-         YDCA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=TCbWLmJPdiPVD6zdQoWV/lEvtmUX1q+HfEqLDpsYwao=;
+        b=lVYqvL/rBUa8Rl0rD9I/zj52rsy9vmrf9R7/ZnEoaLI55OewWjh+pD36bpC4nBuI5E
+         EVVBOfKQCHVhklxpTWsE4zPHMk2+3xvFvV6A5VHnNhHPdPnfV1X2bySDDRgnbj6w1VRw
+         kTbaFF5zZYFHV5biqUGIAVGNHBTbqB0TDHXaTfIzSubQ25X8AP1yHBTXOX/lLRtFUVtf
+         G04tEMBDSZig5UmaUQAJiTncRo7ucxMM6VFyrbAm+5o7M198rCSyifBLtPFVYphQ6vgX
+         vWEPG+PkCSHRRuTQYNjaARLoTShTQsoYFyBtHi5MDIc4239h89vDZCc2fCulgVk2VrnM
+         xpeQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b="fura/iwY";
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42c as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@archlinux-us.20150623.gappssmtp.com header.s=20150623 header.b="VmJ/mKVX";
+       spf=neutral (google.com: 2a00:1450:4864:20::433 is neither permitted nor denied by best guess record for domain of graysky@archlinux.us) smtp.mailfrom=graysky@archlinux.us
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=J1Aab63QvsvEW5asKuNwAGbkxa90BgPbEm/7LwcDyqI=;
-        b=E3tIRCbsgvUZDdTBpFfq5iQAwsHh7jS32LiRndS/fNTUPU8Jkw5JLASIXjYvWtjjJS
-         Bc/+7E1VahpBDwgHSPWoGbZ6vGKJ5jlAqSFGGYhsOiDyWPBqJ+Yz8xy9RI7ssfhPAKjn
-         O/zu5viTgICcnWWKDUaFPg7mdT2WG2E9rDLZw1DtsWpxF3s27kCdJB23k6/RJun4P9zV
-         MUM0cDiN2E1ApGis2YyMr0WsNePc5mDhqJBlrghsUS3FXmvmplpXv6WdzWGGDS5dkO0I
-         cspaPGQ4gnUVv5FlsHMzRq5LsaEKv5nVNeZjb4AnMqHQJguq8GTPLGUVXiASUu2kAO7U
-         OzJA==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=TCbWLmJPdiPVD6zdQoWV/lEvtmUX1q+HfEqLDpsYwao=;
+        b=iL9+j0v9zCcHA0RtvLfgl7w5uH4OCsThdF6ppm/MoOVkl3EnbkWlTPNn68o0tITFFW
+         NTJzjeQCZzIUK/rjffxwRVm/88aIAviCS2YI0dDdYra1MSgBAVukec5m8Pu/jRV+30lW
+         1B+O0O1Y9D5VtDAQzhJlLd4eAK9NsnIlbFcgMOC68Wr6gEH12p5N4BM9LyNEgn/1HesZ
+         jtmIYk07pS6uHtTm6VTbYtn9lZ57FP+hPjQkYsHVGg+z54F7RB16WLi51shvQ8QscUno
+         NTW54p1H0fDgJ+J5T7ywndI/sRZCzgxzNOSNE++yZi4P28Ex/PCGhFVA0rgLzitMWLnP
+         XXQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=J1Aab63QvsvEW5asKuNwAGbkxa90BgPbEm/7LwcDyqI=;
-        b=Fdeqje3u/gOk9PJ4zBbUGTg4k/VeDeAFxoZzD07WczxTrcChukGB6vlpNG/9dhE5al
-         REfs8xUXcg94okZ9mB5JTluUiKLT87IVqMXmmuDRYS4koGcgZgyWbk6boplht1d2aMiF
-         t02n2RDl7k5j2ozEiIOelTYuHjGPfG/8SV3vDLViEsJvZU0VvzyrCIrUh+15Zhf3yKrq
-         8hBVkK/QAX8Ql47a/ZacKnAkOyA6HNk8aHEei+vPK+rsm/ymIrpiUjNgC85ZYs6SboeD
-         mPnsI3eCy3XrWeuKLH1M7u4xQlWx7g6Jniq6hTFmKv1EF+uSF9PLE56eZsf2Gqp7M+yQ
-         c2Ww==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=TCbWLmJPdiPVD6zdQoWV/lEvtmUX1q+HfEqLDpsYwao=;
+        b=fAfs8Ob4/EtV4apHyf2v50ImiF7X2Ye3g52afdVUxnSNzB+kI6eeHbCvHckfCRNUJV
+         xEXpXJv3IFvH1pWXWDlV57yooFB93qJIr/FG+f8WKO/Dqjk47n0vPQDdubagOG6Bq63m
+         C04PbwYXM0tAkzFI4SYRhy1ZWrXCziIYl5qVubvo/EISWh+sdIYYwn7t/WQmCNBKSCVm
+         zbRwKRQtpTmfFAmigb8UZRi64t76n/IB6hQfk9uvEPV8nQ4zmGNHx7TnXgWvPM3BJWj7
+         a09HwR0tT3+zMDQcX2RXBm/lMA1yFc3vqOVEowGvblGULleOQSRiAV97gQPp4tv4St2P
+         EGLA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530Bi3TAlhdLdj5ro3K1nahkAd19wzqgUkm3itgqZ9wwbcweLNnO
-	ilMZHBhXSyzOhT+WIMygqkc=
-X-Google-Smtp-Source: ABdhPJxHkbqzKaTKuIsdm49qdSefV1cSeGrZuphpzIe5bjMLSI8n3LlWk0kfuBcAlIgMphwgUHQT8Q==
-X-Received: by 2002:a05:6808:20e:: with SMTP id l14mr7710902oie.87.1629303826414;
-        Wed, 18 Aug 2021 09:23:46 -0700 (PDT)
+X-Gm-Message-State: AOAM5322wnk+36i7XClOQ1MxCZnixrbXQ2YAm5seLSM4umCAdQ+MF/NV
+	zYB3wa0n8mMMQwcZasUyW+Y=
+X-Google-Smtp-Source: ABdhPJxaW7IXi05+4W4pQavIb7uPBxmfIEp+kiFiqGercAa0/zFKF8K4D1qAIbH5A5MRZyWpBsnkKQ==
+X-Received: by 2002:a5d:51c6:: with SMTP id n6mr7125142wrv.370.1629308096467;
+        Wed, 18 Aug 2021 10:34:56 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:20a7:: with SMTP id s39ls782217oiw.11.gmail; Wed,
- 18 Aug 2021 09:23:46 -0700 (PDT)
-X-Received: by 2002:a05:6808:20aa:: with SMTP id s42mr7950112oiw.37.1629303826039;
-        Wed, 18 Aug 2021 09:23:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629303826; cv=none;
+Received: by 2002:a5d:5383:: with SMTP id d3ls1095151wrv.2.gmail; Wed, 18 Aug
+ 2021 10:34:55 -0700 (PDT)
+X-Received: by 2002:adf:fa11:: with SMTP id m17mr12001789wrr.323.1629308095532;
+        Wed, 18 Aug 2021 10:34:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629308095; cv=none;
         d=google.com; s=arc-20160816;
-        b=q40Lkry/C2M896PgExHR421gE6+dIhSRrQQEPOBgV7N9mv2G+f9LDxn2P82a9N0ING
-         sSlX1YrYTfp28mdfbi38AVsdWZHFRBe4nvxDnrN+7mk0aiPUvrmaAcftl6XHCz3Y2279
-         fZ804pU3pctxHN5RAJEfN17fox7PwQsQ/+J5C2eZHmdskgErVBWL44QJIUTaFGGxQyyD
-         GiLuA2IDEF2A36pDU0FxEqYEN9/40UceBmUfU6Ns3pQcDUTx7TSvl9y4F6zUPoEMkMkQ
-         72KdhiZAjCw2+KvyzUFbVWzqhMhIJconKvr49ft6eTejzG3zMZhm9E4vXZk4YkupsCUC
-         bobA==
+        b=c+p+DtdwpY8Ox7jcm+osbFwLTg04VKU+zzFM1mFQ5hoMM0CNlgYW+WHn07ofAdWajL
+         vvIVfoZBq5VSpT9eI/JhdPQkod6BR+Na+tzRIzU2B8tKDQ3H5AFp5gF7KS3FUC1nyhGn
+         urTEehKjGTmtgK9adBu19ebtodiwwDdUI/te+7wbCv50f/shtbCLUOJR6w8tINhj0Tth
+         RTsTAqWkhgpAJJDY6lI8/i9cQsbR2pe7BmG71+9powotyLjRn30OpZ6BzhBrNSoWfivX
+         oLJyv3UqaBOwZ6F+FbXoUdzZkuu0QSQUgKhERSeQ/sbv8obLyoKuSawdVXXW2RXKLSRq
+         cZ8A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=lzxrYwRed6/SHUIlGR9aHlXsbeq7ptb+9qbS8mhHK50=;
-        b=upN0IdpXWWMw5WQyNnPEZsWHdd1e5oo0GLFqdHa61sOOuFGvBQvubgDD2Oduv2K9IL
-         UDgnohD5Th+zeTvCh0f3fKXK92qdz1V/I9pLl2ZvSbwO4o1lCenxHuc9BU285iLmil+e
-         w4IpodJxUhuaP2hggwx8OCGi55hZWPWmEK/SKk2En9mJpExTUIBtWpSl67k9gSpuVhpC
-         DFppHlWkaRrjaeQL+8bUh9zDfs56jkNi6N8aTpLVv2XVEHe8/BUGOD0CeutebLQPHGkg
-         LaTg6eHJNxioPOy5V4qc4d7IsxlG6rwsui3RpdxZmHSn5vG63dnqN9zw8zTa3Au5i+qv
-         57nQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Vk5/YnNi3cLytGrBmItE/wJkPhHjLCd6wB+WzEO/uOM=;
+        b=BvxlMu7KosRfgFLRPx0VP/TAUDmbND2bbk9ivtoogY8oo3EXabSRDAPPs150ErQMed
+         jQIbZfYlft5y1g3SeuF6CxVhDB4XQ2azU9qi3lxSQjLshSxijy1vcBxGg5qg5j9RVpxK
+         qr4glmclnF6gOKr9Ozc1/PMaULN/8VSbLk/GCMciALrMScaOiTuUlRdQnVbLUP13Qgls
+         AuWK17jIuzlH4htt0luoPT6Rlq12mXjPw2iOAOviFvGMtwmE4rtxuNknNkvWqKWlSDOE
+         kX7N3kEqENe+axUJ/LIhspzbfP0hzicrIaBfR4px7PJ5axP+bXYmMpRURQB/+EGsxLJ2
+         RzeQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b="fura/iwY";
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42c as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pf1-x42c.google.com (mail-pf1-x42c.google.com. [2607:f8b0:4864:20::42c])
-        by gmr-mx.google.com with ESMTPS id c20si35434ots.0.2021.08.18.09.23.45
+       dkim=pass header.i=@archlinux-us.20150623.gappssmtp.com header.s=20150623 header.b="VmJ/mKVX";
+       spf=neutral (google.com: 2a00:1450:4864:20::433 is neither permitted nor denied by best guess record for domain of graysky@archlinux.us) smtp.mailfrom=graysky@archlinux.us
+Received: from mail-wr1-x433.google.com (mail-wr1-x433.google.com. [2a00:1450:4864:20::433])
+        by gmr-mx.google.com with ESMTPS id z70si458264wmc.0.2021.08.18.10.34.55
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Aug 2021 09:23:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42c as permitted sender) client-ip=2607:f8b0:4864:20::42c;
-Received: by mail-pf1-x42c.google.com with SMTP id y190so2658136pfg.7
-        for <clang-built-linux@googlegroups.com>; Wed, 18 Aug 2021 09:23:45 -0700 (PDT)
-X-Received: by 2002:aa7:80d9:0:b029:2ed:49fa:6dc5 with SMTP id a25-20020aa780d90000b02902ed49fa6dc5mr10058545pfn.3.1629303824757;
-        Wed, 18 Aug 2021 09:23:44 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id 21sm228958pfh.103.2021.08.18.09.23.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Aug 2021 09:23:44 -0700 (PDT)
-Date: Wed, 18 Aug 2021 09:23:43 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	Wanpeng Li <wanpengli@tencent.com>,
-	Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
-	kvm@vger.kernel.org, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-staging@lists.linux.dev,
-	linux-block@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 53/63] KVM: x86: Use struct_group() to zero decode
- cache
-Message-ID: <202108180922.6C9E385A1@keescook>
-References: <20210818060533.3569517-1-keescook@chromium.org>
- <20210818060533.3569517-54-keescook@chromium.org>
- <YR0jIEzEcUom/7rd@google.com>
+        Wed, 18 Aug 2021 10:34:55 -0700 (PDT)
+Received-SPF: neutral (google.com: 2a00:1450:4864:20::433 is neither permitted nor denied by best guess record for domain of graysky@archlinux.us) client-ip=2a00:1450:4864:20::433;
+Received: by mail-wr1-x433.google.com with SMTP id v4so4657185wro.12
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Aug 2021 10:34:55 -0700 (PDT)
+X-Received: by 2002:a5d:4688:: with SMTP id u8mr12153337wrq.148.1629308095300;
+ Wed, 18 Aug 2021 10:34:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <YR0jIEzEcUom/7rd@google.com>
-X-Original-Sender: keescook@chromium.org
+References: <269701460.117528.1629210189833@office.mailbox.org>
+ <796036867.117557.1629210288168@office.mailbox.org> <YRwBs89eogLJEiRn@zn.tnic>
+ <1708009975.124311.1629299321026@office.mailbox.org>
+In-Reply-To: <1708009975.124311.1629299321026@office.mailbox.org>
+From: John <graysky@archlinux.us>
+Date: Wed, 18 Aug 2021 13:34:44 -0400
+Message-ID: <CAO_nJAa+RDC1y1-h=oN7Zdi2RkM5-ewehYyyP4aMi9mDaL+S5g@mail.gmail.com>
+Subject: Re: [PATCH 2/2] x86, Makefile: Add new generic x86-64 settings v2/v3/v4
+To: torvic9@mailbox.org
+Cc: Borislav Petkov <bp@alien8.de>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>, 
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, 
+	"masahiroy@kernel.org" <masahiroy@kernel.org>, Christoph Hellwig <hch@infradead.org>
+Content-Type: multipart/alternative; boundary="0000000000004014c005c9d8da17"
+X-Original-Sender: graysky@archlinux.us
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b="fura/iwY";       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42c
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@archlinux-us.20150623.gappssmtp.com header.s=20150623
+ header.b="VmJ/mKVX";       spf=neutral (google.com: 2a00:1450:4864:20::433 is
+ neither permitted nor denied by best guess record for domain of
+ graysky@archlinux.us) smtp.mailfrom=graysky@archlinux.us
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,152 +130,218 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 18, 2021 at 03:11:28PM +0000, Sean Christopherson wrote:
-> On Tue, Aug 17, 2021, Kees Cook wrote:
-> >  arch/x86/kvm/emulate.c     |  3 +--
-> >  arch/x86/kvm/kvm_emulate.h | 19 +++++++++++--------
-> >  2 files changed, 12 insertions(+), 10 deletions(-)
-> > 
-> > diff --git a/arch/x86/kvm/emulate.c b/arch/x86/kvm/emulate.c
-> > index 2837110e66ed..2608a047e769 100644
-> > --- a/arch/x86/kvm/emulate.c
-> > +++ b/arch/x86/kvm/emulate.c
-> > @@ -5377,8 +5377,7 @@ static int fastop(struct x86_emulate_ctxt *ctxt, fastop_t fop)
-> >  
-> >  void init_decode_cache(struct x86_emulate_ctxt *ctxt)
-> >  {
-> > -	memset(&ctxt->rip_relative, 0,
-> > -	       (void *)&ctxt->modrm - (void *)&ctxt->rip_relative);
-> > +	memset(&ctxt->decode_cache, 0, sizeof(ctxt->decode_cache));
-> >  
-> >  	ctxt->io_read.pos = 0;
-> >  	ctxt->io_read.end = 0;
-> > diff --git a/arch/x86/kvm/kvm_emulate.h b/arch/x86/kvm/kvm_emulate.h
-> > index 68b420289d7e..9b8afcb8ad39 100644
-> > --- a/arch/x86/kvm/kvm_emulate.h
-> > +++ b/arch/x86/kvm/kvm_emulate.h
-> > @@ -341,14 +341,17 @@ struct x86_emulate_ctxt {
-> >  	 * the rest are initialized unconditionally in x86_decode_insn
-> >  	 * or elsewhere
-> >  	 */
-> > -	bool rip_relative;
-> > -	u8 rex_prefix;
-> > -	u8 lock_prefix;
-> > -	u8 rep_prefix;
-> > -	/* bitmaps of registers in _regs[] that can be read */
-> > -	u32 regs_valid;
-> > -	/* bitmaps of registers in _regs[] that have been written */
-> > -	u32 regs_dirty;
-> > +	struct_group(decode_cache,
-> 
-> This is somewhat misleading because half of this struct is the so called "decode
-> cache", not just these six fields.
-> 
-> KVM's "optimization" is quite ridiculous as this has never been such a hot path
-> that saving a few mov instructions would be noticeable.  And hilariously, the
-> "optimization" is completely unnecessary because both gcc and clang are clever
-> enough to batch the first five into a movq even when zeroing the fields individually.
-> 
-> So, I would much prefer to go with the following:
+--0000000000004014c005c9d8da17
+Content-Type: text/plain; charset="UTF-8"
 
-Sounds good to me!
+On Wed, Aug 18, 2021 at 11:08 AM <torvic9@mailbox.org> wrote:
 
-> 
-> From dbdca1f4cd01fee418c252e54c360d518b2b1ad6 Mon Sep 17 00:00:00 2001
-> From: Sean Christopherson <seanjc@google.com>
-> Date: Wed, 18 Aug 2021 08:03:08 -0700
-> Subject: [PATCH] KVM: x86: Replace memset() "optimization" with normal
->  per-field writes
-> 
-> Explicitly zero select fields in the emulator's decode cache instead of
-> zeroing the fields via a gross memset() that spans six fields.  gcc and
-> clang are both clever enough to batch the first five fields into a single
-> quadword MOV, i.e. memset() and individually zeroing generate identical
-> code.
-> 
-> Removing the wart also prepares KVM for FORTIFY_SOURCE performing
-> compile-time and run-time field bounds checking for memset().
-> 
-> No functional change intended.
-> 
-> Reported-by: Kees Cook <keescook@chromium.org>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+>
+> > Borislav Petkov <bp@alien8.de> hat am 17.08.2021 20:36 geschrieben:
+> >
+> >
+> > On Tue, Aug 17, 2021 at 04:24:48PM +0200, torvic9@mailbox.org wrote:
+> > > Add new generic x86-64 CPU tunings introduced with recent versions of
+> > > gcc and clang, as documented in x86-64-psABI [1].
+> > >
+> > > This is taken straight from graysky's CPU optimization patch with minor
+> > > modifications [2].
+> > >
+> > > [1]
+> https://gitlab.com/x86-psABIs/x86-64-ABI/-/commit/77566eb03bc6a326811cb7e9a6b9396884b67c7c
+> > > [2] https://github.com/graysky2/kernel_compiler_patch
+> > >
+> > > Signed-off-by: Tor Vic <torvic9@mailbox.org>
+> > > ---
+> > >  arch/x86/Kconfig.cpu  | 26 +++++++++++++++++++++++++-
+> > >  arch/x86/Makefile.cpu |  6 ++++++
+> > >  2 files changed, 31 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/arch/x86/Kconfig.cpu b/arch/x86/Kconfig.cpu
+> > > index 814fe0d349b0..a2c872aa5a0b 100644
+> > > --- a/arch/x86/Kconfig.cpu
+> > > +++ b/arch/x86/Kconfig.cpu
+> > > @@ -294,6 +294,30 @@ config GENERIC_CPU
+> > >       Generic x86-64 CPU.
+> > >       Run equally well on all x86-64 CPUs.
+> > >
+> > > +config GENERIC_CPU_V2
+> > > +   bool "Generic-x86-64-v2"
+> > > +   depends on ( CC_IS_GCC && GCC_VERSION > 110000 ) || ( CC_IS_CLANG
+> && CLANG_VERSION >= 120000 )
+> > > +   depends on X86_64
+> > > +   help
+> > > +     Generic x86-64 CPU.
+> > > +     Run equally well on all x86-64 CPUs with min support of
+> x86-64-v2.
+> > > +
+> > > +config GENERIC_CPU_V3
+> > > +   bool "Generic-x86-64-v3"
+> > > +   depends on ( CC_IS_GCC && GCC_VERSION > 110000 ) || ( CC_IS_CLANG
+> && CLANG_VERSION >= 120000 )
+> > > +   depends on X86_64
+> > > +   help
+> > > +     Generic x86-64-v3 CPU with v3 instructions.
+> > > +     Run equally well on all x86-64 CPUs with min support of
+> x86-64-v3.
+> > > +
+> > > +config GENERIC_CPU_V4
+> > > +   bool "Generic-x86-64-v4"
+> > > +   depends on ( CC_IS_GCC && GCC_VERSION > 110000 ) || ( CC_IS_CLANG
+> && CLANG_VERSION >= 120000 )
+> > > +   depends on X86_64
+> > > +   help
+> > > +     Generic x86-64 CPU with v4 instructions.
+> > > +     Run equally well on all x86-64 CPUs with min support of
+> x86-64-v4.
+> >
+> > Every once in a while, patches like that pop up without any real numbers
+> > advocating for the additional and perhaps unnecessary complexity.
+> >
+> > If those -march switches don't bring any measureable improvements - and
+> > I highly doubt they do - you shouldn't waste time with submitting them.
+>
+> Borislav,
+> I ran some quick checks and benchmarks, and your doubts seem to be
+> justified.
+> A 5.14-rc6 kernel compiled with the default 'generic' and one built with
+> 'x86-64-v3' even have the exact same uncompressed file size.
+> Benchmarks were inconclusive as well.
+> So I will only resubmit the first patch of this series, with the changes
+> suggested by Masahiro and Christoph.
+>
 
-Reviewed-by: Kees Cook <keescook@chromium.org>
+For what it's worth, I did some benchmarking a few years ago using the time
+it took to build with gcc as the endpoint and compared the generic x86_64
+option to the core2 option as well as to some others -march= options
+introduced by the my patchset and found very small but statistically
+relevant differences in favor of the -march= options[1].
 
-Do you want me to take this patch into my tree, or do you want to carry
-it for KVM directly?
-
-Thanks!
-
--Kees
-
-> ---
->  arch/x86/kvm/emulate.c     | 9 +++++++--
->  arch/x86/kvm/kvm_emulate.h | 6 +-----
->  2 files changed, 8 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/x86/kvm/emulate.c b/arch/x86/kvm/emulate.c
-> index 2837110e66ed..bf81fd017e7f 100644
-> --- a/arch/x86/kvm/emulate.c
-> +++ b/arch/x86/kvm/emulate.c
-> @@ -5377,8 +5377,13 @@ static int fastop(struct x86_emulate_ctxt *ctxt, fastop_t fop)
-> 
->  void init_decode_cache(struct x86_emulate_ctxt *ctxt)
->  {
-> -	memset(&ctxt->rip_relative, 0,
-> -	       (void *)&ctxt->modrm - (void *)&ctxt->rip_relative);
-> +	/* Clear fields that are set conditionally but read without a guard. */
-> +	ctxt->rip_relative = false;
-> +	ctxt->rex_prefix = 0;
-> +	ctxt->lock_prefix = 0;
-> +	ctxt->rep_prefix = 0;
-> +	ctxt->regs_valid = 0;
-> +	ctxt->regs_dirty = 0;
-> 
->  	ctxt->io_read.pos = 0;
->  	ctxt->io_read.end = 0;
-> diff --git a/arch/x86/kvm/kvm_emulate.h b/arch/x86/kvm/kvm_emulate.h
-> index 68b420289d7e..bc1fecacccd4 100644
-> --- a/arch/x86/kvm/kvm_emulate.h
-> +++ b/arch/x86/kvm/kvm_emulate.h
-> @@ -336,11 +336,7 @@ struct x86_emulate_ctxt {
->  		fastop_t fop;
->  	};
->  	int (*check_perm)(struct x86_emulate_ctxt *ctxt);
-> -	/*
-> -	 * The following six fields are cleared together,
-> -	 * the rest are initialized unconditionally in x86_decode_insn
-> -	 * or elsewhere
-> -	 */
-> +
->  	bool rip_relative;
->  	u8 rex_prefix;
->  	u8 lock_prefix;
-> --
-> 2.33.0.rc1.237.g0d66db33f3-goog
-> 
-> > +		bool rip_relative;
-> > +		u8 rex_prefix;
-> > +		u8 lock_prefix;
-> > +		u8 rep_prefix;
-> > +		/* bitmaps of registers in _regs[] that can be read */
-> > +		u32 regs_valid;
-> > +		/* bitmaps of registers in _regs[] that have been written */
-> > +		u32 regs_dirty;
-> > +	);
-> > +
-> >  	/* modrm */
-> >  	u8 modrm;
-> >  	u8 modrm_mod;
-> > -- 
-> > 2.30.2
-> > 
-
--- 
-Kees Cook
+1. https://github.com/graysky2/kernel_compiler_patch
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108180922.6C9E385A1%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAO_nJAa%2BRDC1y1-h%3DoN7Zdi2RkM5-ewehYyyP4aMi9mDaL%2BS5g%40mail.gmail.com.
+
+--0000000000004014c005c9d8da17
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr">On Wed, Aug 18, 2021 at 11:08 AM &lt;<a h=
+ref=3D"mailto:torvic9@mailbox.org">torvic9@mailbox.org</a>&gt; wrote:<br></=
+div><div class=3D"gmail_quote"><blockquote class=3D"gmail_quote" style=3D"m=
+argin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left=
+:1ex"><br>
+&gt; Borislav Petkov &lt;<a href=3D"mailto:bp@alien8.de" target=3D"_blank">=
+bp@alien8.de</a>&gt; hat am 17.08.2021 20:36 geschrieben:<br>
+&gt; <br>
+&gt;=C2=A0 <br>
+&gt; On Tue, Aug 17, 2021 at 04:24:48PM +0200, <a href=3D"mailto:torvic9@ma=
+ilbox.org" target=3D"_blank">torvic9@mailbox.org</a> wrote:<br>
+&gt; &gt; Add new generic x86-64 CPU tunings introduced with recent version=
+s of<br>
+&gt; &gt; gcc and clang, as documented in x86-64-psABI [1].<br>
+&gt; &gt; <br>
+&gt; &gt; This is taken straight from graysky&#39;s CPU optimization patch =
+with minor<br>
+&gt; &gt; modifications [2].<br>
+&gt; &gt; <br>
+&gt; &gt; [1] <a href=3D"https://gitlab.com/x86-psABIs/x86-64-ABI/-/commit/=
+77566eb03bc6a326811cb7e9a6b9396884b67c7c" rel=3D"noreferrer" target=3D"_bla=
+nk">https://gitlab.com/x86-psABIs/x86-64-ABI/-/commit/77566eb03bc6a326811cb=
+7e9a6b9396884b67c7c</a><br>
+&gt; &gt; [2] <a href=3D"https://github.com/graysky2/kernel_compiler_patch"=
+ rel=3D"noreferrer" target=3D"_blank">https://github.com/graysky2/kernel_co=
+mpiler_patch</a><br>
+&gt; &gt; <br>
+&gt; &gt; Signed-off-by: Tor Vic &lt;<a href=3D"mailto:torvic9@mailbox.org"=
+ target=3D"_blank">torvic9@mailbox.org</a>&gt;<br>
+&gt; &gt; ---<br>
+&gt; &gt;=C2=A0 arch/x86/Kconfig.cpu=C2=A0 | 26 +++++++++++++++++++++++++-<=
+br>
+&gt; &gt;=C2=A0 arch/x86/Makefile.cpu |=C2=A0 6 ++++++<br>
+&gt; &gt;=C2=A0 2 files changed, 31 insertions(+), 1 deletion(-)<br>
+&gt; &gt; <br>
+&gt; &gt; diff --git a/arch/x86/Kconfig.cpu b/arch/x86/Kconfig.cpu<br>
+&gt; &gt; index 814fe0d349b0..a2c872aa5a0b 100644<br>
+&gt; &gt; --- a/arch/x86/Kconfig.cpu<br>
+&gt; &gt; +++ b/arch/x86/Kconfig.cpu<br>
+&gt; &gt; @@ -294,6 +294,30 @@ config GENERIC_CPU<br>
+&gt; &gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0Generic x86-64 CPU.<br>
+&gt; &gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0Run equally well on all x86-64 CPUs.<br=
+>
+&gt; &gt;=C2=A0 <br>
+&gt; &gt; +config GENERIC_CPU_V2<br>
+&gt; &gt; +=C2=A0 =C2=A0bool &quot;Generic-x86-64-v2&quot;<br>
+&gt; &gt; +=C2=A0 =C2=A0depends on ( CC_IS_GCC &amp;&amp; GCC_VERSION &gt; =
+110000 ) || ( CC_IS_CLANG &amp;&amp; CLANG_VERSION &gt;=3D 120000 )<br>
+&gt; &gt; +=C2=A0 =C2=A0depends on X86_64<br>
+&gt; &gt; +=C2=A0 =C2=A0help<br>
+&gt; &gt; +=C2=A0 =C2=A0 =C2=A0Generic x86-64 CPU.<br>
+&gt; &gt; +=C2=A0 =C2=A0 =C2=A0Run equally well on all x86-64 CPUs with min=
+ support of x86-64-v2.<br>
+&gt; &gt; +<br>
+&gt; &gt; +config GENERIC_CPU_V3<br>
+&gt; &gt; +=C2=A0 =C2=A0bool &quot;Generic-x86-64-v3&quot;<br>
+&gt; &gt; +=C2=A0 =C2=A0depends on ( CC_IS_GCC &amp;&amp; GCC_VERSION &gt; =
+110000 ) || ( CC_IS_CLANG &amp;&amp; CLANG_VERSION &gt;=3D 120000 )<br>
+&gt; &gt; +=C2=A0 =C2=A0depends on X86_64<br>
+&gt; &gt; +=C2=A0 =C2=A0help<br>
+&gt; &gt; +=C2=A0 =C2=A0 =C2=A0Generic x86-64-v3 CPU with v3 instructions.<=
+br>
+&gt; &gt; +=C2=A0 =C2=A0 =C2=A0Run equally well on all x86-64 CPUs with min=
+ support of x86-64-v3.<br>
+&gt; &gt; +<br>
+&gt; &gt; +config GENERIC_CPU_V4<br>
+&gt; &gt; +=C2=A0 =C2=A0bool &quot;Generic-x86-64-v4&quot;<br>
+&gt; &gt; +=C2=A0 =C2=A0depends on ( CC_IS_GCC &amp;&amp; GCC_VERSION &gt; =
+110000 ) || ( CC_IS_CLANG &amp;&amp; CLANG_VERSION &gt;=3D 120000 )<br>
+&gt; &gt; +=C2=A0 =C2=A0depends on X86_64<br>
+&gt; &gt; +=C2=A0 =C2=A0help<br>
+&gt; &gt; +=C2=A0 =C2=A0 =C2=A0Generic x86-64 CPU with v4 instructions.<br>
+&gt; &gt; +=C2=A0 =C2=A0 =C2=A0Run equally well on all x86-64 CPUs with min=
+ support of x86-64-v4.<br>
+&gt; <br>
+&gt; Every once in a while, patches like that pop up without any real numbe=
+rs<br>
+&gt; advocating for the additional and perhaps unnecessary complexity.<br>
+&gt; <br>
+&gt; If those -march switches don&#39;t bring any measureable improvements =
+- and<br>
+&gt; I highly doubt they do - you shouldn&#39;t waste time with submitting =
+them.<br>
+<br>
+Borislav,<br>
+I ran some quick checks and benchmarks, and your doubts seem to be justifie=
+d.<br>
+A 5.14-rc6 kernel compiled with the default &#39;generic&#39; and one built=
+ with<br>
+&#39;x86-64-v3&#39; even have the exact same uncompressed file size.<br>
+Benchmarks were inconclusive as well.<br>
+So I will only resubmit the first patch of this series, with the changes<br=
+>
+suggested by Masahiro and Christoph.<br></blockquote><div>=C2=A0</div><div>=
+For what it&#39;s worth, I did some benchmarking a few years ago using the =
+time it took to build with gcc as the endpoint and compared the generic x86=
+_64 option to the core2 option as well as to some others -march=3D options =
+introduced by the my patchset and found very small but statistically releva=
+nt differences in favor of the -march=3D options[1].</div><div><br></div><d=
+iv>1. <a href=3D"https://github.com/graysky2/kernel_compiler_patch">https:/=
+/github.com/graysky2/kernel_compiler_patch</a></div><div><br></div><div><br=
+></div></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CAO_nJAa%2BRDC1y1-h%3DoN7Zdi2RkM5-ewehYyyP4aMi=
+9mDaL%2BS5g%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https:=
+//groups.google.com/d/msgid/clang-built-linux/CAO_nJAa%2BRDC1y1-h%3DoN7Zdi2=
+RkM5-ewehYyyP4aMi9mDaL%2BS5g%40mail.gmail.com</a>.<br />
+
+--0000000000004014c005c9d8da17--
