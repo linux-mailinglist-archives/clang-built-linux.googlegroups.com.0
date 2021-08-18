@@ -1,131 +1,164 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBO4Z6KEAMGQEHI3O6MQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDNYNPOAQ4GBBRM76KEAMGQEMKSFSEI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
-	by mail.lfdr.de (Postfix) with ESMTPS id BEE523EF945
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 06:29:48 +0200 (CEST)
-Received: by mail-pl1-x637.google.com with SMTP id n1-20020a170902e54100b0012dbd2c897csf390239plf.20
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 21:29:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629260987; cv=pass;
+Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id AD8803EF99E
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 06:42:46 +0200 (CEST)
+Received: by mail-oi1-x237.google.com with SMTP id p84-20020acabf570000b029026702f1769bsf880781oif.10
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 21:42:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629261765; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fyVlqC6KQBpfgq2wCuNBaeEfMoG9AMw9LV/z4PMknGlJEoxYae/4VLEOGr8wFCCb07
-         ke3SZHKDrR+OPtTi/aCcZZIOgmqEpUNEvItKum+Jj5tTBfcEUd275AJLA0Wysqwv18yu
-         d82WPJQIJQKQmNAIxErrn3G6iWzTo/BtTQPiBK3u9W8jiYQ4WMKeX7KFB/wgXn6TBiqF
-         YDh7QC26SxOg9kcM6tQw4Bc3D3Qvlh2XZ7F6+K1HBVsarGmRo4uPnpeeM2WrKeKmtfpE
-         mvEgtWHGK9R7xGJUAnbwZ9q0lEUh98batwRP1JiUhSyWFnfJdWTysySPslOOCArWNfPP
-         an/A==
+        b=LsXKwGeCA1UN2ZMu4WGxNa4ORVvqgkRLlQpOP8Ky3tlGrLUk2TgMThvzP1paYFSU/j
+         F9UGrup7ndEvSTb0nD0+Pl1CRlrxcXkkk2snNjBDqavz0hUzoqILS7rEzEJ9xqf6vKX8
+         27lcdvFKttzYY91knK+Re9899Lqi+Edd7R+KCSlibwIR4VzjNWsRxxUaZf/OUFMz5vBf
+         e2nkY7lCA+aeCPZNhWjF7D7Hx+7QCOiWibJWa3XNG3ApGSFi8s1rkkXXAVNGJSgnPiWE
+         p9bmFGng+oIMLv86VtDwZ3TtLqwJTyW7kEW+JeVywFveoq+MfWo6nD6POKk2VFAKUpwT
+         ExAQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=rWQKUXRxNNoZibE+lWuLR3O/tdHC2Kv3RQZopLGGl/A=;
-        b=L832cE4fhTLkLCL3d+LR70ANgKe166h8kUdh+Sl6uSm59uxPpmoPC3h0/dA1t0LUdX
-         Ss35LJjpLXhliax6nj4Gl5EjtFfR/58PRPz/dG7DpmwbNSvpigt1MZBs63ftqsU287Rq
-         AYMloiHOroK4s7Hl2ZSe8KVbGrYVJBGSKgi75TnSjYkSkPxxhq9awTI93OkVlfjT2AMW
-         Od5+BQQLGTaGIyqviUNpi7uHHKR30FqXSAG5euezXSvc0HOKTOwZmjwKHRAp4hKVf2b/
-         AhbtXMyScxlyl2RiIdXMCCa3kQYiRA2DbyeaIetmiIksRQF2PyuaHwBKAnd39jMlorcE
-         KB0g==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=L11Vbb0eRaJj2zTx7Djz5FyWSt9prX41vTZbd9B0puY=;
+        b=WXGKE5woQimsvlwo4VWT7G7ct0dmjp+PEXvau94a3tSK6J0nDREiaeXgeQyymsbdtG
+         qdwaL4tw4dUys4onPb2ybBw9k0mh1JvQK8+FYnTuGhTn1SsIq1eRpL8d7lIdDjqBMf4g
+         dcwD9cxj+6wlbkXYIyfH6pvGF1Zp2YubyEoXuTjzjCYfQp6yeJD2DeETeBBNWgIVETBx
+         NS+dvzfKLSMvEvgFsduaz/UO+w+TN1x0HeYlAyqmpsAicwzoyw5o6F2XCu5ixeT4FTug
+         TZq2QCDI+kWwi+IwOGSh54uifmJquJ9fT1Ofx6jGxjrrtdsGJMc5/BvKs6yhcKFx1vCb
+         FK9g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="E/fkK5/G";
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@embeddedor.com header.s=default header.b=be9hlQMJ;
+       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.51.253 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=rWQKUXRxNNoZibE+lWuLR3O/tdHC2Kv3RQZopLGGl/A=;
-        b=PkrgPxEaOQPQ/fp3qW9KwR3cJBCgcP7bT+0wddLonb4Age9YaK6f3m7jk8zUkuA7ek
-         djb1wdfQfbgJWva7Wn91zBlayOQ+5qsx1ZwVL2MfvifoE5ACbpoQI573Fc9R5KjSQz35
-         QYEAXEKlZuV6xnMLWh9JKKH7NbAzQEsKCfkh3PRk40VZT2w6iUUAmQvAY3e9oqKvFZz/
-         ytnpdpxPf+QO3XxceS3Virng7dJnJzo6KxjNHgaDgAl2dJLiKm9Q/bw+5woaYV2GUfak
-         6WV1C/8ggcZoJHZRLhV+znS2Gb02OpRBGl7SMvTpkDhoklghBXdyeioED6ATlU/XCZtz
-         WSMg==
+        bh=L11Vbb0eRaJj2zTx7Djz5FyWSt9prX41vTZbd9B0puY=;
+        b=VFC/KOLOvHgJGDB6JKNvA4AT7n0M9T1bL47mi+lM3QAYb6z+3NCSbqaLbsYnnSDDZN
+         FBMTAk5htgRgw3TxQUSVCfjYqJb/yOeDFwgQPYRY55yVlxS0CGnopFfGZ+hIk21jxF4t
+         mB1dSRM1VlEKi7vusKtNYw+OjfxeTLoe/hhaSpBuA+4nllBsBE9yLmfPDJ5tfn/ElUX9
+         ZCYyDr/PMQJGlMQ4l5Zr8/cskhZwD+eiD9yZ2Ssj+g2k8ExrN7e3TF1K5AroC37CfjU/
+         b1p3KHMUtZRVSZCzhfoF6Wv4kfw3TDYicsjyhrigJaqAhI3vgxsqC57rh5RgITCD2tXb
+         ahZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=rWQKUXRxNNoZibE+lWuLR3O/tdHC2Kv3RQZopLGGl/A=;
-        b=mMsuZ/UEdQpIHvD6CAI14tLdRaon68fGe1OWsdQziLt68q17HHKGWgBzn07jxzWa7o
-         pgiHtqRmz3ELquW95cVDa7HImhJdzSzanzlAAIR1s2kHi32d+pwokZFlDb42EU3/d4XE
-         6BqzBAoLy4gkYNHRG1l+9SM0f2W1mdU+cp8dP0zeLKEwHRuiEe0qYO1VJyP463s0z38h
-         1dZd9u4TMpv4XArd7S6jEzIaWhmjoy9+OfuEE5Y5ukya+StJIfG/X9k5An+asqO36SP0
-         Cs1awf6mGcdr26PwWTAB774IO1S9i+p+s2nQ5UU9XdyOgupPICJ1ygyporS+3ScTvl0a
-         dfDw==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=L11Vbb0eRaJj2zTx7Djz5FyWSt9prX41vTZbd9B0puY=;
+        b=F4iTgnuHR80JQY6MXRG15fkKj5Umq2YLCkEhepHPfG2mJJkIVRcNvWKcvKZcE2N+yQ
+         pUs7qj9S5HUog47mSjc8tifKb4O2Iu6JpnJ5WgOIPBRTSivMiD8sdveHYUB6k8hNcdun
+         zDrKy4+KT/7C+Wn9HURW01wWcidnyPYhRVW+jHDM2ENCpJkNRAvb12sDs9J9qW0IweBV
+         MSq99Lowte9lC4ZgeaXz92ew2UNF1xm4QnO8waheZw+zVZNT/2FKmjlle74JG3xlLSDW
+         Weh+sqPK2sMaGiGdMkO4LeWbAlj/OOLY9MQZ9HdWduxGpSs+s66W0KEwsSiVbE+ypNhf
+         Vo4Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532hKxxm6sS2YmBlolsZSCxumXbqvZT3WF+2KTdwOHrH3qcposCY
-	qxw+BOnpz/nyOp2Enk8LaHc=
-X-Google-Smtp-Source: ABdhPJwtpwwI2M5XrlZPknWLMBJnzacU7q0UDEZrgS5KMM/QEqtgy7pSx287+HjqyriVWbB4SDEpVw==
-X-Received: by 2002:a17:90b:312:: with SMTP id ay18mr7304928pjb.144.1629260987158;
-        Tue, 17 Aug 2021 21:29:47 -0700 (PDT)
+X-Gm-Message-State: AOAM5309n1hV7+vhLSLGelJlQuztQ+sXHQjVFyDRC3oFbImb24Gcer1h
+	GZnk4qZrQNxQX+yP3P+r444=
+X-Google-Smtp-Source: ABdhPJyZTTGpAiVyX0O0t2bYiZiM87G/9AvB/dRu/dgGdAxQHswT+vZT9NkSdk9l0fjf/BXX+5uITA==
+X-Received: by 2002:a05:6808:5c7:: with SMTP id d7mr3901827oij.147.1629261765622;
+        Tue, 17 Aug 2021 21:42:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:218:: with SMTP id fy24ls2083905pjb.3.canary-gmail;
- Tue, 17 Aug 2021 21:29:46 -0700 (PDT)
-X-Received: by 2002:a17:90a:de16:: with SMTP id m22mr7262437pjv.38.1629260986663;
-        Tue, 17 Aug 2021 21:29:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629260986; cv=none;
+Received: by 2002:a05:6830:440a:: with SMTP id q10ls244300otv.11.gmail; Tue,
+ 17 Aug 2021 21:42:45 -0700 (PDT)
+X-Received: by 2002:a9d:de1:: with SMTP id 88mr5628920ots.60.1629261765250;
+        Tue, 17 Aug 2021 21:42:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629261765; cv=none;
         d=google.com; s=arc-20160816;
-        b=O9bGFSflljP4f7ZPoRwQwEgSP80tL2KzxjNqaMSyLOUD1jWmtEpOJnPKM55Jn6AEMh
-         BKWn1rdA5dlTxWj5cuj93OGTDsmcHtclWW3lxjdNmtDB2uukFlAZ6vSl7Zg7XJttSpWI
-         sKKHWifW4QCHWrl2clRMzBvumkU77H6CGsVCJWQUWj02ZhsgTSNwNcA2mvS5MttBbw5/
-         /MAVtTgBQEP7pEbKPAzvvKh2Crm8GUwnUh/cjoP48S4fvSLKxXG8jIe1Dwgyqrh6yai+
-         ZolwB2bXo+s7Ya3RZkFuaY9xyJ2CQYrKllON3te/xi0c+wl037ZmTGPimM7RNbzMx59c
-         Avvw==
+        b=i8AsYHyd4cokeKqcuKNGdwR062eRnlVIo2Y4OTDWqhoRVyuyt+OFQEHoJh1xj8WHcY
+         feBhq2k9y4aDsCQNqpF/6elvo+cJXZI176hRtq1G6rxdY9qrKDuALgZWq+UrHUPCU5Co
+         kTKlFJBSrItDG91jeuXtwNRekyBrIzrlDUgHSJrG0PslkPS9iWZZCCl0kLVUPNJOR7kW
+         6/OSCsL+IsIaOVdCAcksZVVitEQrjbujgN2pOhILK2OvhNvIVcbCogF4UTl6z1KfUoNc
+         hTCmFP3QwMOaZY6+pI+2SUp9uyL/TFkLQ6qyYCe4duErzGTWBTILDCDFqat/tpcwygf9
+         obXA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=kHlrdkqxRjQoDvpiz9nmAOi6Y1fmh6t3QYrglYwpvXE=;
-        b=To5zlOoJvZLVrtlnp0FP5snAhwZ9NtQAAB1LetICUTFYPsxYQjziCD1SjvBeqTbZRv
-         o9JAqlMEYdcLFvSbjNVtvUOs1tA+S3IWI4FFYp+TEoym8DqCSuRsGTwyUIgjzQz27UIt
-         DOEseckM3S7AJLeJN7kjUyb6ync/Cx2IYaRrDNqNdhNIVbVraB5htbr6xDD4zSVdzM21
-         1wyUP5LG6kjojsqFSkpq6YFU4uqyasnAT5tBlgjWVpCYubBZsIOhen2ONRS/HIlj+lDB
-         kVY+Au+YTCFryjI7vPiU3M8MRWAWymkmhBi8/XEC0ehZmnDkENFwu7CeZE+wZvZLDXKa
-         ejLA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=fqWho5z6HDj4E/uC18IyWmSmTMfo9JPqAgS3dawEvWk=;
+        b=BSLXg4+d2lXjD0GVOoy+MlrBu6RPn/zSfTmLVoQmHcx8XXq1EqdYAyQefciuZROz5J
+         eo8ASpttjINFt3NhoYj5Ormv9zFAUVHapqCNT4cgig60a/u0sdIOb1qJ87n73zuNJc64
+         eMdV4sh74e3E2BpyFnDxVZxBAhm74SrOuR4RfHpJxrZmjAEOhKFO8ITncbYwo6plUyEl
+         1/KTpYrrbo9DKLfMYOAhZwkI2ohZUVH+fhE3OnuzTj29WjOAsX6IpZ9ExQMaOn/KVRon
+         F5/LAsuTApC+mUlcz/uG4npbbwdUMmBSBr8TJXFPx6MXSiwAOFhxhJ63E4OiPu2qdUu8
+         Fzjg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b="E/fkK5/G";
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-05.nifty.com (conssluserg-05.nifty.com. [210.131.2.90])
-        by gmr-mx.google.com with ESMTPS id g2si187899pji.0.2021.08.17.21.29.46
+       dkim=pass header.i=@embeddedor.com header.s=default header.b=be9hlQMJ;
+       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.51.253 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
+Received: from gateway24.websitewelcome.com (gateway24.websitewelcome.com. [192.185.51.253])
+        by gmr-mx.google.com with ESMTPS id q18si263894otm.3.2021.08.17.21.42.45
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Aug 2021 21:29:46 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) client-ip=210.131.2.90;
-Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47]) (authenticated)
-	by conssluserg-05.nifty.com with ESMTP id 17I4TQgo027221
-	for <clang-built-linux@googlegroups.com>; Wed, 18 Aug 2021 13:29:26 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-05.nifty.com 17I4TQgo027221
-X-Nifty-SrcIP: [209.85.216.47]
-Received: by mail-pj1-f47.google.com with SMTP id bo18so1890386pjb.0
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 21:29:26 -0700 (PDT)
-X-Received: by 2002:a17:90a:7384:: with SMTP id j4mr7017433pjg.153.1629260965965;
- Tue, 17 Aug 2021 21:29:25 -0700 (PDT)
+        Tue, 17 Aug 2021 21:42:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gustavo@embeddedor.com designates 192.185.51.253 as permitted sender) client-ip=192.185.51.253;
+Received: from cm16.websitewelcome.com (cm16.websitewelcome.com [100.42.49.19])
+	by gateway24.websitewelcome.com (Postfix) with ESMTP id DEB79228E7
+	for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 23:42:44 -0500 (CDT)
+Received: from gator4166.hostgator.com ([108.167.133.22])
+	by cmsmtp with SMTP
+	id GDPYmqnCCjSwzGDPYmBfcd; Tue, 17 Aug 2021 23:42:44 -0500
+X-Authority-Reason: nr=8
+Received: from 187-162-31-110.static.axtel.net ([187.162.31.110]:45490 helo=[192.168.15.8])
+	by gator4166.hostgator.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.94.2)
+	(envelope-from <gustavo@embeddedor.com>)
+	id 1mGDPY-002STB-9X; Tue, 17 Aug 2021 23:42:44 -0500
+Subject: Re: [PATCH] kbuild: Enable -Wimplicit-fallthrough for clang 14.0.0+
+To: Philip Li <philip.li@intel.com>, Nathan Chancellor <nathan@kernel.org>
+Cc: Kees Cook <keescook@chromium.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ linux-hardening@vger.kernel.org
+References: <20210817005624.1455428-1-nathan@kernel.org>
+ <80fa539a-b767-76ed-dafa-4d8d1a6b063e@kernel.org>
+ <CAHk-=wgFXOf9OUh3+vmWjhp1PC47RVsUkL0NszBxSWhbGzx4tw@mail.gmail.com>
+ <5c856f36-69a7-e274-f72a-c3aef195adeb@kernel.org>
+ <202108171056.EDCE562@keescook>
+ <3f28b45e-e725-8b75-042a-d34d90c56361@kernel.org>
+ <CAK7LNAQFgYgavTP2ZG9Y16XBVdPuJ98J_Ty1OrQy1GXHq6JjQQ@mail.gmail.com>
+ <71d76c41-7f9b-6d60-ba4f-0cd84596b457@embeddedor.com>
+ <202108171602.159EB2C7EA@keescook>
+ <72ae69b4-6069-ade5-a12b-8ee0435f803a@kernel.org>
+ <20210818042720.GA1645557@pl-dbox>
+From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
+Message-ID: <d19dd1f7-3898-227a-3d7d-25cddb0434d0@embeddedor.com>
+Date: Tue, 17 Aug 2021 23:45:48 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
 MIME-Version: 1.0
-References: <20210814234102.2315551-1-masahiroy@kernel.org> <r3rr2q2-1o70-o012-4ns1-or1qrs665753@syhkavp.arg>
-In-Reply-To: <r3rr2q2-1o70-o012-4ns1-or1qrs665753@syhkavp.arg>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Wed, 18 Aug 2021 13:28:49 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATbyotYzVDc3b8jPk7nC1dLXjc3oMeytwA5WqzsMBPjgA@mail.gmail.com>
-Message-ID: <CAK7LNATbyotYzVDc3b8jPk7nC1dLXjc3oMeytwA5WqzsMBPjgA@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: Fix 'no symbols' warning when CONFIG_TRIM_UNUSD_KSYMS=y
-To: Nicolas Pitre <nico@fluxnic.net>
-Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        clang-built-linux <clang-built-linux@googlegroups.com>
+In-Reply-To: <20210818042720.GA1645557@pl-dbox>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+Content-Language: en-US
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
+X-AntiAbuse: Original Domain - googlegroups.com
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - embeddedor.com
+X-BWhitelist: no
+X-Source-IP: 187.162.31.110
+X-Source-L: No
+X-Exim-ID: 1mGDPY-002STB-9X
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 187-162-31-110.static.axtel.net ([192.168.15.8]) [187.162.31.110]:45490
+X-Source-Auth: gustavo@embeddedor.com
+X-Email-Count: 10
+X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
+X-Local-Domain: yes
+X-Original-Sender: gustavo@embeddedor.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b="E/fkK5/G";
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org
- does not designate 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@embeddedor.com header.s=default header.b=be9hlQMJ;       spf=pass
+ (google.com: domain of gustavo@embeddedor.com designates 192.185.51.253 as
+ permitted sender) smtp.mailfrom=gustavo@embeddedor.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,50 +171,25 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Aug 15, 2021 at 12:37 PM Nicolas Pitre <nico@fluxnic.net> wrote:
->
-> On Sun, 15 Aug 2021, Masahiro Yamada wrote:
->
-> > When CONFIG_TRIM_UNUSED_KSYMS is enabled, I see some warnings like this:
-> >
-> >   nm: arch/x86/entry/vdso/vdso32/note.o: no symbols
-> >
-> > $NM (both GNU nm and llvm-nm) warns when no symbol is found in the
-> > object. Suppress the stderr.
-> >
-> > Fixes: bbda5ec671d3 ("kbuild: simplify dependency generation for CONFIG_TRIM_UNUSED_KSYMS")
-> > Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> > ---
-> >
-> >  scripts/gen_ksymdeps.sh | 5 ++++-
-> >  1 file changed, 4 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/scripts/gen_ksymdeps.sh b/scripts/gen_ksymdeps.sh
-> > index 1324986e1362..5493124e8ee6 100755
-> > --- a/scripts/gen_ksymdeps.sh
-> > +++ b/scripts/gen_ksymdeps.sh
-> > @@ -4,7 +4,10 @@
-> >  set -e
-> >
-> >  # List of exported symbols
-> > -ksyms=$($NM $1 | sed -n 's/.*__ksym_marker_\(.*\)/\1/p' | tr A-Z a-z)
-> > +#
-> > +# If the object has no symbol, $NM warns 'no symbols'.
-> > +# Suppress the stdout.
-> > +ksyms=$($NM $1 2>/dev/null | sed -n 's/.*__ksym_marker_\(.*\)/\1/p' | tr A-Z a-z)
->
-> You mean stderr.
 
 
-My bad - I will fix it in v2.
-Thanks.
+On 8/17/21 23:27, Philip Li wrote:
 
+>> Philip, how often is the kernel test robot's clang version rebuilt? Would it
+>> be possible to bump it to latest ToT or at least
+>> 9ed4a94d6451046a51ef393cd62f00710820a7e8 so that we do not get bit by this
+>> warning when we go to enable this flag?
+> Got it, currently we do upgrade in weekly cadence (but it may fall behind sometimes),
+> and the one we use now is clang version 14.0.0 (https://github.com/llvm/llvm-project 
+> 2c6448cdc2f68f8c28fd0bd9404182b81306e6e6)
+> 
+> We will ugrade to the head of llvm-project master today.
 
--- 
-Best Regards
-Masahiro Yamada
+Thanks, Philip. We really appreciate it.
+--
+Gustavo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATbyotYzVDc3b8jPk7nC1dLXjc3oMeytwA5WqzsMBPjgA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d19dd1f7-3898-227a-3d7d-25cddb0434d0%40embeddedor.com.
