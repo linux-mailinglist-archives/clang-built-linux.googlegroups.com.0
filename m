@@ -1,142 +1,130 @@
-Return-Path: <clang-built-linux+bncBAABBNFU6GEAMGQE2PCABPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBFN56GEAMGQECAKUS3Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2A7863EF703
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 02:54:14 +0200 (CEST)
-Received: by mail-ot1-x33e.google.com with SMTP id a4-20020a056830008400b005194eddc1d4sf225034oto.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 17:54:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629248053; cv=pass;
+Received: from mail-qv1-xf38.google.com (mail-qv1-xf38.google.com [IPv6:2607:f8b0:4864:20::f38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 330A93EF733
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 03:12:54 +0200 (CEST)
+Received: by mail-qv1-xf38.google.com with SMTP id e17-20020a0562141511b029034f8146604fsf970828qvy.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 18:12:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629249173; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Lo/e8hymhW4fIbINRISiHR/48+vxiszly8a0jw5o/goQe3Y8yY7tz7uhVU8GyJKqhk
-         ZBTFWqoAj+GCxIyvtAOsdOhSNwBvc5w7t98EpYLBGD4bHElSv/mR/55E23//OCZtkdYa
-         dYNaiYHcLf8OWVqvTXyH3SB24vSrNI6gzu+wWD9vjiykBN+tvD/rQ5tZe+DVspDvDItf
-         PPgBlMNPNrkx8hudL9hXgsrk8HnHRqkoOr8V+zzVloLBdCRIIioTgsqPDNeePy6YWndb
-         PTRRzUVpcvhSghIyTAneyYVsLOxssZcUTrM2U1KqfNypPtkP4XbTzsI2UV8Twp4LGnis
-         Dknw==
+        b=bR5dyF35BfTlBeF75k8c3+3V+4LsnJK2cAK/idYpTUu1QSSGpb0EhWDz9H1fLw4ZRN
+         k1lzTDqVL5RlJ6dUKWZ0ztxlsUgrdODJ7Xln/6fB/4B8kJn7HPhJfWevK+gqOwvAinDW
+         P0bxCWUC6RPa2FVctfF6i0vgQHQeD2fDM10QJA+w9EUxLfnkWCJILlWDp2ZFyoPmeB/Y
+         bLTFfgmjG+YtE+Z1H/J+9Tf0EFXA218DXD6FlQVPAHfM9zC0hKIJf6QsUyqojWsEzkHp
+         2VZFxtc/oSBC3FvxASA870lAc3kc1MBjzo2+gtVlYxprgitLlKwyzL9yiXSbHIZcROUt
+         PQTA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:message-id
-         :in-reply-to:subject:cc:to:from:date:sender:dkim-signature;
-        bh=CB0Ytvb/kawmD+FUj8/a0TRgXq0kRQ+62DCXO2u9ZOo=;
-        b=CuueCnB8cYnDo7pg7NHKGpQG/wlPbInl/O6M8ExV+f1baVY2Zz4pyalIgw0T6coiI2
-         gi5DTv8PDxfLUumAkeqECkGx+KPat8tX61u9EvxfZrZuIS3g9d74EMYT//HjoAaXNFIa
-         J0hLH6vLeAhL1PZbJSI4FuBbJHJWiV6AS6YD7aBScZG+B0Cu7vgxppsPMAvl/LpvmtL8
-         ltHE0DkJpKBkjHbGqtkkmjgpUtLce1m0FV1WxVsrIsMcxamPLM0ZheCW+xa0eUGYxqBK
-         GyJjv51zC5lMFOJQKTP16H1j2iIG2sF/vaID2G5+iMCzQzj7tqM1e3ZebsVsgT6e52Xs
-         mSBg==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=KA0NMbCue/2vRQDlQXZRp7ecop+/YeiAM+0hw7hbYl8=;
+        b=LHT3NMbhexHFZ65jsDUz7KH3TNK1kueMgXauGcaTh50BM/WyVf47O8vQ+P5cEOyO+z
+         DREkcW0zhMnfoxmuK6YjIU+kmhmqhldc4jnC+GAC2jLxbbAxhy48D+ZKHwgyWHZQTxBw
+         SSR7omQEnIrSdotqM7gZaoiUSM9FN+gJs1k52htv4UVdvqBmtJWwi+t8hysyjexPQIfO
+         apw6y0NaBw5ICuPESq3CVW3XGt9Y/jv8YCY2oruoEBoTAYYt4QSns+6SXR0cEyKsS5Eh
+         YlA+IVkAIobZHqRyrrptDxarm1p5qstRLlskkYpyWoFCelUN9KRxQJ+qQuG8BynXs4Ks
+         d/Mw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@messagingengine.com header.s=fm3 header.b=Ov5ucLyu;
-       spf=neutral (google.com: 66.111.4.26 is neither permitted nor denied by best guess record for domain of fthain@linux-m68k.org) smtp.mailfrom=fthain@linux-m68k.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=J91kq0ua;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=CB0Ytvb/kawmD+FUj8/a0TRgXq0kRQ+62DCXO2u9ZOo=;
-        b=aHuq2dXqGbU3NdVC5P10+T85DCAnOTO8Gp71HsoxftZlpDmf62OajIL6Eh+d7v/Sc8
-         WP7a9gC/7u7HFsNnDwbfExEG2gU58b6ZMJv5jl+g9VVxvkQdcOmtiBgFEfdZ+yGlCJM/
-         XxQskjmgGXJyYW8iVRZMd2ObTuAv1rILZ4YR5DGscB9bQLSFhDJLvcM7HxobHRkCcjrP
-         PoAza8RAOeIfQ2xUleWJ2pnC3LtyST68RcKJ46Te2Ucmm5/We2kstWxN7WYixDyz81b2
-         moW5Dfw7zoTllMPyqEnGlzliN8RzWJ94JH7Hvu/mBKz1OcOuvgyZ//yqTkougiY1X2xa
-         sSbg==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=KA0NMbCue/2vRQDlQXZRp7ecop+/YeiAM+0hw7hbYl8=;
+        b=YKb1w4bWgd3IcQXWJDklw6NFGf5s/CBFtsGdxQUARfz6SkGjHR7RtWbI69DBVPy5Q0
+         uuD+9j61cAOf7VQI0V8I/McfyBUsxKdMNBAMv08UcdlqURgKEvi3J/1obsn/AVDmsuix
+         ZlSpSzp1Y5J9zmJ5E6C+7JHX67kd5eu7MbsfzUdJLo7JqXm3/oY6WeMlatZNNnZNBrg3
+         4Y2QMELRLHp0aqz65JjPwIcwRKKr8KyognqdrQgQduh7/7eyoC7TXWSD6YUvnYf4Ei1N
+         QVbN2tz4E+HQii8ry+KAd7/XYOf3W4960jbwjIp2i886oxJKtqH5ldZ3Gsou2Wk22cj8
+         Sa+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
-         :message-id:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=CB0Ytvb/kawmD+FUj8/a0TRgXq0kRQ+62DCXO2u9ZOo=;
-        b=oWlyEyUnWA5udT+21CX7Gy2n7O20XZ9DtyFwGmapJlo0zkFZlP0JOeMlNO7mzmEs0c
-         k6tErcJ4UxxmHohfOkKpBWoxUFcozQCdls8vpS76LH3++zfA7Kb6V22Lnxnkw4rfTksE
-         uEu0ootgbUt9+cMtQyu1/Rdu2LwGZaUy/HNMdmWdZxg+ThTO5HhAgwZ1hiF7zW5zW7dS
-         OCzNXiKpQy9Fd/FekBRkHFsIZp/2Dq7gyLS0SHST8myjgvcEMxPo++2LLB7Hw4R5Jnap
-         Er2UKwNR9D/ZgfmjF8cvr4Z/unJ81UMjZtwpw/WbTxqHWHLnkGWjbgoWkWxJn9tAkBQT
-         vTuA==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=KA0NMbCue/2vRQDlQXZRp7ecop+/YeiAM+0hw7hbYl8=;
+        b=q78ofAQdKzWqemXcSIIm+vcUSmKVUm/sRfv30mBMpddNznLrQYpIOStxvKnGZQ1ck8
+         hQ+vZrRdKyXqg7CPxfJqx1a5fRni/Kn9xCd3K2zdmR/GAfTRKLZ3C98lJ5Tqz4GzGJQs
+         q1bWmq1vi9TeSOkewi2T29XjGW73lqSRxMBGVmSV43po4xwJ3yzdklOXyGPIyJ8lBpCT
+         1B6VyAYvuednPaNKufPdpBCQsgYaWlV+wuD92hpR6WlKCh1s31m5eSvOSZYbE4w3Imm3
+         ykpujNZUUgdinEdBQMsghm99Q/hM5mxmxbM90SSAkMnaWFmVnVoMK0wNcjIN03k2SsTx
+         ckmQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531r41UEqg1GFgiWoJHCdilWnsSyP6vSL1nY0vUIKf/jft+5iSBY
-	8spZbuMzsB4TUgFfBa1ebsE=
-X-Google-Smtp-Source: ABdhPJwOMkzO7DZotML/jW1Z3XXGUiXkF4r1UEhr6rjg4jxTnfMKZe247cvkfuSGuFjUXz+yiz4bnw==
-X-Received: by 2002:aca:a996:: with SMTP id s144mr4813166oie.175.1629248052854;
-        Tue, 17 Aug 2021 17:54:12 -0700 (PDT)
+X-Gm-Message-State: AOAM533wYTWIo/vEEiXBhsqpQ4IoHFmUl17/gxuRlm9g6uzFbhLS0ajd
+	S+g8DqAT+lZKv+PcOL7m9ks=
+X-Google-Smtp-Source: ABdhPJxSkKSo4VjSHy4vhibFZNrKI65XBQYVebWlKNITz/iRSU+xT5BWHP/hHI6qpM/wU3qTbCIzeA==
+X-Received: by 2002:a05:6214:1933:: with SMTP id es19mr6469925qvb.42.1629249173305;
+        Tue, 17 Aug 2021 18:12:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:2689:: with SMTP id l9ls130927otu.8.gmail; Tue, 17
- Aug 2021 17:54:12 -0700 (PDT)
-X-Received: by 2002:a9d:7653:: with SMTP id o19mr4910401otl.236.1629248052388;
-        Tue, 17 Aug 2021 17:54:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629248052; cv=none;
+Received: by 2002:ae9:e605:: with SMTP id z5ls391092qkf.8.gmail; Tue, 17 Aug
+ 2021 18:12:52 -0700 (PDT)
+X-Received: by 2002:ae9:f005:: with SMTP id l5mr7071818qkg.355.1629249172796;
+        Tue, 17 Aug 2021 18:12:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629249172; cv=none;
         d=google.com; s=arc-20160816;
-        b=AJTMVN0IH76Qot/snz/GiP5DkWAhBI02UmkRQ1F/q1DT9vKs8oaF9cJ0h8Nay47HCT
-         xyYiYVrX1Qvy7aYqjSvJVL58z6uJe6koAedxn/JOAKgcE3c1vpAJogPg015kzBMcX6TT
-         iarBiQIyVhY6jkI849KbKBtSl4hzmEeytvUza8Xyb+lNxjJKKNfwCJbDOvvtx3srLl1Y
-         65OuVD8J6/q0uYwFAtexqe+/JckJLmD3cUrJvTPPPaESCX2cRZ225+K1lgS81q2hLFyg
-         mG5+cJILXCsPcV7QO1KsHTRqA8gJXrbG/WwbOpgAcR3C1ME8gi53IoIA+Xz27EJIbHEc
-         n9Zg==
+        b=hcyQ1EjIGxUiGn+16CvODudDxmErzRMQ8atOT/4jwlXIUixub0CT6h+uxrxI8XQXgA
+         Rro8NlG304Cz2Y0Hs5cS7mtt71d2YuOoL9AyGPZ4NThiWDaatqIuAX5Uo9CmFSLkTn3a
+         fy0vEVscPZL0DjI96wqLo5qe5gK7yykDlCST2cS1WttpuTgEXj0aYiCWg8RFWFu7nNnV
+         t29XKzp4SAh2X+tZx7Egha+BUD55M7UmGs0wmQZZhMGzMxV4L1yL8lNhYOFsmqqf4V9n
+         Nyc8bAV4FZnY70S6jhjg3mjzEz4veADApQh1FTNCxdoRd3UvbOA44lt7pUAoN7V8Iza9
+         7DOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:dkim-signature;
-        bh=Zz+2Cl8Uy7Fh+ejBShZ+UblbJYguC8B5HiE28CeGbhs=;
-        b=x9eGD22sc7NTBcjRlY41x6MQhWTcnrM4rqRyyFjmteSxbXiNTtZYFJTfThyAg6CJkO
-         HZw3SlGo5lcIYjiNbahp7VsCppwPsYSgDiK9HBhqZ983cEoCfzOmnXDRIvvztA/80D47
-         mbqOrj/ThP4InKdW4ppHJ0zGIFmdccN4BVD6VcnECPhe9GgrrV5HydnQhRWJ1O1j9QDB
-         JVsidBUyK99jou700nNNHc/SBGdyEiWB0SyOe7+ar/f5SKZN8dYmlrVs/uqL9PVX9gCm
-         oZBvD7u3MrbXiWQkmxLeVxyyYaBXUJCRD+C40rXCeRmzC5Avf0H6/VBx0KC5nNNFAwzK
-         ws3g==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=nxF4uWoqKlS3T+jVQqBlxu0+GEWpiT2RvHNSG5nn5+k=;
+        b=jiJcepkgqF0i8H/TwuV413SGgRcgnOByHU9Ier5CjUoxznRPNK0SYr6ZegcNUm0ktO
+         Y9m23BibRve87uOuMKEhtbjmULaxLIgWG+9sphFxkdxV421QmuZSScyTyyvh2VjjW//P
+         hSG+uTZe7EPeJ94B6lLMk6Uy9P+gEuDJo84v4CDnxzpMbReAe3u+TEyPIhW1345I1gut
+         G3qrZYqGSwL7Jm1obafzFfxBLyANgstNaopvM9L4vzxESekqynGZ+InL4ZHBWDSJDxNN
+         UzDKP5KmAStfrPZE+br0TG3FYiYXXXbcTnii8avInK723kJkZk5wsjWZjWQ3DgQ6qaYZ
+         0eLA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@messagingengine.com header.s=fm3 header.b=Ov5ucLyu;
-       spf=neutral (google.com: 66.111.4.26 is neither permitted nor denied by best guess record for domain of fthain@linux-m68k.org) smtp.mailfrom=fthain@linux-m68k.org
-Received: from out2-smtp.messagingengine.com (out2-smtp.messagingengine.com. [66.111.4.26])
-        by gmr-mx.google.com with ESMTPS id bf14si302474oib.0.2021.08.17.17.54.12
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=J91kq0ua;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id 10si253475qtr.1.2021.08.17.18.12.52
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Aug 2021 17:54:12 -0700 (PDT)
-Received-SPF: neutral (google.com: 66.111.4.26 is neither permitted nor denied by best guess record for domain of fthain@linux-m68k.org) client-ip=66.111.4.26;
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
-	by mailout.nyi.internal (Postfix) with ESMTP id AA9665C0178;
-	Tue, 17 Aug 2021 20:54:11 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute4.internal (MEProxy); Tue, 17 Aug 2021 20:54:11 -0400
-X-ME-Sender: <xms:MlocYfKaaAUsMCNVFDRBtoRVPsWJ8Xaasf_96byai6Vb41MHindPiQ>
-    <xme:MlocYTKBzUNcf_NMrBBH_kxjZaQklzLcFd2tntZ9kRWsNNTem3gbLfKn41qccmWzz
-    TzrIL8FFWEcFbv7sUQ>
-X-ME-Received: <xmr:MlocYXtGC-6uxQvovZpaqmL8Gklzs3faBzI7OEsjI0OUthfUhFRKJWZg1srzI0wt4EtkOfyIzm033DSiERqZw-xGeeaJOnY4dPGyHA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvtddrleeggdefkecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
-    uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
-    fjughrpeffhffvufgjkfhfgggtsehttdertddttddvnecuhfhrohhmpefhihhnnhcuvfhh
-    rghinhcuoehfthhhrghinheslhhinhhugidqmheikehkrdhorhhgqeenucggtffrrghtth
-    gvrhhnpeffudfhgeefvdeitedugfelueegheekkeefveffhfeiveetledvhfdtveffteeu
-    udenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehfth
-    hhrghinheslhhinhhugidqmheikehkrdhorhhg
-X-ME-Proxy: <xmx:MlocYYbwZmSZDWItsWow3fqV22Az3B3y8kII2odtPcP43eyIFO9ucA>
-    <xmx:MlocYWaRuGdaMt-YF2sdWsgei4GuQzvg3uBOOzD7l9j7RLsWp6zmBA>
-    <xmx:MlocYcAoJvvZMzDNQ9CyCuexFloG5cQjegdXY7VIF0_xbN4R04gLYQ>
-    <xmx:M1ocYbOg2tGoOQXd03i6EM3LvTdiwltL4pJt6RvVkm--oyEnpnBvAw>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 17 Aug 2021 20:54:08 -0400 (EDT)
-Date: Wed, 18 Aug 2021 10:54:06 +1000 (AEST)
-From: Finn Thain <fthain@linux-m68k.org>
-To: Nathan Chancellor <nathan@kernel.org>
-cc: =?UTF-8?Q?Kai_M=C3=A4kisara?= <Kai.Makisara@kolumbus.fi>, 
-    "James E.J. Bottomley" <jejb@linux.ibm.com>, 
-    "Martin K. Petersen" <martin.petersen@oracle.com>, 
-    "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-    Nick Desaulniers <ndesaulniers@google.com>, linux-scsi@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 17 Aug 2021 18:12:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 0BFEA6101A;
+	Wed, 18 Aug 2021 01:12:50 +0000 (UTC)
 Subject: Re: [PATCH] scsi: st: Add missing break in switch statement in
  st_ioctl()
-In-Reply-To: <20210817235531.172995-1-nathan@kernel.org>
-Message-ID: <7843ce6b-92ae-7b6c-1fc-acb0ffe2bbc0@linux-m68k.org>
+To: Finn Thain <fthain@linux-m68k.org>
+Cc: =?UTF-8?Q?Kai_M=c3=a4kisara?= <Kai.Makisara@kolumbus.fi>,
+ "James E.J. Bottomley" <jejb@linux.ibm.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, linux-scsi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
 References: <20210817235531.172995-1-nathan@kernel.org>
+ <7843ce6b-92ae-7b6c-1fc-acb0ffe2bbc0@linux-m68k.org>
+From: Nathan Chancellor <nathan@kernel.org>
+Message-ID: <a3499a19-d9ed-b8e5-341e-0aa02774b645@kernel.org>
+Date: Tue, 17 Aug 2021 18:12:49 -0700
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: fthain@linux-m68k.org
+In-Reply-To: <7843ce6b-92ae-7b6c-1fc-acb0ffe2bbc0@linux-m68k.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@messagingengine.com header.s=fm3 header.b=Ov5ucLyu;
-       spf=neutral (google.com: 66.111.4.26 is neither permitted nor denied by
- best guess record for domain of fthain@linux-m68k.org) smtp.mailfrom=fthain@linux-m68k.org
+ header.i=@kernel.org header.s=k20201202 header.b=J91kq0ua;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,64 +137,76 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 17 Aug 2021, Nathan Chancellor wrote:
-
-> Clang + -Wimplicit-fallthrough warns:
+On 8/17/2021 5:54 PM, Finn Thain wrote:
+> On Tue, 17 Aug 2021, Nathan Chancellor wrote:
 > 
-> drivers/scsi/st.c:3831:2: warning: unannotated fall-through between
-> switch labels [-Wimplicit-fallthrough]
->         default:
->         ^
-> drivers/scsi/st.c:3831:2: note: insert 'break;' to avoid fall-through
->         default:
->         ^
->         break;
-> 1 warning generated.
+>> Clang + -Wimplicit-fallthrough warns:
+>>
+>> drivers/scsi/st.c:3831:2: warning: unannotated fall-through between
+>> switch labels [-Wimplicit-fallthrough]
+>>          default:
+>>          ^
+>> drivers/scsi/st.c:3831:2: note: insert 'break;' to avoid fall-through
+>>          default:
+>>          ^
+>>          break;
+>> 1 warning generated.
+>>
+>> Clang's -Wimplicit-fallthrough is a little bit more pedantic than GCC's,
+>> requiring every case block to end in break, return, or fallthrough,
+>> rather than allowing implicit fallthroughs to cases that just contain
+>> break or return. Add a break so that there is no more warning, as has
+>> been done all over the tree already.
+>>
+>> Fixes: 2e27f576abc6 ("scsi: scsi_ioctl: Call scsi_cmd_ioctl() from scsi_ioctl()")
+>> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+>> ---
+>>   drivers/scsi/st.c | 1 +
+>>   1 file changed, 1 insertion(+)
+>>
+>> diff --git a/drivers/scsi/st.c b/drivers/scsi/st.c
+>> index 2d1b0594af69..0e36a36ed24d 100644
+>> --- a/drivers/scsi/st.c
+>> +++ b/drivers/scsi/st.c
+>> @@ -3828,6 +3828,7 @@ static long st_ioctl(struct file *file, unsigned int cmd_in, unsigned long arg)
+>>   	case CDROM_SEND_PACKET:
+>>   		if (!capable(CAP_SYS_RAWIO))
+>>   			return -EPERM;
+>> +		break;
+>>   	default:
+>>   		break;
+>>   	}
+>>
+>> base-commit: 58dd8f6e1cf8c47e81fbec9f47099772ab75278b
+>>
 > 
-> Clang's -Wimplicit-fallthrough is a little bit more pedantic than GCC's,
-> requiring every case block to end in break, return, or fallthrough,
-> rather than allowing implicit fallthroughs to cases that just contain
-> break or return. Add a break so that there is no more warning, as has
-> been done all over the tree already.
+> Well, that sure is ugly.
 > 
-> Fixes: 2e27f576abc6 ("scsi: scsi_ioctl: Call scsi_cmd_ioctl() from scsi_ioctl()")
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
->  drivers/scsi/st.c | 1 +
->  1 file changed, 1 insertion(+)
+> Do you think the following change would cause any static checkers to spit
+> their dummys and throw their toys out of the pram?
 > 
-> diff --git a/drivers/scsi/st.c b/drivers/scsi/st.c
-> index 2d1b0594af69..0e36a36ed24d 100644
-> --- a/drivers/scsi/st.c
-> +++ b/drivers/scsi/st.c
 > @@ -3828,6 +3828,7 @@ static long st_ioctl(struct file *file, unsigned int cmd_in, unsigned long arg)
->  	case CDROM_SEND_PACKET:
->  		if (!capable(CAP_SYS_RAWIO))
->  			return -EPERM;
+>   	case CDROM_SEND_PACKET:
+>   		if (!capable(CAP_SYS_RAWIO))
+>   			return -EPERM;
 > +		break;
->  	default:
->  		break;
->  	}
-> 
-> base-commit: 58dd8f6e1cf8c47e81fbec9f47099772ab75278b
-> 
+> -	default:
+> -		break;
+>   	}
+>   	
 
-Well, that sure is ugly.
+I cannot speak for other static checkers but clang does not complain in 
+this instance. cmd_in is the switch value, which is unsigned int; as far 
+as I am aware, clang will only complain about a switch not handling all 
+values when switching on an enumerated type.
 
-Do you think the following change would cause any static checkers to spit 
-their dummys and throw their toys out of the pram?
+Gustavo, if you are already handling all of the other warnings in -next, 
+do you want to take this one too?
 
-@@ -3828,6 +3828,7 @@ static long st_ioctl(struct file *file, unsigned int cmd_in, unsigned long arg)
- 	case CDROM_SEND_PACKET:
- 		if (!capable(CAP_SYS_RAWIO))
- 			return -EPERM;
-+		break;
--	default:
--		break;
- 	}
- 	
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/7843ce6b-92ae-7b6c-1fc-acb0ffe2bbc0%40linux-m68k.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/a3499a19-d9ed-b8e5-341e-0aa02774b645%40kernel.org.
