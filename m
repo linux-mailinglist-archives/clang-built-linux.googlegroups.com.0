@@ -1,47 +1,47 @@
-Return-Path: <clang-built-linux+bncBCK2XL5R4APRBTPH6KEAMGQE5EXYDCY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBMHR6KEAMGQEFND27VA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 215833EFDA4
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 09:16:30 +0200 (CEST)
-Received: by mail-lf1-x13f.google.com with SMTP id c22-20020a0565121056b02903c8d745ff5csf380022lfb.12
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 00:16:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629270989; cv=pass;
+Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0DEB83EFDD2
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 09:37:22 +0200 (CEST)
+Received: by mail-pg1-x53a.google.com with SMTP id 11-20020a63040b0000b029023af03ea119sf935981pge.0
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 00:37:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629272240; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TxfH/zZ8PDOr38aW12AL6MxmdRhzBczurYA1gcjCtiedD4rmqo5+tkvA8WT5pE7L06
-         v2rcshbGW9GV5oBd/fECXxVsvMLkMm49BhPvBlInUEcGq9pDR5ExOfv6UbWCSFgmFPs5
-         ecSZWvKPxm2+rnH2zttTxCuLLj5MVQrpdurnE112wQIkX09laVfawc7e7SdMXBVvVVq1
-         v6oVCWUynmSCy40LqSdIV4o7F+vxR6nTnKFAkKkrL6Ssgau6OruCm3RX34u43WdxBpZ/
-         1JRHcvhsaRM/BXKhHVqmBlG9EgWOS2SL7DuxmwtE3ff+B76PhYxgWnmiOw7+fvLsPkgU
-         khGA==
+        b=DQ4oqoWS9Qy9ctREkrFh9UD2psnSNkhWSxF0gtRDK2XhMwaroSsN/RKnVk8W4bvbVq
+         Et7GLAGCbhvpRuSt+/DxprQ6yyWFHfAmkGaW//Eq/BYqY5uvpOs2j3ZJ4ZTqx1X8ZNsw
+         y2myuxm+Our4rKaSRUYQ0lKjuZrYsrk24nttTWvmyDkEZyX4VIvf1zKz3qdwrspGnS+S
+         KDZpafXPNyOTXPcmYd71AuEuwGlhzfuA2t7afHB2CCn55RcUXg2EtHfpRDm8694DQUan
+         xpkMYYf24n6aZZUbvOnOrIHSpMUm6HSn/PL6WlfSv9NllEcwgeQPAzVxsPYjEXGj9hvu
+         m9/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=g9LhRu7bg/ZSfvtCPnZ7S8mNrPSY9kszJipn1f5Bdgo=;
-        b=bMkwZ5sZlyzJmBJoAtDaoXmwJJNx0RT7uc70KF9R7jbqCQrAUL891OK6lYSQ6R5XZu
-         z8BDZtS8N07DjIMpj+kSnoaD9BSLCxCQ3cii2KH0AFvdbhWdzqoUy7Qzw4Sr92pZodvI
-         VcsZjun1Miow3nRna3vf200TmlhkOgmy91hiod/zG7bzL1ybKYvRC2bJizi5SxFqMm7D
-         bIKQNdUuM10rc8fzgIPiAMjDj/jqBY6YFoLjCBitWaHiImnuxjBub+DC6/F0SjnkBazP
-         JmrO3ZJCsfCAGmfV0g4SRJ0KxLBfrOo0KBvQYdWNsLVAgkhq2XShYP3eBj1LNAq5vhmX
-         b2Pw==
+        bh=KA8iNAwbUC5rSEHcitaTb6yvr6KrIuT8TE7rFQOPiPY=;
+        b=Zl3tx+BdQ1L6fIO6y4KjFhCj2FI9G5P2FMPNsIFMV9xBlSnUbfyU35k9Gpa5utCShc
+         7m230u2FRMg9EXMAX6LNhg5Xy3ftYHZJ9cH3AxYE2CBT8puKK/Z+Memggh/Wit6nIKwl
+         S3JFgzkWWXoUUSTONE2s5Yp5qcL3TAOH8HXrdhhxHBsSAN4uNhMk6wOWCPRjkoUnyPKu
+         MgES958gIokgPs/af/4C4aWmR8MayjdZRe82EIxh0wPtfqWMmUV2ZmGkwGHAlsgUmO/6
+         wf9RJpeF6+9ePgd+Zaj0f8Vg6mGrHseIyf8crhpUhC5DTze68IwFnIpUskjxX073iAxs
+         sN3A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=vNjVcm++;
-       spf=pass (google.com: best guess record for domain of batv+c26a8f31a710de91e748+6569+infradead.org+hch@casper.srs.infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=BATV+c26a8f31a710de91e748+6569+infradead.org+hch@casper.srs.infradead.org
+       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=g9LhRu7bg/ZSfvtCPnZ7S8mNrPSY9kszJipn1f5Bdgo=;
-        b=ZXexJby4cXuaAqt1gkT1EtuMXqDvq895NsTIGwb4vwmwwMsB7i5NYALXvSfGgW7KO1
-         vi3utNwvCnIG1bZWEQf6ufENBmlrFLZKzGc0K8Zuf1EFbI7Osr56FodI382FCAWm5oA3
-         6MTRGV7B9op2W2ALn+cGRd5wfBNrSUh1mE89G3yreEsn6hN3DqJc6dlZZkAmjAjbNwqW
-         bLykFNwFosgLKgLhq9MIKGz+72lGvwSqnKTle+41rRqGcwLPDhqp+YT44vG2f3drFIie
-         pXBkzQ0WsLVRW5EfqqEfcfjDCXMjXo1Zp2C2uBV5sCZ9seFPW4w98kCFgCuyJQ99pfMU
-         b3SQ==
+        bh=KA8iNAwbUC5rSEHcitaTb6yvr6KrIuT8TE7rFQOPiPY=;
+        b=DsmH87KAazgNeAAX7OYEX2EDoB3MmizWHSJYPJAaTnoGvuUReWXbHZxet+xaAwcvJL
+         curOWAMjg3uUdlhUv0V9vIkKKm75kmQ6ztuO7aQTkBFXLrx/Y2OUXxGDQ5s2RmMZS9uc
+         eCaLX4Soeg8qIC43WkxncwJpjHdL3O2FrqSDLcBsQJKsOlQgOpS4NMP2dsZZJDHI6aGM
+         l4g/tyXcy0zDgomzliUtfDpAxuqhU9MGvrxfEoAEDWBFyKa0dz3HaG0LAI+l/FyGw9cq
+         gBRo12ag5vmcw0teqQK99th778kUGD3LoTIPr705ikLzj6CmkNDzp4vkjFC3IPf+0w+X
+         mdUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,76 +49,95 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=g9LhRu7bg/ZSfvtCPnZ7S8mNrPSY9kszJipn1f5Bdgo=;
-        b=hnNiB2VoFDn9yPygXgjsqAY2wBjEm1yXnk+sZGIKK8SvwSH6MHgrLuVEiQ+dOFkuuh
-         jxQh+e8qlYV8XCmhWLb0l3+7NFbH8MWuTnBwPMx504oFCTVcq4+htQCpy5gqGwq899XV
-         N9PinMxKrmq2BeZYtAr+2iNP83AUqC/MgeoQswuDB2xOIDr59ItZVovdVwZS3MZRNtJC
-         dEeX60pUP2EAPKtTyvswEiKIUF3RTYu3f6mmNDbAfzKDK29sK0ekrrunQOMkNNEvFL5m
-         fE6pgZe+GnX9jAfhLwIHqCAr6+HOKIOMkEbZrVZ35qJ65zy1Jv2/K3sFlGIYjOwUf2UI
-         60oQ==
+        bh=KA8iNAwbUC5rSEHcitaTb6yvr6KrIuT8TE7rFQOPiPY=;
+        b=iHlvCoW/TVEPsNbF7dB2hQfRW+Sd9mFKjUHuADWfCbXHhGYQVKGY8zoL9xc8BKkF5g
+         wyRBmjj5lVFAK1/6KkT8uJK2U6NJbcRsXkDEGVH++/puieJ1Pb1JCHjLh1IF76GWeYyl
+         BLzoHuSflUwak49pTwghxipqra+3ckSDWEm0oGxeinCy1SlbOjD7bXTmF6tR9e2JnSa+
+         NNvmZWmSm3/DovNjgpbgWatlb7odejJ2ZGP2NeeSRi+/tFn7L/UFCQC6wMtMiBS0VkUM
+         AhUINV9/IVFu/y+e7aL1hNBD+TKyGwougn47ptdvZz/Ico7Nf+01Bq8iVDRilrZJmTBs
+         mODA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533h+bv5Y5tcycrBZmT9sWueX6qrMeC8Y3ATv8FsGVJYz3HixkRn
-	3MYlr2nhfK1ETzq2TlRTU2Y=
-X-Google-Smtp-Source: ABdhPJwV0dmBKSgsL4p1wKJpSXMEWjjOJ7NIM33ar/1vlIvzkO6ef0b07WEDqVfO9pprZSSgj3MF+Q==
-X-Received: by 2002:a2e:a606:: with SMTP id v6mr6612055ljp.366.1629270989732;
-        Wed, 18 Aug 2021 00:16:29 -0700 (PDT)
+X-Gm-Message-State: AOAM530v2Z6scisadxeIHhqKXQ5PV6od/rQFjfplwiB9LSBSc25RCrfi
+	tfIjPsE/Y7JHKnGoLXwADB8=
+X-Google-Smtp-Source: ABdhPJxJHa46qdAbstCVhcGMxvM3ctjcIKyS8/FMxQI60OGoPR4WwaLCquAVlrSd7x+RkcPEduchTg==
+X-Received: by 2002:a63:2214:: with SMTP id i20mr7517653pgi.131.1629272240711;
+        Wed, 18 Aug 2021 00:37:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9109:: with SMTP id m9ls190085ljg.2.gmail; Wed, 18 Aug
- 2021 00:16:28 -0700 (PDT)
-X-Received: by 2002:a2e:a587:: with SMTP id m7mr6783265ljp.493.1629270988843;
-        Wed, 18 Aug 2021 00:16:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629270988; cv=none;
+Received: by 2002:a17:902:d2c9:: with SMTP id n9ls787038plc.0.gmail; Wed, 18
+ Aug 2021 00:37:20 -0700 (PDT)
+X-Received: by 2002:a17:90a:be09:: with SMTP id a9mr7927614pjs.85.1629272240092;
+        Wed, 18 Aug 2021 00:37:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629272240; cv=none;
         d=google.com; s=arc-20160816;
-        b=atJ8OodQeg/ilHRyxY23KPw9SSwyqc/Wuzb31/b/TpOLV2J87IHo6Cxv12rqHPEhRZ
-         obq/HaDMtL1qdWj7E0Pk8mc8htPk60Gbyji2RRqaoq5GhCiIhO2IXge4At7ONUZJcZMj
-         oVNWP7kKVgIXJ+grCgg/7sAxdQvWTkwejJLd4BrMp1l8rFokq2Zo72EqTEpRlsNMcayi
-         JXTgFwl1LsytbUSJthjtLMvxD6kDyTedZXNC5rDDI71YO6Ml7oSOEW5X+uDkvonXpDv0
-         v4DP5DFWOf/DMMxySRHe4BluNRgCPifvqrcVg9Gp0VHv7XTV1tG0Jz+teFMR+vsBwXlc
-         jzlA==
+        b=IUeww0mVhbKTWeRcsxaPnXUGu6HKcBSHhEKAnU01odwRiY/r5Sunp9foJ0GDx3aHBU
+         8Yi6Wfc9ehqWWqV9cv9h6D0kK7utn5j4o2tHJHnSANdveOvXMR69N4tHfU5xq/tUIxxP
+         TPfOpkISkdW2dwGeD3tW/dR7xlGlevFtLUgY6yIGLiEXbygGExLNNI9+eZ85/mq54ye1
+         rhFGMyzPYlRnuA+IIjNd0k/v7RVvEoM6kQD+yEEwJDOx/lQo5ljbtdMd7H8kyBRjFL75
+         iIKk+LtH3HH7BxN0feaeJt518kVFSJNNGL49NuQDrDVw20uzJENKLKrYFVn4hPjVt/6Z
+         oq3Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=IY1rYvs/55MDJaEBbVK760ru7sspZ6Ehf+ilKA9rPY0=;
-        b=ybd3O/Nh8AlSz71ovxZ857KvQ9ZkfiExjEIxFfvF1vGKvhnjR6k0COeXPUfol36A/e
-         Vhl4I/EKFhz2W4Aqe+nQjwtgtmsp8pbZTcgJVInPp0DgsvWCor98jic/KwtwvyctpJrm
-         YpdIbBu/ssIJzVl6PqHhNfI+82v4UlfFufAK55mwrzVIb7gmK1jrJt6wzvEU93Xwkie9
-         Efoe9cOTL6lJtVih9/64udnaDIpUSif9GkpP1m01eVRDZtHNdLgXJ4N3QPEgwCgLzwSE
-         FmmLicN2p+rPcONhJpCEkrzBkUACYwIcvn/2fOHQPIKYtJuKye8S2H5EopfJlVRA8oIj
-         tY+A==
+         :subject:cc:to:from:date;
+        bh=asY6AgJH6aBcvLctx2vPcxpUqlyBkNalhQsb0mv93tE=;
+        b=YvoCwI2cHxuIk40aE4CrgPwflhKCVCmx/paIKQcU4jjGAhZibLKJf6DgnQMW+yfFpv
+         jY+QAz7hIPrpbPNap/OInZQ+Iy1ecaGEtXfvsG0CRivrIlfhY0F3+Tc7f37LawoZqshx
+         oT+dKSZziwLwYnLlhjvU8FrcLZrCRbGt8j3jkQpQAN3C/jq8qbpwUZdO/sSMxPLVnMFD
+         t6jdGhuPM2DHgW6CUOq/itKeP9shVBRetlhuoHa+6bkdFVIUUfXSzhtOeGccDZRCEmW2
+         FVE/kTsTUHtvp79XiszYEnhZWQVKvg+vbpAPa0FEipBENg/csFhLNOmWUTkmKkRrLlif
+         xTVQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=vNjVcm++;
-       spf=pass (google.com: best guess record for domain of batv+c26a8f31a710de91e748+6569+infradead.org+hch@casper.srs.infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=BATV+c26a8f31a710de91e748+6569+infradead.org+hch@casper.srs.infradead.org
-Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
-        by gmr-mx.google.com with ESMTPS id a9si184353lfj.12.2021.08.18.00.16.28
+       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=philip.li@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
+        by gmr-mx.google.com with ESMTPS id g2si203247pji.0.2021.08.18.00.37.19
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Aug 2021 00:16:28 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of batv+c26a8f31a710de91e748+6569+infradead.org+hch@casper.srs.infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
-Received: from hch by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mGFnB-003Ufz-SC; Wed, 18 Aug 2021 07:15:35 +0000
-Date: Wed, 18 Aug 2021 08:15:17 +0100
-From: Christoph Hellwig <hch@infradead.org>
-To: torvic9@mailbox.org
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"graysky@archlinux.us" <graysky@archlinux.us>
-Subject: Re: [PATCH 2/2] x86, Makefile: Add new generic x86-64 settings
- v2/v3/v4
-Message-ID: <YRyzhWJrqcRZkYRM@infradead.org>
-References: <269701460.117528.1629210189833@office.mailbox.org>
- <796036867.117557.1629210288168@office.mailbox.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 18 Aug 2021 00:37:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of philip.li@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
+X-IronPort-AV: E=McAfee;i="6200,9189,10079"; a="216270703"
+X-IronPort-AV: E=Sophos;i="5.84,330,1620716400"; 
+   d="scan'208";a="216270703"
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2021 00:37:18 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.84,330,1620716400"; 
+   d="scan'208";a="462650649"
+Received: from pl-dbox.sh.intel.com (HELO pl-dbox) ([10.239.159.39])
+  by orsmga007.jf.intel.com with ESMTP; 18 Aug 2021 00:37:12 -0700
+Date: Wed, 18 Aug 2021 15:31:26 +0800
+From: Philip Li <philip.li@intel.com>
+To: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
+Cc: Nathan Chancellor <nathan@kernel.org>,
+	Kees Cook <keescook@chromium.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH] kbuild: Enable -Wimplicit-fallthrough for clang 14.0.0+
+Message-ID: <20210818073126.GA1648816@pl-dbox>
+References: <CAHk-=wgFXOf9OUh3+vmWjhp1PC47RVsUkL0NszBxSWhbGzx4tw@mail.gmail.com>
+ <5c856f36-69a7-e274-f72a-c3aef195adeb@kernel.org>
+ <202108171056.EDCE562@keescook>
+ <3f28b45e-e725-8b75-042a-d34d90c56361@kernel.org>
+ <CAK7LNAQFgYgavTP2ZG9Y16XBVdPuJ98J_Ty1OrQy1GXHq6JjQQ@mail.gmail.com>
+ <71d76c41-7f9b-6d60-ba4f-0cd84596b457@embeddedor.com>
+ <202108171602.159EB2C7EA@keescook>
+ <72ae69b4-6069-ade5-a12b-8ee0435f803a@kernel.org>
+ <20210818042720.GA1645557@pl-dbox>
+ <d19dd1f7-3898-227a-3d7d-25cddb0434d0@embeddedor.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <796036867.117557.1629210288168@office.mailbox.org>
-X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
-X-Original-Sender: hch@infradead.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=casper.20170209 header.b=vNjVcm++;
-       spf=pass (google.com: best guess record for domain of
- batv+c26a8f31a710de91e748+6569+infradead.org+hch@casper.srs.infradead.org
- designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=BATV+c26a8f31a710de91e748+6569+infradead.org+hch@casper.srs.infradead.org
+In-Reply-To: <d19dd1f7-3898-227a-3d7d-25cddb0434d0@embeddedor.com>
+X-Original-Sender: philip.li@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of philip.li@intel.com designates 134.134.136.24 as
+ permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,23 +150,37 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Aug 17, 2021 at 04:24:48PM +0200, torvic9@mailbox.org wrote:
-> +	  Generic x86-64 CPU.
-> +	  Run equally well on all x86-64 CPUs with min support of x86-64-v2.
+On Tue, Aug 17, 2021 at 11:45:48PM -0500, Gustavo A. R. Silva wrote:
+> 
+> 
+> On 8/17/21 23:27, Philip Li wrote:
+> 
+> >> Philip, how often is the kernel test robot's clang version rebuilt? Would it
+> >> be possible to bump it to latest ToT or at least
+> >> 9ed4a94d6451046a51ef393cd62f00710820a7e8 so that we do not get bit by this
+> >> warning when we go to enable this flag?
+> > Got it, currently we do upgrade in weekly cadence (but it may fall behind sometimes),
+> > and the one we use now is clang version 14.0.0 (https://github.com/llvm/llvm-project 
+> > 2c6448cdc2f68f8c28fd0bd9404182b81306e6e6)
+> > 
+> > We will ugrade to the head of llvm-project master today.
+> 
+> Thanks, Philip. We really appreciate it.
+you are welcome. Per the upgrade in this noon. Now we start to use below commit to
+do further clang build test (which is after the required 9ed4a94d6451)
 
-> +	help
-> +	  Generic x86-64-v3 CPU with v3 instructions.
-> +	  Run equally well on all x86-64 CPUs with min support of x86-64-v3.
-> +
+commit d2b574a4dea5b718e4386bf2e26af0126e5978ce
+Author: Marco Elver <elver@google.com>
+Date:   Tue Aug 17 16:54:07 2021 +0200
 
-> +	help
-> +	  Generic x86-64 CPU with v4 instructions.
-> +	  Run equally well on all x86-64 CPUs with min support of x86-64-v4.
+    tsan: test: Initialize all fields of Params struct
 
-How the f&%$% is a user supposed to know what these garbage descriptions
-are supposed to mean?
+Thanks
+
+> --
+> Gustavo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YRyzhWJrqcRZkYRM%40infradead.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210818073126.GA1648816%40pl-dbox.
