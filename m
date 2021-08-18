@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBFN56GEAMGQECAKUS3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB7GJ6GEAMGQEPUFUE2I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf38.google.com (mail-qv1-xf38.google.com [IPv6:2607:f8b0:4864:20::f38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 330A93EF733
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 03:12:54 +0200 (CEST)
-Received: by mail-qv1-xf38.google.com with SMTP id e17-20020a0562141511b029034f8146604fsf970828qvy.12
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 18:12:54 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629249173; cv=pass;
+Received: from mail-qk1-x739.google.com (mail-qk1-x739.google.com [IPv6:2607:f8b0:4864:20::739])
+	by mail.lfdr.de (Postfix) with ESMTPS id 81E1B3EF7A0
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 03:40:13 +0200 (CEST)
+Received: by mail-qk1-x739.google.com with SMTP id k18-20020a05620a1432b02903d293480ee4sf685374qkj.1
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 18:40:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629250812; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bR5dyF35BfTlBeF75k8c3+3V+4LsnJK2cAK/idYpTUu1QSSGpb0EhWDz9H1fLw4ZRN
-         k1lzTDqVL5RlJ6dUKWZ0ztxlsUgrdODJ7Xln/6fB/4B8kJn7HPhJfWevK+gqOwvAinDW
-         P0bxCWUC6RPa2FVctfF6i0vgQHQeD2fDM10QJA+w9EUxLfnkWCJILlWDp2ZFyoPmeB/Y
-         bLTFfgmjG+YtE+Z1H/J+9Tf0EFXA218DXD6FlQVPAHfM9zC0hKIJf6QsUyqojWsEzkHp
-         2VZFxtc/oSBC3FvxASA870lAc3kc1MBjzo2+gtVlYxprgitLlKwyzL9yiXSbHIZcROUt
-         PQTA==
+        b=bYqpOuOv282K/Nbmzqn2hDLBO/SXojxBKvv2hulbxGDxvsh+JmM0ZCdRODXQjj0Ich
+         K358AZEYZJM1uXIMXtzyWd0Txr8QNRtgBGysTpAJDiO9ZKyoz9yL48YbiyOsBG+8/S7V
+         nDaJMHLfXe92UxL80w2CdBqkJx5ZmuTiLvvV/ZxXxQ69XSqfObuQh7ByKLXEfOL+6LUC
+         Aw6zmVOVN1CIB1Rj4wUSSwqhWeKk+lFlSb1DQUB8AdloZolZqrmk4psbLwpBtO8MnyHT
+         2dKEp3bNeOsy5QfZt+7aH9ZTObZnCtAVOnsq81i8g5ZCZfzp/wiQ25KTgODy3wDNsYhJ
+         cJlg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-language:in-reply-to
          :mime-version:user-agent:date:message-id:from:references:cc:to
          :subject:sender:dkim-signature;
-        bh=KA0NMbCue/2vRQDlQXZRp7ecop+/YeiAM+0hw7hbYl8=;
-        b=LHT3NMbhexHFZ65jsDUz7KH3TNK1kueMgXauGcaTh50BM/WyVf47O8vQ+P5cEOyO+z
-         DREkcW0zhMnfoxmuK6YjIU+kmhmqhldc4jnC+GAC2jLxbbAxhy48D+ZKHwgyWHZQTxBw
-         SSR7omQEnIrSdotqM7gZaoiUSM9FN+gJs1k52htv4UVdvqBmtJWwi+t8hysyjexPQIfO
-         apw6y0NaBw5ICuPESq3CVW3XGt9Y/jv8YCY2oruoEBoTAYYt4QSns+6SXR0cEyKsS5Eh
-         YlA+IVkAIobZHqRyrrptDxarm1p5qstRLlskkYpyWoFCelUN9KRxQJ+qQuG8BynXs4Ks
-         d/Mw==
+        bh=MlP8gVWPN0NlxDddZ0+aOdQfEQtZD1arEnde9RBmQAk=;
+        b=jZI17DREAOGv8/20MiPIOTOcVHh/993w4xTIRETjUgx4Vn/p/eOG1QOnlbTRSK8131
+         YcVSz+aFLFol38cNvIiEIrXYdMBTZidekHtJqR8KNfJcdBXdlsxeTdV7MZ/bOqZbWlTn
+         VYKcBrbuvxD12vk8K8ED7hTbnjw8W0u++9hCx1/SZ6x151/mw6D61Tobb2a/iDWLEP2k
+         OAQgeYy8LMZ7RW0K8vr6K3yDqJ7zBz6XBEcnS1cdFOl6azB/rom1pMIMwxCVc7xVm5KH
+         Abk9xZ9JdLQAop8HrFvoUHkaL+w0mZ7Msv5h9KXLL7Cs27JT9z3T38T2A0Fz+udgx9R9
+         2spw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=J91kq0ua;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=jBbiCeQh;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=KA0NMbCue/2vRQDlQXZRp7ecop+/YeiAM+0hw7hbYl8=;
-        b=YKb1w4bWgd3IcQXWJDklw6NFGf5s/CBFtsGdxQUARfz6SkGjHR7RtWbI69DBVPy5Q0
-         uuD+9j61cAOf7VQI0V8I/McfyBUsxKdMNBAMv08UcdlqURgKEvi3J/1obsn/AVDmsuix
-         ZlSpSzp1Y5J9zmJ5E6C+7JHX67kd5eu7MbsfzUdJLo7JqXm3/oY6WeMlatZNNnZNBrg3
-         4Y2QMELRLHp0aqz65JjPwIcwRKKr8KyognqdrQgQduh7/7eyoC7TXWSD6YUvnYf4Ei1N
-         QVbN2tz4E+HQii8ry+KAd7/XYOf3W4960jbwjIp2i886oxJKtqH5ldZ3Gsou2Wk22cj8
-         Sa+w==
+        bh=MlP8gVWPN0NlxDddZ0+aOdQfEQtZD1arEnde9RBmQAk=;
+        b=j503qEd3HUcHUsC6E+FjmZ33pbBbxqdKU/Lf/K1ggcoIXgCMP7Ney1eFcDcZnWfUDu
+         hY6BIIS8Z2v9B9VwwjWYzTg/y4laJf/L+5z1piXT1d7CWJE1nYLYRS1VyfMcTrmtb9dy
+         xFhFBK3i5kx1+Rac3NYQ/z4HeHkMEcQsKy3hf37+GM0oBvk+E6gcpoZQ865L/uOnXyeX
+         U5gPTGD3ifOsPZOk0kGH3XOHksPngp9mkgBWofO4R86ltspomhb0EW9XZKD7pUm0X5In
+         o0ET9yofCVrZ63WA388xTsBqbqNn0ofMD3V/iIUKRcR6QX83IweS84/X2+mHb2N7IIbm
+         82Ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
@@ -50,78 +50,76 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=KA0NMbCue/2vRQDlQXZRp7ecop+/YeiAM+0hw7hbYl8=;
-        b=q78ofAQdKzWqemXcSIIm+vcUSmKVUm/sRfv30mBMpddNznLrQYpIOStxvKnGZQ1ck8
-         hQ+vZrRdKyXqg7CPxfJqx1a5fRni/Kn9xCd3K2zdmR/GAfTRKLZ3C98lJ5Tqz4GzGJQs
-         q1bWmq1vi9TeSOkewi2T29XjGW73lqSRxMBGVmSV43po4xwJ3yzdklOXyGPIyJ8lBpCT
-         1B6VyAYvuednPaNKufPdpBCQsgYaWlV+wuD92hpR6WlKCh1s31m5eSvOSZYbE4w3Imm3
-         ykpujNZUUgdinEdBQMsghm99Q/hM5mxmxbM90SSAkMnaWFmVnVoMK0wNcjIN03k2SsTx
-         ckmQ==
+        bh=MlP8gVWPN0NlxDddZ0+aOdQfEQtZD1arEnde9RBmQAk=;
+        b=UpETst6qcxJKFWkeP32E41PoXN/J+qIJyY6Wipvpn3z4jQnlhWoZt1i0RvXWxJcVb/
+         /fQhdZ6Ei2bkt+4LvCRohdwxp66dHDXeMGJmb0GslWsnQAriUghJXFVfZF94UjjJ3f/7
+         HH7lLd8vJ4As0BnDq7ne81Z2QApoUxhF3m/NXyLFrK+FFO9qc5s6tN94WZWhOYMy4D4s
+         bkuhk/bdZD64rWIYalmIANSjsSCJUXCGFNChNkQQ8rGbPtTD0l8X0uS0rQ5uXDtdwWg7
+         HLUOPpLbC5BdkKKqHL2bpGI8QUp6ux1+HwZUaJ7xMro0pnbnLl+AQLWBrtBDiLXpR4Z/
+         sYCQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533wYTWIo/vEEiXBhsqpQ4IoHFmUl17/gxuRlm9g6uzFbhLS0ajd
-	S+g8DqAT+lZKv+PcOL7m9ks=
-X-Google-Smtp-Source: ABdhPJxSkKSo4VjSHy4vhibFZNrKI65XBQYVebWlKNITz/iRSU+xT5BWHP/hHI6qpM/wU3qTbCIzeA==
-X-Received: by 2002:a05:6214:1933:: with SMTP id es19mr6469925qvb.42.1629249173305;
-        Tue, 17 Aug 2021 18:12:53 -0700 (PDT)
+X-Gm-Message-State: AOAM531wuRh80zt27MszcbQJkHFcliPKX1v8sTlB+jetwcBFPSdkXyOU
+	1IDKd9nKwy6YR0jrEz/ObWc=
+X-Google-Smtp-Source: ABdhPJzFeQgnwql2Jllx1iQ4Oscy4U2gA9Vb2pHFssmYEdF7LBezDF3aPKXTaI+4Fi9zVvjxJ62QJA==
+X-Received: by 2002:a05:620a:7ef:: with SMTP id k15mr7088110qkk.464.1629250812641;
+        Tue, 17 Aug 2021 18:40:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:e605:: with SMTP id z5ls391092qkf.8.gmail; Tue, 17 Aug
- 2021 18:12:52 -0700 (PDT)
-X-Received: by 2002:ae9:f005:: with SMTP id l5mr7071818qkg.355.1629249172796;
-        Tue, 17 Aug 2021 18:12:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629249172; cv=none;
+Received: by 2002:a05:6214:20e5:: with SMTP id 5ls159712qvk.10.gmail; Tue, 17
+ Aug 2021 18:40:12 -0700 (PDT)
+X-Received: by 2002:ad4:5deb:: with SMTP id jn11mr6577203qvb.30.1629250812207;
+        Tue, 17 Aug 2021 18:40:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629250812; cv=none;
         d=google.com; s=arc-20160816;
-        b=hcyQ1EjIGxUiGn+16CvODudDxmErzRMQ8atOT/4jwlXIUixub0CT6h+uxrxI8XQXgA
-         Rro8NlG304Cz2Y0Hs5cS7mtt71d2YuOoL9AyGPZ4NThiWDaatqIuAX5Uo9CmFSLkTn3a
-         fy0vEVscPZL0DjI96wqLo5qe5gK7yykDlCST2cS1WttpuTgEXj0aYiCWg8RFWFu7nNnV
-         t29XKzp4SAh2X+tZx7Egha+BUD55M7UmGs0wmQZZhMGzMxV4L1yL8lNhYOFsmqqf4V9n
-         Nyc8bAV4FZnY70S6jhjg3mjzEz4veADApQh1FTNCxdoRd3UvbOA44lt7pUAoN7V8Iza9
-         7DOQ==
+        b=Im6hjcEf3ceRqeY6G/VZb4gffVp5spjyLTTsu1+72i2qxBYvqGxE2MtHrJJOSsEbQw
+         Ib6u/JysySz0ZfY3FFVz1MuFYIth7pznKVLao6lxf82JOnpPxIfZ7LGURPQ5/gwu5ST9
+         JgUxHECJcpKyuwOfIbk+vUh6FohVNPne5lVXZf5NVxCwybC/XJgn18QkaNRE73msfMiW
+         +H4JXtk/ILq1EOm0MugVQHqTXJsiEjz97w8yyGD0q4LXV6cuSOQRU/3enz9doCF7EPyp
+         VNOhVf06gClycrsqUhkToK7YLwmISD/CrFlzicGyYWitFD08NAr1wSJA5gS/xmU01rM1
+         q/zw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:content-language:in-reply-to:mime-version
          :user-agent:date:message-id:from:references:cc:to:subject
          :dkim-signature;
-        bh=nxF4uWoqKlS3T+jVQqBlxu0+GEWpiT2RvHNSG5nn5+k=;
-        b=jiJcepkgqF0i8H/TwuV413SGgRcgnOByHU9Ier5CjUoxznRPNK0SYr6ZegcNUm0ktO
-         Y9m23BibRve87uOuMKEhtbjmULaxLIgWG+9sphFxkdxV421QmuZSScyTyyvh2VjjW//P
-         hSG+uTZe7EPeJ94B6lLMk6Uy9P+gEuDJo84v4CDnxzpMbReAe3u+TEyPIhW1345I1gut
-         G3qrZYqGSwL7Jm1obafzFfxBLyANgstNaopvM9L4vzxESekqynGZ+InL4ZHBWDSJDxNN
-         UzDKP5KmAStfrPZE+br0TG3FYiYXXXbcTnii8avInK723kJkZk5wsjWZjWQ3DgQ6qaYZ
-         0eLA==
+        bh=TLxv6qCmqOZCH/Mx259fMLG1HjMWvT9MWyVZJqSgCBA=;
+        b=TzvmW2cKp0NovD1/VDCVII2l4s+evA2x/obIvCKk092WKXqDxi3IDeZNMW3jcPvGp4
+         upPcbGCIimA47QiETk5lmfHx8g0QlUfhDqqN5wEeZ4tnoof/D+PyLS5m8FDmmV0GsjXq
+         9BmicBacQaeuTzuWT1jXl27A64p5kCLznBpqwXV+Ow9p/SogPYR2ItOEl/P7rfpMx+YH
+         QyObHH+XFVqBsvxizmmuo6ZRqUDJ3+udNZZRr8oxSii3dOH82K8tBB7xVoTxBVPY5ApF
+         Nm5BFgcKFSbfUWr3PnnPa6ILUbJNN4bAgULdir2UuDheG/LBxP/cWrZQB01vlR2MDPzz
+         Oq5A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=J91kq0ua;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=jBbiCeQh;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id 10si253475qtr.1.2021.08.17.18.12.52
+        by gmr-mx.google.com with ESMTPS id n78si222075qkn.1.2021.08.17.18.40.12
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Aug 2021 18:12:52 -0700 (PDT)
+        Tue, 17 Aug 2021 18:40:12 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 0BFEA6101A;
-	Wed, 18 Aug 2021 01:12:50 +0000 (UTC)
-Subject: Re: [PATCH] scsi: st: Add missing break in switch statement in
- st_ioctl()
-To: Finn Thain <fthain@linux-m68k.org>
-Cc: =?UTF-8?Q?Kai_M=c3=a4kisara?= <Kai.Makisara@kolumbus.fi>,
- "James E.J. Bottomley" <jejb@linux.ibm.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, linux-scsi@vger.kernel.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-References: <20210817235531.172995-1-nathan@kernel.org>
- <7843ce6b-92ae-7b6c-1fc-acb0ffe2bbc0@linux-m68k.org>
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 983DE61056;
+	Wed, 18 Aug 2021 01:40:10 +0000 (UTC)
+Subject: Re: [PATCH 4/7] arc: replace cc-option-yn uses with cc-option
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org,
+ clang-built-linux@googlegroups.com, Vineet Gupta <vgupta@kernel.org>,
+ linux-snps-arc@lists.infradead.org
+References: <20210817002109.2736222-1-ndesaulniers@google.com>
+ <20210817002109.2736222-5-ndesaulniers@google.com>
+ <bc8cf0be-9e51-e769-0685-2594802eead0@kernel.org>
+ <CAKwvOdkO3ax7gN-n5OJO7-320BVK+B-JDs0v=3vZs9fPezwjDg@mail.gmail.com>
 From: Nathan Chancellor <nathan@kernel.org>
-Message-ID: <a3499a19-d9ed-b8e5-341e-0aa02774b645@kernel.org>
-Date: Tue, 17 Aug 2021 18:12:49 -0700
+Message-ID: <8b9bf97a-8f6f-80b9-3bab-32bb525adf9e@kernel.org>
+Date: Tue, 17 Aug 2021 18:40:08 -0700
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
  Thunderbird/78.13.0
 MIME-Version: 1.0
-In-Reply-To: <7843ce6b-92ae-7b6c-1fc-acb0ffe2bbc0@linux-m68k.org>
+In-Reply-To: <CAKwvOdkO3ax7gN-n5OJO7-320BVK+B-JDs0v=3vZs9fPezwjDg@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Language: en-US
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=J91kq0ua;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=jBbiCeQh;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -137,76 +135,70 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 8/17/2021 5:54 PM, Finn Thain wrote:
-> On Tue, 17 Aug 2021, Nathan Chancellor wrote:
-> 
->> Clang + -Wimplicit-fallthrough warns:
->>
->> drivers/scsi/st.c:3831:2: warning: unannotated fall-through between
->> switch labels [-Wimplicit-fallthrough]
->>          default:
->>          ^
->> drivers/scsi/st.c:3831:2: note: insert 'break;' to avoid fall-through
->>          default:
->>          ^
->>          break;
->> 1 warning generated.
->>
->> Clang's -Wimplicit-fallthrough is a little bit more pedantic than GCC's,
->> requiring every case block to end in break, return, or fallthrough,
->> rather than allowing implicit fallthroughs to cases that just contain
->> break or return. Add a break so that there is no more warning, as has
->> been done all over the tree already.
->>
->> Fixes: 2e27f576abc6 ("scsi: scsi_ioctl: Call scsi_cmd_ioctl() from scsi_ioctl()")
->> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
->> ---
->>   drivers/scsi/st.c | 1 +
->>   1 file changed, 1 insertion(+)
->>
->> diff --git a/drivers/scsi/st.c b/drivers/scsi/st.c
->> index 2d1b0594af69..0e36a36ed24d 100644
->> --- a/drivers/scsi/st.c
->> +++ b/drivers/scsi/st.c
->> @@ -3828,6 +3828,7 @@ static long st_ioctl(struct file *file, unsigned int cmd_in, unsigned long arg)
->>   	case CDROM_SEND_PACKET:
->>   		if (!capable(CAP_SYS_RAWIO))
->>   			return -EPERM;
->> +		break;
->>   	default:
->>   		break;
->>   	}
->>
->> base-commit: 58dd8f6e1cf8c47e81fbec9f47099772ab75278b
->>
-> 
-> Well, that sure is ugly.
-> 
-> Do you think the following change would cause any static checkers to spit
-> their dummys and throw their toys out of the pram?
-> 
-> @@ -3828,6 +3828,7 @@ static long st_ioctl(struct file *file, unsigned int cmd_in, unsigned long arg)
->   	case CDROM_SEND_PACKET:
->   		if (!capable(CAP_SYS_RAWIO))
->   			return -EPERM;
-> +		break;
-> -	default:
-> -		break;
->   	}
->   	
 
-I cannot speak for other static checkers but clang does not complain in 
-this instance. cmd_in is the switch value, which is unsigned int; as far 
-as I am aware, clang will only complain about a switch not handling all 
-values when switching on an enumerated type.
 
-Gustavo, if you are already handling all of the other warnings in -next, 
-do you want to take this one too?
+On 8/17/2021 11:07 AM, 'Nick Desaulniers' via Clang Built Linux wrote:
+> On Mon, Aug 16, 2021 at 7:05 PM Nathan Chancellor <nathan@kernel.org> wrote:
+>>
+>> On 8/16/2021 5:21 PM, 'Nick Desaulniers' via Clang Built Linux wrote:
+>>> cc-option-yn can be replaced with cc-option. ie.
+>>> Checking for support:
+>>> ifeq ($(call cc-option-yn,$(FLAG)),y)
+>>> becomes:
+>>> ifneq ($(call cc-option,$(FLAG)),)
+>>>
+>>> Checking for lack of support:
+>>> ifeq ($(call cc-option-yn,$(FLAG)),n)
+>>> becomes:
+>>> ifeq ($(call cc-option,$(FLAG)),)
+>>>
+>>> This allows us to pursue removing cc-option-yn.
+>>>
+>>> Cc: Vineet Gupta <vgupta@kernel.org>
+>>> Cc: linux-snps-arc@lists.infradead.org
+>>> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+>>> ---
+>>>    arch/arc/Makefile | 3 +--
+>>>    1 file changed, 1 insertion(+), 2 deletions(-)
+>>>
+>>> diff --git a/arch/arc/Makefile b/arch/arc/Makefile
+>>> index c0d87ac2e221..8782a03f24a8 100644
+>>> --- a/arch/arc/Makefile
+>>> +++ b/arch/arc/Makefile
+>>> @@ -18,8 +18,7 @@ ifeq ($(CONFIG_ARC_TUNE_MCPU),"")
+>>>    cflags-y                            += $(tune-mcpu-def-y)
+>>>    else
+>>>    tune-mcpu                           := $(shell echo $(CONFIG_ARC_TUNE_MCPU))
+>>> -tune-mcpu-ok                                 := $(call cc-option-yn, $(tune-mcpu))
+>>> -ifeq ($(tune-mcpu-ok),y)
+>>> +ifneq ($(call cc-option,$(tune-mcpu)),)
+>>>    cflags-y                            += $(tune-mcpu)
+>>
+>> Any reason not to just turn this into
+>>
+>> cflags-y += $(call cc-option,$(tune-mcpu))
+>>
+>> ?
+> 
+> Yes, you'll need to pull up the source; the diff doesn't provide
+> enough context. tune-mcpu is used in the body of the else branch
+> hinted at by the diff. PTAL
 
-Cheers,
-Nathan
+Ah, fair enough. The warning is a little unconventional but oh well :)
+
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+
+>>
+>> If $(tune-mcpu) is empty or invalid, nothing will be added to cflags-y.
+>>
+>>>    else
+>>>    # The flag provided by 'CONFIG_ARC_TUNE_MCPU' option isn't known by this compiler
+>>>
+> 
+> 
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/a3499a19-d9ed-b8e5-341e-0aa02774b645%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/8b9bf97a-8f6f-80b9-3bab-32bb525adf9e%40kernel.org.
