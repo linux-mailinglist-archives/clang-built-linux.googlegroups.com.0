@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBUGG6KEAMGQECOABTOA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBT6G6KEAMGQEGHMB7HQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 652E13EFABA
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 08:06:09 +0200 (CEST)
-Received: by mail-qk1-x73c.google.com with SMTP id h186-20020a37b7c30000b02903b914d9e335sf1051750qkf.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 23:06:09 -0700 (PDT)
+Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
+	by mail.lfdr.de (Postfix) with ESMTPS id DA4AB3EFAB9
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 08:06:08 +0200 (CEST)
+Received: by mail-io1-xd38.google.com with SMTP id g5-20020a05660203c5b02905867ea91fc6sf627736iov.5
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Aug 2021 23:06:08 -0700 (PDT)
 ARC-Seal: i=2; a=rsa-sha256; t=1629266768; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AS2Go4TsB1YEwbhl4QZDWuX9vWHgAyUsrmbXg1ZeJ/u7CeydQxJe6m9uWRNzcbCVTr
-         C4zK5eeDQtblGG1QVnUcZ0eW7fnQ+/IFBY3qV9hOQIWI6WNmMJSm8zPTzXnB0YEYl+Gh
-         1+LgFTs2Wpd4Lm0t735q118SO37Sljkuga/SM1tYesiDrAdTXDF3Nw7/MByFUpHL5GU6
-         loxPFjwfOKpv94TisT4/up7HR7iKxd7i/4u2S/HWEqNsaLoTs74zzRLJHAZ1OEPJpgtC
-         EA224klkC5rPULWXhXSArJJiG0dr6XXhonffU0pJRKjuDjmVeHDa14XaILxy1AlDdGkT
-         XTeA==
+        b=iiGjnd/muyQbtz6+3QCXFk45xJV3dte023+H1vAkJtWJx9gGDJ9ai7tjFSI8L3LTYC
+         JGHZ8B3fFpu4KNdL7C1u6vnXbVS2o2jpCYE1/7QamBl8hbSKaMtwNqtZjFAuE1SJUOL/
+         v0cJdSfI2m99hpcUK6lx6yz7pss1Yb78eP7IuN9+LKCKZV//bYbO2Hm+avfvOn6g4tPH
+         O5Zxn9ANIFATurn21yGozQc0xuZ9D1lObzMRLzSwS+e1tvCVEhxNGlyuEgZMkgyv6Gsf
+         zFyu/9eEShLygq3XJCxFfw847siO9SJz1h6cEOOICTI6HBY0mDy8ITLdsFpse1vypT2Y
+         z/Zw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=75IAZvmAChqm2CVMZ2/xd5fulbSPfKppI7JlvqWC+Es=;
-        b=S22qi2l+Y3lPyRHhsHia00W0JayNk65xqAHSc+wtfjgYtx3Ehj2My/8TkeIL2XWAQf
-         wIokHwlzbrSjCK8zfAw8+cZfNUtAbaQkcaZtzxXQqf+tZKIqBNh3LxkFZvUdvQ4Wi6AZ
-         rYGJRWZImaOPcT8vdlDK3QXHVBfyzhb7TBww5tQ0+6dgWVKS10jfwdaAHUrmXycte1CV
-         oo5W419nP3W4sxC4RKC/HmUkblMVsWaZA8lefzS2nCkC604xV2tyF3SH2peKAXyUfzHy
-         SZZLMGh2GPSPIi8EuyMpdQVcdFOex8JIpB9MG6IO8+GsK+/LHAL66UhwpsMkgUxi2OwG
-         KR2w==
+        bh=dnyON36dkkhvdOCgWBkwOs64j5gjBPC3/BFSXlhTc28=;
+        b=0P7bWbhlcjUj+aJuWX5+fmL5AttM2LJBHWo0w+P7Jv2HD1QjfDN6r81Np3+n6kDfyM
+         gNhHAb/KRJtnd/CnIqQcIXC18JJo0zjGvqOGHxsqrO58iInGf+0BBBdmjhyyWvexi2xn
+         JunMRjMdXshsiqRVUPLQ7StHWVSckENxNDjM1XkXprnDs7wJw9Dor+xtY01UKLD15o/g
+         xATlXXuBwf9issEQ2wUYpkKgGHLHXmKfOkGnhrGt5AxvjOhPGSveyubJK/VdxIyoVjSa
+         7yMVu5LVZ4vExUswA5bo2+4Kk46i5j/WUQ3NKYxjD+UD6i2raR84mJnUIe9dyHTizYQc
+         E5rQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=Y4RaduW1;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b="WQqdtls/";
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=75IAZvmAChqm2CVMZ2/xd5fulbSPfKppI7JlvqWC+Es=;
-        b=kLwRxk2ApVd3XeB19QgIpPU4GKAytxiKzXc9nKvH1OHN9RZdiKV22pUVPl5nV/zMjw
-         pFX1XMv066w95THu46C8NUeoMuKEf4uOMB89l0pY82RdUkKzGyqsmbsJLwEQeZffPjnA
-         UbUbaX5mXvomRu6GVMEikM5sBiy+pD7yaDNR++lPUSfiBQEq5cOgT8Pizd+y9+fuSqUL
-         gph63kugybLHVP6D4Cnpgfpu+22v5R+8jnMW6t2PtFulUujzH7xnieLNdI2aLBjukcUM
-         hFdikfAK3SGOHhfhaqb2OUw5tI7WjBe2gq+WdwHBX+atXhXcVFjmSQECXw8mKlTjF22r
-         UOVg==
+        bh=dnyON36dkkhvdOCgWBkwOs64j5gjBPC3/BFSXlhTc28=;
+        b=DajfQzvnr8IFwggBY1hEfs+2bWzgkxcBQC4NVK57oGpfq007P9zHCtw+YRhFbHWnCS
+         nqDvvO6oAIC/MZLzRrzWYUtCvyY0dztlzzeIrfzIzAsDcAxAZCbG4UZ4mFEBFOva9gD6
+         9p5XOR8+PTC6Cvc2K4zQcP99g12eWuJzAfZ3LZZxy7kxrh2FpuOuTW0PQEEn8ITvmquq
+         CguHeDNGTXuFBY/ZehM26aGVFlB07vSnF8sys8djJiCMtLt3wkjS0JPaG1HlRLm4XjHe
+         4BoR2U/DwXRB+NaSSsLoUgZB09Hh+5I0QFKN2BDqKEaHsZ4Tr2PNtWpzeW0j7a/2sZAL
+         lTmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,60 +49,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=75IAZvmAChqm2CVMZ2/xd5fulbSPfKppI7JlvqWC+Es=;
-        b=FGWGVIv17PP8RrAw/uz0vZHz3GuR6b4aLSgN3F0OWVnRocr+yEi5iCA/sSNi3zW3U7
-         oGmJmWK7gv+ZKTuZ7eLsn9rpC1M0kQQAM6fM4hZvrfKi51SA8bZdpIHXNY+n55dZjM4u
-         4jzYnbLn0n0xYDHgv04HUjqET9N6aY5Znu+7dcB6125n1qZe5Ears0mTNTsHGFfDeE9D
-         rOGDRY1nwt1K59mp3EiqJvULsHZLz9naTig0Fks1rM6TmgsRQgFA9HojBF/bQkwQgdnm
-         nGOX1DiuLa20b4hptSjXXKS4cXgKIoKD0YI5YNsC8UH3egQkv8d6VEiB8xyE+OfpEPig
-         Egqw==
+        bh=dnyON36dkkhvdOCgWBkwOs64j5gjBPC3/BFSXlhTc28=;
+        b=bafq39td60cYwBKDDCodxFGv9pasGSbT6aQjY6wCx4agZE6kSgU6QgdXg6UXLdlewd
+         OUmXW/fxeGspqG+RaRdgZlRp6jrw9dTwZiK6V95d4szQkXKrOc9dDtSLU3X0+c3FYeoP
+         p8UjKv7eOsfVRacq+ffGbbqYPN0jIeiDRPb9kqaRqyWSig1+/k1QWEDJ3iJqLKRKBCuG
+         i+4lhnMxoBYXTmD8HrNPAl238hsd/Si5/mcx3yudoh/MOO0z6NLWbcfJB/r8G9fNn2q6
+         TCwwCiGmwyLoYCdFY/pckTLs9ejRUoF7cmwdN8RiFoAKrEsL8IAQzTLHcO+1fGMQGTIp
+         PiKg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532DTtJGz9UXsBwvZcHUEkTBzrs9yhaAnFfKvk1O81xyeogP/6hF
-	yPQ6ueR51YSU5jjwiWwP9oc=
-X-Google-Smtp-Source: ABdhPJwaFsUz551vpHHdHr7niHW54a2Kk06l4B/nMlqVSCt1FJrCxHqB7saWvZFtRgXmAz3SciOqJQ==
-X-Received: by 2002:a0c:ff4b:: with SMTP id y11mr7380554qvt.50.1629266768596;
-        Tue, 17 Aug 2021 23:06:08 -0700 (PDT)
+X-Gm-Message-State: AOAM532tUybuZAW3rp/fk1JUGIZ0cuxTC/tAUkApj7OtqTx7wlgVERUm
+	61Jqt/9FNVF1uIgM8zg0XLk=
+X-Google-Smtp-Source: ABdhPJxfcy6gKGP43elgHeLmT2nJAv/3ueDhOLJolVw1GGd17NOiiJQNIH2Oc/csvSCf/Iu4lHePzg==
+X-Received: by 2002:a92:c90a:: with SMTP id t10mr5295635ilp.188.1629266767884;
+        Tue, 17 Aug 2021 23:06:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:4118:: with SMTP id kc24ls320515qvb.11.gmail; Tue,
- 17 Aug 2021 23:06:08 -0700 (PDT)
-X-Received: by 2002:a0c:ff48:: with SMTP id y8mr7461348qvt.29.1629266768231;
-        Tue, 17 Aug 2021 23:06:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629266768; cv=none;
+Received: by 2002:a6b:2c43:: with SMTP id s64ls196017ios.10.gmail; Tue, 17 Aug
+ 2021 23:06:07 -0700 (PDT)
+X-Received: by 2002:a6b:6319:: with SMTP id p25mr5995410iog.100.1629266767586;
+        Tue, 17 Aug 2021 23:06:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629266767; cv=none;
         d=google.com; s=arc-20160816;
-        b=X+Q89qitYL5oSd9loMdbqA7VyiyUVeKHvCHqu/tb8L3hvMMQ0q3duXeveZf94ui8cu
-         oQcGRml0NGihrw4TUg0VVrXfY2seJgq/QHxBqNrtt3QuX5nKTAiOAAugs8KnagbqLMYd
-         8kL6SmK4Ls63ah5DLsKLEm/9Vz/dBwAEVq2zAXo7MoU9YCtVfMcKEthzPtC9rQQdoUCW
-         pUFN3SKiGVPtifH0lgi+CY3DHARCXJu9OC96V8aE6wWngaK5EWvpIoEvSBC+0uOSGlPN
-         qa8wVZVtG5LaP2tn2KUQz1dW5X+konEch5VEeh7dqIdRlUDggf0Whijx2hcAJltwGD0K
-         2xgQ==
+        b=x2mYYw4HWUFxE6U6X+yByEx5sEq1BsRs/zpNyBSKdlVROg4FNPuHQBnWgVcSSrFBEa
+         JhMFYcn8k/ZLsaGYb8VO8W0jq3Jik/DMEMKOD7mw1XQougtS4l0wdT7YQVLE8ESDjkfS
+         tfYkTmPfZ1/zfhypq0AV3m2CSFQRVIiMSL6b42HySGrZ7JINjYYYdYChptin95K1W1h+
+         JkwzAulZzvSoGw9rsomorVlNflLqYGl/whQt+cJ9ihxu0kOLj7yGJGaKwzrssu8n4xZ4
+         a2b9/aOwDhq0CLuSR2nj4aKqeTDRqny1u0iMWVZBYf/UMvpexlfwdZJmiJtzPzwC45kb
+         NPcw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=WJrpMRxjlck/EUZE2DWpbaWpfbq9vwWWxHEHR5bnD5E=;
-        b=FpIm6Ikm+cUnOk12tvkHkjO515KN/0GZUnboYdgrBS4NpfV6XbNt2ZSdTvALxTkaiU
-         B9s1J6SgpbQy+w+UNRMOQcpBkT9UfPQJM7WaXmj2Iso6hELCMVaZ0bBU+lOH1m5TbJng
-         /nOhBoSgQy3qR83JBKbix6/I36ClEvrGAX7Wx2/P5NAD058Sr35QmjW0wSJyqjT1PYu0
-         7KJKo9wkhkj1d1De967SoAH/tt0NPDJ6G5kwPpxJN5tu8+/9+SZOANulXGJ4ZEKs+kk9
-         ehrsVoeJul8ahpWzKQb/MZ0Xtia1I6Sw98FzdcL0dfYv5qr+MVkjyBnA7UMgBYvz0tdv
-         QZAA==
+        bh=0bRXcGnjUc7NVLeCTdRJyE4ge8RgoyPp9mDS2KzOq8s=;
+        b=MAiBYzDngIjRfKVprLzGQCXU+5AgAEaHOl7qzSje2Am0kMsWRoPXAzC61XAoivSQJ0
+         gR+/YRbEKQpUNdIkpK7DOORYwBZ4rCsBtL0/0ZXwC3Xb6GMJjZkvLPfROv0bCF8wI1gd
+         98XCx27Mi/kPAva2BV/KdITGEj/i1FI2dNN/KG5Kqv2lTpsTG1NyUQDKlCWob5ubmlbk
+         tyHdEnfQJIB+G96yfBfKFxGeNh5CLuIH1ZAt9JrKNcpmLvMxTvEFFuNjFHD5LWBpSzXt
+         uPwQMYXW+ddMwyxYy7OU7focS16uthLi+ebbRDxFB4xMQrg/0OM92NLVrDpvwBx70fRT
+         bvwA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=Y4RaduW1;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b="WQqdtls/";
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x532.google.com (mail-pg1-x532.google.com. [2607:f8b0:4864:20::532])
-        by gmr-mx.google.com with ESMTPS id n2si305597qkg.5.2021.08.17.23.06.08
+Received: from mail-pf1-x430.google.com (mail-pf1-x430.google.com. [2607:f8b0:4864:20::430])
+        by gmr-mx.google.com with ESMTPS id o21si118782iov.2.2021.08.17.23.06.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Aug 2021 23:06:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532 as permitted sender) client-ip=2607:f8b0:4864:20::532;
-Received: by mail-pg1-x532.google.com with SMTP id y23so1140227pgi.7
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 23:06:08 -0700 (PDT)
-X-Received: by 2002:a62:dbc3:0:b029:3e0:ec4a:6e60 with SMTP id f186-20020a62dbc30000b02903e0ec4a6e60mr7438793pfg.25.1629266767474;
         Tue, 17 Aug 2021 23:06:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::430 as permitted sender) client-ip=2607:f8b0:4864:20::430;
+Received: by mail-pf1-x430.google.com with SMTP id i21so1066861pfd.8
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Aug 2021 23:06:07 -0700 (PDT)
+X-Received: by 2002:aa7:8206:0:b029:3c6:2846:3f9f with SMTP id k6-20020aa782060000b02903c628463f9fmr7834685pfi.30.1629266766977;
+        Tue, 17 Aug 2021 23:06:06 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id s5sm5498942pgp.81.2021.08.17.23.06.02
+        by smtp.gmail.com with ESMTPSA id l18sm4571594pff.24.2021.08.17.23.06.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Aug 2021 23:06:05 -0700 (PDT)
+        Tue, 17 Aug 2021 23:06:04 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: linux-kernel@vger.kernel.org
 Cc: Kees Cook <keescook@chromium.org>,
@@ -118,19 +118,19 @@ Cc: Kees Cook <keescook@chromium.org>,
 	clang-built-linux@googlegroups.com,
 	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v2 62/63] fortify: Detect struct member overflows in memset() at compile-time
-Date: Tue, 17 Aug 2021 23:05:32 -0700
-Message-Id: <20210818060533.3569517-63-keescook@chromium.org>
+Subject: [PATCH v2 63/63] fortify: Work around Clang inlining bugs
+Date: Tue, 17 Aug 2021 23:05:33 -0700
+Message-Id: <20210818060533.3569517-64-keescook@chromium.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210818060533.3569517-1-keescook@chromium.org>
 References: <20210818060533.3569517-1-keescook@chromium.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3657; h=from:subject; bh=x4SNp17MkJsMDii5dKL06SU0zDLItyjvjIE8yvAGOLw=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhHKMsuEVllcthHvVoZOOtiNzdZSQL+MVxm5lZYC08 cYuVeeiJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYRyjLAAKCRCJcvTf3G3AJhFJD/ 0YywcHnMj1c/NexxJTDTdAYqmtmTUD8x82Ns/wjrQAyODC3hv/6fd7/lXy7KLnBf3O7mSQRPo1siWq mi4sD6BTm3hIo3GuFOJ8CTfGgnxxwdN6j/TkfuxlpJSHWlG8CdQJaYNCYJgI7QT0k7mcvIcU0Yiu5/ YaVOOC0zQ85PA//3PbzguuPv50kBbxQ5bQSD5XS5ptljehOSJcCJ66K/cFUtnJoZrfF5m7naOzclM+ YSn8wlMr9aQqL6DEc6etgSVI2n22I9gcsWaObJAPYCut15PH0LnKu3TXUtF2oQy91xDTCZ0kCAuzqt 5poO59eUPNtjb6apuyTyI2sng4UXAVOqnFeKce+zQIoGAdIb5GjE13ffC5AAon3CmAbxRE5FUufUrx zUIYqjgohnwHn6YDtth4aIZB/W2kLG2W2q4TWuZjMxEaw0SVrnd4P2jJSHU8B8d1a6PkAs8epAq0gc D69QvVpSd/j5KuzMZUdDpOKxgIKUXFGXliJiDsu+4vuCdioBLapgoOTvVDBi1LirQl6lP45HoxFQ0b S64cenON/jFuSH9ZmumaJj1QScmPVkoNRRs09YB5f0juMR7C0bopH+EEmaqk++upwBm1nP/e/Dtxew r7vE625A/r6FGg4xIb9flyd3LdIf3HsRkH/Bt6+5XCnDvRxE/u5ev7V+yD8w==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7591; h=from:subject; bh=Hec0xxMOh0cK4yBYBOcb5aqhxRAjnc34rm5FBOgOGD0=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhHKMs6ml8yWGswBEn8BNaWTcv46iAfG0OJbmF8YMg oAEj0wmJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYRyjLAAKCRCJcvTf3G3AJmy1EA Cxa4AsWTCF8/uDP8AV7JotgjiK7+Wd6hTmjaB2izxSIO3ujFU7lf++q7Flx4Rk0Khk2tYC5yFzkf1q KsVqRI+lR033mk6KdPSJ9FrfNzNJz8wPKrUcmvO1yC5Ew7NsSbVcFG9rAJTpUGSp6PB33hEZa7ao6X g00L0SWHv3JrcPqQxfPVH40XS0edTmHg2xsJ5mtz/NsFH7sjkVvbomQwzPWIWneWOUFnBoNs+gvf6t vSf2XOihAR71V0F5AszPaupkbs6G5njj1px9/ENBv3HIa208Q3y8DpqsvqamaITfm+fmWG8CrO/7OT jWWUwcLUoiPAzcKaa+OKE5ii0xStgjRPNhoJKsOJU0dDqt0/5/X37hzygJ+A+cggmAIfMoTzmE9a8f appSBcljh4nYutCtxDKnbc2yqCBtKYTAlZ+vqGGAe35wFrXKhNNsQK7c8ciBk7F+G4tdWcsfmTfE+h Z4gxHVqy2JU4v0EWPwh/KVUbbHw6edMeAslLgW8TyhklAWJSFhjGecLkyTpx66usdMKTWdYMmrbu8O PytqhJuULFGtFs5i5jkysrms3SGobkhoweDZHzjT82RPdfsZchVOG0LZfHsmuh54DBoXEf/9bw4Zgm QQ4sjZ4Ski2g83oskEkT+N7EABOdA+mCeKE78rnk61IM+xXh4/vRHiEA0ipw==
 X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=Y4RaduW1;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532
+ header.i=@chromium.org header.s=google header.b="WQqdtls/";       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::430
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -146,107 +146,185 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-As done for memcpy(), also update memset() to use the same tightened
-compile-time bounds checking under CONFIG_FORTIFY_SOURCE.
+To enable FORTIFY_SOURCE support for Clang, the kernel must work around
+a pair of bugs, related to Clang's inlining.
+
+Change all the fortified APIs into macros with different inline names to
+bypass Clang's broken inline-of-a-builtin detection:
+https://bugs.llvm.org/show_bug.cgi?id=50322
+
+Lift all misbehaving __builtin_object_size() calls into the macros to
+bypass Clang's broken __builtin_object_size() arguments-of-an-inline
+visibility:
+https://github.com/ClangBuiltLinux/linux/issues/1401
+
+Thankfully, due to how the inlining already behaves in GCC, this change
+has no effect on GCC builds, but allows Clang to finally gain full
+FORTIFY coverage.
+
+However, because of a third bug which had no work-arounds, FORTIFY_SOURCE
+will only work with Clang version 13 and later. Update the Kconfig to
+reflect the new requirements.
 
 Signed-off-by: Kees Cook <keescook@chromium.org>
 ---
- include/linux/fortify-string.h                | 54 ++++++++++++++++---
- .../write_overflow_field-memset.c             |  5 ++
- 2 files changed, 51 insertions(+), 8 deletions(-)
- create mode 100644 lib/test_fortify/write_overflow_field-memset.c
+ include/linux/fortify-string.h | 55 +++++++++++++++++++++-------------
+ security/Kconfig               |  2 +-
+ 2 files changed, 36 insertions(+), 21 deletions(-)
 
 diff --git a/include/linux/fortify-string.h b/include/linux/fortify-string.h
-index 0120d463ba33..7de4673dfe2c 100644
+index 7de4673dfe2c..e62d3633a329 100644
 --- a/include/linux/fortify-string.h
 +++ b/include/linux/fortify-string.h
-@@ -198,17 +198,56 @@ __FORTIFY_INLINE char *strncat(char *p, const char *q, __kernel_size_t count)
- 	return p;
- }
+@@ -48,10 +48,10 @@ extern char *__underlying_strncpy(char *p, const char *q, __kernel_size_t size)
+ #define __underlying_strncpy	__builtin_strncpy
+ #endif
  
--__FORTIFY_INLINE void *memset(void *p, int c, __kernel_size_t size)
-+__FORTIFY_INLINE void fortify_memset_chk(__kernel_size_t size,
-+					 const size_t p_size,
-+					 const size_t p_size_field)
+-__FORTIFY_INLINE char *strncpy(char *p, const char *q, __kernel_size_t size)
++#define strncpy(p, q, s) __fortify_strncpy(p, q, s, __builtin_object_size(p, 1))
++__FORTIFY_INLINE char *__fortify_strncpy(char *p, const char *q,
++					 __kernel_size_t size, size_t p_size)
  {
--	size_t p_size = __builtin_object_size(p, 0);
-+	if (__builtin_constant_p(size)) {
-+		/*
-+		 * Length argument is a constant expression, so we
-+		 * can perform compile-time bounds checking where
-+		 * buffer sizes are known.
-+		 */
- 
--	if (__builtin_constant_p(size) && p_size < size)
--		__write_overflow();
--	if (p_size < size)
--		fortify_panic(__func__);
--	return __underlying_memset(p, c, size);
-+		/* Error when size is larger than enclosing struct. */
-+		if (p_size > p_size_field && p_size < size)
-+			__write_overflow();
-+
-+		/* Warn when write size is larger than dest field. */
-+		if (p_size_field < size)
-+			__write_overflow_field(p_size_field, size);
-+	}
-+	/*
-+	 * At this point, length argument may not be a constant expression,
-+	 * so run-time bounds checking can be done where buffer sizes are
-+	 * known. (This is not an "else" because the above checks may only
-+	 * be compile-time warnings, and we want to still warn for run-time
-+	 * overflows.)
-+	 */
-+
-+	/*
-+	 * Always stop accesses beyond the struct that contains the
-+	 * field, when the buffer's remaining size is known.
-+	 * (The -1 test is to optimize away checks where the buffer
-+	 * lengths are unknown.)
-+	 */
-+	if (p_size != (size_t)(-1) && p_size < size)
-+		fortify_panic("memset");
+-	size_t p_size = __builtin_object_size(p, 1);
+-
+ 	if (__builtin_constant_p(size) && p_size < size)
+ 		__write_overflow();
+ 	if (p_size < size)
+@@ -71,9 +71,10 @@ __FORTIFY_INLINE char *strcat(char *p, const char *q)
  }
  
-+#define __fortify_memset_chk(p, c, size, p_size, p_size_field) ({	\
-+	size_t __fortify_size = (size_t)(size);				\
-+	fortify_memset_chk(__fortify_size, p_size, p_size_field),	\
-+	__underlying_memset(p, c, __fortify_size);			\
-+})
-+
-+/*
-+ * __builtin_object_size() must be captured here to avoid evaluating argument
-+ * side-effects further into the macro layers.
-+ */
-+#define memset(p, c, s) __fortify_memset_chk(p, c, s,			\
-+		__builtin_object_size(p, 0), __builtin_object_size(p, 1))
-+
- /*
-  * To make sure the compiler can enforce protection against buffer overflows,
-  * memcpy(), memmove(), and memset() must not be used beyond individual
-@@ -399,7 +438,6 @@ __FORTIFY_INLINE char *strcpy(char *p, const char *q)
- /* Don't use these outside the FORITFY_SOURCE implementation */
- #undef __underlying_memchr
- #undef __underlying_memcmp
--#undef __underlying_memset
- #undef __underlying_strcat
- #undef __underlying_strcpy
- #undef __underlying_strlen
-diff --git a/lib/test_fortify/write_overflow_field-memset.c b/lib/test_fortify/write_overflow_field-memset.c
-new file mode 100644
-index 000000000000..2331da26909e
---- /dev/null
-+++ b/lib/test_fortify/write_overflow_field-memset.c
-@@ -0,0 +1,5 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#define TEST	\
-+	memset(instance.buf, 0x42, sizeof(instance.buf) + 1)
-+
-+#include "test_fortify.h"
+ extern __kernel_size_t __real_strnlen(const char *, __kernel_size_t) __RENAME(strnlen);
+-__FORTIFY_INLINE __kernel_size_t strnlen(const char *p, __kernel_size_t maxlen)
++#define strnlen(p, s) __fortify_strnlen(p, s, __builtin_object_size(p, 1))
++__FORTIFY_INLINE __kernel_size_t __fortify_strnlen(const char *p, size_t maxlen,
++						   size_t p_size)
+ {
+-	size_t p_size = __builtin_object_size(p, 1);
+ 	size_t p_len = __compiletime_strlen(p);
+ 	size_t ret;
+ 
+@@ -108,10 +109,14 @@ __FORTIFY_INLINE __kernel_size_t strlen(const char *p)
+ 
+ /* defined after fortified strlen to reuse it */
+ extern size_t __real_strlcpy(char *, const char *, size_t) __RENAME(strlcpy);
+-__FORTIFY_INLINE size_t strlcpy(char *p, const char *q, size_t size)
++#define strlcpy(p, q, s) __fortify_strlcpy(p, q, s,			\
++					   __builtin_object_size(p, 1),	\
++					   __builtin_object_size(q, 1))
++__FORTIFY_INLINE size_t __fortify_strlcpy(char *p, const char *q,
++					  size_t size,
++					  const size_t p_size,
++					  const size_t q_size)
+ {
+-	size_t p_size = __builtin_object_size(p, 1);
+-	size_t q_size = __builtin_object_size(q, 1);
+ 	size_t q_len;	/* Full count of source string length. */
+ 	size_t len;	/* Count of characters going into destination. */
+ 
+@@ -135,12 +140,15 @@ __FORTIFY_INLINE size_t strlcpy(char *p, const char *q, size_t size)
+ 
+ /* defined after fortified strnlen to reuse it */
+ extern ssize_t __real_strscpy(char *, const char *, size_t) __RENAME(strscpy);
+-__FORTIFY_INLINE ssize_t strscpy(char *p, const char *q, size_t size)
++#define strscpy(p, q, s) __fortify_strscpy(p, q, s,			\
++					   __builtin_object_size(p, 1),	\
++					   __builtin_object_size(q, 1))
++__FORTIFY_INLINE ssize_t __fortify_strscpy(char *p, const char *q,
++					   size_t size,
++					   const size_t p_size,
++					   const size_t q_size)
+ {
+ 	size_t len;
+-	/* Use string size rather than possible enclosing struct size. */
+-	size_t p_size = __builtin_object_size(p, 1);
+-	size_t q_size = __builtin_object_size(q, 1);
+ 
+ 	/* If we cannot get size of p and q default to call strscpy. */
+ 	if (p_size == (size_t) -1 && q_size == (size_t) -1)
+@@ -181,11 +189,13 @@ __FORTIFY_INLINE ssize_t strscpy(char *p, const char *q, size_t size)
+ }
+ 
+ /* defined after fortified strlen and strnlen to reuse them */
+-__FORTIFY_INLINE char *strncat(char *p, const char *q, __kernel_size_t count)
++#define strncat(p, q, count)	__fortify_strncat(p, q, count, \
++						  __builtin_object_size(p, 1), \
++						  __builtin_object_size(q, 1))
++__FORTIFY_INLINE char *__fortify_strncat(char *p, const char *q, size_t count,
++					 size_t p_size, size_t q_size)
+ {
+ 	size_t p_len, copy_len;
+-	size_t p_size = __builtin_object_size(p, 1);
+-	size_t q_size = __builtin_object_size(q, 1);
+ 
+ 	if (p_size == (size_t)-1 && q_size == (size_t)-1)
+ 		return __underlying_strncat(p, q, count);
+@@ -352,7 +362,8 @@ __FORTIFY_INLINE void fortify_memcpy_chk(__kernel_size_t size,
+ 		memmove)
+ 
+ extern void *__real_memscan(void *, int, __kernel_size_t) __RENAME(memscan);
+-__FORTIFY_INLINE void *memscan(void *p, int c, __kernel_size_t size)
++#define memscan(p, c, s) __fortify_memscan(p, c, s)
++__FORTIFY_INLINE void *__fortify_memscan(void *p, int c, __kernel_size_t size)
+ {
+ 	size_t p_size = __builtin_object_size(p, 0);
+ 
+@@ -363,7 +374,8 @@ __FORTIFY_INLINE void *memscan(void *p, int c, __kernel_size_t size)
+ 	return __real_memscan(p, c, size);
+ }
+ 
+-__FORTIFY_INLINE int memcmp(const void *p, const void *q, __kernel_size_t size)
++#define memcmp(p, q, s) __fortify_memcmp(p, q, s)
++__FORTIFY_INLINE int __fortify_memcmp(const void *p, const void *q, __kernel_size_t size)
+ {
+ 	size_t p_size = __builtin_object_size(p, 0);
+ 	size_t q_size = __builtin_object_size(q, 0);
+@@ -379,7 +391,8 @@ __FORTIFY_INLINE int memcmp(const void *p, const void *q, __kernel_size_t size)
+ 	return __underlying_memcmp(p, q, size);
+ }
+ 
+-__FORTIFY_INLINE void *memchr(const void *p, int c, __kernel_size_t size)
++#define memchr(p, c, s) __fortify_memchr(p, c, s)
++__FORTIFY_INLINE void *__fortify_memchr(const void *p, int c, __kernel_size_t size)
+ {
+ 	size_t p_size = __builtin_object_size(p, 0);
+ 
+@@ -391,7 +404,8 @@ __FORTIFY_INLINE void *memchr(const void *p, int c, __kernel_size_t size)
+ }
+ 
+ void *__real_memchr_inv(const void *s, int c, size_t n) __RENAME(memchr_inv);
+-__FORTIFY_INLINE void *memchr_inv(const void *p, int c, size_t size)
++#define memchr_inv(p, c, s) __fortify_memchr_inv(p, c, s)
++__FORTIFY_INLINE void *__fortify_memchr_inv(const void *p, int c, size_t size)
+ {
+ 	size_t p_size = __builtin_object_size(p, 0);
+ 
+@@ -415,7 +429,8 @@ __FORTIFY_INLINE void *kmemdup(const void *p, size_t size, gfp_t gfp)
+ }
+ 
+ /* Defined after fortified strlen to reuse it. */
+-__FORTIFY_INLINE char *strcpy(char *p, const char *q)
++#define strcpy(p, q) __fortify_strcpy(p, q)
++__FORTIFY_INLINE char *__fortify_strcpy(char *p, const char *q)
+ {
+ 	size_t p_size = __builtin_object_size(p, 1);
+ 	size_t q_size = __builtin_object_size(q, 1);
+diff --git a/security/Kconfig b/security/Kconfig
+index fe6c0395fa02..530a15566b1d 100644
+--- a/security/Kconfig
++++ b/security/Kconfig
+@@ -193,7 +193,7 @@ config FORTIFY_SOURCE
+ 	depends on ARCH_HAS_FORTIFY_SOURCE
+ 	# https://bugs.llvm.org/show_bug.cgi?id=50322
+ 	# https://bugs.llvm.org/show_bug.cgi?id=41459
+-	depends on !CC_IS_CLANG
++	depends on !CC_IS_CLANG || CLANG_VERSION >= 130000
+ 	help
+ 	  Detect overflows of buffers in common string and memory functions
+ 	  where the compiler can determine and validate the buffer sizes.
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210818060533.3569517-63-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210818060533.3569517-64-keescook%40chromium.org.
