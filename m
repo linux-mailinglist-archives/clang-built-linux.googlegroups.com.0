@@ -1,221 +1,138 @@
-Return-Path: <clang-built-linux+bncBAABBSGM66EAMGQESFW242Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDOMJEHI4IARB2W266EAMGQEE4L77UY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x140.google.com (mail-lf1-x140.google.com [IPv6:2a00:1450:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id DFB493F12A1
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 07:04:08 +0200 (CEST)
-Received: by mail-lf1-x140.google.com with SMTP id 21-20020ac248350000b02903c8cff22cd0sf1494433lft.2
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 22:04:08 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1629349448; cv=pass;
+Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
+	by mail.lfdr.de (Postfix) with ESMTPS id D5B9C3F12CB
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 07:34:34 +0200 (CEST)
+Received: by mail-lf1-x138.google.com with SMTP id c22-20020a0565121056b02903c8d745ff5csf1514333lfb.12
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 22:34:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629351274; cv=pass;
         d=google.com; s=arc-20160816;
-        b=r6Pw1RX3cLLboQPD89DlQrEPbX0m44fIftCIaqqcjEM5DdI7qrLZX+Q0ls3rsUAtbn
-         Xeh35codHmYGTYC3NxlzT0L3tYVeyduqZ2i5RztKjtaYsXj/teYYUhacA+nBGtxJd067
-         6wQ9D2yUVFshC1gupJin3LcOTgS/WYY0DLiRTJIZ0yUP37+QG05Q/P0xuOpDHV4S/TqM
-         pcKdlEIu5t5xu8FbOZw7s3Cn/Et9O9bJbM+vOgqoTAj573d1W3ChrvK4XWsqkhp4fEZY
-         l9SUHbiMjP+VLy0JYTzf4bNwW6o62CxO84gMHvr28l6V49sLy1qsJhpfj4TEtBWY72Xi
-         JvUA==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=UGAv3YzPmb6OsluCmCGfLQd+QyiT+uc9N0Vz4mKNw6ushe3prvffBERoPT6ySJDSI4
+         wRG1K8FXoYxMoPW8BaaS1+0smyphiUX4KA6o3a2dEaZqVG+8S1l5Q0sUb4MrstqN2A/y
+         gwO8Cc+YJTvx5PxMTGwG0wYEQXGhXqCWkVEVFzMk7nw9q8Qxn4oEU9fHDErjMou+SlFn
+         sye9MVaUz/VSCWCwqZzYV5Dl6vR+8RRJEYsWJieCIkGK/rFmZUwnlqitJGrj3I1QKFhV
+         bzzx03dQdIQU3OOB61AduLu3iCJT1M9kML99yqrv4rvr0dh7+72xvQjt5np6MevNrR4+
+         sTPQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:mime-version
-         :content-transfer-encoding:content-language:in-reply-to:user-agent
-         :date:message-id:from:references:cc:to:subject:dkim-signature;
-        bh=omM9uVgStJMQNoBOsD8RYuR266j9spkuXi/ZrJs9Dn8=;
-        b=LY4BjAojvYXEyqsb8B7g9Uj7big9Xs3IwALJUwvLnzyHd+ngCiD+obt69Eo/3L8S/n
-         slZp9cDJ+SWvfkb+Tt0udeZzZYWyDPrF8/IhxMJcz/HI7rPPDx6WbgUPQEd/8xxjpyPp
-         WKNyOP624R35zKGGj0ieSGwa0nxMZ6vmp72SUzJvhXATZdFNnl63HBFcTy7/Vq+nvG8a
-         ux2QAWnIjnpEsaJ314p/ZWDzplXQf4dNZE111yLuqo9Hyowj8e0S8OQTv9K1X7l708Dd
-         yPEGVy1XCI9NvAiw1JKkqsSoRo+Repn71QQpSuGjqnLGomskBMyUDogCWcFcY/s5TOqj
-         LlWQ==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@amd.com header.s=selector1 header.b=QqTqY04B;
-       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
-       spf=pass (google.com: domain of lijo.lazar@amd.com designates 40.107.93.71 as permitted sender) smtp.mailfrom=Lijo.Lazar@amd.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amd.com
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=15YB7HLqcNvHb5k2HQnUQCE8hIhAphqoRyIklB7oo6c=;
+        b=aj7h6V71XdmATHpGyNVhczf8xP5JQ1OTn+/Lgt2hJ+FqQQSpyAKGoDqC8P+TVMAuTW
+         RB+PylNjmwH9q/Xs6zhKJ62vD1L0vsXgNqP8nCKWwihy9i9EvPjzgrtL5RIHGYIeie3D
+         6djihpoS4UIG/PeOma+KM1Wnyw6BcfX2GOET5zj7eOY56+tOJUvqMRMeM+J8qHfx2hQt
+         v9xL67ktXnzhHSpqHCnbdxp9iEd0L1I+uso1ujzeEIebwUkbb/MgwNp9HNgxxRbn6vWI
+         wjN3xbel+UYfRXOIEnxXxhdhYPqUUFTJEUZf9+Ndp6VXaeXbWxpZoMpSaPIIfLRA4WQb
+         N4Pw==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YaLJ+ZaU;
+       spf=pass (google.com: domain of mazziesaccount@gmail.com designates 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=mazziesaccount@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:user-agent
-         :in-reply-to:content-language:content-transfer-encoding:mime-version
-         :x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=omM9uVgStJMQNoBOsD8RYuR266j9spkuXi/ZrJs9Dn8=;
-        b=MBCZLci6WBbdjVl1EkewWUy82uBANu6m5Q2T26WrntH4jnsX5zADinnqxA/0yxdngm
-         zuK3iC6DWnz7uG45mWbV+7gbjmma3ebBBGbLxkt7Ig/4GlKgxCzNeD7FebB/AQfOBXBO
-         UYyrvO6qeZhvK7JRk16aB39+GOsNdVFKM2OsSnQSWlcfEVnsPM3do9BxUaN2q/dyrPGW
-         lTIwr/v6Oz9bOt787odwcjP2HGBFKyeBPg5gGXcbHLcrABV+yEDpHGEPmSqaD0uZYOqm
-         s2Z9gVV/NPSE+ZtNud85V0Ylcpi9ZdFureVzkhODNnwUw24cmZ5sT9rku6H63To8d9KM
-         yrbg==
+        bh=15YB7HLqcNvHb5k2HQnUQCE8hIhAphqoRyIklB7oo6c=;
+        b=q9scygGqwZ9SBvzmuC2BDlIFO4UrRGSl1Nls6U60yEhjmrgSW4LbKg/xiWpDO/gdmH
+         rUiFVtDAqox0VK/xNjYZ0of5SMXJi7TYGXxEwqUI2Mq+vEvr90o9+arm4FmsvlamnORR
+         Dkp4uCi1her8b4IDYPMbkI8q+ZehBKz00uquTSiXCuzh8aoK2pi2jY2EaiO6SlgvziIC
+         DoRLUdml3uAH0G6DVkbE4IXGyL/nNLetGOV0c4rUj1GOK6Aocs1KmXmbnObT8PQ16Ung
+         5LzMQpRIuopixDJv9TyqE9+fdqZY8fLvMax3S3Wx7akm0pEy0YPiiUB21Fk2N78PJZXv
+         wCvw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=15YB7HLqcNvHb5k2HQnUQCE8hIhAphqoRyIklB7oo6c=;
+        b=AC0vbRZd0rCvY+nt7+YYy7efiSlNXTujMsxxXruJ0KKNJG8GvPdUG2BqvoBHOhbD+B
+         cAM4cROJFQP8fMRmeWJuVkuGjk9Cq4I2qTb8rYQZfd/AkKvfmBM0mQY8naEPS0wITrS8
+         CCA0GBe8plc80TFbydmv62yPzUM+7KpxYP48EokWh+Vka/wkAP5QjMvao7TbyDnd4DCq
+         hEewYHLgRqNwPUsX+09vg/SwHNu30l/V7t20T8d6mYm28VnvZ7JpOhndDyVgQYx8JC/5
+         lgj9ow2ERLZjLNsuHHMqIKzb0FGKoR5P2Cxb+9hAoaVuTz3oOTOxOYk9q283cCrs68H6
+         8BGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
-         :user-agent:in-reply-to:content-language:content-transfer-encoding
-         :mime-version:x-original-sender:x-original-authentication-results
-         :reply-to:precedence:mailing-list:list-id:x-spam-checked-in-group
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=omM9uVgStJMQNoBOsD8RYuR266j9spkuXi/ZrJs9Dn8=;
-        b=SnlY8MLXuZAWqmExSguQhGSGIwipyxm1WMJFAnsASRiOkt2efXgKHLXOeBOGClQzoF
-         f7FhtwdxIMXLZuxggrknld0W2qD0ZRK+wEVjO93HqaWLAwdyll9AWDnHZfCgMgBnC+Fm
-         7UJ6d30XE1kUb7/RxQPUm3rYJgmCJtzFSx4JbiPoXobOm70OD91iNT4JCpyX6A8x19mP
-         ATMaVTtP/qNK3hVNSHOQpK0wV5XOeuS4jj/+yP00eo45WkPJe021nyzJA2TGdhoO09kw
-         7cdhkoOhW8P1/c9uO+OnMFCqGMw/+zJWCjJ334o8p83/Eh5Q1kMas7qJIEGRs0lFjDOr
-         RvoQ==
-X-Gm-Message-State: AOAM53096XQ7HyWL3ZtY6+bxwJ/DGiWlxMV9OCUR7Rdqwjf7JDqYyP5o
-	zW/4YCwnI0Ee3T4jC22V4tY=
-X-Google-Smtp-Source: ABdhPJzQRzsyRiy7jEhJ6ypaRyLWSdkmA+zidfufkGssFENA2lxbLEX0AOEr6soVKn0uwOQgsrKNEw==
-X-Received: by 2002:a2e:bc1d:: with SMTP id b29mr290550ljf.2.1629349448402;
-        Wed, 18 Aug 2021 22:04:08 -0700 (PDT)
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=15YB7HLqcNvHb5k2HQnUQCE8hIhAphqoRyIklB7oo6c=;
+        b=AzDVMCf3KidAwpN7DEsiSXOLWMF08uDaRYr5/+PPwltp409wCx244LWMzRIKQYdGUf
+         Lp8R1gOZGxWUfZbWGxRkbesxKcqVN0CXp4ndWZ4iVTwf7crHHABX5RhvUSQ4gwL11Hxp
+         5DdKMeHGqrJuueOsy4PV+rc4zn8VnoBvxXYRPGl+y/zIeX5AwhaS2pKtnwwNzZXZ4Vis
+         7wjS/3IKlM2wWL7CPliRqukUabVJbRX/ldf04rXo832huoqQwIPKJzCIBdlOnmNnbU3m
+         dCzOLhkkidLK1V80uSHgYLwvYTkE9zycpxsrBPFGz8VvDFDu0hx8JtzwmUdoVrNnPyE3
+         YlcQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533hs3SA1ohhorH956cx4yeD/Jv7jp4b17aW7juFVymYEjbTU1d4
+	OWz65GrdPRDT/WeK8igv1jo=
+X-Google-Smtp-Source: ABdhPJyFg2tLtacGMmzOG4zow3PYd1Mdsfpo3swLhKT4YfpM9rds+sjWS9mCnQ+Ki/8JalhKkzte5A==
+X-Received: by 2002:a05:6512:22cd:: with SMTP id g13mr9496818lfu.440.1629351274428;
+        Wed, 18 Aug 2021 22:34:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3f02:: with SMTP id y2ls2830994lfa.3.gmail; Wed, 18
- Aug 2021 22:04:07 -0700 (PDT)
-X-Received: by 2002:a05:6512:60d:: with SMTP id b13mr9212123lfe.135.1629349447273;
-        Wed, 18 Aug 2021 22:04:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629349447; cv=pass;
+Received: by 2002:a2e:bf26:: with SMTP id c38ls808862ljr.5.gmail; Wed, 18 Aug
+ 2021 22:34:33 -0700 (PDT)
+X-Received: by 2002:a2e:b80f:: with SMTP id u15mr10770916ljo.232.1629351273304;
+        Wed, 18 Aug 2021 22:34:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629351273; cv=none;
         d=google.com; s=arc-20160816;
-        b=07MgzekarZUPhVOf4uwGre7k5GqjCIzFa/CZBPR3GBg3L68YOfbeJ7ygoC/gjBHIbz
-         FM+PpcuivPwDSlOMka2773/dYzgWrEMafeYHPe5LUV9gKTG9sSVNVENsTR2p+Qz4R5wI
-         zDVM5/591i0K+X+33MoYYCtfunCWxdAK4vnHuFpUi0bYUGrl8B13MFu6SP0Pbn9Sknhf
-         DLInzd1Y0sU1234NBmfDCOu8tTSZ5BAEypfsjwqfLIoTKl8W9IKd2W+gbspCn93p89pT
-         vlePuN1cmr8iLt0qBY2GF2eRsgheiIhwkI2VdL/Bm2JRqaZnyZntEN1RXczo4dZCxVL7
-         R3bA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-language:in-reply-to
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=pDiT9yeLnvcKQQ8BxhigiFU/5NnyCWVQK2mx67xBOLE=;
-        b=BGUuu04oMciQ5IXrChvAiJJ07No/J0TFVkO8MJcQfKujuPduP5bX18/dJZgT3GblPO
-         YL7DCj8qw15RQRq0fsaXjzaLPZuFj4P3fqUrXaWLKVe1tM3UAnTueqD5kNtJXcCYIx/I
-         VMEeMfnYubtVJkMJakWkTvnc0DgqqtBzlJuAXuuuW3ZSWg1EKtj7g//YnmqjUh0P9/YU
-         uN292PD+XyGkaUkJrYal/0G1K9ZB/jqJCJirCdzZUfS85P9xm6PFbzONgb/E5rlAXyQx
-         Rsnm0O6wQ3UIONy3mUFDAqyT93wtgrD63aUHcu2dg9cUHIyydSl2e98Yf8KvjjpiKZH1
-         Qljw==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@amd.com header.s=selector1 header.b=QqTqY04B;
-       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
-       spf=pass (google.com: domain of lijo.lazar@amd.com designates 40.107.93.71 as permitted sender) smtp.mailfrom=Lijo.Lazar@amd.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amd.com
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (mail-dm6nam10on2071.outbound.protection.outlook.com. [40.107.93.71])
-        by gmr-mx.google.com with ESMTPS id t8si120107lfc.11.2021.08.18.22.04.06
+        b=RbW91oDkwrWSQ2eNzjtyooJmwthlgxecOeqvWcjXeX90P7844qpH1Nr3kZRspJXt2W
+         MTnqBNpJlFWodoYQQrIYwjzagfqI7pjGpFL7hdnQHYYJwg9pmp7FRuItEmwF5B5VZAp0
+         Ufo4hSvEfcCLVU4EBfXzJzt7qCoEVwj8em3FrXnoJhgD7ITrzNfjOi/BR5lMj8bl9OsV
+         ZwAdTxHtlQ2Hw79hfSMRQqs/K0GcWqmmOl0NZK3SIlAVUVBT5UHCmJLgiG97IuZaPOXQ
+         /9dDjr5P7Glt1vSMCF9xDBJAbuJB7McZnf9wjnd8L3EH3Ga2x0+MFMIGUo1OJhw8Kt0j
+         a6Gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=XzBtTyUuZAZ36Cvu3BHXUN5QOP1AlqjuoYzkcck7J1A=;
+        b=k4phR14zFjN4rMrZ25/1/vH1Pi+ibWx+9C9y3q6B88qZ+HnAnzaCWcT6kJnU8Gg9AK
+         sGZuW3PUZJdj8RRBOIoPJtARYMi15mw7DZ643dga0D+QNKP6gLDs/5nnwcuo4buR+gRi
+         hOH5/Eclt2kTu5OpHvyUvvqPctaodopvAZFnZjVJP4y9UhBOFOs8S04pMy9IELG9EABN
+         06CGhXN9MwhSc6hn8bWhBHzbRtYVq7CuIboRm8i7cgs3YzzyT2MWQIQesp3oo5A5bcEt
+         f2hPVTlVqnsAosPl165/jI6fUerRewsCFRgwp/4TC83swqMFTifzltHioVZbWYzUiCKq
+         CFcg==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YaLJ+ZaU;
+       spf=pass (google.com: domain of mazziesaccount@gmail.com designates 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=mazziesaccount@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ed1-x531.google.com (mail-ed1-x531.google.com. [2a00:1450:4864:20::531])
+        by gmr-mx.google.com with ESMTPS id h13si100933ljj.7.2021.08.18.22.34.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Aug 2021 22:04:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lijo.lazar@amd.com designates 40.107.93.71 as permitted sender) client-ip=40.107.93.71;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=QtCbH1ccZ/CKNMqKHYJrv9uZzsvuU7nKlhAv1mK6oSB1MnCpQQsbAvs4ZOaHggRHQ5yKNwG7ch0w+44I4w2nv8jPSfHmhlPE7ZDl3YPOXH+AhqAKeuWlYVG2rEMAlnREbzQ0tHeheL8R5wWZjW5R23k4ZVE1LzZQgQEI9I0BIVbtOYEUc4URafh6zE9StJzmr8bSGuv44DpqztLfrXKbcSOrq4kwG/ie72Hr4P4cRMgvnZdK0iJJAt3l16u+FAMK4Itm+AsnZg1h6kfUVkmh7qFMvOtvpff+fKfJFGm82lsGx7blpl/XLC9RbeKVlU720qK5FnDLlZBIg105oUCFeA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pDiT9yeLnvcKQQ8BxhigiFU/5NnyCWVQK2mx67xBOLE=;
- b=Zr0St1QpDELQlvmK4bgWrwDogITjXc5Mlm0t73qUMMEGet16i+RQcQpn0PjiWYlQrzEfsyS/mpNpeHy/UlRh41EzokqXDx7W3QNk/zzqo6KaIgEFDYYCwpuIkLUqwxX547JkjQnNAFLP6nSjbx8HmVZ708yXGnVPBw2/9vTJrrvEbBWbXe02KQWcz4vsFYvXNSjGOinJ+iq9ddP84uatwGeXHoE0EZckrxII+u+SEdOY9/SHCLrRGwy6laFq/YUdpb6HZC6Vfm8o33TtnCY1AAfOv5Uku0AzcEatGqh7RGndt2v5s89T5EFmPpkKdPMcdIVZ8a60bfnk3V4a8x+i5g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-Received: from BL1PR12MB5349.namprd12.prod.outlook.com (2603:10b6:208:31f::7)
- by BL1PR12MB5286.namprd12.prod.outlook.com (2603:10b6:208:31d::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4436.19; Thu, 19 Aug
- 2021 05:04:02 +0000
-Received: from BL1PR12MB5349.namprd12.prod.outlook.com
- ([fe80::152:9dd3:45a4:eeb6]) by BL1PR12MB5349.namprd12.prod.outlook.com
- ([fe80::152:9dd3:45a4:eeb6%4]) with mapi id 15.20.4415.024; Thu, 19 Aug 2021
- 05:04:02 +0000
-Subject: Re: [PATCH v2 18/63] drm/amd/pm: Use struct_group() for memcpy()
- region
-To: Kees Cook <keescook@chromium.org>
-Cc: linux-kernel@vger.kernel.org, =?UTF-8?Q?Christian_K=c3=b6nig?=
- <christian.koenig@amd.com>, "Pan, Xinhui" <Xinhui.Pan@amd.com>,
- David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>,
- Hawking Zhang <Hawking.Zhang@amd.com>, Feifei Xu <Feifei.Xu@amd.com>,
- Likun Gao <Likun.Gao@amd.com>, Jiawei Gu <Jiawei.Gu@amd.com>,
- Evan Quan <evan.quan@amd.com>, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, Alex Deucher <alexander.deucher@amd.com>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Andrew Morton <akpm@linux-foundation.org>, linux-wireless@vger.kernel.org,
- netdev@vger.kernel.org, linux-staging@lists.linux.dev,
- linux-block@vger.kernel.org, linux-kbuild@vger.kernel.org,
- clang-built-linux@googlegroups.com,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-hardening@vger.kernel.org
-References: <20210818060533.3569517-1-keescook@chromium.org>
- <20210818060533.3569517-19-keescook@chromium.org>
- <753ef2d1-0f7e-c930-c095-ed86e1518395@amd.com>
- <202108181619.B603481527@keescook>
-From: "'Lazar, Lijo' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Message-ID: <e56aad3c-a06f-da07-f491-a894a570d78f@amd.com>
-Date: Thu, 19 Aug 2021 10:33:43 +0530
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
-In-Reply-To: <202108181619.B603481527@keescook>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: quoted-printable
-X-ClientProxiedBy: PN1PR0101CA0066.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c00:d::28) To BL1PR12MB5349.namprd12.prod.outlook.com
- (2603:10b6:208:31f::7)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Aug 2021 22:34:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mazziesaccount@gmail.com designates 2a00:1450:4864:20::531 as permitted sender) client-ip=2a00:1450:4864:20::531;
+Received: by mail-ed1-x531.google.com with SMTP id q3so6927466edt.5
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Aug 2021 22:34:33 -0700 (PDT)
+X-Received: by 2002:a50:ec0e:: with SMTP id g14mr13880265edr.157.1629351272988;
+ Wed, 18 Aug 2021 22:34:32 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from [172.31.157.114] (165.204.158.249) by PN1PR0101CA0066.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c00:d::28) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4436.19 via Frontend Transport; Thu, 19 Aug 2021 05:03:52 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: d5b476c1-efa5-4dd9-bf4d-08d962cec1f3
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5286:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <BL1PR12MB5286D7E3C6715DA83DC4D67F97C09@BL1PR12MB5286.namprd12.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:10000;
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: pm7ZNbkG+CM9o3vW7wyT7HKy1AhjeYApML/phV1WagfK3QHHhNSQKYrL/eBrRcbdzwsjYPzFfzJZyltwhnXw86fi+4JY7ka/oPcUCS0B3MiFaTpTuac4GfHBt1udufHHNclaq/OdP8om8rTIO+1jkU4IN/uRwqOFR2Ke9gWo3GWiIB0mqtlhrGLm/d+ER7eEBZCMJ+OLb/2F+7LsJKmVUuD/PUvhXOmQGwbYuMQGS4Mzh0au/vsup5gqUXwl3zeQtDlD91fFDJd+kiMoOUoZ56OReE8GL+HOVIRfuE/+kQWxRhh6JeC92xFlPK8Jp+FJnI4FKX/sMPjv2vpI7uTURKn04DvD8hwF7lwMgvGPCcS2JexJSZBvp88bfpKVJLNIKHRAkY4moElaksyGY8e0Vlih6ju+lmMW0hOSQ5aixpIjULqEp5uarI3/OgYgANUdYtVJcTYwHwkOWpTFdfTs5IHxGJhKpyMMpje5lgGA/B+MVbwwvEtjqro3cAxussU352a/CcIFFxH1CGr6QcAX8F8MdqDqEQF88DLV0LEqaqh9NltcJLQHFoP+8QVtnpnaeHU/IgSxOCPv9DFevMUiCFo4p4jUiHVS7el/DVBQvlZU74MNOpdX8jLCMaMZl2xVQbrhekGP8A/wt+VuaC+OpMQ47ITQESBCuH2LplX8lFeCwupz+WQC8Q69thzT4EbrDEUc+cyGdmBlBxwyPQOfJpOXrjqKt1velgSUkj9FBgbl4jct24aCDraH7JCAlSGNXONQYnWU3GoHlJLZDyjaL4wlZRD69rOm4cejAhNK5f3B6W/t+HHBd3x9IwNGKjii
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5349.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(396003)(376002)(346002)(366004)(39860400002)(136003)(84040400005)(186003)(8676002)(38100700002)(16576012)(6486002)(4326008)(316002)(6666004)(30864003)(7416002)(6916009)(2906002)(36756003)(83380400001)(54906003)(478600001)(66476007)(31696002)(26005)(2616005)(66556008)(45080400002)(53546011)(8936002)(956004)(66946007)(966005)(86362001)(5660300002)(31686004)(66574015)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aUs5bG9TL0tTbnkxRWx4aXFjTXVtRWRtNHNXQW0wcHA2bzEzVGhieko0djlH?=
- =?utf-8?B?TlplZTIwa2M1T3hiVTh4NEpFV3RaL3plS3pXajczNGR3T2tjcUlRQUdDSHp6?=
- =?utf-8?B?Z2N1dVFZRXlPVDJ6SHVWalM5RXdmWlNxRDdNUHZmbFlpbE5nRnZpNTdEMTVX?=
- =?utf-8?B?K1RhaG5hcTRjeThEazlPSk8zWXBrY3p6T3FrNXNCSURVTkszemhRZ25WSnha?=
- =?utf-8?B?Lyt2VXNrd0RVTTJpczlLSmgyMkU2empIdTJwaXBxR2ZlN2hrYTc0RDdaOGFy?=
- =?utf-8?B?eGtkMHhUY2VLS2lmR0lUaXRlc2RlZWhZdkwyMjFwVzUxUUpoZ2ZvaGtSbHow?=
- =?utf-8?B?TTRWeEgxK0tOUTA0aktqanc2ZzZ6TThNZG9uLzZpVGVKTm1XcFlqNlY1ZTlY?=
- =?utf-8?B?OHI3VUdHbnVkeEtPbWJOWkR2aFpJZFM1ZktYL1UyQXZZdk1aSjUzMVYyWk1R?=
- =?utf-8?B?cGx0MWR4K0svMm5xZTVXZlo2T21ySXZyaUhjcDcxckVITU1BK3U0YkNUelh5?=
- =?utf-8?B?U0RYL0c4TUl0Y2ZTVWpTMk04VFprRGxXODZxWWtaTWdUS3hjaWVTRy8zOTkx?=
- =?utf-8?B?a3VkM1hMT1BIR1JlbTB4MXkyVVVhek1rd3NoR2pWWGp6aXIwdlJEdzNzaVo4?=
- =?utf-8?B?MTBFaTdYRUxTR1MzR015YVloM2I0cUZHVzE5eHZ3TitUS3g0ay94aWxidDNN?=
- =?utf-8?B?RTU3MGRiWVFwY21lWTFlamc1L2Q0d0UveEczcmx3NXI3UTdRRW1CamRRNnNH?=
- =?utf-8?B?RUhTLytadjZrR2I5bFlsYzBWeS9xc0ptbERJdW4yaGRKK3JaczFzT1BEVXE5?=
- =?utf-8?B?bXB1UTNIdEtmd3I1bU5kMjJiRi92ODYyK2k3b1grd3gxTXZhMXR3TTgrbU5J?=
- =?utf-8?B?SWRGMVBXcE5OVGNPaGQvaEdtNWFMNVUwMEI4YVdiWHA2OUhjK1dzL25Obk81?=
- =?utf-8?B?RldGQ3ZpTVZrOUpNZWVmZHJnU0p4RHFzQTF3SndiZWVXc1pQNG1DQXVpR3o4?=
- =?utf-8?B?K3Bpc29aQWM5K3ByVFRWYTZKb1FmdUNhQWxyeUxsQWFET1JPSzgvdytaTFBt?=
- =?utf-8?B?NXNpS3VEdEJtZjNOR0I2RCtJbWduSDFHYm42L2VPT3BHRnV4VlRLaWdMK0k3?=
- =?utf-8?B?LzlmVXJ3Ym02bGRnN3NUT25pTVhXZXNzRHRYNTZlK0haT3MvbWFtNGlva0l0?=
- =?utf-8?B?MU1tb2JxNGZmWWxqdUV2Mmg5RU9wcWp4TkJEOW9kODdySk8wY0VqUktWNGpa?=
- =?utf-8?B?cmgvTllhMXpVYlBzQnVyTkJ2djYvZktPWUlneVVwajRMc0hoUXpzSVBxektU?=
- =?utf-8?B?UXN6N0ZIOEJMeXYxOERjdUZHN1E4Z0VON2w1TFR0Y0YwQ202bzQxTU13NmJ4?=
- =?utf-8?B?MENlTndQOXNkN1dUWVF0NXF6Qmt4TTJlTEVXOUNvMlRkSzlhNC9BNlZSYWVi?=
- =?utf-8?B?RjF5Z2hZVHdDR2wrei9DNk4vNzVsWU9pMmx4NTZjV2xjNlZLSWtNUVd0NGdp?=
- =?utf-8?B?enRSTTZNaGRlZ2Nvbkl2S1R2WmdoSllMQVVMeFltY0M0OWdDUHk2YmZiSmZp?=
- =?utf-8?B?YWdWZEg5TjRZWlc1M2JBaUFUZFpTN2g2UzdjWWoySGFOelpSWWdqeTZIOGRP?=
- =?utf-8?B?LzVwcWZpbGx2cFRLV3hrbnpmeUFuK21zK3ZGemZ4UkhBSzFoeEVFWXVvTXg0?=
- =?utf-8?B?VWdGU3Fvby9XZi9iOVVHT0pjS25oUHM0NE9Lc01mRFNMZEJRaU1QdmpYZTlF?=
- =?utf-8?Q?dbc/8mys9atC2X2BqCUnNC4hqDH9loYuvgqK/aN?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d5b476c1-efa5-4dd9-bf4d-08d962cec1f3
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5349.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2021 05:04:02.4348
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nVgpSAVJkoL+vBWnQxvzbsiaWoDCy82hpM92A5HPZ30M1j7iTZ4uVaQ4o4lUTOkA
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5286
-X-Original-Sender: lijo.lazar@amd.com
+References: <202108172206.9cbgvI53-lkp@intel.com> <4dabc78a-f9ee-4e7d-8bf3-ea1c6cef8530@intel.com>
+In-Reply-To: <4dabc78a-f9ee-4e7d-8bf3-ea1c6cef8530@intel.com>
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+Date: Thu, 19 Aug 2021 08:34:22 +0300
+Message-ID: <CANhJrGOh+9PoMmsv-Q9petTV-hv9rv9nOitg0NCQHqXVXzJvvw@mail.gmail.com>
+Subject: Re: [kbuild] drivers/regulator/bd718x7-regulator.c:531:8: warning:
+ Excessive padding in 'struct bd718xx_regulator_data' (8 padding bytes, where
+ 0 is optimal).
+To: kernel test robot <yujie.liu@intel.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, clang-built-linux@googlegroups.com, 
+	kbuild-all@lists.01.org, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Mark Brown <broonie@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: Mazziesaccount@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@amd.com header.s=selector1 header.b=QqTqY04B;       arc=pass (i=1
- spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass
- fromdomain=amd.com);       spf=pass (google.com: domain of lijo.lazar@amd.com
- designates 40.107.93.71 as permitted sender) smtp.mailfrom=Lijo.Lazar@amd.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amd.com
-X-Original-From: "Lazar, Lijo" <lijo.lazar@amd.com>
-Reply-To: "Lazar, Lijo" <lijo.lazar@amd.com>
+ header.i=@gmail.com header.s=20161025 header.b=YaLJ+ZaU;       spf=pass
+ (google.com: domain of mazziesaccount@gmail.com designates
+ 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=mazziesaccount@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -228,277 +145,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+Hi,
 
+On Thu, Aug 19, 2021 at 6:26 AM kernel test robot <yujie.liu@intel.com> wrote:
+>  >> drivers/regulator/bd718x7-regulator.c:531:8: warning: Excessive
+> padding in 'struct bd718xx_regulator_data' (8 padding bytes, where 0 is
+> optimal).
+>     Optimal fields order:
+>     dvs,
+>     additional_inits,
+>     additional_init_amnt,
+>     init,
+>     desc,
+>     consider reordering the fields or adding explicit padding members
+> [clang-analyzer-optin.performance.Padding]
+>     struct bd718xx_regulator_data {
+>     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+>     drivers/regulator/bd718x7-regulator.c:531:8: note: Excessive padding
+> in 'struct bd718xx_regulator_data' (8 padding bytes, where 0 is
+> optimal). Optimal fields order: dvs, additional_inits,
+> additional_init_amnt, init, desc, consider reordering the fields or
+> adding explicit padding members
+>     struct bd718xx_regulator_data {
+>     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
 
-On 8/19/2021 5:29 AM, Kees Cook wrote:
-> On Wed, Aug 18, 2021 at 05:12:28PM +0530, Lazar, Lijo wrote:
->>
->> On 8/18/2021 11:34 AM, Kees Cook wrote:
->>> In preparation for FORTIFY_SOURCE performing compile-time and run-time
->>> field bounds checking for memcpy(), memmove(), and memset(), avoid
->>> intentionally writing across neighboring fields.
->>>
->>> Use struct_group() in structs:
->>> 	struct atom_smc_dpm_info_v4_5
->>> 	struct atom_smc_dpm_info_v4_6
->>> 	struct atom_smc_dpm_info_v4_7
->>> 	struct atom_smc_dpm_info_v4_10
->>> 	PPTable_t
->>> so the grouped members can be referenced together. This will allow
->>> memcpy() and sizeof() to more easily reason about sizes, improve
->>> readability, and avoid future warnings about writing beyond the end of
->>> the first member.
->>>
->>> "pahole" shows no size nor member offset changes to any structs.
->>> "objdump -d" shows no object code changes.
->>>
->>> Cc: "Christian K=C3=B6nig" <christian.koenig@amd.com>
->>> Cc: "Pan, Xinhui" <Xinhui.Pan@amd.com>
->>> Cc: David Airlie <airlied@linux.ie>
->>> Cc: Daniel Vetter <daniel@ffwll.ch>
->>> Cc: Hawking Zhang <Hawking.Zhang@amd.com>
->>> Cc: Feifei Xu <Feifei.Xu@amd.com>
->>> Cc: Lijo Lazar <lijo.lazar@amd.com>
->>> Cc: Likun Gao <Likun.Gao@amd.com>
->>> Cc: Jiawei Gu <Jiawei.Gu@amd.com>
->>> Cc: Evan Quan <evan.quan@amd.com>
->>> Cc: amd-gfx@lists.freedesktop.org
->>> Cc: dri-devel@lists.freedesktop.org
->>> Signed-off-by: Kees Cook <keescook@chromium.org>
->>> Acked-by: Alex Deucher <alexander.deucher@amd.com>
->>> Link: https://nam11.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F=
-%2Flore.kernel.org%2Flkml%2FCADnq5_Npb8uYvd%2BR4UHgf-w8-cQj3JoODjviJR_Y9w9w=
-qJ71mQ%40mail.gmail.com&amp;data=3D04%7C01%7Clijo.lazar%40amd.com%7C3861f20=
-094074bf7328808d962a433f2%7C3dd8961fe4884e608e11a82d994e183d%7C0%7C0%7C6376=
-49279701053991%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIi=
-LCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&amp;sdata=3D386LcfJJGfQfHsXBuK17LMqxJ=
-2nFtGoj%2FUjoN2ZtJd0%3D&amp;reserved=3D0
->>> ---
->>>    drivers/gpu/drm/amd/include/atomfirmware.h           |  9 ++++++++-
->>>    .../gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h    |  3 ++-
->>>    drivers/gpu/drm/amd/pm/inc/smu11_driver_if_navi10.h  |  3 ++-
->>>    .../gpu/drm/amd/pm/inc/smu13_driver_if_aldebaran.h   |  3 ++-
->>
->> Hi Kees,
->=20
-> Hi! Thanks for looking into this.
->=20
->> The headers which define these structs are firmware/VBIOS interfaces and=
- are
->> picked directly from those components. There are difficulties in groupin=
-g
->> them to structs at the original source as that involves other component
->> changes.
->=20
-> So, can you help me understand this a bit more? It sounds like these are
-> generated headers, yes? I'd like to understand your constraints and
-> weight them against various benefits that could be achieved here.
->=20
-> The groupings I made do appear to be roughly documented already,
-> for example:
->=20
->     struct   atom_common_table_header  table_header;
->       // SECTION: BOARD PARAMETERS
-> +  struct_group(dpm_info,
->=20
-> Something emitted the "BOARD PARAMETERS" section heading as a comment,
-> so it likely also would know where it ends, yes? The good news here is
-> that for the dpm_info groups, they all end at the end of the existing
-> structs, see:
-> 	struct atom_smc_dpm_info_v4_5
-> 	struct atom_smc_dpm_info_v4_6
-> 	struct atom_smc_dpm_info_v4_7
-> 	struct atom_smc_dpm_info_v4_10
->=20
-> The matching regions in the PPTable_t structs are similarly marked with a
-> "BOARD PARAMETERS" section heading comment:
->=20
-> --- a/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h
-> +++ b/drivers/gpu/drm/amd/pm/inc/smu11_driver_if_arcturus.h
-> @@ -643,6 +643,7 @@ typedef struct {
->     // SECTION: BOARD PARAMETERS
->  =20
->     // SVI2 Board Parameters
-> +  struct_group(v4_6,
->     uint16_t     MaxVoltageStepGfx; // In mV(Q2) Max voltage step that SM=
-U will request. Multiple steps are taken if voltage change exceeds this val=
-ue.
->     uint16_t     MaxVoltageStepSoc; // In mV(Q2) Max voltage step that SM=
-U will request. Multiple steps are taken if voltage change exceeds this val=
-ue.
->  =20
-> @@ -728,10 +729,10 @@ typedef struct {
->     uint32_t     BoardVoltageCoeffB;    // decode by /1000
->  =20
->     uint32_t     BoardReserved[7];
-> +  );
->  =20
->     // Padding for MMHUB - do not modify this
->     uint32_t     MmHubPadding[8]; // SMU internal use
-> -
->   } PPTable_t;
->=20
-> Where they end seems known as well (the padding switches from a "Board"
-> to "MmHub" prefix at exactly the matching size).
->=20
-> So, given that these regions are already known by the export tool, how
-> about just updating the export tool to emit a struct there? I imagine
-> the problem with this would be the identifier churn needed, but that's
-> entirely mechanical.
->=20
-> However, I'm curious about another aspect of these regions: they are,
-> by definition, the same. Why isn't there a single struct describing
-> them already, given the existing redundancy? For example, look at the
-> member names: maxvoltagestepgfx vs MaxVoltageStepGfx. Why aren't these
-> the same? And then why aren't they described separately?
->=20
-> Fixing that would cut down on the redundancy here, and in the renaming,
-> you can fix the identifiers as well. It should be straight forward to
-> write a Coccinelle script to do this renaming for you after extracting
-> the structure.
->=20
->> The driver_if_* files updates are frequent and it is error prone to manu=
-ally
->> group them each time we pick them for any update.
->=20
-> Why are these structs updated? It looks like they're specifically
-> versioned, and aren't expected to change (i.e. v4.5, v4.6, v4.10, etc).
->=20
->> Our usage of memcpy in this way is restricted only to a very few places.
->=20
-> True, there's 1 per PPTable_t duplication. With a proper struct, you
-> wouldn't even need a memcpy().
->=20
-> Instead of the existing:
->                 memcpy(smc_pptable->I2cControllers, smc_dpm_table_v4_7->I=
-2cControllers,
->                         sizeof(*smc_dpm_table_v4_7) - sizeof(smc_dpm_tabl=
-e_v4_7->table_header));
->=20
-> or my proposed:
->                 memcpy(&smc_pptable->v4, &smc_dpm_table_v4_7->dpm_info,
->                        sizeof(smc_dpm_table_v4_7->dpm_info));
->=20
-> you could just have:
-> 		smc_pptable->v4 =3D smc_dpm_table_v4_7->dpm_info;
->=20
-> since they'd be explicitly the same type.
->=20
-> That looks like a much cleaner solution to this. It greatly improves
-> readability, reduces the redundancy in the headers, and should be a
-> simple mechanical refactoring.
->=20
-> Oh my, I just noticed append_vbios_pptable() in
-> drivers/gpu/drm/amd/pm/powerplay/hwmgr/vega12_processpptables.c
-> which does an open-coded assignment of the entire PPTable_t, including
-> padding, and, apparently, the i2c address twice:
->=20
->          ppsmc_pptable->Vr2_I2C_address =3D smc_dpm_table.Vr2_I2C_address=
-;
->=20
->          ppsmc_pptable->Vr2_I2C_address =3D smc_dpm_table.Vr2_I2C_address=
-;
->=20
->> As another option - is it possible to have a helper function/macro like
->> memcpy_fortify() which takes the extra arguments and does the extra comp=
-ile
->> time checks? We will use the helper whenever we have such kind of usage.
->=20
-> I'd rather avoid special cases just for this, especially when the code
-> here is already doing a couple things we try to avoid in the rest of
-> the kernel (i.e. open coded redundant struct contents, etc).
->=20
-> If something mechanically produced append_vbios_pptable() above, I bet
-> we can get rid of the memcpy()s entirely and save a lot of code doing a
-> member-to-member assignment.
->=20
-> What do you think?
->=20
+I don't have a good feeling about these checks. Especially when a
+struct is composed of other structs - which may be modified
+independently of the code we are looking at here. Any unrelated
+addition of a member to any of the structs (well, maybe not the one at
+the bottom). I guess fixing all the users of these structs when
+something changes would cause quite a churn of changes... What is
+expected to be done as a result from these mails?
 
-Hi Kees,
+Best Regards
+    -- Matti
 
-Will give a background on why there are multiple headers and why it's=20
-structured this way. That may help to better understand this arrangement.
-
-This code is part of driver for AMD GPUs. These GPUs get to the=20
-consumers through multiple channels - AMD designs a few boards with=20
-those, there are add-in-board partners like ASRock, Sapphire etc. who=20
-take these ASICs and design their own boards, and others like OEM=20
-vendors who have their own design for boards in their laptops.
-
-As you have noticed, this particular section in the structure carries=20
-information categorized as 'BOARD PARAMETERS'. Since there are multiple=20
-vendors designing their own boards, this gives the option to customize=20
-the parameters based on their board design.
-
-There are a few components in AMD GPUs which are interested in these=20
-board parameters main ones being - Video BIOS (VBIOS) and power=20
-management firmware (PMFW). There needs to be a single source where a=20
-vendor can input the information and that is decided as VBIOS. VBIOS=20
-carries different data tables which carry other information also (some=20
-of which are used by driver), so this information is added as a separate=20
-data table in VBIOS. A board vendor can customize the VBIOS build with=20
-this information.
-
-The data tables (and some other interfaces with driver) carried by VBIOS=20
-are published in this header - drivers/gpu/drm/amd/include/atomfirmware.h
-
-There are multiple families of AMD GPUs like Navi10, Arcturus, Aldebaran=20
-etc. and the board specific details change with different families of=20
-GPUs. However, VBIOS team publishes a common header file for these GPUs=20
-and any difference in data tables (between GPU families) is maintained=20
-through a versioning scheme. Thus there are different tables like=20
-atom_smc_dpm_info_v4_5, atom_smc_dpm_info_v4_6 etc. which are relevant=20
-for a particular family of GPUs.
-
-With newer VBIOS versions and new GPU families, there could be changes=20
-in the structs defined in atomfirmware.h and we pick the header accordingly=
-.
-=09
-As mentioned earlier, one other user of the board specific information=20
-is power management firmware (PMFW). PMFW design is isolated from the=20
-actual source of board information. In addition to board specific=20
-information, PMFW needs some other info as well and driver is the one=20
-responsible for passing this info to the firmware. PMFW gives an=20
-interface header to driver providing the different struct formats which=20
-are used in driver<->PMFW interactions. Unlike VBIOS, these interface=20
-headers are defined per family of ASICs and those are=20
-smu11_driver_if_arcturus.h, smu11_driver_if_* etc. (in short driver_if_*=20
-files). Like VBIOS,  with newer firmware versions, there could be=20
-changes in the different structs defined in these headers and we pick=20
-them accordingly.
-
-Driver acts the intermediary between actual source of board information=20
-(VBIOS) and PMFW. So what is being done here is driver picks the board=20
-information from VBIOS table, strips the VBIOS table header and passes=20
-it as part of PPTable_t which defines all the information that is needed=20
-by PMFW from driver for enabling dynamic power management.
-
-In summary, these headers are not generated and not owned by driver.=20
-They define the interfaces of two different components with driver, and=20
-are consumed by those components themselves. A simple change to group=20
-the information as a separate structure involves changes in multiple=20
-components like VBIOS, PMFW, software used to build VBIOS, Windows=20
-driver etc.
-
-In all practical cases, this code is harmless as these structs (in both=20
-headers) are well defined for a specific family of GPUs. There is always=20
-a reserve field defined with some extra bytes so that the size is not=20
-affected if at all new fields need to be added.
-
-The patch now makes us to modify the headers for Linux through=20
-script/manually whenever we pick them, and TBH that strips off the=20
-coherency with the original source. The other option is field by field=20
-copy. Now we use memcpy as a safe bet so that a new field added later=20
-taking some reserve space is not missed even if we miss a header update.
-
-Thanks,
-Lijo
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/e56aad3c-a06f-da07-f491-a894a570d78f%40amd.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANhJrGOh%2B9PoMmsv-Q9petTV-hv9rv9nOitg0NCQHqXVXzJvvw%40mail.gmail.com.
