@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBGH366EAMGQEPYDEY2Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBI7566EAMGQERLW6LTY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
-	by mail.lfdr.de (Postfix) with ESMTPS id D19433F13B8
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 08:43:38 +0200 (CEST)
-Received: by mail-qv1-xf37.google.com with SMTP id u8-20020a0cec880000b029035825559ec4sf3873150qvo.22
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 23:43:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629355416; cv=pass;
+Received: from mail-qv1-xf39.google.com (mail-qv1-xf39.google.com [IPv6:2607:f8b0:4864:20::f39])
+	by mail.lfdr.de (Postfix) with ESMTPS id DA67C3F13C3
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 08:48:04 +0200 (CEST)
+Received: by mail-qv1-xf39.google.com with SMTP id gw9-20020a0562140f0900b0035decb1dfecsf3939389qvb.5
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 23:48:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629355684; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QvhTFQNFZ79HEwYCSHCpPlKxF7ObKs5GsLFfXmo42hSkfpy/mjrLY7YItBWNlB7UQp
-         4gUBK5brt3Z12Ba/DaMRszQkqs8xgo2DcVgSnFgnpICarnV4B2rTNuQJ9rKkSEIBmVaY
-         bNJTySoIVdyHg3FpGqd/3+Ga9+wtG5HnJVgWCspPERNCsgeCILS+BmvluxnoZ3lP67Ah
-         J8C4oN0rOwb2hh8yjurHn4wXx6WwQtK5IW/s7u5k55zT5Bpx1J7PRhFzDeYU1oC5l9Wp
-         qrea7zg+sWpRsrYk/EmOLWGhxogdVqEcweP/PZDfSz59k3xEZDcNTP0K+4OwODVF5WZk
-         geeQ==
+        b=KGRGs+RWAAZRPRHrqZQmWQhzZxXJlxzqHqzA7MzY4I4loZoHXzx7+qWvRDVOXk+TLT
+         xZNO/ocuSuDNGAVOd19F3KoawyxQTI7/xEybglD7nZ7kWao+2HT2wt6nAnlgRR9GDZGi
+         XK90NhJMbYYzMyY7opc+3YYWQHV33DQPl3+gihRr5cs9PIuK/mM0lqzSKGT4nxkj5YWq
+         lJiJE751g9mHtMmY5ouSLNMwFPtHGVhIHNefJlFLt04KBBP5o19nPHalgOfR+gM8ROfo
+         W9TS1kZq4iNSqGbJaldvrWEN85LEXNXtQ6OqnOX4SXogLna+KZzUeeuncewidByvYY/X
+         p0Uw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=T3Qn9LBlsL2UYDkb3ILh+cpmezZTTnT5VDibUruvRK8=;
-        b=YmjjyjI5kSWdxWtuL5y7okHWmEesFYtonPNstuhMaOy5KN27nQz4CP074Qsm/efbum
-         F8AwDwybXDuD8fehay9Pou/rCLavd9vc9PsW7wujGH7+sbnybFUPNyfTXSeRSZFumx5Y
-         hQEqjxLPrwbsCrV0mVMK6GEUQn+TKc9MWDt0JpU79Tj1IG5pjYnfNRQfLyWYZRP8LAik
-         3gaYGb1/K2v+Vh5EtzXk60s1IvKXCu95ktbRgsIoLxaaRmN7q0Nry6cRhZT0LePpRjQ4
-         GXPCIRuFoLHMvL1uEClSA3519e15nhjS5fXf8tW1ugKfc5D8V8ODQ60w4zTpT3bvr8Ly
-         LpwA==
+        bh=ZBrHGokuINDIWMWGibN8zdsZd0L5k3YZPPydzV+bj4A=;
+        b=q6bYJbHC9X4nb8hIbdZcecLIuYgWuXko/HvmA9SYyjpbijgT+HALXjqaZIkZkBlB67
+         M6bhQPJH43ndLxK1d+RSISgVsJrPnnFdXIG1Pt+HLl57Kt6/WlqzpNTYm5Nx4uWREdTt
+         1oxi3ANCPFLLUEWepgvWSA8UKabIfD/EQDVyrbikFULrSLC45wzlW7pCuPefF2eeNenX
+         6Wupy839UyU/5dNSo209+3M8shk4PgwP9mNtHXGb24g20wdpMxvmKZriYvI/JFBiMPeD
+         gFGn62/Q9pfKRxIclfHxmGbmBN4oBRhoEE9TGXYbIjAkqo6XRZ3P/s+MdrActth/boVl
+         ONbQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=iDB1lKNz;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102f as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=LzpwSI+P;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::632 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=T3Qn9LBlsL2UYDkb3ILh+cpmezZTTnT5VDibUruvRK8=;
-        b=VG9FClqpFIzMZtKYaJ+z5K/+5+xJjhYsdA0YuADVAm5Sic8ZzYaeqCFb7RB6R/+e+h
-         qLUaLpywNgO6LfTPz4gs6BBMlGqeiJRBg2OwVCI2tFP9FHouS82LC7T5tJdWkFg4HAe7
-         o/Il9tDJxSMZD94YbneFf9R1xYZIoh10MYXCiM/T7DsRg2TZ+kTvxJ2bgIBPUYuwlgCl
-         hzD4FEvVDw3m3PGhpTnUaP5m523HSQLW0fCAG52+1YMoI/RE0ql20o+j++3EmvdlEGpi
-         VUMLns92JxA1vi2yU5hbgxIJJTERtU4dSvsjYV3ASmM9P3qgLXEwcUJRIYcna04EGOBB
-         xGSQ==
+        bh=ZBrHGokuINDIWMWGibN8zdsZd0L5k3YZPPydzV+bj4A=;
+        b=onGSzUyPKuN3wTJ4nzzaCjsqlMt3+0p8mzzS0aV8dNiiSr2wmTqawyqTX/Z7GrooYU
+         k0UR/EETJUx9e7wwYzF8ZbFoY+8/F2Tt0IyZc4Hhjuh5kbYYwcDdzmHBd8iwkSVV0/jS
+         cDBDuaLHboGiWGGVyOLDQvdz3vjq767HFkRLngji5hXQ7UK9LqBnrwl8W3mQyL38Lf58
+         ekUZEdh5osynF7hNxMHRJghWBcR1UzfzfkkSUAQPp+nDe+dWX7DTbgqSV+U/mI5u7Jaf
+         lf0ZFviNcd6f2lPFfuf9y1JwcV1oD7U4PZXFxeSEAnBozxOhoWom9xHExZwsDnaYYqt/
+         c9QQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,82 +50,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=T3Qn9LBlsL2UYDkb3ILh+cpmezZTTnT5VDibUruvRK8=;
-        b=nPa8+AgZpL60QC7FsQG2xBnXCiPXkjgIcs9MG6l4CaBCBY4Wpz+y4ctm7q7i/IzMKd
-         imWRhGNyI6CiB4WWqgyu5btipx/uk/RXeBrK4TdI307AvUuN2cCV6Ntv0aU1ZbO7QPaN
-         MpUp05BH/QekLCH9klV0oKpcDX7ZOWsKHEa1HafN6ooli8Cdn6wACSaGKEnj91Ch+Dus
-         9XL58Qlhv2czJWAL0MYbXHuI7CPBFOT1ohkyQv9rSpgSAM5zSeSZkji+2Vida8S1k7BS
-         fmmaxlVYnWs40ryI6s13VmgOEAxjjhztKt/g9zBjuJhNu/BMXkEkpHaxGQuxvi92ycWg
-         Mt4w==
+        bh=ZBrHGokuINDIWMWGibN8zdsZd0L5k3YZPPydzV+bj4A=;
+        b=eaMJp0uaJT+iAQdTkId74LOqMzau6DQyASxmgqH1cJCPgTO8MaJnzL5WqQ3TwglGzP
+         eyjLByjRq/aIdKKzwVDjHpSG3t/IRnYIImg16RvRkJQOOtp6UJqgpgLIv8NrH8mOACgK
+         4XQQElxO288emvgWhZrfpA1EFyR+Lpw7L3hyQJMRf47jN/zeuujUHw9jXnwEHSqhSlBj
+         IWYiYzB6ZDuLFC55hdRvbQseR5t4MsKNvhFPpU47YzUf4vDEiaNz9qoSs4PHjFfY0Cgk
+         +KgYh1QMfAUXNTavNNv+BYudTHQqKgHmA8DKJyszs0s1eN2WefxEisXvTyUR27KCc2oX
+         3chA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5325PChajEuxdT3Fs8ZqYctEaXeiJ3JxS6a+PKd/LDLLOgfR65Cx
-	lcjoqyi03GdsimnM6wprFTQ=
-X-Google-Smtp-Source: ABdhPJz0zQD8GkNOYAuvNo6byoAU2P9/y/o/7qcBDlU10wKE7c62IuL0D4dvTKgg9sta9qsfCCRpYg==
-X-Received: by 2002:ac8:7f93:: with SMTP id z19mr11263907qtj.328.1629355416456;
-        Wed, 18 Aug 2021 23:43:36 -0700 (PDT)
+X-Gm-Message-State: AOAM532kpNpME2m4A88HiQ3NK1mKQv+XYN0M3f7p9qjphoy6KwK+EQOz
+	KTWFk4y5WNjuwtsZygNGQWg=
+X-Google-Smtp-Source: ABdhPJyOYWm7OYY6rO3i7RaFwEGi2e0OnTK/W0zGm+/4TkGT1spZcUC/WgQPIDt302Abyu0F14wnrQ==
+X-Received: by 2002:ad4:4b0d:: with SMTP id r13mr13109445qvw.7.1629355683987;
+        Wed, 18 Aug 2021 23:48:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:d619:: with SMTP id r25ls1095054qkk.3.gmail; Wed, 18 Aug
- 2021 23:43:36 -0700 (PDT)
-X-Received: by 2002:a05:620a:89b:: with SMTP id b27mr2207020qka.429.1629355416038;
-        Wed, 18 Aug 2021 23:43:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629355416; cv=none;
+Received: by 2002:ac8:153:: with SMTP id f19ls770463qtg.5.gmail; Wed, 18 Aug
+ 2021 23:48:03 -0700 (PDT)
+X-Received: by 2002:ac8:1249:: with SMTP id g9mr11283004qtj.292.1629355683544;
+        Wed, 18 Aug 2021 23:48:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629355683; cv=none;
         d=google.com; s=arc-20160816;
-        b=vb0YkHFqaHxJBxIiw2rofNl1K78D5/tU6sNd024lwg2mPjv8w98VsAqi2Qg1CMFufA
-         bPcSYqFuSe4vkW3Iz4kqrXMxOblVl3Xf7XQpOGQzOZ6yvK9nktxaw8RuAj8Z2CQ0vDMJ
-         vjnTWelfCjkVwusoeur7sVzPW9gK/svBwGKweh3xn+sRGS1Bpn58qw5zgDZ2t18pch5W
-         dQ3UaxIfCH/CLM37uxaT82DmKq6zrj3kofol0MswqKhqACydHZ1Mu0jO8MlUz4Dz5YsO
-         rPCdcwCU6ONdRAi8wkKUUxd6uUGG9ZLaf+MSBcRx+P2R96dBmww1kKAgal3N+KvMr6F9
-         sUIA==
+        b=QUHxtI5XeCSwv2hwnfXZKv2GTHUDOx4vczqwnLcp1dM1t0Pkf0z66Pq1PqkhM9LqsK
+         j3kmFGF/cW9ve30UE2VwmR6Oju2IZ/08TXQOx4gi+/HKtNY0H0tXglpWZFGWWNNqt8qd
+         1/4PUYqcvc8RXzhcrhggdT7rzRoJlNbTXiYt5SToF35u/BqQ9WoSFO0/2P9ST831YfKV
+         3NHITqbjj+1tvhqMVgkOKxtVl5N/uDmPUzeHgR3DsceIxqQ2m8T74o2XKctgkw+aAkYe
+         F24Fh+NL5XF67kTxen2d+pMXc43qIY9E4RflHHNsoXrFgSIQLP7RSoacH/rDBYWXdzR9
+         p0gw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=6ocG6XyycPlZ0PSnoxWYAbBlz8cQ7/a5UO+EORskNvg=;
-        b=MOlwlvyaGqeW1DrS6JHkluEVOmu/w7xjKPxeRGGp0a4rAlc/4SC4is8/gSSAl/e7au
-         23Z4VSNVaUHfRE4EXWxJe/pE8WsoOV3OJ+bIoxgiAoj3jbeoLDCUHLWuGhNPTwyNmqbT
-         Whm82i9HCRSuzQFT/7jMVFdOiRfi+8NDjs6bZ6u+jesnHmHvac62J4FtoyCMsjUg1yf9
-         mWX+YJAflz+ZIM2911wjF3nwNDBblB9+kWNcVZ3XbP+bWRbJq+OHe7eshoAdnC+FzMhY
-         JsMqTY5YGUq/de+ZbsodMz48BAmiCX8cPNpZdBdRMaQTOElpW6iCGunHfQ/KwZXPA2JF
-         PgRA==
+        bh=LZbrqbnGVF4s6R8ZE29TSFBtRgWG1aFf5wVvmTN0Kls=;
+        b=bQI+Y1gfqdljKuauQwxlcZfEk22lCjG1HZLDHeI00FYqzBxMMwtl4E8yH2pHyCaH/b
+         jmb4OmRb1ezM8laEq8m17cfFSF3U45MqUS0aZHt2Tpp8Na7qTJrtZQYFlasARYFUzStf
+         Bu9QRT/FglLZFj2MQCU6KpMZljzdJICBjZpD/kVIHXj5BkHiTJ9kwUhDKHj+92Lf5kv7
+         XnKjn8agaJAyzzoSXxYmBIgqUxRb5q3E4BMjQFwqOSGjuA9MtoxIUAsittUKtQ2NFMzt
+         cV3WLT2bqMetaihgBTW2Fyv619sJ/H4uC7jw4tZlFbMe1PZYM4S5cGTr3B7otAB8WlaA
+         ujdg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=iDB1lKNz;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102f as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=LzpwSI+P;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::632 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x102f.google.com (mail-pj1-x102f.google.com. [2607:f8b0:4864:20::102f])
-        by gmr-mx.google.com with ESMTPS id s128si164290qkh.6.2021.08.18.23.43.36
+Received: from mail-pl1-x632.google.com (mail-pl1-x632.google.com. [2607:f8b0:4864:20::632])
+        by gmr-mx.google.com with ESMTPS id i4si196152qkg.7.2021.08.18.23.48.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Aug 2021 23:43:36 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102f as permitted sender) client-ip=2607:f8b0:4864:20::102f;
-Received: by mail-pj1-x102f.google.com with SMTP id fa24-20020a17090af0d8b0290178bfa69d97so4148113pjb.0
-        for <clang-built-linux@googlegroups.com>; Wed, 18 Aug 2021 23:43:35 -0700 (PDT)
-X-Received: by 2002:a17:90a:9b0b:: with SMTP id f11mr13419781pjp.120.1629355415223;
-        Wed, 18 Aug 2021 23:43:35 -0700 (PDT)
+        Wed, 18 Aug 2021 23:48:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::632 as permitted sender) client-ip=2607:f8b0:4864:20::632;
+Received: by mail-pl1-x632.google.com with SMTP id e15so3335082plh.8
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Aug 2021 23:48:03 -0700 (PDT)
+X-Received: by 2002:a17:902:6b03:b0:12d:8f77:83d1 with SMTP id o3-20020a1709026b0300b0012d8f7783d1mr10332933plk.11.1629355682754;
+        Wed, 18 Aug 2021 23:48:02 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id w186sm2038277pfw.78.2021.08.18.23.43.34
+        by smtp.gmail.com with ESMTPSA id c26sm2442811pgl.10.2021.08.18.23.48.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Aug 2021 23:43:34 -0700 (PDT)
-Date: Wed, 18 Aug 2021 23:43:33 -0700
+        Wed, 18 Aug 2021 23:48:02 -0700 (PDT)
+Date: Wed, 18 Aug 2021 23:48:01 -0700
 From: Kees Cook <keescook@chromium.org>
 To: Masahiro Yamada <masahiroy@kernel.org>
 Cc: linux-kbuild@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>,
-	linux-kernel@vger.kernel.org,
-	Michal Marek <michal.lkml@markovi.net>,
-	Nathan Chancellor <nathan@kernel.org>,
+	linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 11/13] kbuild: always postpone CRC links for module
- versioning
-Message-ID: <202108182342.F24979957@keescook>
+Subject: Re: [PATCH 02/13] gen_compile_commands: extract compiler command
+ from a series of commands
+Message-ID: <202108182347.0CDD87706@keescook>
 References: <20210819005744.644908-1-masahiroy@kernel.org>
- <20210819005744.644908-12-masahiroy@kernel.org>
+ <20210819005744.644908-3-masahiroy@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210819005744.644908-12-masahiroy@kernel.org>
+In-Reply-To: <20210819005744.644908-3-masahiroy@kernel.org>
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=iDB1lKNz;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102f
+ header.i=@chromium.org header.s=google header.b=LzpwSI+P;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::632
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
@@ -140,156 +138,49 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Aug 19, 2021 at 09:57:42AM +0900, Masahiro Yamada wrote:
-> When CONFIG_MODVERSIONS=y, the CRCs of EXPORT_SYMBOL are linked into
-> *.o files in-place.
+On Thu, Aug 19, 2021 at 09:57:33AM +0900, Masahiro Yamada wrote:
+> The current gen_compile_commands.py assumes that objects are always
+> built by a single command.
 > 
-> It is impossible for Clang LTO because *.o files are not ELF, but LLVM
-> bitcode. The CRCs are stored in separate *.symversions files, and then
-> supplied to the modpost link.
+> It makes sense to support cases where objects are built by a series of
+> commands:
 > 
-> Let's do so for CONFIG_LTO_CLANG=n is possible, and unify the module
-> versioning code.
+>   cmd_<object> := <command1> ; <command2>
+> 
+> One use-case is <command1> is a compiler command, and <command2> is
+> an objtool command.
+> 
+> It allows *.cmd files to contain an objtool command so that any change
+> in it triggers object rebuilds.
+> 
+> If ; appears after the C source file, take the first command.
+> 
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 
-I worry about this also now being "unparallelized", but it is a nice
-cleanup.
+Seems reasonable, given patch 3.
 
 Reviewed-by: Kees Cook <keescook@chromium.org>
 
 -Kees
 
-> 
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 > ---
 > 
->  scripts/Makefile.build  | 32 ++++++--------------------------
->  scripts/link-vmlinux.sh | 22 ++++++++++++++--------
->  2 files changed, 20 insertions(+), 34 deletions(-)
+>  scripts/clang-tools/gen_compile_commands.py | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-> index 957addea830b..874e84a1f3fc 100644
-> --- a/scripts/Makefile.build
-> +++ b/scripts/Makefile.build
-> @@ -158,17 +158,12 @@ quiet_cmd_cc_o_c = CC $(quiet_modtag)  $@
->  ifdef CONFIG_MODVERSIONS
->  # When module versioning is enabled the following steps are executed:
->  # o compile a <file>.o from <file>.c
-> -# o if <file>.o doesn't contain a __ksymtab version, i.e. does
-> -#   not export symbols, it's done.
-> +# o if <file>.o doesn't contain __ksymtab* symbols, i.e. does
-> +#   not export symbols, create an empty *.symversions
->  # o otherwise, we calculate symbol versions using the good old
->  #   genksyms on the preprocessed source and postprocess them in a way
->  #   that they are usable as a linker script
-> -# o generate .tmp_<file>.o from <file>.o using the linker to
-> -#   replace the unresolved symbols __crc_exported_symbol with
-> -#   the actual value of the checksum generated by genksyms
-> -# o remove .tmp_<file>.o to <file>.o
+> diff --git a/scripts/clang-tools/gen_compile_commands.py b/scripts/clang-tools/gen_compile_commands.py
+> index b7e9ecf16e56..0033eedce003 100755
+> --- a/scripts/clang-tools/gen_compile_commands.py
+> +++ b/scripts/clang-tools/gen_compile_commands.py
+> @@ -18,7 +18,7 @@ _DEFAULT_OUTPUT = 'compile_commands.json'
+>  _DEFAULT_LOG_LEVEL = 'WARNING'
 >  
-> -ifdef CONFIG_LTO_CLANG
->  # Generate .o.symversions files for each .o with exported symbols, and link these
->  # to the kernel and/or modules at the end.
->  cmd_modversions_c =								\
-> @@ -178,18 +173,6 @@ cmd_modversions_c =								\
->  	else									\
->  		rm -f $@.symversions;						\
->  	fi;
-> -else
-> -cmd_modversions_c =								\
-> -	if $(OBJDUMP) -h $@ | grep -q __ksymtab; then				\
-> -		$(call cmd_gensymtypes_c,$(KBUILD_SYMTYPES),$(@:.o=.symtypes))	\
-> -		    > $(@D)/.tmp_$(@F:.o=.ver);					\
-> -										\
-> -		$(LD) $(KBUILD_LDFLAGS) -r -o $(@D)/.tmp_$(@F) $@ 		\
-> -			-T $(@D)/.tmp_$(@F:.o=.ver);				\
-> -		mv -f $(@D)/.tmp_$(@F) $@;					\
-> -		rm -f $(@D)/.tmp_$(@F:.o=.ver);					\
-> -	fi
-> -endif
->  endif
->  
->  ifdef CONFIG_FTRACE_MCOUNT_USE_RECORDMCOUNT
-> @@ -348,12 +331,9 @@ ifdef CONFIG_ASM_MODVERSIONS
->  cmd_modversions_S =								\
->  	if $(OBJDUMP) -h $@ | grep -q __ksymtab; then				\
->  		$(call cmd_gensymtypes_S,$(KBUILD_SYMTYPES),$(@:.o=.symtypes))	\
-> -		    > $(@D)/.tmp_$(@F:.o=.ver);					\
-> -										\
-> -		$(LD) $(KBUILD_LDFLAGS) -r -o $(@D)/.tmp_$(@F) $@ 		\
-> -			-T $(@D)/.tmp_$(@F:.o=.ver);				\
-> -		mv -f $(@D)/.tmp_$(@F) $@;					\
-> -		rm -f $(@D)/.tmp_$(@F:.o=.ver);					\
-> +		    > $@.symversions;						\
-> +	else									\
-> +		rm -rf $@.symversions;						\
->  	fi
->  endif
->  
-> @@ -424,7 +404,7 @@ $(obj)/lib.a: $(lib-y) FORCE
->  # Rule to prelink modules
->  #
->  
-> -ifeq ($(CONFIG_LTO_CLANG) $(CONFIG_MODVERSIONS),y y)
-> +ifdef CONFIG_MODVERSIONS
->  
->  cmd_merge_symver =					\
->  	rm -f $@;					\
-> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-> index 17976609c2d8..66ced6ff8e65 100755
-> --- a/scripts/link-vmlinux.sh
-> +++ b/scripts/link-vmlinux.sh
-> @@ -59,8 +59,7 @@ append_symversion()
->  	fi
->  }
->  
-> -# If CONFIG_LTO_CLANG is selected, collect generated symbol versions into
-> -# .tmp_symversions.lds
-> +# Collect generated symbol versions into .tmp_symversions.lds
->  gen_symversions()
->  {
->  	info GEN .tmp_symversions.lds
-> @@ -94,14 +93,13 @@ modpost_link()
->  		${KBUILD_VMLINUX_LIBS}				\
->  		--end-group"
->  
-> +	if [ -n "${CONFIG_MODVERSIONS}" ]; then
-> +		lds="${lds} -T .tmp_symversions.lds"
-> +	fi
-> +
->  	if [ -n "${CONFIG_LTO_CLANG}" ]; then
->  		gen_initcalls
-> -		lds="-T .tmp_initcalls.lds"
-> -
-> -		if [ -n "${CONFIG_MODVERSIONS}" ]; then
-> -			gen_symversions
-> -			lds="${lds} -T .tmp_symversions.lds"
-> -		fi
-> +		lds="${lds} -T .tmp_initcalls.lds"
->  
->  		# This might take a while, so indicate that we're doing
->  		# an LTO link
-> @@ -198,6 +196,10 @@ vmlinux_link()
->  
->  	ldflags="${ldflags} ${wl}--script=${objtree}/${KBUILD_LDS}"
->  
-> +	if [ -n "${CONFIG_MODVERSIONS}" ]; then
-> +		ldflags="${ldflags} ${wl}--script=.tmp_symversions.lds"
-> +	fi
-> +
->  	# The kallsyms linking does not need debug symbols included.
->  	if [ "$output" != "${output#.tmp_vmlinux.kallsyms}" ] ; then
->  		ldflags="${ldflags} ${wl}--strip-debug"
-> @@ -351,6 +353,10 @@ fi;
->  # final build of init/
->  ${MAKE} -f "${srctree}/scripts/Makefile.build" obj=init need-builtin=1
->  
-> +if [ -n "${CONFIG_MODVERSIONS}" ]; then
-> +	gen_symversions
-> +fi
-> +
->  #link vmlinux.o
->  modpost_link vmlinux.o
->  objtool_link vmlinux.o
+>  _FILENAME_PATTERN = r'^\..*\.cmd$'
+> -_LINE_PATTERN = r'^cmd_[^ ]*\.o := (.* )([^ ]*\.c)$'
+> +_LINE_PATTERN = r'^cmd_[^ ]*\.o := (.* )([^ ]*\.c) *(;|$)'
+>  _VALID_LOG_LEVELS = ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']
+>  # The tools/ directory adopts a different build system, and produces .cmd
+>  # files in a different format. Do not support it.
 > -- 
 > 2.30.2
 > 
@@ -300,4 +191,4 @@ Kees Cook
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108182342.F24979957%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108182347.0CDD87706%40keescook.
