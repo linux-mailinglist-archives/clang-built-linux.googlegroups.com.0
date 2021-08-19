@@ -1,123 +1,145 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRB7F662EAMGQE5I44JCI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRBK6A62EAMGQE7DZGGWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5DBAF3F0EFF
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 02:02:05 +0200 (CEST)
-Received: by mail-io1-xd3a.google.com with SMTP id d23-20020a056602281700b005b5b34670c7sf2199293ioe.12
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 17:02:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629331324; cv=pass;
+Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id 775833F0F09
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 02:05:00 +0200 (CEST)
+Received: by mail-pg1-x537.google.com with SMTP id v21-20020a63d5550000b029023c8042ce63sf2398413pgi.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 17:05:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629331499; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dxklQzL9NExMoquBivAnwwkaHye798fVSepm1RavR2wMZJbhbQhN95jrMgufvDs/93
-         5zN6jHs/sdrUGoX/t7vtZ6xP46pV3dOjCMykxqVLTHjJi36z9cjym+klC3Ld0zuBAsei
-         d69C90DguFsD18uXk9uQCmootXsJ0ZFOQr823C2J+OdVsj+AYskvr9mn148Ol7/HdsjW
-         +5bVqvXyNjQ5sO73DVLS4nD2KGwq8o79ZHiupTpKBDHcC3khslYkJZ5Utp4WK3urtJWr
-         eibCypLfVLHSPyz5an6j0sKsrPldsr8E26fHUrSl6wlnfbBXAKiOP5Z/PWTrcfGn5ID+
-         RfWA==
+        b=Y+IkfBFV5bsaMfpUeqrGW7fY9Kq39VxJhjx232fIrZt3w5BqPNsVHhN7iuoCz/CEGD
+         +pYo957xKODfGEHLlD2Y7BoGHFWeTOcuva4W6TZ3OjNHGUUmThgZds+hpb9tpK/dCgHE
+         /OJ/3XIcHqUsD7XQmGET4TWc0fTPZAncqctMuDZyP1PnKbxMXVVo3Z+RQyPPHY0XQ2zG
+         HumzA1ikoJpqWi5M7FLCjPavBTEgrnLZC2aaHkkTuEP4IawFEFm8m7hqt6TKHSb0O7qS
+         avjV8yNF8Vtj9oLKy74RCXZtDaq0nC8xJX4yNFRoHBXkO+5L4HuW0SSYrMc9d4WQu+TN
+         gfaw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:dkim-filter:sender:dkim-signature;
-        bh=ZukjHZJ9asaniKAf2C58fFwCTGvgJbECin1UmXQF6yg=;
-        b=pHNu5m8KNTVVS5sn8AZBiVtPki8RHdeq/6CNxma4JKJgu+bl1yYjlgnAh2pxNe1oF7
-         p05L0TKbr7ZD7mVQ1sRlFEBwzfz2oennxzT3PwbhHZhb35AXeaj4vLscJiKfgo2s0u5Y
-         HgbbWDIdyRjs6XIsCp7aBSquhZ2HGWgLxsGn/I2vApSpTgVlm/uJhSm6vG0LE01SdevR
-         8zdq1dHEYEkFWmcysopW26pFku18JHelHJRRReNSTbLy//pl6kbU+lQq9lxguVJrmxdv
-         2qYLha3v8A0kHlisN04clYqoAl9zpAqLEJNChxgFDElsUZ+PwV7NZwxfW3i2c0byv8QG
-         vlPg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=oE/lVWao+gwKyh/xWosibiURo4tj1fQ5Gj6FfDzZ+QU=;
+        b=gMcRsDRC6U+4LAMEDvZTG+DC+k53ldQN1e6rdzjVQruKeKU4JdwsOYX/QAPWpWV5ig
+         Lw1oVptKee85mE5aKGWQZCUHIzlK1MPFlr3MPtWf4T4lYobKL2Gq94+z29nwAwGIDGOU
+         0GMPM3LTgA89XC/61az7m3lZ4CGIjGSRfmR96qN/tNXIz1TzAW/FF/yGeoyyUGxyn8Ix
+         fbPzxmQxGaY3TWnhpYDqcqMOwLuhDXjo5vSbyRePtc7mE8QplBKIrF/1NhVMdm/qb/SJ
+         WyqYchbODGjZSVphEl5uL85a22n4YgfbMIu3S6xhna1blDuWAEH6sWDhaz6vY8R4RrYM
+         8x+w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ZauWzjVB;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=UKWjEQsS;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::12e as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=oE/lVWao+gwKyh/xWosibiURo4tj1fQ5Gj6FfDzZ+QU=;
+        b=HOtyubaMFyayc8ILsa5P1Gh30sJbW+qGwUssO4ACGWCyvCCkQUrvwhFk4QD53UBY7B
+         ecFtWBpG/39NyHEK95OmeYpAZsV0YsbR+tl/0f5vzWqVlWMwHtD+FL0ymCQCtu2roOOx
+         s2DXVuQht69zeVDbAkI4WpoY1jCnaQecsFDZHuaizZI5QzSkQATFjkjGleKqBn+wWQU6
+         /C9mIIWTdYw7SVVRLBA+NP/dniyntpa7lfFjRouuQoUPhjm+NN/8QxBFhIfwOsibmNGz
+         c5SBEh4ItCDHCO5zWt6xxlnXjtayU4j6luNai2sz2I/wMBr19dFrPs+hvKgupP6uBe4s
+         i3qw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZukjHZJ9asaniKAf2C58fFwCTGvgJbECin1UmXQF6yg=;
-        b=HNilFiC8PlXrUaX7svgyI49SOP32Yjtj7v2qIJHvV9cVlgk4B2EgZEKLlAAait5GRU
-         i7Wm8+BdY2s+oPXao32NLPUG6q5oPZxCcUGJGUJZ5jSjjlpG/CxxXA1zaHw3NcqupxvF
-         4MFvsHUrZZWjAxihqeLL5K3wsw0CnayDlp/FHRPE6o0yEx1I2FBI5AZrFSloUL1Dhz5b
-         /RrKh4MqYgcCgu2ogaaywU4IvVSziyg+YDwOfMKTtXO0RREm+Ohzc0CFKT7vcCqA4fei
-         Ongrz8tE8Fu2HghyHX7vC9oQZPiAfoabXyN56O2eNA5eJbHTG0lcqW/jgtD2KOGSII3U
-         S0/w==
+        bh=oE/lVWao+gwKyh/xWosibiURo4tj1fQ5Gj6FfDzZ+QU=;
+        b=oseOj23Ww8VNIEytoEPIZARX9/+A8m0JHiVT9q7DQKvWkZxR2xjTlRHxZikxMd86PC
+         qtS/nehCQP2qZYYBrK3ROwAdGrk3qmO3r3UhrModCrELrY9aaHB1jXAu0agT6LkHWIPb
+         zw69Wspoxz17XXdZwDzfdIpWST4Xkv0iLg/tgjnVQ5vwOIfwWspV4/1uidWGkAPM0wpH
+         A7xBHhi+NvXYsYv1XqO+kpeF3GqkNO/ya/MpJtxazeG9Mt8Ny1VA7vRzrUpDGCfD7+2/
+         9nbyizwLwN3o/8FL1MbpOwoEPGp8qbIswvRWhQAU0n+EIMcrwYF0wj7PmD0HCMTZYLht
+         4KNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
-         :message-id:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZukjHZJ9asaniKAf2C58fFwCTGvgJbECin1UmXQF6yg=;
-        b=kAWvvCZQOmapckXlyHLfrHC+/88zsIwwz95MMoTRngGVki8IUrhMSON8vVN7/66uC8
-         /UpblRjT7VoBtWcTn2ltA7q2vZ2jzxBxq57szv+CubjYxRI5NNh6BJKlXZOhBys6iMz+
-         dFyR3ye27/BBXH1vOkIZcpRc7/9xvdiBa68sgZSclhoxdLRTTiP+qDgO5OYIBImb5VrL
-         ia4wrDw6MgAqA/sf9ioDmU/fES4FjhVlzfESzWrlcSKo7tP8nxyBMTtbAmck2j3ku2wH
-         870YQGNAqpc67mKaaVfyWcS+sN0rvuymd0+Yfkog0bO64p9GfHrkqY9pt3/jUoMmFGmk
-         c+Zw==
+        bh=oE/lVWao+gwKyh/xWosibiURo4tj1fQ5Gj6FfDzZ+QU=;
+        b=t0J4AbSzi5DU9vz9mtRXyO9jizni2ew8/HIcgH8mVUjNULPEGDHWdM7IfdAXJzV8hQ
+         pxGQLOu1XUsf8ZhW3WSLRNMoDr+E6AkxLg14RSk8JHtqBfbYq/WjUSKNzFXNrGzhtZCP
+         4kj/tNUTaP3F4gFxjWk4ol4YS4f/9LmRm//7pr1ZMfkpfi1SahLxhn0IHSzScllhhHdE
+         dT/8LfqCsx+F+zinyhvmTeBuXDbsSRqP/H3Nst/03HrIqLjcW1BBQCWoxNawRAIv04Q1
+         a99V6HMiCaeQiiCzR3+itxODmHqGPvu/LsKY50Nooso4m7RJaDjULen1r0FL/Cs0PFLr
+         kG0Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533vbigX9JBoCzAdEzIl8BAK1Nrf3E2QAEM63Ctg8FmZzBAR95/m
-	VI1FSxqhuOA/I8D3HiEovic=
-X-Google-Smtp-Source: ABdhPJz2nU5MBVes+I6TdAXcvWvrubwzV6idXagxMymHd52cxR3WjI7g71N0y6YN3/lbfPR3YJG2Dg==
-X-Received: by 2002:a05:6638:3465:: with SMTP id q37mr10307674jav.113.1629331324102;
-        Wed, 18 Aug 2021 17:02:04 -0700 (PDT)
+X-Gm-Message-State: AOAM530EG5W5MWHem2sI1R+EQqsAK/R/CDLbp7gQ1eMuZBpI3g7BNt6k
+	PA4h7alU45SkNmXstyAanfQ=
+X-Google-Smtp-Source: ABdhPJyGOG0KAop6l91pGJOE/cEVlL9F1lTLjXHrOaIRIRSecmCbwnglLSIqaboprwONWgH8SJ1woA==
+X-Received: by 2002:a17:90b:312:: with SMTP id ay18mr11909251pjb.144.1629331499183;
+        Wed, 18 Aug 2021 17:04:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:fa18:: with SMTP id p24ls608083ioh.9.gmail; Wed, 18 Aug
- 2021 17:02:03 -0700 (PDT)
-X-Received: by 2002:a5e:9819:: with SMTP id s25mr9229624ioj.63.1629331323683;
-        Wed, 18 Aug 2021 17:02:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629331323; cv=none;
+Received: by 2002:a65:520c:: with SMTP id o12ls1767381pgp.6.gmail; Wed, 18 Aug
+ 2021 17:04:58 -0700 (PDT)
+X-Received: by 2002:aa7:8116:0:b029:346:8678:ce26 with SMTP id b22-20020aa781160000b02903468678ce26mr11936706pfi.15.1629331498530;
+        Wed, 18 Aug 2021 17:04:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629331498; cv=none;
         d=google.com; s=arc-20160816;
-        b=IrMQrIcLdQghw+ezHt27ygYiax2t+JYUjspChe5poXO8KEkCM4NVSyLbPYonFZW4+N
-         wo8gUHiZH4KxbUEzX3cHik5nXmkGoHkGpPt0zqTpIVnoi+IuoL5ZpUcvDDAVXo7tCkiC
-         /dBD2MxHGaLah7SHiaXF5Zclex6iREmD9SqT9kb6080egpZso4DuwVIy7sdyRRDtEruF
-         l4oOgkq0mIoxBmFPjx03TAbrO0dkaO6LCI/fajv9AHtfCcZvpndHpvFqopTzdSmmKSoR
-         54gAl5cqQewljRzlr5a/NQyB7HEC5Guzhoi8XJ2vVWrdJcv951ZrWzUNp8xr+N/f1aWV
-         il6g==
+        b=bAlRFgQA9IOica59jfitdBJ/eXiLm/u+fi3kUcZs9Xj3PuwMj70NSu2Hs1ab9ExCV3
+         kbqgcieaaXsj/hMqvf9dp73QZZ4Cfg2aRAdrMOYK6OxpFsxIEe75aj3/eY1igY3X6uPG
+         g+OANNL3KBfKBXE02Ai/WqKRNw/j1oMmxeEfVwzTkF3wkVve7z2XnsClN/9eSgeZE4hB
+         rE4W08JnamVx5oDJ6JC9+HLuJ1kEZBBaTpfz7gPPP7VwolnkYP2zezgfOZcH/y2Ts6+Y
+         is14+42j5s5rV+0qC7uQTdYx4/t2bnsq86QHH2OEUl3SMSEXQHM4t2/xgwRpbiUGEPQE
+         TGPA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:dkim-filter;
-        bh=dDA48cE2QbNp7aCgzfGh6ePv10lHArBqOHlfXE7pros=;
-        b=ui9FBcgtADfviR0DtObJJ7kfPgIWNE/jC6BThrm6BecC2y8U26CLaGmy7XLkd4Fd+Z
-         ZyKR054xM9gbijF1EDLU5oU5hgFAwupAwYY74BnyfldcaS6Da+9uuOZ4+OTode62TvrS
-         8tFg5zIFs+U+1n4ih4lif5Hi4N3veOIfWOFgZ1GBrEPZOoWBgVcI45p7LmTZq5giMqPq
-         x2vlIf0BoIcfkOi9cx5UMVqICYVuHHWBLUbC3SKzM6t4XtCBe6KjDidk9q4K5wsU4asA
-         aJcAa/YjDSMNRrPvmqE5zA+FphvV7LaAm6uqBGiWGAlT7SvrdVPC3SazoGzQ+4urmUgC
-         wfMg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=w17ydvcuCGlYzYZkPwnAY4ViNmy/ZwOBneYqz+ZoO9o=;
+        b=Eid25RNwnGsVjoc/nNpm9liff3frVZZgD0MR/PceUSRtKulXuIqBAC9NDzCyYdGHjq
+         B8SvGwxa+5hI2IOlTJ5FH823Bkgyg+0envhGgeKAyVlCf2o2N+cYMhYNrz2M8rw3uoS0
+         UZELf+epSXllTfYzwF4RaVMmg/lvapwp0CqQkZdZER3mXzpt+AgNDbLTchPJuiUj83qR
+         onz724I5Q5vmI1zULKtqxHdU3MffklHngQJr8pxmSTH+0Xym/HqYs50mQIYYMqZYgoXT
+         2hBRPAr/HHZvS6RMF1tDwaVPY1Nbdzm1VMxetcYkOgn0OaxHr6VtL2fJzhRmhV6nZO/V
+         GX/g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ZauWzjVB;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conuserg-12.nifty.com (conuserg-12.nifty.com. [210.131.2.79])
-        by gmr-mx.google.com with ESMTPS id b12si133719ile.1.2021.08.18.17.02.03
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=UKWjEQsS;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::12e as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-il1-x12e.google.com (mail-il1-x12e.google.com. [2607:f8b0:4864:20::12e])
+        by gmr-mx.google.com with ESMTPS id j12si155144pgk.2.2021.08.18.17.04.58
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Aug 2021 17:02:03 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) client-ip=210.131.2.79;
-Received: from localhost.localdomain (133-32-232-101.west.xps.vectant.ne.jp [133.32.232.101]) (authenticated)
-	by conuserg-12.nifty.com with ESMTP id 17J01JAq002135;
-	Thu, 19 Aug 2021 09:01:19 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 17J01JAq002135
-X-Nifty-SrcIP: [133.32.232.101]
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Nicolas Pitre <nico@fluxnic.net>, clang-built-linux@googlegroups.com
-Subject: [PATCH v2] kbuild: Fix 'no symbols' warning when CONFIG_TRIM_UNUSD_KSYMS=y
-Date: Thu, 19 Aug 2021 09:01:14 +0900
-Message-Id: <20210819000114.634042-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.30.2
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Aug 2021 17:04:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::12e as permitted sender) client-ip=2607:f8b0:4864:20::12e;
+Received: by mail-il1-x12e.google.com with SMTP id j18so4089080ile.8
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Aug 2021 17:04:58 -0700 (PDT)
+X-Received: by 2002:a92:da11:: with SMTP id z17mr7915420ilm.176.1629331497973;
+ Wed, 18 Aug 2021 17:04:57 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: masahiroy@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=ZauWzjVB;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+References: <20210818214021.2476230-1-keescook@chromium.org> <20210818214021.2476230-2-keescook@chromium.org>
+In-Reply-To: <20210818214021.2476230-2-keescook@chromium.org>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Thu, 19 Aug 2021 02:04:46 +0200
+Message-ID: <CANiq72krkjtmwwZOebbVnPismTPoe2y+vCXuOXbBwE=1-BS2hg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/7] Compiler Attributes: Add __alloc_size() for better
+ bounds checking
+To: Kees Cook <keescook@chromium.org>
+Cc: linux-kernel <linux-kernel@vger.kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Joe Perches <joe@perches.com>, 
+	Andy Whitcroft <apw@canonical.com>, Dwaipayan Ray <dwaipayanray1@gmail.com>, 
+	Lukas Bulwahn <lukas.bulwahn@gmail.com>, Christoph Lameter <cl@linux.com>, 
+	Pekka Enberg <penberg@kernel.org>, David Rientjes <rientjes@google.com>, 
+	Joonsoo Kim <iamjoonsoo.kim@lge.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Vlastimil Babka <vbabka@suse.cz>, Daniel Micay <danielmicay@gmail.com>, Dennis Zhou <dennis@kernel.org>, 
+	Tejun Heo <tj@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Michal Marek <michal.lkml@markovi.net>, Linux-MM <linux-mm@kvack.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: miguel.ojeda.sandonis@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=UKWjEQsS;       spf=pass
+ (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
+ 2607:f8b0:4864:20::12e as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,55 +152,30 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-When CONFIG_TRIM_UNUSED_KSYMS is enabled, I see some warnings like this:
+On Wed, Aug 18, 2021 at 11:40 PM Kees Cook <keescook@chromium.org> wrote:
+>
+> GCC and Clang can use the "alloc_size" attribute to better inform the
+> results of __builtin_object_size() (for compile-time constant values).
+> Clang can additionally use alloc_size to inform the results of
+> __builtin_dynamic_object_size() (for run-time values).
+>
+> Because GCC sees the frequent use of struct_size() as an allocator size
+> argument, and notices it can return SIZE_MAX (the overflow indication),
+> it complains about these call sites may overflow (since SIZE_MAX is
+> greater than the default -Walloc-size-larger-than=PTRDIFF_MAX). This
+> isn't helpful since we already know a SIZE_MAX will be caught at run-time
+> (this was an intentional design). Instead, just disable this check as
+> it is both a false positive and redundant. (Clang does not have this
+> warning option.)
 
-  nm: arch/x86/entry/vdso/vdso32/note.o: no symbols
+Thanks!
 
-$NM (both GNU nm and llvm-nm) warns when no symbol is found in the
-object. Suppress the stderr.
+Reviewed-by: Miguel Ojeda <ojeda@kernel.org>
 
-Fangrui Song mentioned binutils>=2.37 `nm -q` can be used to suppress
-"no symbols" [1], and llvm-nm>=13.0.0 supports -q as well.
-
-We cannot use it for now, but note it as a TODO.
-
-[1]: https://sourceware.org/bugzilla/show_bug.cgi?id=27408
-
-Fixes: bbda5ec671d3 ("kbuild: simplify dependency generation for CONFIG_TRIM_UNUSED_KSYMS")
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
----
-
-Changes in v2:
-  - Add TODO
-  - Fix 'stdout' to 'stderr' in the comment
-
- scripts/gen_ksymdeps.sh | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/scripts/gen_ksymdeps.sh b/scripts/gen_ksymdeps.sh
-index 1324986e1362..725e8c9c1b53 100755
---- a/scripts/gen_ksymdeps.sh
-+++ b/scripts/gen_ksymdeps.sh
-@@ -4,7 +4,13 @@
- set -e
- 
- # List of exported symbols
--ksyms=$($NM $1 | sed -n 's/.*__ksym_marker_\(.*\)/\1/p' | tr A-Z a-z)
-+#
-+# If the object has no symbol, $NM warns 'no symbols'.
-+# Suppress the stderr.
-+# TODO:
-+#   Use -q instead of 2>/dev/null when we upgrade the minimum version of
-+#   binutils to 2.37, llvm to 13.0.0.
-+ksyms=$($NM $1 2>/dev/null | sed -n 's/.*__ksym_marker_\(.*\)/\1/p' | tr A-Z a-z)
- 
- if [ -z "$ksyms" ]; then
- 	exit 0
--- 
-2.30.2
+Cheers,
+Miguel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210819000114.634042-1-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72krkjtmwwZOebbVnPismTPoe2y%2BvCXuOXbBwE%3D1-BS2hg%40mail.gmail.com.
