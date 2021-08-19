@@ -1,47 +1,47 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBHMB7OEAMGQE5HL6EWQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBK4H7OEAMGQEN5OKEOI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1A54E3F21B0
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 22:35:43 +0200 (CEST)
-Received: by mail-pj1-x1040.google.com with SMTP id s1-20020a17090a948100b001795fab0f86sf6718025pjo.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 13:35:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629405341; cv=pass;
+Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
+	by mail.lfdr.de (Postfix) with ESMTPS id AB5B83F21D2
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 22:48:44 +0200 (CEST)
+Received: by mail-io1-xd37.google.com with SMTP id u22-20020a5d9f560000b02905058dc6c376sf446015iot.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 13:48:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629406123; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pHGqi3bLM6M1YAlkwL8+S9oqfihaKcfl3DC8Yhb4U0WNLYct1TkEXN5ycTHZTqeZ6F
-         tj9u7nqeYChU45NlHFpk4gE+CLtYcplwWaQ9fyqzmuf1UkRUQj1UnlAV0xXZTHtVd82G
-         TDIrndwCouWYuZsUEgh+zl50mU+dFvNf42NqeHYi2xyEQVwl5hGrlg4YJpH3b1eSFSS3
-         2SZBEYRB5G2yoSbCsbLbWiEdxmsbUUD9zHxnArYV/qd63bR555opBuCSeoHi/9UdTCCa
-         yp0S38f5PEh8/FJr99H36hH4Qmyck8y9RRt/Khx4WyFT2KmwbGY8z3/tVHFUBc7DVUFa
-         ehRg==
+        b=V+JZx3pOO3pqRX0J1xOJw2NoauHsFvioLSUYAlRx7yRIQkhpqXUu1dNPYGe7wCaZKT
+         lsG55Th51czYK3i3qBdwP40TcrUtb9/GPmYqOHPTmY9wj7ktrTVBqJJawB23ZBhcdZ2m
+         IdlvoQ1P/MbTaDk7CQ2EvPvzQyVIF7FLyDSRbUZJ/kRIQWseLpc7D3Ebe6DdStMMl+t7
+         cySl6BGK93PEXcVweiNtylf/047oyXLPTr/WtQMNIK9X9m0XJPn9ZjdCul+lPwMBLqs3
+         vPPlMzgU5QTFsTLDV6eg4zdxHA4OdcjcdlOdMys9CDrwkW/od2HodIg5km7UYb/KO7uJ
+         zfjA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=64Wg2QAvwUx4Tc3qP72yNxeTv3oVRTvl3eRahB8vCoE=;
-        b=edeTaPZFLXFmGbHnipcoIdO0omQGzUsD9KPz474QdEmjF6sRvg+FWjtOz8urlkaK20
-         j2ueZj1WigDLsyWeT3CnGM1snsnlV8VMlatE29G/xIQzC7XeuX3lMJMPkWpjjsvcfilS
-         UtO623hP7QqRgbTbgBlQ+jieVsT8fBnK2vo/sBOXSFI/ZMc//DTn9/he6HrPbCTiMVtq
-         pQUqAQ4v/8fWsedkakjtWCDWyzMCpTX/A2rUtTwatVrGr8aoTnFAeZTohH3Bc4lVCgpD
-         ZsaVgf+PZJmcKtUOY1atOCF3Lnr6pB36eWyOTtrkfStYU1rLJ8qytx+Yy5/QmYCzhvoD
-         3++w==
+        bh=pkE98TIBDhdHkQiH9UeGqLKNMfJxdkk1d/IBGoQTdnY=;
+        b=JPrmvwaJjNLBzhALSoBEB55rN7Zmvq9G5LTPMbKcmcB1jqk4sd7arX1rvetjJ62nZb
+         N4fSJ0I9PtU35pMUna/JxdZYphFrjGYeO02ZaK02BypUZiUJeDpsuSze4mlvTB+C3PMo
+         7G6TdTDEsWFQjf7Kxvy8OovmOjJmLGQT7/axnGHE7gBOgK6ZF9ULIWjkZKKDnin/OwO7
+         URKESNFLSPpU6i5rp3hgHFfe7hKnLDCWVU96jcd/p+tLa2Rh3Ai/yhhMPGvu5NJt99Hd
+         78a0n0QeuQ7qR47sd534YUvG0Jfw76AJQQN32pX0YZuiu9xk34yjEJiZyY2bK+lhUQgJ
+         lqdg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20210112;
+        d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:mime-version
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=64Wg2QAvwUx4Tc3qP72yNxeTv3oVRTvl3eRahB8vCoE=;
-        b=p7X7jN2udL3YPDQ/QWlE8P5KelEUE4X40X+HQQ9k1GIBdrgtAI89PzjnpGWulA5LHX
-         N9hZMJ3GuBeMuMkfEzX0yUEbyBzDFcRtpBX1vhPwIJIJa2lDPKpimoD8g17PJccGE4ls
-         a+pM0jyBkd48ZwbdsdGr38TU4xo48Vv85lhYsOPoZzArn9ohyT9Zvqf3v+IjhiA0PM2v
-         WEFOIoNZA09nrWg+/8QxkFRoA8NvX2/hfUVIIQobRLfPoLucV2Iwx7Zwq5oXT9/FkkdB
-         mtjpTZJrS2wMalr7Lc4MJjefEyNa9CiWaHvLzdsvVCdL/WrYbxEKw9q0cPZ+ag2sRMsp
-         339g==
+        bh=pkE98TIBDhdHkQiH9UeGqLKNMfJxdkk1d/IBGoQTdnY=;
+        b=fYszpkg1xXiEx7bGN5dxdcNXSGz560bxxs4729pb52+U8u0Qa/sldX6zWn6SVh+8QP
+         TU9khmuxTyzIhTZBvSM4gKE+XfMBagJ9GqJyZ0PcAx/f6anv6w4ei11mHmUT3d+wxsZ0
+         CvAgcsF4FuvZQpIQASL0cAcykk3CakjbLdZvN2qOVFaPtsNquE4WQsb0tal2ZwJDTE32
+         EPmClQbliPTdlFLLM3cgML3eGSU6nyG66cdPCjAjFiwnbF4oDQyamCZvuXQITmk0ySf8
+         eQTdGisyY6simRmnsgyrGdPxTWRnh+7uheXg94UcUYYMqAUCNSW7w2Un6rAIR15LI/vD
+         WVBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=64Wg2QAvwUx4Tc3qP72yNxeTv3oVRTvl3eRahB8vCoE=;
-        b=uVzUmIvzs5/ipT62Upz5FkabtZ+fDQsKKjBhU4hyvI6sTIa9+WXXa5EVGrRUjti782
-         N7s/aT9M0VfaPPZmxdk3hiTE4WR7WP722krjFw0FNRNXfvmt8YV80fs7RRo0deChlTq9
-         inJbJ+jw4n3Gi87UZ2X25SHSHG/UehKU0dUp1x5AlPXjuJa1klTLrPYYgV00WyZ9Q7jR
-         PKYJBaYddSAtlPbTv8ETtS/0UZypBe5sMVHjudFZQ22TG/9iFmQLTfZNS7hXJclHyXTL
-         ElDkRtHVCf6h+iuO+2jFnfnOVQkcSRURv+mwO4WfnoQK0PY1ymUrRwQfFHjysVv5U3vd
-         6q2g==
+        bh=pkE98TIBDhdHkQiH9UeGqLKNMfJxdkk1d/IBGoQTdnY=;
+        b=Bx4WkwHm6HQZ8kFWFJB1uFpPOMgkBpogbyraBKNAntl5kYuji2N7gANDj0olfcAIDn
+         7KJFgKHPuMbsEeFYUnEGpW6Uv2iT9tTUztL19ode6pjEER7d6ybCHzpDomePu1/c89ML
+         /WSjqIQctqLMjHuvyqgfLbJ6zZ1SlAk8vnGXYEEw+awVRBqmWRAMy5LXlWh+5yGp9X1Q
+         EM10CE7z0zH0vShMxl19hTc+xPg8cVGeShya83ksVp+l1XuHAN8aLg2E9U+WtB5f21Tn
+         QOlwhLgzIvyReXX5e1v6d38Uc8LU7aDxIIy9mIyYBXIco+1V7A/X+oUBla9Kk6+amr33
+         wUng==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531JiNHv6XfkvE1QMvbQzU+7Pmjnpmk3W6tQoviG/G6YJ93Dsgpi
-	EpjODVnkH9+zPXnEHIKnywY=
-X-Google-Smtp-Source: ABdhPJy0bQZv+HQyRr4oBYpcOtiKU4OC4moN5N7UUQ1fH5fBzMm7S6tT0CRe5tQoRuIR/v76XAQMFg==
-X-Received: by 2002:a17:90a:df14:: with SMTP id gp20mr630079pjb.33.1629405341567;
-        Thu, 19 Aug 2021 13:35:41 -0700 (PDT)
+X-Gm-Message-State: AOAM532IskaUc8PYRe6KtThfXMThStD7Ar46W8FLdPXB0lkfAVlHuqmR
+	jfMP87rzc6XvbBDq6kytHag=
+X-Google-Smtp-Source: ABdhPJwUXEvj64Q6KC8K0elC3cdCtIRNvdGCLFiMVzHdheVaB6faTE4xVlwvETAkpKUeSyj0UmMi5w==
+X-Received: by 2002:a92:c5cf:: with SMTP id s15mr10455094ilt.62.1629406123386;
+        Thu, 19 Aug 2021 13:48:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:4e24:: with SMTP id c36ls3044147pgb.5.gmail; Thu, 19 Aug
- 2021 13:35:41 -0700 (PDT)
-X-Received: by 2002:a63:5c1b:: with SMTP id q27mr15469152pgb.284.1629405340786;
-        Thu, 19 Aug 2021 13:35:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629405340; cv=none;
+Received: by 2002:a02:b08e:: with SMTP id v14ls935316jah.5.gmail; Thu, 19 Aug
+ 2021 13:48:43 -0700 (PDT)
+X-Received: by 2002:a02:a709:: with SMTP id k9mr14485132jam.64.1629406122726;
+        Thu, 19 Aug 2021 13:48:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629406122; cv=none;
         d=google.com; s=arc-20160816;
-        b=b84NLBGcXMd7fDraTGcn5bHKo3FgCgZevkHCk56StiScFCnZ2+OVoeRQ7FTUZ+rh/0
-         9Vo7U235xbug+f6sovP6nvdgDLOUZl+h0XewtWLcif6kWpryZge29ad/LiRk92OvkL0B
-         /sU+tfOcGjIVJDgwvdOp1br0FNS6D/uXHyNd0YnNhrxSLfEsIYvofQnVlURkpi8BjaJo
-         rzxZiKfWyvdtRhU0BFzRVccGzNLGdoqiCxAeujaM2bxAchChfYN/4jg+DN0L4AzX5sgf
-         k1dMbBmKzIJsroWYZdleOF3KE26GJ0gEmQUcs5OW9qbrEhz28zXGSx3CInj9WHa/d7y+
-         tQ+A==
+        b=K3TB03keUy98AEgrAI41HGm4X03BmSQ7vqck04ZagvXNxElMazb2RV3DYJ6JpWVUUb
+         Ik+ShqyY2SkKnep3ysgmhee+1eOGRgFuO/xrknOAM5ga2jGl2+xInVvqTZkltHxjRJQW
+         EZj817BwrYiaPGS3pPXRxZBd9+easZZ2/z3yXYqIl5lrK2lGZcityRvpm5aJ2/rPCRgv
+         MvBabxY9WJl6v+1kVkxe0IpqJru+LOEcJopa6jRmL9yRZCJJX7oJrCTlIltkVCqcj0Ue
+         fmy6XLayywBmrfTBblialcpzHbL2xE51cmw1eWleFCv0tWmQsLTvXBJ9Mk6ztG0mvFfT
+         oy6g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=bpkSIr9nsAj6iKFsdBemD6HCIF8CRy7rOBczWaX1udk=;
-        b=si9Kdlrk1X6uWYFfJWbPc1bm89CqDpoSxcBYaU4liuYuwaJFTOhBXOOuMiOnnxu/Gy
-         4TD5NByPlChqSVv7JBi3cHAiKb5mW1LFz3xDlEngtgA+zij20BLYVR+gTu6WXU6T5Jhf
-         ofku1nb3QPnZD9rimFtkaWSrUL4FQRDVmdutMlkdo2YU7YopGBf+sUnTn8yod24vZ/IR
-         Mrj8eFv4UCFsq8ou9N+p8MsCpkmcbmt47f2VckUHKdJxIxwJ8ZNLyipZ7oECW2wpt5j/
-         2Cs+iYNTsiUvcABr8xeTtliR5+fY6+XVHKlsGAhUjRBQ2YT4epI8FPJC11AL1pUdZCsm
-         ftpw==
+        bh=ZKooV8jU8Je2xJRYWkLsQ1yoFsfYWPtU7YnQIrSZKmY=;
+        b=CPeU/2qAj+Wn5NXXplZDRpMsdORFY4R8hDeFtSf4N4N9ZGLsYeFBvmWXq9BQIkEkG/
+         azVVygcaH8ltwZkojYoRBb6Qsr8DajhJSHpeMsK8t7MGsKPMwAlVKgHuqhI7l5Wnssvw
+         E2/3fM9e43Pl6lrE8tTJuqSCTL8cDsPQLoGrP96g7MSzC+1DNcHsC8bfHOu782tB/CuY
+         FVurXg1JpHBmsb2sZer09F/9BkxlUTGf1qy/ZTqAff0xRQS5IXfJwDelHwgBllNB3Yah
+         uP11tuTQKzFYZH13YDZMk6Vr9kxI54TO5CFMZDl+bBXcTyJ9aRi9QFuitywUODcAa14R
+         zZcA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id q10si255978pgv.5.2021.08.19.13.35.40
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id e12si288465ile.4.2021.08.19.13.48.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Aug 2021 13:35:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
-X-IronPort-AV: E=McAfee;i="6200,9189,10081"; a="214800366"
+        Thu, 19 Aug 2021 13:48:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
+X-IronPort-AV: E=McAfee;i="6200,9189,10081"; a="216682121"
 X-IronPort-AV: E=Sophos;i="5.84,335,1620716400"; 
-   d="gz'50?scan'50,208,50";a="214800366"
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2021 13:35:40 -0700
+   d="gz'50?scan'50,208,50";a="216682121"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2021 13:48:40 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.84,335,1620716400"; 
-   d="gz'50?scan'50,208,50";a="681911683"
+   d="gz'50?scan'50,208,50";a="451771544"
 Received: from lkp-server01.sh.intel.com (HELO d053b881505b) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 19 Aug 2021 13:35:38 -0700
+  by fmsmga007.fm.intel.com with ESMTP; 19 Aug 2021 13:48:38 -0700
 Received: from kbuild by d053b881505b with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1mGolF-000UGH-HX; Thu, 19 Aug 2021 20:35:37 +0000
-Date: Fri, 20 Aug 2021 04:35:24 +0800
+	id 1mGoxp-000UGs-SI; Thu, 19 Aug 2021 20:48:37 +0000
+Date: Fri, 20 Aug 2021 04:48:34 +0800
 From: kernel test robot <lkp@intel.com>
 To: David Howells <dhowells@redhat.com>
 Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
 	linux-kernel@vger.kernel.org
-Subject: [dhowells-fs:netfs-folio-regions 18/28] fs/netfs/write_prep.c:78:10:
- warning: comparison of distinct pointer types ('typeof (len) *' (aka
- 'unsigned int *') and 'typeof ((1UL << 18) - offset) *' (aka 'unsigned long
- *'))
-Message-ID: <202108200415.7lAXba6f-lkp@intel.com>
+Subject: [dhowells-fs:netfs-folio-regions 23/28]
+ fs/netfs/write_back.c:1071:1: error: expected statement
+Message-ID: <202108200430.tgshZVx5-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="YZ5djTAD1cGYuMQK"
+Content-Type: multipart/mixed; boundary="r5Pyd7+fXNt84Ff3"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,107 +137,169 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---YZ5djTAD1cGYuMQK
+--r5Pyd7+fXNt84Ff3
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git netfs-folio-regions
 head:   215a4ee495a95cc73256ed76f91cb78bcabd6b8e
-commit: 0c1c1796fd33fded73a9a4305a9e43e8922746ee [18/28] netfs: Do encryption in write preparatory phase
+commit: 763245c0c72ba51e185586cdaa4646b49ba7f14c [23/28] netfs: Pass initial write into netfs_flush_dirty()
 config: hexagon-randconfig-r041-20210818 (attached as .config)
 compiler: clang version 12.0.0
 reproduce (this is a W=1 build):
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        # https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git/commit/?id=0c1c1796fd33fded73a9a4305a9e43e8922746ee
+        # https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git/commit/?id=763245c0c72ba51e185586cdaa4646b49ba7f14c
         git remote add dhowells-fs https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git
         git fetch --no-tags dhowells-fs netfs-folio-regions
-        git checkout 0c1c1796fd33fded73a9a4305a9e43e8922746ee
+        git checkout 763245c0c72ba51e185586cdaa4646b49ba7f14c
         # save the attached .config to linux build tree
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=hexagon 
+        mkdir build_dir
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross O=build_dir ARCH=hexagon SHELL=/bin/bash fs/netfs/
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
->> fs/netfs/write_prep.c:78:10: warning: comparison of distinct pointer types ('typeof (len) *' (aka 'unsigned int *') and 'typeof ((1UL << 18) - offset) *' (aka 'unsigned long *')) [-Wcompare-distinct-pointer-types]
-                           seg = min(len, PAGE_SIZE - offset);
-                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/minmax.h:45:19: note: expanded from macro 'min'
-   #define min(x, y)       __careful_cmp(x, y, <)
-                           ^~~~~~~~~~~~~~~~~~~~~~
-   include/linux/minmax.h:36:24: note: expanded from macro '__careful_cmp'
-           __builtin_choose_expr(__safe_cmp(x, y), \
-                                 ^~~~~~~~~~~~~~~~
-   include/linux/minmax.h:26:4: note: expanded from macro '__safe_cmp'
-                   (__typecheck(x, y) && __no_side_effects(x, y))
-                    ^~~~~~~~~~~~~~~~~
-   include/linux/minmax.h:20:28: note: expanded from macro '__typecheck'
-           (!!(sizeof((typeof(x) *)1 == (typeof(y) *)1)))
-                      ~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~
-   1 warning generated.
+   fs/netfs/write_back.c:108:22: warning: variable 'region' is uninitialized when used here [-Wuninitialized]
+           if (within(&range, &region->dirty)) {
+                               ^~~~~~
+   fs/netfs/write_back.c:98:35: note: initialize the variable 'region' to silence this warning
+           struct netfs_dirty_region *region, *r;
+                                            ^
+                                             = NULL
+   fs/netfs/write_back.c:438:7: warning: variable 'ret' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+                   if (!folio_trylock(folio))
+                       ^~~~~~~~~~~~~~~~~~~~~
+   fs/netfs/write_back.c:442:9: note: uninitialized use occurs here
+           return ret;
+                  ^~~
+   fs/netfs/write_back.c:438:3: note: remove the 'if' if its condition is always true
+                   if (!folio_trylock(folio))
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   fs/netfs/write_back.c:425:9: note: initialize the variable 'ret' to silence this warning
+           int ret;
+                  ^
+                   = 0
+   fs/netfs/write_back.c:492:22: warning: variable 'region' is uninitialized when used here [-Wuninitialized]
+           if (within(&range, &region->dirty))
+                               ^~~~~~
+   fs/netfs/write_back.c:481:35: note: initialize the variable 'region' to silence this warning
+           struct netfs_dirty_region *region, *r;
+                                            ^
+                                             = NULL
+>> fs/netfs/write_back.c:1071:1: error: expected statement
+   }
+   ^
+   3 warnings and 1 error generated.
 
 
-vim +78 fs/netfs/write_prep.c
+vim +1071 fs/netfs/write_back.c
 
-    46	
-    47	/*
-    48	 * Populate a scatterlist from folios in an xarray.
-    49	 */
-    50	static int netfs_xarray_to_sglist(struct xarray *xa, loff_t pos, size_t len,
-    51					  struct scatterlist *sg, unsigned int n_sg)
-    52	{
-    53		struct scatterlist *p = sg;
-    54		struct folio *folio = NULL;
-    55		size_t seg, offset, skip = 0;
-    56		loff_t start = pos;
-    57		pgoff_t index = start >> PAGE_SHIFT;
-    58		int j;
-    59	
-    60		XA_STATE(xas, xa, index);
-    61	
-    62		sg_init_table(sg, n_sg);
-    63	
-    64		rcu_read_lock();
-    65	
-    66		xas_for_each(&xas, folio, ULONG_MAX) {
-    67			kdebug("LOAD %lx %px", folio->index, folio);
-    68			if (xas_retry(&xas, folio))
-    69				continue;
-    70			if (WARN_ON(xa_is_value(folio)) || WARN_ON(folio_test_hugetlb(folio)))
-    71				break;
-    72			for (j = (folio_index(folio) < index) ? index - folio_index(folio) : 0;
-    73			     j < folio_nr_pages(folio); j++
-    74			     ) {
-    75				struct page *subpage = folio_file_page(folio, j);
-    76	
-    77				offset = (pos + skip) & ~PAGE_MASK;
-  > 78				seg = min(len, PAGE_SIZE - offset);
-    79	
-    80				kdebug("[%zx] %lx %zx @%zx", p - sg, subpage->index, seg, offset);
-    81				sg_set_page(p++, subpage, seg, offset);
-    82	
-    83				len -= seg;
-    84				skip += seg;
-    85				if (len == 0)
-    86					break;
-    87			}
-    88			if (len == 0)
-    89				break;
-    90		}
-    91	
-    92		rcu_read_unlock();
-    93		if (len > 0) {
-    94			WARN_ON(len > 0);
-    95			return -EIO;
-    96		}
-    97	
-    98		sg_mark_end(p - 1);
-    99		kleave(" = %zd", p - sg);
-   100		return p - sg;
-   101	}
-   102	
+763245c0c72ba5 David Howells 2021-08-02   976  
+763245c0c72ba5 David Howells 2021-08-02   977  /*
+763245c0c72ba5 David Howells 2021-08-02   978   * Flush from the front group in the flush FIFO.
+763245c0c72ba5 David Howells 2021-08-02   979   */
+763245c0c72ba5 David Howells 2021-08-02   980  static int netfs_flush_group(struct address_space *mapping, bool may_wait)
+763245c0c72ba5 David Howells 2021-08-02   981  {
+763245c0c72ba5 David Howells 2021-08-02   982  	struct netfs_write_request *wreq = NULL;
+763245c0c72ba5 David Howells 2021-08-02   983  	struct netfs_dirty_region *spares[2] = {}, *head, *r, *wait_for;
+763245c0c72ba5 David Howells 2021-08-02   984  	struct netfs_flush_group *group;
+763245c0c72ba5 David Howells 2021-08-02   985  	struct netfs_i_context *ctx = netfs_i_context(mapping->host);
+763245c0c72ba5 David Howells 2021-08-02   986  	struct netfs_range range;
+763245c0c72ba5 David Howells 2021-08-02   987  	unsigned int min_bsize = 1U << ctx->min_bshift;
+763245c0c72ba5 David Howells 2021-08-02   988  	loff_t wait_to;
+763245c0c72ba5 David Howells 2021-08-02   989  	int ret;
+763245c0c72ba5 David Howells 2021-08-02   990  
+763245c0c72ba5 David Howells 2021-08-02   991  	kenter("");
+763245c0c72ba5 David Howells 2021-08-02   992  
+763245c0c72ba5 David Howells 2021-08-02   993  	ret = netfs_sanity_check_ictx(mapping);
+763245c0c72ba5 David Howells 2021-08-02   994  	if (ret < 0)
+763245c0c72ba5 David Howells 2021-08-02   995  		return ret;
+763245c0c72ba5 David Howells 2021-08-02   996  
+763245c0c72ba5 David Howells 2021-08-02   997  retry:
+763245c0c72ba5 David Howells 2021-08-02   998  	if (!wreq) {
+763245c0c72ba5 David Howells 2021-08-02   999  		ret = -ENOMEM;
+763245c0c72ba5 David Howells 2021-08-02  1000  		wreq = netfs_alloc_write_request(mapping, false);
+763245c0c72ba5 David Howells 2021-08-02  1001  		if (!wreq)
+763245c0c72ba5 David Howells 2021-08-02  1002  			goto out_unlocked;
+763245c0c72ba5 David Howells 2021-08-02  1003  	}
+1e4f2a70cbedd7 David Howells 2021-07-29  1004  
+763245c0c72ba5 David Howells 2021-08-02  1005  	spin_lock(&ctx->lock);
+763245c0c72ba5 David Howells 2021-08-02  1006  
+763245c0c72ba5 David Howells 2021-08-02  1007  	group = list_first_entry(&ctx->flush_groups, struct netfs_flush_group, group_link);
+763245c0c72ba5 David Howells 2021-08-02  1008  	if (list_empty(&group->region_list))
+763245c0c72ba5 David Howells 2021-08-02  1009  		goto group_empty;
+763245c0c72ba5 David Howells 2021-08-02  1010  
+763245c0c72ba5 David Howells 2021-08-02  1011  	/* We take the first region on the list as a starting point */
+763245c0c72ba5 David Howells 2021-08-02  1012  	head = list_first_entry(&group->region_list, struct netfs_dirty_region, flush_link);
+763245c0c72ba5 David Howells 2021-08-02  1013  	range.start = round_down(head->dirty.start, min_bsize);
+763245c0c72ba5 David Howells 2021-08-02  1014  	range.end = (unsigned long long)LLONG_MAX + 1;
+763245c0c72ba5 David Howells 2021-08-02  1015  	kdebug("query D=%x", r->debug_id);
+763245c0c72ba5 David Howells 2021-08-02  1016  
+763245c0c72ba5 David Howells 2021-08-02  1017  	ret = netfs_flush_dirty(ctx, head, spares, &range, wreq, &wait_for, &wait_to);
+763245c0c72ba5 David Howells 2021-08-02  1018  	switch (ret) {
+763245c0c72ba5 David Howells 2021-08-02  1019  	case -ENOBUFS:
+763245c0c72ba5 David Howells 2021-08-02  1020  		spin_unlock(&ctx->lock);
+763245c0c72ba5 David Howells 2021-08-02  1021  		goto need_spares;
+763245c0c72ba5 David Howells 2021-08-02  1022  	case -EAGAIN:
+763245c0c72ba5 David Howells 2021-08-02  1023  		if (wait_for)
+763245c0c72ba5 David Howells 2021-08-02  1024  			goto wait_for_active_region;
+763245c0c72ba5 David Howells 2021-08-02  1025  		spin_unlock(&ctx->lock);
+763245c0c72ba5 David Howells 2021-08-02  1026  		goto retry;
+763245c0c72ba5 David Howells 2021-08-02  1027  	default:
+763245c0c72ba5 David Howells 2021-08-02  1028  		spin_unlock(&ctx->lock);
+763245c0c72ba5 David Howells 2021-08-02  1029  		goto out_unlocked;
+763245c0c72ba5 David Howells 2021-08-02  1030  	case 0:
+763245c0c72ba5 David Howells 2021-08-02  1031  		spin_unlock(&ctx->lock);
+763245c0c72ba5 David Howells 2021-08-02  1032  		break;
+763245c0c72ba5 David Howells 2021-08-02  1033  	}
+763245c0c72ba5 David Howells 2021-08-02  1034  
+763245c0c72ba5 David Howells 2021-08-02  1035  	/* TODO: Flush more pieces */
+763245c0c72ba5 David Howells 2021-08-02  1036  
+763245c0c72ba5 David Howells 2021-08-02  1037  out_unlocked:
+763245c0c72ba5 David Howells 2021-08-02  1038  	netfs_free_dirty_region(ctx, spares[0]);
+763245c0c72ba5 David Howells 2021-08-02  1039  	netfs_free_dirty_region(ctx, spares[1]);
+763245c0c72ba5 David Howells 2021-08-02  1040  	netfs_put_write_request(wreq, false, netfs_wreq_trace_put_discard);
+763245c0c72ba5 David Howells 2021-08-02  1041  	return ret;
+763245c0c72ba5 David Howells 2021-08-02  1042  
+763245c0c72ba5 David Howells 2021-08-02  1043  wait_for_active_region:
+763245c0c72ba5 David Howells 2021-08-02  1044  	if (!may_wait)
+763245c0c72ba5 David Howells 2021-08-02  1045  		return -EBUSY;
+763245c0c72ba5 David Howells 2021-08-02  1046  
+763245c0c72ba5 David Howells 2021-08-02  1047  	if (!spares[0] || !spares[1])
+763245c0c72ba5 David Howells 2021-08-02  1048  		return -ENOBUFS;
+763245c0c72ba5 David Howells 2021-08-02  1049  
+763245c0c72ba5 David Howells 2021-08-02  1050  	netfs_get_dirty_region(ctx, r, netfs_region_trace_get_wait_active);
+763245c0c72ba5 David Howells 2021-08-02  1051  	spin_unlock(&ctx->lock);
+763245c0c72ba5 David Howells 2021-08-02  1052  
+763245c0c72ba5 David Howells 2021-08-02  1053  	wait_var_event(&r->state, (READ_ONCE(r->state) != NETFS_REGION_IS_ACTIVE ||
+763245c0c72ba5 David Howells 2021-08-02  1054  				   READ_ONCE(r->dirty.end) != wait_to));
+763245c0c72ba5 David Howells 2021-08-02  1055  	netfs_put_dirty_region(ctx, r, netfs_region_trace_put_wait_active);
+1e4f2a70cbedd7 David Howells 2021-07-29  1056  need_spares:
+1e4f2a70cbedd7 David Howells 2021-07-29  1057  	ret = -ENOMEM;
+763245c0c72ba5 David Howells 2021-08-02  1058  	if (!spares[0]) {
+1e4f2a70cbedd7 David Howells 2021-07-29  1059  		spares[0] = netfs_alloc_dirty_region();
+1e4f2a70cbedd7 David Howells 2021-07-29  1060  		if (!spares[0])
+1e4f2a70cbedd7 David Howells 2021-07-29  1061  			goto out_unlocked;
+763245c0c72ba5 David Howells 2021-08-02  1062  	}
+763245c0c72ba5 David Howells 2021-08-02  1063  	if (!spares[1]) {
+1e4f2a70cbedd7 David Howells 2021-07-29  1064  		spares[1] = netfs_alloc_dirty_region();
+1e4f2a70cbedd7 David Howells 2021-07-29  1065  		if (!spares[1])
+1e4f2a70cbedd7 David Howells 2021-07-29  1066  			goto out_unlocked;
+763245c0c72ba5 David Howells 2021-08-02  1067  	}
+1e4f2a70cbedd7 David Howells 2021-07-29  1068  	goto retry;
+763245c0c72ba5 David Howells 2021-08-02  1069  
+763245c0c72ba5 David Howells 2021-08-02  1070  group_empty:
+1e4f2a70cbedd7 David Howells 2021-07-29 @1071  }
+1e4f2a70cbedd7 David Howells 2021-07-29  1072  
+
+:::::: The code at line 1071 was first introduced by commit
+:::::: 1e4f2a70cbedd75d80440425727faa78e2dccb93 netfs: Cut out region to be written from dirty regions
+
+:::::: TO: David Howells <dhowells@redhat.com>
+:::::: CC: David Howells <dhowells@redhat.com>
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -248,14 +308,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108200415.7lAXba6f-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108200430.tgshZVx5-lkp%40intel.com.
 
---YZ5djTAD1cGYuMQK
+--r5Pyd7+fXNt84Ff3
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICOq8HmEAAy5jb25maWcAnDxdc+O2ru/nV2jamTvnPGxrO8nu5t7JA0VRFmtJVEjKcfZF
+H4sICD7BHmEAAy5jb25maWcAnDxdc+O2ru/nV2jamTvnPGxrO8nu5t7JA0VRFmtJVEjKcfZF
 45P17nqaOHttp6f99xegvkiJ8nZuZ7aJABAEQRAEQDI//+PngLydX1+25/3T9vn5r+Dr7rA7
 bs+7z8GX/fPuf4JIBLnQAYu4/gWI0/3h7c9fv+3+3H59PQQ3v8yvf5m9Oz7Ng9XueNg9B/T1
 8GX/9Q047F8P//j5H1TkMV9WlFZrJhUXeaXZRt/99PS8PXwN/tgdT0AXzBe/zH6Z/dRSL3vy
@@ -749,4 +809,4 @@ W8ZxhkF76u7W0Fd2EZcpnFIGo4OCsGGSUOwqcsRAws43yKq6jUreA1WsTsjNLB7dSIT2ImYb
 UachoslyKIjY61c+ZHnct8QchlES3PpGB9gfC2CA7QlVt4zWCqr5o51nyFSF/QTcIaOwHdNs
 ZwuSxRpCB49MgU4DOdsAC9L1aiGUzGPBEA1Fybrm/D/uwTHUuKcBAA==
 
---YZ5djTAD1cGYuMQK--
+--r5Pyd7+fXNt84Ff3--
