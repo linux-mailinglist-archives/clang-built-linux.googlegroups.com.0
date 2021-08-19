@@ -1,145 +1,134 @@
-Return-Path: <clang-built-linux+bncBDRZHGH43YJRBK6A62EAMGQE7DZGGWQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBVOD62EAMGQE5F6IRDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id 775833F0F09
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 02:05:00 +0200 (CEST)
-Received: by mail-pg1-x537.google.com with SMTP id v21-20020a63d5550000b029023c8042ce63sf2398413pgi.8
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 17:05:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629331499; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id 633F33F0F0F
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 02:12:07 +0200 (CEST)
+Received: by mail-pg1-x539.google.com with SMTP id d4-20020a6336040000b029023ad3e0b062sf2411018pga.10
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Aug 2021 17:12:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629331926; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Y+IkfBFV5bsaMfpUeqrGW7fY9Kq39VxJhjx232fIrZt3w5BqPNsVHhN7iuoCz/CEGD
-         +pYo957xKODfGEHLlD2Y7BoGHFWeTOcuva4W6TZ3OjNHGUUmThgZds+hpb9tpK/dCgHE
-         /OJ/3XIcHqUsD7XQmGET4TWc0fTPZAncqctMuDZyP1PnKbxMXVVo3Z+RQyPPHY0XQ2zG
-         HumzA1ikoJpqWi5M7FLCjPavBTEgrnLZC2aaHkkTuEP4IawFEFm8m7hqt6TKHSb0O7qS
-         avjV8yNF8Vtj9oLKy74RCXZtDaq0nC8xJX4yNFRoHBXkO+5L4HuW0SSYrMc9d4WQu+TN
-         gfaw==
+        b=EtRAWckP7GuEJeMkODWgxcwUbozm3zeIGxG+tj8dsm2dgmp+ZwX0YRjfuzVH/7yEkg
+         LWf/z5Cfhwq70hGxdHNH3vi20Fj3/DykdXJ//OAhVUacZ4mTsl2rETNyz7ZPwWtIYZKC
+         iO+mV7ryL0FJcXzpWObkqo8tx3Q7HETVBNvZye3xt6lZ6RZO877ylFxdnsqumACLx+vb
+         5nhMBjzm17Kfxj/jZfToE6CTTYxXsvzSDfaY9LMjwrLkps1uaUXHzD1O8wTF/6dEUMEk
+         aZ23hP4YKS00yVI71OXITTu8O8ntApeJPQjuTUIIANEFvvz4ZJxQy3Eov5Dl8ELWmmuO
+         mDyA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
+         :in-reply-to:references:mime-version:dkim-filter:sender
          :dkim-signature;
-        bh=oE/lVWao+gwKyh/xWosibiURo4tj1fQ5Gj6FfDzZ+QU=;
-        b=gMcRsDRC6U+4LAMEDvZTG+DC+k53ldQN1e6rdzjVQruKeKU4JdwsOYX/QAPWpWV5ig
-         Lw1oVptKee85mE5aKGWQZCUHIzlK1MPFlr3MPtWf4T4lYobKL2Gq94+z29nwAwGIDGOU
-         0GMPM3LTgA89XC/61az7m3lZ4CGIjGSRfmR96qN/tNXIz1TzAW/FF/yGeoyyUGxyn8Ix
-         fbPzxmQxGaY3TWnhpYDqcqMOwLuhDXjo5vSbyRePtc7mE8QplBKIrF/1NhVMdm/qb/SJ
-         WyqYchbODGjZSVphEl5uL85a22n4YgfbMIu3S6xhna1blDuWAEH6sWDhaz6vY8R4RrYM
-         8x+w==
+        bh=W/gFBTjlTc2Mpk6ZbbS778KQzIYJkxYa9E7oaeQQuwc=;
+        b=IB9Ga34hG6K4b4fAxMp2kQj3aBv69PBUVjQQXVS8+TOhUKeU7Ao2AE/EiSgDy+h53M
+         rIIWYHBc0y97cp8EqPCNO4ldgfuZKDQg47Qxo/78ht32D+8XGtmVxqMAwD6gn9ov9N70
+         WZU9UGiojoIFue3pUU0hmauokbA1GHQ7Pt5oeJ9eC8gttm9d+K8sBSJoqEGdPT2cHirn
+         8SPvWaf9530tP+17TH75jfarH5b7y1UO81+XPPQdz7JMYaB4yq16YQrBCf/YeuC/WVRk
+         ZvPCfAdCjWP493qT5YdQT0h3zxL/DL713AE44XVza5YDm8GHDkNs4lbkwCG3xouK6FRQ
+         tVUQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=UKWjEQsS;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::12e as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ARuw9aHU;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=oE/lVWao+gwKyh/xWosibiURo4tj1fQ5Gj6FfDzZ+QU=;
-        b=HOtyubaMFyayc8ILsa5P1Gh30sJbW+qGwUssO4ACGWCyvCCkQUrvwhFk4QD53UBY7B
-         ecFtWBpG/39NyHEK95OmeYpAZsV0YsbR+tl/0f5vzWqVlWMwHtD+FL0ymCQCtu2roOOx
-         s2DXVuQht69zeVDbAkI4WpoY1jCnaQecsFDZHuaizZI5QzSkQATFjkjGleKqBn+wWQU6
-         /C9mIIWTdYw7SVVRLBA+NP/dniyntpa7lfFjRouuQoUPhjm+NN/8QxBFhIfwOsibmNGz
-         c5SBEh4ItCDHCO5zWt6xxlnXjtayU4j6luNai2sz2I/wMBr19dFrPs+hvKgupP6uBe4s
-         i3qw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=oE/lVWao+gwKyh/xWosibiURo4tj1fQ5Gj6FfDzZ+QU=;
-        b=oseOj23Ww8VNIEytoEPIZARX9/+A8m0JHiVT9q7DQKvWkZxR2xjTlRHxZikxMd86PC
-         qtS/nehCQP2qZYYBrK3ROwAdGrk3qmO3r3UhrModCrELrY9aaHB1jXAu0agT6LkHWIPb
-         zw69Wspoxz17XXdZwDzfdIpWST4Xkv0iLg/tgjnVQ5vwOIfwWspV4/1uidWGkAPM0wpH
-         A7xBHhi+NvXYsYv1XqO+kpeF3GqkNO/ya/MpJtxazeG9Mt8Ny1VA7vRzrUpDGCfD7+2/
-         9nbyizwLwN3o/8FL1MbpOwoEPGp8qbIswvRWhQAU0n+EIMcrwYF0wj7PmD0HCMTZYLht
-         4KNQ==
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=W/gFBTjlTc2Mpk6ZbbS778KQzIYJkxYa9E7oaeQQuwc=;
+        b=dXLEbehEzIeiy/80qs9gHXDJYqwgb1/k4WwBjPLLEimzBda4S/M+nUX1tqapvIHZB2
+         SFurgLiMSQaeQXp8awv1ujrl2znMLXsEYcNecWWplH/asfLPJQnq4Azk/dqrs4FQGXu8
+         5eV0gh0voi0Wyo81wUUQTR/kDMsl0jS1yh/71Hc/oIRK7bCVZCgcE+qskcvVw+rs2OXU
+         Ky+94rNfPOQvAX/kv7rv1hQdJ2P1yk1JpF7V3U8bNOg/kAjXLilO8/gD6Wzx5bJffVXT
+         cCZFZFufR4mGzym3XnPvdtPEcTNP84nmAL68/kg/j8BGOxkxpKHPTBUh1aVkXWxU5mBf
+         Q5Lg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=oE/lVWao+gwKyh/xWosibiURo4tj1fQ5Gj6FfDzZ+QU=;
-        b=t0J4AbSzi5DU9vz9mtRXyO9jizni2ew8/HIcgH8mVUjNULPEGDHWdM7IfdAXJzV8hQ
-         pxGQLOu1XUsf8ZhW3WSLRNMoDr+E6AkxLg14RSk8JHtqBfbYq/WjUSKNzFXNrGzhtZCP
-         4kj/tNUTaP3F4gFxjWk4ol4YS4f/9LmRm//7pr1ZMfkpfi1SahLxhn0IHSzScllhhHdE
-         dT/8LfqCsx+F+zinyhvmTeBuXDbsSRqP/H3Nst/03HrIqLjcW1BBQCWoxNawRAIv04Q1
-         a99V6HMiCaeQiiCzR3+itxODmHqGPvu/LsKY50Nooso4m7RJaDjULen1r0FL/Cs0PFLr
-         kG0Q==
+        bh=W/gFBTjlTc2Mpk6ZbbS778KQzIYJkxYa9E7oaeQQuwc=;
+        b=n51NhwOkKECV2nD+3GDvGSospCO7P9fnJ3HlZTqraLNmgp0ABUq3eL7oaciO5qPFJW
+         x6+R9yyilLnPpVeCKWxHEFlWlLxWoTRUUHyIz+DLc21vhJU1z9UfdBu3C87LiePWXTEM
+         gUzEffTbfmGjIDb+fjDmkHw9YuzbpQ6uA4c1O15+ALcOMjz1E3Zm9B48f2ORIDSYBmPG
+         Ede74QdImG4lITL0FV/UD2F7OTgM+BmuOdEI/Yn63x56BQrT/qnMav/bijheiDTHqHIb
+         i9dsEr0GrJOMLrQRvjHc6ObNQFOqiyy3D4otMJFeC6kqe6qqKTzyIu7zq749DzwtpdWU
+         5qkQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530EG5W5MWHem2sI1R+EQqsAK/R/CDLbp7gQ1eMuZBpI3g7BNt6k
-	PA4h7alU45SkNmXstyAanfQ=
-X-Google-Smtp-Source: ABdhPJyGOG0KAop6l91pGJOE/cEVlL9F1lTLjXHrOaIRIRSecmCbwnglLSIqaboprwONWgH8SJ1woA==
-X-Received: by 2002:a17:90b:312:: with SMTP id ay18mr11909251pjb.144.1629331499183;
-        Wed, 18 Aug 2021 17:04:59 -0700 (PDT)
+X-Gm-Message-State: AOAM5315vhnXLW1fRpEe6cRt592foEF7Rj1sNz9zrGLj8o0uq3saprPA
+	cuEKBJHsSLGoLk930+HiXds=
+X-Google-Smtp-Source: ABdhPJxpw5kvF8kYD7+gjn6XVqnXj8Qr0ZOdxD69pNJ83jw06RC9BeTqbsr5c93Tj9MU+7bfrjeFcQ==
+X-Received: by 2002:a17:90a:fa89:: with SMTP id cu9mr11312721pjb.5.1629331926010;
+        Wed, 18 Aug 2021 17:12:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:520c:: with SMTP id o12ls1767381pgp.6.gmail; Wed, 18 Aug
- 2021 17:04:58 -0700 (PDT)
-X-Received: by 2002:aa7:8116:0:b029:346:8678:ce26 with SMTP id b22-20020aa781160000b02903468678ce26mr11936706pfi.15.1629331498530;
-        Wed, 18 Aug 2021 17:04:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629331498; cv=none;
+Received: by 2002:a65:520c:: with SMTP id o12ls1775537pgp.6.gmail; Wed, 18 Aug
+ 2021 17:12:05 -0700 (PDT)
+X-Received: by 2002:aa7:973a:0:b029:3e0:9744:6460 with SMTP id k26-20020aa7973a0000b02903e097446460mr12056717pfg.63.1629331925489;
+        Wed, 18 Aug 2021 17:12:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629331925; cv=none;
         d=google.com; s=arc-20160816;
-        b=bAlRFgQA9IOica59jfitdBJ/eXiLm/u+fi3kUcZs9Xj3PuwMj70NSu2Hs1ab9ExCV3
-         kbqgcieaaXsj/hMqvf9dp73QZZ4Cfg2aRAdrMOYK6OxpFsxIEe75aj3/eY1igY3X6uPG
-         g+OANNL3KBfKBXE02Ai/WqKRNw/j1oMmxeEfVwzTkF3wkVve7z2XnsClN/9eSgeZE4hB
-         rE4W08JnamVx5oDJ6JC9+HLuJ1kEZBBaTpfz7gPPP7VwolnkYP2zezgfOZcH/y2Ts6+Y
-         is14+42j5s5rV+0qC7uQTdYx4/t2bnsq86QHH2OEUl3SMSEXQHM4t2/xgwRpbiUGEPQE
-         TGPA==
+        b=cS8EF/8Y7t5RdnaB6edvE03bBBTWciPNUM1o/JyLm/Cy/BIwU/uXucadaao0USb8Ah
+         njLCgA9/xes6GQQYbx7EC7RiUjR0Gu1Uz42py90LJDuznqVpZc7LO3C8xXlqgsCdVACK
+         7/sZb0rTYprrFThlyDkcanCKnApflgWEuJO05ATuXfNGAbVKhBqUGwx6dZ4Ie4K5r5Un
+         JJVW+7vfw4HUx7fQrIMpSAguRhxSXKAqCbSadGSQnafzq4yF/Qlwa70qtjyUwqJtv7NY
+         rM2WikFip33B1Ua64N5KfmYVn6njm8deNwJcZijrxlFEFqJUQI2ykeIpbLIEhLTHqN44
+         FLQw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=w17ydvcuCGlYzYZkPwnAY4ViNmy/ZwOBneYqz+ZoO9o=;
-        b=Eid25RNwnGsVjoc/nNpm9liff3frVZZgD0MR/PceUSRtKulXuIqBAC9NDzCyYdGHjq
-         B8SvGwxa+5hI2IOlTJ5FH823Bkgyg+0envhGgeKAyVlCf2o2N+cYMhYNrz2M8rw3uoS0
-         UZELf+epSXllTfYzwF4RaVMmg/lvapwp0CqQkZdZER3mXzpt+AgNDbLTchPJuiUj83qR
-         onz724I5Q5vmI1zULKtqxHdU3MffklHngQJr8pxmSTH+0Xym/HqYs50mQIYYMqZYgoXT
-         2hBRPAr/HHZvS6RMF1tDwaVPY1Nbdzm1VMxetcYkOgn0OaxHr6VtL2fJzhRmhV6nZO/V
-         GX/g==
+         :mime-version:dkim-signature:dkim-filter;
+        bh=8M03MRw2TuofOPMeylniQhhiTzksWPSL5VyD0yUEHAo=;
+        b=qP0P9p2MzhhVYJLHjaK2G2F/sr5Ka/cKSbwfKdxoj7OXTZZYpbAMuJx6UiGqDodLA7
+         ACywLDHTOF/8xuo5XcQPuX/B0wfpeTjJe0goXzaHmq0gLVXEQ8u9gtWgbg0aYrI/MFVh
+         1VsBAeLbupM9QKUCrVZ8JtZFQAVNxE+1laSOh9WtpEXOTDafJF70LopW0fzCIBNL5eQo
+         qv39AEOcnz9inUnK/F8yS/2juW/u5rRsKI0fmomEd8bQ18g9hNiOdpNt7uQoOkDfxmb7
+         inv5XGfnPdkcmHFYMeyaFQehF3X2iPCzbNI2OX1o1N04rmVq6VrAbJapt/hT0IhuH90t
+         NWnw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=UKWjEQsS;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::12e as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x12e.google.com (mail-il1-x12e.google.com. [2607:f8b0:4864:20::12e])
-        by gmr-mx.google.com with ESMTPS id j12si155144pgk.2.2021.08.18.17.04.58
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ARuw9aHU;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-06.nifty.com (conssluserg-06.nifty.com. [210.131.2.91])
+        by gmr-mx.google.com with ESMTPS id i123si137373pfb.1.2021.08.18.17.12.04
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Aug 2021 17:04:58 -0700 (PDT)
-Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::12e as permitted sender) client-ip=2607:f8b0:4864:20::12e;
-Received: by mail-il1-x12e.google.com with SMTP id j18so4089080ile.8
-        for <clang-built-linux@googlegroups.com>; Wed, 18 Aug 2021 17:04:58 -0700 (PDT)
-X-Received: by 2002:a92:da11:: with SMTP id z17mr7915420ilm.176.1629331497973;
- Wed, 18 Aug 2021 17:04:57 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 18 Aug 2021 17:12:05 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.91 as permitted sender) client-ip=210.131.2.91;
+Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46]) (authenticated)
+	by conssluserg-06.nifty.com with ESMTP id 17J0Blba016741
+	for <clang-built-linux@googlegroups.com>; Thu, 19 Aug 2021 09:11:48 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com 17J0Blba016741
+X-Nifty-SrcIP: [209.85.216.46]
+Received: by mail-pj1-f46.google.com with SMTP id gz13-20020a17090b0ecdb0290178c0e0ce8bso6171860pjb.1
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Aug 2021 17:11:48 -0700 (PDT)
+X-Received: by 2002:a17:90a:c506:: with SMTP id k6mr11896409pjt.198.1629331907468;
+ Wed, 18 Aug 2021 17:11:47 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210818214021.2476230-1-keescook@chromium.org> <20210818214021.2476230-2-keescook@chromium.org>
-In-Reply-To: <20210818214021.2476230-2-keescook@chromium.org>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Thu, 19 Aug 2021 02:04:46 +0200
-Message-ID: <CANiq72krkjtmwwZOebbVnPismTPoe2y+vCXuOXbBwE=1-BS2hg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/7] Compiler Attributes: Add __alloc_size() for better
- bounds checking
-To: Kees Cook <keescook@chromium.org>
-Cc: linux-kernel <linux-kernel@vger.kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Joe Perches <joe@perches.com>, 
-	Andy Whitcroft <apw@canonical.com>, Dwaipayan Ray <dwaipayanray1@gmail.com>, 
-	Lukas Bulwahn <lukas.bulwahn@gmail.com>, Christoph Lameter <cl@linux.com>, 
-	Pekka Enberg <penberg@kernel.org>, David Rientjes <rientjes@google.com>, 
-	Joonsoo Kim <iamjoonsoo.kim@lge.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Vlastimil Babka <vbabka@suse.cz>, Daniel Micay <danielmicay@gmail.com>, Dennis Zhou <dennis@kernel.org>, 
-	Tejun Heo <tj@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Michal Marek <michal.lkml@markovi.net>, Linux-MM <linux-mm@kvack.org>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, linux-hardening@vger.kernel.org
+References: <20210816180519.1021311-1-samitolvanen@google.com>
+ <CAK7LNASAHN=-uj73Uwk10aXbsR8AkUM_P=3NX_dq2SiFTqUctg@mail.gmail.com> <CABCJKudQhagwdb-UfGE2JQN8H29NSpMd5PgVoftJYRp5ZwpRrA@mail.gmail.com>
+In-Reply-To: <CABCJKudQhagwdb-UfGE2JQN8H29NSpMd5PgVoftJYRp5ZwpRrA@mail.gmail.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Thu, 19 Aug 2021 09:11:10 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARFdB9=bV+X6nYzkrpvO-2FtOu5oxg6Ch3r=AROa1atVA@mail.gmail.com>
+Message-ID: <CAK7LNARFdB9=bV+X6nYzkrpvO-2FtOu5oxg6Ch3r=AROa1atVA@mail.gmail.com>
+Subject: Re: [PATCH v4] kbuild: Fix TRIM_UNUSED_KSYMS with LTO_CLANG
+To: Sami Tolvanen <samitolvanen@google.com>
+Cc: Kees Cook <keescook@chromium.org>, Michal Marek <michal.lkml@markovi.net>,
+        Alexander Lobakin <alobakin@pm.me>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: miguel.ojeda.sandonis@gmail.com
+X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=UKWjEQsS;       spf=pass
- (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
- 2607:f8b0:4864:20::12e as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@nifty.com header.s=dec2015msa header.b=ARuw9aHU;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.91 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,30 +141,112 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 18, 2021 at 11:40 PM Kees Cook <keescook@chromium.org> wrote:
+On Thu, Aug 19, 2021 at 12:06 AM Sami Tolvanen <samitolvanen@google.com> wrote:
 >
-> GCC and Clang can use the "alloc_size" attribute to better inform the
-> results of __builtin_object_size() (for compile-time constant values).
-> Clang can additionally use alloc_size to inform the results of
-> __builtin_dynamic_object_size() (for run-time values).
+> On Tue, Aug 17, 2021 at 7:34 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+> >
+> > On Tue, Aug 17, 2021 at 3:05 AM Sami Tolvanen <samitolvanen@google.com> wrote:
+> > >
+> > > With CONFIG_LTO_CLANG, we currently link modules into native
+> > > code just before modpost, which means with TRIM_UNUSED_KSYMS
+> > > enabled, we still look at the LLVM bitcode in the .o files when
+> > > generating the list of used symbols. As the bitcode doesn't
+> > > yet have calls to compiler intrinsics and llvm-nm doesn't see
+> > > function references that only exist in function-level inline
+> > > assembly, we currently need a whitelist for TRIM_UNUSED_KSYMS to
+> > > work with LTO.
+> > >
+> > > This change moves module LTO linking to happen earlier, and
+> > > thus avoids the issue with LLVM bitcode and TRIM_UNUSED_KSYMS
+> > > entirely, allowing us to also drop the whitelist from
+> > > gen_autoksyms.sh.
+> > >
+> > > Link: https://github.com/ClangBuiltLinux/linux/issues/1369
+> > > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> > > Reviewed-by: Alexander Lobakin <alobakin@pm.me>
+> > > Tested-by: Alexander Lobakin <alobakin@pm.me>
+> > > ---
+> > > Changes in v4:
+> > > - Added .lto.o to targets to actually fix the use of if_changed.
+> > > - Replaced an unnecessary mod-prelink-ext with .lto.
+> > >
+> > > Changes in v3:
+> > > - Added missing FORCE.
+> > >
+> > > Changes in v2:
+> > > - Fixed a couple of typos.
+> > > - Fixed objtool arguments for .lto.o to always include --module.
+> > >
+> > > ---
+> > >  scripts/Makefile.build    | 28 +++++++++++++++++++++++++++-
+> > >  scripts/Makefile.lib      |  7 +++++++
+> > >  scripts/Makefile.modfinal | 21 ++-------------------
+> > >  scripts/Makefile.modpost  | 22 +++-------------------
+> > >  scripts/gen_autoksyms.sh  | 12 ------------
+> > >  5 files changed, 39 insertions(+), 51 deletions(-)
+> > >
+> > > diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+> > > index 02197cb8e3a7..a6f43afd09bb 100644
+> > > --- a/scripts/Makefile.build
+> > > +++ b/scripts/Makefile.build
+> > > @@ -88,6 +88,10 @@ endif
+> > >
+> > >  targets-for-modules := $(patsubst %.o, %.mod, $(filter %.o, $(obj-m)))
+> > >
+> > > +ifdef CONFIG_LTO_CLANG
+> > > +targets-for-modules += $(patsubst %.o, %.lto.o, $(filter %.o, $(obj-m)))
+> > > +endif
+> > > +
+> > >  ifdef need-modorder
+> > >  targets-for-modules += $(obj)/modules.order
+> > >  endif
+> > > @@ -271,12 +275,34 @@ $(obj)/%.o: $(src)/%.c $(recordmcount_source) $$(objtool_dep) FORCE
+> > >         $(call if_changed_rule,cc_o_c)
+> > >         $(call cmd,force_checksrc)
+> > >
+> > > +ifdef CONFIG_LTO_CLANG
+> > > +# Module .o files may contain LLVM bitcode, compile them into native code
+> > > +# before ELF processing
+> > > +quiet_cmd_cc_lto_link_modules = LTO [M] $@
+> > > +cmd_cc_lto_link_modules =                                              \
+> > > +       $(LD) $(ld_flags) -r -o $@                                      \
+> > > +               $(shell [ -s $(@:.lto.o=.o.symversions) ] &&            \
+> > > +                       echo -T $(@:.lto.o=.o.symversions))             \
+> > > +               --whole-archive $(filter-out FORCE,$^)
+> > > +
+> > > +ifdef CONFIG_STACK_VALIDATION
+> > > +# objtool was skipped for LLVM bitcode, run it now that we have compiled
+> > > +# modules into native code
+> > > +cmd_cc_lto_link_modules += ;                                           \
+> > > +       $(objtree)/tools/objtool/objtool $(objtool_args) --module       \
+> > > +               $(@:.ko=.lto.o)
+> >
+> >
+> > What is this "$(@:.ko=.lto.o)" doing ?
+> >
+> > The target is already suffixed with .lto.o
+> > so $(@:.ko=.lto.o) should be the same as $@
 >
-> Because GCC sees the frequent use of struct_size() as an allocator size
-> argument, and notices it can return SIZE_MAX (the overflow indication),
-> it complains about these call sites may overflow (since SIZE_MAX is
-> greater than the default -Walloc-size-larger-than=PTRDIFF_MAX). This
-> isn't helpful since we already know a SIZE_MAX will be caught at run-time
-> (this was an intentional design). Instead, just disable this check as
-> it is both a false positive and redundant. (Clang does not have this
-> warning option.)
+> Good catch, probably a leftover from an earlier iteration.
+>
+> > Shall I fix it locally unless
+> > I find more questionable code?
+>
+> Please do.
+>
+> Sami
 
-Thanks!
 
-Reviewed-by: Miguel Ojeda <ojeda@kernel.org>
+Applied with $(@:.ko=.lto.o)  ->  $@
 
-Cheers,
-Miguel
+Thanks.
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72krkjtmwwZOebbVnPismTPoe2y%2BvCXuOXbBwE%3D1-BS2hg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNARFdB9%3DbV%2BX6nYzkrpvO-2FtOu5oxg6Ch3r%3DAROa1atVA%40mail.gmail.com.
