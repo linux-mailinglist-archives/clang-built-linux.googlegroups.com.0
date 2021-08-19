@@ -1,144 +1,142 @@
-Return-Path: <clang-built-linux+bncBDYZRFP3QIJBBX6N7GEAMGQEJPINONQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCZ3BP7LXQLBBWGQ7GEAMGQEEZ3M2SA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 788303F1B62
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 16:12:49 +0200 (CEST)
-Received: by mail-pg1-x53f.google.com with SMTP id u3-20020a6323430000b029023ba96595fdsf3516716pgm.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 07:12:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629382368; cv=pass;
+Received: from mail-lj1-x23a.google.com (mail-lj1-x23a.google.com [IPv6:2a00:1450:4864:20::23a])
+	by mail.lfdr.de (Postfix) with ESMTPS id E50FC3F1B7F
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 16:19:04 +0200 (CEST)
+Received: by mail-lj1-x23a.google.com with SMTP id l12-20020a2ea80c0000b02900f5b2b52da7sf2177120ljq.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 07:19:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629382744; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nROQeMCxou6HdWFme1C6OvYPxlg+qNSPPdXUztzk07NU7Sm51fJevu26YAZFadgIVN
-         OxTMQCVf7n+ka4lNoEn4tt784HsOI/SycBoOWofLQfH67kHZGv4pFmK7KWoi4yUqZSfZ
-         RsrVY5L2SHU++r9BWB7SFe7sgtPVCrbrB5BmtG6Yjgp13hyrle9vT7GAwFE6buH8hz5C
-         fy+H7A4gSXcc6kIB711eF/Av3quDn0l+9hx+f6hAh0bqkApRp8abQoySpIQH4n4YZcxE
-         r1ohwgFUCzz4okPmKfGa9nPDoJVMIBsmts0Qh3mrud+9UT5irI5+4ZUTVnQwn725TjxL
-         AbJA==
+        b=TITztsAJZ3x52HE04xLB/PWxGimnif/CgiKe28IKTAwFxtR07IFGCG8wh5zTCf8m7J
+         HWdSiZrhZR9L6lb3Qdhj9KnMm7I3PSveVGGIXdc4dHRpnktqba+KC6+XBbxnUbWlNVh6
+         qICtVYPFriALj85DMj1ZxD0h7DStIz77iK7M9Lo2knpxeVx2hrxa3oOHccj7rie8Lqk6
+         6efI6VEgvG0bUeVCT224/30C3wTemDu/LUW52036YieHVamKVUqOPElZwCnvztOmG1+f
+         wPP3ITcfUPOAAh86aCufRwFBTOhbJCfuvXiVsZ9RK7s7FWo2Kb/qGe7c+hd22phsz0ne
+         vPHg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=2F//juEh0mz3i3NAZ47+yv6up6wX7C7PSTWDtmT2YZM=;
-        b=nr4WLO1ustErYMtxTlSDfvUtzTLQYq8yAmwy1Zw9yNSbkJ0Y9gM4OjzR2BPpCOMJq7
-         PVEVXEcDpOEDEejaRet5U3GYfcJTZ9ifOWgDWxMyAXxORbHwM/z7NcgNhKRRm9uF4KWW
-         8QgNasqG6SIvTW48Qyjx+DO5FQZty8WeqQUSz0Qo+HiVAeUiwQpgoygMWRt43jd1DVW/
-         ORqNL0pKkxcMb6VVYSnufUq0/GYGDo2JSRAJiFbkqMYrvLwVcDA0KnejTcMbvFoNFTjZ
-         YxYFyF5WJc5ZoL/cqDLZBHoSxPuC+hhm7z+ESEW8aoSs4/hq0klMYQtsdmKUTPlNMDRt
-         YUAg==
+        bh=DOquDtSK18kgQAEzYKFgVrZDanzlFx6DjihNySMxHj4=;
+        b=MwYT2+h5CYe/7WztT0TLmWaYj9UUP/0D0n54kN1bhOfuXkdhPCfzpcFqYjeEPiwmJh
+         ijC5TM73iPSu9b7JeimqzSzuK6kuvWzoNidofSm/PnnyicEaUMaDE0mmr72GF/IVBmqx
+         W2N913weuGmAYzTVHrYLAyizS9BICBbefllkhjzdA7NfnQQ5ITIbdCA4y1vL7NaDa1MZ
+         q+uOJBqTNJZyCryIDGRguiI7P6LL+xiyAZvIOKX8/oqimDgoohcob7tGzc4gPMGY6mz2
+         0VaAzdX/rJXErHjzOZFy0h7bAfiacWtqv1LUhg+1+xaAd0effzuxeGpyxxm0LN0H5qs6
+         ofdQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of dennisszhou@gmail.com designates 209.85.222.182 as permitted sender) smtp.mailfrom=dennisszhou@gmail.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=sJy0lKg4;
+       spf=pass (google.com: domain of danielmicay@gmail.com designates 2a00:1450:4864:20::431 as permitted sender) smtp.mailfrom=danielmicay@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=2F//juEh0mz3i3NAZ47+yv6up6wX7C7PSTWDtmT2YZM=;
-        b=aw0EKJhnjfptSmF4oMmnQHPp8QI70e+FPQphUgXdt7OuEH77D0a65iNgteWcZwf+2w
-         KzDu3lfMg7qmIR14mAs2GjJvGhqU1XTCqDMTHRtxCISOrASPfa3ckh9gA4RMRd8XjezF
-         LhpWOU4A0cIsEA4wtIPFc74n2DCYjtpMEgx/U6WOypYGXsQLw9Tp/scjS7JKSfSIqVbu
-         F8QsJTDgQGGCDV0k7huwHjuS1nC40NRepQP9hjDxbDPrUXW69cd59MWzV/AvpsAdZG2U
-         UpytZJ+FZaTKIdb3Vka7Uoyl5rwothb18eJTnfymooCXirZF8YfDOO+DWZkBYexw116k
-         69sg==
+        d=googlegroups.com; s=20210112;
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=DOquDtSK18kgQAEzYKFgVrZDanzlFx6DjihNySMxHj4=;
+        b=XnEHqDvgyx1rA9DzkEUzqwnp5FJWAxeOk+k/mNaiurPE9/FM/8wVFtpPwg0i3BEgGd
+         i62nnbzMpz8wbiw28PHPR9x5W8TUI3I1zVQLiTI82pqPpBC9BSLodQv/NuP8/R9HaoPR
+         v1Ifnb3g5N90bWggl6DPHndo/WQpIGk6FEJmdlgRXoNwqeas43Xpz0MN8fBlRrvDlLjR
+         69TrvyetYD5TZYdLy0MUDzvihR9+gjtsYfDpzOtxD1/F73Vzt6dxz2Bxb/YMkFoVL0LV
+         DHUuOV1I8eDsglr2HU+GuHBNc7kNuDFr6l2rtPUAw9I9h00TjrzshJaARhjhwlEadAUX
+         P4ag==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=DOquDtSK18kgQAEzYKFgVrZDanzlFx6DjihNySMxHj4=;
+        b=gAKG4xyB7IlfVgYCyjL+uKikUvkSLxsmhipaQU2CHElVfhfK9nvmcTR8/wIuWOHDwU
+         /gwTQsnJoETy1xK0YC9XJbO0ku+71o5B4EE3HSVPnGNRHL3D1Oc/j6DwAjCPmapv9/nr
+         XruHXlzkKXZbjV1T6sa/0bF3sE+MZFiPSpfWSKRWMK7qieh8zr5G5DXeuo4b/UkPPYyE
+         yVypZH9aloQ+27XOr0b8i1x67uaBcSv9yaxZ192s1yJmVGjNRkCA5rVepSlWb0iZVin2
+         rvLHHMVYALibzYpKZxeccemdAefgVZtyDda6zwGwl4NOAHh4LnJgU19i1nuyfD6mOZTN
+         JicA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=2F//juEh0mz3i3NAZ47+yv6up6wX7C7PSTWDtmT2YZM=;
-        b=RrNhN2Dd4/G186FSEH9LeA/TU008VO6oRPuppJYthRiNL8VFyA0pnwds3ABb7mO6lq
-         NwbqOac9c4TB2gKGxRlrNMe/3DMH3ri3EH9PtpiL48DblgeEJZJsBU3I1ihYLuCSt7hT
-         kF3rhU5PQhvY+C1rvZECT2UPpsZ/62qZd3cp2B7XvIiFjcfmiWhxFegx9mcxoS2gPHe9
-         z7tbbQnxa+z8EzB1sQaSaqxZHlTHJ9M1GRLVRakfJPiRZQuY9MDGT2Y61xSqVnL3lPBg
-         Rna5DOVq0z3T0z9KlJRD99A5IA4AEii/Zd+ZiXCtsHHXJCntYg9vt7r6a6L6tj3C6oqF
-         x74g==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=DOquDtSK18kgQAEzYKFgVrZDanzlFx6DjihNySMxHj4=;
+        b=en3XOMq7+8NsR3zBUtSSszCmbYzo+4yPzVVkOzQeiVumhfkqO+UjvWuL4Hb2760sD/
+         iSiy8cuscOgwmB/JU1XorrqPVZskbi4YXyoG78GS9tYRuKY+d9G8eXWNAaIDxZguiwx3
+         000l5K740u6TnruxjeJCfUplM0NsG8sp0OYvOP099TeZzvUrpPZ/ZXoLXqOG8XGOA5r/
+         58b93mnYZsupsmw3R+cijl2m6kHSZggTqXrTMoS6QqIZb4lcnpwkBEPpryJg+yvyy+CI
+         op6yz0Fuv+FvyhJM4Es43sEfEEwT34ivMOHHSyjYxPWXMQxCVPMRM91pqmAi4O4zM8VO
+         qCPw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533zbirrIxwRNTRv7sYxLHqbwUWhxnfcSRzugpxSDR2PQ7t6H8tz
-	s9jnuG0dae7JO0rnEaeu6wM=
-X-Google-Smtp-Source: ABdhPJze9Y24rBR4z8V7nxqpjakwnR87Y0LozMF56Z0ue+Y+SNnLEN8R0X1S56ZdBHFOcqgSkv25kQ==
-X-Received: by 2002:a17:90a:a581:: with SMTP id b1mr12158569pjq.146.1629382367916;
-        Thu, 19 Aug 2021 07:12:47 -0700 (PDT)
+X-Gm-Message-State: AOAM532uRsXiBRjCrKPbFXWUNQj2lf4Zrt/Z2THu2vicYxLboi9swiYa
+	CysIrOcRXhwrp+IJy+H/1tE=
+X-Google-Smtp-Source: ABdhPJz5qV2qCR3iqqDP8Q9tHGk2FrJ0+w8km2erEKDaL7JUfTB4bR4lVpxYyc7+QXUHDcZLLUvJtg==
+X-Received: by 2002:a05:6512:6c8:: with SMTP id u8mr11285970lff.130.1629382744508;
+        Thu, 19 Aug 2021 07:19:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:149:: with SMTP id z9ls3082112pje.2.gmail; Thu, 19
- Aug 2021 07:12:47 -0700 (PDT)
-X-Received: by 2002:a17:90a:ad06:: with SMTP id r6mr14976098pjq.25.1629382367287;
-        Thu, 19 Aug 2021 07:12:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629382367; cv=none;
+Received: by 2002:a05:6512:c13:: with SMTP id z19ls807619lfu.0.gmail; Thu, 19
+ Aug 2021 07:19:03 -0700 (PDT)
+X-Received: by 2002:ac2:482f:: with SMTP id 15mr10619508lft.337.1629382743490;
+        Thu, 19 Aug 2021 07:19:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629382743; cv=none;
         d=google.com; s=arc-20160816;
-        b=pzCz4auVpDKgQhcoEpKZI4XIMX4E1A+qarOfPhwONt6OTaRSnaGq6vtkUgBL+vydr9
-         8DbIK3Q6z7pm1c8Gg3Pe1hy1XKRptUxR6EcxtlYdmvHmD3zOAoOY2eKgmjOKsIpEnP+d
-         sYPhnz5fThA1o9o8b14kCzIY99weKMlNYwLilknfSJIsyEVhoug688uMA78ve13imVDn
-         UadbU2Z7GpPHaFgxnkZPE7F9vo0lD2+4xZG5KssbFn/HoWr7PmDrPi9Ai2kPfdQruG5w
-         hUn39VeB7AXnE1q8CsZZAore/GNmGPyUEvoQhNxgy3r38vVEQ567UhGl3dfm44D0uE4U
-         uhyw==
+        b=xu53h/pgbcvxpJz8OcPJCp7wyt1SabGR2GzOCcl1kCrmdysOZkkR/qvQCDEEVe4NSi
+         0eN2h4F/kZ2mLma+BahNQ7txBJqGUKyM//rBGWBxVeDa3qBumzAGoOJxX58mxW1nJpTa
+         DHJTbwNk2qGr7sdfBlu4yKTxagSTSURuau8jUDWTEFQIlaDgW3vUpv9oaqwl5QqQvlAb
+         PnFgk2qwvIF4o6+gYw4BzqSnw1cgyD672GbOvBTReAECAs7o8m9XAPPwu9/kJFPz5V94
+         n1gG2pXBJOY8x7KbIa5IfL6rQipH/kfh6ikLO2tqO0ivrUPPpnj0ZcK3Zx9Rupc+jKLu
+         Ub5w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date;
-        bh=EzeHLB2s0wcZiu9diV61Z7RrK3vSIEBc9fmeT4t3UBc=;
-        b=WNoqxrnsQHC/sGlNo1sYQuQeqOdRdTNn6Z+2jnlZ6nKLZN4O0Qyc/L0conWD+xLCv1
-         oQaAp5vIa6kUJqrprwvD8OoLer0TrajHxERVp/6jZIV853znzpqlCThLsDIHo+em8gB1
-         ZNDPKKspu0qkdk99tXOj3rRNgqgDVLE8mW0r5C3LQdHJi4dioY/xSoXBdClDrd0ngQVW
-         Bkb/vwPvTUe88IfAB2LE+NINb2vf/jKmq1dH/gSw+Eny3oiRNrYgrbVY8fCOGI+uj3mY
-         FjLslFOCeg7P/3rhq/Uc0uZDilZhWTk6nzsmk07O/3NR09PcvRacq8Xz5zPM/mhtqkK+
-         AVxQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=m7+BP1bcT0EhLLn/h4/nBsVXxgUv4mRHVL2f79asbyo=;
+        b=GrE61TOddYIqHDdVaN8U+7cD5jFmj00B+/xwIzC9TvToNJMrVjr6aN/ofcQWKo49nX
+         /78r78+r9srkw49xIFJKCbqsXG5VdipdKkUJfSUKX01MVHatgYQoVrWyJd1aQXOzVtTN
+         zklUt3uoWrLTh8Dz9WXfW4B3VgNkZ+HBzSid8PjE4e3ebKedMoME25rtL7cWDMHjdWzU
+         v/gTvqk+5h1Se5/l0BKQlv2EFpeid8rQxK69xNHL52ZOXyjcUKcr+tDOu04TUsouyaRL
+         swhwvdVETKM3RhreDcMyDsKKlsVqhDHjr20GEiv0rol7y9Nr2geUhCHF+pE+g26Q8wlr
+         BsPQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of dennisszhou@gmail.com designates 209.85.222.182 as permitted sender) smtp.mailfrom=dennisszhou@gmail.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail-qk1-f182.google.com (mail-qk1-f182.google.com. [209.85.222.182])
-        by gmr-mx.google.com with ESMTPS id b15si208979pfl.6.2021.08.19.07.12.47
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=sJy0lKg4;
+       spf=pass (google.com: domain of danielmicay@gmail.com designates 2a00:1450:4864:20::431 as permitted sender) smtp.mailfrom=danielmicay@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x431.google.com (mail-wr1-x431.google.com. [2a00:1450:4864:20::431])
+        by gmr-mx.google.com with ESMTPS id g5si168158lfj.3.2021.08.19.07.19.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Aug 2021 07:12:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dennisszhou@gmail.com designates 209.85.222.182 as permitted sender) client-ip=209.85.222.182;
-Received: by mail-qk1-f182.google.com with SMTP id 14so7279797qkc.4
-        for <clang-built-linux@googlegroups.com>; Thu, 19 Aug 2021 07:12:47 -0700 (PDT)
-X-Received: by 2002:a05:620a:4008:: with SMTP id h8mr3863126qko.211.1629382366433;
-        Thu, 19 Aug 2021 07:12:46 -0700 (PDT)
-Received: from fedora (pool-173-68-57-129.nycmny.fios.verizon.net. [173.68.57.129])
-        by smtp.gmail.com with ESMTPSA id q14sm1518663qkl.44.2021.08.19.07.12.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Aug 2021 07:12:45 -0700 (PDT)
-Date: Thu, 19 Aug 2021 10:12:43 -0400
-From: Dennis Zhou <dennis@kernel.org>
-To: Kees Cook <keescook@chromium.org>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Dennis Zhou <dennis@kernel.org>, linux-kernel@vger.kernel.org,
-	Daniel Micay <danielmicay@gmail.com>, Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@linux.com>, linux-mm@kvack.org,
-	Joe Perches <joe@perches.com>, Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Andy Whitcroft <apw@canonical.com>,
-	Dwaipayan Ray <dwaipayanray1@gmail.com>,
-	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
-	Pekka Enberg <penberg@kernel.org>,
-	David Rientjes <rientjes@google.com>,
-	Joonsoo Kim <iamjoonsoo.kim@lge.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	clang-built-linux@googlegroups.com, linux-kbuild@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 6/7] percpu: Add __alloc_size attributes for better
- bounds checking
-Message-ID: <YR5m25qD8ul5N+mc@fedora>
-References: <20210818214021.2476230-1-keescook@chromium.org>
- <20210818214021.2476230-7-keescook@chromium.org>
- <YR2pE9V1P0xmBWUo@fedora>
- <202108182018.6DA03EA818@keescook>
+        Thu, 19 Aug 2021 07:19:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of danielmicay@gmail.com designates 2a00:1450:4864:20::431 as permitted sender) client-ip=2a00:1450:4864:20::431;
+Received: by mail-wr1-x431.google.com with SMTP id q11so9379193wrr.9
+        for <clang-built-linux@googlegroups.com>; Thu, 19 Aug 2021 07:19:03 -0700 (PDT)
+X-Received: by 2002:adf:a29c:: with SMTP id s28mr4132793wra.318.1629382743247;
+ Thu, 19 Aug 2021 07:19:03 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210818050841.2226600-1-keescook@chromium.org> <YR4frlpfJQonPuKp@infradead.org>
+In-Reply-To: <YR4frlpfJQonPuKp@infradead.org>
+From: Daniel Micay <danielmicay@gmail.com>
+Date: Thu, 19 Aug 2021 10:18:47 -0400
+Message-ID: <CA+DvKQL6pLfK1vRzaOkEWR7DQLgTh=WZTka2L5yuS8Lf_1ZmoA@mail.gmail.com>
+Subject: Re: [PATCH 0/5] Add __alloc_size() for better bounds checking
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Kees Cook <keescook@chromium.org>, kernel list <linux-kernel@vger.kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Christoph Lameter <cl@linux.com>, Pekka Enberg <penberg@kernel.org>, David Rientjes <rientjes@google.com>, 
+	Joonsoo Kim <iamjoonsoo.kim@lge.com>, Vlastimil Babka <vbabka@suse.cz>, Dennis Zhou <dennis@kernel.org>, 
+	Tejun Heo <tj@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Michal Marek <michal.lkml@markovi.net>, clang-built-linux@googlegroups.com, 
+	Linux-MM <linux-mm@kvack.org>, linux-kbuild <linux-kbuild@vger.kernel.org>, 
+	linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202108182018.6DA03EA818@keescook>
-X-Original-Sender: dennis@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of dennisszhou@gmail.com designates 209.85.222.182 as
- permitted sender) smtp.mailfrom=dennisszhou@gmail.com;       dmarc=fail
- (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+X-Original-Sender: danielmicay@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=sJy0lKg4;       spf=pass
+ (google.com: domain of danielmicay@gmail.com designates 2a00:1450:4864:20::431
+ as permitted sender) smtp.mailfrom=danielmicay@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,88 +149,50 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 18, 2021 at 08:36:50PM -0700, Kees Cook wrote:
-> On Wed, Aug 18, 2021 at 08:42:59PM -0400, Dennis Zhou wrote:
-> > On Wed, Aug 18, 2021 at 02:40:20PM -0700, Kees Cook wrote:
-> > > As already done in GrapheneOS, add the __alloc_size attribute for
-> > > appropriate percpu allocator interfaces, to provide additional hinting
-> > > for better bounds checking, assisting CONFIG_FORTIFY_SOURCE and other
-> > > compiler optimizations.
-> > 
-> > Can you elaborate a little bit for me how this works for percpu? In any
-> > case that's not uniprocessor, any modification is done through address
-> > accessors and not on the returned percpu pointer. Is the metadata kept
-> > by gcc/clang able to transpire the percpu pointer accessors?
-> 
-> That's an excellent point. :P I haven't tested it through the accessors,
-> but I guess it's possible that this is only useful for UP, and even
-> then, only where the access is very close to the "allocation", maybe
-> like:
-> 
+It tells the compiler the function will either return NULL or an
+allocation of the size specific by the parameter referenced by
+alloc_size. It could also be used for functions resembling allocation
+functions which aren't actually allocating. The compiler will use it
+for optimization so it's extremely important that it's only used
+correctly. It only really has a use on the top-level API used
+externally.
 
-I see that this is already pulled by Andrew, but I think it would be
-good to modify the commit log to add a short bit about this limitation.
-Otherwise, the commit reads as if it's doing way more than it is.
+The compiler uses it for __builtin_object_size which is primarily used
+by FORTIFY_SOURCE and also internally by -fsanitize=object-size which
+will be available for the kernel via UBSan to find bugs or as
+hardening in the trapping mode. There are currently compatibility
+issues (undefined out-of-bounds accesses) blocking using
+-fsanitize=object-size beyond fixing those relatively benign issues to
+allow using it elsewhere.
 
-Thanks,
-Dennis
+For example, it will know that kmalloc(n) returns either NULL or an
+allocation of size n. A simple sample program with calloc in
+userspace:
 
-> char __percpu *test_buf;
-> 
-> 	char *buf;
-> 	test_var = __alloc_percpu(16, __alignof__(char));
-> 	buf = per_cpu_ptr(test_buf, get_cpu());
-> 	...
-> 	buf[20] = '!';
-> 
-> -Kees
-> 
-> > 
-> > Thanks,
-> > Dennis
-> > 
-> > > 
-> > > Co-developed-by: Daniel Micay <danielmicay@gmail.com>
-> > > Signed-off-by: Daniel Micay <danielmicay@gmail.com>
-> > > Cc: Dennis Zhou <dennis@kernel.org>
-> > > Cc: Tejun Heo <tj@kernel.org>
-> > > Cc: Christoph Lameter <cl@linux.com>
-> > > Cc: linux-mm@kvack.org
-> > > Signed-off-by: Kees Cook <keescook@chromium.org>
-> > > ---
-> > >  include/linux/percpu.h | 3 +++
-> > >  1 file changed, 3 insertions(+)
-> > > 
-> > > diff --git a/include/linux/percpu.h b/include/linux/percpu.h
-> > > index 5e76af742c80..119f41815b32 100644
-> > > --- a/include/linux/percpu.h
-> > > +++ b/include/linux/percpu.h
-> > > @@ -123,6 +123,7 @@ extern int __init pcpu_page_first_chunk(size_t reserved_size,
-> > >  				pcpu_fc_populate_pte_fn_t populate_pte_fn);
-> > >  #endif
-> > >  
-> > > +__alloc_size(1)
-> > >  extern void __percpu *__alloc_reserved_percpu(size_t size, size_t align);
-> > >  extern bool __is_kernel_percpu_address(unsigned long addr, unsigned long *can_addr);
-> > >  extern bool is_kernel_percpu_address(unsigned long addr);
-> > > @@ -131,7 +132,9 @@ extern bool is_kernel_percpu_address(unsigned long addr);
-> > >  extern void __init setup_per_cpu_areas(void);
-> > >  #endif
-> > >  
-> > > +__alloc_size(1)
-> > >  extern void __percpu *__alloc_percpu_gfp(size_t size, size_t align, gfp_t gfp);
-> > > +__alloc_size(1)
-> > >  extern void __percpu *__alloc_percpu(size_t size, size_t align);
-> > >  extern void free_percpu(void __percpu *__pdata);
-> > >  extern phys_addr_t per_cpu_ptr_to_phys(void *addr);
-> > > -- 
-> > > 2.30.2
-> > > 
-> 
-> -- 
-> Kees Cook
+    #include <stdlib.h>
+    #include <stdio.h>
+
+    int main(void) {
+        char *p = calloc(64, 1);
+        if (!p) {
+            return 1;
+        }
+        printf("%zu\n", __builtin_object_size(p, 1));
+        return 0;
+    }
+
+It will also detect an out-of-bounds access via the allocation with
+-fsanitize=object-size including with a runtime value as the index.
+
+It's not as useful as it should be yet because __builtin_object_size
+must return a compile-time constant. Clang has a new
+__builtin_dynamic_object_size that's allowed to return a value that's
+not a compile-time constant so it can work for kmalloc(n) where n is a
+runtime value. It might not be quite ready for use yet but it should
+be able to make it a lot more useful. GCC also seems open to adding it
+too.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YR5m25qD8ul5N%2Bmc%40fedora.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BDvKQL6pLfK1vRzaOkEWR7DQLgTh%3DWZTka2L5yuS8Lf_1ZmoA%40mail.gmail.com.
