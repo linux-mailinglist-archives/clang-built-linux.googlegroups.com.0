@@ -1,128 +1,139 @@
-Return-Path: <clang-built-linux+bncBCCMHRGGVMEBBG4Z7CEAMGQEA4ERU3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSKPKGMYYBBBE5E7CEAMGQEVJOGESY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x640.google.com (mail-ej1-x640.google.com [IPv6:2a00:1450:4864:20::640])
-	by mail.lfdr.de (Postfix) with ESMTPS id 68F1F3F1483
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 09:47:40 +0200 (CEST)
-Received: by mail-ej1-x640.google.com with SMTP id m24-20020a17090607d800b005c18a22567fsf717958ejc.3
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 00:47:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629359260; cv=pass;
+Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
+	by mail.lfdr.de (Postfix) with ESMTPS id BBB4B3F14E3
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 10:11:00 +0200 (CEST)
+Received: by mail-pg1-x53e.google.com with SMTP id 22-20020a630c560000b029024e7eb20fc3sf3040366pgm.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 01:11:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629360659; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KK3kJJPtEUS3dVziAmdl7D6MWKpA8gtKPF2JdtBFdLy5N837evJUukleqUrCGcakqg
-         ox3wmRrCAVG+jsCzVHbwiN+2WhKghNdSFlUVHen5tDkdnftufSezCkvUBksxEhIK3Ugz
-         Scx4TGNheRJn5beu5ozJeB4GWUK2ktoijjBNRDr4k0E7wdAZr0Wba4ksF86mUnwgZjPF
-         0M1gcON53jYlgvyoZAkA1Fk89GoFV7f9zs/ERtIHRTDc5Kq8t0POEx0ocnF9K2lQGrQ+
-         GuAfaaS/7NzcCnlQxLuzwJv72GUciflgdrSgpOMVfHvH4Z+fFjsX/QWYOnhGk+TPTkSN
-         8rXQ==
+        b=MGk9PkJmZnsw+1lOCb4QAekW+ZbP/i1qbfwW4RLFoGJgwD023vbmAMa4HRn6uNpVEX
+         7ZgmY5DodezVqn7zCVjAQyY5DFE1gkWL4deZ9srglKNhtDhtT5X/YgqAgYiS1mg9oaj3
+         vB2Qpgozy8c+O5G4Ix5p2DpRL1Jobmw9kRdT++L44S50otX6Ql9H5lfBmyEsNfBWE72N
+         3B/GWSbXXvSQ+08tdHPGFfQyBTrK3Ts0xahcbIUoVEBwS6kC9XfvSquO9UJpZovCrVQY
+         NE9ySAJ6PhWrSf0YQfkRFwTqVCPAr/qOqR1ZEJoFA/+OmKuL7co6UT6KyhxZ501C3CAr
+         xAIg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:references:to:from
-         :subject:cc:message-id:date:mime-version:sender:dkim-signature;
-        bh=PiVq11QbR8/UBxG7sD5GTTdg7VP3LF8sT31iovvCKa4=;
-        b=LxF8atTt2bdBsg00cvHLuGy+mb0pKgcXkYvYhT1FUirAWI9o8td85LmHzh7W0K/XkD
-         OJjk2Gvj9/a5npnJT49K+53+AhEvs17AIiPFqTGXk4bf8jjPB91CQSC9WOFxfKbxyQx1
-         HDcRoY41AWGtg1Ilwr6aMoLVGK4LNgB5OnxfnnoeBHqhFkmmxF6pTSR1IKfZwa/qo0li
-         J/krJBb7hpMvvM18chvWhyRWvDzcLwHgFZ3EHp7fOrn1Z9Lqm5PL3B/71YaXzyvMTHlw
-         E0SQlwHIKyaKtucQaJOWL4XSswpSDTLuc800zOf1Y26VIYPyR/lebeCtOxpLwSskal6F
-         ZHLA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=/dgbFinvK2V6GlYOUaw/CO/m44h3mvNWh+4m7NSjoKY=;
+        b=rjldwb+szOzcxkncP2xReETYvTGnjI10mbE/AzsZE1FS6KsYe5UN7L+ZdENvXsEIm8
+         2c2eCvRPv+3QbOVzV9DwtyR+HmPipa9ZBMcl7SuQk2uBh/hxZeGbrG48w+ih3upwfx8B
+         HiUZx24rTJLPkuQNR7xkGJQ8dYUu8SCzAziSam6CeXPwxACbmiBcxcAMDt0YwauYzIG0
+         NgDGp9p5u003DMQO8xUY9ecwql/Q0gbsXb299QFQTcFMpHkmL28NkE0ew240ApZHHxwk
+         PqHSCxbstog/jgkzqWJ3T3nKzjxcTiwTfk4/hCN8oKiAYHwkvhDr7WmE8l10stSl6y38
+         8gaw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=Pw+AR7aF;
-       spf=pass (google.com: domain of rui.silva@linaro.org designates 2a00:1450:4864:20::431 as permitted sender) smtp.mailfrom=rui.silva@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=pass (google.com: best guess record for domain of sakari.ailus@linux.intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=sakari.ailus@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:mime-version:date:message-id:cc:subject:from:to:references
-         :in-reply-to:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=PiVq11QbR8/UBxG7sD5GTTdg7VP3LF8sT31iovvCKa4=;
-        b=ZWr/O0Nr6wFP9O8Odrdsl7ZS4XPGUnZoXZge+beerUUgtS3/dM1OJvY3NCSQraMTu1
-         SmpaoqShd13KR0wEgmE6RKsCEOs6hBRHHzrbNt5kRJoNxegzbGOpY+I/2CLCop+OaJzq
-         3MtwuHNAD/R13VvZnVNo9CHzY9Oqua4kf+werDMj5atLMKQ8Bj8ADD8FaXifVuEtY279
-         4+VDa2Mii6H9PeexjGJNEfrbAoB/aaVmUeYHOGbZskX74tXCnP4nrasloIXtmpm4iE6/
-         /pwwx49wmcotmalq9YCsV/5Uv9uAgbaK6cM/bvOU1LQStjvdZzG4YtwpSo/pDpvCuSjk
-         8Lfg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=/dgbFinvK2V6GlYOUaw/CO/m44h3mvNWh+4m7NSjoKY=;
+        b=Ue8AC3/9V3jRpZSNLoOb3uEJaFBThLqzCMERsnCg1E8nuFjmuK93+rcIz4j0RR3TiZ
+         Kg9+XlFPY2+vWEJhPTBGKl2brK0bQIePdfJs36IrAHNYZiurercW7pgIEljaFYst8eIz
+         yOnL19/fYBkDGndEHrOYl7Ms9GzsM+MCeOS3Hp4oMBIJWllmVDei3O3OmPjPfkbaB5rz
+         K5PO/MSM/ylx66452WLMoQztHYrXqYwJor8WtpjVBQTtQVFYbTAGv5lqi/Kp4plRTQgR
+         yU3dB0RBbU6grQcPjljBdH7DllvOVc5114bvIj3HoFMPoryd7ewvqg2ifMhfLmrrJhmM
+         0AmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:date:message-id:cc:subject
-         :from:to:references:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=PiVq11QbR8/UBxG7sD5GTTdg7VP3LF8sT31iovvCKa4=;
-        b=VxQxpMSY1rtFIyDpC+6DO4bmrqSRBbJEPd74rXMz4s1V29CsEB7qN30VQ9IZuYvlWr
-         j8Cl9++K0mzFZs92p1AmWyl6VZLhxLKfvDzzpnuAcU3r5qsDbMxDE6ddpPKxq1KIDlUh
-         XzB0IU4DRWmSFpRyllCiAbnbTB1KVFNbgGvRrhBdJk3WntvbVGneXC4dTlM/ZDanSN0a
-         /UlyGR/DDvodR7EUa8z/N0jFOhg1p7MhmPNOHBZNF2k9qw725bWf8rXSTULosSs+XQiQ
-         p/IyOmVCi7Fv1DJWhF/U8sAwqXYiCqLOFzTcM777THG7IEx+fD94scutPGFcs6JOkv4X
-         g+6Q==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=/dgbFinvK2V6GlYOUaw/CO/m44h3mvNWh+4m7NSjoKY=;
+        b=k8bBbzZ1/zcP/F+fnA5AST/scTNt6Zr7GWxDTTlQ/cCToNeuNcirijuVRxhWrKhwmr
+         2zrwf6hxJYnQ7zoBfQnqQb4GA7Lx17KFpTVijI8eIyk6JmvfdIC2J9VsIsuTugm3Y3WE
+         VaJU421+xNm0qbl4ToGthghMX+Qmnk+BNqe74B14CnznE62Awh1IyRv+qlQFVTlLjttM
+         9S+ZjhSP9WEMHOHnA8hIUk2x7kcEqi/GbZRtfvv/XI9aEqy+oDkQl5sEU+d5qzAGvm8+
+         nuhqPpvTd15Af2adsUWUYGF6qUhP+sEgjuI3/8Reo29mmTG7AhKXLZBmtdM4x0jF/PnL
+         C0ig==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533G30OzvtcGIfv/Of4HcDEAS49N7Pnm4Pj4TNpJXWyW8K2JAfMs
-	3ju0pMF2odK0Ns7L+mva404=
-X-Google-Smtp-Source: ABdhPJwjX1pZ001kJk9/3YOMdi9YNPJ78cpvtL4AXEH87pVtf69ZEf/A8ia19aBzqIT4dZYPDYaswQ==
-X-Received: by 2002:aa7:cb19:: with SMTP id s25mr15211087edt.194.1629359260152;
-        Thu, 19 Aug 2021 00:47:40 -0700 (PDT)
+X-Gm-Message-State: AOAM531cPDJp0mw4rSjuFurkcq0/7YRtFmMVzl8reCa3EjRMK/M9C77Y
+	D1if+QMWLRArgZFYgPW2fp4=
+X-Google-Smtp-Source: ABdhPJzigdMqVCdCHbWINvbFpyN81RE2vpUl86m86pbzDVNds3sgBgr2xe4rsCpY7MFRrprkgYmjJQ==
+X-Received: by 2002:a62:8407:0:b029:39a:59dc:a237 with SMTP id k7-20020a6284070000b029039a59dca237mr13702325pfd.30.1629360659404;
+        Thu, 19 Aug 2021 01:10:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:7e4f:: with SMTP id z15ls2185251ejr.1.gmail; Thu, 19
- Aug 2021 00:47:39 -0700 (PDT)
-X-Received: by 2002:a17:906:fa11:: with SMTP id lo17mr14569986ejb.432.1629359259204;
-        Thu, 19 Aug 2021 00:47:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629359259; cv=none;
+Received: by 2002:a63:656:: with SMTP id 83ls2297821pgg.9.gmail; Thu, 19 Aug
+ 2021 01:10:58 -0700 (PDT)
+X-Received: by 2002:a65:44c4:: with SMTP id g4mr13002792pgs.254.1629360658851;
+        Thu, 19 Aug 2021 01:10:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629360658; cv=none;
         d=google.com; s=arc-20160816;
-        b=0S+/tUGqX7Ycwv85WNZ2RRNZLAxCnqpW/aaSWhg6B2rKKdIxgMZx04m8XB50ZmWC6h
-         S2RLlUtsGTbED3WdJm/0nZ+yiUEgwmF0WKIuzocE6pnlq1u5+HltPYVb/D4rKGd/pZ/o
-         HtiVyk1ysHirjvIPwO5JjXDfBEFjnmF3tw9Q6H/NamwgHffp+2iTWZfgmOTjBJJc0ReJ
-         linkdeIBLqPyTSiGXf4ZTcDXz8ymvEBZf+rF30/rFI5RbniNuMoZIg7ahuTIrKqKs/dz
-         7/LvM5j8RE3BKOP1qkHkWsqF0UUjLCRJRFTT5q1iXx+p2CteUuT0rshhDO0DCCmRREsf
-         6uNg==
+        b=Q1LnXlXdsjPnU7l59WbWXcRmDPnTMj8urHX+klh+lghqfo6QPED0lsnrYaAXr2xIqr
+         sPqNvUd36v55L1lqN2JAkUDmmYeJhieOcWTlsi0fbUqsZz5RPMnUZNzgN9g+gz4wHO/3
+         Aro4kh/ZoS0DcqJxAZD/M75UQz6LYUKuQRV3V+958fzMFm/DdrLS6xPyvwBDOBPCK7h2
+         H7DZ/p8XvD4VNPPt8n4f1M6ftRedsfSKF1q2cWacpIqjrEoUg8myBJ2EJQz/IQDSvGdi
+         fslRQcQp50jijX+l66DLUQAu89pppE3uEuVC5E3KPn8ylJDRbfkAeKFRDf08Bb5vM4aW
+         CSuA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:dkim-signature;
-        bh=FudC1LQQgorqgCvY4YmEWsg2a7D4yTzNn6OmCaRWFF8=;
-        b=zJi0zrM62VvFxgXre/yuIsX27is9OjYIQabLU+uOp7SFgUDPNhwkHnOU0L/WK5mpRV
-         oKig8h+c3NFIumpOna4f9wY32PFuspV64NNCs7VY9g31PQEkJ3Vdw7Kpn0XJakJQoFAh
-         dgItd6CeAB8eb2moBw+IRaGgBWqzTdM+exrIPSYFZk5OxydVpVy8mlPXtdsByEEKLuq9
-         SOnzyKOCFElL0drHtoe9YRcikugu2vqZlNvmZrhjvtb80Hz6I5cK+nC5atcBstcxvbE4
-         7QVSTvUb0uhvYsv7Mh6dcvZblknlBwqAhhAT8hJu27aosGoMDoOWYP8PndnQ09XQqCJg
-         tvSw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=8dl5FUbVCeEqxMwZ7CzrPklgCOAApXd9iRhHj5IysQ8=;
+        b=xobgn+yhdGOpFTLyP6c+Gt7stPluvdTvTUFysDEXzpeqwGqTnx0VV8c6GJr+I3Wz/3
+         NE9yoSxC8WZeKltyGzgWoXGQXT9+cKcEyY7F8ZtGALd1I5NUb4aGqz2apYzQSjVS6VgG
+         0O85afkbRSP7Cd0t/RhBXr/iBUy8g9/1JTZ51mG9E34ZCH4XvCGq6en05EhsOQ5BFLSs
+         NzG5OScVaYq79h6XLeO9BkjcE385cVxC8y4DbHXF2m2TpgC5OFEGfbheTEcKO1ObpM9A
+         GNmR1UzQz83T8vNP7Z21s3pQTKYzSSLpk11Mo72T85SKg/hWkl3lVaI13hCZw0JhUldv
+         O08g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=Pw+AR7aF;
-       spf=pass (google.com: domain of rui.silva@linaro.org designates 2a00:1450:4864:20::431 as permitted sender) smtp.mailfrom=rui.silva@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x431.google.com (mail-wr1-x431.google.com. [2a00:1450:4864:20::431])
-        by gmr-mx.google.com with ESMTPS id s18si151071ejo.1.2021.08.19.00.47.39
+       spf=pass (google.com: best guess record for domain of sakari.ailus@linux.intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=sakari.ailus@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id m1si478042pjv.1.2021.08.19.01.10.58
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Aug 2021 00:47:39 -0700 (PDT)
-Received-SPF: pass (google.com: domain of rui.silva@linaro.org designates 2a00:1450:4864:20::431 as permitted sender) client-ip=2a00:1450:4864:20::431;
-Received: by mail-wr1-x431.google.com with SMTP id u16so7582534wrn.5
-        for <clang-built-linux@googlegroups.com>; Thu, 19 Aug 2021 00:47:39 -0700 (PDT)
-X-Received: by 2002:adf:fb8d:: with SMTP id a13mr2150945wrr.164.1629359258835;
-        Thu, 19 Aug 2021 00:47:38 -0700 (PDT)
-Received: from localhost (a109-49-46-234.cpe.netcabo.pt. [109.49.46.234])
-        by smtp.gmail.com with ESMTPSA id 2sm1802717wmo.38.2021.08.19.00.47.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Aug 2021 00:47:38 -0700 (PDT)
-Mime-Version: 1.0
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 19 Aug 2021 01:10:58 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of sakari.ailus@linux.intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+X-IronPort-AV: E=McAfee;i="6200,9189,10080"; a="277529883"
+X-IronPort-AV: E=Sophos;i="5.84,334,1620716400"; 
+   d="scan'208";a="277529883"
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2021 01:10:58 -0700
+X-IronPort-AV: E=Sophos;i="5.84,334,1620716400"; 
+   d="scan'208";a="594354462"
+Received: from paasikivi.fi.intel.com ([10.237.72.42])
+  by fmsmga001-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2021 01:10:56 -0700
+Received: from paasikivi.fi.intel.com (localhost [127.0.0.1])
+	by paasikivi.fi.intel.com (Postfix) with SMTP id F2981203D0;
+	Thu, 19 Aug 2021 11:10:53 +0300 (EEST)
+Date: Thu, 19 Aug 2021 11:10:53 +0300
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: kernel test robot <lkp@intel.com>,
+	Nick Desaulniers <nick.desaulniers@gmail.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	kbuild-all@lists.01.org,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Petr Mladek <pmladek@suse.com>
+Subject: Re: drivers/media/v4l2-core/v4l2-ioctl.c:303:28: warning: taking
+ address of packed member 'pixelformat' of class or structure
+ 'v4l2_pix_format_mplane' may result in an unaligned pointer value
+Message-ID: <20210819081053.GW3@paasikivi.fi.intel.com>
+References: <202107150148.RpWnKapX-lkp@intel.com>
+ <CAHp75Vfu1rhUV+SOq2ikFWd2G6x9j3BT6OLPhPcf8VZE5Umeqw@mail.gmail.com>
+ <20210716114105.GF3@paasikivi.fi.intel.com>
+ <YPF3m01nYlt3On7V@smile.fi.intel.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Date: Thu, 19 Aug 2021 08:47:37 +0100
-Message-Id: <CDNBNHH65Z6Z.3P3H9W04XAHDB@arch-thunder>
-Cc: <clang-built-linux@googlegroups.com>, <kbuild-all@lists.01.org>,
- <linux-usb@vger.kernel.org>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>
-Subject: Re: [usb:usb-testing 54/97]
- drivers/usb/isp1760/isp1760-hcd.c:735:2: warning: Value stored to 'scratch'
- is never read [clang-analyzer-deadcode.DeadStores]
-From: "Rui Miguel Silva" <rui.silva@linaro.org>
-To: "kernel test robot" <lkp@intel.com>
-References: <202108190619.wLK5u4fO-lkp@intel.com>
-In-Reply-To: <202108190619.wLK5u4fO-lkp@intel.com>
-X-Original-Sender: rui.silva@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=Pw+AR7aF;       spf=pass
- (google.com: domain of rui.silva@linaro.org designates 2a00:1450:4864:20::431
- as permitted sender) smtp.mailfrom=rui.silva@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Content-Disposition: inline
+In-Reply-To: <YPF3m01nYlt3On7V@smile.fi.intel.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: sakari.ailus@linux.intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of sakari.ailus@linux.intel.com
+ designates 134.134.136.31 as permitted sender) smtp.mailfrom=sakari.ailus@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,145 +146,29 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi,
-On Wed Aug 18, 2021 at 11:09 PM WEST, kernel test robot wrote:
+On Fri, Jul 16, 2021 at 03:12:11PM +0300, Andy Shevchenko wrote:
+> On Fri, Jul 16, 2021 at 02:41:05PM +0300, Sakari Ailus wrote:
+> > On Wed, Jul 14, 2021 at 10:45:26PM +0300, Andy Shevchenko wrote:
+> > > > >> drivers/media/v4l2-core/v4l2-ioctl.c:347:37: warning: taking address of packed member 'pixelformat' of class or structure 'v4l2_sdr_format' may result in an unaligned pointer value [-Waddress-of-packed-member]
+> > > 
+> > > Why is it packed in the first place? Is it used on unaligned addresses
+> > > in other structures? But even so, why should it matter?
+> > 
+> > It's packed since we wanted to avoid having holes in the structs. There are
+> > other ways to do that but it's ABI dependent and is prone to human errors,
+> > too.
+> 
+> What holes can you think about in the above mention structure?
 
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git usb-testing
-> head:   e4788edc730a0d2b26e1ae1f08fbb3f635b92dbb
-> commit: 7de14c88272c05d86fce83a5cead36832ce3a424 [54/97] usb: isp1760: remove debug message as error
-> config: riscv-randconfig-c006-20210818 (attached as .config)
-> compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project d2b574a4dea5b718e4386bf2e26af0126e5978ce)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install riscv cross compiling tool for clang build
->         # apt-get install binutils-riscv64-linux-gnu
->         # https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?id=7de14c88272c05d86fce83a5cead36832ce3a424
->         git remote add usb https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git
->         git fetch --no-tags usb usb-testing
->         git checkout 7de14c88272c05d86fce83a5cead36832ce3a424
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv clang-analyzer 
->
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
->
->
-> clang-analyzer warnings: (new ones prefixed by >>)
->                    ^      ~
->    drivers/target/target_core_configfs.c:2627:23: warning: Value stored to 'alua_lu_gp_cg' during its initialization is never read [clang-analyzer-deadcode.DeadStores]
->            struct config_group *alua_lu_gp_cg = &lu_gp->lu_gp_group;
->                                 ^~~~~~~~~~~~~   ~~~~~~~~~~~~~~~~~~~
->    drivers/target/target_core_configfs.c:2627:23: note: Value stored to 'alua_lu_gp_cg' during its initialization is never read
->            struct config_group *alua_lu_gp_cg = &lu_gp->lu_gp_group;
->                                 ^~~~~~~~~~~~~   ~~~~~~~~~~~~~~~~~~~
->    drivers/target/target_core_configfs.c:2731:2: warning: Value stored to 'alua_lu_gp_ci' is never read [clang-analyzer-deadcode.DeadStores]
->            alua_lu_gp_ci = &alua_lu_gp_cg->cg_item;
->            ^               ~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/target/target_core_configfs.c:2731:2: note: Value stored to 'alua_lu_gp_ci' is never read
->            alua_lu_gp_ci = &alua_lu_gp_cg->cg_item;
->            ^               ~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/target/target_core_configfs.c:2748:25: warning: Value stored to 'lu_gp' during its initialization is never read [clang-analyzer-deadcode.DeadStores]
->            struct t10_alua_lu_gp *lu_gp = container_of(to_config_group(item),
->                                   ^~~~~
->    drivers/target/target_core_configfs.c:2748:25: note: Value stored to 'lu_gp' during its initialization is never read
->            struct t10_alua_lu_gp *lu_gp = container_of(to_config_group(item),
->                                   ^~~~~
->    drivers/target/target_core_configfs.c:3026:23: warning: Value stored to 'alua_tg_pt_gp_cg' during its initialization is never read [clang-analyzer-deadcode.DeadStores]
->            struct config_group *alua_tg_pt_gp_cg = &tg_pt_gp->tg_pt_gp_group;
->                                 ^~~~~~~~~~~~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/target/target_core_configfs.c:3026:23: note: Value stored to 'alua_tg_pt_gp_cg' during its initialization is never read
->            struct config_group *alua_tg_pt_gp_cg = &tg_pt_gp->tg_pt_gp_group;
->                                 ^~~~~~~~~~~~~~~~   ~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/target/target_core_configfs.c:3163:2: warning: Value stored to 'alua_tg_pt_gp_ci' is never read [clang-analyzer-deadcode.DeadStores]
->            alua_tg_pt_gp_ci = &alua_tg_pt_gp_cg->cg_item;
->            ^                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/target/target_core_configfs.c:3163:2: note: Value stored to 'alua_tg_pt_gp_ci' is never read
->            alua_tg_pt_gp_ci = &alua_tg_pt_gp_cg->cg_item;
->            ^                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/target/target_core_configfs.c:3179:28: warning: Value stored to 'tg_pt_gp' during its initialization is never read [clang-analyzer-deadcode.DeadStores]
->            struct t10_alua_tg_pt_gp *tg_pt_gp = container_of(to_config_group(item),
->                                      ^~~~~~~~
->    drivers/target/target_core_configfs.c:3179:28: note: Value stored to 'tg_pt_gp' during its initialization is never read
->            struct t10_alua_tg_pt_gp *tg_pt_gp = container_of(to_config_group(item),
->                                      ^~~~~~~~
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    6 warnings generated.
->    drivers/misc/eeprom/at24.c:334:2: warning: Value stored to 'client' is never read [clang-analyzer-deadcode.DeadStores]
->            client = at24_client->client;
->            ^        ~~~~~~~~~~~~~~~~~~~
->    drivers/misc/eeprom/at24.c:334:2: note: Value stored to 'client' is never read
->            client = at24_client->client;
->            ^        ~~~~~~~~~~~~~~~~~~~
->    drivers/misc/eeprom/at24.c:397:2: warning: Value stored to 'client' is never read [clang-analyzer-deadcode.DeadStores]
->            client = at24_client->client;
->            ^        ~~~~~~~~~~~~~~~~~~~
->    drivers/misc/eeprom/at24.c:397:2: note: Value stored to 'client' is never read
->            client = at24_client->client;
->            ^        ~~~~~~~~~~~~~~~~~~~
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    5 warnings generated.
->    drivers/usb/isp1760/isp1760-core.c:490:2: warning: Value stored to 'udc_enabled' is never read [clang-analyzer-deadcode.DeadStores]
->            udc_enabled = ((devflags & ISP1760_FLAG_ISP1763) ||
->            ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/usb/isp1760/isp1760-core.c:490:2: note: Value stored to 'udc_enabled' is never read
->            udc_enabled = ((devflags & ISP1760_FLAG_ISP1763) ||
->            ^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    4 warnings generated.
->    Suppressed 4 warnings (4 in non-user code).
->    Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
->    9 warnings generated.
-> >> drivers/usb/isp1760/isp1760-hcd.c:735:2: warning: Value stored to 'scratch' is never read [clang-analyzer-deadcode.DeadStores]
->            scratch = isp1760_hcd_read(hcd, HC_CHIP_ID_HIGH);
->            ^         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Probably not that one but it has happened in the past that the struct
+memory layout has been unintentionally different in different ABIs and that
+has not been the intention, but rather a bug. Packing has been added in
+newer structs to avoid that.
 
-yeah, this is desired behaviour, this read is only to make sure  that
-we make something different than the pattern to test go over the bus.
-However I will take a look to this warning and other clang warnings
-that I am seeing in this report.
-
-------
-Cheers,
-     Rui
+-- 
+Sakari Ailus
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CDNBNHH65Z6Z.3P3H9W04XAHDB%40arch-thunder.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210819081053.GW3%40paasikivi.fi.intel.com.
