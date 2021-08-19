@@ -1,47 +1,47 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB3XX7KEAMGQEN3UCQNY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBHMB7OEAMGQE5HL6EWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
-	by mail.lfdr.de (Postfix) with ESMTPS id E20F03F216D
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 22:15:43 +0200 (CEST)
-Received: by mail-vk1-xa39.google.com with SMTP id bj24-20020a0561220e58b02902863f952403sf1344953vkb.16
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 13:15:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629404143; cv=pass;
+Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1A54E3F21B0
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 22:35:43 +0200 (CEST)
+Received: by mail-pj1-x1040.google.com with SMTP id s1-20020a17090a948100b001795fab0f86sf6718025pjo.1
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 13:35:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629405341; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BukwcrDTmSYEIe2io9uCspzh11FzsHTzJvBn0076V211/Wba+IXZ9AWA8GlHRI/nuw
-         pOb5Lm0IORNfu2nn5xm5DsUKCgh8ZZjrrDoct+TzVXHw2VNTrPEB+jy38zGBrKVTP5JU
-         cxxstMYW1bfS2jKpGNMCuI/iiUJq4DWwU26BiNPVTDvcfpLy/FehuIJfh7ezM5IRP/8o
-         ce17b655S7ua9HABZ/rAD20DLAWQyYAqMUXax+vXRkRczeS83uuxw5kpxiOgfch3Ng+2
-         K1KVv+0nVYkjCIhLBFIGRSu1YvYkL33s0CM8UnT/la8LNxK6mPXWyuOukmRpiQunGZHc
-         Hg6w==
+        b=pHGqi3bLM6M1YAlkwL8+S9oqfihaKcfl3DC8Yhb4U0WNLYct1TkEXN5ycTHZTqeZ6F
+         tj9u7nqeYChU45NlHFpk4gE+CLtYcplwWaQ9fyqzmuf1UkRUQj1UnlAV0xXZTHtVd82G
+         TDIrndwCouWYuZsUEgh+zl50mU+dFvNf42NqeHYi2xyEQVwl5hGrlg4YJpH3b1eSFSS3
+         2SZBEYRB5G2yoSbCsbLbWiEdxmsbUUD9zHxnArYV/qd63bR555opBuCSeoHi/9UdTCCa
+         yp0S38f5PEh8/FJr99H36hH4Qmyck8y9RRt/Khx4WyFT2KmwbGY8z3/tVHFUBc7DVUFa
+         ehRg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=WKHjMHHdUyrzJ7qDfSzQkmxvoERJMLqChNR3C13mi6k=;
-        b=z3P1AG+Gx3TMGEtt/uYCnyBaVLZ22CZt4QbB9b0JfshZVjWZwJi0dwgeHpcY+vdI1D
-         1jwS6HHEqvNrAAzezK7PC5q9BLmP1MkTQfR+1ypyUhKvXhkgPa/TVM5slpkZ+LNjxweZ
-         k/wHy5zFV1demturdA3PPelQKn2UupOxqaBHxgBZaFj7fJWkw54/f3qQofq1m9ACgD/Q
-         0Ui8wL/1fJx/ChQ1jPvKF/q2b/rpr7o8R1O3g4AV7G3hYpFSzznc1Zz99qbj4TdgvZ56
-         bEdKWJEaWOfZw9feOsT8Vb0hAm0CFhK3+yKvGNImydMix7MiKvjJixycYcGIBc9LiXXz
-         oHFg==
+        bh=64Wg2QAvwUx4Tc3qP72yNxeTv3oVRTvl3eRahB8vCoE=;
+        b=edeTaPZFLXFmGbHnipcoIdO0omQGzUsD9KPz474QdEmjF6sRvg+FWjtOz8urlkaK20
+         j2ueZj1WigDLsyWeT3CnGM1snsnlV8VMlatE29G/xIQzC7XeuX3lMJMPkWpjjsvcfilS
+         UtO623hP7QqRgbTbgBlQ+jieVsT8fBnK2vo/sBOXSFI/ZMc//DTn9/he6HrPbCTiMVtq
+         pQUqAQ4v/8fWsedkakjtWCDWyzMCpTX/A2rUtTwatVrGr8aoTnFAeZTohH3Bc4lVCgpD
+         ZsaVgf+PZJmcKtUOY1atOCF3Lnr6pB36eWyOTtrkfStYU1rLJ8qytx+Yy5/QmYCzhvoD
+         3++w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
+        d=googlegroups.com; s=20210112;
         h=sender:date:from:to:cc:subject:message-id:mime-version
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=WKHjMHHdUyrzJ7qDfSzQkmxvoERJMLqChNR3C13mi6k=;
-        b=H7J1ZB+9I5Ktei21r/FHI/qeelaw8GyvUr4nrYGb1ylrI1LYzwYfaux39sngkCqzpI
-         vLS00ZBxtPMpV/DX/eJbtbgDKq0Y7OFZOHH49RjpQJcqfqsFY/C48X4O80WmfqZ/cTEM
-         6ZOCT6TMpTX/gI9q6lr7sE3PRwdo3YYcC5FLhRYsiAcmopCZvDNzvyJBZDbKq6aS1Yxa
-         0+1CrPUsaL93+YNaKDqr2TA9qCUJGvjfUqPw1d6LM+2TsBvIChg8edEgAP57QAc6WnmW
-         xFn1skzJBUQRtFjcwVMRydxYxPVHiD3vc/zw+SH6VtKNHF55IVJERbsFiz9x/VnGDElN
-         lr3w==
+        bh=64Wg2QAvwUx4Tc3qP72yNxeTv3oVRTvl3eRahB8vCoE=;
+        b=p7X7jN2udL3YPDQ/QWlE8P5KelEUE4X40X+HQQ9k1GIBdrgtAI89PzjnpGWulA5LHX
+         N9hZMJ3GuBeMuMkfEzX0yUEbyBzDFcRtpBX1vhPwIJIJa2lDPKpimoD8g17PJccGE4ls
+         a+pM0jyBkd48ZwbdsdGr38TU4xo48Vv85lhYsOPoZzArn9ohyT9Zvqf3v+IjhiA0PM2v
+         WEFOIoNZA09nrWg+/8QxkFRoA8NvX2/hfUVIIQobRLfPoLucV2Iwx7Zwq5oXT9/FkkdB
+         mtjpTZJrS2wMalr7Lc4MJjefEyNa9CiWaHvLzdsvVCdL/WrYbxEKw9q0cPZ+ag2sRMsp
+         339g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=WKHjMHHdUyrzJ7qDfSzQkmxvoERJMLqChNR3C13mi6k=;
-        b=p9qoe36FglZJKtIHvM3uVqJ4M+FXgMkU9qNdJ39zgpHfOTzyKgOZ/P/5pKJThkE9NW
-         uDX5KK5giwwZv380JFOzyGStHc2g4DWewibJToq5tGbPq2/gjKOLAOjcqb5q6oFFqF8H
-         C6W4iuJs38a20oNM48Ui362o/WMLvFrgrT08Co5U0L0QIEDLIeK+SVWIzljma3hsvQ/U
-         37ozJIbIBhd+oKh/tuOgRZ1S7qM3gf2Jj05Om7V1cm5vGY1ycNQR15wu98shzgSupmAj
-         QwTpF+OTpIBlkSU2gzG80tX5emmpoonr5SWv5+zDAGzaAJJJAPVDCkORCoivT+baL8rz
-         f9Vw==
+        bh=64Wg2QAvwUx4Tc3qP72yNxeTv3oVRTvl3eRahB8vCoE=;
+        b=uVzUmIvzs5/ipT62Upz5FkabtZ+fDQsKKjBhU4hyvI6sTIa9+WXXa5EVGrRUjti782
+         N7s/aT9M0VfaPPZmxdk3hiTE4WR7WP722krjFw0FNRNXfvmt8YV80fs7RRo0deChlTq9
+         inJbJ+jw4n3Gi87UZ2X25SHSHG/UehKU0dUp1x5AlPXjuJa1klTLrPYYgV00WyZ9Q7jR
+         PKYJBaYddSAtlPbTv8ETtS/0UZypBe5sMVHjudFZQ22TG/9iFmQLTfZNS7hXJclHyXTL
+         ElDkRtHVCf6h+iuO+2jFnfnOVQkcSRURv+mwO4WfnoQK0PY1ymUrRwQfFHjysVv5U3vd
+         6q2g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Z+Ee8t0beJeWUHQdlKotaGNokg6nsxUi7ToWw/cI81NVev8R6
-	wJj+Qo3l6Ybld+hjqeGrPGo=
-X-Google-Smtp-Source: ABdhPJwvDOe5NaMaNmc6WkqBoAKkd1mzbEY48XuqVROyKhpzJVdqguLWuHDSwKBOc+3gjEsUe90x/w==
-X-Received: by 2002:a67:401:: with SMTP id 1mr14511254vse.48.1629404142810;
-        Thu, 19 Aug 2021 13:15:42 -0700 (PDT)
+X-Gm-Message-State: AOAM531JiNHv6XfkvE1QMvbQzU+7Pmjnpmk3W6tQoviG/G6YJ93Dsgpi
+	EpjODVnkH9+zPXnEHIKnywY=
+X-Google-Smtp-Source: ABdhPJy0bQZv+HQyRr4oBYpcOtiKU4OC4moN5N7UUQ1fH5fBzMm7S6tT0CRe5tQoRuIR/v76XAQMFg==
+X-Received: by 2002:a17:90a:df14:: with SMTP id gp20mr630079pjb.33.1629405341567;
+        Thu, 19 Aug 2021 13:35:41 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:7682:: with SMTP id v2ls709037uaq.10.gmail; Thu, 19 Aug
- 2021 13:15:42 -0700 (PDT)
-X-Received: by 2002:a9f:3e4c:: with SMTP id c12mr12893140uaj.75.1629404142021;
-        Thu, 19 Aug 2021 13:15:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629404142; cv=none;
+Received: by 2002:a63:4e24:: with SMTP id c36ls3044147pgb.5.gmail; Thu, 19 Aug
+ 2021 13:35:41 -0700 (PDT)
+X-Received: by 2002:a63:5c1b:: with SMTP id q27mr15469152pgb.284.1629405340786;
+        Thu, 19 Aug 2021 13:35:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629405340; cv=none;
         d=google.com; s=arc-20160816;
-        b=fOQPakdLyzb38WRQAMZlZVcqm0wACNNEeHbBxGnrLTNF05hVeCg9HCYUcaoZ7P2IBH
-         ddHbntKHcCxjOmSKfjG+DUYis2dXgFZlseQaQRcGRkN958JKlcEzXW0QnzEhFfZyosP1
-         WT/o5+vfW1TNBfmPoqdRWm1Dba3abkyToR57U3NSYceD2iFc9UFZQreMOoLvTq/pIUK9
-         7O8T+iDFFWlBx/L6SvvivJ66DL6d/nm/TWK2uxKNlsIS0UKUtDnv9pz/RTGjoI6GIbh1
-         txy0L2avEdN0pTp/IXcI1tAWnenV1DjIL062Bz7x0thEXcTvn1c39qpYfN7YHdg0ROX/
-         0sKQ==
+        b=b84NLBGcXMd7fDraTGcn5bHKo3FgCgZevkHCk56StiScFCnZ2+OVoeRQ7FTUZ+rh/0
+         9Vo7U235xbug+f6sovP6nvdgDLOUZl+h0XewtWLcif6kWpryZge29ad/LiRk92OvkL0B
+         /sU+tfOcGjIVJDgwvdOp1br0FNS6D/uXHyNd0YnNhrxSLfEsIYvofQnVlURkpi8BjaJo
+         rzxZiKfWyvdtRhU0BFzRVccGzNLGdoqiCxAeujaM2bxAchChfYN/4jg+DN0L4AzX5sgf
+         k1dMbBmKzIJsroWYZdleOF3KE26GJ0gEmQUcs5OW9qbrEhz28zXGSx3CInj9WHa/d7y+
+         tQ+A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=GcKdBHYXHO2jwliRrKSLkQHPzXfR3JYyX262PL39fS4=;
-        b=OtoGr3UiaABc9vT2epRdJYoBqPltt09iEgxoaSonMdeKXjzc6S94kDdnJ0Sd359JKE
-         81pKiQohpHtmlENBar4S3f8Lx7UrX3NUemBS7SanpqgQLFZP2vriAMgcKJHYjiPIQ7/X
-         tsVngeYdup7Vm9z4VicK9y4g0jYyt0Knmv0Hb5Dd4huearLtNKWHASYUjB7b5OdMhaMn
-         RFRborB3gqtDQpNpt24w+lJcfFA4ikKU574OvUX6Kv4FhaTu4ufQ8gG8rRJ60sfshcnG
-         wUJqgV/vXMUotsBYNQPgBBmBtkxBBW8Af6ZbNBx55jyJUWPAGV/Hlw5I6vEF18C9YQCK
-         YstA==
+        bh=bpkSIr9nsAj6iKFsdBemD6HCIF8CRy7rOBczWaX1udk=;
+        b=si9Kdlrk1X6uWYFfJWbPc1bm89CqDpoSxcBYaU4liuYuwaJFTOhBXOOuMiOnnxu/Gy
+         4TD5NByPlChqSVv7JBi3cHAiKb5mW1LFz3xDlEngtgA+zij20BLYVR+gTu6WXU6T5Jhf
+         ofku1nb3QPnZD9rimFtkaWSrUL4FQRDVmdutMlkdo2YU7YopGBf+sUnTn8yod24vZ/IR
+         Mrj8eFv4UCFsq8ou9N+p8MsCpkmcbmt47f2VckUHKdJxIxwJ8ZNLyipZ7oECW2wpt5j/
+         2Cs+iYNTsiUvcABr8xeTtliR5+fY6+XVHKlsGAhUjRBQ2YT4epI8FPJC11AL1pUdZCsm
+         ftpw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id r11si195999vsl.2.2021.08.19.13.15.41
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id q10si255978pgv.5.2021.08.19.13.35.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Aug 2021 13:15:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
-X-IronPort-AV: E=McAfee;i="6200,9189,10081"; a="203788918"
+        Thu, 19 Aug 2021 13:35:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+X-IronPort-AV: E=McAfee;i="6200,9189,10081"; a="214800366"
 X-IronPort-AV: E=Sophos;i="5.84,335,1620716400"; 
-   d="gz'50?scan'50,208,50";a="203788918"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by orsmga106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2021 13:15:40 -0700
+   d="gz'50?scan'50,208,50";a="214800366"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2021 13:35:40 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.84,335,1620716400"; 
-   d="gz'50?scan'50,208,50";a="512261602"
+   d="gz'50?scan'50,208,50";a="681911683"
 Received: from lkp-server01.sh.intel.com (HELO d053b881505b) ([10.239.97.150])
-  by fmsmga004.fm.intel.com with ESMTP; 19 Aug 2021 13:15:38 -0700
+  by fmsmga005.fm.intel.com with ESMTP; 19 Aug 2021 13:35:38 -0700
 Received: from kbuild by d053b881505b with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1mGoRt-000UFq-Bp; Thu, 19 Aug 2021 20:15:37 +0000
-Date: Fri, 20 Aug 2021 04:14:38 +0800
+	id 1mGolF-000UGH-HX; Thu, 19 Aug 2021 20:35:37 +0000
+Date: Fri, 20 Aug 2021 04:35:24 +0800
 From: kernel test robot <lkp@intel.com>
 To: David Howells <dhowells@redhat.com>
 Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
 	linux-kernel@vger.kernel.org
-Subject: [dhowells-fs:netfs-folio-regions 16/28] fs/netfs/objects.c:125:17:
- error: implicit declaration of function 'netfs_is_cache_enabled'
-Message-ID: <202108200431.NqmW4sum-lkp@intel.com>
+Subject: [dhowells-fs:netfs-folio-regions 18/28] fs/netfs/write_prep.c:78:10:
+ warning: comparison of distinct pointer types ('typeof (len) *' (aka
+ 'unsigned int *') and 'typeof ((1UL << 18) - offset) *' (aka 'unsigned long
+ *'))
+Message-ID: <202108200415.7lAXba6f-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="5vNYLRcllDrimb99"
+Content-Type: multipart/mixed; boundary="YZ5djTAD1cGYuMQK"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,77 +139,107 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---5vNYLRcllDrimb99
+--YZ5djTAD1cGYuMQK
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git netfs-folio-regions
 head:   215a4ee495a95cc73256ed76f91cb78bcabd6b8e
-commit: f3e6e00066254822783e68e4c3bf9f8904f6ab6a [16/28] netfs: Send write request to multiple destinations
+commit: 0c1c1796fd33fded73a9a4305a9e43e8922746ee [18/28] netfs: Do encryption in write preparatory phase
 config: hexagon-randconfig-r041-20210818 (attached as .config)
 compiler: clang version 12.0.0
 reproduce (this is a W=1 build):
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        # https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git/commit/?id=f3e6e00066254822783e68e4c3bf9f8904f6ab6a
+        # https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git/commit/?id=0c1c1796fd33fded73a9a4305a9e43e8922746ee
         git remote add dhowells-fs https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git
         git fetch --no-tags dhowells-fs netfs-folio-regions
-        git checkout f3e6e00066254822783e68e4c3bf9f8904f6ab6a
+        git checkout 0c1c1796fd33fded73a9a4305a9e43e8922746ee
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=hexagon 
 
 If you fix the issue, kindly add following tag as appropriate
 Reported-by: kernel test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
->> fs/netfs/objects.c:125:17: error: implicit declaration of function 'netfs_is_cache_enabled' [-Werror,-Wimplicit-function-declaration]
-           if (!is_dio && netfs_is_cache_enabled(ctx)) {
-                          ^
-   1 error generated.
+>> fs/netfs/write_prep.c:78:10: warning: comparison of distinct pointer types ('typeof (len) *' (aka 'unsigned int *') and 'typeof ((1UL << 18) - offset) *' (aka 'unsigned long *')) [-Wcompare-distinct-pointer-types]
+                           seg = min(len, PAGE_SIZE - offset);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/minmax.h:45:19: note: expanded from macro 'min'
+   #define min(x, y)       __careful_cmp(x, y, <)
+                           ^~~~~~~~~~~~~~~~~~~~~~
+   include/linux/minmax.h:36:24: note: expanded from macro '__careful_cmp'
+           __builtin_choose_expr(__safe_cmp(x, y), \
+                                 ^~~~~~~~~~~~~~~~
+   include/linux/minmax.h:26:4: note: expanded from macro '__safe_cmp'
+                   (__typecheck(x, y) && __no_side_effects(x, y))
+                    ^~~~~~~~~~~~~~~~~
+   include/linux/minmax.h:20:28: note: expanded from macro '__typecheck'
+           (!!(sizeof((typeof(x) *)1 == (typeof(y) *)1)))
+                      ~~~~~~~~~~~~~~ ^  ~~~~~~~~~~~~~~
+   1 warning generated.
 
 
-vim +/netfs_is_cache_enabled +125 fs/netfs/objects.c
+vim +78 fs/netfs/write_prep.c
 
-   114	
-   115	struct netfs_write_request *netfs_alloc_write_request(struct address_space *mapping,
-   116							      bool is_dio)
-   117	{
-   118		static atomic_t debug_ids;
-   119		struct inode *inode = mapping->host;
-   120		struct netfs_i_context *ctx = netfs_i_context(inode);
-   121		struct netfs_write_request *wreq;
-   122		unsigned int n_streams = ctx->n_wstreams, i;
-   123		bool cached = false;
-   124	
- > 125		if (!is_dio && netfs_is_cache_enabled(ctx)) {
-   126			n_streams++;
-   127			cached = true;
-   128		}
-   129	
-   130		wreq = kzalloc(struct_size(wreq, streams, n_streams), GFP_KERNEL);
-   131		if (wreq) {
-   132			wreq->mapping	= mapping;
-   133			wreq->inode	= inode;
-   134			wreq->netfs_ops	= ctx->ops;
-   135			wreq->max_streams = n_streams;
-   136			wreq->debug_id	= atomic_inc_return(&debug_ids);
-   137			if (cached)
-   138				__set_bit(NETFS_WREQ_WRITE_TO_CACHE, &wreq->flags);
-   139			xa_init(&wreq->buffer);
-   140			INIT_WORK(&wreq->work, netfs_writeback_worker);
-   141			for (i = 0; i < n_streams; i++)
-   142				INIT_LIST_HEAD(&wreq->streams[i].subrequests);
-   143			refcount_set(&wreq->usage, 1);
-   144			atomic_set(&wreq->outstanding, 1);
-   145			ctx->ops->init_wreq(wreq);
-   146			netfs_stat(&netfs_n_wh_wreq);
-   147			trace_netfs_ref_wreq(wreq->debug_id, 1, netfs_wreq_trace_new);
-   148		}
-   149	
-   150		return wreq;
-   151	}
-   152	
+    46	
+    47	/*
+    48	 * Populate a scatterlist from folios in an xarray.
+    49	 */
+    50	static int netfs_xarray_to_sglist(struct xarray *xa, loff_t pos, size_t len,
+    51					  struct scatterlist *sg, unsigned int n_sg)
+    52	{
+    53		struct scatterlist *p = sg;
+    54		struct folio *folio = NULL;
+    55		size_t seg, offset, skip = 0;
+    56		loff_t start = pos;
+    57		pgoff_t index = start >> PAGE_SHIFT;
+    58		int j;
+    59	
+    60		XA_STATE(xas, xa, index);
+    61	
+    62		sg_init_table(sg, n_sg);
+    63	
+    64		rcu_read_lock();
+    65	
+    66		xas_for_each(&xas, folio, ULONG_MAX) {
+    67			kdebug("LOAD %lx %px", folio->index, folio);
+    68			if (xas_retry(&xas, folio))
+    69				continue;
+    70			if (WARN_ON(xa_is_value(folio)) || WARN_ON(folio_test_hugetlb(folio)))
+    71				break;
+    72			for (j = (folio_index(folio) < index) ? index - folio_index(folio) : 0;
+    73			     j < folio_nr_pages(folio); j++
+    74			     ) {
+    75				struct page *subpage = folio_file_page(folio, j);
+    76	
+    77				offset = (pos + skip) & ~PAGE_MASK;
+  > 78				seg = min(len, PAGE_SIZE - offset);
+    79	
+    80				kdebug("[%zx] %lx %zx @%zx", p - sg, subpage->index, seg, offset);
+    81				sg_set_page(p++, subpage, seg, offset);
+    82	
+    83				len -= seg;
+    84				skip += seg;
+    85				if (len == 0)
+    86					break;
+    87			}
+    88			if (len == 0)
+    89				break;
+    90		}
+    91	
+    92		rcu_read_unlock();
+    93		if (len > 0) {
+    94			WARN_ON(len > 0);
+    95			return -EIO;
+    96		}
+    97	
+    98		sg_mark_end(p - 1);
+    99		kleave(" = %zd", p - sg);
+   100		return p - sg;
+   101	}
+   102	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -216,14 +248,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108200431.NqmW4sum-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108200415.7lAXba6f-lkp%40intel.com.
 
---5vNYLRcllDrimb99
+--YZ5djTAD1cGYuMQK
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICH+5HmEAAy5jb25maWcAnDxdc+O2ru/nV2jamTvnPGxrO8nu5t7JA0VRFmtJVEjKcfZF
+H4sICOq8HmEAAy5jb25maWcAnDxdc+O2ru/nV2jamTvnPGxrO8nu5t7JA0VRFmtJVEjKcfZF
 45P17nqaOHttp6f99xegvkiJ8nZuZ7aJABAEQRAEQDI//+PngLydX1+25/3T9vn5r+Dr7rA7
 bs+7z8GX/fPuf4JIBLnQAYu4/gWI0/3h7c9fv+3+3H59PQQ3v8yvf5m9Oz7Ng9XueNg9B/T1
 8GX/9Q047F8P//j5H1TkMV9WlFZrJhUXeaXZRt/99PS8PXwN/tgdT0AXzBe/zH6Z/dRSL3vy
@@ -717,4 +749,4 @@ W8ZxhkF76u7W0Fd2EZcpnFIGo4OCsGGSUOwqcsRAws43yKq6jUreA1WsTsjNLB7dSIT2ImYb
 UachoslyKIjY61c+ZHnct8QchlES3PpGB9gfC2CA7QlVt4zWCqr5o51nyFSF/QTcIaOwHdNs
 ZwuSxRpCB49MgU4DOdsAC9L1aiGUzGPBEA1Fybrm/D/uwTHUuKcBAA==
 
---5vNYLRcllDrimb99--
+--YZ5djTAD1cGYuMQK--
