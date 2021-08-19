@@ -1,138 +1,125 @@
-Return-Path: <clang-built-linux+bncBCUO3AHUWUIRBJ447GEAMGQEMQUXK4A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQYFH77QIORBA5V7GEAMGQETZQJEOI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 56AFB3F191D
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 14:27:20 +0200 (CEST)
-Received: by mail-qv1-xf3e.google.com with SMTP id dl8-20020ad44e08000000b0035f1f1b9cefsf4326055qvb.19
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 05:27:20 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629376039; cv=pass;
+Received: from mail-pj1-f57.google.com (mail-pj1-f57.google.com [209.85.216.57])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E33A3F1A30
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 15:20:05 +0200 (CEST)
+Received: by mail-pj1-f57.google.com with SMTP id v9-20020a17090a7c09b02901778a2a8fd6sf6214341pjf.3
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 06:20:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629379203; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yPXd7s6mzo4BoF3nuAGXx/mw90qRvli0jQB9Qtmqr+Wuv102PHZn2qykeWkw5G9aMx
-         EIRengmnI4DKvy6gfReMHsMUCgYklIEQ9s9ZOFKW3rrvUJy8vQTutnxT1xakotkItm/R
-         FuJ3Wnd4eSdb9OfEwjDgOEA/LZjSz4ewod6wzKjncHz8tG4Szi/St2e1efa3ID3QTApu
-         2u+uL1pJaRbafXNJcYNGBga5UoiCXdDe3H5h5BC/BsqNoBnQBjSZE2qRfuozDjOIcAec
-         Euce+/NSnoLTiRcn7QobTlzbTyEjoTEfZw2w5Nxxc7V1zk160L27UmIWkClNW4KMhipa
-         faWw==
+        b=XUU6gqzbWAaViV76eG+D8D3GgIeXkl3A4sF0HxAADXs20Izrk+N8el3Hal6/xELD3b
+         g20P+XN46T7yU3ZIwXa9EmSs6Um1RUVfAD6IkptCvMDF6TTIVFeIvidIb5nS/+JJiHNF
+         nizbLa0J3zEDcxwN60V+L1jb1T9hNgLA+fShOgw1Ejrvyi2da0ZWbHJkIFJn8XED8H9o
+         PEurpja/Unpjeb4zMf0ED0gc8Q1UGT3XDFcq43kMt8UsFFjjZNcGUMa/IyuDbjGV/dVE
+         Z/M8a+Vcz/vxA6OmrRz1yz2qn7utKjSuhZbBhwj/xRr9imRQ4M8V88cLw7sa1RitwvRe
+         1eyw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=S47rU+eSZMUrdE3o4F9VYpvYFE2kt8yut/mw+QpZohc=;
-        b=UUg2X3MwgFwKb905ne77ACdJd3NENLVL+3kl1R0jAwRZIh+7hujllNanMrcMVg8xZa
-         U0XyCXQkw8K+95PX1h+YHtDpDQbpqP7nC7wr5WOnBXDK6xVLVtwDxqcd+3jYmAtGxFpm
-         T8SfPYhMtZuruD8hsjxYEOpQaaOtiJHMccw0TeRLrk0+YZZRxYkZB0i4dkh9PFx88Hq5
-         f20tKq4Wt+/wSEC/qs3v4ZPRYswt5hMEmQuTw0gH33dvoH2YlQTRKkvi3CrM6GjD4jxQ
-         PgHrLrwEfMb8vofYBFl7UV5A4a/O9zXaqrt0dVxgK3c1YtnzFl0NKmB+sQlOXFgIeD5E
-         q28w==
+         :list-id:mailing-list:precedence:mime-version:user-agent:message-id
+         :in-reply-to:date:references:subject:cc:to:from:dmarc-filter:sender;
+        bh=JaI9wUVex/yN5ZkpWOtU/roAkCNsbDD1A8Yl9O12pIY=;
+        b=gP8qDSxb/ic4pemPlMcHBH9J1UWm+bNpPl2eTgzHWkvs686vAgRBim6NR2tFpJ9qTu
+         Q7Rkx1WSDoqxTDY8JJGVB17a4UHHuzdPiNcNXQejSzjAprtbsMRNnJauve2thd76m2Hn
+         qPnLXgu1tIb8YpQfRSw3uZub8rXzG8APLhspMUUH6ml4kP82l92OherKretD2ZWXElq0
+         QiJlC3HMlIl4p8xUZS2uTSp7K1sbJBK2wuVQ2DR71kVdFfCHV4EZgfHAzP00lMKQ3fbx
+         IgDOOwFtFEqS85Z5nzMFVZLw2kqOIPpIPumyZthwoo3FVlXABw0NhYJzAQik7sQHq1WU
+         HnjQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ziepe.ca header.s=google header.b=Lh2+mUHm;
-       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::829 as permitted sender) smtp.mailfrom=jgg@ziepe.ca
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=S47rU+eSZMUrdE3o4F9VYpvYFE2kt8yut/mw+QpZohc=;
-        b=frx6UwZB6sfXKtZXrYfaj7vnkjTiDfooGnwpMxjNOGmrv1VV5nlDXCGDS+0VSW8E2q
-         soiBjtABjKDmXrWxUX5MSUYSsbz2l+VfrAuAC2C/tUODzGop7QsDC52h5VyBMC29631e
-         NYMaUK0XXTwapY05eHzfu1DDLxe7vY3oaG+5sGqPYXTZUINereksUlYOXgWeHCrEl1fR
-         sEVaKAEWNuBnx2nWwyL89wulNHAUbhrlrdKxdLUiOjM3RIoQGrH5wj5krsMRV3Ntq2bS
-         Dxk4SPeLFeptz8lkH2sfsjLZHQdF6pDhBmrwxFFbWG4g2SAKBglCpCLp5JKZlM4CSNgU
-         L7jg==
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=kOGaBHj5;
+       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=x-gm-message-state:sender:dmarc-filter:from:to:cc:subject
+         :references:date:in-reply-to:message-id:user-agent:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=S47rU+eSZMUrdE3o4F9VYpvYFE2kt8yut/mw+QpZohc=;
-        b=COALsaYsFgw78Cx94XdrxphCEl9rTFkXJnKFXXMZDzbfrwCwHjRspquF4i2pXBPnvN
-         pOzW1aaIYKY1GT7mfweKW7XFWmEZme7mnoywl4CuddrUxRbJMkbarZp5WV1N47zX3z/3
-         lS3q2LawMlaJILulddfRq6Tjxa40paiGE1mhG/Rji/bKwOnQDXCF0fLhK0yweQI48fXB
-         Ed12OI4Y0GuxOGhep4gzG239yWPaUkkZc5N8XOPfU/eymUGnH4XeL0t0++W9AsHshoBQ
-         fMXVkG8pgj9rHQ5I9/8pG/Muv9DhxCetIKay0kvon22ObEKnbQyi8vmurENcAPKL0d/9
-         TbIQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530nDDu32YnclG2sZo1QWkXZv1AQq2aqUsMOfupk9JArBGSXv7HA
-	g5up0VnAjJ8DVpohgQTJ3o4=
-X-Google-Smtp-Source: ABdhPJzNh3y24xVsW6S5JFr2EXwKq1DQaFNuLpIN590eatiUAGATkUea9SE7Ws/DcISHakxd1I4iWA==
-X-Received: by 2002:a05:620a:2849:: with SMTP id h9mr3376788qkp.69.1629376039455;
-        Thu, 19 Aug 2021 05:27:19 -0700 (PDT)
+        bh=JaI9wUVex/yN5ZkpWOtU/roAkCNsbDD1A8Yl9O12pIY=;
+        b=US6lUeCuE1Vmr4GdzxumHjwLSCxHE3daTL0ydO5oD445yBftiyd8IAo5dKBMg8yDd/
+         mDqLtAuc4Or7TcnwmDeMoIN4j/2UgkOrwhjQ8l/vxiX5Hxs+JGE30MTu26fe2P1foJO+
+         oOkdJIkCxc0x4bQPdNks9vyTYXbv86DJ3CB9tqR/lVrmQ2Ebko8VqfpLAj1F2a9W58aM
+         tagEgWO9VIenCH1xlc/hEHoWeYiH2l80XbluvXe5RHAEKoMSPNsWHeiAWbGcukAFcxCD
+         JavsOeTNSBSuxEJC52iUgkUX1CScvRul1Wlw9kvQIxpUM9n8/+k4BsFlSazLjKijwsGb
+         himw==
+X-Gm-Message-State: AOAM533OPV9b1Kj+VWNNwZSHYyxbH7n9FtLU4yxTagDA4j3Iqb4HZAdK
+	JlwnMjevQmH8w7QHyn41qQA=
+X-Google-Smtp-Source: ABdhPJxplerZ2xLNjyByxf5BL3cYb1JpPitTPW+pbmgy4z2BpvmHEIx+bTn8EhQmGXvwSgfERESsng==
+X-Received: by 2002:a62:8283:0:b0:3e0:f3f3:839d with SMTP id w125-20020a628283000000b003e0f3f3839dmr14495350pfd.37.1629379203485;
+        Thu, 19 Aug 2021 06:20:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:88d:: with SMTP id b13ls1535916qka.6.gmail; Thu, 19
- Aug 2021 05:27:19 -0700 (PDT)
-X-Received: by 2002:a05:620a:15b9:: with SMTP id f25mr3368529qkk.400.1629376038940;
-        Thu, 19 Aug 2021 05:27:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629376038; cv=none;
+Received: by 2002:a63:656:: with SMTP id 83ls2623093pgg.9.gmail; Thu, 19 Aug
+ 2021 06:20:02 -0700 (PDT)
+X-Received: by 2002:a63:f804:: with SMTP id n4mr13913047pgh.341.1629379202895;
+        Thu, 19 Aug 2021 06:20:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629379202; cv=none;
         d=google.com; s=arc-20160816;
-        b=DgIeleeeKbWKsIdStGh7d/gICjaCdcL1Gb6F/ucoo1gzFBmHBahCz1HgEaFJbXQjf0
-         Aam6YzoVZq42SDH9+UAvZX7kUa6gWZclxxtDZAMlJRft4iqf5ACl7wtd5yYrryfVIfev
-         xgf9EgddPwEyQe84zMsfakE0Fg13hd3KTLt+6j1KZQeFAPJdBzGkqgbqt2wq7tK3ou7r
-         /06TUfsPcCrbYioQrPCmkBBv4jb4QjzFZYuHR0wqge6qBB/CpAvarQCtp9oDLrui3SqG
-         g0ipraK+EY9WGYeaNiBAQUQeUeG++SB+qblMbz/dA0vQDxuJlelx4iAQfNgdoOseEBYH
-         rDsg==
+        b=YbfPAbIJkYFP3YO9xEYAK30PlwLX8dlT/Y93vaZ/m8nQBL4CTXyJMmgaLrYfhaoBRy
+         ZT4fNJHzVv9+9Hi3oASFkFKcyCe8cfigvKftqp5PSPtKKkqilSXFrWPSJYcGLQut/12K
+         jv7vfzxku1II4/l/MhvEI5NNJxnufvPsirmHGlfDOcxKfHQQL9697HO87GE699k2FG8O
+         mOaXO7tywJOBOYsUKYLOXtptWcPTsWKTGYEneMDL/GjN8W5hfenOy/lNWcULDr1B4Tc5
+         jQ7PHWQUAd5NTnLL937Y5/Wiz1N6xPZ9xaJNkNEmHoK9260wBXUb8gwdEe+wYp90GTPe
+         wiQQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=5h8DRQ7Bx+eFzlj90sftRVtoQw5ByFsjYM5vOznvNjM=;
-        b=pz6vF14Tpf5AqCdBLv5L8hy7g/SHJ+oc2mbOV0B2Bx2QoBOgTqXzvNPlsRIaZNnJ+2
-         EbYs2r7+CKmrm995Yic2hj57y+kLzUMhzpx7pk/bBPuRpKuX6Q15d2SqcwxnTByKanRW
-         rQloBbA2MjTCB09wRcz0tKd5nJ2wqn/XxhJfBD2bhd+Z1W1rAjQImxKu6XB6s4VD4iE5
-         om7Xtfq/PHgTc/KER3cVAPWAGL8h9lH9Re81+CUGWeEUuOM/x2rLU6bt3MSyzGbMhhDe
-         +unXCKQMgWxL54aFvCIya59PyRViVF1ZVgsiPZgfBGCLq4uQ712AfknSDtLNgtupuu1I
-         WRVw==
+        h=mime-version:user-agent:message-id:in-reply-to:date:references
+         :subject:cc:to:from:dmarc-filter:sender:dkim-signature;
+        bh=l4dT+tFYjcxU/834O3TlS8Kbm5D9Je72nne0F+3BpO8=;
+        b=KD7xJzeetdzjeLKFRxBXca/XkxNjzDiz1Jl0q2uwBQ2HISJ6WTPfnMass55iVbSmql
+         Vj1Iosq2OgP6XL1NxHS+Uc+wro2AGpgzZ8D0ygfDNJIIEnpHPwKSuJSetzEDeIq6ZmyX
+         2T5GL+XUWeoozqj2aefNWuqDCowwJIO1o9erpYvaEphJ9qRl80RBMlKrMsBOI2IAStfi
+         9OZQD4m+qd2xnnd+ObXc6fUKipjniYCg2vkgSDGK27HHysIwl5vcNTcPnWxc8Aayehzf
+         YYzJeOo/VKI5a4B94XLZ+vbonnzaOpIS9h4HDdmksORCjPu/I5zrai/oRut5zTsgoZDG
+         pDIg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ziepe.ca header.s=google header.b=Lh2+mUHm;
-       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::829 as permitted sender) smtp.mailfrom=jgg@ziepe.ca
-Received: from mail-qt1-x829.google.com (mail-qt1-x829.google.com. [2607:f8b0:4864:20::829])
-        by gmr-mx.google.com with ESMTPS id f13si157520qko.2.2021.08.19.05.27.18
+       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=kOGaBHj5;
+       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+Received: from so254-9.mailgun.net (so254-9.mailgun.net. [198.61.254.9])
+        by gmr-mx.google.com with UTF8SMTPS id q2si182567pfl.0.2021.08.19.06.19.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Aug 2021 05:27:18 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::829 as permitted sender) client-ip=2607:f8b0:4864:20::829;
-Received: by mail-qt1-x829.google.com with SMTP id l24so4391713qtj.4
-        for <clang-built-linux@googlegroups.com>; Thu, 19 Aug 2021 05:27:18 -0700 (PDT)
-X-Received: by 2002:a05:622a:11cc:: with SMTP id n12mr12404820qtk.363.1629376038633;
-        Thu, 19 Aug 2021 05:27:18 -0700 (PDT)
-Received: from ziepe.ca ([206.223.160.26])
-        by smtp.gmail.com with ESMTPSA id d7sm1266808qth.70.2021.08.19.05.27.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Aug 2021 05:27:18 -0700 (PDT)
-Received: from jgg by mlx with local (Exim 4.94)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1mGh8e-0016LT-A5; Thu, 19 Aug 2021 09:27:16 -0300
-Date: Thu, 19 Aug 2021 09:27:16 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
+        Thu, 19 Aug 2021 06:20:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) client-ip=198.61.254.9;
+X-Mailgun-Sending-Ip: 198.61.254.9
+X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
+Received: from smtp.codeaurora.org
+ (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
+ smtp-out-n03.prod.us-east-1.postgun.com with SMTP id
+ 611e5a749507ca1a345ec048 (version=TLS1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Thu, 19 Aug 2021 13:19:48
+ GMT
+Sender: kvalo=codeaurora.org@mg.codeaurora.org
+Received: by smtp.codeaurora.org (Postfix, from userid 1001)
+	id 40FE0C4360C; Thu, 19 Aug 2021 13:19:47 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	aws-us-west-2-caf-mail-1.web.codeaurora.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.9 required=2.0 tests=ALL_TRUSTED,BAYES_00,SPF_FAIL
+	autolearn=no autolearn_force=no version=3.4.0
+Received: from tynnyri.adurom.net (tynnyri.adurom.net [51.15.11.48])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: kvalo)
+	by smtp.codeaurora.org (Postfix) with ESMTPSA id 2682CC4338F;
+	Thu, 19 Aug 2021 13:19:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.1 smtp.codeaurora.org 2682CC4338F
+From: Kalle Valo <kvalo@codeaurora.org>
 To: Kees Cook <keescook@chromium.org>
-Cc: linux-kernel@vger.kernel.org, Leon Romanovsky <leon@kernel.org>,
-	Doug Ledford <dledford@redhat.com>, linux-rdma@vger.kernel.org,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-staging@lists.linux.dev,
-	linux-block@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 56/63] RDMA/mlx5: Use struct_group() to zero struct
- mlx5_ib_mr
-Message-ID: <20210819122716.GP543798@ziepe.ca>
+Cc: linux-kernel@vger.kernel.org,  "David S. Miller" <davem@davemloft.net>,  Jakub Kicinski <kuba@kernel.org>,  ath11k@lists.infradead.org,  linux-wireless@vger.kernel.org,  netdev@vger.kernel.org,  "Gustavo A. R. Silva" <gustavoars@kernel.org>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Andrew Morton <akpm@linux-foundation.org>,  dri-devel@lists.freedesktop.org,  linux-staging@lists.linux.dev,  linux-block@vger.kernel.org,  linux-kbuild@vger.kernel.org,  clang-built-linux@googlegroups.com,  Rasmus Villemoes <linux@rasmusvillemoes.dk>,  linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 45/63] ath11k: Use memset_startat() for clearing queue descriptors
 References: <20210818060533.3569517-1-keescook@chromium.org>
- <20210818060533.3569517-57-keescook@chromium.org>
+	<20210818060533.3569517-46-keescook@chromium.org>
+Date: Thu, 19 Aug 2021 16:19:37 +0300
+In-Reply-To: <20210818060533.3569517-46-keescook@chromium.org> (Kees Cook's
+	message of "Tue, 17 Aug 2021 23:05:15 -0700")
+Message-ID: <87eeapbmhi.fsf@tynnyri.adurom.net>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (gnu/linux)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210818060533.3569517-57-keescook@chromium.org>
-X-Original-Sender: jgg@ziepe.ca
+X-Original-Sender: kvalo@codeaurora.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ziepe.ca header.s=google header.b=Lh2+mUHm;       spf=pass
- (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::829 as
- permitted sender) smtp.mailfrom=jgg@ziepe.ca
+ header.i=@mg.codeaurora.org header.s=smtp header.b=kOGaBHj5;       spf=pass
+ (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
+ designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,54 +132,33 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Aug 17, 2021 at 11:05:26PM -0700, Kees Cook wrote:
+Kees Cook <keescook@chromium.org> writes:
+
 > In preparation for FORTIFY_SOURCE performing compile-time and run-time
 > field bounds checking for memset(), avoid intentionally writing across
 > neighboring fields.
-> 
-> Add struct_group() to mark region of struct mlx5_ib_mr that should be
-> initialized to zero.
-> 
-> Cc: Leon Romanovsky <leon@kernel.org>
-> Cc: Doug Ledford <dledford@redhat.com>
-> Cc: Jason Gunthorpe <jgg@ziepe.ca>
-> Cc: linux-rdma@vger.kernel.org
+>
+> Use memset_startat() so memset() doesn't get confused about writing
+> beyond the destination member that is intended to be the starting point
+> of zeroing through the end of the struct. Additionally split up a later
+> field-spanning memset() so that memset() can reason about the size.
+>
+> Cc: Kalle Valo <kvalo@codeaurora.org>
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: Jakub Kicinski <kuba@kernel.org>
+> Cc: ath11k@lists.infradead.org
+> Cc: linux-wireless@vger.kernel.org
+> Cc: netdev@vger.kernel.org
 > Signed-off-by: Kees Cook <keescook@chromium.org>
-> ---
->  drivers/infiniband/hw/mlx5/mlx5_ib.h | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/infiniband/hw/mlx5/mlx5_ib.h b/drivers/infiniband/hw/mlx5/mlx5_ib.h
-> index bf20a388eabe..f63bf204a7a1 100644
-> --- a/drivers/infiniband/hw/mlx5/mlx5_ib.h
-> +++ b/drivers/infiniband/hw/mlx5/mlx5_ib.h
-> @@ -644,6 +644,7 @@ struct mlx5_ib_mr {
->  	struct ib_umem *umem;
->  
->  	/* This is zero'd when the MR is allocated */
-> +	struct_group(cleared,
->  	union {
->  		/* Used only while the MR is in the cache */
->  		struct {
-> @@ -691,12 +692,13 @@ struct mlx5_ib_mr {
->  			bool is_odp_implicit;
->  		};
->  	};
-> +	);
->  };
->  
->  /* Zero the fields in the mr that are variant depending on usage */
->  static inline void mlx5_clear_mr(struct mlx5_ib_mr *mr)
->  {
-> -	memset(mr->out, 0, sizeof(*mr) - offsetof(struct mlx5_ib_mr, out));
-> +	memset(&mr->cleared, 0, sizeof(mr->cleared));
->  }
 
-Why not use the memset_after(mr->umem) here?
+To avoid conflicts I prefer taking this via my ath tree.
 
-Jason
+-- 
+https://patchwork.kernel.org/project/linux-wireless/list/
+
+https://wireless.wiki.kernel.org/en/developers/documentation/submittingpatches
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210819122716.GP543798%40ziepe.ca.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87eeapbmhi.fsf%40tynnyri.adurom.net.
