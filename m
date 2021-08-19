@@ -1,125 +1,144 @@
-Return-Path: <clang-built-linux+bncBCQYFH77QIORBA5V7GEAMGQETZQJEOI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYZRFP3QIJBBX6N7GEAMGQEJPINONQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-f57.google.com (mail-pj1-f57.google.com [209.85.216.57])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0E33A3F1A30
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 15:20:05 +0200 (CEST)
-Received: by mail-pj1-f57.google.com with SMTP id v9-20020a17090a7c09b02901778a2a8fd6sf6214341pjf.3
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 06:20:04 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629379203; cv=pass;
+Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 788303F1B62
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 16:12:49 +0200 (CEST)
+Received: by mail-pg1-x53f.google.com with SMTP id u3-20020a6323430000b029023ba96595fdsf3516716pgm.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Aug 2021 07:12:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629382368; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XUU6gqzbWAaViV76eG+D8D3GgIeXkl3A4sF0HxAADXs20Izrk+N8el3Hal6/xELD3b
-         g20P+XN46T7yU3ZIwXa9EmSs6Um1RUVfAD6IkptCvMDF6TTIVFeIvidIb5nS/+JJiHNF
-         nizbLa0J3zEDcxwN60V+L1jb1T9hNgLA+fShOgw1Ejrvyi2da0ZWbHJkIFJn8XED8H9o
-         PEurpja/Unpjeb4zMf0ED0gc8Q1UGT3XDFcq43kMt8UsFFjjZNcGUMa/IyuDbjGV/dVE
-         Z/M8a+Vcz/vxA6OmrRz1yz2qn7utKjSuhZbBhwj/xRr9imRQ4M8V88cLw7sa1RitwvRe
-         1eyw==
+        b=nROQeMCxou6HdWFme1C6OvYPxlg+qNSPPdXUztzk07NU7Sm51fJevu26YAZFadgIVN
+         OxTMQCVf7n+ka4lNoEn4tt784HsOI/SycBoOWofLQfH67kHZGv4pFmK7KWoi4yUqZSfZ
+         RsrVY5L2SHU++r9BWB7SFe7sgtPVCrbrB5BmtG6Yjgp13hyrle9vT7GAwFE6buH8hz5C
+         fy+H7A4gSXcc6kIB711eF/Av3quDn0l+9hx+f6hAh0bqkApRp8abQoySpIQH4n4YZcxE
+         r1ohwgFUCzz4okPmKfGa9nPDoJVMIBsmts0Qh3mrud+9UT5irI5+4ZUTVnQwn725TjxL
+         AbJA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:message-id
-         :in-reply-to:date:references:subject:cc:to:from:dmarc-filter:sender;
-        bh=JaI9wUVex/yN5ZkpWOtU/roAkCNsbDD1A8Yl9O12pIY=;
-        b=gP8qDSxb/ic4pemPlMcHBH9J1UWm+bNpPl2eTgzHWkvs686vAgRBim6NR2tFpJ9qTu
-         Q7Rkx1WSDoqxTDY8JJGVB17a4UHHuzdPiNcNXQejSzjAprtbsMRNnJauve2thd76m2Hn
-         qPnLXgu1tIb8YpQfRSw3uZub8rXzG8APLhspMUUH6ml4kP82l92OherKretD2ZWXElq0
-         QiJlC3HMlIl4p8xUZS2uTSp7K1sbJBK2wuVQ2DR71kVdFfCHV4EZgfHAzP00lMKQ3fbx
-         IgDOOwFtFEqS85Z5nzMFVZLw2kqOIPpIPumyZthwoo3FVlXABw0NhYJzAQik7sQHq1WU
-         HnjQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=2F//juEh0mz3i3NAZ47+yv6up6wX7C7PSTWDtmT2YZM=;
+        b=nr4WLO1ustErYMtxTlSDfvUtzTLQYq8yAmwy1Zw9yNSbkJ0Y9gM4OjzR2BPpCOMJq7
+         PVEVXEcDpOEDEejaRet5U3GYfcJTZ9ifOWgDWxMyAXxORbHwM/z7NcgNhKRRm9uF4KWW
+         8QgNasqG6SIvTW48Qyjx+DO5FQZty8WeqQUSz0Qo+HiVAeUiwQpgoygMWRt43jd1DVW/
+         ORqNL0pKkxcMb6VVYSnufUq0/GYGDo2JSRAJiFbkqMYrvLwVcDA0KnejTcMbvFoNFTjZ
+         YxYFyF5WJc5ZoL/cqDLZBHoSxPuC+hhm7z+ESEW8aoSs4/hq0klMYQtsdmKUTPlNMDRt
+         YUAg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=kOGaBHj5;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+       spf=pass (google.com: domain of dennisszhou@gmail.com designates 209.85.222.182 as permitted sender) smtp.mailfrom=dennisszhou@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=2F//juEh0mz3i3NAZ47+yv6up6wX7C7PSTWDtmT2YZM=;
+        b=aw0EKJhnjfptSmF4oMmnQHPp8QI70e+FPQphUgXdt7OuEH77D0a65iNgteWcZwf+2w
+         KzDu3lfMg7qmIR14mAs2GjJvGhqU1XTCqDMTHRtxCISOrASPfa3ckh9gA4RMRd8XjezF
+         LhpWOU4A0cIsEA4wtIPFc74n2DCYjtpMEgx/U6WOypYGXsQLw9Tp/scjS7JKSfSIqVbu
+         F8QsJTDgQGGCDV0k7huwHjuS1nC40NRepQP9hjDxbDPrUXW69cd59MWzV/AvpsAdZG2U
+         UpytZJ+FZaTKIdb3Vka7Uoyl5rwothb18eJTnfymooCXirZF8YfDOO+DWZkBYexw116k
+         69sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:dmarc-filter:from:to:cc:subject
-         :references:date:in-reply-to:message-id:user-agent:mime-version
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=JaI9wUVex/yN5ZkpWOtU/roAkCNsbDD1A8Yl9O12pIY=;
-        b=US6lUeCuE1Vmr4GdzxumHjwLSCxHE3daTL0ydO5oD445yBftiyd8IAo5dKBMg8yDd/
-         mDqLtAuc4Or7TcnwmDeMoIN4j/2UgkOrwhjQ8l/vxiX5Hxs+JGE30MTu26fe2P1foJO+
-         oOkdJIkCxc0x4bQPdNks9vyTYXbv86DJ3CB9tqR/lVrmQ2Ebko8VqfpLAj1F2a9W58aM
-         tagEgWO9VIenCH1xlc/hEHoWeYiH2l80XbluvXe5RHAEKoMSPNsWHeiAWbGcukAFcxCD
-         JavsOeTNSBSuxEJC52iUgkUX1CScvRul1Wlw9kvQIxpUM9n8/+k4BsFlSazLjKijwsGb
-         himw==
-X-Gm-Message-State: AOAM533OPV9b1Kj+VWNNwZSHYyxbH7n9FtLU4yxTagDA4j3Iqb4HZAdK
-	JlwnMjevQmH8w7QHyn41qQA=
-X-Google-Smtp-Source: ABdhPJxplerZ2xLNjyByxf5BL3cYb1JpPitTPW+pbmgy4z2BpvmHEIx+bTn8EhQmGXvwSgfERESsng==
-X-Received: by 2002:a62:8283:0:b0:3e0:f3f3:839d with SMTP id w125-20020a628283000000b003e0f3f3839dmr14495350pfd.37.1629379203485;
-        Thu, 19 Aug 2021 06:20:03 -0700 (PDT)
+        bh=2F//juEh0mz3i3NAZ47+yv6up6wX7C7PSTWDtmT2YZM=;
+        b=RrNhN2Dd4/G186FSEH9LeA/TU008VO6oRPuppJYthRiNL8VFyA0pnwds3ABb7mO6lq
+         NwbqOac9c4TB2gKGxRlrNMe/3DMH3ri3EH9PtpiL48DblgeEJZJsBU3I1ihYLuCSt7hT
+         kF3rhU5PQhvY+C1rvZECT2UPpsZ/62qZd3cp2B7XvIiFjcfmiWhxFegx9mcxoS2gPHe9
+         z7tbbQnxa+z8EzB1sQaSaqxZHlTHJ9M1GRLVRakfJPiRZQuY9MDGT2Y61xSqVnL3lPBg
+         Rna5DOVq0z3T0z9KlJRD99A5IA4AEii/Zd+ZiXCtsHHXJCntYg9vt7r6a6L6tj3C6oqF
+         x74g==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM533zbirrIxwRNTRv7sYxLHqbwUWhxnfcSRzugpxSDR2PQ7t6H8tz
+	s9jnuG0dae7JO0rnEaeu6wM=
+X-Google-Smtp-Source: ABdhPJze9Y24rBR4z8V7nxqpjakwnR87Y0LozMF56Z0ue+Y+SNnLEN8R0X1S56ZdBHFOcqgSkv25kQ==
+X-Received: by 2002:a17:90a:a581:: with SMTP id b1mr12158569pjq.146.1629382367916;
+        Thu, 19 Aug 2021 07:12:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:656:: with SMTP id 83ls2623093pgg.9.gmail; Thu, 19 Aug
- 2021 06:20:02 -0700 (PDT)
-X-Received: by 2002:a63:f804:: with SMTP id n4mr13913047pgh.341.1629379202895;
-        Thu, 19 Aug 2021 06:20:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629379202; cv=none;
+Received: by 2002:a17:90a:149:: with SMTP id z9ls3082112pje.2.gmail; Thu, 19
+ Aug 2021 07:12:47 -0700 (PDT)
+X-Received: by 2002:a17:90a:ad06:: with SMTP id r6mr14976098pjq.25.1629382367287;
+        Thu, 19 Aug 2021 07:12:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629382367; cv=none;
         d=google.com; s=arc-20160816;
-        b=YbfPAbIJkYFP3YO9xEYAK30PlwLX8dlT/Y93vaZ/m8nQBL4CTXyJMmgaLrYfhaoBRy
-         ZT4fNJHzVv9+9Hi3oASFkFKcyCe8cfigvKftqp5PSPtKKkqilSXFrWPSJYcGLQut/12K
-         jv7vfzxku1II4/l/MhvEI5NNJxnufvPsirmHGlfDOcxKfHQQL9697HO87GE699k2FG8O
-         mOaXO7tywJOBOYsUKYLOXtptWcPTsWKTGYEneMDL/GjN8W5hfenOy/lNWcULDr1B4Tc5
-         jQ7PHWQUAd5NTnLL937Y5/Wiz1N6xPZ9xaJNkNEmHoK9260wBXUb8gwdEe+wYp90GTPe
-         wiQQ==
+        b=pzCz4auVpDKgQhcoEpKZI4XIMX4E1A+qarOfPhwONt6OTaRSnaGq6vtkUgBL+vydr9
+         8DbIK3Q6z7pm1c8Gg3Pe1hy1XKRptUxR6EcxtlYdmvHmD3zOAoOY2eKgmjOKsIpEnP+d
+         sYPhnz5fThA1o9o8b14kCzIY99weKMlNYwLilknfSJIsyEVhoug688uMA78ve13imVDn
+         UadbU2Z7GpPHaFgxnkZPE7F9vo0lD2+4xZG5KssbFn/HoWr7PmDrPi9Ai2kPfdQruG5w
+         hUn39VeB7AXnE1q8CsZZAore/GNmGPyUEvoQhNxgy3r38vVEQ567UhGl3dfm44D0uE4U
+         uhyw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:message-id:in-reply-to:date:references
-         :subject:cc:to:from:dmarc-filter:sender:dkim-signature;
-        bh=l4dT+tFYjcxU/834O3TlS8Kbm5D9Je72nne0F+3BpO8=;
-        b=KD7xJzeetdzjeLKFRxBXca/XkxNjzDiz1Jl0q2uwBQ2HISJ6WTPfnMass55iVbSmql
-         Vj1Iosq2OgP6XL1NxHS+Uc+wro2AGpgzZ8D0ygfDNJIIEnpHPwKSuJSetzEDeIq6ZmyX
-         2T5GL+XUWeoozqj2aefNWuqDCowwJIO1o9erpYvaEphJ9qRl80RBMlKrMsBOI2IAStfi
-         9OZQD4m+qd2xnnd+ObXc6fUKipjniYCg2vkgSDGK27HHysIwl5vcNTcPnWxc8Aayehzf
-         YYzJeOo/VKI5a4B94XLZ+vbonnzaOpIS9h4HDdmksORCjPu/I5zrai/oRut5zTsgoZDG
-         pDIg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=EzeHLB2s0wcZiu9diV61Z7RrK3vSIEBc9fmeT4t3UBc=;
+        b=WNoqxrnsQHC/sGlNo1sYQuQeqOdRdTNn6Z+2jnlZ6nKLZN4O0Qyc/L0conWD+xLCv1
+         oQaAp5vIa6kUJqrprwvD8OoLer0TrajHxERVp/6jZIV853znzpqlCThLsDIHo+em8gB1
+         ZNDPKKspu0qkdk99tXOj3rRNgqgDVLE8mW0r5C3LQdHJi4dioY/xSoXBdClDrd0ngQVW
+         Bkb/vwPvTUe88IfAB2LE+NINb2vf/jKmq1dH/gSw+Eny3oiRNrYgrbVY8fCOGI+uj3mY
+         FjLslFOCeg7P/3rhq/Uc0uZDilZhWTk6nzsmk07O/3NR09PcvRacq8Xz5zPM/mhtqkK+
+         AVxQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=kOGaBHj5;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
-Received: from so254-9.mailgun.net (so254-9.mailgun.net. [198.61.254.9])
-        by gmr-mx.google.com with UTF8SMTPS id q2si182567pfl.0.2021.08.19.06.19.57
+       spf=pass (google.com: domain of dennisszhou@gmail.com designates 209.85.222.182 as permitted sender) smtp.mailfrom=dennisszhou@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail-qk1-f182.google.com (mail-qk1-f182.google.com. [209.85.222.182])
+        by gmr-mx.google.com with ESMTPS id b15si208979pfl.6.2021.08.19.07.12.47
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Aug 2021 06:20:02 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 198.61.254.9 as permitted sender) client-ip=198.61.254.9;
-X-Mailgun-Sending-Ip: 198.61.254.9
-X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
-Received: from smtp.codeaurora.org
- (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171]) by
- smtp-out-n03.prod.us-east-1.postgun.com with SMTP id
- 611e5a749507ca1a345ec048 (version=TLS1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256); Thu, 19 Aug 2021 13:19:48
- GMT
-Sender: kvalo=codeaurora.org@mg.codeaurora.org
-Received: by smtp.codeaurora.org (Postfix, from userid 1001)
-	id 40FE0C4360C; Thu, 19 Aug 2021 13:19:47 +0000 (UTC)
-X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-	aws-us-west-2-caf-mail-1.web.codeaurora.org
-X-Spam-Level: 
-X-Spam-Status: No, score=-2.9 required=2.0 tests=ALL_TRUSTED,BAYES_00,SPF_FAIL
-	autolearn=no autolearn_force=no version=3.4.0
-Received: from tynnyri.adurom.net (tynnyri.adurom.net [51.15.11.48])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: kvalo)
-	by smtp.codeaurora.org (Postfix) with ESMTPSA id 2682CC4338F;
-	Thu, 19 Aug 2021 13:19:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.1 smtp.codeaurora.org 2682CC4338F
-From: Kalle Valo <kvalo@codeaurora.org>
-To: Kees Cook <keescook@chromium.org>
-Cc: linux-kernel@vger.kernel.org,  "David S. Miller" <davem@davemloft.net>,  Jakub Kicinski <kuba@kernel.org>,  ath11k@lists.infradead.org,  linux-wireless@vger.kernel.org,  netdev@vger.kernel.org,  "Gustavo A. R. Silva" <gustavoars@kernel.org>,  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Andrew Morton <akpm@linux-foundation.org>,  dri-devel@lists.freedesktop.org,  linux-staging@lists.linux.dev,  linux-block@vger.kernel.org,  linux-kbuild@vger.kernel.org,  clang-built-linux@googlegroups.com,  Rasmus Villemoes <linux@rasmusvillemoes.dk>,  linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 45/63] ath11k: Use memset_startat() for clearing queue descriptors
-References: <20210818060533.3569517-1-keescook@chromium.org>
-	<20210818060533.3569517-46-keescook@chromium.org>
-Date: Thu, 19 Aug 2021 16:19:37 +0300
-In-Reply-To: <20210818060533.3569517-46-keescook@chromium.org> (Kees Cook's
-	message of "Tue, 17 Aug 2021 23:05:15 -0700")
-Message-ID: <87eeapbmhi.fsf@tynnyri.adurom.net>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (gnu/linux)
+        Thu, 19 Aug 2021 07:12:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dennisszhou@gmail.com designates 209.85.222.182 as permitted sender) client-ip=209.85.222.182;
+Received: by mail-qk1-f182.google.com with SMTP id 14so7279797qkc.4
+        for <clang-built-linux@googlegroups.com>; Thu, 19 Aug 2021 07:12:47 -0700 (PDT)
+X-Received: by 2002:a05:620a:4008:: with SMTP id h8mr3863126qko.211.1629382366433;
+        Thu, 19 Aug 2021 07:12:46 -0700 (PDT)
+Received: from fedora (pool-173-68-57-129.nycmny.fios.verizon.net. [173.68.57.129])
+        by smtp.gmail.com with ESMTPSA id q14sm1518663qkl.44.2021.08.19.07.12.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Aug 2021 07:12:45 -0700 (PDT)
+Date: Thu, 19 Aug 2021 10:12:43 -0400
+From: Dennis Zhou <dennis@kernel.org>
+To: Kees Cook <keescook@chromium.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: Dennis Zhou <dennis@kernel.org>, linux-kernel@vger.kernel.org,
+	Daniel Micay <danielmicay@gmail.com>, Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@linux.com>, linux-mm@kvack.org,
+	Joe Perches <joe@perches.com>, Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Andy Whitcroft <apw@canonical.com>,
+	Dwaipayan Ray <dwaipayanray1@gmail.com>,
+	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
+	Pekka Enberg <penberg@kernel.org>,
+	David Rientjes <rientjes@google.com>,
+	Joonsoo Kim <iamjoonsoo.kim@lge.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Michal Marek <michal.lkml@markovi.net>,
+	clang-built-linux@googlegroups.com, linux-kbuild@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 6/7] percpu: Add __alloc_size attributes for better
+ bounds checking
+Message-ID: <YR5m25qD8ul5N+mc@fedora>
+References: <20210818214021.2476230-1-keescook@chromium.org>
+ <20210818214021.2476230-7-keescook@chromium.org>
+ <YR2pE9V1P0xmBWUo@fedora>
+ <202108182018.6DA03EA818@keescook>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: kvalo@codeaurora.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mg.codeaurora.org header.s=smtp header.b=kOGaBHj5;       spf=pass
- (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
- designates 198.61.254.9 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+Content-Disposition: inline
+In-Reply-To: <202108182018.6DA03EA818@keescook>
+X-Original-Sender: dennis@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of dennisszhou@gmail.com designates 209.85.222.182 as
+ permitted sender) smtp.mailfrom=dennisszhou@gmail.com;       dmarc=fail
+ (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,33 +151,88 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Kees Cook <keescook@chromium.org> writes:
+On Wed, Aug 18, 2021 at 08:36:50PM -0700, Kees Cook wrote:
+> On Wed, Aug 18, 2021 at 08:42:59PM -0400, Dennis Zhou wrote:
+> > On Wed, Aug 18, 2021 at 02:40:20PM -0700, Kees Cook wrote:
+> > > As already done in GrapheneOS, add the __alloc_size attribute for
+> > > appropriate percpu allocator interfaces, to provide additional hinting
+> > > for better bounds checking, assisting CONFIG_FORTIFY_SOURCE and other
+> > > compiler optimizations.
+> > 
+> > Can you elaborate a little bit for me how this works for percpu? In any
+> > case that's not uniprocessor, any modification is done through address
+> > accessors and not on the returned percpu pointer. Is the metadata kept
+> > by gcc/clang able to transpire the percpu pointer accessors?
+> 
+> That's an excellent point. :P I haven't tested it through the accessors,
+> but I guess it's possible that this is only useful for UP, and even
+> then, only where the access is very close to the "allocation", maybe
+> like:
+> 
 
-> In preparation for FORTIFY_SOURCE performing compile-time and run-time
-> field bounds checking for memset(), avoid intentionally writing across
-> neighboring fields.
->
-> Use memset_startat() so memset() doesn't get confused about writing
-> beyond the destination member that is intended to be the starting point
-> of zeroing through the end of the struct. Additionally split up a later
-> field-spanning memset() so that memset() can reason about the size.
->
-> Cc: Kalle Valo <kvalo@codeaurora.org>
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Cc: Jakub Kicinski <kuba@kernel.org>
-> Cc: ath11k@lists.infradead.org
-> Cc: linux-wireless@vger.kernel.org
-> Cc: netdev@vger.kernel.org
-> Signed-off-by: Kees Cook <keescook@chromium.org>
+I see that this is already pulled by Andrew, but I think it would be
+good to modify the commit log to add a short bit about this limitation.
+Otherwise, the commit reads as if it's doing way more than it is.
 
-To avoid conflicts I prefer taking this via my ath tree.
+Thanks,
+Dennis
 
--- 
-https://patchwork.kernel.org/project/linux-wireless/list/
-
-https://wireless.wiki.kernel.org/en/developers/documentation/submittingpatches
+> char __percpu *test_buf;
+> 
+> 	char *buf;
+> 	test_var = __alloc_percpu(16, __alignof__(char));
+> 	buf = per_cpu_ptr(test_buf, get_cpu());
+> 	...
+> 	buf[20] = '!';
+> 
+> -Kees
+> 
+> > 
+> > Thanks,
+> > Dennis
+> > 
+> > > 
+> > > Co-developed-by: Daniel Micay <danielmicay@gmail.com>
+> > > Signed-off-by: Daniel Micay <danielmicay@gmail.com>
+> > > Cc: Dennis Zhou <dennis@kernel.org>
+> > > Cc: Tejun Heo <tj@kernel.org>
+> > > Cc: Christoph Lameter <cl@linux.com>
+> > > Cc: linux-mm@kvack.org
+> > > Signed-off-by: Kees Cook <keescook@chromium.org>
+> > > ---
+> > >  include/linux/percpu.h | 3 +++
+> > >  1 file changed, 3 insertions(+)
+> > > 
+> > > diff --git a/include/linux/percpu.h b/include/linux/percpu.h
+> > > index 5e76af742c80..119f41815b32 100644
+> > > --- a/include/linux/percpu.h
+> > > +++ b/include/linux/percpu.h
+> > > @@ -123,6 +123,7 @@ extern int __init pcpu_page_first_chunk(size_t reserved_size,
+> > >  				pcpu_fc_populate_pte_fn_t populate_pte_fn);
+> > >  #endif
+> > >  
+> > > +__alloc_size(1)
+> > >  extern void __percpu *__alloc_reserved_percpu(size_t size, size_t align);
+> > >  extern bool __is_kernel_percpu_address(unsigned long addr, unsigned long *can_addr);
+> > >  extern bool is_kernel_percpu_address(unsigned long addr);
+> > > @@ -131,7 +132,9 @@ extern bool is_kernel_percpu_address(unsigned long addr);
+> > >  extern void __init setup_per_cpu_areas(void);
+> > >  #endif
+> > >  
+> > > +__alloc_size(1)
+> > >  extern void __percpu *__alloc_percpu_gfp(size_t size, size_t align, gfp_t gfp);
+> > > +__alloc_size(1)
+> > >  extern void __percpu *__alloc_percpu(size_t size, size_t align);
+> > >  extern void free_percpu(void __percpu *__pdata);
+> > >  extern phys_addr_t per_cpu_ptr_to_phys(void *addr);
+> > > -- 
+> > > 2.30.2
+> > > 
+> 
+> -- 
+> Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87eeapbmhi.fsf%40tynnyri.adurom.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YR5m25qD8ul5N%2Bmc%40fedora.
