@@ -1,135 +1,142 @@
-Return-Path: <clang-built-linux+bncBCR5PSMFZYORBCNZ72EAMGQE73X3CQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUO3AHUWUIRBOWC72EAMGQEHFMZYDY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1CE193F2BC8
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Aug 2021 14:14:03 +0200 (CEST)
-Received: by mail-ot1-x340.google.com with SMTP id k18-20020a9d7dd2000000b0051aec75d1absf1554311otn.5
-        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Aug 2021 05:14:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629461642; cv=pass;
+Received: from mail-ua1-x93f.google.com (mail-ua1-x93f.google.com [IPv6:2607:f8b0:4864:20::93f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8A1303F2C28
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Aug 2021 14:34:03 +0200 (CEST)
+Received: by mail-ua1-x93f.google.com with SMTP id u9-20020ab07209000000b002ab978d1714sf2343420uao.23
+        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Aug 2021 05:34:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629462842; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yZRIOmFT2Rx6mep9DLe1MJjP/Fm28sx1UJGhVwQAYasx/u2xwlGlBJC4v+vVYjfKOh
-         q3fVclRRwu44CyXK5guX2ud3b0cd0hrwX0SViBqNKgfHMZn1PkyMy86dwGow2ZCBO/TT
-         dSHWqaeoW/rdZE14yRUrcSybSc56oWbgWaF0g6AGKQxyoB3Sn05RUx0pYXaEXqJyZxYo
-         +h1UnQKewRW5wcAQozEJUFN50xC3ecodS1rKAUxaFhQu5pjYIl/DH2TiDtUlu33pdIPO
-         GXrruEhpkyPjDy/19hRkBp46FUEfNyNEMiYUWHwL7Q9l9mX1EuK/K2qwP87LMgiSi+JL
-         O3Yw==
+        b=UHBOnFz4a14ZZqN1MFTFKFAyiK+w/OiIhZxuCWJj8WllrX1u2VCdEl121drf0uf58w
+         eTrEBbefMKtF77c03efZH8aIlA9x76SIPryzZy3vgTuLUI0wN6zM72fN+m9l/E0F7dh7
+         DPCbSyGwjjnczygRBbGaaiQLS807gMmQep3DSyY1CGtxNG3UovfLvzdg7K9IK04R6hzk
+         bBkKrOQObcHxTMbfteMLsGlGi5lNQ+EtgloocsJqKLzpiobVZ13uoOx+CV8FDf94grgt
+         qwmQf3aHv3DjOkyp6j5e0dkW89m/jf12O7OSAdONTZ680SwwcyAp6xyASh+lMy1CKlzH
+         QOzA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:sender:dkim-signature;
-        bh=M/NGDG7caafZxB35WLN0IcVVppng/sB9rYjSsexH1rs=;
-        b=wNgKx2RKL44/+dvnL0Q2DSjCWCg1VLpjuZ2RS1+SNmmKxssz+J3TNltZtrY1eYTAvF
-         rR01mfHD26UpJjJCToAMt9vIi+gPshjfhItO75hMaSjM7oHP4/vHs1LMRYXmJRvMevW4
-         +YLggj5+gEVZD5Cv6wWNXGzG8FSMMNu3JityUO3//A2wEw1QMGrCAGnoaGhGTSCxeFYd
-         Eob2SRXX8qPAM0UPDdLJB0EzRaFUOtCN30OYeNYfkWRSbYi5ww0SYZVOz4yaxBWmjwlk
-         V2jjYbrYWTsLsTi3HfFvhpKhohmdY4pkgHr2KUFvotGnkIzqLH8VNGAkwTSYX5rHv74/
-         Ur1A==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=rTiwLxal1QeW/J0PDt52rY1huWrMKE4zrrxq1kqtBvY=;
+        b=qKrfXWCgy7M4GQYZF9gCsqqllEU9RJQWxfio25sjhDjhqt2WE+q4owpUFUqRjToxDn
+         GMlvTC00/eeExrETCODapVsHMDM0RMNbPxtiPRdi+/BV0hCBwHdCIizQddKSllxmQUqi
+         S4Y+XQp56IZOOGSV4g2m7B11w7yWepnsKg1Q4751ZmuF5bE3SNm4qxn+Qls7G8mcQ65M
+         U8HQjaOvrneVDK5WqbPyi8CUFxKxLNvW6hgQyRiFRMMCzUtmh/XN0GdCaC5T5XqMWwo9
+         Kif+hrudvNCysN+0QR9paJYO8SHHHxgSsdkEVEixD4nH7ioic0BmcibnBDe4TaFM1koj
+         BdoA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=Cg5iz+Fr;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
+       dkim=pass header.i=@ziepe.ca header.s=google header.b=LKWHjCeN;
+       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as permitted sender) smtp.mailfrom=jgg@ziepe.ca
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:content-transfer-encoding:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=M/NGDG7caafZxB35WLN0IcVVppng/sB9rYjSsexH1rs=;
-        b=YBG8QfBAIM6em1Lb13J8jf02uX+NB+bSkPY2AVG7JgtNzapvRxs4HtHGqf6QVt9Ize
-         UGEuaJSn9a+bnLmlz1reiE96/Bl4QsUJeqInSCLjBwymN48NrtS1BsG2Mz3oPh2tbkj5
-         6CAHU49G0fTdqfx/t7maj1EvpaMPfYgtmva3JlBUL7aX+QijwrJsGvHe/Zg+TxXPlbNM
-         aVjJjL3HIGeZkjLurBGcaYkvUNj93NphSsnEgfug00aJ7wpfEkKN7mQuSi+EqVVnaB9u
-         V/Y2KjXQYdr6Ccde3qkqLxfiBOyDxHQ4UgtYomM2pS52Nfg1C33ZjzhdNOZFvyBeSEtS
-         CiuQ==
+        bh=rTiwLxal1QeW/J0PDt52rY1huWrMKE4zrrxq1kqtBvY=;
+        b=pNYbBYmvvGuEP1y3KKjKJZ1UADsmfmKzmf1I6EvdaxwR+lA8Fv9FGG6wgoLXi3IE3T
+         WkowTBMqTkQLXCyw8DgyzyJ221Tiz5y8IGf3xigH+VVOyBdcpXRu9JYYj6aCsn3x9KZz
+         D11dvJ4OOi5put+W6wuidFvmj4ND03x+NfteQ73rsXdyECUj+VfLh8AZ1Sv89TFAdNNr
+         8unX91Y0E2yNgO4mfxTjqqOSdl+a1Bu7g7HcoHRdADA7zW537BG3zOnnXVBuEKosRwzl
+         J+QtW8ISYdh/y6DHq4iST35SAnJbwNpBEwX4aXZyhusuOGgbw82J7Bq9m9yRZxy3H532
+         DUPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:content-transfer-encoding
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=M/NGDG7caafZxB35WLN0IcVVppng/sB9rYjSsexH1rs=;
-        b=Q00zPO/NKnrNzB20S4Ev7ArRTQz1mjqGekCXquhPFFpsWRzI1Bbk7YC74711RHI6mJ
-         Pt0xFbQXRpd2kDQCE1xcSHl8hE7CRYGR9QtlRDRvJLgE/Izx3U020oVr3wpDFK2K6L4g
-         RDb2m1F0hIHU42EP1X4BmF4GVv8vobbpYwUvX/cfhSEY9Kckia0wAkrkGU6q9thH8JvS
-         mB71aUbNyBswO9wCtIeUkkeCeayF8IfSjdaA4WeEjDBT3+HZbaYJVVgXpZtROgcBOsdw
-         AdASIZv7BQapQxJIlcXgz5d2/tjc25kBHJytLn3/rgwdvS17d+t+/J2wEDrdSSQMrXVo
-         DaNA==
+        bh=rTiwLxal1QeW/J0PDt52rY1huWrMKE4zrrxq1kqtBvY=;
+        b=cP3JMdw0djOZOTL5YOdaNaI9/Kvn7g9KWElcmi6VAJAnmXv9bYWsa8JLLi3k3K2zGO
+         uziZnMhYyP9Gfx3q/LhPsBPz0KX09NYfjaBlFrI5phvCY4DrQcDYn32WShjj0F1oFRyf
+         RLIR8cs3OnCW5sWLpfQeQEpQz6pLZMcDaboZNbViyy4FW7w0OuxTTfBv6oIneInFpKY7
+         M8ozH747C9CsvHtYpAU8B91mvB9E9m7pBwUv0qhZFP2oJhyqTGbfZ24ooVLGvNRUCzM7
+         Xm073nVh75G3Fh74I+pYt89t9ieJeBrLyku9KHFD5NF2UkRRKb0f0vSgSAoD5JMf9Uhu
+         LNrg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531WL3WUKVTkYBrSTKzN4JW5dnIosWrpd6UJFekZvzFgTNNRpR7t
-	OnAQ8U33TGZIUgD0t5aq9gU=
-X-Google-Smtp-Source: ABdhPJzlioxVOomFtyI+3bLiSgoPZCXAkdbh+JyAUJdJqIyy+3IcQKV+yI3Lkq1D791tmHsyxJTGUw==
-X-Received: by 2002:aca:1109:: with SMTP id 9mr2798542oir.109.1629461641851;
-        Fri, 20 Aug 2021 05:14:01 -0700 (PDT)
+X-Gm-Message-State: AOAM5310lPd0uPDKwPtDuxYXaV2VLrbF8lz74Zs+wZVqaxv9rGUDfvd8
+	KNVknCRhgr6VNz5mbwIS/f4=
+X-Google-Smtp-Source: ABdhPJzhXUHH/9qUhgdN8C/5zxcIZ8tiAoJaTYydIBO8L76MCLVCWBoVNyRsRQS1q1jF7qTrCNm2FA==
+X-Received: by 2002:a67:7cc9:: with SMTP id x192mr16925164vsc.42.1629462842472;
+        Fri, 20 Aug 2021 05:34:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:d1c1:: with SMTP id a1ls419946oos.4.gmail; Fri, 20 Aug
- 2021 05:14:01 -0700 (PDT)
-X-Received: by 2002:a4a:b601:: with SMTP id z1mr15481834oon.7.1629461641460;
-        Fri, 20 Aug 2021 05:14:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629461641; cv=none;
+Received: by 2002:ab0:7285:: with SMTP id w5ls906351uao.8.gmail; Fri, 20 Aug
+ 2021 05:34:01 -0700 (PDT)
+X-Received: by 2002:ab0:35f1:: with SMTP id w17mr14218462uau.135.1629462841931;
+        Fri, 20 Aug 2021 05:34:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629462841; cv=none;
         d=google.com; s=arc-20160816;
-        b=c7h1YQt4N200tJaj4wA78sbn7dzkIkyMOH6qoWgmubI+UmlU9cQ8N+rNWCWxNwy8X8
-         4q9eE61uF3OHmyPqviYRoRl+uctPgOxfP6dM9RxC2VdyT+OBXTF2hTinw049Ql47am8m
-         CBVtc80rvOINFA2TqTCh9WydhbOkc1USwezZzROFXpm9k5kVLIMqeq7EGHuwKdnMyKcn
-         YaiLv+DhufBj8WmAYHPznB549EoGcKI94Mhn42NWlPPDmbUQnUjiZsAE26SkWlx7XpAf
-         JWiZrQ+/fzWgMHYaCZm14XVfETdCN/fWtQu1v2nZl+ygU5mFbKlhchPvNOAwKOhh1PZb
-         +/HQ==
+        b=wWQdmPgkcd3Y2OjRKfXjl5AJI0adS5HM+IkLQiC41N9w3p+xd0ctNluhsjSS1RPVeq
+         adZM2D+CqgIqmyG80E4N97N18DrORSztOdjgb2IsrjYyRaMqVLRtXWT+fU5tDlPFwC9x
+         /riHJc7LaMBQvb8xq7a0RHX5V2z9zmA5JnJ3/l1cOLFw4+77T9c/azGHntcG2OaJdu4Y
+         gMVICoFXCYGmzEb6dN4lJlEk0Kr0dZ5aohm1v9omAZmzge1b/iEWdfFslqW7UziTpy0v
+         L5k4jCIN2Vm6T7w7nF+ZP02zm5C65b2FHSF9OjIbFT6bEmCIc3pZ5Nyvf9E7Ya2tqC3b
+         ZvvQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:dkim-signature;
-        bh=GaPKIeDl8hhkmPkLrvrJ9stzgKavrRQRLEdG6v/pbF8=;
-        b=pFisBKYwxkdGKhEi0BPxNDFMh3ceXtEAtQAkJDx2yIRtiI5vnJBeRhrjYiAgRuUOCU
-         uTAElevmyQ1dE2hCabkmrvAuf4GOQXcy0VZxMlX1htt6F1taExhfS6Y5LDVaCoNQCTQp
-         NDZFQ9oCz2LVdAOpQ9DoYlLtbt5cuEs+u53b54fLkczuGpaPuMXYuJDKPJQ4WVPtEuQl
-         jNRKztOLxUMlOQ4hLsc5jRh6Ec9+J5rA65RvFTvyIIQT8awnp+V/k/y96JuwGBmW22iA
-         Ks8UxQ3k9p/XXAamUGyDp/0T0ZUWGK/0LZqIRQPa4haHRcPVedRa18cn7qXXFiODDc2m
-         JB5A==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=FxHzHqYkZIYKuBII5yJmxkfX68sHHNA5VrSWbqQXyKE=;
+        b=SMT1EhDwby9D2oHa8AIgU7l33c/TOiXoos9SiJ9XfLPd1XJ6mgmAGR86A5qTfadvsv
+         0H44t9A822Gj5176kchixESZ+mQEbtuJ42Y6LEuAxllMTlBlSmYbXd6cN1XBX1+Qe1bh
+         DfzeowFb+UtQdrJu+78/6sXSEQJ5UlECdZXgqoghikc1X2xaIrvKnIoqiZKtRBV35d0T
+         cSnIfMFCpe17TM3NjS3y13rrm4GCDX/myABrCmDjsniSP8+5CbuxzzLfb1kv1PkNb+Si
+         VCXQSbzSaqL8jqeMos+FzEaq0X2soPPsWf2uXY9IzQ8Za1WByWbjbWg09taKbbCO0Ykt
+         Fc4g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ellerman.id.au header.s=201909 header.b=Cg5iz+Fr;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
-Received: from ozlabs.org (bilbo.ozlabs.org. [203.11.71.1])
-        by gmr-mx.google.com with ESMTPS id p6si21933oto.0.2021.08.20.05.14.00
+       dkim=pass header.i=@ziepe.ca header.s=google header.b=LKWHjCeN;
+       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as permitted sender) smtp.mailfrom=jgg@ziepe.ca
+Received: from mail-qv1-xf2a.google.com (mail-qv1-xf2a.google.com. [2607:f8b0:4864:20::f2a])
+        by gmr-mx.google.com with ESMTPS id r11si304842vsl.2.2021.08.20.05.34.01
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Aug 2021 05:34:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as permitted sender) client-ip=2607:f8b0:4864:20::f2a;
+Received: by mail-qv1-xf2a.google.com with SMTP id z2so828875qvl.10
+        for <clang-built-linux@googlegroups.com>; Fri, 20 Aug 2021 05:34:01 -0700 (PDT)
+X-Received: by 2002:a0c:d6cd:: with SMTP id l13mr1047928qvi.24.1629462841673;
+        Fri, 20 Aug 2021 05:34:01 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-162-113-129.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.162.113.129])
+        by smtp.gmail.com with ESMTPSA id 69sm3472288qke.55.2021.08.20.05.34.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Aug 2021 05:14:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted sender) client-ip=203.11.71.1;
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4GrgXg1cMHz9sSs;
-	Fri, 20 Aug 2021 22:13:54 +1000 (AEST)
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>, Kees Cook
- <keescook@chromium.org>, linux-kernel@vger.kernel.org
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras
- <paulus@samba.org>, Sudeep Holla <sudeep.holla@arm.com>,
- linuxppc-dev@lists.ozlabs.org, kernel test robot <lkp@intel.com>, "Gustavo
- A. R. Silva" <gustavoars@kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Andrew Morton <akpm@linux-foundation.org>,
- linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-staging@lists.linux.dev,
- linux-block@vger.kernel.org, linux-kbuild@vger.kernel.org,
- clang-built-linux@googlegroups.com, Rasmus Villemoes
- <linux@rasmusvillemoes.dk>, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 57/63] powerpc/signal32: Use struct_group() to zero
- spe regs
-In-Reply-To: <0f6e508e-62b6-3840-5ff4-eb5a77635bd1@csgroup.eu>
+        Fri, 20 Aug 2021 05:34:01 -0700 (PDT)
+Received: from jgg by mlx with local (Exim 4.94)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1mH3ii-001q0s-MH; Fri, 20 Aug 2021 09:34:00 -0300
+Date: Fri, 20 Aug 2021 09:34:00 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Kees Cook <keescook@chromium.org>
+Cc: linux-kernel@vger.kernel.org, Leon Romanovsky <leon@kernel.org>,
+	Doug Ledford <dledford@redhat.com>, linux-rdma@vger.kernel.org,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-staging@lists.linux.dev,
+	linux-block@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 56/63] RDMA/mlx5: Use struct_group() to zero struct
+ mlx5_ib_mr
+Message-ID: <20210820123400.GW543798@ziepe.ca>
 References: <20210818060533.3569517-1-keescook@chromium.org>
- <20210818060533.3569517-58-keescook@chromium.org>
- <877dggeesw.fsf@mpe.ellerman.id.au>
- <0f6e508e-62b6-3840-5ff4-eb5a77635bd1@csgroup.eu>
-Date: Fri, 20 Aug 2021 22:13:53 +1000
-Message-ID: <874kbke2ke.fsf@mpe.ellerman.id.au>
+ <20210818060533.3569517-57-keescook@chromium.org>
+ <20210819122716.GP543798@ziepe.ca>
+ <202108190916.7CC455DA@keescook>
+ <20210819164757.GS543798@ziepe.ca>
+ <202108191106.1956C05A@keescook>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: mpe@ellerman.id.au
+Content-Disposition: inline
+In-Reply-To: <202108191106.1956C05A@keescook>
+X-Original-Sender: jgg@ziepe.ca
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ellerman.id.au header.s=201909 header.b=Cg5iz+Fr;       spf=pass
- (google.com: domain of mpe@ellerman.id.au designates 203.11.71.1 as permitted
- sender) smtp.mailfrom=mpe@ellerman.id.au
+ header.i=@ziepe.ca header.s=google header.b=LKWHjCeN;       spf=pass
+ (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as
+ permitted sender) smtp.mailfrom=jgg@ziepe.ca
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,104 +149,20 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Christophe Leroy <christophe.leroy@csgroup.eu> writes:
-> Le 20/08/2021 =C3=A0 09:49, Michael Ellerman a =C3=A9crit=C2=A0:
->> Kees Cook <keescook@chromium.org> writes:
->>> In preparation for FORTIFY_SOURCE performing compile-time and run-time
->>> field bounds checking for memset(), avoid intentionally writing across
->>> neighboring fields.
->>>
->>> Add a struct_group() for the spe registers so that memset() can correct=
-ly reason
->>> about the size:
->>>
->>>     In function 'fortify_memset_chk',
->>>         inlined from 'restore_user_regs.part.0' at arch/powerpc/kernel/=
-signal_32.c:539:3:
->>>>> include/linux/fortify-string.h:195:4: error: call to '__write_overflo=
-w_field' declared with attribute warning: detected write beyond size of fie=
-ld (1st parameter); maybe use struct_group()? [-Werror=3Dattribute-warning]
->>>       195 |    __write_overflow_field();
->>>           |    ^~~~~~~~~~~~~~~~~~~~~~~~
->>>
->>> Cc: Michael Ellerman <mpe@ellerman.id.au>
->>> Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
->>> Cc: Paul Mackerras <paulus@samba.org>
->>> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
->>> Cc: Sudeep Holla <sudeep.holla@arm.com>
->>> Cc: linuxppc-dev@lists.ozlabs.org
->>> Reported-by: kernel test robot <lkp@intel.com>
->>> Signed-off-by: Kees Cook <keescook@chromium.org>
->>> ---
->>>   arch/powerpc/include/asm/processor.h | 6 ++++--
->>>   arch/powerpc/kernel/signal_32.c      | 6 +++---
->>>   2 files changed, 7 insertions(+), 5 deletions(-)
->>>
->>> diff --git a/arch/powerpc/include/asm/processor.h b/arch/powerpc/includ=
-e/asm/processor.h
->>> index f348e564f7dd..05dc567cb9a8 100644
->>> --- a/arch/powerpc/include/asm/processor.h
->>> +++ b/arch/powerpc/include/asm/processor.h
->>> @@ -191,8 +191,10 @@ struct thread_struct {
->>>   	int		used_vsr;	/* set if process has used VSX */
->>>   #endif /* CONFIG_VSX */
->>>   #ifdef CONFIG_SPE
->>> -	unsigned long	evr[32];	/* upper 32-bits of SPE regs */
->>> -	u64		acc;		/* Accumulator */
->>> +	struct_group(spe,
->>> +		unsigned long	evr[32];	/* upper 32-bits of SPE regs */
->>> +		u64		acc;		/* Accumulator */
->>> +	);
->>>   	unsigned long	spefscr;	/* SPE & eFP status */
->>>   	unsigned long	spefscr_last;	/* SPEFSCR value on last prctl
->>>   					   call or trap return */
->>> diff --git a/arch/powerpc/kernel/signal_32.c b/arch/powerpc/kernel/sign=
-al_32.c
->>> index 0608581967f0..77b86caf5c51 100644
->>> --- a/arch/powerpc/kernel/signal_32.c
->>> +++ b/arch/powerpc/kernel/signal_32.c
->>> @@ -532,11 +532,11 @@ static long restore_user_regs(struct pt_regs *reg=
-s,
->>>   	regs_set_return_msr(regs, regs->msr & ~MSR_SPE);
->>>   	if (msr & MSR_SPE) {
->>>   		/* restore spe registers from the stack */
->>> -		unsafe_copy_from_user(current->thread.evr, &sr->mc_vregs,
->>> -				      ELF_NEVRREG * sizeof(u32), failed);
->>> +		unsafe_copy_from_user(&current->thread.spe, &sr->mc_vregs,
->>> +				      sizeof(current->thread.spe), failed);
->>=20
->> This makes me nervous, because the ABI is that we copy ELF_NEVRREG *
->> sizeof(u32) bytes, not whatever sizeof(current->thread.spe) happens to
->> be.
->>=20
->> ie. if we use sizeof an inadvertent change to the fields in
->> thread_struct could change how many bytes we copy out to userspace,
->> which would be an ABI break.
->>=20
->> And that's not that hard to do, because it's not at all obvious that the
->> size and layout of fields in thread_struct affects the user ABI.
->>=20
->> At the same time we don't want to copy the right number of bytes but
->> the wrong content, so from that point of view using sizeof is good :)
->>=20
->> The way we handle it in ptrace is to have BUILD_BUG_ON()s to verify that
->> things match up, so maybe we should do that here too.
->>=20
->> ie. add:
->>=20
->> 	BUILD_BUG_ON(sizeof(current->thread.spe) =3D=3D ELF_NEVRREG * sizeof(u3=
-2));
->
-> You mean !=3D I guess ?
+On Thu, Aug 19, 2021 at 11:14:37AM -0700, Kees Cook wrote:
 
-Gah. Yes I do :)
+> Which do you mean? When doing the conversions I tended to opt for
+> struct_group() since it provides more robust "intentionality". Strictly
+> speaking, the new memset helpers are doing field-spanning writes, but the
+> "clear to the end" pattern was so common it made sense to add the helpers,
+> as they're a bit less disruptive. It's totally up to you! :)
 
-cheers
+Well, of the patches you cc'd to me only this one used the struct
+group..
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/874kbke2ke.fsf%40mpe.ellerman.id.au.
+Jason 
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210820123400.GW543798%40ziepe.ca.
