@@ -1,142 +1,130 @@
-Return-Path: <clang-built-linux+bncBCUO3AHUWUIRBOWC72EAMGQEHFMZYDY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBPOP72EAMGQEBGYSSZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93f.google.com (mail-ua1-x93f.google.com [IPv6:2607:f8b0:4864:20::93f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8A1303F2C28
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Aug 2021 14:34:03 +0200 (CEST)
-Received: by mail-ua1-x93f.google.com with SMTP id u9-20020ab07209000000b002ab978d1714sf2343420uao.23
-        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Aug 2021 05:34:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629462842; cv=pass;
+Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 02C053F2CA8
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Aug 2021 15:01:52 +0200 (CEST)
+Received: by mail-yb1-xb39.google.com with SMTP id a62-20020a254d410000b0290592f360b0ccsf9506898ybb.14
+        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Aug 2021 06:01:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629464511; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UHBOnFz4a14ZZqN1MFTFKFAyiK+w/OiIhZxuCWJj8WllrX1u2VCdEl121drf0uf58w
-         eTrEBbefMKtF77c03efZH8aIlA9x76SIPryzZy3vgTuLUI0wN6zM72fN+m9l/E0F7dh7
-         DPCbSyGwjjnczygRBbGaaiQLS807gMmQep3DSyY1CGtxNG3UovfLvzdg7K9IK04R6hzk
-         bBkKrOQObcHxTMbfteMLsGlGi5lNQ+EtgloocsJqKLzpiobVZ13uoOx+CV8FDf94grgt
-         qwmQf3aHv3DjOkyp6j5e0dkW89m/jf12O7OSAdONTZ680SwwcyAp6xyASh+lMy1CKlzH
-         QOzA==
+        b=BQ9lbQOjyGwKTohA2a10gHYXT9vVDsFYcgr7QowVGjF5dKT+tQh1MlAfYlbG2A3IeA
+         Dp64UVOr5vT5JDN8Qpo94lPNHKqdJbMTaUzIhgySq8Qqlj6zKdSn3S33L8gYP/7SJSGv
+         wodi/a8qOuTuzuB/INH/PpL2wTOHKSdRdz3QkPPNxbNPV2b8drs6U4nrB828Aje5q0pW
+         tweGeMg3bq4/PTmuohJTaS7uQ8haAhUmk4IIPH/UOBm47vijJ54dROcFgEyDCLlyCAnm
+         Ndw74+q6DTlVEFPy84Sk66owtmO2ZY+hQvV7nw5KgAfvSGugN7G6+2L3x3/vpJaQs1Jm
+         ahFQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :message-id:in-reply-to:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=rTiwLxal1QeW/J0PDt52rY1huWrMKE4zrrxq1kqtBvY=;
-        b=qKrfXWCgy7M4GQYZF9gCsqqllEU9RJQWxfio25sjhDjhqt2WE+q4owpUFUqRjToxDn
-         GMlvTC00/eeExrETCODapVsHMDM0RMNbPxtiPRdi+/BV0hCBwHdCIizQddKSllxmQUqi
-         S4Y+XQp56IZOOGSV4g2m7B11w7yWepnsKg1Q4751ZmuF5bE3SNm4qxn+Qls7G8mcQ65M
-         U8HQjaOvrneVDK5WqbPyi8CUFxKxLNvW6hgQyRiFRMMCzUtmh/XN0GdCaC5T5XqMWwo9
-         Kif+hrudvNCysN+0QR9paJYO8SHHHxgSsdkEVEixD4nH7ioic0BmcibnBDe4TaFM1koj
-         BdoA==
+        bh=/289XqouTa7rPM5u4zvEmCQtwbRW9Vsg4imz53YOnmg=;
+        b=eJkkHZiVFCjhGaFf2PxZ49zDZACIDVScZyAIpeb9hgHtRh/84qSThp3xiBa9V/sFyp
+         LVISFFM/qv50pB9HuTdVHXfmPMQlv+qBmWvzDJ/dhH4m4eSTOS0JYGIiUYiWSIEKNjqe
+         XSyq07Fnt5eUXfYCjJsjdCuUtGmkzccYLnOmRjwweqolGC62kkPnr9I8iVB7TWAmRLuH
+         BPv1d/som7t8m6F9Xk6qx+0WKZYxcsvdR+gEF0subagT2+Ir26kXB+4g+khG2b6TKzQF
+         hh3Sx9TphUxD0XaeMpnNV3YtfmTEDMzx/WJMABcaK2/NUBgjGgrhHZUOpDlWXxvMyaEk
+         KoGA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ziepe.ca header.s=google header.b=LKWHjCeN;
-       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as permitted sender) smtp.mailfrom=jgg@ziepe.ca
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=iL5B0Onf;
+       spf=pass (google.com: domain of jikos@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=jikos@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        d=googlegroups.com; s=20210112;
+        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=rTiwLxal1QeW/J0PDt52rY1huWrMKE4zrrxq1kqtBvY=;
-        b=pNYbBYmvvGuEP1y3KKjKJZ1UADsmfmKzmf1I6EvdaxwR+lA8Fv9FGG6wgoLXi3IE3T
-         WkowTBMqTkQLXCyw8DgyzyJ221Tiz5y8IGf3xigH+VVOyBdcpXRu9JYYj6aCsn3x9KZz
-         D11dvJ4OOi5put+W6wuidFvmj4ND03x+NfteQ73rsXdyECUj+VfLh8AZ1Sv89TFAdNNr
-         8unX91Y0E2yNgO4mfxTjqqOSdl+a1Bu7g7HcoHRdADA7zW537BG3zOnnXVBuEKosRwzl
-         J+QtW8ISYdh/y6DHq4iST35SAnJbwNpBEwX4aXZyhusuOGgbw82J7Bq9m9yRZxy3H532
-         DUPQ==
+        bh=/289XqouTa7rPM5u4zvEmCQtwbRW9Vsg4imz53YOnmg=;
+        b=NN1sa1oIjLKHzsV3BOR5ALRBFrfEmOsAyWhTXt4c7XD2JhryFUvH9aEH8eCXgZkQNy
+         DBvJ6ufpX2RMK1erH+LLp4MMFRTHC5eVZ3DApt1rzNRP878I7JEGrZaaQoJi/fbKTpny
+         7wUPcU1ToqxhhxuWsctpg2qm1RlrRJVIohTc1Ynm8ZkUy6AhUwM0K2YPHfd7aIdFl7sa
+         Na3aIORhrdoC+3YaiDJ8m96CJDSUx+C2alY96mknBLzFVulN6JPDeLQSdXIyyNZymFpP
+         ragJsGF/bw2brvGmOzWLfn6lQru7Uf2M2NOpO86AfH/r6Q6HTVuOBCRmfRfTJMGyvLS/
+         Iy/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=rTiwLxal1QeW/J0PDt52rY1huWrMKE4zrrxq1kqtBvY=;
-        b=cP3JMdw0djOZOTL5YOdaNaI9/Kvn7g9KWElcmi6VAJAnmXv9bYWsa8JLLi3k3K2zGO
-         uziZnMhYyP9Gfx3q/LhPsBPz0KX09NYfjaBlFrI5phvCY4DrQcDYn32WShjj0F1oFRyf
-         RLIR8cs3OnCW5sWLpfQeQEpQz6pLZMcDaboZNbViyy4FW7w0OuxTTfBv6oIneInFpKY7
-         M8ozH747C9CsvHtYpAU8B91mvB9E9m7pBwUv0qhZFP2oJhyqTGbfZ24ooVLGvNRUCzM7
-         Xm073nVh75G3Fh74I+pYt89t9ieJeBrLyku9KHFD5NF2UkRRKb0f0vSgSAoD5JMf9Uhu
-         LNrg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
+         :message-id:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=/289XqouTa7rPM5u4zvEmCQtwbRW9Vsg4imz53YOnmg=;
+        b=de+uptIhtiU1swZt61671ZGXf4215vNYNHtYKltDIqywsI/dSDLh3fAfI3Z4ZVyYx4
+         ImfglokUKxkykLv1y7+ICU68WGi5Fi2Oeqvom0Wrl+nWL8KJEN0PblGhHF+8MlGps+5y
+         oYf0l0VYCPdgFYAYaNQ57TFp501s8ppee3ie4A83gAA57XgmYErMBvt4tvwT5PYJzcRH
+         jk/RFe+yw2mhHnfDmBaUUTjALpU2PMlluHQOCuiW8waTcqiZZuczZYqie/pB6YYqf+H/
+         gA2d5KmDPUR8yeXnEcmoymwhXtpMVCWgj6bNjf0nJrpDkZJmHrtb96Fz3ALD9CC8Xcj3
+         2sCg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5310lPd0uPDKwPtDuxYXaV2VLrbF8lz74Zs+wZVqaxv9rGUDfvd8
-	KNVknCRhgr6VNz5mbwIS/f4=
-X-Google-Smtp-Source: ABdhPJzhXUHH/9qUhgdN8C/5zxcIZ8tiAoJaTYydIBO8L76MCLVCWBoVNyRsRQS1q1jF7qTrCNm2FA==
-X-Received: by 2002:a67:7cc9:: with SMTP id x192mr16925164vsc.42.1629462842472;
-        Fri, 20 Aug 2021 05:34:02 -0700 (PDT)
+X-Gm-Message-State: AOAM533lXJ5a/WUISP5wxiy7UbmWZ48mNYooDIFVO8LPiDs61W+xFhGW
+	HPKA+Ko/Hh3++MFcPpZRZMo=
+X-Google-Smtp-Source: ABdhPJwr8FLLwWFVBoxDEoS04uMOUq3SsAR+Ak9aGRBJgViVxXmEq6QUQKWaD0roE3oaXS755I5HfQ==
+X-Received: by 2002:a25:8445:: with SMTP id r5mr26479157ybm.20.1629464509685;
+        Fri, 20 Aug 2021 06:01:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:7285:: with SMTP id w5ls906351uao.8.gmail; Fri, 20 Aug
- 2021 05:34:01 -0700 (PDT)
-X-Received: by 2002:ab0:35f1:: with SMTP id w17mr14218462uau.135.1629462841931;
-        Fri, 20 Aug 2021 05:34:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629462841; cv=none;
+Received: by 2002:a25:7bc7:: with SMTP id w190ls337731ybc.2.gmail; Fri, 20 Aug
+ 2021 06:01:49 -0700 (PDT)
+X-Received: by 2002:a25:cb4d:: with SMTP id b74mr25486780ybg.215.1629464508861;
+        Fri, 20 Aug 2021 06:01:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629464508; cv=none;
         d=google.com; s=arc-20160816;
-        b=wWQdmPgkcd3Y2OjRKfXjl5AJI0adS5HM+IkLQiC41N9w3p+xd0ctNluhsjSS1RPVeq
-         adZM2D+CqgIqmyG80E4N97N18DrORSztOdjgb2IsrjYyRaMqVLRtXWT+fU5tDlPFwC9x
-         /riHJc7LaMBQvb8xq7a0RHX5V2z9zmA5JnJ3/l1cOLFw4+77T9c/azGHntcG2OaJdu4Y
-         gMVICoFXCYGmzEb6dN4lJlEk0Kr0dZ5aohm1v9omAZmzge1b/iEWdfFslqW7UziTpy0v
-         L5k4jCIN2Vm6T7w7nF+ZP02zm5C65b2FHSF9OjIbFT6bEmCIc3pZ5Nyvf9E7Ya2tqC3b
-         ZvvQ==
+        b=jdxN6B4nutK7LWuY4VNHS9MAMNTo8gsuyE0Oo96gEC+ANqr509sTCawiMGON9oxKWO
+         pArDq5DmFpoQE6AvvsLV3R80DALiQBi3qLIGiumweX+4yDTOMxpvdD0ro0ZYkFxVO4B4
+         TZO9c3HRTu68iVLU9e2CcVZgJiTARPFaLm/KofqlYYfWf2cP0ur4d8oxvd0wp0ybt/k2
+         nWZacEEGkyEu4MSaDgTCU8+QMs9vQcpf/ZJisQMHwD/Mr1vfyihXgzjbYGJOcOVCCKCB
+         HqHQ0gQuEEB3auDKokrH8Zbl0EjD0zYmqbj2j2pZKdzOgKnrmbl6fDD7XKXMnbJDyCv5
+         Uwqw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=FxHzHqYkZIYKuBII5yJmxkfX68sHHNA5VrSWbqQXyKE=;
-        b=SMT1EhDwby9D2oHa8AIgU7l33c/TOiXoos9SiJ9XfLPd1XJ6mgmAGR86A5qTfadvsv
-         0H44t9A822Gj5176kchixESZ+mQEbtuJ42Y6LEuAxllMTlBlSmYbXd6cN1XBX1+Qe1bh
-         DfzeowFb+UtQdrJu+78/6sXSEQJ5UlECdZXgqoghikc1X2xaIrvKnIoqiZKtRBV35d0T
-         cSnIfMFCpe17TM3NjS3y13rrm4GCDX/myABrCmDjsniSP8+5CbuxzzLfb1kv1PkNb+Si
-         VCXQSbzSaqL8jqeMos+FzEaq0X2soPPsWf2uXY9IzQ8Za1WByWbjbWg09taKbbCO0Ykt
-         Fc4g==
+        h=mime-version:user-agent:references:message-id:in-reply-to:subject
+         :cc:to:from:date:dkim-signature;
+        bh=ScDvk9zcFIf9bojjto+UTRnOswQ5Qx/xL5oEi38eAcU=;
+        b=RKE+EpMOi1j5yZXqHKsgm+A39MJFzBPzRvFt377ZakDwWIWfznkzhAPyh/Dp+7NrOi
+         W0xZNFmJm8RO6HhLp4mRAZpoN0ETE6Nz3o73egOBAlox/t5X8354J66tb4yLbMdjf1OU
+         vLZDB1EKj/R63K0Fg5WxfV6iK8+Oj7xtlMQPGkNCmo7Tb0+LWLKf/bARzPaNm2K+6Fh5
+         PPhmCk5PrYb3p2i4CFfqiGxtfpA1JHgLyZFmB1JGSuk4NxuVISwSbVAbOeziZBNpfPS1
+         8Qwx5KeVPmVXC4ObOQjyDzmK4vIRrtimA2n68cS/utknP8/lnnupoKnp6AjwzsuuPR36
+         ay7w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ziepe.ca header.s=google header.b=LKWHjCeN;
-       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as permitted sender) smtp.mailfrom=jgg@ziepe.ca
-Received: from mail-qv1-xf2a.google.com (mail-qv1-xf2a.google.com. [2607:f8b0:4864:20::f2a])
-        by gmr-mx.google.com with ESMTPS id r11si304842vsl.2.2021.08.20.05.34.01
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=iL5B0Onf;
+       spf=pass (google.com: domain of jikos@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=jikos@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id z205si508469ybb.0.2021.08.20.06.01.48
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Aug 2021 05:34:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as permitted sender) client-ip=2607:f8b0:4864:20::f2a;
-Received: by mail-qv1-xf2a.google.com with SMTP id z2so828875qvl.10
-        for <clang-built-linux@googlegroups.com>; Fri, 20 Aug 2021 05:34:01 -0700 (PDT)
-X-Received: by 2002:a0c:d6cd:: with SMTP id l13mr1047928qvi.24.1629462841673;
-        Fri, 20 Aug 2021 05:34:01 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-142-162-113-129.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.162.113.129])
-        by smtp.gmail.com with ESMTPSA id 69sm3472288qke.55.2021.08.20.05.34.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Aug 2021 05:34:01 -0700 (PDT)
-Received: from jgg by mlx with local (Exim 4.94)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1mH3ii-001q0s-MH; Fri, 20 Aug 2021 09:34:00 -0300
-Date: Fri, 20 Aug 2021 09:34:00 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 20 Aug 2021 06:01:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jikos@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 240D760F91;
+	Fri, 20 Aug 2021 13:01:44 +0000 (UTC)
+Date: Fri, 20 Aug 2021 15:01:43 +0200 (CEST)
+From: Jiri Kosina <jikos@kernel.org>
 To: Kees Cook <keescook@chromium.org>
-Cc: linux-kernel@vger.kernel.org, Leon Romanovsky <leon@kernel.org>,
-	Doug Ledford <dledford@redhat.com>, linux-rdma@vger.kernel.org,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-staging@lists.linux.dev,
-	linux-block@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 56/63] RDMA/mlx5: Use struct_group() to zero struct
- mlx5_ib_mr
-Message-ID: <20210820123400.GW543798@ziepe.ca>
-References: <20210818060533.3569517-1-keescook@chromium.org>
- <20210818060533.3569517-57-keescook@chromium.org>
- <20210819122716.GP543798@ziepe.ca>
- <202108190916.7CC455DA@keescook>
- <20210819164757.GS543798@ziepe.ca>
- <202108191106.1956C05A@keescook>
+cc: linux-kernel@vger.kernel.org, 
+    Benjamin Tissoires <benjamin.tissoires@redhat.com>, 
+    linux-input@vger.kernel.org, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+    Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+    Andrew Morton <akpm@linux-foundation.org>, linux-wireless@vger.kernel.org, 
+    netdev@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+    linux-staging@lists.linux.dev, linux-block@vger.kernel.org, 
+    linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com, 
+    Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+    linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 22/63] HID: cp2112: Use struct_group() for memcpy()
+ region
+In-Reply-To: <20210818060533.3569517-23-keescook@chromium.org>
+Message-ID: <nycvar.YFH.7.76.2108201501340.15313@cbobk.fhfr.pm>
+References: <20210818060533.3569517-1-keescook@chromium.org> <20210818060533.3569517-23-keescook@chromium.org>
+User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202108191106.1956C05A@keescook>
-X-Original-Sender: jgg@ziepe.ca
+X-Original-Sender: jikos@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ziepe.ca header.s=google header.b=LKWHjCeN;       spf=pass
- (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::f2a as
- permitted sender) smtp.mailfrom=jgg@ziepe.ca
+ header.i=@kernel.org header.s=k20201202 header.b=iL5B0Onf;       spf=pass
+ (google.com: domain of jikos@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=jikos@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,20 +137,34 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Aug 19, 2021 at 11:14:37AM -0700, Kees Cook wrote:
+On Tue, 17 Aug 2021, Kees Cook wrote:
 
-> Which do you mean? When doing the conversions I tended to opt for
-> struct_group() since it provides more robust "intentionality". Strictly
-> speaking, the new memset helpers are doing field-spanning writes, but the
-> "clear to the end" pattern was so common it made sense to add the helpers,
-> as they're a bit less disruptive. It's totally up to you! :)
+> In preparation for FORTIFY_SOURCE performing compile-time and run-time
+> field bounds checking for memcpy(), memmove(), and memset(), avoid
+> intentionally writing across neighboring fields.
+> 
+> Use struct_group() in struct cp2112_string_report around members report,
+> length, type, and string, so they can be referenced together. This will
+> allow memcpy() and sizeof() to more easily reason about sizes, improve
+> readability, and avoid future warnings about writing beyond the end of
+> report.
+> 
+> "pahole" shows no size nor member offset changes to struct
+> cp2112_string_report.  "objdump -d" shows no meaningful object
+> code changes (i.e. only source line number induced differences.)
+> 
+> Cc: Jiri Kosina <jikos@kernel.org>
+> Cc: Benjamin Tissoires <benjamin.tissoires@redhat.com>
+> Cc: linux-input@vger.kernel.org
+> Signed-off-by: Kees Cook <keescook@chromium.org>
 
-Well, of the patches you cc'd to me only this one used the struct
-group..
+Applied, thanks.
 
-Jason 
+-- 
+Jiri Kosina
+SUSE Labs
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210820123400.GW543798%40ziepe.ca.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/nycvar.YFH.7.76.2108201501340.15313%40cbobk.fhfr.pm.
