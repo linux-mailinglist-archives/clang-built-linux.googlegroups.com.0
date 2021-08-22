@@ -1,33 +1,33 @@
 Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBSMGRCEQMGQEHH676QA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 05BFA3F3E81
-	for <lists+clang-built-linux@lfdr.de>; Sun, 22 Aug 2021 09:57:04 +0200 (CEST)
-Received: by mail-ot1-x33d.google.com with SMTP id g93-20020a9d12e6000000b0051b1ee4745dsf2850611otg.0
-        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Aug 2021 00:57:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629619018; cv=pass;
+Received: from mail-oo1-xc3e.google.com (mail-oo1-xc3e.google.com [IPv6:2607:f8b0:4864:20::c3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 214F73F3E79
+	for <lists+clang-built-linux@lfdr.de>; Sun, 22 Aug 2021 09:56:58 +0200 (CEST)
+Received: by mail-oo1-xc3e.google.com with SMTP id s6-20020a4ab5460000b0290263980f2b45sf7321252ooo.8
+        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Aug 2021 00:56:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629619017; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eaM9uf5efJCAZQIDP21ZhB92Whi3nvmUEdaolqOcvsJS0nQXdS1kBAOFVjUOm48WC+
-         sr4yu79gCVcCE3c+PfwLQQbSCGT8ZdQwvC5ZCaf65GpX/d1JlWEr9mHqnrFb1ulTczPs
-         Iwm+Wo1a2iUUjGjP4goRq8WrJXrnbKeIXE4gL5bA3NCr7VmaM5kAg8wTsppf3pikW2zS
-         HP/CHAq3/Z2ka5DUFP9hFRbg6kZz6U7oiUzffXONDoVodcKvxJlQhpCkEy6qsEJ7EWOY
-         X4WjetE7tbRYrQaIiOu6iM07Q/e4y+u6rzaCCV2kKXNN1q6TzGuzjjnf/VJxdLkUn5lG
-         cPIQ==
+        b=gHgIkygilAq20I5CruxeGQHB+AhIfykLe88XdrFUNUkBofl5tC8uA5fSSkK1Xtk8t8
+         5kSUS2tDClzEbdt5861M3sPGsO1xlJ9fjggKPIgvTQqeSHkgtIG+w6vOpv9sYcmeaPpE
+         KaBzupy1g4KYPao6+u0yzddeBM/DllxOgWMsVFjrbn5JLkWVj5HoQvFPg76TY0F5smcc
+         BSNoOgLUzooA3PA2zlXs0olYqDTbg0S5Bx345vpna90/JlbDY8fyCheoaIgBfV3FRnP4
+         5ce2fbdmWpBX1pxO0o9W/Ssa4imQVNDQv4RbtAw5H62tUuhdzzBUXBz3ipPrvRQQuKfQ
+         nB/A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=gUgHcYxcrTRYpmc3wdSWqHD/zPIvU41CTMMYMvMUadY=;
-        b=mHzTN1dNElArUnd6574d7SaWCWrdKzIkBD2k55dUNERBGSKjwSkwbazlGeZRT7Srv7
-         z8AYCZ90P8XBrbCZ8eSl1c1w/G/9sQUOuzYMMNy2992y4W4/xgkKt5vgGvKALYJ/zQgr
-         ZjWMxXOBp50ITUvwVh+G20EbAmZ0f7ciSw/PFM8AkcivJRvxzmTQdB83HDkBiCPVHDPJ
-         QoORjPV2Xt1DChQDlGEGjL3aMet1s4tpAdq6HkxER8AEBa+iroREWgSDrY58TlIdEs4s
-         7ucyw9ijNpf3f9pXtSfAjrYVhUoihMh2xH8z5GQ1CWrXZSInkbf2GbSvBhBkxlRpeUd5
-         qDTw==
+        bh=+mvij+wiskTRo7L2gpp9Dg9RFKJJ9yonUzvzN+TAeJY=;
+        b=tiD99I83ww7jp/1UJ9qsoUrQwFCKMQrpPJgrCTVhuDcJ6LqaCUslGn+yvK3ZXgWhzP
+         06SMXgbIAsoexEks+sheMIsnZLT8VrfSxEvDvx9Z30QUKiGo1RvgVHAmpXQXDrbypLGc
+         IrxhUzYe61jFVxY9Dora70S8VMZzkB7foBjVH/1mWPDLiaFHusT38w4NkLyuDx3LtDeJ
+         4tU/vHL/rIz7g/CjoMn48YJHPglfpkxG1H0qaWe11ypzkdyy8+gbUsVUfPXMhN4H0oyQ
+         0UjbYEgz4mwXF6LDvwr+0tetBQE4jS1rYC2pl+MqhuQs4SGOJlVBe6kZPwZzN4ayS+47
+         oLMA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=B5QY9BAB;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=fg7ZhYLv;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gUgHcYxcrTRYpmc3wdSWqHD/zPIvU41CTMMYMvMUadY=;
-        b=WIT2z1R5l5yBrM5/dAb+a54ggQ3bYdLOz7NrLEBu/IVZ5vDnnNKDjRmdXPjEz1YCbk
-         dJrx+Kh3FFH0HqCddOw82eoU78ITbrJUC1vHcGwZ/A0fzdXn4CfenF5T2XQnpm2ZlaIP
-         QeBUSSHkESAALUFn6LhbUIL4V3GdqKxWAvLhPP7BZzJ413mFrXILJ//aTzVscCrJ7MkH
-         dZ1ahESsGGbtUQuWE8J/ZSZ2S2VDKLQDw/fxJDBPH0TpqQ0dO0iYg3e12myJZoZ2LkAL
-         GaZQPV7ZDESQaU6823Qv1LgDF5a8GghRWxu0Stwy7pzaYv7zhFgCydzxjBLwQvpN7BPV
-         aDcQ==
+        bh=+mvij+wiskTRo7L2gpp9Dg9RFKJJ9yonUzvzN+TAeJY=;
+        b=aBOFXqLD7hOdNQ3eJbNh6GCkQKnDB4tfdRZjM2OxFOO+syKYGb3aCqdU9pTGpn7IE/
+         rDle3g0LxkIEgeIZX7+FRfVSKNdhjVmPca3072QOBZse1I/yjymoryY0dmtQ93CAKaTG
+         xbXU25TgTYihf0GJr02PvfWsqnJEKKO5rOqOUJ8lNLfKDpn2I99NBkfMt8HufJriv/EZ
+         PByRpXQty575YkBZIROnugkxI/Z9kAbmftICOkuTRm703zO8K6kDdJx9dF0HWaWXcZRD
+         wpW2koFT1mwPh5BVDv3N7QTV4WuawWOaXnxn9zUuJm50ZRFIE7SkPqzjCAlJhZUzz+JM
+         COOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,58 +49,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gUgHcYxcrTRYpmc3wdSWqHD/zPIvU41CTMMYMvMUadY=;
-        b=b7k/PdMBh9cmktMHKPFRUaNb0Y+/NhamAsdx5XssTXgp/SnqbKg7nPbslT0c/mL9+n
-         scOpxZTFsP0eBy3iPb3TH5bd8nT52HMjpeVHN4hBBMQlWxpeuYvJOHjmN9IJwDIuRVjh
-         I+bbI7gmb8hoO8Ff1rWqSJaPhMt9H+ECHp1hAYxhSfc28cO0nxvmRLDyl1+pG/6nh3Qi
-         Z/ICV9fXoLFPzv3+zoB3lmM+0A07RsLwIZYjoiKId05YV4zlSc6F4Krx05IKxYm+U4E6
-         m2AYnKx4tK1gta2PXvyytxAWPlSkkS8Xu6FhsVXfpXw/UNbsXU3z+w8WR2qr3QCddORF
-         pJZQ==
+        bh=+mvij+wiskTRo7L2gpp9Dg9RFKJJ9yonUzvzN+TAeJY=;
+        b=HnUZ3pkqhw5Zh1OXSfNW2uKjw7Pxnczg2uwOmBvflYIhmUnnpvxPWpiC0w4eobnk4a
+         ZK3bk4puE/Dm4LP4VxSDMP3L3lO7QVYsbf5q4LTRcLnnZXwxZ2Yj/7U44TQ+2MRtzwNX
+         mDaTr6hMdd+zNoTfE773/1CyBZH0/GA9Wy3D7qPPGnWyziSejawTCsWz7FGSFHMlGnTE
+         ZRB1RopPdA/HKqdyEc+E4zzq1+PdUDPtihckb8Fvir3MNjqgZIfguGbCw+JO/cxkNlbj
+         mJSEH1t+SgvVe0O26kizr9Kkq3XsrqSUg82/6UE4cK0LrW6lJF7tLs1Jhd8ujNqlHCc1
+         OBQw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532L1OJW57Z1o1icvM3QnD4l0z0lwtCtnmzt+qOssZK3AKEezGY+
-	uNq2tHomD4J14/iewXz1EtQ=
-X-Google-Smtp-Source: ABdhPJyBWH8KAKdflKKLjpMeqAkg78I8I3PFnph0LKrHaqPkd10UEANNDcmaLurqgdSs4/gGeprypw==
-X-Received: by 2002:a05:6820:613:: with SMTP id e19mr945721oow.67.1629619018001;
-        Sun, 22 Aug 2021 00:56:58 -0700 (PDT)
-X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:649a:: with SMTP id g26ls3599269otl.1.gmail; Sun, 22 Aug
- 2021 00:56:57 -0700 (PDT)
-X-Received: by 2002:a9d:6b97:: with SMTP id b23mr23992145otq.312.1629619017661;
+X-Gm-Message-State: AOAM530zGA9zxcfhEBfJyHqFtxv5/mtlmCzeQwtL4Q1E2IOlpmyOFL0g
+	v/oBIsghjvE+ahUkLuvr82g=
+X-Google-Smtp-Source: ABdhPJy2RyNhNqTIaukmvW1KPK31OjjMHKIG+rvI1WL0KKGlT4e1vkKZxCSXSb9llXryUJMVJDG78g==
+X-Received: by 2002:a9d:5e5:: with SMTP id 92mr22620351otd.193.1629619017086;
         Sun, 22 Aug 2021 00:56:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629619017; cv=none;
+X-BeenThere: clang-built-linux@googlegroups.com
+Received: by 2002:a05:6808:20a7:: with SMTP id s39ls3332029oiw.11.gmail; Sun,
+ 22 Aug 2021 00:56:56 -0700 (PDT)
+X-Received: by 2002:a05:6808:c4:: with SMTP id t4mr8218699oic.29.1629619016750;
+        Sun, 22 Aug 2021 00:56:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629619016; cv=none;
         d=google.com; s=arc-20160816;
-        b=xhlh1iOH31ATyWYZbc01O+cHQ6ikLWiI7eXjGaDNE6aFR0ujMDp+cUtdLA4a1HHhzJ
-         K1A4GIdAGxinifNh1pwfpJU5/yl8N0tDzl4nyyhnSxpBqF0nM39BAJHldWPQUoMppFXg
-         Y1lGUgamjx8EyQ0VsgzGDgtcnNvcKMqqF5Zwwm9WtouRoxFkSanmf3ZifTtSp/F/A1yv
-         AdrP0xfM7gNE1/m+vHDDtaZFA0K8kEt4A/luOq5HthqVu+o/D8408WHeQJ6JvfpnsnE2
-         vyn7xtkwWa1Sk4byOPNNGJF5cwpyrqIS33A1rwFE06ADJ7vO4yqdRtd8uqaLDERYctl9
-         r0ag==
+        b=CPj/e3Lml0SIJ8WXeMO5NVQJ9FDyJpMmgUkxhFc0Rg8DyowNkHxYoCN6BVzWZIlCtw
+         2JGEwyoIgYOaflXKQuWxy3qvyXKPBrfgbUgE2+3HOZAy4M8OZX2Lkf8/6a4qvAYL/qe8
+         m7LfH0okAgarNfBX/YKREr15l0REiDLcaucR10Bvwzw4p/OC8fI8AL856ulVhqpcb+hR
+         4NaqsLKrXWt3awwhvALgXIG9WYFAAVgiwiTjcjA+LBgSaNaDlbKpRPssu77Md9tAc2Me
+         oEcYG9RtYk7M1hY5iXu4R86kaFyoQytsSgcwfOFv32ppmgifcVo1grniK/KY3MzdC6cY
+         Vijw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=K15d43mjq6biIgLR18/PG2ST/9ClHTj/frmKzAh8Fgc=;
-        b=zgyMRxAPrJ8bTbntQF4376JEbeT2cRJSzB39BTA9AMW6sgpcDZYDzU0qRGgHfePG6L
-         7c6W1JL7l8EUUpFLPxQzV9Z2fZf/G25NcFH7mkQZnUOtztwV0ZkJuARnkYEcJ1WVNbpd
-         A74a8KDhC8pf5QzKl7/Yc5Ij9Grz0M/bTxDh0OfXmSQtsuJLe5vfTxgt6DjEPGabGODD
-         Q1EZ9PPmLvTaICk7uh9Jsc0qxK3g1w3jguKYYnFMwGHILr2oE+0jkndWQz4JwuJaeK7J
-         GPeIiNoJw56qTXU+nR8Rz9+aH3+rKBBEMsvJjpyuzEpGBehZg0g2R4g5ftvRv1T00arE
-         4pLw==
+        bh=QvdBkUpptZhXKvwrMm3zs3qjx3Jw+Diy7BkjH6c2x9o=;
+        b=h4O5Mu548cvWb59MJjd/zA+FCG5Aljc08oWTCJ7D9IV1sbDeRpjFSnLvWgEklLCxsF
+         BH68iNlNFEeggHrAzA0/jT/d1vMwbHVMveak+1oa3vewKvu+/lD/CMSa7OdNHborBN3m
+         vcWgaw3VyWaqItRmxv+AtdnQKcvqT+pPtnVvUxDwVAlnOTpgQ0ArVbTV/1+ofutZ8FfB
+         i99GbHQFRIjRrXYF72fRnYhAy30dhK0G793jZefO1yPi+VOYQUAIymxMUIpC8BwDia6e
+         tdpWgovWHNkvnx3dDekFuxqrov9yEoE1ktQupeUIVdp51mKDb+tBszlxXPhIRafGwnkW
+         RkVA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=B5QY9BAB;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=fg7ZhYLv;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x629.google.com (mail-pl1-x629.google.com. [2607:f8b0:4864:20::629])
-        by gmr-mx.google.com with ESMTPS id a9si377646oiw.5.2021.08.22.00.56.57
+Received: from mail-pj1-x102c.google.com (mail-pj1-x102c.google.com. [2607:f8b0:4864:20::102c])
+        by gmr-mx.google.com with ESMTPS id p6si355927oto.0.2021.08.22.00.56.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Aug 2021 00:56:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::629 as permitted sender) client-ip=2607:f8b0:4864:20::629;
-Received: by mail-pl1-x629.google.com with SMTP id w6so8366464plg.9
-        for <clang-built-linux@googlegroups.com>; Sun, 22 Aug 2021 00:56:57 -0700 (PDT)
-X-Received: by 2002:a17:902:b709:b0:12d:a7ab:952f with SMTP id d9-20020a170902b70900b0012da7ab952fmr23596616pls.25.1629619017001;
-        Sun, 22 Aug 2021 00:56:57 -0700 (PDT)
+        Sun, 22 Aug 2021 00:56:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102c as permitted sender) client-ip=2607:f8b0:4864:20::102c;
+Received: by mail-pj1-x102c.google.com with SMTP id h1so4153107pjs.2
+        for <clang-built-linux@googlegroups.com>; Sun, 22 Aug 2021 00:56:56 -0700 (PDT)
+X-Received: by 2002:a17:902:d2cd:b0:130:a7b7:3c8f with SMTP id n13-20020a170902d2cd00b00130a7b73c8fmr10580004plc.46.1629619016141;
+        Sun, 22 Aug 2021 00:56:56 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id 66sm12273644pfu.67.2021.08.22.00.56.54
+        by smtp.gmail.com with ESMTPSA id y62sm11996200pfg.88.2021.08.22.00.56.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Sun, 22 Aug 2021 00:56:55 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
@@ -114,19 +114,19 @@ Cc: Kees Cook <keescook@chromium.org>,
 	linux-mm@kvack.org,
 	clang-built-linux@googlegroups.com,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH for-next 21/25] lib: Introduce CONFIG_TEST_MEMCPY
-Date: Sun, 22 Aug 2021 00:51:18 -0700
-Message-Id: <20210822075122.864511-22-keescook@chromium.org>
+Subject: [PATCH for-next 22/25] string.h: Introduce memset_after() for wiping trailing members/padding
+Date: Sun, 22 Aug 2021 00:51:19 -0700
+Message-Id: <20210822075122.864511-23-keescook@chromium.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210822075122.864511-1-keescook@chromium.org>
 References: <20210822075122.864511-1-keescook@chromium.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10296; h=from:subject; bh=SCs0gUiQeBdkXzSIn2KtU6GgHndNNkCfOloouMv/FjA=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhIgH5gffUe7V9h9DhEAh8IAruzpJoIjBSw/gQvBpt RsXbH1SJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYSIB+QAKCRCJcvTf3G3AJvgHD/ 9EBKdt7wIMwq+pnHce4zVRAo13cVlsThSeQHWDVBiOwrDL15EUv1ydtUf2763IWxp1RRvbBSiU3TIH sEcLlcN6FHepmlOs3mucsMgU0WXa0k2ir8YDGqk9KdM9M4bkm1nt6bnZs1RrXegQoROLyie0bLSOPk 2MITOblSGe7hKwDKQlWnHwznMZcMEMHfSfIgybxwTCW7pS+gCEyOtIbFxwdlaiURwmFIIRyPitA3Od WGHg5KKfu5AyzYSll2aAnAB7TSg6t4tYMjIIcnElsUdxtxkPCMwFSqbR0re6Azd0lGAjXNx+5YG2O+ +0IeGHcUQQEaSFsCTcXSgK3ZsI5ysmJAiW0rUM8Nl+jNjPIuba4wGlwEiYG44THSu5y0CwYPFkiMd4 pQmWrAaNSYVpuN6+8S9y2Z8P0KeWGD8UqG60ferrjCTbqYu5m0Py85/znwzAW5aD1sEpID8yoBz+n+ SRhglq0gpbGa4k+PHFzqL6YnvV4Bnr4lidQEmoChW8kYcDQmuhe0HFnIdOhHzWLhajkoeL3itvOxzr 9WPPI3cSUu7EKvW86ITqzA656hJCq/P0I6/aSfhNvMxKN5BM2tJVFFcEHKPFnCRDuyDN+l4UcJIPwp 2rRvI7Afl2ewBSTyHLdYIEFZ/Oi7qOrO+JBMhN0s9kK96gbLCjTU4l4xKJZg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2741; h=from:subject; bh=E6gFtKPMaqY94NYGTcjgqzMn4Zg8efYnWFddeRIDocU=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhIgH50IyFEulz6vf4MWlQ/Ezu82EvPp7pmwWKKNPw FQi+vpGJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYSIB+QAKCRCJcvTf3G3AJh3rEA CrFF/z6kOuE4E1nPr3TROjLRJGQjTLaabDuXR/aIm4UQKeKkoTwGA2+A4SqjMTq/+P5Ys7g2X4LT/W Z2l1Vk9U0SrRQPJl7vZYRJ+9O4qUs3Kf8Ny2bIVgxeZT2N0blFHjxagjdD8vAzrY3b1LssVIU5HLiQ CkTZwHf1BnUGyXWqlHau1Vtb3xdCMueRk/f0+dyoPkbCq9ZiKc0XgtZ5MOlzVE66BQLezYe3VZxDUH aDeSYCo7PVgr9pV36o86mUKSUXJWTQ74tdMd1P2VvIhlNEI+vIzBXIjvq2l/IC+Ia2/oqyD/PBLJJk RoXa16m2Lr5ydwZuU+5qMNSo8Cz5OcHc0iQS5x/zK4L2Y6i84HtrS2Ja/RoBQ4SawOGvwkqQMDWUhM tML3SJfr/6qBoVbM7j7oTKiWGwFiZkpavW0iPpwrFqTjTonEi3vdUzO/ahwHLs5uU8gEPP+nPovcfo wZ9AAvOWdDZeSU8i0x0zCI2Hiu5fGcmVETpSSG/F1WqZuQHz8KRI4ndkMy5COuwjY5DADDoBVXuei2 GDhIxOMqkO2jtycMsYYhPX4LOTHskAA/ikwrRY9YVN753cwclPR1h9ULCg29KZIvJfiQ4oFMPNQ49S SyWtCljmqAu2E43Fu6xl6RJf6H3Wn1D9Ei2FNzhed+0om1vGjS5eu9TtBUHg==
 X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=B5QY9BAB;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::629
+ header.i=@chromium.org header.s=google header.b=fg7ZhYLv;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102c
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -142,347 +142,86 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Before changing anything about memcpy(), memmove(), and memset(), add
-run-time tests to check basic behaviors for any regressions.
+A common idiom in kernel code is to wipe the contents of a structure
+after a given member. This is especially useful in places where there is
+trailing padding. These open-coded cases are usually difficult to read
+and very sensitive to struct layout changes. Introduce a new helper,
+memset_after() that takes the target struct instance, the byte to write,
+and the member name after which the zeroing should start.
+
+Additionally adds memset_startat() for wiping trailing members _starting_
+at a specific member instead of after a member, which is more readable
+in certain circumstances, but doesn't include any preceding padding.
 
 Signed-off-by: Kees Cook <keescook@chromium.org>
 ---
- MAINTAINERS       |   9 ++
- lib/Kconfig.debug |  11 ++
- lib/Makefile      |   1 +
- lib/test_memcpy.c | 265 ++++++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 286 insertions(+)
- create mode 100644 lib/test_memcpy.c
+ include/linux/string.h | 17 +++++++++++++++++
+ lib/test_memcpy.c      | 13 +++++++++++++
+ 2 files changed, 30 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 6c8be735cc91..e3ffd4bdc24f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -7248,6 +7248,15 @@ L:	netdev@vger.kernel.org
- S:	Maintained
- F:	drivers/net/ethernet/nvidia/*
+diff --git a/include/linux/string.h b/include/linux/string.h
+index 9473f81b9db2..d593de2635ba 100644
+--- a/include/linux/string.h
++++ b/include/linux/string.h
+@@ -271,6 +271,23 @@ static inline void memcpy_and_pad(void *dest, size_t dest_len,
+ 		memcpy(dest, src, dest_len);
+ }
  
-+FORTIFY_SOURCE
-+M:	Kees Cook <keescook@chomium.org>
-+L:	linux-hardening@vger.kernel.org
-+S:	Supported
-+F:	include/linux/fortify-string.h
-+F:	lib/test_fortify/*
-+F:	scripts/test_fortify.sh
-+K:	\b__NO_FORTIFY\b
-+
- FPGA DFL DRIVERS
- M:	Wu Hao <hao.wu@intel.com>
- R:	Tom Rix <trix@redhat.com>
-diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-index 831212722924..9199be57ba2a 100644
---- a/lib/Kconfig.debug
-+++ b/lib/Kconfig.debug
-@@ -2467,6 +2467,17 @@ config RATIONAL_KUNIT_TEST
- 
- 	  If unsure, say N.
- 
-+config MEMCPY_KUNIT_TEST
-+	tristate "Test memcpy(), memmove(), and memset() functions at runtime" if !KUNIT_ALL_TESTS
-+	depends on KUNIT
-+	default KUNIT_ALL_TESTS
-+	help
-+	  Builds unit tests for memcpy(), memmove(), and memset() functions.
-+	  For more information on KUnit and unit tests in general please refer
-+	  to the KUnit documentation in Documentation/dev-tools/kunit/.
-+
-+	  If unsure, say N.
-+
- config TEST_UDELAY
- 	tristate "udelay test driver"
- 	help
-diff --git a/lib/Makefile b/lib/Makefile
-index bd17c2bf43e1..8a4c8bdb38a2 100644
---- a/lib/Makefile
-+++ b/lib/Makefile
-@@ -77,6 +77,7 @@ obj-$(CONFIG_TEST_MIN_HEAP) += test_min_heap.o
- obj-$(CONFIG_TEST_LKM) += test_module.o
- obj-$(CONFIG_TEST_VMALLOC) += test_vmalloc.o
- obj-$(CONFIG_TEST_OVERFLOW) += test_overflow.o
-+obj-$(CONFIG_TEST_MEMCPY) += test_memcpy.o
- obj-$(CONFIG_TEST_RHASHTABLE) += test_rhashtable.o
- obj-$(CONFIG_TEST_SORT) += test_sort.o
- obj-$(CONFIG_TEST_USER_COPY) += test_user_copy.o
-diff --git a/lib/test_memcpy.c b/lib/test_memcpy.c
-new file mode 100644
-index 000000000000..ec546cec883e
---- /dev/null
-+++ b/lib/test_memcpy.c
-@@ -0,0 +1,265 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Test cases for memcpy(), memmove(), and memset().
++/**
++ * memset_after - Set a value after a struct member to the end of a struct
++ *
++ * @obj: Address of target struct instance
++ * @v: Byte value to repeatedly write
++ * @member: after which struct member to start writing bytes
++ *
++ * This is good for clearing padding following the given member.
 + */
-+#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
++#define memset_after(obj, v, member)					\
++({									\
++	u8 *__ptr = (u8 *)(obj);					\
++	typeof(v) __val = (v);						\
++	memset(__ptr + offsetofend(typeof(*(obj)), member), __val,	\
++	       sizeof(*(obj)) - offsetofend(typeof(*(obj)), member));	\
++})
 +
-+#include <kunit/test.h>
-+#include <linux/device.h>
-+#include <linux/init.h>
-+#include <linux/kernel.h>
-+#include <linux/mm.h>
-+#include <linux/module.h>
-+#include <linux/overflow.h>
-+#include <linux/slab.h>
-+#include <linux/types.h>
-+#include <linux/vmalloc.h>
-+
-+struct some_bytes {
-+	union {
-+		u8 data[32];
-+		struct {
-+			u32 one;
-+			u16 two;
-+			u8  three;
-+			/* 1 byte hole */
-+			u32 four[4];
-+		};
-+	};
-+};
-+
-+#define check(instance, v) do {	\
-+	int i;	\
-+	BUILD_BUG_ON(sizeof(instance.data) != 32);	\
-+	for (i = 0; i < sizeof(instance.data); i++) {	\
-+		KUNIT_ASSERT_EQ_MSG(test, instance.data[i], v, \
-+			"line %d: '%s' not initialized to 0x%02x @ %d (saw 0x%02x)\n", \
-+			__LINE__, #instance, v, i, instance.data[i]);	\
-+	}	\
-+} while (0)
-+
-+#define compare(name, one, two) do { \
-+	int i; \
-+	BUILD_BUG_ON(sizeof(one) != sizeof(two)); \
-+	for (i = 0; i < sizeof(one); i++) {	\
-+		KUNIT_EXPECT_EQ_MSG(test, one.data[i], two.data[i], \
-+			"line %d: %s.data[%d] (0x%02x) != %s.data[%d] (0x%02x)\n", \
-+			__LINE__, #one, i, one.data[i], #two, i, two.data[i]); \
-+	}	\
-+	kunit_info(test, "ok: " TEST_OP "() " name "\n");	\
-+} while (0)
-+
-+static void memcpy_test(struct kunit *test)
-+{
-+#define TEST_OP "memcpy"
-+	struct some_bytes control = {
-+		.data = { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+ /**
+  * str_has_prefix - Test if a string has a given prefix
+  * @str: The string to test
+diff --git a/lib/test_memcpy.c b/lib/test_memcpy.c
+index ec546cec883e..3b485de8c885 100644
+--- a/lib/test_memcpy.c
++++ b/lib/test_memcpy.c
+@@ -215,6 +215,13 @@ static void memset_test(struct kunit *test)
+ 			  0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
+ 			},
+ 	};
++	struct some_bytes after = {
++		.data = { 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x72,
++			  0x72, 0x72, 0x72, 0x72, 0x72, 0x72, 0x72, 0x72,
++			  0x72, 0x72, 0x72, 0x72, 0x72, 0x72, 0x72, 0x72,
++			  0x72, 0x72, 0x72, 0x72, 0x72, 0x72, 0x72, 0x72,
 +			},
 +	};
-+	struct some_bytes zero = { };
-+	struct some_bytes middle = {
-+		.data = { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x00, 0x00, 0x00, 0x00,
-+			  0x00, 0x00, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			},
-+	};
-+	struct some_bytes three = {
-+		.data = { 0x00, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x00, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			},
-+	};
-+	struct some_bytes dest = { };
-+	int count;
-+	u8 *ptr;
+ 	struct some_bytes dest = { };
+ 	int count, value;
+ 	u8 *ptr;
+@@ -245,6 +252,12 @@ static void memset_test(struct kunit *test)
+ 	ptr += 8;
+ 	memset(ptr++, value++, count++);
+ 	compare("argument side-effects", dest, three);
 +
-+	/* Verify static initializers. */
-+	check(control, 0x20);
-+	check(zero, 0);
-+	compare("static initializers", dest, zero);
-+
-+	/* Verify assignment. */
++	/* Verify memset_after() */
 +	dest = control;
-+	compare("direct assignment", dest, control);
++	memset_after(&dest, 0x72, three);
++	compare("memset_after()", dest, after);
 +
-+	/* Verify complete overwrite. */
-+	memcpy(dest.data, zero.data, sizeof(dest.data));
-+	compare("complete overwrite", dest, zero);
-+
-+	/* Verify middle overwrite. */
-+	dest = control;
-+	memcpy(dest.data + 12, zero.data, 7);
-+	compare("middle overwrite", dest, middle);
-+
-+	/* Verify argument side-effects aren't repeated. */
-+	dest = control;
-+	ptr = dest.data;
-+	count = 1;
-+	memcpy(ptr++, zero.data, count++);
-+	ptr += 8;
-+	memcpy(ptr++, zero.data, count++);
-+	compare("argument side-effects", dest, three);
-+#undef TEST_OP
-+}
-+
-+static void memmove_test(struct kunit *test)
-+{
-+#define TEST_OP "memmove"
-+	struct some_bytes control = {
-+		.data = { 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			  0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			  0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			  0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			},
-+	};
-+	struct some_bytes zero = { };
-+	struct some_bytes middle = {
-+		.data = { 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			  0x99, 0x99, 0x99, 0x99, 0x00, 0x00, 0x00, 0x00,
-+			  0x00, 0x00, 0x00, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			  0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			},
-+	};
-+	struct some_bytes five = {
-+		.data = { 0x00, 0x00, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			  0x99, 0x99, 0x00, 0x00, 0x00, 0x99, 0x99, 0x99,
-+			  0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			  0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			},
-+	};
-+	struct some_bytes overlap = {
-+		.data = { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
-+			  0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
-+			  0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			  0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			},
-+	};
-+	struct some_bytes overlap_expected = {
-+		.data = { 0x00, 0x01, 0x00, 0x01, 0x02, 0x03, 0x04, 0x07,
-+			  0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
-+			  0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			  0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-+			},
-+	};
-+	struct some_bytes dest = { };
-+	int count;
-+	u8 *ptr;
-+
-+	/* Verify static initializers. */
-+	check(control, 0x99);
-+	check(zero, 0);
-+	compare("static initializers", zero, dest);
-+
-+	/* Verify assignment. */
-+	dest = control;
-+	compare("direct assignment", dest, control);
-+
-+	/* Verify complete overwrite. */
-+	memmove(dest.data, zero.data, sizeof(dest.data));
-+	compare("complete overwrite", dest, zero);
-+
-+	/* Verify middle overwrite. */
-+	dest = control;
-+	memmove(dest.data + 12, zero.data, 7);
-+	compare("middle overwrite", dest, middle);
-+
-+	/* Verify argument side-effects aren't repeated. */
-+	dest = control;
-+	ptr = dest.data;
-+	count = 2;
-+	memmove(ptr++, zero.data, count++);
-+	ptr += 9;
-+	memmove(ptr++, zero.data, count++);
-+	compare("argument side-effects", dest, five);
-+
-+	/* Verify overlapping overwrite is correct. */
-+	ptr = &overlap.data[2];
-+	memmove(ptr, overlap.data, 5);
-+	compare("overlapping write", overlap, overlap_expected);
-+#undef TEST_OP
-+}
-+
-+static void memset_test(struct kunit *test)
-+{
-+#define TEST_OP "memset"
-+	struct some_bytes control = {
-+		.data = { 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-+			  0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-+			  0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-+			  0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-+			},
-+	};
-+	struct some_bytes complete = {
-+		.data = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-+			  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-+			  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-+			  0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-+			},
-+	};
-+	struct some_bytes middle = {
-+		.data = { 0x30, 0x30, 0x30, 0x30, 0x31, 0x31, 0x31, 0x31,
-+			  0x31, 0x31, 0x31, 0x31, 0x31, 0x31, 0x31, 0x31,
-+			  0x31, 0x31, 0x31, 0x31, 0x30, 0x30, 0x30, 0x30,
-+			  0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-+			},
-+	};
-+	struct some_bytes three = {
-+		.data = { 0x60, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-+			  0x30, 0x61, 0x61, 0x30, 0x30, 0x30, 0x30, 0x30,
-+			  0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-+			  0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-+			},
-+	};
-+	struct some_bytes dest = { };
-+	int count, value;
-+	u8 *ptr;
-+
-+	/* Verify static initializers. */
-+	check(control, 0x30);
-+	check(dest, 0);
-+
-+	/* Verify assignment. */
-+	dest = control;
-+	compare("direct assignment", dest, control);
-+
-+	/* Verify complete overwrite. */
-+	memset(dest.data, 0xff, sizeof(dest.data));
-+	compare("complete overwrite", dest, complete);
-+
-+	/* Verify middle overwrite. */
-+	dest = control;
-+	memset(dest.data + 4, 0x31, 16);
-+	compare("middle overwrite", dest, middle);
-+
-+	/* Verify argument side-effects aren't repeated. */
-+	dest = control;
-+	ptr = dest.data;
-+	value = 0x60;
-+	count = 1;
-+	memset(ptr++, value++, count++);
-+	ptr += 8;
-+	memset(ptr++, value++, count++);
-+	compare("argument side-effects", dest, three);
-+#undef TEST_OP
-+}
-+
-+static struct kunit_case memcpy_test_cases[] = {
-+	KUNIT_CASE(memset_test),
-+	KUNIT_CASE(memcpy_test),
-+	KUNIT_CASE(memmove_test),
-+	{}
-+};
-+
-+static struct kunit_suite memcpy_test_suite = {
-+	.name = "memcpy-test",
-+	.test_cases = memcpy_test_cases,
-+};
-+
-+kunit_test_suite(memcpy_test_suite);
-+
-+MODULE_LICENSE("GPL");
+ #undef TEST_OP
+ }
+ 
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210822075122.864511-22-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210822075122.864511-23-keescook%40chromium.org.
