@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBBG4RSEQMGQEC43VSYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBY7NRSEQMGQEVKYKZUA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe39.google.com (mail-vs1-xe39.google.com [IPv6:2607:f8b0:4864:20::e39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7365C3F4497
-	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 07:11:33 +0200 (CEST)
-Received: by mail-vs1-xe39.google.com with SMTP id f26-20020a67d89a000000b002c3277c14a9sf2563472vsj.2
-        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Aug 2021 22:11:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629695492; cv=pass;
+Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E0093F44B7
+	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 07:49:25 +0200 (CEST)
+Received: by mail-ot1-x337.google.com with SMTP id r24-20020a0568302378b02904f21fcab643sf9323314oth.17
+        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Aug 2021 22:49:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629697764; cv=pass;
         d=google.com; s=arc-20160816;
-        b=iCIF/pevdyFqp2a2tl2d36Sf+F9d3ganEAlUfONpfP2ZWRcssl8rCvlWUPvMWs2H/L
-         uUioYIrQ77n5BqVs9QWRJNJVxMZfwakUO2rWNnChmHt623EOW0TRm55Q9OFVgtrQd8HG
-         xr3D6aEz/HUaoXue4CASgjSUGohQh4CSZgueAOBfxKbwW84BbE5E5JjKc7E7Ez0oFySo
-         LCsMenVOIyzzQDzJt+FZzxj2X1NFubKEGN/HGXsk9MDIuXsIHxufBRT0n3Wsdm8ZS2Wt
-         halejmxgZUXdbTcL/JW3baqLASsBLq8O7qUcMJVogPZVXNV2n1f/1RFzF/dODUbYftl7
-         w31w==
+        b=fhyepeqzGtF09cbR3Hr4VGCnU/fsVB2Mvh5q+P+H5YQSbf42m5wLVFYVpWGvsMf9eo
+         mIPG6/hAs/gUHr/3Sqh3d/CJ7XWRu3UGEuqA76u2QeOQMi9yC29bZJhesnxO8nBbR/pU
+         PBnADau189D9UlY/yIhMAh5E6ZNsv/4YppcUW8uPB7z9ryJAmTganSThvZcqp995lNNW
+         C0foPDhDeBl7s8R7m/3wcENhbM7DoVGTFkkH76rYWBCmPKDrwHQ1DjuU0PGabnhThbi5
+         v8YCE601cu0eatO0rtKbC11wELB/RP0wZVep2kvl4ek0mZBpnv+tzaInPYY5nWhrvGDA
+         RWuA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=GTvgHP3TpsimAylTYN8EtxNSK/d+i5x98bb59NX5wjg=;
-        b=zc39my44jM4fLEOIUNoXOHKOQYHxv5ZMTNoBT91Ku9k1pKMcU40ym4ecAZrRxti5y1
-         5yel5/9DaFtWfVGe6PZDH31A442Ib4dYZbPboneKjqnr9FL18O/gFif5/kAmryLf9Geq
-         IeGs5Rxr9XhgyLWOa7nSVNaDzVMwenQ7DH9n33ALf5KFfJ6FzyE/2by89nszIUqJDh0o
-         dQusE3Xt49f3DUUAicduZgN18509dcjRviQhtY0ELM2srZAwTI9WWmY1gLkH/x8Vhm3q
-         XQgYC4V7v+ht2MeKIlJtrMStSKgtBr1DcvCf2ZcAlqBQxkOhWwzAzCW3uTadIDwi8djQ
-         /MZA==
+        bh=Gp55sLSxIZdpvxBjtS4FLiiyLmvCc8sRHBq78UscApw=;
+        b=yCeAMKsk3rud4Pn2ZDZYRSVegYshzDErghRgsrtPHRE/bdG7EJYWaqUVgs5/Vlo5CA
+         GhXSNYYCUa3BAn4+UZIFer0PIeoX96g7jLSpQ6r9CAyrQij8kV8EJ1aN+vPeaXiEKgAX
+         r2PLFP7vcavUCM1g5QZ8DznWOAcn2YiTwwqivIhgJlhJ6r4qPdzIFQLFvX8AFCshZWij
+         Iftv/oTMfhC9Nmbbfi9pPHMxfLZcLYLxugnOmEadddXjI//SNLOVpeL6CYeardJsoNVK
+         sJ5hpr61TdPXvHgDn78d3ZzPQN3FGa4tV/attrhwrCmtX2glqowcEnG4SBYi+ebMs73n
+         1u0w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GTvgHP3TpsimAylTYN8EtxNSK/d+i5x98bb59NX5wjg=;
-        b=QsToN3aWNAlS1FaajrqnfIcp2jj4ejbSilqC+o1Mz5kRV1VNY0ILEJmDzyW4dnfSJ8
-         Um7RJYVoSTSF6ad4fncTHK7PqShK0RBzSGtvIs92eXmdCk+gI3Rk7AVMdNWHFsjq7PPL
-         tOkcjXpi9buEd0mGGOw3zrOizBcedlLnfcnS1DLQQ2H5TEVOLcj2oD5L7EN3x2TJEFoC
-         dhWNbfZSCD8KPvo3d2kHsJ+835+i8P8uHhQzC1ABcZ2oTK13P8zH+Mgx8yyH2p8i9o4L
-         zItqonZ/4/Tj6MNum3pIKMgl3JanqGHS5ImRQKgHN8SJdEqAtdzdS/wK/OuWuzUfKwS+
-         4YrA==
+        bh=Gp55sLSxIZdpvxBjtS4FLiiyLmvCc8sRHBq78UscApw=;
+        b=YHHhoPi30HJEWCJ3dXJd/g4ZiUvC/ozSYTg/TPT7vPmtsfE+6LP3jRwg2jpLCOGIX1
+         bzmUhsa8UWwFFWSIO3M+EDJeUxOC6f58npf0E55kXkjmmbjT+hSCawXK5n/oujE1ASOO
+         RpEGPHT5RNdb1fNADgmOGGWNZdsMrdPgAJx/7oleegsb6KKLhoaKab9+91mIX3e+gQH5
+         nHceFQy90iuuV7PwLZjtD5IrR7fNpGzWXIZJ07l3AXMqQJILXgQx2Z97VX0OHjtBdD4r
+         eK5z91hEXEbMQJiOhkBi5c7KPpJdc70PeHRAGRW0QNa4Be9azLSY6M4JzGEQBact568O
+         RKFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=GTvgHP3TpsimAylTYN8EtxNSK/d+i5x98bb59NX5wjg=;
-        b=tO7YMlbr81leEMPgFY010HUCeIrBb5n/EWKDYTGiisfqxMMb+7thQp9gQGBUiYqSms
-         fcJb7QWaFWPNd+JXtM7LiBS7EEuwA3XkmEOf3AeyxyirEC3l0hnAvhJAdCVjjiWNLELX
-         XlEzO/7c+AWbEawlqjbW0Sf9rh1SIp44NExqjUb3jMtgI4JZhj9wvUkWij9yOTqk3eaK
-         oTwR/IiiVqkaztC9IBlb9Jt+H4xVFLk8KNMgAY134S0y9+6MGiMFPQmkaodzrw36W9qC
-         BNakmVjzYVWyqgvmoDq3O+cUuIc5sY6lxr89rei0iL9iyU0WJC2ydr72+u/wZkYYd5/3
-         /Psg==
+        bh=Gp55sLSxIZdpvxBjtS4FLiiyLmvCc8sRHBq78UscApw=;
+        b=kFNn9eUZZjTP0S//R4k7T1TyxrdW0iha9Osif7Ba4zz0nIRbOuOUXqaprIB5j4KOmJ
+         KbdDGoeq0fBmNzO4DmWtc2VB+2w117nD4szxkCqek7U8rR8vuuVb3QZOxl3uohXMzfOG
+         XW8pINs07/zVkyOUlb76p/bJgTv3JIXVw1N3BSMcAMaVdEdgV/yyOhgtWNr3ujrcNFxV
+         fl3uOFOM2piEwq6h/6YQat0wPJ/viBJLfNFVclIj2x2Wvm6Z1uDYCi0y+ALJKm9WgmnH
+         RL5UAby+WxkPlrsou2NBPq0M0yzT9M/pRua2MwyZ75rW3LuVHRKriIt6XTWNM2PZxqUW
+         Z2qA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530HdMoPWu147BaZNft7trUPTzIt9HaIacsvPEJ9ZpHN6PZ+FL5j
-	wzvdJuPBz0IEmPwPlMl9vdA=
-X-Google-Smtp-Source: ABdhPJzTSV+v9ZWSi59U4uv1zYt6Of1ib7TnJbU4c5Pci/bo4qTvHwz7uuGs9Iv/AjitcsRC0cx4ZQ==
-X-Received: by 2002:a05:6102:822:: with SMTP id k2mr23044502vsb.3.1629695492474;
-        Sun, 22 Aug 2021 22:11:32 -0700 (PDT)
+X-Gm-Message-State: AOAM5309SkdBp64G3/rtB6UzDn7R4YkGq0oN9otdAlEvDVBC7fHVU2+W
+	W9xapT3Zvbv2D6FGSbxLIfs=
+X-Google-Smtp-Source: ABdhPJxz11JI2gReN/En0L0jhD1xAzB9RT3lcrgkAYyffGzUcOhm1QLjRob/OKRp7WKW9b1MEiiLmQ==
+X-Received: by 2002:a9d:4d93:: with SMTP id u19mr15996242otk.86.1629697763927;
+        Sun, 22 Aug 2021 22:49:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:a81:: with SMTP id n1ls2490577vsg.8.gmail; Sun, 22
- Aug 2021 22:11:31 -0700 (PDT)
-X-Received: by 2002:a67:ec4f:: with SMTP id z15mr10245716vso.6.1629695491454;
-        Sun, 22 Aug 2021 22:11:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629695491; cv=none;
+Received: by 2002:a05:6830:4408:: with SMTP id q8ls2363412otv.7.gmail; Sun, 22
+ Aug 2021 22:49:23 -0700 (PDT)
+X-Received: by 2002:a05:6830:40b4:: with SMTP id x52mr25920608ott.163.1629697763320;
+        Sun, 22 Aug 2021 22:49:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629697763; cv=none;
         d=google.com; s=arc-20160816;
-        b=jffXhlohjlgAFKQAxpImkzj3IpOhmz4+yHEQj43U/hOrxMw3g9YKi827/BLK30NbvB
-         IgMA80YxpSjV4JbGIQ3pnU+DdlpoNDmaO9n6/SV2z/s4/R81mB+vqHado4ZWla1SuX7U
-         5uW+bgUx3BqngNAyp58LSRVERGwemTOcRYRrul8UJZjELUqR7inoa/l0pZ4T8ZPqT7ma
-         PJ0okTRMudKUuPQ0qt/VnkM6JeMkXLDCMNMW9yX5XwA/2YiieJL9T2zqFO6r9DHnWaqX
-         a5Y0PtFezP9WmBU2EbBO2MJOGnWzx4UMqPh139/RA9a06yMxZf32E0wFXi5pucJXpSwL
-         EQag==
+        b=A7/Ior6FKECEMtIHVZozUPrhnuWXdJDkFasAvy3xWu690lcFt6tTiPG9qIXE+CGZ8G
+         12iTfANdyM8nxznNqS9r26GXVRPK8O4VRqqyKCVh+S22k0tJ7dULGVJP6ZN2IXjbf32c
+         Hm/SmVBQO3pG5qfG81yXVTK0+22uibw2yE6momXiiO2l5tA+AgEBqYmOdvj7EB9RaDoc
+         PZE+3b0GLYcnZUMxaNw1tXHjVGM38hNvIkMyp9pPbB7XviF9NFTEJ+R9xNohEpT5+jWU
+         vy+mWCVPXTgP63Z7+9rdzrcTnt/2cMSVo0k0p15O9kb7PwNIS7zTnyC80gaVqR89AHfV
+         EArA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=e4hMtbhvFZB9v1ePRM61ymyiVCJqOoCFQ5bjJ5/k1rM=;
-        b=ZxWoHOyhE0RF5DXAllZFtqsUm9idhB2teM/GUdhtciuTOpppof/iKJkvAWnpGl12yW
-         bKnvlbnzbs1NAwLnURBGT42wuPzbe5u9CpZvpEvpOXU/qPgHuu9T3pj9UxZpMn3g0N2w
-         +5+2ozPR2IPCQlEwJEe0YKKSOX5LAb6uhdiaa9g7pAKfN4KsvHhWaDxKaY24PmkvBf4h
-         VvSaDIaHKDUysPzEEKv7kLXqVLP1ekFJ7+/isYyY9eGDey0J/Q3s4vubvc9iSywG1Sva
-         CC2cPZ4P7Ycie7n3OM+jb3YlkqFGfrHar0pW0FATYpKlh8356Y3MEPORh4MGF3O07fnG
-         z39Q==
+        bh=noKHnwaOWbFs8npWeSFZNhh63CD4bPGW7eQfJWQdQmw=;
+        b=do0tSi8Yiv9ugV9kmbYA+KBNweVLdSdweekB4L9HVvCuPWXpbHBhT6VlT+g5lIDa+8
+         LN+L0/xnhVLFwazpKd8YCtBtl1CILEkoaSpAOeOPbxOBGJtoQXzWez3RxLGTDiarMdj9
+         ahFry4vjuN30A4M+aRNVINWOMd0Ge3IZJDUi4CaQbfwfJLpxEH7zeWiyerY8Y3Ks1sSb
+         UCLAjhxQ2Sd5YtdmjtrCg+b14FgzIhs76zpZICRiHUlv9OYlKVZoMAl+McyND1tADG5Q
+         R+ZEA1lwk9c2DhAL707l0wb/a3tnzjCTHK5POytCDw+2UgzgmW9OpHj/F8coADGf7Dg9
+         GLjg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
-        by gmr-mx.google.com with ESMTPS id 24si574375vki.0.2021.08.22.22.11.30
+Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
+        by gmr-mx.google.com with ESMTPS id j26si1219196ooj.0.2021.08.22.22.49.22
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 22 Aug 2021 22:11:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
-X-IronPort-AV: E=McAfee;i="6200,9189,10084"; a="280756157"
+        Sun, 22 Aug 2021 22:49:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+X-IronPort-AV: E=McAfee;i="6200,9189,10084"; a="302622673"
 X-IronPort-AV: E=Sophos;i="5.84,343,1620716400"; 
-   d="gz'50?scan'50,208,50";a="280756157"
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Aug 2021 22:11:28 -0700
+   d="gz'50?scan'50,208,50";a="302622673"
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Aug 2021 22:49:21 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.84,343,1620716400"; 
-   d="gz'50?scan'50,208,50";a="514571099"
-Received: from lkp-server01.sh.intel.com (HELO af11032d27a7) ([10.239.97.150])
-  by fmsmga004.fm.intel.com with ESMTP; 22 Aug 2021 22:11:26 -0700
-Received: from kbuild by af11032d27a7 with local (Exim 4.92)
+   d="gz'50?scan'50,208,50";a="684245980"
+Received: from lkp-server02.sh.intel.com (HELO ca0e9373e375) ([10.239.97.151])
+  by fmsmga005.fm.intel.com with ESMTP; 22 Aug 2021 22:49:19 -0700
+Received: from kbuild by ca0e9373e375 with local (Exim 4.92)
 	(envelope-from <lkp@intel.com>)
-	id 1mI2F3-00000l-Ka; Mon, 23 Aug 2021 05:11:25 +0000
-Date: Mon, 23 Aug 2021 13:11:14 +0800
+	id 1mI2pi-00002H-VN; Mon, 23 Aug 2021 05:49:18 +0000
+Date: Mon, 23 Aug 2021 13:48:32 +0800
 From: kernel test robot <lkp@intel.com>
 To: Heiner Kallweit <hkallweit1@gmail.com>
 Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
 	netdev@vger.kernel.org
-Subject: [net-next:master 7/16]
- drivers/net/ethernet/sfc/falcon/efx.c:2798:10: error: implicit declaration
- of function 'pci_vpd_find_ro_info_keyword'
-Message-ID: <202108231305.35WkCXbI-lkp@intel.com>
+Subject: [net-next:master 14/16]
+ drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:2803:8: error: implicit
+ declaration of function 'pci_vpd_check_csum'
+Message-ID: <202108231323.Wz7uCjZy-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="zhXaljGHf11kAtnf"
+Content-Type: multipart/mixed; boundary="mYCpIKhGyMATD0i+"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,13 +138,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---zhXaljGHf11kAtnf
+--mYCpIKhGyMATD0i+
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git master
 head:   8d63ee602da381c437c0a4ef7ea882b71d829eb6
-commit: 01dbe7129d9ccd5fe940897888645f06327b34ff [7/16] sfc: falcon: Search VPD with pci_vpd_find_ro_info_keyword()
+commit: 96ce96f151261e33a170cecb8a4fa664b45743ab [14/16] cxgb4: Validate VPD checksum with pci_vpd_check_csum()
 config: riscv-randconfig-r014-20210822 (attached as .config)
 compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project 79b55e5038324e61a3abf4e6a9a949c473edd858)
 reproduce (this is a W=1 build):
@@ -152,10 +152,10 @@ reproduce (this is a W=1 build):
         chmod +x ~/bin/make.cross
         # install riscv cross compiling tool for clang build
         # apt-get install binutils-riscv64-linux-gnu
-        # https://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git/commit/?id=01dbe7129d9ccd5fe940897888645f06327b34ff
+        # https://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git/commit/?id=96ce96f151261e33a170cecb8a4fa664b45743ab
         git remote add net-next https://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next.git
         git fetch --no-tags net-next master
-        git checkout 01dbe7129d9ccd5fe940897888645f06327b34ff
+        git checkout 96ce96f151261e33a170cecb8a4fa664b45743ab
         # save the attached .config to linux build tree
         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=riscv 
 
@@ -164,14 +164,14 @@ Reported-by: kernel test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-   In file included from drivers/net/ethernet/sfc/falcon/efx.c:9:
-   In file included from include/linux/pci.h:38:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
+   In file included from drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:36:
+   In file included from drivers/net/ethernet/chelsio/cxgb4/cxgb4.h:42:
+   In file included from include/linux/ethtool.h:18:
+   In file included from include/uapi/linux/ethtool.h:19:
+   In file included from include/linux/if_ether.h:19:
+   In file included from include/linux/skbuff.h:31:
+   In file included from include/linux/dma-mapping.h:10:
+   In file included from include/linux/scatterlist.h:9:
    In file included from arch/riscv/include/asm/io.h:136:
    include/asm-generic/io.h:464:31: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            val = __raw_readb(PCI_IOBASE + addr);
@@ -182,14 +182,14 @@ All errors (new ones prefixed by >>):
    include/uapi/linux/byteorder/little_endian.h:36:51: note: expanded from macro '__le16_to_cpu'
    #define __le16_to_cpu(x) ((__force __u16)(__le16)(x))
                                                      ^
-   In file included from drivers/net/ethernet/sfc/falcon/efx.c:9:
-   In file included from include/linux/pci.h:38:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
+   In file included from drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:36:
+   In file included from drivers/net/ethernet/chelsio/cxgb4/cxgb4.h:42:
+   In file included from include/linux/ethtool.h:18:
+   In file included from include/uapi/linux/ethtool.h:19:
+   In file included from include/linux/if_ether.h:19:
+   In file included from include/linux/skbuff.h:31:
+   In file included from include/linux/dma-mapping.h:10:
+   In file included from include/linux/scatterlist.h:9:
    In file included from arch/riscv/include/asm/io.h:136:
    include/asm-generic/io.h:490:61: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            val = __le32_to_cpu((__le32 __force)__raw_readl(PCI_IOBASE + addr));
@@ -197,14 +197,14 @@ All errors (new ones prefixed by >>):
    include/uapi/linux/byteorder/little_endian.h:34:51: note: expanded from macro '__le32_to_cpu'
    #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
                                                      ^
-   In file included from drivers/net/ethernet/sfc/falcon/efx.c:9:
-   In file included from include/linux/pci.h:38:
-   In file included from include/linux/interrupt.h:11:
-   In file included from include/linux/hardirq.h:11:
-   In file included from ./arch/riscv/include/generated/asm/hardirq.h:1:
-   In file included from include/asm-generic/hardirq.h:17:
-   In file included from include/linux/irq.h:20:
-   In file included from include/linux/io.h:13:
+   In file included from drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:36:
+   In file included from drivers/net/ethernet/chelsio/cxgb4/cxgb4.h:42:
+   In file included from include/linux/ethtool.h:18:
+   In file included from include/uapi/linux/ethtool.h:19:
+   In file included from include/linux/if_ether.h:19:
+   In file included from include/linux/skbuff.h:31:
+   In file included from include/linux/dma-mapping.h:10:
+   In file included from include/linux/scatterlist.h:9:
    In file included from arch/riscv/include/asm/io.h:136:
    include/asm-generic/io.h:501:33: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            __raw_writeb(value, PCI_IOBASE + addr);
@@ -218,58 +218,46 @@ All errors (new ones prefixed by >>):
    include/asm-generic/io.h:1024:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
            return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
                                                      ~~~~~~~~~~ ^
-   drivers/net/ethernet/sfc/falcon/efx.c:2792:13: error: implicit declaration of function 'pci_vpd_alloc' [-Werror,-Wimplicit-function-declaration]
-           vpd_data = pci_vpd_alloc(dev, &vpd_size);
-                      ^
-   drivers/net/ethernet/sfc/falcon/efx.c:2792:11: warning: incompatible integer to pointer conversion assigning to 'u8 *' (aka 'unsigned char *') from 'int' [-Wint-conversion]
-           vpd_data = pci_vpd_alloc(dev, &vpd_size);
-                    ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> drivers/net/ethernet/sfc/falcon/efx.c:2798:10: error: implicit declaration of function 'pci_vpd_find_ro_info_keyword' [-Werror,-Wimplicit-function-declaration]
-           start = pci_vpd_find_ro_info_keyword(vpd_data, vpd_size,
-                   ^
-   drivers/net/ethernet/sfc/falcon/efx.c:2798:10: note: did you mean 'pci_vpd_find_info_keyword'?
-   include/linux/pci.h:2349:5: note: 'pci_vpd_find_info_keyword' declared here
-   int pci_vpd_find_info_keyword(const u8 *buf, unsigned int off,
-       ^
-   8 warnings and 2 errors generated.
+>> drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:2803:8: error: implicit declaration of function 'pci_vpd_check_csum' [-Werror,-Wimplicit-function-declaration]
+           ret = pci_vpd_check_csum(vpd, VPD_LEN);
+                 ^
+   7 warnings and 1 error generated.
 
 
-vim +/pci_vpd_find_ro_info_keyword +2798 drivers/net/ethernet/sfc/falcon/efx.c
+vim +/pci_vpd_check_csum +2803 drivers/net/ethernet/chelsio/cxgb4/t4_hw.c
 
-  2781	
-  2782	/* NIC VPD information
-  2783	 * Called during probe to display the part number of the installed NIC.
-  2784	 */
-  2785	static void ef4_probe_vpd_strings(struct ef4_nic *efx)
-  2786	{
-  2787		struct pci_dev *dev = efx->pci_dev;
-  2788		unsigned int vpd_size, kw_len;
-  2789		u8 *vpd_data;
-  2790		int start;
-  2791	
-  2792		vpd_data = pci_vpd_alloc(dev, &vpd_size);
-  2793		if (IS_ERR(vpd_data)) {
-  2794			pci_warn(dev, "Unable to read VPD\n");
-  2795			return;
-  2796		}
-  2797	
-> 2798		start = pci_vpd_find_ro_info_keyword(vpd_data, vpd_size,
-  2799						     PCI_VPD_RO_KEYWORD_PARTNO, &kw_len);
-  2800		if (start < 0)
-  2801			pci_warn(dev, "Part number not found or incomplete\n");
-  2802		else
-  2803			pci_info(dev, "Part Number : %.*s\n", kw_len, vpd_data + start);
-  2804	
-  2805		start = pci_vpd_find_ro_info_keyword(vpd_data, vpd_size,
-  2806						     PCI_VPD_RO_KEYWORD_SERIALNO, &kw_len);
-  2807		if (start < 0)
-  2808			pci_warn(dev, "Serial number not found or incomplete\n");
-  2809		else
-  2810			efx->vpd_sn = kmemdup_nul(vpd_data + start, kw_len, GFP_KERNEL);
-  2811	
-  2812		kfree(vpd_data);
-  2813	}
-  2814	
+  2802	
+> 2803		ret = pci_vpd_check_csum(vpd, VPD_LEN);
+  2804		if (ret) {
+  2805			dev_err(adapter->pdev_dev, "VPD checksum incorrect or missing\n");
+  2806			ret = -EINVAL;
+  2807			goto out;
+  2808		}
+  2809	
+  2810		FIND_VPD_KW(ec, "EC");
+  2811		FIND_VPD_KW(sn, "SN");
+  2812		FIND_VPD_KW(pn, "PN");
+  2813		FIND_VPD_KW(na, "NA");
+  2814	#undef FIND_VPD_KW
+  2815	
+  2816		memcpy(p->id, vpd + PCI_VPD_LRDT_TAG_SIZE, id_len);
+  2817		strim(p->id);
+  2818		memcpy(p->ec, vpd + ec, EC_LEN);
+  2819		strim(p->ec);
+  2820		i = pci_vpd_info_field_size(vpd + sn - PCI_VPD_INFO_FLD_HDR_SIZE);
+  2821		memcpy(p->sn, vpd + sn, min(i, SERNUM_LEN));
+  2822		strim(p->sn);
+  2823		i = pci_vpd_info_field_size(vpd + pn - PCI_VPD_INFO_FLD_HDR_SIZE);
+  2824		memcpy(p->pn, vpd + pn, min(i, PN_LEN));
+  2825		strim(p->pn);
+  2826		memcpy(p->na, vpd + na, min(i, MACADDR_LEN));
+  2827		strim((char *)p->na);
+  2828	
+  2829	out:
+  2830		vfree(vpd);
+  2831		return ret < 0 ? ret : 0;
+  2832	}
+  2833	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -278,14 +266,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108231305.35WkCXbI-lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108231323.Wz7uCjZy-lkp%40intel.com.
 
---zhXaljGHf11kAtnf
+--mYCpIKhGyMATD0i+
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICP4oI2EAAy5jb25maWcAjFxNd9s2s973V+gkm/cu2vgrrvPe4wUIghIqkqABUJa94VEc
+H4sICPQyI2EAAy5jb25maWcAjFxNd9s2s973V+gkm/cu2vgrrvPe4wUIghIqkqABUJa94VEc
 JfWtY/nIctr++zsDfgHkUG0XjTUDDIDBYOaZAaT3P72fsbfD7vvm8PiweXr6e/Zt+7zdbw7b
 L7Ovj0/b/53FapYrOxOxtL9A4/Tx+e2vD/vH14cfs4+/nF78cvLz/uFyttzun7dPM757/vr4
 7Q36P+6ef3r/E1d5IucV59VKaCNVXlmxttfvHp42z99mP7b7V2g3Qym/nMz+8+3x8N8PH+D/
@@ -1125,4 +1113,4 @@ Cj9jGUaIlzfkoiymxHjjk6Fq16Glg1y/3Jt1eBfLVB2ud1yt+SuzCLQhZv42FJbGNpt+MrGW
 AdVNONVwe8BN9YIZp+ARt0l6EmuiTK1Fhl2Pdm+W1DVlACwikoy8Z1aZyKtEiXw+o46zO///
 j4RTAv3wAgA=
 
---zhXaljGHf11kAtnf--
+--mYCpIKhGyMATD0i+--
