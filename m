@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCRIZROPVQPBB3VFRSEQMGQETZOXNVQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCRIZROPVQPBB3VHRSEQMGQER64M64Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa38.google.com (mail-vk1-xa38.google.com [IPv6:2607:f8b0:4864:20::a38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 406473F43C8
-	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 05:15:59 +0200 (CEST)
-Received: by mail-vk1-xa38.google.com with SMTP id k2-20020a1fa1020000b02902842f3ea686sf2585967vke.3
-        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Aug 2021 20:15:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629688558; cv=pass;
+Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4E7E53F43D2
+	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 05:20:20 +0200 (CEST)
+Received: by mail-ot1-x33d.google.com with SMTP id c88-20020a9d27e1000000b0051abe1bcbb9sf7869119otb.1
+        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Aug 2021 20:20:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629688814; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aEKwRmeB3AYHJR1Q28NxCLxxZR3aYP1ELaN78w9niBCHugnhyjI/DGqszVujXojO1/
-         NekC0jIecL+ABCPvuZFk6PnoGbNjjOwE46eJt1fG3Ba9m12iHaBOyKBjQxV3MXiHU6Zz
-         +UNVNeICOGqk3siUwTolH4bJSLx2MklISa50XR2LhNpNO1xLbjpaU9WAw23+S2pZ5rvZ
-         k8aKBRJnZQuUsw8EQ+qytECrbCEfb2TX3VfD5Q1DcYX3xqYoM7mdwOiKdkgT5hDdJpBn
-         h3imvfyBYhZ/qWG9lFc2VggN++wE4SAh+xZ0JjJed+VD04MFr2rNNq9vmTlZSnHkUDbP
-         0vsw==
+        b=glmLWyKX5Thap6EGVE1yqVqq+N6JRxIm3z2/oUCu4IxDQa0RMFD5cQjRBn8yU1mqC+
+         kDMQ9o/v4xqF+eN4mVeDBjrTEsYfbspNRwLSyO4jJvTJ3TIBExp8/dBZ5QfG3ONHglyc
+         PSekYv+UDRvaNHxSR2qqzeNlM6Fn6mfbhVOueRbLfppxoCxjJlV4WDzhkXXA9i2/IqGQ
+         T2O8IJA0TUKM6XTybcRzVKLUIQhQxLm5WiFg6SO93mIDtieZbXn4tQpwA19AVrQmqWnI
+         q0vLFLXocJdLNuOuVAoprQm3VvI6Ed0wR34hlc/+IoRwUT0aw+SKKGrhKw2YaIdrSFya
+         pF5A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=1TDfxuxc38SV6D2IUjIIQViSf/zyL87EMFafc5ooKsw=;
-        b=Jk2/e8kM3/8L3R8PGp1lsKvrixs2w94mndISP4oymxjCaMFLH8GPb+RBQwCSxtfEEB
-         bE2f7Un/ym9E6gZ8Lfr4cuj/wt8EoCRJ5EcszSKdT2XKKcY5Nbmbl5u9ucMPZAcsRl5X
-         uX0vS8JbsY1/y5vuyhAo0tRvQ1Yh80FDrFoTeP5jsG3lizkX8xh5VDS0oXr5LBT8Cx4g
-         pB7BpUWlAFM+0PVmK8LPzZQs1zGRDtQOXlmydWnOGo6sf/dyXoNr0VhWm++LAxRvca9a
-         s9PSHLtYs2MIsa+EvqJ+fSeC8fhEmu1A/sRc5OXCi478WajfQ8HeXxslIVndhaPSFgyH
-         7mmw==
+        bh=Y5blgHqO50zSoKwa9n78Bv+v9bqJF+jdzscbizpuj9A=;
+        b=eelcW5i3tdxz1wMTA5UDuwBzbMohttl6h7Z+GkjBg6Wedst4CtLeVRsitD+UKWy29g
+         23zbakLPE3/7CooWcY77YfQZjjHmEs0+NDx4TBW8nJc7WKxxFVaib/hkgHRWRj1je8E2
+         Awpu2TWEb6p680DI6zwN2CLfWyCYLtN7FnJX7k6JoMTmDgQI9FZPyNPK8SWMsvnU13mB
+         iUlKPjVJw9v998bDSHMpiqGkqR/jhKbngc6qtF4LqjhNLBWJEKzUi+Odt2uJpXNn1GIk
+         81TZTWhKDfoEp2cFCh5T4BY0yoMDO/guCJKY2NC9zSazRYrlaahHG+l2J1qmfQkwh7yf
+         Jjcw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=RFPiUbmt;
-       spf=pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=viresh.kumar@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=pe9LSstb;
+       spf=pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::42c as permitted sender) smtp.mailfrom=viresh.kumar@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=1TDfxuxc38SV6D2IUjIIQViSf/zyL87EMFafc5ooKsw=;
-        b=PJaPcozOUEZPlcwE/ffo2p0OU6sEI5G9nrXfXd0a5VpntqWfMjgSNhXNLRcohN3U2S
-         j0WGXMyzgiUiMEudp/vqPu3oPXKAHW1JUlkai9L+nkeu8z0DdwZdus250wF0vV46S+aL
-         7ojGWR1BQl4NtvcC7R8gZN9WNFMcl2oDk73IGKM8Su/7Z4rlGDX/mGD+szChFy7mSpUF
-         EqkyvLda3FAATVhcPrN9WTozybEC/y7tnN+OLGMyBqhTUKxr/78b6kNeRGaBpCDjLjHy
-         a3IG7fcQKpQIAvwGlkt8Um93GhjV4DqmsSsDdS7c+eET2Tdkd22+pQBtB/Pmjh0SuXHd
-         RIFQ==
+        bh=Y5blgHqO50zSoKwa9n78Bv+v9bqJF+jdzscbizpuj9A=;
+        b=C2yEPU5gIm2NcpZ6hLgn3dt4GcE7/mx/SUIGVv85es7543QybJFc1KlWZgawBq1cZN
+         YxdI2axHLHw6Gbjhgp9gtxwQYN02WBl9AhQ4y4UxmfqkbGUcStvFeQuPRdNAwPsI9+Kg
+         Es1VC1oThFin23xRZ5p3RD3ESQr4uIS09ZXHPh5XLRYoExYpVmxvaHTrrippP0eYKJTD
+         PM+j5N3bS+UWkd9nvBqFcJLwzlhuZVXewOPLiZbh7GmdBGNPfcybpeBLmecSQTITF4eG
+         tRClul9/XUgoSggrEgHz5TnHAyZqPkEmnuTf+jxpugZqeKvJDtvApqIlrxq1zDQxOaNd
+         LjBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,80 +50,87 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=1TDfxuxc38SV6D2IUjIIQViSf/zyL87EMFafc5ooKsw=;
-        b=OIhK1d4J4mMl7Jqpfp2ggZ0IZUp8UUB0zDmbB7NVsySQXrNmH4KozMmJMjVpBKS6qW
-         ufihcSHsy/TcpUGzu8uKYoFv7L6RQHwnpoIJflY3W4Wt3YNxZ4rS/8lNLV8+1HVbRaiH
-         tmBQuVVlEs5+zUy4Gr/FaBYNVNMCYtWAhQlA7SE2pXHPDK+hRCMnCWspvsq0cZrSU7sC
-         KRhbbT97XNF8r6ngWCymoj7MrunmUuJR9YOy/IIDGWB0yikJHCQPJydabUYHFd0lSjwy
-         c6/jtzs/rvbHhncb7KuLYPvJhCHY8THMYnAWKehTbbTMiGtG+/Jr1xf+hAjY6d4TzEMk
-         dHJA==
+        bh=Y5blgHqO50zSoKwa9n78Bv+v9bqJF+jdzscbizpuj9A=;
+        b=P8zN6vvfHJMDG2p2pIryp5u/bBQ4ugx5xWW+JogMERIPujT+IxAz6ak1LN1zniqnBg
+         1UPOVHV1KZpRXzIFmQIPQxIxHZCLgAFAhZXKhyf4MoO9jYr+xGBQioBnrcW2zLqzBWvc
+         pjEdz61WApJWdjSpUVHZlmJwqtgzn3oDBOWMUit6Lks0Wc0KsHl/ncfITdSRH2A2Zuur
+         b8zfOj14m4PsUoIPz79jBDUxHOPzZmEzcx+O3mVimX6ydZCwI4xfgr/OEXCBW9nZ2e7x
+         CBFTMnh0aGgK34pJc8U2N2EH169oakrjB7MJemCqleHEc6F9EaH7T2ysuivCUERz4dHY
+         tmDA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530o9e7lcKQAsKHtIG27NoGrfl0B1F3DIw9a7bkIVo3j5tJWta0C
-	I5vpSMIy11UMbH+aSoGk3+U=
-X-Google-Smtp-Source: ABdhPJzPTHY0YitMr+4u7kNhqo8r9EF1PdQ4VGpOiZXDd7qqzrOKab150ZCbabklkB9+8t+JZJfRsA==
-X-Received: by 2002:a67:1a45:: with SMTP id a66mr23072641vsa.15.1629688558188;
-        Sun, 22 Aug 2021 20:15:58 -0700 (PDT)
+X-Gm-Message-State: AOAM5302e+HgeapVlk33//NRHLCHc/hWC5kl8nJAkIHOZqdAtMpUYBoY
+	ynl6dzhIFmpF/VxvZkDJ7yw=
+X-Google-Smtp-Source: ABdhPJwcgeAxqKS9X7tsO3LUO3H3C5rp6jZqZlDxfc9YjRR7/WGEEE64fWDWDPRnC2lMPtA5HUhwhw==
+X-Received: by 2002:a9d:4590:: with SMTP id x16mr25941107ote.94.1629688814286;
+        Sun, 22 Aug 2021 20:20:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:48a6:: with SMTP id x35ls1397042uac.2.gmail; Sun, 22 Aug
- 2021 20:15:57 -0700 (PDT)
-X-Received: by 2002:ab0:7305:: with SMTP id v5mr20590366uao.47.1629688557743;
-        Sun, 22 Aug 2021 20:15:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629688557; cv=none;
+Received: by 2002:a05:6830:907:: with SMTP id v7ls510601ott.9.gmail; Sun, 22
+ Aug 2021 20:20:14 -0700 (PDT)
+X-Received: by 2002:a9d:4e96:: with SMTP id v22mr24721326otk.110.1629688813927;
+        Sun, 22 Aug 2021 20:20:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629688813; cv=none;
         d=google.com; s=arc-20160816;
-        b=OOJA3L4Kk5lLJTWBm9CRt7HJdTiv/hm8FKU0P+hX6FrXge5L7ByLVVAK+SFeQlHpOZ
-         nEh4AACYv+StWagjoCJOQkpGNA6LF+7DPmg5pg57kgcSydyqkYOeT7ZnMDY6fRvz4e/6
-         8IGI8AZ7Kj9BA2sqKEtE1Wk21lSY8lgPAf0rTUyR3/MjdMH1hyza2l+v8ukFNcaf8mt9
-         97g4hbZzCBt+jSOLtyP/wusZfBGB9EaMgfGMLuy5BIBDLciNjW8FCj+Ki9a0ECGiTfdW
-         QZTe8tL3+FAFvVVZhCLA5OBUDXw9JyurEu0DTLs3F11TFDAl4G7TN6fp1uudSi7Q7l8h
-         6cFw==
+        b=FrEO1Jy/KkDiq8905KeJqA6OeSVir5G0o2RMM9Zlil1tGufadgvCUyw8BeZX4J32m9
+         6rmmLpzJMZsJyhhVTeHySsEgB7Nr6gjP00ZimE38+BUHFt6Arm4R3rENgE4kQ6Ek5blD
+         lXZzdodls4D4uxsp9E4JMFZwoCGL8I6c1Oyvgvw9VzsxCm0SE/cCy/cMPe/j+to2URRO
+         7yrbF+qmFoTFz9cqKb68MLj9QPSb9SZY2NXcHvAJ82A3M4unpwTogBD3Q9UZXPBzz6Zb
+         rD7EvIB7lSA1Wg0AONW1/X1FYO4T1y7dlminOKa33ZJYT5Rn6gK1g5xt/epyuAKE610K
+         7Ukg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=fQQOss/Yb9n2T7y6Wzh0ROcta6ZEY7+Hq1Zg7Phh6mU=;
-        b=ExLuDRJAg6apDykuNKhdqjffUX2CL1rb6hSyHsOmme/xg6RV6ReWzlbIQDrc0OYUTc
-         mmnSdEU37DrLsMWdoDNpivWu/J9hz8978QM0Xbo3v382oZj31l0N3zDYKZxZCWSOdAhV
-         jtbpB6yNe+CJbIKv0Fa1/9N6BIQqZhnCp6EFU9aYta1lP9h9nKhGghQpYz95gVRudVEu
-         ZzP8maxfh7+Xg/BJeCyzbPEuP8Q7ECXApu2528Kfz3BVexKgWPhd3L6JAOUo9VDmXIfw
-         MZmeBtVFqQC7Ua5LPTd/Tzyf2KsWSMOZQDkYzwr/1Vyj7hGiMLHEM0dBZT7hHJODpM4W
-         hh/w==
+        bh=wtYsKkA+qwcxfUX/32ZOnYYe+lHQZhcnG3DQvUIUBiM=;
+        b=XDsYjfD/OXd7uFXX3HKBtoPPv7JJdR9m1PGWJYeO1UzhzFf59BBnvWjpwL+yb9eL63
+         YzYThm1MAm+UY8Wq9dFt41aL4/ToMyzPynAAcRNAvuUGyodwTb07emnpDFKDmbwpzxRV
+         aqry6Ir41VrRVoGUFX6kZXI0ddOj5EON+L/MxQTwDQazoQIr0C0UJJfhIyYtNBVVgAo4
+         XZ6Bcj/eb4V6EcDJ50Vyc87VwqHJxLz1tRxRElLxD9XxvQfcn+bA2UQPXKo69+RGu/Mf
+         RFaK4sFLKLYH7v6zNRcGCe1xzwtAXag33ihN0Sai60Xcq4eoz/1AC30ER6MH3ua4igZ6
+         j8aw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=RFPiUbmt;
-       spf=pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::629 as permitted sender) smtp.mailfrom=viresh.kumar@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=pe9LSstb;
+       spf=pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::42c as permitted sender) smtp.mailfrom=viresh.kumar@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-pl1-x629.google.com (mail-pl1-x629.google.com. [2607:f8b0:4864:20::629])
-        by gmr-mx.google.com with ESMTPS id k21si774246vko.3.2021.08.22.20.15.57
+Received: from mail-pf1-x42c.google.com (mail-pf1-x42c.google.com. [2607:f8b0:4864:20::42c])
+        by gmr-mx.google.com with ESMTPS id bf14si409816oib.0.2021.08.22.20.20.13
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Aug 2021 20:15:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::629 as permitted sender) client-ip=2607:f8b0:4864:20::629;
-Received: by mail-pl1-x629.google.com with SMTP id o10so9379844plg.0
-        for <clang-built-linux@googlegroups.com>; Sun, 22 Aug 2021 20:15:57 -0700 (PDT)
-X-Received: by 2002:a17:902:b947:b029:12c:b414:a018 with SMTP id h7-20020a170902b947b029012cb414a018mr27191354pls.30.1629688556867;
-        Sun, 22 Aug 2021 20:15:56 -0700 (PDT)
+        Sun, 22 Aug 2021 20:20:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::42c as permitted sender) client-ip=2607:f8b0:4864:20::42c;
+Received: by mail-pf1-x42c.google.com with SMTP id w68so14119367pfd.0
+        for <clang-built-linux@googlegroups.com>; Sun, 22 Aug 2021 20:20:13 -0700 (PDT)
+X-Received: by 2002:a63:4f43:: with SMTP id p3mr30094716pgl.435.1629688813157;
+        Sun, 22 Aug 2021 20:20:13 -0700 (PDT)
 Received: from localhost ([122.172.201.85])
-        by smtp.gmail.com with ESMTPSA id z11sm13879748pfn.69.2021.08.22.20.15.56
+        by smtp.gmail.com with ESMTPSA id c16sm14105379pfb.196.2021.08.22.20.20.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Aug 2021 20:15:56 -0700 (PDT)
-Date: Mon, 23 Aug 2021 08:45:46 +0530
+        Sun, 22 Aug 2021 20:20:12 -0700 (PDT)
+Date: Mon, 23 Aug 2021 08:50:10 +0530
 From: Viresh Kumar <viresh.kumar@linaro.org>
-To: kernel test robot <lkp@intel.com>
-Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	Quentin Perret <qperret@google.com>,
-	Lukasz Luba <lukasz.luba@arm.com>
-Subject: Re: [linux-next:master 6632/9522] include/linux/pm_opp.h:458:58:
- warning: unused parameter 'dev'
-Message-ID: <20210823031546.fupzmdxjntacsq2e@vireshk-i7>
-References: <202108210311.CBtcgoUL-lkp@intel.com>
+To: "Michael S. Tsirkin" <mst@redhat.com>
+Cc: kernel test robot <lkp@intel.com>, Arnd Bergmann <arnd@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+	"Enrico Weigelt, metux IT consult" <info@metux.net>,
+	Viresh Kumar <vireshk@kernel.org>, Jason Wang <jasowang@redhat.com>,
+	clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Bill Mills <bill.mills@linaro.org>
+Subject: Re: [PATCH V5 1/2] gpio: Add virtio-gpio driver
+Message-ID: <20210823032010.q6nhchhq75y724po@vireshk-i7>
+References: <afc7b34cee856f1ed1a65034f4a9fe705dd04d6a.1628590591.git.viresh.kumar@linaro.org>
+ <202108110419.gWPGrCf8-lkp@intel.com>
+ <20210811035456.g633otggs5dejfrj@vireshk-i7>
+ <20210821060804-mutt-send-email-mst@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <202108210311.CBtcgoUL-lkp@intel.com>
+In-Reply-To: <20210821060804-mutt-send-email-mst@kernel.org>
 User-Agent: NeoMutt/20180716-391-311a52
 X-Original-Sender: viresh.kumar@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=RFPiUbmt;       spf=pass
- (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::629
+ header.i=@linaro.org header.s=google header.b=pe9LSstb;       spf=pass
+ (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::42c
  as permitted sender) smtp.mailfrom=viresh.kumar@linaro.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
@@ -138,38 +145,15 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 21-08-21, 03:30, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> head:   86ed57fd8c93fdfaabb4f58e78455180fa7d8a84
-> commit: c17495b01b72b53bd290f442d39b060e015c7aea [6632/9522] cpufreq: Add callback to register with energy model
-> config: i386-randconfig-a016-20210820 (attached as .config)
-> compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project d9c5613e856cf2addfbf892fc4c1ce9ef9feceaa)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=c17495b01b72b53bd290f442d39b060e015c7aea
->         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
->         git fetch --no-tags linux-next master
->         git checkout c17495b01b72b53bd290f442d39b060e015c7aea
->         # save the attached .config to linux build tree
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=i386 
+On 21-08-21, 06:08, Michael S. Tsirkin wrote:
+> On Wed, Aug 11, 2021 at 09:24:56AM +0530, Viresh Kumar wrote:
+> > I forgot to mention a dependency :(
+> > 
+> > https://lore.kernel.org/lkml/61b27e3bc61fb0c9f067001e95cfafc5d37d414a.1627362340.git.viresh.kumar@linaro.org/
 > 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
->    static inline void pm_vt_switch_unregister(struct device *dev)
->                                                              ^
->    In file included from drivers/gpu/drm/i915/gt/intel_llc.c:6:
->    In file included from include/linux/cpufreq.h:12:
->    In file included from include/linux/cpu.h:17:
->    In file included from include/linux/node.h:18:
->    include/linux/device.h:653:46: warning: unused parameter 'dev' [-Wunused-parameter]
->    static inline int dev_to_node(struct device *dev)
+> Maybe just include it here for completeness.
 
-False positives ? These are mostly inline dummies, which simply return
-errors. Their parameters aren't supposed to be used.
+Already done in a later patch.
 
 -- 
 viresh
@@ -177,4 +161,4 @@ viresh
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210823031546.fupzmdxjntacsq2e%40vireshk-i7.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210823032010.q6nhchhq75y724po%40vireshk-i7.
