@@ -1,124 +1,122 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBUN6SCEQMGQEEXVM7IY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTKRTXYNEIJNQMQREDBUBERE23JA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13b.google.com (mail-il1-x13b.google.com [IPv6:2607:f8b0:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id A19903F534F
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 00:21:06 +0200 (CEST)
-Received: by mail-il1-x13b.google.com with SMTP id c2-20020a92c8c2000000b002246dcb2b5dsf1407385ilq.17
-        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 15:21:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629757265; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4D37E3F535C
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 00:26:37 +0200 (CEST)
+Received: by mail-pl1-x638.google.com with SMTP id q9-20020a170902dac900b001304f704413sf3213920plx.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 15:26:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629757590; cv=pass;
         d=google.com; s=arc-20160816;
-        b=naYfF5fjuKCv9OsRxVr8NCG0n3D2RDug4p/PYeZHoESd7Y81hJn0QsZ2SmwvFP/qPK
-         tK0GeUk2PObwKyRAkS4FGvdlqvq3J4UJqatiRz9W7OLT5QFEjX4U8ZYWYCpCpOOQPQjx
-         eLOwznbM6e7sXfOUa5tKpB6d2iFYDDVZCRHmli4BS3hMDkWH/Qbo8g4zR4/4b8npS9Mv
-         EPygADQ1z782Lfu0CfDiGiDcs+Bt02Jmz1EYKMjskijcTqiNb8RmrgDxt6Qtg0CS8DuJ
-         aaKS27RPnQ6rsKhmy5i2ged4cIZfMUZuvMVESlFabgBZ7SBLbPW2RaDYEptV2fAcSiMJ
-         snUg==
+        b=Hj5qM2eSoafc+GuwtSn7a6xm/ko70jdZYAsUZFcNTKzgBXBnMg6KYj+21qIEZUCq4a
+         aAz7qpc9ZwnAOy/6H+gHQt7eB8iLfie3rhFAtjyDfSVB3f0naDlXnYFIJ6Zfiz79dIFc
+         O5B+5wvDlEgJv8JQgJGVVz4jE86or39Cn1/Uz0BfrPbLhR0Ilo+Jhiiy1SopDJ4qEmmw
+         tZeHbkk8FL3oU4l0tlhY2pOfI9rir9k/X7ZoU0RflFrWzdJQNMJExQFS1Ghe2Mju5Af+
+         ksjwRXMF8XaCW/b5+/sYA1X6zkUI+ik+6PxHzjTlL0nkvUS1e9wlawEhtCgrJQbMrMNk
+         oUyg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=Ynstk3kHDGCn4Aop1c0XUd3g3EupGqUwckWfgj6ZSkk=;
-        b=iWl+UbOXRPQcXpM+O3C/C65gfvW8oRozdrIRKubmf6CVJp9vs/Tlv8f6obfaaMGNHm
-         9wKVa00t39PrKWue7kzjQWmtOLN84AcH+oeFBmAmPETgc+KpsmfAT4wAp5t7fou8/zJM
-         y+KbzdA8K4cyKNcSJiLppZzagZKxEpKXS5flefIaWVNDL7uhRXrw9cuH+TfWNYTU1BFF
-         n1AkXutMaYEXbKh6MGgG2DbVTdEkqSdYSVToh8NkXP+PLqqFmC/ga2LsXWdhn9AcsiDA
-         YQXzUe6kz1lkj9ZeXffFjIYGKz9kJApLN++Tj8vDGROwQKeNZoFxKL3OjCu4EB3c05PV
-         /HEw==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=FKi/fTVLspSWT3oZqW6EdKiYEt07e/fLJW6mCMJQ/3E=;
+        b=ckj/wV5uzVyvLard/1aYA62zeSDkzpmI8d541cKIWzQB4a8BLNEn2CtZ9vkDatZSCR
+         yrqDdpYeAQKDwFwHtBShibu5FC9LptrGXxgr9EZpKMnBN95ma4Zem6rmfB/XmZdN2a86
+         nRxTAew8uaPayGdeqWTfd/Wjg7etO2ZTz1M7pVZOt/Pc6ggnk8uhHmKR7MD9HRbjRChd
+         4yrtINfn8SmtbgNNewjg3Yjr4neM2G844sQkhO+LjDdDMf+73f4TRHhbvbB0tLrDUMvR
+         1FPLLBUqPuNC8+SkOvazS90y9STTITM1Kw2NfX2/EY++WTFPVmGviZu/70Yq7Usufs23
+         BdOA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="e/1yYmL+";
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of fw@strlen.de designates 2a0a:51c0:0:12e:520::1 as permitted sender) smtp.mailfrom=fw@strlen.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Ynstk3kHDGCn4Aop1c0XUd3g3EupGqUwckWfgj6ZSkk=;
-        b=muSqtqj1V+iIJ1h2de1AiKF0pr//h0ph6tHr7au4douB1DJc0ciRijZkEG0JkyykiC
-         fpIfOeyEe0SKJByxcly7bw+iWOjPe166nqyNv2IDicPQXbD7ojlE7XZF/a+hu9IdjU5B
-         QN7X5FqyCoh4XhZ49f2Fza5ioZqVIu2dEOeikveyPVivR10DaoG8JE5E3n0VP0sr90IE
-         /xOtkdZSpKj8GX6sesXoN+4bAZPFPr8INH/d7D2K64NmJ6fWcxZhaI+CZRflvAvkbc22
-         hUdf8OJI9Q4cJQ0sX/XI/oEWFJ9lRjFjvcqMWANLhT2nt3l1WEtalqDL8zl2xSClvFVQ
-         qqTQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=FKi/fTVLspSWT3oZqW6EdKiYEt07e/fLJW6mCMJQ/3E=;
+        b=igXlkFqkz+bNtdAyYQnvYzpkkGwCkSxqqeXP3zciErKuvHuKidCZP29pnTKcCrnwf+
+         QlF/UwkvKr5vcG7th7xB1Eo5guyp25+mACQ7oh9261LL+qvYezRgdaGvkMaF3ahSKoLU
+         cHC3XKiaYzmAw7RODUdx7wbvlgJR8lXxIjsXitM06pXBWdGCG8hlef/x5tASmN/3+RmO
+         Kb2XI6g5Bt1s8w9QkjjpggvXrreDMpaJfveJsXq2JSZYnLH7lyvfWWNZLCy6IJqbqRDH
+         2OcS0fPSmfFKPcI4tb4tc27owYEtLhG/XLYmUSniwxU47tu7SYRwIJRE8cC7D2kSGVqY
+         4cwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Ynstk3kHDGCn4Aop1c0XUd3g3EupGqUwckWfgj6ZSkk=;
-        b=LP4TmH7PL9/m9BjtHAv7NtatNoDpBn1CiRREUDfi+g634MvOXn6Ig3Zdn0K2S8vVJK
-         i5HUs1jNciQEjUdY+f9uBCprYhyfrIdTahy+Et0y3rICHhL66rB0xcJd2MHdSNWFLT9v
-         zBaMzjyLTJXi10InQJwr1i0GFOYnEQwx0ZKf1fUNbzxcVSsO9u9wTnbfhLQLIR9QrYfW
-         PPhyLJi8ssiMf1tkwbqn5u+Rfef5+CyA2h9sWMAPuW3fATb/Tlbe5V+gDsxxW6h9Tbz4
-         rbeH9VZdnoo/haoaoDe/PyIGkq/hwMgU6LrhBUGUiFkrgegyOrvPnHCzL6FpY6krGRjv
-         slCg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=FKi/fTVLspSWT3oZqW6EdKiYEt07e/fLJW6mCMJQ/3E=;
+        b=TurW5gyNc3l8LvG0FuraonC25Kv2HFR89EagjSSc5XwZt54IB/O2N3YY2v7HiLHE4j
+         6i+IYCVLr/HuZb8GM8KOOQRo+ek1R1u5V2BOUFPdw+/uNETUtPfauM4Ap/ICby6P7VW6
+         SPZP3ViwsuvaHLZ4ryGJU1xOdwfCgInSKyV3SKARiezNL8vHLGcYDbTNJdC3LNEC69nK
+         wlI51alJRLThjMyeCL9Pv8Pw3YUQAjxyZvG5cnb26SXonodPq5a+QWkNnBuPJRh9IWGO
+         bn3npcIO3yk38hL9C+11K5wvMvRyUWd0yU//+DENZbM3vundRS7AyJ3f/Be8EYf55sEa
+         6GlA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531xTJR8l8pBm3he+YwXdifMyEmdjxDR6UzhgI0S+8hOTeiKNX0n
-	YNTk4Ko5mkZ3kaB1VlK4Mjk=
-X-Google-Smtp-Source: ABdhPJwBO79jHRksb5geZjc/Q6cJDFvx2oc3jeSk7hEVUeIWztk1RCeiRe+J2nNW0KE0Gl1qP/zK2A==
-X-Received: by 2002:a92:c786:: with SMTP id c6mr24188006ilk.211.1629757265471;
-        Mon, 23 Aug 2021 15:21:05 -0700 (PDT)
+X-Gm-Message-State: AOAM531RQbLbBqzaCcTmru4wzVqa8Ej/1yNU4Z1j21QbdG4ZBfn9QuJV
+	Bb+we7kjvOG0KMHSuFu6JSM=
+X-Google-Smtp-Source: ABdhPJzWIeKGjxpIjEAPkA6+3hDQRk8E1ahvJVz2BKzi4xxokPF1cSbmHK7LKG5e8Ll04VY7gi72gA==
+X-Received: by 2002:a65:494e:: with SMTP id q14mr34033854pgs.314.1629757590580;
+        Mon, 23 Aug 2021 15:26:30 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:c55:: with SMTP id g21ls2365041jal.4.gmail; Mon, 23
- Aug 2021 15:21:05 -0700 (PDT)
-X-Received: by 2002:a02:a709:: with SMTP id k9mr31178915jam.64.1629757265101;
-        Mon, 23 Aug 2021 15:21:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629757265; cv=none;
+Received: by 2002:a65:6802:: with SMTP id l2ls7750541pgt.8.gmail; Mon, 23 Aug
+ 2021 15:26:29 -0700 (PDT)
+X-Received: by 2002:a63:8f4a:: with SMTP id r10mr32557379pgn.337.1629757589900;
+        Mon, 23 Aug 2021 15:26:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629757589; cv=none;
         d=google.com; s=arc-20160816;
-        b=YfcVS9tS1t87NlELWsLrTqZj54YTLxJEfg2+Tpg8l6UAPnR7vq9qYu3LMvULXf7VnQ
-         25O9F5y8ItwkA/WJapK8SQ4MCw2rEL4z9Ny4gAT67q+YEzhO6h2lEWfbQK1vhDOojrCF
-         XS+QarhzZmJX8xgKEfbj5Qfw4aIwGvSPseWCDnxMCbeKEvhG6YVVLF9EULR7CyG2QTni
-         z+Jn8SuNuQHqaqO2g8c6Et7RZNCfiHTALWxGIPsRsihUlocTVrKB35bwtA20j+EhmAe2
-         +w4hWN/0cymu1pg7kLilCmNwdFm+pIasfS9Y4c3s5s/hoB9ovmhM5u8emfW8B9OEEJDr
-         4YfA==
+        b=ZYlZpHKv8ArkUHFmVN9TVkaK8UachHYEd1dnEYRs1If2DInB3fa3q0xfBv+YHTonxF
+         8WbSb6ze5DrVtBd6O7Lt+mkHk6A1u1l8HeAENFGVtOz6rbS7SawPEKzG/vS2LW6d4hBW
+         oStRiGzHYawaBOWEOcXZ47rXIG0HFWLPXQZo3y8n7k7tiquZzb1lmvZb5VViuufGDLGl
+         63bBO+rtSR8WZBHBgLnUlgUmjbp0u2Z6jjV19dJO8dsL5bCypKdjKngSU98ajf8fwkmO
+         oIIb1wD1/99NtfRwTpsVbBmvdRtdV1Jm92LHPOBoY1GyACjbGDk5avFJQZQpOHGPtYdJ
+         BPeA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=/M0VH6oHtZHjmphEaAygLWA6yKROG8HAIzt1trNUkS4=;
-        b=qlnYqJ6Cw7z2fLHoycEs7jZMarKJU/hTJyewC72oXqQ9gfNiBxNHoJ+vmFpYxjn3NN
-         CVBfisPKkFqrBeW4+/bZOeqiaJWpEI8LMsvAhkRspeI86LPoR2WSEh4nzfneHCecwNay
-         EhYT84VaH68taODRlT7KNIJehu5KLqtDoLqJ6MLb5mT8MMpKOLQbgPZb8VyTmbgJ5rpa
-         ni29Brc+mNdoXFNtnWhG1vTTc8H3RsCkndxW89DUsH/U/RHIpc6/+asXTbLsTwNc819s
-         1+s8nSG9DzzWvE0r0ZGTfxMnL/xlkDZ6PwmGI6H9kQj92Q+Bx1qOOiFJaLH6lwupVcTT
-         Ud5g==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=K6ILgDxJsmP4PkgfieXJqDWp07ojkzQLgxx4UHvVM+E=;
+        b=QFK7yx5j80cHwClJvflTGELP/xVzDHC9e+XGnYVdj4p5sSJ10nxy5Y3Ye0Vdfr1iWE
+         XMtwhCs/qHyWoEs9dLcWKnhc/pUSEpbzIkDCfsuEnhShdPa68VxrvvB3BVk2Wqu0gHBD
+         6Zd5MbY/PaBjV0JArB/Se9eCrYY4bsy50AwJwZM/h7cKb8ugejeENWBqvoMfY+RhKOkI
+         64IppzkK2sCBv/Hb+zpOa68Y/GFeMdC3aPw3TroN44Wb7EVIAnD3pvCSYD5jcHKYjMJ0
+         Dhp7N/s8cpNlCap4kasDw9Byu34KZIA5XXr83xilOMxJ9HR109eLy1YyLr9p3Lu5MRhd
+         PkuA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="e/1yYmL+";
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id e12si937907ile.4.2021.08.23.15.21.04
+       spf=pass (google.com: domain of fw@strlen.de designates 2a0a:51c0:0:12e:520::1 as permitted sender) smtp.mailfrom=fw@strlen.de
+Received: from Chamillionaire.breakpoint.cc (Chamillionaire.breakpoint.cc. [2a0a:51c0:0:12e:520::1])
+        by gmr-mx.google.com with ESMTPS id 136si1318036pfz.2.2021.08.23.15.26.29
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 23 Aug 2021 15:21:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id A045B61037;
-	Mon, 23 Aug 2021 22:21:02 +0000 (UTC)
-From: Nathan Chancellor <nathan@kernel.org>
-To: Ping-Ke Shih <pkshih@realtek.com>,
-	Kalle Valo <kvalo@codeaurora.org>
-Cc: Colin Ian King <colin.king@canonical.com>,
-	linux-wireless@vger.kernel.org,
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Aug 2021 15:26:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of fw@strlen.de designates 2a0a:51c0:0:12e:520::1 as permitted sender) client-ip=2a0a:51c0:0:12e:520::1;
+Received: from fw by Chamillionaire.breakpoint.cc with local (Exim 4.92)
+	(envelope-from <fw@strlen.de>)
+	id 1mIIOf-0005pk-Qx; Tue, 24 Aug 2021 00:26:26 +0200
+Date: Tue, 24 Aug 2021 00:26:25 +0200
+From: Florian Westphal <fw@strlen.de>
+To: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Cc: Pablo Neira Ayuso <pablo@netfilter.org>,
+	Jozsef Kadlecsik <kadlec@netfilter.org>,
+	Florian Westphal <fw@strlen.de>, netfilter-devel@vger.kernel.org,
 	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	llvm@lists.linux.dev,
-	Nathan Chancellor <nathan@kernel.org>
-Subject: [PATCH] rtlwifi: rtl8192de: Fix initialization of place in _rtl92c_phy_get_rightchnlplace()
-Date: Mon, 23 Aug 2021 15:20:14 -0700
-Message-Id: <20210823222014.764557-1-nathan@kernel.org>
-X-Mailer: git-send-email 2.33.0
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] netfilter: x_tables: handle xt_register_template()
+ returning an error value
+Message-ID: <20210823222625.GB23869@breakpoint.cc>
+References: <20210823202729.2009-1-lukas.bulwahn@gmail.com>
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: nathan@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b="e/1yYmL+";       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20210823202729.2009-1-lukas.bulwahn@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: fw@strlen.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of fw@strlen.de designates 2a0a:51c0:0:12e:520::1 as
+ permitted sender) smtp.mailfrom=fw@strlen.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,75 +129,21 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clang warns:
+Lukas Bulwahn <lukas.bulwahn@gmail.com> wrote:
+> Commit fdacd57c79b7 ("netfilter: x_tables: never register tables by
+> default") introduces the function xt_register_template(), and in one case,
+> a call to that function was missing the error-case handling.
+> 
+> Handle when xt_register_template() returns an error value.
+> 
+> This was identified with the clang-analyzer's Dead-Store analysis.
 
-drivers/net/wireless/realtek/rtlwifi/rtl8192de/phy.c:901:6: warning:
-variable 'place' is used uninitialized whenever 'if' condition is false
-[-Wsometimes-uninitialized]
-        if (chnl > 14) {
-            ^~~~~~~~~
-drivers/net/wireless/realtek/rtlwifi/rtl8192de/phy.c:909:9: note:
-uninitialized use occurs here
-        return place;
-               ^~~~~
-drivers/net/wireless/realtek/rtlwifi/rtl8192de/phy.c:901:2: note: remove
-the 'if' if its condition is always true
-        if (chnl > 14) {
-        ^~~~~~~~~~~~~~~
-drivers/net/wireless/realtek/rtlwifi/rtl8192de/phy.c:899:10: note:
-initialize the variable 'place' to silence this warning
-        u8 place;
-                ^
-                 = '\0'
-1 warning generated.
+Fixes: fdacd57c79b7 ("netfilter: x_tables: never register tables by > default")
+Reviewed-by: Florian Westphal <fw@strlen.de>
 
-Commit 369956ae5720 ("rtlwifi: rtl8192de: Remove redundant variable
-initializations") removed the initialization of place but it appears
-that this removal was in the wrong function.
-
-_rtl92c_phy_get_rightchnlplace() returns place's value at the end of the
-function so now if the if statement is false, place never gets
-initialized. Add that initialization back to address the warning.
-
-place's initialization is not necessary in
-rtl92d_get_rightchnlplace_for_iqk() as place is only used within the if
-statement so it can be removed, which is likely what was intended in the
-first place.
-
-Fixes: 369956ae5720 ("rtlwifi: rtl8192de: Remove redundant variable initializations")
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
- drivers/net/wireless/realtek/rtlwifi/rtl8192de/phy.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/wireless/realtek/rtlwifi/rtl8192de/phy.c b/drivers/net/wireless/realtek/rtlwifi/rtl8192de/phy.c
-index 8ae69d914312..9b83c710c9b8 100644
---- a/drivers/net/wireless/realtek/rtlwifi/rtl8192de/phy.c
-+++ b/drivers/net/wireless/realtek/rtlwifi/rtl8192de/phy.c
-@@ -896,7 +896,7 @@ static void _rtl92d_ccxpower_index_check(struct ieee80211_hw *hw,
- 
- static u8 _rtl92c_phy_get_rightchnlplace(u8 chnl)
- {
--	u8 place;
-+	u8 place = chnl;
- 
- 	if (chnl > 14) {
- 		for (place = 14; place < sizeof(channel5g); place++) {
-@@ -1363,7 +1363,7 @@ static void _rtl92d_phy_switch_rf_setting(struct ieee80211_hw *hw, u8 channel)
- 
- u8 rtl92d_get_rightchnlplace_for_iqk(u8 chnl)
- {
--	u8 place = chnl;
-+	u8 place;
- 
- 	if (chnl > 14) {
- 		for (place = 14; place < sizeof(channel_all); place++) {
-
-base-commit: 609c1308fbc6446fd6d8fec42b80e157768a5362
--- 
-2.33.0
+This needs to go to nf-next.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210823222014.764557-1-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210823222625.GB23869%40breakpoint.cc.
