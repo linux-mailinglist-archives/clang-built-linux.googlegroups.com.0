@@ -1,129 +1,126 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBI6IRWEQMGQEBRYY7OA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCXO5E6EQQFBBUWKRWEQMGQEFSTB23A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x637.google.com (mail-ej1-x637.google.com [IPv6:2a00:1450:4864:20::637])
-	by mail.lfdr.de (Postfix) with ESMTPS id 281A33F4711
-	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 11:02:28 +0200 (CEST)
-Received: by mail-ej1-x637.google.com with SMTP id q19-20020a1709064cd3b02904c5f93c0124sf5394403ejt.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 02:02:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629709348; cv=pass;
+Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1FCA23F471D
+	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 11:07:32 +0200 (CEST)
+Received: by mail-ot1-x33d.google.com with SMTP id 30-20020a9d0da10000b02904cd320591a0sf9599042ots.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 02:07:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629709651; cv=pass;
         d=google.com; s=arc-20160816;
-        b=I+cYL/zT+Pb5v3powYRYfW4zMPN+MScLPkrLmmh41TwcN05PppzeBuvOZAEARhFfJJ
-         aOUfrxpIsGIugg3QML6XMHcCbPu7+SW0OcPzIdF3ILa/Fm5rgCTp59+pzC1Wn+efoQDc
-         nE5XnJn8wwSErDDeliUaceqXXa/iCR5WZGK34l6meezQSvYZILZP1fl+VG4PIrsY7uL6
-         qsnCqNj4njQ6u+eYb9a1pC4HXa4Mrn4rSknThlxucp4uiMW7D0qGBFLrwP66KPXlGmQq
-         O73nlJhmjvYNMyL0UlwhaoWWwFC83VdcpBwc4HlmyyuBP0kb9t/9l2ngtkEenEERXTFR
-         jFxQ==
+        b=iRN1hUdNV6yRK/GR5FUmhQhK1KDAV0dN5FXHh4rAyIVQCav41J8PPMZO5SvQtsnWR0
+         991iY53UNcT4HrXY5z18dcKxv1kyueu821Q56Nr7306ijOiN5RNk37+5fmgsDoJ+SwSD
+         MbsjeQdGE1eAbMs0A8UllbonjHoRjvIZ3XuOd4GR966xqm4CXVBznW9wzacgcXOW8uJF
+         ZqVbIfGkaZso9iaXxFcEZj02p8cgE8Z64KsfuW93ITjcGjsAFDSb+6LpIeqaV5YcqMJG
+         5+93Ri+lK7iRp/5jJBKsLqgySnS1Z1I1wZ8utjXm+Ld3O5pTn/ipQtuOw/6gSlcaDBC8
+         Ar3g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=D0Tr7B59zTOM2f9BkyPxcVgBKOdoYaVXUq9aYk9hnT0=;
-        b=yOfJYmiZJQpYC4b7+CYsfpmdLUycKY2Rcl1aG8yu239rh6xF0DVFehbGB8VuJ2gspU
-         +J2izrxjA9cmXlx9w+7JN/EAPPk7GvqpdLaTGf4Z/yG6uA7xbVa3OEV30fFwtHt+OPBP
-         sImSsipAEforRj/Y8cDb8EvBqU2+OuezjJ17XxvWkKrhygRH6NonSm44PDpp3uM150tq
-         euQncBbHg+buvJoml7Y1U6GDqry+bqdpONjqVYeJaHEf++Tiqu/+FKX9GjxeJPIhaKg7
-         h1mTPqfyDXadijngKKwvzTJz+ROLjYmTzGnQ/kreoTFo87tSJJxsIrA1DjoEJtJ2QQLh
-         9/AA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=EeHwlDPTsTdY57PozHyPurrqGQqjn1IUOba9nXRW/wU=;
+        b=dMqtzIIFA2n8G6cSJlt9gQj4mejhxpgaeXx/vYHWo3H7mxUOBViyb3XD49/Rm8hw+1
+         27/rK546/MnCTXD2d31SGKCyh7BwnBQQ68NFYkLgUx8xIFU30Ii2VGf8z0vMKpE2jCXl
+         9xAfuozyPVDNTyyqo6RqkdCVoHHhh9Z0eHrkwB87Oi5NqNXOFI0vVk83bxj8eyqS9qZp
+         PX3h5ac4P1vPtsSmWxGkeNJt2O31Uxc4pdKL0piSwvpDOmlrLvPpuMI1ZtwuJRP4TyF0
+         v/Mv3AVfYUTQ9zcEU4S0nnSCX47jmsazC4gSZ73kZgSiBz5+uoMTfKqUSbO5AGhPWHyJ
+         QY1g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=MtatwbZ4;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="iDMie/hh";
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=D0Tr7B59zTOM2f9BkyPxcVgBKOdoYaVXUq9aYk9hnT0=;
-        b=oVMizy+NZGHniuvWBLF5mG5Y5UDQcyJh7cs2QT+WhUxTgiIFmXec98j+1jn/KntwUT
-         bo2nfUHYgjI3THN3aBiAnjIgI1sA0zGU82g73oDdNeomzG2Scab5nY5wCZK9bM32fxUg
-         z/17jk+jowQ4odiOB9i1QTFqG5o1kRwWuTWHAQ3ogC39cISYy9vnlMREL1zm3sR+33xl
-         LlJvvj2Q2PsCEbldCkdIl2+0u95enobRFVX0ukcgXBB6gle6kvvBGj7aNCj60XYSktAL
-         karRzo+Yri4lgXJ+Pw7T/RLhfUMB1Q3Sut7UGYtrSA9nZWeT9nEAQ5jPirTXVDPIfahc
-         UVaw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=EeHwlDPTsTdY57PozHyPurrqGQqjn1IUOba9nXRW/wU=;
+        b=IQYi6Zcmgvd9sXrpBbYmKsqsu/Vd1OFdEgZjMKMFrYc2zXgEK2cJlWHUO7YtPxs5qx
+         2rfODbeM/5aYf9J3kDgO9m0fP57SBmNHyxwkqICgBjq40yR7LIiPdgmG31F4aOCmtfUI
+         SjSc9jQXAgCr/DJrkj/yp257307ZiRTk5rIdaE3Fs4uNE1SihlHFs4k5Vz3Fu3GAhqO3
+         k5UC9pijF9Mj8btCQ64focXWzs+5X5AwuPPXDS++3iMk/lcXutPRkZuKhL+60Ci7i7iy
+         uG9HCT7qQmMdq+ribo/Ri0GlS4nGWTX4mksBnKs5fdMaeSRy0UMopK7Jdbav7r8Hcffa
+         dSkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=D0Tr7B59zTOM2f9BkyPxcVgBKOdoYaVXUq9aYk9hnT0=;
-        b=Ud6/bmAXEMEbFfQTobejfl4r4KvF2n0ai4OF59W2w++VD5zxAlinLhxEvpvM4aP9/1
-         dIueW+VuMcn+mJ3rWQs2AaFeqTdHKfioGI6TQfzBQ+WxP9wq2CcQYHk1r3hDbdWiCWb9
-         zR5eKqAV+RdfV9UPn5RWdfDQ6RzEr13jysIOTUD43DGGOu29cI2wgDxBI72fcKof1DCk
-         G6Nq+csmDYAo64zxo4vhZR9PXukJL+4TLWtXMVYnNCbgNmLVcc3+qWjpMwh8VnsahmSQ
-         zwSQiXt1ycU9MdHI6e/2/K8b5tBGYnOUlAf9xl7DIng395RmXRzOyHG4DD2c/2D71sVw
-         RdRA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=EeHwlDPTsTdY57PozHyPurrqGQqjn1IUOba9nXRW/wU=;
+        b=EXqHAOOg/9qEJn8n/paL8nfLve91irdbDXvByaIXFcVA8Xgp0tpA5jhsrafuXuLiF/
+         zWsN5MvaU0/rNZI+qxMkJj8BNylt8b/UoZ5eHLdTZx+oM2pR5r+98RgNg8SjyOFCgMZf
+         +dTpnLp611dhzf+IeX9msTVl8StVBhZVXx/aeDAWu4oBewaEC7N+wV184TJBF706aiYt
+         leUbPw47aIi7iM2wIrlffsPv5Y0R5AyU8J0ymTLOtxW+F9B9+UWpZZR8pHEKtrAxzF0r
+         NsTx/0PZNmjGG44sCmGZlez/7GtsL956oBJeQIQDjCr+CjuCu06HxV4zbLv9CgncMXmH
+         i+4Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532TclshFYa5xUKfojLCAp1Ie6oBeKlyk04x+K3fpGoS/khXXwHA
-	InDixjER5lyn2jFzuRbFQYM=
-X-Google-Smtp-Source: ABdhPJwOkV+hpXivn7T6gsf6aXkVqp8wnbiLlqkNpRBt/bvB11jswGaI+bFJrb+Aydj9zxdEK//Lbw==
-X-Received: by 2002:a17:906:a0ce:: with SMTP id bh14mr33422271ejb.434.1629709347722;
-        Mon, 23 Aug 2021 02:02:27 -0700 (PDT)
+X-Gm-Message-State: AOAM530cgsJfMObLoozp44+gBCS1thA+N/gRW6FgCcFXKxvhjzPAu0Qr
+	HV524NJM41uqm2TL94wYkYA=
+X-Google-Smtp-Source: ABdhPJx/zh1RhoOAtTiRhep01jr92u+up+WcZ/GE8p9e8iRXwQM54cnTI/DaqrDH9nLJTn57iPy/Jg==
+X-Received: by 2002:a05:6830:1d69:: with SMTP id l9mr26392671oti.154.1629709651078;
+        Mon, 23 Aug 2021 02:07:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:907:361:: with SMTP id rs1ls2455555ejb.4.gmail; Mon, 23
- Aug 2021 02:02:26 -0700 (PDT)
-X-Received: by 2002:a17:906:6009:: with SMTP id o9mr34798044ejj.266.1629709346863;
-        Mon, 23 Aug 2021 02:02:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629709346; cv=none;
+Received: by 2002:a9d:6a8e:: with SMTP id l14ls4146739otq.10.gmail; Mon, 23
+ Aug 2021 02:07:30 -0700 (PDT)
+X-Received: by 2002:a9d:6142:: with SMTP id c2mr26788156otk.331.1629709650724;
+        Mon, 23 Aug 2021 02:07:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629709650; cv=none;
         d=google.com; s=arc-20160816;
-        b=rCbT9gFrjXqFE/8JNHnDNH0M4Q27Ew9vWnvjTlGL88RVivAr77ei8zpPr9t87W0t4j
-         dJi7YA0bzpZaKHmuCjD6yfpjaWR30OqbhCcmhBtbisWuE2V6N+Mjfxor1/doXTPHEnvj
-         v4BLYkRPCJkT7kQCAiCjaRSjKNwENmTgHHPt1YCcoyRSXCMfPl3BrWGdomcFRJho3Jgi
-         WTqtOfMZzA34uecrvPGHv1BgeUHKq0wnVO3qdeA/Aqg+6mxgl1RYL6VGoY/d6juTu/O1
-         SWTmUFRJ35s7j2Aej5zKt/UKwRbZnEOegn0x1i3e1Y+q02XtRks2aQuib9QxhESkJG8a
-         5QbQ==
+        b=YejV/ILDMDgU9EvE7Eg7/CBzlOJz7mMMCWq+qlMeh3jfwQsrsJL5vEqpyV1nMdsZBW
+         iMGzBtJdbnBDsS+tkp68TsNdr3adAeJV380AkuU76ZpHHPtjU4UntmsPt/nhQyiWF9To
+         kdxmfalv6LKaIFlWL443LyyaHGnI6M3rvRLbMFAuDQaZO3qf7wNgDLG3HBDD/gw1gz+k
+         Vx9u3RLR0UW+AEdFNxpnFL3Jily9eAxl36P5nNUTwyynGJcM++sXAEXjbAp60BWbbdMC
+         b0JB3RKPdw0rb3vDMiAQcoxTbAeEM+BDFLOcknFMt1eaQHVhESsZ/aEqg6OwKiy8k7KS
+         j3UQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=OgyTviJmKWdTdPGttUWCV7ojzrJFqomYeJvFCysoRxY=;
-        b=wJ9BfNwrrMR/3sPuRuLYcdc7ATeYs4Zxh0KnHrRVyGk2NWapVvn/EbDWZPqU03gpMJ
-         pOIRPp6hHOJiDzesnvCq8ZU8jZuhy1nvMxcAXmPco3LLgW/B76sU0qHNnFu1nBbpHz2A
-         1tzMP/x8AMdqx5NZK893GCSKsIHLSOIBnbQXwHznEWZoOtkI0vMuM9cQEQx/nEyThfFu
-         haQXAQKylvSRlrHXnOeqOgrqj7ZGcpiCRd9FeljDEv0p4AanTnBq/W3AtQWP0UMIebZT
-         wywAwxc3C3s4+HcsMCl448B8jPpBgPodqHdHyWWCACSWzXkNSJAmx18JT5SjJ559hVJp
-         0/vw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=dkyLsbo/5hA8IsBceD4/HcIF1BbcUVcCIUCSGY4uY+g=;
+        b=Ywp11Cq/y4VWNCRO6Xc5CljyfTjLSLB02CcbPR344FhKQm6c0MEzi4zYB88PX6zT12
+         3lb4RTHSW181SleuWItX9L74LSx2Nu/VFnuABD0EM8gI5fwTUSsyfaPgAgIulqHUexry
+         EQMAlhWzesTB2VDVuVZbeQB+2eWFtcAYPVKKugVWUhkOuqirhIR1ASCDGaZ1m+MBdiq5
+         /4TUPuRTs5bxelvbCBMYBAhEVCN9WYnnSs4Fedv2HHnlz+F2b+0YnFTLkjONZd82n+Q9
+         OIQYG9z4X8oGyeC8Ax3jwRBGuZAW7e/RGEoxwcS24n7UjTDVfsY/eHtEeKznVq4ogg6r
+         7Zww==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=MtatwbZ4;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
-        by gmr-mx.google.com with ESMTPS id s18si853763ejo.1.2021.08.23.02.02.26
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="iDMie/hh";
+       spf=pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=arnd@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id j26si1264241ooj.0.2021.08.23.02.07.30
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Aug 2021 02:02:26 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mI5qE-009WC9-Ll; Mon, 23 Aug 2021 09:02:14 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id E427E300332;
-	Mon, 23 Aug 2021 11:02:00 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id C3D4D213ADB20; Mon, 23 Aug 2021 11:02:00 +0200 (CEST)
-Date: Mon, 23 Aug 2021 11:02:00 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: kernel test robot <lkp@intel.com>
-Cc: Will Deacon <will@kernel.org>, clang-built-linux@googlegroups.com,
-	kbuild-all@lists.01.org, linux-kernel@vger.kernel.org,
-	Valentin Schneider <Valentin.Schneider@arm.com>
-Subject: Re: [peterz-queue:sched/core 8/11] include/linux/sched.h:1722:57:
- warning: unused parameter 'dst'
-Message-ID: <YSNkCAyMU0tJoedT@hirez.programming.kicks-ass.net>
-References: <202108210940.aD3d42zA-lkp@intel.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 23 Aug 2021 02:07:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 02C0061357
+	for <clang-built-linux@googlegroups.com>; Mon, 23 Aug 2021 09:07:30 +0000 (UTC)
+Received: by mail-wr1-f49.google.com with SMTP id h13so25234189wrp.1
+        for <clang-built-linux@googlegroups.com>; Mon, 23 Aug 2021 02:07:29 -0700 (PDT)
+X-Received: by 2002:a05:6000:188d:: with SMTP id a13mr6085175wri.99.1629709648677;
+ Mon, 23 Aug 2021 02:07:28 -0700 (PDT)
 MIME-Version: 1.0
+References: <202108210311.CBtcgoUL-lkp@intel.com> <20210823031546.fupzmdxjntacsq2e@vireshk-i7>
+In-Reply-To: <20210823031546.fupzmdxjntacsq2e@vireshk-i7>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Mon, 23 Aug 2021 11:07:13 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a1o6uvDo_ttPFOw_pRdtok3-9=dFMLToyUxSmTxs0YfOg@mail.gmail.com>
+Message-ID: <CAK8P3a1o6uvDo_ttPFOw_pRdtok3-9=dFMLToyUxSmTxs0YfOg@mail.gmail.com>
+Subject: Re: [linux-next:master 6632/9522] include/linux/pm_opp.h:458:58:
+ warning: unused parameter 'dev'
+To: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: kernel test robot <lkp@intel.com>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	kbuild-all@lists.01.org, Linux Memory Management List <linux-mm@kvack.org>, 
+	Quentin Perret <qperret@google.com>, Lukasz Luba <lukasz.luba@arm.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202108210940.aD3d42zA-lkp@intel.com>
-X-Original-Sender: peterz@infradead.org
+X-Original-Sender: arnd@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=casper.20170209 header.b=MtatwbZ4;
-       spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+ header.i=@kernel.org header.s=k20201202 header.b="iDMie/hh";       spf=pass
+ (google.com: domain of arnd@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=arnd@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,18 +133,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Aug 21, 2021 at 09:20:50AM +0800, kernel test robot wrote:
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git sched/core
-> head:   234b8ab6476c5edd5262e2ff563de9498d60044a
-> commit: b90ca8badbd11488e5f762346b028666808164e7 [8/11] sched: Introduce task_struct::user_cpus_ptr to track requested affinity
-> config: i386-randconfig-a016-20210820 (attached as .config)
-> compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project d9c5613e856cf2addfbf892fc4c1ce9ef9feceaa)
-> reproduce (this is a W=1 build):
+On Mon, Aug 23, 2021 at 5:15 AM Viresh Kumar <viresh.kumar@linaro.org> wrote:
+>
+> On 21-08-21, 03:30, kernel test robot wrote:
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> > head:   86ed57fd8c93fdfaabb4f58e78455180fa7d8a84
+> > commit: c17495b01b72b53bd290f442d39b060e015c7aea [6632/9522] cpufreq: Add callback to register with energy model
+> > config: i386-randconfig-a016-20210820 (attached as .config)
+> > compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project d9c5613e856cf2addfbf892fc4c1ce9ef9feceaa)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=c17495b01b72b53bd290f442d39b060e015c7aea
+> >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+> >         git fetch --no-tags linux-next master
+> >         git checkout c17495b01b72b53bd290f442d39b060e015c7aea
+> >         # save the attached .config to linux build tree
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=i386
+> >
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
+> >
+> > All warnings (new ones prefixed by >>):
+> >
+> >    static inline void pm_vt_switch_unregister(struct device *dev)
+> >                                                              ^
+> >    In file included from drivers/gpu/drm/i915/gt/intel_llc.c:6:
+> >    In file included from include/linux/cpufreq.h:12:
+> >    In file included from include/linux/cpu.h:17:
+> >    In file included from include/linux/node.h:18:
+> >    include/linux/device.h:653:46: warning: unused parameter 'dev' [-Wunused-parameter]
+> >    static inline int dev_to_node(struct device *dev)
+>
+> False positives ? These are mostly inline dummies, which simply return
+> errors. Their parameters aren't supposed to be used.
 
-Dear 0day folks; could you please blacklist me for all W=1 build output?
-I'm 100% not interested in random compiler generated garbage.
+It's a clang-14 W=1 build, probably something went wrong with the clang specific
+warning flags there. I think we do want "-Wunused -Wno-unused-parameter". Not
+sure what changed compared to older clang builds.
+
+        Arnd
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YSNkCAyMU0tJoedT%40hirez.programming.kicks-ass.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a1o6uvDo_ttPFOw_pRdtok3-9%3DdFMLToyUxSmTxs0YfOg%40mail.gmail.com.
