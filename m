@@ -1,129 +1,139 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBX4JSCEQMGQENUJKBDY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDS5JPEL3IIRB7UJSCEQMGQE5WAX23A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3d.google.com (mail-qv1-xf3d.google.com [IPv6:2607:f8b0:4864:20::f3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8534E3F5213
-	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 22:28:16 +0200 (CEST)
-Received: by mail-qv1-xf3d.google.com with SMTP id l16-20020a0cc2100000b029035a3d6757b3sf13250801qvh.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 13:28:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629750495; cv=pass;
+Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 924CA3F5215
+	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 22:28:47 +0200 (CEST)
+Received: by mail-pg1-x53e.google.com with SMTP id h36-20020a6353240000b0290233de51954bsf10890229pgb.17
+        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 13:28:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629750526; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cBdaYvUBIEo6fJKq2AAio4tSwsKHZqlyL6wO4+PcFxzHqStDZKNss+SVBTpT+p5boa
-         CjxB9DqWoMbbN48Fy8RDiToJVZLuA/pZL7ZvXXhfOm6Xv2LNcsEPox0fRRVr66YkziwU
-         usdg+mLTiXqDOJU9uNG0fXvhxV+aoepsG6bR6K75EXvgiCP/derYXwcXSV+iOElJppU8
-         inXlyCBOlc1785fip1FOayLXtP724foutbP/ncN0ENGhU64QUwhtvBIt919NFHjvS8dV
-         EQMf+z7q1gTWngU85+h5TVhJDZCJSxpXnGTKOv/9n7mcw/PYDeZtN0fDbS6uPgbP7URT
-         Qwbg==
+        b=f8BE5zJUa2fR8ThAiyzkTZukrVo4hOSmvtNKaWfGy+f8td/AZr8HQTb+QEnWYsfPdt
+         pKh7LBZwN59JysmFG38VuoY64gL0Xsk8C0MkysD7moAT6laCRcbluF3icxTLnqpVtEGx
+         5XlJOorlRWrj1+c2+IGiJCiCOQsTaDIzlvhbBDZA+TqDyHQ5cFhUhrZI3/OWQKhZ8Dty
+         APvF2YLdrsfqe1wfV2zpfWSugCDavUJPL6/RMHFk1B2nelF/vbuiNzvYk2jw/ITAg5QD
+         cGSBaSj1S2nOzw1HtbKf1aqf2UqyBf7WOdoT/CJ7NJFQVD57SR8C06tOAIr+BZTXKiMM
+         7/vw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=8uJU3aOVuPaujqHnd9kvyS6UjC5zmA0yHOP3a3+g9Xs=;
-        b=Iz7Gh1EgX5cetO129uybAVzhMvZ3OLmAZFVq/lOXvGkDP1SaLxeJuyXVMQSGCIyiMa
-         2QOQ3xwQNdOT0hh7qnwcst2tZNHkrIoJBlA7czA6+KpdTswCFeMonuLDo5R1VvU97DlC
-         nduMJThZnI6IVq3UkDha0j+dSeyF9uY7jaNyKO4at9Q+WMyaDTiGURCeqH43vUDQ1Kgi
-         EpmUrxwl5d6rEXM7VA7BCEIslVUPzfZi+4EdDt+lkShtpZW52cN369e0Gsn3EG6kxuMA
-         rgJ7v5cWS82iVtWM02xMc+vS2ERqfDEAha/NfHjJghG+HHAtsuYtQ5d+TpAZ8lJFweyF
-         20bA==
+        bh=MVY5k/Y8nWkMrxUI31HGBrFqOh85XpNHwO0cIVwkR0I=;
+        b=KTggbVMapxJ47k1BaPT9KqhTEC6UbtEy9To7atNcwOfkBlP/nJwS9VKY0wX8WOBjEl
+         TzXH/orArq70pKtXPBcByCKpEF6UK72Z46Wb3YU1uuvaCQBTS684hJYOeTTNfUld8fGZ
+         77oYBVPDWr7/Z7ExT7owC5pKaMZ2hYx7PnRqJHLSLH/jL7EtvmDrBRYHHaXS0VUc25iP
+         0yXuf65eeSSA84DkWCXH0wYOFtbF0ZPStZe/4VIBDwVTL5HFA8vbFjKsSVx6E30tjdGj
+         1pmUpswS3xqEJSR1Mh4bxD/NkFTri14JL8kHdlXxGkQw6Ex6wV4UcjmOSMU+m7N2SuyN
+         xG0g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=hnJQJrX6;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=AoKScfuY;
+       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2607:f8b0:4864:20::b34 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=8uJU3aOVuPaujqHnd9kvyS6UjC5zmA0yHOP3a3+g9Xs=;
-        b=gReP//vmpUJ6EVWI+7Pppdgoa+0wUr/JCEgEtRjVuUfRzHkcMKa77Ddl+cA/8/2Bee
-         cU1j0BXsNR3gv2XQ0k0DV7FYcACqG3ydyEvhsboIqKGHMj827hVQh0aNo7frHDs97m/0
-         o4nStPbByx/g1dUyskylcFRNWFomVZ+W6LLBmjkLTiOxnhRh8TxKS1VNaRedk224u6Ct
-         cjtoxYRUCmVEga+yMTeu0Dhwt6NZTwquYbx4+0npNqy/GifVdTdzvNb7Tv0Ck+5GmzDi
-         z10yhCVl2VxTO/gBGy45SZbsakxojOuNOkrp6DITzABH3EHZ23xrrs0tJkE5LDFTjKgH
-         G+mQ==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=MVY5k/Y8nWkMrxUI31HGBrFqOh85XpNHwO0cIVwkR0I=;
+        b=Krrt7gwWnb2msJB+EOCHgAfEyczbpFP/zmJ1IYkE1J1Akz8woFbLKcDmituAkCF2PK
+         VNKYnnEZl8aqpkEcM2Pe/q46nqwpnhPZXnw6EF5uZpmhcb3h2vY+60+8kcjEIc5vZ0bv
+         Htufr1YQDGzcDcT/sRnL7gHhntz+ObiCRbVTCdPYfvwtA6Kzrn8PtjMetru7yrXnYj1+
+         JaKRPpJb6lr5gFgWOyAIyOh4U9RbkI3ei5AQkq8b3x1nV57h9ShKIlLyMOvLFBkoNxGw
+         6JSlmjq8MrOj+jtL4P3m1cdUgq4GialXSFUd7Ii3xkBzfpP/D4Mg4mM5ApQqGEPclU0q
+         YkHQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=MVY5k/Y8nWkMrxUI31HGBrFqOh85XpNHwO0cIVwkR0I=;
+        b=VbTQZF9jA9hxV4QM56tcQ4Ab5s6z2kW/gnU0q9MF0sZ+MBeB3+XbCiTBQwvzCxS7iW
+         DjlEeAT7C4f+bDE6+fkTvxA/uB1rvvTC+10iiw7xeJLSslXsbyhSUGcu7ZveSNji87/i
+         lXvw3cyw847MLhJ5CclNY2amz1mnPjd8f/kwTCmBY/aD2hPuIOcMNq1LlkKMfQDDTm1R
+         Lv5al6e8MUO7H2+XJL0Xe6Y59yC8FXFRFr01SkvdxnCpLP39xgGf2ySpHZaKJvJ2ESmt
+         twxmNtQORp+LdW4kBgm8HovuACcrbfpDCBKe5wGgVJ8azwwWxdzrx2QlJwwQPM+XChif
+         4+nA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=8uJU3aOVuPaujqHnd9kvyS6UjC5zmA0yHOP3a3+g9Xs=;
-        b=dpwum+nxISxFyPhcmOjyAI3vxoyoJoHY8vGHXT1AOpaHC8EU7gzZhcMI3KhrEJs48a
-         eb8QesGkkWQbwwHGlP3VZIyxHKdnK9AW5jnvBP5ySKaojdDp0I3pyfdwBbcDCIuHWjon
-         IMumN1k0zJV6WvAHNPvv7PDYPe/7TsSGWiFu6CPE7pGjFUwaBtnFHEt7JSM6hJaxPa9L
-         H93huZ/ulriUh1OPJSOqnKueRIRMucZbsObrf9OW+Qh6lIcAhx9voBuZs0GfDVYvjRGG
-         GLCm044RyL9HWfPG0+Qkxy7QlDgv+2BYiAQiaLma/vnSJ2zvrx8FTeslyDOdQ4/t70UG
-         DjrA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=MVY5k/Y8nWkMrxUI31HGBrFqOh85XpNHwO0cIVwkR0I=;
+        b=mSRWeTZOFC9aVHzUctWnwjhirbyVcctQmbp6rko6du9g6pc8vXXMBJlMEmgKCjjPqK
+         3GZ9997lYaetlqwGFdmhccx21246XOZvDdZNjkGdV5TW0VRbs96UyBPqwWIoa2PpP7bq
+         HuXd3Xr/1d3uqOc0hU94+gndq7udyF0gC+lTX3pZrXUQsOBsROJoRPrZhw6lSfXo3Hx+
+         wH3bmS3D+P2JlISfRljanmSxK5olzA1ktnVTBqrVecorrG0C5DETw6QGsrLOXp2Tcn+N
+         vRXNVOprykI6X4IM4Ck37kfeqfjfYvycwK0SdYrOPxBYk51YGvBqY7IfAA9nHfYqwZE/
+         u57w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5304vxTNV1w8B1uUEAOF0f0yK0hxNb1PWghE707eA6tc0JQi8sXn
-	xdC0k0yaTPuNq0f2Da0daU8=
-X-Google-Smtp-Source: ABdhPJxdVZ1fiftUQ3bObqNpbsCmpXfChzk6gAh0sntfxsjT2aHr+6hQe9ao8Mx+Lodingz7ZpRCtA==
-X-Received: by 2002:a37:bc8:: with SMTP id 191mr23749990qkl.25.1629750495618;
-        Mon, 23 Aug 2021 13:28:15 -0700 (PDT)
+X-Gm-Message-State: AOAM532Nu+UDthmbDHlCA6fZAxt2a28hR1fP7XtGiLNlw8m6CcSoJl45
+	yaRZ53L9aHXa7B4BucBEAgU=
+X-Google-Smtp-Source: ABdhPJzIekffue09aF3EzTl+WrQ0bHOzw48nBvZejFAqbBRDWDccKIMlXj5O+IgJ8HOWM6NV1DXUDw==
+X-Received: by 2002:a17:902:c406:b0:12d:d0ff:4aa with SMTP id k6-20020a170902c40600b0012dd0ff04aamr30136385plk.48.1629750526286;
+        Mon, 23 Aug 2021 13:28:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:c6b:: with SMTP id t11ls5083240qvj.9.gmail; Mon, 23
- Aug 2021 13:28:14 -0700 (PDT)
-X-Received: by 2002:a05:6214:2623:: with SMTP id gv3mr12156500qvb.9.1629750494600;
-        Mon, 23 Aug 2021 13:28:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629750494; cv=none;
+Received: by 2002:a17:902:ed82:: with SMTP id e2ls9072088plj.2.gmail; Mon, 23
+ Aug 2021 13:28:45 -0700 (PDT)
+X-Received: by 2002:a17:902:6bc7:b0:12d:aa67:695e with SMTP id m7-20020a1709026bc700b0012daa67695emr29947217plt.76.1629750525639;
+        Mon, 23 Aug 2021 13:28:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629750525; cv=none;
         d=google.com; s=arc-20160816;
-        b=T2R4nk28rnNq3EmVhq+JhjM1G4R7Jp3aOE4CJUl+BQamIIrceCk/idOz0PduxiUrj5
-         MF0ZlkhhsheOWZsb3zQFNrcqKdrLcgb5xd6CTqiQS5l7YPLSI+TSM40rkTuMpEO5mcO9
-         1Y2aMNvBZg5mlBRfRzaz92zHlTT+tOiTN4eGAOxwB4EvgXgMaioVQ+zIATWjthyiIY7M
-         5RZA2DJUVONHZ8cNmvFE+pkV6iEpVSrFM77sfIL/GC9pEOgWvNPzduLISp7yk9rwiPHZ
-         QUGT/4jkLXCxgnY71GOyqUbYzVFOdYGnfo4O74afTFhu+8vDmu6sBq+nsVJ81Uy7+iD5
-         JoJA==
+        b=IDSpJhr2ywnB7qUtwaXmBIfRAwqOu5lpCoJNw+kvBtIx/7DeHBI5VrJsYuNjkH8jRC
+         FH3nvlISAdMsWWBygxFZu7AD5g0aBpA2Nx/assPdbavBsCIWxTTzJRUmeruABGbSERQO
+         AhCtNBxCRv5eHVGcYdhvqfARGKL4J3qcHnizKIbdoU5mB2d9olYOjOgLQlxW1Ws1vM0/
+         U9TZYCgD4/OwsRS4112g0CV2l0qm+hHg/CW1biNHE3Ey2Hpq4rDzuf9PSoc6Zrbs540X
+         8EkZqvgy8oTt3zepvokShF3FhvFfIDR0Yr1l0+oeGYbsQkDS8n16IRYoF702+XqgqTa1
+         tUTA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=sfoONzLpSKsik8cwre1bogdC4LTeUBxN27SnPptm+8E=;
-        b=Pi+xQ4N/qkabbmR+nwQsTTFM9Gz0sQiQJta+/KVzyAFeKLYJUUTMCCYQkpOm8YpoRU
-         0zUn4xqE6LIfTvAmro12/X/aDe3Jbxi9nVIy7Nvm1SMrIRPIE1teaXxPTYuhw8jjcpNU
-         8a4cpK0m2zDs6Y0XDjKZ3xjn0GQAQrlBwZMkYeAq0s0rpK4Y8iKngJL8hAN9xfmlZ1oc
-         h7H9WjACIffYhluvCWf4JfK0agJcx9NHWUxM/OR4eihbIWZZOPjgk6ChlqGMOKx4sD8d
-         UwDXdYqfMFoSkS52hI8E2xLDCCmAGbfNbsSUmTnI1ScWsp/MorzpC7lZwZHuAbmuy+Cf
-         YorQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=iHUFFdYsb/5FEEi+ueN+k5tBOVMtuTo2uZhx4OT0c4A=;
+        b=vEbbpE0lirxIhtF3GLzbd8Vc/Z9MIlsXaFK8ldfgfWTKOsv/U+t2n45XuzsUBmxkEu
+         VPd2S6oFfMujGcmUVzojnPHkh8jUWd9+tFPqHjRJ81VLWpy+GkyQlrhnrTNjd0d9h1zp
+         fwjrH8r3jWYiQonsYPVpSykJf1ZZrZj5hLrYk05xoX/ns5pjoVWxXqWn2nretcVY8SdS
+         kWIPuZstDTuOzYDgnKjoDS6Lv0xChaUR6FQtpONfrTczgTS6nQfvBpWuCsuGXJPSS6gX
+         ivInZIJFpoxFLU8VGxYqIUz/jO4l858uP8yy32C+k+xIp/i4W09Pp0WecNpUbRTp++zL
+         ifAw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=hnJQJrX6;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id f13si749204qko.2.2021.08.23.13.28.14
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=AoKScfuY;
+       spf=pass (google.com: domain of lukas.bulwahn@gmail.com designates 2607:f8b0:4864:20::b34 as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-yb1-xb34.google.com (mail-yb1-xb34.google.com. [2607:f8b0:4864:20::b34])
+        by gmr-mx.google.com with ESMTPS id o5si1061433pgv.1.2021.08.23.13.28.45
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 23 Aug 2021 13:28:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C81D060E97;
-	Mon, 23 Aug 2021 20:28:12 +0000 (UTC)
-Date: Mon, 23 Aug 2021 13:28:09 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Viresh Kumar <viresh.kumar@linaro.org>,
-	kernel test robot <lkp@intel.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	kbuild-all@lists.01.org,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	Quentin Perret <qperret@google.com>,
-	Lukasz Luba <lukasz.luba@arm.com>
-Subject: Re: [linux-next:master 6632/9522] include/linux/pm_opp.h:458:58:
- warning: unused parameter 'dev'
-Message-ID: <YSQE2f5teuvKLkON@Ryzen-9-3900X.localdomain>
-References: <202108210311.CBtcgoUL-lkp@intel.com>
- <20210823031546.fupzmdxjntacsq2e@vireshk-i7>
- <CAK8P3a1o6uvDo_ttPFOw_pRdtok3-9=dFMLToyUxSmTxs0YfOg@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Aug 2021 13:28:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lukas.bulwahn@gmail.com designates 2607:f8b0:4864:20::b34 as permitted sender) client-ip=2607:f8b0:4864:20::b34;
+Received: by mail-yb1-xb34.google.com with SMTP id z18so36520884ybg.8
+        for <clang-built-linux@googlegroups.com>; Mon, 23 Aug 2021 13:28:45 -0700 (PDT)
+X-Received: by 2002:a25:f310:: with SMTP id c16mr43477241ybs.464.1629750524959;
+ Mon, 23 Aug 2021 13:28:44 -0700 (PDT)
 MIME-Version: 1.0
+References: <CAKXUXMzdGdyQg9CXJ2AZStrBk3J10r5r=gyiAuU4WimnoQNyvA@mail.gmail.com>
+ <20210823191033.GA23869@breakpoint.cc>
+In-Reply-To: <20210823191033.GA23869@breakpoint.cc>
+From: Lukas Bulwahn <lukas.bulwahn@gmail.com>
+Date: Mon, 23 Aug 2021 22:28:45 +0200
+Message-ID: <CAKXUXMwZo+HixV+zYWSNvTX0yJNXaFrxCF9hOJ-77upP8qKS0g@mail.gmail.com>
+Subject: Re: Suspicious pattern for use of function xt_register_template()
+To: Florian Westphal <fw@strlen.de>
+Cc: Pablo Neira Ayuso <pablo@netfilter.org>, Jozsef Kadlecsik <kadlec@netfilter.org>, 
+	netfilter-devel@vger.kernel.org, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Netdev <netdev@vger.kernel.org>, 
+	coreteam@netfilter.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAK8P3a1o6uvDo_ttPFOw_pRdtok3-9=dFMLToyUxSmTxs0YfOg@mail.gmail.com>
-X-Original-Sender: nathan@kernel.org
+X-Original-Sender: lukas.bulwahn@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=hnJQJrX6;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20161025 header.b=AoKScfuY;       spf=pass
+ (google.com: domain of lukas.bulwahn@gmail.com designates 2607:f8b0:4864:20::b34
+ as permitted sender) smtp.mailfrom=lukas.bulwahn@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,172 +146,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Aug 23, 2021 at 11:07:13AM +0200, Arnd Bergmann wrote:
-> On Mon, Aug 23, 2021 at 5:15 AM Viresh Kumar <viresh.kumar@linaro.org> wrote:
+On Mon, Aug 23, 2021 at 9:10 PM Florian Westphal <fw@strlen.de> wrote:
+>
+> Lukas Bulwahn <lukas.bulwahn@gmail.com> wrote:
+> > Dear Florian, dear netfilter maintainers,
 > >
-> > On 21-08-21, 03:30, kernel test robot wrote:
-> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > > head:   86ed57fd8c93fdfaabb4f58e78455180fa7d8a84
-> > > commit: c17495b01b72b53bd290f442d39b060e015c7aea [6632/9522] cpufreq: Add callback to register with energy model
-> > > config: i386-randconfig-a016-20210820 (attached as .config)
-> > > compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project d9c5613e856cf2addfbf892fc4c1ce9ef9feceaa)
-> > > reproduce (this is a W=1 build):
-> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > >         chmod +x ~/bin/make.cross
-> > >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=c17495b01b72b53bd290f442d39b060e015c7aea
-> > >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-> > >         git fetch --no-tags linux-next master
-> > >         git checkout c17495b01b72b53bd290f442d39b060e015c7aea
-> > >         # save the attached .config to linux build tree
-> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=i386
-> > >
-> > > If you fix the issue, kindly add following tag as appropriate
-> > > Reported-by: kernel test robot <lkp@intel.com>
-> > >
-> > > All warnings (new ones prefixed by >>):
-> > >
-> > >    static inline void pm_vt_switch_unregister(struct device *dev)
-> > >                                                              ^
-> > >    In file included from drivers/gpu/drm/i915/gt/intel_llc.c:6:
-> > >    In file included from include/linux/cpufreq.h:12:
-> > >    In file included from include/linux/cpu.h:17:
-> > >    In file included from include/linux/node.h:18:
-> > >    include/linux/device.h:653:46: warning: unused parameter 'dev' [-Wunused-parameter]
-> > >    static inline int dev_to_node(struct device *dev)
+> > Commit fdacd57c79b ("netfilter: x_tables: never register tables by
+> > default") on linux-next
+> > introduces the function xt_register_template() and in all cases but
+> > one, the calls to that function are followed by:
 > >
-> > False positives ? These are mostly inline dummies, which simply return
-> > errors. Their parameters aren't supposed to be used.
-> 
-> It's a clang-14 W=1 build, probably something went wrong with the clang specific
-> warning flags there. I think we do want "-Wunused -Wno-unused-parameter". Not
-> sure what changed compared to older clang builds.
+> >     if (ret < 0)
+> >         return ret;
+> >
+> > All these checks were also added with the commit above.
+> >
+> > In the one case, for iptable_mangle_init() in
+> > ./net/ipv4/netfilter/iptable_mangle.c, this pattern was not followed.
+>
+> Thats a bug, the error test is missing.
 
-W=1 already does this:
+I send out a patch addressing the issue, please pick it:
 
-$ sed -n '23,25p' scripts/Makefile.extrawarn
-ifneq ($(findstring 1, $(KBUILD_EXTRA_WARN)),)
+https://lore.kernel.org/lkml/20210823202729.2009-1-lukas.bulwahn@gmail.com/
 
-KBUILD_CFLAGS += -Wextra -Wunused -Wno-unused-parameter
+Thanks,
 
-The problem is the same one as commit fa63da2ab046 ("arm64: Don't
-unconditionally add -Wno-psabi to KBUILD_CFLAGS") but just with an '-f'
-flag instead of a '-W' flag.
-
-This config has CONFIG_MEFFICEON=y, which adds a few '-falign-...' flags
-to cflags-y, namely '-falign-jumps=0', which is not supported by clang:
-
-clang-14: warning: optimization flag '-falign-jumps=0' is not supported [-Wignored-optimization-argument]
-
-As a result, all subsequent cc-{disable-warning,option} calls fail because the
-command always fails with an unknown flag in the mix since we added -Werror to
-cc-{disable-warning,option} to work around this exact situation where clang
-only emits a warning rather than an error for unknown flags.  I improved this
-in commit 589834b3a009 ("kbuild: Add -Werror=unknown-warning-option to
-CLANG_FLAGS") so that we get alerted of failed flags before this but I guess I
-missed this one :).
-
-i915 enables '-Wall -Wextra' then disables a few warnings (including
-'-Wunused-parameter') with cc-disable-warning, which does not work, so we get
-all of these warnings as a result.
-
-I think fixing this once and for all is a three pronged approach:
-
-1. '-falign-jumps=' should not be added unconditionally, as it is not
-   supported in clang (as it warns rather than errors about...).
-   '-falign-loops=' falls into the same category, as it is only
-   supported on clang-14 and newer.
-
-   Something like this should do it (no point in making GCC pay the
-   cc-option cost):
-
-diff --git a/arch/x86/Makefile_32.cpu b/arch/x86/Makefile_32.cpu
-index cd3056759880..1db40f14719d 100644
---- a/arch/x86/Makefile_32.cpu
-+++ b/arch/x86/Makefile_32.cpu
-@@ -25,11 +25,16 @@ cflags-$(CONFIG_MK6)                += -march=k6
- # They make zero difference whatsosever to performance at this time.
- cflags-$(CONFIG_MK7)           += -march=athlon
- cflags-$(CONFIG_MK8)           += $(call cc-option,-march=k8,-march=athlon)
--cflags-$(CONFIG_MCRUSOE)       += -march=i686 -falign-functions=0 -falign-jumps=0 -falign-loops=0
--cflags-$(CONFIG_MEFFICEON)     += -march=i686 $(call tune,pentium3) -falign-functions=0 -falign-jumps=0 -falign-loops=0
-+ifdef CONFIG_CC_IS_CLANG
-+align := -falign-functions=0 $(call cc-option,-falign-jumps=0) $(call cc-option,-falign-loops=0)
-+else
-+align := -falign-functions=0 -falign-jumps=0 -falign-loops=0
-+endif
-+cflags-$(CONFIG_MCRUSOE)       += -march=i686 $(align)
-+cflags-$(CONFIG_MEFFICEON)     += -march=i686 $(call tune,pentium3) $(align)
- cflags-$(CONFIG_MWINCHIPC6)    += $(call cc-option,-march=winchip-c6,-march=i586)
- cflags-$(CONFIG_MWINCHIP3D)    += $(call cc-option,-march=winchip2,-march=i586)
--cflags-$(CONFIG_MCYRIXIII)     += $(call cc-option,-march=c3,-march=i486) -falign-functions=0 -falign-jumps=0 -falign-loops=0
-+cflags-$(CONFIG_MCYRIXIII)     += $(call cc-option,-march=c3,-march=i486) $(align)
- cflags-$(CONFIG_MVIAC3_2)      += $(call cc-option,-march=c3-2,-march=i686)
- cflags-$(CONFIG_MVIAC7)                += -march=i686
- cflags-$(CONFIG_MCORE2)                += -march=i686 $(call tune,core2)
-
-2. i915 should not be using cc-disable-warning for most of the flags
-   that they are, as they are supported by both compilers and the rest
-   of the kernel assumes this. I plan to send a series to turn on
-   -Wsometimes-uninitialized for i195 shortly so I will send this diff
-   as a prior change in that series.
-
-diff --git a/drivers/gpu/drm/i915/Makefile b/drivers/gpu/drm/i915/Makefile
-index 642a5b5a1b81..9f05b3b18816 100644
---- a/drivers/gpu/drm/i915/Makefile
-+++ b/drivers/gpu/drm/i915/Makefile
-@@ -13,15 +13,16 @@
- # will most likely get a sudden build breakage... Hopefully we will fix
- # new warnings before CI updates!
- subdir-ccflags-y := -Wall -Wextra
--subdir-ccflags-y += $(call cc-disable-warning, unused-parameter)
--subdir-ccflags-y += $(call cc-disable-warning, type-limits)
--subdir-ccflags-y += $(call cc-disable-warning, missing-field-initializers)
-+subdir-ccflags-y += -Wno-unused-parameter
-+subdir-ccflags-y += -Wno-type-limits
-+subdir-ccflags-y += -Wno-missing-field-initializers
- subdir-ccflags-y += $(call cc-disable-warning, unused-but-set-variable)
--# clang warnings
--subdir-ccflags-y += $(call cc-disable-warning, sign-compare)
--subdir-ccflags-y += $(call cc-disable-warning, sometimes-uninitialized)
--subdir-ccflags-y += $(call cc-disable-warning, initializer-overrides)
- subdir-ccflags-y += $(call cc-disable-warning, frame-address)
-+ifdef CONFIG_CC_IS_CLANG
-+subdir-ccflags-y += -Wno-sign-compare
-+subdir-ccflags-y += -Wno-sometimes-uninitialized
-+subdir-ccflags-y += -Wno-initializer-overrides
-+endif
- subdir-ccflags-$(CONFIG_DRM_I915_WERROR) += -Werror
-
- # Fine grained warnings disable
-
-3. We should not allow unknown flags to get added to the command line
-   without our knowledge. Bugs like this are annoying for several
-   parties so we should minimize them as much as possible. I will
-   propose this in the same series as the first diff, which should avoid
-   the initial issue altogether (the second step is more of an
-   optimization for the future).
-
-diff --git a/scripts/Makefile.clang b/scripts/Makefile.clang
-index f88ceb3d076e..94c9455adf59 100644
---- a/scripts/Makefile.clang
-+++ b/scripts/Makefile.clang
-@@ -12,7 +12,9 @@ CLANG_TARGET_FLAGS_s390               := s390x-linux-gnu
- CLANG_TARGET_FLAGS_x86         := x86_64-linux-gnu
- CLANG_TARGET_FLAGS             := $(CLANG_TARGET_FLAGS_$(SRCARCH))
-
-+# Make clang behave more like gcc when it encounters an unknown '-W' or '-f' flag.
- TENTATIVE_CLANG_FLAGS := -Werror=unknown-warning-option
-+TENTATIVE_CLANG_FLAGS += -Werror=ignored-optimization-argument
-
- ifeq ($(CROSS_COMPILE),)
- ifeq ($(CLANG_TARGET_FLAGS),)
-
-Sorry for the wall of text, hopefully it all makes sense.
-
-Cheers,
-Nathan
+Lukas
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YSQE2f5teuvKLkON%40Ryzen-9-3900X.localdomain.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKXUXMwZo%2BHixV%2BzYWSNvTX0yJNXaFrxCF9hOJ-77upP8qKS0g%40mail.gmail.com.
