@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBD26TVH6RINBBAGORWEQMGQEYB2IFMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD26TVH6RINBBW6ORWEQMGQE4M42BJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9D1893F472D
-	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 11:14:41 +0200 (CEST)
-Received: by mail-pl1-x63b.google.com with SMTP id z11-20020a170902834b00b00130c1b330bcsf2154990pln.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 02:14:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629710080; cv=pass;
+Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 63E1F3F4735
+	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 11:16:12 +0200 (CEST)
+Received: by mail-yb1-xb39.google.com with SMTP id r15-20020a056902154f00b00598b87f197csf5648487ybu.13
+        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Aug 2021 02:16:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629710171; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Jb6qIbXG4aac+WvPNo/YV4LcZ8qmL1vbr8WxkVfi0595HGy9ooy01CvIQ0ikBT0njo
-         heMq5tTqtEHDwJjXi9GaEYZzri97paerDjot7mQ7GR4RS1vNUmixlN3po/tzxQyUQo/a
-         iAxpZBtwIIWhBgcZ1T4JPxUKnu7tqyvPfsLw4HwWxUTCpjK+tJO7YHQXKpyttJgQ8769
-         HvTcGCd6mFx+oe/ajNiHGuF6THVRiCG3d9t3enwfq5pOQiQMOA6xJ32puhxo0iVf6w1j
-         vMvLVi+Ld+wIJRie/74mAGuDOCQCYpBFXHmEAFqdyGiGWF8He3Yzk8Pbmz/bZzxSKtYZ
-         BuOg==
+        b=KK1VS0JVTOOuDv6jjje9Y0cTNgL3OGrnUoW8JJPiIhAtiyCvF+fueWUnvGSC0BrVrx
+         a+9VTxyvV2hJrhyg8exbGvOgnHiRmJHFVx/GnKLVewR+L/JhhjKiWI3QA7i+XgBH75Wo
+         Tdy5CH5y3MiWhm5sFNCVDxPkEwBaTXBIxXZ1n7jenCspWlEnrB0zdB1ETiKMFD1NtGq7
+         BOvdwaG8JzE4QShtlih3ep9B+l88S0bmnBc4N/YqdkdsF95bTpO+tufefuwF0HRJqm08
+         n+Zy7P5Wmes0w84bQ+vKlwh/nrN/GBYoKMhfyveklsiC6EES5EnoIvc46IBA0U43Dmhv
+         SgxA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-language:in-reply-to
          :mime-version:user-agent:date:message-id:from:references:cc:to
          :subject:sender:dkim-signature;
-        bh=16eod0dVf6SDtkp7Od+iefGH/VVaByKvTccEWUWkzik=;
-        b=Bk26nEuWmRfxTEM4Q0A5xrrrUxST8WHPo3oZNfSZGUcGyUPm81ULCCEoOyCIex3kMu
-         L+PcJR6AsQfaPqXi2rOHuRxvrlXmo2ltbCIvne/cEu46ZdoIG58VvAOTDVPOITUqa0hm
-         FWe7A5hS053VrSOyQIH/hsZoRzvedgoH89+iLoWCxj4oNQDejoz7W9p0+M/ghbykSwjZ
-         A99L79hKUMru/5+/JvWPuRP5jig4zA9aESS+9x/D+zwisDtUqGDv6fQMKm0xl1a8ceiT
-         ML4OCVBD4xvkO5FNCyUDtIBHC9kIsFL0R73/dULtawI+LCFn7J3/3xo2H66FugfmTaXa
-         Q3hA==
+        bh=WK0Eg/hT/SBkyC53CP9kiJsL+1ufBiOObVvZweDshCU=;
+        b=IWAsG3CVTHW5P3Zn5LptRRgnjgFx0TQossM9MnfSFCy1TxXGVjc0CAGTt/LuxA6joY
+         ad1EAq/qKCH4uZaTDSgTglQo/sy5ZbnbZtQkQl6OYC2wEfbgHkujw+cQJf91wHy60x3O
+         Wv2D8NBqCsEI90nn1rP669+3WKgLvB2VQkmOEXNGo7tb4cjodfVOJDgBVM/Baq7aMmzj
+         PoL1XaRh3bCB6pEUTR20GsRD2DC36B8gcmOcVTSAKjd6mjw65PVbM+W+KpvrZfgoS7pe
+         8IyxGyiIGtD2/sj0I01kgEtM+0PjLc3W+bN0pLHNMB5AqZVzEsRBQ/gfOxgg9A879lUR
+         nmTQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=16eod0dVf6SDtkp7Od+iefGH/VVaByKvTccEWUWkzik=;
-        b=sUm3OWFKdboxOhHFJcQjqn8koRGQOE+xM+0K8QaTrvmzlt2TS9Sy4kscjbzccWtAFJ
-         POIxmaMHDgFJPSDkUlRYqmKa2ZiMq2ctg7Ch6XFckMidHX4uARnqL3kaJnrOF/U18EH4
-         K2hcK8xOoidh70nptfdfTLWbG/MRF6xSzf2j7EOCS7zors8lS/VQ1yh5rofAoSjvWA/2
-         F2CS+6kuKikE2tHppOXhhx6bUWmoXKjUcefG617WCBv4j41RpE64jMrWmtm1HRgJVtCV
-         sTiRJEQlD5bV3AeBDlNxhsJGEAHuBXh43zwCZRlM5FDEek+3DpFBMxpIT7Dnvbnl6POO
-         eNVw==
+        bh=WK0Eg/hT/SBkyC53CP9kiJsL+1ufBiOObVvZweDshCU=;
+        b=RbfCWlZasGmzPwoh47q5ALDkWAkSR6AHLfEwCar5BTPghETshiZY5Opl2A5S9KyBCx
+         Ii6omZJa94FnpmZYQ0iH/iUP8EFaCjd5xzIDAfbMOin4mUWsvGU1q9UpN/bZcfdb6NJy
+         x/H1HMVqfDjmDVWHUQjFVxrDNYruJZAqdNMotMDOiLMIQwKASSbL2wvFjNx/q4cYnbZw
+         C8LCZRVsZTyeGpfHiO7VyMz+jtpq5x5U0x09Wpi7rYPmmnfsyN6UsdXvlbyTbykE5JSA
+         B1ES1LCTqJ88FWhKwGB8lycsBVpuIEE47iZOrJvILjIk5MhPBI3H3wZgh4bb+IsPiFJu
+         97bQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
@@ -49,78 +49,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=16eod0dVf6SDtkp7Od+iefGH/VVaByKvTccEWUWkzik=;
-        b=SyYMY987hzJHxLqGWUSzZ9A7AIRvqqyu7aiekv5y0xCRhUSGAxxp2WFy/UDaCizZoR
-         jZpeFzRianHtL812X726JDInRcsuqdAvZHrzy8OQ4rimwcEFc2eW7pDaS9Q3NpTS5o8E
-         QpTXcTM9pl8k4YCW+VY819SnXysP3XVcfeRnksn1m7MN1BHz+gdfGdbEV82Kq8031pAZ
-         N5TWYcq15PDNWdhHohf+zObfPgFl/Hwosw1pTb2ijOB2TaN16E1eZppIJEpNspid4GU0
-         UPha+q7ulaFL2CHJpPrv/p0n6+nf27j2eHsPPsrVK+I/J7nPGXAwW2WqVnZRh23H2vC6
-         8fNA==
+        bh=WK0Eg/hT/SBkyC53CP9kiJsL+1ufBiOObVvZweDshCU=;
+        b=TgyhWPYeZvj8IQ85Kr6xeX9Xk3mNgaAXqAgy2hyQ3HMWVZPidcmI94kkjmSDETUkpr
+         2WDqfDaQIyts/QvqKg5enFuspYwTsu71/+yc/cgHIM+SeHN3Mm0IbMnkCbIuMe2svPhK
+         2SsPm2enfzLm9IHFhma58uXJyLmPfUtbvd8Tdo0MxSmYuHSi03kIZJv4fnMcSyUfmQAn
+         gGc6zFVLnoLc4T1TMwGiOWZ19vZStSFuGnH78wcDIRldqM4KhFcUZBVD5AstjNJgUe22
+         IiYNX8PM8lsN0Qca7GnW2ia6Ls+UBdgcI87+V3Y3xJPazv0+pe3Qr6QM4sG+ht5lVUdc
+         eAFw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5321As4HpD+osxt9dquozev5yYRsI64DqeMgjKjHj5GaQ9hZcYSk
-	F9pEHJbf9hZTcDf+xDBuWhI=
-X-Google-Smtp-Source: ABdhPJxRkvm/oCQ6MQjIOIPR/f6+rKXQgUn3aCY7rOCvlWJtB8OBVHC5pdqaaeHALjTtryNfvQavZQ==
-X-Received: by 2002:a17:902:b407:b0:12d:96b3:cf46 with SMTP id x7-20020a170902b40700b0012d96b3cf46mr27605056plr.48.1629710080313;
-        Mon, 23 Aug 2021 02:14:40 -0700 (PDT)
+X-Gm-Message-State: AOAM5336fGTqMOmK4RzG4FRFC3FwqwJXBC0HqseGTxB1tv4qKBFMJU5b
+	MZh0/vHEzYIoQIzGqxSVUk0=
+X-Google-Smtp-Source: ABdhPJw6YFyBCZW/kNpntzJYqHIixBUP0N1UkC5T2SQuG/2QigsaPGS1gRBc4V0WPVLWO+JXfrMaKw==
+X-Received: by 2002:a25:6d43:: with SMTP id i64mr43062225ybc.252.1629710171296;
+        Mon, 23 Aug 2021 02:16:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:3154:: with SMTP id x81ls7015435pgx.2.gmail; Mon, 23 Aug
- 2021 02:14:39 -0700 (PDT)
-X-Received: by 2002:a63:4610:: with SMTP id t16mr30599389pga.176.1629710079802;
-        Mon, 23 Aug 2021 02:14:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629710079; cv=none;
+Received: by 2002:a25:9a02:: with SMTP id x2ls3803259ybn.0.gmail; Mon, 23 Aug
+ 2021 02:16:10 -0700 (PDT)
+X-Received: by 2002:a5b:9c9:: with SMTP id y9mr42521375ybq.460.1629710170838;
+        Mon, 23 Aug 2021 02:16:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629710170; cv=none;
         d=google.com; s=arc-20160816;
-        b=Exhp90eTon/ITWPqdwCW4muYMt/ya+xdXGoehT7PVgKhmDJqjR1yktD6DSDSWUTwD6
-         Ji5fKl0Wd4kUGpb27H9xXoK3fydOpPU+YJJw5Z1FzPO3BqmrzE3G0wc4BazwK52Pybj7
-         o73o4svuGcxcHDQ3zusvCqtlTlB2fK7MyFstwWv7QuFCsUI9GAXHmhzL31UqwQsFsb+w
-         oHw4VYlgkl8sUdX5EhtRht2gJLEBsn2IJkE4V+4qhm1MqLcc+/qQTi3w/i/nfN8s2KHl
-         ZiejtT3EimFfNDBd6K9C56XfsLdiqVmOcq5r/7L+WONWWXfdaY8glXDsDgOx5cJVoH7X
-         Wl3A==
+        b=XqWs50jkUI99mL3V6oeuEOp4IiO0FGxp/02bN/5p01DQSKhphMTk9a3bd7Jl4mEKMe
+         4JEJmy2afxIYZL89WSzy5Fsh26jAOSg5a16WbT0+BGgH1k2kypOF/wPE6R9blfAfZvkV
+         wvOia7+pOO+Fo4VjXF2FezMbcoA6M7D3nH63NxtXuzRmOXJxbu4PCaiQ9OgsjAEKstfV
+         NW08Bp/9K47abN4fFe6tmoTG/1t7iE+iEUSgOVyfvsGZltPkL+VGIAV2L0VcH7Cx1HkI
+         WofoVwEVywPJ41WGglT4SFnn0wc+2m2rgRzz3uMfma9GIWDfgfRSOLBVaInckUbsWuYd
+         kbIA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:content-language:in-reply-to:mime-version
          :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=gVndP+FiFqguCT5EocMc/DUqmcC9Y24GB4myYAKVq0M=;
-        b=APZOn7NsFoBhfwpgIWCVYGsNJwQk1X6re0y9S/fR7CioYjBM/kcDszSW5UDDvselfM
-         w2/TyLpC7KcNAURL0M4agMsEjrS/1zua3X6OZT6pvqr8LbV6ag1wc6lsHr4ftKyBlDCs
-         I3oh+jSuA8NRCUvO4Wb8OBQ9hCV3hY0x0NOvT5x4R1rAsF2RLftVWSyH9EGXiK7UkIF9
-         K4yPfAhagUh2E/+LGAoyCyXFfrnX7vfgTXCKipkuETfcQZmothsv8v/gjcaTlHBLwr3n
-         V5EGR1WdoGPVSOdh71EAttir1m0tZglLZnidpIjDhTq6ODa4rXyhY8NbR3icqI6QDdyQ
-         f6Vw==
+        bh=3QVnqUkVpkpt4DzTMEH/JPXLLY81Wrn9SL4FQBKm/sU=;
+        b=rPHKRHgtILpm1CwUOlP2CLX6c7BweOWfxa0y6/zaK8sJZ1yMXIeMxGf7NcMVO9n71X
+         Gx4hEkdZSymbo7KdfdK0kd/jJFvsh92ZSavTI2VzWS6R3sgVYNxVxGtUVIsuwSu+EYh5
+         mNOLJpnu2zYaKT9iUtz3PENbd6IiQ1sUqHRZUARHCdgXdV+KzO3CNFJjp19QW5iHBOAd
+         h4rD1LKMtTxuzmAH6GdOxy7La+b35hQZLh9rKVqJNHz72mhr17NwqIpSktzWzlTd7EPb
+         HrLkJt6HiVSgi6V3zt2g03JD6HaxhZ3cbYsdmmf/5ewL5e0QZTJOhrLs3q9Gvt3MCriw
+         KVKg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id q2si822429pfl.0.2021.08.23.02.14.39
+        by gmr-mx.google.com with ESMTPS id k1si639793ybp.1.2021.08.23.02.16.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 23 Aug 2021 02:14:39 -0700 (PDT)
+        Mon, 23 Aug 2021 02:16:10 -0700 (PDT)
 Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
-X-IronPort-AV: E=McAfee;i="6200,9189,10084"; a="215221766"
+X-IronPort-AV: E=McAfee;i="6200,9189,10084"; a="215221955"
 X-IronPort-AV: E=Sophos;i="5.84,344,1620716400"; 
-   d="scan'208";a="215221766"
+   d="scan'208";a="215221955"
 Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Aug 2021 02:14:39 -0700
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Aug 2021 02:16:09 -0700
 X-IronPort-AV: E=Sophos;i="5.84,344,1620716400"; 
-   d="scan'208";a="525863323"
+   d="scan'208";a="525863669"
 Received: from rongch2-mobl.ccr.corp.intel.com (HELO [10.255.29.47]) ([10.255.29.47])
-  by fmsmga003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Aug 2021 02:14:37 -0700
-Subject: Re: [kbuild-all] Re:
- arch/arm/boot/compressed/fdt_check_mem_start.c:62:10: warning: no previous
- prototype for function 'fdt_check_mem_start'
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- kernel test robot <lkp@intel.com>
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>,
- kbuild-all@lists.01.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Russell King <rmk+kernel@armlinux.org.uk>, Ard Biesheuvel <ardb@kernel.org>
-References: <202108141331.fMjjWaW2-lkp@intel.com>
- <CAMuHMdXUpk_dLhvcdgs1H6yLPrwXFJz_86dfXpm8PYxNq+DXrQ@mail.gmail.com>
+  by fmsmga003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Aug 2021 02:16:07 -0700
+Subject: Re: [kbuild-all] Re: [peterz-queue:sched/core 8/11]
+ include/linux/sched.h:1722:57: warning: unused parameter 'dst'
+To: Peter Zijlstra <peterz@infradead.org>, kernel test robot <lkp@intel.com>
+Cc: Will Deacon <will@kernel.org>, clang-built-linux@googlegroups.com,
+ kbuild-all@lists.01.org, linux-kernel@vger.kernel.org,
+ Valentin Schneider <Valentin.Schneider@arm.com>
+References: <202108210940.aD3d42zA-lkp@intel.com>
+ <YSNkCAyMU0tJoedT@hirez.programming.kicks-ass.net>
 From: "Chen, Rong A" <rong.a.chen@intel.com>
-Message-ID: <3b5f0086-5589-bb2b-29a7-312cd4a4f559@intel.com>
-Date: Mon, 23 Aug 2021 17:14:35 +0800
+Message-ID: <428f3e9a-a8d3-51ca-5e2e-caa50b8da3eb@intel.com>
+Date: Mon, 23 Aug 2021 17:16:05 +0800
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
  Firefox/78.0 Thunderbird/78.12.0
 MIME-Version: 1.0
-In-Reply-To: <CAMuHMdXUpk_dLhvcdgs1H6yLPrwXFJz_86dfXpm8PYxNq+DXrQ@mail.gmail.com>
+In-Reply-To: <YSNkCAyMU0tJoedT@hirez.programming.kicks-ass.net>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Language: en-US
 X-Original-Sender: rong.a.chen@intel.com
@@ -142,83 +139,26 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 
 
-On 8/21/2021 4:45 PM, Geert Uytterhoeven wrote:
-> Dear Robot,
+On 8/23/2021 5:02 PM, Peter Zijlstra wrote:
+> On Sat, Aug 21, 2021 at 09:20:50AM +0800, kernel test robot wrote:
+>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git sched/core
+>> head:   234b8ab6476c5edd5262e2ff563de9498d60044a
+>> commit: b90ca8badbd11488e5f762346b028666808164e7 [8/11] sched: Introduce task_struct::user_cpus_ptr to track requested affinity
+>> config: i386-randconfig-a016-20210820 (attached as .config)
+>> compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project d9c5613e856cf2addfbf892fc4c1ce9ef9feceaa)
+>> reproduce (this is a W=1 build):
 > 
-> On Sat, Aug 14, 2021 at 7:43 AM kernel test robot <lkp@intel.com> wrote:
->> FYI, the error/warning still remains.
-> 
-> Yes, and that's fine, as this function is never called from C code,
-> only from assembler.
+> Dear 0day folks; could you please blacklist me for all W=1 build output?
+> I'm 100% not interested in random compiler generated garbage.
 
+Hi Peterz,
 
-Hi Geert,
-
-Thanks for the feedback, we'll ignore this warning.
+Got it, we'll do that for you asap.
 
 Best Regards,
 Rong Chen
 
-> 
->> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
->> head:   dfa377c35d70c31139b1274ec49f87d380996c42
->> commit: 0673cb38951215060d7993b43ad3c45cd413c2c3 ARM: 9045/1: uncompress: Validate start of physical memory against passed DTB
->> date:   6 months ago
->> config: arm-randconfig-r003-20210814 (attached as .config)
->> compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project 62df4df41c939205b2dc0a2a3bfb75b8c1ed74fa)
->> reproduce (this is a W=1 build):
->>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->>          chmod +x ~/bin/make.cross
->>          # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0673cb38951215060d7993b43ad3c45cd413c2c3
->>          git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->>          git fetch --no-tags linus master
->>          git checkout 0673cb38951215060d7993b43ad3c45cd413c2c3
->>          # save the attached .config to linux build tree
->>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
->>
->> If you fix the issue, kindly add following tag as appropriate
->> Reported-by: kernel test robot <lkp@intel.com>
->>
->> All warnings (new ones prefixed by >>):
->>
->>>> arch/arm/boot/compressed/fdt_check_mem_start.c:62:10: warning: no previous prototype for function 'fdt_check_mem_start' [-Wmissing-prototypes]
->>     uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
->>              ^
->>     arch/arm/boot/compressed/fdt_check_mem_start.c:62:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
->>     uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
->>     ^
->>     static
->>     1 warning generated.
->>
->>
->> vim +/fdt_check_mem_start +62 arch/arm/boot/compressed/fdt_check_mem_start.c
->>
->>      46
->>      47  /*
->>      48   * Check the start of physical memory
->>      49   *
->>      50   * Traditionally, the start address of physical memory is obtained by masking
->>      51   * the program counter.  However, this does require that this address is a
->>      52   * multiple of 128 MiB, precluding booting Linux on platforms where this
->>      53   * requirement is not fulfilled.
->>      54   * Hence validate the calculated address against the memory information in the
->>      55   * DTB, and, if out-of-range, replace it by the real start address.
->>      56   * To preserve backwards compatibility (systems reserving a block of memory
->>      57   * at the start of physical memory, kdump, ...), the traditional method is
->>      58   * always used if it yields a valid address.
->>      59   *
->>      60   * Return value: start address of physical memory to use
->>      61   */
->>    > 62  uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
->>
->> ---
->> 0-DAY CI Kernel Test Service, Intel Corporation
->> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> 
-> 
-> 
-
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/3b5f0086-5589-bb2b-29a7-312cd4a4f559%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/428f3e9a-a8d3-51ca-5e2e-caa50b8da3eb%40intel.com.
