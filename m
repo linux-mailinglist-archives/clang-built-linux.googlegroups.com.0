@@ -1,126 +1,128 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBCV6SWEQMGQE6EHMNWA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBTWESWEQMGQESV2GHCY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x140.google.com (mail-lf1-x140.google.com [IPv6:2a00:1450:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1E1003F6AC5
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 23:05:15 +0200 (CEST)
-Received: by mail-lf1-x140.google.com with SMTP id p3-20020a0565121383b0290384997a48fcsf6527697lfa.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 14:05:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629839114; cv=pass;
+Received: from mail-oo1-xc3f.google.com (mail-oo1-xc3f.google.com [IPv6:2607:f8b0:4864:20::c3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 418673F6AEF
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 23:19:17 +0200 (CEST)
+Received: by mail-oo1-xc3f.google.com with SMTP id k18-20020a4a94920000b029026767722880sf12479254ooi.7
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 14:19:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629839951; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rkukkFX8sK14wZRh6HNPFcczugKIK4t+o6eI46/CubK+9UE8ysevjtNuv8bYzPH3/z
-         Liu6iaRDmIscP+/j9Ha3p59aeIRXw2M+oL6wO9+pwLqXkRZhsGfsnUku36vOo1Jpp4yY
-         dWuT8qye0n45flsQa7l3WM8J58cpMHxz4pAM8MaZQWYiLsCXLtuH90gSJdiGyDfVVwY4
-         E5tEdRe3UQTka0yeYDZ0PIsP/XLNoetYmemnj7ZhpRd0fmsVNr2Il3BLLC/pBUaDD/lU
-         PqkWwXSBCrh16+QXOvutsGfYr/4JKrSJv9dnKDPAafKbgY+XYWADylXwyeZr8w2aDxvy
-         4USw==
+        b=gGW09X2TI65qpKPCG25M+EZEGiKTnC919S0b7lv07DTkvob5af75wDCUmSbWrfw9sQ
+         pQHTZpjqi6tcnMbLpn9nun9kanXSKBZHPaKUX066OaEt/C4kit3zqMBa5oIAQiGly9AC
+         jWjDixFo1FgRv9V+MsVS/o+v8qT3G/m2VE0VYwP0FdNcQbM9/wOMUwyxKdUOPCoBtxFQ
+         d/Cz5RluXMoevED2/144iiKMdycGmZLylWdE/2nzZB8oO+THHoWKoQxFnaBskl5Uh6DB
+         3rtsCdHGOkgVFSjnUf85JYHNbl2YT8Q8GM2hqrn+B7hsR0E33p3DNhmeW57S4ie/nuxJ
+         87ZA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=y2A80xQtmb7+CB5r/Mk3j+gYGrqMc8FwKK/kpNfRrjI=;
-        b=k4NY4+gMS2kj/C9TLlDWsR3Jnzyf71WLQf0g/WXncpSZAKtTqvax/EajWjDGVjW1lx
-         7y4A+YpaKWEnGQ3f2PCOByeDmz5NsDyCJPKC8l1DSbtyWghewgDfHckoBW448bvdQ+rB
-         zC+d3TyTiVgVes3gYK2EcN/rJ8GFirazcDcC6FXHYrb0zZav+wQ/ABoaPnVJ0b3QaieF
-         NUfkCZ+aUojRxp4vGPfylJigdQggy4PIqoQ4BH7NpMPvXb0yVwExEeFrX0J3Wlo35WP2
-         BLlDMS+HE078d10zrryYzHKj3nB/K+Zf5X0W6myOGWbafDKkP0KclSpLE8scS2Uj/0gg
-         Q/lg==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=UnFxlTWEkZmW/GBvK4PWKwES96hyAVJv/04cSamolFg=;
+        b=HPx7mcDzdEWZ3vkZmCKN8jHHlkBpMBUjhU7SM67sVsiRNkWGRztCqyqe0haokRY4eE
+         Me+avYY4uPJetCpRegIZTahpxcKZxI5mHwR9XaumJiH+aICurd8C42bY204PFtGfwYGs
+         QhSHuMYz9BYkDzekt78O0EYTNKkNIvO+dvnx0ociQAD0a5MujYy6Q+WR6FzAGVEDjtCw
+         cPZAakWOU5uHvcX6xpyonnQLVb2zsOhs8UJ8AnlW2g2RoCj6VD6rzxykRds69o+JljBe
+         eXhRoJdMWI7Of7q2YSmBKaOaDJBGswp0zlvbCVvtPwf8rAgQlpqVEBF/H1wtk4conSDV
+         hdbA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b="Dt9M/Zu8";
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ChXXmcCa;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=y2A80xQtmb7+CB5r/Mk3j+gYGrqMc8FwKK/kpNfRrjI=;
-        b=OqSI9SfDCNX3YZQkTiPrRmmXU3+5pjYszbAyPZQrn7DC9nOxxoHo6UneLb+doIxhNy
-         MLOCdMCRf3qtbhDUeWGxEpommrJfksTmGbmnD//+tTdMx2tZcC52e4/Addidoj6nFr0z
-         21evdrTScQT4AAAWIS4KMAZV5cFaR+JmIUAaKHQvrGDv7eqsRGVcRFbTJKG3/SWkZ0sn
-         AFcjyxGM/YBn08c0qyxPcGT3drLs+GmGSLj6OaHSYHTI8TCZ6WxrXtverZYVNINMmUQN
-         Ppzw/sUMSxBmMq0J1/8/ksDt6ocde4HKghyG6PenYO5s1qje5l9H9PeLE6gTUsrOtriX
-         Kr+w==
+        bh=UnFxlTWEkZmW/GBvK4PWKwES96hyAVJv/04cSamolFg=;
+        b=qgFNOHY0ixmub9Z88Wqm9ZeHxFTB2g5tIsxfdt+bbYrK7swr+XmxLXUjF9en7V3Bd9
+         PKHYa67sVUoSRjcZ5n+VWsEEJ/u58A4Zt79lQgh7M7NyY1uZiLotCcw8nZS4ntLww/4A
+         eluHLaTDPZgAVwmi3Cx7sy8ujjjEIeiOaOTQS3+RNLQF6R1cnlNOx7Rbu6iX1L4UkNiK
+         v5xfyf757PtoGcVRQQOu7pPeV8HiwGxMoY9FohRvlCajy7xHa2++HPR5F6DWKgrSsroU
+         rkUkTyoxqNuf4lUnbAkm/l6RtC86PT/Jm8XqBaWnvuAf4csQ/zqRWbOj+VyhVaBLCQ0R
+         bx8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=y2A80xQtmb7+CB5r/Mk3j+gYGrqMc8FwKK/kpNfRrjI=;
-        b=Bda2hWd0hGyvxNJT82A2lp2J6FjPUvQ3aevSM7grrXtZxw2S+2Zu+zBJVp2yMP/wI3
-         D7Lqr/0dvcUARgKnsdAiO/cXmyd6wJYpAcB+xK/cSKoA8nnTh5Mv4ccs311WhqQFndsw
-         7EgbyixRiKwE4+QjBMpPOmkrZY6mXFI2bjjCAW6lzmjMkPDehn1O5BVi+0rjBxsqk9Nq
-         P3+/C8DXsO7sZ4YtjkjGmdxg74GwY/zWcpdhgGMoe84yET/3IazHV0I1oLaiVS7oIUoT
-         0gxLv9KdsXRx4nSh1Ze1/RL8qx8hxHJpCEGxRhqrQ9dRF7jsRDxSRkBO0Y5N9dgHwndK
-         syuw==
+        bh=UnFxlTWEkZmW/GBvK4PWKwES96hyAVJv/04cSamolFg=;
+        b=mPHxwx5w+xp7Uc2em0qX/YeesZKnuNmaLJv/NU4s60HFbXjBVvKJuFRvtFve4ilTuY
+         qhRyeNyEL3aCvXl+0z7Cllq6b04mdEy5LYXC7GRu+BzYBzTuU+8g19EEG9Q424hQHGqS
+         NaQIqiVvW/sHUXFnYUXNOJPwR9MggqP+K7j2OwTevGO++oIJDVaCb672QRfCdpDRCcWB
+         oOkTIg+Az0pJDagpQLxPOLsB546tzSNSXcH5wD8HT18+KHm+KsXFlAAw+gbvBcfQCfB7
+         jMlOPD8fCYSU9uZKPfRXlCN5azOKtlwei3FI3/vXTvycVRt7naQso3XX/jRC63Jyx5aA
+         zlOg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531xqZPp5R2MXLRjyNhObvoZOEkjbXyfgx8UNc1chZr6g6pFyml3
-	G3l9LP48HWzUk3R7TPaM5OM=
-X-Google-Smtp-Source: ABdhPJz5Kx3A20Gaexe18q18TyAo/VWsPSXl0kindMZGC7LP+t8KT3KkTjncBRhVt1E4DOJ76pXtaA==
-X-Received: by 2002:a19:3818:: with SMTP id f24mr4094894lfa.601.1629839114640;
-        Tue, 24 Aug 2021 14:05:14 -0700 (PDT)
+X-Gm-Message-State: AOAM530dhj5VHrTilHpw5pFskMSTPCeb/z3e5CNaRJ9wOPsG+s0xpgR4
+	22QHrdwP1JK9hjfm7ncXvBc=
+X-Google-Smtp-Source: ABdhPJyS0Qelo1jEt1AhrHV48Ye4iUXrb+CvK3y7URSl9vD7oD2ZY1A89qGxPN5JmYuHEFpaLwrUTQ==
+X-Received: by 2002:a9d:309:: with SMTP id 9mr34436463otv.365.1629839951005;
+        Tue, 24 Aug 2021 14:19:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:ea5:: with SMTP id bi37ls1325769lfb.3.gmail; Tue,
- 24 Aug 2021 14:05:13 -0700 (PDT)
-X-Received: by 2002:ac2:46ef:: with SMTP id q15mr30977953lfo.407.1629839113573;
-        Tue, 24 Aug 2021 14:05:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629839113; cv=none;
+Received: by 2002:a4a:760b:: with SMTP id t11ls13771ooc.6.gmail; Tue, 24 Aug
+ 2021 14:19:10 -0700 (PDT)
+X-Received: by 2002:a4a:8d97:: with SMTP id i23mr31103279ook.4.1629839950640;
+        Tue, 24 Aug 2021 14:19:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629839950; cv=none;
         d=google.com; s=arc-20160816;
-        b=jr3NrHXLC/SJMqQJzQ3Vhf1plQ4MBv/uwH2O1G008NsdYQrr2rmpdRqrc4530xDvwO
-         ielKq337bW4Xwx4MbsinoOLTDOFvnZbCiqflwGWLoroym0J0RVoHT4dMGEpaQASyEuJk
-         KX44ngdj+Dz/FfIosAEBu7UfmaAdhSEOdANU1QV1B2iSbGOWyk10Q0WuUd//DGipcjiK
-         QfPWOa2kOtowLM8Rn5pPxxocDjfxvQu7I0elRakX+/OgMlaSWy7mQLv3uspmo/gqSrHq
-         CkD4gKRzt305yCcCLqkFzQi+7aiVb1BEHmfKUZMLHuYSlkW8C3W7Cwi2M29en0b8nhoi
-         bNcw==
+        b=N732Tod4wQPOS+7lXtoxIviM4prJ1mYk0Zt7AXZ/R8RPxXvMPk/OqylozpTS2FPQJT
+         HeBoo1MdaG8CupHyc3zV2HzXtAu7H2xdActtHaWCRQxezPut5zfXXNlFGxhE0NyBdGqm
+         DRSTifhOm2AAVy6d1iGn3RBwgxWlCUMT1KayKsXMTt8FoLFgpj9Q1JCW4jNLpkUR1/Ro
+         2qUHDtu2J7+amIpfIf75ckellV8MsNleo82eUnUn0YGeApXZg0nIfYWYV+5bZbF8F/S1
+         KW03XqxavEbXD+R3DumLr5R0y2bnv8UhLvFrM6vSk9C5GJmtcYSo5K0BkPV4a4pGl9yw
+         dMCA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=hY99dBj8BXa4nQSsll4zO9lsRBPP5TAkRTfty6KZ8yY=;
-        b=AiwXguPXujh7F0QNQmJ0ytqSMW0YKt1wtSiL3AOEaDI9LgOYPYHUgmc9KoTVmF4Ipp
-         IjYhkGlXkHBkNnWGXBoCCY3gbQGyGJeTg34sb0uxdZzGQtrvK9p2vv+l4HEOIUzpFndO
-         FltbtBavvE0AAFyGeLs8V9ez9QBoB/UznMMTIdmQBRzC3Qs/aQP9uEmGT5CPeUa6srSo
-         pFNQUT0CWc9mcByHY0IeENyny75o8fuKsS5QFFwOEGR/wyel7bgeD+js2XnJHCKp2ile
-         oZ8+VU58KBiJirxxc4qDasSmVlF28kLFdHE4H2n/BYcqCPMlm2rC2CcIdLVRM/k8h2Z9
-         4OwA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=AWy0NT/ir+44R/MYf5NREmOW2+tkmeFz0270UeNjWYo=;
+        b=WiaNSY8KkBCkbYz360BgKNTDW2OdVnog8GTNyVhadS7hNeVTYnxfuToer7i4nsEYN+
+         1wsLzsvyUiWcLSp+elED2H+OpnLuT80GHTOLjWenihe5COuYdijlXomuDObVZ6KMMUF0
+         7akFjgl+Ft4bBf36obEYWMa5PZcJkYp3YfvEyga53IcXOXYDZG6m4sZOPICiZJiYdvRL
+         WiSxWUAROOA/NVvYrv2qV6QLLn7a+ndgdeD2kfKhhu4J0ZZW46KWCAZToLyAESk5ZGjV
+         PVjwskX1EByqFO6PA22l0JM/W1DCnPkyGVh77kRj8KLxE3sVjfKQtPHmwbjIYIXHIIV9
+         nJtQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=desiato.20200630 header.b="Dt9M/Zu8";
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from desiato.infradead.org (desiato.infradead.org. [2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-        by gmr-mx.google.com with ESMTPS id t9si1187235lfk.1.2021.08.24.14.05.13
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ChXXmcCa;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id p6si73340oto.0.2021.08.24.14.19.10
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Aug 2021 14:05:13 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as permitted sender) client-ip=2001:8b0:10b:1:d65d:64ff:fe57:4e05;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=worktop.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mIdbY-00ChXp-Cs; Tue, 24 Aug 2021 21:05:08 +0000
-Received: by worktop.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 27492981244; Tue, 24 Aug 2021 23:05:07 +0200 (CEST)
-Date: Tue, 24 Aug 2021 23:05:07 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Josh Poimboeuf <jpoimboe@redhat.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <keescook@chromium.org>,
-	clang-built-linux@googlegroups.com, llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 24 Aug 2021 14:19:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 47AA161247;
+	Tue, 24 Aug 2021 21:19:09 +0000 (UTC)
 Subject: Re: objtool warning in cfg80211_edmg_chandef_valid() with ThinLTO
-Message-ID: <20210824210507.GC17784@worktop.programming.kicks-ass.net>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Josh Poimboeuf <jpoimboe@redhat.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Sami Tolvanen <samitolvanen@google.com>, Kees Cook <keescook@chromium.org>,
+ clang-built-linux@googlegroups.com, llvm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
 References: <5913cdf4-9c8e-38f8-8914-d3b8a3565d73@kernel.org>
+ <20210824210507.GC17784@worktop.programming.kicks-ass.net>
+From: Nathan Chancellor <nathan@kernel.org>
+Message-ID: <dedde693-bf1d-a35b-e858-dab1f8f65246@kernel.org>
+Date: Tue, 24 Aug 2021 14:19:07 -0700
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <5913cdf4-9c8e-38f8-8914-d3b8a3565d73@kernel.org>
-X-Original-Sender: peterz@infradead.org
+In-Reply-To: <20210824210507.GC17784@worktop.programming.kicks-ass.net>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=desiato.20200630 header.b="Dt9M/Zu8";
-       spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 2001:8b0:10b:1:d65d:64ff:fe57:4e05 as
- permitted sender) smtp.mailfrom=peterz@infradead.org
+ header.i=@kernel.org header.s=k20201202 header.b=ChXXmcCa;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,29 +135,45 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Aug 24, 2021 at 01:08:58PM -0700, Nathan Chancellor wrote:
-
-> The LLVM developers are under the impression that this is an issue with
-> objtool; specifically quoting Eli Friedman:
+On 8/24/2021 2:05 PM, Peter Zijlstra wrote:
+> On Tue, Aug 24, 2021 at 01:08:58PM -0700, Nathan Chancellor wrote:
 > 
-> "The backend can, in general, create basic blocks that don't contain any
-> instructions, and don't fall through to another block. A jump table entry
-> can refer to such a block. I guess certain tools could be confused by this.
+>> The LLVM developers are under the impression that this is an issue with
+>> objtool; specifically quoting Eli Friedman:
+>>
+>> "The backend can, in general, create basic blocks that don't contain any
+>> instructions, and don't fall through to another block. A jump table entry
+>> can refer to such a block. I guess certain tools could be confused by this.
+>>
+>> If that's the issue, it should be possible to work around it using '-mllvm
+>> -trap-unreachable'."
 > 
-> If that's the issue, it should be possible to work around it using '-mllvm
-> -trap-unreachable'."
+> So jump-tables are a weak point; ARM64 was having worse problems than
+> x86 there, they can't even locate them.
+> 
+> As to having a jump-table entry to an empty block and not falling
+> through; how are we supposed to know?
 
-So jump-tables are a weak point; ARM64 was having worse problems than
-x86 there, they can't even locate them.
+Fair enough. It does make me wonder why LLVM does that.
 
-As to having a jump-table entry to an empty block and not falling
-through; how are we supposed to know? Emitting them is a waste of space,
-so I'd say it's a compiler bug :-))
+> Emitting them is a waste of space, so I'd say it's a compiler bug :-))
 
-It's been brought up before; but perhaps we should look at an 'informal'
-ABI for jump-tables ?
+Isn't it always? :)
+
+Turns out Nick brought up an issue very similar to this (unreachable 
+conditions with switches) on LLVM's issue tracker 
+(https://bugs.llvm.org/show_bug.cgi?id=50080) with the same workaround 
+suggestion ('-mllvm -trap-unreachable') and there was no follow up after 
+that so maybe that is one thing to look into once Nick is back online.
+
+> It's been brought up before; but perhaps we should look at an 'informal'
+> ABI for jump-tables ?
+Not a bad idea, especially if this has come up before.
+
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210824210507.GC17784%40worktop.programming.kicks-ass.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/dedde693-bf1d-a35b-e858-dab1f8f65246%40kernel.org.
