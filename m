@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBOXRSWEQMGQEQC5U5XI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBPXRSWEQMGQEAXYCQKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 93EEF3F6BF1
-	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 00:54:51 +0200 (CEST)
-Received: by mail-pg1-x538.google.com with SMTP id q23-20020a6562570000b029023cbfb4fd73sf12911904pgv.14
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 15:54:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629845690; cv=pass;
+Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id CBDC53F6BF5
+	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 00:54:55 +0200 (CEST)
+Received: by mail-ot1-x33f.google.com with SMTP id r10-20020a056830448a00b0051b9c05a2a8sf6847178otv.2
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 15:54:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629845694; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GzkvUo7if6XBtCN1JYAuAhCc0lM25qivQrFVPsxUXA6iwBOmZIUyEXCTXTjbJyH2B1
-         10mcjSB1AlHp2qbrA08Oq/rNWE5irhNugc1LJ6ZiUmHwA9CwyrtlwAVrIMy83Z8OG1+j
-         OWsc2OTU44n3k6pEgnWdo+r318j9t/sfqA6vtKqOuglgEzU7TigkiAv1iL9T7g1zHB32
-         heY3vJneacEXHStMrj7fHYNvMtIoFdd2s/6cFAo6B2ZKPUqufx65VHU5xNbYb1gNNPrS
-         XviDWXXAG+C7bTVz5FKLLL+l6AlidJbIuixT/qQXgeMENrzfjZPEIEcqb/EIP9d7UU4Q
-         0nlA==
+        b=OcSSL1HRVOKtQGWsc4I1f0JYAgjsWwFuPCj7jWtMQYhC7eNQuTvBsMk6x4ll3cvnHL
+         kuDnrdkyNEYRAkEmbZb4916b6izp04a6fFkHI8MXE3QQ1yw+iJ6DH/28CT9i/tNARG+K
+         Xu/PFLwB4TVKedMs9dl5kGQqqHm9udL9FPm+9GWZPWPO5CoU2sVFvZT7LMxu/zTnvIp1
+         thcG+phUhrHR4k9q7aiT8OnPlj4aH8Qzduc0byLdHnIO2URuIFZkYC1qdUkPK+1gd1xz
+         VUq3Rpbp8+6y3rCy0PxcWb8VGkVv5a3WFi7dTfw9qszs8fRvb0ykgBn1cP2ADosMuavT
+         yeig==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=QftT/Uhs8GRqsxsAOxDJRlt8se4LA8jdL5IC7hR3cRc=;
-        b=Bgt9qGeUIOYA+KfLCbk1kKh62CuL4BEK4Q+VhjJCdrOtqlrj3NvESF8p81Usc3000N
-         SIHfVKq6PLbLrdsyRI9CWzeOfiECEPMCNQBgMlUvwWW4F6iebhfWlRZo6l7zIUObDZ4B
-         M6hJl+GqwFBg0/gbfm8SfbJn0NwOjgqT+05iLZA3OWl0Fwt3Z+N0GkJo9/uNB5wa0qGE
-         7hS1MyUokN5V/to444g4F9j+hSXuUfqwchoz6G+BAtzPF6JtDZPfY+7dncjsBGawPwXX
-         nqn2RFyyukifDiYPuxz0eVj8fZhn3jRLwTlTaXiHdpQ9BfBrnY9F+wwFgVBYorPXmLH/
-         UiCg==
+        bh=l+kNT09utDE8DTrxdObE4D4FFj5wfIvXEf6dqJgTnF8=;
+        b=J3cYV94U11zZp7FEWHBdkoiwHUJv/yRtoKXBDnjdBUVAGY3OefsnWiPKDrkbfqYTyW
+         k+UYEcQxfcesSAvMA4TORd6uLollxodmdxZ4qh6gxfS536691MvyEpKOd+/Ks/vnThZF
+         pf5B1ORx9UwedB5eSZmxjZBEXashcR5x0onsSYeyAKWm9eMOcuFPpzMjp2HtCQcP/wd8
+         /yIO9Mb/iP21kWguuSGnDL0yQQGH8epMZzRVXx8vt5Zqy4idT0Y+mmpKXCWb4Bp8s0Na
+         U+FieS5oVj6jzGZpa6lfhWYoa/yqwyklNQJtxZ3DrXsGqvJ45ON0S7s0kwmaENrOZMUE
+         smUw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=vIYXerym;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=PDnYE3Rq;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QftT/Uhs8GRqsxsAOxDJRlt8se4LA8jdL5IC7hR3cRc=;
-        b=gAHOHiDLX9uQJj1ZDNhHEg/fYrD+KJKPT91UTl+nvYr53DShQI8KQV8g5wfkQJjPxM
-         3QVUbmWncZweissfo9mHpTYpk3pTpMqh/GgMH8u5u4E8iJ+8X4KtjXrOLXhbKPemKvHi
-         k3wa/a6IfAiS1sjq4B/mw5CST6+qMxBJG71CuzkUXbQGNkS7KUM3kNlMbNDxMzBrgUFU
-         NKvnijYBGfVMhqvyoE+1D1zAw/YTXMAC9X8fYffR5dz6KflWwC74qJ+teGGLF7pyoYfU
-         N1RAsHPs9vVYH1MHTw2uv/fRyq1fdlWMeAIuKBNUl3CeOnd2u5NOMNuVgf/GQzlPZMhM
-         xMJA==
+        bh=l+kNT09utDE8DTrxdObE4D4FFj5wfIvXEf6dqJgTnF8=;
+        b=fM4g4tsGL7Q9Y2hpxnnr+8opQVTHROGbwNQi8vwD1gT25QAKq0oSXcWaEp4D4ai0hQ
+         jhLF+Y5zaaEMGJ2YkjuLCihlVqallhfHpVaQBYrVLPO02Ir5J12RhV1fZszAkICfjXA4
+         xntwpXROZGp/0v8L3RbqdKFXRftk8lDYGAydAn2RAlLufsXE7NgeBzrtErvySWgMs6Vx
+         S4LLX5M5WRtkU1S6bjIOs67d9qx11D1qfVC8Qeeavcz/EcEpdp4YZgaM+93nnOYHPKZL
+         piMrp51WjwUjhelkFI1byWWl3CpaqfiDaYnG+lAM6grklDtPAVbk6ejChHo/OpQ6lt0x
+         3ZyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,54 +49,54 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QftT/Uhs8GRqsxsAOxDJRlt8se4LA8jdL5IC7hR3cRc=;
-        b=THaHkAmJHwyrpRoKuKlIQS8pgwJL+IrZPeEq7pl/NCh6DySJOdF32ck99i9k+1U5c7
-         N7cmufwRtoeiE+DsNpRtRlPeLawOzRtUyVfL4AfZXJTU8HAUcuk6HRhlwq7h4rXzJp4F
-         WZQVfoaWPs0mHZ20Zk8qBDopkcRcaaq5PjnmfvnNBMMHn/icQB6xmwGib1Ii9jl0aKVX
-         eUytHGAAobXyxNs+OZWsJ1p9XyBrHaJ95v4Di71KpVVeliDcuTBwDUoD+/KbTfFse0Qg
-         ijMg44QcZyX3GUDMpgeIU1T2MkY+3Be77rFkvAdaWq9JO7c39ByhjyJkVbCBmRG3UqwX
-         Hn1A==
+        bh=l+kNT09utDE8DTrxdObE4D4FFj5wfIvXEf6dqJgTnF8=;
+        b=YP7FF0WUvMx59t9s9hA4vP7VxbY9KhnCWyFcsCC1H+4bDWOQzjltgqkkqjQh8d7kfs
+         szdJtqtC0Zez5FAI4BAkXhwvF9ynIWZZoP6eVh8t3vUDJBeGlZNplkznfpGeE+1FKSXr
+         ccLejXZEGVOqcbd39GFLu1FEMxMhU04wfH3hVSvhLSFIk4AALE6mOjIzNieN3OyRA8E8
+         FPtWFeFBidRTUHtptKomCzEYHAwQRWBK+JQywbhivqpNXVpPpIvaC0rpJeKEAejXb2sb
+         QpC08qt2SnXibwQAXOPDhnX9fLuF2Mh0nMbe7kXP4JotB63s2fPU9RM/jkJok7HOMhL2
+         L5cw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5314ye6nlzSVggYfs/PoLtkZLCk68tpDkLROqKokx2XaaDTjGzzv
-	Ytl1toWBNnz7ASQ55TBgHjk=
-X-Google-Smtp-Source: ABdhPJwPXxO+obx6GQ9EYWUva6QEeJAX3yu6aom8qq2RmgSpfcXdetI/oipxEAUyjdZmUil3ALM39g==
-X-Received: by 2002:a63:211c:: with SMTP id h28mr39149404pgh.83.1629845690305;
-        Tue, 24 Aug 2021 15:54:50 -0700 (PDT)
+X-Gm-Message-State: AOAM533Fgfid3NcQ3Jho6msds60rZJY+TNMGMkmTItCQIRGZdQJgXTjP
+	oBsKTZzk6KCO2c+143wuhds=
+X-Google-Smtp-Source: ABdhPJw5ac8v6oOprQBzslclB9SUU+gjETcJAykUBjMgvZcxreKG3X5ZeK7fQUQ8kg5P7nfS6uwn3A==
+X-Received: by 2002:aca:3090:: with SMTP id w138mr4427148oiw.173.1629845694412;
+        Tue, 24 Aug 2021 15:54:54 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6a00:1956:: with SMTP id s22ls79911pfk.1.gmail; Tue, 24
- Aug 2021 15:54:49 -0700 (PDT)
-X-Received: by 2002:aa7:8685:0:b0:3e1:76d8:922e with SMTP id d5-20020aa78685000000b003e176d8922emr40936020pfo.45.1629845689744;
-        Tue, 24 Aug 2021 15:54:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629845689; cv=none;
+Received: by 2002:a05:6830:2442:: with SMTP id x2ls40822otr.3.gmail; Tue, 24
+ Aug 2021 15:54:54 -0700 (PDT)
+X-Received: by 2002:a9d:1d26:: with SMTP id m35mr20896588otm.176.1629845694037;
+        Tue, 24 Aug 2021 15:54:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629845694; cv=none;
         d=google.com; s=arc-20160816;
-        b=oVSyh47P51qHQEYI94wCSuRL5rkiogJqrhXL1Jdvqn3/Oj1IGhZCsehB+DaPSgoJU9
-         MLzEscXuOX9A4L8TT8wldKYVNifc4mmOvJsBfsfqJj8/vIinJF5sGNrtST8O45VkL9Or
-         4/Ky4ucicAwMMfWwq99yJiqbsM/vnQ0Oxv9ebk9vEJIHQBjb7b1aSuWtGekTejbb1+d4
-         seuwZMtMNNnP/hDrOr89kwVDLHkW9XTAIQa61eg5+lXVZ0UJaBcd/6zdfb8cnkcOwRl3
-         g3Mx/vdH4nNY8V4EFUn1Qi/8F1ZFkYa0vggP8Lud3BmvQ2wdujQY1pgoBIe77d3Jqzbp
-         Ki+A==
+        b=z3R/TEwl3xVK6+2zQm8/HhNWRnQQgRstlMcMVaVBO1yntoXBhhNigF68bmdKMzlCQA
+         L88YDGw1utz6IV1ysRiCEX8WLe0Umel86LbibpXRwCEoPZxhF1TFy4R7K1GgvcCiLzqy
+         pPKpXidmXypl/2tmKQ0Fg6V4/IgqVilPrnqDJEdTMGIFlSmfcH3HB+wNvn6NZDs7Hg5F
+         UsVOrA4RwHjdi9GRMACCtPxORWZiodK8r4Fu4pvXIdmuRj1rQyJqrFab85CWBv/MTsgj
+         uRyrYc9+jmwvANlapLg685zSPEJ2oIH5L2z8wuSyBRzPRI4tHOH5qb0ckU3UQszKiDNo
+         /e2A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=Y94jD2sJjYx8WfPSZYTT5CdOA0JDNJ9Gnd8n5RoQmns=;
-        b=yLMdBdTr2VijW/nYlqcFVUA/tyf7gDtGW7kRQOMg5AooiR9kAqsVLomJpkWPw+eFBv
-         JAVL9nIrdzdhkA2AXVUuru6bQwl7+B+Lafc8U1Yh06HNo9qNfT4cSpx5zV8rQ8hQIBnZ
-         9/KXtBo8ELA58nHjdOd6BHypmGKRVHwKheOvrlcA0bLHDt9U3wgfibVY757rDv4r571+
-         LAObw7srR87IMZKHWtNlnHtr2DqTLg7XDjnvhTYKxog7u/HTvUIWjM7LY7SRVlY9hwgF
-         V/egMg+KG0b7Q1KrLXORkY+SyHEE/QsQqxmXQI6FKgep4wox1jURoDAoPjrB9rC/Wuqk
-         12CQ==
+        bh=W/G4+lDZo7u7pQ7sr8BKP41YRcHUmpbZESsXcody5Vg=;
+        b=nSbXpQ6P3PpGR5qicvt+PO5FJTVr+Hapv4F2oiJYxu4RpV6zwfZP5HhdAQPV/V0LIB
+         emUTWwsOsWkMd6LG15lG2NVflnRx9xl7ucpWkC5o4M4OmIZrcjN5t4hcsPvu6LTMRxOc
+         G3jMOwKixacyozvhxs3MbgkLof+vINgwStvC7Qwh4tlQr/7BDsmkEdW6fpHFjQNHQF0E
+         D/zFZBnKqn5gyav61Dw5WOxvcFlXiR3GVGNMMAzAoziIm9sfKnGVvD2OJikK+IxigkyI
+         87vJ00DXXsc2QxekCRIHiPBYivGGzU7IzgYSw+Njk9kmxAuqv/MklhWZEBSopFgS0dC4
+         72vA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=vIYXerym;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=PDnYE3Rq;
        spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id r9si56615plo.0.2021.08.24.15.54.49
+        by gmr-mx.google.com with ESMTPS id s20si5922ois.4.2021.08.24.15.54.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 24 Aug 2021 15:54:49 -0700 (PDT)
+        Tue, 24 Aug 2021 15:54:54 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C9DBF61139;
-	Tue, 24 Aug 2021 22:54:46 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id A8F6561368;
+	Tue, 24 Aug 2021 22:54:50 +0000 (UTC)
 From: Nathan Chancellor <nathan@kernel.org>
 To: Jani Nikula <jani.nikula@linux.intel.com>,
 	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
@@ -111,11 +111,10 @@ Cc: Jason Ekstrand <jason@jlekstrand.net>,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	llvm@lists.linux.dev,
-	Nathan Chancellor <nathan@kernel.org>,
-	Dan Carpenter <dan.carpenter@oracle.com>
-Subject: [PATCH 2/3] drm/i915/selftests: Always initialize err in igt_dmabuf_import_same_driver_lmem()
-Date: Tue, 24 Aug 2021 15:54:26 -0700
-Message-Id: <20210824225427.2065517-3-nathan@kernel.org>
+	Nathan Chancellor <nathan@kernel.org>
+Subject: [PATCH 3/3] drm/i915: Enable -Wsometimes-uninitialized
+Date: Tue, 24 Aug 2021 15:54:27 -0700
+Message-Id: <20210824225427.2065517-4-nathan@kernel.org>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20210824225427.2065517-1-nathan@kernel.org>
 References: <20210824225427.2065517-1-nathan@kernel.org>
@@ -123,7 +122,7 @@ MIME-Version: 1.0
 X-Patchwork-Bot: notify
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=vIYXerym;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=PDnYE3Rq;       spf=pass
  (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -140,54 +139,32 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clang warns:
+This warning helps catch uninitialized variables. It should have been
+enabled at the same time as commit b2423184ac33 ("drm/i915: Enable
+-Wuninitialized") but I did not realize they were disabled separately.
+Enable it now that i915 is clean so that it stays that way.
 
-drivers/gpu/drm/i915/gem/selftests/i915_gem_dmabuf.c:127:13: warning:
-variable 'err' is used uninitialized whenever 'if' condition is false
-[-Wsometimes-uninitialized]
-        } else if (PTR_ERR(import) != -EOPNOTSUPP) {
-                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-drivers/gpu/drm/i915/gem/selftests/i915_gem_dmabuf.c:138:9: note:
-uninitialized use occurs here
-        return err;
-               ^~~
-drivers/gpu/drm/i915/gem/selftests/i915_gem_dmabuf.c:127:9: note: remove
-the 'if' if its condition is always true
-        } else if (PTR_ERR(import) != -EOPNOTSUPP) {
-               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-drivers/gpu/drm/i915/gem/selftests/i915_gem_dmabuf.c:95:9: note:
-initialize the variable 'err' to silence this warning
-        int err;
-               ^
-                = 0
-
-The test is expected to pass if i915_gem_prime_import() returns
--EOPNOTSUPP so initialize err to zero in this case.
-
-Fixes: cdb35d1ed6d2 ("drm/i915/gem: Migrate to system at dma-buf attach time (v7)")
-Reported-by: Dan Carpenter <dan.carpenter@oracle.com>
 Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
- drivers/gpu/drm/i915/gem/selftests/i915_gem_dmabuf.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/i915/Makefile | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/i915/gem/selftests/i915_gem_dmabuf.c b/drivers/gpu/drm/i915/gem/selftests/i915_gem_dmabuf.c
-index 532c7955b300..4a6bb64c3a35 100644
---- a/drivers/gpu/drm/i915/gem/selftests/i915_gem_dmabuf.c
-+++ b/drivers/gpu/drm/i915/gem/selftests/i915_gem_dmabuf.c
-@@ -128,6 +128,8 @@ static int igt_dmabuf_import_same_driver_lmem(void *arg)
- 		pr_err("i915_gem_prime_import failed with the wrong err=%ld\n",
- 		       PTR_ERR(import));
- 		err = PTR_ERR(import);
-+	} else {
-+		err = 0;
- 	}
- 
- 	dma_buf_put(dmabuf);
+diff --git a/drivers/gpu/drm/i915/Makefile b/drivers/gpu/drm/i915/Makefile
+index 642a5b5a1b81..335ba9f43d8f 100644
+--- a/drivers/gpu/drm/i915/Makefile
++++ b/drivers/gpu/drm/i915/Makefile
+@@ -19,7 +19,6 @@ subdir-ccflags-y += $(call cc-disable-warning, missing-field-initializers)
+ subdir-ccflags-y += $(call cc-disable-warning, unused-but-set-variable)
+ # clang warnings
+ subdir-ccflags-y += $(call cc-disable-warning, sign-compare)
+-subdir-ccflags-y += $(call cc-disable-warning, sometimes-uninitialized)
+ subdir-ccflags-y += $(call cc-disable-warning, initializer-overrides)
+ subdir-ccflags-y += $(call cc-disable-warning, frame-address)
+ subdir-ccflags-$(CONFIG_DRM_I915_WERROR) += -Werror
 -- 
 2.33.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210824225427.2065517-3-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210824225427.2065517-4-nathan%40kernel.org.
