@@ -1,134 +1,141 @@
-Return-Path: <clang-built-linux+bncBCRIZROPVQPBBLFXSKEQMGQEKH6ECII@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDLKPY4HVQKBBWV7SKEQMGQERPXR2ZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb37.google.com (mail-yb1-xb37.google.com [IPv6:2607:f8b0:4864:20::b37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 52C503F58B5
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 09:11:47 +0200 (CEST)
-Received: by mail-yb1-xb37.google.com with SMTP id s4-20020a259004000000b005947575ac53sf19262315ybl.5
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 00:11:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629789101; cv=pass;
+Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id 793E03F5903
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 09:29:31 +0200 (CEST)
+Received: by mail-lj1-x237.google.com with SMTP id l12-20020a2e834c0000b02901b3aafdf5eesf7174953ljh.17
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 00:29:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629790170; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ozfFCoCunYfrIQUMdQKNpLEoWhIbo48ZHeTR2Mn0oWBGWZpE0vt6z+beM1Rj9d1YII
-         Dk4zIoG1BrWDyMO5pvUCpvqfFMBU+bJxybdSZP5liMQTx11nskkvhLPU73NMMfyUr152
-         9gLx00JEVdm3UU9Jhpja8TTx4W4cvYsSt447nVWfxuMdBYO6pK7hlADAJZnomDUdXlEI
-         W8D4y0TB1Uk3VnGLR9CM7y9/Jae6POL3cZ1WOFBBB5kesTIU3vuob22YIU9qHd7z40PI
-         /8VZQ4+uuGbQv4YKFpb/VBlFR5MqcI+bPbpo5xw9hwCp0pY31hYTgyuO9Dye0jlTYoJY
-         V6UQ==
+        b=ALi3vHF+xDMVGbYzrXems0uP6ikDlG1Aq1BZsX2Jp0IiCHPADDByKp2TD5jW72Q2FC
+         LQN6CnUZznz+xfkSdJMSGbaf+10KW1SAKl30UrII0Q4c7CcO+vG7/pNtyKCRiQ6jmlZk
+         INxGITOLBxauhghhkWKK374JPNJ49bvh8MCQLj6tyblxuZFyUdWdXB9U9zrAujRX16Pu
+         BCzRcl9JZA09xYzQLWBFM7+YgaE5Z1Z0QW3xB6hkLBonpdb/rHmkodBT4UYAyxB4IXjH
+         r0qL2obQfbLj8VAonVeKiQcyMvzLYIxWMdiBnPZf4DIsiqbBJgIKFYmjMksMCNCF1bVM
+         on8w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=jkjrQQwVvFuOQNFyZvKUvWdUK2BVAvGazP8cQc6FunE=;
-        b=nW/ipSCXi7g+OpxyHBEfECK2JhxfBNJjGdcS6n+TkQkhm2rmjb3iDAZUTC4ZtsjR3C
-         LXk2rueilsmwWyZYQ6oe+YM9dwJFmNkeIFIsSl08acUAKSjWfoDqVTFubKLughmtk/l6
-         0EbrLmJMevphOF2R7JRyTFVvSd3zgEyX+2GPbi/3Dm3UAnNQBUFeI8smQbeVUTwVwXt6
-         y5ZNV3dz1ZhVwwS3lCdYtlD9QW5QSsuvHriHwOczk5B8lfNPYkwYnm39UonkFyrVVxrl
-         4fOsrOjBmISWP6Lam5Ktd3XO5tV7/NPQK2pbn2lkcKnx2BYtcN4KnEz4kn6tW9IukWaz
-         wDvA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:sender:dkim-signature;
+        bh=d1bXIIfNE9pL6Y3UeIJUmXRE32Sf75JyBG+fhkGVjdo=;
+        b=HLZ+cvCGlAW/32LX3a/Btn3GRl/4nob6Sv7eRU3cSSO4bdIaEWQOR0hcbLT2nwiWy4
+         tyoVsSpAGHoqZX6SGl7ORC9f/ADd0Td+74jgySG01IHnLIs891JS2c/85O+3VIL/o3Lu
+         9vpsADgJr02X8EUfTIOR77Dadle9XWybxj0XXGqCo82A2ZTygZd59SVGD/f31a35tzq/
+         nKLWPuSapUh9qPRzdDummPWInXsJsekPZX5rh1HWfASEQBKD6R9VKJ+YGm+KAkFc+ISV
+         2AhQ1p6i9xSzl2rHXbo9DdA3bdBw2rOX4meGe0Nfub/d5hZlEsmTm/rmRVg80+itlnTy
+         TkYA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=QMMD8u5i;
-       spf=pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::102f as permitted sender) smtp.mailfrom=viresh.kumar@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=jkjrQQwVvFuOQNFyZvKUvWdUK2BVAvGazP8cQc6FunE=;
-        b=jLdpmF1plLnD36JCeYQeTGVU8AdCoZeOphcBzWEJJTif9fME5LiioW7eZvpnp5jHg0
-         FuI6XYuHgTdMNpaeiW/+iUB5+6LoBfIeU4vwDsysHgwkAZvpaTcCamNL/E1wEQ9cfl1B
-         JZhAZWHStsVlnmICHC8q7QyGvO2uye8m5Lj+aChzpiVxJDJNcOtukMc2Eh4LyTjka3Un
-         PuGvlw5yxie/AwEun0i2q8PZOpHC5MBboz2FwYFrQguOgIEGRbzyb5+wNyKgdQtvpzH5
-         amBTTbLGMJPjYnIAJTuiERuJ5oO2xGJm4wH91LkYK8KACTsoyySx6MIhCYgQhl7jdPjG
-         ofrg==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=d1bXIIfNE9pL6Y3UeIJUmXRE32Sf75JyBG+fhkGVjdo=;
+        b=Xm5zG/G7wdezevGI8w/4gI1UKkgm8NwZCZufF2VCL8yHirS/ebDFhh0zC4XSHlEebd
+         ldfRb3YWSLhhmohiUmONZ/h3Mt8X1F7a8FyI0eEsxNJ28LwTsBJF47imBzD+BJW07w8C
+         kT0C6moWj/4J8+kkXnBY+tDXXYfXHOioxaFUgXlgNEJZ2KYAd4GXu+rX3dJ4RjtD/hcw
+         W47TlPYdzxkBXOSYPj0cYzjCzTNj7fv7Ebria6Kojo/06/ANHUmTRZ29/69x+ppNP0P5
+         i3QOZho30KGAK3/Gcd/e/1BvofQVavfoXfERfQgSNyeq2nn0mpyqQDfN6UXfKF/CQ/Yq
+         1Phg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=jkjrQQwVvFuOQNFyZvKUvWdUK2BVAvGazP8cQc6FunE=;
-        b=ucmzW1gHWM4KDVRjA5TRaCfpboftWQ/QgkuDR4dajKj3//OBYuS6m97ve6kCUO1GJ4
-         EtQTndnlyg5M0Xkun0zpwCfIWeRXwKKo719VpXbJEPqJvNZauSyQM/aZZNbQqmcbVuH8
-         mlAN8XqZ8RVYCmzcG8UFeyyHoKJX1NkVwRBC3SAiJRv8+dXYXzpFGNJTG/Ln6dd1KyEp
-         jeA8l0Fp4sSO3LhkCQrqvwlVNWc7yfZ3wpX72HOoLwrwcjrv8GJPI0bUDDShiVmI0Rsk
-         UARfU5Ud4/oO0k3IzkCWrEPVhx8jRcAEI5ABuYNbyyRd0UkMV7Idt5ywlwwfnqvfEFMM
-         SxNQ==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=d1bXIIfNE9pL6Y3UeIJUmXRE32Sf75JyBG+fhkGVjdo=;
+        b=OPAx8JK+tQvQ2O+UquoSsou18ORKnROHfTV4bFk72VEw11eLoGlpr89f0jmWp14LUJ
+         P9Ll6DASoEaTJUoOeWZFyjLC+x1sb0rnJYWWm7obFbwy8s50GytF5u3iw3Tkh3C7vrCR
+         /pMPrlme6cCy7Djjze6jcgObs9y+KCIDuZNeWOR/Um02lBXVgRdvsm/YjKcUBHQ6C/H/
+         JljAdDn8w5YVrCsifN7vjh7h6jLtGEOhFNE9OO5OBl4YPvY/elYOr/SDGtsxxO7P32ud
+         HgvSfa6uCvV6Ive50ExshDkFPZhORzFBQe3my7aqRZLvAyMXRTsCxKXn3lvVSX2CfYvV
+         UBcg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5329i+6680xqHdJ8deLXC6rzXZVG00nX6pZFsHYEsBAMLepER5CK
-	c5YgrQ08De2o7eDPpUt0mM0=
-X-Google-Smtp-Source: ABdhPJxt0DlADT7gfmb3GctzOGSXRG95gMr6gBx5LgVU4WdlXiohsTsmlpNORsZp7gfWjFupEMOEgA==
-X-Received: by 2002:a5b:4ca:: with SMTP id u10mr17527276ybp.344.1629789101093;
-        Tue, 24 Aug 2021 00:11:41 -0700 (PDT)
+X-Gm-Message-State: AOAM532lJlWw4BxS+W4/HqPi4CAcfVDD1yl/UpyH5UVc5beoCNZBljrk
+	zY+XlBAKAElOjSwqPzT1H6U=
+X-Google-Smtp-Source: ABdhPJxlnuFF/yNrFFyCKMPoeJiQHT50sLDLy3ih1phsAZEH5G9mEGzvkipgWTzNMnYiqSBAvNTcBw==
+X-Received: by 2002:a2e:82cd:: with SMTP id n13mr31993988ljh.6.1629790170765;
+        Tue, 24 Aug 2021 00:29:30 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:9808:: with SMTP id a8ls1356288ybo.11.gmail; Tue, 24 Aug
- 2021 00:11:40 -0700 (PDT)
-X-Received: by 2002:a25:53c8:: with SMTP id h191mr50128496ybb.71.1629789100621;
-        Tue, 24 Aug 2021 00:11:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629789100; cv=none;
+Received: by 2002:a2e:597:: with SMTP id 145ls3191328ljf.7.gmail; Tue, 24 Aug
+ 2021 00:29:29 -0700 (PDT)
+X-Received: by 2002:a2e:bb8f:: with SMTP id y15mr30220987lje.148.1629790169632;
+        Tue, 24 Aug 2021 00:29:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629790169; cv=none;
         d=google.com; s=arc-20160816;
-        b=E3jaEKvoRpS32YXZHUHW0T9d5g3u2hJO9koGueZfuNHcSV9aGH25sjyH90RnHM/9BX
-         wnWc3eFB+V1CHdyZ4sV99lTipoPwW0SAYIucKJ5BxEocGGR27evIfTe80DuswC8AYF41
-         P+jFkD0IAtrDKiYjlFPu4v56ngYBVl/pAR7Wvy5lDYn7GlcY6Z5vb8N3prdCh1gcEaLn
-         Ywjve8X0c6Ul7AA6jVbRwU/DCDk4CMXtl50LW1pt29cTfjBvOkJWhoDo+M3fVakSW3v2
-         sn7PawVL0Cc+NTy9O+L6H6uXWfZSiXsbUkO89hU1b58QgiRsT4+UlDvGIVgihvllCgZo
-         6/Pw==
+        b=usx3/UQkPJHPyNvglaXuot1/s8IfqPHfD3nGe0X7Bt8rqKaHoKGHF2XvHjBqNWG/Iw
+         vUXFs6TwPByJLBwzLqfIhwQjc9t6Qd3s0siUzYHSrAshdyRtFh9EGgXl3+d8YPOY/eHT
+         0MWBRKJERebwZFC+/m0/o8h59bhls54NEjilKpRMm+48NoOAWjwMBfnVn7dioX+0bTLG
+         Zf1seMuZVjd2lCcAKoia8oCDUmg4b0XLLDYOXIG6L39dEvdKkqBxnK/umywjjNRgUYUu
+         3Ii5GUCEej+FiOwAZERn0A/Q7fZ9iSvr+1hE+mABgYqt6zAlASRzO9ySPSy2VZEGd2Ea
+         y33A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=4yj1MsIvR997A+hpDaBXq6r8GptVAD/IgfIuiHBhOHM=;
-        b=EEgpR5sgd7gYV9KMeQt1Ilw4XNZVAruhSsGuEcwhvMfYRyRgBB0XRxdUSz7UZM5ZTl
-         RpXDIHZUz54GdRrDsYocETKe3kUbcG4GjzK7eU6k1zk11/Jk71/aRW5TpjibLoaH/jDM
-         Ro1XNAJQfFi+VCF1uz8vj872mNo972BVCCACBRnGCdW7M/LE9SHNLKMDxEbAaBq0uiWk
-         aBiqlFuzmgqsKp8y15IagLhWF4LdJscipenBlcxTTEQjP72REP6yMcqP26TBDVyEk2E/
-         ugBQ1WMSTVxSVMUr4cBQbfB96NY4qGXKP/m9ZjO9X5dzgRLL5okDQ5H5DvGDffgIgEYc
-         K4CA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=c9OpSUmFK/6sz6LKPhCzjEbeixWrhWtsCO+NFUN+sEQ=;
+        b=mRJJfDo3lQOA4CVVWYLZHAPWQAcI/4Ykclgw64+QP64v5vNa1hkHGALNpronQofqVR
+         A0QRM39+OYdSsB/OpZE3iBpud636u1nWEUQmFm4Tta7MPfPGB2QfMfOYeRKM+rlZYfqk
+         eu41oHmlbg8Yn3zibQnheLh4sj5hg+epboZZdDa9JMkjigSJPCPUG8HG1i5ko72+0WRs
+         9IeoI/4fM9re+qE019Xnmh/OkY7/2ckDg6txL5lmxPRXlVn16ZgUQ68YW7uMbdIFa4P7
+         bJZ366X0NMa6NtFdeT0pzMWiBu3VDki/RdVUNfJZFcmdK6uMlUKGlc99wMYyiG0h1Er+
+         hngg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=QMMD8u5i;
-       spf=pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::102f as permitted sender) smtp.mailfrom=viresh.kumar@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-pj1-x102f.google.com (mail-pj1-x102f.google.com. [2607:f8b0:4864:20::102f])
-        by gmr-mx.google.com with ESMTPS id q62si1153902ybc.4.2021.08.24.00.11.40
+       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+Received: from pegase2.c-s.fr (pegase2.c-s.fr. [93.17.235.10])
+        by gmr-mx.google.com with ESMTPS id b25si135620ljk.6.2021.08.24.00.29.29
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Aug 2021 00:11:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::102f as permitted sender) client-ip=2607:f8b0:4864:20::102f;
-Received: by mail-pj1-x102f.google.com with SMTP id w19-20020a17090aaf9300b00191e6d10a19so1188779pjq.1
-        for <clang-built-linux@googlegroups.com>; Tue, 24 Aug 2021 00:11:40 -0700 (PDT)
-X-Received: by 2002:a17:90a:c705:: with SMTP id o5mr2866780pjt.55.1629789099672;
-        Tue, 24 Aug 2021 00:11:39 -0700 (PDT)
-Received: from localhost ([122.172.201.85])
-        by smtp.gmail.com with ESMTPSA id s11sm10349375pfh.18.2021.08.24.00.11.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Aug 2021 00:11:39 -0700 (PDT)
-Date: Tue, 24 Aug 2021 12:41:37 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: "Chen, Rong A" <rong.a.chen@intel.com>
-Cc: kernel test robot <lkp@intel.com>,
-	Thara Gopinath <thara.gopinath@linaro.org>,
-	clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
-	Linux Memory Management List <linux-mm@kvack.org>
-Subject: Re: [linux-next:master 8440/9522]
- drivers/cpufreq/qcom-cpufreq-hw.c:294:3: warning: Value stored to 'opp' is
- never read [clang-analyzer-deadcode.DeadStores]
-Message-ID: <20210824071137.m7uhzwccfuhcrncf@vireshk-i7>
-References: <202108221933.WIgFqDfv-lkp@intel.com>
- <20210823065211.mzagmzexavwxu4vy@vireshk-i7>
- <38f16bcf-40bc-c400-ef64-da8e43b1135f@intel.com>
+        Tue, 24 Aug 2021 00:29:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) client-ip=93.17.235.10;
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4Gv12c3qTnz9sVf;
+	Tue, 24 Aug 2021 09:29:28 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 3ozNqScM8a44; Tue, 24 Aug 2021 09:29:28 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4Gv12c2q8Xz9sTx;
+	Tue, 24 Aug 2021 09:29:28 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 3B4F38B7DA;
+	Tue, 24 Aug 2021 09:29:28 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id Ezv-owZ2jHMc; Tue, 24 Aug 2021 09:29:28 +0200 (CEST)
+Received: from [192.168.4.90] (unknown [192.168.4.90])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id C88178B7D1;
+	Tue, 24 Aug 2021 09:29:27 +0200 (CEST)
+Subject: Re: [kbuild-all] Re: arch/powerpc/kernel/signal_32.c:297:2: warning:
+ Value stored to 'msr' is never read [clang-analyzer-deadcode.DeadStores]
+To: "Chen, Rong A" <rong.a.chen@intel.com>, kernel test robot <lkp@intel.com>
+Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
+ linux-kernel@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>
+References: <202108231827.N9VUIKbD-lkp@intel.com>
+ <3db8de6e-a971-be9f-19eb-e7d95faf2870@csgroup.eu>
+ <7955eec5-c1d7-e0d7-280a-138d96b2daa9@intel.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Message-ID: <79754a11-fa14-756a-fc30-5cb139a286b6@csgroup.eu>
+Date: Tue, 24 Aug 2021 09:29:26 +0200
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <38f16bcf-40bc-c400-ef64-da8e43b1135f@intel.com>
-User-Agent: NeoMutt/20180716-391-311a52
-X-Original-Sender: viresh.kumar@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=QMMD8u5i;       spf=pass
- (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::102f
- as permitted sender) smtp.mailfrom=viresh.kumar@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+In-Reply-To: <7955eec5-c1d7-e0d7-280a-138d96b2daa9@intel.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: fr
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: christophe.leroy@csgroup.eu
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as
+ permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,58 +148,97 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 24-08-21, 14:53, Chen, Rong A wrote:
-> 
-> 
-> On 8/23/2021 2:52 PM, Viresh Kumar wrote:
-> > On 22-08-21, 19:41, kernel test robot wrote:
-> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > > head:   86ed57fd8c93fdfaabb4f58e78455180fa7d8a84
-> > > commit: 86afc1df661a99dcd6b8d264cae171f1ead2b7b8 [8440/9522] cpufreq: qcom-cpufreq-hw: Add dcvs interrupt support
-> > > config: arm-randconfig-c002-20210822 (attached as .config)
-> > > compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project a83d99c55ebb14532c414066a5aa3bdb65389965)
-> > > reproduce (this is a W=1 build):
-> > >          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> > >          chmod +x ~/bin/make.cross
-> > >          # install arm cross compiling tool for clang build
-> > >          # apt-get install binutils-arm-linux-gnueabi
-> > >          # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=86afc1df661a99dcd6b8d264cae171f1ead2b7b8
-> > >          git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-> > >          git fetch --no-tags linux-next master
-> > >          git checkout 86afc1df661a99dcd6b8d264cae171f1ead2b7b8
-> > >          # save the attached .config to linux build tree
-> > >          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm clang-analyzer
-> > > 
-> > > If you fix the issue, kindly add following tag as appropriate
-> > > Reported-by: kernel test robot <lkp@intel.com>
-> > 
-> > This doesn't look right, it says issues are with cpufreq-hw driver but
-> > points at hid-core ?
-> 
-> Hi Viresh,
-> 
-> The warning with the prefix ">>" is pointed to this commit,
-> others are only for reference.
 
-Fixed as this and pushed as Thara is away:
 
-diff --git a/drivers/cpufreq/qcom-cpufreq-hw.c b/drivers/cpufreq/qcom-cpufreq-hw.c
-index 26293d3b15a4..a2be0df7e174 100644
---- a/drivers/cpufreq/qcom-cpufreq-hw.c
-+++ b/drivers/cpufreq/qcom-cpufreq-hw.c
-@@ -291,7 +291,7 @@ static void qcom_lmh_dcvs_notify(struct qcom_cpufreq_data *data)
+Le 24/08/2021 =C3=A0 08:59, Chen, Rong A a =C3=A9crit=C2=A0:
+>=20
+>=20
+> On 8/23/2021 10:35 PM, Christophe Leroy wrote:
+>>
+>>
+>> Le 23/08/2021 =C3=A0 12:59, kernel test robot a =C3=A9crit=C2=A0:
+>>> tree: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.gi=
+t master
+>>> head:=C2=A0=C2=A0 e22ce8eb631bdc47a4a4ea7ecf4e4ba499db4f93
+>>> commit: ef75e73182949a94bde169a774de1b62ae21fbbc powerpc/signal32: Tran=
+sform save_user_regs() and=20
+>>> save_tm_user_regs() in 'unsafe' version
+>>> date:=C2=A0=C2=A0 9 months ago
+>>> config: powerpc-randconfig-c003-20210821 (attached as .config)
+>>> compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project=20
+>>> d9c5613e856cf2addfbf892fc4c1ce9ef9feceaa)
+>>> reproduce (this is a W=3D1 build):
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wget https://raw.githu=
+busercontent.com/intel/lkp-tests/master/sbin/make.cross -O=20
+>>> ~/bin/make.cross
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 chmod +x ~/bin/make.cr=
+oss
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # install powerpc cros=
+s compiling tool for clang build
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # apt-get install binu=
+tils-powerpc-linux-gnu
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 #=20
+>>> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/comm=
+it/?id=3Def75e73182949a94bde169a774de1b62ae21fbbc=20
+>>>
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 git remote add linus h=
+ttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 git fetch --no-tags li=
+nus master
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 git checkout ef75e7318=
+2949a94bde169a774de1b62ae21fbbc
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # save the attached .c=
+onfig to linux build tree
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 COMPILER_INSTALL_PATH=
+=3D$HOME/0day COMPILER=3Dclang make.cross ARCH=3Dpowerpc clang-analyzer
+>>>
+>>> If you fix the issue, kindly add following tag as appropriate
+>>> Reported-by: kernel test robot <lkp@intel.com>
+>>>
+>>>
+>>> clang-analyzer warnings: (new ones prefixed by >>)
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ^
+>>>>> arch/powerpc/kernel/signal_32.c:297:2: warning: Value stored to 'msr'=
+ is never read=20
+>>>>> [clang-analyzer-deadcode.DeadStores]
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 msr =
+&=3D ~MSR_VSX;
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ^=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0 ~~~~~~~~
+>>> =C2=A0=C2=A0=C2=A0 arch/powerpc/kernel/signal_32.c:297:2: note: Value s=
+tored to 'msr' is never read
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 msr =
+&=3D ~MSR_VSX;
+>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ^=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0 ~~~~~~~~
+>>
+>>
+>> This is wrong.
+>>
+>> msr is used at line 326:
+>>
+>> ef75e73182949a arch/powerpc/kernel/signal_32.c Christophe Leroy 2020-08-=
+18=C2=A0 326=20
+>> unsafe_put_user(msr, &frame->mc_gregs[PT_MSR], failed);
+>=20
+> Hi Christophe,
+>=20
+> The usage is under CONFIG_VSX, the test config (powerpc-randconfig-c003-2=
+0210821) didn't enable it=20
+> which triggered this warning.
 
-        opp = dev_pm_opp_find_freq_floor(dev, &freq_hz);
-        if (IS_ERR(opp) && PTR_ERR(opp) == -ERANGE)
--               opp = dev_pm_opp_find_freq_ceil(dev, &freq_hz);
-+               dev_pm_opp_find_freq_ceil(dev, &freq_hz);
 
-        throttled_freq = freq_hz / HZ_PER_KHZ;
+No no, the 'unsafe_put_user(msr, &frame->mc_gregs[PT_MSR], failed) ' at lin=
+e 326 is not under=20
+CONFIG_VSX as far as I can see.
 
--- 
-viresh
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210824071137.m7uhzwccfuhcrncf%40vireshk-i7.
+Christophe
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/79754a11-fa14-756a-fc30-5cb139a286b6%40csgroup.eu.
