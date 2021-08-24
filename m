@@ -1,141 +1,132 @@
-Return-Path: <clang-built-linux+bncBDLKPY4HVQKBBWV7SKEQMGQERPXR2ZQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDK6XSMT4ECRBZODSKEQMGQEAGWY5II@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id 793E03F5903
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 09:29:31 +0200 (CEST)
-Received: by mail-lj1-x237.google.com with SMTP id l12-20020a2e834c0000b02901b3aafdf5eesf7174953ljh.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 00:29:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629790170; cv=pass;
+Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
+	by mail.lfdr.de (Postfix) with ESMTPS id CB2AA3F591E
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 09:38:15 +0200 (CEST)
+Received: by mail-ua1-x93d.google.com with SMTP id q5-20020ab07585000000b002b007e6dabbsf422813uap.10
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 00:38:15 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629790693; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ALi3vHF+xDMVGbYzrXems0uP6ikDlG1Aq1BZsX2Jp0IiCHPADDByKp2TD5jW72Q2FC
-         LQN6CnUZznz+xfkSdJMSGbaf+10KW1SAKl30UrII0Q4c7CcO+vG7/pNtyKCRiQ6jmlZk
-         INxGITOLBxauhghhkWKK374JPNJ49bvh8MCQLj6tyblxuZFyUdWdXB9U9zrAujRX16Pu
-         BCzRcl9JZA09xYzQLWBFM7+YgaE5Z1Z0QW3xB6hkLBonpdb/rHmkodBT4UYAyxB4IXjH
-         r0qL2obQfbLj8VAonVeKiQcyMvzLYIxWMdiBnPZf4DIsiqbBJgIKFYmjMksMCNCF1bVM
-         on8w==
+        b=wD46KFkrLPsmxruKW4AIhwlUQyl/GRYb8DmNMcUnBfx2+f277Bxeg6yAUSWrHsLRzR
+         qJZ3HDl4cYCmSP2CKm7BewEs14pN+5SNEalvKf00IO6KpuiaSlSlZxJAdhOW8YVWGmP/
+         1eMkUS5Jajw6Fffj/SJeDbGK7yz8yGqjQxYypcfGIgGsBT1tSuKJLMAkxq/Ah55ZgyD0
+         SqSOkdfAYkTUu8wIZBUQYwjE5t+J7egcjTMc7qGemN0/vrVLbU0z+3oIyAc+03iTusdF
+         NIWvUuvHB5ZKUYZ3OgotLpc2+CoSyqdIlxKOHVOq6vm9PcWpqWzSFm2w8+JZbFzh6fqv
+         KnFw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature;
-        bh=d1bXIIfNE9pL6Y3UeIJUmXRE32Sf75JyBG+fhkGVjdo=;
-        b=HLZ+cvCGlAW/32LX3a/Btn3GRl/4nob6Sv7eRU3cSSO4bdIaEWQOR0hcbLT2nwiWy4
-         tyoVsSpAGHoqZX6SGl7ORC9f/ADd0Td+74jgySG01IHnLIs891JS2c/85O+3VIL/o3Lu
-         9vpsADgJr02X8EUfTIOR77Dadle9XWybxj0XXGqCo82A2ZTygZd59SVGD/f31a35tzq/
-         nKLWPuSapUh9qPRzdDummPWInXsJsekPZX5rh1HWfASEQBKD6R9VKJ+YGm+KAkFc+ISV
-         2AhQ1p6i9xSzl2rHXbo9DdA3bdBw2rOX4meGe0Nfub/d5hZlEsmTm/rmRVg80+itlnTy
-         TkYA==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
+        bh=Th9EUgs6TXOhcemk3Ue4/1Vjl+kMvH5HV31+fBMpslg=;
+        b=hzbIvcOPoRDlgUrbDS8D3d+0G08nUcIIz50p97Ht+0AmdKNLLC7MC1YCao/DrOnDaW
+         9uonv+KiHN4DbZrtjkGDjkzr0AWx/NR+OuwZx4HFufWAHKd9gEHpS4I9qdDxvmonOe+A
+         Mr94OY6waAU3DJJVIA0rZBN1snL3llOeOibU05A1vhm8DwMsDOcomv47guJkurIWytSV
+         25UIjAmtd4E7lFv+xLu2ezyxHti1kgLcimPnpAbA7l523TYb8/ldW565SLWiD/q3BFj7
+         87ULn7mC2pEcVaUODf7U//MTTDxrFcK2KRzIbeLYM2I8QRSpAbfIQcvzSkNvE/Du7H0V
+         HmlA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+       spf=pass (google.com: best guess record for domain of alexander.shishkin@linux.intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=alexander.shishkin@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=d1bXIIfNE9pL6Y3UeIJUmXRE32Sf75JyBG+fhkGVjdo=;
-        b=Xm5zG/G7wdezevGI8w/4gI1UKkgm8NwZCZufF2VCL8yHirS/ebDFhh0zC4XSHlEebd
-         ldfRb3YWSLhhmohiUmONZ/h3Mt8X1F7a8FyI0eEsxNJ28LwTsBJF47imBzD+BJW07w8C
-         kT0C6moWj/4J8+kkXnBY+tDXXYfXHOioxaFUgXlgNEJZ2KYAd4GXu+rX3dJ4RjtD/hcw
-         W47TlPYdzxkBXOSYPj0cYzjCzTNj7fv7Ebria6Kojo/06/ANHUmTRZ29/69x+ppNP0P5
-         i3QOZho30KGAK3/Gcd/e/1BvofQVavfoXfERfQgSNyeq2nn0mpyqQDfN6UXfKF/CQ/Yq
-         1Phg==
+        bh=Th9EUgs6TXOhcemk3Ue4/1Vjl+kMvH5HV31+fBMpslg=;
+        b=HPN7ekfbVS8kCpewzDnbeiRMN6617h9oHullIG1/JMJ2Mw4vij0mp2zzq7esirbJAx
+         3zrEj5qDPbUQbY61LzsbB/gCnb/JhMdREnjuYaVuPVmVlk3v2PV+Ugzow3WvEMzcXgIt
+         bOr+hVMJGQw70DcwMRnSuvG0krM6obBi+nUyFTxj+U/o/GXv/aNw/MWrcHlIghzI1cIP
+         9QWEXhrIr/KQlobmZ/kY+ZnpRtscDlxyv9TYaK1lT+LT/vOC7lcSyTuYDJ7yaPJHTTss
+         Va94znrbL3pUCG3z7pYP+eJPA2GMyJjo2hO7z+wrmH8GzMxLU07wGO3XqglGLMy6MJdv
+         50nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
+         :date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=d1bXIIfNE9pL6Y3UeIJUmXRE32Sf75JyBG+fhkGVjdo=;
-        b=OPAx8JK+tQvQ2O+UquoSsou18ORKnROHfTV4bFk72VEw11eLoGlpr89f0jmWp14LUJ
-         P9Ll6DASoEaTJUoOeWZFyjLC+x1sb0rnJYWWm7obFbwy8s50GytF5u3iw3Tkh3C7vrCR
-         /pMPrlme6cCy7Djjze6jcgObs9y+KCIDuZNeWOR/Um02lBXVgRdvsm/YjKcUBHQ6C/H/
-         JljAdDn8w5YVrCsifN7vjh7h6jLtGEOhFNE9OO5OBl4YPvY/elYOr/SDGtsxxO7P32ud
-         HgvSfa6uCvV6Ive50ExshDkFPZhORzFBQe3my7aqRZLvAyMXRTsCxKXn3lvVSX2CfYvV
-         UBcg==
+        bh=Th9EUgs6TXOhcemk3Ue4/1Vjl+kMvH5HV31+fBMpslg=;
+        b=rmQCAMKlScY7RHHQWBpIHoF3VXX2pbS7c92gGZweDkwgkkFrCPbBXUVcjyomz7d3Jb
+         FUKUaNkVZkGJLziOnH89MCoZH3gXerq7Rid8WGHNy7NoEtRXFAV6k/8Y2NIWvJVRtEcj
+         z0GJesJpB+lu53Qo5aUH7d/FphUXxGmcTOObk7v1rmuIpR/4Pim5JhLwmRZDE3eKGrPc
+         s3vpyoZ+/S5T3qaVIX2ERyocU9lK5MNNmi5WDMXv8o8NQ4+x2QkgxliSWQcZzOrPRIwi
+         zBgIrl5Mg2oJM36YtJBwW9i7kdKzPGcM49cTkyIoDperqwQJEdG+Snfg8Zge3DguFeQK
+         7N1Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532lJlWw4BxS+W4/HqPi4CAcfVDD1yl/UpyH5UVc5beoCNZBljrk
-	zY+XlBAKAElOjSwqPzT1H6U=
-X-Google-Smtp-Source: ABdhPJxlnuFF/yNrFFyCKMPoeJiQHT50sLDLy3ih1phsAZEH5G9mEGzvkipgWTzNMnYiqSBAvNTcBw==
-X-Received: by 2002:a2e:82cd:: with SMTP id n13mr31993988ljh.6.1629790170765;
-        Tue, 24 Aug 2021 00:29:30 -0700 (PDT)
+X-Gm-Message-State: AOAM530hl4OdSP1xQjpW9+xTlHoR83IOU9Pf7GR3Wy8ZKhBaMreOFmRq
+	mcljFr06DuBw3m8wowfJcNA=
+X-Google-Smtp-Source: ABdhPJyp+bgvE4dVg+WvCUBNi/msXEpO3OHS/6wUOlnfDOuFdf9tH9CS7ANNDiBQihB7i23l+yYFQA==
+X-Received: by 2002:a1f:a006:: with SMTP id j6mr24437124vke.14.1629790693323;
+        Tue, 24 Aug 2021 00:38:13 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:597:: with SMTP id 145ls3191328ljf.7.gmail; Tue, 24 Aug
- 2021 00:29:29 -0700 (PDT)
-X-Received: by 2002:a2e:bb8f:: with SMTP id y15mr30220987lje.148.1629790169632;
-        Tue, 24 Aug 2021 00:29:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629790169; cv=none;
+Received: by 2002:ab0:2401:: with SMTP id f1ls1774541uan.9.gmail; Tue, 24 Aug
+ 2021 00:38:12 -0700 (PDT)
+X-Received: by 2002:ab0:859:: with SMTP id b25mr24189404uaf.39.1629790692868;
+        Tue, 24 Aug 2021 00:38:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629790692; cv=none;
         d=google.com; s=arc-20160816;
-        b=usx3/UQkPJHPyNvglaXuot1/s8IfqPHfD3nGe0X7Bt8rqKaHoKGHF2XvHjBqNWG/Iw
-         vUXFs6TwPByJLBwzLqfIhwQjc9t6Qd3s0siUzYHSrAshdyRtFh9EGgXl3+d8YPOY/eHT
-         0MWBRKJERebwZFC+/m0/o8h59bhls54NEjilKpRMm+48NoOAWjwMBfnVn7dioX+0bTLG
-         Zf1seMuZVjd2lCcAKoia8oCDUmg4b0XLLDYOXIG6L39dEvdKkqBxnK/umywjjNRgUYUu
-         3Ii5GUCEej+FiOwAZERn0A/Q7fZ9iSvr+1hE+mABgYqt6zAlASRzO9ySPSy2VZEGd2Ea
-         y33A==
+        b=laBRCjxAv85R4vFAeYYX3FN7IYJeSZ/2v8dSwtMz866XLHwh4UUavKU8aIeF03a534
+         h6s+FwtnH9gByvT6Il7sXuswCRraqr++eBJMEetD+ii7fLdd6r74gJTOmwFb401YcZhc
+         9zQ3nt3LURhwNquMqEDbMaJEldTNxkv06uILQy3q9q34s6orIws2TCiW9sRV0De87inZ
+         nNjWEGUbfY/IAyAdrQ9RzPGasraDZaqOnfu+rVamBPOiH6dBnxvg2A3A1fHSAYK6GOE9
+         ISBBXMp7ZbEefySdpyQ7F8gDzgPyBOHkhFtiHkY7A/6UGIEAnVnVdXjz4Yt6/oWgGL3l
+         /dkw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=c9OpSUmFK/6sz6LKPhCzjEbeixWrhWtsCO+NFUN+sEQ=;
-        b=mRJJfDo3lQOA4CVVWYLZHAPWQAcI/4Ykclgw64+QP64v5vNa1hkHGALNpronQofqVR
-         A0QRM39+OYdSsB/OpZE3iBpud636u1nWEUQmFm4Tta7MPfPGB2QfMfOYeRKM+rlZYfqk
-         eu41oHmlbg8Yn3zibQnheLh4sj5hg+epboZZdDa9JMkjigSJPCPUG8HG1i5ko72+0WRs
-         9IeoI/4fM9re+qE019Xnmh/OkY7/2ckDg6txL5lmxPRXlVn16ZgUQ68YW7uMbdIFa4P7
-         bJZ366X0NMa6NtFdeT0pzMWiBu3VDki/RdVUNfJZFcmdK6uMlUKGlc99wMYyiG0h1Er+
-         hngg==
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from;
+        bh=FfPL365yk+KRlYSuy1BDRCenVV4aDSEQdz4isCK8hK4=;
+        b=yi6eCnCYsk0Rr990GaB5rlZGqV7pXmJMuMm5XCATW+a8ecvgzFS8JeBqF1J6afGvCh
+         eZ+pk1zBY45Npmt5T3TorwnEwXeVNka9edpSEA63wU4bxgvOT8Jbg/vUdwGn7wTnSJ9a
+         5XlSo3Qb9DUUZWkKrBAW/nfBOFCCVTFgeqKUTC+iJ5i89DDwkp98umkOY/XFdhO7x19L
+         k/4NzZL5STPxNWmkWdUsIiBnIXT8WbV3lcw9FMgzZY4nPgpzUPKpy+DzCXFcbasd80HA
+         +gcWY5oKDSt5u54D87y5/LK83opS5WXUAv5PNzI3ioa11v+lNUS84w99PgRTQuxPqWCn
+         xxiw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
-Received: from pegase2.c-s.fr (pegase2.c-s.fr. [93.17.235.10])
-        by gmr-mx.google.com with ESMTPS id b25si135620ljk.6.2021.08.24.00.29.29
+       spf=pass (google.com: best guess record for domain of alexander.shishkin@linux.intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=alexander.shishkin@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
+        by gmr-mx.google.com with ESMTPS id m184si866631vkg.1.2021.08.24.00.38.12
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Aug 2021 00:29:29 -0700 (PDT)
-Received-SPF: pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) client-ip=93.17.235.10;
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4Gv12c3qTnz9sVf;
-	Tue, 24 Aug 2021 09:29:28 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 3ozNqScM8a44; Tue, 24 Aug 2021 09:29:28 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4Gv12c2q8Xz9sTx;
-	Tue, 24 Aug 2021 09:29:28 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 3B4F38B7DA;
-	Tue, 24 Aug 2021 09:29:28 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id Ezv-owZ2jHMc; Tue, 24 Aug 2021 09:29:28 +0200 (CEST)
-Received: from [192.168.4.90] (unknown [192.168.4.90])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id C88178B7D1;
-	Tue, 24 Aug 2021 09:29:27 +0200 (CEST)
-Subject: Re: [kbuild-all] Re: arch/powerpc/kernel/signal_32.c:297:2: warning:
- Value stored to 'msr' is never read [clang-analyzer-deadcode.DeadStores]
-To: "Chen, Rong A" <rong.a.chen@intel.com>, kernel test robot <lkp@intel.com>
-Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
- linux-kernel@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>
-References: <202108231827.N9VUIKbD-lkp@intel.com>
- <3db8de6e-a971-be9f-19eb-e7d95faf2870@csgroup.eu>
- <7955eec5-c1d7-e0d7-280a-138d96b2daa9@intel.com>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Message-ID: <79754a11-fa14-756a-fc30-5cb139a286b6@csgroup.eu>
-Date: Tue, 24 Aug 2021 09:29:26 +0200
-User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 24 Aug 2021 00:38:12 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of alexander.shishkin@linux.intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+X-IronPort-AV: E=McAfee;i="6200,9189,10085"; a="302838769"
+X-IronPort-AV: E=Sophos;i="5.84,346,1620716400"; 
+   d="scan'208";a="302838769"
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Aug 2021 00:38:11 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.84,346,1620716400"; 
+   d="scan'208";a="515317618"
+Received: from um.fi.intel.com (HELO um) ([10.237.72.62])
+  by fmsmga004.fm.intel.com with ESMTP; 24 Aug 2021 00:38:07 -0700
+From: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+To: Kees Cook <keescook@chromium.org>, linux-kernel@vger.kernel.org
+Cc: Kees Cook <keescook@chromium.org>, "Gustavo A. R. Silva"
+ <gustavoars@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Andrew Morton <akpm@linux-foundation.org>, linux-wireless@vger.kernel.org,
+ netdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com, Rasmus
+ Villemoes <linux@rasmusvillemoes.dk>, linux-hardening@vger.kernel.org,
+ alexander.shishkin@linux.intel.com
+Subject: Re: [PATCH v2 47/63] intel_th: msu: Use memset_startat() for
+ clearing hw header
+In-Reply-To: <20210818060533.3569517-48-keescook@chromium.org>
+References: <20210818060533.3569517-1-keescook@chromium.org>
+ <20210818060533.3569517-48-keescook@chromium.org>
+Date: Tue, 24 Aug 2021 10:38:06 +0300
+Message-ID: <87sfyzi97l.fsf@ashishki-desk.ger.corp.intel.com>
 MIME-Version: 1.0
-In-Reply-To: <7955eec5-c1d7-e0d7-280a-138d96b2daa9@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: fr
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: christophe.leroy@csgroup.eu
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: alexander.shishkin@linux.intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as
- permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+ (google.com: best guess record for domain of alexander.shishkin@linux.intel.com
+ designates 192.55.52.43 as permitted sender) smtp.mailfrom=alexander.shishkin@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,97 +139,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+Kees Cook <keescook@chromium.org> writes:
 
+> In preparation for FORTIFY_SOURCE performing compile-time and run-time
+> field bounds checking for memset(), avoid intentionally writing across
+> neighboring fields.
+>
+> Use memset_startat() so memset() doesn't get confused about writing
+> beyond the destination member that is intended to be the starting point
+> of zeroing through the end of the struct.
+>
+> Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+> Signed-off-by: Kees Cook <keescook@chromium.org>
 
-Le 24/08/2021 =C3=A0 08:59, Chen, Rong A a =C3=A9crit=C2=A0:
->=20
->=20
-> On 8/23/2021 10:35 PM, Christophe Leroy wrote:
->>
->>
->> Le 23/08/2021 =C3=A0 12:59, kernel test robot a =C3=A9crit=C2=A0:
->>> tree: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.gi=
-t master
->>> head:=C2=A0=C2=A0 e22ce8eb631bdc47a4a4ea7ecf4e4ba499db4f93
->>> commit: ef75e73182949a94bde169a774de1b62ae21fbbc powerpc/signal32: Tran=
-sform save_user_regs() and=20
->>> save_tm_user_regs() in 'unsafe' version
->>> date:=C2=A0=C2=A0 9 months ago
->>> config: powerpc-randconfig-c003-20210821 (attached as .config)
->>> compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project=20
->>> d9c5613e856cf2addfbf892fc4c1ce9ef9feceaa)
->>> reproduce (this is a W=3D1 build):
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wget https://raw.githu=
-busercontent.com/intel/lkp-tests/master/sbin/make.cross -O=20
->>> ~/bin/make.cross
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 chmod +x ~/bin/make.cr=
-oss
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # install powerpc cros=
-s compiling tool for clang build
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # apt-get install binu=
-tils-powerpc-linux-gnu
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 #=20
->>> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/comm=
-it/?id=3Def75e73182949a94bde169a774de1b62ae21fbbc=20
->>>
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 git remote add linus h=
-ttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 git fetch --no-tags li=
-nus master
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 git checkout ef75e7318=
-2949a94bde169a774de1b62ae21fbbc
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # save the attached .c=
-onfig to linux build tree
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 COMPILER_INSTALL_PATH=
-=3D$HOME/0day COMPILER=3Dclang make.cross ARCH=3Dpowerpc clang-analyzer
->>>
->>> If you fix the issue, kindly add following tag as appropriate
->>> Reported-by: kernel test robot <lkp@intel.com>
->>>
->>>
->>> clang-analyzer warnings: (new ones prefixed by >>)
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ^
->>>>> arch/powerpc/kernel/signal_32.c:297:2: warning: Value stored to 'msr'=
- is never read=20
->>>>> [clang-analyzer-deadcode.DeadStores]
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 msr =
-&=3D ~MSR_VSX;
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ^=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 ~~~~~~~~
->>> =C2=A0=C2=A0=C2=A0 arch/powerpc/kernel/signal_32.c:297:2: note: Value s=
-tored to 'msr' is never read
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 msr =
-&=3D ~MSR_VSX;
->>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ^=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 ~~~~~~~~
->>
->>
->> This is wrong.
->>
->> msr is used at line 326:
->>
->> ef75e73182949a arch/powerpc/kernel/signal_32.c Christophe Leroy 2020-08-=
-18=C2=A0 326=20
->> unsafe_put_user(msr, &frame->mc_gregs[PT_MSR], failed);
->=20
-> Hi Christophe,
->=20
-> The usage is under CONFIG_VSX, the test config (powerpc-randconfig-c003-2=
-0210821) didn't enable it=20
-> which triggered this warning.
+Acked-by: Alexander Shishkin <alexander.shishkin@linux.intel.com>
 
+> ---
+>  drivers/hwtracing/intel_th/msu.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+>
+> diff --git a/drivers/hwtracing/intel_th/msu.c b/drivers/hwtracing/intel_th/msu.c
+> index 432ade0842f6..70a07b4e9967 100644
+> --- a/drivers/hwtracing/intel_th/msu.c
+> +++ b/drivers/hwtracing/intel_th/msu.c
+> @@ -658,13 +658,11 @@ static void msc_buffer_clear_hw_header(struct msc *msc)
+>  
+>  	list_for_each_entry(win, &msc->win_list, entry) {
+>  		unsigned int blk;
+> -		size_t hw_sz = sizeof(struct msc_block_desc) -
+> -			offsetof(struct msc_block_desc, hw_tag);
+>  
+>  		for_each_sg(win->sgt->sgl, sg, win->nr_segs, blk) {
+>  			struct msc_block_desc *bdesc = sg_virt(sg);
+>  
+> -			memset(&bdesc->hw_tag, 0, hw_sz);
+> +			memset_startat(bdesc, 0, hw_tag);
+>  		}
+>  	}
+>  }
+> -- 
+> 2.30.2
 
-No no, the 'unsafe_put_user(msr, &frame->mc_gregs[PT_MSR], failed) ' at lin=
-e 326 is not under=20
-CONFIG_VSX as far as I can see.
-
-
-Christophe
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/79754a11-fa14-756a-fc30-5cb139a286b6%40csgroup.eu.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87sfyzi97l.fsf%40ashishki-desk.ger.corp.intel.com.
