@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBX73TKEQMGQEHTISARY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBUP5TKEQMGQEJJ5B5MQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x539.google.com (mail-ed1-x539.google.com [IPv6:2a00:1450:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5E4E93F7E06
-	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Aug 2021 00:02:13 +0200 (CEST)
-Received: by mail-ed1-x539.google.com with SMTP id eg56-20020a05640228b8b02903be79801f9asf392950edb.21
-        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 15:02:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629928928; cv=pass;
+Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 51FDD3F7E16
+	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Aug 2021 00:06:12 +0200 (CEST)
+Received: by mail-lj1-x23e.google.com with SMTP id w22-20020a2e9596000000b001ba46d9e54csf296401ljh.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 15:06:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629929170; cv=pass;
         d=google.com; s=arc-20160816;
-        b=e6wIEow0ECCsLoVSQ2TKiLEILF9c6b0JtLJtTMF+0cEqk3k4hbe6RQ6uoDnqDIEAFH
-         XhaOECNk8SUp7a17SapRk9CA0/kP/tdlrufmhKUMno3PMTnxw9MrqG8GLnyXUVebG02M
-         kcwTqaD/rxBHuO4V/GWmWnzYvq4+iIVpLJh5GKgNGv6L0fMsX+EGQM/Ct0tp1KO1Qgn7
-         GEBa74eO+/oT5O4btOV2998jPpOCtcbw4761HRkwxkTdE0A7VQRVNCBjRx9vFB5Kj0qH
-         lyceWNsZ6nVepjCGbc71pFNM/7Zx474029815wXcuUMbqhugRTq21U2SPPTeOzb5/n+l
-         Pjsg==
+        b=aGleTcnl7z6QBqb7xdXKcFCdNpL6br/k2S9F4Zj26HtWsYgM9XGImk7jaIVGPVLJ8O
+         OM2+VBlmel6cfRarO/OTvoAMozTxYsP/suPQfuXsANHwZdb2Dq/MEnSGQszleBb7+2r8
+         LPU4i3BQuVhS9xO/7CUSNOrCe3aYxcszqpOZv1H0kfMjqkHQ5JMlRYkb4hBsVOYSHhLV
+         C9oHzRA4DK0VlXRZZWzU0IohO4tBRkX2lXL6uJAUJUTup9f79PmNY56DOzeDr0MPrFac
+         FdlGcirdx+OkiZ5P2jNOdhB5zFhithfTmQuGePKf0BZImx3lm70zBBWfBsh2IN5bizn5
+         67GQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=YdzLCemtlE88r/cPLPpGBfTkcGARlgN2XTbSDXZuz9o=;
-        b=cq/EFehCCnNJQAncxPWuH8Mrfx8GBYENOUS15Rlqj8wKUyMwhHLafLO8gN59ymoUyz
-         oNhb6DBHg8YotZDiOA4k350glV4z/CIyExK/om4tMfuYGOJKuAHVaKgS0/T5mQDa0U0R
-         s5maDFNfZ9MOILhxH1Tx6wZvH241WHiexN3iOmSOKYyB3uYarTvHOOPKSDbcyZXva319
-         PKGuCYl1rIDXNiI/EUO5QQpdHU3PN3qvvh0rKKc0jyNFcaa7xBi6nMD1wWeOyPsXOxiZ
-         2sMJPhsCR5B2GeQISSY8MLz/+m2PMzc2N30HpoPhsUqKQ/Q14uSGZgSibccBbdBYYQHs
-         DGpQ==
+        bh=xCjdnR9B2ylgXFMe5r+8FURki+myIyWtWicj8BJdXiw=;
+        b=qj2CdFBJUhFnN2nNVtbm62OTMDPQoYGN+1txJ9jb0EyD1y2aBF0ZUTAtxzfKcSFbOO
+         k6Pn+WPMoWQlulp8K8lEYkZuWGq76typnUvNZ83CDZ7Xab6XfvgehxSbigkUINkD80Z5
+         16iCXJcj6EM91snCjOFCVrSKhsdXqoZcwRHBZ4Id8NKlcBF/H4akxUUONCJTBd7pZEUL
+         vEHmDvMUq1AxtagebXw/QJjQzSdI4QKiu79w6P0kXEVIHVFXj/JeLELgN5BxRyotgYx+
+         kOTPZBrz0Yu9VHvRovpjC1YhtkLZzkJgo37J5LyPK5BUZWYZmL2vI7RdO5AoY25GT+4+
+         dZgg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=V0RfDdAy;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="IQRg/zOd";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YdzLCemtlE88r/cPLPpGBfTkcGARlgN2XTbSDXZuz9o=;
-        b=tpzCfi0c7zH0wrtHjDzArUPekntRwuXNlu4sf2ql/9rnttAUL3wgq41XhAMSEytAYe
-         +Pg0MPzshQEUuAHOubP4V05x5JLwzBbQrizcTO5AalCPrB/1ZAorfRrkwrB9GDxuE6/l
-         9BFrX9ujkYrjN3XDq0b8kvLOwnRujtrpf9l61WCifPKO1EPqFnZI48rNiJ4ctetC1z8a
-         ysDoaRlnW4VsGsETtB/uvoy99vMGXFXXV1HFRSVRzvJAWVqYBCSitFTHVxKTEsNuBi6g
-         ERSClUy/rclMBcCvQRtJqHGkjtbW3Y2eIRvwr6S/P+P+Hq6jXeLLm/FfPc+pACC38H3f
-         9VCA==
+        bh=xCjdnR9B2ylgXFMe5r+8FURki+myIyWtWicj8BJdXiw=;
+        b=J8spI1XUEEpM0MJ4u+tiOB9dIkdzqZzoKqRnJaXlBTngHFkNPkmNtC/GjjVOA/rcOF
+         D7Gpb9igcsDPPHWjjZiHt5GbfmIMMvQZGX/x9mM9adhu9I3Nfv0nP56C2JeVBVO6GphP
+         U658Kp7te8Wl3Luwdp/0KFrc4IonEGI/teYsUpEKKQ0pFkqx5aWA/ZvOoTTcRZDSitel
+         pVRBYxInNVXqKC1PkZl6U1EP5lSikPI1kOwC08LYyYk5xa2vJhFO/wSrl25OQKg5nFEQ
+         Sqq82qUFufmrnJ+0LhogpgtG/iqs2GcnJel9vKE1pJUeHIq2ZhUJb206JtJ2YLDY1xdp
+         3UyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,74 +49,73 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YdzLCemtlE88r/cPLPpGBfTkcGARlgN2XTbSDXZuz9o=;
-        b=hkA6nkIrtf9J0cRN07wqBkkdZ62j2iHLdhkPKs9e5O6/+4lY2fHhWjq9h35WDq+rnq
-         EDScji9JMb8PICiUbIflxof5GR3TW890ZK/OJk7dZADgWL6M9vnG1nWSMfCmeD9C86C4
-         OkbQLVjJJgGIBxYKRd/5lMMAXF94mLDcfrWHTwGKuwf6GxaPaJP4pzZAKGvqhm14/o9C
-         Wlx2CPZh50VPd8qWD5ZKsmIXDa6exc0TcCJtEwnPBFYJzt9WSBMt6eTs6JBJ7Dw5P4wm
-         J+Qz/uQxbap6dMQ+5pCGw2NsafToaQxMwtj9gEMz1kjjbqWRCXJkPSsVzbsERtjukNPt
-         NaXg==
-X-Gm-Message-State: AOAM532fyp5uabDabUyFJFwkfV9K9d45j47Ch1bMSUaCFVIGZ0XPVTHi
-	zVCMPtnlqO6wZFfBxJe+C30=
-X-Google-Smtp-Source: ABdhPJzfRcbBGcS0G60t8GMCnW6ShK9qO5zpFL0VbOB9m3Kv2q/V8RRCSRjZJDXA12MId2dMi1J09A==
-X-Received: by 2002:a05:6402:1012:: with SMTP id c18mr717909edu.98.1629928928127;
-        Wed, 25 Aug 2021 15:02:08 -0700 (PDT)
+        bh=xCjdnR9B2ylgXFMe5r+8FURki+myIyWtWicj8BJdXiw=;
+        b=pCAILdmCmMoK4Tu9s03ZfYieR9lJc9excJigdqp5sT0gLYXSrBdkpajq0c880f/oJt
+         5Rq61BK3cZ8tnBRQ3goyL2pf5dXRoF9RT+OzSZDDFo+Te1e4hOXqKNn9ieWQlRKH52+1
+         hnKKOYaKieG88rEUzep3OO7T60XPjNRfuNsDHs9R/OQJuOjgu7G0v+7G7HkjtryVdBo0
+         Fd/ydneKsQd/UBdvHWaBHmzSJ0FHImeKKif59sX1qed3RtOHkDC8OdczinP1WkG+WgOK
+         E2fhituUBLyIQcsI+A08J0K7SJ2Pj1DFpXYSCYf3jhprxcBKUtVawB031r3QV2E3LJ2h
+         heKg==
+X-Gm-Message-State: AOAM533/HW0e72eYhZSdUJMVgBkzBFON8bqZ48VOqc5QwJRFMRFxspBM
+	Jm4eVTA6nRjuoiItthgGMDc=
+X-Google-Smtp-Source: ABdhPJzKTzXLWveuXj+7+0U47jzhIJxyLLjjV4m0nTTJFic1G23V1kBVZYoA4CVkvd1rRSkUVFHdzA==
+X-Received: by 2002:a05:651c:985:: with SMTP id b5mr355573ljq.78.1629929170167;
+        Wed, 25 Aug 2021 15:06:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:907:361:: with SMTP id rs1ls1795943ejb.4.gmail; Wed, 25
- Aug 2021 15:02:07 -0700 (PDT)
-X-Received: by 2002:a17:906:3fc8:: with SMTP id k8mr789867ejj.217.1629928927196;
-        Wed, 25 Aug 2021 15:02:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629928927; cv=none;
+Received: by 2002:ac2:4146:: with SMTP id c6ls2554059lfi.2.gmail; Wed, 25 Aug
+ 2021 15:06:09 -0700 (PDT)
+X-Received: by 2002:a05:6512:3767:: with SMTP id z7mr235745lft.128.1629929169312;
+        Wed, 25 Aug 2021 15:06:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629929169; cv=none;
         d=google.com; s=arc-20160816;
-        b=rYF6hgOJ0ir2ONA1WOlsEwqNdubpwB3KnHs55UKfjfYV55yDXBIoAs4jSss/qHYQTD
-         hFYCRlqVT5FoKKma3YJ6XoaKJxBEHrseIwcyGQsExZMILXuYeWxHfUzZ+hhtZnUznSdq
-         OIHtyME81JK3pbD6EBpqMt8LQAGEpDkzUR9zk5swJaB3W/zN9u2BFtxXH670Tuj2n5fQ
-         TUl4G+kuQ07iamwvudHl/UOZ6PZvEXh7rYzjx+hYvcQubIDpdH/y22P0td2sud3U1uvn
-         6VOs1dDw8LTrJkwLKBv1pB6qQvlV4Zlk3+dtIHSaY1XpRwDAeIoZwFeFhZFHEWCtnmFF
-         laOw==
+        b=Oe3NWQTVlgOHIlqXGMC189w79quvho/ooOdJl0PNLy0SqNs+y1y5OKGFg6qxiHeW9Z
+         m6ESQAB8fthNNJKSe9dhwlUY4DRjAPDn4ksFzLXzANvUTzqScANzsbr5AhOs0U1CDFBD
+         iTJLRQX20VC1htKExe5qlNlLyaUFOkooXZ6d6nwGSpgDsIrPpyPqbKP2cZi41YQEzZem
+         ULYR/9bKUlTWCu2Y5+zW1lcEO+JX8GBhJrxdrAkokmY7c8VS54bW4mn4BGPz3HE5g3Eu
+         kLRl8cMpxmTofA3CUksfeI0b7b989k9JCTfWEv+bvrLc/Y6tjFye93ehZ71SLO0FruRQ
+         2fDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=Ap07zgvRCzHUWZsKzTqV0nv5eVeNrhiykOkW+2Q+N8I=;
-        b=QDLEzC19eIT2JKCkdQpH7Xr8Z1FO0n4GnoVBAXDgRjpHwFz5rd4iXw7dXHStkitCzH
-         RMEoqAoN6YIamo0OnZWa2xhsyPXg7zI4XQAf5QgGA4D+NXjQxX7opaB9//z6Nieot/bY
-         7YKNucTQs2TjbX/KTX9DWuW8DhpcJPErJ1/OnnXLSouFiSi1sQ6jWH1WUWcbW9fYvm5g
-         uAFejFz/PFSzuEqBVyKzK+nLmUS6GEkRdNPtULdpX16NppMS0bHjwz+MCQ8ZqV5MKr5I
-         C/4/N6Y9RqubqthVLqYdmUJYsmRQcYWtxEmjdjWCbqpZ6FW+OrUeNfIpEuD1P3ecK+Os
-         0cyg==
+        bh=ccea3fIlNm7FUfA3rNUTcHdFf0+pm8m4+EKLNy1tSUI=;
+        b=EqzaMAd8yy/mje151EZvWXNyhyMEuy53sX8VuScVx0Xo3Qy7e4n8F6gD2E5JZKiChw
+         N5jKn2hMReF2KNPbE+QRT3yvVeACjndPgB2HejAilQM+WK3QcAHYnaMUZdqAisetgx8r
+         C1lSZ+IMJZF3xEe/1YDWP+Ct0t4QzoplxWj1Cc0ZVzUOnePDk1RNRQjw9ny6sIJ6Jwrk
+         3MvmOibkyyUquXhstBp01xA9gVSniLKelRYtHowG5iPBHzqOaGDlSXygEGSL6NBKk2dD
+         kNFsAj/hoOF7JsxXGh9F9+qimokXZKFxumACyMnlQQZQ7ke357bP3dNyYmKJVXDP4O0f
+         S3vg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=V0RfDdAy;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="IQRg/zOd";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x129.google.com (mail-lf1-x129.google.com. [2a00:1450:4864:20::129])
-        by gmr-mx.google.com with ESMTPS id s18si70973ejo.1.2021.08.25.15.02.07
+Received: from mail-lf1-x135.google.com (mail-lf1-x135.google.com. [2a00:1450:4864:20::135])
+        by gmr-mx.google.com with ESMTPS id g5si41241lfj.3.2021.08.25.15.06.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Aug 2021 15:02:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) client-ip=2a00:1450:4864:20::129;
-Received: by mail-lf1-x129.google.com with SMTP id o10so1945489lfr.11
-        for <clang-built-linux@googlegroups.com>; Wed, 25 Aug 2021 15:02:07 -0700 (PDT)
-X-Received: by 2002:a19:f017:: with SMTP id p23mr190205lfc.547.1629928926500;
- Wed, 25 Aug 2021 15:02:06 -0700 (PDT)
+        Wed, 25 Aug 2021 15:06:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135 as permitted sender) client-ip=2a00:1450:4864:20::135;
+Received: by mail-lf1-x135.google.com with SMTP id i9so1983840lfg.10
+        for <clang-built-linux@googlegroups.com>; Wed, 25 Aug 2021 15:06:09 -0700 (PDT)
+X-Received: by 2002:a05:6512:3991:: with SMTP id j17mr229922lfu.374.1629929168689;
+ Wed, 25 Aug 2021 15:06:08 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210822075122.864511-1-keescook@chromium.org> <20210822075122.864511-19-keescook@chromium.org>
-In-Reply-To: <20210822075122.864511-19-keescook@chromium.org>
+References: <20210822075122.864511-1-keescook@chromium.org> <20210822075122.864511-20-keescook@chromium.org>
+In-Reply-To: <20210822075122.864511-20-keescook@chromium.org>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 25 Aug 2021 15:01:54 -0700
-Message-ID: <CAKwvOdmYP=-SOpjEX+J8KzvkhpH9LXFrHEUob2w5LxiSMwn_0w@mail.gmail.com>
-Subject: Re: [PATCH for-next 18/25] fortify: Prepare to improve strnlen() and
- strlen() warnings
+Date: Wed, 25 Aug 2021 15:05:56 -0700
+Message-ID: <CAKwvOdnrO+oagJEiBMmoHrhTJKSRwzb0DK=R_QdVjhiNzb34dg@mail.gmail.com>
+Subject: Re: [PATCH for-next 19/25] fortify: Allow strlen() and strnlen() to
+ pass compile-time known lengths
 To: Kees Cook <keescook@chromium.org>
-Cc: linux-kernel@vger.kernel.org, 
-	Francis Laniel <laniel_francis@privacyrequired.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Daniel Micay <danielmicay@gmail.com>, 
+Cc: linux-kernel@vger.kernel.org, Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+	Daniel Micay <danielmicay@gmail.com>, Francis Laniel <laniel_francis@privacyrequired.com>, 
 	Bart Van Assche <bvanassche@acm.org>, David Gow <davidgow@google.com>, linux-mm@kvack.org, 
 	clang-built-linux@googlegroups.com, linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=V0RfDdAy;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129
+ header.i=@google.com header.s=20161025 header.b="IQRg/zOd";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::135
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -135,66 +134,126 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 On Sun, Aug 22, 2021 at 12:57 AM Kees Cook <keescook@chromium.org> wrote:
 >
-> In order to have strlen() use fortified strnlen() internally, swap their
-> positions in the source. Doing this as part of later changes makes
-> review difficult, so reoroder it here; no code changes.
+> Under CONFIG_FORTIFY_SOURCE, it is possible for the compiler to perform
+> strlen() and strnlen() at compile-time when the string size is known.
+> This is required to support compile-time overflow checking in strlcpy().
 >
-> Cc: Francis Laniel <laniel_francis@privacyrequired.com>
 > Signed-off-by: Kees Cook <keescook@chromium.org>
-
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
 > ---
->  include/linux/fortify-string.h | 22 +++++++++++-----------
->  1 file changed, 11 insertions(+), 11 deletions(-)
+>  include/linux/fortify-string.h | 47 ++++++++++++++++++++++++++--------
+>  1 file changed, 36 insertions(+), 11 deletions(-)
 >
 > diff --git a/include/linux/fortify-string.h b/include/linux/fortify-string.h
-> index 68bc5978d916..a3cb1d9aacce 100644
+> index a3cb1d9aacce..e232a63fd826 100644
 > --- a/include/linux/fortify-string.h
 > +++ b/include/linux/fortify-string.h
-> @@ -56,6 +56,17 @@ __FORTIFY_INLINE char *strcat(char *p, const char *q)
->         return p;
->  }
+> @@ -10,6 +10,18 @@ void __read_overflow(void) __compiletime_error("detected read beyond size of obj
+>  void __read_overflow2(void) __compiletime_error("detected read beyond size of object (2nd parameter)");
+>  void __write_overflow(void) __compiletime_error("detected write beyond size of object (1st parameter)");
 >
-> +extern __kernel_size_t __real_strnlen(const char *, __kernel_size_t) __RENAME(strnlen);
-> +__FORTIFY_INLINE __kernel_size_t strnlen(const char *p, __kernel_size_t maxlen)
-> +{
-> +       size_t p_size = __builtin_object_size(p, 1);
-> +       __kernel_size_t ret = __real_strnlen(p, maxlen < p_size ? maxlen : p_size);
+> +#define __compiletime_strlen(p)        ({              \
+> +       size_t ret = (size_t)-1;                        \
+> +       size_t p_size = __builtin_object_size(p, 1);    \
+> +       if (p_size != (size_t)-1) {                     \
+> +               size_t p_len = p_size - 1;              \
+> +               if (__builtin_constant_p(p[p_len]) &&   \
+> +                   p[p_len] == '\0')                   \
+> +                       ret = __builtin_strlen(p);      \
+> +       }                                               \
+> +       ret;                                            \
+> +})
+
+Can this be a `static inline` function that accepts a `const char *`
+and returns a `size_t` rather than a statement expression?
+
 > +
-> +       if (p_size <= ret && maxlen != ret)
-> +               fortify_panic(__func__);
-> +       return ret;
-> +}
-> +
->  __FORTIFY_INLINE __kernel_size_t strlen(const char *p)
+>  #if defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS)
+>  extern void *__underlying_memchr(const void *p, int c, __kernel_size_t size) __RENAME(memchr);
+>  extern int __underlying_memcmp(const void *p, const void *q, __kernel_size_t size) __RENAME(memcmp);
+> @@ -60,21 +72,31 @@ extern __kernel_size_t __real_strnlen(const char *, __kernel_size_t) __RENAME(st
+>  __FORTIFY_INLINE __kernel_size_t strnlen(const char *p, __kernel_size_t maxlen)
 >  {
->         __kernel_size_t ret;
-> @@ -71,17 +82,6 @@ __FORTIFY_INLINE __kernel_size_t strlen(const char *p)
+>         size_t p_size = __builtin_object_size(p, 1);
+> -       __kernel_size_t ret = __real_strnlen(p, maxlen < p_size ? maxlen : p_size);
+> +       size_t p_len = __compiletime_strlen(p);
+> +       size_t ret;
+> +
+> +       /* We can take compile-time actions when maxlen is const. */
+> +       if (__builtin_constant_p(maxlen) && p_len != (size_t)-1) {
+> +               /* If p is const, we can use its compile-time-known len. */
+> +               if (maxlen >= p_size)
+> +                       return p_len;
+> +       }
+>
+> +       /* Do no check characters beyond the end of p. */
+
+s/no/not/
+
+> +       ret = __real_strnlen(p, maxlen < p_size ? maxlen : p_size);
+>         if (p_size <= ret && maxlen != ret)
+>                 fortify_panic(__func__);
 >         return ret;
 >  }
 >
-> -extern __kernel_size_t __real_strnlen(const char *, __kernel_size_t) __RENAME(strnlen);
-> -__FORTIFY_INLINE __kernel_size_t strnlen(const char *p, __kernel_size_t maxlen)
-> -{
-> -       size_t p_size = __builtin_object_size(p, 1);
-> -       __kernel_size_t ret = __real_strnlen(p, maxlen < p_size ? maxlen : p_size);
-> -
-> -       if (p_size <= ret && maxlen != ret)
-> -               fortify_panic(__func__);
-> -       return ret;
-> -}
-> -
->  /* defined after fortified strlen to reuse it */
+> +/* defined after fortified strnlen to reuse it. */
+>  __FORTIFY_INLINE __kernel_size_t strlen(const char *p)
+>  {
+>         __kernel_size_t ret;
+>         size_t p_size = __builtin_object_size(p, 1);
+>
+> -       /* Work around gcc excess stack consumption issue */
+> -       if (p_size == (size_t)-1 ||
+> -               (__builtin_constant_p(p[p_size - 1]) && p[p_size - 1] == '\0'))
+> +       /* Give up if we don't know how large p is. */
+> +       if (p_size == (size_t)-1)
+>                 return __underlying_strlen(p);
+>         ret = strnlen(p, p_size);
+>         if (p_size <= ret)
+> @@ -86,24 +108,27 @@ __FORTIFY_INLINE __kernel_size_t strlen(const char *p)
 >  extern size_t __real_strlcpy(char *, const char *, size_t) __RENAME(strlcpy);
 >  __FORTIFY_INLINE size_t strlcpy(char *p, const char *q, size_t size)
+>  {
+> -       size_t ret;
+>         size_t p_size = __builtin_object_size(p, 1);
+>         size_t q_size = __builtin_object_size(q, 1);
+> +       size_t q_len;   /* Full count of source string length. */
+> +       size_t len;     /* Count of characters going into destination. */
+>
+>         if (p_size == (size_t)-1 && q_size == (size_t)-1)
+>                 return __real_strlcpy(p, q, size);
+> -       ret = strlen(q);
+> -       if (size) {
+> -               size_t len = (ret >= size) ? size - 1 : ret;
+> -
+> -               if (__builtin_constant_p(len) && len >= p_size)
+> +       q_len = strlen(q);
+> +       len = (q_len >= size) ? size - 1 : q_len;
+> +       if (__builtin_constant_p(size) && __builtin_constant_p(q_len) && size) {
+> +               /* Write size is always larger than destintation. */
+
+s/destintation/destination/
+
+> +               if (len >= p_size)
+>                         __write_overflow();
+> +       }
+> +       if (size) {
+>                 if (len >= p_size)
+>                         fortify_panic(__func__);
+>                 __underlying_memcpy(p, q, len);
+>                 p[len] = '\0';
+>         }
+> -       return ret;
+> +       return q_len;
+>  }
+>
+>  /* defined after fortified strnlen to reuse it */
 > --
 > 2.30.2
 >
 > --
 > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210822075122.864511-19-keescook%40chromium.org.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210822075122.864511-20-keescook%40chromium.org.
 
 
 
@@ -205,4 +264,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmYP%3D-SOpjEX%2BJ8KzvkhpH9LXFrHEUob2w5LxiSMwn_0w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnrO%2BoagJEiBMmoHrhTJKSRwzb0DK%3DR_QdVjhiNzb34dg%40mail.gmail.com.
