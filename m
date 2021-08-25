@@ -1,126 +1,125 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB4P5TGEQMGQEPUFL65Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBOUBTKEQMGQECE6H2ZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id A456F3F7B97
-	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 19:33:38 +0200 (CEST)
-Received: by mail-yb1-xb3d.google.com with SMTP id d78-20020a256851000000b00598b2a660e2sf224724ybc.6
-        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 10:33:38 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629912817; cv=pass;
+Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 915583F7BA3
+	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 19:41:16 +0200 (CEST)
+Received: by mail-pl1-x63e.google.com with SMTP id u8-20020a17090341c8b029012d5f2333bfsf1422ple.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 10:41:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629913275; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bl9TKkbIQrm7PoiUwds0wlefyLpAaLJnRFJ5FYGovNMRxqKUPR5wdJstfkP0URxEfB
-         9Pcgs3VSTEAk5jMzoXllxArYKCEZsp4dG/Mo5443bXDeAHaEZRFMtwRUmuvLXHyMJvFs
-         /bzqbu8Kl3cpuu7UOWC4mEXe2UzHCkDHsUYA4TdT7A6cW6pAlVGcMJ+pJVwda5V+UlPw
-         sRn/hDmEOgGLrzaRJEaETs3qPAuhfQaENxX7ENAzAHro1eH0OuVv7NKwi0D6RtzFsUt/
-         mfwCkV1Qg/T01Qk0CJ5Ag5S057OURQyvjTGEpruGHiBz8/3PwtKCj0g0rrbquzq+v5lV
-         OiTQ==
+        b=Geql6tXasrrXeavDpngkM97qLbM6K4FgN73boAKI4dltTTLcs0XGE+u9641VyQjaJX
+         Ie/XOXpsw8WR1HDYasgSJA2xOxOclf4Dtcf3557eNjQtXEBXliboUlXNl0aUdIvibGqo
+         cDhsBrfLPO0fRmJVPtLZwJeuGseAs5JADC7ZSGpO5Iy3ocs1OCuK4Si4M1K+4X81gI0x
+         PdimWbKu8mruRaTMt6KfdXiMxTMujLuM9tpu6M5dpC0dC0Upzy/FehHifwGRuDx/+k5h
+         ux0CzBaF9MG+Ye4sXErLoY6cBgc1UHx1D3HmNuTnO1Y7oqxEIEzANWyEv1X8WZkXYjB/
+         22eQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=CEAHejYoB76uEsqWKTofPBHlZMyHXo9SKB2xDr+PFtY=;
-        b=LJX0k5pa3l47AxevjU4Q0nLFcKjVlv8hxwJZTPevVJTCvA7sbNw43r7KSiqv4DFrsQ
-         knZViZ/Om2Na9H6NQOUm7i5V1MQr3eux3zLaOS/Cq88VGa6hJWIj3EQ8NAwqs589B8JJ
-         8pkl8QyPjn/XlpvTeFciZoVGwA92/DvAx3Aa289CQURSqDfDckR2kPOlq0L+m3je1Arx
-         xNuDUyv103WvGZiSYgAXjRv47TzZxizMqbnhsTZofIIvRXNTwjxAQuG9sv6mFWIfNlYH
-         Qu4j2f2+ps1xSJVkaQTWY9Ix6mA9RFrVNFC9c4VeEjYQABzSrdGKHSeQd2haMo5gYc7y
-         V9VA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=pDJY7IKMY2stgOkFuTraxG77XO8UdtYfLiwdH5PMn18=;
+        b=wgDP8EQ5FeMvtGNjchmfRqXsa44qLbugy+V8hVWxNnlOERqrm8fSgGERhkJCJG9kpR
+         HD1qlGvY9JjiorvA38OMnXu5YNpTxe95t9guPJiSFQ08X2ZIH3LQbx8feMwtgXhhdaSt
+         76+yy6ZTJjbm6SUJjyz0Qd5NCC2Ljd8BtWk7tzLBd0d/wa2Ss+9sgmOfEGZF39TfvmR1
+         Z5NLtUtUV7ZDgHYqW7rURhMHLiejJTwHL09If7YqMCo5oBU3qA+H6693wpN4D2O9SJzU
+         3My7qYBeTtq0pyqI/z40lk5PPSKrEKfBQ2cC0Rne4v49DgAESPzomJQzQ0H1/rfZ0VxF
+         OeVA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ndplRsWu;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Zbqh2TYR;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::c29 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CEAHejYoB76uEsqWKTofPBHlZMyHXo9SKB2xDr+PFtY=;
-        b=RsRiRvanJFbvi93NvmZV/l36ZiC4xIIoljTMGIjNdmiIs80NtC6O7F4lOA7IOxPzHT
-         CpjY3+yzbkyb1xttXhij78MHUnyIE77ln8GxXqLKkYzikRk+1TXpEqUGOUEzteQHmtEB
-         Qjf36wewm/AJaKZB37e7GN1VbKCAULEU93y5JxCcgeJBesFNBW1aQowAULDmqICY7jFx
-         H2PruZrtNAp4SflCxi8HB48bSv89W/JRNZgp4dnGe+r7qtsY+kb19+RNHQyk6qUMOXkZ
-         e6rja8RHafIv1rtQD7Ad1P/ExYPhWHFOcXCdtsoiIgAoE66nJfB6J5DMWmQbO43CqozT
-         7TbQ==
+        bh=pDJY7IKMY2stgOkFuTraxG77XO8UdtYfLiwdH5PMn18=;
+        b=nR4ZZqPV6MJgxLmB7qde004g2l8JYnqQIQPPaaRwXEho/YqMEYXU5kvqBRcbRWPy0c
+         HZAzWDg4EWaMDmHGb3t3Oh0SJGpMdtjoQjx7+s6xiSBN2haMwqapFl44a7nvEAcpByeK
+         3HQl7/jzG1LzkJytlI75h9aRP2ffGSpamyWpM7H8jTjIL86DQmNJVhqI+qoHWX8Lq3t2
+         e7EJa03n7F1zmc6t7e+bgBa2QqV/7NH4tvnHNxMRFUtrWd1KVVL7UmLZiVbF/Aqgof8F
+         WoqN0stSqW8HXE4RVlUSvhA/7BG5yfKLq9gO1rXThPHYT0jLL+lsDTdJfMa9AP8uVIUF
+         G6ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=CEAHejYoB76uEsqWKTofPBHlZMyHXo9SKB2xDr+PFtY=;
-        b=WFjJPFI6PKMdlUHfOV3veNZdsQoGT+GCfmW6Mw7eV5+3ySxSFDq0Vb6yrtImw1BF3+
-         76n1NV2PZTg47Utuk6CXKsKBazX1/JVhXJ7Jv/+KOsH9t6nSZLHk7eQf9YtQ1W+j44X3
-         dKXL690ZSRIOk0wgMyXB8WAPIdhUHxLYZYVXJmW/O2qNsF0SGN6coODy4TQpchbqjHka
-         FCMLuzsMdEuwGdyo01/vnSh7KDxLlwYTMrAKlhJmdUjjzOk9nVtvtWJH5POETZa4WT5E
-         RuSccajChGjJk2TYa/yJm6nOmCaVzs5sD5b85yyaa415epTGYW0RLRrvo8vXeOeddD+z
-         7z8Q==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531eCMNCRs3uGrotKUsK7j/mrnCHUBmpDkCKLLCzpIBD1WWbug46
-	F6X6h7ZTgdU+uesirWqFrI8=
-X-Google-Smtp-Source: ABdhPJyZ57WJEv8g46VTI/P97uG91jIySJpBJUrXpNEFTchXNohcpwjB94wzoDxje7I1WqOWNTVJvw==
-X-Received: by 2002:a25:42c2:: with SMTP id p185mr25215061yba.0.1629912817546;
-        Wed, 25 Aug 2021 10:33:37 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=pDJY7IKMY2stgOkFuTraxG77XO8UdtYfLiwdH5PMn18=;
+        b=pQB9WyrIElSwWos/l/RBTKijhHCKC3L6HNQ0Y6dfKmBLRA8QkFikHR2vn+5YdLWBgC
+         e2SCRrI2fJDmIu+UmUFsr5H0FgCUKiWy0jOAIK6LUeTGgtUYDncG9jrGp3hjILb856oX
+         rQ213gMLfjiUwgCKwyzT4lRog9BLo4K2uEiwmpXZwBn5x5scVpUv4TPuS0FESYjfXSUe
+         NSKl0ptWqsAihIf/3p0ZviqeFfR9oc1ymlksmQcFxj5UBgimfx4rahNoqOGDmKvIXIkG
+         mR+6TWsLPDtzA/MDNDBaG9aPPJE2VACynvutsNpWLPwvwLVa0xhfwMCFzO5ezY3UWW/h
+         LvHw==
+X-Gm-Message-State: AOAM530rfDsBuieIJjz8tE0eICbLo6qOyU69L/no9XieXuWY6WTttpBg
+	WqZYdoQa56uoOjUCOHT0kOk=
+X-Google-Smtp-Source: ABdhPJyK3EVQncKwE3HcQ0dGei/Rtyo+qybKwIMMPWnHt5F0lQt5qrDL2uUKQITS2z9Vy8pVvEzFCg==
+X-Received: by 2002:a63:184a:: with SMTP id 10mr990923pgy.149.1629913275084;
+        Wed, 25 Aug 2021 10:41:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:7bc7:: with SMTP id w190ls1666970ybc.2.gmail; Wed, 25
- Aug 2021 10:33:37 -0700 (PDT)
-X-Received: by 2002:a25:ac0d:: with SMTP id w13mr27771560ybi.367.1629912817156;
-        Wed, 25 Aug 2021 10:33:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629912817; cv=none;
+Received: by 2002:a05:6a00:1490:: with SMTP id v16ls1142290pfu.9.gmail; Wed,
+ 25 Aug 2021 10:41:14 -0700 (PDT)
+X-Received: by 2002:aa7:8a19:0:b0:3ed:c54d:663c with SMTP id m25-20020aa78a19000000b003edc54d663cmr9476444pfa.24.1629913274428;
+        Wed, 25 Aug 2021 10:41:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629913274; cv=none;
         d=google.com; s=arc-20160816;
-        b=WGdFMu4j6WqYTmZ+OJv64cqBFu9XVBMu8sxegcqsouUoph3MatKdf9WSrqoTfSLwlV
-         2wEQvux3D2X5gHHPCbz9lwaIquKwUuX6jjbhN+9Emegr2HgG2Jvr/6IBgF5/UoZawaHY
-         JTyA9yCnYAISCKSimejuLhiJeqdknl540b56MGCk8/dboPww+B/VlsScLKcByiAA/IX8
-         66s65li1WdY6k78rIgPxnRSSW+YEBu9yyRFZc6VDO7/gViaJIi6ctR732TKa+DFdZ95z
-         JCB9GP0StGSHF743f1LiCUyAjgWna0O99ziUQ3pRXHPkvT4s2B28PmBj41XbBC0k0tNn
-         OCpQ==
+        b=eEWV0tv+WvHGu1yw6rONmumcJXf/2KEkkEGDunlUkaL3Ww+WVS+z3Ma8D0JahWIrHr
+         vPpdf0lE9CLBIjGEM5xQ5usFRGLtFNkvO0QQ5D+BgrIVXAeu1cLLaDhhuMR00fQYXRJQ
+         t0IYwnH99lORZurlGOvFVhPwkflAOIfWREvIHhM9kqWRHrPcsDll/MEKMNhDfVYZ2kvI
+         V4ZYJmapJMmA/V5AFxmobptpPkuI1zmNP9iviZ2ygZ8AetS7DOpnDLQsmeMWjGaLNf5/
+         IAOysF56q9xTXa/wYET7d7G/oTAazBqJKq0HEngxQngNfZE77CVbQQAMI/edKLAMuxQD
+         ojkQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=Mo75y37FlwpGdzOmdwcBnw278Knu/H6/Idmm5Bb+4og=;
-        b=ZYIfRFNPBKjpxRzEOppWqEOQazjFoSGzQ/Y0pSn0AVosYXJEU07/Kbduyck2LhFFrf
-         sChz6Ew9gNJR0oi5gUue5wQllpUJMQD76DFJyoPBDEdM4LZ1KVfqUDPYJbgy+I5Mxx4q
-         1LUkOqKlPjHOkvuDVNiImomSXvezx+LwR+LXd2sPNa8KqY3T444DwcWy7M+YY7y2CUMq
-         ICcg76nNdL+u408CUQJGCS6R9gesWsnonaOqxnHe9AqDAfS8srJ5PKDKG0yWRkaTXeym
-         3cBW8jC9j43uj57dKC2H2+NSQUeOlMinvgBypP52xC+iLJ+D++bAD3snGvhzFKngnR/w
-         5DOw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Aw3brOwN5Jhb/Bo2iMjArzjo8QBTyjKlASCK9C+nljI=;
+        b=wH73Ye6Yh2zSJKo4ABl4QlCLDR84coVNbCUBgodUkRmCiWmSKHqynPHVzmZLz2ZH6R
+         wn4juh+WUio1hK5rlprafaq1b72XinEFPXZl+pWBvth7hvOLbtY7r+5q/C+yacMUULNZ
+         gNGRv5YQ7RFw7O6zSHCRAzhG/vd266tLPigKb4wASHUir9wE6E2sFeGFbkdYF7hnGhnD
+         +S8p/oMZEkdsNmdx0SV5nL9oCNk0bxRANIzgBM/d/DH6+BSJ5JOsQICL/+HwWOS51w5o
+         Kq/V4+qPtRvxvTo9jWmp/zkQoyLA4PY886LHk9xa+9jRP9KTr2Jy3N/RwlV2PL13/fzQ
+         uAEg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=ndplRsWu;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id q10si42063ybp.2.2021.08.25.10.33.37
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Zbqh2TYR;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::c29 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-oo1-xc29.google.com (mail-oo1-xc29.google.com. [2607:f8b0:4864:20::c29])
+        by gmr-mx.google.com with ESMTPS id r14si84566pgv.3.2021.08.25.10.41.14
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 25 Aug 2021 10:33:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 58CD1610CB;
-	Wed, 25 Aug 2021 17:33:33 +0000 (UTC)
-From: Nathan Chancellor <nathan@kernel.org>
-To: Alison Schofield <alison.schofield@intel.com>,
-	Vishal Verma <vishal.l.verma@intel.com>,
-	Ira Weiny <ira.weiny@intel.com>,
-	Ben Widawsky <ben.widawsky@intel.com>,
-	Dan Williams <dan.j.williams@intel.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	linux-cxl@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	llvm@lists.linux.dev,
-	Nathan Chancellor <nathan@kernel.org>
-Subject: [PATCH] cxl/core: Avoid using dev uninitialized in devm_cxl_add_decoder()
-Date: Wed, 25 Aug 2021 10:33:01 -0700
-Message-Id: <20210825173301.358381-1-nathan@kernel.org>
-X-Mailer: git-send-email 2.33.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Aug 2021 10:41:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::c29 as permitted sender) client-ip=2607:f8b0:4864:20::c29;
+Received: by mail-oo1-xc29.google.com with SMTP id t2-20020a4ae9a2000000b0028c7144f106so50447ood.6
+        for <clang-built-linux@googlegroups.com>; Wed, 25 Aug 2021 10:41:14 -0700 (PDT)
+X-Received: by 2002:a4a:e907:: with SMTP id z7mr35471221ood.20.1629913273561;
+ Wed, 25 Aug 2021 10:41:13 -0700 (PDT)
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: nathan@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=ndplRsWu;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+References: <202108141331.fMjjWaW2-lkp@intel.com> <CAMuHMdXUpk_dLhvcdgs1H6yLPrwXFJz_86dfXpm8PYxNq+DXrQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdXUpk_dLhvcdgs1H6yLPrwXFJz_86dfXpm8PYxNq+DXrQ@mail.gmail.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 25 Aug 2021 10:41:03 -0700
+Message-ID: <CAKwvOd=HkZPN-0k=QYGx6y4q1ig7=8dQY3d_OU10Qp0N__tZcA@mail.gmail.com>
+Subject: Re: arch/arm/boot/compressed/fdt_check_mem_start.c:62:10: warning: no
+ previous prototype for function 'fdt_check_mem_start'
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: kernel test robot <lkp@intel.com>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	kbuild-all@lists.01.org, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Russell King <rmk+kernel@armlinux.org.uk>, 
+	Ard Biesheuvel <ardb@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=Zbqh2TYR;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::c29
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,80 +132,101 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clang warns:
+On Sat, Aug 21, 2021 at 1:46 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Dear Robot,
+>
+> On Sat, Aug 14, 2021 at 7:43 AM kernel test robot <lkp@intel.com> wrote:
+> > FYI, the error/warning still remains.
+>
+> Yes, and that's fine, as this function is never called from C code,
+> only from assembler.
 
-drivers/cxl/core/bus.c:527:6: warning: variable 'dev' is used
-uninitialized whenever 'if' condition is true
-[-Wsometimes-uninitialized]
-        if (rc)
-            ^~
-drivers/cxl/core/bus.c:541:13: note: uninitialized use occurs here
-        put_device(dev);
-                   ^~~
-drivers/cxl/core/bus.c:527:2: note: remove the 'if' if its condition is
-always false
-        if (rc)
-        ^~~~~~~
-drivers/cxl/core/bus.c:507:6: warning: variable 'dev' is used
-uninitialized whenever 'if' condition is true
-[-Wsometimes-uninitialized]
-        if (cxld->interleave_ways < 1) {
-            ^~~~~~~~~~~~~~~~~~~~~~~~~
-drivers/cxl/core/bus.c:541:13: note: uninitialized use occurs here
-        put_device(dev);
-                   ^~~
-drivers/cxl/core/bus.c:507:2: note: remove the 'if' if its condition is
-always false
-        if (cxld->interleave_ways < 1) {
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-drivers/cxl/core/bus.c:498:20: note: initialize the variable 'dev' to
-silence this warning
-        struct device *dev;
-                          ^
-                           = NULL
-2 warnings generated.
+That's fine, then you can add a prototype to the .c source file.  See
+what we do for stpcpy: 1e1b6d63d6340.
 
-Return the error code directly rather than attempting to call
-device_put() with an uninitialized pointer.
+>
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> > head:   dfa377c35d70c31139b1274ec49f87d380996c42
+> > commit: 0673cb38951215060d7993b43ad3c45cd413c2c3 ARM: 9045/1: uncompress: Validate start of physical memory against passed DTB
+> > date:   6 months ago
+> > config: arm-randconfig-r003-20210814 (attached as .config)
+> > compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project 62df4df41c939205b2dc0a2a3bfb75b8c1ed74fa)
+> > reproduce (this is a W=1 build):
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0673cb38951215060d7993b43ad3c45cd413c2c3
+> >         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+> >         git fetch --no-tags linus master
+> >         git checkout 0673cb38951215060d7993b43ad3c45cd413c2c3
+> >         # save the attached .config to linux build tree
+> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
+> >
+> > If you fix the issue, kindly add following tag as appropriate
+> > Reported-by: kernel test robot <lkp@intel.com>
+> >
+> > All warnings (new ones prefixed by >>):
+> >
+> > >> arch/arm/boot/compressed/fdt_check_mem_start.c:62:10: warning: no previous prototype for function 'fdt_check_mem_start' [-Wmissing-prototypes]
+> >    uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
+> >             ^
+> >    arch/arm/boot/compressed/fdt_check_mem_start.c:62:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+> >    uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
+> >    ^
+> >    static
+> >    1 warning generated.
+> >
+> >
+> > vim +/fdt_check_mem_start +62 arch/arm/boot/compressed/fdt_check_mem_start.c
+> >
+> >     46
+> >     47  /*
+> >     48   * Check the start of physical memory
+> >     49   *
+> >     50   * Traditionally, the start address of physical memory is obtained by masking
+> >     51   * the program counter.  However, this does require that this address is a
+> >     52   * multiple of 128 MiB, precluding booting Linux on platforms where this
+> >     53   * requirement is not fulfilled.
+> >     54   * Hence validate the calculated address against the memory information in the
+> >     55   * DTB, and, if out-of-range, replace it by the real start address.
+> >     56   * To preserve backwards compatibility (systems reserving a block of memory
+> >     57   * at the start of physical memory, kdump, ...), the traditional method is
+> >     58   * always used if it yields a valid address.
+> >     59   *
+> >     60   * Return value: start address of physical memory to use
+> >     61   */
+> >   > 62  uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
+> >
+> > ---
+> > 0-DAY CI Kernel Test Service, Intel Corporation
+> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+>
+>
+>
+> --
+> Gr{oetje,eeting}s,
+>
+>                         Geert
+>
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+>
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMuHMdXUpk_dLhvcdgs1H6yLPrwXFJz_86dfXpm8PYxNq%2BDXrQ%40mail.gmail.com.
 
-Fixes: b7ca54b62551 ("cxl/core: Split decoder setup into alloc + add")
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
- drivers/cxl/core/bus.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/cxl/core/bus.c b/drivers/cxl/core/bus.c
-index 1320a996220a..f4d5319e29e3 100644
---- a/drivers/cxl/core/bus.c
-+++ b/drivers/cxl/core/bus.c
-@@ -504,10 +504,8 @@ int devm_cxl_add_decoder(struct device *host, struct cxl_decoder *cxld,
- 	if (IS_ERR(cxld))
- 		return PTR_ERR(cxld);
- 
--	if (cxld->interleave_ways < 1) {
--		rc = -EINVAL;
--		goto err;
--	}
-+	if (cxld->interleave_ways < 1)
-+		return -EINVAL;
- 
- 	device_lock(&port->dev);
- 	if (list_empty(&port->dports))
-@@ -525,7 +523,7 @@ int devm_cxl_add_decoder(struct device *host, struct cxl_decoder *cxld,
- 	}
- 	device_unlock(&port->dev);
- 	if (rc)
--		goto err;
-+		return rc;
- 
- 	dev = &cxld->dev;
- 	rc = dev_set_name(dev, "decoder%d.%d", port->id, cxld->id);
 
-base-commit: 036a16a39e2fab9bf7279201d04cf7e90993521f
 -- 
-2.33.0
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210825173301.358381-1-nathan%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DHkZPN-0k%3DQYGx6y4q1ig7%3D8dQY3d_OU10Qp0N__tZcA%40mail.gmail.com.
