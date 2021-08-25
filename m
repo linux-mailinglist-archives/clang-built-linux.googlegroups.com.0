@@ -1,130 +1,121 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBG4YS6EQMGQE75MXYDQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCRKNY4WZECBBDM2S6EQMGQESVSELBY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x740.google.com (mail-qk1-x740.google.com [IPv6:2607:f8b0:4864:20::740])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF0BC3F6E93
-	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 06:50:36 +0200 (CEST)
-Received: by mail-qk1-x740.google.com with SMTP id h135-20020a379e8d000000b003f64b0f4865sf10368376qke.12
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 21:50:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629867035; cv=pass;
+Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 49A023F6E97
+	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 06:54:43 +0200 (CEST)
+Received: by mail-qt1-x83e.google.com with SMTP id k6-20020ac84786000000b0029d8b7a6d1esf4107443qtq.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 21:54:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629867277; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sFdrnfzenM3mYXRFxgMQabNddMLDZR583OHuownFe20y3SuzbGTzjF0VgeKE/TOlTx
-         v6o0i5Bd2K0DZlDSKbJVEryINvsQY2OoapxZAcT9AWot9FwgTvwHNRLzuKr+iO61DzuI
-         MoKyxBZDm/4p8UImttsoumKBat203HSzfEvjpXTYE0PKeqrCE1MI5JE4neKtlGhulvCL
-         thtOBNqoeNcZgoBOEU88z83YUPrVkg8c7zMOvGZnZp5gMIzMyVKpzPPnztiEapDK/PDK
-         ErEjIAWFJOPL4yqzXeCpBphEAmcRCg2RA572RuTS62FdHC1GlitUElyf3qgbHNDR8+bG
-         HdrQ==
+        b=c2wQqD685su1094AB4CUD+QjqUGmU/V4+zOvvPY9cyNIe6pj5NhyxB38p9QMu+Dl2K
+         W/eQo2PIeAAKQ+vJRftMed4GDxcgYvvn0na+4vlVSeBpS9tTTNsgJ6cLq2ilVVs0Gm10
+         bg/i0BaFhtdN0Cv0Asdd5JDfTHBc4KWaCCa/NSJ4imkqXrdcLgecNFbSLcipYFJB4zNr
+         a4AMZtjtCXMIxYrlXNMZPDjlXaBF3aWuNLupDtpi3QhZFH/EgZZTwkjGFSczhl3NHQSE
+         xM7zDYJIr218P5q7d3mFJI44XLFMaOmtyLbcjl5I3KYXRuCwfKf/AjU0ogxWcJIED4bU
+         bCjg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=3/ZNvmYKRUnqYz3mzWX1Zn0jTVfG17e/O1e/LRk4VrI=;
-        b=hxxFsz1PzlwAHxO6gUNcOf9lIagzwnudx1b2ky7Zdnt6ab1+q4bS0XCJFLwgEn/YRl
-         /Q0SS8S0qcnivWh2E4Bd+cc1/RpbKrLfJRC0/YTOkPTfXFNMT9U4zOsoj4OFV5L31j8m
-         p0L5x3R/U2+Vql4hdKUyf8c29wm9xcDLxVlypz4yGTMlWQdxjwseHVP7wmOOIJuI7p8s
-         TjrwbpLEKluFnYs+IYnN8NmkUpwh+Z7+mPaKFdBqBibajyJ5ygwlzCmQmlvMH0ojyVV+
-         3k8/saxkrJvcKvkhVBn0xul7J/HfCJ2Y5ufAFSDgHiZ+hicma7QqWlfqj+R8zip3GvB1
-         VK+Q==
+         :list-id:mailing-list:precedence:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:sender:dkim-signature;
+        bh=bG05/VArF98NGiVuNe/GSSmbhSQiAhgOEWGUWcxEq00=;
+        b=DpQQ+8+H2ZC5Zn4xs1UXemW0Q93jcdO9FsfTzPHmKn6Y6BDSFDm0hHgSapbM+Vf7rJ
+         DgU13wl1aRpzVBEcUTd8c0YDo03+fQTs1l9qd5O/YNPtf77WlVnIOeDeQedOfRbMHll3
+         zNVl9hb+/t2Qo6hnkChXGCZhbEtqpiwKLjR995+RpjYdCDhq4hLqqm/nV98S7uiZEV0x
+         iLp8imRzBg97ChFyKgZWDrkJyGD/I+M7MTbWr1euULn7mWpevg16WxgpzQ3kdTS2l622
+         oOLbtBj70nc/H822ElGy1UDyd7nU2sVfaK+zOlg1TNd0+n22WRYET6smaa9Gs+/YdqSC
+         TXbw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=RHWNy3Ty;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@dabbelt-com.20150623.gappssmtp.com header.s=20150623 header.b=L1l8gaVH;
+       spf=pass (google.com: domain of palmer@dabbelt.com designates 2607:f8b0:4864:20::62d as permitted sender) smtp.mailfrom=palmer@dabbelt.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=3/ZNvmYKRUnqYz3mzWX1Zn0jTVfG17e/O1e/LRk4VrI=;
-        b=oqQAlw4bNCCmSU3IuQIQTPSFvqXbQG6VT11MGrAgr5AdkWiiyGFaFP06zC3gJREZVR
-         f/WLzIZT0tMWNiC2FrOqqSO/a0s/dPCwRhrQQn8N4Qmz/6ZH3ter2lyeaHpDtxR7FAjn
-         4iZ3bJF7suHdD51DCzyYp1UJkxt6H5WGsGIz0aIynkvXxh0wFvP6U5tvYP5pdqyTZ6/d
-         +VsgzZn//rEmhNDrob52vcjlIrrQb0B61a+dM0IP6+XjxBfuQlF85kDLCarI5AhdqMuH
-         KYg7DbOEABKypgleXrOw0tzugvlCU7IQJjP7krV74Rf0e04zSt63+pFzX6snkQvrlyPv
-         A/vQ==
+        h=sender:date:subject:in-reply-to:cc:from:to:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=bG05/VArF98NGiVuNe/GSSmbhSQiAhgOEWGUWcxEq00=;
+        b=I2oMwoh9a1f/4tWDDGHJzTZooAmerz660wUZ5zV8paT7iYSC9PML3dM59jJy4PeYkx
+         A/wviZEfDSsjA8u85EISIBnuEPIlpTmyI4lWI1MENcpMnRuNnvD1NZ41hy4n9v4eZ0yR
+         BTnuJnzt9RkTzRdED9rnf3HOdFm8mu+Xf32ptT4fMaaEYDP+yNlqdAUsC96Azbv8qm5n
+         ADOX/vU6e8hgNgu70GWNdlkbiJVjePg2W/HmDRRdKpLOVF6f2EgVg7VG/OhZyHKjzo6Z
+         1JYvXa5LgHDKx8Wl1lq17AWv9cf29a0dD3/pzeXhnR6g7DCBhY/n7n+F/2a7/XXIXii6
+         5oTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:date:subject:in-reply-to:cc:from:to
+         :message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3/ZNvmYKRUnqYz3mzWX1Zn0jTVfG17e/O1e/LRk4VrI=;
-        b=c/eNsEVGy9kUMPPK2geBFvR7NGCcFU8nBYaqdZtocbBf1FcVCT7LZWVTPdxQL99JI8
-         hxRMG4WvV9E3TjAi3rMeKvl9GzV6pR/2DjdNXmBKQW7M8RqLMO4l1TpMyvDiVEvQImV4
-         G8XNQ6hHW4PjcK9Sd/AI3xKShqX2XdraqqPGKPv84sv0SL+95LnE6E89QK6R0nwWs9ou
-         xvKf4EYwwVz5LWLzP9ptYrjtsgj+KZc2NL5hae/xd6r0XePOrcdgCY7s9/cA/9YjYaYM
-         uGBwck2Y91G3JVIkYrYeHAsEJEi0b3LdqEwdRU4gfn/wcqAq+oKhkz2107Py/Cu51HX0
-         bnWw==
+        bh=bG05/VArF98NGiVuNe/GSSmbhSQiAhgOEWGUWcxEq00=;
+        b=YrFAN9f7U4bXGENPqMPas7MCIE/sNnFueEY2OClgWVjwuXE26mqu1m/CeGg/YjC10w
+         gVZCZMtEJuMvK3JrC1Hn3ILgSta1J5K43tKqWjDW+GZzwUkEsAAWFU4bjD9crABjyg9L
+         93AkmFnshHMCW8fgRGw4/qPUUWqyKa4/McalxU52HgR4YbP6DMCfDHl2E7yWI0xeNWyq
+         EeN7JbdgnPm46i5wIkE3PFVLqFSlFatOXx8NKYWO1QteqourAP8f51GA6BkCuHILrDgH
+         cGnSxhccNPx7zQa/fD3zRbL6Icx2PmT6Oz1Ue80N3kpJ6XuwfBG9cBrXP+sPNEk896H9
+         uwjQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533wjhjlGsURg8SdY9hHHTUkwLSOerNQEcqkEu6O6APQGSkRXkS/
-	/ZK4sqreisejSytYlWG/GQM=
-X-Google-Smtp-Source: ABdhPJzUJ7q9MZVoxbANvA91xZz2wUoZmZ5Vmgbf7Z1QK5/nIeFV02BFhdn7sUONose1zcn3Jwg4Kw==
-X-Received: by 2002:a05:622a:196:: with SMTP id s22mr1767968qtw.221.1629867035840;
-        Tue, 24 Aug 2021 21:50:35 -0700 (PDT)
+X-Gm-Message-State: AOAM530uDeKs+deunDq63l132/cbQWM83q9sq9sxYPN80TTU57tOcBA3
+	m7qc8FpEWdc/FgJ6+0xqphE=
+X-Google-Smtp-Source: ABdhPJyjUUHZ3YCZsHArfYZPquXloy7AbwWIMYmeqQmvDQL29HI3+EKS1MiaYAXKAUhiipYmXuzP5Q==
+X-Received: by 2002:ac8:5fcf:: with SMTP id k15mr35583604qta.137.1629867277298;
+        Tue, 24 Aug 2021 21:54:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:c28:: with SMTP id a8ls316590qvd.1.gmail; Tue, 24
- Aug 2021 21:50:35 -0700 (PDT)
-X-Received: by 2002:ad4:4f86:: with SMTP id em6mr376518qvb.7.1629867035383;
-        Tue, 24 Aug 2021 21:50:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629867035; cv=none;
+Received: by 2002:ac8:404b:: with SMTP id j11ls556395qtl.2.gmail; Tue, 24 Aug
+ 2021 21:54:36 -0700 (PDT)
+X-Received: by 2002:ac8:729a:: with SMTP id v26mr2890986qto.79.1629867276870;
+        Tue, 24 Aug 2021 21:54:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629867276; cv=none;
         d=google.com; s=arc-20160816;
-        b=Gd6iOcG1deCAyODtZQp8Z7y5eLUPtRq1hNLhCz0+Dv2L0TNCIMK5DlU+Npdpe2M29n
-         9KBulYOIUa1xzKMDOLBKehB3FqVTcK9G7zRAc/lD6XRk0wBYasZlIGXNj3rhobQgNQid
-         Fk8wvJh5DIUT9XudNb72bRxbDt4sNrqtu7+x9BZQWghMQss2k8C8awe+tZpLliWqaNFQ
-         FmD6Xn0i0b8EGxsUJUelH0xu/bed/dpR3MMxHggl+LhTh0CEv3qgVXetQQpM0V/A14nV
-         a1kLnlKFvVg9fbGKNrs+jgV/ySqtz4U4TcNFbVWPq04SbHYAJ2+iyEoQelDs5AFsUPQ4
-         k1DQ==
+        b=kbIYODbM/Ze8OKOyANcuT9hJQapayoveLpP/oKDgwk2t+uk7VlJhCOWqcQhKm/u1NJ
+         eXg0pgTfD4HRYb+9Moxj7bk9HNWYFqC2kxQ0OPqI/RYS2vM66ekyrZE1Y069rwxxtlCN
+         h8zd/13OI9hn+vp6tp72FpxxHsln5mbCcLGpymh/jlF+L0+oOO+f9/bCXLVdn2IIPWG+
+         2cwttddQnq96suF7HBMC97LdkJJXU7oTOw97j8J/4+msauYUw0RJLw8i8eFZzYDJWbm/
+         9HYKG7Im76glOnC4mEygI/+NZPTVKMEWBFaMs9U8AwrrujfeVu42o2d7CmxRKA/dhUNu
+         LfQQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=JwIWlEDPz/77+8/mkqKPc5WcajlmGXuNMNbSgEa2+8U=;
-        b=snG5DbLXGP/XIVArPKBVfNT/uknLelFy/hoI2zol43wtqAr/krDu/GZT/+PyTdR4Jf
-         8FvaZjVK5ZnqeMj9rSmho4sVM7zQu3C/NUFe69OHwDLQNweZmKK6ENYChybdZT3lhWnv
-         s4aIm4ZVmIVJH7js/6KtHB+/V19iDlKLWppwFZ5Y6rhLKX5YhNO5MkNe48+GGiYS+z41
-         4n8h2z8ce0u1a1vX3pnZZdPj4X3bggLJaocWG+xvR2+RRQIHMm/UcgiK8h0Rvce06Uef
-         5R5L8pvERjJFnwU3klSc4599iEEhWAcqB5PfKLtrehaOSr73OgLj5LgjQ/pGeAT8mAfc
-         jaFA==
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:dkim-signature;
+        bh=aauOcYKQzuccwG+K+JsY0KHiVjAx8DxyADm89FIzrnc=;
+        b=vCranwpqPA5hNCrfJjbA8TD/DpA/Nk6z34sStSHAnHq0XEE8eEZnPOApIuM1+blq4y
+         CcNrspb5w6EywdOOjx9mXnbPikKi27DfIhLFXBbtOMUnN4pLpiKI5Ev+qPy1NXwk2BRe
+         F8Y+4PiCuxQoJGUiawsM0KdlXFJzMurohhRKD5yhWTY6P7aUf3jWHCpsl5bCNj4ml5M7
+         +Yz+KjNcElnmy52orxkeDdFAIkky0A/434zGe/5alD4yDBBV5AK0FuXBo5uzLzMiwwof
+         rjfikaa36fw0h5JSzWM9Mc4z0vawb+8Df74SHF2sMP8vx06FLoKGQBQ/qVyqru49fmpd
+         ZNew==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=RHWNy3Ty;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-05.nifty.com (conssluserg-05.nifty.com. [210.131.2.90])
-        by gmr-mx.google.com with ESMTPS id 6si729749qkh.3.2021.08.24.21.50.34
+       dkim=pass header.i=@dabbelt-com.20150623.gappssmtp.com header.s=20150623 header.b=L1l8gaVH;
+       spf=pass (google.com: domain of palmer@dabbelt.com designates 2607:f8b0:4864:20::62d as permitted sender) smtp.mailfrom=palmer@dabbelt.com
+Received: from mail-pl1-x62d.google.com (mail-pl1-x62d.google.com. [2607:f8b0:4864:20::62d])
+        by gmr-mx.google.com with ESMTPS id 6si730072qkh.3.2021.08.24.21.54.36
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 24 Aug 2021 21:50:35 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) client-ip=210.131.2.90;
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176]) (authenticated)
-	by conssluserg-05.nifty.com with ESMTP id 17P4nxtP021056
-	for <clang-built-linux@googlegroups.com>; Wed, 25 Aug 2021 13:49:59 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-05.nifty.com 17P4nxtP021056
-X-Nifty-SrcIP: [209.85.214.176]
-Received: by mail-pl1-f176.google.com with SMTP id b9so9214159plx.2
-        for <clang-built-linux@googlegroups.com>; Tue, 24 Aug 2021 21:49:59 -0700 (PDT)
-X-Received: by 2002:a17:902:f552:b029:12d:3d11:4ff1 with SMTP id
- h18-20020a170902f552b029012d3d114ff1mr36077046plf.1.1629866998882; Tue, 24
- Aug 2021 21:49:58 -0700 (PDT)
-MIME-Version: 1.0
-References: <20210817002109.2736222-1-ndesaulniers@google.com>
- <20210817002109.2736222-7-ndesaulniers@google.com> <CAK7LNAS7E9uMJfCGsFPkP_z9y0Y_PrXXzMTRRiwsbj66bTi8SQ@mail.gmail.com>
-In-Reply-To: <CAK7LNAS7E9uMJfCGsFPkP_z9y0Y_PrXXzMTRRiwsbj66bTi8SQ@mail.gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Wed, 25 Aug 2021 13:49:21 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATM0JVqdAYNtfc5k9vMyDW0PvTnMZT29WY7+1sM5NgWnQ@mail.gmail.com>
-Message-ID: <CAK7LNATM0JVqdAYNtfc5k9vMyDW0PvTnMZT29WY7+1sM5NgWnQ@mail.gmail.com>
-Subject: Re: [PATCH 6/7] Makefile: replace cc-option-yn uses with cc-option
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Aug 2021 21:54:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of palmer@dabbelt.com designates 2607:f8b0:4864:20::62d as permitted sender) client-ip=2607:f8b0:4864:20::62d;
+Received: by mail-pl1-x62d.google.com with SMTP id c4so13581848plh.7
+        for <clang-built-linux@googlegroups.com>; Tue, 24 Aug 2021 21:54:36 -0700 (PDT)
+X-Received: by 2002:a17:902:c412:b0:137:c25c:8536 with SMTP id k18-20020a170902c41200b00137c25c8536mr988168plk.16.1629867275729;
+        Tue, 24 Aug 2021 21:54:35 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id u24sm22051028pfm.27.2021.08.24.21.54.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Aug 2021 21:54:35 -0700 (PDT)
+Date: Tue, 24 Aug 2021 21:54:35 -0700 (PDT)
+Subject: Re: [PATCH v3] riscv: explicitly use symbol offsets for VDSO
+In-Reply-To: <20210804173214.1027994-1-abdulras@google.com>
+CC: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, nathan@kernel.org,
+  ndesaulniers@google.com, morbo@google.com, clang-built-linux@googlegroups.com, abdulras@google.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: abdulras@google.com
+Message-ID: <mhng-a7fbcae6-db7b-48d5-808f-3f8eff233ea9@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-Original-Sender: palmer@dabbelt.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=RHWNy3Ty;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@dabbelt-com.20150623.gappssmtp.com header.s=20150623
+ header.b=L1l8gaVH;       spf=pass (google.com: domain of palmer@dabbelt.com
+ designates 2607:f8b0:4864:20::62d as permitted sender) smtp.mailfrom=palmer@dabbelt.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,85 +128,164 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 25, 2021 at 1:43 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
+On Wed, 04 Aug 2021 10:32:14 PDT (-0700), abdulras@google.com wrote:
+> The current implementation of the `__rt_sigaction` reference computed an
+> absolute offset relative to the mapped base of the VDSO.  While this can
+> be handled in the medlow model, the medany model cannot handle this as
+> it is meant to be position independent.  The current implementation
+> relied on the BFD linker relaxing the PC-relative relocation into an
+> absolute relocation as it was a near-zero address allowing it to be
+> referenced relative to `zero`.
 >
-> On Tue, Aug 17, 2021 at 9:21 AM 'Nick Desaulniers' via Clang Built
-> Linux <clang-built-linux@googlegroups.com> wrote:
-> >
-> > cc-option-yn can be replaced with cc-option. ie.
-> > Checking for support:
-> > ifeq ($(call cc-option-yn,$(FLAG)),y)
-> > becomes:
-> > ifneq ($(call cc-option,$(FLAG)),)
-> >
-> > Checking for lack of support:
-> > ifeq ($(call cc-option-yn,$(FLAG)),n)
-> > becomes:
-> > ifeq ($(call cc-option,$(FLAG)),)
-> >
-> > This allows us to pursue removing cc-option-yn.
-> >
-> > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> > ---
-> >  Makefile | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/Makefile b/Makefile
-> > index 72f9e2b0202c..f76be5f62d79 100644
-> > --- a/Makefile
-> > +++ b/Makefile
-> > @@ -967,7 +967,7 @@ ifdef CONFIG_FUNCTION_TRACER
-> >  ifdef CONFIG_FTRACE_MCOUNT_USE_CC
-> >    CC_FLAGS_FTRACE      += -mrecord-mcount
-> >    ifdef CONFIG_HAVE_NOP_MCOUNT
-> > -    ifeq ($(call cc-option-yn, -mnop-mcount),y)
-> > +    ifneq ($(call cc-option, -mnop-mcount),)
-> >        CC_FLAGS_FTRACE  += -mnop-mcount
-> >        CC_FLAGS_USING   += -DCC_USING_NOP_MCOUNT
-> >      endif
-> > --
-> > 2.33.0.rc1.237.g0d66db33f3-goog
-> >
-> > --
-> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210817002109.2736222-7-ndesaulniers%40google.com.
+> We now extract the offsets and create a generated header allowing the
+> build with LLVM and lld to succeed as we no longer depend on the linker
+> rewriting address references near zero.  This change was largely
+> modelled after the ARM64 target which does something similar.
 >
+> Signed-off-by: Saleem Abdulrasool <abdulras@google.com>
+> ---
+>  arch/riscv/Makefile                        |  4 ++++
+>  arch/riscv/include/asm/vdso.h              | 14 ++----------
+>  arch/riscv/kernel/vdso/Makefile            | 25 ++++++++++------------
+>  arch/riscv/kernel/vdso/gen_vdso_offsets.sh |  5 +++++
+>  arch/riscv/kernel/vdso/so2s.sh             |  6 ------
+>  5 files changed, 22 insertions(+), 32 deletions(-)
+>  create mode 100755 arch/riscv/kernel/vdso/gen_vdso_offsets.sh
+>  delete mode 100755 arch/riscv/kernel/vdso/so2s.sh
 >
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index bc74afdbf31e..e026b2d0a5a4 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -108,6 +108,10 @@ PHONY += vdso_install
+>  vdso_install:
+>  	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
 >
-> I am fine with this change, but
-> is there any reason why you did not touch the following hunk?
+> +prepare: vdso_prepare
+> +vdso_prepare: prepare0
+> +	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso include/generated/vdso-offsets.h
+> +
+>  ifneq ($(CONFIG_XIP_KERNEL),y)
+>  ifeq ($(CONFIG_RISCV_M_MODE)$(CONFIG_SOC_CANAAN),yy)
+>  KBUILD_IMAGE := $(boot)/loader.bin
+> diff --git a/arch/riscv/include/asm/vdso.h b/arch/riscv/include/asm/vdso.h
+> index 1453a2f563bc..d8d003c2b5a3 100644
+> --- a/arch/riscv/include/asm/vdso.h
+> +++ b/arch/riscv/include/asm/vdso.h
+> @@ -9,25 +9,15 @@
+>  #define _ASM_RISCV_VDSO_H
 >
+>  #include <linux/types.h>
+> +#include <generated/vdso-offsets.h>
 >
+>  #ifndef CONFIG_GENERIC_TIME_VSYSCALL
+>  struct vdso_data {
+>  };
+>  #endif
 >
-> ifdef CONFIG_HAVE_FENTRY
->   # s390-linux-gnu-gcc did not support -mfentry until gcc-9.
->   ifeq ($(call cc-option-yn, -mfentry),y)
->     CC_FLAGS_FTRACE     += -mfentry
->     CC_FLAGS_USING      += -DCC_USING_FENTRY
->   endif
-> endif
+> -/*
+> - * The VDSO symbols are mapped into Linux so we can just use regular symbol
+> - * addressing to get their offsets in userspace.  The symbols are mapped at an
+> - * offset of 0, but since the linker must support setting weak undefined
+> - * symbols to the absolute address 0 it also happens to support other low
+> - * addresses even when the code model suggests those low addresses would not
+> - * otherwise be availiable.
+> - */
+>  #define VDSO_SYMBOL(base, name)							\
+> -({										\
+> -	extern const char __vdso_##name[];					\
+> -	(void __user *)((unsigned long)(base) + __vdso_##name);			\
+> -})
+> +	(void __user *)((unsigned long)(base) + __vdso_##name##_offset)
 >
+>  asmlinkage long sys_riscv_flush_icache(uintptr_t, uintptr_t, uintptr_t);
+>
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+> index 24d936c147cd..f8cb9144a284 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -23,10 +23,10 @@ ifneq ($(c-gettimeofday-y),)
+>  endif
+>
+>  # Build rules
+> -targets := $(obj-vdso) vdso.so vdso.so.dbg vdso.lds vdso-syms.S
+> +targets := $(obj-vdso) vdso.so vdso.so.dbg vdso.lds
+>  obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
+>
+> -obj-y += vdso.o vdso-syms.o
+> +obj-y += vdso.o
+>  CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
+>
+>  # Disable -pg to prevent insert call site
+> @@ -43,20 +43,22 @@ $(obj)/vdso.o: $(obj)/vdso.so
+>  # link rule for the .so file, .lds has to be first
+>  $(obj)/vdso.so.dbg: $(obj)/vdso.lds $(obj-vdso) FORCE
+>  	$(call if_changed,vdsold)
+> -LDFLAGS_vdso.so.dbg = -shared -s -soname=linux-vdso.so.1 \
+> +LDFLAGS_vdso.so.dbg = -shared -S -soname=linux-vdso.so.1 \
+>  	--build-id=sha1 --hash-style=both --eh-frame-hdr
+>
+> -# We also create a special relocatable object that should mirror the symbol
+> -# table and layout of the linked DSO. With ld --just-symbols we can then
+> -# refer to these symbols in the kernel code rather than hand-coded addresses.
+> -$(obj)/vdso-syms.S: $(obj)/vdso.so FORCE
+> -	$(call if_changed,so2s)
+> -
+>  # strip rule for the .so file
+>  $(obj)/%.so: OBJCOPYFLAGS := -S
+>  $(obj)/%.so: $(obj)/%.so.dbg FORCE
+>  	$(call if_changed,objcopy)
+>
+> +# Generate VDSO offsets using helper script
+> +gen-vdsosym := $(srctree)/$(src)/gen_vdso_offsets.sh
+> +quiet_cmd_vdsosym = VDSOSYM $@
+> +	cmd_vdsosym = $(NM) $< | $(gen-vdsosym) | LC_ALL=C sort > $@
+> +
+> +include/generated/vdso-offsets.h: $(obj)/vdso.so.dbg FORCE
+> +	$(call if_changed,vdsosym)
+> +
+>  # actual build commands
+>  # The DSO images are built using a special linker script
+>  # Make sure only to export the intended __vdso_xxx symbol offsets.
+> @@ -65,11 +67,6 @@ quiet_cmd_vdsold = VDSOLD  $@
+>                     $(OBJCOPY) $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
+>                     rm $@.tmp
+>
+> -# Extracts symbol offsets from the VDSO, converting them into an assembly file
+> -# that contains the same symbols at the same offsets.
+> -quiet_cmd_so2s = SO2S    $@
+> -      cmd_so2s = $(NM) -D $< | $(srctree)/$(src)/so2s.sh > $@
+> -
+>  # install commands for the unstripped file
+>  quiet_cmd_vdso_install = INSTALL $@
+>        cmd_vdso_install = cp $(obj)/$@.dbg $(MODLIB)/vdso/$@
+> diff --git a/arch/riscv/kernel/vdso/gen_vdso_offsets.sh b/arch/riscv/kernel/vdso/gen_vdso_offsets.sh
+> new file mode 100755
+> index 000000000000..c2e5613f3495
+> --- /dev/null
+> +++ b/arch/riscv/kernel/vdso/gen_vdso_offsets.sh
+> @@ -0,0 +1,5 @@
+> +#!/bin/sh
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +LC_ALL=C
+> +sed -n -e 's/^[0]\+\(0[0-9a-fA-F]*\) . \(__vdso_[a-zA-Z0-9_]*\)$/\#define \2_offset\t0x\1/p'
+> diff --git a/arch/riscv/kernel/vdso/so2s.sh b/arch/riscv/kernel/vdso/so2s.sh
+> deleted file mode 100755
+> index e64cb6d9440e..000000000000
+> --- a/arch/riscv/kernel/vdso/so2s.sh
+> +++ /dev/null
+> @@ -1,6 +0,0 @@
+> -#!/bin/sh
+> -# SPDX-License-Identifier: GPL-2.0+
+> -# Copyright 2020 Palmer Dabbelt <palmerdabbelt@google.com>
+> -
+> -sed 's!\([0-9a-f]*\) T \([a-z0-9_]*\)\(@@LINUX_4.15\)*!.global \2\n.set \2,0x\1!' \
+> -| grep '^\.'
 
-
-Ah, I just recalled that this hunk was restored
-after a build error was reported:
-
-https://lore.kernel.org/lkml/CAKwvOdkckey1=VUHApTcJYufyhdRJ=jb4qYs52f59g6ha7qphw@mail.gmail.com/
-
-
-
-So, please send v2, changing -mfentry part in the same way.
-
-
-
-
-
--- 
-Best Regards
-Masahiro Yamada
+This is on for-next.  Thanks!
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATM0JVqdAYNtfc5k9vMyDW0PvTnMZT29WY7%2B1sM5NgWnQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/mhng-a7fbcae6-db7b-48d5-808f-3f8eff233ea9%40palmerdabbelt-glaptop.
