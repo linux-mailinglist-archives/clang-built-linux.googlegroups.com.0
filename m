@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQ7NTKEQMGQEZ2VEGCQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBO7VTKEQMGQESPIQKSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 39ABE3F7DBD
-	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 23:31:48 +0200 (CEST)
-Received: by mail-lf1-x13a.google.com with SMTP id d21-20020a05651233d500b003cd423f70efsf213598lfg.23
-        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 14:31:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629927107; cv=pass;
+Received: from mail-lj1-x23f.google.com (mail-lj1-x23f.google.com [IPv6:2a00:1450:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9F0AB3F7DE5
+	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 23:48:44 +0200 (CEST)
+Received: by mail-lj1-x23f.google.com with SMTP id r16-20020a2eb610000000b001c78e82ce96sf278586ljn.5
+        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 14:48:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629928124; cv=pass;
         d=google.com; s=arc-20160816;
-        b=urYAxIOEIqcpCQzvciUgsouUebWs+FV1qv1dHi/4MIhjC5HmmKXbEL9lUFp4/7EqaG
-         dT6KTOLKdEtXy2mAoY7GjoNTDFCigkR7tNv/o13pYSIlazvIR+vvNO19Odhi85+W6OMY
-         oxouWYSk5UMANU7X/H3/q1skj1rhaokmrNUGzvkxfFR/om8OWDD4e+i396h2SjmWPjFg
-         BTcC58WnoRUjWcY3Edds5rekKNfPTIRZK29sIbn507yf6aUkjluTuUwjuusbecinDEju
-         HR/25PC0wsqcHQj0JNk9HUdJu471RiACWz3YHyyQqAqP4MFubVypcpOTVJeHnZcABkBY
-         Voiw==
+        b=Iyj81dMeowioGv/ZNDYbxXS0gLO8S4wJcw5VXcXT19e1uxUbzwWx7Bt5Djkf/nWg6L
+         WCFWA8903uZg2AcVCMeVGiHDGEy+0UurvFNND/L1Q5eZsybiVfl+8ceILKZ2gn+Op6+B
+         ya76qxB5q/3qqxVGgUiOwKQMkJFl9l+Ap0y6YWvGlbw56RseaoPyJmIjzSUUntXfBvl8
+         SbrPfmkXovcx8YYFXH3N3BV2zxUKc5Q1pATaEcwXyDEL7bdPNbVLi8FPAnJELs7qG2JP
+         3zqbaAaF8RpMUFTN/Y1Zk3x+c4NBugIVlwm3Lw+Yh6N4bRh4ZnI6iMOr823EMB/z19na
+         dXfg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=tkT9p/6xXJ1gGeFOqAjr9JJudWnPMNEiDKPRoLAj/pg=;
-        b=bw3/tHoiNAhz/Z0ZQy5pMlK0PdDm1OyOzdGjtcScLTFliheL2r6WC+3/yDcwXtOmga
-         eOW7VNdWqsNlAZaVvc0fFeOIQ/LhTfq8wYIVfGfQU1P1JFokKI+EPkcusycs+0ZYSaVf
-         HJdguksp8FoiHy867jK4UTl8SMp0XUN+6QKI3C1NdJi2T1l4Kuu8GiMymYLm5T3Xd0z7
-         JRTT+c2XKIGVPJKFXOg9HRCIe0F6bz2SLlmaCk/8fnfEhDFZojQ/57iTQdh5Nln7s0HX
-         esX+0WIn9RVbNmO4aB3Qql4Gq6OaNTpdZ+RdZxSfADhv9wR54yNpCBLPPMB6RA43YNG7
-         mtYw==
+        bh=PuthZjZT+5ek7fLv6fUvBS5KoDjZt4zcChMS5LBZvbI=;
+        b=XAqtoJPeUetFSw22Am70CSz+q7JD3qoSJ0lkY/fBcPGMqi3JZfD2DOJVYPuVXAzgdF
+         ZBky84yL5AKdYLPUVorSsZFkdUl5Xrn7YmIGhhGFxD40MohhOiMNpajtOKAmMtlZ5rQu
+         P8wZdJgh5zSo+VAwGDPTfrmxPVl1dHhl9IyzuptKimbVhCfCb2wu9YuAoYr6HyrEeXAj
+         R4H4CAIm6eAIA9jmiz6uRkiYGL7TKl+d1viqWizUDIjWp66MDadV44AVqATGKOMGDg6R
+         E6fEgCvzBIWSb7y89Ty/tet6j8zYS9bZluxVzM+A3guiTUeD2R4cxZrAmDChS997dVLp
+         x2WA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=M9bx0SOn;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=tz9muHSW;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tkT9p/6xXJ1gGeFOqAjr9JJudWnPMNEiDKPRoLAj/pg=;
-        b=iyNTzt2cSioyeHwn3pUvyLEfIg3OBfysHOnCQxlyVDPYCDXJQbZJGsWV1Ouz+OkAR3
-         V6jXGiCJ0dKq+SM84TB9LiHNVF8y9fMjgwRHTaUXq/ggHaF4J8cTCmKxzIBd9SLXtgKe
-         jCBjm3pRJliTnIP+5k74Xl1/mGzi/NuYf4lyBYVNRwfGibOr9vbI2VRUKd8IkptgK7ZY
-         bXf6DAo0hy1NS9xz1N6kCgMD5d650MjH6QQv4mVSazTFfAi+eV9fASs3qz8WQ3jBk5tW
-         oYAud/Z6w4ZKvkkO9A5mW8mfdNVplar2ZHzj+tQ2uXZ43sybNmUnc0OU9mGyhKI8UDLs
-         LOcA==
+        bh=PuthZjZT+5ek7fLv6fUvBS5KoDjZt4zcChMS5LBZvbI=;
+        b=RxmabCVLirQ6nUwi+siDrTQO1cHJ3b8mlZWa17om3DwMAqXU+bheRDwAC7Kyk/A9ta
+         8d25NM1KSkKwrGLyuH33E3CstDSeBuzVyyGFMDScTSFV2Xic+6SIqHY8g2MCvBNr6sUZ
+         IL8jxy1VpstIn/FuKKWElq3J4Xbs4GKEQ2l7hcQsg1PgVK26YkvCJt9kQ5LHp+Jc7JQy
+         L2V6KqM6VldPq+c3k11F+mffNy4YY4tny3eDdbBRCqaDSW+QzWAXXbFWZsCCEi6JaHWj
+         CwxMCqgoLmwK0MLAFrgq4INlUEihgw69SQNPh4+WY58nVYn6vczneN8qUZlnLPMJDojm
+         PRpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,79 +49,74 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tkT9p/6xXJ1gGeFOqAjr9JJudWnPMNEiDKPRoLAj/pg=;
-        b=Meh/7xqIRNER17orZCJNSjFx8M7+649WjErOXlXxts3Zdy18vlmwx17cbOQnJSbLnY
-         ry/khG4Pj2RJNmFbZJKJd+7b6+fkYxy+0sVdCLnlON3F9YOXJn3d7uZKv2IcXxxuq0E8
-         ZkIHITJodT5MlPS1NILEeeYdYvlJHWG1U6ZyzjngjOfrfKC8BMQTRKQvYu1kOMinoXiU
-         SafzEranC17/MPHYhCXOinaN4HG5s5xbA831azTKWLnwJm7WrZUuWWLVIHUVdudvqDHm
-         AEQSTwDWN5SG0ftk/cvHqC6ymnCA1NXRoRXnrdSjyhwvu9pFtmUXprMRzw+gVQg8yoyz
-         Ua6Q==
-X-Gm-Message-State: AOAM533OKi4IbDFiZjv7VbCxumuuH1FzVstZ8eDiTXBSMEgRDrTVvah+
-	WR+IBdRGdYteBMW+5RPV4uc=
-X-Google-Smtp-Source: ABdhPJxXAAWX5OD9dicZTVvieuLTT+5hVrPECG9LjpoqFvDCiL047rUJc95y2Qcnr6g47KvZnku6cg==
-X-Received: by 2002:a2e:9b0a:: with SMTP id u10mr246825lji.280.1629927107703;
-        Wed, 25 Aug 2021 14:31:47 -0700 (PDT)
+        bh=PuthZjZT+5ek7fLv6fUvBS5KoDjZt4zcChMS5LBZvbI=;
+        b=UaTaAcDf4CM8E6pkt/R1IhlYi95eGcIMXnzDmTlFd9NSuTiAM0qs25M0LvrBJLuS5h
+         VO1JGkBqwrVO+kXh4IJfbWO8NuVL2nKXMAfok3CafJWd9x7NSSgNgoVzst0iZ6l32RVl
+         vaF6W3fQaM1hpA6yqMU0MsBE51ZLYqLUkWdgXdXpFHHNbTAkHgjH7RnJAIxIzHe6FGjN
+         9WdnEvbvECL8+WH4KJLNmf+0Vh6RdkP7evzelPlqCgxw//BE0Mw6jKTTOxfg0AlLN/bt
+         L+JEY7H4V8jPd9D29UPnPruJB+33gd4qFdHbP4ROxmSgnzCso01w/BleQnd+Qdo97WE/
+         JJkw==
+X-Gm-Message-State: AOAM530Kvb07RV9CEcafdZm0r3aHRGc8YlQYeR1qdlhv7EBXMjRyeJTP
+	8L9az1dqtoQ6D0PGg50qN3Y=
+X-Google-Smtp-Source: ABdhPJwoFfnunqb8Z+gDhUw3aZVS6jHtjY3QmZ6Cwq7Q9VK5IAQR61aHEF/TKpRFTRujhewyH0D8LQ==
+X-Received: by 2002:a2e:b4a1:: with SMTP id q1mr270955ljm.221.1629928124112;
+        Wed, 25 Aug 2021 14:48:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:c13:: with SMTP id z19ls2523191lfu.0.gmail; Wed, 25
- Aug 2021 14:31:46 -0700 (PDT)
-X-Received: by 2002:a05:6512:2626:: with SMTP id bt38mr127100lfb.181.1629927106651;
-        Wed, 25 Aug 2021 14:31:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629927106; cv=none;
+Received: by 2002:a05:6512:15a3:: with SMTP id bp35ls2539266lfb.1.gmail; Wed,
+ 25 Aug 2021 14:48:43 -0700 (PDT)
+X-Received: by 2002:a05:6512:21b1:: with SMTP id c17mr198709lft.34.1629928123070;
+        Wed, 25 Aug 2021 14:48:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629928123; cv=none;
         d=google.com; s=arc-20160816;
-        b=NXZU45oVa/QKghEWKffFr9lI97ykd70OqA5LUYnlbEcHJw162D0Mf/FQcmZskKLv7y
-         MjZ6BdnCfByDQLuqsXUSAhakJ2LjoU0oC6gBHzgdHM8/RLtNxMB0S4qFdLRBOFykbIZ+
-         36Gy3BnIm0b4jyNLCUY9OK22i4HbTFQQEdLLLWIbNtsSLNjNWYMTwdoax/W7BiB/GJwQ
-         cVuvW+VDA2PIrfMofRpkKpGmB4UctmiNCNdYl+QJlej3q1EKn9kzWb6P6YWNm3ax11F6
-         46hiGJitEV3DX7svcQgWLswSMcTBEnR40x6WfiDCFmtDpuaQjQ9VeOk1PwVp4SkEBZHN
-         xaZA==
+        b=dMs3Z8q/rvnnP3HQnMXqbOxT6ey4Wt187e4eOddSWvP9nilI4DmXn/v28d6gX1Qpsd
+         mVZPAVpVw2e9u/cEb1/MRiTgwXzRQwXlCZMUBB74M4pZ29SxEL4eKkAPCzGybimhO0tc
+         qD4q4M+GgMG415S3LwveRBa9gqFDh9pnyItglHm8Y94mqQPWba2rP24pNeO3RH2LSUUu
+         Kn0H55GnteScLI9QauaQQIFdTIHckah0+1Xe26jGXxrjBTDLE7kv8fYOYWGacFwcaxo+
+         A3T6C48V/18XLpqM9W73hAPRs6i1QQLzclWWIHXuqY0sMQ5ZR9MCZLapOYjBCohQFgxy
+         gFJQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=CY0qbvVPjAOFzT8qiDPpTkDYSNAZtyk57huJIJzryLM=;
-        b=eRUjeb+qHc47s1QFEgguhL9x5Jk82V6Y2Tf0OuXWzDVEk7lo+J6U7z7e6RqNiCG6MK
-         DgjnaqC0s41BXANLWfjplkHKowDUb+t7kD0zwkrjuoMiWKCO4m654dj6nh2UIVbxkVpa
-         uXeyA5TEdg20VGK0J8xMQmnPN5MYWmqovMuhvR0bKjnkA/45OrQ5Ol+KAvgu8bdlJaVC
-         RVfECc94dmY1gZaflOtMCAzuYSgUQKd1ozj6eya54Zeh6DRGlptSoGi9eiQ6XgwL9YM0
-         f5bhzQIMrCZAWFJVlVlhlgQsb5GMrqeLaYM4tXgI/2A2U2nGe5hDsJvTeE+l4KB17m74
-         yftg==
+        bh=6ujoc4gGDa51JtifCLDg+mhMMCaV8R89KvrIRLq5gqQ=;
+        b=dft7zkIbF3z8UANChM/rLnGmrNUetuRV4YfJ4nLSSEspChduQwAmKGgQPJ94NAbwAZ
+         Djs8BASj7pbT1/Sf7IuvhvP56VbEK4C7AeQyyDF0KliBMP2msdnOksuNK22LiB7aSK34
+         97696oZqmXQ+f25aPAshlxIG91GhFTMsnP+2IhQ3XvVdWsnDzfHaeH2qGSt4ANzZ048y
+         jTwnIDCkYa5BCx6CvxdUzlG7wRFD0eKSTJdOrRcSNOXcRoUuGMhW4iCYTf1+1kSCob/v
+         /iTsI+tl9wg9nvoIY2C5N5aaBVCx14B5M497U0LbuCtkeIDidiidxS1q09Y4kV49tkr6
+         5lEg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=M9bx0SOn;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=tz9muHSW;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x12b.google.com (mail-lf1-x12b.google.com. [2a00:1450:4864:20::12b])
-        by gmr-mx.google.com with ESMTPS id i12si59475lfc.10.2021.08.25.14.31.46
+Received: from mail-lj1-x233.google.com (mail-lj1-x233.google.com. [2a00:1450:4864:20::233])
+        by gmr-mx.google.com with ESMTPS id h8si44097lfu.0.2021.08.25.14.48.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Aug 2021 14:31:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b as permitted sender) client-ip=2a00:1450:4864:20::12b;
-Received: by mail-lf1-x12b.google.com with SMTP id o10so1792562lfr.11
-        for <clang-built-linux@googlegroups.com>; Wed, 25 Aug 2021 14:31:46 -0700 (PDT)
-X-Received: by 2002:a19:7117:: with SMTP id m23mr134039lfc.73.1629927106160;
- Wed, 25 Aug 2021 14:31:46 -0700 (PDT)
+        Wed, 25 Aug 2021 14:48:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233 as permitted sender) client-ip=2a00:1450:4864:20::233;
+Received: by mail-lj1-x233.google.com with SMTP id h1so1145085ljl.9
+        for <clang-built-linux@googlegroups.com>; Wed, 25 Aug 2021 14:48:43 -0700 (PDT)
+X-Received: by 2002:a2e:9ec1:: with SMTP id h1mr315132ljk.0.1629928122354;
+ Wed, 25 Aug 2021 14:48:42 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210818214021.2476230-1-keescook@chromium.org> <20210818214021.2476230-5-keescook@chromium.org>
-In-Reply-To: <20210818214021.2476230-5-keescook@chromium.org>
+References: <20210822075122.864511-1-keescook@chromium.org> <20210822075122.864511-15-keescook@chromium.org>
+In-Reply-To: <20210822075122.864511-15-keescook@chromium.org>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 25 Aug 2021 14:31:34 -0700
-Message-ID: <CAKwvOdmxRMcwKtWt+FogVY8iXn=vQ+0AZ36maJP2LbSdo_NNjg@mail.gmail.com>
-Subject: Re: [PATCH v2 4/7] slab: Add __alloc_size attributes for better
- bounds checking
+Date: Wed, 25 Aug 2021 14:48:30 -0700
+Message-ID: <CAKwvOdmY2DQbjKutcofN3zsiz_majg6UnhMjMWbamVRhaRPhsw@mail.gmail.com>
+Subject: Re: [PATCH for-next 14/25] lib/string: Move helper functions out of string.c
 To: Kees Cook <keescook@chromium.org>
-Cc: linux-kernel@vger.kernel.org, Daniel Micay <danielmicay@gmail.com>, 
-	Christoph Lameter <cl@linux.com>, Pekka Enberg <penberg@kernel.org>, David Rientjes <rientjes@google.com>, 
-	Joonsoo Kim <iamjoonsoo.kim@lge.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Vlastimil Babka <vbabka@suse.cz>, linux-mm@kvack.org, Joe Perches <joe@perches.com>, 
-	Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Andy Whitcroft <apw@canonical.com>, 
-	Dwaipayan Ray <dwaipayanray1@gmail.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>, 
-	clang-built-linux@googlegroups.com, linux-kbuild@vger.kernel.org, 
-	linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Daniel Micay <danielmicay@gmail.com>, 
+	Francis Laniel <laniel_francis@privacyrequired.com>, Bart Van Assche <bvanassche@acm.org>, 
+	David Gow <davidgow@google.com>, linux-mm@kvack.org, 
+	clang-built-linux@googlegroups.com, linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=M9bx0SOn;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::12b
+ header.i=@google.com header.s=20161025 header.b=tz9muHSW;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::233
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -138,177 +133,554 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 18, 2021 at 2:40 PM Kees Cook <keescook@chromium.org> wrote:
+On Sun, Aug 22, 2021 at 12:51 AM Kees Cook <keescook@chromium.org> wrote:
 >
-> As already done in GrapheneOS, add the __alloc_size attribute for
-> regular kmalloc interfaces, to provide additional hinting for better
-> bounds checking, assisting CONFIG_FORTIFY_SOURCE and other compiler
-> optimizations.
+> The core functions of string.c are those that may be implemented by
+> per-architecture functions, or overloaded by FORTIFY_SOURCE. As a
+> result, it needs to be built with __NO_FORTIFY. Without this, macros
+
+Sorry, is there more info on what exactly __NO_FORTIFY is (and why we
+"need" it)?
+
+> will collide with function declarations. This was accidentally working
+> due to -ffreestanding (on some architectures). Make this deterministic
+> by explicitly setting __NO_FORTIFY and move all the helper functions
+> into string_helpers.c so that they gain the fortification coverage they
+> had been missing.
 >
-> Co-developed-by: Daniel Micay <danielmicay@gmail.com>
-> Signed-off-by: Daniel Micay <danielmicay@gmail.com>
-> Cc: Christoph Lameter <cl@linux.com>
-> Cc: Pekka Enberg <penberg@kernel.org>
-> Cc: David Rientjes <rientjes@google.com>
-> Cc: Joonsoo Kim <iamjoonsoo.kim@lge.com>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Vlastimil Babka <vbabka@suse.cz>
-> Cc: linux-mm@kvack.org
+> Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 > Signed-off-by: Kees Cook <keescook@chromium.org>
-
-This is a good start, so
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
-Do we also want to attribute:
-* __kmalloc_index
-* kmem_cache_free_bulk
-* kmem_cache_alloc_bulk
-* kmem_cache_alloc_trace
-* kmalloc_order
-* kmalloc_order_trace
-* kmalloc_large
-* kmalloc_node
-* __kmalloc_track_caller
-* kmalloc_array_node
-* __kmalloc_node_track_caller
-
 > ---
->  include/linux/slab.h | 20 ++++++++++++++++++--
->  1 file changed, 18 insertions(+), 2 deletions(-)
+>  arch/arm/boot/compressed/string.c     |   1 +
+>  arch/s390/lib/string.c                |   3 +
+>  arch/x86/boot/compressed/misc.h       |   2 +
+>  arch/x86/boot/compressed/pgtable_64.c |   2 +
+>  arch/x86/lib/string_32.c              |   1 +
+>  lib/string.c                          | 210 +-------------------------
+>  lib/string_helpers.c                  | 193 +++++++++++++++++++++++
+>  7 files changed, 208 insertions(+), 204 deletions(-)
 >
-> diff --git a/include/linux/slab.h b/include/linux/slab.h
-> index 10fd0a8c816a..6ce826d8194d 100644
-> --- a/include/linux/slab.h
-> +++ b/include/linux/slab.h
-> @@ -181,7 +181,7 @@ int kmem_cache_shrink(struct kmem_cache *s);
+> diff --git a/arch/arm/boot/compressed/string.c b/arch/arm/boot/compressed/string.c
+> index 8c0fa276d994..fcc678fce045 100644
+> --- a/arch/arm/boot/compressed/string.c
+> +++ b/arch/arm/boot/compressed/string.c
+> @@ -5,6 +5,7 @@
+>   * Small subset of simple string routines
+>   */
+>
+> +#define __NO_FORTIFY
+>  #include <linux/string.h>
+>
 >  /*
->   * Common kmalloc functions provided by all allocators
+> diff --git a/arch/s390/lib/string.c b/arch/s390/lib/string.c
+> index cfcdf76d6a95..392fb9f4f4db 100644
+> --- a/arch/s390/lib/string.c
+> +++ b/arch/s390/lib/string.c
+> @@ -8,6 +8,9 @@
 >   */
-> -__must_check
-> +__must_check __alloc_size(2)
->  void *krealloc(const void *objp, size_t new_size, gfp_t flags);
->  void kfree(const void *objp);
->  void kfree_sensitive(const void *objp);
-> @@ -426,6 +426,7 @@ static __always_inline unsigned int __kmalloc_index(size_t size,
->  #define kmalloc_index(s) __kmalloc_index(s, true)
->  #endif /* !CONFIG_SLOB */
 >
-> +__alloc_size(1)
->  void *__kmalloc(size_t size, gfp_t flags) __assume_kmalloc_alignment __malloc;
->  void *kmem_cache_alloc(struct kmem_cache *s, gfp_t flags) __assume_kmalloc_alignment __malloc;
->  void kmem_cache_free(struct kmem_cache *s, void *objp);
-> @@ -450,6 +451,7 @@ static __always_inline void kfree_bulk(size_t size, void **p)
->  }
+>  #define IN_ARCH_STRING_C 1
+> +#ifndef __NO_FORTIFY
+> +# define __NO_FORTIFY
+> +#endif
 >
->  #ifdef CONFIG_NUMA
-> +__alloc_size(1)
->  void *__kmalloc_node(size_t size, gfp_t flags, int node) __assume_slab_alignment __malloc;
->  void *kmem_cache_alloc_node(struct kmem_cache *s, gfp_t flags, int node)
->                             __assume_slab_alignment __malloc;
-> @@ -574,6 +576,7 @@ static __always_inline void *kmalloc_large(size_t size, gfp_t flags)
->   *     Try really hard to succeed the allocation but fail
->   *     eventually.
+>  #include <linux/types.h>
+>  #include <linux/string.h>
+> diff --git a/arch/x86/boot/compressed/misc.h b/arch/x86/boot/compressed/misc.h
+> index 31139256859f..49bde196da9b 100644
+> --- a/arch/x86/boot/compressed/misc.h
+> +++ b/arch/x86/boot/compressed/misc.h
+> @@ -14,6 +14,8 @@
+>  #undef CONFIG_KASAN
+>  #undef CONFIG_KASAN_GENERIC
+>
+> +#define __NO_FORTIFY
+> +
+>  /* cpu_feature_enabled() cannot be used this early */
+>  #define USE_EARLY_PGTABLE_L5
+>
+> diff --git a/arch/x86/boot/compressed/pgtable_64.c b/arch/x86/boot/compressed/pgtable_64.c
+> index 2a78746f5a4c..a1733319a22a 100644
+> --- a/arch/x86/boot/compressed/pgtable_64.c
+> +++ b/arch/x86/boot/compressed/pgtable_64.c
+> @@ -1,3 +1,5 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +#include "misc.h"
+
+^ should we just `#define __NO_FORTIFY` here in pgtable_64.c rather
+than set that for a whole header?
+
+>  #include <linux/efi.h>
+>  #include <asm/e820/types.h>
+>  #include <asm/processor.h>
+> diff --git a/arch/x86/lib/string_32.c b/arch/x86/lib/string_32.c
+> index d15fdae9656e..53b3f202267c 100644
+> --- a/arch/x86/lib/string_32.c
+> +++ b/arch/x86/lib/string_32.c
+> @@ -11,6 +11,7 @@
+>   * strings.
 >   */
-> +__alloc_size(1)
->  static __always_inline void *kmalloc(size_t size, gfp_t flags)
->  {
->         if (__builtin_constant_p(size)) {
-> @@ -596,6 +599,7 @@ static __always_inline void *kmalloc(size_t size, gfp_t flags)
->         return __kmalloc(size, flags);
->  }
 >
-> +__alloc_size(1)
->  static __always_inline void *kmalloc_node(size_t size, gfp_t flags, int node)
->  {
->  #ifndef CONFIG_SLOB
-> @@ -620,6 +624,7 @@ static __always_inline void *kmalloc_node(size_t size, gfp_t flags, int node)
->   * @size: element size.
->   * @flags: the type of memory to allocate (see kmalloc).
+> +#define __NO_FORTIFY
+>  #include <linux/string.h>
+>  #include <linux/export.h>
+>
+> diff --git a/lib/string.c b/lib/string.c
+> index 77bd0b1d3296..1e6259f263b8 100644
+> --- a/lib/string.c
+> +++ b/lib/string.c
+> @@ -6,20 +6,15 @@
 >   */
-> +__alloc_size(1, 2)
->  static inline void *kmalloc_array(size_t n, size_t size, gfp_t flags)
->  {
->         size_t bytes;
-> @@ -638,7 +643,7 @@ static inline void *kmalloc_array(size_t n, size_t size, gfp_t flags)
->   * @new_size: new size of a single member of the array
->   * @flags: the type of memory to allocate (see kmalloc)
+>
+>  /*
+> - * stupid library routines.. The optimized versions should generally be found
+> - * as inline code in <asm-xx/string.h>
+> + * This file should be used only for "library" routines that may have
+> + * alternative implementations on specific architectures (generally
+> + * found in <asm-xx/string.h>), or get overloaded by FORTIFY_SOURCE.
+> + * (Specifically, this file is built with __NO_FORTIFY.)
+>   *
+> - * These are buggy as well..
+> - *
+> - * * Fri Jun 25 1999, Ingo Oeser <ioe@informatik.tu-chemnitz.de>
+> - * -  Added strsep() which will replace strtok() soon (because strsep() is
+> - *    reentrant and should be faster). Use only strsep() in new code, please.
+> - *
+> - * * Sat Feb 09 2002, Jason Thomas <jason@topic.com.au>,
+> - *                    Matthew Hawkins <matt@mh.dropbear.id.au>
+> - * -  Kissed strtok() goodbye
+> + * Other helper functions should live in string_helpers.c.
 >   */
-> -__must_check
-> +__must_check __alloc_size(2, 3)
->  static inline void *krealloc_array(void *p, size_t new_n, size_t new_size,
->                                    gfp_t flags)
->  {
-> @@ -656,6 +661,7 @@ static inline void *krealloc_array(void *p, size_t new_n, size_t new_size,
->   * @size: element size.
->   * @flags: the type of memory to allocate (see kmalloc).
->   */
-> +__alloc_size(1, 2)
->  static inline void *kcalloc(size_t n, size_t size, gfp_t flags)
->  {
->         return kmalloc_array(n, size, flags | __GFP_ZERO);
-> @@ -685,6 +691,7 @@ static inline void *kmalloc_array_node(size_t n, size_t size, gfp_t flags,
->         return __kmalloc_node(bytes, flags, node);
->  }
 >
-> +__alloc_size(1, 2)
->  static inline void *kcalloc_node(size_t n, size_t size, gfp_t flags, int node)
->  {
->         return kmalloc_array_node(n, size, flags | __GFP_ZERO, node);
-> @@ -718,6 +725,7 @@ static inline void *kmem_cache_zalloc(struct kmem_cache *k, gfp_t flags)
->   * @size: how many bytes of memory are required.
->   * @flags: the type of memory to allocate (see kmalloc).
->   */
-> +__alloc_size(1)
->  static inline void *kzalloc(size_t size, gfp_t flags)
->  {
->         return kmalloc(size, flags | __GFP_ZERO);
-> @@ -729,25 +737,31 @@ static inline void *kzalloc(size_t size, gfp_t flags)
->   * @flags: the type of memory to allocate (see kmalloc).
->   * @node: memory node from which to allocate
->   */
-> +__alloc_size(1)
->  static inline void *kzalloc_node(size_t size, gfp_t flags, int node)
->  {
->         return kmalloc_node(size, flags | __GFP_ZERO, node);
->  }
+> +#define __NO_FORTIFY
+>  #include <linux/types.h>
+>  #include <linux/string.h>
+>  #include <linux/ctype.h>
+> @@ -237,40 +232,6 @@ ssize_t strscpy(char *dest, const char *src, size_t count)
+>  EXPORT_SYMBOL(strscpy);
+>  #endif
 >
-> +__alloc_size(1)
->  extern void *kvmalloc_node(size_t size, gfp_t flags, int node);
-> +__alloc_size(1)
->  static inline void *kvmalloc(size_t size, gfp_t flags)
->  {
->         return kvmalloc_node(size, flags, NUMA_NO_NODE);
->  }
-> +__alloc_size(1)
->  static inline void *kvzalloc_node(size_t size, gfp_t flags, int node)
->  {
->         return kvmalloc_node(size, flags | __GFP_ZERO, node);
->  }
-> +__alloc_size(1)
->  static inline void *kvzalloc(size_t size, gfp_t flags)
->  {
->         return kvmalloc(size, flags | __GFP_ZERO);
->  }
+> -/**
+> - * strscpy_pad() - Copy a C-string into a sized buffer
+> - * @dest: Where to copy the string to
+> - * @src: Where to copy the string from
+> - * @count: Size of destination buffer
+> - *
+> - * Copy the string, or as much of it as fits, into the dest buffer.  The
+> - * behavior is undefined if the string buffers overlap.  The destination
+> - * buffer is always %NUL terminated, unless it's zero-sized.
+> - *
+> - * If the source string is shorter than the destination buffer, zeros
+> - * the tail of the destination buffer.
+> - *
+> - * For full explanation of why you may want to consider using the
+> - * 'strscpy' functions please see the function docstring for strscpy().
+> - *
+> - * Returns:
+> - * * The number of characters copied (not including the trailing %NUL)
+> - * * -E2BIG if count is 0 or @src was truncated.
+> - */
+> -ssize_t strscpy_pad(char *dest, const char *src, size_t count)
+> -{
+> -       ssize_t written;
+> -
+> -       written = strscpy(dest, src, count);
+> -       if (written < 0 || written == count - 1)
+> -               return written;
+> -
+> -       memset(dest + written + 1, 0, count - written - 1);
+> -
+> -       return written;
+> -}
+> -EXPORT_SYMBOL(strscpy_pad);
+> -
+>  /**
+>   * stpcpy - copy a string from src to dest returning a pointer to the new end
+>   *          of dest, including src's %NUL-terminator. May overrun dest.
+> @@ -513,46 +474,6 @@ char *strnchr(const char *s, size_t count, int c)
+>  EXPORT_SYMBOL(strnchr);
+>  #endif
 >
-> +__alloc_size(1, 2)
->  static inline void *kvmalloc_array(size_t n, size_t size, gfp_t flags)
->  {
->         size_t bytes;
-> @@ -758,11 +772,13 @@ static inline void *kvmalloc_array(size_t n, size_t size, gfp_t flags)
->         return kvmalloc(bytes, flags);
->  }
+> -/**
+> - * skip_spaces - Removes leading whitespace from @str.
+> - * @str: The string to be stripped.
+> - *
+> - * Returns a pointer to the first non-whitespace character in @str.
+> - */
+> -char *skip_spaces(const char *str)
+> -{
+> -       while (isspace(*str))
+> -               ++str;
+> -       return (char *)str;
+> -}
+> -EXPORT_SYMBOL(skip_spaces);
+> -
+> -/**
+> - * strim - Removes leading and trailing whitespace from @s.
+> - * @s: The string to be stripped.
+> - *
+> - * Note that the first trailing whitespace is replaced with a %NUL-terminator
+> - * in the given string @s. Returns a pointer to the first non-whitespace
+> - * character in @s.
+> - */
+> -char *strim(char *s)
+> -{
+> -       size_t size;
+> -       char *end;
+> -
+> -       size = strlen(s);
+> -       if (!size)
+> -               return s;
+> -
+> -       end = s + size - 1;
+> -       while (end >= s && isspace(*end))
+> -               end--;
+> -       *(end + 1) = '\0';
+> -
+> -       return skip_spaces(s);
+> -}
+> -EXPORT_SYMBOL(strim);
+> -
+>  #ifndef __HAVE_ARCH_STRLEN
+>  /**
+>   * strlen - Find the length of a string
+> @@ -687,101 +608,6 @@ char *strsep(char **s, const char *ct)
+>  EXPORT_SYMBOL(strsep);
+>  #endif
 >
-> +__alloc_size(1, 2)
->  static inline void *kvcalloc(size_t n, size_t size, gfp_t flags)
->  {
->         return kvmalloc_array(n, size, flags | __GFP_ZERO);
+> -/**
+> - * sysfs_streq - return true if strings are equal, modulo trailing newline
+> - * @s1: one string
+> - * @s2: another string
+> - *
+> - * This routine returns true iff two strings are equal, treating both
+> - * NUL and newline-then-NUL as equivalent string terminations.  It's
+> - * geared for use with sysfs input strings, which generally terminate
+> - * with newlines but are compared against values without newlines.
+> - */
+> -bool sysfs_streq(const char *s1, const char *s2)
+> -{
+> -       while (*s1 && *s1 == *s2) {
+> -               s1++;
+> -               s2++;
+> -       }
+> -
+> -       if (*s1 == *s2)
+> -               return true;
+> -       if (!*s1 && *s2 == '\n' && !s2[1])
+> -               return true;
+> -       if (*s1 == '\n' && !s1[1] && !*s2)
+> -               return true;
+> -       return false;
+> -}
+> -EXPORT_SYMBOL(sysfs_streq);
+> -
+> -/**
+> - * match_string - matches given string in an array
+> - * @array:     array of strings
+> - * @n:         number of strings in the array or -1 for NULL terminated arrays
+> - * @string:    string to match with
+> - *
+> - * This routine will look for a string in an array of strings up to the
+> - * n-th element in the array or until the first NULL element.
+> - *
+> - * Historically the value of -1 for @n, was used to search in arrays that
+> - * are NULL terminated. However, the function does not make a distinction
+> - * when finishing the search: either @n elements have been compared OR
+> - * the first NULL element was found.
+> - *
+> - * Return:
+> - * index of a @string in the @array if matches, or %-EINVAL otherwise.
+> - */
+> -int match_string(const char * const *array, size_t n, const char *string)
+> -{
+> -       int index;
+> -       const char *item;
+> -
+> -       for (index = 0; index < n; index++) {
+> -               item = array[index];
+> -               if (!item)
+> -                       break;
+> -               if (!strcmp(item, string))
+> -                       return index;
+> -       }
+> -
+> -       return -EINVAL;
+> -}
+> -EXPORT_SYMBOL(match_string);
+> -
+> -/**
+> - * __sysfs_match_string - matches given string in an array
+> - * @array: array of strings
+> - * @n: number of strings in the array or -1 for NULL terminated arrays
+> - * @str: string to match with
+> - *
+> - * Returns index of @str in the @array or -EINVAL, just like match_string().
+> - * Uses sysfs_streq instead of strcmp for matching.
+> - *
+> - * This routine will look for a string in an array of strings up to the
+> - * n-th element in the array or until the first NULL element.
+> - *
+> - * Historically the value of -1 for @n, was used to search in arrays that
+> - * are NULL terminated. However, the function does not make a distinction
+> - * when finishing the search: either @n elements have been compared OR
+> - * the first NULL element was found.
+> - */
+> -int __sysfs_match_string(const char * const *array, size_t n, const char *str)
+> -{
+> -       const char *item;
+> -       int index;
+> -
+> -       for (index = 0; index < n; index++) {
+> -               item = array[index];
+> -               if (!item)
+> -                       break;
+> -               if (sysfs_streq(item, str))
+> -                       return index;
+> -       }?
+> -
+> -       return -EINVAL;
+> -}
+> -EXPORT_SYMBOL(__sysfs_match_string);
+> -
+
+are memset16, memset32, and memset64 worth moving as well? Also,
+memscan(), check_bytes(), memchr_inv()?
+
+>  #ifndef __HAVE_ARCH_MEMSET
+>  /**
+>   * memset - Fill a region of memory with the given value
+> @@ -1125,27 +951,3 @@ void *memchr_inv(const void *start, int c, size_t bytes)
+>         return check_bytes8(start, value, bytes % 8);
 >  }
->
-> +__alloc_size(3)
->  extern void *kvrealloc(const void *p, size_t oldsize, size_t newsize,
->                 gfp_t flags);
->  extern void kvfree(const void *addr);
+>  EXPORT_SYMBOL(memchr_inv);
+> -
+> -/**
+> - * strreplace - Replace all occurrences of character in string.
+> - * @s: The string to operate on.
+> - * @old: The character being replaced.
+> - * @new: The character @old is replaced with.
+> - *
+> - * Returns pointer to the nul byte at the end of @s.
+> - */
+> -char *strreplace(char *s, char old, char new)
+> -{
+> -       for (; *s; ++s)
+> -               if (*s == old)
+> -                       *s = new;
+> -       return s;
+> -}
+> -EXPORT_SYMBOL(strreplace);
+> -
+> -void fortify_panic(const char *name)
+> -{
+> -       pr_emerg("detected buffer overflow in %s\n", name);
+> -       BUG();
+> -}
+> -EXPORT_SYMBOL(fortify_panic);
+> diff --git a/lib/string_helpers.c b/lib/string_helpers.c
+> index 5a35c7e16e96..e9433caab217 100644
+> --- a/lib/string_helpers.c
+> +++ b/lib/string_helpers.c
+> @@ -692,3 +692,196 @@ void kfree_strarray(char **array, size_t n)
+>         kfree(array);
+>  }
+>  EXPORT_SYMBOL_GPL(kfree_strarray);
+> +
+> +/**
+> + * strscpy_pad() - Copy a C-string into a sized buffer
+> + * @dest: Where to copy the string to
+> + * @src: Where to copy the string from
+> + * @count: Size of destination buffer
+> + *
+> + * Copy the string, or as much of it as fits, into the dest buffer.  The
+> + * behavior is undefined if the string buffers overlap.  The destination
+> + * buffer is always %NUL terminated, unless it's zero-sized.
+> + *
+> + * If the source string is shorter than the destination buffer, zeros
+> + * the tail of the destination buffer.
+> + *
+> + * For full explanation of why you may want to consider using the
+> + * 'strscpy' functions please see the function docstring for strscpy().
+> + *
+> + * Returns:
+> + * * The number of characters copied (not including the trailing %NUL)
+> + * * -E2BIG if count is 0 or @src was truncated.
+> + */
+> +ssize_t strscpy_pad(char *dest, const char *src, size_t count)
+> +{
+> +       ssize_t written;
+> +
+> +       written = strscpy(dest, src, count);
+> +       if (written < 0 || written == count - 1)
+> +               return written;
+> +
+> +       memset(dest + written + 1, 0, count - written - 1);
+> +
+> +       return written;
+> +}
+> +EXPORT_SYMBOL(strscpy_pad);
+> +
+> +/**
+> + * skip_spaces - Removes leading whitespace from @str.
+> + * @str: The string to be stripped.
+> + *
+> + * Returns a pointer to the first non-whitespace character in @str.
+> + */
+> +char *skip_spaces(const char *str)
+> +{
+> +       while (isspace(*str))
+> +               ++str;
+> +       return (char *)str;
+> +}
+> +EXPORT_SYMBOL(skip_spaces);
+> +
+> +/**
+> + * strim - Removes leading and trailing whitespace from @s.
+> + * @s: The string to be stripped.
+> + *
+> + * Note that the first trailing whitespace is replaced with a %NUL-terminator
+> + * in the given string @s. Returns a pointer to the first non-whitespace
+> + * character in @s.
+> + */
+> +char *strim(char *s)
+> +{
+> +       size_t size;
+> +       char *end;
+> +
+> +       size = strlen(s);
+> +       if (!size)
+> +               return s;
+> +
+> +       end = s + size - 1;
+> +       while (end >= s && isspace(*end))
+> +               end--;
+> +       *(end + 1) = '\0';
+> +
+> +       return skip_spaces(s);
+> +}
+> +EXPORT_SYMBOL(strim);
+> +
+> +/**
+> + * sysfs_streq - return true if strings are equal, modulo trailing newline
+> + * @s1: one string
+> + * @s2: another string
+> + *
+> + * This routine returns true iff two strings are equal, treating both
+> + * NUL and newline-then-NUL as equivalent string terminations.  It's
+> + * geared for use with sysfs input strings, which generally terminate
+> + * with newlines but are compared against values without newlines.
+> + */
+> +bool sysfs_streq(const char *s1, const char *s2)
+> +{
+> +       while (*s1 && *s1 == *s2) {
+> +               s1++;
+> +               s2++;
+> +       }
+> +
+> +       if (*s1 == *s2)
+> +               return true;
+> +       if (!*s1 && *s2 == '\n' && !s2[1])
+> +               return true;
+> +       if (*s1 == '\n' && !s1[1] && !*s2)
+> +               return true;
+> +       return false;
+> +}
+> +EXPORT_SYMBOL(sysfs_streq);
+> +
+> +/**
+> + * match_string - matches given string in an array
+> + * @array:     array of strings
+> + * @n:         number of strings in the array or -1 for NULL terminated arrays
+> + * @string:    string to match with
+> + *
+> + * This routine will look for a string in an array of strings up to the
+> + * n-th element in the array or until the first NULL element.
+> + *
+> + * Historically the value of -1 for @n, was used to search in arrays that
+> + * are NULL terminated. However, the function does not make a distinction
+> + * when finishing the search: either @n elements have been compared OR
+> + * the first NULL element was found.
+> + *
+> + * Return:
+> + * index of a @string in the @array if matches, or %-EINVAL otherwise.
+> + */
+> +int match_string(const char * const *array, size_t n, const char *string)
+> +{
+> +       int index;
+> +       const char *item;
+> +
+> +       for (index = 0; index < n; index++) {
+> +               item = array[index];
+> +               if (!item)
+> +                       break;
+> +               if (!strcmp(item, string))
+> +                       return index;
+> +       }
+> +
+> +       return -EINVAL;
+> +}
+> +EXPORT_SYMBOL(match_string);
+> +
+> +/**
+> + * __sysfs_match_string - matches given string in an array
+> + * @array: array of strings
+> + * @n: number of strings in the array or -1 for NULL terminated arrays
+> + * @str: string to match with
+> + *
+> + * Returns index of @str in the @array or -EINVAL, just like match_string().
+> + * Uses sysfs_streq instead of strcmp for matching.
+> + *
+> + * This routine will look for a string in an array of strings up to the
+> + * n-th element in the array or until the first NULL element.
+> + *
+> + * Historically the value of -1 for @n, was used to search in arrays that
+> + * are NULL terminated. However, the function does not make a distinction
+> + * when finishing the search: either @n elements have been compared OR
+> + * the first NULL element was found.
+> + */
+> +int __sysfs_match_string(const char * const *array, size_t n, const char *str)
+> +{
+> +       const char *item;
+> +       int index;
+> +
+> +       for (index = 0; index < n; index++) {
+> +               item = array[index];
+> +               if (!item)
+> +                       break;
+> +               if (sysfs_streq(item, str))
+> +                       return index;
+> +       }
+> +
+> +       return -EINVAL;
+> +}
+> +EXPORT_SYMBOL(__sysfs_match_string);
+> +
+> +/**
+> + * strreplace - Replace all occurrences of character in string.
+> + * @s: The string to operate on.
+> + * @old: The character being replaced.
+> + * @new: The character @old is replaced with.
+> + *
+> + * Returns pointer to the nul byte at the end of @s.
+> + */
+> +char *strreplace(char *s, char old, char new)
+> +{
+> +       for (; *s; ++s)
+> +               if (*s == old)
+> +                       *s = new;
+> +       return s;
+> +}
+> +EXPORT_SYMBOL(strreplace);
+> +
+> +void fortify_panic(const char *name)
+> +{
+> +       pr_emerg("detected buffer overflow in %s\n", name);
+> +       BUG();
+> +}
+> +EXPORT_SYMBOL(fortify_panic);
 > --
+
 
 -- 
 Thanks,
@@ -317,4 +689,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmxRMcwKtWt%2BFogVY8iXn%3DvQ%2B0AZ36maJP2LbSdo_NNjg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmY2DQbjKutcofN3zsiz_majg6UnhMjMWbamVRhaRPhsw%40mail.gmail.com.
