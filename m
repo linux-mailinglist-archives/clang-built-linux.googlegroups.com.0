@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDQ2R56ST4HRB2EHTOEQMGQE4L2UMXY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQ2R56ST4HRBB4KTOEQMGQEOFSORIQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 74C4F3F7E9A
-	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Aug 2021 00:27:53 +0200 (CEST)
-Received: by mail-yb1-xb39.google.com with SMTP id v126-20020a254884000000b005991fd2f912sf1025839yba.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 15:27:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629930472; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id 05DA73F7EA0
+	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Aug 2021 00:32:41 +0200 (CEST)
+Received: by mail-pg1-x539.google.com with SMTP id g6-20020a655946000000b00255ef826275sf293412pgu.23
+        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 15:32:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629930759; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YwBKLcOqYpeBFJaBVLThIaA/ThKcVA7ukO99ZoCVb5kEkhupPVdHWIR7CF9E7fEM20
-         xa8dL3Cxc9U7+NhNlyZV/PPQLLO3q5ayFhpRYnBXjj1OH6BvZIN3mF9IZej/f1QtOCa0
-         nQHPbBA325MzQsG0OIMEy+jRjqTNJ0y44RuVy/+SRTO2PQmxHk9kTe2PE8npzdie6Oj3
-         Dt+oGs/LukAFGYt8pWJ0rqztqiUKZkuDpFdlAu3E5wFj+/SKrDN2Zzl+UOiFqG2msNaq
-         ZQCXXKyJRnZyYG6pavhk+ocif0/Kp5GZeRBeH1bR5FIQy0EZnLuiIW4weqQd+hNdQl4Y
-         6PKw==
+        b=HVNODuxXZqvIS1Qyp5Hd67pLUaLUNAgiLoGLoWwaffSMvsmIGSoH3qPqbKi3FQA+Yz
+         GHF8dpvHlZ9kfW6vXAzFHtmLUZfdCYK5rU8UkxaBo3IrlwurvIY3CUU52pmMO1XAzeyB
+         GydrW/1rLEQsrZ8vc0bwaiJS8bt7H7XVT//WoctYmQGGglZmHhLcGHo/TKhKWLcIpj2I
+         8VA6LJ9V87OvTchtPBPYYCHQznbemxFrGmlkEgjJxQbJijksI3z47eHwE4zYZ6AZga1B
+         pREva+TeqEqyo8i4o+ViPTHGYiFH43kKWDHFxKr1ZKT01IloGVMWjQzBe9cRJnycIcud
+         fG3A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:subject:message-id:date
          :from:in-reply-to:references:mime-version:dkim-signature;
-        bh=/mxsgwdI1T9g9brjRtKlpikZbHzZqPsMXstu9MN6ucY=;
-        b=i6BAU62cSJ5lm2ExvKh3VJPlaDEQtB+sK4w208kO0dcgnEEV2tpi6MJmlMUDwi4+b/
-         V1ANOzCg7Y7KzfhTRmm1Zbaf4FgT8764cNulhDAmiiyn95vLaX85T99rPAful6PzssGv
-         Io8qC1SaKMLiEkiznOGgZS0RHrJL3kHw5XNxNll0rp5fXlzzF8/vlufcXuS7Pt/UQzoQ
-         N5sv6EDpSQRPYIIvddGo3XZA8SRVi5WoqvovL5j4Z4wlx2Hf+yW5ruSAE7fk+Yy3cQ48
-         tV8aME7sTe2nxOorvx/LD708pMXuSnB3IfutX5XXx5bxi4IFldESl8KW27kp5j2nNaR+
-         QxhQ==
+        bh=Hdhh/VUKbTohZSy3ITqziglCIXny/zZHmkzHAQ4X2Oo=;
+        b=PlmqlflN/5s3HRdf4TiM1aQukVT2bEdoLlpVuRUTLKUMbPxVVk0DrodCxlMHgQE2X1
+         f8s5lqRfRRAdgD2p2VumOK1/7RYUK1YOJN56ptCnHOWTYZlb98gK3QMavZtTPz2tbUov
+         SrVulSGqeK2cMmTVQ9IyqVJmv3l9YiN9+BLsvZ9b7k3RSYF8egsZbG6ojt+2w+Pj3ijk
+         BMLAzV33Ee7cQJ+SmTAybxklEwU36wFgc8skPCwMiEH2Algz+gp03Njtq9GjKWzBd2Qd
+         Dj2YxSooPknwKiCtmVoA2Sn6BiKI2/UDVAdwIDWv5p8An1gEgYsw6LP+rzElJn1B+7si
+         xrYg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=SUKEXGA8;
-       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::b2b as permitted sender) smtp.mailfrom=jiancai@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CJFSEB2a;
+       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::b30 as permitted sender) smtp.mailfrom=jiancai@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/mxsgwdI1T9g9brjRtKlpikZbHzZqPsMXstu9MN6ucY=;
-        b=HBZNV69VmK+ZcBeDTkn0v2hi9qiGlS2fYH5Z1jr+4RyxfxGUQXJN54BMuGDzKiraPk
-         miZakPySdTwNVYrnK5KJX9HM48qWOAGeZ/+ri6kay0NT2SmEDF/0KIPmKD8/QF/5J5mu
-         7/FAQM3kEujNKlpG5BLDaZEa0MUG+i20U7PgPNWc8Q54Ca5z6NEX8ONjVzlvk27lnJ8f
-         610MlPLt3H8RhOFOHxDUhNZayj9jkV6MHK1ZA7zZktb/6KROdszKpiwetdNSpUs96y3M
-         XH0Izf62o59q1LsSVbBF4EgN66WM9K7ojj+PvUvKlzIVwUVZtFLtvH0fV1kZQhpY5ZAU
-         DGkw==
+        bh=Hdhh/VUKbTohZSy3ITqziglCIXny/zZHmkzHAQ4X2Oo=;
+        b=STw7VMkHmUASaVPu5v5fBS2DQILXO8b0X6bg5Wsjcp/DVjJt9OvvKMUf+8IkQEtk5I
+         aBSb2zSl6aphrRuMvtoCSiAxU1p9thGe74hQyz8qOeWKvIUzcClaMINhYRHdeudzbnuB
+         KvSEBjTTyq/6W9NvhwB5K68GRl9ZIl+uHtJbWUGoDGOtuiSdNJ8ybj+3wlwrzBxo+nOu
+         WgnFaTTYXCRgjVwEsNJ5+WuBMVAq7JSfRZVRad/QAyKe1Sx7rxZyp1drdinKpQexyBMy
+         qCqm/rN+sM9XGFIRPhliw7f1+MxOvYSd87z5Nz8pGX9g7LOpbCqjH3tpBdsMmKywbwkE
+         2DZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/mxsgwdI1T9g9brjRtKlpikZbHzZqPsMXstu9MN6ucY=;
-        b=NbVaquDlfmN1FDo7rO+2HnePuC7u/YDg6vWdCvl/Qn0+DVC3hMa0zVvrX8SvvOMVtn
-         GExQ5NMFUs5NuHUcI0mZVzOxdWeAe3VJPTfUT6chnbMrVm9JalMvX2XLK7JFh/odXE9U
-         bs+PyGT9c5Dy5JKDFkMqBQEX5C52Ixm1sPrQMy80mjBvJAK9mykB3MikZyIdxT8lkWMI
-         h0m3sZSPYAomdIXDWG9N7mGK+ZK9uME2dcFMhLhaISnmvWjTEWJStSU4aCiGPUmm5yXq
-         Bfnah8RgiGDfn4d8vfg4ENg//MIOAxOBM5wC25ecP1L+oEY/I5SjRH49QJfjJz5Dc2IE
-         ZyOw==
-X-Gm-Message-State: AOAM531/wacXExy4j4/PsWd8DC5gzDSO/FnmPJN/P1WEzTXHWUaRlu+o
-	AU+g7Kx9aWOHFg5N6nlJung=
-X-Google-Smtp-Source: ABdhPJyQT4WmAbLht+ZKwSrNUGDkQpbH2RJbz19lpFptAN3/eWCtxn7ECWwL1neS0Ep2CJNl9sHnLw==
-X-Received: by 2002:a25:af81:: with SMTP id g1mr1271703ybh.457.1629930472576;
-        Wed, 25 Aug 2021 15:27:52 -0700 (PDT)
+        bh=Hdhh/VUKbTohZSy3ITqziglCIXny/zZHmkzHAQ4X2Oo=;
+        b=tpTyZ0ZdliGpYuYDvtNdR955m5Qb6HOZPJTC8A9yJ0Yvms5xaBDK9wp2wNRXOZvvVF
+         eyLQf/FpS/F+nmbUt+Zxa3O+7bYJZbD6vIChDlO11pmbkMgPaUYLz5LnDO3QH2flY8ob
+         S5iOl/neJb8vHOEYO6psAsrWmh3xEyS2/afRnn/CnuRZfOU65psUU7sAUZD1INRYze6U
+         lwbZOftqkh0NsvhO6hLU4XUaeZB4MkH91kTuF86Ks2SOnWr9DJnMwR8OmChL8G3Pl0Sl
+         VnAW83u3UapWb2B3GFfU7z1n2C8kxzD4u6JwEQbCJr7HcpnAQJETNV6Bzn2hfBU6UPsS
+         ZLwg==
+X-Gm-Message-State: AOAM530zEXnl/sJ0ncEgG4ZDSjzWY8hVZP4b9O6jahr45kvOXeDfadra
+	Ml0sfVElzAlP7cK1CMwzZs8=
+X-Google-Smtp-Source: ABdhPJxfkrlv3JkjRy508F2Oj/RS048b4BpYIMHyibxU53rkIXwJS/+yalGwFO8mRGi9Ma5tS/dhag==
+X-Received: by 2002:a65:6084:: with SMTP id t4mr419222pgu.25.1629930759541;
+        Wed, 25 Aug 2021 15:32:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:2b08:: with SMTP id r8ls2051913ybr.9.gmail; Wed, 25 Aug
- 2021 15:27:52 -0700 (PDT)
-X-Received: by 2002:a25:6192:: with SMTP id v140mr1247497ybb.305.1629930472065;
-        Wed, 25 Aug 2021 15:27:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629930472; cv=none;
+Received: by 2002:a17:90b:4b12:: with SMTP id lx18ls1791585pjb.3.gmail; Wed,
+ 25 Aug 2021 15:32:39 -0700 (PDT)
+X-Received: by 2002:a17:90a:10f:: with SMTP id b15mr620986pjb.46.1629930758921;
+        Wed, 25 Aug 2021 15:32:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629930758; cv=none;
         d=google.com; s=arc-20160816;
-        b=qWaYScWwp/e0L358f2uZNY5GU4KclHBUNK+ESSyAROuN6ePqC2pBbEXBnbUpTdctt1
-         5WQ4EaAiAW+JQz4/+jhIcKU4evGA4iBMjGdzZ8ZABRcieG/ZTXh5mIrGTITjlOMa5IwU
-         tKdCtUHTz+uaGKgkxjMD5AFHJxF23jKO2CpVI1qTrfUGhXjzmSKElauV+A9R3BhbrQc0
-         kJkR0g9s6oMGiVGTRJ9yvBaxPIQD7VCf/9BIEUu4/z2lLFFRzIr3ZLlVqsy3ej2Qr9+t
-         bwapGNsMAhnnV1WQGJvT6xOksx39ow8JdCwJTxCdyibtbTQMtpjnhXwasAlhSQByidqC
-         Bq0A==
+        b=rg2hxqyi3vN1wXOZdl3b2fMxcEd/lYireDGNjLhw6NrimyKKZl1NZe5dWmaSHhMXnS
+         TLwpTB3B9Uc/43tA8j9CD+4Yh43MfcrTlEb+Al21dZJ/4pAengnkH4QBTEQrtkg1AhuR
+         8gWgyI2PRuFBglMmoVOLUOZ2iQvYEVWpIyS3U7Abd5mjbV2hiJsCbrwa9RzqhHZ/TOAz
+         OceuYxf5xfwZ9tJCI2tYojkLhe85q4xT7O5Hy4Sa2OqXc7zxHIUwhZ2s8ZkY34H4p0v9
+         wKiWCtcvgLzZJpMLOCaYzDPBYrYJJFvLekjHORRBPPw6YS5FPJ9qmkRTixfrxEW4X1y1
+         g/AA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:subject:message-id:date:from:in-reply-to:references:mime-version
          :dkim-signature;
-        bh=YQMQ3wMMz1CppTW8hHbihXL4EM3bns0Daqv2jXGZvL8=;
-        b=uZnSS+t6QcJdhMtP+RaO6RxXKVFOCFpGFWqGOgL30m9ptZNBW8XtLmXTC7Yw1sYSSi
-         +ADottD/h9U92KvohGX26tmU6YNEeoAhB6+o2uIJg2COgws0RYYURZ618cna0u8YGVv0
-         Kx6QnOWKop2kLMZYfQilS0Wyja9J6kuas0hsxEE4eLJn+gh5CApmB70dtCCMkyu6szm3
-         LlocS4Ia5s+Hk2guI4Iez1OoCEaQmE3rPGUhql2Jkwhipiae0AP8lhcHu8YuS+Imo3TV
-         E6Zn2DAJW6ujczImm8TbL1a2O/tbY3AnEW6C4qUSGaHfRQ4MUcjEp5Ikmr+J0GvrFT8y
-         G0uA==
+        bh=ptWadA4HCMeQHLRnXPnOPfNeTy4dya/p1yelvBBPdOw=;
+        b=EyO1efVLTh/H6UDTpkjvcYpxfWMhxjj47zzUQU4KhNYHcq4Ty/VFqlFrMBkXCyk96M
+         sbU51c894IHmFRIfLIv+fA7RkrPMdnQpxmIf+j+Vx9PvO5lx3J5FPgfLP9usT3o//HlN
+         ArN8B8UBnsYHxcPmJs2KrrREge21SbOVvn7kqoks3R/Ac6FBEV2GlSk/bAbEcIrHFkdp
+         JajdAiBbsjfsaIrrzpiYpgez9IwKHl+DgCuLSEIggoqGz8pdqbDricigJD37ZISsQhI4
+         +dTI/OR2SKR8yhutO7LoM0vBqoNZS0SIA8DwsXVFmkNZf533kqq17uQcxuNl7dAFWeLf
+         g8dw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=SUKEXGA8;
-       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::b2b as permitted sender) smtp.mailfrom=jiancai@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CJFSEB2a;
+       spf=pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::b30 as permitted sender) smtp.mailfrom=jiancai@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yb1-xb2b.google.com (mail-yb1-xb2b.google.com. [2607:f8b0:4864:20::b2b])
-        by gmr-mx.google.com with ESMTPS id x7si52678ybf.3.2021.08.25.15.27.52
+Received: from mail-yb1-xb30.google.com (mail-yb1-xb30.google.com. [2607:f8b0:4864:20::b30])
+        by gmr-mx.google.com with ESMTPS id m9si123000pgl.4.2021.08.25.15.32.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Aug 2021 15:27:52 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::b2b as permitted sender) client-ip=2607:f8b0:4864:20::b2b;
-Received: by mail-yb1-xb2b.google.com with SMTP id x140so2004514ybe.0
-        for <clang-built-linux@googlegroups.com>; Wed, 25 Aug 2021 15:27:52 -0700 (PDT)
-X-Received: by 2002:a25:9847:: with SMTP id k7mt1216472ybo.170.1629930471663;
- Wed, 25 Aug 2021 15:27:51 -0700 (PDT)
+        Wed, 25 Aug 2021 15:32:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::b30 as permitted sender) client-ip=2607:f8b0:4864:20::b30;
+Received: by mail-yb1-xb30.google.com with SMTP id r4so1913883ybp.4
+        for <clang-built-linux@googlegroups.com>; Wed, 25 Aug 2021 15:32:38 -0700 (PDT)
+X-Received: by 2002:a25:f20a:: with SMTP id i10mt1203544ybe.236.1629930758075;
+ Wed, 25 Aug 2021 15:32:38 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210825222514.2107728-1-jiancai@google.com>
-In-Reply-To: <20210825222514.2107728-1-jiancai@google.com>
+References: <20210825222051.2106481-1-jiancai@google.com>
+In-Reply-To: <20210825222051.2106481-1-jiancai@google.com>
 From: "'Jian Cai' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 25 Aug 2021 15:27:40 -0700
-Message-ID: <CA+SOCLLyKaEmCSrSNUKfpgPmUxcu8RyZLqZxpmw87BiO=m84Mg@mail.gmail.com>
-Subject: Re: [PATCH] coresight: syscfg: fix compiler warnings
+Date: Wed, 25 Aug 2021 15:32:27 -0700
+Message-ID: <CA+SOCLLxWxwpMO_JP2p2FfNRdrH-82mR8ZcDGmPAkRnqxeYZPg@mail.gmail.com>
+Subject: Re: [PATCH] coresight: syscfg: Add initial configfs support
 Cc: mike.leach@linaro.org, dianders@chromium.org, mka@chromium.org, 
 	Guenter Roeck <linux@roeck-us.net>, Manoj Gupta <manojgupta@google.com>, 
 	Luis Lozano <llozano@google.com>, coresight@lists.linaro.org, 
@@ -114,11 +114,11 @@ Cc: mike.leach@linaro.org, dianders@chromium.org, mka@chromium.org,
 	Leo Yan <leo.yan@linaro.org>, 
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
 	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: multipart/alternative; boundary="000000000000c782c605ca69c23e"
+Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: jiancai@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=SUKEXGA8;       spf=pass
- (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::b2b
+ header.i=@google.com header.s=20161025 header.b=CJFSEB2a;       spf=pass
+ (google.com: domain of jiancai@google.com designates 2607:f8b0:4864:20::b30
  as permitted sender) smtp.mailfrom=jiancai@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Jian Cai <jiancai@google.com>
@@ -135,23 +135,20 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---000000000000c782c605ca69c23e
-Content-Type: text/plain; charset="UTF-8"
+Please ignore this patch. The title is incorrect, I've updated and
+resented it at https://lore.kernel.org/lkml/20210825222514.2107728-1-jiancai@google.com/.
+Sorry for any inconveniences.
 
-Please ignore this patch. The title is incorrect, I've updated and resented
-it at
-https://lore.kernel.org/lkml/20210825222514.2107728-1-jiancai@google.com/.
-Sorry for any inconvenience.
+Jian
 
-On Wed, Aug 25, 2021 at 3:25 PM Jian Cai <jiancai@google.com> wrote:
 
-> This fixes warnings with -Wimplicit-function-declaration, e.g.
+
+On Wed, Aug 25, 2021 at 3:20 PM Jian Cai <jiancai@google.com> wrote:
 >
-> ^[[1m/mnt/host/source/src/third_party/kernel/v5.4/drivers/hwtracing/coresight/coresight-syscfg.c:455:15:
-> ^[[0m^[[0;1;31merror: ^[[0m^[[1mimplicit declaration of function 'kzalloc'
-> [-Werror,-Wimplicit-function-declaration]^[[0m
->         csdev_item = kzalloc(sizeof(struct cscfg_registered_csdev),
-> GFP_KERNEL);
+> This fixes build failures with -Wimplicit-function-declaration, e.g.
+>
+> ^[[1m/mnt/host/source/src/third_party/kernel/v5.4/drivers/hwtracing/coresight/coresight-syscfg.c:455:15: ^[[0m^[[0;1;31merror: ^[[0m^[[1mimplicit declaration of function 'kzalloc' [-Werror,-Wimplicit-function-declaration]^[[0m
+>         csdev_item = kzalloc(sizeof(struct cscfg_registered_csdev), GFP_KERNEL);
 > ^[[0;1;32m                     ^
 >
 > Signed-off-by: Jian Cai <jiancai@google.com>
@@ -159,8 +156,7 @@ On Wed, Aug 25, 2021 at 3:25 PM Jian Cai <jiancai@google.com> wrote:
 >  drivers/hwtracing/coresight/coresight-syscfg.c | 1 +
 >  1 file changed, 1 insertion(+)
 >
-> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c
-> b/drivers/hwtracing/coresight/coresight-syscfg.c
+> diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
 > index fc0760f55c53..43054568430f 100644
 > --- a/drivers/hwtracing/coresight/coresight-syscfg.c
 > +++ b/drivers/hwtracing/coresight/coresight-syscfg.c
@@ -175,73 +171,8 @@ On Wed, Aug 25, 2021 at 3:25 PM Jian Cai <jiancai@google.com> wrote:
 > --
 > 2.33.0.259.gc128427fd7-goog
 >
->
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BSOCLLyKaEmCSrSNUKfpgPmUxcu8RyZLqZxpmw87BiO%3Dm84Mg%40mail.gmail.com.
-
---000000000000c782c605ca69c23e
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr">Please ignore this patch. The title is incorrect, I&#39;ve=
- updated and resented it=C2=A0at=C2=A0<a href=3D"https://lore.kernel.org/lk=
-ml/20210825222514.2107728-1-jiancai@google.com/">https://lore.kernel.org/lk=
-ml/20210825222514.2107728-1-jiancai@google.com/</a>. Sorry for any inconven=
-ience.</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_=
-attr">On Wed, Aug 25, 2021 at 3:25 PM Jian Cai &lt;<a href=3D"mailto:jianca=
-i@google.com">jiancai@google.com</a>&gt; wrote:<br></div><blockquote class=
-=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rg=
-b(204,204,204);padding-left:1ex">This fixes warnings with -Wimplicit-functi=
-on-declaration, e.g.<br>
-<br>
-^[[1m/mnt/host/source/src/third_party/kernel/v5.4/drivers/hwtracing/coresig=
-ht/coresight-syscfg.c:455:15: ^[[0m^[[0;1;31merror: ^[[0m^[[1mimplicit decl=
-aration of function &#39;kzalloc&#39; [-Werror,-Wimplicit-function-declarat=
-ion]^[[0m<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 csdev_item =3D kzalloc(sizeof(struct cscfg_regi=
-stered_csdev), GFP_KERNEL);<br>
-^[[0;1;32m=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0^<br>
-<br>
-Signed-off-by: Jian Cai &lt;<a href=3D"mailto:jiancai@google.com" target=3D=
-"_blank">jiancai@google.com</a>&gt;<br>
----<br>
-=C2=A0drivers/hwtracing/coresight/coresight-syscfg.c | 1 +<br>
-=C2=A01 file changed, 1 insertion(+)<br>
-<br>
-diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtra=
-cing/coresight/coresight-syscfg.c<br>
-index fc0760f55c53..43054568430f 100644<br>
---- a/drivers/hwtracing/coresight/coresight-syscfg.c<br>
-+++ b/drivers/hwtracing/coresight/coresight-syscfg.c<br>
-@@ -5,6 +5,7 @@<br>
-=C2=A0 */<br>
-<br>
-=C2=A0#include &lt;linux/platform_device.h&gt;<br>
-+#include &lt;linux/slab.h&gt;<br>
-<br>
-=C2=A0#include &quot;coresight-config.h&quot;<br>
-=C2=A0#include &quot;coresight-etm-perf.h&quot;<br>
--- <br>
-2.33.0.259.gc128427fd7-goog<br>
-<br>
-</blockquote></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CA%2BSOCLLyKaEmCSrSNUKfpgPmUxcu8RyZLqZxpmw87Bi=
-O%3Dm84Mg%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://=
-groups.google.com/d/msgid/clang-built-linux/CA%2BSOCLLyKaEmCSrSNUKfpgPmUxcu=
-8RyZLqZxpmw87BiO%3Dm84Mg%40mail.gmail.com</a>.<br />
-
---000000000000c782c605ca69c23e--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BSOCLLxWxwpMO_JP2p2FfNRdrH-82mR8ZcDGmPAkRnqxeYZPg%40mail.gmail.com.
