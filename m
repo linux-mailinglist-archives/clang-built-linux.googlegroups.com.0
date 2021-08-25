@@ -1,134 +1,127 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBVOXS2EQMGQETTYFR3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB4W3S2EQMGQE4J7WEVQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3DEF43F6D6B
-	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 04:32:55 +0200 (CEST)
-Received: by mail-pj1-x1038.google.com with SMTP id ob1-20020a17090b390100b001793bdcc41esf273572pjb.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 19:32:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629858774; cv=pass;
+Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 371623F6D75
+	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 04:42:00 +0200 (CEST)
+Received: by mail-ot1-x337.google.com with SMTP id 65-20020a9d0ec70000b02904d36d33dcf7sf13834170otj.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Aug 2021 19:42:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629859314; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WR7oBbHWPOhuMbxOxHFcefk92sGhHfi2r+o3BvypEgVte/YlgWPnz7i3V5OQlTAv4L
-         M6GciW7qniGGopZLH20PEUfqCX8z4AnmbpHZ25zOwhvYLTzFpc/kvZFw7j2b0jTfEVL/
-         Zm+jonu4nfVEl5CSRAoOPvlfdU/cSBsQntq/4HE1O58dfaBSeGcC5miXcUBBgHPmW9BU
-         lm7wku+kVsXFlXC1irb11ETT4onTX+1MyP6aa8lmGOBtIBC2PZCA4nyAMHW68Nq4sUQt
-         HCpJDj6fwlEbAVgQiJalV7cn7ePhGvdCLyRhc1QE8C1Ts1jy3V+nfVfO8IGFUQ5XICvO
-         Wd2Q==
+        b=0V5zSlildA0iot2LdkYFiJBieNu/adLZwfkqhWKUrsxam97z8yIzEAWIhhbtEGeJpR
+         1p+568Re3e2sY0O5W0LkIbVGnldZ4hE7d1mZODBk82keOCWl0Xx7qxPxIAQ7SHGOge4t
+         ws2AAs3BlU2qKElomEoEgvWRoj7Jd6FbLt4tOzwUlCA4XCVihnwrp0+NVbIzkb5zXoNA
+         ry/DzELXabsJiDaVO60hk1LcFAvGoWZT6Vwec8LhN3Be0mcg2JsHaa7OCU7B15vqL5wz
+         jByv3x7Sr3aTVhGzEFNLOzVg3J9c/r3diseFDuHQp8cUZrS5LssAzaAtM7tOrV2tglIv
+         PxjA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=pMRh5/igqTWKZg9oK6Idg0ylcpWx8XgT0c2b/By5iIw=;
-        b=lMXn/0lGnsfTNrt6FqfjPY6WWe09YsgmI+vtv2+fiOjV6tLPKweRIEhqprFqnXWBbQ
-         yhSWVn4Khq01i63MGJUrV0S6yEEKmFt8ao9JqVDGo7l7RMbZ9MThwe5iZNKc4IUYnDDs
-         oLmlRMj+JXpklDLiIGnU+Chr1XdYmu7mNioXm0HKVn+iXNLcxreaSGF7m7x0FJ71YLSm
-         4oZusOjN6//xGdoDLgq6ABb9CLsdBVnyN2OMjRlFdpR05tvjLXhga1odU0sh8G9aTGfc
-         2VQJJtHwSeca2vt0AoF5B05ldaMw65B5eHGjx647kxI6FsaQuDCav4U/cJsjHRzxmFDC
-         Na+A==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=teAQcMctpgdK8w8tJis0bv43xeMcQ3/IX7nic7jnzQk=;
+        b=o7FjTamRdJq/iuwWGaYkM35Hf/OlwFem7b9Kl0woAJtrrjivSpoGnlX8Nr0LsLJYW8
+         AQZWXSPKyvQ/jIRb+peQdyiu4s2byoX7yqY7jRS4NkngELZnYzbZcCzs2gaHzzwysH97
+         T9+0xoRknfUVGPZ31JctNpMOCw9Z38WcE5H7amF2Xhzh1uHFaNfFwNkafQuaN6wAwAtU
+         O1wuEinyC1vi9LL1HkTV5ah6t0upQprOmGrQzcMHmvLYZGCasjZhODl5tlrnrsspVxlO
+         8GXOHtSUlUuueN+O+ZJABO5wiegsqaNoLJwcJFt1GKRXsVZKnqiHv6U90edDafLS3eG9
+         /a9Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=OHer6DSz;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=oMdAyqln;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=pMRh5/igqTWKZg9oK6Idg0ylcpWx8XgT0c2b/By5iIw=;
-        b=XXZctfhgWh0M61a8IFXP5xzcb9oUNPO/vZtiedtgMOMSijhM5GlnLzW9J6aN4NG66m
-         iBOIwVzUAVX64Y5Qy6k5zFzVNaB3/a8qqDYGRmeLeaRZWZIDnFPhtEoLcX8/jCO87x67
-         r4bttZXbOEHdDDnjfj8GtUYN9ShyKtvF3L/7i0D6GuEdIjlIbB1gdAN11pR1/Daf6q4t
-         DBTm3GOpYC+yFo+n3P6qH0sS6TAIy9fnT+gW1U0PCz8oTgRXz4GM0Rb5EKGJlCSESazB
-         ZwhqSApeLiWxunc5JX35h9uF+NKYHI3LPWl0KhB50cuGK3jIcFNMvAOTbvnyh3r5Rvh5
-         INlA==
+        bh=teAQcMctpgdK8w8tJis0bv43xeMcQ3/IX7nic7jnzQk=;
+        b=ZTQ5vEoosC1Lr+a2Hnfh1l/pHpu3Mr6+9OexQ5kr82sBB5PlserhvFCmjxxtuglKhI
+         WBx6XUMZYCYeqW+EYX2UGiyRFLLbRJy/8i9EnsTCZDM4JDVdOQ8Rk8pxu5cLNKkYwM/L
+         nkblv4Wkei/0dDQC7m33vp2bpTf/9zErSKlXkEe2Zwro8IRX+Jo2XlxBVzpy40fWpFez
+         VaapOwTVIxlQ/7rp3GLSauXGVuAk5yEBL1H2edAFSTal7d36CwMF997DHNC2sLFDHDpK
+         QGXG6N1WocINzSQM6wcq+hOEZ3nUwyGQe1XWzjQGLZa7hgKcKTwapW+4bVaIrEmOv8p1
+         gKFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=pMRh5/igqTWKZg9oK6Idg0ylcpWx8XgT0c2b/By5iIw=;
-        b=Dmk8W/nO4LbN4BpbJthSSVDg4Hu2Anhv+QgpmH3eM8HIP0zaLHdNoydwseU1oL0cXL
-         IUq4/JBAEWKL5cwogP0sphomGkrWr65Cz6UMLDqvl+IFwjKfVgMC8BInzF2Ab2d85tjw
-         H59cyeMiH6bYZJPatnRrsP3pQHuJfcdSISxVvRHDMMB5EUtVRZ4/9ZFGZm9WhDtEC50w
-         enOag0u1uwYnowQB7sKkC6zl9PYmjpDHO4AkYxvSwgiMsi8k2qnyEue27dW3mvZTGxry
-         +GDgGs8r+Ktv1t9OvkeM94+3Zrh60Mx2wHW7JDUsz90oTog8I9ZecYyfjORxu6DJ5p6o
-         6KnQ==
+        bh=teAQcMctpgdK8w8tJis0bv43xeMcQ3/IX7nic7jnzQk=;
+        b=VPpAgLWQVdgImeTJZLbF9xtoEK2ofpIxT/lzZWCjkEgui1E1k41QBHJu2X5YHNko8K
+         h09zmQtII5LVyONbRhOYj7asTows+91QBucz+dcQnX8rG2IM0iiReQoBIvHESOZ2ObrJ
+         vYCaVsgzLAZH1c05qoESanBqXeMKJ7Y6Xgb4XtJ8JphTHVZiOFqbExfCOXm9rXObFi8n
+         vZcyZGAMTLZmfu6Uwtf1QV24Wfxith5yJNCUHneMyqQvGW+PtaxHSNQaVqpF0cBkybRc
+         copkys05ZSJBV5uKyxYZU6pSYU8E05WSOVYhrQLrFFEA7MEzIqEIaxa94+P3Z8XnjP7n
+         FndQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532sLt7cG5oTasxEWk/cYWClTsOdrt8XVjkeWWsoKi9JR4AlPptU
-	Em4hSQejI2Ix2huqEDFrgnw=
-X-Google-Smtp-Source: ABdhPJzGGdYV1AL1l/QvhTmVs5O6fAuY96OGxR4k1xPMHujHbCN5DOajpr4nLcGVZ4imv7s0J10uJQ==
-X-Received: by 2002:a17:90a:1282:: with SMTP id g2mr8015588pja.230.1629858773865;
-        Tue, 24 Aug 2021 19:32:53 -0700 (PDT)
+X-Gm-Message-State: AOAM530fXMI4+G4xr5uuwdyqMlWI2lMrL/fM0hq1tYBz39kwjD8TO3+E
+	2T43OFSTB2nUR0fbwLY51HI=
+X-Google-Smtp-Source: ABdhPJy/Bf/8w5TVliPY6umT/M3rQBsMeIT8HjUgCiCSEZfVdrDVuENz1tzDucLag9SJu5YJ4vX0rQ==
+X-Received: by 2002:aca:c490:: with SMTP id u138mr5290475oif.150.1629859314133;
+        Tue, 24 Aug 2021 19:41:54 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:d2c9:: with SMTP id n9ls419799plc.0.gmail; Tue, 24
- Aug 2021 19:32:53 -0700 (PDT)
-X-Received: by 2002:a17:90a:5d01:: with SMTP id s1mr7644427pji.5.1629858773304;
-        Tue, 24 Aug 2021 19:32:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629858773; cv=none;
+Received: by 2002:a05:6808:2186:: with SMTP id be6ls181100oib.8.gmail; Tue, 24
+ Aug 2021 19:41:53 -0700 (PDT)
+X-Received: by 2002:aca:3b85:: with SMTP id i127mr5054787oia.28.1629859313746;
+        Tue, 24 Aug 2021 19:41:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629859313; cv=none;
         d=google.com; s=arc-20160816;
-        b=xYutI+SSduhmIw94xHz8zLjhXTAU82qNwNOFGas2kmRHfUYPYbo49ouTq/kPIdgK9m
-         9LYILl+iXND9sr5iXVxuUqKvRu9qd8CKddCAU/7vXWmt4Baw+jZll2AaHvGxaRAamP8d
-         uzRLql0cdsb6Ts4SmVK4u6uHXibXrn9A2vpbEpf5EF3QNsReZdOCleMkXot6rweX0Hjf
-         laGom86sYaQKnORB5DhuVQ2lU7YjpUaTVPURn+WEkt0gmME6F+lbLOUthHKArSNdNUVa
-         zuH22gKlXYEjOZm9H1jYgTp7ubzBnF7eybQGAy6SCikIzRSTv6RExtuRK4gZYMsmmMWk
-         855A==
+        b=vVwiA3d9yOvwrCUUr9F7T7uR/vsLoSeepYZq1alpG41TwF2N9/m055bvksHzt8SML0
+         7mJQBpeNSuuQElwoksMflVMKlhAAIq9+gulXtlFSBA8VklJfux+N7wEE4P/qb7U3CiGG
+         3yMqIbXUN8+rKKINCKQXdeOZsbWEwcKOQZVgAlSaOKvEa34xPz4zNODsxizRgnq4GeAE
+         aZYV7RVhL8V46AotqTMskMxMQdndPIXLJX+YB0H8k4oF0hl1jJOMnjlnNoro+mM64geO
+         oiwJDtKjAKyBQvQMdb9cVhxfwQZV7HvbuLZX17Va33L1Dn+zUQE+p/WEK3y1t2UmSojc
+         pC1g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=eDJmVvgenVuiIv2JEnx8MK1MJtgJ4Z9SkKmag4UFJOE=;
-        b=HoQ0JNYHUDWe0NYJ++VGagswZ0YvWCasXTgSGGFJnhfrhekxOecJ9hZ98v+dHEr6MS
-         svnwXXWOwQXmHerDC8niHzxx17HlNxNI/xPkoCi5ErsVuU//g4pJArLbAy21R8FlPaE6
-         HhnDvOMGsuAWJSumuhaUcDxWboYgXv3KS2OibUH/1MAVldX9wJONUBNxSRfH7r3XUdyV
-         Yp8pzQxF+NmUZDVyOWtcfZ2wmsPuOQ7xwHdBmxsc7vY2VVUWDrY1+y6RVqcf5rAjghg7
-         vgofy9qgdrAESEL0Lm+A4Z/bC1RoBmNQm+dQZsG4qXlenzHG9snETQ0SjQiAl8hs6548
-         grJA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=v43goMbu8zMvyzwswwR1EwBVVfk6lvWC5SzYB6oAyCI=;
+        b=zHokD1xlf+9h8rV/dGauKljvRdbe++KjDe6InY0f1vQD7T0yqC+AuAteR0EEZVD3QE
+         an5GZJqr3NTrzL4iKHWrONpmQ+quP3s+nXWTPz1xPrAinV9BEfwOHzwFVevrscFuM6a5
+         22Abx2d6K04xj6xi0XPIq+nLEbKfu4Gv1W4QsheJY97FcIsXi7Aiy1C65aRLkKzhIsVj
+         g3b74P8/iuvDYSx47fPsRfZ8FbnkniN8LD5YKUwhS6EbS1ynrnB2Al/px0ns0OgwEqLU
+         X5ChBIKP72/x3Tp2xtHTLCc1mynOWOGrC29jrIUthspIy2qhuw5bWLWOOKUbc2MlSj0k
+         JZXA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=OHer6DSz;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x102b.google.com (mail-pj1-x102b.google.com. [2607:f8b0:4864:20::102b])
-        by gmr-mx.google.com with ESMTPS id g3si268752pjs.2.2021.08.24.19.32.53
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=oMdAyqln;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id bf14si216435oib.0.2021.08.24.19.41.53
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Aug 2021 19:32:53 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b as permitted sender) client-ip=2607:f8b0:4864:20::102b;
-Received: by mail-pj1-x102b.google.com with SMTP id n13-20020a17090a4e0d00b0017946980d8dso3117746pjh.5
-        for <clang-built-linux@googlegroups.com>; Tue, 24 Aug 2021 19:32:53 -0700 (PDT)
-X-Received: by 2002:a17:902:a604:b029:12c:dda2:30c4 with SMTP id u4-20020a170902a604b029012cdda230c4mr35345108plq.73.1629858772979;
-        Tue, 24 Aug 2021 19:32:52 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id e13sm20544264pfi.210.2021.08.24.19.32.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Aug 2021 19:32:52 -0700 (PDT)
-Date: Tue, 24 Aug 2021 19:32:51 -0700
-From: Kees Cook <keescook@chromium.org>
-To: David Gow <davidgow@google.com>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Daniel Micay <danielmicay@gmail.com>,
-	Francis Laniel <laniel_francis@privacyrequired.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	clang-built-linux@googlegroups.com, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH for-next 21/25] lib: Introduce CONFIG_TEST_MEMCPY
-Message-ID: <202108241921.26866A8F@keescook>
-References: <20210822075122.864511-1-keescook@chromium.org>
- <20210822075122.864511-22-keescook@chromium.org>
- <CABVgOSn=fmUctW_xexDyS_c4G3ee4vGvuJLaanRDQbzQkfAOBQ@mail.gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 24 Aug 2021 19:41:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 8C8A261178;
+	Wed, 25 Aug 2021 02:41:52 +0000 (UTC)
+Subject: Re: [linux-next:master 8858/10077] fs/statfs.c:131:3: warning:
+ 'memcpy' will always overflow; destination buffer has size 64, but size
+ argument is 84
+To: Kees Cook <keescook@chromium.org>, kernel test robot <lkp@intel.com>
+Cc: clang-built-linux@googlegroups.com, kbuild-all@lists.01.org,
+ Linux Memory Management List <linux-mm@kvack.org>
+References: <202108250548.HB9OXC36-lkp@intel.com>
+ <202108241916.7EFB8D5E1C@keescook>
+From: Nathan Chancellor <nathan@kernel.org>
+Message-ID: <2751fd54-f28e-6318-2fc1-3fa5d4a98b2d@kernel.org>
+Date: Tue, 24 Aug 2021 19:41:50 -0700
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CABVgOSn=fmUctW_xexDyS_c4G3ee4vGvuJLaanRDQbzQkfAOBQ@mail.gmail.com>
-X-Original-Sender: keescook@chromium.org
+In-Reply-To: <202108241916.7EFB8D5E1C@keescook>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=OHer6DSz;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@kernel.org header.s=k20201202 header.b=oMdAyqln;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,384 +134,111 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Aug 24, 2021 at 03:00:19PM +0800, David Gow wrote:
-> On Sun, Aug 22, 2021 at 3:56 PM Kees Cook <keescook@chromium.org> wrote:
-> >
-> > Before changing anything about memcpy(), memmove(), and memset(), add
-> > run-time tests to check basic behaviors for any regressions.
-> >
-> > Signed-off-by: Kees Cook <keescook@chromium.org>
-> > ---
+On 8/24/2021 7:17 PM, Kees Cook wrote:
+> On Wed, Aug 25, 2021 at 05:59:01AM +0800, kernel test robot wrote:
+>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+>> head:   372b2891c15acbf7b90d948b08ac174bde77102c
+>> commit: 185e297653a7e0431db813764d2efb9ffd09160c [8858/10077] fortify: Explicitly disable Clang support
+>> config: i386-randconfig-a016-20210824 (attached as .config)
+>> compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project d26000e4cc2bc65e207a84fa26cb6e374d60aa12)
+>> reproduce (this is a W=1 build):
+>>          wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>          chmod +x ~/bin/make.cross
+>>          # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=185e297653a7e0431db813764d2efb9ffd09160c
+>>          git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+>>          git fetch --no-tags linux-next master
+>>          git checkout 185e297653a7e0431db813764d2efb9ffd09160c
+>>          # save the attached .config to linux build tree
+>>          COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=i386
+>>
+>> If you fix the issue, kindly add following tag as appropriate
+>> Reported-by: kernel test robot <lkp@intel.com>
+>>
+>> All warnings (new ones prefixed by >>):
+>>
+>>     clang-14: warning: optimization flag '-falign-jumps=0' is not supported [-Wignored-optimization-argument]
+>>     In file included from fs/statfs.c:2:
+>>     In file included from include/linux/syscalls.h:76:
+>>     In file included from include/uapi/linux/aio_abi.h:31:
+>>     In file included from include/linux/fs.h:6:
+>>     In file included from include/linux/wait_bit.h:8:
+>>     In file included from include/linux/wait.h:9:
+>>     In file included from include/linux/spinlock.h:51:
+>>     In file included from include/linux/preempt.h:78:
+>>     In file included from arch/x86/include/asm/preempt.h:7:
+>>     In file included from include/linux/thread_info.h:60:
+>>     arch/x86/include/asm/thread_info.h:172:13: warning: calling '__builtin_frame_address' with a nonzero argument is unsafe [-Wframe-address]
+>>             oldframe = __builtin_frame_address(1);
+>>                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+>>     arch/x86/include/asm/thread_info.h:174:11: warning: calling '__builtin_frame_address' with a nonzero argument is unsafe [-Wframe-address]
+>>                     frame = __builtin_frame_address(2);
+>>                             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+>>     In file included from fs/statfs.c:2:
+>>     In file included from include/linux/syscalls.h:87:
+>>     In file included from include/trace/syscall.h:7:
+>>     In file included from include/linux/trace_events.h:10:
+>>     In file included from include/linux/perf_event.h:49:
+>>     In file included from include/linux/ftrace.h:22:
+>>     arch/x86/include/asm/ftrace.h:7:3: error: Compiler does not support fentry?
+>>     # error Compiler does not support fentry?
+>>       ^
+
+I think that this error is why there is a fortify warning below (no idea 
+how) but applying my patch [1] which came out of [2] fixes this error 
+and I do not see any warning in this file with that config.
+
+[1]: https://lore.kernel.org/r/20210824022640.2170859-1-nathan@kernel.org
+[2]: https://lore.kernel.org/r/YSQE2f5teuvKLkON@Ryzen-9-3900X.localdomain/
+
+Cheers,
+Nathan
+
+>>     In file included from fs/statfs.c:2:
+>>     In file included from include/linux/syscalls.h:87:
+>>     In file included from include/trace/syscall.h:7:
+>>     In file included from include/linux/trace_events.h:10:
+>>     In file included from include/linux/perf_event.h:49:
+>>     include/linux/ftrace.h:843:9: warning: calling '__builtin_return_address' with a nonzero argument is unsafe [-Wframe-address]
+>>             addr = CALLER_ADDR1;
+>>                    ^~~~~~~~~~~~
+>>     include/linux/ftrace.h:830:38: note: expanded from macro 'CALLER_ADDR1'
+>>     #define CALLER_ADDR1 ((unsigned long)ftrace_return_address(1))
+>>                                          ^~~~~~~~~~~~~~~~~~~~~~~~
+>>     include/linux/ftrace.h:823:36: note: expanded from macro 'ftrace_return_address'
+>>     #  define ftrace_return_address(n) __builtin_return_address(n)
+>>                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>     include/linux/ftrace.h:846:9: warning: calling '__builtin_return_address' with a nonzero argument is unsafe [-Wframe-address]
+>>             return CALLER_ADDR2;
+>>                    ^~~~~~~~~~~~
+>>     include/linux/ftrace.h:831:38: note: expanded from macro 'CALLER_ADDR2'
+>>     #define CALLER_ADDR2 ((unsigned long)ftrace_return_address(2))
+>>                                          ^~~~~~~~~~~~~~~~~~~~~~~~
+>>     include/linux/ftrace.h:823:36: note: expanded from macro 'ftrace_return_address'
+>>     #  define ftrace_return_address(n) __builtin_return_address(n)
+>>                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>> fs/statfs.c:131:3: warning: 'memcpy' will always overflow; destination buffer has size 64, but size argument is 84 [-Wfortify-source]
+>>                     memcpy(&buf, st, sizeof(*st));
+>>                     ^
+>>     arch/x86/include/asm/string_32.h:182:25: note: expanded from macro 'memcpy'
+>>     #define memcpy(t, f, n) __builtin_memcpy(t, f, n)
+>>                             ^
+>>     5 warnings and 1 error generated.
+>>
+>>
+>> vim +/memcpy +131 fs/statfs.c
+>>
+>> c8b91accfa1059 Al Viro 2011-03-12  125
+>> c8b91accfa1059 Al Viro 2011-03-12  126  static int do_statfs_native(struct kstatfs *st, struct statfs __user *p)
+>> c8b91accfa1059 Al Viro 2011-03-12  127  {
+>> c8b91accfa1059 Al Viro 2011-03-12  128  	struct statfs buf;
+>> 7ed1ee6118ae77 Al Viro 2010-03-23  129
+>> c8b91accfa1059 Al Viro 2011-03-12  130  	if (sizeof(buf) == sizeof(*st))
+>> c8b91accfa1059 Al Viro 2011-03-12 @131  		memcpy(&buf, st, sizeof(*st));
 > 
-> Thanks for adding a KUnit test here: it's great to have better
-> coverage of some of these basic functions!
+> Wat. Statement above this makes that assertion impossible.
 > 
-> There's a name mismatch with the Kconfig entry and the Makefile,
-> otherwise this looks good and works fine on my machine (under both UML
-> and qemu/x86_64).
-
-Hah! Whoops. Thanks for noticing this -- I think I didn't use a clean
-tree and never noticed because I had the old module.
-
-> It would be possible to split these tests up further if you wanted,
-> which could be useful if there's a desire to track the individual
-> assertion results independently. That's probably what I'd've done, but
-> It's a matter of personal preference either way, though: the tests
-> aren't absurdly huge or over-complicated as-is.
-
-Noted. Yeah, for me, I think it's "does memcpy work or not?" and each of
-the EXPECTs are required, so it felt like 1 test with lots of EXPECTs.
-
-> > +FORTIFY_SOURCE
-> > +M:     Kees Cook <keescook@chomium.org>
-> > +L:     linux-hardening@vger.kernel.org
-> > +S:     Supported
-> > +F:     include/linux/fortify-string.h
-> > +F:     lib/test_fortify/*
-> > +F:     scripts/test_fortify.sh
-> > +K:     \b__NO_FORTIFY\b
-> > +
-> 
-> Do you want this to be part of the memcpy() KUnit test commit, or is
-> it better suited in one of the changes to the actual fortify stuff?
-
-Whoops, thanks. This got --fixup'ed into the wrong patch. I've moved it
-now.
-
-> >  FPGA DFL DRIVERS
-> >  M:     Wu Hao <hao.wu@intel.com>
-> >  R:     Tom Rix <trix@redhat.com>
-> > diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-> > index 831212722924..9199be57ba2a 100644
-> > --- a/lib/Kconfig.debug
-> > +++ b/lib/Kconfig.debug
-> > @@ -2467,6 +2467,17 @@ config RATIONAL_KUNIT_TEST
-> >
-> >           If unsure, say N.
-> >
-> > +config MEMCPY_KUNIT_TEST
-> > +       tristate "Test memcpy(), memmove(), and memset() functions at runtime" if !KUNIT_ALL_TESTS
-> > +       depends on KUNIT
-> > +       default KUNIT_ALL_TESTS
-> > +       help
-> > +         Builds unit tests for memcpy(), memmove(), and memset() functions.
-> > +         For more information on KUnit and unit tests in general please refer
-> > +         to the KUnit documentation in Documentation/dev-tools/kunit/.
-> > +
-> > +         If unsure, say N.
-> > +
-> >  config TEST_UDELAY
-> >         tristate "udelay test driver"
-> >         help
-> > diff --git a/lib/Makefile b/lib/Makefile
-> > index bd17c2bf43e1..8a4c8bdb38a2 100644
-> > --- a/lib/Makefile
-> > +++ b/lib/Makefile
-> > @@ -77,6 +77,7 @@ obj-$(CONFIG_TEST_MIN_HEAP) += test_min_heap.o
-> >  obj-$(CONFIG_TEST_LKM) += test_module.o
-> >  obj-$(CONFIG_TEST_VMALLOC) += test_vmalloc.o
-> >  obj-$(CONFIG_TEST_OVERFLOW) += test_overflow.o
-> > +obj-$(CONFIG_TEST_MEMCPY) += test_memcpy.o
-> 
-> This doesn't match CONFIG_MEMCPY_KUNIT_TEST above, so the test is
-> never compiled in.
-
-Now fixed to be CONFIG_MEMCPY_KUNIT_TEST.
-
-> 
-> >  obj-$(CONFIG_TEST_RHASHTABLE) += test_rhashtable.o
-> >  obj-$(CONFIG_TEST_SORT) += test_sort.o
-> >  obj-$(CONFIG_TEST_USER_COPY) += test_user_copy.o
-> > diff --git a/lib/test_memcpy.c b/lib/test_memcpy.c
-> > new file mode 100644
-> > index 000000000000..ec546cec883e
-> > --- /dev/null
-> > +++ b/lib/test_memcpy.c
-> > @@ -0,0 +1,265 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Test cases for memcpy(), memmove(), and memset().
-> > + */
-> > +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
-> > +
-> > +#include <kunit/test.h>
-> > +#include <linux/device.h>
-> > +#include <linux/init.h>
-> > +#include <linux/kernel.h>
-> > +#include <linux/mm.h>
-> > +#include <linux/module.h>
-> > +#include <linux/overflow.h>
-> > +#include <linux/slab.h>
-> > +#include <linux/types.h>
-> > +#include <linux/vmalloc.h>
-> > +
-> > +struct some_bytes {
-> > +       union {
-> > +               u8 data[32];
-> > +               struct {
-> > +                       u32 one;
-> > +                       u16 two;
-> > +                       u8  three;
-> > +                       /* 1 byte hole */
-> > +                       u32 four[4];
-> > +               };
-> > +       };
-> > +};
-> > +
-> > +#define check(instance, v) do {        \
-> > +       int i;  \
-> > +       BUILD_BUG_ON(sizeof(instance.data) != 32);      \
-> > +       for (i = 0; i < sizeof(instance.data); i++) {   \
-> > +               KUNIT_ASSERT_EQ_MSG(test, instance.data[i], v, \
-> > +                       "line %d: '%s' not initialized to 0x%02x @ %d (saw 0x%02x)\n", \
-> > +                       __LINE__, #instance, v, i, instance.data[i]);   \
-> > +       }       \
-> > +} while (0)
-> > +
-> > +#define compare(name, one, two) do { \
-> > +       int i; \
-> > +       BUILD_BUG_ON(sizeof(one) != sizeof(two)); \
-> > +       for (i = 0; i < sizeof(one); i++) {     \
-> > +               KUNIT_EXPECT_EQ_MSG(test, one.data[i], two.data[i], \
-> > +                       "line %d: %s.data[%d] (0x%02x) != %s.data[%d] (0x%02x)\n", \
-> > +                       __LINE__, #one, i, one.data[i], #two, i, two.data[i]); \
-> > +       }       \
-> > +       kunit_info(test, "ok: " TEST_OP "() " name "\n");       \
-> > +} while (0)
-> > +
-> > +static void memcpy_test(struct kunit *test)
-> > +{
-> > +#define TEST_OP "memcpy"
-> > +       struct some_bytes control = {
-> > +               .data = { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-> > +                         0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-> > +                         0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-> > +                         0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-> > +                       },
-> > +       };
-> > +       struct some_bytes zero = { };
-> > +       struct some_bytes middle = {
-> > +               .data = { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-> > +                         0x20, 0x20, 0x20, 0x20, 0x00, 0x00, 0x00, 0x00,
-> > +                         0x00, 0x00, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20,
-> > +                         0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-> > +                       },
-> > +       };
-> > +       struct some_bytes three = {
-> > +               .data = { 0x00, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-> > +                         0x20, 0x00, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20,
-> > +                         0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-> > +                         0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-> > +                       },
-> > +       };
-> > +       struct some_bytes dest = { };
-> > +       int count;
-> > +       u8 *ptr;
-> > +
-> > +       /* Verify static initializers. */
-> > +       check(control, 0x20);
-> > +       check(zero, 0);
-> > +       compare("static initializers", dest, zero);
-> > +
-> > +       /* Verify assignment. */
-> > +       dest = control;
-> > +       compare("direct assignment", dest, control);
-> > +
-> > +       /* Verify complete overwrite. */
-> > +       memcpy(dest.data, zero.data, sizeof(dest.data));
-> > +       compare("complete overwrite", dest, zero);
-> > +
-> > +       /* Verify middle overwrite. */
-> > +       dest = control;
-> > +       memcpy(dest.data + 12, zero.data, 7);
-> > +       compare("middle overwrite", dest, middle);
-> > +
-> > +       /* Verify argument side-effects aren't repeated. */
-> > +       dest = control;
-> > +       ptr = dest.data;
-> > +       count = 1;
-> > +       memcpy(ptr++, zero.data, count++);
-> > +       ptr += 8;
-> > +       memcpy(ptr++, zero.data, count++);
-> > +       compare("argument side-effects", dest, three);
-> > +#undef TEST_OP
-> > +}
-> > +
-> > +static void memmove_test(struct kunit *test)
-> > +{
-> > +#define TEST_OP "memmove"
-> > +       struct some_bytes control = {
-> > +               .data = { 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                         0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                         0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                         0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                       },
-> > +       };
-> > +       struct some_bytes zero = { };
-> > +       struct some_bytes middle = {
-> > +               .data = { 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                         0x99, 0x99, 0x99, 0x99, 0x00, 0x00, 0x00, 0x00,
-> > +                         0x00, 0x00, 0x00, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                         0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                       },
-> > +       };
-> > +       struct some_bytes five = {
-> > +               .data = { 0x00, 0x00, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                         0x99, 0x99, 0x00, 0x00, 0x00, 0x99, 0x99, 0x99,
-> > +                         0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                         0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                       },
-> > +       };
-> > +       struct some_bytes overlap = {
-> > +               .data = { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
-> > +                         0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
-> > +                         0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                         0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                       },
-> > +       };
-> > +       struct some_bytes overlap_expected = {
-> > +               .data = { 0x00, 0x01, 0x00, 0x01, 0x02, 0x03, 0x04, 0x07,
-> > +                         0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F,
-> > +                         0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                         0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99, 0x99,
-> > +                       },
-> > +       };
-> > +       struct some_bytes dest = { };
-> > +       int count;
-> > +       u8 *ptr;
-> > +
-> > +       /* Verify static initializers. */
-> > +       check(control, 0x99);
-> > +       check(zero, 0);
-> > +       compare("static initializers", zero, dest);
-> > +
-> > +       /* Verify assignment. */
-> > +       dest = control;
-> > +       compare("direct assignment", dest, control);
-> > +
-> > +       /* Verify complete overwrite. */
-> > +       memmove(dest.data, zero.data, sizeof(dest.data));
-> > +       compare("complete overwrite", dest, zero);
-> > +
-> > +       /* Verify middle overwrite. */
-> > +       dest = control;
-> > +       memmove(dest.data + 12, zero.data, 7);
-> > +       compare("middle overwrite", dest, middle);
-> > +
-> > +       /* Verify argument side-effects aren't repeated. */
-> > +       dest = control;
-> > +       ptr = dest.data;
-> > +       count = 2;
-> > +       memmove(ptr++, zero.data, count++);
-> > +       ptr += 9;
-> > +       memmove(ptr++, zero.data, count++);
-> > +       compare("argument side-effects", dest, five);
-> > +
-> > +       /* Verify overlapping overwrite is correct. */
-> > +       ptr = &overlap.data[2];
-> > +       memmove(ptr, overlap.data, 5);
-> > +       compare("overlapping write", overlap, overlap_expected);
-> > +#undef TEST_OP
-> > +}
-> > +
-> > +static void memset_test(struct kunit *test)
-> > +{
-> > +#define TEST_OP "memset"
-> > +       struct some_bytes control = {
-> > +               .data = { 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-> > +                         0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-> > +                         0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-> > +                         0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-> > +                       },
-> > +       };
-> > +       struct some_bytes complete = {
-> > +               .data = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-> > +                         0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-> > +                         0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-> > +                         0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
-> > +                       },
-> > +       };
-> > +       struct some_bytes middle = {
-> > +               .data = { 0x30, 0x30, 0x30, 0x30, 0x31, 0x31, 0x31, 0x31,
-> > +                         0x31, 0x31, 0x31, 0x31, 0x31, 0x31, 0x31, 0x31,
-> > +                         0x31, 0x31, 0x31, 0x31, 0x30, 0x30, 0x30, 0x30,
-> > +                         0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-> > +                       },
-> > +       };
-> > +       struct some_bytes three = {
-> > +               .data = { 0x60, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-> > +                         0x30, 0x61, 0x61, 0x30, 0x30, 0x30, 0x30, 0x30,
-> > +                         0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-> > +                         0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30,
-> > +                       },
-> > +       };
-> > +       struct some_bytes dest = { };
-> > +       int count, value;
-> > +       u8 *ptr;
-> > +
-> > +       /* Verify static initializers. */
-> > +       check(control, 0x30);
-> > +       check(dest, 0);
-> > +
-> > +       /* Verify assignment. */
-> > +       dest = control;
-> > +       compare("direct assignment", dest, control);
-> > +
-> > +       /* Verify complete overwrite. */
-> > +       memset(dest.data, 0xff, sizeof(dest.data));
-> > +       compare("complete overwrite", dest, complete);
-> > +
-> > +       /* Verify middle overwrite. */
-> > +       dest = control;
-> > +       memset(dest.data + 4, 0x31, 16);
-> > +       compare("middle overwrite", dest, middle);
-> > +
-> > +       /* Verify argument side-effects aren't repeated. */
-> > +       dest = control;
-> > +       ptr = dest.data;
-> > +       value = 0x60;
-> > +       count = 1;
-> > +       memset(ptr++, value++, count++);
-> > +       ptr += 8;
-> > +       memset(ptr++, value++, count++);
-> > +       compare("argument side-effects", dest, three);
-> > +#undef TEST_OP
-> > +}
-> > +
-> > +static struct kunit_case memcpy_test_cases[] = {
-> > +       KUNIT_CASE(memset_test),
-> > +       KUNIT_CASE(memcpy_test),
-> > +       KUNIT_CASE(memmove_test),
-> > +       {}
-> > +};
-> > +
-> > +static struct kunit_suite memcpy_test_suite = {
-> > +       .name = "memcpy-test",
-> 
-> It may be better to just name the suite "memcpy", since -- by
-> definition -- it's a test if it's a KUnit test suite.
-
-Sounds good. I will adjust this.
-
-> 
-> > +       .test_cases = memcpy_test_cases,
-> > +};
-> > +
-> > +kunit_test_suite(memcpy_test_suite);
-> > +
-> > +MODULE_LICENSE("GPL");
-> > --
-> > 2.30.2
-> >
-
-Thanks!
-
--Kees
-
--- 
-Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108241921.26866A8F%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/2751fd54-f28e-6318-2fc1-3fa5d4a98b2d%40kernel.org.
