@@ -1,145 +1,127 @@
-Return-Path: <clang-built-linux+bncBDLKPY4HVQKBBGHNTSEQMGQEXYMRA4I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCU4TIPXUUFRBDPZTSEQMGQE7HJDJOY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7FC9E3F8288
-	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Aug 2021 08:37:12 +0200 (CEST)
-Received: by mail-wr1-x440.google.com with SMTP id d12-20020a056000186cb02901548bff164dsf484618wri.18
-        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Aug 2021 23:37:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1629959832; cv=pass;
+Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8D8213F82D3
+	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Aug 2021 09:02:38 +0200 (CEST)
+Received: by mail-pf1-x43a.google.com with SMTP id g17-20020aa781910000b0290360a5312e3esf1066246pfi.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 26 Aug 2021 00:02:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1629961357; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ngo5FVqb3GZGuYetQCt38caLIsumkxeGkvfb9mCDYp0CpVgtlWIFsyiI5I6v/YX5vU
-         9H/haVKfA/nub1dV8N2nChoRjd+dnX84NXC1YWNGaUZDcd8ocSSCQ5jUbOcs7hqf23iZ
-         ZABnSJl7juoFWnCRXDU2VEXjt8cnsiZgpLEUf6jdVfldzyOSQwTG4/26nrk7G5R799rD
-         5Q9YKds8uSjGwmoCDimT4O9zbiizXjO3JjYcumEXiXkn/UEV2XiL08ImpGkHSEoc10Tr
-         XCHPczRa2ExlA940Di9TkYvdqhEOAztKDDzsSnY46Q9R6minhrsvnXMQQILXK9SlGffo
-         r9pA==
+        b=T5LN80vyypzih1btHgVNRu7Nw/cwZFhCDDqMOLaHg7nQtmsIStH4w2YNEWyQFh7TjA
+         BzUhWAIwg1LtFQ7i0MW3m6sAun8WPs6s7kWanMQuJP+lU9Pdo/4xOf25X3FStPYTrnFh
+         y6964owjTgE5j6/DtG6yOYhyttFNtJuSpivgTEoIyI01uDQNdZYC6xJNnhWel92NPRnm
+         BYCTXe8mu2wAp0YsRGtKawIQsoZFnYSHgF6Z5l7QDi84h1BkKXjs9KB3gNIG75K5Yqy+
+         bhrsgQDXbOLUMskWiIQBSZcKibjvAwzKv0SL7x999P4a9VhMX/yuVFgM0kZ92sGkraUE
+         LmkA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :content-language:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature;
-        bh=j+voteZoFMvQkP2vBg8IRZavNgh56DTOW7IjlI27/uc=;
-        b=nA6eKFNh4eqrjG48aF0+gJDE9XGUu2LfezU7JLnjvDP2mN1vUr1x3cilTwGa6J3Fvc
-         ywZADGbUH621foTsU9/8LiqmVi7gT5Iu9B2crZHltXIF3heFQzXgRoZmR08a3efG1376
-         g4lxGSiYCIz/nYY9duWrSL4VEk6VUBTB2xxM2U8tTGHJKJsq59YWpo0JttXxYW7FnOid
-         9wS+8kwKqeBgxDck/RQqKzakRXk7nEOqtkUwnMGBh2KUdXHRH7e3lKJ8ECFKXHx81pZr
-         5AUvfJ+PeS4owi4XbPSxfzvHiFHhDCbkHrcYQup/anwCJe79pX5H5Hw4dGu1w/9JaMjo
-         mBPA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=FOc0bFfPrRm7JeLSe5IfvYoLrGOvhG6tTXOde4SMM4s=;
+        b=K68G1nc90NK9zUDQV6nScmNKWBn7eGVZLQUftyz3fQGeHo5zKrieZzqmaQlmRBmfnY
+         Fs1Ho99adB1oKwtMwPd4+Lmr+uvWpaA2EW+i9NSeMy0fkW0CYYteWUk6wMuBrzB0Kp7f
+         1g73bjYyWdhPxG51OylZjzsbj9Pw8Iz+xYiEGH8k1/aJyY3135Bcd6d9/9toQN2PU7SO
+         UewKlH7OC5YHZ9rhuXIeII0aygkGPliQXvxLZQ1/003Wz6jVx+Q6TTSukhuZLCBhgkLN
+         Byjxn89t3jWehmdfYep1qRSIIdSPHWlDqTkS/I5V4lJIriUz3c26UW0pFoS1fU+CPwlQ
+         Mhlg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Boj0nZqw;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=j+voteZoFMvQkP2vBg8IRZavNgh56DTOW7IjlI27/uc=;
-        b=FYDGWOfgK+qhEsbrFqt0+GzjZKQk6RIJIjjpZb8qA7h8mVddtVvqu8hYT8w4qrZLOu
-         nIPhTxEoa3/uMc7OIeD3W/9dJJueswOj1Ect+emwoIsSC9qfljcTduvCnAQ8jktX6xsI
-         bS0/uTKMMDwZ7zPy8emocg1KFkWLegvX5qW6ddIN4/YNesUm8lHu4bmYcezihYUjPsnI
-         wBE3xg9qjEu8zB4tLKoKwQdxZBaryVnkwhj185houxHfG+A4xTyNkIj+cId71otiPZjO
-         yKKJQL20VZb9qsTkzIgQ782QsO2HPVvHYMQU11h0nXFkvVaku/KgbYJF3NHTIEHqXHJR
-         LXYg==
+        bh=FOc0bFfPrRm7JeLSe5IfvYoLrGOvhG6tTXOde4SMM4s=;
+        b=AKBBGcfDK4Co2oDqT4MGdGm8u53FAgc9IVl8JP7GCNjc6uv79/HERR7DOu9ZqNt5HQ
+         X1ejPFG2NC20NHjvOq6r8TkgU0X79FXcep2JDNlSw3DsKZbXdN0IpmZnbpC9SWjb6xm1
+         HSwPmdJUP26xZ0SdCzFMJgP1fLYZlN0tvUkfBF05/6o3LexByhoJUP3HIYHcO2uBQIeX
+         2jy2QJbiq1UQ+Bho0rEPRbhfWOowA01FCu+sluMH3xQ582v1V333PQoxRrQjwaK3Gkau
+         vEtmddmDQJr/kEiyBmsx8E+ybaM9MbOjk29kSsmQ+2GbP7+nU8zJ0ppI/QT5EnT7zlxx
+         HYRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :content-transfer-encoding:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=j+voteZoFMvQkP2vBg8IRZavNgh56DTOW7IjlI27/uc=;
-        b=iMh2oczh+7zPwfxRVus4Ef1M+kofMQbQfIfoHEi4OwOHzcXNdyTFnY7+SV32SHOgdD
-         x/bUonIk6OldMn/N2a8HQK6fOSq/v8kMV7R6CLwZfeVdLx/e3BqdvFbSoLk6zLYHxaIY
-         2uiMSz3EG5ZxheYemuCca8tH7odFadG8/Z7aroNbknj0vFrrFCzg2jD1QW3zEm0iBQei
-         x1lCOr5f1Qpbwemm+qjvMJCNfJkPX8WnJLxVu33I9zVjmsQ1vMo4et9fOxxyoiNpjoGs
-         FWonD7OzyDtd4+RXbdiVYl/rpThKB6UWrPqPhJgizwrtP1u/jYib2su+ToO2YIdQ2gOU
-         0aww==
+        bh=FOc0bFfPrRm7JeLSe5IfvYoLrGOvhG6tTXOde4SMM4s=;
+        b=jgvnCJRw6q4JmCkiQPr9zoSA5yU+GvJmGozVyOe9wrPS3mqlX5YbRUR6Y2iKQKLdq6
+         jWGfsad4fOOtX/q1EZUCHqc4+xxCIlgNTYvWFsJz6OruLt6GigEnOs9XjkEfoIzekjrZ
+         0coLeenRVHxA5o+8tcGt6h4cgZoltSKoiRqUkRxKrl1oVTzA/7yYJart0nsBX4+OeZkW
+         Ua6PgvBlgAglM/GmEWaWdAecoWK+7E5Sd3KHtMdmCYv2WPhb/0pcgIWuIH6DlgSDIzd+
+         /9GE3OVKtlP6S6RbUG8wyAI1oC0mpzeqReMoPJNa2WnFKSYKo6EMXJyNll9hbXgavS1B
+         WAsg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532SbQDRSs5cKmWaM4LDNkeULj2ZGr+exbRqrJLRdPixtpOT5q79
-	JsLTLHnKxqmFrvZ3z4rzaec=
-X-Google-Smtp-Source: ABdhPJxQGgKiGCZ2vzenFDqRUx/6pZHIZ8M2QPLJwSuhOKWD77ms5S/QkBOKpHK73nSUEs88jch95A==
-X-Received: by 2002:a1c:7702:: with SMTP id t2mr6401677wmi.121.1629959832267;
-        Wed, 25 Aug 2021 23:37:12 -0700 (PDT)
+X-Gm-Message-State: AOAM531ZgEMsFZmW6wLscyg3oqOMG08DI/c+NmOI6idcXgOae4ajAS8T
+	WKqaJ4FyB8lVQfseKdkoiec=
+X-Google-Smtp-Source: ABdhPJzExlrdn/LIsyAA4fXqDf5Kby+KE7lxeSER4ce9YesN0ptv9pRGkfHsU5Chdfv51ev3IZG0gw==
+X-Received: by 2002:a17:90a:1991:: with SMTP id 17mr6356482pji.149.1629961357142;
+        Thu, 26 Aug 2021 00:02:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:a50c:: with SMTP id i12ls477887wrb.0.gmail; Wed, 25 Aug
- 2021 23:37:11 -0700 (PDT)
-X-Received: by 2002:adf:d081:: with SMTP id y1mr1974050wrh.148.1629959831387;
-        Wed, 25 Aug 2021 23:37:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1629959831; cv=none;
+Received: by 2002:a17:90a:4f81:: with SMTP id q1ls2441990pjh.1.gmail; Thu, 26
+ Aug 2021 00:02:36 -0700 (PDT)
+X-Received: by 2002:a17:90b:240e:: with SMTP id nr14mr2639553pjb.170.1629961356462;
+        Thu, 26 Aug 2021 00:02:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1629961356; cv=none;
         d=google.com; s=arc-20160816;
-        b=y7ku5yaxSgvLfOao7NUs5up7uhXbQFfQ2/0UkzKGWZ/AWm3WwXKrFT/QMzxTQC7nLG
-         mQ+/SIkIGAwFntnwEANAvFzD+dbiujxAV23b8AWKxNUkoH8pAuZ0dWQuyT7HJ5L4fMVt
-         PQvt6dmC4OsO4urp/vXybSWXxAjltsRwBSPpfXplt6GImk4t4iJwJ1LY0Xs0DAOEXk6h
-         kOjBN5eNsI91a2ulbSL8RzA9E2UhSmA85ilBBPGIHvPT1yQqNuvqmHQoS3Tnz3ATLAkz
-         cFoiOQNc05q1aLBrOhnDqbigSam1xP+MELUYxKtpfLkfda7SfnpLMyZLJKVtpPo15E9V
-         QhCQ==
+        b=zvUSLuv3AIE4JpeYIAtrYnTguTwy9wOYn2Hwbj8Xr7M7GkVbzi1PHLLn4kh4ow0yqX
+         uF8y7LvkK8z8xyti95OtbKljqC3TgBM2xjx+FRxIhlVUfeW7jBpIueTsyjKn/Dk+MMLi
+         BWwZHRhgLuhXVp7JkRhzCMyfdMN1x0AxEGoMMPc0l07rQhwjySCqvEIlVyXQwVnsQ/8Q
+         yN7SfZdi6oEFlBPdfaFz7jA16l5GbUcm1BJ0vemhvYFQVvzEOyMybG0LMGvRJG35DPMe
+         fNkDjCEVOzNF6EKx/gM9lccAdDyvUIs/S+k0xnfyf9/Py49p6Gbw4dN6yRMGAazOtLdk
+         Iimg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=6rNCGQqrnXTehv4h0hux8CJxlcrKhTN3DSfTUQqRF6g=;
-        b=WJ8rMRCe8hMDrw+jKqX+CGjrD5+lVQRpDmk7Gq+stup4D1OSnhwSpn5PmGDntoHobq
-         DcA6ALuqhYut/1p/S3XEV6aeTksBO0QijKsMagOGmSJHCX1J+khiA3fL0iFnwkigqgCC
-         5OwnlLsu2Y9QzISo2TheZqJU09dmap/L5SBOi1LGob1DrOnlKhyGNBdaL1HaFKeJ4wtO
-         i27YzANlSDp5wRvbE0SKWsvTQ5NRv6PGYoW3K21c+sJNriC21xvMty/L4TjdcdIjuVDx
-         4q9fowdh2datklIa8ULbOPLvC+pmkHqbABmybYoIVygAc3hUXT8j6vHP6g5OyN/9FlDN
-         /3IA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=KFymdzLg49y8Vb08mDluN7sO+jRvwqlylmuJJ1iR9jU=;
+        b=bd7YqT7Gl3uKj4Px1Lz74uEt5UwYa/H4elkjwL10wRCneCXdzxYeo67dI6/6lTTfaD
+         2do/ge2pIP2h2BZTIhsucyhi6mHqMUq752nK2wct/i9JSoqF0pLmOSJc9tbIKsodseYg
+         6MgCYzM/r5hht71/FCZfPg/11sGNX+RVIOSBba+HnyD0cNvtYpnY2WWQ/WtyvQfIQw+8
+         ivZM7z2Ve9EUOPeY/TdQQfRrS1+pyUV9hF/pRW2npkMleiWaOQ1FsNdHiR3//2q/veZa
+         hD9d7SyA297ctr/wUwN5tdhCnw8mTiL7BLbTS0fEJHJ59yJv12qYzfaWSaD6xEkb8hNC
+         +4kw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
-Received: from pegase2.c-s.fr (pegase2.c-s.fr. [93.17.235.10])
-        by gmr-mx.google.com with ESMTPS id i4si125342wrc.3.2021.08.25.23.37.11
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Boj0nZqw;
+       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id e1si541084pjs.3.2021.08.26.00.02.36
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Aug 2021 23:37:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as permitted sender) client-ip=93.17.235.10;
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4GwCnM01ljz9sVt;
-	Thu, 26 Aug 2021 08:37:11 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id QY9Ef38fe3qr; Thu, 26 Aug 2021 08:37:10 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4GwCnL67z6z9sVc;
-	Thu, 26 Aug 2021 08:37:10 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id B3E068B881;
-	Thu, 26 Aug 2021 08:37:10 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id 574dur1TrPVG; Thu, 26 Aug 2021 08:37:10 +0200 (CEST)
-Received: from [192.168.4.90] (unknown [192.168.4.90])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 43D718B877;
-	Thu, 26 Aug 2021 08:37:10 +0200 (CEST)
-Subject: Re: [PATCH v2 2/2] powerpc/bug: Provide better flexibility to
- WARN_ON/__WARN_FLAGS() with asm goto
-To: Michael Ellerman <mpe@ellerman.id.au>,
- Nathan Chancellor <nathan@kernel.org>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, clang-built-linux@googlegroups.com,
- llvm@lists.linux.dev
-References: <b286e07fb771a664b631cd07a40b09c06f26e64b.1618331881.git.christophe.leroy@csgroup.eu>
- <389962b1b702e3c78d169e59bcfac56282889173.1618331882.git.christophe.leroy@csgroup.eu>
- <YSa1O4fcX1nNKqN/@Ryzen-9-3900X.localdomain>
- <87h7fcc2m4.fsf@mpe.ellerman.id.au>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Message-ID: <3fad8702-278a-d9f9-1882-6958ce570bcc@csgroup.eu>
-Date: Thu, 26 Aug 2021 08:37:09 +0200
-User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.13.0
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 26 Aug 2021 00:02:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 328BE610CE
+	for <clang-built-linux@googlegroups.com>; Thu, 26 Aug 2021 07:02:36 +0000 (UTC)
+Received: by mail-ot1-f43.google.com with SMTP id c19-20020a9d6153000000b0051829acbfc7so2232392otk.9
+        for <clang-built-linux@googlegroups.com>; Thu, 26 Aug 2021 00:02:36 -0700 (PDT)
+X-Received: by 2002:a05:6830:124b:: with SMTP id s11mr1945378otp.90.1629961355206;
+ Thu, 26 Aug 2021 00:02:35 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <87h7fcc2m4.fsf@mpe.ellerman.id.au>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: fr
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: christophe.leroy@csgroup.eu
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of christophe.leroy@csgroup.eu designates 93.17.235.10 as
- permitted sender) smtp.mailfrom=christophe.leroy@csgroup.eu
+References: <202108141331.fMjjWaW2-lkp@intel.com> <CAMuHMdXUpk_dLhvcdgs1H6yLPrwXFJz_86dfXpm8PYxNq+DXrQ@mail.gmail.com>
+ <CAKwvOd=HkZPN-0k=QYGx6y4q1ig7=8dQY3d_OU10Qp0N__tZcA@mail.gmail.com>
+In-Reply-To: <CAKwvOd=HkZPN-0k=QYGx6y4q1ig7=8dQY3d_OU10Qp0N__tZcA@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 26 Aug 2021 09:02:24 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXHOC+REy57zXeWzz3P032bD_GvO6JHn=SSWuCXLc0rasA@mail.gmail.com>
+Message-ID: <CAMj1kXHOC+REy57zXeWzz3P032bD_GvO6JHn=SSWuCXLc0rasA@mail.gmail.com>
+Subject: Re: arch/arm/boot/compressed/fdt_check_mem_start.c:62:10: warning: no
+ previous prototype for function 'fdt_check_mem_start'
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, kernel test robot <lkp@intel.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild-all@lists.01.org, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Russell King <rmk+kernel@armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ardb@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=k20201202 header.b=Boj0nZqw;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,71 +134,108 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Wed, 25 Aug 2021 at 19:41, Nick Desaulniers <ndesaulniers@google.com> wrote:
+>
+> On Sat, Aug 21, 2021 at 1:46 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> >
+> > Dear Robot,
+> >
+> > On Sat, Aug 14, 2021 at 7:43 AM kernel test robot <lkp@intel.com> wrote:
+> > > FYI, the error/warning still remains.
+> >
+> > Yes, and that's fine, as this function is never called from C code,
+> > only from assembler.
+>
+> That's fine, then you can add a prototype to the .c source file.  See
+> what we do for stpcpy: 1e1b6d63d6340.
+>
 
+We should use 'asmlinkage' for this - we should add it to the
+definition of this function, and we should teach the tooling that
+'asmlinkage' functions don't need a prototype.
 
-Le 26/08/2021 =C3=A0 05:21, Michael Ellerman a =C3=A9crit=C2=A0:
-> Nathan Chancellor <nathan@kernel.org> writes:
->> On Tue, Apr 13, 2021 at 04:38:10PM +0000, Christophe Leroy wrote:
->>> Using asm goto in __WARN_FLAGS() and WARN_ON() allows more
->>> flexibility to GCC.
-> ...
->>
->> This patch as commit 1e688dd2a3d6 ("powerpc/bug: Provide better
->> flexibility to WARN_ON/__WARN_FLAGS() with asm goto") cause a WARN_ON in
->> klist_add_tail to trigger over and over on boot when compiling with
->> clang:
+> >
+> > > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> > > head:   dfa377c35d70c31139b1274ec49f87d380996c42
+> > > commit: 0673cb38951215060d7993b43ad3c45cd413c2c3 ARM: 9045/1: uncompress: Validate start of physical memory against passed DTB
+> > > date:   6 months ago
+> > > config: arm-randconfig-r003-20210814 (attached as .config)
+> > > compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project 62df4df41c939205b2dc0a2a3bfb75b8c1ed74fa)
+> > > reproduce (this is a W=1 build):
+> > >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> > >         chmod +x ~/bin/make.cross
+> > >         # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0673cb38951215060d7993b43ad3c45cd413c2c3
+> > >         git remote add linus https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+> > >         git fetch --no-tags linus master
+> > >         git checkout 0673cb38951215060d7993b43ad3c45cd413c2c3
+> > >         # save the attached .config to linux build tree
+> > >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross ARCH=arm
+> > >
+> > > If you fix the issue, kindly add following tag as appropriate
+> > > Reported-by: kernel test robot <lkp@intel.com>
+> > >
+> > > All warnings (new ones prefixed by >>):
+> > >
+> > > >> arch/arm/boot/compressed/fdt_check_mem_start.c:62:10: warning: no previous prototype for function 'fdt_check_mem_start' [-Wmissing-prototypes]
+> > >    uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
+> > >             ^
+> > >    arch/arm/boot/compressed/fdt_check_mem_start.c:62:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+> > >    uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
+> > >    ^
+> > >    static
+> > >    1 warning generated.
+> > >
+> > >
+> > > vim +/fdt_check_mem_start +62 arch/arm/boot/compressed/fdt_check_mem_start.c
+> > >
+> > >     46
+> > >     47  /*
+> > >     48   * Check the start of physical memory
+> > >     49   *
+> > >     50   * Traditionally, the start address of physical memory is obtained by masking
+> > >     51   * the program counter.  However, this does require that this address is a
+> > >     52   * multiple of 128 MiB, precluding booting Linux on platforms where this
+> > >     53   * requirement is not fulfilled.
+> > >     54   * Hence validate the calculated address against the memory information in the
+> > >     55   * DTB, and, if out-of-range, replace it by the real start address.
+> > >     56   * To preserve backwards compatibility (systems reserving a block of memory
+> > >     57   * at the start of physical memory, kdump, ...), the traditional method is
+> > >     58   * always used if it yields a valid address.
+> > >     59   *
+> > >     60   * Return value: start address of physical memory to use
+> > >     61   */
+> > >   > 62  uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt)
+> > >
+> > > ---
+> > > 0-DAY CI Kernel Test Service, Intel Corporation
+> > > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> >
+> >
+> >
+> > --
+> > Gr{oetje,eeting}s,
+> >
+> >                         Geert
+> >
+> > --
+> > Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> >
+> > In personal conversations with technical people, I call myself a hacker. But
+> > when I'm talking to journalists I just say "programmer" or something like that.
+> >                                 -- Linus Torvalds
+> >
+> > --
+> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMuHMdXUpk_dLhvcdgs1H6yLPrwXFJz_86dfXpm8PYxNq%2BDXrQ%40mail.gmail.com.
+>
+>
+>
+> --
+> Thanks,
+> ~Nick Desaulniers
 
-...
-
->=20
-> This patch seems to fix it. Not sure if that's just papering over it thou=
-gh.
->=20
-> diff --git a/arch/powerpc/include/asm/bug.h b/arch/powerpc/include/asm/bu=
-g.h
-> index 1ee0f22313ee..75fcb4370d96 100644
-> --- a/arch/powerpc/include/asm/bug.h
-> +++ b/arch/powerpc/include/asm/bug.h
-> @@ -119,7 +119,7 @@ __label_warn_on:						\
->   								\
->   			WARN_ENTRY(PPC_TLNEI " %4, 0",		\
->   				   BUGFLAG_WARNING | BUGFLAG_TAINT(TAINT_WARN),	\
-> -				   __label_warn_on, "r" (x));	\
-> +				   __label_warn_on, "r" (!!(x))); \
->   			break;					\
->   __label_warn_on:						\
->   			__ret_warn_on =3D true;			\
->=20
->=20
-
-But for a simple WARN_ON() call:
-
-void test(unsigned long b)
-{
-	WARN_ON(b);
-}
-
-Without your change with GCC you get:
-
-00000000000012d0 <.test>:
-     12d0:	0b 03 00 00 	tdnei   r3,0
-     12d4:	4e 80 00 20 	blr
-
-
-With the !! change you get:
-
-00000000000012d0 <.test>:
-     12d0:	31 23 ff ff 	addic   r9,r3,-1
-     12d4:	7d 29 19 10 	subfe   r9,r9,r3
-     12d8:	0b 09 00 00 	tdnei   r9,0
-     12dc:	4e 80 00 20 	blr
-
-Christophe
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/3fad8702-278a-d9f9-1882-6958ce570bcc%40csgroup.eu.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXHOC%2BREy57zXeWzz3P032bD_GvO6JHn%3DSSWuCXLc0rasA%40mail.gmail.com.
