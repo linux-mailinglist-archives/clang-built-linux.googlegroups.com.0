@@ -1,141 +1,166 @@
-Return-Path: <clang-built-linux+bncBAABBTFGUSEQMGQE67WBS4A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NAOB24NBBPVYUSEQMGQET6QFDAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53a.google.com (mail-ed1-x53a.google.com [IPv6:2a00:1450:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 51A473F9C78
-	for <lists+clang-built-linux@lfdr.de>; Fri, 27 Aug 2021 18:31:09 +0200 (CEST)
-Received: by mail-ed1-x53a.google.com with SMTP id g4-20020a056402180400b003c2e8da869bsf3497355edy.13
-        for <lists+clang-built-linux@lfdr.de>; Fri, 27 Aug 2021 09:31:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630081869; cv=pass;
+Received: from mail-wm1-x33a.google.com (mail-wm1-x33a.google.com [IPv6:2a00:1450:4864:20::33a])
+	by mail.lfdr.de (Postfix) with ESMTPS id E13123F9D47
+	for <lists+clang-built-linux@lfdr.de>; Fri, 27 Aug 2021 19:09:18 +0200 (CEST)
+Received: by mail-wm1-x33a.google.com with SMTP id f19-20020a1c1f13000000b002e6bd83c344sf1934730wmf.3
+        for <lists+clang-built-linux@lfdr.de>; Fri, 27 Aug 2021 10:09:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630084158; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AklENnOMYH63gl/M+KgxUsj2quP5vX6YTGBXSjNLXlMi4oH5H7qD3Xj2tq8hWgSIq9
-         8GUai7zhQYAupG0gvQHJKixpkHyN/XOOKD+sxwqqE15zEC0WdkxuPvIzETYdRuIjag01
-         sQqYdPDxBtLWvtSOsJOLqkEDWX7a5Eh73vo1/t4QI0talc6khPQshHeD5yObbKUY91MF
-         4wlMt751NjYO5Svbbj+qxsy2KXzWf9dlvUnalo7w7TPp7PT+ksTN3dP/hgei7NY6braB
-         U3LGSXDAorYQrUaiZXKmMW9zmrS5NUyhTIT232ns7cI4RIT3ZrVDw9kBHn4Pii1U32hf
-         5ADA==
+        b=mkn+8rnwGjLMEpH29VrDq3YjAzU+mfd82bl870pjFjA0T6fLuJjBpAltYi/5B4jNMK
+         df0c8k23q7gxFy/g+oeFA8lcPEXkpRcsJNy+Gj5hH3lsbntVtXN9CPj6dLTzlPtxrwk+
+         t+gnDuk3ir2Y0QGGn+SrHYyUQbmGECYP728caGAbibcuva2FoKf0T0lKOPfR5KL7A0Rh
+         mGo0Ue6jrzGMZzHmx+/eknYX0ow/fIDsTkK/UsJdRL72HRDRVW4HKtaxc+JH4DQznWPK
+         CvZALgx4ahU7B7HmzixZKJN2U57WaZSmjlKEVhPRmRXLLk9+7VlCH362OjRWtVhoc2tX
+         e9tw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:mime-version
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:dkim-signature;
-        bh=OonIs3j9RC32WMqDhMd8U4JzqrZI/t/esGTJ6Uma5Ak=;
-        b=y0CJ8gn8iXFuAmt4OY/jLA2yjIa3NTEoV/BuTPtqvH4wNvv+4R3jW0yQWUW6QLvJsL
-         vRna5G8iqXLqqdfRrcjLetfn28bDpwt8nfYVej8F6JQ/YxuuFJlL9gYuCsb0U3+qj0zs
-         Rn8twqwyHWmQPi1rpI0088f49Bu/dxiUzYSi0ELYSXKA6SklHa3xL9IwfKF1Z+jN6pSG
-         kLjkupIJvRSLG/kLOIOPixbmFkbdWxGGthGQTsgfOfK0o4pjbbKURMzXNNKuHmfLNr/S
-         Sg/mOZ3+yCBftJjoh/2DbX7LEMSRDl98+aHg9KyuLU8ofXc/MUICNxxrd8WhMw0M+M50
-         nPSw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=mpFBVtYi3cdEkX2Z7MaOJ8m9/jb5Vhj6PgKOYY/YZuc=;
+        b=mVfXDfqY95xm+s01PngWpXLUG7aIezXnQI1PRUcYO9L5ugo/C7D98L9UIvEr8zoQPq
+         XOUfPx3cqIurcQj2zFa+qeWW51CObQwo87VYUsnEQK9Rr06Zh2G2qaqfS0llDJy2rROM
+         AJtkBtLDKtzw2t2YMb8RMAJgCmq9Tn6IAX0KyFoo5pZTEOScDCWH2klNxTjWC7fOLl7X
+         nsut+z3g900fq+Xv5MlV7OKuhWacRkpqS4bmt4bCb/WAPGW0/LEMwqjfMn8tfv1W3MFH
+         +//zddsj3XF4TpA6gwKGuHb6d/PWs4cEhiiqjcdKKVR5piiBNOW0VOiUoDsVN0++rULz
+         Snfg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@paragon-software.com header.s=mail header.b=ch6SmnIk;
-       spf=pass (google.com: domain of almaz.alexandrovich@paragon-software.com designates 81.5.88.159 as permitted sender) smtp.mailfrom=almaz.alexandrovich@paragon-software.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=paragon-software.com
+       spf=pass (google.com: domain of mkl@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) smtp.mailfrom=mkl@pengutronix.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language
-         :mime-version:x-original-sender:x-original-authentication-results
-         :reply-to:precedence:mailing-list:list-id:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=OonIs3j9RC32WMqDhMd8U4JzqrZI/t/esGTJ6Uma5Ak=;
-        b=NT8mV3VoMeWv27fBNNnjXvTWIwAowNt8v3N26oi51gcjtSBCp13mEULXG60ubT625Z
-         GR/tiLjsmOm8KYHZNBJxo96DA7mdnE+OKjcliAG24+KPSHQZe0Bg3DbmwbMFX46YvnWh
-         gEqPKExWhStt0CnnoqTM+f0us7MDu73eVsjxZPWHWqeW/AjePFcXSmnD0vigAAQWEbtE
-         TdUlNtyjHOi0/2pkJ4CcXITEpLj12f9t/94ntCVFbYhQI57OaSrbzFio3LhEZSKTtd9r
-         Y6oE0yXFRJu+1BpsDS794K8BOLmsnYiCSeNY4b1lIx61efEIhPwOavTrlOeQ0USDyPb6
-         baFg==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=mpFBVtYi3cdEkX2Z7MaOJ8m9/jb5Vhj6PgKOYY/YZuc=;
+        b=mRLz/cCV267G5BwUNLStA2HaOLO2twrd8qRlc15Mnr9Fpz1m3hRVPl8+PIJACwsYR4
+         RFEaGS//TxMexVbEG17e2a/Ay7weiujbxfQSp201+S5gYd84evPnRkYGatpifCg6FiVn
+         5N+OjIgv5B+iZZWbCXaO4z0DuvoUCVhSGtxN8Sa+g12/ArRPe+OubctZv8ZyWGEocuSm
+         6YgNXgJ9DFe1ikT/cIqdTyvzWVrOVGDUaQOyhDVN/LTrQOryG2Dc9XY2tRnjd9WODx2J
+         1OAyaZ2lVzlhdDEpofwlsaEQMMtO3jYok/YodRHjT5cSiXlM2NqhjOffr+hwk78PLDJX
+         Hx3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:from:to:cc:subject:thread-topic:thread-index
-         :date:message-id:references:in-reply-to:accept-language
-         :content-language:mime-version:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=OonIs3j9RC32WMqDhMd8U4JzqrZI/t/esGTJ6Uma5Ak=;
-        b=RGVtTbCJtzNWExwBZBsG99cx07bRRzKYxB5fpeGhBHueCGTr39NZ3IIEmJNy6bExpe
-         3tSqB7Ej2pxZG5TccKMMCfrC8oSYiBR+vrSNEK2IJzhRPDagmPZf55g8AsHpq/gbLf49
-         TSNQIEnuGp0UzYQ4NuC8/Kbj0NI2/owTpjqU8koYggl7IYK8UHmkd1igMj/yhkhErv+y
-         xdXeFpczty2SYC0rqC8zwk7GLZcSmO8axJupFupCAJxLLs31hmTQSiyLTlnGtRrGEZi2
-         Txzv8BDYmqfiQLjkifq2/9qYF2kvKn0ecVkIgDZ6/XL89lDFGhgajMb2yASs43EWK5wW
-         EcOg==
-X-Gm-Message-State: AOAM5339kBXNRxFFVwzEy+1ExRXBIzR25f9PN8jB7sAJmrmB3qVI/jNm
-	kz5ySGHBQkE6gguXorpCmgg=
-X-Google-Smtp-Source: ABdhPJx6tISLzfxCnQU0bamvzR+VVtHY6HiMmW91ShgRhTWF9hHStIoKiSJGZ9GSgTSGJjZjGj4Gkg==
-X-Received: by 2002:a05:6402:b47:: with SMTP id bx7mr10719463edb.319.1630081869104;
-        Fri, 27 Aug 2021 09:31:09 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=mpFBVtYi3cdEkX2Z7MaOJ8m9/jb5Vhj6PgKOYY/YZuc=;
+        b=RYjXoKGfUyjwYNqTKbhjP/+mMCM6OcDfHDSO2F7VX3lohArzPXXqbU2/gHJAY/OSDB
+         XhENpABZeIX6wAdLNr7xrwMdOuy/HsjRusJ1vz6V58S0FAQyFdX5l1OzxrCPOunuYy0c
+         beGmuTLOBY7EpRE68R6PKwrcgN+1SPnxrNWTaKU597kv9Jr1Rqs88qaENGX8i6SnQZeD
+         /GT54Jiie1h+SUiOVLd+4CGZejkFCe4xRwrUu/fKdCZlY/cRdsYfB7+/5R38q+G1g58x
+         BomDHPQBK2VDczbpSMvyglWB9VimBN092a9RMJc5587rX+sIRTkGA9GzdV3klwvfXh86
+         qnDg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM531cKXFY/HgacA7BIpSxHOsfCVW7l78a0HHYIQ/py3kQdU9smg/K
+	89gkTTGQ3xQZEBKzxht5YQA=
+X-Google-Smtp-Source: ABdhPJzlpCHXzvRfQer4reQotHQTRmGR6aOeL/egC5skATntCA5uC9iIHQuXcXBoIc6q4NJdXaQnfw==
+X-Received: by 2002:a05:600c:22d3:: with SMTP id 19mr9927475wmg.36.1630084158645;
+        Fri, 27 Aug 2021 10:09:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:c944:: with SMTP id h4ls659882edt.1.gmail; Fri, 27 Aug
- 2021 09:31:08 -0700 (PDT)
-X-Received: by 2002:aa7:dace:: with SMTP id x14mr10557506eds.169.1630081868291;
-        Fri, 27 Aug 2021 09:31:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630081868; cv=none;
+Received: by 2002:a1c:988b:: with SMTP id a133ls4729496wme.3.gmail; Fri, 27
+ Aug 2021 10:09:17 -0700 (PDT)
+X-Received: by 2002:a1c:29c3:: with SMTP id p186mr9897437wmp.22.1630084157756;
+        Fri, 27 Aug 2021 10:09:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630084157; cv=none;
         d=google.com; s=arc-20160816;
-        b=PplEwj6QUiicNRGV7G3fupENMmz6wKOypi108Co++qPPocCBiYzRcTgU4I8vSu8faZ
-         wY+fWn+UaidVBVlB1QBxZSGwhfh9Hhy0AG7qxAMCuhOgyQE2FMb34YPy011na3gx0ism
-         VlYTHrZAcG+eharkTX8s6vIf9MdajQ0W1iuBJf24Fr/JyqSt1Z+jAXV/WUR1sVTRhA3E
-         97vg5bB7D+gVMKFWh7ARRF0iUdRF7p4RObY9fizrUDnQZ8BW1rNPeQAVya+HpjD05kxF
-         uZXtr6R/E7PlxPBQ6QLjWZa71iOMHLxyipAeaXEmt+9uYdCseHI8zJv0/9c4Ss0Y6yuk
-         nbYQ==
+        b=iyS6gooOIsC1qPkptsNJoMmuAt50p+z3esd4ShMfyFUWhDicpfz0gHJFdemYNLDxnn
+         vlFH/rFcXwBusptfzEilLz3pk2hYWOtmEbyzPoQhhib4Kr9ksUM2bcj8qUP380/LzvRJ
+         wXr/GVJrMhKmKEUpdtmqjfKR9fM/0xLjgRfWxrhYjpMvUNtyS4cdN+c0QGeWRQX4iavc
+         0Y13CJEFdZzQXKIM9oC4f9Xj7w/rlAqjV27AQbmkggKpm+Hamdu5lLJlpTaNYKd7RmDG
+         KhCehuu65jASr/CmYzClwjrLOfyM9e9S1CaNcn5bYy3XywpbZpriAO4bkQp+uK1sjxGC
+         iAnw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:dkim-signature;
-        bh=mTPrU7Xby7bdyA5QoWyXxTNUqhVFSY/ggcdmXWm3lTw=;
-        b=SA2YRJ+Q8kZz4PrgPB+srNIKmZ5YS4M+YGlSZFdSt2JT7m7MCCwXuN6IOfp42vPMym
-         zfTFU87YV/LsyEZUTIYqRH1kmLVZbzmibd93VanGql8w3Yy5ZFWBv21guI4bp7tBcYrS
-         NGxpJJhcY0my8GBMgKVL8MrUdDRIe3MMI0S9d8rvTZKlZH6Hbut1DnlQNEQEA9ejjo/x
-         JZa7kIJW0UvH/w4nkdeS+8wVLQxCj8D60U2kdRyNrOG+zYf3EZVOjTeyjIyYz2nbIKfD
-         oeUXM2Oolu4ADkAXSft1rD2OoGdFYJ7ssSpaw7/X7beGN1do5BM6XfpWBlQ8AhFbnxhv
-         5DXg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=v0aM+h9yUmtF3WfK30nlRXtzeR59sFOcjSclsF5J6jo=;
+        b=aUOUQW1n+2CT4OE2nblmIEs262YbEG/41/F4fw68dWkIoymKeMmYGxtuMAxWviDBNA
+         u3Mb7IFx6xUJjdCn0Os4Y1nTrqJW7TnWRUuyKX5CSajGiRFodsJ5N6VPT5CFWAThA2VW
+         o0aWh/essx1zxLCOE1p+/p9Xy4QtxR7sDoofarv6QKweGQ6SR+NVjKokdTN0xPUlrv9S
+         Aks3gQHrwD2ZTngtRE2czp4UvJ0wUBrMBitz0lbzOaPzqUDXw+u9dJDbOZKc3domRCL2
+         PajbHvBR/IY5pTiSPcyXDl41Cvn5UdW0olWeT9Oet59GckGfLDirM/FUSbZNMm3WnbhS
+         cxMQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@paragon-software.com header.s=mail header.b=ch6SmnIk;
-       spf=pass (google.com: domain of almaz.alexandrovich@paragon-software.com designates 81.5.88.159 as permitted sender) smtp.mailfrom=almaz.alexandrovich@paragon-software.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=paragon-software.com
-Received: from relaydlg-01.paragon-software.com (relaydlg-01.paragon-software.com. [81.5.88.159])
-        by gmr-mx.google.com with ESMTPS id e20si86611eds.4.2021.08.27.09.31.08
+       spf=pass (google.com: domain of mkl@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) smtp.mailfrom=mkl@pengutronix.de
+Received: from metis.ext.pengutronix.de (metis.ext.pengutronix.de. [2001:67c:670:201:290:27ff:fe1d:cc33])
+        by gmr-mx.google.com with ESMTPS id a1si407594wrp.1.2021.08.27.10.09.17
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 27 Aug 2021 09:31:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of almaz.alexandrovich@paragon-software.com designates 81.5.88.159 as permitted sender) client-ip=81.5.88.159;
-Received: from dlg2.mail.paragon-software.com (vdlg-exch-02.paragon-software.com [172.30.1.105])
-	by relaydlg-01.paragon-software.com (Postfix) with ESMTPS id 91A0E821CB;
-	Fri, 27 Aug 2021 19:31:07 +0300 (MSK)
-Received: from vdlg-exch-02.paragon-software.com (172.30.1.105) by
- vdlg-exch-02.paragon-software.com (172.30.1.105) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Fri, 27 Aug 2021 19:31:07 +0300
-Received: from vdlg-exch-02.paragon-software.com ([fe80::586:6d72:3fe5:bd9b])
- by vdlg-exch-02.paragon-software.com ([fe80::586:6d72:3fe5:bd9b%12]) with
- mapi id 15.01.2176.009; Fri, 27 Aug 2021 19:31:07 +0300
-From: "'Konstantin Komarov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
-CC: "nathan@kernel.org" <nathan@kernel.org>, "ndesaulniers@google.com"
-	<ndesaulniers@google.com>, "ntfs3@lists.linux.dev" <ntfs3@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
-Subject: RE: [PATCH] fs/ntfs3: Remove unused including <linux/version.h>
-Thread-Topic: [PATCH] fs/ntfs3: Remove unused including <linux/version.h>
-Thread-Index: AQHXlNOYiBEK8ENRz0Won74AeeEXEauHl8Bg
-Date: Fri, 27 Aug 2021 16:31:07 +0000
-Message-ID: <3f2f11cc4e414f088ed60919e7d9cd56@paragon-software.com>
-References: <1629361417-94657-1-git-send-email-jiapeng.chong@linux.alibaba.com>
-In-Reply-To: <1629361417-94657-1-git-send-email-jiapeng.chong@linux.alibaba.com>
-Accept-Language: ru-RU, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [172.30.0.26]
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Aug 2021 10:09:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of mkl@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33 as permitted sender) client-ip=2001:67c:670:201:290:27ff:fe1d:cc33;
+Received: from gallifrey.ext.pengutronix.de ([2001:67c:670:201:5054:ff:fe8d:eefb] helo=bjornoya.blackshift.org)
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1mJfLX-00064y-Ny; Fri, 27 Aug 2021 19:08:51 +0200
+Received: from pengutronix.de (2a03-f580-87bc-d400-4ac6-d86b-e43f-77c5.ip6.dokom21.de [IPv6:2a03:f580:87bc:d400:4ac6:d86b:e43f:77c5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-384) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id A327F670F04;
+	Fri, 27 Aug 2021 17:08:38 +0000 (UTC)
+Date: Fri, 27 Aug 2021 19:08:37 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Kees Cook <keescook@chromium.org>
+Cc: linux-kernel@vger.kernel.org,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Ayush Sawal <ayush.sawal@chelsio.com>,
+	Vinay Kumar Yadav <vinay.yadav@chelsio.com>,
+	Rohit Maheshwari <rohitm@chelsio.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Kalle Valo <kvalo@codeaurora.org>, Jakub Kicinski <kuba@kernel.org>,
+	Stanislaw Gruszka <stf_xl@wp.pl>,
+	Luca Coelho <luciano.coelho@intel.com>,
+	"James E.J. Bottomley" <jejb@linux.ibm.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Johannes Berg <johannes.berg@intel.com>,
+	Mordechay Goodstein <mordechay.goodstein@intel.com>,
+	Lee Jones <lee.jones@linaro.org>,
+	Wolfgang Grandegger <wg@grandegger.com>,
+	Arunachalam Santhanam <arunachalam.santhanam@in.bosch.com>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+	Mikulas Patocka <mikulas@artax.karlin.mff.cuni.cz>,
+	linux-crypto@vger.kernel.org, ath10k@lists.infradead.org,
+	linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
+	linux-scsi@vger.kernel.org, linux-can@vger.kernel.org,
+	bpf@vger.kernel.org, Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Keith Packard <keithp@keithp.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Daniel Vetter <daniel.vetter@ffwll.ch>,
+	clang-built-linux@googlegroups.com, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 2/5] treewide: Replace open-coded flex arrays in unions
+Message-ID: <20210827170837.mu4hql5bev2f5x2o@pengutronix.de>
+References: <20210826050458.1540622-1-keescook@chromium.org>
+ <20210826050458.1540622-3-keescook@chromium.org>
+ <20210826062452.jekmoo43f4xu5jxk@pengutronix.de>
+ <202108270906.7C85982525@keescook>
 MIME-Version: 1.0
-X-Original-Sender: almaz.alexandrovich@paragon-software.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@paragon-software.com header.s=mail header.b=ch6SmnIk;
-       spf=pass (google.com: domain of almaz.alexandrovich@paragon-software.com
- designates 81.5.88.159 as permitted sender) smtp.mailfrom=almaz.alexandrovich@paragon-software.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=paragon-software.com
-X-Original-From: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
-Reply-To: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="gkkaemaf4slct3pn"
+Content-Disposition: inline
+In-Reply-To: <202108270906.7C85982525@keescook>
+X-SA-Exim-Connect-IP: 2001:67c:670:201:5054:ff:fe8d:eefb
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: clang-built-linux@googlegroups.com
+X-Original-Sender: mkl@pengutronix.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of mkl@pengutronix.de designates 2001:67c:670:201:290:27ff:fe1d:cc33
+ as permitted sender) smtp.mailfrom=mkl@pengutronix.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,42 +173,63 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> From: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
-> Sent: Thursday, August 19, 2021 11:24 AM
-> To: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
-> Cc: nathan@kernel.org; ndesaulniers@google.com; ntfs3@lists.linux.dev; linux-kernel@vger.kernel.org; clang-built-
-> linux@googlegroups.com; Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
-> Subject: [PATCH] fs/ntfs3: Remove unused including <linux/version.h>
+
+--gkkaemaf4slct3pn
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+
+On 27.08.2021 09:08:19, Kees Cook wrote:
+> > BTW: Is there opportunity for conversion, too?
+> > 
+> > | drivers/net/can/peak_canfd/peak_pciefd_main.c:146:32: warning: array of flexible structures
 > 
-> Eliminate the follow versioncheck warning:
+> Oh, hrmpf. This isn't a sane use of flex arrays:
 > 
-> ./fs/ntfs3/inode.c: 16 linux/version.h not needed.
+> struct __packed pucan_rx_msg {
+> 	...
+> 	__le32	can_id;
+> 	u8	d[];
+> };
 > 
-> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-> Fixes: 82cae269cfa9 ("fs/ntfs3: Add initialization of super block")
-> Signed-off-by: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
-> ---
->  fs/ntfs3/inode.c | 1 -
->  1 file changed, 1 deletion(-)
+> struct pciefd_rx_dma {
+>         __le32 irq_status;
+>         __le32 sys_time_low;
+>         __le32 sys_time_high;
+>         struct pucan_rx_msg msg[];
+> } __packed __aligned(4);
 > 
-> diff --git a/fs/ntfs3/inode.c b/fs/ntfs3/inode.c
-> index bf51e29..bb01f1b 100644
-> --- a/fs/ntfs3/inode.c
-> +++ b/fs/ntfs3/inode.c
-> @@ -13,7 +13,6 @@
->  #include <linux/namei.h>
->  #include <linux/nls.h>
->  #include <linux/uio.h>
-> -#include <linux/version.h>
->  #include <linux/writeback.h>
-> 
->  #include "debug.h"
-> --
-> 1.8.3.1
-Hi Jiapeng! Applied, thanks.
-Best regards.
+> I think that needs to be handled separately. How are you building to get
+> that warning, by the way? I haven't seen that in my builds...
+
+If compiling with C=1, sparse will complain about this.
+
+regards,
+Marc
+
+-- 
+Pengutronix e.K.                 | Marc Kleine-Budde           |
+Embedded Linux                   | https://www.pengutronix.de  |
+Vertretung West/Dortmund         | Phone: +49-231-2826-924     |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-5555 |
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/3f2f11cc4e414f088ed60919e7d9cd56%40paragon-software.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210827170837.mu4hql5bev2f5x2o%40pengutronix.de.
+
+--gkkaemaf4slct3pn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEK3kIWJt9yTYMP3ehqclaivrt76kFAmEpHBEACgkQqclaivrt
+76nZyQf/cQC8nVICmegw2Xx7F4e9MRmYJPNlM4CBOw9lsPVBDSn9GON+JkvMIfWI
+gzsHT/fSQfAerrBnUGqaLqbI/HjEa1cgkevLmMY6SnSYZN1tYmiYUhhirVAUN07C
+QchAwrLEtdk4fwE/PMvjCcsmw1BrM85bW5B9h/Ug5xhhZZGJu+0I1DSR9s4ERi1M
+SGHegQvm8xGiPYDiYOOmXX75G9X4rtVGcpNWj9Iu9hscU0F2exWZz5wB1cZQSK4s
+Ka+x3qrkGo4rP+qNov0TlUZEwY3YSmZWx4slMWhR53Shdzpo7H3aylw8JLIra1/i
+YPgsmxiUEP6P9DiHmH2O5IVgUsy9kg==
+=L8Rq
+-----END PGP SIGNATURE-----
+
+--gkkaemaf4slct3pn--
