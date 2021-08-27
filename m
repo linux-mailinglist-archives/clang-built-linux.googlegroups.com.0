@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBP4OUSEQMGQEWYNFNHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB543USEQMGQEHCYTKOQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x740.google.com (mail-qk1-x740.google.com [IPv6:2607:f8b0:4864:20::740])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1BDBF3F9BCF
-	for <lists+clang-built-linux@lfdr.de>; Fri, 27 Aug 2021 17:39:54 +0200 (CEST)
-Received: by mail-qk1-x740.google.com with SMTP id c27-20020a05620a165b00b003d3817c7c23sf1713546qko.16
-        for <lists+clang-built-linux@lfdr.de>; Fri, 27 Aug 2021 08:39:54 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630078783; cv=pass;
+Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4AE493F9C1A
+	for <lists+clang-built-linux@lfdr.de>; Fri, 27 Aug 2021 18:08:25 +0200 (CEST)
+Received: by mail-pl1-x640.google.com with SMTP id h13-20020a170902f54d00b00134c35c8d05sf2602797plf.4
+        for <lists+clang-built-linux@lfdr.de>; Fri, 27 Aug 2021 09:08:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630080503; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xDG9ZJmhVYaDQUeMgFmfqY7+j20AnwFfzODTBpp2gkH/RjCVMCWoFy+EWexPozBz2B
-         RonV8KiYppNSCHKykZNHe5+cFhJto54QhygCz33x70ouUn7nVNqamGihqzb3McblLai5
-         MrSJcaYuGEHSeM7+ODEE0vg5AyzIP5CPT6tVrKjqmxQHztIFOVu+oZXkIV8OqvHT4ddR
-         whmY6xCF2ex7E9nnswlXAPJ9eHB9orZFDb688nsF8vDZPyJH7hqF1rHKcYMjWEuovfO9
-         OU7Ipg3+XcplqcDP1WaMj/AmZDC5SWUbLEamlrAbhtkdnpDnyxG1AKUT1q0OBCeniZrC
-         JaLw==
+        b=p5M1ZbWvVXjQoMB/xvIiRL2qw8ymcHADTwxoKNbkM1IT/79/pdVUJAOG8b49Isnn95
+         WnYmx1qiOWU4FmaH43LTNHU/xgYbpUefQm41pC5tNZnelzo0LI1H7xx5mbH0HkJCAsEH
+         eoIC0upW1OGiCHENvPZQJxueX9Fdjm1cZASNaGSpDgDs1PKoqV7xtjIsfpQe3ny04aHl
+         LDLhH6h+PDLpurja3+zuzFOG2lUGm2Sycx5HfVGmTR472MouHtTXGaIIq147QFMjHAhX
+         /sQCYAyu+iXw+BZ56lHb1XmYI+G022TAwiG8cNz95z4TpFsYaiAqFDHMN6c3bAjO8CWf
+         vdUw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=ggFUbkZt5UHJbHJ8BiyXAp+Dbq1g9HvKF1JQuUHL2i4=;
-        b=AHt3OY8C37/PY0dXOJS1ziw74Vygyvea8PSrjsDYwF8OeKsXYuDdISXEmayZGOxKeR
-         WjProRw02BPK6kXZiFzKMBc5w16Yh7oDTH23pcPwF6tF0mDqAHJtYq6xMunTRKHL9qWc
-         vPdmjsTdTIsB4OLgw3A1auoDvClypvVjj0dUwRhpjfmOyiKd+/fpMyUVZMJ8U+Mm4jDk
-         0LXxyrrT2frYRCJgZWiw9p0nOAZvI3RVSa09+xZEkH36zAmVb9V5+kMw60qjFfc/k9Le
-         c0+1iMe4IWZPhjcm+K2GDLXAWhg6aFWbEW6nhD3Exu/0C+wMH/MGMvo4obNNF+Eq4c6c
-         AjUg==
+        bh=cZA06etOD6aZS5oeqv1tV4klYvOWsyCkjq2K1gj9SyI=;
+        b=IecmD9HLmACx5rI9R/YRwKnayNvVaectwS2N3aoklTucMlPva8SwYogN7tjD7T3Sli
+         1jpFtqu6e+3idSUoEmDMmZIzBUpbW9MoxlSUaR7aZo8k/2ZgOC8WA5VII6xMAdXGL/2K
+         ej7tdpJyY/hoWZtEAsDcVcyD6ov6BtYP5KyAY38bj/LwBc6St0ULVN1dq/J11q2KMFpT
+         37JrqMRDZ1GcS5U0qqspgBmmI3o/9Bcc3BWQn1CJhkSqO34fhDMLjbcLQtnYRYz3ROiD
+         mYxjtdv6pmqnhLqnf5d0c0/FmASn6UAN2ZWI9jSssf3dWkPW0L8Pwkqsw4/8FdFp/Ehc
+         nhWA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=ZAMkIey4;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=LgSMkv8y;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ggFUbkZt5UHJbHJ8BiyXAp+Dbq1g9HvKF1JQuUHL2i4=;
-        b=jfIz2BsCVNEmfYj2ii2raBpIj6+RxhxD3yn5Om9qtQY+n7sC75yVohQ+s9waepBEQH
-         iqFd+oioxfKaAE05sRcsCbQPH2KileRH27Y7xz+r2fab9KBLlJVNuBcBo/vx55Xze3gy
-         koMjv35gTCYATleznnu3lAiJytOwk2m/vR8ta5bk6+IUSqO/9/f0wi3XTsRR2Zf8OiEE
-         bZWVVHFAkIUzGzsPiQVvLoxRJz4GzRyCysgrjPcU7Leywc2AG+UpjAoamyZNMy2lLaH6
-         WwceICqkIas+DGBT91LMMlW4CJZQNOVNtfrReduW5r90l75JGlbNJ42JAY5I6juNkvb9
-         zKLA==
+        bh=cZA06etOD6aZS5oeqv1tV4klYvOWsyCkjq2K1gj9SyI=;
+        b=r5OHcyWi7cfARYDVA2MtevTnnuDXReVGlXVndnuSDTcFEGGN+Mc3gDqNaX7/5h6RgL
+         /9USj384KShbiJamrzQ+O8/aldLJrKemnrUYJ0XagFkcCsIEyhGdAuakmCTFGU8YPXh8
+         rbYzzs27gucNol3W1UZGGQBjY0Nie2v9ioNHuM6rBSmpP+s+FSRzD2OqtEIZieU7fnS0
+         uwfGOrjbkTjg8COKR2iyNisplMsGB1vROudc7Xxv1pDo6Hdjv6w0K9HeC37gD+iDGYX7
+         lE0S2bx/Ehyd886lMkRKV+/vWD0M3NhzSrsBXRt9550UKa8rU079sgBWxfWq84IpirNT
+         AhCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,79 +50,111 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=ggFUbkZt5UHJbHJ8BiyXAp+Dbq1g9HvKF1JQuUHL2i4=;
-        b=dM/BVzC6LMa5kBEr5PEWetISlAXEWWUWP9/Nj01eVDSjon7RaoqCPEs2xRrx9sxDBT
-         Zl7ZjaqdBc/zc8EzJwH2Vf47WOpr1wdUu7duXdYtYYtPb2rKifi7evFTS/haPZhu7FwL
-         zMh5Arb5di12kQrgTvXPBrzEyaqfR71uPw6qfpF2PlHVZnlQZeUSWD5YDx/cOO9GMNlE
-         Qt25n5zQdkWgtu8gBaGIxnXvbkf7G3OKD/iRbaKEKUJWboQFk3frTS8jo40R+9UD82OV
-         GNCkSwg31strgdKlRz/ODjx5xBURaljvSerJbNWusBdbOLZhOsVqePDieZbqHkbBjkWQ
-         D1aA==
+        bh=cZA06etOD6aZS5oeqv1tV4klYvOWsyCkjq2K1gj9SyI=;
+        b=KtRJylbqzZkWC/I1r3kjio1oV7s5cCi+3aLYx6VxsbQEGqCe0FBgLdWWAhLlGt3C7H
+         JPmp9jVL99/ccEmEPgBHdRvIEKXSZ5cc92Vx66+xPAnyMiWmIK/eYKQFibD4UsgtiVSw
+         wD7QDXp2zB8zJFwu86F3L+byYxOSPYLOFNmma59yDxKDXvXtihqKnDAvunT8qzg9wl/i
+         31uVfNxpDn7AvBebXgwIh+CFHdpWeRRrzfv8xv7ppZhGdbhF4Gh0arDwlnqBH2KEUgz/
+         DkhrPXYcaR4LTalGTe87CYBNp9FRZcJTR79PwrXJQUxUelPxlK7dreZG8TG6p2GbIrCy
+         Trjw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Ss6XGrEQDQ2xCBdPCrI9eqGEi+Ys/SYqnVFMxeLMUyhw+iy7D
-	ncq1NRgv4euRJpuzrFXs+rA=
-X-Google-Smtp-Source: ABdhPJyaUAAS1/ItqHoMZDR09EtVA/Y1nSE1no/4SV1IqeT2EVHX3bjieDIIjFRziEoh36ALYOhWRw==
-X-Received: by 2002:a37:8407:: with SMTP id g7mr9713366qkd.123.1630078783153;
-        Fri, 27 Aug 2021 08:39:43 -0700 (PDT)
+X-Gm-Message-State: AOAM532uuEbP9b0gs/59+7wavxyI98KYnEhyo/wTS1l+1yMeElutvJA6
+	KQByU3gECe0/7zHxxZB5m8s=
+X-Google-Smtp-Source: ABdhPJx883LArcl9upgLPcewU0J6sq5xi5C7Hn7CZZOZofGQ5LjpXdKhbXqkibopU0eKOpji9wrhdA==
+X-Received: by 2002:a17:902:7b8b:b029:12b:8d3e:70e7 with SMTP id w11-20020a1709027b8bb029012b8d3e70e7mr9219137pll.76.1630080503585;
+        Fri, 27 Aug 2021 09:08:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ad4:50c6:: with SMTP id e6ls2951694qvq.2.gmail; Fri, 27 Aug
- 2021 08:39:42 -0700 (PDT)
-X-Received: by 2002:a05:6214:21cc:: with SMTP id d12mr10089051qvh.22.1630078782701;
-        Fri, 27 Aug 2021 08:39:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630078782; cv=none;
+Received: by 2002:a17:90a:3fc2:: with SMTP id u2ls2523040pjm.0.gmail; Fri, 27
+ Aug 2021 09:08:23 -0700 (PDT)
+X-Received: by 2002:a17:90a:4894:: with SMTP id b20mr11857664pjh.13.1630080502976;
+        Fri, 27 Aug 2021 09:08:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630080502; cv=none;
         d=google.com; s=arc-20160816;
-        b=C47OpJh4c78fbcxm3KP3jcX+486r4XhgzdWbgYuiF3g8mprgKKww7TANwPWmvCrYYU
-         Y02Bo8csvagTyqbhOoFVjJ0xTn8UmUbk2VhspC83/k5U+8IXnh9QHwSQ6EQnNV1tRy5B
-         tBNCvYJKQK9ZYN0fRvovjZnIAkn1OVn24Ymrhji9851GgbOWJ7lvdXKC/viXvSRh9YAT
-         wlR+1z25Z1HmmKO8P2lb1J7ON43PFuRFwj0Y4iSkLGHiWjQiwc9KSMGCTNHC2NiLogqr
-         D3B+SlzowTgISV1ueK81IaDl5w8o/t4fbOEkHWVQyzuvtWq/DcDn5aj+VVNozQ0bRW7r
-         J/8Q==
+        b=QCoyI+w4l8E7srcOT1G0qxlqxMwWeJIL2fkkt4173s5RRPdYnuzOxkPHh8QIHXlKHP
+         nBPmeflNymtLVDYdq69rXf0cIKKzFVxR56fgXBdamugB8DKDpIVjf2IdVMv4+GpAKaum
+         znH00IF6T3NFjO7/mDiakZWx8vPuPpVlldaABFGpMS9kr6ywfg/ubkw9OYSZ5qfVo0B4
+         h236/czkwocLdIoV+WW+I3WZIX8Tf5i9PZNaT7/KvON7U6ZUpoa5slBleNUEKvpIGy1Q
+         qwZnlZP94C6rZtDDeivAxtthQxYvQpZwve+gs4Jgu5Ghw7HjtmiBjgBpnqBWOzg6tXUy
+         vLYQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=ncSvdn48KwHrQzYtexzGkXlloweM6fpLnKP3mFqE2B8=;
-        b=YpfM00lj3e9i2nEG5ikJRsYzxQ/cw8a2fF5/G4oOtTHM0ft/8vCf168Kez9QAgmiMU
-         Hs99GP+Qoj1MdICxWx2oLZZjfqla4cNh8adIb7Qs4jFFyWblzgCy98iJi7A/p8muaOSL
-         QV2/+QhiWoFm/vGyDDnTXCuRGWOBULCnWkcl94j+9URUL9d+H7brxVYdsxf9iYQQlsaU
-         idCSu1zN8SUN2FE8m59cIPxAzuvteUQ/2XqMMLbzUGUqZyI7n1PtmZaD9UqW2qspuYjk
-         Up1K3BsEZwORJUFW/XdcwIXoyLUY3IuR8AjxIsUjIHz3znZ9CgcMiD1jnqlL8EwsgIgU
-         OaUQ==
+        bh=3BOREjcUGdekjt/HzJv8JPNZZV+WRxv1ga5r5CaLfMg=;
+        b=LDGPy8ZaiyyRHMiBSQScWbSHP4Am+ZF3A+6wZTUb5Rx0ruzUbJSQZRIfmhR6Fn+OCg
+         xaxvPwT+XvkTI2nb+FsXQxfP3jnlFWphPeubDWy2J+1pBgxhN4u4Kjg2LGxUmS5AzUMR
+         K6Kce43IRiw7qIJ0p7gTvo1ltsXhHrO0HFd/awOgtJWJu5YTymZJFaMsaIVOP5xk1N73
+         nAe/kvccAwQuo+TkqbH49seKI6E9UO7WsCz1l5QpWKTdgi5+XbBTXP3IOr1i/eVxMo0s
+         lMjIduj2qE/6C2Z6Ilgp5iP9Y0/VxonRG3W6uUWaaEl5MC7Eyq1w2UTL96GJ719Y7KDF
+         GjzA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=ZAMkIey4;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=LgSMkv8y;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x102b.google.com (mail-pj1-x102b.google.com. [2607:f8b0:4864:20::102b])
-        by gmr-mx.google.com with ESMTPS id n2si570572qkg.5.2021.08.27.08.39.42
+Received: from mail-pj1-x102e.google.com (mail-pj1-x102e.google.com. [2607:f8b0:4864:20::102e])
+        by gmr-mx.google.com with ESMTPS id r7si555180pjp.0.2021.08.27.09.08.22
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 27 Aug 2021 08:39:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b as permitted sender) client-ip=2607:f8b0:4864:20::102b;
-Received: by mail-pj1-x102b.google.com with SMTP id f11-20020a17090aa78b00b0018e98a7cddaso5060080pjq.4
-        for <clang-built-linux@googlegroups.com>; Fri, 27 Aug 2021 08:39:42 -0700 (PDT)
-X-Received: by 2002:a17:90b:1bc8:: with SMTP id oa8mr11096998pjb.25.1630078781831;
-        Fri, 27 Aug 2021 08:39:41 -0700 (PDT)
+        Fri, 27 Aug 2021 09:08:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e as permitted sender) client-ip=2607:f8b0:4864:20::102e;
+Received: by mail-pj1-x102e.google.com with SMTP id h1so4863073pjs.2
+        for <clang-built-linux@googlegroups.com>; Fri, 27 Aug 2021 09:08:22 -0700 (PDT)
+X-Received: by 2002:a17:90b:357:: with SMTP id fh23mr8796487pjb.140.1630080502650;
+        Fri, 27 Aug 2021 09:08:22 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id f5sm6532402pfn.134.2021.08.27.08.39.41
+        by smtp.gmail.com with ESMTPSA id h9sm13930821pjg.9.2021.08.27.09.08.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 27 Aug 2021 08:39:41 -0700 (PDT)
-Date: Fri, 27 Aug 2021 08:39:40 -0700
+        Fri, 27 Aug 2021 09:08:21 -0700 (PDT)
+Date: Fri, 27 Aug 2021 09:08:19 -0700
 From: Kees Cook <keescook@chromium.org>
-To: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: linux-kernel@vger.kernel.org,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Ayush Sawal <ayush.sawal@chelsio.com>,
+	Vinay Kumar Yadav <vinay.yadav@chelsio.com>,
+	Rohit Maheshwari <rohitm@chelsio.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Kalle Valo <kvalo@codeaurora.org>, Jakub Kicinski <kuba@kernel.org>,
+	Stanislaw Gruszka <stf_xl@wp.pl>,
+	Luca Coelho <luciano.coelho@intel.com>,
+	"James E.J. Bottomley" <jejb@linux.ibm.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Johannes Berg <johannes.berg@intel.com>,
+	Mordechay Goodstein <mordechay.goodstein@intel.com>,
+	Lee Jones <lee.jones@linaro.org>,
+	Wolfgang Grandegger <wg@grandegger.com>,
+	Arunachalam Santhanam <arunachalam.santhanam@in.bosch.com>,
+	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
+	Mikulas Patocka <mikulas@artax.karlin.mff.cuni.cz>,
+	linux-crypto@vger.kernel.org, ath10k@lists.infradead.org,
+	linux-wireless@vger.kernel.org, netdev@vger.kernel.org,
+	linux-scsi@vger.kernel.org, linux-can@vger.kernel.org,
+	bpf@vger.kernel.org, Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Keith Packard <keithp@keithp.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Daniel Vetter <daniel.vetter@ffwll.ch>,
 	clang-built-linux@googlegroups.com, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] stddef: Add flexible array union helper
-Message-ID: <202108270838.10695297AD@keescook>
+Subject: Re: [PATCH v2 2/5] treewide: Replace open-coded flex arrays in unions
+Message-ID: <202108270906.7C85982525@keescook>
 References: <20210826050458.1540622-1-keescook@chromium.org>
- <20210826050458.1540622-1-keescook@chromium.org>
- <20210827092532.908506-1-mailhol.vincent@wanadoo.fr>
+ <20210826050458.1540622-3-keescook@chromium.org>
+ <20210826062452.jekmoo43f4xu5jxk@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210827092532.908506-1-mailhol.vincent@wanadoo.fr>
+In-Reply-To: <20210826062452.jekmoo43f4xu5jxk@pengutronix.de>
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=ZAMkIey4;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b
+ header.i=@chromium.org header.s=google header.b=LgSMkv8y;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102e
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
@@ -137,44 +169,14 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Aug 27, 2021 at 06:25:32PM +0900, Vincent Mailhol wrote:
-> Kees Cook <keescook@chromium.org> writes:
-> > Many places in the kernel want to use a flexible array in a union. This
-> > is especially common when wanting several different typed trailing
-> > flexible arrays. Since GCC and Clang don't (on the surface) allow this,
-> > such structs have traditionally used combinations of zero-element arrays
-> > instead. This is usually in the form:
+On Thu, Aug 26, 2021 at 08:24:52AM +0200, Marc Kleine-Budde wrote:
+> On 25.08.2021 22:04:55, Kees Cook wrote:
+> > In support of enabling -Warray-bounds and -Wzero-length-bounds and
+> > correctly handling run-time memcpy() bounds checking, replace all
+> > open-coded flexible arrays (i.e. 0-element arrays) in unions with the
+> > flex_array() helper macro.
 > > 
-> > struct thing {
-> > 	...
-> > 	struct type1 foo[0];
-> > 	struct type2 bar[];
-> > };
-> 
-> At first read, I found the description confusing (and even thought
-> that there was a copy/paste issue). The subject and the first sentence
-> is about "flexible arrays in a *union*". Then suddenly, the topic
-> shifts to *structs*.
-> 
-> After reading at the code, it is clear that this work for both:
->   - unions with a flexible array.
->   - structures with different typed trailing flexible arrays.
-> 
-> The subject and the description could be updated to clarify that this
-> macro can be used for both unions and structs.
-> 
-> N.B. this comment only applies to the commit message, the kerneldoc
-> part is clear.
-
-Yeah, I see now how this doesn't read well. I've rewritten this to
-describe the problem better. Thanks! I will send a v3.
-
--Kees
-
-> 
-> > This causes problems with size checks against such zero-element arrays
-> > (for example with -Warray-bounds and -Wzero-length-bounds), so they must
-> > all be converted to "real" flexible arrays, avoiding warnings like this:
+> > This fixes warnings such as:
 > > 
 > > fs/hpfs/anode.c: In function 'hpfs_add_sector_to_btree':
 > > fs/hpfs/anode.c:209:27: warning: array subscript 0 is outside the bounds of an interior zero-length array 'struct bplus_internal_node[0]' [-Wzero-length-bounds]
@@ -196,97 +198,75 @@ describe the problem better. Thanks! I will send a v3.
 > >   231 |   u8 raw_msg[0];
 > >       |      ^~~~~~~
 > > 
-> > Introduce DECLARE_FLEX_ARRAY() in support of flexible arrays in unions.
-> 
-> ... and structures.
-> 
-> > It is entirely possible to have a flexible array in a union:
-> 
-> It is entirely possible to have one or several flexible arrays in a
-> structure or a union:
-> 
-> > it just has to
-> > be in a struct. And since it cannot be alone in a struct, such a struct
-> > must have at least 1 other named member but that member can be zero sized.
-> > 
-> > As with struct_group(), this is needed in UAPI headers as well, so
-> > implement the core there, with non-UAPI wrapper.
-> > 
-> > Additionally update kernel-doc to understand its existence.
-> > 
-> > https://github.com/KSPP/linux/issues/137
-> > 
-> > Cc: Arnd Bergmann <arnd@arndb.de>
 > > Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>
+> > Cc: Arnd Bergmann <arnd@arndb.de>
+> > Cc: Ayush Sawal <ayush.sawal@chelsio.com>
+> > Cc: Vinay Kumar Yadav <vinay.yadav@chelsio.com>
+> > Cc: Rohit Maheshwari <rohitm@chelsio.com>
+> > Cc: Herbert Xu <herbert@gondor.apana.org.au>
+> > Cc: "David S. Miller" <davem@davemloft.net>
+> > Cc: Kalle Valo <kvalo@codeaurora.org>
+> > Cc: Jakub Kicinski <kuba@kernel.org>
+> > Cc: Stanislaw Gruszka <stf_xl@wp.pl>
+> > Cc: Luca Coelho <luciano.coelho@intel.com>
+> > Cc: "James E.J. Bottomley" <jejb@linux.ibm.com>
+> > Cc: "Martin K. Petersen" <martin.petersen@oracle.com>
+> > Cc: Alexei Starovoitov <ast@kernel.org>
+> > Cc: Daniel Borkmann <daniel@iogearbox.net>
+> > Cc: Andrii Nakryiko <andrii@kernel.org>
+> > Cc: Martin KaFai Lau <kafai@fb.com>
+> > Cc: Song Liu <songliubraving@fb.com>
+> > Cc: Yonghong Song <yhs@fb.com>
+> > Cc: John Fastabend <john.fastabend@gmail.com>
+> > Cc: KP Singh <kpsingh@kernel.org>
+> > Cc: Johannes Berg <johannes.berg@intel.com>
+> > Cc: Mordechay Goodstein <mordechay.goodstein@intel.com>
+> > Cc: Lee Jones <lee.jones@linaro.org>
+> > Cc: Wolfgang Grandegger <wg@grandegger.com>
+> > Cc: Marc Kleine-Budde <mkl@pengutronix.de>
+> > Cc: Arunachalam Santhanam <arunachalam.santhanam@in.bosch.com>
+> > Cc: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
+> > Cc: Mikulas Patocka <mikulas@artax.karlin.mff.cuni.cz>
+> > Cc: linux-crypto@vger.kernel.org
+> > Cc: ath10k@lists.infradead.org
+> > Cc: linux-wireless@vger.kernel.org
+> > Cc: netdev@vger.kernel.org
+> > Cc: linux-scsi@vger.kernel.org
+> > Cc: linux-can@vger.kernel.org
+> > Cc: bpf@vger.kernel.org
 > > Signed-off-by: Kees Cook <keescook@chromium.org>
 > > ---
-> >  include/linux/stddef.h      | 13 +++++++++++++
-> >  include/uapi/linux/stddef.h | 16 ++++++++++++++++
-> >  scripts/kernel-doc          |  2 ++
-> >  3 files changed, 31 insertions(+)
-> > 
-> > diff --git a/include/linux/stddef.h b/include/linux/stddef.h
-> > index 8b103a53b000..ca507bd5f808 100644
-> > --- a/include/linux/stddef.h
-> > +++ b/include/linux/stddef.h
-> > @@ -84,4 +84,17 @@ enum {
-> >  #define struct_group_tagged(TAG, NAME, MEMBERS...) \
-> >  	__struct_group(TAG, NAME, /* no attrs */, MEMBERS)
-> >  
-> > +/**
-> > + * DECLARE_FLEX_ARRAY() - Declare a flexible array usable in a union
-> > + *
-> > + * @TYPE: The type of each flexible array element
-> > + * @NAME: The name of the flexible array member
-> > + *
-> > + * In order to have a flexible array member in a union or alone in a
-> > + * struct, it needs to be wrapped in an anonymous struct with at least 1
-> > + * named member, but that member can be empty.
-> > + */
-> > +#define DECLARE_FLEX_ARRAY(TYPE, NAME) \
-> > +	__DECLARE_FLEX_ARRAY(TYPE, NAME)
-> > +
-> >  #endif
-> > diff --git a/include/uapi/linux/stddef.h b/include/uapi/linux/stddef.h
-> > index 610204f7c275..3021ea25a284 100644
-> > --- a/include/uapi/linux/stddef.h
-> > +++ b/include/uapi/linux/stddef.h
-> > @@ -25,3 +25,19 @@
-> >  		struct { MEMBERS } ATTRS; \
-> >  		struct TAG { MEMBERS } ATTRS NAME; \
-> >  	}
-> > +
-> > +/**
-> > + * __DECLARE_FLEX_ARRAY() - Declare a flexible array usable in a union
-> > + *
-> > + * @TYPE: The type of each flexible array element
-> > + * @NAME: The name of the flexible array member
-> > + *
-> > + * In order to have a flexible array member in a union or alone in a
-> > + * struct, it needs to be wrapped in an anonymous struct with at least 1
-> > + * named member, but that member can be empty.
-> > + */
-> > +#define __DECLARE_FLEX_ARRAY(TYPE, NAME)	\
-> > +	struct { \
-> > +		struct { } __empty_ ## NAME; \
-> > +		TYPE NAME[]; \
-> > +	}
-> > diff --git a/scripts/kernel-doc b/scripts/kernel-doc
-> > index d9715efbe0b7..65088b512d14 100755
-> > --- a/scripts/kernel-doc
-> > +++ b/scripts/kernel-doc
-> > @@ -1263,6 +1263,8 @@ sub dump_struct($$) {
-> >  	$members =~ s/DECLARE_KFIFO\s*\($args,\s*$args,\s*$args\)/$2 \*$1/gos;
-> >  	# replace DECLARE_KFIFO_PTR
-> >  	$members =~ s/DECLARE_KFIFO_PTR\s*\($args,\s*$args\)/$2 \*$1/gos;
-> > +	# replace DECLARE_FLEX_ARRAY
-> > +	$members =~ s/(?:__)?DECLARE_FLEX_ARRAY\s*\($args,\s*$args\)/$1 $2\[\]/gos;
-> >  	my $declaration = $members;
-> >  
-> >  	# Split nested struct/union elements as newer ones
-> > -- 
-> > 2.30.2
-> > 
+> >  drivers/net/can/usb/etas_es58x/es581_4.h          |  2 +-
+> >  drivers/net/can/usb/etas_es58x/es58x_fd.h         |  2 +-
+> 
+> For the can drivers:
+> 
+> Acked-by: Marc Kleine-Budde <mkl@pengutronix.de>
+
+Thanks!
+
+> BTW: Is there opportunity for conversion, too?
+> 
+> | drivers/net/can/peak_canfd/peak_pciefd_main.c:146:32: warning: array of flexible structures
+
+Oh, hrmpf. This isn't a sane use of flex arrays:
+
+
+struct __packed pucan_rx_msg {
+	...
+	__le32	can_id;
+	u8	d[];
+};
+
+struct pciefd_rx_dma {
+        __le32 irq_status;
+        __le32 sys_time_low;
+        __le32 sys_time_high;
+        struct pucan_rx_msg msg[];
+} __packed __aligned(4);
+
+I think that needs to be handled separately. How are you building to get
+that warning, by the way? I haven't seen that in my builds...
 
 -- 
 Kees Cook
@@ -294,4 +274,4 @@ Kees Cook
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108270838.10695297AD%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108270906.7C85982525%40keescook.
