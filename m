@@ -1,131 +1,141 @@
-Return-Path: <clang-built-linux+bncBC3ZPIWN3EFBBDP6V2EQMGQETAHBKJQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD52NTNMXUPBBRONV6EQMGQEAGT4ZMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x538.google.com (mail-ed1-x538.google.com [IPv6:2a00:1450:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5EB7D3FAD51
-	for <lists+clang-built-linux@lfdr.de>; Sun, 29 Aug 2021 19:08:35 +0200 (CEST)
-Received: by mail-ed1-x538.google.com with SMTP id x4-20020a50d9c4000000b003bed5199871sf5376082edj.14
-        for <lists+clang-built-linux@lfdr.de>; Sun, 29 Aug 2021 10:08:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630256910; cv=pass;
+Received: from mail-qk1-x73f.google.com (mail-qk1-x73f.google.com [IPv6:2607:f8b0:4864:20::73f])
+	by mail.lfdr.de (Postfix) with ESMTPS id B4B383FAE49
+	for <lists+clang-built-linux@lfdr.de>; Sun, 29 Aug 2021 21:58:03 +0200 (CEST)
+Received: by mail-qk1-x73f.google.com with SMTP id 70-20020a370b49000000b003d2f5f0dcc6sf1088446qkl.9
+        for <lists+clang-built-linux@lfdr.de>; Sun, 29 Aug 2021 12:58:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630267077; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QXX8Mg9Unn3UJDsediBwgRQm9bc4XI8mYZEwyOUJWh6pSZg3JIxJXF+nz6gCLs+/TL
-         BLrIIHkEgJMinQFofeAfHM9f+mD6z2P0KK0sNxVIG9o25S0L0jmeIpZ4Aq2IzuIDN3em
-         5K2+JQ8aT9ffrhY2sz8Q3UMy3S8iFTWc2cl9f1PSI7kaGRFmkZxWef82lLkVvKMQj6Z7
-         mjhzSB7Iy6DI0XQrtFUIv3yyu3bloJNYONlNHwSD9SDEbvoBWExqxjm+oXwZXrl5gyhv
-         O45vgCxjTCLYdqRfrqJGnMxwvj9vqy3KeH/jiJHUc+Yg/VjRCXYwso+sUnb7X1N2TfEQ
-         p0BA==
+        b=xaKaNMBBtVl9hsDbnf2nmilm7v5Sd45KLLrhC3VgdkVH7QCHcfoTq7pcM+/Z1BoEEb
+         CReTRsrymJrXAKE9SN4wMQ9GyWFje5haLvklSw5MeW9X+PXtT9WaGOyQRAwps4iathHi
+         uAMBLmluGapiAVHVgdKTM4p8PP9igC0uhe3F3jVXafcyk1mk2S8ENuVFElEu6fORTGdw
+         XVDoJ+v9bdq+OlUVk2rRfIJT5BggJVN0YdA0bUSjzDI3yLrujtX6x6y5toaf35EVnDrs
+         P9bVHD8NriDpfailKGJYa1q/OsoknqhTdiaaSX996uBpko8XfJwkfiaMpcNTA5ROC5Sc
+         qj3w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=hKHLatelb+mFvs9jyKumKulDrz4vhHFL4ExSsPOfRiI=;
-        b=J+7rqjfud8F112xoCi9k+a6zD3TJOXqzcG8xNRhloR4sqZRpNqX9G54bce2lLHvBT+
-         k/ZwsG3jl8+8tk26OfA9KkgI1lkVtsnrZhZDUslZ8jXFnvuzqsGJmRnNWTR/aH921wlu
-         SER1/bIkotnSJBT/qxUoBxHZC0jUXRXyGIA0jdwiCtSR/PC5fwuyvs4csqznxiOyr62Z
-         tdZW9XJAEzL5+U3N0ysuaJPuD6jXdsaB8k5govsNw30eVXL8O9ksL7CFWbi9JvG+yYJq
-         dkOoaFz/2jVH6QB9NjbUf4cq6xrwLGWLPQhQhtjw68+SefHmUR5w9uNH7yR5gP+W932/
-         SWCg==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:references:cc:to:from
+         :subject:sender:dkim-signature;
+        bh=ULd27rGOMJTMY7L7eAA+S7Wl/qF//NQcakfEDJJqD8c=;
+        b=uSSUYClYRE6W45TujPxmMZAQ12GXstBz+dQkbQ7B63Zxv1THhCXTMzgbGpWt/DrNwX
+         LazCoeSt+NuAID0l7HoT/2Stf2ZDrco4VAF+vJVGePW3UbQ4ELp2mqeE97PjxtraTvGg
+         ZTKyXscNh9+y0AQhC8H8jOI61QaYmpJ4T5Ee3mSoHsJSlsCL0VSZPU+3dQCta5c8tqFq
+         kgiS5b2qDe3DC8MOa1U9EAa0bVS19mMd5aeHVJqrTEQKlc7bPdZT2mpLcsZbVeSaShp2
+         NNHk6eycDyEDacCfHI6lRCxlUHe83ONoc/63DQ04WMa3ZkAa1MVihLltnQItZLoC+aAU
+         Gs6w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=FHRuADfK;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::231 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+       spf=neutral (google.com: 74.208.4.194 is neither permitted nor denied by best guess record for domain of philip@switchbackcompilers.com) smtp.mailfrom=philip@switchbackcompilers.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=hKHLatelb+mFvs9jyKumKulDrz4vhHFL4ExSsPOfRiI=;
-        b=KxPy+qWNzy9W47ltkNaFkz/1QlgCW4RpsjNR7nsCKmdlI88Q8rg/2ceNNXgcxCXJzk
-         prwN1MkrJ7YuHf3FL9TYVxagXcNCkyal4RgP0Cb/bnQi43dSX9aByw78h26FxCzAa97e
-         R1fBQJ/SgtxpPzUUlPvVb84fgFROrQ9gp7Mhep8ixVt4VnYNOIwp5rfjdlYcjB9/zGhq
-         gUTyhlMtPbHCobRwFpIsfGkops5WKDRm03lJ0Le3HUqtJuwYWYDoFFwFyEvpQ9Qc4V22
-         eSSfwakJ1vq1OhH5/kyJMTyee7nyOxMN8I/GW4eLKe+EiFa8+fsdLbjcHomMlTJfjw1D
-         BSYA==
+        h=sender:subject:from:to:cc:references:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ULd27rGOMJTMY7L7eAA+S7Wl/qF//NQcakfEDJJqD8c=;
+        b=p/g8XOESOJhumHgjyhPVDn1/0BOWlZz9kt920MA9WDqVaJ7KA/FSe3KDL428ZOa4ZI
+         P8bzevIFqseLa1lVesowZ4ZMoV2bCUqaP7NkSY2faR5zPiFa+cO+rKagbMeC9gwhcJqJ
+         DF6hsR/c2fSP+FvGJNmP5mHF7WZvgV5k3HqZ8xbCCgmcVBNkPxRKr9JcxV5RzEWmevJy
+         wRsRHUixvEZBdEZdI9mYfq1acU6ax2AsFzWA4gtfPBl2G/DnQ3trMUyNVocKtuApxATh
+         tdzifm0YqyMeozjvK73lSfjUCoLaIEigibpjb0DHAtPi6WXDs+XJXKPUiuQb8lDMv89G
+         w/LA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=hKHLatelb+mFvs9jyKumKulDrz4vhHFL4ExSsPOfRiI=;
-        b=MhLVxSIfckKQ3/WxlChzoZYn30v8JIRml/IbietHD2s6bBpBtg5hEYr0LrngFDNyqm
-         5pIa5Jf2UOVp52TLxC6SIRSNklWvRqn7pxVgT4hy2A92LyI+CHElb0b1T6wNfr8gqPrg
-         pkv9Zq5f3UkVD8+QTFhmvPm1MrFC350TYxgtkJaU+Ja73FL7VGHkUj2S8XE4/AbojhYb
-         ZaYUBsLcclT0MhGfrkRaUZ5ldtbc60AnZjdXTREvqE0ndUj1OXlgXHPuRmVbdtKZ9Vqu
-         sGw77fTcVcBiy77MEJzeQGB9mMvAUWv5cmvEDPvarceJ56myhYKAV8cnhbbMQXmfJ7Mp
-         dv4Q==
+        h=sender:x-gm-message-state:subject:from:to:cc:references:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ULd27rGOMJTMY7L7eAA+S7Wl/qF//NQcakfEDJJqD8c=;
+        b=Mc1YcSyII3AXAnB81KaFAozQpHN/09W42a8gsdVgcE98VusuyqoEjN7NGGlUYxYI2b
+         qCBi4BISAEUJnwLfl7gJhmRH5SwIun1dOXxDzMZBQN6Lu9byRCJlD+OqMscqAsKcEW4w
+         FZAyxPMbx0Yvm+uiu74Cvwy/gA963nWC0PiUsOJHp0mlv5OkVyGMWiOZGTZ4bRhJT9WT
+         gHBMi+U2JiAUKPIOHgiZiN//IdKnFzTFCh4Nl9TiGygiw/m+t03v+gIzqJRKNX1FJ955
+         kyt6/XTCGE7D3uWedmjFfNs5jMJQ/gvaEiVAGME2ZNYnAxCYNQXeXjdCD1rvizzy87Ow
+         HspQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531vR+3BUbIYFJE0IRXkP1VgxmtFmJQvaYvg/52D0DjY1Dit9zko
-	OnefRtfnIAZ1uM7iCCOE/tc=
-X-Google-Smtp-Source: ABdhPJwm8JTOznlrD7lzCqOaz2QBSMhg/enCZD/vPsNJI+pZfAVkjQ7Tbo9HXxG2ampw2IF9UdVuxQ==
-X-Received: by 2002:a50:e789:: with SMTP id b9mr19881105edn.101.1630256909971;
-        Sun, 29 Aug 2021 10:08:29 -0700 (PDT)
+X-Gm-Message-State: AOAM532h0XzQ0F7OyF+YxwjH8T/CmI2rZ8Xbr2/PgBZyu3GZ9l04wAGT
+	aM6TyJZuPl0scvLdncdUL0E=
+X-Google-Smtp-Source: ABdhPJzdxUYmkEowm4pqGKPWnMOqdXleY+c3fvIqf2Yik30ctH35oeYjpnYtc1Eu80cq6DlTUizQ8g==
+X-Received: by 2002:a05:620a:2215:: with SMTP id m21mr18830240qkh.86.1630267077631;
+        Sun, 29 Aug 2021 12:57:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:4882:: with SMTP id v2ls6769145ejq.9.gmail; Sun, 29
- Aug 2021 10:08:29 -0700 (PDT)
-X-Received: by 2002:a17:906:1856:: with SMTP id w22mr20464579eje.393.1630256908975;
-        Sun, 29 Aug 2021 10:08:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630256908; cv=none;
+Received: by 2002:a37:6191:: with SMTP id v139ls9177919qkb.2.gmail; Sun, 29
+ Aug 2021 12:57:57 -0700 (PDT)
+X-Received: by 2002:a05:620a:4092:: with SMTP id f18mr18513739qko.91.1630267077153;
+        Sun, 29 Aug 2021 12:57:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630267077; cv=none;
         d=google.com; s=arc-20160816;
-        b=tM2UXcejUHtecGIk84klcZJ6/yS0gojKoG9MeGann7+1VkwPNUw0vUQQEhbxQcFOGP
-         OPpBKrr1p5BaQz7YW27cpw+88CM/qhEoioC00rvEzYaWRvnxQivRE7nKReQFEDNhqNae
-         u3Df65HKvaXGQnpHCcp/7RVQ1vdv+7dTVTHwegabzJcgoeKP+O6QOODNRkYemn+puPAi
-         /D/VSp/oRrW6rQgGxxB97KNm0tu1uQaBfz4/c4INuxKasX/fP8P0wx6oz7C/+HkvQZLM
-         ZWCYNj5QN7ZQ6OWK44pZanhjCvTB74mJsL68FJh1MF8UbLZCOyv0ZQqzGMd//oJDrpyC
-         IhmQ==
+        b=ZkdqjWVi4e5613BvLL8+a5xvkPphDjOApm7w2qbYh0dmI/AbpOTsyscaFVOQCDozSc
+         L7Ewp958u0Ne06PkgM5z3quQ/iwjRCynTP/KGcPWa/VQoy7g7MhHJrp41DsTc7XCCdRG
+         ZEE1OculZJsJaA6u7gWi9ssoHx50RRj6TvlEUmFS9uPbftOUC2BSwuaAn27lScNmBbkd
+         QbrS6ndJSOIpeYsIHSfC+F5dkzzH2ANgLGNXkLAwXjnPb/9RlwL+I0eOhovG7skSUWb9
+         ff3LjeJYkspY2Mfms9ZBodIGZr46VwUzruHlwuPkQeD5GIDGV8W46LmInYPJR+YzHgE2
+         G5Hw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=zVDLa4dAhB4ogAfKSWX0LylxNqUVw8O1PoFKqltpAWg=;
-        b=i8AMn9xHXjmXLsYous2kMFUcgcQU+Q/YyH87EpXPjRWSEPJ7Ol9k8no+3r5JggTIjs
-         WVAnxNS68e3dG7e6FoBRPE8QaRPixiW5YgJcOnX1gz8CPyVJjatSF8frp1g3TEbitjfu
-         CaEmMOwD1qApvtxJn6+xMyYdYLKKtGqF9NajTRm5Z6mXPeWElSDOYTJgGSIn0v/Vbtof
-         z9KTb3FLMbAdFqn1cGNH40rEUgphs6NGc5R5+vqbnTQsEEI0O6n5zDRBoBZv7A3YN/vs
-         6fFh0ue/DwRF0xpkVvt76ilAgtILEGFwQHqJX+McK2j8rB9biMo9E3V/FrfroVRwaU2L
-         uVig==
+        h=content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:references:cc:to:from:subject;
+        bh=UCaO0MnaAJq2sRUHj2DjTktENEl39YYAy+XcsO4GCS8=;
+        b=d9VywwkH+7itLof17kHpVuFISvKqeO4URz2n45vROdO70kox4Au1QF7KaaMfR2shAh
+         WVKybtyzNtOO2+nX/7RPJo8sjnj2dXZ41VE5NYoiQN5v11D58mbebbdDq5rJw31ylU9N
+         WWrr+wBtYdA5U2/Rzkmfavzamws/I16nq1UsF/vxr5tbM1qRbZ9ANby5AfJmXicDVoyZ
+         IAdJiwHXq78vd8N5VpUdWwTDH+pHZZFG9M9groAC8koxdF2DHQ79YgvfFz2P/Jq2Q9O+
+         Nfq7DdiQtRiLsUV5bW+kcU7aSCDGruGVx6jZGH3xTVViJydi5CMWFE61Y7lNnkEsS2+c
+         e20w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=FHRuADfK;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::231 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
-Received: from mail-lj1-x231.google.com (mail-lj1-x231.google.com. [2a00:1450:4864:20::231])
-        by gmr-mx.google.com with ESMTPS id dy22si596945edb.2.2021.08.29.10.08.28
+       spf=neutral (google.com: 74.208.4.194 is neither permitted nor denied by best guess record for domain of philip@switchbackcompilers.com) smtp.mailfrom=philip@switchbackcompilers.com
+Received: from mout.perfora.net (mout.perfora.net. [74.208.4.194])
+        by gmr-mx.google.com with ESMTPS id m8si996499qtn.5.2021.08.29.12.57.56
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 29 Aug 2021 10:08:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::231 as permitted sender) client-ip=2a00:1450:4864:20::231;
-Received: by mail-lj1-x231.google.com with SMTP id f2so21584195ljn.1
-        for <clang-built-linux@googlegroups.com>; Sun, 29 Aug 2021 10:08:28 -0700 (PDT)
-X-Received: by 2002:a2e:b5b9:: with SMTP id f25mr16848705ljn.145.1630256907889;
-        Sun, 29 Aug 2021 10:08:27 -0700 (PDT)
-Received: from mail-lf1-f48.google.com (mail-lf1-f48.google.com. [209.85.167.48])
-        by smtp.gmail.com with ESMTPSA id d18sm1374119ljq.110.2021.08.29.10.08.26
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 29 Aug 2021 10:08:26 -0700 (PDT)
-Received: by mail-lf1-f48.google.com with SMTP id s10so1356540lfr.11
-        for <clang-built-linux@googlegroups.com>; Sun, 29 Aug 2021 10:08:26 -0700 (PDT)
-X-Received: by 2002:ac2:4da5:: with SMTP id h5mr14002627lfe.40.1630256905942;
- Sun, 29 Aug 2021 10:08:25 -0700 (PDT)
-MIME-Version: 1.0
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 29 Aug 2021 12:57:57 -0700 (PDT)
+Received-SPF: neutral (google.com: 74.208.4.194 is neither permitted nor denied by best guess record for domain of philip@switchbackcompilers.com) client-ip=74.208.4.194;
+Received: from [192.168.2.11] ([70.187.227.219]) by mrelay.perfora.net
+ (mreueus002 [74.208.5.2]) with ESMTPSA (Nemesis) id 0MMCqJ-1mNTsj3DKf-007zy9;
+ Sun, 29 Aug 2021 21:57:53 +0200
+Subject: Re: Nasty clang loop unrolling..
+From: Philip Reames <philip@switchbackcompilers.com>
+To: Craig Topper <craig.topper@sifive.com>,
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Nathan Chancellor <nathan@kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>, llvm@lists.linux.dev
 References: <CAHk-=wiNHx_GpjoWt9VMffKunZZy5MaTe3pM+cpBgE7OyyrX5Q@mail.gmail.com>
  <CAKwvOdnbiLk4N6Qqdz=RT9nsjYQv41XnXK71azYte7h0JqoohQ@mail.gmail.com>
- <37453471-1498-4C1C-8022-93697D8C2DD4@sifive.com> <9e517b5d-f0e5-240a-2e3c-5cc24eda601e@switchbackcompilers.com>
+ <37453471-1498-4C1C-8022-93697D8C2DD4@sifive.com>
+ <9e517b5d-f0e5-240a-2e3c-5cc24eda601e@switchbackcompilers.com>
+Message-ID: <917ffd3c-b541-41a3-6c30-df6dc7a1348c@switchbackcompilers.com>
+Date: Sun, 29 Aug 2021 12:57:51 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.11.0
+MIME-Version: 1.0
 In-Reply-To: <9e517b5d-f0e5-240a-2e3c-5cc24eda601e@switchbackcompilers.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Sun, 29 Aug 2021 10:08:09 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wj+BdSAGfiJO2G8QzwLbg98mzCXF95s=-5k_gLR4evdnw@mail.gmail.com>
-Message-ID: <CAHk-=wj+BdSAGfiJO2G8QzwLbg98mzCXF95s=-5k_gLR4evdnw@mail.gmail.com>
-Subject: Re: Nasty clang loop unrolling..
-To: Philip Reames <philip@switchbackcompilers.com>
-Cc: Craig Topper <craig.topper@sifive.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Nathan Chancellor <nathan@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: torvalds@linux-foundation.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux-foundation.org header.s=google header.b=FHRuADfK;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates
- 2a00:1450:4864:20::231 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+Content-Type: multipart/alternative;
+ boundary="------------1AC6BDE4F0D11080EE9EF12A"
+Content-Language: en-US
+X-Provags-ID: V03:K1:bMdA4KMIm506c+iaqBKP09il6y3a31ckBVx9ULc+VeAArRYeQ+W
+ 91VhET2dXwEdgrWlz2cSZLF2HePkOT2idWSOTawzv4y+3lSNJDHo8Xd7sloRwvYuE+7Ma0o
+ zDgkTqjmc89O5fXB4tduCKwXQtgVlDY8ulhddt7nPCxPCxdSEDM/+w8S5tzd8orY1m5ouZC
+ EI4mhEae6G0JraPC2mNTA==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:3BN8EuR+Ya8=:aHrT5G6lhFYzxAemDpm4Uf
+ dToTbC8vBN80+JY5r8DzU6mfDd37SSWteikxfNJgz85p8Ajlajg7kTRXF9GswiWSAOI4whcEd
+ sbzoEHFjZO4rOYAVi48/4WqLQrJjUh6+8pGx90PP3HR8GVno6Dq6OUkytXcieA8QF1RS84QRu
+ nFxEEwTcBfA8WPcvJ+tCvKEOxmq27Hqo8vNAzeNWLArR4vrTLvy8bqKqXtyZuLSYfTTSiffWL
+ Q+2VgGlw4lLrERHJFJd7ANZkswb4NUdR1oz/97MowpXtC3+nypVd1YI7GmK922goVje4tqVH8
+ 50OSLzx+AqsD/DT5YgqWI9HCIChp0wcBifPFKmZP622nm1LON0ZSLEiEa11FrgRYYxGZvP81a
+ XpqgrUIk67xs38PHzkBffw0m5EdDg8/kCSnlbxCrT1/OwEITMbXPdhCjqW2cELwYlo8Ll9CkT
+ CJ/QMrvtcZw6aLDW7r3ScxvOmM92RRLbhSfRr9VUO5BhwhIUJc0xPipH3c5GI1w8Ygbls0WYP
+ pNkCwXJVF6faz2VxZcvD4XRmnVWJQdDarvB7+Tk8DB8UJKbw5apejHYmlEXUy1jnnaq0tZsyi
+ xGRicMA9c4tkDnRWWej1vmTdYBiM3d9yx2E6x64p0R7ldw212k2GE9HeyFbhzVosUnMUOPcvW
+ qMC35LFConjl0AVKPh52Q1mub07f23gvwCit93tOHbSEDmzIo9tCFk1MtwNzY8R90q66Nf0Co
+ Txx7yvkJPCWiCBlQJvY569owqK2l+SHXtHxSIhmQVbol230/+HiLCHhrgJw=
+X-Original-Sender: philip@switchbackcompilers.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 74.208.4.194 is neither permitted nor denied by best guess
+ record for domain of philip@switchbackcompilers.com) smtp.mailfrom=philip@switchbackcompilers.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,65 +148,1179 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Aug 28, 2021 at 6:50 PM Philip Reames
-<philip@switchbackcompilers.com> wrote:
+This is a multi-part message in MIME format.
+--------------1AC6BDE4F0D11080EE9EF12A
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: base64
+
+TGVzdCBJIHNlbmQgYW55b25lIGVsc2Ugb2ZmIGEgd2lsZCBnb29zZSBjaGFzZS4uLg0KDQpBcyBt
+ZW50aW9uZWQgYmVsb3csIHRoZSBvdXRwdXQgaGVyZSB3YXMgZnJvbSBjbGFuZzEwLsKgIFRoZSBw
+ZWVwaG9sZSBJIA0KbWVudGlvbmVkIGluIHRoYXQgb3V0cHV0IGhhcyBhbHJlYWR5IGJlZW4gaW1w
+bGVtZW50ZWQgaW4gY2xhbmcgDQp0aXAtb2YtdHJlZS7CoCBJJ2QgaGFuZCBza2ltbWVkIHRoZSBJ
+UiBmcm9tIGdvZGJvbHQgZm9yIFRvVCBhbmQgaGFkbid0IA0Kbm90aWNlZCB0aGF0LsKgIEknbGwg
+YWxzbyBub3RlIHRoYXQgdGhlIGFzc2VtYmx5IHByZXZpb3VzbHkgY29waWVkIGludG8gDQp0aGlz
+IHRocmVhZCBhcHBlYXJzIHRvIGJlIGZyb20gYW4gb2xkZXIgY2xhbmcgd2hpY2ggZG9lcyBub3Qg
+aGF2ZSB0aGUgDQpwZWVwaG9sZSBlaXRoZXIuDQoNClNvLCBhdCBsZWFzdCBtb2Rlcm4gY2xhbmcg
+d2lsbCBlbWl0ICJsZXNzIGJhZCIgY29kZSBmb3IgdGhlIHVucm9sbGVkIA0KbG9vcC7CoCBBcyBM
+aW51cyByZXBsaWVkLCB0aGlzIGlzIG9mZiB0b3BpYyBmb3IgdGhlIG1haW4gZGlzY3Vzc2lvbiB0
+aHJlYWQuDQoNClBoaWxpcA0KDQpPbiA4LzI4LzIxIDY6NTAgUE0sIFBoaWxpcCBSZWFtZXMgd3Jv
+dGU6DQo+DQo+IEhlcmUncyB0aGUgSVIgcmVzdWx0aW5nIHRoZSBnZW5lcmljIGltcGxlbWVudGF0
+aW9uIGZyb20gbGliL3N0cmluZy5jLg0KPg0KPiAkIGNsYW5nIC1PMiAtZW1pdC1sbHZtIHN0cm5j
+cHkuYyAtYw0KPiAjIFRoaXMgaGFwcGVucyB0byBiZSBjbGFuZzEwLCBidXQgY2hlY2sgVG9UIHJl
+dHVybnMgYSBzaW1pbGFyIG91dHB1dA0KPiAkIC4vb3B0IHN0cm5jcHkuYmMgLVMNCj4gOyBNb2R1
+bGVJRCA9ICdzdHJuY3B5LmJjJw0KPiBzb3VyY2VfZmlsZW5hbWUgPSAic3RybmNweS5jIg0KPiB0
+YXJnZXQgZGF0YWxheW91dCA9IA0KPiAiZS1tOmUtcDI3MDozMjozMi1wMjcxOjMyOjMyLXAyNzI6
+NjQ6NjQtaTY0OjY0LWY4MDoxMjgtbjg6MTY6MzI6NjQtUzEyOCINCj4gdGFyZ2V0IHRyaXBsZSA9
+ICJ4ODZfNjQtcGMtbGludXgtZ251Ig0KPg0KPiA7IEZ1bmN0aW9uIEF0dHJzOiBub2ZyZWUgbm9y
+ZWN1cnNlIG5vdW53aW5kIHV3dGFibGUNCj4gZGVmaW5lIGRzb19sb2NhbCBpOCogQGZvbyhpOCog
+cmV0dXJuZWQgJTAsIGk4KiBub2NhcHR1cmUgcmVhZG9ubHkgJTEsIA0KPiBpNjQgJTIpIGxvY2Fs
+X3VubmFtZWRfYWRkciAjMCB7DQo+IMKgICU0ID0gaWNtcCBlcSBpNjQgJTIsIDANCj4gwqAgYnIg
+aTEgJTQsIGxhYmVsICU1MywgbGFiZWwgJTUNCj4NCj4gNTrCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgIDsgcHJlZHMgPSAlMw0KPiDCoCAlNiA9IGFkZCBpNjQgJTIsIC0xDQo+
+IMKgICU3ID0gYW5kIGk2NCAlMiwgMw0KPiDCoCAlOCA9IGljbXAgZXEgaTY0ICU3LCAwDQo+IMKg
+IGJyIGkxICU4LCBsYWJlbCAlMjIsIGxhYmVsICU5DQo+DQo+IDk6wqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCA7IHByZWRzID0gJTUsICU5DQo+IMKgICUxMCA9IHBoaSBpOCog
+WyAlMTgsICU5IF0sIFsgJTAsICU1IF0NCj4gwqAgJTExID0gcGhpIGk2NCBbICUxOSwgJTkgXSwg
+WyAlMiwgJTUgXQ0KPiDCoCAlMTIgPSBwaGkgaTgqIFsgJTE3LCAlOSBdLCBbICUxLCAlNSBdDQo+
+IMKgICUxMyA9IHBoaSBpNjQgWyAlMjAsICU5IF0sIFsgJTcsICU1IF0NCj4gwqAgJTE0ID0gbG9h
+ZCBpOCwgaTgqICUxMiwgYWxpZ24gMSwgIXRiYWEgITINCj4gwqAgc3RvcmUgaTggJTE0LCBpOCog
+JTEwLCBhbGlnbiAxLCAhdGJhYSAhMg0KPiDCoCAlMTUgPSBpY21wIGVxIGk4ICUxNCwgMA0KPiDC
+oCAlMTYgPSBnZXRlbGVtZW50cHRyIGluYm91bmRzIGk4LCBpOCogJTEyLCBpNjQgMQ0KPiDCoCAl
+MTcgPSBzZWxlY3QgaTEgJTE1LCBpOCogJTEyLCBpOCogJTE2DQo+IMKgICUxOCA9IGdldGVsZW1l
+bnRwdHIgaW5ib3VuZHMgaTgsIGk4KiAlMTAsIGk2NCAxDQo+IMKgICUxOSA9IGFkZCBuc3cgaTY0
+ICUxMSwgLTENCj4gwqAgJTIwID0gYWRkIGk2NCAlMTMsIC0xDQo+IMKgICUyMSA9IGljbXAgZXEg
+aTY0ICUyMCwgMA0KPiDCoCBiciBpMSAlMjEsIGxhYmVsICUyMiwgbGFiZWwgJTksICFsbHZtLmxv
+b3AgITUNCj4NCj4gMjI6wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgOyBwcmVk
+cyA9ICU5LCAlNQ0KPiDCoCAlMjMgPSBwaGkgaTgqIFsgJTAsICU1IF0sIFsgJTE4LCAlOSBdDQo+
+IMKgICUyNCA9IHBoaSBpNjQgWyAlMiwgJTUgXSwgWyAlMTksICU5IF0NCj4gwqAgJTI1ID0gcGhp
+IGk4KiBbICUxLCAlNSBdLCBbICUxNywgJTkgXQ0KPiDCoCAlMjYgPSBpY21wIHVsdCBpNjQgJTYs
+IDMNCj4gwqAgYnIgaTEgJTI2LCBsYWJlbCAlNTMsIGxhYmVsICUyNw0KPg0KPiAyNzrCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCA7IHByZWRzID0gJTIyLCAlMjcNCj4gwqAgJTI4
+ID0gcGhpIGk4KiBbICU1MCwgJTI3IF0sIFsgJTIzLCAlMjIgXQ0KPiDCoCAlMjkgPSBwaGkgaTY0
+IFsgJTUxLCAlMjcgXSwgWyAlMjQsICUyMiBdDQo+IMKgICUzMCA9IHBoaSBpOCogWyAlNDksICUy
+NyBdLCBbICUyNSwgJTIyIF0NCj4gwqAgJTMxID0gbG9hZCBpOCwgaTgqICUzMCwgYWxpZ24gMSwg
+IXRiYWEgITINCj4gwqAgc3RvcmUgaTggJTMxLCBpOCogJTI4LCBhbGlnbiAxLCAhdGJhYSAhMg0K
+PiDCoCAlMzIgPSBpY21wIGVxIGk4ICUzMSwgMA0KPiDCoCAlMzMgPSBnZXRlbGVtZW50cHRyIGlu
+Ym91bmRzIGk4LCBpOCogJTMwLCBpNjQgMQ0KPiDCoCAlMzQgPSBzZWxlY3QgaTEgJTMyLCBpOCog
+JTMwLCBpOCogJTMzDQo+IMKgICUzNSA9IGdldGVsZW1lbnRwdHIgaW5ib3VuZHMgaTgsIGk4KiAl
+MjgsIGk2NCAxDQo+IMKgICUzNiA9IGxvYWQgaTgsIGk4KiAlMzQsIGFsaWduIDEsICF0YmFhICEy
+DQo+IMKgIHN0b3JlIGk4ICUzNiwgaTgqICUzNSwgYWxpZ24gMSwgIXRiYWEgITINCj4gwqAgJTM3
+ID0gaWNtcCBlcSBpOCAlMzYsIDANCj4gwqAgJTM4ID0gZ2V0ZWxlbWVudHB0ciBpbmJvdW5kcyBp
+OCwgaTgqICUzNCwgaTY0IDENCj4gwqAgJTM5ID0gc2VsZWN0IGkxICUzNywgaTgqICUzNCwgaTgq
+ICUzOA0KPiDCoCAlNDAgPSBnZXRlbGVtZW50cHRyIGluYm91bmRzIGk4LCBpOCogJTI4LCBpNjQg
+Mg0KPiDCoCAlNDEgPSBsb2FkIGk4LCBpOCogJTM5LCBhbGlnbiAxLCAhdGJhYSAhMg0KPiDCoCBz
+dG9yZSBpOCAlNDEsIGk4KiAlNDAsIGFsaWduIDEsICF0YmFhICEyDQo+IMKgICU0MiA9IGljbXAg
+ZXEgaTggJTQxLCAwDQo+IMKgICU0MyA9IGdldGVsZW1lbnRwdHIgaW5ib3VuZHMgaTgsIGk4KiAl
+MzksIGk2NCAxDQo+IMKgICU0NCA9IHNlbGVjdCBpMSAlNDIsIGk4KiAlMzksIGk4KiAlNDMNCj4g
+wqAgJTQ1ID0gZ2V0ZWxlbWVudHB0ciBpbmJvdW5kcyBpOCwgaTgqICUyOCwgaTY0IDMNCj4gwqAg
+JTQ2ID0gbG9hZCBpOCwgaTgqICU0NCwgYWxpZ24gMSwgIXRiYWEgITINCj4gwqAgc3RvcmUgaTgg
+JTQ2LCBpOCogJTQ1LCBhbGlnbiAxLCAhdGJhYSAhMg0KPiDCoCAlNDcgPSBpY21wIGVxIGk4ICU0
+NiwgMA0KPiDCoCAlNDggPSBnZXRlbGVtZW50cHRyIGluYm91bmRzIGk4LCBpOCogJTQ0LCBpNjQg
+MQ0KPiDCoCAlNDkgPSBzZWxlY3QgaTEgJTQ3LCBpOCogJTQ0LCBpOCogJTQ4DQo+IMKgICU1MCA9
+IGdldGVsZW1lbnRwdHIgaW5ib3VuZHMgaTgsIGk4KiAlMjgsIGk2NCA0DQo+IMKgICU1MSA9IGFk
+ZCBuc3cgaTY0ICUyOSwgLTQNCj4gwqAgJTUyID0gaWNtcCBlcSBpNjQgJTUxLCAwDQo+IMKgIGJy
+IGkxICU1MiwgbGFiZWwgJTUzLCBsYWJlbCAlMjcNCj4NCj4gNTM6wqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqAgOyBwcmVkcyA9ICUyMiwgJTI3LCAlMw0KPiDCoCByZXQgaTgqICUw
+DQo+IH0NCj4NCj4gYXR0cmlidXRlcyAjMCA9IHsgbm9mcmVlIG5vcmVjdXJzZSBub3Vud2luZCB1
+d3RhYmxlIA0KPiAiY29ycmVjdGx5LXJvdW5kZWQtZGl2aWRlLXNxcnQtZnAtbWF0aCI9ImZhbHNl
+IiANCj4gImRpc2FibGUtdGFpbC1jYWxscyI9ImZhbHNlIiAiZnJhbWUtcG9pbnRlciI9Im5vbmUi
+IA0KPiAibGVzcy1wcmVjaXNlLWZwbWFkIj0iZmFsc2UiICJtaW4tbGVnYWwtdmVjdG9yLXdpZHRo
+Ij0iMCIgDQo+ICJuby1pbmZzLWZwLW1hdGgiPSJmYWxzZSIgIm5vLWp1bXAtdGFibGVzIj0iZmFs
+c2UiIA0KPiAibm8tbmFucy1mcC1tYXRoIj0iZmFsc2UiICJuby1zaWduZWQtemVyb3MtZnAtbWF0
+aCI9ImZhbHNlIiANCj4gIm5vLXRyYXBwaW5nLW1hdGgiPSJmYWxzZSIgInN0YWNrLXByb3RlY3Rv
+ci1idWZmZXItc2l6ZSI9IjgiIA0KPiAidGFyZ2V0LWNwdSI9Ing4Ni02NCIgDQo+ICJ0YXJnZXQt
+ZmVhdHVyZXMiPSIrY3g4LCtmeHNyLCttbXgsK3NzZSwrc3NlMiwreDg3IiANCj4gInVuc2FmZS1m
+cC1tYXRoIj0iZmFsc2UiICJ1c2Utc29mdC1mbG9hdCI9ImZhbHNlIiB9DQo+DQo+ICFsbHZtLm1v
+ZHVsZS5mbGFncyA9ICF7ITB9DQo+ICFsbHZtLmlkZW50ID0gIXshMX0NCj4NCj4gITAgPSAhe2kz
+MiAxLCAhIndjaGFyX3NpemUiLCBpMzIgNH0NCj4gITEgPSAheyEiY2xhbmcgdmVyc2lvbiAxMC4w
+LjAtNHVidW50dTEgIn0NCj4gITIgPSAheyEzLCAhMywgaTY0IDB9DQo+ICEzID0gIXshIm9tbmlw
+b3RlbnQgY2hhciIsICE0LCBpNjQgMH0NCj4gITQgPSAheyEiU2ltcGxlIEMvQysrIFRCQUEifQ0K
+PiAhNSA9IGRpc3RpbmN0ICF7ITUsICE2fQ0KPiAhNiA9ICF7ISJsbHZtLmxvb3AudW5yb2xsLmRp
+c2FibGUifQ0KPg0KPiBUbyBtZSwgdGhlIG1vc3QgaW50ZXJlc3RpbmcgcGllY2Ugb2YgdGhpcyBp
+cyBub3QgdGhhdCB3ZSB1bnJvbGxlZCAtIGl0IA0KPiBpcyB0aGUgbG93ZXJpbmcgb2YgdGhlIHNl
+bGVjdCAoZS5nLiB0aGUgYWRkcmVzcyBtYW5pcHVsYXRpb24pLg0KPg0KPiBkZWZpbmUgaTgqIEB0
+ZXN0KGk4KiAlYmFzZSwgaTggJWFyZykgew0KPiDCoCAlY21wID0gaWNtcCBlcSBpOCAlYXJnLCAw
+DQo+IMKgICVnZXAgPSBnZXRlbGVtZW50cHRyIGluYm91bmRzIGk4LCBpOCogJWJhc2UsIGk2NCAx
+DQo+IMKgICVyZXQgPSBzZWxlY3QgaTEgJWNtcCwgaTgqICViYXNlLCBpOCogJWdlcA0KPiDCoCBy
+ZXQgaTgqICVyZXQNCj4gfQ0KPg0KPiDCoMKgwqAgbGVhccKgwqDCoCAxKCVyZGkpLCAlcmF4DQo+
+IMKgwqDCoCB0ZXN0YsKgwqDCoCAlc2lsLCAlc2lsDQo+IMKgwqDCoCBjbW92ZXHCoMKgwqAgJXJk
+aSwgJXJheA0KPiDCoMKgwqAgIyBubyBpZGVhIHdoeSB0aGlzIGlzIGEgY21vdiBpbiB0aGUgcmVk
+dWNlZCBleGFtcGxlLCBhbmQgYSBicmFuY2ggDQo+IGluIHRoZSB1bnJlZHVjZWQgb25lDQo+DQo+
+IFZlcnN1cyBhbiBhbHRlcm5hdGl2ZSBvZjoNCj4NCj4gZGVmaW5lIGk4KiBAaGFuZG9wdChpOCog
+JWJhc2UsIGk4ICVhcmcpIHsNCj4gwqAgJWNtcCA9IGljbXAgbmUgaTggJWFyZywgMA0KPiDCoCAl
+Y21wLnpleHQgPSB6ZXh0IGkxICVjbXAgdG8gaTY0DQo+IMKgICVyZXQgPSBnZXRlbGVtZW50cHRy
+IGluYm91bmRzIGk4LCBpOCogJWJhc2UsIGk2NCAlY21wLnpleHQNCj4gwqAgcmV0IGk4KiAlcmV0
+DQo+IH0NCj4NCj4gwqDCoMKgIG1vdnHCoMKgwqAgJXJkaSwgJXJheA0KPiDCoMKgwqAgY21wYsKg
+wqDCoCAkMSwgJXNpbA0KPiDCoMKgwqAgc2JiccKgwqDCoCAkLTEsICVyYXgNCj4NCj4gSWYgSSBo
+YW5kIHR3ZWFrIHRoZSBJUiB0byB1c2UgdGhlIGFsdGVybmF0ZSBwYXR0ZXJuLCBJIGdldCBvdXRw
+dXQgb2Y6DQo+DQo+IMKgwqDCoCBtb3ZxwqDCoMKgICVyZGksICVyYXgNCj4gwqDCoMKgIHRlc3Rx
+wqDCoMKgICVyZHgsICVyZHgNCj4gwqDCoMKgIGplwqDCoMKgIC5MQkIwXzkNCj4gIyAlYmIuMTrC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCAjICViYjMNCj4gwqDCoMKgIGxlYXHCoMKgwqAgLTEoJXJkeCksICVyOA0KPiDCoMKgwqAg
+bW92ccKgwqDCoCAlcmR4LCAlcjkNCj4gwqDCoMKgIGFuZHHCoMKgwqAgJDMsICVyOQ0KPiDCoMKg
+wqAgamXCoMKgwqAgLkxCQjBfMg0KPiAjICViYi4zOsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICMgJWJiNy5wcmVoZWFkZXINCj4g
+wqDCoMKgIHhvcmzCoMKgwqAgJWVkaSwgJWVkaQ0KPiDCoMKgwqAgLnAyYWxpZ27CoMKgwqAgNCwg
+MHg5MA0KPiAuTEJCMF80OsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgICMgJWJiNw0KPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgIyA9
+PlRoaXMgSW5uZXIgTG9vcCBIZWFkZXI6IA0KPiBEZXB0aD0xDQo+IMKgwqDCoCBtb3Z6YmzCoMKg
+wqAgKCVyc2kpLCAlZWN4DQo+IMKgwqDCoCBtb3ZiwqDCoMKgICVjbCwgKCVyYXgsJXJkaSkNCj4g
+wqDCoMKgIGNtcGLCoMKgwqAgJDEsICVjbA0KPiDCoMKgwqAgc2JiccKgwqDCoCAkLTEsICVyc2kN
+Cj4gwqDCoMKgIGFkZHHCoMKgwqAgJDEsICVyZGkNCj4gwqDCoMKgIGNtcHHCoMKgwqAgJXJkaSwg
+JXI5DQo+IMKgwqDCoCBqbmXCoMKgwqAgLkxCQjBfNA0KPiAjICViYi41OsKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICMgJWJiMjAu
+bG9vcGV4aXQNCj4gwqDCoMKgIGxlYXHCoMKgwqAgKCVyYXgsJXJkaSksICVyOQ0KPiDCoMKgwqAg
+c3ViccKgwqDCoCAlcmRpLCAlcmR4DQo+IMKgwqDCoCBjbXBxwqDCoMKgICQzLCAlcjgNCj4gwqDC
+oMKgIGphZcKgwqDCoCAuTEJCMF83DQo+IMKgwqDCoCBqbXDCoMKgwqAgLkxCQjBfOQ0KPiAuTEJC
+MF8yOg0KPiDCoMKgwqAgbW92ccKgwqDCoCAlcmF4LCAlcjkNCj4gwqDCoMKgIGNtcHHCoMKgwqAg
+JDMsICVyOA0KPiDCoMKgwqAgamLCoMKgwqAgLkxCQjBfOQ0KPiAuTEJCMF83OsKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICMgJWJi
+MjUucHJlaGVhZGVyDQo+IMKgwqDCoCB4b3JswqDCoMKgICVlZGksICVlZGkNCj4gwqDCoMKgIC5w
+MmFsaWduwqDCoMKgIDQsIDB4OTANCj4gLkxCQjBfODrCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAjICViYjI1DQo+IMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoCAjID0+VGhpcyBJbm5lciBMb29wIEhlYWRlcjogDQo+IERlcHRoPTENCj4g
+wqDCoMKgIG1vdnpibMKgwqDCoCAoJXJzaSksICVlY3gNCj4gwqDCoMKgIG1vdmLCoMKgwqAgJWNs
+LCAoJXI5LCVyZGkpDQo+IMKgwqDCoCBjbXBiwqDCoMKgICQxLCAlY2wNCj4gwqDCoMKgIHNiYnHC
+oMKgwqAgJC0xLCAlcnNpDQo+IMKgwqDCoCBtb3Z6YmzCoMKgwqAgKCVyc2kpLCAlZWN4DQo+IMKg
+wqDCoCBtb3ZiwqDCoMKgICVjbCwgMSglcjksJXJkaSkNCj4gwqDCoMKgIGNtcGLCoMKgwqAgJDEs
+ICVjbA0KPiDCoMKgwqAgc2JiccKgwqDCoCAkLTEsICVyc2kNCj4gwqDCoMKgIG1vdnpibMKgwqDC
+oCAoJXJzaSksICVlY3gNCj4gwqDCoMKgIGNtcGLCoMKgwqAgJDEsICVjbA0KPiDCoMKgwqAgc2Ji
+ccKgwqDCoCAkLTEsICVyc2kNCj4gwqDCoMKgIG1vdmLCoMKgwqAgJWNsLCAyKCVyOSwlcmRpKQ0K
+PiDCoMKgwqAgbW92emJswqDCoMKgICglcnNpKSwgJWVjeA0KPiDCoMKgwqAgbW92YsKgwqDCoCAl
+Y2wsIDMoJXI5LCVyZGkpDQo+IMKgwqDCoCBjbXBiwqDCoMKgICQxLCAlY2wNCj4gwqDCoMKgIHNi
+YnHCoMKgwqAgJC0xLCAlcnNpDQo+IMKgwqDCoCBhZGRxwqDCoMKgICQ0LCAlcmRpDQo+IMKgwqDC
+oCBjbXBxwqDCoMKgICVyZGksICVyZHgNCj4gwqDCoMKgIGpuZcKgwqDCoCAuTEJCMF84DQo+IC5M
+QkIwXzk6wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgIyAlYmI1MQ0KPiDCoMKgwqAgcmV0cQ0KPg0KPiBUaGF0J3MgYXQgbGVhc3Qg
+c29tZXdoYXQgYmV0dGVyLg0KPg0KPiBQaGlsaXANCj4NCj4gT24gOC8yOC8yMSA2OjAwIFBNLCBD
+cmFpZyBUb3BwZXIgd3JvdGU6DQo+PiBUaGVyZSBpcyDigJwtbWxsdm0gLXVucm9sbC1ydW50aW1l
+PWZhbHNl4oCdIHRvIGRpc2FibGUgdW5yb2xsaW5nIG9mIGxvb3BzIA0KPj4gd2l0aCBydW50aW1l
+IHRyaXAgY291bnQuIFRoZXJlIGFyZSBhIGJ1bmNoIG9mIG90aGVyIGtub2JzIGF0IHRoZSB0b3Ag
+DQo+PiBvZiBsbHZtL2xpYi9UcmFuc2Zvcm1zL1NjYWxhci9Mb29wVW5yb2xsUGFzcy5jcHAuIEni
+gJltIG5vdCB2ZXJ5IA0KPj4gZmFtaWxpYXIgd2l0aCB0aGVtIG15c2VsZi4NCj4+DQo+Pj4gT24g
+QXVnIDI4LCAyMDIxLCBhdCAxOjI5IFBNLCBOaWNrIERlc2F1bG5pZXJzIA0KPj4+IDxuZGVzYXVs
+bmllcnNAZ29vZ2xlLmNvbSA8bWFpbHRvOm5kZXNhdWxuaWVyc0Bnb29nbGUuY29tPj4gd3JvdGU6
+DQo+Pj4NCj4+PiAoV2UncmUgbW92aW5nIGZyb20gY2xhbmctYnVpbHQtbGludXhAZ29vZ2xlZ3Jv
+dXBzLmNvbSANCj4+PiA8bWFpbHRvOmNsYW5nLWJ1aWx0LWxpbnV4QGdvb2dsZWdyb3Vwcy5jb20+
+IHRvDQo+Pj4gbGx2bUBsaXN0cy5saW51eC5kZXYgPG1haWx0bzpsbHZtQGxpc3RzLmxpbnV4LmRl
+dj47IHNvcnJ5IGZvciB0aGUgDQo+Pj4gY2h1cm4sIGJ1dCB3ZSB0aGluayB0aGlzIHdpbGwgbWFr
+ZQ0KPj4+IGZvciBtb3JlIGFjY2Vzc2libGUgYXJjaGl2YWwgYW5kIGFjY2VzcyBmcm9tIGxvcmUu
+a2VybmVsLm9yZyANCj4+PiA8aHR0cDovL2xvcmUua2VybmVsLm9yZz4pDQo+Pj4NCj4+PiBPbiBT
+YXQsIEF1ZyAyOCwgMjAyMSBhdCAxMToyOSBBTSBMaW51cyBUb3J2YWxkcw0KPj4+IDx0b3J2YWxk
+c0BsaW51eC1mb3VuZGF0aW9uLm9yZyANCj4+PiA8bWFpbHRvOnRvcnZhbGRzQGxpbnV4LWZvdW5k
+YXRpb24ub3JnPj4gd3JvdGU6DQo+Pj4+DQo+Pj4+IFNvIGl0IHR1cm5zIG91dCB0aGF0IHMzOTAg
+aGFkIGEgYnVnIGR1ZSB0byBpdHMgb3duIHByaXZhdGUgJ3N0cm5jcHkoKScNCj4+Pj4gYmVpbmcg
+YnJva2VuIGFuZCBub3QgZG9pbmcgdGhlIGluc2FuZSB0aGluZyB0aGF0IHN0cm5jcHkoKSBpcyBk
+ZWZpbmVkDQo+Pj4+IHRvIGRvLg0KPj4+DQo+Pj4gTGlrZSBjb250aW51aW5nIHRvIHplcm8gdGhl
+IHJlc3Qgb2YgdGhlIGJ1ZmZlciB1cCB0byBuPw0KPj4+DQo+Pj4+DQo+Pj4+IFdoaWNoIGlzIGZp
+bmUgLSBJIHVuZGVyc3RhbmQgZXhhY3RseSBob3cgdGhhdCBoYXBwZW5zLCBhbmQgc3RybmNweSgp
+DQo+Pj4+IGlzIG9uZSBvZiBteSBsZWFzdCBmYXZvcml0ZSBmdW5jdGlvbnMuDQo+Pj4+DQo+Pj4+
+IEFueXdheSwgSSBzdWdnZXN0ZWQgdGhhdCBzMzkwIGp1c3QgdXNlIHRoZSBnZW5lcmljIGZ1bmN0
+aW9uIHdlIGhhdmUsDQo+Pj4+IGluc3RlYWQgb2YgaW1wbGVtZW50aW5nIGl0cyBvd24gdmVyc2lv
+biwgYmVjYXVzZSBub2JvZHkgcmVhbGx5IGNhcmVzLA0KPj4+PiBhbmQgdGhlIGdlbmVyaWMgZnVu
+Y3Rpb24gaXMgc21hbGwgYW5kIHNpbXBsZSBhbmQgImdvb2QgZW5vdWdoIi4gU2VlDQo+Pj4+DQo+
+Pj4+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvQ0FIay09d2poS05CXzFhNndqalBoMlB2
+TXJ0alZzPURnR1k1dU0yanEzV0JCYVlNeUdRQG1haWwuZ21haWwuY29tLyANCj4+Pj4gPGh0dHBz
+Oi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvQ0FIay09d2poS05CXzFhNndqalBoMlB2TXJ0alZzPURn
+R1k1dU0yanEzV0JCYVlNeUdRQG1haWwuZ21haWwuY29tLz4NCj4+Pj4NCj4+Pj4gZm9yIGRldGFp
+bHMsIGFsdGhvdWdoIHRoZXkgZG9uJ3QgcmVhbGx5IG1hdHRlciBmb3IgdGhpcyBlbWFpbC4NCj4+
+Pj4NCj4+Pj4gV2hhdCBtYXR0ZXJzIGZvciB0aGlzIGVtYWlsIGlzIHRoYXQgd3JpdGluZyB0aGF0
+IHRoaW5nIG1hZGUgbWUgZ28gIm9rLA0KPj4+PiBqdXN0IGhvdyBnb29kIGRvZXMgdGhhdCBnZW5l
+cmljIHZlcnNpb24gbG9vaywgY29tcGFyZWQgdG8gdGhlIG9sZA0KPj4+PiBsZWdhY3kgMzItYml0
+IGhpc3RvcmljYWwgdmVyc2lvbiB0aGF0IHVzZXMgdGhlIHg4NiBzdHJpbmcgaW5zdHJ1Y3Rpb25z
+DQo+Pj4+IGp1c3QgYmVjYXVzZSBpdCBsaXRlcmFsbHkgZ29lcyBhbGwgdGhlIHdheSBiYWNrIHRv
+IG15IGxlYXJuaW5nIHRoZQ0KPj4+PiBpMzg2IGFuZCBsZWFybmluZyBnY2MgaW5saW5lIGFzbSIu
+DQo+Pj4+DQo+Pj4+IEJlY2F1c2UgeWVzLCB0aGF0IHJvdXRpbmUgKmxpdGVyYWxseSogZXhpc3Rz
+IGluIHRoYXQgZXhhY3QgZm9ybSBpbg0KPj4+PiBsaW51eC0wLjAxIC0gaXQncyBtb3ZlZCwgYW5k
+IGl0IGhhcyBsb3N0IGEgImNsZCIgaW5zdHJ1Y3Rpb24gc2luY2Ugd2UNCj4+Pj4gbm93IGhhdmUg
+dGhlIHJ1bGUgdGhhdCBERiBpcyBhbHdheXMgY2xlYXIgaW4gdGhlIGtlcm5lbCwgYnV0IG91ciBv
+bGQNCj4+Pj4gMzItYml0IHg4NiAnc3RybmNweSgpIiBpcyBob3JyaWJsZSBzbG93IGdhcmJhZ2Us
+IGJ1dCBhbHNvIGEgaGlzdG9yaWNhbA0KPj4+PiBnZW0gZnJvbSAzMCB5ZWFycyBhZ28uDQo+Pj4+
+DQo+Pj4+IEJ1dCB4ODYtNjQgZG9lc24ndCBkbyB0aGF0LCBzbyBJIGp1c3QgYnVpbHQgbGliL3N0
+cmluZyxjIHdpdGggY2xhbmcsDQo+Pj4+IHRvIHNlZSB3aGF0IGl0IGNvdWxkIGRvLg0KPj4+Pg0K
+Pj4+PiBDYW4gY2xhbmcgZG8gYmV0dGVyIHRoYW4gY29tcGxldGUgZ2FyYmFnZSB3cml0dGVuIGJ5
+IGEgY2x1ZWxlc3MgcGVyc29uDQo+Pj4+IGZyb20gdGhyZWUgZGVjYWRlcyBhZ28/DQo+Pj4+DQo+
+Pj4+IFRoZSBlbmQgcmVzdWx0IGlzIG5vdCBnb29kLg0KPj4+Pg0KPj4+PiBDbGFuZyBkZWNpZGVz
+IHRvIHVucm9sbCB0aGF0IGxvb3AgZm91ciB0aW1lcywgYW5kIGluIHRoZSBwcm9jZXNzDQo+Pj4+
+IG1ha2luZyB0aGUgY29kZSA0eCB0aGUgc2l6ZSBpdCBzaG91bGQgYmUsIGZvciBhYnNvbHV0ZWx5
+IHplcm8gZ2Fpbi4NCj4+Pj4NCj4+Pj4gVGhpcyBpcyB0aGUgd2hvbGUgZnVuY3Rpb24gd2l0aCAj
+cHJhZ21hIG5vdW5yb2xsIChpZSAic2FuZSIpOg0KPj4+Pg0KPj4+PiDCoMKgc3RybmNweToNCj4+
+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqBtb3ZxICVyZGksICVyYXgNCj4+Pj4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqB0ZXN0cSDCoMKgwqDCoMKgwqDCoCVyZHgsICVyZHgNCj4+Pj4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqBqZSDCoMKgLkxCQjNfNQ0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoHhvcmwgJWVj
+eCwgJWVjeA0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoGptcCDCoC5MQkIzXzINCj4+Pj4gwqDC
+oMKgwqDCoMKgwqDCoMKgwqAucDJhbGlnbiDCoMKgwqDCoDQsIDB4OTANCj4+Pj4gwqDCoC5MQkIz
+XzQ6DQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgYWRkcSAkMSwgJXJjeA0KPj4+PiDCoMKgwqDC
+oMKgwqDCoMKgwqDCoGNtcHEgJXJjeCwgJXJkeA0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoGpl
+IMKgwqAuTEJCM181DQo+Pj4+IMKgwqAuTEJCM18yOg0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDC
+oG1vdnpibCDCoMKgwqDCoMKgwqAoJXJzaSksICVlZGkNCj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKg
+wqBtb3ZiICVkaWwsICglcmF4LCVyY3gpDQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgdGVzdGIg
+wqDCoMKgwqDCoMKgwqAlZGlsLCAlZGlsDQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgamUgwqDC
+oC5MQkIzXzQNCj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqBhZGRxICQxLCAlcnNpDQo+Pj4+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgam1wIMKgLkxCQjNfNA0KPj4+PiDCoMKgLkxCQjNfNToNCj4+Pj4g
+wqDCoMKgwqDCoMKgwqDCoMKgwqByZXRxDQo+Pj4+DQo+Pj4+IGFuZCBob25lc3RseSwgdGhhdCdz
+IHBlcmZlY3RseSBmaW5lLiBJdCdzIHZlcnkgbXVjaCB3aGF0IHRoZSBjb2RlDQo+Pj4+IGRvZXMu
+IEl0J3MgNDQgYnl0ZXMsIGl0IGZpdHMgaW4gb25lIGNhY2hlbGluZSwgaXQncyBub3QgaG9ycmli
+bGUuIEl0J3MNCj4+Pj4gbm90IHdoYXQgSSB3b3VsZCBoYXZlIGRvbmUgYnkgaGFuZCwgYW5kIGNs
+YW5nIHNlZW1zIGEgYml0IHRvbyBlYWdlciB0bw0KPj4+PiBtb3ZlIHRoZSBsb29wIGVuZCB0ZXN0
+IHRvIHRoZSB0b3Agb2YgdGhlIGxvb3AsIGJ1dCB3aGF0ZXZlci4gSSBzZWUNCj4+Pj4gbm90aGlu
+ZyB0aGF0IG1ha2VzIG1lIGdvICJ0aGF0J3MgaG9ycmlibGUiLg0KPj4+DQo+Pj4gRm9yIHRoZSBs
+b29wIHRlc3QsIEkga25vdyB0aGF0IGNsYW5nIHdpbGwgInJvdGF0ZSIgbG9vcHMgaW4gYW4gYXR0
+ZW1wdA0KPj4+IHRvIGhhdmUgb25lIGNhbm9uaWNhbCBsb29wIGZvcm0uIFRoYXQgd2F5IHBhc3Nl
+cyBkb24ndCBoYXZlIHRvIGNoZWNrDQo+Pj4gZm9yIG11bHRpcGxlIGRpZmZlcmVudCBmb3JtcyBv
+ZiBsb29wcyBpZiB0aGV5J3JlIGFsbCBpbiBvbmUgZm9ybS4NCj4+PiBUaGlzIHJlZHVjZXMgY29t
+cGlsZSB0aW1lIGFuZCBjb21wbGV4aXR5IGluIHRoZSBjb21waWxlci4gwqBEb2VzIGl0DQo+Pj4g
+YWx3YXlzIHByb2R1Y2UgdGhlIG1vc3Qgb3B0aW1hbCBsb29wcz8gwqBJcyB0aGF0IHdoYXQgaXMg
+Z29pbmcgb24gaGVyZT8NCj4+PiBJJ20gbm90IHN1cmUuDQo+Pj4NCj4+Pj4NCj4+Pj4gTm93LCBh
+ZG1pdHRlZGx5IGl0J3Mgbm90IHBhcnRpY3VsYXJseSAqc21hcnQqIGVpdGhlciAtIHlvdSBjb3Vs
+ZCB0dXJuDQo+Pj4+IHRoZSBjb25kaXRpb25hbCAiYnJhbmNoIG92ZXIgYSBzaW5nbGUgY29uc3Rh
+bnQgYWRkIiBpbnRvIGEgY29tcHV0ZWQNCj4+Pj4gYWRkIGluc3RlYWQsIHNvIHRoZQ0KPj4+Pg0K
+Pj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoHRlc3RiIMKgwqDCoMKgwqDCoMKgJWRpbCwgJWRpbA0K
+Pj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoGplIMKgwqAuTEJCM180DQo+Pj4+IMKgwqDCoMKgwqDC
+oMKgwqDCoMKgYWRkcSAkMSwgJXJzaQ0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoGptcCDCoC5M
+QkIzXzQNCj4+Pj4NCj4+Pj4gY291bGQgLSBmb3IgZXhhbXBsZSAtIGhhdmUgYmVlbiBkb25lIGFz
+DQo+Pj4+DQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgYWRkYiAkMjU1LCVkaWwNCj4+Pj4gwqDC
+oMKgwqDCoMKgwqDCoMKgwqBhZGNxICQwLCAlcnNpDQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKg
+am1wIMKgLkxCQjNfNA0KPj4+Pg0KPj4+PiB3aGljaCBjb3VsZCBhdm9pZCBzb21lIGJyYW5jaCBt
+aXNwcmVkaWN0cy4gwqBBbmQgaG9uZXN0bHkgdGhlbiB0aGUgY29kZQ0KPj4+DQo+Pj4gUGVyaGFw
+cyBhIHBlZXBob2xlIG9wdGltaXphdGlvbiB3ZSBjYW4gYWRkPyAoRG9lcyB0aGUgYWRjcSAtIGFk
+ZCB3aXRoDQo+Pj4gY2FycnkgLSByZWx5IG9uIHdoZXRoZXIgdGhlIHByZXZpb3VzIGFkZGIgb3Zl
+cmZsb3dlZCwgaWUuICVkaWwgd2FzDQo+Pj4gbm9uLXplcm8sIHJlcGxhY2luZyB0aGUgdGVzdGIr
+amUgcGFpcj8gRGlkIEkgdW5kZXJzdGFuZCB0aGF0DQo+Pj4gY29ycmVjdGx5PykgwqBUaG91Z2gg
+d2UnZCBoYXZlIHRvIGtub3cgdGhhdCAlZGlsIHdhc24ndCB1c2VkIGFmdGVyDQo+Pj4gdGFraW5n
+IHRoZSBqdW1wLCBzaW5jZSBJIHRoaW5rIHlvdXIgdHJhbnNmb3JtZWQgdmVyc2lvbiBtb2RpZmll
+ZCAlZGlsLA0KPj4+IHNvIHBlcmhhcHMgdGhhdCBjYW4ndCBiZSBhIHBlZXBob2xlIG9wdC4gSG1t
+Lg0KPj4+DQo+Pj4+IHRoYXQgY2xhbmcgbW92ZWQgdG8gdGhlIHRvcCBzaG91bGQgcmVhbGx5IGhh
+dmUgYmVlbiBhdCB0aGUgYm90dG9tIG9mDQo+Pj4+IHRoZSBsb29wLCBidXQgSSBkb24ndCBrbm93
+IGlmIGl0IHdvdWxkIG1hdHRlci4gVGhlIGFib3ZlIG1pZ2h0IGxvb2sgYQ0KPj4+PiBiaXQgbW9y
+ZSBjbGV2ZXIsIGJ1dCB0aGUgZGF0YSBkZXBlbmRlbmN5IG1pZ2h0IGJlIHdvcnNlIGlmIHRoZSBi
+cmFuY2gNCj4+Pj4gcHJlZGljdHMgd2VsbC4gVGhlIGJyYW5jaCBiZWhhdmlvciBpcyBiaW1vZGFs
+IC0gdGhlIGxvb3Agc3RhcnRzIG91dA0KPj4+PiBub3QgdGFraW5nIHRoYXQgImplIiwgYW5kIGVu
+ZHMgdXAgdGFraW5nIGl0IC0gc28gaXQgaGFzIGFuIGFsbW9zdA0KPj4+PiBndWFyYW50ZWVkIG1p
+c3ByZWRpY3QgaW4gdGhlIG1pZGRsZSBvZiB0aGUgbG9vcCwgYnV0IHdoYXRldmVyLiBZb3Ugd2lu
+DQo+Pj4+IHNvbWUsIHlvdSBsb3NlIHNvbWUuDQo+Pj4+DQo+Pj4+IEFOWVdBWS4NCj4+Pj4NCj4+
+Pj4gVGhlIGFib3ZlIGRpc2N1c3Npb24gaXMgYWJvdXQgKnJlYXNvbmFibGUqIGNvZGUuDQo+Pj4+
+DQo+Pj4+IFdoYXQgY2xhbmcgYWN0dWFsbHkgZ2VuZXJhdGVzIGJlYXJzIHZlcnkgbGl0dGxlIHJl
+c2VtYmxhbmNlIHRvIGVpdGhlcg0KPj4+PiB0aGUgYWJvdmUgc2ltcGxlIGFuZCBzaG9ydCwgb3Ig
+dGhlICJjbGV2ZXIgYW5kIG9uZSBjb25kaXRpb25hbCBicmFuY2gNCj4+Pj4gc2hvcnRlciIgdmVy
+c2lvbi4NCj4+Pj4NCj4+Pj4gV2hhdCBjbGFuZyBhY3R1YWxseSBnZW5lcmF0ZXMgaXMgdGhpcyBo
+b3Jyb3I6DQo+Pj4+DQo+Pj4+IMKgwqBzdHJuY3B5Og0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDC
+oG1vdnEgJXJkaSwgJXJheA0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoHRlc3RxIMKgwqDCoMKg
+wqDCoMKgJXJkeCwgJXJkeA0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoGplIMKgwqAuTEJCM18x
+OQ0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoGxlYXEgLTEoJXJkeCksICVyOA0KPj4+PiDCoMKg
+wqDCoMKgwqDCoMKgwqDCoG1vdnEgJXJkeCwgJXI5DQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKg
+YW5kcSAkMywgJXI5DQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgamUgwqDCoC5MQkIzXzINCj4+
+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqB4b3JsICVlZGksICVlZGkNCj4+Pj4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqBqbXAgwqAuTEJCM180DQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgLnAyYWxpZ24g
+wqDCoMKgwqA0LCAweDkwDQo+Pj4+IMKgwqAuTEJCM182Og0KPj4+PiDCoMKgwqDCoMKgwqDCoMKg
+wqDCoGFkZHEgJDEsICVyZGkNCj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqBjbXBxICVyZGksICVy
+OQ0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoGplIMKgwqAuTEJCM183DQo+Pj4+IMKgwqAuTEJC
+M180Og0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoG1vdnpibCDCoMKgwqDCoMKgwqAoJXJzaSks
+ICVlY3gNCj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqBtb3ZiICVjbCwgKCVyYXgsJXJkaSkNCj4+
+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqB0ZXN0YiDCoMKgwqDCoMKgwqDCoCVjbCwgJWNsDQo+Pj4+
+IMKgwqDCoMKgwqDCoMKgwqDCoMKgamUgwqDCoC5MQkIzXzYNCj4+Pj4gwqDCoMKgwqDCoMKgwqDC
+oMKgwqBhZGRxICQxLCAlcnNpDQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgam1wIMKgLkxCQjNf
+Ng0KPj4+PiDCoMKgLkxCQjNfNzoNCj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqBsZWFxICglcmF4
+LCVyZGkpLCAlcjkNCj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqBzdWJxICVyZGksICVyZHgNCj4+
+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqBjbXBxICQzLCAlcjgNCj4+Pj4gwqDCoMKgwqDCoMKgwqDC
+oMKgwqBqYiDCoMKgLkxCQjNfMTkNCj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqBqbXAgwqAuTEJC
+M185DQo+Pj4+IMKgwqAuTEJCM18yOg0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoG1vdnEgJXJh
+eCwgJXI5DQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgY21wcSAkMywgJXI4DQo+Pj4+IMKgwqDC
+oMKgwqDCoMKgwqDCoMKgamFlIMKgLkxCQjNfOQ0KPj4+PiDCoMKgLkxCQjNfMTk6DQo+Pj4+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgcmV0cQ0KPj4+PiDCoMKgLkxCQjNfOToNCj4+Pj4gwqDCoMKgwqDC
+oMKgwqDCoMKgwqB4b3JsICVlZGksICVlZGkNCj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqBqbXAg
+wqAuTEJCM18xMA0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoC5wMmFsaWduIMKgwqDCoMKgNCwg
+MHg5MA0KPj4+PiDCoMKgLkxCQjNfMTg6DQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgYWRkcSAk
+NCwgJXJkaQ0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoGNtcHEgJXJkaSwgJXJkeA0KPj4+PiDC
+oMKgwqDCoMKgwqDCoMKgwqDCoGplIMKgwqAuTEJCM18xOQ0KPj4+PiDCoMKgLkxCQjNfMTA6DQo+
+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgbW92emJsIMKgwqDCoMKgwqDCoCglcnNpKSwgJWVjeA0K
+Pj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoG1vdmIgJWNsLCAoJXI5LCVyZGkpDQo+Pj4+IMKgwqDC
+oMKgwqDCoMKgwqDCoMKgdGVzdGIgwqDCoMKgwqDCoMKgwqAlY2wsICVjbA0KPj4+PiDCoMKgwqDC
+oMKgwqDCoMKgwqDCoGplIMKgwqAuTEJCM18xMg0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoGFk
+ZHEgJDEsICVyc2kNCj4+Pj4gwqDCoC5MQkIzXzEyOg0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDC
+oG1vdnpibCDCoMKgwqDCoMKgwqAoJXJzaSksICVlY3gNCj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKg
+wqBtb3ZiICVjbCwgMSglcjksJXJkaSkNCj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqB0ZXN0YiDC
+oMKgwqDCoMKgwqDCoCVjbCwgJWNsDQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgamUgwqDCoC5M
+QkIzXzE0DQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgYWRkcSAkMSwgJXJzaQ0KPj4+PiDCoMKg
+LkxCQjNfMTQ6DQo+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgbW92emJsIMKgwqDCoMKgwqDCoCgl
+cnNpKSwgJWVjeA0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoG1vdmIgJWNsLCAyKCVyOSwlcmRp
+KQ0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoHRlc3RiIMKgwqDCoMKgwqDCoMKgJWNsLCAlY2wN
+Cj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqBqZSDCoMKgLkxCQjNfMTYNCj4+Pj4gwqDCoMKgwqDC
+oMKgwqDCoMKgwqBhZGRxICQxLCAlcnNpDQo+Pj4+IMKgwqAuTEJCM18xNjoNCj4+Pj4gwqDCoMKg
+wqDCoMKgwqDCoMKgwqBtb3Z6YmwgwqDCoMKgwqDCoMKgKCVyc2kpLCAlZWN4DQo+Pj4+IMKgwqDC
+oMKgwqDCoMKgwqDCoMKgbW92YiAlY2wsIDMoJXI5LCVyZGkpDQo+Pj4+IMKgwqDCoMKgwqDCoMKg
+wqDCoMKgdGVzdGIgwqDCoMKgwqDCoMKgwqAlY2wsICVjbA0KPj4+PiDCoMKgwqDCoMKgwqDCoMKg
+wqDCoGplIMKgwqAuTEJCM18xOA0KPj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoGFkZHEgJDEsICVy
+c2kNCj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqBqbXAgwqAuTEJCM18xOA0KPj4+Pg0KPj4+PiB3
+aGljaCBpcyAxNzAgYnl0ZXMgaW4gc2l6ZSBpbnN0ZWFkIG9mIHRoZSA0NCBieXRlcywgc28gbm93
+IGl0IHRha2VzIHVwDQo+Pj4+IHRocmVlIGNhY2hlbGluZXMuDQo+Pj4+DQo+Pj4+IE5vdywgSSBk
+b24ndCBrbm93IGhvdyBjb21tb24gdGhpcyBpcy4gTWF5YmUgdGhpcyBpcyB0aGUgb25seSBwbGFj
+ZSBpbg0KPj4+PiB0aGUga2VybmVsIHdoZXJlIHRoaXMgdW5yb2xsaW5nIGNhc2UgaGFwcGVucy4g
+QnV0IGluIGdlbmVyYWwsIGxvb3ANCj4+Pj4gdW5yb2xsaW5nIGluIHRoZSBrZXJuZWwgaXMgYSBi
+aWcgbWlzdGFrZSB1bmxlc3MgaXQncyBhIHZlcnkgb2J2aW91cw0KPj4+PiBjYXNlIChpZSBzbWFs
+bCBjb25zdGFudCBmdWxsIHVucm9sbCBtYWtlcyBwZXJmZWN0IHNlbnNlOiBpZiB5b3Ugc2VlDQo+
+Pj4+DQo+Pj4+IMKgwqDCoMKgwqDCoMKgaWYgKGkgPSAwOyBpIDwgNDsgaSsrKQ0KPj4+PiDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAqcCsrID0gKnErKzsNCj4+Pj4NCj4+Pj4gdGhlbiB5
+b3Ugc2hvdWxkIG1vc3QgZGVmaW5pdGVseSB1bnJvbGwgdGhhdCB0bw0KPj4+Pg0KPj4+PiDCoMKg
+wqDCoMKgwqDCoCpwKysgPSAqcSsrOw0KPj4+PiDCoMKgwqDCoMKgwqDCoCpwKysgPSAqcSsrOw0K
+Pj4+PiDCoMKgwqDCoMKgwqDCoCpwKysgPSAqcSsrOw0KPj4+PiDCoMKgwqDCoMKgwqDCoCpwKysg
+PSAqcSsrOw0KPj4+Pg0KPj4+PiBiZWNhdXNlIGl0J3Mgc2ltcGx5IHNtYWxsZXIgYW5kIHNpbXBs
+ZXIgdG8gbm90IGhhdmUgYW55IGNvbmRpdGlvbmFscw0KPj4+PiBhdCBhbGwsIGFuZCBqdXN0IGRv
+IGZvdXIgaXRlcmF0aW9ucyBzdGF0aWNhbGx5Lg0KPj4+Pg0KPj4+PiBCdXQgdGhlICdzdHJuY3B5
+KCknIGtpbmQgb2YgdW5yb2xsaW5nIGlzIGEgbWlzdGFrZSB3aGVuIGtlcm5lbCBsb29wcw0KPj4+
+PiB0ZW5kIHRvIGhhdmUgdmVyeSBsb3cgbG9vcCBjb3VudHMuDQo+Pj4+DQo+Pj4+IEFzIGZhciBh
+cyBJIGtub3csIGdjYyBkb2Vzbid0IGRvIGFueSB1bnJvbGxpbmcgYXQgLU8yLg0KPj4+DQo+Pj4g
+Rm9yIGNsYW5nLCB3ZSB3aWxsIGRvIGxpbWl0ZWQgdW5yb2xsaW5nIGF0IC1PMiwgYW5kIHZlcnkg
+YWdncmVzc2l2ZQ0KPj4+IHVucm9sbGluZyBhdCAtTzM7IGlmIGEgbG9vcCBjYW4gYmUgZnVsbHkg
+dW5yb2xsZWQsIHdlJ3JlIGxpa2VseSB0byBkbw0KPj4+IHNvIGF0IC1PMywgd2l0aCBhIG11Y2gg
+c21hbGxlciBvciBtb3JlIGNvbnNlcnZhdGl2ZSB1bnJvbGwgYXQgLU8yLiDCoEkNCj4+PiB0aGlu
+ayBJIGRlbW9uc3RyYXRlZCB0aGF0IGluIHRoaXMgdGFsaywgaWYgeW91IGhhdmUgdGhlIHRpbWUg
+b3IgYXJlDQo+Pj4gaW50ZXJlc3RlZCBtb3JlIGluIGludHJvc3BlY3RpbmcgdGhlIGNvbXBpbGVy
+ICh5ZWFoLCB5ZWFoLCBhaW4ndA0KPj4+IG5vYm9keSBnb3QgdGltZSBmb3IgdGhhdCk6IGh0dHBz
+Oi8veW91dHUuYmUvYlVUWGhjZl9hTmM/dD0xNDE1IA0KPj4+IDxodHRwczovL3lvdXR1LmJlL2JV
+VFhoY2ZfYU5jP3Q9MTQxNT4NCj4+Pg0KPj4+IE15IGh5cG90aGVzaXMgaGVyZSBpcyB0aGF0IExM
+Vk0gbWF5IG5vdCBiZSBjb25zaWRlcmluZyAtbW5vLXNzZTIgYW5kDQo+Pj4gZnJpZW5kcyAoaWUu
+IG5vIGZsb2F0aW5nIGF0IGFsbCwgcGxlYXNlKSB0aGF0IHRoZSBrZXJuZWwgdXNlcyB3aGVuDQo+
+Pj4gZG9pbmcgaXRzIHNpbXBsZXIgdW5yb2xsaW5nLiDCoElmIHRoZSBtb25zdHJvc2l0eSBsb29r
+cyBtb3JlIGNvbXBhY3QNCj4+PiB3aXRoIG5vbmUgb2YgdGhlIC1tbm8tc3NlMiBhbmQgZnJpZW5k
+cyBmbGFncyBzZXQsIHRoZW4gdGhhdCB3b3VsZCBsZW5kDQo+Pj4gaXRzZWxmIHRvIHRoYXQgaHlw
+b3RoZXNpcy4gwqBJSVJDLCB0aGUgbWlkZGxlIGVuZCBkb2VzIGxvb3AgdW5yb2xsaW5nDQo+Pj4g
+aW4gYSBub24tbWFjaGluZSBhZ25vc3RpYyBtYW5uZXI7IGl0IGhhcyB0byBrbm93IHdoYXQncyB0
+aGUgYmFzaWMNCj4+PiB3aWR0aCBvZiBTSU1EIHNpbmNlIHdlJ2QgZ2VuZXJhbGx5IGxpa2UgdG8g
+dmVjdG9yaXplIGEgbG9vcCBhZnRlcg0KPj4+IHdlJ3ZlIHVucm9sbGVkIGl0LCBzbyB0aGUgcGFz
+cyBpcyBhd2FyZSBvZiBzcGVjaWZpY3Mgb2YgdGhlIHRhcmdldA0KPj4+IG1hY2hpbmUgKHRoaXMg
+aXMgZXhjZXB0aW9uYWwgdG8gbWU7IEkgdW5kZXJzdGFuZCB3aHkgaXQncyBuZWNlc3NhcnksDQo+
+Pj4gYnV0IGdlbmVyYWxseSB0aGUgbWlkZGxlIGVuZCBvcHRpbWl6YXRpb25zIGFyZSBtYWNoaW5l
+IGFnbm9zdGljKS4NCj4+PiBUaGVuIGxhdGVyIG9uY2Ugd2UgZ2V0IHRvIGFjdHVhbCBtYWNoaW5l
+IGNvZGUgZ2VuZXJhdGlvbiBmb3IgeDg2LCB3ZQ0KPj4+IGRpc2NvdmVyIHRoZSBjb25zdHJhaW50
+cyB0aGF0IHdlIGNhbid0IGFjdHVhbGx5IHVzZSBhbnkgb2YgdGhlIFNTRQ0KPj4+IHJlZ2lzdGVy
+cyBhbmQgaW5zdGVhZCBnZW5lcmF0ZSBtb3JlIHZlcmJvc2UgbG9vcCBpdGVyYXRpb25zIHVzaW5n
+DQo+Pj4gR1BScy4gwqBMaWtlbHksIHRoZSBtaWRkbGUgZW5kIHVucm9sbGVyIG5lZWRzIHRvIGNo
+ZWNrIHRoYXQgLXNzZTINCj4+PiB3YXNuJ3Qgc2V0IEJFRk9SRSB0aGlua2luZyBpdCBoYXMgdGhl
+IGdyZWVuIGxpZ2h0IHRvIHVucm9sbCBhIGxvb3AgeDQuDQo+Pj4gQnV0IGl0J3MganVzdCBhIGh5
+cG90aGVzaXM7IEkgaGF2ZW4ndCB2YWxpZGF0ZWQgaXQgeWV0LCBhbmQgSSBjb3VsZCBiZQ0KPj4+
+IHdpbGRseSB3cm9uZy4NCj4+Pg0KPj4+Pg0KPj4+PiBXaGF0IGlzIHRoZSBtYWdpYyB0byBtYWtl
+IGNsYW5nIG5vdCBkbyBzdHVwaWQgdGhpbmdzIGxpa2UgdGhpcz8gSQ0KPj4+PiBvYnZpb3VzbHkg
+a25vdyBhYm91dCB0aGF0DQo+Pj4+DQo+Pj4+IMKgwqDCoCNwcmFnbWEgbm91bnJvbGwNCj4+Pj4N
+Cj4+Pj4gYnV0IEkgZG9uJ3Qgd2FudCB0byBtYXJrIHZhcmlvdXMgdW5pbXBvcnRhbnQgZnVuY3Rp
+b25zLiBJJ2QgbXVjaA0KPj4+PiByYXRoZXIgaGF2ZSB0aGUgZGVmYXVsdCBiZSAiZG9uJ3QgZG8g
+c3R1cGlkIHRoaW5ncyIsIGFuZCB0aGVuIGlmIHdlDQo+Pj4+IHNlZSBhIGNhc2Ugd2hlcmUgbG9v
+cCB1bnJvbGxpbmcgcmVhbGx5IG1hdHRlcnMsIGFuZCBpdCdzIGltcG9ydGFudCwgd2UNCj4+Pj4g
+Y2FuIG1hcmsgKnRoYXQqIHNwZWNpYWxseS4NCj4+Pj4NCj4+Pj4gSG1tPw0KPj4+Pg0KPj4+PiDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBMaW51cw0KPj4+DQo+Pj4NCj4+Pg0KPj4+IC0t
+IA0KPj4+IFRoYW5rcywNCj4+PiB+TmljayBEZXNhdWxuaWVycw0KPj4NCg0KLS0gCllvdSByZWNl
+aXZlZCB0aGlzIG1lc3NhZ2UgYmVjYXVzZSB5b3UgYXJlIHN1YnNjcmliZWQgdG8gdGhlIEdvb2ds
+ZSBHcm91cHMgIkNsYW5nIEJ1aWx0IExpbnV4IiBncm91cC4KVG8gdW5zdWJzY3JpYmUgZnJvbSB0
+aGlzIGdyb3VwIGFuZCBzdG9wIHJlY2VpdmluZyBlbWFpbHMgZnJvbSBpdCwgc2VuZCBhbiBlbWFp
+bCB0byBjbGFuZy1idWlsdC1saW51eCt1bnN1YnNjcmliZUBnb29nbGVncm91cHMuY29tLgpUbyB2
+aWV3IHRoaXMgZGlzY3Vzc2lvbiBvbiB0aGUgd2ViIHZpc2l0IGh0dHBzOi8vZ3JvdXBzLmdvb2ds
+ZS5jb20vZC9tc2dpZC9jbGFuZy1idWlsdC1saW51eC85MTdmZmQzYy1iNTQxLTQxYTMtNmMzMC1k
+ZjZkYzdhMTM0OGMlNDBzd2l0Y2hiYWNrY29tcGlsZXJzLmNvbS4K
+--------------1AC6BDE4F0D11080EE9EF12A
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+  </head>
+  <body>
+    <p>Lest I send anyone else off a wild goose chase...</p>
+    <p>As mentioned below, the output here was from clang10.=C2=A0 The
+      peephole I mentioned in that output has already been implemented
+      in clang tip-of-tree.=C2=A0 I'd hand skimmed the IR from godbolt for
+      ToT and hadn't noticed that.=C2=A0 I'll also note that the assembly
+      previously copied into this thread appears to be from an older
+      clang which does not have the peephole either.=C2=A0 <br>
+    </p>
+    <p>So, at least modern clang will emit "less bad" code for the
+      unrolled loop.=C2=A0 As Linus replied, this is off topic for the main
+      discussion thread.<br>
+    </p>
+    <p>Philip<br>
+    </p>
+    <div class=3D"moz-cite-prefix">On 8/28/21 6:50 PM, Philip Reames
+      wrote:<br>
+    </div>
+    <blockquote type=3D"cite"
+      cite=3D"mid:9e517b5d-f0e5-240a-2e3c-5cc24eda601e@switchbackcompilers.=
+com">
+      <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF=
+-8">
+      <p>Here's the IR resulting the generic implementation from
+        lib/string.c.</p>
+      <p>$ clang -O2 -emit-llvm strncpy.c -c<br>
+        # This happens to be clang10, but check ToT returns a similar
+        output<br>
+        $ ./opt strncpy.bc -S<br>
+        ; ModuleID =3D 'strncpy.bc'<br>
+        source_filename =3D "strncpy.c"<br>
+        target datalayout =3D
+        "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-=
+S128"<br>
+        target triple =3D "x86_64-pc-linux-gnu"<br>
+        <br>
+        ; Function Attrs: nofree norecurse nounwind uwtable<br>
+        define dso_local i8* @foo(i8* returned %0, i8* nocapture
+        readonly %1, i64 %2) local_unnamed_addr #0 {<br>
+        =C2=A0 %4 =3D icmp eq i64 %2, 0<br>
+        =C2=A0 br i1 %4, label %53, label %5<br>
+        <br>
+        5:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ; pre=
+ds =3D %3<br>
+        =C2=A0 %6 =3D add i64 %2, -1<br>
+        =C2=A0 %7 =3D and i64 %2, 3<br>
+        =C2=A0 %8 =3D icmp eq i64 %7, 0<br>
+        =C2=A0 br i1 %8, label %22, label %9<br>
+        <br>
+        9:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ; pre=
+ds =3D %5,
+        %9<br>
+        =C2=A0 %10 =3D phi i8* [ %18, %9 ], [ %0, %5 ]<br>
+        =C2=A0 %11 =3D phi i64 [ %19, %9 ], [ %2, %5 ]<br>
+        =C2=A0 %12 =3D phi i8* [ %17, %9 ], [ %1, %5 ]<br>
+        =C2=A0 %13 =3D phi i64 [ %20, %9 ], [ %7, %5 ]<br>
+        =C2=A0 %14 =3D load i8, i8* %12, align 1, !tbaa !2<br>
+        =C2=A0 store i8 %14, i8* %10, align 1, !tbaa !2<br>
+        =C2=A0 %15 =3D icmp eq i8 %14, 0<br>
+        =C2=A0 %16 =3D getelementptr inbounds i8, i8* %12, i64 1<br>
+        =C2=A0 %17 =3D select i1 %15, i8* %12, i8* %16<br>
+        =C2=A0 %18 =3D getelementptr inbounds i8, i8* %10, i64 1<br>
+        =C2=A0 %19 =3D add nsw i64 %11, -1<br>
+        =C2=A0 %20 =3D add i64 %13, -1<br>
+        =C2=A0 %21 =3D icmp eq i64 %20, 0<br>
+        =C2=A0 br i1 %21, label %22, label %9, !llvm.loop !5<br>
+        <br>
+        22:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ; preds =3D=
+ %9,
+        %5<br>
+        =C2=A0 %23 =3D phi i8* [ %0, %5 ], [ %18, %9 ]<br>
+        =C2=A0 %24 =3D phi i64 [ %2, %5 ], [ %19, %9 ]<br>
+        =C2=A0 %25 =3D phi i8* [ %1, %5 ], [ %17, %9 ]<br>
+        =C2=A0 %26 =3D icmp ult i64 %6, 3<br>
+        =C2=A0 br i1 %26, label %53, label %27<br>
+        <br>
+        27:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ; preds =3D=
+ %22,
+        %27<br>
+        =C2=A0 %28 =3D phi i8* [ %50, %27 ], [ %23, %22 ]<br>
+        =C2=A0 %29 =3D phi i64 [ %51, %27 ], [ %24, %22 ]<br>
+        =C2=A0 %30 =3D phi i8* [ %49, %27 ], [ %25, %22 ]<br>
+        =C2=A0 %31 =3D load i8, i8* %30, align 1, !tbaa !2<br>
+        =C2=A0 store i8 %31, i8* %28, align 1, !tbaa !2<br>
+        =C2=A0 %32 =3D icmp eq i8 %31, 0<br>
+        =C2=A0 %33 =3D getelementptr inbounds i8, i8* %30, i64 1<br>
+        =C2=A0 %34 =3D select i1 %32, i8* %30, i8* %33<br>
+        =C2=A0 %35 =3D getelementptr inbounds i8, i8* %28, i64 1<br>
+        =C2=A0 %36 =3D load i8, i8* %34, align 1, !tbaa !2<br>
+        =C2=A0 store i8 %36, i8* %35, align 1, !tbaa !2<br>
+        =C2=A0 %37 =3D icmp eq i8 %36, 0<br>
+        =C2=A0 %38 =3D getelementptr inbounds i8, i8* %34, i64 1<br>
+        =C2=A0 %39 =3D select i1 %37, i8* %34, i8* %38<br>
+        =C2=A0 %40 =3D getelementptr inbounds i8, i8* %28, i64 2<br>
+        =C2=A0 %41 =3D load i8, i8* %39, align 1, !tbaa !2<br>
+        =C2=A0 store i8 %41, i8* %40, align 1, !tbaa !2<br>
+        =C2=A0 %42 =3D icmp eq i8 %41, 0<br>
+        =C2=A0 %43 =3D getelementptr inbounds i8, i8* %39, i64 1<br>
+        =C2=A0 %44 =3D select i1 %42, i8* %39, i8* %43<br>
+        =C2=A0 %45 =3D getelementptr inbounds i8, i8* %28, i64 3<br>
+        =C2=A0 %46 =3D load i8, i8* %44, align 1, !tbaa !2<br>
+        =C2=A0 store i8 %46, i8* %45, align 1, !tbaa !2<br>
+        =C2=A0 %47 =3D icmp eq i8 %46, 0<br>
+        =C2=A0 %48 =3D getelementptr inbounds i8, i8* %44, i64 1<br>
+        =C2=A0 %49 =3D select i1 %47, i8* %44, i8* %48<br>
+        =C2=A0 %50 =3D getelementptr inbounds i8, i8* %28, i64 4<br>
+        =C2=A0 %51 =3D add nsw i64 %29, -4<br>
+        =C2=A0 %52 =3D icmp eq i64 %51, 0<br>
+        =C2=A0 br i1 %52, label %53, label %27<br>
+        <br>
+        53:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ; preds =3D=
+ %22,
+        %27, %3<br>
+        =C2=A0 ret i8* %0<br>
+        }<br>
+        <br>
+        attributes #0 =3D { nofree norecurse nounwind uwtable
+        "correctly-rounded-divide-sqrt-fp-math"=3D"false"
+        "disable-tail-calls"=3D"false" "frame-pointer"=3D"none"
+        "less-precise-fpmad"=3D"false" "min-legal-vector-width"=3D"0"
+        "no-infs-fp-math"=3D"false" "no-jump-tables"=3D"false"
+        "no-nans-fp-math"=3D"false" "no-signed-zeros-fp-math"=3D"false"
+        "no-trapping-math"=3D"false" "stack-protector-buffer-size"=3D"8"
+        "target-cpu"=3D"x86-64"
+        "target-features"=3D"+cx8,+fxsr,+mmx,+sse,+sse2,+x87"
+        "unsafe-fp-math"=3D"false" "use-soft-float"=3D"false" }<br>
+        <br>
+        !llvm.module.flags =3D !{!0}<br>
+        !llvm.ident =3D !{!1}<br>
+        <br>
+        !0 =3D !{i32 1, !"wchar_size", i32 4}<br>
+        !1 =3D !{!"clang version 10.0.0-4ubuntu1 "}<br>
+        !2 =3D !{!3, !3, i64 0}<br>
+        !3 =3D !{!"omnipotent char", !4, i64 0}<br>
+        !4 =3D !{!"Simple C/C++ TBAA"}<br>
+        !5 =3D distinct !{!5, !6}<br>
+        !6 =3D !{!"llvm.loop.unroll.disable"}<br>
+      </p>
+      <p>To me, the most interesting piece of this is not that we
+        unrolled - it is the lowering of the select (e.g. the address
+        manipulation).<br>
+      </p>
+      <p>define i8* @test(i8* %base, i8 %arg) {<br>
+        =C2=A0 %cmp =3D icmp eq i8 %arg, 0<br>
+        =C2=A0 %gep =3D getelementptr inbounds i8, i8* %base, i64 1<br>
+        =C2=A0 %ret =3D select i1 %cmp, i8* %base, i8* %gep<br>
+        =C2=A0 ret i8* %ret<br>
+        }</p>
+      <p>=C2=A0=C2=A0=C2=A0 leaq=C2=A0=C2=A0=C2=A0 1(%rdi), %rax<br>
+        =C2=A0=C2=A0=C2=A0 testb=C2=A0=C2=A0=C2=A0 %sil, %sil<br>
+        =C2=A0=C2=A0=C2=A0 cmoveq=C2=A0=C2=A0=C2=A0 %rdi, %rax<br>
+        =C2=A0=C2=A0=C2=A0 # no idea why this is a cmov in the reduced exam=
+ple, and a
+        branch in the unreduced one<br>
+      </p>
+      <p>Versus an alternative of:<br>
+        <br>
+        define i8* @handopt(i8* %base, i8 %arg) {<br>
+        =C2=A0 %cmp =3D icmp ne i8 %arg, 0<br>
+        =C2=A0 %cmp.zext =3D zext i1 %cmp to i64<br>
+        =C2=A0 %ret =3D getelementptr inbounds i8, i8* %base, i64 %cmp.zext=
+<br>
+        =C2=A0 ret i8* %ret<br>
+        }</p>
+      <p>=C2=A0=C2=A0=C2=A0 movq=C2=A0=C2=A0=C2=A0 %rdi, %rax<br>
+        =C2=A0=C2=A0=C2=A0 cmpb=C2=A0=C2=A0=C2=A0 $1, %sil<br>
+        =C2=A0=C2=A0=C2=A0 sbbq=C2=A0=C2=A0=C2=A0 $-1, %rax<br>
+      </p>
+      <p>If I hand tweak the IR to use the alternate pattern, I get
+        output of:</p>
+      <p>=C2=A0=C2=A0=C2=A0 movq=C2=A0=C2=A0=C2=A0 %rdi, %rax<br>
+        =C2=A0=C2=A0=C2=A0 testq=C2=A0=C2=A0=C2=A0 %rdx, %rdx<br>
+        =C2=A0=C2=A0=C2=A0 je=C2=A0=C2=A0=C2=A0 .LBB0_9<br>
+        # %bb.1:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # %bb3<br>
+        =C2=A0=C2=A0=C2=A0 leaq=C2=A0=C2=A0=C2=A0 -1(%rdx), %r8<br>
+        =C2=A0=C2=A0=C2=A0 movq=C2=A0=C2=A0=C2=A0 %rdx, %r9<br>
+        =C2=A0=C2=A0=C2=A0 andq=C2=A0=C2=A0=C2=A0 $3, %r9<br>
+        =C2=A0=C2=A0=C2=A0 je=C2=A0=C2=A0=C2=A0 .LBB0_2<br>
+        # %bb.3:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # %bb7.preheader<br>
+        =C2=A0=C2=A0=C2=A0 xorl=C2=A0=C2=A0=C2=A0 %edi, %edi<br>
+        =C2=A0=C2=A0=C2=A0 .p2align=C2=A0=C2=A0=C2=A0 4, 0x90<br>
+        .LBB0_4:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # %bb7<br>
+        =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 # =3D&gt;This Inner Loop
+        Header: Depth=3D1<br>
+        =C2=A0=C2=A0=C2=A0 movzbl=C2=A0=C2=A0=C2=A0 (%rsi), %ecx<br>
+        =C2=A0=C2=A0=C2=A0 movb=C2=A0=C2=A0=C2=A0 %cl, (%rax,%rdi)<br>
+        =C2=A0=C2=A0=C2=A0 cmpb=C2=A0=C2=A0=C2=A0 $1, %cl<br>
+        =C2=A0=C2=A0=C2=A0 sbbq=C2=A0=C2=A0=C2=A0 $-1, %rsi<br>
+        =C2=A0=C2=A0=C2=A0 addq=C2=A0=C2=A0=C2=A0 $1, %rdi<br>
+        =C2=A0=C2=A0=C2=A0 cmpq=C2=A0=C2=A0=C2=A0 %rdi, %r9<br>
+        =C2=A0=C2=A0=C2=A0 jne=C2=A0=C2=A0=C2=A0 .LBB0_4<br>
+        # %bb.5:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # %bb20.loopexit<br>
+        =C2=A0=C2=A0=C2=A0 leaq=C2=A0=C2=A0=C2=A0 (%rax,%rdi), %r9<br>
+        =C2=A0=C2=A0=C2=A0 subq=C2=A0=C2=A0=C2=A0 %rdi, %rdx<br>
+        =C2=A0=C2=A0=C2=A0 cmpq=C2=A0=C2=A0=C2=A0 $3, %r8<br>
+        =C2=A0=C2=A0=C2=A0 jae=C2=A0=C2=A0=C2=A0 .LBB0_7<br>
+        =C2=A0=C2=A0=C2=A0 jmp=C2=A0=C2=A0=C2=A0 .LBB0_9<br>
+        .LBB0_2:<br>
+        =C2=A0=C2=A0=C2=A0 movq=C2=A0=C2=A0=C2=A0 %rax, %r9<br>
+        =C2=A0=C2=A0=C2=A0 cmpq=C2=A0=C2=A0=C2=A0 $3, %r8<br>
+        =C2=A0=C2=A0=C2=A0 jb=C2=A0=C2=A0=C2=A0 .LBB0_9<br>
+        .LBB0_7:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # %bb25.preheader<br=
 >
-> Here's the IR resulting the generic implementation from lib/string.c.
+        =C2=A0=C2=A0=C2=A0 xorl=C2=A0=C2=A0=C2=A0 %edi, %edi<br>
+        =C2=A0=C2=A0=C2=A0 .p2align=C2=A0=C2=A0=C2=A0 4, 0x90<br>
+        .LBB0_8:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # %bb25<br>
+        =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 # =3D&gt;This Inner Loop
+        Header: Depth=3D1<br>
+        =C2=A0=C2=A0=C2=A0 movzbl=C2=A0=C2=A0=C2=A0 (%rsi), %ecx<br>
+        =C2=A0=C2=A0=C2=A0 movb=C2=A0=C2=A0=C2=A0 %cl, (%r9,%rdi)<br>
+        =C2=A0=C2=A0=C2=A0 cmpb=C2=A0=C2=A0=C2=A0 $1, %cl<br>
+        =C2=A0=C2=A0=C2=A0 sbbq=C2=A0=C2=A0=C2=A0 $-1, %rsi<br>
+        =C2=A0=C2=A0=C2=A0 movzbl=C2=A0=C2=A0=C2=A0 (%rsi), %ecx<br>
+        =C2=A0=C2=A0=C2=A0 movb=C2=A0=C2=A0=C2=A0 %cl, 1(%r9,%rdi)<br>
+        =C2=A0=C2=A0=C2=A0 cmpb=C2=A0=C2=A0=C2=A0 $1, %cl<br>
+        =C2=A0=C2=A0=C2=A0 sbbq=C2=A0=C2=A0=C2=A0 $-1, %rsi<br>
+        =C2=A0=C2=A0=C2=A0 movzbl=C2=A0=C2=A0=C2=A0 (%rsi), %ecx<br>
+        =C2=A0=C2=A0=C2=A0 cmpb=C2=A0=C2=A0=C2=A0 $1, %cl<br>
+        =C2=A0=C2=A0=C2=A0 sbbq=C2=A0=C2=A0=C2=A0 $-1, %rsi<br>
+        =C2=A0=C2=A0=C2=A0 movb=C2=A0=C2=A0=C2=A0 %cl, 2(%r9,%rdi)<br>
+        =C2=A0=C2=A0=C2=A0 movzbl=C2=A0=C2=A0=C2=A0 (%rsi), %ecx<br>
+        =C2=A0=C2=A0=C2=A0 movb=C2=A0=C2=A0=C2=A0 %cl, 3(%r9,%rdi)<br>
+        =C2=A0=C2=A0=C2=A0 cmpb=C2=A0=C2=A0=C2=A0 $1, %cl<br>
+        =C2=A0=C2=A0=C2=A0 sbbq=C2=A0=C2=A0=C2=A0 $-1, %rsi<br>
+        =C2=A0=C2=A0=C2=A0 addq=C2=A0=C2=A0=C2=A0 $4, %rdi<br>
+        =C2=A0=C2=A0=C2=A0 cmpq=C2=A0=C2=A0=C2=A0 %rdi, %rdx<br>
+        =C2=A0=C2=A0=C2=A0 jne=C2=A0=C2=A0=C2=A0 .LBB0_8<br>
+        .LBB0_9:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # %bb51<br>
+        =C2=A0=C2=A0=C2=A0 retq<br>
+        <br>
+      </p>
+      <p>That's at least somewhat better.<br>
+      </p>
+      <p>Philip<br>
+      </p>
+      <div class=3D"moz-cite-prefix">On 8/28/21 6:00 PM, Craig Topper
+        wrote:<br>
+      </div>
+      <blockquote type=3D"cite"
+        cite=3D"mid:37453471-1498-4C1C-8022-93697D8C2DD4@sifive.com">
+        <meta http-equiv=3D"Content-Type" content=3D"text/html;
+          charset=3DUTF-8">
+        There is =E2=80=9C-mllvm -unroll-runtime=3Dfalse=E2=80=9D to disabl=
+e unrolling of
+        loops with runtime trip count. There are a bunch of other knobs
+        at the top of=C2=A0<font class=3D"" face=3D"Menlo" color=3D"#000000=
+"><span
+            style=3D"font-size: 11px;" class=3D"">llvm/lib/Transforms/Scala=
+r/LoopUnrollPass.cpp.
+            I</span><span style=3D"caret-color: rgb(0, 0, 0); font-size:
+            11px;" class=3D"">=E2=80=99</span><span style=3D"font-size: 11p=
+x;"
+            class=3D"">m not very familiar with them myself.</span></font>
+        <div><br class=3D"">
+          <blockquote type=3D"cite" class=3D"">
+            <div class=3D"">On Aug 28, 2021, at 1:29 PM, Nick Desaulniers
+              &lt;<a href=3D"mailto:ndesaulniers@google.com" class=3D""
+                moz-do-not-send=3D"true">ndesaulniers@google.com</a>&gt;
+              wrote:</div>
+            <br class=3D"Apple-interchange-newline">
+            <div class=3D"">
+              <div class=3D"">(We're moving from <a
+                  href=3D"mailto:clang-built-linux@googlegroups.com"
+                  class=3D"" moz-do-not-send=3D"true">clang-built-linux@goo=
+glegroups.com</a>
+                to<br class=3D"">
+                <a href=3D"mailto:llvm@lists.linux.dev" class=3D""
+                  moz-do-not-send=3D"true">llvm@lists.linux.dev</a>; sorry
+                for the churn, but we think this will make<br class=3D"">
+                for more accessible archival and access from <a
+                  href=3D"http://lore.kernel.org" class=3D""
+                  moz-do-not-send=3D"true">lore.kernel.org</a>)<br
+                  class=3D"">
+                <br class=3D"">
+                On Sat, Aug 28, 2021 at 11:29 AM Linus Torvalds<br
+                  class=3D"">
+                &lt;<a href=3D"mailto:torvalds@linux-foundation.org"
+                  class=3D"" moz-do-not-send=3D"true">torvalds@linux-founda=
+tion.org</a>&gt;
+                wrote:<br class=3D"">
+                <blockquote type=3D"cite" class=3D""><br class=3D"">
+                  So it turns out that s390 had a bug due to its own
+                  private 'strncpy()'<br class=3D"">
+                  being broken and not doing the insane thing that
+                  strncpy() is defined<br class=3D"">
+                  to do.<br class=3D"">
+                </blockquote>
+                <br class=3D"">
+                Like continuing to zero the rest of the buffer up to n?<br
+                  class=3D"">
+                <br class=3D"">
+                <blockquote type=3D"cite" class=3D""><br class=3D"">
+                  Which is fine - I understand exactly how that happens,
+                  and strncpy()<br class=3D"">
+                  is one of my least favorite functions.<br class=3D"">
+                  <br class=3D"">
+                  Anyway, I suggested that s390 just use the generic
+                  function we have,<br class=3D"">
+                  instead of implementing its own version, because
+                  nobody really cares,<br class=3D"">
+                  and the generic function is small and simple and "good
+                  enough". See<br class=3D"">
+                  <br class=3D"">
+                  =C2=A0=C2=A0=C2=A0<a
+href=3D"https://lore.kernel.org/lkml/CAHk-=3DwjhKNB_1a6wjjPh2PvMrtjVs=3DDgG=
+Y5uM2jq3WBBaYMyGQ@mail.gmail.com/"
+                    class=3D"" moz-do-not-send=3D"true">https://lore.kernel=
+.org/lkml/CAHk-=3DwjhKNB_1a6wjjPh2PvMrtjVs=3DDgGY5uM2jq3WBBaYMyGQ@mail.gmai=
+l.com/</a><br
+                    class=3D"">
+                  <br class=3D"">
+                  for details, although they don't really matter for
+                  this email.<br class=3D"">
+                  <br class=3D"">
+                  What matters for this email is that writing that thing
+                  made me go "ok,<br class=3D"">
+                  just how good does that generic version look, compared
+                  to the old<br class=3D"">
+                  legacy 32-bit historical version that uses the x86
+                  string instructions<br class=3D"">
+                  just because it literally goes all the way back to my
+                  learning the<br class=3D"">
+                  i386 and learning gcc inline asm".<br class=3D"">
+                  <br class=3D"">
+                  Because yes, that routine *literally* exists in that
+                  exact form in<br class=3D"">
+                  linux-0.01 - it's moved, and it has lost a "cld"
+                  instruction since we<br class=3D"">
+                  now have the rule that DF is always clear in the
+                  kernel, but our old<br class=3D"">
+                  32-bit x86 'strncpy()" is horrible slow garbage, but
+                  also a historical<br class=3D"">
+                  gem from 30 years ago.<br class=3D"">
+                  <br class=3D"">
+                  But x86-64 doesn't do that, so I just built
+                  lib/string,c with clang,<br class=3D"">
+                  to see what it could do.<br class=3D"">
+                  <br class=3D"">
+                  Can clang do better than complete garbage written by a
+                  clueless person<br class=3D"">
+                  from three decades ago?<br class=3D"">
+                  <br class=3D"">
+                  The end result is not good.<br class=3D"">
+                  <br class=3D"">
+                  Clang decides to unroll that loop four times, and in
+                  the process<br class=3D"">
+                  making the code 4x the size it should be, for
+                  absolutely zero gain.<br class=3D"">
+                  <br class=3D"">
+                  This is the whole function with #pragma nounroll (ie
+                  "sane"):<br class=3D"">
+                  <br class=3D"">
+                  =C2=A0=C2=A0strncpy:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movq %rdi, %rax<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0testq =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0%rdx, %rdx<br class=3D""=
+>
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_5<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0xorl %ecx, %ecx<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0jmp =C2=A0.LBB3_2<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0.p2align =C2=A0=C2=A0=C2=A0=C2=A04, 0x90<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_4:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0addq $1, %rcx<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0cmpq %rcx, %rdx<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_5<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_2:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movzbl =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0(%rsi), %edi<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movb %dil, (%rax,%rcx)<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0testb =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0%dil, %dil<br class=3D""=
+>
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_4<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0addq $1, %rsi<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0jmp =C2=A0.LBB3_4<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_5:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0retq<br class=3D"">
+                  <br class=3D"">
+                  and honestly, that's perfectly fine. It's very much
+                  what the code<br class=3D"">
+                  does. It's 44 bytes, it fits in one cacheline, it's
+                  not horrible. It's<br class=3D"">
+                  not what I would have done by hand, and clang seems a
+                  bit too eager to<br class=3D"">
+                  move the loop end test to the top of the loop, but
+                  whatever. I see<br class=3D"">
+                  nothing that makes me go "that's horrible".<br
+                    class=3D"">
+                </blockquote>
+                <br class=3D"">
+                For the loop test, I know that clang will "rotate" loops
+                in an attempt<br class=3D"">
+                to have one canonical loop form. That way passes don't
+                have to check<br class=3D"">
+                for multiple different forms of loops if they're all in
+                one form.<br class=3D"">
+                This reduces compile time and complexity in the
+                compiler. =C2=A0Does it<br class=3D"">
+                always produce the most optimal loops? =C2=A0Is that what i=
+s
+                going on here?<br class=3D"">
+                I'm not sure.<br class=3D"">
+                <br class=3D"">
+                <blockquote type=3D"cite" class=3D""><br class=3D"">
+                  Now, admittedly it's not particularly *smart* either -
+                  you could turn<br class=3D"">
+                  the conditional "branch over a single constant add"
+                  into a computed<br class=3D"">
+                  add instead, so the<br class=3D"">
+                  <br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0testb =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0%dil, %dil<br class=3D""=
+>
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_4<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0addq $1, %rsi<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0jmp =C2=A0.LBB3_4<br class=3D"">
+                  <br class=3D"">
+                  could - for example - have been done as<br class=3D"">
+                  <br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0addb $255,%dil<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0adcq $0, %rsi<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0jmp =C2=A0.LBB3_4<br class=3D"">
+                  <br class=3D"">
+                  which could avoid some branch mispredicts. =C2=A0And
+                  honestly then the code<br class=3D"">
+                </blockquote>
+                <br class=3D"">
+                Perhaps a peephole optimization we can add? (Does the
+                adcq - add with<br class=3D"">
+                carry - rely on whether the previous addb overflowed,
+                ie. %dil was<br class=3D"">
+                non-zero, replacing the testb+je pair? Did I understand
+                that<br class=3D"">
+                correctly?) =C2=A0Though we'd have to know that %dil wasn't
+                used after<br class=3D"">
+                taking the jump, since I think your transformed version
+                modified %dil,<br class=3D"">
+                so perhaps that can't be a peephole opt. Hmm.<br
+                  class=3D"">
+                <br class=3D"">
+                <blockquote type=3D"cite" class=3D"">that clang moved to th=
+e
+                  top should really have been at the bottom of<br
+                    class=3D"">
+                  the loop, but I don't know if it would matter. The
+                  above might look a<br class=3D"">
+                  bit more clever, but the data dependency might be
+                  worse if the branch<br class=3D"">
+                  predicts well. The branch behavior is bimodal - the
+                  loop starts out<br class=3D"">
+                  not taking that "je", and ends up taking it - so it
+                  has an almost<br class=3D"">
+                  guaranteed mispredict in the middle of the loop, but
+                  whatever. You win<br class=3D"">
+                  some, you lose some.<br class=3D"">
+                  <br class=3D"">
+                  ANYWAY.<br class=3D"">
+                  <br class=3D"">
+                  The above discussion is about *reasonable* code.<br
+                    class=3D"">
+                  <br class=3D"">
+                  What clang actually generates bears very little
+                  resemblance to either<br class=3D"">
+                  the above simple and short, or the "clever and one
+                  conditional branch<br class=3D"">
+                  shorter" version.<br class=3D"">
+                  <br class=3D"">
+                  What clang actually generates is this horror:<br
+                    class=3D"">
+                  <br class=3D"">
+                  =C2=A0=C2=A0strncpy:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movq %rdi, %rax<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0testq =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0%rdx, %rdx<br class=3D""=
+>
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_19<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0leaq -1(%rdx), %r8<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movq %rdx, %r9<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0andq $3, %r9<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_2<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0xorl %edi, %edi<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0jmp =C2=A0.LBB3_4<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0.p2align =C2=A0=C2=A0=C2=A0=C2=A04, 0x90<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_6:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0addq $1, %rdi<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0cmpq %rdi, %r9<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_7<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_4:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movzbl =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0(%rsi), %ecx<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movb %cl, (%rax,%rdi)<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0testb =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0%cl, %cl<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_6<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0addq $1, %rsi<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0jmp =C2=A0.LBB3_6<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_7:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0leaq (%rax,%rdi), %r9<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0subq %rdi, %rdx<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0cmpq $3, %r8<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0jb =C2=A0=C2=A0.LBB3_19<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0jmp =C2=A0.LBB3_9<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_2:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movq %rax, %r9<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0cmpq $3, %r8<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0jae =C2=A0.LBB3_9<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_19:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0retq<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_9:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0xorl %edi, %edi<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0jmp =C2=A0.LBB3_10<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0.p2align =C2=A0=C2=A0=C2=A0=C2=A04, 0x90<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_18:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0addq $4, %rdi<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0cmpq %rdi, %rdx<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_19<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_10:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movzbl =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0(%rsi), %ecx<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movb %cl, (%r9,%rdi)<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0testb =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0%cl, %cl<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_12<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0addq $1, %rsi<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_12:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movzbl =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0(%rsi), %ecx<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movb %cl, 1(%r9,%rdi)<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0testb =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0%cl, %cl<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_14<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0addq $1, %rsi<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_14:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movzbl =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0(%rsi), %ecx<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movb %cl, 2(%r9,%rdi)<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0testb =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0%cl, %cl<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_16<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0addq $1, %rsi<br class=3D"">
+                  =C2=A0=C2=A0.LBB3_16:<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movzbl =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0(%rsi), %ecx<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0movb %cl, 3(%r9,%rdi)<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0testb =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0%cl, %cl<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0je =C2=A0=C2=A0.LBB3_18<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0addq $1, %rsi<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0jmp =C2=A0.LBB3_18<br class=3D"">
+                  <br class=3D"">
+                  which is 170 bytes in size instead of the 44 bytes, so
+                  now it takes up<br class=3D"">
+                  three cachelines.<br class=3D"">
+                  <br class=3D"">
+                  Now, I don't know how common this is. Maybe this is
+                  the only place in<br class=3D"">
+                  the kernel where this unrolling case happens. But in
+                  general, loop<br class=3D"">
+                  unrolling in the kernel is a big mistake unless it's a
+                  very obvious<br class=3D"">
+                  case (ie small constant full unroll makes perfect
+                  sense: if you see<br class=3D"">
+                  <br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (i =3D 0; i =
+&lt; 4; i++)<br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0*p++ =3D *q++;<br class=3D"">
+                  <br class=3D"">
+                  then you should most definitely unroll that to<br
+                    class=3D"">
+                  <br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0*p++ =3D *q++;<=
+br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0*p++ =3D *q++;<=
+br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0*p++ =3D *q++;<=
+br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0*p++ =3D *q++;<=
+br class=3D"">
+                  <br class=3D"">
+                  because it's simply smaller and simpler to not have
+                  any conditionals<br class=3D"">
+                  at all, and just do four iterations statically.<br
+                    class=3D"">
+                  <br class=3D"">
+                  But the 'strncpy()' kind of unrolling is a mistake
+                  when kernel loops<br class=3D"">
+                  tend to have very low loop counts.<br class=3D"">
+                  <br class=3D"">
+                  As far as I know, gcc doesn't do any unrolling at -O2.<br
+                    class=3D"">
+                </blockquote>
+                <br class=3D"">
+                For clang, we will do limited unrolling at -O2, and very
+                aggressive<br class=3D"">
+                unrolling at -O3; if a loop can be fully unrolled, we're
+                likely to do<br class=3D"">
+                so at -O3, with a much smaller or more conservative
+                unroll at -O2. =C2=A0I<br class=3D"">
+                think I demonstrated that in this talk, if you have the
+                time or are<br class=3D"">
+                interested more in introspecting the compiler (yeah,
+                yeah, ain't<br class=3D"">
+                nobody got time for that): <a
+                  href=3D"https://youtu.be/bUTXhcf_aNc?t=3D1415" class=3D""
+                  moz-do-not-send=3D"true">https://youtu.be/bUTXhcf_aNc?t=
+=3D1415</a><br
+                  class=3D"">
+                <br class=3D"">
+                My hypothesis here is that LLVM may not be considering
+                -mno-sse2 and<br class=3D"">
+                friends (ie. no floating at all, please) that the kernel
+                uses when<br class=3D"">
+                doing its simpler unrolling. =C2=A0If the monstrosity looks
+                more compact<br class=3D"">
+                with none of the -mno-sse2 and friends flags set, then
+                that would lend<br class=3D"">
+                itself to that hypothesis. =C2=A0IIRC, the middle end does
+                loop unrolling<br class=3D"">
+                in a non-machine agnostic manner; it has to know what's
+                the basic<br class=3D"">
+                width of SIMD since we'd generally like to vectorize a
+                loop after<br class=3D"">
+                we've unrolled it, so the pass is aware of specifics of
+                the target<br class=3D"">
+                machine (this is exceptional to me; I understand why
+                it's necessary,<br class=3D"">
+                but generally the middle end optimizations are machine
+                agnostic).<br class=3D"">
+                Then later once we get to actual machine code generation
+                for x86, we<br class=3D"">
+                discover the constraints that we can't actually use any
+                of the SSE<br class=3D"">
+                registers and instead generate more verbose loop
+                iterations using<br class=3D"">
+                GPRs. =C2=A0Likely, the middle end unroller needs to check
+                that -sse2<br class=3D"">
+                wasn't set BEFORE thinking it has the green light to
+                unroll a loop x4.<br class=3D"">
+                But it's just a hypothesis; I haven't validated it yet,
+                and I could be<br class=3D"">
+                wildly wrong.<br class=3D"">
+                <br class=3D"">
+                <blockquote type=3D"cite" class=3D""><br class=3D"">
+                  What is the magic to make clang not do stupid things
+                  like this? I<br class=3D"">
+                  obviously know about that<br class=3D"">
+                  <br class=3D"">
+                  =C2=A0=C2=A0=C2=A0#pragma nounroll<br class=3D"">
+                  <br class=3D"">
+                  but I don't want to mark various unimportant
+                  functions. I'd much<br class=3D"">
+                  rather have the default be "don't do stupid things",
+                  and then if we<br class=3D"">
+                  see a case where loop unrolling really matters, and
+                  it's important, we<br class=3D"">
+                  can mark *that* specially.<br class=3D"">
+                  <br class=3D"">
+                  Hmm?<br class=3D"">
+                  <br class=3D"">
+                  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0Linus<br class=3D"">
+                </blockquote>
+                <br class=3D"">
+                <br class=3D"">
+                <br class=3D"">
+                -- <br class=3D"">
+                Thanks,<br class=3D"">
+                ~Nick Desaulniers<br class=3D"">
+              </div>
+            </div>
+          </blockquote>
+        </div>
+        <br class=3D"">
+      </blockquote>
+    </blockquote>
+  </body>
+</html>
 
-[ Again, note that this isn't really a function we care about in the
-kernel. It came up mainly because I wanted to make sure it wasn't a
-_total_ disaster, and the kernel ends up actually generally wanting
-"small and simple" code because I$ misses is often one of the more
-noticeable things.
+<p></p>
 
-  We have _very_ few loops with big loop counts in the kernel outside
-of basically just some memory copies, and most of those are
-handcrafted (often handcrafted C, but asm isn't unheard of). Most of
-the time, the loops are all in user space, and then user space does a
-system call that does something a small handful of times,
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/917ffd3c-b541-41a3-6c30-df6dc7a1348c%40switchb=
+ackcompilers.com?utm_medium=3Demail&utm_source=3Dfooter">https://groups.goo=
+gle.com/d/msgid/clang-built-linux/917ffd3c-b541-41a3-6c30-df6dc7a1348c%40sw=
+itchbackcompilers.com</a>.<br />
 
-  So things like "loop over pathname lookup" is common, but the "loop"
-is often just a couple of path components.
-
-  And code size matters, often because the L1 I$ has been flushed by
-the "real work" in user space, and so the kernel often has somewhat
-cold caches (except for microbenchmarks, which lie). ]
-
-That said:
-
-> To me, the most interesting piece of this is not that we unrolled - it is the lowering of the select (e.g. the address manipulation).
-
-Ok, so clang *can* turn the address generation into arithmetic (and
-yes, I guess "cmp+sbb" is the much more idiomatic x86 generation, not
-my odd "addb+adc"). Interesting.
-
-It probably can go either way. The data dependency chain is likely
-much worse than a well-predicted branch.
-
-So for the kernel, I suspect that the main issue is just that "one I$
-line vs three I$ lines for the unrolled case".
-
-Having looked at all the other cases where clang makes for bigger code
-with loop unrolling, I'm getting the feelign that I just need to test
-"-fno-unroll-loops" more.
-
-We actually tried to use "-Os" with gcc because of the code size
-issues. But it generated so much truly horribly expensive code (using
-"rep movs" for small constant-sized copies, using divide instructions
-because they were smaller than multiplies with reciprocals etc) that I
-gave up on that.
-
-In general, for the kernel, we tend to aim for "do all the serious
-optimizations, but avoid stuff that blows up code size". Turning the
-occasional constant divide (common for things like pointer differences
-in C) into a reciprocal multiply is a good optimization: it makes the
-code a few bytes bigger but easily much faster. But unrolling loops is
-almost always a loss, because the loop counts are small, and the
-overhead of the unrolling is simply bigger than the win.
-
-                  Linus
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHk-%3Dwj%2BBdSAGfiJO2G8QzwLbg98mzCXF95s%3D-5k_gLR4evdnw%40mail.gmail.com.
+--------------1AC6BDE4F0D11080EE9EF12A--
