@@ -1,129 +1,128 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBXNZWWEQMGQEWNXPKAA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAMN6NI5EERBG6OWWEQMGQEHOLANAA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 48EBB3FBF02
-	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 00:34:12 +0200 (CEST)
-Received: by mail-qk1-x73e.google.com with SMTP id 70-20020a370b49000000b003d2f5f0dcc6sf1010829qkl.9
-        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Aug 2021 15:34:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630362846; cv=pass;
+Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
+	by mail.lfdr.de (Postfix) with ESMTPS id B2B433FBF54
+	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 01:17:53 +0200 (CEST)
+Received: by mail-lf1-x138.google.com with SMTP id n5-20020a19ef05000000b003e224cd5844sf938643lfh.12
+        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Aug 2021 16:17:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630365468; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vWfYSJTHljksovbjy4W06FK8MFreGep4kemrfZKaTaIz4ocnraWpr15rKg7Kn9fL92
-         xVMIk52l8pgLurM7t6inCWD3KlalmYvV26gsO8Ua0ocHnnYFmhjhtlfHwZ26aXd2lxiC
-         64b9QTRw+5e6kqh9CZA8VwqZEYKnXNEV8rZMvKdZeyxAyWl+d++yRo8X3rVTQm2hZwyK
-         bt3J1Bqyhf1KelWXS2yXhYo2iPblv6W7MYm5fOW7htDlWeHIrsi4tUa9c7wzlfnVodl2
-         emdlXfRJDMTr+6xgkG+0tHTb7fBJEs2l6siVkEprWYJJcFRRbTZ62FQQqy/kY1a7+cEj
-         4qGQ==
+        b=fWuoAyYIhswY3foQKRKqmqfi/6MB7i8isktMXK69QBfVo4WnMxNSiZlLymSvfIbpU2
+         Zghj7lqO/389iwCrtXnjZseZ7klbFfqjOi+eGlWIayVaN3/Uo4qXZxREQuPFMAITtZR2
+         y/dSXWmQxjZ/gJEboSjJeEz0qRecmYcamXgyDMIyeotM/Lq2/tUsWi3CpdHA0HP1SuY0
+         unL+S1nbECYVMFxbaKr4aiW8fQj76xarlDXKvTU2kqyBeD45omzuTgqXbHsjZNs85du1
+         iaVqAlGFLMHWOOlVhbhQQ+bjA7sw5vEEFTJO1POBlzcXz0nqheYyNXnhH6acDNZzB5/5
+         htzg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=+yp3+plqrYJKG15oXBJLXanWN7rBbx8o/u+0YB/zla8=;
-        b=utq8cmhKtvKzHANKtIO2yqirGDhiCw/tNNwwnE3X/UaKp+xhxA8fgN6wL5UjCvOb0x
-         XeZSzFcbckdQE/6lY9jCOM7BpjnRcFPlPYfbZLekb0aVkVVx39Njr9LZ0ByYYwg65P+j
-         5Q1uUV7zFrx3d5VCeGiuJ2gB++df62b5Sllq5U0tlmLdX76K4ObhN3HtLKmVhLLxuv/9
-         wsP59Q5XL3bila3eWhz+YfXtQEPe9C0ZXQoxdPDDS588LD4caX38xgfkmHe+XB4x6otr
-         kLguseAgOkqjGM+x+3IqE0OcIPw5zsWEIlszp7030vH3E1zHAGPcSXn1kxTl5WL3yXAH
-         eYQA==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
+        bh=rrbhpMhTG6K0YQemNIg0WOWQXgGCff+TElkXOhGtMlU=;
+        b=k3/gqoT1CrMgR17+/LIP9MUMowZC3wnghkxWV9RzhbK14HxEnOu8GJgl1boKf0CC7T
+         E0CeJknO5tWE6C0rl1QpmjL8gycckFpOfI1WdClEKDWBPlJqvVpM9Shv8SOCp8CceAiM
+         8An3138OZQjzBo9Cqq9aAgHcXZOf5BORAM66NT0kP4VpcTbeY5mwkryuil6cPdoVEFcT
+         mZ2BVH8RzAekWboU8/+wOv8Qs5blySM4m1ZadoCAhAhmhb0ECx0rGLmXNPGnGV9RRo3m
+         HG2EgtUXG7bDleDApz0LwNMtsXuy3U9CMeQXAAh+prjyImgF0TnHBHePvO62hqmdIQ/F
+         ZRwg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=WvvNsgss;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@linutronix.de header.s=2020 header.b=VdMYJwvd;
+       dkim=neutral (no key) header.i=@linutronix.de;
+       spf=pass (google.com: domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+yp3+plqrYJKG15oXBJLXanWN7rBbx8o/u+0YB/zla8=;
-        b=JLPT4O1xpzXPE/17gvOBKgc88ok6/Rhi8RkXnk51aarh1WTU37tQokA4uLoIPN8gyV
-         bk0OgANjGEqZykH/DKgyXI4s4ioHTOMhygymbS7FxvuONZ5F5x7OIfRXWdE4YJo6e7TI
-         p7fnGEVVXQXCQzBqMB0J/iF4OPeJxu/WI7feZFe1NclOJ46yTjBj1LtzVJQHiQp6Xj4Y
-         UWafpLa803Iaqhr3fajDk+PU96bNyP60GQggdaan6IgZzPUmpeae61WWd4WN2evyBRTH
-         OlS6KYhxVXsHxg6MuK2o6j/Azav+l9pEGrBf2PoqlG07+a1QpHoygmqHXi33Sq9ARkcO
-         GZig==
+        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=rrbhpMhTG6K0YQemNIg0WOWQXgGCff+TElkXOhGtMlU=;
+        b=KPZqfPZVuD9I2IPyzjIEB9p3sOBcQIXMjLvqG67PfVQjmpjaZa1QmTwvS/pa6pCk9x
+         NN3U2csul2RKhnTjT1KSiyYKtTuMfdepas9jrHh/FcOFwm/JXICVlHNR3A4FXTfhZiGd
+         KUEjUNv3X93Fe+Qs2k4dBeT8NRO3sgdeP4vIAlplGox4+5Z99+RFn9Mhskr75KvDhFww
+         QyGLalFNmXJ2KiJGGHMZbIKdGOoc63svAQDHvBRx4YcJ8by/mlUTFuw+vQWsJDlqDiXs
+         w1Wy+61CABKuN8bcE53LtsH3loY9TeRPjxzG7PyjeVItJrVnacf41Yr3CUupC8xNQa/d
+         QgZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=+yp3+plqrYJKG15oXBJLXanWN7rBbx8o/u+0YB/zla8=;
-        b=BonXOWi/9CTR95egJjOA7k7xruOi3VXadaYLGEWi2DzM/16cNbWbPQt4uBOPKeYQqh
-         oCUPG2GD5lHxD9RC0hNs2wljOCxvT8OXlPCH5/AZm8yHx4UFHDNVZMCpagpeQg1cLoTj
-         2w8Rf6btmBskNSHYHde7ydyjyUrG87Er6rUaH/2f74lEaISTdwkNvBAQm8nAVGV9gMVa
-         zQntC1Y8+FFJXY+ksQ3O1fvSVjSIpLJn7zeAPLs8Sq195Gilwqbr84HJhohAdNSsbXGB
-         3M/KztRVa59RNQnMrhlTWlIT5gPS1PySioHrlJuMbnIe56w6agDiKo+mb4bp+1ieY8X4
-         wRXQ==
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
+         :date:message-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=rrbhpMhTG6K0YQemNIg0WOWQXgGCff+TElkXOhGtMlU=;
+        b=pduT4J+vsXhCOqMct3K0giIjNEGpfMWf88yUWSIrc/ICyFLTkakd1eyXZ2gqm/MD1R
+         sZnlZbpCEvl+TYeECfW1D9THfYClgmxwAfIbr89vMM2io7vOmzDnjgnoHmtudYlkQ96e
+         iqA+rLOsUOcMlsqAsNVn2yION2mpamIsclnk9yMT4HJDMNwvoE/hS+V4/HF7K39evkLH
+         YOZbGApbWX1xQqsuT5DWzxUW7McnfKAlS1RZCkrLEx6n883YRhkKsO/l7MwL6uVpg3fn
+         Bfs3S+4bydKYZe+n8XwTmOkzKEnPLk6+Fee+FeZ+CptlCEgt1SiRm8IFaWmUBiNl4occ
+         mbhA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533HTO3wljzzd/CaLGH3eB91vg2CnVFht0BHM1Nds0dvzhprFLQu
-	GPhVW17ugTFLH0O8In98YyQ=
-X-Google-Smtp-Source: ABdhPJz2WGemveLLLgUbV0O35nd0s0EN5dCytsXi+nMCSLfb4oSiKz30F8ZS8PomrZzP3zE3/rn5KA==
-X-Received: by 2002:ac8:44d4:: with SMTP id b20mr22604641qto.235.1630362845868;
-        Mon, 30 Aug 2021 15:34:05 -0700 (PDT)
+X-Gm-Message-State: AOAM532EH0301p1rWH0rNAkQQ+g1QvUbHRgvzf5MM9uLYINoV60StBQo
+	xSyCAbt5DPLtlVJjKwKE2pg=
+X-Google-Smtp-Source: ABdhPJxoO/uldbp+tGPfR0pBCjiIjDHR1hovbNJoeWPB3H18hzCFNjMdrb96ugkr3igbh4Q1r7/uFA==
+X-Received: by 2002:a05:651c:98a:: with SMTP id b10mr10907070ljq.280.1630365468144;
+        Mon, 30 Aug 2021 16:17:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:5a8e:: with SMTP id c14ls8502110qtc.7.gmail; Mon, 30 Aug
- 2021 15:34:05 -0700 (PDT)
-X-Received: by 2002:ac8:7194:: with SMTP id w20mr22763223qto.217.1630362845422;
-        Mon, 30 Aug 2021 15:34:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630362845; cv=none;
+Received: by 2002:a05:6512:c13:: with SMTP id z19ls2223700lfu.0.gmail; Mon, 30
+ Aug 2021 16:17:47 -0700 (PDT)
+X-Received: by 2002:a19:7101:: with SMTP id m1mr19703238lfc.156.1630365467183;
+        Mon, 30 Aug 2021 16:17:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630365467; cv=none;
         d=google.com; s=arc-20160816;
-        b=pnfS8UUz018DsN/XsHe03uqRNApxDQRdTU2K/niCHb/r+Gezsp+8gf3WHq5Luk8gqj
-         SUZlTMPDAIkz0HflvHWk/g/pzwgSay426ZaRXUNNaLmROzvnrJ9TLS+QSpC+naVj/Inx
-         FFwxJTGCm/NmKqfMYecJAOvHRATImT/SA69HLidWeVwvgfJr6YR0eZdiUaXPb5Sif3Yr
-         h4e+hLmpDt0wlo255iMWwuaZzlc4gUnI6DlIDqpU1WCObMlqpUVK5PQOlM2DuV2CNy0i
-         POQJ3amJKtMtwbxUOa7UI0YYy1e2R67CR+3MPec2nm3rq38+LIgpwRDwxd3sqdvr5WAl
-         T8Xg==
+        b=mA/0IJW5ygSOo3ro0+XBKcBfbMJecvwHf3NGYIl09i9o+UJ1GUKsAwbnvximHTWo+g
+         PLYNtpg1oPbckSaCKDkkCOaPo+J6SuOYwBK0dHy97ohS2pWsVlymzsOFSEiIJizRz6Ad
+         BeAP3si99esQd/lCViLKjj6VJN5di4UZ2IrJRDG7S+hxhQVyMagbm2Lyu886FbZCSWMs
+         +87zoduxM0pBbDK6m/HdFh0RUeFMK2sid7qOODXUo2EHTT2C2yJDkmfgilyoHWmSWVPj
+         TQgu9enG4nNiTegyJzcxysVCNqGyLBiMMuXCBDoDDVnwSHeJRamXj/DsIAFzkdH9XfEc
+         Jifg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=C1K89/GRflau61KvtpP2Z347/fYfeoaBoKAXNIK40Kc=;
-        b=GOUbzFT2007+9piV430N+VJJMJy0VqKv+ZMwesrtCXQ+QBLIleoiuwijS+y3LvtiX1
-         9cQFKRYgoIZgO1j6bk4sVQh5b3x3MrmWay0aHXsmbobIayfa1tPGM4psErBLteMjvdgS
-         I/jYxEXPYXNQAEoGudeTSWlmmVHVoQKsIvkqriDe+jgQtEJoeh5f5xNPoJtE27YcJ2m0
-         F7md97XCNm99A3/oTRm9mYvxnfiZzux2bj9M/gQNEOj5IH1fkLfCZqeqD0RyRnesGgKf
-         QrAUpik4jzVDPpCNL7Yx9mAG96GFbDaoixLjsxuHleIn+d6DZX0GHlNgWAK0zfmBRlhT
-         e4NQ==
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :dkim-signature:dkim-signature:from;
+        bh=waBPSOtEtKCExNwq33nlht3Z/W5y12JWVi4ROsYUn4o=;
+        b=H+6O6cfsRFWk6Wyl64oAP341rf3idq2ri6Lco+TgdZItjxdLBdLKOXe2U5McLcqk7S
+         ZXRirq0YDQB3kSPR5msmvgWJNtlHbQezzHOSbJ/tG6EEAv7EmEKETwYJrcTqErapO2UQ
+         U6yekEWihOIS8TysfAHN3LzCHGe2Pcco/sm9VieXMeXt/oGUXfyd8Uppusm2gzMZtr/x
+         bb5TeyywK9Ai/syQzwrLGc/0IOObLCO6GkE3cL6Sb2T7l8WP9kNNqnr9woQxVNCTkp8n
+         MJeKt2e77/l7He9giGZS7yHHNgO2WAyaODExvuWFKsDJMq9PxBVaS69TWu7ZMQDf/SGi
+         oVPg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=WvvNsgss;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id n78si1287492qkn.1.2021.08.30.15.34.05
+       dkim=pass header.i=@linutronix.de header.s=2020 header.b=VdMYJwvd;
+       dkim=neutral (no key) header.i=@linutronix.de;
+       spf=pass (google.com: domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=linutronix.de
+Received: from galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
+        by gmr-mx.google.com with ESMTPS id i12si956190lfc.10.2021.08.30.16.17.47
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 30 Aug 2021 15:34:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id C1B5460E98;
-	Mon, 30 Aug 2021 22:34:03 +0000 (UTC)
-Date: Mon, 30 Aug 2021 15:34:01 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Kees Cook <keescook@chromium.org>
-Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Keith Packard <keithp@keithp.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Daniel Vetter <daniel.vetter@ffwll.ch>,
-	clang-built-linux@googlegroups.com, linux-hardening@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v3 0/5] Enable -Warray-bounds and -Wzero-length-bounds
-Message-ID: <YS1c2UE487rkGnya@Ryzen-9-3900X.localdomain>
-References: <20210827163015.3141722-1-keescook@chromium.org>
- <YS0nJtNDCwfbaubZ@Ryzen-9-3900X.localdomain>
- <202108301314.22B3CB015C@keescook>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Aug 2021 16:17:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
+From: Thomas Gleixner <tglx@linutronix.de>
+To: Nick Desaulniers <ndesaulniers@google.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: llvm@lists.linux.dev, Nick Desaulniers <ndesaulniers@google.com>, Arnd
+ Bergmann <arnd@arndb.de>, Nathan Chancellor <nathan@kernel.org>, Russell
+ King <linux@armlinux.org.uk>, Geert Uytterhoeven
+ <geert+renesas@glider.be>, Linus Walleij <linus.walleij@linaro.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Anshuman Khandual
+ <anshuman.khandual@arm.com>, Ard Biesheuvel <ardb@kernel.org>, YiFei Zhu
+ <yifeifz2@illinois.edu>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=
+ <u.kleine-koenig@pengutronix.de>, Mike Rapoport <rppt@kernel.org>,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] ARM: select HAVE_FUTEX_CMPXCHG
+In-Reply-To: <20210830213846.2609349-1-ndesaulniers@google.com>
+References: <20210830213846.2609349-1-ndesaulniers@google.com>
+Date: Tue, 31 Aug 2021 01:17:45 +0200
+Message-ID: <87czpufrom.ffs@tglx>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202108301314.22B3CB015C@keescook>
-X-Original-Sender: nathan@kernel.org
+X-Original-Sender: tglx@linutronix.de
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=WvvNsgss;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@linutronix.de header.s=2020 header.b=VdMYJwvd;       dkim=neutral
+ (no key) header.i=@linutronix.de;       spf=pass (google.com: domain of
+ tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender)
+ smtp.mailfrom=tglx@linutronix.de;       dmarc=pass (p=NONE sp=QUARANTINE
+ dis=NONE) header.from=linutronix.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,139 +135,27 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Aug 30, 2021 at 01:16:41PM -0700, Kees Cook wrote:
-> On Mon, Aug 30, 2021 at 11:44:54AM -0700, Nathan Chancellor wrote:
-> > arch/powerpc/kernel/signal_32.c:780:2: error: array index 3 is past the end of the array (which contains 1 element) [-Werror,-Warray-bounds]
-> >         unsafe_put_sigset_t(&frame->uc.uc_sigmask, oldset, failed);
-> >         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> 
-> Or is this a Clang DCE failure?
-> 
-> #define unsafe_put_compat_sigset(compat, set, label) do {               \
->         compat_sigset_t __user *__c = compat;                           \
->         const sigset_t *__s = set;                                      \
->                                                                         \
->         switch (_NSIG_WORDS) {                                          \
->         case 4:                                                         \
->                 unsafe_put_user(__s->sig[3] >> 32, &__c->sig[7], label);        \
->                 unsafe_put_user(__s->sig[3], &__c->sig[6], label);      \
->                 fallthrough;                                            \
->         case 3:                                                         \
->                 unsafe_put_user(__s->sig[2] >> 32, &__c->sig[5], label);        \
->                 unsafe_put_user(__s->sig[2], &__c->sig[4], label);      \
->                 fallthrough;                                            \
->         case 2:                                                         \
->                 unsafe_put_user(__s->sig[1] >> 32, &__c->sig[3], label);        \
->                 unsafe_put_user(__s->sig[1], &__c->sig[2], label);      \
->                 fallthrough;                                            \
->         case 1:                                                         \
->                 unsafe_put_user(__s->sig[0] >> 32, &__c->sig[1], label);        \
->                 unsafe_put_user(__s->sig[0], &__c->sig[0], label);      \
->         }                                                               \
-> } while (0)
-> 
-> if "set" has only 1 element, then _NSIG_WORDS must be 1. The warnings
-> are coming from cases 4 and 3. (But why not 2, which would also access
-> beyond the end?)
+On Mon, Aug 30 2021 at 14:38, Nick Desaulniers wrote:
 
-I trimmed the warnings down otherwise it would have been 400 lines long
-:) it did warn for the 2 case.
+> tglx notes:
+>   This function [futex_detect_cmpxchg] is only needed when an
+>   architecture has to runtime discover whether the CPU supports it or
+>   not.  ARM has unconditional support for this, so the obvious thing to
+>   do is the below.
+>
+> Fixes linkage failure from Clang randconfigs:
+> kernel/futex.o:(.text.fixup+0x5c): relocation truncated to fit: R_ARM_JUMP24 against `.init.text'
+> and boot failures for CONFIG_THUMB2_KERNEL.
+>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/325
+> Reported-by: Arnd Bergmann <arnd@arndb.de>
+> Reported-by: Nathan Chancellor <nathan@kernel.org>
+> Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 
-Clang does not like the use of asm goto in unsafe_put_user on powerpc it
-seems:
-
-$ cat warray-bounds.c
-#define NSIG_WORDS      1
-
-typedef struct {
-        unsigned long sig[NSIG_WORDS];
-} sigset_t;
-
-int handle_rt_signal32_bad(sigset_t *);
-int handle_rt_signal32_bad(sigset_t *oldset)
-{
-	switch (NSIG_WORDS) {
-	case 4:
-			__asm__ goto("" : : "r"(oldset->sig[3] >> 32) : : failed);
-			__asm__ goto("" : : "r"(oldset->sig[3]) : : failed);
-			__attribute__((fallthrough));
-	case 3:
-			__asm__ goto("" : : "r"(oldset->sig[2] >> 32) : : failed);
-			__asm__ goto("" : : "r"(oldset->sig[2]) : : failed);
-			__attribute__((fallthrough));
-	case 2:
-			__asm__ goto("" : : "r"(oldset->sig[1] >> 32) : : failed);
-			__asm__ goto("" : : "r"(oldset->sig[1]) : : failed);
-			__attribute__((fallthrough));
-	case 1:
-			__asm__ goto("" : : "r"(oldset->sig[0] >> 32) : : failed);
-			__asm__ goto("" : : "r"(oldset->sig[0]) : : failed);
-	}
-
-	return 0;
-failed:
-	return 1;
-}
-
-void normal_array_access(unsigned long);
-int handle_rt_signal32_good(sigset_t *);
-int handle_rt_signal32_good(sigset_t *oldset)
-{
-	switch (NSIG_WORDS) {
-	case 4:
-			normal_array_access(oldset->sig[3] >> 32);
-			normal_array_access(oldset->sig[3]);
-			__attribute__((fallthrough));
-	case 3:
-			normal_array_access(oldset->sig[2] >> 32);
-			normal_array_access(oldset->sig[2]);
-			__attribute__((fallthrough));
-	case 2:
-			normal_array_access(oldset->sig[1] >> 32);
-			normal_array_access(oldset->sig[1]);
-			__attribute__((fallthrough));
-	case 1:
-			normal_array_access(oldset->sig[0] >> 32);
-			normal_array_access(oldset->sig[0]);
-	}
-
-	return 0;
-}
-
-$ clang -fsyntax-only -Weverything warray-bounds.c
-warray-bounds.c:12:27: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                __asm__ goto("" : : "r"(oldset->sig[3] >> 32) : : failed);
-                                        ^           ~
-warray-bounds.c:4:2: note: array 'sig' declared here
-        unsigned long sig[NSIG_WORDS];
-        ^
-warray-bounds.c:16:27: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                __asm__ goto("" : : "r"(oldset->sig[2] >> 32) : : failed);
-                                        ^           ~
-warray-bounds.c:4:2: note: array 'sig' declared here
-        unsigned long sig[NSIG_WORDS];
-        ^
-warray-bounds.c:20:27: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                __asm__ goto("" : : "r"(oldset->sig[1] >> 32) : : failed);
-                                        ^           ~
-warray-bounds.c:4:2: note: array 'sig' declared here
-        unsigned long sig[NSIG_WORDS];
-        ^
-3 warnings generated.
-
-$ gcc -fsyntax-only -Wall -Wextra -Wpedantic warray-bounds.c
-
-godbolt link: https://godbolt.org/z/8xYojs1WY
-
-I've reported this on LLVM's bug tracker to see what the clang
-developers can do with you on CC:
-
-https://bugs.llvm.org/show_bug.cgi?id=51682
-
-Cheers,
-Nathan
+Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YS1c2UE487rkGnya%40Ryzen-9-3900X.localdomain.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87czpufrom.ffs%40tglx.
