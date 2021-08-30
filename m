@@ -1,129 +1,127 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBLWGWSEQMGQE3LMOVVY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBKOOWSEQMGQEOXAEA4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x839.google.com (mail-qt1-x839.google.com [IPv6:2607:f8b0:4864:20::839])
-	by mail.lfdr.de (Postfix) with ESMTPS id B58B93FBC69
-	for <lists+clang-built-linux@lfdr.de>; Mon, 30 Aug 2021 20:27:59 +0200 (CEST)
-Received: by mail-qt1-x839.google.com with SMTP id q19-20020ac87353000000b0029a09eca2afsf116557qtp.21
-        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Aug 2021 11:27:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630348078; cv=pass;
+Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 397493FBC9E
+	for <lists+clang-built-linux@lfdr.de>; Mon, 30 Aug 2021 20:44:59 +0200 (CEST)
+Received: by mail-pj1-x103b.google.com with SMTP id g14-20020a17090a300e00b00186081195c2sf78279pjb.2
+        for <lists+clang-built-linux@lfdr.de>; Mon, 30 Aug 2021 11:44:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630349097; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sSkeiXAelXtNFG1nh8TUKXln1MmhnjqVr7ksPxh0P4bAEYxJh/6BrP68oZw80OPE2W
-         LaqGe3zvbGN1ZDfQbU5TO60o1Gn+65S23GLH6a/6mNUr0cdiUwOrRgeiPdZCv+08pHxi
-         LP4FlK4ap8B6rc40rDdFv8YwjZTfVwnE7wbjZEzP0v46hps8XRu6WgAm+5RfpbH1gPqx
-         /L02ACvwIh4ENRowKHHnXQ8DYTkidGouTJslAMGZKjVgLpZL5rp7vxBtfi1dxp/RGyog
-         pDLEEheyZTHcjbT8wAsMtO6ewMLo1QQHcvm5+nWDOzwyxhRetHgOfRWuY1JDc8pOPy8n
-         2MeQ==
+        b=snewtW1l7El0ei5Foc7tnXTFusGQoDbkdmX7YUwiXF/+GBlYMHIO1Pwfw+l0JKEbhl
+         EHOwASJUFyjV9/lAJ7jbMvQawTNlmQEXgjHkGSqQLpRdnUieNUoI5jLWO91ZcM6y36vD
+         iV3DAh0VCnTjF7ODE9fj0KLb/Con8qD4WostiZlqeizXCuEg0O3/utxTPLdlh3BcdJJR
+         2gVmazpzgNQTzUM9tdJlSWhjDDm35sqh+3wTCw0uaOlX98+8gBMvk08B5kJY2x8WZ1YW
+         lju9aO+34ZHlwgHFHGT3ip2LVCiSNpWDvv8XsptfoIzgJ/uIhYiWExKLLsAsLqpLp8vk
+         hTDA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-disposition:mime-version
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=V3IehiTHRBWOmE32mOjXaF5YILSJz5xkss55KbI+O78=;
-        b=Ck30eQSd1Jx5A2V9ArhEERGm0C+vLHbMLNO1yfFCvosmfEUDEjrkCk2bCXAJE1JvTZ
-         pH5wKrRnoU9QY8PwdhYtuMeSOxR+j1Q4MkxvkOyfAURFZ9nYAFJs+6xWX2jyswAIsNdt
-         Id9jKM2hTmIdsxBD0JECBFNRS3XxRobUyqbGY0EFTIfVym6veeM/XCqlsmEqecWAx5OG
-         VjAc86IWwvtidX//hLsHdAOvks4UOL4gSTDdIGZhD8ajvNs800T317TeyJj/s2RhB2d7
-         P6gPpUHjhOThDkWoIzaAogmHUGX9NPHyLDbhTX+TpCGdKF8KvxvDjBRKOuMlxvWLOm7b
-         zCWw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=6oUSO1nsDPGEmn5HmGv+NKkXUaBSpp+N07PCDMdofrE=;
+        b=GeWbpJEYuEdVueT8wssUAgPK94jZMdJZMa7dWG9lXSiIJJOqHoM9xg2LvQPXpqypVO
+         vavT/Gt5HETeW0qqhsPjStGJP2aEAWixdpO6NK+ouZhqH5zLMf5Ri0KBXhmlmlS9h1BR
+         TyKdF64rZ+NYTRtkb2peU0T+dS031Bn915sLcU/D131eaxA0fcpeMtmBE+zyLHaDiL6f
+         7e1PtcwrpSKRiUo6O53erf6jm/Ka6MNZmQsuS5B156j+TlxGOYP+VU7YEA0vnoa2y7WZ
+         mJNIwtUDxghPJ4uRhOX7+hnjXcrhFmPk8yYCLG4+di55Vn4EJ+gFcoP0f1d76HZKryK/
+         A6EA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b="jHyLx/jQ";
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::434 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YIenoLLy;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:mime-version
-         :content-disposition:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=V3IehiTHRBWOmE32mOjXaF5YILSJz5xkss55KbI+O78=;
-        b=WFAjQdFDuniAm0WU+m9RMAUsmFHKwD/bo+0ygu805unaSyGoUhBQJrX7RERHhumD/W
-         dPGtZ1k3uQB4jHrmGbTDpr8hlFP+XCz8nd6/2ANltSWr4ZYdZZX58w6KKtqR8OYFvcS9
-         GXugSTUT+awiM5cRYdtRd9MSf/5ZZDX7ZfLBZKLVsscelgCQ5h6Z7cjTYcqxYtz/CSTz
-         gHIlNOEZjJED24Vdztdlso4uYvf8Dfy/pUSTucFZnYP5luby6WuNO5R5vpaYWJxOAO6R
-         LX2gfzgu2ztV+mK3bsyYDPh35ckMELMAO1R3F1s8twEezLA/MHjT9XFvm5uJv/SOEFKX
-         Qlzg==
+        bh=6oUSO1nsDPGEmn5HmGv+NKkXUaBSpp+N07PCDMdofrE=;
+        b=henHutSsVzrS8WvG9AfhOhdxBvRWwyB0qgReU53CSDOlgj3IY6AoMIwjEKhBnc9OU3
+         jY5LV04PaSZd9V8rCiY0O+EuxZ2srpLtJpMMOYePu+Xh0LHYIQWqur59qnS3cL7u3Z9O
+         SHWW9FCNypwWGa74Va4rz+tXy9JKbA/zB/QcGinHCI/Jt4rRIChR2VYOi/qtoLqJiP8l
+         ZpsrG1rHfUErhSEuWLrCtxUR0jzpy+7GhX6CAezCPmxGVj4gokBWAuOOVxHM0P34E6IL
+         SIigalr3JPP8Q8df7o3WNJIjCGbo2EXCm4l1vAzSXZNdBpw40aJYbLLEF1cREzL3Vjrf
+         tLQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=V3IehiTHRBWOmE32mOjXaF5YILSJz5xkss55KbI+O78=;
-        b=aGaJah1gpD6YjKhl0xSeG/gxZHcoD+wWHoJDH13cko0kUGSMXcX8Z2lE1Pfb5U2+K5
-         +T+322Jgh/t3NrdMgbC8aTXhdEJox9Ke1GJdAqHIdW3ABReUg3ZfMVtLdL92Bk/PWfrq
-         APlptune8XOR/7KIeaMgZOSplw8L+96TePE7fJiDljAHSqXgakyVYYiRVTKfDoJXG3MA
-         4MiZHuYCIItPnNoXFOMSLlJRwYjCEJBJBmVLSL3lfGcNjNKVJpLZQGul2B0Catcyou7G
-         Rvc6R8JTNma3aN/oy7ooXCH8VycTnV/75S7ILgplF+YaZmpGXPwCJAUwyhR4Ro6ofswI
-         22Eg==
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=6oUSO1nsDPGEmn5HmGv+NKkXUaBSpp+N07PCDMdofrE=;
+        b=hV8koMxfI1AlIyFIVNYcTxk0nPb8mRC4EGQnzKKL0oyyA+p4lBz3JPJh1TX83EKQuW
+         PVf+h+Cg080fOe1N0ATfqM6/nCDb7lkXLQRhgjnF2jQoDHY5WZRzGQVq5P3g7hTYOer0
+         2g3Ae/KO9IhUB1zmNYjE37u9UsjA821U//tcAAmNvy+i8wHFtNffp1+4/cSkjCQuH5Lt
+         c8Fw1Tj6SX/5hWUktCwA0Z+QxC+U/5ZsTFibAx2ZoXsiYOL2h2Zp7FijksIb7afHpKI9
+         IRzfs1OI1sbbgvfkHM7evsG+QH8ZwPRAKGq+CeyeJVHQCL/TDnJ33bNoPAaNlpaX8hVF
+         DwpQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531O9W2KwCbOUWftGZdRR5d9p9mNuwFH0I9oG+80Cy6zRIt5Go7k
-	RxwXy8e0iPDTRHlN6w0Cq6c=
-X-Google-Smtp-Source: ABdhPJxQOaz39eTOKK/hOlVngn3GUuM0+xNgjQ0nLAt0qoq5IVFni7VefoAUAPkD36J9GUomWQPCdw==
-X-Received: by 2002:ad4:5f06:: with SMTP id fo6mr24822298qvb.32.1630348078423;
-        Mon, 30 Aug 2021 11:27:58 -0700 (PDT)
+X-Gm-Message-State: AOAM532NdBIYjECnkz/d5kW8ChpqOnd3HKkDbg447gKfvmtALaLPXXpG
+	grqjlzimVKGoiRClxn5vBsw=
+X-Google-Smtp-Source: ABdhPJwi+ku8RJXnBL6/shbJCdYCAcBb0/Y6NOkACOgbklSayiVPtW+wOWf4KAbC+FU/MTWpZ3vLoA==
+X-Received: by 2002:a62:5c7:0:b029:3e0:dd9c:8fd2 with SMTP id 190-20020a6205c70000b02903e0dd9c8fd2mr24893410pff.28.1630349097749;
+        Mon, 30 Aug 2021 11:44:57 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:1582:: with SMTP id d2ls11061910qkk.9.gmail; Mon,
- 30 Aug 2021 11:27:58 -0700 (PDT)
-X-Received: by 2002:a37:e315:: with SMTP id y21mr20602819qki.70.1630348078012;
-        Mon, 30 Aug 2021 11:27:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630348078; cv=none;
+Received: by 2002:a17:902:fe18:: with SMTP id g24ls3405712plj.0.gmail; Mon, 30
+ Aug 2021 11:44:57 -0700 (PDT)
+X-Received: by 2002:a17:90a:351:: with SMTP id 17mr503327pjf.233.1630349097172;
+        Mon, 30 Aug 2021 11:44:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630349097; cv=none;
         d=google.com; s=arc-20160816;
-        b=nucN1xLsJ8MA8KkEQ4Z5d069BQLD8prJXBwUcZgT5MNU1nOvZpS0WpoAxTCWx+qthe
-         umj9Ln6jg9z6mlPXB06QxWi4dB0VAWf3tcA8kd5Xn7BhgwcDPrqsP0LepKDR+vSNyw4m
-         pV+AdcbBGtxJjCgIR4EKwQN7labGvdTTXwVeNGhdspCPWWIJf4o9mQNUcOzghCdUUruD
-         z+8fq2c9NWcNG5/dpsC5g+KeBg/Pg38P4Y5y/afacHFEJ2HRp9S0bPK5ubiv0V1p1q13
-         xW1uHK1PWjVvc+Y2tN6E0bloE1EtUfcYbJBZK54YNEawUwYgN0m4kIdDdLqWLiSDpq+L
-         HpSA==
+        b=blKb0xxocFVxfaltacN91x3CJfIPRW1ya2mdUXHeO5sQPITEhSJD7jzPJvAOnJWyR9
+         sySSemNllLHlfd1N63NGGA+XD7ke2Hsw1FRy0k9/5I5VgsSCZxpI8Abi980fDNXMgV2o
+         NjLP/WjuTU9rcSRJZgpnZxiJiL2Bqn3cbf48BqZlDcOdP1h1qVGgagKMZ5vyjIa/gAAo
+         l+ZPkWzzDggBJ88hs0UhLG/RtHLMC5rnfmKzdSWP7+ogwNxIL536Rb+6DKBzSUDzRx+D
+         /8N7ATHdmo9dhYDORQV7HSHTE7wSvaCqXjfgDoU6EH0GlguxbOzTO5cO6+Tkp7p+g7FY
+         Q9zw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :dkim-signature;
-        bh=Mz42W/Lx43y6CcuCJpr6nNW2Lf79xV+Oh1YYCpvYFXY=;
-        b=fs3cUL6U9GtknVb673+pz0etnCbpzWLNmGdv1VLJjaPuO1OEsBpKt/hsejbDK1egbP
-         mIvCzldUHg8GmJiDbDY1udrFx722+Uanvnh3/RzEPdZhy/u9nc4bdpHd7IoULfjsngpI
-         TAhL0rwSGSAJH8dyAtweKPCt/TwyO3958lMTXWta9uLOU8SQMYVy0PHBTRw6ToU9ihti
-         m0HZxyPs89/rJsMCkM0x1RgoboxAGI+DrEpkgO4HxAQB+rLu95XiVU0A3HeLmkZW799f
-         XlWhZ7O9DV8rj3IvjJX4Bd5OBoJA4be6AXO6SEDewF33YOsVtKfPbOIHHnUmlwCkIxqY
-         p93g==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=Okv5LnoDgVS4LKNVsDvlVi45GRnzsZgdz2be2LMqyxo=;
+        b=DVtHn4ka5aa+fJ8EQK49JscMoBM3HJKjYFfIun/F1nhlSJiEZ3CQHJTKXo4mi2mEmR
+         WEawMLXzJOT5YBCSaDIg6+QVBxvbqrJY82IaprLtImyugao9kw1DPN1ckwe/ppB26gF5
+         STxB+texd5lgaQeV7RU4pSQP0bkb5TBvW8+Mp8eII64geZG6lkrSrhoL+pW37ahUj334
+         /5aTsDCRD9HR+gflB96rZDxVsrhOVh+SY4kSwTTUyneB1OT1NK5WDN3PA9Yb/IaQ5e7l
+         HkFbcbdQhWlGgpJrTqGp5Xe9nPqHZCvLxi9cPuwN/I/qIKX3msS2QaWQlPZSuWdID164
+         yNJg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b="jHyLx/jQ";
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::434 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pf1-x434.google.com (mail-pf1-x434.google.com. [2607:f8b0:4864:20::434])
-        by gmr-mx.google.com with ESMTPS id n78si1256880qkn.1.2021.08.30.11.27.57
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=YIenoLLy;
+       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id e11si1311540pgm.0.2021.08.30.11.44.57
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 Aug 2021 11:27:58 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::434 as permitted sender) client-ip=2607:f8b0:4864:20::434;
-Received: by mail-pf1-x434.google.com with SMTP id m26so12919348pff.3
-        for <clang-built-linux@googlegroups.com>; Mon, 30 Aug 2021 11:27:57 -0700 (PDT)
-X-Received: by 2002:aa7:80d1:0:b029:399:ce3a:d617 with SMTP id a17-20020aa780d10000b0290399ce3ad617mr24408847pfn.16.1630348077240;
-        Mon, 30 Aug 2021 11:27:57 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id t23sm177071pjs.16.2021.08.30.11.27.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 Aug 2021 11:27:56 -0700 (PDT)
-Date: Mon, 30 Aug 2021 11:27:55 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, clang-built-linux@googlegroups.com,
-	glider@google.com, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Kees Cook <keescook@chromium.org>,
-	linux-security-module@vger.kernel.org,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>
-Subject: [GIT PULL] hardening updates for v5.15-rc1
-Message-ID: <202108301127.836C1F4D@keescook>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 30 Aug 2021 11:44:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 4C42B60F3A;
+	Mon, 30 Aug 2021 18:44:56 +0000 (UTC)
+Date: Mon, 30 Aug 2021 11:44:54 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Kees Cook <keescook@chromium.org>
+Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Keith Packard <keithp@keithp.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Daniel Vetter <daniel.vetter@ffwll.ch>,
+	clang-built-linux@googlegroups.com, linux-hardening@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v3 0/5] Enable -Warray-bounds and -Wzero-length-bounds
+Message-ID: <YS0nJtNDCwfbaubZ@Ryzen-9-3900X.localdomain>
+References: <20210827163015.3141722-1-keescook@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-X-Original-Sender: keescook@chromium.org
+In-Reply-To: <20210827163015.3141722-1-keescook@chromium.org>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b="jHyLx/jQ";       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::434
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@kernel.org header.s=k20201202 header.b=YIenoLLy;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,52 +134,86 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Linus,
+On Fri, Aug 27, 2021 at 09:30:10AM -0700, Kees Cook wrote:
+> v3:
+> - fix typo in treewide conversion (u8 should have been __u8)
+> - improve changelog for DECLARE_FLEX_ARRAY patch
+> - add acks/reviews
+> v2: https://lore.kernel.org/lkml/20210826050458.1540622-1-keescook@chromium.org/
+> v1: https://lore.kernel.org/lkml/20210818081118.1667663-1-keescook@chromium.org/
+> 
+> Hi,
+> 
+> In support of the improved buffer overflow detection for memcpy(),
+> this enables -Warray-bounds and -Wzero-length-bounds globally. Mostly
+> it involves some struct member tricks with the new DECLARE_FLEX_ARRAY()
+> macro. Everything else is just replacing stacked 0-element arrays
+> with actual unions in two related treewide patches. There is one set of
+> special cases that were fixed separately[1] and are needed as well.
+> 
+> I'm expecting to carry this series with the memcpy() series in my
+> "overflow" tree. Reviews appreciated! :)
 
-Please pull these hardening updates for v5.15-rc1.
+Hi Kees,
 
-Thanks!
+I ran this series through my local build tests and uncovered two
+warnings in the same file that appear to be unhandled as of
+next-20210830. This is from ARCH=powerpc pseries_defconfig with
+clang-14, I did not try earlier versions of clang.
 
--Kees
+arch/powerpc/kernel/signal_32.c:780:2: error: array index 3 is past the end of the array (which contains 1 element) [-Werror,-Warray-bounds]
+        unsafe_put_sigset_t(&frame->uc.uc_sigmask, oldset, failed);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arch/powerpc/kernel/signal_32.c:85:29: note: expanded from macro 'unsafe_put_sigset_t'
+#define unsafe_put_sigset_t     unsafe_put_compat_sigset
+                                ^
+./include/linux/compat.h:455:19: note: expanded from macro 'unsafe_put_compat_sigset'
+                unsafe_put_user(__s->sig[3] >> 32, &__c->sig[7], label);        \
+                                ^        ~
+./arch/powerpc/include/asm/uaccess.h:426:42: note: expanded from macro 'unsafe_put_user'
+        __put_user_size_goto((__typeof__(*(p)))(x), (p), sizeof(*(p)), e)
+                                                ^
+./arch/powerpc/include/asm/uaccess.h:114:30: note: expanded from macro '__put_user_size_goto'
+        case 1: __put_user_asm_goto(x, __pus_addr, label, "stb"); break;        \
+                                    ^
+./arch/powerpc/include/asm/uaccess.h:89:10: note: expanded from macro '__put_user_asm_goto'
+                : "r" (x), "m"UPD_CONSTR (*addr)                \
+                       ^
+./include/linux/compiler_types.h:254:42: note: expanded from macro 'asm_volatile_goto'
+#define asm_volatile_goto(x...) asm goto(x)
+                                         ^
+./arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
+arch/powerpc/kernel/signal_32.c:1044:3: error: array index 2 is past the end of the array (which contains 1 element) [-Werror,-Warray-bounds]
+                unsafe_put_sigset_t(&old_ctx->uc_sigmask, &current->blocked, failed);
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arch/powerpc/kernel/signal_32.c:85:29: note: expanded from macro 'unsafe_put_sigset_t'
+#define unsafe_put_sigset_t     unsafe_put_compat_sigset
+                                ^
+./include/linux/compat.h:459:19: note: expanded from macro 'unsafe_put_compat_sigset'
+                unsafe_put_user(__s->sig[2] >> 32, &__c->sig[5], label);        \
+                                ^        ~
+./arch/powerpc/include/asm/uaccess.h:426:42: note: expanded from macro 'unsafe_put_user'
+        __put_user_size_goto((__typeof__(*(p)))(x), (p), sizeof(*(p)), e)
+                                                ^
+./arch/powerpc/include/asm/uaccess.h:116:30: note: expanded from macro '__put_user_size_goto'
+        case 4: __put_user_asm_goto(x, __pus_addr, label, "stw"); break;        \
+                                    ^
+./arch/powerpc/include/asm/uaccess.h:89:10: note: expanded from macro '__put_user_asm_goto'
+                : "r" (x), "m"UPD_CONSTR (*addr)                \
+                       ^
+./include/linux/compiler_types.h:254:42: note: expanded from macro 'asm_volatile_goto'
+#define asm_volatile_goto(x...) asm goto(x)
+                                         ^
+./arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
+        unsigned long sig[_NSIG_WORDS];
+        ^
 
-The following changes since commit 2734d6c1b1a089fb593ef6a23d4b70903526fe0c:
-
-  Linux 5.14-rc2 (2021-07-18 14:13:49 -0700)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git tags/hardening-v5.15-rc1
-
-for you to fetch changes up to a8fc576d4af2f23a87a586424252df97f0ad0b06:
-
-  lib/test_stackinit: Add assigned initializers (2021-08-22 00:21:36 -0700)
-
-----------------------------------------------------------------
-hardening updates for v5.15-rc1
-
-- Expand lib/test_stackinit to include more initialization styles
-
-- Improve Kconfig for CLang's auto-var-init feature
-
-- Introduce support for GCC's zero-call-used-regs feature
-
-----------------------------------------------------------------
-Kees Cook (5):
-      hardening: Introduce CONFIG_ZERO_CALL_USED_REGS
-      hardening: Clarify Kconfig text for auto-var-init
-      lib/test_stackinit: Fix static initializer test
-      lib/test_stackinit: Allow building stand-alone
-      lib/test_stackinit: Add assigned initializers
-
- Makefile                   |   5 +
- lib/test_stackinit.c       | 253 +++++++++++++++++++++++++++++++++------------
- security/Kconfig.hardening |  71 +++++++++----
- 3 files changed, 242 insertions(+), 87 deletions(-)
-
--- 
-Kees Cook
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108301127.836C1F4D%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YS0nJtNDCwfbaubZ%40Ryzen-9-3900X.localdomain.
