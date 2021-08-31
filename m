@@ -1,102 +1,103 @@
-Return-Path: <clang-built-linux+bncBCG4HBHYYQKRBT4FXGEQMGQEINKASVA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCG4HBHYYQKRBUEFXGEQMGQEQEU2EMA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9E6413FCA67
-	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 16:55:12 +0200 (CEST)
-Received: by mail-pg1-x53d.google.com with SMTP id j16-20020a63fc10000000b00255d6f81e23sf4021182pgi.13
-        for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 07:55:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630421711; cv=pass;
+Received: from mail-oo1-xc3d.google.com (mail-oo1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 851953FCA68
+	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 16:55:13 +0200 (CEST)
+Received: by mail-oo1-xc3d.google.com with SMTP id r1-20020a4a3701000000b0028c9e077850sf8844867oor.17
+        for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 07:55:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630421712; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MG56Cno44wGU9LaQ5xXUO1BOsXRdS1YxZmks6q2OXgFHWW74s8dkl0RKsLRFp5Q15Z
-         QDOLCMTnoe6CanLtMkUCOICHcor9/v7lMsRPq31QHSIX+L/orj6EL2nID3/zume7uUBj
-         u6KLBcp0Fukemsd7WXdzvNnvb8s8hftQW6Q/v+WNKfikiMq2EIbMPqcSlyEtrYXVslpj
-         kQi9XENaRPvFMJ/PfjFA0hPtIyT5jUhJ0tbbOZGh7kIL7oFvM1PBUZitd6vnoSJrkBSd
-         RJqTGxnBhLNcKRyoeKjRBtH9sKo54yV1QWIdl9m/zabi5nX7mKE9vmpYE+MkM3Q+pSI/
-         IZxQ==
+        b=TSYWNWHbBt1CiaytBiWR3eybO06cgF+H2PWvICRZ8s2jz0jrHnWUBJsLp36TCamCcr
+         ytyGetvHpztDgpuB9t3B9udhiybs6SwaC3jacsk8DBhgvfDIXHDt+nwqrjAB+D5HkVTn
+         rkx1ZpaojPnP7GvEAkcwoFgLacKh7HmvDAcOjOF9kCH6xQKChKvkCWkroasUjdGP7bzc
+         3tG+QPA2sT9GnO9F0AVeu/pXVhGvfxxuUafGmEcbeK5XNhFUTbtkVHOThzsearSgSk/q
+         3TlerU6VEftRgehhmg4fUd4XC5KXEmoANlDwHZhW2CwkR/U9qOWnw9ulPVAM9Fi1ZymB
+         O8Mg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=TDxH5MA1gmPpAyctV2eicKSdka2UIKPH1ZuDm+s/fyE=;
-        b=mzo5wJo+JFv2Kl1NviBL2x9ktNGgflSAqRD6hl9gMjS9PMsaPMJUVtqhng+1VtJ+Tx
-         y4CfZX2y4y8UcVL85bV7CoEoVW+HLcY4z2dHePoeHfG7h3jIizBSxVCUCpdSyT+C757B
-         eR2I40URDvFwg8WrPuUXLHuIOaNpNL0s52BXjPd4tdzvzrn6q9rbUHDLIX/Y6UmZZcuj
-         pd+/SxAsXiGLlx3iP1Y/l2dy8gCKDZ1mxyi3PdGV6LwnGL0m9okrEsInWap1Lk011G5R
-         coxv2pR0F7IkwWCNO/pzIwOtYeAlNhQhNtpAG2TYACI9v5EWOq2PTFpNJ3UHCdbAM8sm
-         Vb4Q==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=x/vwouWZnM8jDAKDYvaOcQGlbtl0enRUzptB2xOC0po=;
+        b=lzUu/7TuWvyFUK5Q1rWqutpT3LrQwA8QCL+CcGpdqwHF48uvcVSzbXMWL56A2T1KYU
+         5c/MXeNQlgWI4+5NjWfPIKuydLWgiast56XLEThiB45g9wYpDW37YSULvKughV6YoKUr
+         qoxUnZ1jPPBq1VuVEWu2bLHKY2N1zzda7LQSB/+Ubh+/DL8G00c8d3YJ04jTgWB2WF5l
+         flx22J73R/OWmbxOHUm1i7Toy3ibiJX21oyiWLUsPZePm31MkOBEmIXkv+7Z8QuyzqjW
+         7r1fF3D0adeDeTNpf7NSojw5ZIix9r675FFXo8dSBZpGLiwRG4/iVhautTpKCEl72qkF
+         9OWg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of james.clark@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=james.clark@arm.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TDxH5MA1gmPpAyctV2eicKSdka2UIKPH1ZuDm+s/fyE=;
-        b=gaANZdC9EEVKUpxoj0U+BoYo1/AjPENXvEa0X04gs4UccdxZqoGVGWdwCH/4+Fp9SE
-         pLXmILakizqKHZZGzTWVJQConzkKiWaG4raKNKDhMfN5yqcDQB/Em4NVe5K8WAnv3oci
-         4SppnvRk2ViRlz1B5CeZRebsJP59QXlhYuOyGfaZNSN62RltuCdOHrjH7co869As1XEV
-         J3U9IP4zne6HrK4stwPlwrURL+xq9KrBVTbkdckRwiTu8mtOhdW+as+x008VJHqQqfCM
-         Iq2huNGBmDce+aLlLWzBd3NzY1m4ii9NN+euSpe3QJw3CvIdUZSJ61/Pa1eJDCK7Qcjo
-         rbrA==
+        bh=x/vwouWZnM8jDAKDYvaOcQGlbtl0enRUzptB2xOC0po=;
+        b=MWTjmVlwtlA1vSDwjfJHXPQ+nqOd8eU0MZ9EOCPmcNApxiYpx1SBCqWcpqSqRwknbe
+         0PZUQ06w+hliCPLVM6Wy/lAPxgvNzjO+PcVMHSolQT3EvueOWe1XCeOtJl2091e0RetR
+         UxgRygAQD9+yHsE+vBYeIVVhilJdnqGpjp5hSM987x1W1IFpQLfJVsUkG6hV/jhAS+zF
+         jUuKfBeomuZsQ4/voWReJNYss2R7A7+Jov8BUeIVA7wID98ndI6MIDE+hUiYBFn7XNr8
+         cDZQqAuyRAHOlMH/n7wOJ/KgpTR0tQnwNvHzNGzSLVOvwjvQCFidf4uXs7T6dtW1MmSs
+         frSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=TDxH5MA1gmPpAyctV2eicKSdka2UIKPH1ZuDm+s/fyE=;
-        b=VdBXQK5J9/KoHCu3QQxqwIdRDc/Y1iWIMazTrg2F3qMOaV282RH3Ajkix9vDPI8Uv+
-         N6h6iuBYvxjkW9i56C//xZrzy3X5nFO6OIFBoNverb+IdNfejtsujZcOUdhsG2RzzYr3
-         15svyovcnCW3a0Ntlu4K65BancSkMkXH9/jpnQKHTzD3ezQ2X2n3f/7zwb0pt3MqPXhv
-         qklJEyfx+ucSKIoT3b6/ozC4KLLaaB+z0DKgd8LLjWObSyK+MFfF6KDmT9kHUv4WA0EH
-         t9XiDydIRuhh/w+IQaZTXXFPvlx9LoIbRWlHKRKwYr502qPMZCBYxVKenc6d3mPzSGl7
-         F9cQ==
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=x/vwouWZnM8jDAKDYvaOcQGlbtl0enRUzptB2xOC0po=;
+        b=c4r6XpKo1W6HsL9hUEvqmGpVUFSpOI4KNN0ZtlKme3lQtuSqMkWyIQ8CxDHW5u33ZQ
+         1DSdhy57+twrAZsqJw9fd4BegaHx6RqqUjnihTaO7EXjUITw19ujdaHUYn4f9JD/leUw
+         /BQmcSlYEapEY4OsEEuRNqAwKyQ5MY6VQ6aP5iyEEuHlddIebk95gJJWt4RP3gxiEII4
+         qtUn3PpFo6C9AWUz9NKxCBU57Nz8J3HUQDWhWzKZ1BF5aAAYfdkEE02QEWJ0BDy0Bw8r
+         EZODqSaCn7lQYWMei1epUqQHOngoDxZCrvS4x4ZZ9ttBocfGaPK9bkomGxMhXAB/gKBO
+         YrkA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531M45ibdLriLAO2h7I9xkXq0ptVK85O17NaxZQiThkqk0da33pH
-	DWZIHMmxdkrYRMfZZOXyVuM=
-X-Google-Smtp-Source: ABdhPJxWholLlM84ZtyaqJYw5QTDzsDv/Y+wikOHDzscBIRL02RosfcNlk7Y6z+SIkQ0hr1UpEV65g==
-X-Received: by 2002:a63:1351:: with SMTP id 17mr26805624pgt.173.1630421711308;
-        Tue, 31 Aug 2021 07:55:11 -0700 (PDT)
+X-Gm-Message-State: AOAM532O4zUkxA6bS6JHccEDxvgihpGX2A/8IGOSPvZQxj1bdYWQsV/S
+	mm9G0CRG3IKM9zezd8XIOrU=
+X-Google-Smtp-Source: ABdhPJxCDPjWk+mEGPlDKH+pNG4ig4Aq8NTOuEP74GFb0q1ipnnoUfcJhxPjdR6D64PoVpW6DF3aSw==
+X-Received: by 2002:a05:6830:1db3:: with SMTP id z19mr24130067oti.369.1630421712506;
+        Tue, 31 Aug 2021 07:55:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:19ca:: with SMTP id nm10ls1836554pjb.0.canary-gmail;
- Tue, 31 Aug 2021 07:55:10 -0700 (PDT)
-X-Received: by 2002:a17:902:6846:b0:138:eea0:9261 with SMTP id f6-20020a170902684600b00138eea09261mr2685542pln.12.1630421710745;
-        Tue, 31 Aug 2021 07:55:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630421710; cv=none;
+Received: by 2002:a9d:62c9:: with SMTP id z9ls684074otk.6.gmail; Tue, 31 Aug
+ 2021 07:55:12 -0700 (PDT)
+X-Received: by 2002:a9d:6d02:: with SMTP id o2mr24255399otp.302.1630421712159;
+        Tue, 31 Aug 2021 07:55:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630421712; cv=none;
         d=google.com; s=arc-20160816;
-        b=tvm8z03kA+YzIXIGmC8AcQ4k86I2arfZfiHS+Ty+/WWVNcFhUAYUvhkP4liwDhveyG
-         e2LeCW2yiRXygJEf0G+o0KxaroAPv5uwG1v5nRH5Rf5dooDV+4NkBfl1IjBu0dw4iYq5
-         IDTYmnjND6lkMtLSaPHImu45qVhp6SPVZZAK0U9bB/tdcCp/h652V4biPX2rF4KdivJA
-         uSnl/LRX/suXvZPuR7w2w5kG9AMeRAfEx7zDLcyL6Em0WhKjt44DZCWbJ5IMC1xZiSoS
-         Xc0tMmxEMgiA27WfIIWkhHcHQn3ZNaUCz9AghBEahgGfSeOGzsD8Xe1g8d6kkkA3N9ml
-         LeJA==
+        b=n8w6mUAHPyKRbCCNRZm8dheEZ4faRfV1WF4D92/KBxfZX2po4ysc5ygqPGVTJDd7Qo
+         6IRWyxCA/HX+JZlm0dtJglqXYo+gTtZK97hg9an4xWNyB8QtX15Nhjo5Wdv+OFHx/Rgj
+         9YjgJOAhbfoLw4MmrUJglXQbiP3DSjisb0GL6/psYNj8heEvgz/FNVnLHNvk8I7yfHpL
+         s0PL8lHAqlMdnd5O/M3SzEujJ0wEMS9mHfJLOGGjr3yN54hb9lAL5kqNB4JkjJ3dH1bz
+         Fg6ua56x+glwv9v3gOgMpPnHvS7PwhcG2Z/OvsVogzZ8HKorIwl7x4k6U+n07hzu2/PO
+         JZRw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from;
-        bh=Ndn+2KikldpgbKQl55Y9el9XnYxnTk4/Mwn2kLWJTuM=;
-        b=EJtPaDP45G/UkopFRkDKfigSg8dPFKpvNY2p/dTKO8NFLvmCc56jrbTH+wtJvksZ9i
-         YiDHhjhqGoQTTdnZtTm9E9X8l7MhJEOojBeHm7rAp4Tl6euIBWWUkJpGyfFRIgvD/cwy
-         64owXTUj9gMgMoE99dDdp7oUW4DU9Cjn7ZaATJhsydBZUqIAgdlF8XA3iGsHMWVKoUKn
-         FgezhfAS7v3RJMw/P37z5z+0Cv/R0R4u+uk0UOkhsoEQ8GDn4bdnWYW/r+y+iyLKJ2li
-         iVNf9dd2ViL27I18OznxNxagoCTsUENcJE/xeSPtFKFbONccrPt16I2MHApZR6WrzEyZ
-         OF7g==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from;
+        bh=hoOEEsZuelz1bsHem+WklGUd1xoNz3Frscog6nZmrHA=;
+        b=QTIJ0KO5dYaaYKLmbOQveVg4H5Y+6isorH0vTs1NPgvCakC9DYxKwBvOdLi3jlzsUX
+         qrsgQEhgYZP4B0XzOOvi6n4oIePJNhPgTkvGnHAG/gTY3MfNVCjj1ZeUvKnGKMb8pDoz
+         QLwkPNHxrIr75qKgMSH0rUDXC5EeApYoVzz5msUs56kpYpZqOPoHLuqlL8/lSGEBCFeG
+         7a52j9cjkk6/t7hqQyasyHMteINgY2/eHWGb4sxTgdXgbUT61bHcLA1/UeERZ9XGy+PO
+         wxswZiUMDFGQfF5+c8ta52nwwVMYUYiZZuEiK+sdILnlaYZwQS+G3pDTWGdi9vwx60r6
+         PG8g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of james.clark@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=james.clark@arm.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=arm.com
 Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id b15si992002pfl.6.2021.08.31.07.55.10
+        by gmr-mx.google.com with ESMTP id f21si262149oiw.2.2021.08.31.07.55.12
         for <clang-built-linux@googlegroups.com>;
-        Tue, 31 Aug 2021 07:55:10 -0700 (PDT)
+        Tue, 31 Aug 2021 07:55:12 -0700 (PDT)
 Received-SPF: pass (google.com: domain of james.clark@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D22AF6D;
-	Tue, 31 Aug 2021 07:55:09 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE6C4D6E;
+	Tue, 31 Aug 2021 07:55:11 -0700 (PDT)
 Received: from e121896.arm.com (unknown [10.57.42.234])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 58AFD3F5A1;
-	Tue, 31 Aug 2021 07:55:08 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 658583F5A1;
+	Tue, 31 Aug 2021 07:55:10 -0700 (PDT)
 From: James Clark <james.clark@arm.com>
 To: acme@kernel.org,
 	linux-perf-users@vger.kernel.org
@@ -107,10 +108,12 @@ Cc: James Clark <james.clark@arm.com>,
 	Namhyung Kim <namhyung@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH 1/3] perf tools: Refactor LLVM test warning for missing binary
-Date: Tue, 31 Aug 2021 15:54:59 +0100
-Message-Id: <20210831145501.2135754-1-james.clark@arm.com>
+Subject: [PATCH 2/3] perf tools: Fix LLVM test failure when running in verbose mode
+Date: Tue, 31 Aug 2021 15:55:00 +0100
+Message-Id: <20210831145501.2135754-2-james.clark@arm.com>
 X-Mailer: git-send-email 2.28.0
+In-Reply-To: <20210831145501.2135754-1-james.clark@arm.com>
+References: <20210831145501.2135754-1-james.clark@arm.com>
 MIME-Version: 1.0
 X-Original-Sender: james.clark@arm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
@@ -130,90 +133,100 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The same warning is duplicated in two places so refactor it into a
-single function "search_program_and_warn". This will be used a third
-time in a later commit.
+A CI system might want to run all tests in verbose mode so that there is
+enough information to diagnose issues. This LLVM test is the only test
+that uses "-v" to signify to not skip the test if the preconditions
+aren't met (LLVM isn't installed). This means that running the test in
+verbose mode without LLVM installed causes a test failure.
+
+For consistency with the other tests, remove this verbose/skip check. An
+alternate solution would be to make _all_ tests not skip when run in
+verbose mode, but I don't think that would be intuitive.
+
+Also change the search_program() call to search_program_and_warn().
+Previously the hint about installing LLVM was only printed by the actual
+test because this check was skipped in verbose mode. To maintain the old
+behaviour, the precondition check must also print the full warning.
+
+Previous output:
+
+  $ ./perf test llvm
+  40: LLVM search and compile                                     :
+  40.1: Basic BPF llvm compile                                    : Skip
+
+  $ ./perf test -v llvm
+  40: LLVM search and compile                                     :
+  40.1: Basic BPF llvm compile                                    :
+  --- start ---
+  test child forked, pid 2085835
+  ERROR:	unable to find clang.
+  Hint:	Try to install latest clang/llvm to support BPF. Check your $PATH
+  ...
+  test child finished with -1
+  ---- end ----
+  LLVM search and compile subtest 1: FAILED!
+
+New output (non verbose mode is identical, verbose changes from fail to
+skip):
+
+  $ ./perf test llvm
+  40: LLVM search and compile                                     :
+  40.1: Basic BPF llvm compile                                    : Skip
+
+  $ ./perf test -v llvm
+  40: LLVM search and compile                                     :
+  40.1: Basic BPF llvm compile                                    :
+  --- start ---
+  test child forked, pid 2087680
+  ERROR:	unable to find clang.
+  Hint:	Try to install latest clang/llvm to support BPF. Check your $PATH
+  ...
+  No clang, skip this test
+  test child finished with -2
+  ---- end ----
+  LLVM search and compile subtest 1: Skip
 
 Signed-off-by: James Clark <james.clark@arm.com>
 ---
- tools/perf/util/llvm-utils.c | 36 +++++++++++++++++++++---------------
- 1 file changed, 21 insertions(+), 15 deletions(-)
+ tools/perf/tests/llvm.c      | 7 +++----
+ tools/perf/util/llvm-utils.c | 2 +-
+ 2 files changed, 4 insertions(+), 5 deletions(-)
 
-diff --git a/tools/perf/util/llvm-utils.c b/tools/perf/util/llvm-utils.c
-index cbd9b268f168..cec9c16efb17 100644
---- a/tools/perf/util/llvm-utils.c
-+++ b/tools/perf/util/llvm-utils.c
-@@ -38,6 +38,8 @@ struct llvm_param llvm_param = {
- 	.user_set_param = false,
- };
- 
-+static void version_notice(void);
-+
- int perf_llvm_config(const char *var, const char *value)
- {
- 	if (!strstarts(var, "llvm."))
-@@ -108,6 +110,21 @@ search_program(const char *def, const char *name,
- 	return ret;
- }
- 
-+static int search_program_and_warn(const char *def, const char *name,
-+				   char *output)
-+{
-+	int ret = search_program(def, name, output);
-+
-+	if (ret) {
-+		pr_err("ERROR:\tunable to find %s.\n"
-+		       "Hint:\tTry to install latest clang/llvm to support BPF. Check your $PATH\n"
-+		       "     \tand '%s-path' option in [llvm] section of ~/.perfconfig.\n",
-+		       name, name);
-+		version_notice();
-+	}
-+	return ret;
-+}
-+
- #define READ_SIZE	4096
- static int
- read_from_pipe(const char *cmd, void **p_buf, size_t *p_read_sz)
-@@ -458,16 +475,10 @@ int llvm__compile_bpf(const char *path, void **p_obj_buf,
- 	if (!template)
- 		template = CLANG_BPF_CMD_DEFAULT_TEMPLATE;
- 
--	err = search_program(llvm_param.clang_path,
-+	err = search_program_and_warn(llvm_param.clang_path,
- 			     "clang", clang_path);
--	if (err) {
--		pr_err(
--"ERROR:\tunable to find clang.\n"
--"Hint:\tTry to install latest clang/llvm to support BPF. Check your $PATH\n"
--"     \tand 'clang-path' option in [llvm] section of ~/.perfconfig.\n");
--		version_notice();
-+	if (err)
- 		return -ENOENT;
--	}
+diff --git a/tools/perf/tests/llvm.c b/tools/perf/tests/llvm.c
+index 98da8a8757ab..33e43cce9064 100644
+--- a/tools/perf/tests/llvm.c
++++ b/tools/perf/tests/llvm.c
+@@ -67,12 +67,11 @@ test_llvm__fetch_bpf_obj(void **p_obj_buf,
  
  	/*
- 	 * This is an optional work. Even it fail we can continue our
-@@ -495,14 +506,9 @@ int llvm__compile_bpf(const char *path, void **p_obj_buf,
- 	force_set_env("WORKING_DIR", kbuild_dir ? : ".");
+ 	 * Skip this test if user's .perfconfig doesn't set [llvm] section
+-	 * and clang is not found in $PATH, and this is not perf test -v
++	 * and clang is not found in $PATH
+ 	 */
+-	if (!force && (verbose <= 0 &&
+-		       !llvm_param.user_set_param &&
++	if (!force && (!llvm_param.user_set_param &&
+ 		       llvm__search_clang())) {
+-		pr_debug("No clang and no verbosive, skip this test\n");
++		pr_debug("No clang, skip this test\n");
+ 		return TEST_SKIP;
+ 	}
  
- 	if (opts) {
--		err = search_program(llvm_param.llc_path, "llc", llc_path);
--		if (err) {
--			pr_err("ERROR:\tunable to find llc.\n"
--			       "Hint:\tTry to install latest clang/llvm to support BPF. Check your $PATH\n"
--			       "     \tand 'llc-path' option in [llvm] section of ~/.perfconfig.\n");
--			version_notice();
-+		err = search_program_and_warn(llvm_param.llc_path, "llc", llc_path);
-+		if (err)
- 			goto errout;
--		}
+diff --git a/tools/perf/util/llvm-utils.c b/tools/perf/util/llvm-utils.c
+index cec9c16efb17..d95c56d175bc 100644
+--- a/tools/perf/util/llvm-utils.c
++++ b/tools/perf/util/llvm-utils.c
+@@ -585,5 +585,5 @@ int llvm__search_clang(void)
+ {
+ 	char clang_path[PATH_MAX];
  
- 		err = -ENOMEM;
- 		if (asprintf(&pipe_template, "%s -emit-llvm | %s -march=bpf %s -filetype=obj -o -",
+-	return search_program(llvm_param.clang_path, "clang", clang_path);
++	return search_program_and_warn(llvm_param.clang_path, "clang", clang_path);
+ }
 -- 
 2.28.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210831145501.2135754-1-james.clark%40arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210831145501.2135754-2-james.clark%40arm.com.
