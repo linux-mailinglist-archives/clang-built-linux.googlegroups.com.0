@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDP5FWOTVEGRBR77XCEQMGQEMCFN5NQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDP5FWOTVEGRBSH7XCEQMGQEBGR6QYQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 03FC23FCA04
-	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 16:42:17 +0200 (CEST)
-Received: by mail-io1-xd40.google.com with SMTP id f1-20020a5edf01000000b005b85593f933sf10919676ioq.14
-        for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 07:42:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630420935; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5511F3FCA07
+	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 16:42:18 +0200 (CEST)
+Received: by mail-pg1-x539.google.com with SMTP id r21-20020a63d9150000b029023ccd23c20csf1391392pgg.19
+        for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 07:42:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630420936; cv=pass;
         d=google.com; s=arc-20160816;
-        b=O8kQcJDKTnQ5FU4rmhKzFh8YRaIV2zPIr3n1ZMAv7JzitNlmtEu6PUOuSNY6zgFE1Y
-         tPddKCT9Ek631Uy9SrtBDJSGy+93jYOFOHz7wgI44sdBMoKLZ7W1SZUFsFgSwlliOVXW
-         R5JXYHI55Z7covQj+Zt3YRsGF5nOCRCuaVYvXsrnmagenBaB5F5UYyFVeYdPFeOQXdEO
-         +T2zrPL3lqSWvaVzhQ4dPg4ddGdz2ozR8fOHQ2qWrjolXFg1VU2sKnZnqDam54ZrAU9A
-         ynyCKRrIm30Nrx7efy+S+LbTdH7gmvIzxSyY+YRU0fxUHfxwnfjPV7mGmkzWSvI8qy9c
-         NN8Q==
+        b=dahg4dGzieOqwftDzvkDOU9QHp7WjvmnlKoMS9P0nP5nK9xv652gEhh/QxeOoUF0ys
+         2pbrkG+T5ycCWGnzciHwtRjacXFLVGTEzAdgYlmBTO4L5q6pW8t4Yx6ZLdD2ERV64rQp
+         BWDkqOiRpPqXlWXPQjuxQwiyhIS6V9Z4nIlOuRYxMph+Fp7+rk5FUnGkmfuPCNpb2NlQ
+         U+j0u38xImw+n3QpSm0BbADxgJo9uOgSsf5vlQHJY6Yq07xQY9tYuxQPpxDd1Qebt7sV
+         f7BCkpLouw74y8hH0v3r6ozFOkS+Srd3pec3I0oB1xcZyKUt7fkANSetWgVaagSGLxM0
+         lCNQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=aULCR1Gbaj+EwNaNRxn5dC38Jb2cEqGCIalOQjvTlMM=;
-        b=ShovSCl0XB8/gNnHUI5izWiw8SyuS1HoJWAVUn4zrToePkQw6K5Kn1yLaPKNm+Jk4F
-         6QMtKRf8jKc1A8//H3wl2A6yq/Lo6+/aO++WYTrJlWVVVsEZaJSVYQ7k8BEsNx3EP03z
-         TZVIHOrgTnxfiTjlvz3q9aJqayqMjdsxgovkU+yaAqv8AeabJQD2lz41MOOJbFz3O4as
-         xbQQVlgPkP63DbW488ZEadXkAwIsVWePdds09y2pjemfdcFI11sjOeFg/zaT8cAoNd2E
-         VpmSRNL0gZ/NngJBE6meUWTpr9maeRgjmV/NKO5SmaweZtAmUZ0uGU5c4FVr4WIzncPW
-         ORIg==
+        bh=75kTyIhdZf4BnGcbA0DPsZ+5tyum7i/HwW3XlgswGrM=;
+        b=BWna+YrfDX1YuUfJKTQ5+SgwwgwcnWVpt49qud0iVEKOyQiDgjXGvf9z3aOQGOYs8i
+         WiMe/I1l98Ky9+155xnePZ1R0HCsbp431OjLkbkRvDQfcN79/1XhQ8rypAPDh0BjhIcm
+         I94eFwVEpWjMnL6L9rDDF9yBvJav24/lZTzLFUqMpIWFzH3kVWKl2C33LJ+Iq8B178gX
+         Bg/609wtBD7VmTeO+8CZNmnwzf/BoS2uqHYhlKy7ABQOm1vc2GcZh87CsuvNmdo8YYmM
+         Gh/isWzznbmwLa7x6Bs3GqJwOhZNVsr53LexacZzhjFnz0QcEvmQvJzaB/QEWG9aH3NL
+         aTQQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
+       spf=pass (google.com: domain of alexandr.lobakin@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aULCR1Gbaj+EwNaNRxn5dC38Jb2cEqGCIalOQjvTlMM=;
-        b=QjBsMNFYuE1vADn8qc5mtE8i43N9G0LatcsQPBh8WkWuil4EO2cv9ZcijV7gtymWen
-         XiSEGfJTd7n4U/ztkQpoqNvOaIN9Quc8NoiHonRLbTdE9IQo+h9DtgEJnM6ALNYr4QqK
-         nrXsDnzArWmzyze7JcZV3r5yxaCazdA7ukqetnCpGl/C2POkpNBwKBxAGMLzkp5s0J9J
-         Gy5bIcUNIwFj2g4qrv7jB4djXRjLr4a4bOn5Hp1Ln5wgB1y1DLHo9SraDjuoRORLBBMJ
-         T7r+9LcVSHIYjtdnfq0P9PwbHZQOG53Mt/j73DQObxJSy3Ye+Awcgyg3w3W1MUxnvMpE
-         7UAg==
+        bh=75kTyIhdZf4BnGcbA0DPsZ+5tyum7i/HwW3XlgswGrM=;
+        b=ahVRmWYUg1D7xRcjhvV/6vFDMsnfvCfyClTvY9VJqzpAqxKCC+cz1oD8UHadoFAORW
+         0ioXjVJppIQac7jY49Rgj/4tbCMhF/NJY0fLAU0IaCCY155cSg5kQM4LOy3adf7DlXbx
+         HFlBlQOpTxXNoLYEvhx2c///LC5NMeqe77Nvkl5ASDLUOm3AVS5uPVesS7mggF25qqVh
+         hB4ydi+RwbqRuOmBHsEy0+SHRdLB3ehZa8+X1RujJrPkL9wsZB2SJHRkbrrZsaxzkyuC
+         UnnkV8+o1AIVcb4Pl5hC58RV/8WJh8qdRSCqev8dDo7kEpWshzeswgwncSqRhI6Cjn4B
+         5Jnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -48,64 +48,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aULCR1Gbaj+EwNaNRxn5dC38Jb2cEqGCIalOQjvTlMM=;
-        b=LCfMf8KfvKp9Dz1112y43xmzVWanC8dlGsK4ZDpvCgt43ZB6A8Jhzl497iYfGWsrfF
-         qR7N0otYz+NzfcmDhEf7TjJOg0g0rxsqwRfHE6jT9GKRw4SfHWkzGH/YeF7A3zFZn1X2
-         X9+IguoyMoWYbpoS2JOL1uMHfswB7wRrAbudweeYQRyHysMVrIZlliWi7zFsUV2iojRM
-         zZ5J8YhP9rGYH2pLvLfI0aVvKiqABw4DqSQGK1Ymn8IHwjT+bs+ImWL6+Vlw3UidTQ+q
-         OnAT900nBVmgINp2xkcun8cDpG0/OYZuIQaGgUth9yzBuQFyNMgOjYL0Ox3GTCocSfPK
-         bVZA==
+        bh=75kTyIhdZf4BnGcbA0DPsZ+5tyum7i/HwW3XlgswGrM=;
+        b=CK4byjwQtnXD/M3Fv85xcWZjO1/uHPbP9wozBiDsPtXr/fnxOfnfuVaiGRuX+DDMz/
+         c4dE1YTdwi/NebzdCCX95QAw/J5bUeXUbzuSDuDVOqnFotgdI3VtAKqkJgNE374zGwTu
+         sz56yXFbsd80BB/Ol7GXZBFoOxHkU5lQRk5dl55baKbr9ENcLV8B7IZIf9dq/WvmEeUW
+         5roeTjBRnmVi9euZNrpw0F+GimGdpytJMIQ6RN1De/ztiDlyeLuzkYAdMFHugMiP5Rh9
+         qPJ6LWchKrq/0jlZO672bY4fU971oxu4xbPKxsKOeRYw0x5t+uvEiPOWWtNU0ZBdwD6E
+         pHRQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530lZkcKSWa/K4ZHtscKv2OH5lqZr5P0S2Vfn3Yr8LVTE2ITDVPh
-	RKytVYCM3LrN9sRb/uPlLJ8=
-X-Google-Smtp-Source: ABdhPJxORV7cCes4NIhuhfXAwVCa6iE4UByCP75RaOtzLLRN/CVadc4Ocd6GWOYUQW4/jKwQeZU0qA==
-X-Received: by 2002:a05:6638:34a6:: with SMTP id t38mr3178986jal.19.1630420935882;
-        Tue, 31 Aug 2021 07:42:15 -0700 (PDT)
+X-Gm-Message-State: AOAM533Mr0H9TJV+EVIiSZtydlWWUVsLHWhlcbhPnLfxi733tJ3NfA72
+	HSvEVxbGpl4yBszAihhpEqI=
+X-Google-Smtp-Source: ABdhPJzYV5/Wf+TMIGcgiowsB865I+HSkfSAWXbldBaoBlguYOw9YlynCiWM3gYIbWCvjpW4nesapw==
+X-Received: by 2002:a17:902:c3c6:b0:138:80f2:f642 with SMTP id j6-20020a170902c3c600b0013880f2f642mr5043092plj.42.1630420936776;
+        Tue, 31 Aug 2021 07:42:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:410a:: with SMTP id ay10ls2577374jab.3.gmail; Tue,
- 31 Aug 2021 07:42:15 -0700 (PDT)
-X-Received: by 2002:a02:8189:: with SMTP id n9mr3132268jag.107.1630420935499;
-        Tue, 31 Aug 2021 07:42:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630420935; cv=none;
+Received: by 2002:a65:6643:: with SMTP id z3ls8409642pgv.3.gmail; Tue, 31 Aug
+ 2021 07:42:16 -0700 (PDT)
+X-Received: by 2002:a63:4f54:: with SMTP id p20mr27174292pgl.437.1630420936269;
+        Tue, 31 Aug 2021 07:42:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630420936; cv=none;
         d=google.com; s=arc-20160816;
-        b=ILLl9UZU2akF9qZRCnYoCVjItvtDuwYfXoP+wNCJltoVadY9Aq1lKSGSSGTYazCF3Q
-         Fezb1ul8vrSz1zTdIa+q46Zq3jaFkc4LiOSloPE1/GFynrl92VbiMyDpqqFV0TXbQmVZ
-         xNqCGDFOkC86l7PJ+1Pl8ouDj73OC0avdHF9Hux8ZS6kOpK7eYaz6mv9IDLPqLZ2+CqS
-         lZFn1rfioI7VcC7itu0D79eu3oOp21ec6l6qhfGSSrwtFHgb6txV+VZG/APeq+6uCqgv
-         FWStuGz6UAxc7toFBHLGTBIK96m+5zuIQQNDuux5ijKNU9VtbK/B1mvoAO0V4CjgmY5T
-         9Qyg==
+        b=p6WxxYd1tF2ZSf7AWHyksIhp4nbYv+1QPfB3lm2h3vebCEwaKQ7CXi4z91qzSlh4C+
+         1XCIiG+AXs0kz0AzBbLnxxLnsr75qxOPsthdde2ar9vu16QolQHN3O/iJMsEcgobF2hH
+         3nNRtPGiO0CPKPbBS+yvD7wdGSuJ5d+Ac5u25tlH+b91KRhMo/KT92t2nS6KAzxUfV7J
+         19310ud7oD7ksti+SmKxxcpDZcGy3wyWvc+NDpkqMkztN0XRFyXXO/DbTK54JsBEVymv
+         OjjeYj8s3ynvltAnj0LS0GkrlSt9yVOcppNhqVgvXfZywDkFrsMP8D8KXaqbiKC0KcZB
+         gSeA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=4WKs8/1CW/nUo+4ODzJaXx7+BaP2pexm774RQE0tIu4=;
-        b=Ze4H4j2l/yPHsQlMKv33KcXYLIYDouULShCRWHUNAhzLgrvKqUEyOEy6RRHG1PNxc5
-         MnPr3geGHzLXlzVnBW0mZC5t/Aqb07UAyRAo06YM7MRW6YwjgMbvLbXIeKQ+4jjfR2nk
-         1bIIiElDCIpD5P4pFCl+VphZOUHwD5zGb7Z9xw5u1QmnFj5y5CV7LbsvDXNkLOvZVT3p
-         NG5BWHHWq+oxgzdyzwKPG6OjzA8LDJ3Ln5GISFcqsPfpljGUJYzF0HWXrcbmBEIl8yb9
-         UKwqQqwrNcfNsSqbobfCrpHJkYj4F+FZDO84Vpy4h9W1aHmGw0hz4MV4NScH1rZBXnOW
-         viiw==
+        bh=13dsaBHEf/f87psmCDqw10jgtG7BPdzATMBxaI4erH8=;
+        b=EAc7MBAphaKyCeq2YoK+/VxhIKHOElLLthgJybZ/J3qScmVgf/zVG21YwV31BlHQl9
+         Ycyfq0LsfmA873vgREpXk+oM5KV44BUfj6SbBIUQewcpMIju4VGnQE0UCO4ZdhTFhO8b
+         fXr0wtNn5lfBVtXlsN6sHF0kvpN8HwwwIdVhq4w6IA+1MgBElKXX9ENpnTPl+7XkiDO5
+         v09DFSfFL3WvS6yGO6Ulnj3Xnbfg4HqVudXQC0K1cWmalLpnXD0ZMD+3Pe2Ai/K591il
+         RzkeVUSfqV0nday5L9Vmv0O4oBK+FtpgoPayORTOVV4jjkZj2sQVnR1x+kOTy5C2e1UP
+         2Mtw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
+       spf=pass (google.com: domain of alexandr.lobakin@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
-        by gmr-mx.google.com with ESMTPS id e16si1214067ilm.3.2021.08.31.07.42.15
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id u14si1180644pgi.5.2021.08.31.07.42.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 31 Aug 2021 07:42:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
-X-IronPort-AV: E=McAfee;i="6200,9189,10093"; a="218532943"
+        Tue, 31 Aug 2021 07:42:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of alexandr.lobakin@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+X-IronPort-AV: E=McAfee;i="6200,9189,10093"; a="240740649"
 X-IronPort-AV: E=Sophos;i="5.84,366,1620716400"; 
-   d="scan'208";a="218532943"
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2021 07:42:14 -0700
+   d="scan'208";a="240740649"
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2021 07:42:15 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.84,366,1620716400"; 
-   d="scan'208";a="446126180"
+   d="scan'208";a="519710705"
 Received: from irvmail001.ir.intel.com ([10.43.11.63])
-  by orsmga002.jf.intel.com with ESMTP; 31 Aug 2021 07:42:08 -0700
+  by fmsmga004.fm.intel.com with ESMTP; 31 Aug 2021 07:42:10 -0700
 Received: from alobakin-mobl.ger.corp.intel.com (psmrokox-mobl.ger.corp.intel.com [10.213.6.58])
-	by irvmail001.ir.intel.com (8.14.3/8.13.6/MailSET/Hub) with ESMTP id 17VEfmfZ002209;
-	Tue, 31 Aug 2021 15:42:06 +0100
+	by irvmail001.ir.intel.com (8.14.3/8.13.6/MailSET/Hub) with ESMTP id 17VEfmfa002209;
+	Tue, 31 Aug 2021 15:42:08 +0100
 From: Alexander Lobakin <alexandr.lobakin@intel.com>
 To: linux-hardening@vger.kernel.org
 Cc: "Kristen C Accardi" <kristen.c.accardi@intel.com>,
@@ -126,18 +126,18 @@ Cc: "Kristen C Accardi" <kristen.c.accardi@intel.com>,
         Alexander Lobakin <alexandr.lobakin@intel.com>,
         linux-kbuild@vger.kernel.org, linux-arch@vger.kernel.org,
         linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: [PATCH v6 kspp-next 09/22] x86/tools: Add relative relocs for randomized functions
-Date: Tue, 31 Aug 2021 16:41:01 +0200
-Message-Id: <20210831144114.154-10-alexandr.lobakin@intel.com>
+Subject: [PATCH v6 kspp-next 10/22] x86/boot/compressed: Avoid duplicate malloc() implementations
+Date: Tue, 31 Aug 2021 16:41:02 +0200
+Message-Id: <20210831144114.154-11-alexandr.lobakin@intel.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <20210831144114.154-1-alexandr.lobakin@intel.com>
 References: <20210831144114.154-1-alexandr.lobakin@intel.com>
 MIME-Version: 1.0
 X-Original-Sender: alexandr.lobakin@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.65
- as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+ (google.com: domain of alexandr.lobakin@intel.com designates 192.55.52.88 as
+ permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -151,193 +151,146 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Kristen Carlson Accardi <kristen@linux.intel.com>
+From: Kees Cook <keescook@chromium.org>
 
-When reordering functions, the relative offsets for relocs that
-are either in the randomized sections, or refer to the randomized
-sections will need to be adjusted. Add code to detect whether a
-reloc satisfies these cases, and if so, add them to the appropriate
-reloc list.
+The preboot malloc() (and free()) implementation in
+include/linux/decompress/mm.h (which is also included by the
+static decompressors) is static. This is fine when the only thing
+interested in using malloc() is the decompression code, but the
+x86 preboot environment uses malloc() in a couple places, leading to a
+potential collision when the static copies of the available memory
+region ("malloc_ptr") gets reset to the global "free_mem_ptr" value.
+As it happens, the existing usage pattern happened to be safe because each
+user did 1 malloc() and 1 free() before returning and were not nested:
 
+extract_kernel() (misc.c)
+	choose_random_location() (kaslr.c)
+		mem_avoid_init()
+			handle_mem_options()
+				malloc()
+				...
+				free()
+	...
+	parse_elf() (misc.c)
+		malloc()
+		...
+		free()
+
+Adding FGKASLR, however, will insert additional malloc() calls local to
+fgkaslr.c in the middle of parse_elf()'s malloc()/free() pair:
+
+	parse_elf() (misc.c)
+		malloc()
+		if (...) {
+			layout_randomized_image(output, &ehdr, phdrs);
+				malloc() <- boom
+				...
+		else
+			layout_image(output, &ehdr, phdrs);
+		free()
+
+To avoid collisions, there must be a single implementation of malloc().
+Adjust include/linux/decompress/mm.h so that visibility can be
+controlled, provide prototypes in misc.h, and implement the functions in
+misc.c. This also results in a small size savings:
+
+$ size vmlinux.before vmlinux.after
+   text    data     bss     dec     hex filename
+8842314     468  178320 9021102  89a6ae vmlinux.before
+8842240     468  178320 9021028  89a664 vmlinux.after
+
+Signed-off-by: Kees Cook <keescook@chromium.org>
 Signed-off-by: Kristen Carlson Accardi <kristen@linux.intel.com>
-Reviewed-by: Tony Luck <tony.luck@intel.com>
-Tested-by: Tony Luck <tony.luck@intel.com>
-Reviewed-by: Kees Cook <keescook@chromium.org>
 Signed-off-by: Alexander Lobakin <alexandr.lobakin@intel.com>
 ---
- arch/x86/boot/compressed/Makefile |  7 ++++++-
- arch/x86/tools/relocs.c           | 32 +++++++++++++++++++++++++++----
- arch/x86/tools/relocs.h           |  4 ++--
- arch/x86/tools/relocs_common.c    | 15 ++++++++++-----
- 4 files changed, 46 insertions(+), 12 deletions(-)
+ arch/x86/boot/compressed/kaslr.c |  4 ----
+ arch/x86/boot/compressed/misc.c  |  3 +++
+ arch/x86/boot/compressed/misc.h  |  2 ++
+ include/linux/decompress/mm.h    | 12 ++++++++++--
+ 4 files changed, 15 insertions(+), 6 deletions(-)
 
-diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
-index 431bf7f846c3..c31a24161fbf 100644
---- a/arch/x86/boot/compressed/Makefile
-+++ b/arch/x86/boot/compressed/Makefile
-@@ -106,6 +106,11 @@ $(obj)/vmlinux: $(vmlinux-objs-y) $(efi-obj-y) FORCE
- 	$(call if_changed,ld)
+diff --git a/arch/x86/boot/compressed/kaslr.c b/arch/x86/boot/compressed/kaslr.c
+index e36690778497..7d94f95c84dd 100644
+--- a/arch/x86/boot/compressed/kaslr.c
++++ b/arch/x86/boot/compressed/kaslr.c
+@@ -32,10 +32,6 @@
+ #include <generated/utsrelease.h>
+ #include <asm/efi.h>
  
- OBJCOPYFLAGS_vmlinux.bin :=  -R .comment -S
-+
-+ifdef CONFIG_FG_KASLR
-+RELOCS_ARGS += --fg-kaslr
-+endif
-+
- $(obj)/vmlinux.bin: vmlinux FORCE
- 	$(call if_changed,objcopy)
+-/* Macros used by the included decompressor code below. */
+-#define STATIC
+-#include <linux/decompress/mm.h>
+-
+ #define _SETUP
+ #include <asm/setup.h>	/* For COMMAND_LINE_SIZE */
+ #undef _SETUP
+diff --git a/arch/x86/boot/compressed/misc.c b/arch/x86/boot/compressed/misc.c
+index 743f13ea25c1..a4339cb2d247 100644
+--- a/arch/x86/boot/compressed/misc.c
++++ b/arch/x86/boot/compressed/misc.c
+@@ -28,6 +28,9 @@
  
-@@ -113,7 +118,7 @@ targets += $(patsubst $(obj)/%,%,$(vmlinux-objs-y)) vmlinux.bin.all vmlinux.relo
+ /* Macros used by the included decompressor code below. */
+ #define STATIC		static
++/* Define an externally visible malloc()/free(). */
++#define MALLOC_VISIBLE
++#include <linux/decompress/mm.h>
  
- CMD_RELOCS = arch/x86/tools/relocs
- quiet_cmd_relocs = RELOCS  $@
--      cmd_relocs = $(CMD_RELOCS) $< > $@;$(CMD_RELOCS) --abs-relocs $<
-+      cmd_relocs = $(CMD_RELOCS) $(RELOCS_ARGS) $< > $@;$(CMD_RELOCS) $(RELOCS_ARGS) --abs-relocs $<
- $(obj)/vmlinux.relocs: vmlinux FORCE
- 	$(call if_changed,relocs)
- 
-diff --git a/arch/x86/tools/relocs.c b/arch/x86/tools/relocs.c
-index ec50dfad407c..5ae6d1b8ea03 100644
---- a/arch/x86/tools/relocs.c
-+++ b/arch/x86/tools/relocs.c
-@@ -42,6 +42,8 @@ struct section {
- };
- static struct section *secs;
- 
-+static int fgkaslr_mode;
-+
- static const char * const sym_regex_kernel[S_NSYMTYPES] = {
  /*
-  * Following symbols have been audited. There values are constant and do
-@@ -818,6 +820,24 @@ static int is_percpu_sym(ElfW(Sym) *sym, const char *symname)
- 		strncmp(symname, "init_per_cpu_", 13);
+  * Provide definitions of memzero and memmove as some of the decompressors will
+diff --git a/arch/x86/boot/compressed/misc.h b/arch/x86/boot/compressed/misc.h
+index 31139256859f..1a2e422dc357 100644
+--- a/arch/x86/boot/compressed/misc.h
++++ b/arch/x86/boot/compressed/misc.h
+@@ -44,6 +44,8 @@ extern char _head[], _end[];
+ /* misc.c */
+ extern memptr free_mem_ptr;
+ extern memptr free_mem_end_ptr;
++extern void *malloc(int size);
++extern void free(void *where);
+ extern struct boot_params *boot_params;
+ void __putstr(const char *s);
+ void __puthex(unsigned long value);
+diff --git a/include/linux/decompress/mm.h b/include/linux/decompress/mm.h
+index 868e9eacd69e..9192986b1a73 100644
+--- a/include/linux/decompress/mm.h
++++ b/include/linux/decompress/mm.h
+@@ -25,13 +25,21 @@
+ #define STATIC_RW_DATA static
+ #endif
+ 
++/*
++ * When an architecture needs to share the malloc()/free() implementation
++ * between compilation units, it needs to have non-local visibility.
++ */
++#ifndef MALLOC_VISIBLE
++#define MALLOC_VISIBLE static
++#endif
++
+ /* A trivial malloc implementation, adapted from
+  *  malloc by Hannu Savolainen 1993 and Matthias Urlichs 1994
+  */
+ STATIC_RW_DATA unsigned long malloc_ptr;
+ STATIC_RW_DATA int malloc_count;
+ 
+-static void *malloc(int size)
++MALLOC_VISIBLE void *malloc(int size)
+ {
+ 	void *p;
+ 
+@@ -52,7 +60,7 @@ static void *malloc(int size)
+ 	return p;
  }
  
-+static int is_function_section(struct section *sec)
-+{
-+	if (!fgkaslr_mode)
-+		return 0;
-+
-+	return !strncmp(sec_name(sec->shdr.sh_info), ".text.", 6);
-+}
-+
-+static int is_randomized_sym(ElfW(Sym) *sym)
-+{
-+	if (!fgkaslr_mode)
-+		return 0;
-+
-+	if (sym->st_shndx > shnum)
-+		return 0;
-+
-+	return !strncmp(sec_name(sym_index(sym)), ".text.", 6);
-+}
- 
- static int do_reloc64(struct section *sec, Elf_Rel *rel, ElfW(Sym) *sym,
- 		      const char *symname)
-@@ -843,12 +863,15 @@ static int do_reloc64(struct section *sec, Elf_Rel *rel, ElfW(Sym) *sym,
- 	case R_X86_64_PC32:
- 	case R_X86_64_PLT32:
- 		/*
--		 * PC relative relocations don't need to be adjusted unless
--		 * referencing a percpu symbol.
-+		 * we need to keep pc relative relocations for sections which
-+		 * might be randomized, and for the percpu section.
-+		 * We also need to keep relocations for any offset which might
-+		 * reference an address in a section which has been randomized.
- 		 *
- 		 * NB: R_X86_64_PLT32 can be treated as R_X86_64_PC32.
- 		 */
--		if (is_percpu_sym(sym, symname))
-+		if (is_function_section(sec) || is_randomized_sym(sym) ||
-+		    is_percpu_sym(sym, symname))
- 			add_reloc(&relocs32neg, offset);
- 		break;
- 
-@@ -1163,8 +1186,9 @@ static void print_reloc_info(void)
- 
- void process(FILE *fp, int use_real_mode, int as_text,
- 	     int show_absolute_syms, int show_absolute_relocs,
--	     int show_reloc_info)
-+	     int show_reloc_info, int fgkaslr)
+-static void free(void *where)
++MALLOC_VISIBLE void free(void *where)
  {
-+	fgkaslr_mode = fgkaslr;
- 	regex_init(use_real_mode);
- 	read_ehdr(fp);
- 	read_shdrs(fp);
-diff --git a/arch/x86/tools/relocs.h b/arch/x86/tools/relocs.h
-index 43c83c0fd22c..f582895c04dd 100644
---- a/arch/x86/tools/relocs.h
-+++ b/arch/x86/tools/relocs.h
-@@ -31,8 +31,8 @@ enum symtype {
- 
- void process_32(FILE *fp, int use_real_mode, int as_text,
- 		int show_absolute_syms, int show_absolute_relocs,
--		int show_reloc_info);
-+		int show_reloc_info, int fgkaslr);
- void process_64(FILE *fp, int use_real_mode, int as_text,
- 		int show_absolute_syms, int show_absolute_relocs,
--		int show_reloc_info);
-+		int show_reloc_info, int fgkaslr);
- #endif /* RELOCS_H */
-diff --git a/arch/x86/tools/relocs_common.c b/arch/x86/tools/relocs_common.c
-index 6634352a20bc..b1072e63175f 100644
---- a/arch/x86/tools/relocs_common.c
-+++ b/arch/x86/tools/relocs_common.c
-@@ -12,14 +12,14 @@ void die(char *fmt, ...)
- 
- static void usage(void)
- {
--	die("relocs [--abs-syms|--abs-relocs|--reloc-info|--text|--realmode]" \
--	    " vmlinux\n");
-+	die("relocs [--abs-syms|--abs-relocs|--reloc-info|--text|--realmode|"
-+	    "--fg-kaslr] vmlinux\n");
- }
- 
- int main(int argc, char **argv)
- {
- 	int show_absolute_syms, show_absolute_relocs, show_reloc_info;
--	int as_text, use_real_mode;
-+	int as_text, use_real_mode, fgkaslr_opt;
- 	const char *fname;
- 	FILE *fp;
- 	int i;
-@@ -30,6 +30,7 @@ int main(int argc, char **argv)
- 	show_reloc_info = 0;
- 	as_text = 0;
- 	use_real_mode = 0;
-+	fgkaslr_opt = 0;
- 	fname = NULL;
- 	for (i = 1; i < argc; i++) {
- 		char *arg = argv[i];
-@@ -54,6 +55,10 @@ int main(int argc, char **argv)
- 				use_real_mode = 1;
- 				continue;
- 			}
-+			if (strcmp(arg, "--fg-kaslr") == 0) {
-+				fgkaslr_opt = 1;
-+				continue;
-+			}
- 		}
- 		else if (!fname) {
- 			fname = arg;
-@@ -75,11 +80,11 @@ int main(int argc, char **argv)
- 	if (e_ident[EI_CLASS] == ELFCLASS64)
- 		process_64(fp, use_real_mode, as_text,
- 			   show_absolute_syms, show_absolute_relocs,
--			   show_reloc_info);
-+			   show_reloc_info, fgkaslr_opt);
- 	else
- 		process_32(fp, use_real_mode, as_text,
- 			   show_absolute_syms, show_absolute_relocs,
--			   show_reloc_info);
-+			   show_reloc_info, fgkaslr_opt);
- 	fclose(fp);
- 	return 0;
- }
+ 	malloc_count--;
+ 	if (!malloc_count)
 -- 
 2.31.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210831144114.154-10-alexandr.lobakin%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210831144114.154-11-alexandr.lobakin%40intel.com.
