@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBROSXGEQMGQEUPH4UZQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBW6VXGEQMGQEGTGUE6I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103c.google.com (mail-pj1-x103c.google.com [IPv6:2607:f8b0:4864:20::103c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5AE103FCC6B
-	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 19:39:27 +0200 (CEST)
-Received: by mail-pj1-x103c.google.com with SMTP id ml19-20020a17090b361300b00196588f5090sf1798130pjb.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 10:39:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630431558; cv=pass;
+Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6E5533FCC7A
+	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 19:46:12 +0200 (CEST)
+Received: by mail-oi1-x23c.google.com with SMTP id c6-20020aca35060000b029025c5504f461sf4067oia.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 10:46:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630431964; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NXpFaerraWBGv0XKscu6cF2JP9XI0onlB3b0ugM3rAPDbtWeZnAoR//7Z93K1HjD5C
-         a3kPCKt4Ssf3f/XNR3uBqBnbJS5vBINCdL/ZWb1MTk0LeeyRcGLcBhgOVDvnrlyn2SxP
-         GxRJUnEnvs7gw35jx5v8EfdhKR1UTL5NGYjb8D+40p5VO+SnV8wvG2vegyE2TTVV4cCG
-         pCViKP1osZ7I7DFbofzWkQJ23O+2jtruMciBipWMm0tCsobSeGSZldVzO0rYwswhAbp8
-         wxwO9+3sLyiNo7ZM+0V1tgeUPiB8KsiLJifoltbdYC85lP0QhLtbphTlcvWHqZ2MJNQx
-         4Sew==
+        b=FZVHa5DNLd4JMbvO+CDO5iQKCuj9JL8VxYcWw8+PKmFCTK8yBgKIz3IuGayR2dqGsM
+         naWEK52lhq7CtNsN8BtCpMGSzjSFeXa8yJw+gq4wu7s2VjEASo5AJXIEuQDt4/DuKgaC
+         xx1njpGJqLzJ8sd+xYfDIS/tFmCAxoOr7IbyaNmLUgBDSBZNyCSHQ8nMLYmnwLSIh9fo
+         5K6Cd+JfhnaTdeB3k9xNPTwUwXf3tWXtiXCq0V8AmBHDKlh9jhdKCYwO4sSkQKvvsA8V
+         nJSwUsadTsLZsZDj+N0XO3BJWE63NmKOJWNS2LtPKgjX8WQwtgpmXtHZZT4Hmclkc0Lj
+         GW+g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=NJf7wYNRcZQ6Jy7/J9VRDvLh8XPQJe8Qmp2ohaWSAyU=;
-        b=YVz+HzUFd+ir6knubkQCHn/K7g1i6Kw/Juzg9IgzCjGH6AyW23wUYIru+xzlL+N2Z1
-         MqH+8mSQB6y6kS+Sloc3OujZt8SExuT1uTwj2bDHWTe2CYtxadsJBzfuvahQBvldLXBS
-         t12lYMXq8gUBOBFVA9Uj/LZXriYCxtf+WXGjqsQJt7Pp59OOoMd7PebXXQtx6snlqHjX
-         nv5J7qtEbGObGjktnqfPdYcPQ8ksuuvuuEhwt+n6QtQctAvR1vvQoeGtTj7n/w5rrBMH
-         Euj9eKqEbC+PiKf1xbK3NvsRM2HhoB39/oF7kp1o37xUos8T5535bfZu8SvUBQLyUZLq
-         DZMw==
+        bh=T8ZeAKMr2DywY5ctdvn65w8GNq6luEmLoU1GueQWnxg=;
+        b=IlE8cIcVbFZljfu/Sx4zVpqcn3NPRm4XnoUkP70ZKGwLZLfUkhtboTD8DTihBi/89f
+         qGu1B+bBKyixIgNA97+OPQqBpv2/WIFJYzawuXvTLPjjnuxNeh6FqpWnexSy1h35fTU1
+         adAfXEJBlCQRQi44R/p+WpfR7O62o9dLr5W8N4B5TseVBVFAP9Qk7S7ac3taoKqbnzxu
+         TJCL6VlleqPqpGFcs8RkV0osl2b4Q+Uv3F1zF/qYC+u2U13S4kfeKY4HnYEGNcka5JrH
+         ARhC9s0e8Bb4RBHy6N32GegI0coBRK3jVOISYymVz/ROr8iIxpFikhz3ilMy+jORF40A
+         f5jA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=XPjSJ+1R;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52c as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=YhuvLsEj;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62d as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=NJf7wYNRcZQ6Jy7/J9VRDvLh8XPQJe8Qmp2ohaWSAyU=;
-        b=YJqeFy3fLjj1hDYzWl4rZLWsy1aqssC4JUPS3wYYH26iSELPSNx0kaIC/TQ4RuRJh3
-         xbTdRcMxwfwdlaeOHDma7j/IFRU4mnhEiMBxoZzMo78ACsCS/+euxyRYZRt/5A4ARQiK
-         Exnb1CwurzyhLcDhuUo6KLphzuo46pWVB2CdfO79hWX1bC/UrEGNtJZRL99k3qoQqEST
-         y7A8fPbQMTkYW55uAECWcqRH/24mnMIlQfLTGn5sYzew0axFX5rhCd2ynPvjK5Mmp/Yr
-         7O/FL+T/0fRPEMk7pa8UySanRAJxdpNPFXTie1oohu3Mg/4U8oYASCwmnQbEwMXzkmwg
-         gmbA==
+        bh=T8ZeAKMr2DywY5ctdvn65w8GNq6luEmLoU1GueQWnxg=;
+        b=Hqr4CrZTf6/+2/uMKpcbO4Zm7JkpWQVl5bcGAglgoo7WsTzyJqx2xTF073GUyaseft
+         lvulSHNUK9cPYox/Ga5qPgszfjxlu5kgsxFLWi7XJAq9B4xTjJn5aJdrQLEB75gngJ0M
+         sFTCwEtlKk8Fq3fbOkoB5eXzDaFk84DPYxBDfk6onlAsbMjCiDAWJCGTeJBwPk8YZ5MS
+         pHsnSxPwmuYqLH0lPHxoVhcj0JFe7H9MrUEipvo3SuzRqAMJCRbW0W6HPhMa4pTR/V92
+         Cl5gcIGL8ItU6Qc43K4BOFQhFdNAdZbGknqsiej8iUpbkKPj46ewSDXtuveJXlEAaIvH
+         O9rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,80 +50,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=NJf7wYNRcZQ6Jy7/J9VRDvLh8XPQJe8Qmp2ohaWSAyU=;
-        b=aS/TjJHbqUrZNgCZ8swav/M93L8N19XU00bPzxQqxWnZ6bb1b+2Mtl/HtS62iToZRV
-         mPZEVHaWKqtR0OHSZDZKCIR5zp8jgQZAXdfk8dnKsJXUtK1qjbGNEgYx4iYSi++OyiQ0
-         r2IDUyB5Mn47AK+GeiKaDGzqhE9S2OUJSFXo7MNq6WtKfUEy+ne9L+6eEieF+vl4KAod
-         v1/Qt95sz4EkwHjfpVjB2xZcJFzVVwbkjl0ilgG7N2zLY6bG8VQjUWLNtlXtl9N1HOVU
-         WfvlOEJLWiuSWjK3s7EL9ba8fYPV/IHngLqwuXVDs9bBAriNtNlKYwzDxV/KQEd5e5T/
-         us2w==
+        bh=T8ZeAKMr2DywY5ctdvn65w8GNq6luEmLoU1GueQWnxg=;
+        b=L5AMgLj3X5fG6VEr/lKS8Wld7lcLs8HsUpnrCLiVZkt08Mcx0TUvIN3BAUmpdeCzSq
+         XUtqusltAmqj7L45VnZYLW4IMwy8SwzXaYaFhkntb3uW7M6r+su2jMGi9+8kTHHH/hGu
+         SyvXj7a2f0yO+Tteo3fjv1dGMq9PLIp3JBlzMlS/ZaV5duIX3SjAT+mSinoT2b4vAmAz
+         PGC1Yc3Z07/uyRYUvO09B0PIO7uQ+igxHdda6D3QDgzexOzLPMfY0o3u0l03sHTyzWtS
+         nzGchqQe22fE0f+0y0OLAVjWmkWIFD/5olCvBH5nV49OvYGpkW1tJJbW0D5HEeHd9y+y
+         Dp/w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533HfNEb5qiUo5brq7SEaRHpaSKCgx0w+fshYlLTqtNXOK3MY3lc
-	BqhrtZDFJt8Kw4SsY3a30vc=
-X-Google-Smtp-Source: ABdhPJxJbsjt6v2D50Me65HyLdFy7MJwcaHAAmCyjjrF1DtdOhCwtcvcF28favU6KU7cLNYwFXEqaw==
-X-Received: by 2002:a63:5f16:: with SMTP id t22mr27910507pgb.86.1630431558095;
-        Tue, 31 Aug 2021 10:39:18 -0700 (PDT)
+X-Gm-Message-State: AOAM532kZ/BSnXxe22RU+P6YXOON4x59Adi15d6Thcc+X25NG6IxayET
+	tay2Hf+IMigYIJyTb+NuQfo=
+X-Google-Smtp-Source: ABdhPJyNWivr/ZyhbCMJkXSJIPgEjoh/wKf2Xi5Yg6rrT8MPPZv3lLg+r4APsWa4oSYTPGxNljEhRg==
+X-Received: by 2002:a05:6830:4117:: with SMTP id w23mr24415262ott.40.1630431963937;
+        Tue, 31 Aug 2021 10:46:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:30c3:: with SMTP id w186ls7938038pfw.6.gmail; Tue, 31
- Aug 2021 10:39:17 -0700 (PDT)
-X-Received: by 2002:a05:6a00:d4a:b0:3e3:f6:6c71 with SMTP id n10-20020a056a000d4a00b003e300f66c71mr29231537pfv.22.1630431557481;
-        Tue, 31 Aug 2021 10:39:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630431557; cv=none;
+Received: by 2002:a05:6830:1e87:: with SMTP id n7ls5621918otr.4.gmail; Tue, 31
+ Aug 2021 10:46:03 -0700 (PDT)
+X-Received: by 2002:a05:6830:3114:: with SMTP id b20mr25434867ots.17.1630431963604;
+        Tue, 31 Aug 2021 10:46:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630431963; cv=none;
         d=google.com; s=arc-20160816;
-        b=i1PU+GtKgp0OtREuF9T/OvM6DDYCnFu3a5ypN1cSsLuqnaEzakgwkx0gfiG6k0ukHH
-         1IUlHBNBtyl6+SqSUOp9uclpKxo+N3b6roKgLot+VpqKMRGMBkNLaVpVbccVO3e5a3rL
-         f1okexXg7S7a+suYb1LdginHn/ExqKa0q3wSCt4nKvgXzDHoHDlWrOKoXED14OtMqvYl
-         GBZtFMwdcT1jjhz+Ev0F1JxxMNvazK1a3jQgPGIwT4brSiaxrxD5R0mJC0Qcppsjt5Wj
-         ctMS/RoASgutQU2n/fw5gqsLKwylAB0CO8rw70aMk9zyBGWQhObL8TLU6eFmZFKlHS53
-         6UVA==
+        b=OOo87lBp9GxCO606oE/TBvyiWjk5/EIPFmNfyhP7/N8FShbWGoculqPdwnsvMU8DKu
+         uBgKr3qygfVk6DhOfk45oBd1RPmoFSMcQgV8XhcRy9NFEdPHqd12MpasGEgWVouKxsQs
+         f30hmqMVdbGvWgl2RIx9nnYTEbJZv+mn1cOXkW+yRa8xHsfpZ92RyP8v3//HddxblaYa
+         AqJt8O4hghtnskS0omMXAataIycKCqzRiNphAz0MVlR1uYkLUBGRLa6urZnwVirvcBBf
+         vWSCGe6wc1j1GanKLqmAmkJAvzOStI/GiISq9Z1Y9l+P+K39zeq2VJTgaugkrV6C091b
+         RFCQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=F7echhAfjgqeCGKrHcBGPpDR6/tLyVVtHE9PZ+Scui8=;
-        b=X7s6Wo8r3IMx+ab31b3x2cTqQo2GSCB5NfMBjYowMHwRJgoeppZC4tGggNcfO2WXvM
-         tQZ97p6jG3Hg2QTsGEg1Y79CYbhSljGwq7BJ2qj/MlWFWQB1LVY7myrcxMMxIvyJ2VFq
-         yCJH7C2OtoHOsFKSQ+BySP2WlR1zf7RXUAhGntAfsvbazcJI3b6nGrEi0CHXGrAg/0vP
-         /KmbqLkn6t43shnlU5o9QWXqGRrsvmzfxftQnmrb3oUHarK2OSkIVz7O3mJBCBYYUCrr
-         AIpkZTZDLsJu82EHoUPV7hLWyQXglz5KtOXOEgy+UXOS4ujtugC6JqAoyBWhjhUQD9mL
-         nGqw==
+        bh=f7VtopklDkVx9rWQ7VmtX224wBeDKumuy7TD9fs5BoM=;
+        b=fTHEzg64Z3IgDWJHjc3W2XvgowlEEiB/ElpCbaaKWkXHMjJa3qS8+52KjoC2akrigx
+         Xa95AaHNGg5pEjZJBL8wiPuiXRrKzTOc0DgGrYjp1EaLb49RBEb28aBq+26HhsQnjadF
+         K8phZK65dSdnsOlYuoPo92cz/dYBPHlf9EZW13YeAyDqwPcqfAfkGtxWlfYwF5byp/YA
+         GHek7c+FYr43xamo9F5nxAd7nOk2lF20pDXSKY2ZJ9NE1oKv6MRooFS8fyEH3ReuiuEe
+         H7TzVh8vTfoB7E55Ye6ybP2PFiS5GLz30f0PQWhI+ABebpoiuQxW4irAthwPLf+evNrJ
+         yw5A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=XPjSJ+1R;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52c as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=YhuvLsEj;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62d as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x52c.google.com (mail-pg1-x52c.google.com. [2607:f8b0:4864:20::52c])
-        by gmr-mx.google.com with ESMTPS id 136si1383603pfz.2.2021.08.31.10.39.17
+Received: from mail-pl1-x62d.google.com (mail-pl1-x62d.google.com. [2607:f8b0:4864:20::62d])
+        by gmr-mx.google.com with ESMTPS id bg35si311327oib.3.2021.08.31.10.46.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 31 Aug 2021 10:39:17 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52c as permitted sender) client-ip=2607:f8b0:4864:20::52c;
-Received: by mail-pg1-x52c.google.com with SMTP id r2so17461410pgl.10
-        for <clang-built-linux@googlegroups.com>; Tue, 31 Aug 2021 10:39:17 -0700 (PDT)
-X-Received: by 2002:a63:5317:: with SMTP id h23mr28060938pgb.446.1630431556989;
-        Tue, 31 Aug 2021 10:39:16 -0700 (PDT)
+        Tue, 31 Aug 2021 10:46:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62d as permitted sender) client-ip=2607:f8b0:4864:20::62d;
+Received: by mail-pl1-x62d.google.com with SMTP id m17so11095987plc.6
+        for <clang-built-linux@googlegroups.com>; Tue, 31 Aug 2021 10:46:03 -0700 (PDT)
+X-Received: by 2002:a17:90b:2212:: with SMTP id kw18mr6716149pjb.59.1630431963219;
+        Tue, 31 Aug 2021 10:46:03 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id v17sm18016268pff.6.2021.08.31.10.39.15
+        by smtp.gmail.com with ESMTPSA id b69sm2927963pfb.64.2021.08.31.10.46.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 Aug 2021 10:39:16 -0700 (PDT)
-Date: Tue, 31 Aug 2021 10:39:15 -0700
+        Tue, 31 Aug 2021 10:46:02 -0700 (PDT)
+Date: Tue, 31 Aug 2021 10:46:01 -0700
 From: Kees Cook <keescook@chromium.org>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, Michal Marek <michal.lkml@markovi.net>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 08/13] kbuild: build modules in the same way
- with/without Clang LTO
-Message-ID: <202108311037.B3C7FCAF@keescook>
-References: <20210831074004.3195284-1-masahiroy@kernel.org>
- <20210831074004.3195284-9-masahiroy@kernel.org>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	linux-kbuild@vger.kernel.org,
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Keith Packard <keithp@keithp.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Daniel Vetter <daniel.vetter@ffwll.ch>,
+	clang-built-linux@googlegroups.com, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 4/5] Makefile: Enable -Warray-bounds
+Message-ID: <202108311042.FFE1818D@keescook>
+References: <20210827163015.3141722-1-keescook@chromium.org>
+ <20210827163015.3141722-5-keescook@chromium.org>
+ <20210831043128.GA2749311@roeck-us.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210831074004.3195284-9-masahiroy@kernel.org>
+In-Reply-To: <20210831043128.GA2749311@roeck-us.net>
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=XPjSJ+1R;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52c
+ header.i=@chromium.org header.s=google header.b=YhuvLsEj;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::62d
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
@@ -138,327 +143,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Aug 31, 2021 at 04:39:59PM +0900, Masahiro Yamada wrote:
-> When Clang LTO is enabled, additional intermediate files *.lto.o are
-> created because LLVM bitcode must be converted to ELF before modpost.
+On Mon, Aug 30, 2021 at 09:31:28PM -0700, Guenter Roeck wrote:
+> On Fri, Aug 27, 2021 at 09:30:14AM -0700, Kees Cook wrote:
+> > With the recent fixes for flexible arrays and expanded FORTIFY_SOURCE
+> > coverage, it is now possible to enable -Warray-bounds. Since both
+> > GCC and Clang include -Warray-bounds in -Wall, we just need to stop
+> > disabling it.
+> > 
+> > Cc: Arnd Bergmann <arnd@arndb.de>
+> > Cc: Masahiro Yamada <masahiroy@kernel.org>
+> > Cc: linux-kbuild@vger.kernel.org
+> > Co-developed-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+> > Signed-off-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+> > Signed-off-by: Kees Cook <keescook@chromium.org>
+> > ---
+> >  Makefile | 1 -
+> >  1 file changed, 1 deletion(-)
+> > 
+> > diff --git a/Makefile b/Makefile
+> > index e4f5895badb5..8e7e73a642e2 100644
+> > --- a/Makefile
+> > +++ b/Makefile
+> > @@ -995,7 +995,6 @@ KBUILD_CFLAGS += $(call cc-disable-warning, stringop-truncation)
+> >  
+> >  # We'll want to enable this eventually, but it's not going away for 5.7 at least
+> >  KBUILD_CFLAGS += $(call cc-disable-warning, zero-length-bounds)
+> > -KBUILD_CFLAGS += $(call cc-disable-warning, array-bounds)
+> >  KBUILD_CFLAGS += $(call cc-disable-warning, stringop-overflow)
+> >  
 > 
-> For non-LTO builds:
+> This patch causes 'alpha' builds to fail when trying to build an image with
+> gcc 11.2.
 > 
->          $(LD)             $(LD)
->   objects ---> <modname>.o -----> <modname>.ko
->                              |
->           <modname>.mod.o ---/
+> In file included from include/linux/string.h:20,
+>                  from include/linux/bitmap.h:11,
+>                  from include/linux/cpumask.h:12,
+>                  from include/linux/smp.h:13,
+>                  from include/linux/lockdep.h:14,
+>                  from include/linux/spinlock.h:63,
+>                  from include/linux/mmzone.h:8,
+>                  from include/linux/gfp.h:6,
+>                  from include/linux/mm.h:10,
+>                  from include/linux/pagemap.h:8,
+>                  from arch/alpha/mm/init.c:10:
+> In function '__memset',
+>     inlined from '__bad_pagetable' at arch/alpha/mm/init.c:79:2:
+> arch/alpha/include/asm/string.h:37:32: error: '__builtin_memset' offset [0, 8191] is out of the bounds [0, 0] [-Werror=array-bounds]
+>    37 |                         return __builtin_memset(s, c, n);
+>       |                                ^~~~~~~~~~~~~~~~~~~~~~~~~
+> In function '__memset',
+>     inlined from '__bad_page' at arch/alpha/mm/init.c:86:2:
+> arch/alpha/include/asm/string.h:37:32: error: '__builtin_memset' offset [0, 8191] is out of the bounds [0, 0] [-Werror=array-bounds]
+>    37 |                         return __builtin_memset(s, c, n);
+>       |                                ^~~~~~~~~~~~~~~~~~~~~~~~~
+> In function '__memset',
+>     inlined from 'paging_init' at arch/alpha/mm/init.c:256:2:
+> arch/alpha/include/asm/string.h:37:32: error: '__builtin_memset' offset [0, 8191] is out of the bounds [0, 0] [-Werror=array-bounds]
+>    37 |                         return __builtin_memset(s, c, n);
 > 
-> For Clang LTO builds:
-> 
->          $(AR)            $(LD)                 $(LD)
->   objects ---> <modname>.o ---> <modname>.lto.o -----> <modname>.ko
->                                                   |
->                                 <modname>.mod.o --/
-> 
-> Since the Clang LTO introduction, Kbuild code is complicated due to
-> CONFIG_LTO_CLANG conditionals sprinkled everywhere.
-> 
-> Another confusion for Clang LTO builds is, <modname>.o is an archive
-> that contains LLVM bitcode files. The suffix should be .a instead of .o
-> 
-> To clean up the code, unify the build process of modules, as follows:
-> 
->          $(AR)            $(LD)                     $(LD)
->   objects ---> <modname>.a ---> <modname>.prelink.o -----> <modname>.ko
->                                                       |
->                                 <modname>.mod.o ------/
-> 
-> Here, 'objects' are either ELF or LLVM bitcode. <modname>.a is an archive,
-> <modname>.prelink.o is ELF.
+> Seen in next-20210830.
 
-This is a good diagram and helps me understand what's happening here. Do
-you think there's a place for it somewhere in the kbuild documentation?
+Ah-ha, thanks for the report! I didn't see this in my builds -- what
+config target did you use for this?
 
-> 
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+Looks like GCC isn't happy about an unsigned long->void * conversion
+here...
 
-My question about speed changes also applies to this, since there's now
-a new step for non-LTO builds. I think you said it wasn't a meaningful
-change in speed, but I think it'd be worth mentioning performance
-changes in this commit message.
+include/asm/page.h:#define PAGE_OFFSET          0xfffffc0000000000UL
+...
+include/uapi/asm/setup.h:#define KERNEL_START_PHYS      0x1000000 /* required: Wildfire/Titan/Marvel */
+include/uapi/asm/setup.h:#define EMPTY_PGT (PAGE_OFFSET+KERNEL_START_PHYS+0x04000)
+...
+mm/init.c:      memset((void *) EMPTY_PGT, 0, PAGE_SIZE);
 
-> ---
-> 
->  scripts/Makefile.build    | 100 +++++++++++++++++---------------------
->  scripts/Makefile.lib      |  11 ++---
->  scripts/Makefile.modfinal |   4 +-
->  scripts/Makefile.modpost  |   7 +--
->  scripts/mod/modpost.c     |   6 +--
->  5 files changed, 56 insertions(+), 72 deletions(-)
-> 
-> diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-> index 3ad1b1227371..cdc09e9080ca 100644
-> --- a/scripts/Makefile.build
-> +++ b/scripts/Makefile.build
-> @@ -88,9 +88,7 @@ endif
->  
->  targets-for-modules := $(patsubst %.o, %.mod, $(filter %.o, $(obj-m)))
->  
-> -ifdef CONFIG_LTO_CLANG
-> -targets-for-modules += $(patsubst %.o, %.lto.o, $(filter %.o, $(obj-m)))
-> -endif
-> +targets-for-modules += $(patsubst %.o, %.prelink.o, $(filter %.o, $(obj-m)))
->  
->  ifdef need-modorder
->  targets-for-modules += $(obj)/modules.order
-> @@ -243,9 +241,12 @@ endif # CONFIG_STACK_VALIDATION
->  
->  ifdef CONFIG_LTO_CLANG
->  
-> -# Skip objtool for LLVM bitcode
-> +# Skip objtool LLVM bitcode
-
-Nit: needless comment change?
-
->  $(obj)/%o: objtool-enabled :=
->  
-> +# Run objtool now that we have compiled modules into native code
-> +$(obj)/%.prelink.o: objtool-enabled := y
-> +
->  else
->  
->  # 'OBJECT_FILES_NON_STANDARD := y': skip objtool checking for a directory
-> @@ -255,6 +256,8 @@ else
->  $(obj)/%o: objtool-enabled = $(if $(filter-out y%, \
->  	$(OBJECT_FILES_NON_STANDARD_$(basetarget).o)$(OBJECT_FILES_NON_STANDARD)n),y)
->  
-> +$(obj)/%.prelink.o: objtool-enabled :=
-> +
->  endif
->  
->  ifdef CONFIG_TRIM_UNUSED_KSYMS
-> @@ -287,32 +290,12 @@ $(obj)/%.o: $(src)/%.c $(recordmcount_source) FORCE
->  	$(call if_changed_rule,cc_o_c)
->  	$(call cmd,force_checksrc)
->  
-> -ifdef CONFIG_LTO_CLANG
-> -# Module .o files may contain LLVM bitcode, compile them into native code
-> -# before ELF processing
-> -quiet_cmd_cc_lto_link_modules = LTO [M] $@
-> -cmd_cc_lto_link_modules =						\
-> -	$(LD) $(ld_flags) -r -o $@					\
-> -		$(shell [ -s $(@:.lto.o=.o.symversions) ] &&		\
-> -			echo -T $(@:.lto.o=.o.symversions))		\
-> -		--whole-archive $(filter-out FORCE,$^)			\
-> -		$(cmd_objtool)
-> -
-> -# objtool was skipped for LLVM bitcode, run it now that we have compiled
-> -# modules into native code
-> -$(obj)/%.lto.o: objtool-enabled = y
-> -$(obj)/%.lto.o: part-of-module := y
-> -
-> -$(obj)/%.lto.o: $(obj)/%.o FORCE
-> -	$(call if_changed,cc_lto_link_modules)
-> -endif
-> -
->  cmd_mod = { \
->  	echo $(if $($*-objs)$($*-y)$($*-m), $(addprefix $(obj)/, $($*-objs) $($*-y) $($*-m)), $(@:.mod=.o)); \
->  	$(undefined_syms) echo; \
->  	} > $@
->  
-> -$(obj)/%.mod: $(obj)/%$(mod-prelink-ext).o FORCE
-> +$(obj)/%.mod: $(obj)/%.prelink.o FORCE
->  	$(call if_changed,mod)
->  
->  quiet_cmd_cc_lst_c = MKLST   $@
-> @@ -416,17 +399,6 @@ $(obj)/%.asn1.c $(obj)/%.asn1.h: $(src)/%.asn1 $(objtree)/scripts/asn1_compiler
->  $(subdir-builtin): $(obj)/%/built-in.a: $(obj)/% ;
->  $(subdir-modorder): $(obj)/%/modules.order: $(obj)/% ;
->  
-> -# combine symversions for later processing
-> -ifeq ($(CONFIG_LTO_CLANG) $(CONFIG_MODVERSIONS),y y)
-> -      cmd_update_lto_symversions =					\
-> -	rm -f $@.symversions						\
-> -	$(foreach n, $(filter-out FORCE,$^),				\
-> -		$(if $(shell test -s $(n).symversions && echo y),	\
-> -			; cat $(n).symversions >> $@.symversions))
-> -else
-> -      cmd_update_lto_symversions = echo >/dev/null
-> -endif
-> -
->  #
->  # Rule to compile a set of .o files into one .a file (without symbol table)
->  #
-> @@ -446,10 +418,10 @@ $(obj)/built-in.a: $(real-obj-y) FORCE
->  # modules.order unless contained modules are updated.
->  
->  cmd_modules_order = { $(foreach m, $(real-prereqs), \
-> -	$(if $(filter %/modules.order, $m), cat $m, echo $(patsubst %.o,%.ko,$m));) :; } \
-> +	$(if $(filter %/modules.order, $m), cat $m, echo $(patsubst %.a,%.ko,$m));) :; } \
->  	| $(AWK) '!x[$$0]++' - > $@
->  
-> -$(obj)/modules.order: $(obj-m) FORCE
-> +$(obj)/modules.order: $(modules) FORCE
->  	$(call if_changed,modules_order)
->  
->  #
-> @@ -458,26 +430,44 @@ $(obj)/modules.order: $(obj-m) FORCE
->  $(obj)/lib.a: $(lib-y) FORCE
->  	$(call if_changed,ar)
->  
-> -# NOTE:
-> -# Do not replace $(filter %.o,^) with $(real-prereqs). When a single object
-> -# module is turned into a multi object module, $^ will contain header file
-> -# dependencies recorded in the .*.cmd file.
-> -ifdef CONFIG_LTO_CLANG
-> -quiet_cmd_link_multi-m = AR [M]  $@
-> -cmd_link_multi-m =						\
-> -	$(cmd_update_lto_symversions);				\
-> -	rm -f $@; 						\
-> -	$(AR) cDPrsT $@ $(filter %.o,$^)
-> -else
-> -quiet_cmd_link_multi-m = LD [M]  $@
-> -      cmd_link_multi-m = $(LD) $(ld_flags) -r -o $@ $(filter %.o,$^)
-> +#
-> +# Rule to prelink modules
-> +#
-> +
-> +ifeq ($(CONFIG_LTO_CLANG) $(CONFIG_MODVERSIONS),y y)
-> +
-> +cmd_merge_symver = $(PERL) scripts/merge-symvers.pl -a $(AR) -o $@ $<
-> +
-> +$(obj)/%.prelink.symversions: $(obj)/%.a FORCE
-> +	$(call if_changed,merge_symver)
-> +
-> +targets += $(patsubst %.a, %.prelink.symversions, $(modules))
-> +
-> +$(obj)/%.prelink.o: ld_flags += --script=$(filter %.symversions,$^)
-> +module-symver = $(obj)/%.prelink.symversions
-> +
->  endif
->  
-> -$(multi-obj-m): FORCE
-> -	$(call if_changed,link_multi-m)
-> -$(call multi_depend, $(multi-obj-m), .o, -objs -y -m)
-> +quiet_cmd_ld_o_a = LD [M]  $@
-> +      cmd_ld_o_a = $(LD) $(ld_flags) -r -o $@ --whole-archive $< $(cmd_objtool)
-> +
-> +$(obj)/%.prelink.o: part-of-module := y
-> +
-> +$(obj)/%.prelink.o: $(obj)/%.a $(module-symver) FORCE
-> +	$(call if_changed,ld_o_a)
-> +
-> +quiet_cmd_ar_module = AR [M]  $@
-> +      cmd_ar_module = rm -f $@; $(AR) cDPrST $@ $(real-prereqs)
-> +
-> +$(modules-single): %.a: %.o FORCE
-> +	$(call if_changed,ar_module)
-> +
-> +$(modules-multi): FORCE
-> +	$(call if_changed,ar_module)
-> +$(call multi_depend, $(modules-multi), .a, -objs -y -m)
-> +
-> +targets += $(modules-single) $(modules-multi)
->  
-> -targets += $(multi-obj-m)
->  targets := $(filter-out $(PHONY), $(targets))
->  
->  # Add intermediate targets:
-> diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-> index 34c4c11c4bc1..5074922db82d 100644
-> --- a/scripts/Makefile.lib
-> +++ b/scripts/Makefile.lib
-> @@ -106,6 +106,10 @@ multi-dtb-y	:= $(addprefix $(obj)/, $(multi-dtb-y))
->  real-dtb-y	:= $(addprefix $(obj)/, $(real-dtb-y))
->  subdir-ym	:= $(addprefix $(obj)/,$(subdir-ym))
->  
-> +modules		:= $(patsubst %.o, %.a, $(obj-m))
-> +modules-multi	:= $(sort $(patsubst %.o, %.a, $(multi-obj-m)))
-> +modules-single	:= $(sort $(filter-out $(modules-multi), $(filter %.a, $(modules))))
-> +
->  # Finds the multi-part object the current object will be linked into.
->  # If the object belongs to two or more multi-part objects, list them all.
->  modname-multi = $(sort $(foreach m,$(multi-obj-ym),\
-> @@ -225,13 +229,6 @@ dtc_cpp_flags  = -Wp,-MMD,$(depfile).pre.tmp -nostdinc                    \
->  		 $(addprefix -I,$(DTC_INCLUDE))                          \
->  		 -undef -D__DTS__
->  
-> -ifeq ($(CONFIG_LTO_CLANG),y)
-> -# With CONFIG_LTO_CLANG, .o files in modules might be LLVM bitcode, so we
-> -# need to run LTO to compile them into native code (.lto.o) before further
-> -# processing.
-> -mod-prelink-ext := .lto
-> -endif
-> -
->  # Useful for describing the dependency of composite objects
->  # Usage:
->  #   $(call multi_depend, multi_used_targets, suffix_to_remove, suffix_to_add)
-> diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
-> index ff805777431c..1b6401f53662 100644
-> --- a/scripts/Makefile.modfinal
-> +++ b/scripts/Makefile.modfinal
-> @@ -9,7 +9,7 @@ __modfinal:
->  include include/config/auto.conf
->  include $(srctree)/scripts/Kbuild.include
->  
-> -# for c_flags and mod-prelink-ext
-> +# for c_flags
->  include $(srctree)/scripts/Makefile.lib
->  
->  # find all modules listed in modules.order
-> @@ -55,7 +55,7 @@ if_changed_except = $(if $(call newer_prereqs_except,$(2))$(cmd-check),      \
->  
->  
->  # Re-generate module BTFs if either module's .ko or vmlinux changed
-> -$(modules): %.ko: %$(mod-prelink-ext).o %.mod.o scripts/module.lds $(if $(KBUILD_BUILTIN),vmlinux) FORCE
-> +$(modules): %.ko: %.prelink.o %.mod.o scripts/module.lds $(if $(KBUILD_BUILTIN),vmlinux) FORCE
->  	+$(call if_changed_except,ld_ko_o,vmlinux)
->  ifdef CONFIG_DEBUG_INFO_BTF_MODULES
->  	+$(if $(newer-prereqs),$(call cmd,btf_ko))
-> diff --git a/scripts/Makefile.modpost b/scripts/Makefile.modpost
-> index eef56d629799..11883b31c615 100644
-> --- a/scripts/Makefile.modpost
-> +++ b/scripts/Makefile.modpost
-> @@ -41,9 +41,6 @@ __modpost:
->  include include/config/auto.conf
->  include $(srctree)/scripts/Kbuild.include
->  
-> -# for mod-prelink-ext
-> -include $(srctree)/scripts/Makefile.lib
-> -
->  MODPOST = scripts/mod/modpost								\
->  	$(if $(CONFIG_MODVERSIONS),-m)							\
->  	$(if $(CONFIG_MODULE_SRCVERSION_ALL),-a)					\
-> @@ -128,9 +125,9 @@ endif
->  # Read out modules.order to pass in modpost.
->  # Otherwise, allmodconfig would fail with "Argument list too long".
->  quiet_cmd_modpost = MODPOST $@
-> -      cmd_modpost = sed 's/\.ko$$/$(mod-prelink-ext)\.o/' $< | $(MODPOST) -T -
-> +      cmd_modpost = sed 's/ko$$/prelink.o/' $< | $(MODPOST) -T -
->  
-> -$(output-symdump): $(MODORDER) $(input-symdump) $(modules:.ko=$(mod-prelink-ext).o) FORCE
-> +$(output-symdump): $(MODORDER) $(input-symdump) $(modules:ko=prelink.o) FORCE
->  	$(call if_changed,modpost)
->  
->  targets += $(output-symdump)
-> diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-> index a26139aa57fd..56cd9b7a5dd0 100644
-> --- a/scripts/mod/modpost.c
-> +++ b/scripts/mod/modpost.c
-> @@ -2000,9 +2000,9 @@ static void read_symbols(const char *modname)
->  		/* strip trailing .o */
->  		tmp = NOFAIL(strdup(modname));
->  		tmp[strlen(tmp) - 2] = '\0';
-> -		/* strip trailing .lto */
-> -		if (strends(tmp, ".lto"))
-> -			tmp[strlen(tmp) - 4] = '\0';
-> +		/* strip trailing .prelink */
-> +		if (strends(tmp, ".prelink"))
-> +			tmp[strlen(tmp) - 8] = '\0';
->  		mod = new_module(tmp);
->  		free(tmp);
->  	}
-> -- 
-> 2.30.2
-> 
-
-Otherwise, looks good!
+I'll try to figure out the right annotations to fix this...
 
 -- 
 Kees Cook
@@ -466,4 +224,4 @@ Kees Cook
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108311037.B3C7FCAF%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202108311042.FFE1818D%40keescook.
