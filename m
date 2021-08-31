@@ -1,32 +1,32 @@
 Return-Path: <clang-built-linux+bncBDP5FWOTVEGRBXH7XCEQMGQELRSRWDY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc37.google.com (mail-oo1-xc37.google.com [IPv6:2607:f8b0:4864:20::c37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 31EA23FCA1F
-	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 16:42:37 +0200 (CEST)
-Received: by mail-oo1-xc37.google.com with SMTP id k18-20020a4a94920000b029026767722880sf8845302ooi.7
-        for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 07:42:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630420956; cv=pass;
+Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
+	by mail.lfdr.de (Postfix) with ESMTPS id 474A43FCA21
+	for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 16:42:38 +0200 (CEST)
+Received: by mail-pj1-x1039.google.com with SMTP id fy13-20020a17090b020d00b001939890b4d6sf1520818pjb.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 31 Aug 2021 07:42:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630420957; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eTdu5R0Hy7k2zkYTzlnrHgNqKsHq//k95Mh1Bn6WD6ar7HPSKys5Kce7jc0JkNkp/3
-         IBepUFRPw8c/MWNuf+b5MtVm8kidqHUdcZUM36e+evrnz6nWpJEOKNUYI0mRnKhRtCwu
-         QpPELYlUP6o+F4tMEO8h78EguThEMquNmS9DZ83NMNajmvRgyWxzNKr/QpKN1MEWXsJ8
-         +OlO0s5Ndju+yQdROZLelLJyPVz4dPOCm6OzHJhq46kgbjNUJVtaEfP5JbApTLL3Oowb
-         hfuI9UAI2ktC4aWNb1tyD1xn4Ev+QiqDgbqrqe9ouaK1rt70YzzYA6yVQXLa+e0bVrcy
-         Iliw==
+        b=vOETE8zkULMyOPPSlzDoidoQRG9vopnesymEgCshbMxvoFXptrI67zY8brtDJlYXYd
+         Yoiokg5LWyagKn4yQy9jAB04dFYGdIpGPHGBxegGUkUME8KnrsrbhEUVK1uSavffljot
+         tmxK0XEQ/4C2OCcNs7jnQ6UcA2zy6eyaNjFjIHFCZv0o8X7zo//BtJmnh0roZFnDGU6b
+         Ek3Mn6F4HfM+cCTZ1sjNauvjrQBhiDPxHuFhhY0JI+w6lsh8M+SAU3ZUXcV31XoebbWo
+         OeQXJ7DMkfGlJ+H0pit6+J069SJn9U4h6kQC245qKpbgRlmT3RMZ94xe6WOWLjVCa943
+         VIfg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=UX9hybII4N3H6FQSQjc9S2yq2a3t2N2wGFFeb0hVuxg=;
-        b=XackcfO2vL+Z1yp7WwJMSvWi3k6WO7CxKVteIbXk7nSmbQjLOpWazhZWJcRPEW99TY
-         G70ECl7cqqmL5SNcFVLmZueXk7juUmrVXb3aA46Uwp61uBJYEQL6KqccHhNNBDDmBlSL
-         LTtcF8g4D9rFSqr0buAKbBc+3rgvHnuSLg3SL41LTODVFS+bO0WKNzk5HULlhqi7D232
-         KtqUP+pDfbYJ8NRN7M+bS5U01ZubPeyhGeVhJJiM5RrbSWi8tiPW24dTMlA9FxLIe05O
-         5bxjbTOUf+5uunCD+z3C8STq6CG83O0nHtKAucd+yURdY+WfWRWndJcSzGyhgz+y6MPR
-         UbsQ==
+        bh=El4l//shxPXQ8Bf9eFYMzVzlkP0oFGJXNvc/zpyfWr4=;
+        b=fNkw/ixrHBfM2sbjhDl5Y1lI5h84xMKN4VIQOiNawP6OyY4M1PqVP9+u/fknnq8q/O
+         xkAtT6eVNMUP6i/RpYMMqZ2rNAdgMSqaPtWpjpsRVCg06SFxyggkbJSvCQQl617enbVJ
+         Gimsc9QaLtv0noFfRpburFEp/4fg1aAQmuBqMl1cm8RV3X8KE5UlAFGbGY7jzXU/PidL
+         iqErtl5uYpXZA/67gEtX+H7eNScrSfX25ekHjofxVJweVbfCf4CsfWYnJ08ahro0toBC
+         vgUEXp593/bRyP9uZG6avaWutN0sIE/ld8VEZ8r3zkLqvONHIlwWfgRgpyi64YA1U1A7
+         FnRw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
+       spf=pass (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UX9hybII4N3H6FQSQjc9S2yq2a3t2N2wGFFeb0hVuxg=;
-        b=tRbk+05IUnSlaMH2mB6Spujxr/h23L8StGmDzVLooFTJKYvlYuUhBQevt/bSdxupbw
-         /rWTyVNHacRhTEDWkDBTZnogwREMkbpmQQ5rskcoaTi9nd2ZxVSTNbUqIN3SkFV8v9SZ
-         60bP4iAvsuMmTQ/0uUXDeEBefcArsCaOWxzaPrMqWmZl5YsQ2nHAePQHAmVgTFQY7LbH
-         57nK3i1tR4K6HHV9qvdLESfrxug3U+yynD8slpKwhryY8hmr6bLJxHWFOK+2Evzu+zZ3
-         sxR3gQgqXWxV5nKwKF7y/AYovQzqoFqVZBqEdRBOyLJDH3J7BdrMnLkd00tdy7cVVyNo
-         VxmA==
+        bh=El4l//shxPXQ8Bf9eFYMzVzlkP0oFGJXNvc/zpyfWr4=;
+        b=th1l3oHJHBmLJlrICq9JG+fbEEcFNbP4EAVcKLaKKShSMQmy9uUQKUREtdQrIgVGJw
+         gdjaKnz5z1iSpoCJBwofx+aRA2+NrY+tw5VSa1Sfb12I/RHF+RP7TW8fkF9dwrjDMEk8
+         tKjo20jMGnke08kNAIxifMx3qgltcpu3OqAV8aFcxu/8BNNhcFGE8M2O6uRa+8DCOtU5
+         jFWU2fawzuLvMHWClPw/kpJfHJvkikGRdgVjsPWgZD57sFmBSqLi4E0aK/OtyMGNjO7H
+         72CXBt7RMexEH40FmCKFCZb6tO/o/e5PSLp3boG4QLji9WpZo37UKXp3C6v9Dgroaf9M
+         9QeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -48,64 +48,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UX9hybII4N3H6FQSQjc9S2yq2a3t2N2wGFFeb0hVuxg=;
-        b=nS3z+5y9hhIF23Hqx7eYTGQV27ZXG5PvDZWyrJJl92Q2sKnpEoe8uGyCl0LQG+NM/x
-         TDqieg22Cbfm6307LwbHsPujGwPypOmN2O6aKbNckfr7DxL8Y/KiNePMLr1eVxUmTrXF
-         jEj+GyHUFLPXNt4d/PwmSjyiWC8AVpRWmeNR1dnnNCeHHmuoWicwQi40Y8bqed9mMZwg
-         k3JPv2TwxL2y9+1Nzb0gjXca7FR/i4rJpq5pJW96yf/iUo86rMjN6kBNQR6P93VZBSTE
-         Cf6cPNCzD0p6Egq/eErQDba0EGB8yb4J944WCx/l1yRBhxop82XbyWvAdb0tVgY0Ayl1
-         i1mw==
+        bh=El4l//shxPXQ8Bf9eFYMzVzlkP0oFGJXNvc/zpyfWr4=;
+        b=O+M+H9hwtLj/W58upDcThIh7X8Qpyl2cjKqFtTIk1yoY9ntpOX/3LgYE10BDyQDJfw
+         0wqa1HZ40TFr6UqFtiLuIiTJm9/q4QpmcEmxcwTph7x6nUlSCxDrayE84mmR60PCipt4
+         YBcsScPSlydOnl2nabs5EzhMH1XvapDzslip6wISl0WvPIPdIDp3vI6+dMgPWnmOYB+S
+         k4GnEdF5a9IV6v56nTqFlivcMX4PhVKcIZ9vtdUcaLT1FhxShDZzHwvLfQ5Xbrd6iDZr
+         w2MTlFBsbhIQzY6pdDmOX/uugzMIb44Y/CGmdsbbE+vFEgL9Cdb0LcsFWIEHA7WXc/fi
+         TJVw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530CtHM1Kzn4yOUSKl0I0OR3he2JO+RZwJjh/cKBXWUXV68YIF+y
-	zMj5/6WC0TZzAv28l78Kd0g=
-X-Google-Smtp-Source: ABdhPJxD6wub44DvVss0uoo4FrsrjR7O55MCbku52RtwaDHU2v9rV/yzG7a+/kURzqaCQROLbbskcA==
-X-Received: by 2002:aca:2310:: with SMTP id e16mr3553631oie.64.1630420956180;
+X-Gm-Message-State: AOAM530bPs9zSbzZx0g4JO9hhG4jBDkAF1XeBx5s5ri/1yOyUA/2zApE
+	AiIJDC0ocLedmbLa1ggel+o=
+X-Google-Smtp-Source: ABdhPJzm/4hjmotcGR4VRPt7jIU+lzvX7HPzcfp1cYGkgz1umy5XXxWw2Hv7LOmBU8Jc3k5Epezc4A==
+X-Received: by 2002:a17:90a:c293:: with SMTP id f19mr6005532pjt.106.1630420956982;
         Tue, 31 Aug 2021 07:42:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:11d7:: with SMTP id v23ls5049930otq.2.gmail; Tue,
- 31 Aug 2021 07:42:35 -0700 (PDT)
-X-Received: by 2002:a9d:6391:: with SMTP id w17mr23141073otk.19.1630420955630;
-        Tue, 31 Aug 2021 07:42:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630420955; cv=none;
+Received: by 2002:a17:902:bf47:: with SMTP id u7ls11016079pls.11.gmail; Tue,
+ 31 Aug 2021 07:42:36 -0700 (PDT)
+X-Received: by 2002:a17:902:a986:b0:138:d732:4708 with SMTP id bh6-20020a170902a98600b00138d7324708mr5007362plb.37.1630420956443;
+        Tue, 31 Aug 2021 07:42:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630420956; cv=none;
         d=google.com; s=arc-20160816;
-        b=P5Vofz/1XmEayZWj5+Lna6Z0B64v5WEOCN7WFuR9sM2454NVKev3hHgyXmekJ1B3oO
-         qpGD7zrVMpAHhSp9xJvTms//jIMipetw7DX7pQN0btiFT2mN0dieFperIGIH+VbQuGPA
-         5JWS8deOxQ/HykZ+ovGC3x1LeaBogFXuNXhOnJPBBrdDcUsdwHkkvKR6m4qFoPu7M4TH
-         23jyqSFqkv8a7DKoA21eV6GzNx/KRWPfMnCd1n5TPGnBe9KzgfbjSev76tCAc0+sJXAK
-         DMR9LiHU8a9Y0gfrob2qeJVFcVwM/pWP5R8BYpxDzQO8XBqaR2ebLjNPtMmVFr7Kaz3V
-         JFdw==
+        b=v9MiCJSH5S6MPi07KJ+KxCBlkMXIdnXnvQhOS6AePak+HZsCWRZCx7gVopicfdJG6e
+         jdzUgEOgi1uZRMg05IfZWzMMvimHboQ8FVV4xYpoJsFkzccyUi9iJUhb+sWkqoUhfWa2
+         wX9ynyVBgMozHZal6OK7gA2kN+32CdjyakAHKJcRhs4l3Bv54GXKMGPEPOOvfFQc935n
+         5VLG9JoXH5yX+bUF0L2UnktfEJnW2qp5QAY0iedoLGfIOtD0HFAqzugt/VNKeJUVGpWG
+         Wtz/zBkpSpGkKC1aVAuXMnmYaMJ5cQPkwQlnnhpoI6guOP4DPhg45EYBL+UCO0JxxhSr
+         Hkag==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=OJd4c2Yf1lWAaUS7Elqrqb32C92I59uiMkTYv4edNw8=;
-        b=YstBOaUx4zpK3xt692bUDLtRaXVgmPJ7w7L5iR7P4C+D0sQoBBBfKcDD3lskiWTtOg
-         qfzMenznM8zhw31YDmf2zEAWA+Hgdj1j486YxEwZlbse/2R3AKMO7lBHYCpP+XCwrwCs
-         IVPKVYiPYo2rqLL/Huf7e2ZRk5+l8RT85b7RdYcdPLaZgDhyRpbaOamxSIokXvAZB8We
-         l57JC0Gkb02sCNrj+8XX+WEvSStY8en/Uv3SJDBuW/zNWl08LVdLZcXXE+F6p/Fmhm3+
-         nVOIQBzXefoBv7AFb3rSKCisGFQEfbpifRbJE3iM+yjyE4qU3aRDyTpuC8d7HrSot9LG
-         tdjA==
+        bh=X3sEG/zQgeb8XVj2MqHD/Uq5jJS6ziQjt2XdJwE0sak=;
+        b=GpS3sujFGTEL6TgHtIzybbH9Gav9KoNEOyuDyk//ZniNVxQZJNvz8qTUQlvvUoAwLn
+         nYPiQKWr8nZRRifdDAljNZcZGssODp2mYvHVAYyggXZqIDL309tl847DDd1++4UxYQeK
+         cLGkDoQlR2KO1S89zBBd7zpAI6IJJ+MElVfCGrisiJmP3eJuzcohpK3FMzwIbco8fXhx
+         u6wxHZulx4WpYOb8/zh8jI0Ovw25iF9Kbph25ykRcF5H+vaTnovnVcpXzXWaax7TwmVf
+         QptwfUJ+F7furGS533JmZ7DbTMbA2qk/f3tET/gt7wpjpyM+qt/Fgd9qqdtqNKoKKFpj
+         nBlQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
+       spf=pass (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id bf14si235307oib.0.2021.08.31.07.42.35
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id r9si1031373plo.0.2021.08.31.07.42.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 31 Aug 2021 07:42:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
-X-IronPort-AV: E=McAfee;i="6200,9189,10093"; a="218496946"
+        Tue, 31 Aug 2021 07:42:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
+X-IronPort-AV: E=McAfee;i="6200,9189,10093"; a="218533034"
 X-IronPort-AV: E=Sophos;i="5.84,366,1620716400"; 
-   d="scan'208";a="218496946"
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2021 07:42:34 -0700
+   d="scan'208";a="218533034"
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Aug 2021 07:42:36 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.84,366,1620716400"; 
-   d="scan'208";a="466478336"
+   d="scan'208";a="446126336"
 Received: from irvmail001.ir.intel.com ([10.43.11.63])
-  by orsmga007.jf.intel.com with ESMTP; 31 Aug 2021 07:42:29 -0700
+  by orsmga002.jf.intel.com with ESMTP; 31 Aug 2021 07:42:31 -0700
 Received: from alobakin-mobl.ger.corp.intel.com (psmrokox-mobl.ger.corp.intel.com [10.213.6.58])
-	by irvmail001.ir.intel.com (8.14.3/8.13.6/MailSET/Hub) with ESMTP id 17VEfmfj002209;
-	Tue, 31 Aug 2021 15:42:26 +0100
+	by irvmail001.ir.intel.com (8.14.3/8.13.6/MailSET/Hub) with ESMTP id 17VEfmfk002209;
+	Tue, 31 Aug 2021 15:42:28 +0100
 From: Alexander Lobakin <alexandr.lobakin@intel.com>
 To: linux-hardening@vger.kernel.org
 Cc: "Kristen C Accardi" <kristen.c.accardi@intel.com>,
@@ -125,18 +125,17 @@ Cc: "Kristen C Accardi" <kristen.c.accardi@intel.com>,
         Michal Swiatkowski <michal.swiatkowski@intel.com>,
         Alexander Lobakin <alexandr.lobakin@intel.com>,
         linux-kbuild@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
-        kernel test robot <lkp@intel.com>
-Subject: [PATCH v6 kspp-next 19/22] module: Reorder functions
-Date: Tue, 31 Aug 2021 16:41:11 +0200
-Message-Id: <20210831144114.154-20-alexandr.lobakin@intel.com>
+        linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: [PATCH v6 kspp-next 20/22] module: use a scripted approach for FG-KASLR
+Date: Tue, 31 Aug 2021 16:41:12 +0200
+Message-Id: <20210831144114.154-21-alexandr.lobakin@intel.com>
 X-Mailer: git-send-email 2.31.1
 In-Reply-To: <20210831144114.154-1-alexandr.lobakin@intel.com>
 References: <20210831144114.154-1-alexandr.lobakin@intel.com>
 MIME-Version: 1.0
 X-Original-Sender: alexandr.lobakin@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.24
+ (google.com: domain of alexandr.lobakin@intel.com designates 134.134.136.65
  as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Content-Type: text/plain; charset="UTF-8"
@@ -152,245 +151,194 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Kristen Carlson Accardi <kristen@linux.intel.com>
+Use the same methods and scripts to generate an LD script for every
+module containing all the output text sections.
+The only difference there is that we don't need to reserve any space
+as the memory for every section is being allocated dynamically.
 
-Introduce a new config option to allow modules to be re-ordered
-by function. This option can be enabled independently of the
-kernel text KASLR or FG_KASLR settings so that it can be used
-by architectures that do not support either of these features.
-This option will be selected by default if CONFIG_FG_KASLR is
-selected.
-
-If a module has functions split out into separate text sections
-(i.e. compiled with the -ffunction-sections flag), reorder the
-functions to provide some code diversification to modules.
-
-Signed-off-by: Kristen Carlson Accardi <kristen@linux.intel.com>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-Tested-by: Ard Biesheuvel <ardb@kernel.org>
-Reviewed-by: Tony Luck <tony.luck@intel.com>
-Tested-by: Tony Luck <tony.luck@intel.com>
-Acked-by: Jessica Yu <jeyu@kernel.org>
-Tested-by: Jessica Yu <jeyu@kernel.org>
-Reported-by: kernel test robot <lkp@intel.com> # swap.cocci
-[ alobakin: make it work with ClangCFI ]
 Signed-off-by: Alexander Lobakin <alexandr.lobakin@intel.com>
 ---
- Makefile                |  4 ++
- init/Kconfig            | 12 ++++++
- kernel/kallsyms.c       |  4 +-
- kernel/livepatch/core.c |  2 +-
- kernel/module.c         | 91 ++++++++++++++++++++++++++++++++++++++++-
- 5 files changed, 108 insertions(+), 5 deletions(-)
+ include/asm-generic/vmlinux.lds.h | 12 ++++++++++++
+ init/Kconfig                      | 15 ++++++++++++++-
+ scripts/Makefile.modfinal         | 19 ++++++++++++++++---
+ scripts/generate_text_sections.pl |  7 ++++++-
+ scripts/module.lds.S              | 14 +++++++++++++-
+ 5 files changed, 61 insertions(+), 6 deletions(-)
 
-diff --git a/Makefile b/Makefile
-index 283876e170f7..2bde66addb89 100644
---- a/Makefile
-+++ b/Makefile
-@@ -921,6 +921,10 @@ endif
- # ClangLTO implies -ffunction-sections -fdata-sections, no need
- # to specify them manually and trigger a pointless full rebuild
- ifndef CONFIG_LTO_CLANG
-+ifdef CONFIG_MODULE_FG_KASLR
-+KBUILD_CFLAGS_MODULE += -ffunction-sections
-+endif
+diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+index 70fac18c786e..561f3ef06745 100644
+--- a/include/asm-generic/vmlinux.lds.h
++++ b/include/asm-generic/vmlinux.lds.h
+@@ -127,6 +127,18 @@
+ #define TEXT_MAIN		.text
+ #endif
+ 
++/*
++ * Same for modules. However, LD_DEAD_CODE_DATA_ELIMINATION doesn't touch
++ * them, so no need to check for it here.
++ */
++#if defined(CONFIG_LTO_CLANG) && !defined(CONFIG_MODULE_FG_KASLR)
++#define TEXT_MAIN_MODULE	.text .text.[0-9a-zA-Z_]*
++#elif defined(CONFIG_MODULE_FG_KASLR)
++#define TEXT_MAIN_MODULE	.text.__unused__
++#else
++#define TEXT_MAIN_MODULE	.text
++#endif
 +
- ifneq ($(CONFIG_LD_DEAD_CODE_DATA_ELIMINATION)$(CONFIG_FG_KASLR),)
- KBUILD_CFLAGS_KERNEL += -ffunction-sections
- endif
+ /*
+  * Used by scripts/generate_text_sections.pl to inject text sections,
+  * harmless if FG-KASLR is disabled.
 diff --git a/init/Kconfig b/init/Kconfig
-index e72633f4f8a9..e8158c256ee9 100644
+index e8158c256ee9..8e0b5973fb72 100644
 --- a/init/Kconfig
 +++ b/init/Kconfig
-@@ -2330,6 +2330,18 @@ config UNUSED_KSYMS_WHITELIST
- 	  one per line. The path can be absolute, or relative to the kernel
- 	  source tree.
+@@ -2333,7 +2333,6 @@ config UNUSED_KSYMS_WHITELIST
+ config MODULE_FG_KASLR
+ 	bool "Module Function Granular Layout Randomization"
+ 	default FG_KASLR
+-	depends on BROKEN
+ 	help
+ 	  This option randomizes the module text section by reordering the text
+ 	  section by function at module load time. In order to use this
+@@ -2342,6 +2341,20 @@ config MODULE_FG_KASLR
  
-+config MODULE_FG_KASLR
-+	bool "Module Function Granular Layout Randomization"
-+	default FG_KASLR
-+	depends on BROKEN
+ 	  If unsure, say N.
+ 
++config MODULE_FG_KASLR_SHIFT
++	int "Module FG-KASLR granularity (functions per section shift)"
++	depends on MODULE_FG_KASLR
++	range 0 16
++	default 0
 +	help
-+	  This option randomizes the module text section by reordering the text
-+	  section by function at module load time. In order to use this
-+	  feature, the module must have been compiled with the
-+	  -ffunction-sections compiler flag.
-+
-+	  If unsure, say N.
++	  This sets the number of functions that will be put in each section
++	  as a power of two.
++	  Decreasing the value increases the randomization, but also increases
++	  the size of the final kernel module due to the amount of sections.
++	  0 means that a separate section will be created for each function.
++	  16 almost disables the randomization, leaving only the manual
++	  separation.
 +
  endif # MODULES
  
  config MODULES_TREE_LOOKUP
-diff --git a/kernel/kallsyms.c b/kernel/kallsyms.c
-index 5ffdcc2fb88e..6906cc726149 100644
---- a/kernel/kallsyms.c
-+++ b/kernel/kallsyms.c
-@@ -841,7 +841,7 @@ static int __kallsyms_open(struct inode *inode, struct file *file)
-  * When function granular kaslr is enabled, we need to print out the symbols
-  * at random so we don't reveal the new layout.
-  */
--#ifdef CONFIG_FG_KASLR
-+#if defined(CONFIG_FG_KASLR) || defined(CONFIG_MODULE_FG_KASLR)
- static int update_random_pos(struct kallsyms_shuffled_iter *s_iter,
- 			     loff_t pos, loff_t *new_pos)
- {
-@@ -985,7 +985,7 @@ static int kallsyms_random_open(struct inode *inode, struct file *file)
- #define kallsyms_open kallsyms_random_open
- #else
- #define kallsyms_open __kallsyms_open
--#endif /* !CONFIG_FG_KASLR */
-+#endif /* !CONFIG_FG_KASLR && !CONFIG_MODULE_FG_KASLR */
+diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
+index ff805777431c..ac1b8415519f 100644
+--- a/scripts/Makefile.modfinal
++++ b/scripts/Makefile.modfinal
+@@ -28,13 +28,24 @@ quiet_cmd_cc_o_c = CC [M]  $@
+ %.mod.o: %.mod.c FORCE
+ 	$(call if_changed_dep,cc_o_c)
  
- #ifdef	CONFIG_KGDB_KDB
- const char *kdb_walk_kallsyms(loff_t *pos)
-diff --git a/kernel/livepatch/core.c b/kernel/livepatch/core.c
-index 852bbfa9da7b..15c4cd25592d 100644
---- a/kernel/livepatch/core.c
-+++ b/kernel/livepatch/core.c
-@@ -177,7 +177,7 @@ static int klp_find_object_symbol(const char *objname, const char *name,
- 	 * force the algorithm to require that only unique symbols are
- 	 * allowed to be patched.
- 	 */
--	if (IS_ENABLED(CONFIG_FG_KASLR))
-+	if (IS_ENABLED(CONFIG_FG_KASLR) || IS_ENABLED(CONFIG_MODULE_FG_KASLR))
- 		sympos = 0;
++ifdef CONFIG_MODULE_FG_KASLR
++quiet_cmd_gen_modules_lds = GEN [M] $@
++      cmd_gen_modules_lds =						\
++	$(PERL) $(srctree)/scripts/generate_text_sections.pl		\
++		-s $(CONFIG_MODULE_FG_KASLR_SHIFT) $(filter %.o, $^)	\
++		< $(filter %.lds, $^) > $@
++
++%.lds: %$(mod-prelink-ext).o scripts/module.lds FORCE
++	$(call if_changed,gen_modules_lds)
++endif
++
+ ARCH_POSTLINK := $(wildcard $(srctree)/arch/$(SRCARCH)/Makefile.postlink)
  
- 	/*
-diff --git a/kernel/module.c b/kernel/module.c
-index ed13917ea5f3..08747e5f2442 100644
---- a/kernel/module.c
-+++ b/kernel/module.c
-@@ -57,6 +57,7 @@
- #include <linux/bsearch.h>
- #include <linux/dynamic_debug.h>
- #include <linux/audit.h>
-+#include <linux/random.h>
- #include <uapi/linux/module.h>
- #include "module-internal.h"
+ quiet_cmd_ld_ko_o = LD [M]  $@
+       cmd_ld_ko_o +=							\
+ 	$(LD) -r $(KBUILD_LDFLAGS)					\
+ 		$(KBUILD_LDFLAGS_MODULE) $(LDFLAGS_MODULE)		\
+-		-T scripts/module.lds -o $@ $(filter %.o, $^);		\
++		-T $(filter %.lds, $^) -o $@ $(filter %.o, $^);		\
+ 	$(if $(ARCH_POSTLINK), $(MAKE) -f $(ARCH_POSTLINK) $@, true)
  
-@@ -1527,7 +1528,7 @@ static void free_sect_attrs(struct module_sect_attrs *sect_attrs)
+ quiet_cmd_btf_ko = BTF [M] $@
+@@ -55,13 +66,15 @@ if_changed_except = $(if $(call newer_prereqs_except,$(2))$(cmd-check),      \
  
- 	for (section = 0; section < sect_attrs->nsections; section++)
- 		kfree(sect_attrs->attrs[section].battr.attr.name);
--	kfree(sect_attrs);
-+	kvfree(sect_attrs);
- }
  
- static void add_sect_attrs(struct module *mod, const struct load_info *info)
-@@ -1544,7 +1545,7 @@ static void add_sect_attrs(struct module *mod, const struct load_info *info)
- 	size[0] = ALIGN(struct_size(sect_attrs, attrs, nloaded),
- 			sizeof(sect_attrs->grp.bin_attrs[0]));
- 	size[1] = (nloaded + 1) * sizeof(sect_attrs->grp.bin_attrs[0]);
--	sect_attrs = kzalloc(size[0] + size[1], GFP_KERNEL);
-+	sect_attrs = kvzalloc(size[0] + size[1], GFP_KERNEL);
- 	if (sect_attrs == NULL)
- 		return;
+ # Re-generate module BTFs if either module's .ko or vmlinux changed
+-$(modules): %.ko: %$(mod-prelink-ext).o %.mod.o scripts/module.lds $(if $(KBUILD_BUILTIN),vmlinux) FORCE
++$(modules): %.ko: %$(mod-prelink-ext).o %.mod.o
++$(modules): %.ko: $(if $(CONFIG_MODULE_FG_KASLR),%.lds,scripts/module.lds)
++$(modules): %.ko: $(if $(KBUILD_BUILTIN),vmlinux) FORCE
+ 	+$(call if_changed_except,ld_ko_o,vmlinux)
+ ifdef CONFIG_DEBUG_INFO_BTF_MODULES
+ 	+$(if $(newer-prereqs),$(call cmd,btf_ko))
+ endif
  
-@@ -2416,6 +2417,89 @@ static bool module_init_layout_section(const char *sname)
- 	return module_init_section(sname);
- }
+-targets += $(modules) $(modules:.ko=.mod.o)
++targets += $(modules) $(modules:.ko=.mod.o) $(if $(CONFIG_MODULE_FG_KASLR),$(modules:.ko=.lds))
  
-+/*
-+ * shuffle_text_list()
-+ * Use a Fisher Yates algorithm to shuffle a list of text sections.
-+ */
-+static void shuffle_text_list(Elf_Shdr **list, int size)
-+{
-+	u32 i, j;
-+
-+	for (i = size - 1; i > 0; i--) {
-+		/*
-+		 * pick a random index from 0 to i
-+		 */
-+		j = get_random_u32() % (i + 1);
-+
-+		swap(list[i], list[j]);
-+	}
-+}
-+
-+/*
-+ * randomize_text()
-+ * Look through the core section looking for executable code sections.
-+ * Store sections in an array and then shuffle the sections
-+ * to reorder the functions.
-+ */
-+static void randomize_text(struct module *mod, struct load_info *info)
-+{
-+	int max_sections = info->hdr->e_shnum;
-+	int num_text_sections = 0;
-+	Elf_Shdr **text_list;
-+	int i, size;
-+
-+	text_list = kvmalloc_array(max_sections, sizeof(*text_list), GFP_KERNEL);
-+	if (!text_list)
-+		return;
-+
-+	for (i = 0; i < max_sections; i++) {
-+		Elf_Shdr *shdr = &info->sechdrs[i];
-+		const char *sname = info->secstrings + shdr->sh_name;
-+
-+		if (!(shdr->sh_flags & SHF_ALLOC) ||
-+		    !(shdr->sh_flags & SHF_EXECINSTR) ||
-+		    (shdr->sh_flags & ARCH_SHF_SMALL) ||
-+		    module_init_layout_section(sname))
-+			continue;
-+
-+		/*
-+		 * With CONFIG_CFI_CLANG, .text with __cfi_check() must come
-+		 * before any other text sections, and be aligned to PAGE_SIZE.
-+		 * Don't include it in the shuffle list.
-+		 */
-+		if (IS_ENABLED(CONFIG_CFI_CLANG) && !strcmp(sname, ".text"))
-+			continue;
-+
-+		if (!num_text_sections)
-+			size = shdr->sh_entsize;
-+
-+		text_list[num_text_sections] = shdr;
-+		num_text_sections++;
-+	}
-+
-+	if (!num_text_sections)
-+		goto exit;
-+
-+	shuffle_text_list(text_list, num_text_sections);
-+
-+	for (i = 0; i < num_text_sections; i++) {
-+		Elf_Shdr *shdr = text_list[i];
-+
-+		/*
-+		 * get_offset has a section index for it's last
-+		 * argument, that is only used by arch_mod_section_prepend(),
-+		 * which is only defined by parisc. Since this type
-+		 * of randomization isn't supported on parisc, we can
-+		 * safely pass in zero as the last argument, as it is
-+		 * ignored.
-+		 */
-+		shdr->sh_entsize = get_offset(mod, &size, shdr, 0);
-+	}
-+
-+exit:
-+	kvfree(text_list);
-+}
-+
- /*
-  * Lay out the SHF_ALLOC sections in a way not dissimilar to how ld
-  * might -- code, read-only data, read-write data, small data.  Tally
-@@ -2510,6 +2594,9 @@ static void layout_sections(struct module *mod, struct load_info *info)
- 			break;
+ # Add FORCE to the prequisites of a target to force it to be always rebuilt.
+ # ---------------------------------------------------------------------------
+diff --git a/scripts/generate_text_sections.pl b/scripts/generate_text_sections.pl
+index 5f3ece2ee0ea..d5b16057b9ff 100755
+--- a/scripts/generate_text_sections.pl
++++ b/scripts/generate_text_sections.pl
+@@ -44,6 +44,7 @@ my $readelf = $ENV{'READELF'} || die "$0: ERROR: READELF not set?";
+ 
+ ## text sections array
+ my @sections = ();
++my $vmlinux = 0;
+ 
+ ## max alignment found to reserve some space
+ my $max_align = 64;
+@@ -64,6 +65,10 @@ sub read_sections {
+ 			next;
  		}
- 	}
+ 
++		if ($name eq ".sched.text") {
++			$vmlinux = 1;
++		}
 +
-+	if (IS_ENABLED(CONFIG_MODULE_FG_KASLR))
-+		randomize_text(mod, info);
+ 		if (!($name =~ /^\.text\.[0-9a-zA-Z_]*((\.constprop|\.isra|\.part)\.[0-9])*(|\.[0-9cfi]*)$/)) {
+ 			next;
+ 		}
+@@ -120,7 +125,7 @@ sub print_reserve {
+ 	## we reserve some space for them to not overlap _etext while shuffling
+ 	## sections
+ 
+-	if (!$count) {
++	if (!$vmlinux or !$count) {
+ 		return;
+ 	}
+ 
+diff --git a/scripts/module.lds.S b/scripts/module.lds.S
+index 04c5685c25cf..f32437783edf 100644
+--- a/scripts/module.lds.S
++++ b/scripts/module.lds.S
+@@ -3,6 +3,11 @@
+  * Archs are free to supply their own linker scripts.  ld will
+  * combine them automatically.
+  */
++
++#include <asm-generic/vmlinux.lds.h>
++
++#undef SANITIZER_DISCARDS
++
+ #ifdef CONFIG_CFI_CLANG
+ # include <asm/page.h>
+ # define ALIGN_CFI 		ALIGN(PAGE_SIZE)
+@@ -57,9 +62,16 @@ SECTIONS {
+ 	 */
+ 	.text : ALIGN_CFI {
+ 		*(.text.__cfi_check)
+-		*(.text .text.[0-9a-zA-Z_]* .text..L.cfi*)
++		*(TEXT_MAIN_MODULE)
++		*(.text..L.cfi.jumptable .text..L.cfi.jumptable.*)
++	}
++#elif defined(CONFIG_MODULE_FG_KASLR)
++	.text : {
++		*(TEXT_MAIN_MODULE)
+ 	}
+ #endif
++
++	TEXT_FG_KASLR
  }
  
- static void set_license(struct module *mod, const char *license)
+ /* bring in arch-specific sections */
 -- 
 2.31.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210831144114.154-20-alexandr.lobakin%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210831144114.154-21-alexandr.lobakin%40intel.com.
