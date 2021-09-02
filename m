@@ -1,106 +1,103 @@
-Return-Path: <clang-built-linux+bncBC5KPPH4YUKRBNPFYSEQMGQEAJQ2ZSI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5KPPH4YUKRBB7GYSEQMGQEVKY7MAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53a.google.com (mail-ed1-x53a.google.com [IPv6:2a00:1450:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3A1A33FF4D6
-	for <lists+clang-built-linux@lfdr.de>; Thu,  2 Sep 2021 22:23:18 +0200 (CEST)
-Received: by mail-ed1-x53a.google.com with SMTP id s15-20020a056402520f00b003cad788f1f6sf1589826edd.22
-        for <lists+clang-built-linux@lfdr.de>; Thu, 02 Sep 2021 13:23:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630614198; cv=pass;
+Received: from mail-wm1-x33b.google.com (mail-wm1-x33b.google.com [IPv6:2a00:1450:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id AAF383FF4DB
+	for <lists+clang-built-linux@lfdr.de>; Thu,  2 Sep 2021 22:24:39 +0200 (CEST)
+Received: by mail-wm1-x33b.google.com with SMTP id n16-20020a1c7210000000b002ea2ed60dc6sf1072087wmc.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 02 Sep 2021 13:24:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630614279; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Vsu3JwMll0tkWJvV1bw/I7XukBmUrW1PX6TJ1m6IYnJzEDMCb/WTa5G2EoxSnROrkE
-         L9WLwmY0Rh0O83VFuavlvNEauUYWif6KFvQY99gWBLU8vi5TkQrkH0Ifs8+acP8nvDhB
-         tCsBcN+op9U/DDNLH/rtbuYwl1sVnkjaiJRvMc+oWmDTvYPghNpjTPaS7TkreP0BS23n
-         KLWE/+ZKXHC0RaeXjLs74hzzzWBeHGRK7gtZBJT0Rxd7YqN6Z2yMwYaM0/xrBydstZAy
-         1JXZzU37XC24DtVqvbbvhwSoCg388d7EuGW6LzZeUSXHVSjvcqMAI/BMW+eobN7N9nfD
-         s4IA==
+        b=Ib0uBK3KIbTMLF1XJmb9SMj+6MoQmovTWVGlCe9tYgz9SQuvVvMYq0+A2ZIdvx4KHo
+         XoyDe72OYBIoyZs4exYHcC7wYCRTqu1GEglNs5LSvIZWIodecwdOcCYSHNX9p402YrZI
+         zKK9EGKP3C03ODXArOTJjmljIYmxrl/9OBiYbHNcr4rxhBlNm2HznxJA9SksLkEKdEHX
+         lw5LaZOdJ2Xa6/WxZbWCYrEI5YGHDu/krmlRBcKBTxCEB/ck7PTAR4LmkLAZFZyVTStK
+         Ifh1xdYBh/Wsu/nRHyutQR2JWFReDmPB8gj/A+19QvRkJF0p170ZpmdqxGBUFsS6AzyI
+         U2YA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:references:reply-to:cc:to
-         :from:subject:sender:dkim-signature;
-        bh=BgojI3yJo+DLTDvakrQ3KKXbxZdWbSyLxtXr4qQgtsU=;
-        b=FG5/pORP3GjDoyDCviXJ0qCJ8m9zBRYUdoPfTvOcNVnp8RyfEDuReVv90r8romN+O4
-         5S/RpABYt80VoQE7USetkM2vrt+jHphofCL+8Ubq7Fn9pmiPmK7w46n+c4G9/Gr6fHsR
-         uoqwltmNzSqIyAEAu38ie/aUp6/6vlajnLQPyLNuEpA2h1Caj2ULHXGO1IpXBPhQhdU9
-         bJf9eEpXgxhrgBZog/v3scP57dmlUwda2CJSnX392BfbgnscruM3535OI8vkVtdpwNeP
-         H63JhW8+5jIldOJMDNOwwlirDKR2qh4UoD6bbiFEjneP/175wKiUslu3z9di2ZzY7NNF
-         Z8dA==
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=uBLORSyhMdHWTcOSDO/NhkGyGxGZne8MZ4khNqdFY4o=;
+        b=x4gvaf61ToKCBZM6SqeWAp8glTCR982Kcpn9n7SBnQbr9OioCsLVCPFTfKc44TXgxZ
+         +HxdVzl1EYPPN9eRD29YIHmvXN8+spX6cgiR7GnEDss6+7CfASkZuhkzMFHiDOuaaszv
+         3bs2AKKTRXpiAmOJXf8nvFbqHTwxL4ucYcpdOqVZCsTWsDoni2zro+uS4JhR999W1Blf
+         kt1e1hmt6ZCavfsRAHHqJulTOD4ZRN9X5TGdUTTBgRb1oXA5lRMKKRhB0cY9jJd4Y/nT
+         NZZ2ywHJMkEqZrAy6VGuegKDcoWbK+R8yUi4Dslo6iyIzspKZwB3w8ea8KSdkJiXafeC
+         Pxww==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:subject:from:to:cc:reply-to:references:message-id:date
-         :user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=BgojI3yJo+DLTDvakrQ3KKXbxZdWbSyLxtXr4qQgtsU=;
-        b=Ibprd2v4KG2Da52qZV1ENI4yIVAY30Ywv1xw+sXrBj1sTiX26B4bd7romb+JAX0jv2
-         WLvPDCMr6OG+fLhkz0VhNiBQOzXti+cPTdjVDhRdZea/wQaLIcNLR10G3dOCK4ON5Ceu
-         FQuxLN60VIhQhsy6r9IJG05kqcI9/U4F9VQ9YAOXUGXCDJJAXW0z4ONrhRn5rI8MIIjJ
-         GnWn8bbXbyCGOhls5OEA5cgzpUFa/UwB5XG/8qomH2m/QixfhhyfngFXWOwJyH1tRos6
-         bZ9tTr38utT+Oe2i84EOtyT3NohKPmbJPPROo3EwMVxPmsHCO2+z5XE8WSIN38p6ROdM
-         Xhsg==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=uBLORSyhMdHWTcOSDO/NhkGyGxGZne8MZ4khNqdFY4o=;
+        b=Z4uTOpEmP8Fn448dKCj0R7aEIJVDpT/RS0Gjy8lhUBLweBSG9L7rQGLryebh448y1j
+         NsvQSzSQfxmPBoQW78UFSACGD1FCxtq0Wm7DZTPo2ncrvgo1Yi/TmGv47ZBNremBW6mT
+         X18Z9//mxEILJaO12PykSKyVMg9946drJOex7I6NrimToaGBwCDp6x8nKJlCSB3iqQ5R
+         +FkTt8EE7Dqh+lJGc8a6wRluOS8k/dk6Sqd0YctCL7hhKNOfb4tFFIbpcxA+KUM2CGC3
+         MSvYOzdxHdSjBMqYYlgzU2JIev8Ttn1bqkL0eeaydI4ndEdcbzU1JKFosEFXhaqSpGnF
+         qkvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:from:to:cc:reply-to:references
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=BgojI3yJo+DLTDvakrQ3KKXbxZdWbSyLxtXr4qQgtsU=;
-        b=OcdlI0/ol9MRLvnW1npxFHKL4FcvaLzYaUG8m0yA7W71bn6gfJbNbayhgJnHUodEBd
-         HDN8RwfgiyigFIvFw0P63ciCqqSAMt6yj1Rg/iOboB0ZfLbor4vc7bkloTba/CuH27fM
-         hlZoYSGd0Nd+g2xldI9lHAxmMVqgNN0N4c+9+e07nBzalARJdp+wrTtvJeTfwhl9S+LM
-         oSXgox9nLqHIw1JQvJwRT48bPsXcPtQ0Y5JkifuyHJi72IDaPZNUi10GwiIZunPAYQj2
-         PqWpoX6RqZEYxxOIm9V0mDK4RgYaL4BsCY3Ib8br2MbHcbE25bCzssJWdZhPkYAf00Rd
-         wObg==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=uBLORSyhMdHWTcOSDO/NhkGyGxGZne8MZ4khNqdFY4o=;
+        b=An/1Acj6QXWtlB3RpAIvwy8yIgA0rfXJ5f0iheqLgKbfYvYWgXMB2Cq/ZeEOoKvgb9
+         IVrfns5240RTqDBwsUsMl1ngSN9Bt5ffzALWQ95fFoxeX+t5Wrf/OKkXLnVnu6yeyuR3
+         fWdPPhGBRLScRFyAbiihPO5X5bDMzO2mqnhI17IrBeB0sbtj5WICo/0yBi/nuGI/7Gly
+         VFluRBntCQKr3h4H/y4igxi5ws6SRucs0sfvOrOoxei9rB3D6fWpuCCx8uauXuBd7fJM
+         2qNtyyF+akM2ImCo2hx6pH+1JIU6JYiHIWlc9EEFMnOZH9tBWqMWbYEnm0bkajC3y56V
+         vzRw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532XNxT3DSX26T5ceVJimTvJfhcKYhhJdtPwWFz/QpY7QY0yG2i8
-	QPaDGz4Ygboz29APdJ0nJuY=
-X-Google-Smtp-Source: ABdhPJwkjum/TyFd5NcUAEEGneTbPfh26SCKsutZLtNLZiRbsSwlsaHSFyojNUhEosW3rq9S+IQp7w==
-X-Received: by 2002:aa7:dd93:: with SMTP id g19mr163397edv.262.1630614197922;
-        Thu, 02 Sep 2021 13:23:17 -0700 (PDT)
+X-Gm-Message-State: AOAM530dzhdmfp5fWabgyPyNpGvduf40OjlA+aGx/9iweCo/lAVTZTx1
+	M2JLpWxjqB6KN2T2VP3ZFN8=
+X-Google-Smtp-Source: ABdhPJx5eCKUUzY9yLQA2PxMeAmVn+hmnpFXWBz6Zlmw+FoL/I4NqkCjPuJNbc8fc2Hm7yFnPI7FXA==
+X-Received: by 2002:adf:ce8d:: with SMTP id r13mr128636wrn.18.1630614279471;
+        Thu, 02 Sep 2021 13:24:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:538d:: with SMTP id g13ls1840147ejo.2.gmail; Thu, 02
- Sep 2021 13:23:16 -0700 (PDT)
-X-Received: by 2002:a17:907:168b:: with SMTP id hc11mr15435ejc.226.1630614196889;
-        Thu, 02 Sep 2021 13:23:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630614196; cv=none;
+Received: by 2002:adf:ef0d:: with SMTP id e13ls715698wro.3.gmail; Thu, 02 Sep
+ 2021 13:24:38 -0700 (PDT)
+X-Received: by 2002:adf:c550:: with SMTP id s16mr88468wrf.25.1630614278560;
+        Thu, 02 Sep 2021 13:24:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630614278; cv=none;
         d=google.com; s=arc-20160816;
-        b=Py+OC4gaiXLz1cs4Hf20NREp1dUTodOsQc/hc4BVtBt+IrwC+lGaOxK0LnXc6mRCwY
-         uKV8eiy9Nx0Z+qy2+QjixF4TFwFSc7buCAhE+ZNTCOzE1L6zm+RIPzr4RX43IcGn0K88
-         BNt+qRaMcDwthvxxBpm+6r35aodAW4LF4dxdtFdWYJbbAA+8oJ+TonhtQLbfmPUHfsTg
-         OevmB+UJAEg1pvms8UC3QtZKPNJXYCGRlY9TwZxBb3CCMPGGcyfpX5DAYNx/S6JpOCyQ
-         1MPBikLxIKTI59/7X5/+V16KChiYy2kwordsFJD+dQ2kFBL9lbv0xcezmatstPBSvgHn
-         C4QA==
+        b=nOMhbGMOYjEOWpos9JlFUyybwTtMWIcOlryx+Yjk+Us2dIS91F8E0nlGJUm7d7gNH7
+         is66P+/T2ZZsEGLSIfmqmPqEMfNyXfzrKdBDLV/+XMWd4vzmfnfEepET3LkM9Ijiw8fy
+         00ZxUBSwmhoFB4hzDPkRT93PtJ8HM2llFNL3m/f57/cyYa7Hn6Bnf9M6e5/+CsY9o1BJ
+         jrcE+J7dvOkotSYtGRLEqzJ5Qo71BrxooEvfvbfN3nOMDnG/kWsEgpYsaYyaoZraECSJ
+         xElnrioLS+lBKomgP+DHxylDlWDop+QOgFetcvcF5nwswTHaLAlEx8sDNHGFlIF7HtHd
+         UM+Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:references:reply-to:cc:to:from:subject;
-        bh=GMkLLjIuHknIMJ63+Z2Ozgb2a58O/5X4uPdS5WxkCYo=;
-        b=GiBjX001H+n+AHRaRrSdH+hmrVNw+T0E7PS56ilHiL3yH95N3drGVXFCyxXioAKAif
-         qmP7kg8x+Qhd4BleUxFfvpf0TvBimY37dCX2dViC2f7uUZsjn3J97y8LBma3riemjwzA
-         F5IOr6mKuRGb9DwF4B5eyuBomsuZAm0HefjOZMb1FM6lKvAYxLXBTXmSFKClg3cwnQ9i
-         HaHAfn/LIvM5eRL6txhFe+LRzTctPHv6IrlGI8RCi9mJcMiZoLXoFvkaGv1oRSVjan1W
-         f8dAbi0mw2U/pxigIN1LDja3qHuxzGQjcKeRqD7/uVPrkVzj9PwO9d41LdO3G+fhjIym
-         9Ocg==
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=cbrkhPXXtU64sNSFhSvyYYQPKJzWtPBaUkGSh1aG6Zo=;
+        b=MedtPOhbycCA914n4afIiXqy1GydMFbLHSqZT8H1esv6ap2ZH+t7wd5vDkiCWPY0Z3
+         jHTr7AzMyTtCkzjN/kK/LBJrs6gAy9OVD8lg2Y5igOndCnMZnbdU/iIglqvjFvNuWWfk
+         six0ZDHjkmwPqSpytqrbdtJdsheAae3CZkTXh1FunmcEUZzweX5ExyEYAczLVpjcWJWK
+         HGsc9RtDU2eUErDVKtLhb5kIQpzStpEMNgi1Q3o9zcwYGBnI4XiUcusJVL/y/VVFeTwd
+         JAUwSNk/HkE+Kok8237lhx0PcE9fQw8AhLdFcPaK09j1RmSOMpGebxpGXot9rFTIWA6N
+         QfIg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [46.235.227.227])
-        by gmr-mx.google.com with ESMTPS id s18si137423ejo.1.2021.09.02.13.23.16
+        by gmr-mx.google.com with ESMTPS id 3si170137wmz.2.2021.09.02.13.24.38
         (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 02 Sep 2021 13:23:16 -0700 (PDT)
+        Thu, 02 Sep 2021 13:24:38 -0700 (PDT)
 Received-SPF: pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) client-ip=46.235.227.227;
 Received: from [127.0.0.1] (localhost [127.0.0.1])
 	(Authenticated sender: gtucker)
-	with ESMTPSA id F27671F44AE4
+	with ESMTPSA id AC7421F44AE4
 Subject: Re: KernelCI Hackfest #2 - Sept 6-10 2021
-From: Guillaume Tucker <guillaume.tucker@collabora.com>
-To: "kernelci@groups.io" <kernelci@groups.io>
+To: Alice Ferrazzi <alice.ferrazzi@miraclelinux.com>, kernelci@groups.io
 Cc: kernelci-members <kernelci-members@groups.io>,
  automated-testing@lists.yoctoproject.org,
  Collabora Kernel ML <kernel@collabora.com>,
@@ -109,14 +106,15 @@ Cc: kernelci-members <kernelci-members@groups.io>,
  linux-kselftest@vger.kernel.org, workflows@vger.kernel.org,
  kunit-dev@googlegroups.com,
  clang-built-linux <clang-built-linux@googlegroups.com>
-Reply-To: kernelci@groups.io, guillaume.tucker@collabora.com
-References: <169771B791E5E075.25031@groups.io>
-Message-ID: <259a2ea9-63da-b5df-3496-676c2b76700b@collabora.com>
-Date: Thu, 2 Sep 2021 21:22:56 +0100
+References: <74f7b4cf-926f-d8bd-19c2-375cfe7a12b2@collabora.com>
+ <CANgtXuPjD0rW-A=gMNUd7mdF1Bynz+QQmDHLy7vh9UODd8NtbA@mail.gmail.com>
+From: Guillaume Tucker <guillaume.tucker@collabora.com>
+Message-ID: <01d483d0-6cee-f0dc-b65d-bd776c7d206f@collabora.com>
+Date: Thu, 2 Sep 2021 21:24:34 +0100
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.13.0
 MIME-Version: 1.0
-In-Reply-To: <169771B791E5E075.25031@groups.io>
+In-Reply-To: <CANgtXuPjD0rW-A=gMNUd7mdF1Bynz+QQmDHLy7vh9UODd8NtbA@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Language: en-US
 X-Original-Sender: guillaume.tucker@collabora.com
@@ -136,92 +134,39 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 02/08/2021 10:00, Guillaume Tucker wrote:
-> The first KernelCI hackfest[1] early June was successful in getting
-> a number of kernel developers to work alongside the core KernelCI
-> team.  Test coverage was increased in particular with kselftest,
-> LTP, KUnit and a new test suite for libcamera.  We're now improving
-> documentation and tooling to make it easier for anyone to get
-> started.  Find out more about KernelCI on https://kernelci.org.
+On 03/08/2021 17:46, Alice Ferrazzi wrote:
+> Hello,
 > 
-> The second hackfest is scheduled for the 6th-10th September.  It
-> should be a good opportunity to start discussing and working on
-> upstream kernel testing topics ahead of the Linux Plumbers
-> Conference[2].
-
-Please find below some extra information for the KernelCI
-Hackfest which is taking place next week.  We're expecting at
-least some contributors from the Civil Infrastructure Platform
-project, the Google Chrome OS kernel team, Collabora kernel
-developers and a few more from the wider Linux kernel community.
-
-If you need any direct support, please reply to this email or ask
-on kernelci.slack.com or IRC #kernelci (libera.chat).
-
-
-> Here's the project board where anyone can already add some ideas:
+> On Mon, Aug 2, 2021 at 6:00 PM Guillaume Tucker
+> <guillaume.tucker@collabora.com> wrote:
+>>
+>> The first KernelCI hackfest[1] early June was successful in getting
+>> a number of kernel developers to work alongside the core KernelCI
+>> team.  Test coverage was increased in particular with kselftest,
+>> LTP, KUnit and a new test suite for libcamera.  We're now improving
+>> documentation and tooling to make it easier for anyone to get
+>> started.  Find out more about KernelCI on https://kernelci.org.
+>>
+>> The second hackfest is scheduled for the 6th-10th September.  It
+>> should be a good opportunity to start discussing and working on
+>> upstream kernel testing topics ahead of the Linux Plumbers
+>> Conference[2].
+>>
+>> Here's the project board where anyone can already add some ideas:
+>>
+>>   https://github.com/orgs/kernelci/projects/5
 > 
->   https://github.com/orgs/kernelci/projects/5
+> I cannot add topics to the project board.
 
-In order to add an issue to the workboard, please first create
-one in a KernelCI GitHub repository such as kernelci-core:
+Please see the email I just sent in reply to my original one,
+with extra information about how to add issues.  You've been
+invited to the "hackers" team so you should be able to edit the
+workboard once you've accepted it.
 
-  https://github.com/kernelci/kernelci-core/issues
-
-Each contributor to the hackfest should be added to the
-KernelCI "hackers" team, which has permission to edit the
-workboard.  If you aren't part of this team yet, please ask and
-you'll be invited.
-
-Note: Having a GitHub account is not mandatory for taking part in
-the hackfest.  It's mainly there to facilitate coordination, even
-though it is required in order to contribute to the KernelCI
-GitHub repositories.  Contributions as part of the hackfest may
-also be in the kernel tree such as improvements to kselftest,
-KUnit or bug fixes, or other test suites such as LTP etc.
-
-
-> The hackfest features:
-> 
-> * Daily open hours online using Big Blue Button to discuss things
->   and get support from the KernelCI team
-> 
-> * KernelCI team members available across most time zones to provide
->   quick feedback
-> 
-> * A curated list of topics and a project board to help set
->   objectives and coordinate efforts between all contributors
-
-Please see the table below with the proposed daily open hours to
-accommodate most time zones:
-
-Region        Zone    Time 1       Time 2
-East Asia     GMT+10  17:00-19:00  03:00-05:00
-Europe        GMT+2   09:00-11:00  19:00-21:00
-              UTC     07:00-09:00  17:00-19:00
-West America  GMT-7   00:00-02:00  10:00-12:00
-
-
-They will be held as a Big Blue Button virtual conference with
-the same URL as the last hackfest.  It's not being shared
-publicly to avoid any potential abuse, so please ask if you don't
-have it already.
-
-On Monday, the focus should be put on getting started and
-reviewing the backlog on the hackfest workboard to distribute
-things among people or help new contributors find topics suitable
-for them.  Open hours are otherwise opportunities to get more
-direct support from the KernelCI team or discuss any topic.
-
-See you there!
-
-Best wishes,
+Thanks,
 Guillaume
-
-> [1] https://foundation.kernelci.org/blog/2021/06/24/the-first-ever-kernelci-hackfest/
-> [2] https://www.linuxplumbersconf.org/event/11/page/104-accepted-microconferences#cont-test
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/259a2ea9-63da-b5df-3496-676c2b76700b%40collabora.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/01d483d0-6cee-f0dc-b65d-bd776c7d206f%40collabora.com.
