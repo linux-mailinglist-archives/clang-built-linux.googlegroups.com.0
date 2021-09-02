@@ -1,128 +1,129 @@
-Return-Path: <clang-built-linux+bncBAABBB65YSEQMGQEFW25AAQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5KPPH4YUKRBNPFYSEQMGQEAJQ2ZSI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id DFD743FF490
-	for <lists+clang-built-linux@lfdr.de>; Thu,  2 Sep 2021 22:05:29 +0200 (CEST)
-Received: by mail-oi1-x23e.google.com with SMTP id 20-20020aca2814000000b002690d9b60aasf1496442oix.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 02 Sep 2021 13:05:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630613127; cv=pass;
+Received: from mail-ed1-x53a.google.com (mail-ed1-x53a.google.com [IPv6:2a00:1450:4864:20::53a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3A1A33FF4D6
+	for <lists+clang-built-linux@lfdr.de>; Thu,  2 Sep 2021 22:23:18 +0200 (CEST)
+Received: by mail-ed1-x53a.google.com with SMTP id s15-20020a056402520f00b003cad788f1f6sf1589826edd.22
+        for <lists+clang-built-linux@lfdr.de>; Thu, 02 Sep 2021 13:23:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630614198; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LlOTr4e6i6tdMEt/Kpoc1ISSvqJCSSCcUXYqyuiJw+/0Osyh6CyxhB2xhT73S5YQB/
-         WFSiJMpED9wCxoR70EE2pr8YWR5Kzs6MEgCUIKGvz9X1KT4REA2W5mw5qImOeraXe3ZW
-         lC1VTJl9s40Hqhy7+vXmLYOVWSzmiFR2Dmgp/JZbfoypNP4jtMUXQTbZvw/7FGe6Km93
-         HFzOwSxAvXg0lYlufG1dO7wsqhi5JzydYccP26XKp34HFRNOfStFWLjNYjKrQKNcg08V
-         /q+2hAncXqDmJHe/e2vDd9KJQfXvcKjc1aPRE/rFVrZNc29Ixh0KoxQd5MasuzWs9wkW
-         qJFQ==
+        b=Vsu3JwMll0tkWJvV1bw/I7XukBmUrW1PX6TJ1m6IYnJzEDMCb/WTa5G2EoxSnROrkE
+         L9WLwmY0Rh0O83VFuavlvNEauUYWif6KFvQY99gWBLU8vi5TkQrkH0Ifs8+acP8nvDhB
+         tCsBcN+op9U/DDNLH/rtbuYwl1sVnkjaiJRvMc+oWmDTvYPghNpjTPaS7TkreP0BS23n
+         KLWE/+ZKXHC0RaeXjLs74hzzzWBeHGRK7gtZBJT0Rxd7YqN6Z2yMwYaM0/xrBydstZAy
+         1JXZzU37XC24DtVqvbbvhwSoCg388d7EuGW6LzZeUSXHVSjvcqMAI/BMW+eobN7N9nfD
+         s4IA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:date:message-id:references
-         :in-reply-to:from:subject:mime-version:sender:dkim-signature;
-        bh=+pMecSNY6cHhtLHxzdfDJrc8xMOIHDuQ1Af4pua9aoY=;
-        b=ka9rBAXenVqOlBHC5o4FuzZhQCpKrPdGjCrk/IXZJHMuQTzaeP6KqNbcZDkm4JZfgN
-         stS9yg+a93BHkZgm57v360TM8WJ3cjGtF9Ag7D0v2bTHZQSU/CwS2wpvEzCiEZLJwqic
-         aXy7Lya6+cmjx2Sc4g4JSQiFbAsAu0F/ouyGAjWKSmx55FGQl2ajGl9gSWsPQcVWe+b+
-         sycTFiZyI4gMUYXCvCgUX+veHodaWfdTDZW6v4ePhLudcr362P/6Uj8FegX3X6ghgkvy
-         crR4Wlrc3Ok/Hz4UUCkHN0bEnm5Gi6heDkb2FhNmY0hBX8xtTOKU9RLzLyQ13OaIx+RK
-         3jSw==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:references:reply-to:cc:to
+         :from:subject:sender:dkim-signature;
+        bh=BgojI3yJo+DLTDvakrQ3KKXbxZdWbSyLxtXr4qQgtsU=;
+        b=FG5/pORP3GjDoyDCviXJ0qCJ8m9zBRYUdoPfTvOcNVnp8RyfEDuReVv90r8romN+O4
+         5S/RpABYt80VoQE7USetkM2vrt+jHphofCL+8Ubq7Fn9pmiPmK7w46n+c4G9/Gr6fHsR
+         uoqwltmNzSqIyAEAu38ie/aUp6/6vlajnLQPyLNuEpA2h1Caj2ULHXGO1IpXBPhQhdU9
+         bJf9eEpXgxhrgBZog/v3scP57dmlUwda2CJSnX392BfbgnscruM3535OI8vkVtdpwNeP
+         H63JhW8+5jIldOJMDNOwwlirDKR2qh4UoD6bbiFEjneP/175wKiUslu3z9di2ZzY7NNF
+         Z8dA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=P2R+Co1c;
-       spf=pass (google.com: domain of pr-tracker-bot@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=pr-tracker-bot@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:mime-version:subject:from:in-reply-to:references:message-id
-         :date:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:subject:from:to:cc:reply-to:references:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+pMecSNY6cHhtLHxzdfDJrc8xMOIHDuQ1Af4pua9aoY=;
-        b=PW0Z7bBybUd3sLkQNH3kPiWvuBQbglGCQKZ+jmH+7UnuSw1mxuyBMw8tJ8QwSc65IJ
-         XvAqW3f2kr3FNvCrrwmUGQ/dX/Af4NMJloik/jylxs/oWSYT1g0raDMARBEIJw+qF50W
-         gJNTSgGgtSvnGF9/LYRY+S/KFzCoULrvXwcC1hgYRP55qaK3gwXr2Pd5l3MkxaRPm1/q
-         aWgrGbNO5EKvqUNqaQSeCdR3WOA/IrTZeydIo/4+WbSG09+Rhm6Dfk8HvbgZoUgFtXkK
-         oYcGsSSchp7stbKa/Hk6vAnDR4O7oxo7kHQEFVfNKou+R9TVCPuHNt8dBe3Yp8XRUFSj
-         XZbw==
+        bh=BgojI3yJo+DLTDvakrQ3KKXbxZdWbSyLxtXr4qQgtsU=;
+        b=Ibprd2v4KG2Da52qZV1ENI4yIVAY30Ywv1xw+sXrBj1sTiX26B4bd7romb+JAX0jv2
+         WLvPDCMr6OG+fLhkz0VhNiBQOzXti+cPTdjVDhRdZea/wQaLIcNLR10G3dOCK4ON5Ceu
+         FQuxLN60VIhQhsy6r9IJG05kqcI9/U4F9VQ9YAOXUGXCDJJAXW0z4ONrhRn5rI8MIIjJ
+         GnWn8bbXbyCGOhls5OEA5cgzpUFa/UwB5XG/8qomH2m/QixfhhyfngFXWOwJyH1tRos6
+         bZ9tTr38utT+Oe2i84EOtyT3NohKPmbJPPROo3EwMVxPmsHCO2+z5XE8WSIN38p6ROdM
+         Xhsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:subject:from:in-reply-to
-         :references:message-id:date:to:cc:x-original-sender
+        h=sender:x-gm-message-state:subject:from:to:cc:reply-to:references
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+pMecSNY6cHhtLHxzdfDJrc8xMOIHDuQ1Af4pua9aoY=;
-        b=pfU96YGrs49B57hu5oxp51HyQ3i/Be4kdw7cQU74I6SheUeA7CfJ/h6wmsYISr/quf
-         Ddn4KO+ud8Pn/nynfeDIdxOigGMDLPbr8gfFnBTUIwLoWBtRv3v6J/fdZiCveY/WeW11
-         kHIlenSuBjatekKSt9DyeQ0SkyiumT8/nw2DQlgYhGaJd8Yqwdu9eJhBBEhEppktkME8
-         0ltHgxuMBmwKkkvgValkybOB52f2864MKY+FElE/pzu0M/cdnrTgTN7JSE1CXS0ZGLMf
-         XVs302O2K1QNggRDnMsTyiepqbw4Is9LBdz4xTmYG5UA8CewdVfSH2Z1uvKR800klIb2
-         dqWw==
+        bh=BgojI3yJo+DLTDvakrQ3KKXbxZdWbSyLxtXr4qQgtsU=;
+        b=OcdlI0/ol9MRLvnW1npxFHKL4FcvaLzYaUG8m0yA7W71bn6gfJbNbayhgJnHUodEBd
+         HDN8RwfgiyigFIvFw0P63ciCqqSAMt6yj1Rg/iOboB0ZfLbor4vc7bkloTba/CuH27fM
+         hlZoYSGd0Nd+g2xldI9lHAxmMVqgNN0N4c+9+e07nBzalARJdp+wrTtvJeTfwhl9S+LM
+         oSXgox9nLqHIw1JQvJwRT48bPsXcPtQ0Y5JkifuyHJi72IDaPZNUi10GwiIZunPAYQj2
+         PqWpoX6RqZEYxxOIm9V0mDK4RgYaL4BsCY3Ib8br2MbHcbE25bCzssJWdZhPkYAf00Rd
+         wObg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533gVlqwRNiOIdCAOFx49JXO37DYtYqizcCElHHyJvKvcbCxWqsG
-	/ZlenQKh96FKLlzu03pvx8E=
-X-Google-Smtp-Source: ABdhPJw13DZw1VHeo8Ult49w7+2rcmE/g8oNzk9e/SfNxz8CR4LH8xK7QrjgVysvlre7/HxOaD1pFA==
-X-Received: by 2002:aca:5f04:: with SMTP id t4mr5770oib.53.1630613127448;
-        Thu, 02 Sep 2021 13:05:27 -0700 (PDT)
-MIME-Version: 1.0
+X-Gm-Message-State: AOAM532XNxT3DSX26T5ceVJimTvJfhcKYhhJdtPwWFz/QpY7QY0yG2i8
+	QPaDGz4Ygboz29APdJ0nJuY=
+X-Google-Smtp-Source: ABdhPJwkjum/TyFd5NcUAEEGneTbPfh26SCKsutZLtNLZiRbsSwlsaHSFyojNUhEosW3rq9S+IQp7w==
+X-Received: by 2002:aa7:dd93:: with SMTP id g19mr163397edv.262.1630614197922;
+        Thu, 02 Sep 2021 13:23:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6820:308:: with SMTP id l8ls239982ooe.0.gmail; Thu, 02
- Sep 2021 13:05:27 -0700 (PDT)
-X-Received: by 2002:a4a:9211:: with SMTP id f17mr4164548ooh.25.1630613127014;
-        Thu, 02 Sep 2021 13:05:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630613127; cv=none;
+Received: by 2002:a17:906:538d:: with SMTP id g13ls1840147ejo.2.gmail; Thu, 02
+ Sep 2021 13:23:16 -0700 (PDT)
+X-Received: by 2002:a17:907:168b:: with SMTP id hc11mr15435ejc.226.1630614196889;
+        Thu, 02 Sep 2021 13:23:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630614196; cv=none;
         d=google.com; s=arc-20160816;
-        b=MP6kICSmHDd3ELMloRD0EP88Aqt+0p8ers4w8zyczXyxSADrw5R3YqLDDJBuBKH8do
-         IDgbXWOWdPNrw0IV01Tvz1OPhak5Qj1FD23ga3yHMtFpa/KfcRWmnhTC2M8/bHsmvJNo
-         mDLtE3RUDtdAzmYoaAd2ww2Vng+SM4KkjKecVdR7z11COKHWyyCfO9GPh8TLBE20GmvT
-         BEflu5dlmS3m3F+GarZx7mtGJAaav1QLtfq3Xz0yG1wtE/L7lF8MYt0HPA6W+9i5pIIq
-         xrxVybPP43CIsq93CujS0fPSpLKA9DTlnStzVPeSaI9jtqmCF4LCIJrdcxp75BHr9dlz
-         Pm6g==
+        b=Py+OC4gaiXLz1cs4Hf20NREp1dUTodOsQc/hc4BVtBt+IrwC+lGaOxK0LnXc6mRCwY
+         uKV8eiy9Nx0Z+qy2+QjixF4TFwFSc7buCAhE+ZNTCOzE1L6zm+RIPzr4RX43IcGn0K88
+         BNt+qRaMcDwthvxxBpm+6r35aodAW4LF4dxdtFdWYJbbAA+8oJ+TonhtQLbfmPUHfsTg
+         OevmB+UJAEg1pvms8UC3QtZKPNJXYCGRlY9TwZxBb3CCMPGGcyfpX5DAYNx/S6JpOCyQ
+         1MPBikLxIKTI59/7X5/+V16KChiYy2kwordsFJD+dQ2kFBL9lbv0xcezmatstPBSvgHn
+         C4QA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:date:message-id:references:in-reply-to:from:subject
-         :dkim-signature;
-        bh=2h9JqaJQfagiAn6SyxHCCpqM+bdloxa5k1u777et/Ok=;
-        b=SXn/lDLpVI8kv3Ye5tyr8TmAbi7qJzg/ULzrMuhdv7pqONUOqRUNjsV687CM1SgYAK
-         As7r57Z5yXPzTGRVUAwCXfh9mtchResH9nPybViC/LBRFZ327ovHYBh3MiAfN+GSGDbz
-         OU2lT9hgNaYd2l1m6XInxofZZQ2SDsrzGCCPmltdfTmYCqNVosFZxPhCigHMGL0oLqO1
-         q2c2FEHRy0i+G36YYl7zru7FFZR1aBDWpL87QfNThfjtoaHYywuZ0oGVHX3GnZmsrpQj
-         Yvc+HGjkoW+44FIqR0OFiRKzTSreOoMNpqJzvHn0rKgtTxiQbGLv3ALZIetIPXOjpbR5
-         rAog==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:references:reply-to:cc:to:from:subject;
+        bh=GMkLLjIuHknIMJ63+Z2Ozgb2a58O/5X4uPdS5WxkCYo=;
+        b=GiBjX001H+n+AHRaRrSdH+hmrVNw+T0E7PS56ilHiL3yH95N3drGVXFCyxXioAKAif
+         qmP7kg8x+Qhd4BleUxFfvpf0TvBimY37dCX2dViC2f7uUZsjn3J97y8LBma3riemjwzA
+         F5IOr6mKuRGb9DwF4B5eyuBomsuZAm0HefjOZMb1FM6lKvAYxLXBTXmSFKClg3cwnQ9i
+         HaHAfn/LIvM5eRL6txhFe+LRzTctPHv6IrlGI8RCi9mJcMiZoLXoFvkaGv1oRSVjan1W
+         f8dAbi0mw2U/pxigIN1LDja3qHuxzGQjcKeRqD7/uVPrkVzj9PwO9d41LdO3G+fhjIym
+         9Ocg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=P2R+Co1c;
-       spf=pass (google.com: domain of pr-tracker-bot@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=pr-tracker-bot@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id j26si347837ooj.0.2021.09.02.13.05.26
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 02 Sep 2021 13:05:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pr-tracker-bot@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPS id 3416D61054;
-	Thu,  2 Sep 2021 20:05:26 +0000 (UTC)
-Received: from pdx-korg-docbuild-2.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by pdx-korg-docbuild-2.ci.codeaurora.org (Postfix) with ESMTP id 2C785609D9;
-	Thu,  2 Sep 2021 20:05:26 +0000 (UTC)
-Subject: Re: [GIT PULL] hardening updates for v5.15-rc1
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <202108301127.836C1F4D@keescook>
-References: <202108301127.836C1F4D@keescook>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <202108301127.836C1F4D@keescook>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git tags/hardening-v5.15-rc1
-X-PR-Tracked-Commit-Id: a8fc576d4af2f23a87a586424252df97f0ad0b06
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: b55060d796c5300ad7a410cb5faec36582925570
-Message-Id: <163061312617.10011.2408180338296148205.pr-tracker-bot@kernel.org>
-Date: Thu, 02 Sep 2021 20:05:26 +0000
-To: Kees Cook <keescook@chromium.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>, clang-built-linux@googlegroups.com, glider@google.com, "Gustavo A. R. Silva" <gustavoars@kernel.org>, Kees Cook <keescook@chromium.org>, linux-security-module@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>
-X-Original-Sender: pr-tracker-bot@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=P2R+Co1c;       spf=pass
- (google.com: domain of pr-tracker-bot@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=pr-tracker-bot@kernel.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [46.235.227.227])
+        by gmr-mx.google.com with ESMTPS id s18si137423ejo.1.2021.09.02.13.23.16
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 02 Sep 2021 13:23:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of guillaume.tucker@collabora.com designates 46.235.227.227 as permitted sender) client-ip=46.235.227.227;
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	(Authenticated sender: gtucker)
+	with ESMTPSA id F27671F44AE4
+Subject: Re: KernelCI Hackfest #2 - Sept 6-10 2021
+From: Guillaume Tucker <guillaume.tucker@collabora.com>
+To: "kernelci@groups.io" <kernelci@groups.io>
+Cc: kernelci-members <kernelci-members@groups.io>,
+ automated-testing@lists.yoctoproject.org,
+ Collabora Kernel ML <kernel@collabora.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Jesse Barnes <jsbarnes@google.com>, Summer Wang <wangsummer@google.com>,
+ linux-kselftest@vger.kernel.org, workflows@vger.kernel.org,
+ kunit-dev@googlegroups.com,
+ clang-built-linux <clang-built-linux@googlegroups.com>
+Reply-To: kernelci@groups.io, guillaume.tucker@collabora.com
+References: <169771B791E5E075.25031@groups.io>
+Message-ID: <259a2ea9-63da-b5df-3496-676c2b76700b@collabora.com>
+Date: Thu, 2 Sep 2021 21:22:56 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.13.0
+MIME-Version: 1.0
+In-Reply-To: <169771B791E5E075.25031@groups.io>
 Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-US
+X-Original-Sender: guillaume.tucker@collabora.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of guillaume.tucker@collabora.com designates
+ 46.235.227.227 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,20 +136,92 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The pull request you sent on Mon, 30 Aug 2021 11:27:55 -0700:
+On 02/08/2021 10:00, Guillaume Tucker wrote:
+> The first KernelCI hackfest[1] early June was successful in getting
+> a number of kernel developers to work alongside the core KernelCI
+> team.  Test coverage was increased in particular with kselftest,
+> LTP, KUnit and a new test suite for libcamera.  We're now improving
+> documentation and tooling to make it easier for anyone to get
+> started.  Find out more about KernelCI on https://kernelci.org.
+> 
+> The second hackfest is scheduled for the 6th-10th September.  It
+> should be a good opportunity to start discussing and working on
+> upstream kernel testing topics ahead of the Linux Plumbers
+> Conference[2].
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git tags/hardening-v5.15-rc1
+Please find below some extra information for the KernelCI
+Hackfest which is taking place next week.  We're expecting at
+least some contributors from the Civil Infrastructure Platform
+project, the Google Chrome OS kernel team, Collabora kernel
+developers and a few more from the wider Linux kernel community.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/b55060d796c5300ad7a410cb5faec36582925570
+If you need any direct support, please reply to this email or ask
+on kernelci.slack.com or IRC #kernelci (libera.chat).
 
-Thank you!
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+> Here's the project board where anyone can already add some ideas:
+> 
+>   https://github.com/orgs/kernelci/projects/5
+
+In order to add an issue to the workboard, please first create
+one in a KernelCI GitHub repository such as kernelci-core:
+
+  https://github.com/kernelci/kernelci-core/issues
+
+Each contributor to the hackfest should be added to the
+KernelCI "hackers" team, which has permission to edit the
+workboard.  If you aren't part of this team yet, please ask and
+you'll be invited.
+
+Note: Having a GitHub account is not mandatory for taking part in
+the hackfest.  It's mainly there to facilitate coordination, even
+though it is required in order to contribute to the KernelCI
+GitHub repositories.  Contributions as part of the hackfest may
+also be in the kernel tree such as improvements to kselftest,
+KUnit or bug fixes, or other test suites such as LTP etc.
+
+
+> The hackfest features:
+> 
+> * Daily open hours online using Big Blue Button to discuss things
+>   and get support from the KernelCI team
+> 
+> * KernelCI team members available across most time zones to provide
+>   quick feedback
+> 
+> * A curated list of topics and a project board to help set
+>   objectives and coordinate efforts between all contributors
+
+Please see the table below with the proposed daily open hours to
+accommodate most time zones:
+
+Region        Zone    Time 1       Time 2
+East Asia     GMT+10  17:00-19:00  03:00-05:00
+Europe        GMT+2   09:00-11:00  19:00-21:00
+              UTC     07:00-09:00  17:00-19:00
+West America  GMT-7   00:00-02:00  10:00-12:00
+
+
+They will be held as a Big Blue Button virtual conference with
+the same URL as the last hackfest.  It's not being shared
+publicly to avoid any potential abuse, so please ask if you don't
+have it already.
+
+On Monday, the focus should be put on getting started and
+reviewing the backlog on the hackfest workboard to distribute
+things among people or help new contributors find topics suitable
+for them.  Open hours are otherwise opportunities to get more
+direct support from the KernelCI team or discuss any topic.
+
+See you there!
+
+Best wishes,
+Guillaume
+
+> [1] https://foundation.kernelci.org/blog/2021/06/24/the-first-ever-kernelci-hackfest/
+> [2] https://www.linuxplumbersconf.org/event/11/page/104-accepted-microconferences#cont-test
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/163061312617.10011.2408180338296148205.pr-tracker-bot%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/259a2ea9-63da-b5df-3496-676c2b76700b%40collabora.com.
