@@ -1,135 +1,75 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBFP6YWEQMGQEIJJWOGY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAY5645XELBBYX7Y2EQMGQED35ILMY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 00D963FF8B1
-	for <lists+clang-built-linux@lfdr.de>; Fri,  3 Sep 2021 03:49:11 +0200 (CEST)
-Received: by mail-qk1-x73e.google.com with SMTP id v21-20020a05620a0a9500b003d5c1e2f277sf4886340qkg.13
-        for <lists+clang-built-linux@lfdr.de>; Thu, 02 Sep 2021 18:49:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630633750; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=A8dNWCLU+LLw0VfDWgtiNhH+INLn/c9GFfTZW5HYuUvFPJE9683KzRcBKQgDPklp9F
-         uVoWJbKcqSEa+xS6QHYgIRjVtsglP2umB7T7fpKqNROF0kJizXfzHYEYYIIMmnNvHIib
-         UhQHtzXtxAxpRONJzllX5ifpkgI9SWRFNPZ0BOutydhH1MaU4bDOBfD9clgcv7domCXy
-         s5/K299F95XVgUoNqYxCWv97GQEO5PQilAevkTO+VhgWWTtqGDB0ZD5Ku6FdaUend94j
-         NowzDfd/4IG9H+MDgrfokSfv0pJHPWzFOm+oY0CNUoWZu2rFp82//1meeVB+BU7aZhRu
-         cPiA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=8xENqonJ/fA2bbCHtmuTA1/A1q9VdBxPP8mZ8uEYFSM=;
-        b=G2XAQUYFglCJnvA7QNkjwOiK6zfoimdIFzBcrGoZUxNF3VQy/sYlLKYC9GQm9wPfUy
-         XAHu6W88mrcakAfkbprYmnt2OGFe4KH9JG67Wb6vAOSPlRlDL70yp8bxluxI7tZXwSKt
-         EEfqiiy9i9TimaXlJbhKMP+94opo8R8VTtYrvLxCGvLhrHnKEL+4c61aLGgpniioEGar
-         y84FWTRGgoCaqJnjQBvxPcBwrSwKkr8BhE7WgZxlKpB86FosgTWQdcFGgVLoNG7vazn6
-         420C6wq/k9+UJUSZICA8vAx/3WRaVXGwZ3JNaQsrJR23DUBUx2tqhEtEqrxVrQsNCRAj
-         YjKQ==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=icoXZURe;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::634 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id A519C3FFA5B
+	for <lists+clang-built-linux@lfdr.de>; Fri,  3 Sep 2021 08:25:39 +0200 (CEST)
+Received: by mail-ot1-x338.google.com with SMTP id g93-20020a9d12e6000000b0051b1ee4745dsf2463023otg.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 02 Sep 2021 23:25:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
+        h=sender:date:from:to:message-id:in-reply-to:references:subject
+         :mime-version:x-original-sender:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=8xENqonJ/fA2bbCHtmuTA1/A1q9VdBxPP8mZ8uEYFSM=;
-        b=eFTm7KoaDxGkln3p0OSzXqYPL+GAspB889nsRGwUkBdy3TvtvQVOM4nMnlwGmM/Nk3
-         0V/KDyMMJSpdRKlj+5tkp1diovom15fT8XIQ/xzdy9PJZzLznPeHeNz5fmqYPSOX4Obc
-         DdQqHfzJwQ+JXxOccRG0ETnBQcDU/dx12wMp4vWLNWG46femZ10AMHLRw+ohH80RkTty
-         EfiQo0/Hm7/n4+I2trxYHdHjBBGclVy4Ty2xteM0c7Sj25q9QoacWsA2D4PFR5DiQqMe
-         36NHft4q0c+kVDAeqkCYlxS3vFhO7hsfWhya5ZsyACHtvVPOiKpxWxssDyKsZZ2/5lXc
-         WM5w==
+        bh=iqCx19mAseSZhVcU+0eO57U7WYBQSIWec+tnJxpwZrU=;
+        b=sZUvYibrvZ26nPag7+hUhCpr5jCL0nDXLmQ76CPw/3fEKLcT5IbYKBOikwHSYvkNmn
+         lb//SNWQ0eaxYmPh3NWTBduTI8o14VHreBMo35kX/FZCgqBqhf0k4YWrFCwntV2snOed
+         xAJSV9kk75z1QXpveOFL2jdXVjlDQNt3wa4LD2katBjVkRgrlTZUV0ujDVs+BBEfLCjv
+         Sm/fRo/pk4NHVe7ZjBSD0rcX964QtNAEUKSgW0W+GPkC2waULxvKnGh19jX1ignwKfFd
+         NFGzGTcOSH8tLoCiZE9LT/Uc9KIzdmkO3MmrqxVku2UiFzt3CbhVNdrBnagVriKdHFlT
+         SxTQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=date:from:to:message-id:in-reply-to:references:subject:mime-version
+         :x-original-sender:precedence:mailing-list:list-id:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=iqCx19mAseSZhVcU+0eO57U7WYBQSIWec+tnJxpwZrU=;
+        b=T2a2jke7SNZc1gE5N9dwzsO50ayqS+ZPIDuPGkqoVXDhqfAj7Zs3FT9KfwaHBFViam
+         k+aKL+gJJQMMKhvzKxGQNaF52XcsekeO/H0BDNcY9C775gHRmjIsTtSgb67jsI00H78i
+         Piidg8o+amjGVU/LCcMWCEJ6dLZOdWnVu/E4PjsbSa9kechs+Gw8oiOrYYTbbV1hqnUg
+         snHZMytC6uO9JIYm/INymq8Y98moWzINMmq8kkQ4KYHS9tOI5Yrh0KQGGyYluYjt7ws1
+         8drHJanPJnEatF4gDgR8opYuKytsN8WlF6T6sECNCE47KchN4RhosaKG8ZaZBWSnKndB
+         R/3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
+        h=sender:x-gm-message-state:date:from:to:message-id:in-reply-to
+         :references:subject:mime-version:x-original-sender:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=8xENqonJ/fA2bbCHtmuTA1/A1q9VdBxPP8mZ8uEYFSM=;
-        b=TbJc6SUgxKup1I2YhNluEidFH0h1hPnta6nIhDdi4ZEuYjhxbOcrOexY0ugqi1WJdz
-         ydrgslNXZIOldFfEDoQgQjKuagVLsGib88635r2n9tpYRsQ+0EFHgMkRxAQXbRI0GmHQ
-         KNzb/Yk0YWHUD08wYt0l3LxsIGE6ymdPtOCE89PzaGERZ3W9RvRl8SRYeN7Dgnd29tg5
-         IDgJY4pj+uUKdxhP++9R7RIGoIBPp46xriq26ICSgY9MB+nOvAuLhiHvuXehMB6VVkW8
-         Iox1/pkyV5XkwjLrONYxf0P40bllc3XK4pAhdquD/iCVIyGNsSX9NiqyV2UWXLQWihrr
-         /2lg==
+        bh=iqCx19mAseSZhVcU+0eO57U7WYBQSIWec+tnJxpwZrU=;
+        b=os0LuwoZexKAMA44TNl78i3RQ7MvMNXRNaiVNmeGfV5WmUVzxzdLOMb/eTwn//m+Zz
+         Zvn9yaQ+fRLnKSuzdcJ6Vcj034M4teEmYAnsRhSUJTazByhX4P1ozr4CK/oyEA5MQND3
+         NDYto6eUQfsaX7B3NaHnTSyWb3bD7uJ+iD3LtqL/HNHj/moJ865smyjZLOc5NgF3pz5K
+         BbTXTOVQ9GYd++GP1aVOTeDHcDIGKPmxsVks+6okdT3ELWgg+jxEVPnTDq19rrKkJnTL
+         E+wlloI8iTjjR12N/TSL4J2d/NyvWMNC5H+TNMZpvJsdYBEiHkbqVPqUsVJSdyZsFrpK
+         SLrQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532Z4yl50rl4BPu1fWdiw+xV6VbYb3JZfkaw+tFnyBeBPtTfEf0b
-	9qZfeqX/o5w3SPlLTkSUwq4=
-X-Google-Smtp-Source: ABdhPJysb7gDvPxGcJGUFZAryuPS7YJ14YGcYHfANkbJKgRBY7LCMX8WPb/1icxlEYBPf6lb+vygHQ==
-X-Received: by 2002:a37:61d5:: with SMTP id v204mr1130802qkb.308.1630633750108;
-        Thu, 02 Sep 2021 18:49:10 -0700 (PDT)
+X-Gm-Message-State: AOAM530x5sVP2nEgacszvLJJNxG0qgTZCVQHD/4G1GAtOMo5utq09azq
+	cgREO1/bkYU84QLo3/Ve6nI=
+X-Google-Smtp-Source: ABdhPJxY/UgPDzer8OfwFoFb8qlc4mOWdk6zTsYOdhF2WIzpgnxyKRS1YjfLRknSolb9QJQvhXm3SQ==
+X-Received: by 2002:a05:6808:8e3:: with SMTP id d3mr1563285oic.92.1630650338263;
+        Thu, 02 Sep 2021 23:25:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:506:: with SMTP id u6ls1958319qtg.10.gmail; Thu, 02 Sep
- 2021 18:49:09 -0700 (PDT)
-X-Received: by 2002:ac8:7594:: with SMTP id s20mr1454631qtq.381.1630633749624;
-        Thu, 02 Sep 2021 18:49:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630633749; cv=none;
-        d=google.com; s=arc-20160816;
-        b=hPGZ6mTwwmgq335l2Cxn6NIOpyexsUOaGy2VdHO+yWlDjwDPJEWTYZsfAM/m5kb9d1
-         i7W5t4iO6hLkFcALe11cOuKtWDbuTrQkMBe+dSkfWf3ImQ9jxB6E0uNpAvGMLHi4e69U
-         yMDC4OfoBIhwmAWKeKzxTPTns3ro96119o+Upvk4FMOeUwi7gTxnCRd/GWlF7gMVZ3/2
-         TrTqnpst5F6UGKdeb3lACPpdammvCClzJWSzjYdLdqBHj4mUJcduEbxTsahumhfgHX6w
-         dQ6G2WB7X2m9DTM4Wo2SIJ/nZy4992Dw61lyb25idrdfzXvCfuYJ63Dvy7OLmj7wG/LC
-         IoDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=OLp//nfnQVqKYRvh8OZNt358NVX3SdBTMM+ZOiaxVfg=;
-        b=Tl4luGh5Eq914Qa2zCppDq3Ac875IYAKU3Kt/Pfojm7Hm3Q513QkcHbiENm6u0hPXB
-         KqzPy4pN6HeoH0AlKjMJXZn9oVKc63fzpeD94zK5odDqlPvhjBcmak3F/xdce7rjp/Wx
-         rngiND0IdVQu7Ltlwi+Hkv180fjuqN7xmEMCjQ0XF9t1xwIJf2w8q6JCFFRHQHZn7zEP
-         QxedBhwP4p/P3N/cqFaV7FoX7iocuZPaP/FUmxahYGVG8/g/dEGTWtnli4StA/0ADFgW
-         NoR4VrynY4Z42KnSI9V1XWtlnI4/sHN94CuHkwS6WVhsFB013eOicLYxcl9jewFGmIrV
-         SK9w==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=icoXZURe;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::634 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x634.google.com (mail-pl1-x634.google.com. [2607:f8b0:4864:20::634])
-        by gmr-mx.google.com with ESMTPS id g18si328140qto.2.2021.09.02.18.49.09
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Sep 2021 18:49:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::634 as permitted sender) client-ip=2607:f8b0:4864:20::634;
-Received: by mail-pl1-x634.google.com with SMTP id j2so2359640pll.1
-        for <clang-built-linux@googlegroups.com>; Thu, 02 Sep 2021 18:49:09 -0700 (PDT)
-X-Received: by 2002:a17:90a:4148:: with SMTP id m8mr1088901pjg.185.1630633748778;
-        Thu, 02 Sep 2021 18:49:08 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id n24sm3909040pgv.60.2021.09.02.18.49.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Sep 2021 18:49:08 -0700 (PDT)
-Date: Thu, 2 Sep 2021 18:49:07 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 06/13] kbuild: reuse $(cmd_objtool) for
- cmd_cc_lto_link_modules
-Message-ID: <202109021848.48ED7384C@keescook>
-References: <20210831074004.3195284-1-masahiroy@kernel.org>
- <20210831074004.3195284-7-masahiroy@kernel.org>
- <202108311034.D4B1410@keescook>
- <CAK7LNATkducKiw8==u4477JGfyb5vnvbp2gM2s9ndZ_8owXfeg@mail.gmail.com>
+Received: by 2002:a9d:5c15:: with SMTP id o21ls1352036otk.11.gmail; Thu, 02
+ Sep 2021 23:25:37 -0700 (PDT)
+X-Received: by 2002:a9d:4e98:: with SMTP id v24mr1753203otk.228.1630650337668;
+        Thu, 02 Sep 2021 23:25:37 -0700 (PDT)
+Date: Thu, 2 Sep 2021 23:25:37 -0700 (PDT)
+From: Annita Zhang <annita.zhang@gmail.com>
+To: Clang Built Linux <clang-built-linux@googlegroups.com>
+Message-Id: <46627d85-ffe9-4d1b-a90a-611d2f774c47n@googlegroups.com>
+In-Reply-To: <CAKwvOdkPYociOMPo7cYH2u13-+jjweCNWvmN3Erqzgx3cvEWhA@mail.gmail.com>
+References: <CAKwvOd=8w_nnQpbY2Yyg35oY8j+K0yL6K32Cd9wYLp2VTvQjXw@mail.gmail.com>
+ <CAAt6xTsbC5m6XDkW0DG-ECrhTPHVKiixvb7_3De9=eGENHHKhw@mail.gmail.com>
+ <CAKwvOdnc3pGLUiKRdHMKUADkqb8OxeL8sKfFKxP5CM0xOb1A4w@mail.gmail.com>
+ <CAAt6xTsQpCDWkC+GXrsmS_mfrVSfjLPnOi0ehAzLyZmnf0QoSA@mail.gmail.com>
+ <55b27a4f-67d6-48b9-84ed-e1ab95ae42c0n@googlegroups.com>
+ <CAKwvOdkPYociOMPo7cYH2u13-+jjweCNWvmN3Erqzgx3cvEWhA@mail.gmail.com>
+Subject: Re: painful llvm x86 bugs
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAK7LNATkducKiw8==u4477JGfyb5vnvbp2gM2s9ndZ_8owXfeg@mail.gmail.com>
-X-Original-Sender: keescook@chromium.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=icoXZURe;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::634
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_1344_1632987512.1630650337157"
+X-Original-Sender: annita.zhang@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,94 +82,301 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Sep 03, 2021 at 09:39:14AM +0900, Masahiro Yamada wrote:
-> On Wed, Sep 1, 2021 at 2:35 AM Kees Cook <keescook@chromium.org> wrote:
+------=_Part_1344_1632987512.1630650337157
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1345_1201045562.1630650337157"
+
+------=_Part_1345_1201045562.1630650337157
+Content-Type: text/plain; charset="UTF-8"
+
+Hi Nick,
+
+Sorry I missed your email as I was on vacation last Friday. I'm in China 
+time zone. My colleague, Andy Kaylor is in the same time zone with you. I 
+will sync with him and propose some time slots to meet next week. Does it 
+work for you?
+
+Thx,
+Annita
+
+On Friday, August 27, 2021 at 1:59:10 AM UTC+8 Nick Desaulniers wrote:
+
+> On Wed, Aug 18, 2021 at 12:38 AM Annita Zhang <annita...@gmail.com> wrote:
 > >
-> > On Tue, Aug 31, 2021 at 04:39:57PM +0900, Masahiro Yamada wrote:
-> > > For CONFIG_LTO_CLANG=y, the objtool processing is not possible at the
-> > > compilation, hence postponed by the link time.
-> > >
-> > > Reuse $(cmd_objtool) for CONFIG_LTO_CLANG=y by defining objtool-enabled
-> > > properly.
-> > >
-> > > For CONFIG_LTO_CLANG=y:
-> > >
-> > >   objtool-enabled is off for %.o compilation
-> > >   objtool-enabled is on  for %.lto link
-> > >
-> > > For CONFIG_LTO_CLANG=n:
-> > >
-> > >   objtool-enabled is on for %.o compilation
-> > >       (but, it depends on OBJECT_FILE_NON_STANDARD)
-> > >
-> > > Set part-of-module := y for %.lto.o to avoid repeating --module.
-> > >
-> > > Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> > > ---
-> > >
-> > >  scripts/Makefile.build | 28 +++++++++++++++++-----------
-> > >  1 file changed, 17 insertions(+), 11 deletions(-)
-> > >
-> > > diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-> > > index 21b55f37a23f..afc906cd7256 100644
-> > > --- a/scripts/Makefile.build
-> > > +++ b/scripts/Makefile.build
-> > > @@ -236,20 +236,26 @@ objtool_args =                                                          \
-> > >       $(if $(CONFIG_X86_SMAP), --uaccess)                             \
-> > >       $(if $(CONFIG_FTRACE_MCOUNT_USE_OBJTOOL), --mcount)
-> > >
-> > > -ifndef CONFIG_LTO_CLANG
-> > > +cmd_objtool = $(if $(objtool-enabled), ; $(objtool) $(objtool_args) $@)
-> > > +cmd_gen_objtooldep = $(if $(objtool-enabled), { echo ; echo '$@: $$(wildcard $(objtool))' ; } >> $(dot-target).cmd)
-> > > +
-> > > +endif # CONFIG_STACK_VALIDATION
-> > > +
-> > > +ifdef CONFIG_LTO_CLANG
-> > > +
-> > > +# Skip objtool for LLVM bitcode
-> > > +$(obj)/%o: objtool-enabled :=
+> > Hi Nick,
 > >
-> > Is this intentionally "%o" instead of "%.o"?
-> 
-> Good catch.
-> 
-> No, it is not intentional.
-> 
-> I will fix "%o" to "%.o"
-
-Ah-ha, okay, excellent. :) With that:
-
-Reviewed-by: Kees Cook <keescook@chromium.org>
-
-Thanks!
-
--Kees
-
-> 
-> 
-> > (And it later overridden by the "%.lto.o" rule?
-> 
-> No, opposite.
-> 
-> While building %.lto.o, we want to set objtool-enabled.
-> But, we want to cancel it for %.o
-> 
-> 
-> 
-> 
+> > We got the message from Aaron, Andy Kaylor and Fangrui Song. We'd like 
+> to have a discussion with you for the requirement and specific issues. Can 
+> we set up a meeting for it?
+>
+> Hi Annita,
+> Sorry for the delay; I took time off while family was in town. Yes,
+> I'd love to set up time to chat more. I'm located in the Pacific time
+> zone; are you? If so, do you have time Tuesday August 31 before noon?
+> Otherwise September 1 after 3pm might work for us. We're also happy
+> to accommodate any timezone differences.
+>
+> >
+> > - Annita
+> >
+> > On Wednesday, August 18, 2021 at 1:38:33 AM UTC+8 Aaron Ballman wrote:
+> >>
+> >> On Tue, Aug 17, 2021 at 1:22 PM Nick Desaulniers
+> >> <ndesau...@google.com> wrote:
+> >> >
+> >> > On Tue, Aug 17, 2021 at 3:29 AM Aaron Ballman <aa...@aaronballman.com> 
+> wrote:
+> >> > >
+> >> > > On Mon, Aug 16, 2021 at 6:56 PM Nick Desaulniers
+> >> > > <ndesau...@google.com> wrote:
+> >> > > >
+> >> > > > I was doing a bug scrub of
+> >> > > > some of the missing features used by the Linux kernel that GCC
+> >> > > > supports but LLVM doesn't. Is there any chance that you can have 
+> some
+> >> > > > folks on Intel's LLVM team take a look at some of the more x86
+> >> > > > specific ones?
+> >> > >
+> >> > > Sure, I can pass these along to folks internally. No guarantees on 
+> any
+> >> > > action on them, but I can at least prod folks. Thanks for getting in
+> >> > > touch about them!
+> >> > >
+> >> >
+> >> > Totally; we meet with ARM every other week. I wish we had that
+> >> > relationship with Intel. Once we get a build up of bugs that are very
+> >> > architecture-specific I try to reach out to some of the folks working
+> >> > on those backends. Next up is for me to reach out to Ulrich and
+> >> > Nemanja at IBM about some s390 and PPC bugs.
+> >>
+> >> Ah, that's good to know that you meet regularly with ARM. I've passed
+> >> your list of bugs over to Andy Kaylor internally, but he's not gotten
+> >> back to me about the message yet. So at least the ball is slowly
+> >> starting to roll.
+> >>
+> >> ~Aaron
+> >>
+> >> >
+> >> > >
+> >> > > > * -mno-fp-ret-in-387: https://bugs.llvm.org/show_bug.cgi?id=51498
+> >> > > > * -mskip-rax-setup: https://bugs.llvm.org/show_bug.cgi?id=23258
+> >> > > > * -maccumulate-outgoing-args: 
+> https://bugs.llvm.org/show_bug.cgi?id=28145
+> >> > > > * __builtin_ia32_readeflags_u64() unnecessarily forces a frame
+> >> > > > pointer: https://bugs.llvm.org/show_bug.cgi?id=47531
+> >> > > > * Inline asm constraint alternatives ignored:
+> >> > > > https://bugs.llvm.org/show_bug.cgi?id=20197
+> >> > > >
+> >> > > > The last two in particular hurt virtualization; reading/writing 
+> eflags
+> >> > > > is significant overhead in virtualization on x86 and with LLVM 
+> due to
+> >> > > > those last 2 links we don't have a way to read/write them as
+> >> > > > efficiently as possible (as GCC).
+> >> > > >
+> >> > > > --
+> >> > > > Thanks,
+> >> > > > ~Nick Desaulniers
+> >> >
+> >> >
+> >> >
+> >> > --
+> >> > Thanks,
+> >> > ~Nick Desaulniers
+> >
+> > --
+> > You received this message because you are subscribed to the Google 
+> Groups "Clang Built Linux" group.
+> > To unsubscribe from this group and stop receiving emails from it, send 
+> an email to clang-built-li...@googlegroups.com.
+> > To view this discussion on the web visit 
+> https://groups.google.com/d/msgid/clang-built-linux/55b27a4f-67d6-48b9-84ed-e1ab95ae42c0n%40googlegroups.com
+> .
+>
+>
+>
 > -- 
-> Best Regards
-> Masahiro Yamada
-> 
-> -- 
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATkducKiw8%3D%3Du4477JGfyb5vnvbp2gM2s9ndZ_8owXfeg%40mail.gmail.com.
-
--- 
-Kees Cook
+> Thanks,
+> ~Nick Desaulniers
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202109021848.48ED7384C%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/46627d85-ffe9-4d1b-a90a-611d2f774c47n%40googlegroups.com.
+
+------=_Part_1345_1201045562.1630650337157
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Nick,<div><br></div><div>Sorry I missed your email as I was on vacation =
+last Friday. I'm in China time zone. My colleague, Andy Kaylor is in the sa=
+me time zone with you. I will sync with him and propose some time slots to =
+meet next week. Does it work for you?</div><div><br></div><div>Thx,</div><d=
+iv>Annita<br><br></div><div class=3D"gmail_quote"><div dir=3D"auto" class=
+=3D"gmail_attr">On Friday, August 27, 2021 at 1:59:10 AM UTC+8 Nick Desauln=
+iers wrote:<br/></div><blockquote class=3D"gmail_quote" style=3D"margin: 0 =
+0 0 0.8ex; border-left: 1px solid rgb(204, 204, 204); padding-left: 1ex;">O=
+n Wed, Aug 18, 2021 at 12:38 AM Annita Zhang &lt;<a href data-email-masked =
+rel=3D"nofollow">annita...@gmail.com</a>&gt; wrote:
+<br>&gt;
+<br>&gt; Hi Nick,
+<br>&gt;
+<br>&gt; We got the message from Aaron, Andy Kaylor and Fangrui Song. We&#3=
+9;d like to have a discussion with you for the requirement and specific iss=
+ues. Can we set up a meeting for it?
+<br>
+<br>Hi Annita,
+<br>Sorry for the delay; I took time off while family was in town.  Yes,
+<br>I&#39;d love to set up time to chat more.  I&#39;m located in the Pacif=
+ic time
+<br>zone; are you? If so, do you have time Tuesday August 31 before noon?
+<br>Otherwise September 1 after 3pm might work for us.  We&#39;re also happ=
+y
+<br>to accommodate any timezone differences.
+<br>
+<br>&gt;
+<br>&gt; - Annita
+<br>&gt;
+<br>&gt; On Wednesday, August 18, 2021 at 1:38:33 AM UTC+8 Aaron Ballman wr=
+ote:
+<br>&gt;&gt;
+<br>&gt;&gt; On Tue, Aug 17, 2021 at 1:22 PM Nick Desaulniers
+<br>&gt;&gt; &lt;<a href data-email-masked rel=3D"nofollow">ndesau...@googl=
+e.com</a>&gt; wrote:
+<br>&gt;&gt; &gt;
+<br>&gt;&gt; &gt; On Tue, Aug 17, 2021 at 3:29 AM Aaron Ballman &lt;<a href=
+ data-email-masked rel=3D"nofollow">aa...@aaronballman.com</a>&gt; wrote:
+<br>&gt;&gt; &gt; &gt;
+<br>&gt;&gt; &gt; &gt; On Mon, Aug 16, 2021 at 6:56 PM Nick Desaulniers
+<br>&gt;&gt; &gt; &gt; &lt;<a href data-email-masked rel=3D"nofollow">ndesa=
+u...@google.com</a>&gt; wrote:
+<br>&gt;&gt; &gt; &gt; &gt;
+<br>&gt;&gt; &gt; &gt; &gt; I was doing a bug scrub of
+<br>&gt;&gt; &gt; &gt; &gt; some of the missing features used by the Linux =
+kernel that GCC
+<br>&gt;&gt; &gt; &gt; &gt; supports but LLVM doesn&#39;t. Is there any cha=
+nce that you can have some
+<br>&gt;&gt; &gt; &gt; &gt; folks on Intel&#39;s LLVM team take a look at s=
+ome of the more x86
+<br>&gt;&gt; &gt; &gt; &gt; specific ones?
+<br>&gt;&gt; &gt; &gt;
+<br>&gt;&gt; &gt; &gt; Sure, I can pass these along to folks internally. No=
+ guarantees on any
+<br>&gt;&gt; &gt; &gt; action on them, but I can at least prod folks. Thank=
+s for getting in
+<br>&gt;&gt; &gt; &gt; touch about them!
+<br>&gt;&gt; &gt; &gt;
+<br>&gt;&gt; &gt;
+<br>&gt;&gt; &gt; Totally; we meet with ARM every other week. I wish we had=
+ that
+<br>&gt;&gt; &gt; relationship with Intel. Once we get a build up of bugs t=
+hat are very
+<br>&gt;&gt; &gt; architecture-specific I try to reach out to some of the f=
+olks working
+<br>&gt;&gt; &gt; on those backends. Next up is for me to reach out to Ulri=
+ch and
+<br>&gt;&gt; &gt; Nemanja at IBM about some s390 and PPC bugs.
+<br>&gt;&gt;
+<br>&gt;&gt; Ah, that&#39;s good to know that you meet regularly with ARM. =
+I&#39;ve passed
+<br>&gt;&gt; your list of bugs over to Andy Kaylor internally, but he&#39;s=
+ not gotten
+<br>&gt;&gt; back to me about the message yet. So at least the ball is slow=
+ly
+<br>&gt;&gt; starting to roll.
+<br>&gt;&gt;
+<br>&gt;&gt; ~Aaron
+<br>&gt;&gt;
+<br>&gt;&gt; &gt;
+<br>&gt;&gt; &gt; &gt;
+<br>&gt;&gt; &gt; &gt; &gt; * -mno-fp-ret-in-387: <a href=3D"https://bugs.l=
+lvm.org/show_bug.cgi?id=3D51498" target=3D"_blank" rel=3D"nofollow" data-sa=
+feredirecturl=3D"https://www.google.com/url?hl=3Den&amp;q=3Dhttps://bugs.ll=
+vm.org/show_bug.cgi?id%3D51498&amp;source=3Dgmail&amp;ust=3D163073626699400=
+0&amp;usg=3DAFQjCNHHsjfYkC8OwtB_3x8q31YwtWwMnA">https://bugs.llvm.org/show_=
+bug.cgi?id=3D51498</a>
+<br>&gt;&gt; &gt; &gt; &gt; * -mskip-rax-setup: <a href=3D"https://bugs.llv=
+m.org/show_bug.cgi?id=3D23258" target=3D"_blank" rel=3D"nofollow" data-safe=
+redirecturl=3D"https://www.google.com/url?hl=3Den&amp;q=3Dhttps://bugs.llvm=
+.org/show_bug.cgi?id%3D23258&amp;source=3Dgmail&amp;ust=3D1630736266994000&=
+amp;usg=3DAFQjCNGZRzry_0ncJx7ZgZRVBTzZjgbVeA">https://bugs.llvm.org/show_bu=
+g.cgi?id=3D23258</a>
+<br>&gt;&gt; &gt; &gt; &gt; * -maccumulate-outgoing-args: <a href=3D"https:=
+//bugs.llvm.org/show_bug.cgi?id=3D28145" target=3D"_blank" rel=3D"nofollow"=
+ data-saferedirecturl=3D"https://www.google.com/url?hl=3Den&amp;q=3Dhttps:/=
+/bugs.llvm.org/show_bug.cgi?id%3D28145&amp;source=3Dgmail&amp;ust=3D1630736=
+266994000&amp;usg=3DAFQjCNEOawQ-ANyg73rU1PUpeZNJjqaBCQ">https://bugs.llvm.o=
+rg/show_bug.cgi?id=3D28145</a>
+<br>&gt;&gt; &gt; &gt; &gt; * __builtin_ia32_readeflags_u64() unnecessarily=
+ forces a frame
+<br>&gt;&gt; &gt; &gt; &gt; pointer: <a href=3D"https://bugs.llvm.org/show_=
+bug.cgi?id=3D47531" target=3D"_blank" rel=3D"nofollow" data-saferedirecturl=
+=3D"https://www.google.com/url?hl=3Den&amp;q=3Dhttps://bugs.llvm.org/show_b=
+ug.cgi?id%3D47531&amp;source=3Dgmail&amp;ust=3D1630736266994000&amp;usg=3DA=
+FQjCNHa2H6ik0UyT5dt_Q5SQKRusqXqYg">https://bugs.llvm.org/show_bug.cgi?id=3D=
+47531</a>
+<br>&gt;&gt; &gt; &gt; &gt; * Inline asm constraint alternatives ignored:
+<br>&gt;&gt; &gt; &gt; &gt; <a href=3D"https://bugs.llvm.org/show_bug.cgi?i=
+d=3D20197" target=3D"_blank" rel=3D"nofollow" data-saferedirecturl=3D"https=
+://www.google.com/url?hl=3Den&amp;q=3Dhttps://bugs.llvm.org/show_bug.cgi?id=
+%3D20197&amp;source=3Dgmail&amp;ust=3D1630736266994000&amp;usg=3DAFQjCNHuoq=
+hEPcZb2ikWDzpU1s_WN20q5w">https://bugs.llvm.org/show_bug.cgi?id=3D20197</a>
+<br>&gt;&gt; &gt; &gt; &gt;
+<br>&gt;&gt; &gt; &gt; &gt; The last two in particular hurt virtualization;=
+ reading/writing eflags
+<br>&gt;&gt; &gt; &gt; &gt; is significant overhead in virtualization on x8=
+6 and with LLVM due to
+<br>&gt;&gt; &gt; &gt; &gt; those last 2 links we don&#39;t have a way to r=
+ead/write them as
+<br>&gt;&gt; &gt; &gt; &gt; efficiently as possible (as GCC).
+<br>&gt;&gt; &gt; &gt; &gt;
+<br>&gt;&gt; &gt; &gt; &gt; --
+<br>&gt;&gt; &gt; &gt; &gt; Thanks,
+<br>&gt;&gt; &gt; &gt; &gt; ~Nick Desaulniers
+<br>&gt;&gt; &gt;
+<br>&gt;&gt; &gt;
+<br>&gt;&gt; &gt;
+<br>&gt;&gt; &gt; --
+<br>&gt;&gt; &gt; Thanks,
+<br>&gt;&gt; &gt; ~Nick Desaulniers
+<br>&gt;
+<br>&gt; --
+<br>&gt; You received this message because you are subscribed to the Google=
+ Groups &quot;Clang Built Linux&quot; group.
+<br>&gt; To unsubscribe from this group and stop receiving emails from it, =
+send an email to <a href data-email-masked rel=3D"nofollow">clang-built-li.=
+..@googlegroups.com</a>.
+<br>&gt; To view this discussion on the web visit <a href=3D"https://groups=
+.google.com/d/msgid/clang-built-linux/55b27a4f-67d6-48b9-84ed-e1ab95ae42c0n=
+%40googlegroups.com" target=3D"_blank" rel=3D"nofollow" data-saferedirectur=
+l=3D"https://www.google.com/url?hl=3Den&amp;q=3Dhttps://groups.google.com/d=
+/msgid/clang-built-linux/55b27a4f-67d6-48b9-84ed-e1ab95ae42c0n%2540googlegr=
+oups.com&amp;source=3Dgmail&amp;ust=3D1630736266994000&amp;usg=3DAFQjCNG0bc=
+g5AaxRWLaGGTizSNutwTIpeQ">https://groups.google.com/d/msgid/clang-built-lin=
+ux/55b27a4f-67d6-48b9-84ed-e1ab95ae42c0n%40googlegroups.com</a>.
+<br>
+<br>
+<br>
+<br>--=20
+<br>Thanks,
+<br>~Nick Desaulniers
+<br></blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/46627d85-ffe9-4d1b-a90a-611d2f774c47n%40google=
+groups.com?utm_medium=3Demail&utm_source=3Dfooter">https://groups.google.co=
+m/d/msgid/clang-built-linux/46627d85-ffe9-4d1b-a90a-611d2f774c47n%40googleg=
+roups.com</a>.<br />
+
+------=_Part_1345_1201045562.1630650337157--
+
+------=_Part_1344_1632987512.1630650337157--
