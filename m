@@ -1,139 +1,121 @@
-Return-Path: <clang-built-linux+bncBC3ZPIWN3EFBBDFAZ6EQMGQEF6QM7EA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQPF57GUQHBBN6F2SEQMGQEQ2KK7QA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id ADEA2400CD9
-	for <lists+clang-built-linux@lfdr.de>; Sat,  4 Sep 2021 21:59:09 +0200 (CEST)
-Received: by mail-lj1-x237.google.com with SMTP id b29-20020a2ebc1d000000b001ba014dfa94sf886081ljf.9
-        for <lists+clang-built-linux@lfdr.de>; Sat, 04 Sep 2021 12:59:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630785549; cv=pass;
+Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8ABDA401173
+	for <lists+clang-built-linux@lfdr.de>; Sun,  5 Sep 2021 22:04:12 +0200 (CEST)
+Received: by mail-ot1-x33e.google.com with SMTP id x38-20020a05683040a600b0051e1c81337bsf3308572ott.3
+        for <lists+clang-built-linux@lfdr.de>; Sun, 05 Sep 2021 13:04:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630872247; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CMlLX6jtpvItqEDBPhdZg86JD48YAZj/CFecxI8EPMCfUQDiVWP4CPf/+NdkdsWY0J
-         Nr5uG19IAC2A299vQcBNoRbXR4nQJiwY9V3zrqg4wj3dHdUrIeYUVU5dG6FeBCBoum/F
-         7cisAnuO3LbMYdTDEfqesCHE0DWgxXvj6x6U0SU++X2XGdmBot2vONgVXRlfthz42JY0
-         yvYUpyHBN65onir2QTNv1mRklUktZgFnDeCvDg2LUC8PI8wPtncuqFrd5CcdT63UAy0R
-         L2bIY8JpHZRvdfcHW+lFGgoVqI2TMplVxg70BijtMt+kfT+hJXmTA1+rhDptxlqjxrEg
-         BoNQ==
+        b=Mr/6YhNI42PH9QufzkDVBuGYVB9kPZlugS1QC+OtSD22EJD5R5FjOOXvw0ZQ36DDti
+         JAEvv3PBY5mgdJAZqjzEEi/Sec4m+ZT9+n71oel8VinWc7qExomHH3Cz9XlrcuEZOtbS
+         wFGfgJGXlfCP9MNqkiluk2+1E7rfXVqKMPpxzfCTW2B0E8tnnK2aBgRzYW6CXpW9F9Sl
+         jyTaw+OVSlYH14/kSaDLpFaQjTu3xCohTLQVvgViyecC1jyLN57C35Uq0Q9tqzT0uf/g
+         /f2t4+n7DGJrJPKMhHZFoMC8xG4uPd9f3no1SC+aUQT6ZvSeLFIDyJekf+UI9Ls6WSOg
+         j9tw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=Qo44LGV4c0g3FG43VtgYqkl9jbI3u58BGn/UyQrtnKk=;
-        b=iKyLgX5W5oZTED+6QfYFgNNMJVpMW2ve3n2CvnPAxi2RPQHGQNTOuXEtTGJhBKVVSC
-         5811bq5/0vRLbL/IWWLp54WvsiS4HypRzGkySXtQ5Mmg9TCrWUibF7oueLHMomI8HbnU
-         lqGNpZ8iRtWM1F5moXdgRKjw07nDGh3cUeOtExK2ZhTEX89PiRvQLHYfkGVvH8IZumU5
-         MeUCHA9f+UoSdKH07gZAKktCNk0lyiPqIVdwv1t0vajViD5NgBcWhIgi91EDgHSd7Mkl
-         VEPtId676P3y5aQ/ZxjcTNkgomrvU6yjnH18VAbXFe/3QUYts+l2rJJ/WylaP8oTqwrp
-         J4Vg==
+         :list-id:mailing-list:precedence:to:from:subject:message-id
+         :in-reply-to:date:mime-version:sender:dkim-signature;
+        bh=LabHhM+8zX1zm16iBHYICCJyRHQsDXzfcC91P5JQG08=;
+        b=s2exlRW5I6DrkqksLF0lz/J6HIrUyHHYI7ld22q/vzf2JFwzxi2L4YgJUn4KZrrnZP
+         cTBNROec9adntaPj6gE+BMmTlKgZvjf5kkKAE1jXrkizysCR40qFNoeLWysHIqVTA3wY
+         Xne2Ik20KY734b5Uiig7eiXoe5lWE+cTz21LcEiUHxiHrVXpecRqzDCqGgXOHlzhBohj
+         +l1MEezQe0C4+8Z/+T8RVOlsS3uOvocMREpNyW2YZDgTfQT/ET1213E7MUGA5ClfuaOO
+         nWL6DwHrkUZlGEJDqfFi31B6HRSQL0AIsenVu0XQQ4xmrmuG1Hy2/OxRS61Dhvxr/msP
+         cRjg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=google header.b=KbVKhyqG;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::230 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       spf=pass (google.com: domain of 3tii1yqkban8tzalbmmfsbqqje.hpphmfvtfsdpoufou.dpn@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.200 as permitted sender) smtp.mailfrom=3tiI1YQkbAN8TZaLBMMFSBQQJE.HPPHMFVTFSDPOUFOU.DPN@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:date:in-reply-to:message-id:subject:from:to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Qo44LGV4c0g3FG43VtgYqkl9jbI3u58BGn/UyQrtnKk=;
-        b=OdYKTPjNOqvB9fnREIbOzYaLIcnGZMgRPQKhiSwhC3OhHo5Q4xeqXqUHO2d2xkJUp4
-         QEu0bvHvG2SskS7BwR/k4Zt5U6CwmMQACpWbUjHm9ogsJWYwfz3T6pPEChE5OS7IWisF
-         9Mabqjh2wiP3xL5Jx/jBYzCt5N54nIZxBlCTHC9AUmCp0D8EFA7q6H33oGWV8sfBirtX
-         4TAZ7sILXY3Ia/Al75i4ftaMjC3FkiIi/Lfw9fymvYDdP57OLxVdBLRYmnha3IM7AMfw
-         Mjt3VX5zovVLgoQhUojC87HJaHQlWKO8VpahyVnKbVhwVNGp1kD1KdelhATeGX/Oe6kl
-         xSrQ==
+        bh=LabHhM+8zX1zm16iBHYICCJyRHQsDXzfcC91P5JQG08=;
+        b=ZzYssKHJSuE+ImcM42mQwwHXf5vK2f1yMic9z7fVS3X2ZcMJJNPxQydsLD/lh4HM8o
+         3Sgq11o3u0vUjQj7RwpablCnEqIlyGMntitCzmjXLh33x7tF7mnjis9s/sJeGvXRQnY/
+         02eymxjcGt0tLhudwkh4zoK8swGDsgaHbNUr6uxJwlyNvaidxkjHrp3xYnt7kEFGyZzp
+         YH6gkrIe4DXrcSC7lbfMvrIMCsx0BewL/BPSM+ja0CcvsOf7nwYKKPBzJUsB8SlM9fIb
+         boe2cRQTvPDokb6avs9KTmjfYNs1iHNz/aUfheeFB4EM8SKCBJsshsSHaRU+OOn+beFv
+         PScw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Qo44LGV4c0g3FG43VtgYqkl9jbI3u58BGn/UyQrtnKk=;
-        b=T7H/PLJFLJo8qpoaNZD/GKY94mVbXdl3LkX2n6lluv9EUxRDFruRvoQlumdmGSJ387
-         UQ5M5x/wIYmzfsX5rzuwNRqcDApKt6YC1cCJ6oNn1Zea00Usk/Uaw2V2aZd6cG+gPK4E
-         01frugRU7MG7Um8LCBX9LfGgu4fDVw/MPEEpsxSoGucdwQTsGKZitgAiAuG555Ouc78s
-         6HaNbpx0e2KTNHkViO1QtwnhEb5pDz0Zw4DQ2iawMn+ZWEQQEpQAzjt36GMFeFAfIPF7
-         egdf6DvXSi3yxI8uCHR5KVIyck6cv3jvTg1cCOQ2rUhRz+ss2bN1UDxtty5MQmkuxWvF
-         yqKw==
+        h=sender:x-gm-message-state:mime-version:date:in-reply-to:message-id
+         :subject:from:to:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=LabHhM+8zX1zm16iBHYICCJyRHQsDXzfcC91P5JQG08=;
+        b=BE6KaBczoQd9mT86EdM+bGupTTXnmNYSEkjTq23L9FIGF/KKTsRVuXHEhceKZY/KxZ
+         WAaPD090rfiEzB2KgYyBGpvUUtBa6Uepm/l7xbekjSPX7tFTtgpb5b0Q4B2XW+aM9p+w
+         EGMBFoGZdsDRHV/ejtuaK6X056SHpwKqtTIDZ+TxyWVZ0N6fPmmbFuDyAnmQstGlPfiu
+         3XrB1/QyDHpZA/lJF5+7nJrlncGWo6FaeErzVHAazhK6JLC8tHGVjmfMGnN1s2O4M8fg
+         nt1em3Cw3iRjXx3qrPd0jYSETyWykWlkbRQhwxiQPcLF39Gw+SCtY46kUFHDfDsTVncR
+         fthQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532IPi1KnZJGmTR7hlyTtRQzuJ8F/vXZ65GWxvzkWbEoIXdxLRCB
-	1JdtjzG169v0G+Gy33ea2G0=
-X-Google-Smtp-Source: ABdhPJz5J4UciY1SKr0xMfwHJ2tsF5kW2TennoLoggLrVaFfF+WaQaDa4J0AcaSNWstZ64ApFIhXYA==
-X-Received: by 2002:ac2:54a4:: with SMTP id w4mr4016449lfk.133.1630785549282;
-        Sat, 04 Sep 2021 12:59:09 -0700 (PDT)
+X-Gm-Message-State: AOAM530DktQ/wKXr5hAy0btcNrOq5v74I6BfzycGIC9Qg4ZLpfHgLcY1
+	a/L5jW4DYZmqIfL4ofWJmBw=
+X-Google-Smtp-Source: ABdhPJyAEqAV+s2iRWosThcj1zf46vL/mhKhNLX5x4/HpvH4gAwC8v6uymRhFIyoxscwy6bs2o8XLQ==
+X-Received: by 2002:a9d:740b:: with SMTP id n11mr8745952otk.69.1630872247396;
+        Sun, 05 Sep 2021 13:04:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3ba:: with SMTP id v26ls1138445lfp.3.gmail; Sat, 04
- Sep 2021 12:59:08 -0700 (PDT)
-X-Received: by 2002:ac2:5fe7:: with SMTP id s7mr3815667lfg.666.1630785547963;
-        Sat, 04 Sep 2021 12:59:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630785547; cv=none;
+Received: by 2002:a05:6830:2143:: with SMTP id r3ls1237107otd.0.gmail; Sun, 05
+ Sep 2021 13:04:07 -0700 (PDT)
+X-Received: by 2002:a9d:222c:: with SMTP id o41mr8307058ota.100.1630872246969;
+        Sun, 05 Sep 2021 13:04:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630872246; cv=none;
         d=google.com; s=arc-20160816;
-        b=BuR7f5wUGBR2Rbt9NxBoQfpwTVP649aAvD2bPo6sQe0HM0Vej+PnQmH4vzlWzUvo8p
-         4LNzZfnD8aFTuZ8u8UWLwN261HBRa18s/QVIwhHWuF4XrJHmPaplzMPCGQz87u5A1L1A
-         ks78agxSyx9fFo3sk3Zx1cMVCZ71zX2or63m4ViwJ2NfMEslKU7fLKdO5q0lMh+OgUiq
-         E3kKVn7s/apMwmL/VeLnqqWsS3r9biTdAL8V5zi3TgDJrCtjsmGundApIhjr0tHafD5+
-         Fku/wnjjpZf97AHBlRD6KVHv2vkzRdKcTMdmvmvJS7jlTl1FawhgYYQl9GEE9vQxYZpP
-         VXoQ==
+        b=M3FBrGVFyIGNVq7FR11d+sG2cI/N5vM1vQ6XcwPy3tz53sG9RBIqu4+Dks71nMKaC6
+         1agsYmh8Q5iliNabxNjCJjQE43f7d85XN2nwICpzf1yMhEbm3C7673NyzvR2VqKjnYM0
+         RZc6G17ScU4imK/L/DZ6813tpBqm8fGd265UCeCewOzJQ3hxFrUjusg5v9ouYqGGWVJu
+         LVqZG5YgB6XytQ37IJMLTLDGCXjMtJj4/GtTwNqZOYOHM73OGIMe2Co0wptcJ5j3aZYo
+         wZOJpBDASjF3CqSHwni3096xZPPeI9uWFAMtYwLyxVoUfUhvPbF3/7qWr8ifI6s+HKCM
+         E+4w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=mJYg48y01Ixecv219BnfLeDPB5wbBC3ssZt6PfPcF54=;
-        b=ea9fsjlUtktVe8nyyg/uoGd/+DwxYglOJVvwCWaKjv891N9HiQN4HXJeyIlDgSio6S
-         OFMzUWr5xTdzRxcDRjLysbPnijzGXINFzfmZ5qq7JNpZaKjk2o72wNguco+ESBclZFen
-         UMhCeNvioOFjghjN67Gbe9MhTKO06mn0hIIylvjc3OYZX0cjld3AADgWxklOX0priSJv
-         wxya9TgvcuNXmuR6m6H5aJveE9/0V+tuuur4Ik1i+YfOKKAarrRfnwud5MO661Qrn/oZ
-         YDYg4G9kxbtL9Rle4How0TQlBIXEOXWIz8cjiMXS9sFgvtLNk373XC2htFHClZP9v+ju
-         3lqw==
+        h=to:from:subject:message-id:in-reply-to:date:mime-version;
+        bh=u7MTmHe0EZ9aA9LzZAxZXm6GQj3ww9LG3NsEE4FMIzE=;
+        b=p1VCNACA0QuGHUaEy/ogfo+xj3JAbJBfZZIUgEmEIHfdyfbmATlr6kw2CRH5ya1kR/
+         KzKelLHjT4hVT0XqdOtxlftMyJ+H1eb6BXOuZMqwo8QjNCEhVF4XOVLTh+ecsfgiOR5h
+         7SghPmmvwGvxS/2/NaDuRQkuP9Q5TcWl9CbKcn0XCI6S+Ti1UCtNIWfQh5f2+kIVlE5D
+         wa6bUiG/UGBnf4OlmEFQkmpPAN8lQEIVGLMQw5pM17W9NYfhXUz70LHqFXG0cSPlG1Se
+         GdVNSvrJk1AefGVUXVduztpGh4Qzm5C7NyKpVEJYIsjFqSN44bSP+MdwYjjTiZ4kvYbv
+         7zPA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=google header.b=KbVKhyqG;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::230 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
-Received: from mail-lj1-x230.google.com (mail-lj1-x230.google.com. [2a00:1450:4864:20::230])
-        by gmr-mx.google.com with ESMTPS id h13si166835ljj.7.2021.09.04.12.59.07
+       spf=pass (google.com: domain of 3tii1yqkban8tzalbmmfsbqqje.hpphmfvtfsdpoufou.dpn@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.200 as permitted sender) smtp.mailfrom=3tiI1YQkbAN8TZaLBMMFSBQQJE.HPPHMFVTFSDPOUFOU.DPN@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
+Received: from mail-il1-f200.google.com (mail-il1-f200.google.com. [209.85.166.200])
+        by gmr-mx.google.com with ESMTPS id j26si659792ooj.0.2021.09.05.13.04.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 04 Sep 2021 12:59:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::230 as permitted sender) client-ip=2a00:1450:4864:20::230;
-Received: by mail-lj1-x230.google.com with SMTP id i28so4222110ljm.7
-        for <clang-built-linux@googlegroups.com>; Sat, 04 Sep 2021 12:59:07 -0700 (PDT)
-X-Received: by 2002:a2e:978c:: with SMTP id y12mr3828238lji.295.1630785547371;
-        Sat, 04 Sep 2021 12:59:07 -0700 (PDT)
-Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com. [209.85.167.44])
-        by smtp.gmail.com with ESMTPSA id c22sm318951lfm.113.2021.09.04.12.59.06
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 04 Sep 2021 12:59:06 -0700 (PDT)
-Received: by mail-lf1-f44.google.com with SMTP id p38so5332714lfa.0
-        for <clang-built-linux@googlegroups.com>; Sat, 04 Sep 2021 12:59:06 -0700 (PDT)
-X-Received: by 2002:a05:6512:3da5:: with SMTP id k37mr3993613lfv.655.1630785546572;
- Sat, 04 Sep 2021 12:59:06 -0700 (PDT)
+        Sun, 05 Sep 2021 13:04:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3tii1yqkban8tzalbmmfsbqqje.hpphmfvtfsdpoufou.dpn@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.200 as permitted sender) client-ip=209.85.166.200;
+Received: by mail-il1-f200.google.com with SMTP id x3-20020a92de03000000b0022458d4e768so2804020ilm.2
+        for <clang-built-linux@googlegroups.com>; Sun, 05 Sep 2021 13:04:06 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAK7LNAQ0Q6CdXaD-dVGj_e3O3JYs_crpejWKpXHYQJYxyk-1VQ@mail.gmail.com>
- <CAHk-=wgoX0pVqNMMOcrhq=nuOfoZB_3qihyHB3y1S8qo=MDs6w@mail.gmail.com>
- <3b461878-a4a0-2f84-e177-9daf8fe285e7@kernel.org> <878s0c4vng.fsf@oldenburg.str.redhat.com>
- <20210904131911.GP1583@gate.crashing.org> <871r644bd2.fsf@oldenburg.str.redhat.com>
- <CAHk-=wi+XKYN+3u=_fm=ExqpEaHdER0XuKxVauHYVCPKpKR97Q@mail.gmail.com> <20210904191531.GS1583@gate.crashing.org>
-In-Reply-To: <20210904191531.GS1583@gate.crashing.org>
-From: Linus Torvalds <torvalds@linuxfoundation.org>
-Date: Sat, 4 Sep 2021 12:58:50 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wjc1rxah3xt8mKN=aCxQigjy3-hEf4xh_Y-r=MXAKVrag@mail.gmail.com>
-Message-ID: <CAHk-=wjc1rxah3xt8mKN=aCxQigjy3-hEf4xh_Y-r=MXAKVrag@mail.gmail.com>
-Subject: Re: [GIT PULL v2] Kbuild updates for v5.15-rc1
-To: Segher Boessenkool <segher@kernel.crashing.org>
-Cc: Florian Weimer <fweimer@redhat.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, llvm@lists.linux.dev, 
-	linux-toolchains@vger.kernel.org
+X-Received: by 2002:a6b:7b4b:: with SMTP id m11mr7043393iop.165.1630872246693;
+ Sun, 05 Sep 2021 13:04:06 -0700 (PDT)
+Date: Sun, 05 Sep 2021 13:04:06 -0700
+In-Reply-To: <0000000000002c756105cb201ef1@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+Message-ID: <000000000000f032a605cb450801@google.com>
+Subject: Re: [syzbot] WARNING: kmalloc bug in bpf_check
+From: syzbot <syzbot+f3e749d4c662818ae439@syzkaller.appspotmail.com>
+To: akpm@linux-foundation.org, andrii@kernel.org, ast@kernel.org, 
+	bpf@vger.kernel.org, clang-built-linux@googlegroups.com, daniel@iogearbox.net, 
+	davem@davemloft.net, eric.dumazet@gmail.com, hawk@kernel.org, 
+	john.fastabend@gmail.com, kafai@fb.com, kpsingh@kernel.org, kuba@kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, nathan@kernel.org, 
+	ndesaulniers@google.com, netdev@vger.kernel.org, songliubraving@fb.com, 
+	syzkaller-bugs@googlegroups.com, torvalds@linux-foundation.org, w@1wt.eu, 
+	yhs@fb.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: torvalds@linuxfoundation.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=google header.b=KbVKhyqG;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates
- 2a00:1450:4864:20::230 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+X-Original-Sender: syzbot@syzkaller.appspotmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of 3tii1yqkban8tzalbmmfsbqqje.hpphmfvtfsdpoufou.dpn@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com
+ designates 209.85.166.200 as permitted sender) smtp.mailfrom=3tiI1YQkbAN8TZaLBMMFSBQQJE.HPPHMFVTFSDPOUFOU.DPN@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,69 +128,30 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Sep 4, 2021 at 12:18 PM Segher Boessenkool
-<segher@kernel.crashing.org> wrote:
->
-> And the C standard requires you to use these headers to use some
-> features of the C language
+syzbot has bisected this issue to:
 
-That's really the point here: we don't care AT ALL.
+commit 7661809d493b426e979f39ab512e3adf41fbcc69
+Author: Linus Torvalds <torvalds@linux-foundation.org>
+Date:   Wed Jul 14 16:45:49 2021 +0000
 
-The C standard headers are simply not relevant for the kernel. Never
-have been, never will be.
+    mm: don't allow oversized kvmalloc() calls
 
-We care about the low-level compiler infrastructure, not the standard C headers.
+bisection log:  https://syzkaller.appspot.com/x/bisect.txt?x=13136b83300000
+start commit:   a9c9a6f741cd Merge tag 'scsi-misc' of git://git.kernel.org..
+git tree:       upstream
+final oops:     https://syzkaller.appspot.com/x/report.txt?x=10936b83300000
+console output: https://syzkaller.appspot.com/x/log.txt?x=17136b83300000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=c84ed2c3f57ace
+dashboard link: https://syzkaller.appspot.com/bug?extid=f3e749d4c662818ae439
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=11e4cdf5300000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=14ef3b33300000
 
-Those standards are designed for - and try to cater to - a completely
-different audience.
+Reported-by: syzbot+f3e749d4c662818ae439@syzkaller.appspotmail.com
+Fixes: 7661809d493b ("mm: don't allow oversized kvmalloc() calls")
 
-We do atomics, and we do not care at all about the mis-designed C++
-standard atomics.
-
-We do our own type system, and again, we don't care at all about the C
-"official" type system and odd name rules that change from one version
-to the other.
-
-That has always been the case.
-
-We generally *cannot* use the system header files, because they bring
-in things that the kernel simply cannot handle.
-
-That's entirely obvious for things like <stdio.h>, but it's actually
-true even for other things.
-
-> You also need <stdint.h> and <stddef.h>.
-
-No, you really don't.
-
-We avoid those intentionally, and always have. Because the system
-header files have never been a good match.
-
-Now, <stdarg.h> is actually special for the kernel, exactly because
-unlike other header files, that one really ended up being something
-that historically wasn't exposed in any other way and wasn't doable
-sanely inside the kernel.
-
-But it does look like gcc and clang have both ended up exposing the
-interfaces the same way, using the __buildin_xyz model to just wrap
-the standard names in a namespace-clean way.
-
-That really wasn't historically true. Back in the bad old days of
-varargs etc, you literally had "va_list" be a "char *" and the
-accessor functions were magic macros that updated things by hand by
-the size of the arguments etc...
-
-So <stdarg.h> is historically very very special, and tied to compiler
-implementation details.
-
-In ways that a lot of other "standard C header files" very much are
-*not* - many of those are about the types that the system provides.
-
-And in fact often the kernel is the *source* and definition of parts of them.
-
-             Linus
+For information about bisection process see: https://goo.gl/tpsmEJ#bisection
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHk-%3Dwjc1rxah3xt8mKN%3DaCxQigjy3-hEf4xh_Y-r%3DMXAKVrag%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/000000000000f032a605cb450801%40google.com.
