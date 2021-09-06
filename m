@@ -1,121 +1,145 @@
-Return-Path: <clang-built-linux+bncBCQPF57GUQHBBN6F2SEQMGQEQ2KK7QA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDUL3A5FYIHBBIPW22EQMGQEIUAZLWA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8ABDA401173
-	for <lists+clang-built-linux@lfdr.de>; Sun,  5 Sep 2021 22:04:12 +0200 (CEST)
-Received: by mail-ot1-x33e.google.com with SMTP id x38-20020a05683040a600b0051e1c81337bsf3308572ott.3
-        for <lists+clang-built-linux@lfdr.de>; Sun, 05 Sep 2021 13:04:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1630872247; cv=pass;
+Received: from mail-pg1-x540.google.com (mail-pg1-x540.google.com [IPv6:2607:f8b0:4864:20::540])
+	by mail.lfdr.de (Postfix) with ESMTPS id BF4934016A3
+	for <lists+clang-built-linux@lfdr.de>; Mon,  6 Sep 2021 08:54:26 +0200 (CEST)
+Received: by mail-pg1-x540.google.com with SMTP id n9-20020a63f809000000b0026930ed1b24sf2011761pgh.23
+        for <lists+clang-built-linux@lfdr.de>; Sun, 05 Sep 2021 23:54:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1630911265; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Mr/6YhNI42PH9QufzkDVBuGYVB9kPZlugS1QC+OtSD22EJD5R5FjOOXvw0ZQ36DDti
-         JAEvv3PBY5mgdJAZqjzEEi/Sec4m+ZT9+n71oel8VinWc7qExomHH3Cz9XlrcuEZOtbS
-         wFGfgJGXlfCP9MNqkiluk2+1E7rfXVqKMPpxzfCTW2B0E8tnnK2aBgRzYW6CXpW9F9Sl
-         jyTaw+OVSlYH14/kSaDLpFaQjTu3xCohTLQVvgViyecC1jyLN57C35Uq0Q9tqzT0uf/g
-         /f2t4+n7DGJrJPKMhHZFoMC8xG4uPd9f3no1SC+aUQT6ZvSeLFIDyJekf+UI9Ls6WSOg
-         j9tw==
+        b=L5xjM/CaJieZhx2OzZYrTceUKyTaXEyXFPY5TfcwuJ/9KP+Wu1rdJNSC+ULGbEiNfb
+         efMYhj7UA9W0ORQERmooESzlQ8RmaJ2YecwyEwUNNq1jhYOVSctbeQPD+F2rN+YQSTOL
+         4qlUfgPqNmQHwe9bPY2GPk+86L6F9sYk20buLuHuhj6V1NDMVOoS2BSbmPyq7UHIIeM7
+         BTAmY6H6MUMK2AcvNsxIFgv5uPtUi3bSUfWYYe1sxm5XpgpdPe9f4crZt+JDF6UplQSj
+         mw/7xZt20oOcYzJylxXj0CAc0mZF6XppYaMwj4WG6BhBs7qwtkztcD1GjgjgGEGrQyqS
+         LlRQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:to:from:subject:message-id
-         :in-reply-to:date:mime-version:sender:dkim-signature;
-        bh=LabHhM+8zX1zm16iBHYICCJyRHQsDXzfcC91P5JQG08=;
-        b=s2exlRW5I6DrkqksLF0lz/J6HIrUyHHYI7ld22q/vzf2JFwzxi2L4YgJUn4KZrrnZP
-         cTBNROec9adntaPj6gE+BMmTlKgZvjf5kkKAE1jXrkizysCR40qFNoeLWysHIqVTA3wY
-         Xne2Ik20KY734b5Uiig7eiXoe5lWE+cTz21LcEiUHxiHrVXpecRqzDCqGgXOHlzhBohj
-         +l1MEezQe0C4+8Z/+T8RVOlsS3uOvocMREpNyW2YZDgTfQT/ET1213E7MUGA5ClfuaOO
-         nWL6DwHrkUZlGEJDqfFi31B6HRSQL0AIsenVu0XQQ4xmrmuG1Hy2/OxRS61Dhvxr/msP
-         cRjg==
+         :list-id:mailing-list:precedence:mime-version:user-agent:message-id
+         :in-reply-to:date:references:subject:cc:to:from:sender
+         :dkim-signature;
+        bh=7Y0MAWggruA7p7abUTegRE2xcmHx30JJUupGJvFxqOE=;
+        b=OvE/NfUo9RgOrhz6oY30ipQoSgd8VaqOxyChv7a4cMfa7HTdtD8IObgsnVpTQt6MeX
+         EyAI91vQ2timSmAM5YWTSPVIcRQTBjfxbcqXIKe+EdyQCkuEIZxwEqQ1Uyk8vuBXKbRG
+         3Q78ZUotTEm5RBssTII9plOiu6o4wkqoVYL/X/U3xWR4ynADkw2keYU+U2Tuzf1Yr+2p
+         Rs9bmmWCE3zwLDPX1SjJf14Nw7bw2CVfeO0wH9YT7LV+dGXcAe7d9i569LpxLmIO7rxa
+         f4EooCkqEWTbklHURFoYQNe47x8aAGclMiKfrx5URdcApPsrNGyGosmUGLj0P8KnQMef
+         MZjg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of 3tii1yqkban8tzalbmmfsbqqje.hpphmfvtfsdpoufou.dpn@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.200 as permitted sender) smtp.mailfrom=3tiI1YQkbAN8TZaLBMMFSBQQJE.HPPHMFVTFSDPOUFOU.DPN@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RlBZBUXi;
+       spf=pass (google.com: domain of fweimer@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=fweimer@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:mime-version:date:in-reply-to:message-id:subject:from:to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=LabHhM+8zX1zm16iBHYICCJyRHQsDXzfcC91P5JQG08=;
-        b=ZzYssKHJSuE+ImcM42mQwwHXf5vK2f1yMic9z7fVS3X2ZcMJJNPxQydsLD/lh4HM8o
-         3Sgq11o3u0vUjQj7RwpablCnEqIlyGMntitCzmjXLh33x7tF7mnjis9s/sJeGvXRQnY/
-         02eymxjcGt0tLhudwkh4zoK8swGDsgaHbNUr6uxJwlyNvaidxkjHrp3xYnt7kEFGyZzp
-         YH6gkrIe4DXrcSC7lbfMvrIMCsx0BewL/BPSM+ja0CcvsOf7nwYKKPBzJUsB8SlM9fIb
-         boe2cRQTvPDokb6avs9KTmjfYNs1iHNz/aUfheeFB4EM8SKCBJsshsSHaRU+OOn+beFv
-         PScw==
+        h=sender:from:to:cc:subject:references:date:in-reply-to:message-id
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=7Y0MAWggruA7p7abUTegRE2xcmHx30JJUupGJvFxqOE=;
+        b=CPHf3zmPGPopqEyOa8Gi1c087ecuyiXWVaSyxS1KOyezlXwpZf4XGlgd8RHag9SXDW
+         oaU4tEchWxGikBYMl1rc7plyb0gzh+ZjxJsR0r13icHG7ItbRmLTJ0ZrmwVRgh+sJjFo
+         3V9BL1++NtCsiq4kFis2OEhAxDTjCl6+4Q6xE3d77zXdZyO/OkB/rNQyZRvADBx0CZKd
+         4GIh7SDhnv0hyANt7/gftNKTLEkAh0DhiOgEOCIrQ5SHyUDYTNsyAsmm2W7Sko3zfkht
+         fQDGiEFItwRufSOetiSUdtatpk91dxh+SYgBkN2TazlDItcT48KF32xRNbGZFMmJAYJ/
+         2hsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:date:in-reply-to:message-id
-         :subject:from:to:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=LabHhM+8zX1zm16iBHYICCJyRHQsDXzfcC91P5JQG08=;
-        b=BE6KaBczoQd9mT86EdM+bGupTTXnmNYSEkjTq23L9FIGF/KKTsRVuXHEhceKZY/KxZ
-         WAaPD090rfiEzB2KgYyBGpvUUtBa6Uepm/l7xbekjSPX7tFTtgpb5b0Q4B2XW+aM9p+w
-         EGMBFoGZdsDRHV/ejtuaK6X056SHpwKqtTIDZ+TxyWVZ0N6fPmmbFuDyAnmQstGlPfiu
-         3XrB1/QyDHpZA/lJF5+7nJrlncGWo6FaeErzVHAazhK6JLC8tHGVjmfMGnN1s2O4M8fg
-         nt1em3Cw3iRjXx3qrPd0jYSETyWykWlkbRQhwxiQPcLF39Gw+SCtY46kUFHDfDsTVncR
-         fthQ==
+        h=sender:x-gm-message-state:from:to:cc:subject:references:date
+         :in-reply-to:message-id:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=7Y0MAWggruA7p7abUTegRE2xcmHx30JJUupGJvFxqOE=;
+        b=s4HaNeYAVyQ4ToH6KDedne/o+zJjYnwJkqffqkou+7U10v02Vrb9Vw0XlK/Wg6d/87
+         LW/VZl4V88K2VRVRoOEGdsPp8aE9GQ6EQ186swjnBmsbUsTvG68Q+ti8HgmuOcE/izMk
+         xM3KW2jGiXsItHsOm6edOPj5p2XPrzpGNYqX8IolunALYP4xMspqCK1qJHYYmbLQ4oMk
+         GgZdIqf8HHk7oRNB9IPJgcgi0JOgnMeSuxSg/AeF7+G6CfvCfby0rHWzALqRm9UjL08M
+         XFvlsR27abEyPATDnyUPpSWPjJoxcoQk/G1uZBBP6L3p285FAKEfpb7Kwv1l3ZaDxjTk
+         GuCg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530DktQ/wKXr5hAy0btcNrOq5v74I6BfzycGIC9Qg4ZLpfHgLcY1
-	a/L5jW4DYZmqIfL4ofWJmBw=
-X-Google-Smtp-Source: ABdhPJyAEqAV+s2iRWosThcj1zf46vL/mhKhNLX5x4/HpvH4gAwC8v6uymRhFIyoxscwy6bs2o8XLQ==
-X-Received: by 2002:a9d:740b:: with SMTP id n11mr8745952otk.69.1630872247396;
-        Sun, 05 Sep 2021 13:04:07 -0700 (PDT)
+X-Gm-Message-State: AOAM5316gcBvU+jmjbhihs6YEnYEw1wk3CPO1LinAWyI7jlvAgiapFFr
+	qqffDKO0QuSfWCEQiVW1YK0=
+X-Google-Smtp-Source: ABdhPJwpzfly89WTHwE0DjVUIcA2SNoRfo107Q64l/TJAUVLI9TSCebCxajOXAz5jKS7Gh7TDpjTaA==
+X-Received: by 2002:a17:90a:ce8e:: with SMTP id g14mr12647889pju.241.1630911265115;
+        Sun, 05 Sep 2021 23:54:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:2143:: with SMTP id r3ls1237107otd.0.gmail; Sun, 05
- Sep 2021 13:04:07 -0700 (PDT)
-X-Received: by 2002:a9d:222c:: with SMTP id o41mr8307058ota.100.1630872246969;
-        Sun, 05 Sep 2021 13:04:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1630872246; cv=none;
+Received: by 2002:a62:388a:: with SMTP id f132ls2351139pfa.2.gmail; Sun, 05
+ Sep 2021 23:54:24 -0700 (PDT)
+X-Received: by 2002:a63:7013:: with SMTP id l19mr10827278pgc.342.1630911264508;
+        Sun, 05 Sep 2021 23:54:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630911264; cv=none;
         d=google.com; s=arc-20160816;
-        b=M3FBrGVFyIGNVq7FR11d+sG2cI/N5vM1vQ6XcwPy3tz53sG9RBIqu4+Dks71nMKaC6
-         1agsYmh8Q5iliNabxNjCJjQE43f7d85XN2nwICpzf1yMhEbm3C7673NyzvR2VqKjnYM0
-         RZc6G17ScU4imK/L/DZ6813tpBqm8fGd265UCeCewOzJQ3hxFrUjusg5v9ouYqGGWVJu
-         LVqZG5YgB6XytQ37IJMLTLDGCXjMtJj4/GtTwNqZOYOHM73OGIMe2Co0wptcJ5j3aZYo
-         wZOJpBDASjF3CqSHwni3096xZPPeI9uWFAMtYwLyxVoUfUhvPbF3/7qWr8ifI6s+HKCM
-         E+4w==
+        b=nzJmmwKic+XTit6zc5R9oFdGNMM25T8qIzfjhWtTwiTl9aGlNJVmNtmvaJQY1eU0Z5
+         /aoJlJ48SmBfYXHBBk5vnCRZYcW5w7qontXyFU6TVi7vMFZxqTYM4AZGwTzpB5E0lGlf
+         vt0AvK2zxnR9iC92BNZKZOD96bbEz4YPy1PYmZ3BwizVRrpM5max/CWXt1+5PXI326K4
+         0RO2FLmc0WXOLVDe2XWiYwr00vt7UfD26rF1PaDPaM4T8JMhPMSFkmhof0hgVkwkkc5J
+         AhS70UuKdzKlJAp7fwN9bxk9EBKCYvYW0UN0U84T7H52PsRZ/BgBS6QqOKW+pS4ptWEL
+         JEyw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=to:from:subject:message-id:in-reply-to:date:mime-version;
-        bh=u7MTmHe0EZ9aA9LzZAxZXm6GQj3ww9LG3NsEE4FMIzE=;
-        b=p1VCNACA0QuGHUaEy/ogfo+xj3JAbJBfZZIUgEmEIHfdyfbmATlr6kw2CRH5ya1kR/
-         KzKelLHjT4hVT0XqdOtxlftMyJ+H1eb6BXOuZMqwo8QjNCEhVF4XOVLTh+ecsfgiOR5h
-         7SghPmmvwGvxS/2/NaDuRQkuP9Q5TcWl9CbKcn0XCI6S+Ti1UCtNIWfQh5f2+kIVlE5D
-         wa6bUiG/UGBnf4OlmEFQkmpPAN8lQEIVGLMQw5pM17W9NYfhXUz70LHqFXG0cSPlG1Se
-         GdVNSvrJk1AefGVUXVduztpGh4Qzm5C7NyKpVEJYIsjFqSN44bSP+MdwYjjTiZ4kvYbv
-         7zPA==
+        h=mime-version:user-agent:message-id:in-reply-to:date:references
+         :subject:cc:to:from:dkim-signature;
+        bh=I0Wqq4Jy8iaEMvTgV2vlnpJmZdhB/J5L3qG8Ebh53Cs=;
+        b=pMS9Cn18u9MrVQUXNrncw2PV3H4TYgOb+8HM95pBeo3vC304RhC8QeLvIBzO/akoBi
+         jKuOAyFqs3ZN+HQEOGheEPXPlhnH80Y0w3LY3nuF5rQJTm8pnwdOuBeBrvsQT6w8lxTe
+         WYO6EOq5FwTq/NdlVAklukkG6DZHFdUxt/k6LAmL+kv3QeOU/Wq9SXSTUMtfymkxv6ta
+         EJmEfdqft9qMcB5eQzQ2c11pzIAK4bpyeV3d/2baxODIv4TzGF/yRW28wetcJIH9yrDL
+         4A7bITmdPwgpJLe4wByXoccQV5l4fkCmmILZhzrQ/c1WHFz18+Fznf/UFveUBSDxzock
+         ezLA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of 3tii1yqkban8tzalbmmfsbqqje.hpphmfvtfsdpoufou.dpn@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.200 as permitted sender) smtp.mailfrom=3tiI1YQkbAN8TZaLBMMFSBQQJE.HPPHMFVTFSDPOUFOU.DPN@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
-Received: from mail-il1-f200.google.com (mail-il1-f200.google.com. [209.85.166.200])
-        by gmr-mx.google.com with ESMTPS id j26si659792ooj.0.2021.09.05.13.04.06
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=RlBZBUXi;
+       spf=pass (google.com: domain of fweimer@redhat.com designates 170.10.133.124 as permitted sender) smtp.mailfrom=fweimer@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [170.10.133.124])
+        by gmr-mx.google.com with ESMTPS id c6si235468pjg.1.2021.09.05.23.54.24
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 05 Sep 2021 13:04:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3tii1yqkban8tzalbmmfsbqqje.hpphmfvtfsdpoufou.dpn@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.200 as permitted sender) client-ip=209.85.166.200;
-Received: by mail-il1-f200.google.com with SMTP id x3-20020a92de03000000b0022458d4e768so2804020ilm.2
-        for <clang-built-linux@googlegroups.com>; Sun, 05 Sep 2021 13:04:06 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 05 Sep 2021 23:54:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of fweimer@redhat.com designates 170.10.133.124 as permitted sender) client-ip=170.10.133.124;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-346-URXiBfWjOkuQsCM7reUm2w-1; Mon, 06 Sep 2021 02:54:20 -0400
+X-MC-Unique: URXiBfWjOkuQsCM7reUm2w-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8718918397A6;
+	Mon,  6 Sep 2021 06:54:18 +0000 (UTC)
+Received: from oldenburg.str.redhat.com (unknown [10.39.194.140])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id A11C31045E85;
+	Mon,  6 Sep 2021 06:54:15 +0000 (UTC)
+From: Florian Weimer <fweimer@redhat.com>
+To: Alexey Dobriyan <adobriyan@gmail.com>
+Cc: Linus Torvalds <torvalds@linuxfoundation.org>, Segher Boessenkool
+ <segher@kernel.crashing.org>,  Nathan Chancellor <nathan@kernel.org>,
+  Masahiro Yamada <masahiroy@kernel.org>,  Nick Desaulniers
+ <ndesaulniers@google.com>,  Linux Kbuild mailing list
+ <linux-kbuild@vger.kernel.org>,  Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>,  clang-built-linux
+ <clang-built-linux@googlegroups.com>,  llvm@lists.linux.dev,
+  linux-toolchains@vger.kernel.org
+Subject: Re: [GIT PULL v2] Kbuild updates for v5.15-rc1
+References: <CAK7LNAQ0Q6CdXaD-dVGj_e3O3JYs_crpejWKpXHYQJYxyk-1VQ@mail.gmail.com>
+	<CAHk-=wgoX0pVqNMMOcrhq=nuOfoZB_3qihyHB3y1S8qo=MDs6w@mail.gmail.com>
+	<3b461878-a4a0-2f84-e177-9daf8fe285e7@kernel.org>
+	<878s0c4vng.fsf@oldenburg.str.redhat.com>
+	<20210904131911.GP1583@gate.crashing.org>
+	<871r644bd2.fsf@oldenburg.str.redhat.com>
+	<CAHk-=wi+XKYN+3u=_fm=ExqpEaHdER0XuKxVauHYVCPKpKR97Q@mail.gmail.com>
+Date: Mon, 06 Sep 2021 08:54:13 +0200
+In-Reply-To: <CAHk-=wi+XKYN+3u=_fm=ExqpEaHdER0XuKxVauHYVCPKpKR97Q@mail.gmail.com>
+	(Linus Torvalds's message of "Sat, 4 Sep 2021 10:22:25 -0700")
+Message-ID: <87a6kq2nze.fsf@oldenburg.str.redhat.com>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.2 (gnu/linux)
 MIME-Version: 1.0
-X-Received: by 2002:a6b:7b4b:: with SMTP id m11mr7043393iop.165.1630872246693;
- Sun, 05 Sep 2021 13:04:06 -0700 (PDT)
-Date: Sun, 05 Sep 2021 13:04:06 -0700
-In-Reply-To: <0000000000002c756105cb201ef1@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-Message-ID: <000000000000f032a605cb450801@google.com>
-Subject: Re: [syzbot] WARNING: kmalloc bug in bpf_check
-From: syzbot <syzbot+f3e749d4c662818ae439@syzkaller.appspotmail.com>
-To: akpm@linux-foundation.org, andrii@kernel.org, ast@kernel.org, 
-	bpf@vger.kernel.org, clang-built-linux@googlegroups.com, daniel@iogearbox.net, 
-	davem@davemloft.net, eric.dumazet@gmail.com, hawk@kernel.org, 
-	john.fastabend@gmail.com, kafai@fb.com, kpsingh@kernel.org, kuba@kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, nathan@kernel.org, 
-	ndesaulniers@google.com, netdev@vger.kernel.org, songliubraving@fb.com, 
-	syzkaller-bugs@googlegroups.com, torvalds@linux-foundation.org, w@1wt.eu, 
-	yhs@fb.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: syzbot@syzkaller.appspotmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of 3tii1yqkban8tzalbmmfsbqqje.hpphmfvtfsdpoufou.dpn@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com
- designates 209.85.166.200 as permitted sender) smtp.mailfrom=3tiI1YQkbAN8TZaLBMMFSBQQJE.HPPHMFVTFSDPOUFOU.DPN@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Original-Sender: fweimer@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b=RlBZBUXi;
+       spf=pass (google.com: domain of fweimer@redhat.com designates
+ 170.10.133.124 as permitted sender) smtp.mailfrom=fweimer@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -128,30 +152,49 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-syzbot has bisected this issue to:
+* Linus Torvalds:
 
-commit 7661809d493b426e979f39ab512e3adf41fbcc69
-Author: Linus Torvalds <torvalds@linux-foundation.org>
-Date:   Wed Jul 14 16:45:49 2021 +0000
+> On Sat, Sep 4, 2021 at 8:19 AM Florian Weimer <fweimer@redhat.com> wrote:
+>>
+>> In any case, it would be nice to know what the real motivation is.
+>
+> I don't know about the original motivation, but the reason I like that
+> patch after-the-fact is that I've actually been in situations where I
+> test out self-built compilers without installing them.
 
-    mm: don't allow oversized kvmalloc() calls
+Does this really simplify matters?  Why wouldn't the gcc compiler driver
+find cc1, but not be able to pass the right path options, so that the
+include/ subdirectory can be located as well?
 
-bisection log:  https://syzkaller.appspot.com/x/bisect.txt?x=13136b83300000
-start commit:   a9c9a6f741cd Merge tag 'scsi-misc' of git://git.kernel.org..
-git tree:       upstream
-final oops:     https://syzkaller.appspot.com/x/report.txt?x=10936b83300000
-console output: https://syzkaller.appspot.com/x/log.txt?x=17136b83300000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=c84ed2c3f57ace
-dashboard link: https://syzkaller.appspot.com/bug?extid=f3e749d4c662818ae439
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=11e4cdf5300000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=14ef3b33300000
+> Then it's convenient to have a completely standalone kernel tree.
 
-Reported-by: syzbot+f3e749d4c662818ae439@syzkaller.appspotmail.com
-Fixes: 7661809d493b ("mm: don't allow oversized kvmalloc() calls")
+The final patch in the series is here:
 
-For information about bisection process see: https://goo.gl/tpsmEJ#bisection
+  isystem: delete global -isystem compile option
+  <https://lore.kernel.org/linux-kernel/YQhY40teUJcTc5H4@localhost.localdomain/>
+
+It's still not self-contained.  And it seems that there has been quite a
+bit of fallout from the removal of <stddef.h>.
+
+> Nobody cares about things like <stdatomic.h> They are completely
+> irrelevant for the kernel, exactly because we've always just done our
+> own, or used __builtin_xyz() for things.
+
+Apparently, some people care enough about <stdatomic.h> to prevent its
+use.  I still have not seen an explanation.  Maybe it's because we
+haven't Cc:ed the patch author so far (oops).
+
+Alexey, why are <stdatomic.h> and <float.h> so special that you called
+them out in your patch?
+
+If it's about unintended use of libatomic, then maybe we should work on
+a proper compiler option that also works for __atomic builtins and the
+_Atomic keyword.
+
+Thanks,
+Florian
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/000000000000f032a605cb450801%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87a6kq2nze.fsf%40oldenburg.str.redhat.com.
