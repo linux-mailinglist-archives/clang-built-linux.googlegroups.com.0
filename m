@@ -1,132 +1,129 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBL6T46EQMGQEDGV3PHA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5JXFXXVEGRB5XG46EQMGQEZT6SLTQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 787BC4048D5
-	for <lists+clang-built-linux@lfdr.de>; Thu,  9 Sep 2021 13:02:08 +0200 (CEST)
-Received: by mail-ua1-x93d.google.com with SMTP id c11-20020ab0484b000000b002b273dcd61bsf296782uad.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 09 Sep 2021 04:02:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1631185327; cv=pass;
+Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
+	by mail.lfdr.de (Postfix) with ESMTPS id 07DB24049F9
+	for <lists+clang-built-linux@lfdr.de>; Thu,  9 Sep 2021 13:43:52 +0200 (CEST)
+Received: by mail-pj1-x1039.google.com with SMTP id z9-20020a17090ad78900b00196680d384csf1215216pju.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 09 Sep 2021 04:43:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1631187830; cv=pass;
         d=google.com; s=arc-20160816;
-        b=t+y74r+KjdGn/5teXyqbGFXHaSyHGvaiBQ2zewCZfITRHUOY8OJHPrHOtrxNRwwGoJ
-         VYIUBBA3V2jukEsJ9LBUxGoA1Ss6iWRAtkYRC4+pZhK4cHG79ycEnX4AefJXCy2scaZb
-         /NkCeldNcBOVany34JZPDtVo3bBFE9hIf3v5j+YubrKVeB+F02hfk6Dpiu5sQfIRfzF1
-         ZuRjSt93K/yhJrJWSMHTy6Kybbl/0+eRxwn3joW3j4DtG9/mDypWnYv/6hAz2xT6pq5z
-         6ZlwTyc0XYpy6CSptOHROpA3rcsMzFPOnLfubmpw8idesActzQuohZ4vNoCOvb8Oa/Xq
-         2kqw==
+        b=g7m9yxzGRdgVz6229ObGgisDR8+RI7E+0EB9o+LIvn9lSuuu/aRd548qKX8RcZHENl
+         SYeP7LYk0N8pjsuFBTis8BM7k8/Kbtee8wynEh5Xrt43sKvEnRbpqsXuU/uZ+hp5NLNZ
+         e/qImCcaV2UPHLsia7BOGsKwWq7nrMZcIaGTgkGy8E/6U1shvkcr4GYyQiMhNz9TaOfh
+         sAM9wCqSUaY/w3QtuAjwwFPtag5ECBL+YhxHXHO1BmdbME7cxUUzIoWrFiafq48ZKfSm
+         MCcLwix+9svrKGbIj53SH7KeARdM+NwFjFE7m9aZyXyMXq7vTLZ1U4E7hB0a7LEHfB1g
+         rPZA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=Iym+TRw2uDxwYauLqaU9n2vagaXJXq96BWM9AQu/By4=;
-        b=x9gF6t516FA6BGB6l2Yv7AOH6qYe5QhnfE0EP/181426Syqn5Xv62t5G5tYxEKFsmN
-         zhFg/tSnpB46NSDS9cVY2bAEQcdoHotHS8WgzhfOct5HIyLXDyVocq5kL0ZEEDRbBW00
-         NzdZ3BrBlZJfRfAik8lOjdH376ghB06jGO38GOO28GhQBmQGGxzAn9Q/hcWeWsBCsFOk
-         5giiAnauGnNWtFejDlTlrTbejIJokQdEHLkNR6namfA/wZxkK1eFq77GC61h+hUcF+pi
-         da1PmuJIw2CyppsH4sHm2YEb3imMPPCf74xwzppY3DnSQNWIHzbkunEcaSwQSZ0mf5Jy
-         Ac5g==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=qkka7lGsB+OMCtWo5LtB32UOYr0kVQ6yhTyj3GaHCIg=;
+        b=GLup1Jc20jjSHk6xyceFZlal3Ra3wVp2jlHBV5wrexiBgtVvbvH9OL2GNZN1ZBDJ0u
+         4pxBNMKZU9infCKJ7vxW6K9ulLQ/o2sYpxgioExwwzzajDgIv80x9usfaR3jZpwGLYlp
+         gADGmNh0Roro8mtj/8dHBsD+k/XrCln9+k0dVI3K1JnUtFjfo8SElN0K1Y2SB9NytPZM
+         dxiexepvh8tQtlymI+sMrVJUgup0+hZ0644Irun4QFxe/SDwJ85UdR64KeviqO+5mbcr
+         ARo6CpauBj9MZlQRYB9ztRER+dSQIlUCmn0kgmMTv8rgPZhEzxYp6P/v4Ke6tbzrVHdB
+         hA9A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=kkCHZDv1;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Fl14Y4YS;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Iym+TRw2uDxwYauLqaU9n2vagaXJXq96BWM9AQu/By4=;
-        b=L1Boa0qOX9iId4FksnHZjT2kb/9MisYCeMMkIEra0eKlrTFo+jve7pkb4DFSLVXHr4
-         oUnRhNGAY+2LKB4ICu7OpJLVUXApdRWAAVLHZVPXpRBNwqyU7ABQQEfXiDi+WuzuhrqN
-         Ybk2E0kllaBN11IiP+mBcILUSlXNeGzG6Rwzo1M92CYU9vvYh20Bl4p9ct5VlfPJlil2
-         F8dQIZ9MQsJJsh9EpFGllRFM5XtkVfRUctxTti+WPRf51envxqZNkHy3DjNhwgrGaFad
-         veyHdBC2bLY1pX4XEhZamMdhoud7pfPaetSeM4VIm9nDL6mP3VwKlRDMOrYkLOTWv6Km
-         NF4w==
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=qkka7lGsB+OMCtWo5LtB32UOYr0kVQ6yhTyj3GaHCIg=;
+        b=ExlCcSqWbdHqo59VGI7DT45FmMfeCyyfpNbmG5ThLYgdtT7LZ9JKOiGgt5OHLg72N1
+         NiRsAbBaaKuIAKo5nTh00RTLA3ZHk3PtNw3gjFNG+vksPoaK8mz4gDyE/safb2NWpiCv
+         XPgJiDiByj1jMi/GaanfbORwxAhZMBctRxIJlLQ8DLnBLgNiZe7P0Jsh7AszJp229cXq
+         zgxaxGPox3JRGEWDGFoDnInZJw0gP1wPTQtDRPqS0P1RUMhQvcDWNw60sXwf8XHZ379l
+         oU+4eAtiQemX84wuZALGfLVVy4lzwcYOvSqFBEH5YgeNpHW5rSQ3G2DewdyNh55j3tU3
+         JRtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Iym+TRw2uDxwYauLqaU9n2vagaXJXq96BWM9AQu/By4=;
-        b=rqXKSaRZX3Uu7AITw3eLFYe6e3jmkMZ3OoUJULgXBpTKRTeEFDs1PDE1tmZaJCy2C4
-         37EXNGZgJ+p23QlyMhWNwEn54KMQuHZz3vqrw9PQef7aBbT/K2OX5z7zcIP3y5nqjtoG
-         pMum32qOuffxHgFkymsBP3XpUPzl2bP4S/mWXakOCP7fM3w1zGvOMjInK99mJmpSu3nk
-         ivul6fA2OFEuMNjCIrzZkl/gMzszGnKSuYgkSdcsGo1khGc6UBLlEXwZ3tpI3DYZbvXn
-         H4m0hLoitoEDkbCOzanPCyo3kBvh92qJsN1EZOEgQRGiqnXoalM2u2vU1Ac4U6VL68KV
-         i9Fg==
+        bh=qkka7lGsB+OMCtWo5LtB32UOYr0kVQ6yhTyj3GaHCIg=;
+        b=PwHzk8Z5FZIvDhhinmQlpHX4XW2xfT0jjzqBZDxwnKVrpOI+uYwkVwIydkxcyzt3xR
+         c7ycPRvWBXv5D+jF2uwEHEBEESBaDhWq5Mx8K41lDR+/RfpcKovSC1fP97fKfY/k8+rV
+         T+UZxHk46opInY7L9mSay/JNwPJXVobGGP7g/f4IQVzY/mCu+dEu87X2Fj4xVo07xVpl
+         AvuSb72tqFWY1FJJy/Z1bQ5xLgY/IajPbgcrXdc0sUkzuh8Ne5ne4MHoIR+pOGxA/6J5
+         /jDcYN83efscYhqH6ScDcfmY+QbBGt72VdzFvktA1X/S5cZWM49b/fiVT0EAMBWXND7y
+         BwQg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532sSExXCpMk5JpBqnCfNZWQ+DvuBWwxZ09IHOHFCmZ43jfW5+/L
-	LNbUfX3UlPXTagj7r0+ZNhs=
-X-Google-Smtp-Source: ABdhPJzQP4BEmkSF1XDLlYkRwQCVjFOz+bweBiHoB9Ut6QIiLLLwSEwaH6W1bPOPMrmVQrm+RA63bw==
-X-Received: by 2002:a67:f793:: with SMTP id j19mr938531vso.28.1631185327203;
-        Thu, 09 Sep 2021 04:02:07 -0700 (PDT)
+X-Gm-Message-State: AOAM530meHmsrQ9fmaMQ30E1FTrlJTlPGFJH0XuwUd4/tF9LFxuIpt8u
+	PhZXUJUWexK2JqdzVvPBPGc=
+X-Google-Smtp-Source: ABdhPJw7Gi71Ew0G2HL6JjNFcJd0VHtrVuqbL8KCrcDOhNOscCsLBCnUOOAIBNMO28EGux/u7/WTCA==
+X-Received: by 2002:a17:90a:750:: with SMTP id s16mr3071615pje.234.1631187830742;
+        Thu, 09 Sep 2021 04:43:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:7682:: with SMTP id v2ls125877uaq.10.gmail; Thu, 09 Sep
- 2021 04:02:06 -0700 (PDT)
-X-Received: by 2002:ab0:3d13:: with SMTP id f19mr975443uax.70.1631185326661;
-        Thu, 09 Sep 2021 04:02:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1631185326; cv=none;
+Received: by 2002:a17:902:e787:: with SMTP id cp7ls1113688plb.10.gmail; Thu,
+ 09 Sep 2021 04:43:50 -0700 (PDT)
+X-Received: by 2002:a17:90b:a06:: with SMTP id gg6mr3056285pjb.72.1631187830055;
+        Thu, 09 Sep 2021 04:43:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631187830; cv=none;
         d=google.com; s=arc-20160816;
-        b=lGGYHlpSFTfAs6FbgK4kQX2gOqKi9NX5Fb1rtuDuR/FaJrwXEoafa6oePFAAh0RpkS
-         NdXlINOh2m2h5aV1O/qWBOd7UZNmlKsIEg6BdEvkhXf1rkkp79VA3KCW3CSYNW/ZOsTZ
-         3d3786RfPoMtLpMe3K1pCb8BU04+4wx7/Bf/BtXemFyEJWfB+rZKRmxXdfoKxdN2CIjg
-         u3fKC1XWd4bKsTawbqDFqM3KcjGpZ4TyD9eshZII/DSUPMjGV0iYO7gNcygKiZChNkNE
-         jS3O0clY4r49yntmDxJHJXq6ct4PcMwhkYzW8nZw2R5OIgtqK05sxa7KRWRKJpZRxpuD
-         ddFA==
+        b=c8Y69R0B3Cj4j8b7sbJNXywcZnqSUPlo1k5kHrsWi8sd6voc/3dj9lt3qFUZ8hRroc
+         LCiTxdf+GRSLTKN+AKWNarp8PMTuD55QBh+/a/rtkWFfynE78z6ehPbs0Ng2lP8H5Ts5
+         Tp/YUY5CBfqrZVI7q+x3Ry92Ce+iphgpgKHcB3XVNP0PJTswvIqS6wKt6b4jfG54ve+S
+         D76vXYtWcs1iBUS4tFx8mSogl9QOzTib/9TB8YUudB/UqRUMiGE6lGgSGdmjgKqlVhlt
+         g2aRH523sJKSsQRN6aIegvLEUUj0On50JqQuIkszYihe5HMY0Fb5bcm8FC/KppmNVNY2
+         WjnQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=nZfFg/JwDacjaTOLCboRuBQ6A+RYt6dHwDsyrC1BjG0=;
-        b=TYbe4kL5w9hNla8I3Zc4iiuV2DGO67J7QLRAXU3cOqV/0SMg77TyUTqded7PPI9/fD
-         02wTjXWIQeYFJAO3n5uNOTFwgZW7takd4BlkdhjDYZmRYop8xBK4n3nLcBLqFWRxo8JK
-         8aFeZ7tCYWjLLf4ynG8HPZzTpd4clgJOQpNBD+55uCktD8GciRttfOTt+9qgJA5WtO9C
-         k8s7VMfnWLzwRb8r7rrmUSlhNqUqtHcTF29Fecwb0Z5hrKTGf0kIR/jSn4sDQtAQaAA9
-         mqbfy24L/KVGP2DvoDdfKDNm/eNQiheBxFd3VU+5ynOHA8rvNYM6ljZRxTgiaR/oSNbb
-         7/0w==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=bttQex7p7TMAo0fwRqoYpI04NJBJ57+vkBopoOl7Jfo=;
+        b=Ekt7+S1qR8hlBDN2+m3pT6i3EUMI15DUH+9yT/ZSlcbl54tWfuvILHzjKw5Hyz+45i
+         UTR7VU7+jg9c520en7wPscFLsnW3hqqI65+xVE+v2iO7XFLCQ27iqM6T4p+URnfz/EEb
+         2ru7ouXJNji3UGnbXkSOvjggFJzMwBhlPxpNewIJJ67p92caQmu6o6bo4DCx1i4fx9Pk
+         LB2VngOfcZWuUUK9jghWxLna30DwJLhrKnNk/M1dyiHanTbrXm4Gy6LSTD4dEdA+alDo
+         hADx7v9L/4vGd4cwZWzOugUI6t3jE9RL2o1riQ8n/8NdZ8n8TTof0RozH2zRuSwvWgWv
+         wyCw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=kkCHZDv1;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-05.nifty.com (conssluserg-05.nifty.com. [210.131.2.90])
-        by gmr-mx.google.com with ESMTPS id q26si133471vkn.5.2021.09.09.04.02.06
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Fl14Y4YS;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id 136si146579pfz.2.2021.09.09.04.43.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 09 Sep 2021 04:02:06 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) client-ip=210.131.2.90;
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182]) (authenticated)
-	by conssluserg-05.nifty.com with ESMTP id 189B1odK027120
-	for <clang-built-linux@googlegroups.com>; Thu, 9 Sep 2021 20:01:51 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-05.nifty.com 189B1odK027120
-X-Nifty-SrcIP: [209.85.215.182]
-Received: by mail-pg1-f182.google.com with SMTP id s11so1380352pgr.11
-        for <clang-built-linux@googlegroups.com>; Thu, 09 Sep 2021 04:01:50 -0700 (PDT)
-X-Received: by 2002:aa7:9e8d:0:b0:406:be8:2413 with SMTP id
- p13-20020aa79e8d000000b004060be82413mr2637188pfq.66.1631185309107; Thu, 09
- Sep 2021 04:01:49 -0700 (PDT)
+        Thu, 09 Sep 2021 04:43:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id B961A61213;
+	Thu,  9 Sep 2021 11:43:48 +0000 (UTC)
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Nathan Chancellor <nathan@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Sasha Levin <sashal@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH AUTOSEL 5.14 126/252] net: ethernet: stmmac: Do not use unreachable() in ipq806x_gmac_probe()
+Date: Thu,  9 Sep 2021 07:39:00 -0400
+Message-Id: <20210909114106.141462-126-sashal@kernel.org>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20210909114106.141462-1-sashal@kernel.org>
+References: <20210909114106.141462-1-sashal@kernel.org>
 MIME-Version: 1.0
-References: <20210908032847.18683-1-kortanzh@gmail.com> <YTjt5C7xTqNLUSl/@archlinux-ax161>
-In-Reply-To: <YTjt5C7xTqNLUSl/@archlinux-ax161>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Thu, 9 Sep 2021 20:01:11 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATA2-4jSfOCmdtgQ+cuAyXhyLCBuVEZkZ3nONZFV8z3EA@mail.gmail.com>
-Message-ID: <CAK7LNATA2-4jSfOCmdtgQ+cuAyXhyLCBuVEZkZ3nONZFV8z3EA@mail.gmail.com>
-Subject: Re: [PATCH v2] gen_compile_commands: fix missing 'sys' package
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Kortan <kortanzh@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        llvm@lists.linux.dev,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=kkCHZDv1;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@kernel.org header.s=k20201202 header.b=Fl14Y4YS;       spf=pass
+ (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,73 +136,90 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Sep 9, 2021 at 2:07 AM Nathan Chancellor <nathan@kernel.org> wrote:
->
-> On Wed, Sep 08, 2021 at 11:28:48AM +0800, Kortan wrote:
-> > We need to import the 'sys' package since the script has called
-> > sys.exit() method.
-> >
-> > Signed-off-by: Kortan <kortanzh@gmail.com>
->
-> Thank you for making those changes!
->
-> I should have mentioned that this probably warrants a Fixes: tag, which
-> can be generated by running:
->
-> $ git show -s --format='Fixes: %h ("%s")' 6ad7cbc01527223f3f92baac9b122f15651cf76b
-> Fixes: 6ad7cbc01527 ("Makefile: Add clang-tidy and static analyzer support to makefile")
->
-> as that was the patch that introduced this issue. I personally have a
-> git alias for this as it comes up enough.
->
-> $ git config --get alias.fixes
-> show -s --format="Fixes: %h (\"%s\")"
->
-> I do not think this warrants a v3, just something to keep in mind for
-> the future.
->
-> Fixes: 6ad7cbc01527 ("Makefile: Add clang-tidy and static analyzer support to makefile")
-> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+From: Nathan Chancellor <nathan@kernel.org>
 
+[ Upstream commit 4367355dd90942a71641c98c40c74589c9bddf90 ]
 
-Applied to linux-kbuild
-with Fixes and Nathan's Reviewed-by.
-Thanks.
+When compiling with clang in certain configurations, an objtool warning
+appears:
 
+drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.o: warning: objtool:
+ipq806x_gmac_probe() falls through to next function phy_modes()
 
+This happens because the unreachable annotation in the third switch
+statement is not eliminated. The compiler should know that the first
+default case would prevent the second and third from being reached as
+the comment notes but sanitizer options can make it harder for the
+compiler to reason this out.
 
-> > ---
-> > Changes v1 -> v2:
-> > * Fix commit title.
-> > * Improve commit message.
-> >
-> >  scripts/clang-tools/gen_compile_commands.py | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/scripts/clang-tools/gen_compile_commands.py b/scripts/clang-tools/gen_compile_commands.py
-> > index 0033eedce003..1d1bde1fd45e 100755
-> > --- a/scripts/clang-tools/gen_compile_commands.py
-> > +++ b/scripts/clang-tools/gen_compile_commands.py
-> > @@ -13,6 +13,7 @@ import logging
-> >  import os
-> >  import re
-> >  import subprocess
-> > +import sys
-> >
-> >  _DEFAULT_OUTPUT = 'compile_commands.json'
-> >  _DEFAULT_LOG_LEVEL = 'WARNING'
-> > --
-> > 2.33.0
-> >
-> >
+Help the compiler out by eliminating the unreachable() annotation and
+unifying the default case error handling so that there is no objtool
+warning, the meaning of the code stays the same, and there is less
+duplication.
 
+Reported-by: Sami Tolvanen <samitolvanen@google.com>
+Tested-by: Sami Tolvanen <samitolvanen@google.com>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: David S. Miller <davem@davemloft.net>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ .../ethernet/stmicro/stmmac/dwmac-ipq806x.c    | 18 ++++++++----------
+ 1 file changed, 8 insertions(+), 10 deletions(-)
 
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c
+index 28dd0ed85a82..f7dc8458cde8 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c
+@@ -289,10 +289,7 @@ static int ipq806x_gmac_probe(struct platform_device *pdev)
+ 		val &= ~NSS_COMMON_GMAC_CTL_PHY_IFACE_SEL;
+ 		break;
+ 	default:
+-		dev_err(&pdev->dev, "Unsupported PHY mode: \"%s\"\n",
+-			phy_modes(gmac->phy_mode));
+-		err = -EINVAL;
+-		goto err_remove_config_dt;
++		goto err_unsupported_phy;
+ 	}
+ 	regmap_write(gmac->nss_common, NSS_COMMON_GMAC_CTL(gmac->id), val);
+ 
+@@ -309,10 +306,7 @@ static int ipq806x_gmac_probe(struct platform_device *pdev)
+ 			NSS_COMMON_CLK_SRC_CTRL_OFFSET(gmac->id);
+ 		break;
+ 	default:
+-		dev_err(&pdev->dev, "Unsupported PHY mode: \"%s\"\n",
+-			phy_modes(gmac->phy_mode));
+-		err = -EINVAL;
+-		goto err_remove_config_dt;
++		goto err_unsupported_phy;
+ 	}
+ 	regmap_write(gmac->nss_common, NSS_COMMON_CLK_SRC_CTRL, val);
+ 
+@@ -329,8 +323,7 @@ static int ipq806x_gmac_probe(struct platform_device *pdev)
+ 				NSS_COMMON_CLK_GATE_GMII_TX_EN(gmac->id);
+ 		break;
+ 	default:
+-		/* We don't get here; the switch above will have errored out */
+-		unreachable();
++		goto err_unsupported_phy;
+ 	}
+ 	regmap_write(gmac->nss_common, NSS_COMMON_CLK_GATE, val);
+ 
+@@ -361,6 +354,11 @@ static int ipq806x_gmac_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ 
++err_unsupported_phy:
++	dev_err(&pdev->dev, "Unsupported PHY mode: \"%s\"\n",
++		phy_modes(gmac->phy_mode));
++	err = -EINVAL;
++
+ err_remove_config_dt:
+ 	stmmac_remove_config_dt(pdev, plat_dat);
+ 
 -- 
-Best Regards
-Masahiro Yamada
+2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATA2-4jSfOCmdtgQ%2BcuAyXhyLCBuVEZkZ3nONZFV8z3EA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210909114106.141462-126-sashal%40kernel.org.
