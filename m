@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBC5JXFXXVEGRB5XG46EQMGQEZT6SLTQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC5JXFXXVEGRBQXH46EQMGQEUIAASSA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
-	by mail.lfdr.de (Postfix) with ESMTPS id 07DB24049F9
-	for <lists+clang-built-linux@lfdr.de>; Thu,  9 Sep 2021 13:43:52 +0200 (CEST)
-Received: by mail-pj1-x1039.google.com with SMTP id z9-20020a17090ad78900b00196680d384csf1215216pju.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 09 Sep 2021 04:43:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1631187830; cv=pass;
+Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
+	by mail.lfdr.de (Postfix) with ESMTPS id BEF35404A3D
+	for <lists+clang-built-linux@lfdr.de>; Thu,  9 Sep 2021 13:45:07 +0200 (CEST)
+Received: by mail-pl1-x637.google.com with SMTP id u1-20020a17090282c100b00138f7f7a49dsf690757plz.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 09 Sep 2021 04:45:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1631187906; cv=pass;
         d=google.com; s=arc-20160816;
-        b=g7m9yxzGRdgVz6229ObGgisDR8+RI7E+0EB9o+LIvn9lSuuu/aRd548qKX8RcZHENl
-         SYeP7LYk0N8pjsuFBTis8BM7k8/Kbtee8wynEh5Xrt43sKvEnRbpqsXuU/uZ+hp5NLNZ
-         e/qImCcaV2UPHLsia7BOGsKwWq7nrMZcIaGTgkGy8E/6U1shvkcr4GYyQiMhNz9TaOfh
-         sAM9wCqSUaY/w3QtuAjwwFPtag5ECBL+YhxHXHO1BmdbME7cxUUzIoWrFiafq48ZKfSm
-         MCcLwix+9svrKGbIj53SH7KeARdM+NwFjFE7m9aZyXyMXq7vTLZ1U4E7hB0a7LEHfB1g
-         rPZA==
+        b=eL7d9xZrRGhuGLi5cd5s8N6cgMHszfhtCjvqe37t6BrnUo3tIedf2zZDWtp8mGWkqE
+         2Umcz9GiyJOJDhgfcD4WbCVBImznxEShI3TBXy1pA1AAbth6xo3B7TaJpqIrE4YxGZ6+
+         ctzGm3SZao3fTPdApqJ0OwH/gXB+ue6Kj5mdPkdfM/yAXBNGCTfADnBN2B4aMtSu1uhz
+         opN6chbaI+b9G+NnqHtvYq6B3iw18w9ekkiitEhnZuLrp/KdV4LiFbzLZbvkr0YKzwR4
+         40B/ETcL+s6q8QEGesHcyJ3lntPVV8CrcMQ+miIyD1jSRY5TlLibwtDPzP8VAw9ge4ys
+         konw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=qkka7lGsB+OMCtWo5LtB32UOYr0kVQ6yhTyj3GaHCIg=;
-        b=GLup1Jc20jjSHk6xyceFZlal3Ra3wVp2jlHBV5wrexiBgtVvbvH9OL2GNZN1ZBDJ0u
-         4pxBNMKZU9infCKJ7vxW6K9ulLQ/o2sYpxgioExwwzzajDgIv80x9usfaR3jZpwGLYlp
-         gADGmNh0Roro8mtj/8dHBsD+k/XrCln9+k0dVI3K1JnUtFjfo8SElN0K1Y2SB9NytPZM
-         dxiexepvh8tQtlymI+sMrVJUgup0+hZ0644Irun4QFxe/SDwJ85UdR64KeviqO+5mbcr
-         ARo6CpauBj9MZlQRYB9ztRER+dSQIlUCmn0kgmMTv8rgPZhEzxYp6P/v4Ke6tbzrVHdB
-         hA9A==
+        bh=4fjlQ8wuilU/szbpHxoKtN5tjTWOPKcPOvhLimavnVA=;
+        b=CpDuhVRVc7qGSkx6i3r8oCozeYj2rQWcJNR+ziYCKlQlZB3b3qH0E/v2nxqZe061gQ
+         Icb57gGh3Wz3mqlyGfAPDrTXhDX62+2K63s2NEHcKg02m5AXCdyMv3Tjjjq9zl68/VOf
+         VHh6PMEJbSt28NBRcmHT91joQoCbiOwG8srQRFn/3IumZ6kHEbGMA3AGKPvIhXzylRGr
+         h1JdGaE8B4TpafYfuI8QGopg7G45l9hFsFSJ/OvQ6ovoGcNC9+i6rNtq8ey0o5A2gcIP
+         ybeBKaynnIoOZtswvgAnGScWLN3WgHzEol4VGMgncZkNZulfrXrJVvJ8DEAQZ79/BDvU
+         cBJA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Fl14Y4YS;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=qYXnSJ+E;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qkka7lGsB+OMCtWo5LtB32UOYr0kVQ6yhTyj3GaHCIg=;
-        b=ExlCcSqWbdHqo59VGI7DT45FmMfeCyyfpNbmG5ThLYgdtT7LZ9JKOiGgt5OHLg72N1
-         NiRsAbBaaKuIAKo5nTh00RTLA3ZHk3PtNw3gjFNG+vksPoaK8mz4gDyE/safb2NWpiCv
-         XPgJiDiByj1jMi/GaanfbORwxAhZMBctRxIJlLQ8DLnBLgNiZe7P0Jsh7AszJp229cXq
-         zgxaxGPox3JRGEWDGFoDnInZJw0gP1wPTQtDRPqS0P1RUMhQvcDWNw60sXwf8XHZ379l
-         oU+4eAtiQemX84wuZALGfLVVy4lzwcYOvSqFBEH5YgeNpHW5rSQ3G2DewdyNh55j3tU3
-         JRtQ==
+        bh=4fjlQ8wuilU/szbpHxoKtN5tjTWOPKcPOvhLimavnVA=;
+        b=PAs4UT2PouD7veSlEvK7t4BYuAafhXOirzzNafOeWLf/YAUJMffwVWqUcl6UgyerVV
+         AHvJgIG4jd9OAeNBhxQPyzp+Ybm75c0eCkuCPg4KAwLvg7dTZMhOBlwxbkdaKn/8+hnn
+         ajU3pGqepOfciSQ2IQ1z6AZ6aqOt/YLanJJRLLJx6hDNKAsV6ITDiicq3+dxUS4qRyTZ
+         lvAp+ebBbjHpXfjTCefkTtmJ73bpX+QIg4ouNRao0GzLCj4Hg7vLI00OQWJKRO8L1GwJ
+         9LOqvgHDhI9eraB+U3bH1T6pYhXMFSh1GErYV6LYW2VP9N3MjFXDrUB+mCwsMB5L31tw
+         nx6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,68 +49,68 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qkka7lGsB+OMCtWo5LtB32UOYr0kVQ6yhTyj3GaHCIg=;
-        b=PwHzk8Z5FZIvDhhinmQlpHX4XW2xfT0jjzqBZDxwnKVrpOI+uYwkVwIydkxcyzt3xR
-         c7ycPRvWBXv5D+jF2uwEHEBEESBaDhWq5Mx8K41lDR+/RfpcKovSC1fP97fKfY/k8+rV
-         T+UZxHk46opInY7L9mSay/JNwPJXVobGGP7g/f4IQVzY/mCu+dEu87X2Fj4xVo07xVpl
-         AvuSb72tqFWY1FJJy/Z1bQ5xLgY/IajPbgcrXdc0sUkzuh8Ne5ne4MHoIR+pOGxA/6J5
-         /jDcYN83efscYhqH6ScDcfmY+QbBGt72VdzFvktA1X/S5cZWM49b/fiVT0EAMBWXND7y
-         BwQg==
+        bh=4fjlQ8wuilU/szbpHxoKtN5tjTWOPKcPOvhLimavnVA=;
+        b=C9SAlj0WyQP38yVanH8ciSQ0Ow00BWwlxdQ0KWBni4SdRDKLfSWa2AyyKPZkY1QF60
+         n7hJ78+bTCQeulZw1u7sC7BIwrZt7cpcTrxt953OCgsXejzaycweiStAbq3fg3FvCdKP
+         fGDdSd/RtgZkL9IQ8EqPP7CMHD/P9NUNFDb9j+/k4PNEAt9kKGcwuw82XzVA3XQk0gNo
+         OjppHGs1io+auRsPl7kHo9cmh5AyxkAP8HZpFbTc3rmVxjEEkUNoxZGHzXsK3Vh0EL1d
+         mkBuWvKnDu42Z32k5U8ZRhsNozrAejE9YT94otnLaSuQzro9Nvvh3VOAwWaTvbDG44wN
+         aDJA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530meHmsrQ9fmaMQ30E1FTrlJTlPGFJH0XuwUd4/tF9LFxuIpt8u
-	PhZXUJUWexK2JqdzVvPBPGc=
-X-Google-Smtp-Source: ABdhPJw7Gi71Ew0G2HL6JjNFcJd0VHtrVuqbL8KCrcDOhNOscCsLBCnUOOAIBNMO28EGux/u7/WTCA==
-X-Received: by 2002:a17:90a:750:: with SMTP id s16mr3071615pje.234.1631187830742;
-        Thu, 09 Sep 2021 04:43:50 -0700 (PDT)
+X-Gm-Message-State: AOAM531R9BNyEbui2j2FLR78YVN9KSfoJfdP4EJ9Kql9qZo4LcP2tg6H
+	MDAkKG6ksTcEyEyLktq5gsk=
+X-Google-Smtp-Source: ABdhPJy7iFvwyabzoPhSztc3MBNg31xYqMTlnPplnl4utZWjHA/+ujpcCkWREPiN06mo5NK2R3LRGg==
+X-Received: by 2002:a17:90b:4c0e:: with SMTP id na14mr3171028pjb.94.1631187906475;
+        Thu, 09 Sep 2021 04:45:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:e787:: with SMTP id cp7ls1113688plb.10.gmail; Thu,
- 09 Sep 2021 04:43:50 -0700 (PDT)
-X-Received: by 2002:a17:90b:a06:: with SMTP id gg6mr3056285pjb.72.1631187830055;
-        Thu, 09 Sep 2021 04:43:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1631187830; cv=none;
+Received: by 2002:a17:90a:e57:: with SMTP id p23ls1003320pja.2.canary-gmail;
+ Thu, 09 Sep 2021 04:45:05 -0700 (PDT)
+X-Received: by 2002:a17:90a:d686:: with SMTP id x6mr3167071pju.8.1631187905709;
+        Thu, 09 Sep 2021 04:45:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631187905; cv=none;
         d=google.com; s=arc-20160816;
-        b=c8Y69R0B3Cj4j8b7sbJNXywcZnqSUPlo1k5kHrsWi8sd6voc/3dj9lt3qFUZ8hRroc
-         LCiTxdf+GRSLTKN+AKWNarp8PMTuD55QBh+/a/rtkWFfynE78z6ehPbs0Ng2lP8H5Ts5
-         Tp/YUY5CBfqrZVI7q+x3Ry92Ce+iphgpgKHcB3XVNP0PJTswvIqS6wKt6b4jfG54ve+S
-         D76vXYtWcs1iBUS4tFx8mSogl9QOzTib/9TB8YUudB/UqRUMiGE6lGgSGdmjgKqlVhlt
-         g2aRH523sJKSsQRN6aIegvLEUUj0On50JqQuIkszYihe5HMY0Fb5bcm8FC/KppmNVNY2
-         WjnQ==
+        b=Am2G7s4nsq8SSFrIkGkqNleMDpVTHyGgAfGf6IhS1iD7jUfdJ9lBvhuhjp8yiVvNv5
+         NXFFBjxa8+lZWfmu2hUZYslwrLukgZhha8un32E9yOEYF0YGeCNzNGE4O/+xXjwJPi/j
+         RyKGW2lHvQSGOdw7vhzyHO9VjO0UAXBLef2GoACpYg1dNoeo2tXq8ROg5Hkq0KfOVvJC
+         PSkA/vlehuh7Z9tofnttoFTGnbinZoJm8Xfg+c7GuiFPWKvgKFDG1e5ikMUbrm+BZgwc
+         3o7FXd9lF8OvXLwre9aGl6jeg37RePdP4dPMwwrH/GstO2tMrQDpPJB2MOagKfcaHP7S
+         DiwQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=bttQex7p7TMAo0fwRqoYpI04NJBJ57+vkBopoOl7Jfo=;
-        b=Ekt7+S1qR8hlBDN2+m3pT6i3EUMI15DUH+9yT/ZSlcbl54tWfuvILHzjKw5Hyz+45i
-         UTR7VU7+jg9c520en7wPscFLsnW3hqqI65+xVE+v2iO7XFLCQ27iqM6T4p+URnfz/EEb
-         2ru7ouXJNji3UGnbXkSOvjggFJzMwBhlPxpNewIJJ67p92caQmu6o6bo4DCx1i4fx9Pk
-         LB2VngOfcZWuUUK9jghWxLna30DwJLhrKnNk/M1dyiHanTbrXm4Gy6LSTD4dEdA+alDo
-         hADx7v9L/4vGd4cwZWzOugUI6t3jE9RL2o1riQ8n/8NdZ8n8TTof0RozH2zRuSwvWgWv
-         wyCw==
+        bh=ANilVGfxonIIt2tXOAZKm5jIzhKYKwvd8t0JjkpV4D4=;
+        b=oY4/a8apqjlZiK/d4TZTwVhDRCsUlB2oAZoF7BvwtknctraJRJljBAnoUCHS7XxO46
+         3xklmjbaoplUCNxdNLGF4hcnS1bLVWoMcHqksj8ohhxR23XsE25cOuRh3AKd4ZJByXxp
+         J+CeBk4NZx6X5aIEjqHJMkaMOvGjHmJWzwECdc/HpXIziqK97na78e2EFal/H6KHqkaj
+         +kqTiNm8FYyId+lCH7VvGjo8PjOoDQkao481RCVrTQ1lzo0I8gHj0E+av3UWGt+sGkyZ
+         ZhySEpXObJ2s17trLcW7Ykp2BufNOT7GmNwfJMjNPtdSxo3NyISn5qZ+v7ptyc56A3iB
+         ea5Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=Fl14Y4YS;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=qYXnSJ+E;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id 136si146579pfz.2.2021.09.09.04.43.50
+        by gmr-mx.google.com with ESMTPS id g24si112101pgm.0.2021.09.09.04.45.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 09 Sep 2021 04:43:50 -0700 (PDT)
+        Thu, 09 Sep 2021 04:45:05 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id B961A61213;
-	Thu,  9 Sep 2021 11:43:48 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 686F36138B;
+	Thu,  9 Sep 2021 11:45:04 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Nathan Chancellor <nathan@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"David S . Miller" <davem@davemloft.net>,
+	kernel test robot <lkp@intel.com>,
+	Inki Dae <inki.dae@samsung.com>,
 	Sasha Levin <sashal@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.14 126/252] net: ethernet: stmmac: Do not use unreachable() in ipq806x_gmac_probe()
-Date: Thu,  9 Sep 2021 07:39:00 -0400
-Message-Id: <20210909114106.141462-126-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.14 183/252] drm/exynos: Always initialize mapping in exynos_drm_register_dma()
+Date: Thu,  9 Sep 2021 07:39:57 -0400
+Message-Id: <20210909114106.141462-183-sashal@kernel.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210909114106.141462-1-sashal@kernel.org>
 References: <20210909114106.141462-1-sashal@kernel.org>
@@ -119,7 +119,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=Fl14Y4YS;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=qYXnSJ+E;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,88 +138,64 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Nathan Chancellor <nathan@kernel.org>
 
-[ Upstream commit 4367355dd90942a71641c98c40c74589c9bddf90 ]
+[ Upstream commit c626f3864bbbb28bbe06476b0b497c1330aa4463 ]
 
-When compiling with clang in certain configurations, an objtool warning
-appears:
+In certain randconfigs, clang warns:
 
-drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.o: warning: objtool:
-ipq806x_gmac_probe() falls through to next function phy_modes()
+drivers/gpu/drm/exynos/exynos_drm_dma.c:121:19: warning: variable
+'mapping' is uninitialized when used here [-Wuninitialized]
+                priv->mapping = mapping;
+                                ^~~~~~~
+drivers/gpu/drm/exynos/exynos_drm_dma.c:111:16: note: initialize the
+variable 'mapping' to silence this warning
+                void *mapping;
+                             ^
+                              = NULL
+1 warning generated.
 
-This happens because the unreachable annotation in the third switch
-statement is not eliminated. The compiler should know that the first
-default case would prevent the second and third from being reached as
-the comment notes but sanitizer options can make it harder for the
-compiler to reason this out.
+This occurs when CONFIG_EXYNOS_IOMMU is enabled and both
+CONFIG_ARM_DMA_USE_IOMMU and CONFIG_IOMMU_DMA are disabled, which makes
+the code look like
 
-Help the compiler out by eliminating the unreachable() annotation and
-unifying the default case error handling so that there is no objtool
-warning, the meaning of the code stays the same, and there is less
-duplication.
+  void *mapping;
 
-Reported-by: Sami Tolvanen <samitolvanen@google.com>
-Tested-by: Sami Tolvanen <samitolvanen@google.com>
+  if (0)
+    mapping = arm_iommu_create_mapping()
+  else if (0)
+    mapping = iommu_get_domain_for_dev()
+
+  ...
+  priv->mapping = mapping;
+
+Add an else branch that initializes mapping to the -ENODEV error pointer
+so that there is no more warning and the driver does not change during
+runtime.
+
+Reported-by: kernel test robot <lkp@intel.com>
 Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: David S. Miller <davem@davemloft.net>
+Signed-off-by: Inki Dae <inki.dae@samsung.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- .../ethernet/stmicro/stmmac/dwmac-ipq806x.c    | 18 ++++++++----------
- 1 file changed, 8 insertions(+), 10 deletions(-)
+ drivers/gpu/drm/exynos/exynos_drm_dma.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c
-index 28dd0ed85a82..f7dc8458cde8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c
-@@ -289,10 +289,7 @@ static int ipq806x_gmac_probe(struct platform_device *pdev)
- 		val &= ~NSS_COMMON_GMAC_CTL_PHY_IFACE_SEL;
- 		break;
- 	default:
--		dev_err(&pdev->dev, "Unsupported PHY mode: \"%s\"\n",
--			phy_modes(gmac->phy_mode));
--		err = -EINVAL;
--		goto err_remove_config_dt;
-+		goto err_unsupported_phy;
- 	}
- 	regmap_write(gmac->nss_common, NSS_COMMON_GMAC_CTL(gmac->id), val);
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_dma.c b/drivers/gpu/drm/exynos/exynos_drm_dma.c
+index 0644936afee2..bf33c3084cb4 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_dma.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_dma.c
+@@ -115,6 +115,8 @@ int exynos_drm_register_dma(struct drm_device *drm, struct device *dev,
+ 				EXYNOS_DEV_ADDR_START, EXYNOS_DEV_ADDR_SIZE);
+ 		else if (IS_ENABLED(CONFIG_IOMMU_DMA))
+ 			mapping = iommu_get_domain_for_dev(priv->dma_dev);
++		else
++			mapping = ERR_PTR(-ENODEV);
  
-@@ -309,10 +306,7 @@ static int ipq806x_gmac_probe(struct platform_device *pdev)
- 			NSS_COMMON_CLK_SRC_CTRL_OFFSET(gmac->id);
- 		break;
- 	default:
--		dev_err(&pdev->dev, "Unsupported PHY mode: \"%s\"\n",
--			phy_modes(gmac->phy_mode));
--		err = -EINVAL;
--		goto err_remove_config_dt;
-+		goto err_unsupported_phy;
- 	}
- 	regmap_write(gmac->nss_common, NSS_COMMON_CLK_SRC_CTRL, val);
- 
-@@ -329,8 +323,7 @@ static int ipq806x_gmac_probe(struct platform_device *pdev)
- 				NSS_COMMON_CLK_GATE_GMII_TX_EN(gmac->id);
- 		break;
- 	default:
--		/* We don't get here; the switch above will have errored out */
--		unreachable();
-+		goto err_unsupported_phy;
- 	}
- 	regmap_write(gmac->nss_common, NSS_COMMON_CLK_GATE, val);
- 
-@@ -361,6 +354,11 @@ static int ipq806x_gmac_probe(struct platform_device *pdev)
- 
- 	return 0;
- 
-+err_unsupported_phy:
-+	dev_err(&pdev->dev, "Unsupported PHY mode: \"%s\"\n",
-+		phy_modes(gmac->phy_mode));
-+	err = -EINVAL;
-+
- err_remove_config_dt:
- 	stmmac_remove_config_dt(pdev, plat_dat);
- 
+ 		if (IS_ERR(mapping))
+ 			return PTR_ERR(mapping);
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210909114106.141462-126-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210909114106.141462-183-sashal%40kernel.org.
