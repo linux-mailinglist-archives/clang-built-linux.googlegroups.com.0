@@ -1,141 +1,174 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRB25Q42EQMGQEYEI26XI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV6NQ6YVAMRBZOM42EQMGQEGUYFLHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3c.google.com (mail-oo1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 609A64044D8
-	for <lists+clang-built-linux@lfdr.de>; Thu,  9 Sep 2021 07:15:25 +0200 (CEST)
-Received: by mail-oo1-xc3c.google.com with SMTP id v9-20020a4ae6c9000000b0029003c3f017sf333334oot.23
-        for <lists+clang-built-linux@lfdr.de>; Wed, 08 Sep 2021 22:15:25 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1631164524; cv=pass;
+Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id 96457404580
+	for <lists+clang-built-linux@lfdr.de>; Thu,  9 Sep 2021 08:15:03 +0200 (CEST)
+Received: by mail-pg1-x538.google.com with SMTP id d5-20020a63ed05000000b002688d3aff8asf590582pgi.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 08 Sep 2021 23:15:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1631168102; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yea4PF2sKarUTOcNsSFDPxDOdKH4vpw093MKm1n0tw5I+hwXnoJUMnLZG4YW5OPYF+
-         of/rs2eHTYQIiUROSRFLti8KoVLHruzcbLilENo9i/F3dYzLXapcO3dX+x4iPnjrw8dC
-         T0A+L0kXg10bcI4iG+zOapiTp+4vKiNgLtaCwCsww8+IcbxbDNtffjJ6xky09sbg7nFm
-         inCW52MIM9ohqg0UUIdwKIO7j/UCxEyXzVPlldphF9advmKOZ4nLaqHtOwyVwy/z7w7c
-         IOzJzP24oOVHcFs5oQnTRd7vW7l7OCdpzU63Awt9udmygOJHid/fhG9hKc7Dmfew9bkH
-         R3/w==
+        b=DEyyGT/BSVMyRTAuahyQomMbm9EY3IVAvEMXNJwKbtTeshtjsXFDBQa74CLAuDwelX
+         j8X0k2o+RgCHVFo7RKcxLgyx22xzu5qvU8Kk64j9v/cRC7c4hDmKJZNw4RQ+qAzrRkje
+         kSrOpGf28/+EbZFWVDCWkuihMLsRLn+vDvj4waLYqPql08nRvLkEyz75VWAjDskvkn6f
+         btnemK5iW0gswzSxE6YZkRrPzoYnhIztz6qlkCKHWnTRLSifXPoI/LUKnwB7HWwzpV0P
+         +/U4H9tVLupPckNJDeYaJYZC0PM5Hgc9sHLHkXsUCWCPKZ+k3+VE0NN9/x59zKiLmklN
+         3ztw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=jFqYv7Uv/4n50jHlali1fUlv9jJOxgOg3FJCF2XKyxg=;
-        b=K0degLDn6zuse8ch+oqSdK+4Lnxf/5kD8momabai81t+KhC7N92IFXbZF7rML0Omfs
-         EqJ7gX7qDamJg4MEJ7MqjOg2yj4FChXLS/2MVh9X2pbwb0d5P6H6NyHBnIjhAHRIpzcN
-         myMQodgCoTpCktTN3l63RSwhgb+/vQtUeKv4OnYJJS/SbNlRVoQ3iBJ6+GbJ/qIEZ3+5
-         zWDW/mGMZ83gJ8Qa6FRYZhArPShUDLbbc3mE8+gjfmyc9jAg3/GbbmBi3LiepfHxnElB
-         0MOf2KvXgP0kMQXAcu7Oyn2PzA15qnXEa+vc2akLkibkUospw6dDUKfUGrXMvhi7zTZ1
-         9IfA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:organization:from
+         :references:cc:to:subject:sender:dkim-signature;
+        bh=LAVhV239bXwgVkNLWj7Qmwo4D2gdEGZqx4IJzsrftSM=;
+        b=02FfaUaZnpSBTT2TFM/DRwJCIS4r1AplhbLNRIXSQfVwjW9/OUG6pYxCeQ1WpuihRK
+         eTkOnuxntW9XnctRM0Z7nGiyuWPN+yg5Z0dSPnc01t/4gInwc/61yune0aEref/ivEkj
+         /LJ7979P3qT4Qqs7xjc9V9k3RfxpOaqhiUyzB1tBst/Pqj4Z46nxImTjoBQfxijYtUeS
+         T5MYqE776Rv+n9vKEkIfGJjbb8eTucCKSMEratsO653UnH4rvRBt2zm3DyTpCTqZxzQo
+         OQk3RGgdGQiMayYVZjKFU7LV5stpLemyKE1yn/zQzfWS5wmfQ+vZNefxvkg5zZdV6Mx2
+         nVqg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=rGqgIpLl;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=NrJLNRL4;
+       spf=pass (google.com: domain of kgraul@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=kgraul@linux.ibm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=jFqYv7Uv/4n50jHlali1fUlv9jJOxgOg3FJCF2XKyxg=;
-        b=m4Z24+m+0o706EldNWIBNA4451ChjkZ8uadQNX9LUyGh1r9QqOW9NmGv6Jj9anawyP
-         GuVxg/UJ5Puz0XYkQUALQcM/D2FwLFzj2wdP00t2hRJrJdGj/wIgWZqfkLQVtbIIlwHX
-         Vh2ACysy14XTTfuOb3sK9Tmlbv89iDhVC0uhDmkQQeX0sRRB/q5B0EFCmjqvx3cDGtiL
-         7Y3ovfGHmaSUURmhY0t45N+GrcIRLM3O4y3yJILe46+QIdU9yN2G8BT4TfTW1Gv1MJRJ
-         BptnVw7ZfTZjPw4lEVy3ZrygdiTxKL0tRLIXydusUwGuBIsFCd2Dq4rRHDg5tXIsFvbM
-         qKwg==
+        h=sender:subject:to:cc:references:from:organization:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=LAVhV239bXwgVkNLWj7Qmwo4D2gdEGZqx4IJzsrftSM=;
+        b=UoXetO0A5aws+SrYDQuBeKpY6JN5RnEGP83uu1ngj7miZ9AymxGBE7F2Wrtf7CsyhY
+         EPlE0r1KW7hdFVr2hm69Uizz0VlX5PuZwHgarpEoV8toHPJu4isQ/P/3NiI3KMxa6hiz
+         ZetElfAB00sldJF9qdsXFhloW4sZMKosFBgJtSeA6DR77n8SMrh/QU36KwmF2V4mJ89l
+         JpJgSlbvt4tcl9HILFBskkPJe8a8OFFVji+SeFY4MlXyi3h7Lh6f2BVAIbQXaxFP+oZx
+         1qlKMAhBheVCves3vbCA2Bj49gmU46xFhvYMxwyYSIu7c1pLdut/pOfoEtg4aPjkxp0L
+         hbHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:subject:to:cc:references:from
+         :organization:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jFqYv7Uv/4n50jHlali1fUlv9jJOxgOg3FJCF2XKyxg=;
-        b=dPyXIZL2Hm9cB6odFMfg2m8RRLnpb6/x7Vev4m/0J9GPzs6vCIV0iRnf7tk2uvbiNz
-         NX5FihZ1j460Di+Pkrns9Fv6edCuXQHyKlvWryiOiB95ZWp2MsHdCR9PJSo0k3Ynwffi
-         DebCmQ831YXTvQr0hPX1WA+VaCfm6fKJfjGzTSM9VNqTj1ZuO9/psPiV5r89noD2CejF
-         4j6tIAf5WVOICWUmiG/DzG0/wSdK7j7gZd90DFYzewhtwjGQcZl/2f5TBFehG4ck4ohM
-         LKLZIB4v9l51M4cM8HbQ+cYTAmLqtXqxabZXnAtPA2uvQsSXDcMTZE2Cgqd5gf2KN2Y1
-         uVfA==
+        bh=LAVhV239bXwgVkNLWj7Qmwo4D2gdEGZqx4IJzsrftSM=;
+        b=Lje53PUgI22TqeU9g24HIoHxuHrFZYZQmawqPR1sWSRL3PanTc8LCZZ6/Aq9FFhq3t
+         7RxhibdvEj8PF57Mu7SCisbZAhEuvDw8CSYfeWAJJLSOgsj6nC8mAj5L/ihaDTH0OKuM
+         KfCu7qOWI6nbgWdWsbftVkOOSQS7Hh+zt/0OtXIxLmC+Anv2Nl0OLfNK9T4be2o8qbV+
+         ThJO3TfMGxVCW0rwVDTdvROsfWyjRMgtKYXYTsRTEFsrOs8QSy/QtMEovIgTRKr0RZzZ
+         GIZgGOZZuOl1HvSAWUUNnYW+80K49qfWL0tFdVXwtEM6xKx1UkuycvOMfOTFzhSWRnmE
+         jZhA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531L78GVa47ll76FiBmbr7cBhHCuUVUoeH06RiAJMJ91kK+WFHXb
-	G/RBsXegESylMWJzIZwI/wg=
-X-Google-Smtp-Source: ABdhPJzplBoZVQhzW/hj2MH4FALZKicCYXf4G9wCfrY6stmU4xdqOpAG5KKY6UsjEe9CHqfcXOS2mA==
-X-Received: by 2002:aca:670c:: with SMTP id z12mr785750oix.14.1631164523880;
-        Wed, 08 Sep 2021 22:15:23 -0700 (PDT)
+X-Gm-Message-State: AOAM531W09s1FYHA+0tH+781O8ClDd60pi3Ig8Lg9GVMydAegbU05bvD
+	BfJ1kCjo6wzrPSBp13ANYrU=
+X-Google-Smtp-Source: ABdhPJwgE1DQMZ4LrtDPxVGaQXPfBAVx0ravGPoC7ISyr3fSeUVuR86XtCmL7pl42a8oUCvXZ8lLIA==
+X-Received: by 2002:a17:90b:388f:: with SMTP id mu15mr1653654pjb.193.1631168101793;
+        Wed, 08 Sep 2021 23:15:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:9b99:: with SMTP id x25ls47584ooj.9.gmail; Wed, 08 Sep
- 2021 22:15:23 -0700 (PDT)
-X-Received: by 2002:a4a:c119:: with SMTP id s25mr1033460oop.22.1631164523475;
-        Wed, 08 Sep 2021 22:15:23 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1631164523; cv=none;
+Received: by 2002:a63:fb01:: with SMTP id o1ls468897pgh.4.gmail; Wed, 08 Sep
+ 2021 23:15:01 -0700 (PDT)
+X-Received: by 2002:aa7:820b:0:b0:3ee:de1f:18a9 with SMTP id k11-20020aa7820b000000b003eede1f18a9mr1526699pfi.73.1631168101167;
+        Wed, 08 Sep 2021 23:15:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631168101; cv=none;
         d=google.com; s=arc-20160816;
-        b=kR8gWBkdfh23qpBneefikwQB8hUdrwYSXxsiAMLewq7S6YDirbG38fZbUZcV5Mxszi
-         5SAMV7nlTYa2g/GJSQsuYmQbSRH75SUO/jrJ3yHV+kAlc8TogKlUKLPxQwZjxJOvGPod
-         MAa+cNsPiAGRGFvAx+XRmYY5wlzBWZsGrvqTjXdxeAS9ZvScwvXkh+DE1diZi5aORXGu
-         Y7Isnshbfd4ES31UjLALxop7prFxE7I9pTfkoM2r2IgVm6baP34Vk/0qfoKpLv7mkkzR
-         LW6fyEEtjT8x6oD3n1BPwTfz4/EZaBLlsY1TbsLDCi92g4FRgwi/YQD+4FmczukwMDqN
-         FcHA==
+        b=iV3PkEhbB776ZTw/yNOlEN44Gb7CKGOY127BwPxtuV7gqtlGwhWSLxn7s5e9Z/xHl1
+         110Ww/6ILMEfNnpoboXXBqCEkbVB7DO368eGxr5C5z7/KwDZbLZrBDbMuVaURjYwPlud
+         ws/HzVWaf270qRYlfK7blgEDbb6tEprKk0C9UJPZBmnrSt8MCfx97UCKl0f6saXp6ST3
+         MfCm12fkEsksWUygawDbW213wsIy8rhgVx/S81ZlkyvdkDzJn6uBWHb3Why/PyxKPrXS
+         0xA85yjrakwjARn280sAwBnciGHbEKWBiF+hMDNaJ6ALPzlZlPMhpYUTLqLZ0aABfNfJ
+         xOTg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=ghCcarr3Wa8g2fBREVBbfn3a3wQyCXTSnt9W+mVN4Mw=;
-        b=STx441H6PyDj1uXgvGTqvJFNn1HYnpWGS8Dcy1UTfqyVf0BJgqaXtSXiWSMQKwKlQQ
-         DtntqsOa2tDr3CHx3ojHjM5vuxb/7vp7wnIU1miBXXd6LdF2tDUK/xCMq+XIrZ7e09A2
-         sM9ZtTUj5ajIJuwbjGvkvFzEZg+QI2LgyeBcnLJKmpnemfa7C5kgVLtCJeJGYCUoIS6d
-         eu0ter/0LmGi6pAE6FJz9C2xS2eaCOLxKsFT0ylEfjakcZBV1AYI+L9NrAStI5XniWrS
-         yco6nc1V6kloYt9gPMxhqwc50Hr5vy1bfIyEFUd87wdkftAxjAMpZJN1rm1CW9Clm0dZ
-         IKQA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:organization:from:references:cc:to
+         :subject:dkim-signature;
+        bh=cPUonm5kJsYc2X/GGy0xJ2tmTzDsookwnNtXApmtolc=;
+        b=UqU8s8n2Cij8GiudvCpI8rrmKWDgSywASoF9wXithfwb556ooZnNTYYXbch3Ec9hGd
+         ary+qhLfvfb6GH0UejcFVDhG/Y1ayGAFF6/VPVyYCUUcJJWvWR84hGOtZxYh/AOe1W3v
+         5vF56AYUgi0dgSo3XtqUyQinY1PY8yOsUJo11tS18U6PjwUrn7CShWymfCxP+LiMoSf7
+         dAc3faXyRpc/lbiKqRY3TyJqFlVBm6+zWuZEix3hWEZgk+0PTmP8ZkWALryIK3japZiK
+         CH2zZ4sfVtkbNujkHLpDjC+I2QhPmdKwW/wPiKUNs5mMPcmVuzsjWG8Zx+F3D7LUTcLo
+         s6XQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=rGqgIpLl;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-05.nifty.com (conssluserg-05.nifty.com. [210.131.2.90])
-        by gmr-mx.google.com with ESMTPS id c9si69855ook.2.2021.09.08.22.15.23
+       dkim=pass header.i=@ibm.com header.s=pp1 header.b=NrJLNRL4;
+       spf=pass (google.com: domain of kgraul@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=kgraul@linux.ibm.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com. [148.163.156.1])
+        by gmr-mx.google.com with ESMTPS id b15si63732pfl.6.2021.09.08.23.15.00
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 08 Sep 2021 22:15:23 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.90 as permitted sender) client-ip=210.131.2.90;
-Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182]) (authenticated)
-	by conssluserg-05.nifty.com with ESMTP id 1895EtKN031233
-	for <clang-built-linux@googlegroups.com>; Thu, 9 Sep 2021 14:14:55 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-05.nifty.com 1895EtKN031233
-X-Nifty-SrcIP: [209.85.214.182]
-Received: by mail-pl1-f182.google.com with SMTP id j2so322679pll.1
-        for <clang-built-linux@googlegroups.com>; Wed, 08 Sep 2021 22:14:55 -0700 (PDT)
-X-Received: by 2002:a17:902:6b42:b0:13a:54d0:39c4 with SMTP id
- g2-20020a1709026b4200b0013a54d039c4mr1244141plt.42.1631164494718; Wed, 08 Sep
- 2021 22:14:54 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 08 Sep 2021 23:15:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kgraul@linux.ibm.com designates 148.163.156.1 as permitted sender) client-ip=148.163.156.1;
+Received: from pps.filterd (m0098393.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id 18963cdb004569;
+	Thu, 9 Sep 2021 02:14:57 -0400
+Received: from ppma02fra.de.ibm.com (47.49.7a9f.ip4.static.sl-reverse.com [159.122.73.71])
+	by mx0a-001b2d01.pphosted.com with ESMTP id 3axmeqtg97-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 09 Sep 2021 02:14:57 -0400
+Received: from pps.filterd (ppma02fra.de.ibm.com [127.0.0.1])
+	by ppma02fra.de.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 1896CAlI007700;
+	Thu, 9 Sep 2021 06:14:55 GMT
+Received: from b06cxnps4076.portsmouth.uk.ibm.com (d06relay13.portsmouth.uk.ibm.com [9.149.109.198])
+	by ppma02fra.de.ibm.com with ESMTP id 3axcnk87vk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 09 Sep 2021 06:14:54 +0000
+Received: from d06av24.portsmouth.uk.ibm.com (d06av24.portsmouth.uk.ibm.com [9.149.105.60])
+	by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 1896EpGp46661900
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 9 Sep 2021 06:14:52 GMT
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D918B42041;
+	Thu,  9 Sep 2021 06:14:51 +0000 (GMT)
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DBB794203F;
+	Thu,  9 Sep 2021 06:14:50 +0000 (GMT)
+Received: from [9.171.14.134] (unknown [9.171.14.134])
+	by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTP;
+	Thu,  9 Sep 2021 06:14:50 +0000 (GMT)
+Subject: Re: [PATCH v2 60/63] net/af_iucv: Use struct_group() to zero struct
+ iucv_sock region
+To: Kees Cook <keescook@chromium.org>, linux-kernel@vger.kernel.org
+Cc: Julian Wiedmann <jwi@linux.ibm.com>,
+        "David S. Miller"
+ <davem@davemloft.net>,
+        Jakub Kicinski <kuba@kernel.org>, linux-s390@vger.kernel.org,
+        netdev@vger.kernel.org, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        linux-wireless@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        linux-staging@lists.linux.dev, linux-block@vger.kernel.org,
+        linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        linux-hardening@vger.kernel.org
+References: <20210818060533.3569517-1-keescook@chromium.org>
+ <20210818060533.3569517-61-keescook@chromium.org>
+From: Karsten Graul <kgraul@linux.ibm.com>
+Organization: IBM Deutschland Research & Development GmbH
+Message-ID: <19ff61a0-0cda-6000-ce56-dc6b367c00d6@linux.ibm.com>
+Date: Thu, 9 Sep 2021 08:14:52 +0200
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.12.0
 MIME-Version: 1.0
-References: <CAHk-=wjc1rxah3xt8mKN=aCxQigjy3-hEf4xh_Y-r=MXAKVrag@mail.gmail.com>
- <20210906154642.GV1583@gate.crashing.org> <CAHk-=wj=WpWO_V86cZH99LgZGBbvdDb4wR26ce5van0hJqjzLA@mail.gmail.com>
- <20210906172701.GX1583@gate.crashing.org> <CAHk-=wh0MBVfA89WLWnCiSnJ2a=hSAoSxfG-jyf7JJeBDPK3ew@mail.gmail.com>
- <87lf49wodu.fsf@oldenburg.str.redhat.com> <20210906194808.GY1583@gate.crashing.org>
- <20210906201432.GZ920497@tucnak> <CAHk-=wi80NGPppGmBpc5zuGRAsv4_7qsDu7ehW515J2FJoezAQ@mail.gmail.com>
- <20210906215218.GA920497@tucnak> <20210907145247.GH1583@gate.crashing.org>
-In-Reply-To: <20210907145247.GH1583@gate.crashing.org>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Thu, 9 Sep 2021 14:14:17 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATNZRbdxCkdu=+wW1bcyoX0YcZYRTSW129n7AnnLyKbWg@mail.gmail.com>
-Message-ID: <CAK7LNATNZRbdxCkdu=+wW1bcyoX0YcZYRTSW129n7AnnLyKbWg@mail.gmail.com>
-Subject: Re: [GIT PULL v2] Kbuild updates for v5.15-rc1
-To: Segher Boessenkool <segher@kernel.crashing.org>
-Cc: Jakub Jelinek <jakub@redhat.com>,
-        Linus Torvalds <torvalds@linuxfoundation.org>,
-        Florian Weimer <fweimer@redhat.com>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        llvm@lists.linux.dev, linux-toolchains@vger.kernel.org
+In-Reply-To: <20210818060533.3569517-61-keescook@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+Content-Language: en-US
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: oFVZQt8pTzxySj5pZJpy_ghkEsh5Wye4
+X-Proofpoint-ORIG-GUID: oFVZQt8pTzxySj5pZJpy_ghkEsh5Wye4
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.391,18.0.790
+ definitions=2021-09-09_01:2021-09-07,2021-09-09 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 bulkscore=0
+ phishscore=0 adultscore=0 suspectscore=0 malwarescore=0 mlxlogscore=968
+ priorityscore=1501 clxscore=1011 lowpriorityscore=0 mlxscore=0 spamscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2109030001
+ definitions=main-2109090035
+X-Original-Sender: kgraul@linux.ibm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=rGqgIpLl;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.90 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@ibm.com header.s=pp1 header.b=NrJLNRL4;       spf=pass (google.com:
+ domain of kgraul@linux.ibm.com designates 148.163.156.1 as permitted sender)
+ smtp.mailfrom=kgraul@linux.ibm.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=ibm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,89 +181,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Sep 7, 2021 at 11:54 PM Segher Boessenkool
-<segher@kernel.crashing.org> wrote:
->
-> On Mon, Sep 06, 2021 at 11:52:18PM +0200, Jakub Jelinek wrote:
-> > On Mon, Sep 06, 2021 at 02:08:58PM -0700, Linus Torvalds wrote:
-> > There is a stddef.h include too and that's it
-> > (I must say I don't see the reason for that include though).
->
-> Yeah me neither.  Maybe the header used NULL before?
->
-> > Other compiler provided headers (not talking about C++ now) also have no
-> > or very limited includes, including stddef.h, stdarg.h, stdatomic.h, etc.
-> > The only exceptions are tgmath.h which isn't usable without libc
-> > math.h/complex.h,
->
-> <tgmath.h> is only for hosted environments.  That requires a C library
-> for GCC (we do not implement this stuff ourselves).  The compiler and
-> the C library have to work together to get this done, and the relation
-> between GCC and Glibc has been a bit too tight for this, it is true.
->
-> But a kernel build is not in a hosted environment.
->
-> > in some cases stdint.h and limits.h which are in some
-> > configurations provided both by the C library and the compiler and include
-> > each other in that case (but e.g. stdint.h has an alternate version that
-> > only uses compiler provided builtin macros) and openacc.h.
->
-> On what targets is <stdint.h> still problematic?  And <limits.h>?
+On 18/08/2021 08:05, Kees Cook wrote:
+> In preparation for FORTIFY_SOURCE performing compile-time and run-time
+> field bounds checking for memset(), avoid intentionally writing across
+> neighboring fields.
+> 
+> Add struct_group() to mark the region of struct iucv_sock that gets
+> initialized to zero. Avoid the future warning:
+> 
+> In function 'fortify_memset_chk',
+>     inlined from 'iucv_sock_alloc' at net/iucv/af_iucv.c:476:2:
+> ./include/linux/fortify-string.h:199:4: warning: call to '__write_overflow_field' declared with attribute warning: detected write beyond size of field (1st parameter); maybe use struct_group()? [-Wattribute-warning]
+>   199 |    __write_overflow_field(p_size_field, size);
+>       |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> 
+> Cc: Julian Wiedmann <jwi@linux.ibm.com>
+> Cc: Karsten Graul <kgraul@linux.ibm.com>
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: Jakub Kicinski <kuba@kernel.org>
+> Cc: linux-s390@vger.kernel.org
+> Cc: netdev@vger.kernel.org
+> Signed-off-by: Kees Cook <keescook@chromium.org>
+> ---
+>  include/net/iucv/af_iucv.h | 10 ++++++----
+>  net/iucv/af_iucv.c         |  2 +-
+>  2 files changed, 7 insertions(+), 5 deletions(-)
 
+No objections.
+Acked-by: Karsten Graul <kgraul@linux.ibm.com>
 
-Since commit 0c79a8e29b5fcbcbfd611daf9d500cfad8370fcf
-all architectures in the kernel space use the same fixed-width
-types, which are defined by
-include/uapi/asm-generic/int-ll64.h
-
-So, u32 is always 'unsigned int',
-and u64 is always 'unsigned long long'.
-
-It is convenient for printk() in common code
-because we can always use the 'll' prefix for u64.
-
-
-  u32 foo = 1;
-  u64 bar = 1;
-
-  printk("foo = %u\n", foo);
-  printk("bar = %llu\n, bar);
-
-
-
-If we use compiler-provided <stdint.h>,
-it is not convenient for printk() because
-uint64_t is 'unsigned long' on some compilers
-and 'unsigned long long' on others.
-
-<intypes.h> provides macros such as PRIx64
-
-    uint32_t foo = 1;
-    uint64_t bar = 1;
-
-    printk("foo = %" PRIu32 "\n", foo);
-    printk("bar = %" PRIu64 "\n", bar);
-
-
-This works, but ends up with ugly code,
-which I want to avoid.
-
-
-
-
-
-
-
-
-
-
-
-
---
-Best Regards
-Masahiro Yamada
+Thank you.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATNZRbdxCkdu%3D%2BwW1bcyoX0YcZYRTSW129n7AnnLyKbWg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/19ff61a0-0cda-6000-ce56-dc6b367c00d6%40linux.ibm.com.
