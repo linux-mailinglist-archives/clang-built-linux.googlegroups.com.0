@@ -1,116 +1,146 @@
-Return-Path: <clang-built-linux+bncBCQPF57GUQHBBM4W5SEQMGQEIMPD34Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDP5FWOTVEGRBVU75WEQMGQE3QQHB7Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id CEABE4067CB
-	for <lists+clang-built-linux@lfdr.de>; Fri, 10 Sep 2021 09:37:24 +0200 (CEST)
-Received: by mail-pg1-x53b.google.com with SMTP id w5-20020a654105000000b002692534afcesf820415pgp.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 10 Sep 2021 00:37:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1631259443; cv=pass;
+Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id C2647406B6B
+	for <lists+clang-built-linux@lfdr.de>; Fri, 10 Sep 2021 14:30:14 +0200 (CEST)
+Received: by mail-lj1-x239.google.com with SMTP id y6-20020a05651c154600b001c30dac7e87sf825029ljp.8
+        for <lists+clang-built-linux@lfdr.de>; Fri, 10 Sep 2021 05:30:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1631277014; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gJGiILPjuxZVJyLHabyD05Zgqt8cAFu0FMa8RpeADNqO+qf+aWH32TtAGynU58w2ws
-         wahQgipJjMyoiLnevetM0uQYr8STEBwXXFyO/zPAFXblYNnbhcqayBDhpDxmtuykRSKM
-         3JapAEyJsjba7uV+6sUjC2dHVaycsPjuZpJK4T8hhyKS3M5a0nny3FzuSjr+b3+czSYZ
-         zaQhTkvaK7dOB4C0CKaraVXYQxsRyDOWPtQOQUw1EeZADT8CQnlgc79OCXlxOrZBUUKp
-         seWp1CrwQNiAnEOltXLyuWhcKIYR4MMPrXtZBoaE9hHtH81JwkMEqjD174xpzP+JsVDu
-         S1Ig==
+        b=XX1zPdGs3qlpzUJwLEI9GgsKcUO8JgU7Tdoa/jZa4jutOwPJ5NZO2c9QyrAwyLAbVm
+         KPOzXw9DtcNy8Yi8rlQXiVirkVGfoOQY57EUCYCsvcfUrGe18TAsBe0uy86wjGR9Hlzf
+         S5z3olPj8okgdcItiWpA3VKM885H/YHm/3aZgyGeMidslt6fjIgSa6Dm8Vv5PxHeAc4Z
+         Y2qmSSvQ7Dqak9Mg52g5mmquWvAzIjAqcA/3zhYrK95j1cPikd7YVUf4+/m3th/ur+Js
+         86nqJjbr76ghbx6pcHzWqtEjs1ri3zEYNRga5i3g3OrgziJUpvQfkMDau31CS8F3Zb28
+         qcGw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:to:from:subject:message-id:date
-         :mime-version:sender:dkim-signature;
-        bh=z1EtTjp/ZYlmR9CbF2gnyCDRg4wCZ2sBIkUw3pNOTHQ=;
-        b=pBDz50mgmGBTPr5XHPLWQsocZksdUrnbhhwcgjpwdlp0OLi/r/40m2eT41aDiHCs9Q
-         R1jkSo5cFFo7V/f7lawZjYkQIksRQNdQTY+TZHUsAYPoIQrz5+iU1lWK8wKQ4Ydu7lUN
-         j2qS8C6sECahrjjRMrvzcSoaGuvdVkGg2OIl/JbrDepblL6i8tI026YFL5EbAf+6o4CN
-         Kkhm4xwyJG4/foONXPV6//qtpAF2CDXazceX5enz8sZliGROC1LvzsCU8lBd1IvlV0z1
-         e7Y4Z97+b2JulJHlnx7Dr43dlD+NHL+2/3Xm3bUQagAJUcR2vgjC8VemDXfk6eStZvLD
-         lD0g==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=PfmnS6JpaDKuhQWCTSv37n/yvZtUURukH7dreTctY2I=;
+        b=r4j0TCaXPTsdDrTXODsAfoISz6pkU5USeJvBP5RB3lYeimGTsy7dyjHoVpZLUbL2X1
+         WkvEdDaHmcgvd2lfDAsIOjsr02/LXxlaqZY8RVOIwYCipJaTi2OvwazX/BoUi2SPC7nG
+         NHbeNNAR+bR0C9+gKlPg5KYdEKvJLxIwZEVp5JXl7lTvNcHw6KAtlfayX0LXXzG6qktp
+         cMClQPS204HHWaIIYnopR0IuP+OiEHalhQPZvW8gTy9IQyBlXBUU6bsGUKAX2UdFLMqF
+         6VEjKqcZTCBW2/+yHflPD5I8mYvB8urVUktmkWHyhZujHsV+Qs0CzLEqMPrykRQxCrmi
+         iO7w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of 3mqs7yqkbaeqy45qgrrkxgvvoj.muumrk0ykxiutzktz.ius@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.199 as permitted sender) smtp.mailfrom=3MQs7YQkbAEQy45qgrrkxgvvoj.muumrk0ykxiutzktz.ius@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
+       spf=pass (google.com: domain of alexandr.lobakin@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:mime-version:date:message-id:subject:from:to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=z1EtTjp/ZYlmR9CbF2gnyCDRg4wCZ2sBIkUw3pNOTHQ=;
-        b=WJexzgT0MVkHBpH04Xkr1HI90Fva/NOVQ/osXPosXPDeAtmroUqH3whOuZrUa7MtnF
-         mVPAP5SELqGlkybkmsMrdrjBPRy4imYKHNXRTVQw2M+od0oJXqlO+C4gyA5D5t+fqY48
-         lZu0cy2m/yZNZBbnkR77Ty0s09pI/XiPMMZKROiqtwqkLMXYAAsLfrqMU7ZEIUMLAg6t
-         yJpY9EJiL3uvyCOxaH3p6HYeBwFk8A6XmBboCkB8igWiYxwTSpomsrszRm0xkFZqoIci
-         EEAzgNkMmGbCuNUbNt5BUrqYj3L21KMNs1dZ9DGlGJ8c3apWbrvWQh70g+3Z1zt5haw3
-         m0ig==
+        bh=PfmnS6JpaDKuhQWCTSv37n/yvZtUURukH7dreTctY2I=;
+        b=sz9+5O4hkiP5c8T4thN1VT6GtpHuGDYjxRDzMf2Piiot+W2uPvBw3QqlvxQjuFzUn/
+         /yJgOSFl2OXM+2deJtNcowJ8waS7QRCwyQDumYlzfClkck54zf3WJuU7ClzGC7B3Dne5
+         be+9al+Oe3nz/7AMipvuTMPqRvzJUBEEqyZ0aXnFUu3QyS1ruF9pvWqIlUVWU4/u5pPY
+         Zq5IS+kELU+17gNuUv4+K4wOJSwpL8Fnmtj4ZJz2a3rYURh6a+AFVlh/qcJh4qK8qR0D
+         1rm3uhMM2wh6CCFb7YIRvXTGvBBCD67Dzii9ltaMBXO41urnXgyNxmYzv5I3fZLnBOH6
+         RK1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:mime-version:date:message-id:subject:from
-         :to:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=z1EtTjp/ZYlmR9CbF2gnyCDRg4wCZ2sBIkUw3pNOTHQ=;
-        b=I4d0jA9GMoPlluetkUXgxlxjcHcxnrSlYulvrgdsRfdNln8x/RoGyhb6RdYzHcbcmg
-         oIxGOOzUelPmj56gc/jfGoYISYFPekTCekrd9iTVJfjm1c28pDD4OgR7DIqXfgcsYkoI
-         V/QVPheuR34nQua8kqqtSagTz9u3YBMKBRS0LmJxx6ryxNQEBgXHck3IJEA9XBLDAq4f
-         LgWT5RvUb3//J+dLBBvY6xhE3jgDn5gEHIj2q7x9jqA+MQdjZYK5lpt7iQlwsNd4IqoC
-         YV51PgxmxfECBHU7pc14Y3Lf088OgtnYAu/bhyA+IgaDXhD16G2L5KC/7DUjtdVE27x9
-         m5vA==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=PfmnS6JpaDKuhQWCTSv37n/yvZtUURukH7dreTctY2I=;
+        b=SxgbUWd+o56KNsnXTJ02UyIE0vcibd/lJe9KR4oQkZuSx61gGoz1XcDV6gYNOBRMq7
+         eZZqNGQHVd4SfMgw2/Wsi/2+2/2KNjWcXOv2QQ7MWpqy/Y6F2ZWBkQnvaPnQeu8joq9s
+         dQwswMwV6sivbrwOdKaShQ4R/6cprOnvwkMq8JVeSu0LZ5dE7wQP1LqCG8lz0DzoXGnV
+         SfZUC1wIKGujZb88gF9TiiY/UPZYStmhvHpjMNDK5+eP2jxwjsOL+13deqZmpjENQtrh
+         n0xvUhWr4ng2WRj3NpcFbfWtZHfQhOm9lLiM/z49SETyfbDzz2LSItdtE1ePjL+hDdfj
+         Kjvg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531/gDz2lwlgMEEeh/xueEVZGt/pb0/5Nhz3q3M/Ny2wPmsgnjQy
-	V1y2/cfG8xKJSHXGAdUzIP4=
-X-Google-Smtp-Source: ABdhPJxvXxRYRzIZKWcjn88BgbH6Oee5Qp49IcSKny2lmNJV2yh0+F1DUAYkGn3OyLdzdbh2u40K0A==
-X-Received: by 2002:a17:902:d395:b0:13a:25cf:f1c2 with SMTP id e21-20020a170902d39500b0013a25cff1c2mr6367005pld.55.1631259443438;
-        Fri, 10 Sep 2021 00:37:23 -0700 (PDT)
+X-Gm-Message-State: AOAM532cfp/U9kCPUAHw3UhTb93S9DmZgzSZ0UfqWMsDYGNDbKKpES2a
+	kLodywqoD0RAKT442ghmcXU=
+X-Google-Smtp-Source: ABdhPJyiXV2E/ZJwy4o3C5jF7c8kphKyCraxBOdKBzuEVvYWXIbzt5JU0opvJeLaUcC+a2vPb9jmfA==
+X-Received: by 2002:a05:6512:6d6:: with SMTP id u22mr3670627lff.363.1631277014336;
+        Fri, 10 Sep 2021 05:30:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:ed83:: with SMTP id e3ls2758540plj.2.gmail; Fri, 10
- Sep 2021 00:37:22 -0700 (PDT)
-X-Received: by 2002:a17:903:41d0:b0:138:8d81:95d5 with SMTP id u16-20020a17090341d000b001388d8195d5mr6297043ple.67.1631259442478;
-        Fri, 10 Sep 2021 00:37:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1631259442; cv=none;
+Received: by 2002:a05:6512:3b88:: with SMTP id g8ls2585370lfv.1.gmail; Fri, 10
+ Sep 2021 05:30:13 -0700 (PDT)
+X-Received: by 2002:a05:6512:239e:: with SMTP id c30mr3759484lfv.485.1631277013342;
+        Fri, 10 Sep 2021 05:30:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631277013; cv=none;
         d=google.com; s=arc-20160816;
-        b=gTQaE1Eka70HqbDx3f9WT76sbmT/D3ICVzikA4RSwBpvWBE47naP8531Dy7DiWSq02
-         9GrTnZ6/M6jIuJDpqJylDslFC64BUHWeSn0QcSsbTNQ5EPY8lpZGAAMZtzGs9Ut5BgZh
-         FkU+zWsGRneb5R+s7htJ5eK/R5Tq1X1f8ei6yXZ1XoohSfFDHGubEugYkESEleRlvO/B
-         xsYe2roBhWoUrS3VP9Ufjl63Y7MhsMtS+48sXdZ36U7CUrKvCC31AqqGIAllgl9O6Y5/
-         s4+4QtMErtB/bjK/TwZyhnVZml6KxzvnMcxqo+ScoU7gkzUldkzMzX0WLojndys77WGm
-         wf/g==
+        b=mSkozaKzk4wgvbfK2jf3UR+qo0xQhPPqKWszBViugvrTDcYj368s6NQybpX78JX2ha
+         nZrsOeu0per+REG6IBBQaL4YgNafYzdmJhlLweUuyx/tUv8DcfOb65tbPXiTJgAvgN+/
+         V7Dz/IAoe3nn36UCHtq6VQEXhW2v4OwfErO7i/z0I4PGC8hcR+tayehE9PAvJ0jN2ZV0
+         XE2H+lsqFWtYWJD7ODIqvwUTqesbFCv3pmxOuyfnUOSupWBPQtwbaOBGN0cncurkZ1rJ
+         DNpe4k1bTykcOBRPUGjxFsOW7En5seorFw2QkjHTNu66AOxjTjKejiueDzQNpZAF/w7b
+         BCOA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=to:from:subject:message-id:date:mime-version;
-        bh=ECLq3Tlj41/7XypHMCkWQxWJKVcEKsiokaHShYEAAaQ=;
-        b=PwhKXks1gyj7bplpPZD0uG9u4OAivNLTB8/nEAp8+RqtlwjIiGuc49KNKRSQtx1ErO
-         phQ7d712bwYVS1i/NVse/ycwBjSn3IOZeVXfkN+jOv33rrPZbMFuOoW0WPhEyGwqqI7K
-         pKr1982vU3z61mrMax4Z6b4KcW3FH9jP1hSTG8hn9MVj4A412YKhU3yGSAlEv2SJEVxR
-         Bkruw3XBYwndAEuxv/QdI4p3rC6znQVOqoPOxD9vC8Pkp3/5MgBTmXn23iuZkqN1elPV
-         mBLA527wKy3teHc6558/mIgXvBfQKgo015obJ1ykUAg5/ORCZxJk1y5VrPvBem4zd+Lj
-         GCZw==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from;
+        bh=5g54/pfM/rT/DxuEba4UXbBNIbB8DlP/m7V2vc+bMTo=;
+        b=ltlfEeKBhfJ9mHwDOjFghl17MSDr1wkHfvdof+0tiuD2Goo/lyuFIHp6wmtiDk9qDq
+         DnETowCeCxiR43zyhs/rSs2z/a59sMYEjjcOPm9+6ViQKyv3NeZeORWEaq5ViyQ4nBfR
+         kX1Y1JoRJ+KqprUlHIcfCheYx+9D0ggSICFmUUWlXfxosuLb+NAurCiVtlOoUwq0tiD5
+         aOHc4v59Tx3ubq+K0XrPKfLYo8WQUDtFtAbIly1cPgrSVvH8117Wf4qhOYZiXQYtM3u5
+         Uk9wbZX617n0j1REfa++kK5OKZrZT/NplmwCX5kCl+AdENwrkmqSTqyHmVqQwb+yLpub
+         OPTQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of 3mqs7yqkbaeqy45qgrrkxgvvoj.muumrk0ykxiutzktz.ius@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.199 as permitted sender) smtp.mailfrom=3MQs7YQkbAEQy45qgrrkxgvvoj.muumrk0ykxiutzktz.ius@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
-Received: from mail-il1-f199.google.com (mail-il1-f199.google.com. [209.85.166.199])
-        by gmr-mx.google.com with ESMTPS id y10si131352plg.3.2021.09.10.00.37.22
+       spf=pass (google.com: domain of alexandr.lobakin@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id u22si346947lfs.12.2021.09.10.05.30.12
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Sep 2021 00:37:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3mqs7yqkbaeqy45qgrrkxgvvoj.muumrk0ykxiutzktz.ius@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com designates 209.85.166.199 as permitted sender) client-ip=209.85.166.199;
-Received: by mail-il1-f199.google.com with SMTP id x4-20020a92b004000000b0022b3cb3b4deso1441183ilh.17
-        for <clang-built-linux@googlegroups.com>; Fri, 10 Sep 2021 00:37:22 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 10 Sep 2021 05:30:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of alexandr.lobakin@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+X-IronPort-AV: E=McAfee;i="6200,9189,10102"; a="219205328"
+X-IronPort-AV: E=Sophos;i="5.85,282,1624345200"; 
+   d="scan'208";a="219205328"
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Sep 2021 05:30:11 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.85,282,1624345200"; 
+   d="scan'208";a="431539785"
+Received: from irvmail001.ir.intel.com ([10.43.11.63])
+  by orsmga006.jf.intel.com with ESMTP; 10 Sep 2021 05:30:05 -0700
+Received: from alobakin-mobl.ger.corp.intel.com (alobakin-mobl.ger.corp.intel.com [10.237.140.50])
+	by irvmail001.ir.intel.com (8.14.3/8.13.6/MailSET/Hub) with ESMTP id 18ACU3af025901;
+	Fri, 10 Sep 2021 13:30:03 +0100
+From: Alexander Lobakin <alexandr.lobakin@intel.com>
+To: Miroslav Benes <mbenes@suse.cz>
+Cc: Alexander Lobakin <alexandr.lobakin@intel.com>,
+        linux-hardening@vger.kernel.org,
+        Kristen C Accardi <kristen.c.accardi@intel.com>,
+        Kristen Carlson Accardi <kristen@linux.intel.com>,
+        Kees Cook <keescook@chromium.org>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        "H. Peter Anvin" <hpa@zytor.com>, Jessica Yu <jeyu@kernel.org>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Marios Pomonis <pomonis@google.com>,
+        Sami Tolvanen <samitolvanen@google.com>,
+        Tony Luck <tony.luck@intel.com>, Ard Biesheuvel <ardb@kernel.org>,
+        Jesse Brandeburg <jesse.brandeburg@intel.com>,
+        Lukasz Czapnik <lukasz.czapnik@intel.com>,
+        Marta A Plantykow <marta.a.plantykow@intel.com>,
+        Michal Kubiak <michal.kubiak@intel.com>,
+        Michal Swiatkowski <michal.swiatkowski@intel.com>,
+        linux-kbuild@vger.kernel.org, linux-arch@vger.kernel.org,
+        linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+        live-patching@vger.kernel.org
+Subject: Re: [PATCH v6 kspp-next 16/22] livepatch: only match unique symbols when using fgkaslr
+Date: Fri, 10 Sep 2021 14:29:53 +0200
+Message-Id: <20210910122953.400-1-alexandr.lobakin@intel.com>
+X-Mailer: git-send-email 2.31.1
+In-Reply-To: <alpine.LSU.2.21.2109091347400.20761@pobox.suse.cz>
+References: <20210831144115.154-1-alexandr.lobakin@intel.com> <20210831144114.154-17-alexandr.lobakin@intel.com> <alpine.LSU.2.21.2109091347400.20761@pobox.suse.cz>
 MIME-Version: 1.0
-X-Received: by 2002:a05:6602:730:: with SMTP id g16mr5895756iox.138.1631259441979;
- Fri, 10 Sep 2021 00:37:21 -0700 (PDT)
-Date: Fri, 10 Sep 2021 00:37:21 -0700
-X-Google-Appengine-App-Id: s~syzkaller
-Message-ID: <000000000000936c3c05cb9f2ff8@google.com>
-Subject: [syzbot] possible deadlock in br_multicast_rcv (2)
-From: syzbot <syzbot+1f749b80a78ec45502f8@syzkaller.appspotmail.com>
-To: bridge@lists.linux-foundation.org, clang-built-linux@googlegroups.com, 
-	davem@davemloft.net, kuba@kernel.org, linux-kernel@vger.kernel.org, 
-	nathan@kernel.org, ndesaulniers@google.com, netdev@vger.kernel.org, 
-	nikolay@nvidia.com, roopa@nvidia.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: syzbot@syzkaller.appspotmail.com
+X-Original-Sender: alexandr.lobakin@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of 3mqs7yqkbaeqy45qgrrkxgvvoj.muumrk0ykxiutzktz.ius@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com
- designates 209.85.166.199 as permitted sender) smtp.mailfrom=3MQs7YQkbAEQy45qgrrkxgvvoj.muumrk0ykxiutzktz.ius@m3kw2wvrgufz5godrsrytgd7.apphosting.bounces.google.com;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=appspotmail.com
+ (google.com: domain of alexandr.lobakin@intel.com designates 192.55.52.120 as
+ permitted sender) smtp.mailfrom=alexandr.lobakin@intel.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -123,156 +153,93 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello,
+From: Miroslav Benes <mbenes@suse.cz>
+Date: Thu, 9 Sep 2021 13:53:35 +0200 (CEST)
 
-syzbot found the following issue on:
+> Hi,
 
-HEAD commit:    57f780f1c433 atlantic: Fix driver resume flow.
-git tree:       net
-console output: https://syzkaller.appspot.com/x/log.txt?x=13fb836d300000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=765eea9a273a8879
-dashboard link: https://syzkaller.appspot.com/bug?extid=1f749b80a78ec45502f8
-compiler:       gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.1
+Hi!
 
-Unfortunately, I don't have any reproducer for this issue yet.
+> On Tue, 31 Aug 2021, Alexander Lobakin wrote:
+> 
+> > From: Kristen Carlson Accardi <kristen@linux.intel.com>
+> > 
+> > If any type of function granular randomization is enabled, the sympos
+> > algorithm will fail, as it will be impossible to resolve symbols when
+> > there are duplicates using the previous symbol position.
+> > 
+> > Override the value of sympos to always be zero if fgkaslr is enabled for
+> > either the core kernel or modules, forcing the algorithm
+> > to require that only unique symbols are allowed to be patched.
+> > 
+> > Signed-off-by: Kristen Carlson Accardi <kristen@linux.intel.com>
+> > Signed-off-by: Alexander Lobakin <alexandr.lobakin@intel.com>
+> > ---
+> >  kernel/livepatch/core.c | 11 +++++++++++
+> >  1 file changed, 11 insertions(+)
+> > 
+> > diff --git a/kernel/livepatch/core.c b/kernel/livepatch/core.c
+> > index 335d988bd811..852bbfa9da7b 100644
+> > --- a/kernel/livepatch/core.c
+> > +++ b/kernel/livepatch/core.c
+> > @@ -169,6 +169,17 @@ static int klp_find_object_symbol(const char *objname, const char *name,
+> >  	else
+> >  		kallsyms_on_each_symbol(klp_find_callback, &args);
+> >  
+> > +	/*
+> > +	 * If any type of function granular randomization is enabled, it
+> > +	 * will be impossible to resolve symbols when there are duplicates
+> > +	 * using the previous symbol position (i.e. sympos != 0). Override
+> > +	 * the value of sympos to always be zero in this case. This will
+> > +	 * force the algorithm to require that only unique symbols are
+> > +	 * allowed to be patched.
+> > +	 */
+> > +	if (IS_ENABLED(CONFIG_FG_KASLR))
+> > +		sympos = 0;
+> > +
+> 
+> I ran the live patching tests and no problem occurred, which is great. We 
+> do not have a test for old_sympos, which makes the testing less telling, 
+> but at least nothing blows up with the section randomization itself.
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+1f749b80a78ec45502f8@syzkaller.appspotmail.com
+Great, thanks!
 
-============================================
-WARNING: possible recursive locking detected
-5.14.0-rc7-syzkaller #0 Not tainted
---------------------------------------------
-ksoftirqd/0/13 is trying to acquire lock:
-ffff888029d18fd0 (&br->multicast_lock){+.-.}-{2:2}, at: spin_lock include/linux/spinlock.h:354 [inline]
-ffff888029d18fd0 (&br->multicast_lock){+.-.}-{2:2}, at: br_ip6_multicast_query net/bridge/br_multicast.c:3000 [inline]
-ffff888029d18fd0 (&br->multicast_lock){+.-.}-{2:2}, at: br_multicast_ipv6_rcv net/bridge/br_multicast.c:3393 [inline]
-ffff888029d18fd0 (&br->multicast_lock){+.-.}-{2:2}, at: br_multicast_rcv+0x2e31/0x5b90 net/bridge/br_multicast.c:3425
+> However, I want to reiterate what I wrote for the same patch in v5 
+> series.
+> 
+> The above hunk should work, but I wonder if we should make it more 
+> explicit. With the change the user will get the error with "unresolvable 
+> ambiguity for symbol..." if they specify sympos and the symbol is not 
+> unique. It could confuse them.
+> 
+> So, how about it making it something like
+> 
+> if (IS_ENABLED(CONFIG_FG_KASLR) || IS_ENABLED(CONFIG_MODULE_FG_KASLR))
+>         if (sympos) {
+>                 pr_err("fgkaslr is enabled, specifying sympos for symbol '%s' in object '%s' does not work.\n",
+>                         name, objname);
+>                 *addr = 0;
+>                 return -EINVAL;
+>         }
+> 
+> ? (there could be goto to the error out at the end of the function to 
+> save copy-pasting).
+> 
+> In that case, if sympos is not specified, the user will get the message 
+> which matches the reality. If the user specifies it, they will get the 
+> error in case of fgkaslr (no matter if the symbol is found or not).
 
-but task is already holding lock:
-ffff8880748c4fd0 (&br->multicast_lock){+.-.}-{2:2}, at: spin_lock include/linux/spinlock.h:354 [inline]
-ffff8880748c4fd0 (&br->multicast_lock){+.-.}-{2:2}, at: br_multicast_port_query_expired+0x40/0x170 net/bridge/br_multicast.c:1588
+Not familiar with livepatching unfortunately, hope Kristen and/or
+Kees will comment on this. Looks fine for me anyways.
 
-other info that might help us debug this:
- Possible unsafe locking scenario:
+> What do you think?
+> 
+> Miroslav
 
-       CPU0
-       ----
-  lock(&br->multicast_lock);
-  lock(&br->multicast_lock);
-
- *** DEADLOCK ***
-
- May be due to missing lock nesting notation
-
-10 locks held by ksoftirqd/0/13:
- #0: ffffc90000d27c58 ((&port->ip6_own_query.timer)){+.-.}-{0:0}, at: lockdep_copy_map include/linux/lockdep.h:35 [inline]
- #0: ffffc90000d27c58 ((&port->ip6_own_query.timer)){+.-.}-{0:0}, at: call_timer_fn+0xd5/0x6b0 kernel/time/timer.c:1411
- #1: ffff8880748c4fd0 (&br->multicast_lock){+.-.}-{2:2}, at: spin_lock include/linux/spinlock.h:354 [inline]
- #1: ffff8880748c4fd0 (&br->multicast_lock){+.-.}-{2:2}, at: br_multicast_port_query_expired+0x40/0x170 net/bridge/br_multicast.c:1588
- #2: ffffffff8b97c220 (rcu_read_lock_bh){....}-{1:2}, at: __dev_queue_xmit+0x1da/0x3620 net/core/dev.c:4219
- #3: ffffffff8b97c220 (rcu_read_lock_bh){....}-{1:2}, at: __dev_queue_xmit+0x1da/0x3620 net/core/dev.c:4219
- #4: ffffffff8b97c280 (rcu_read_lock){....}-{1:2}, at: is_netpoll_tx_blocked include/net/bonding.h:109 [inline]
- #4: ffffffff8b97c280 (rcu_read_lock){....}-{1:2}, at: bond_start_xmit+0x88/0x1220 drivers/net/bonding/bond_main.c:4878
- #5: ffffffff8b97c220 (rcu_read_lock_bh){....}-{1:2}, at: __dev_queue_xmit+0x1da/0x3620 net/core/dev.c:4219
- #6: ffffffff8b97c280 (rcu_read_lock){....}-{1:2}, at: is_netpoll_tx_blocked include/net/bonding.h:109 [inline]
- #6: ffffffff8b97c280 (rcu_read_lock){....}-{1:2}, at: bond_start_xmit+0x88/0x1220 drivers/net/bonding/bond_main.c:4878
- #7: ffffffff8b97c220 (rcu_read_lock_bh){....}-{1:2}, at: __dev_queue_xmit+0x1da/0x3620 net/core/dev.c:4219
- #8: ffffffff8b97c220 (rcu_read_lock_bh){....}-{1:2}, at: __dev_queue_xmit+0x1da/0x3620 net/core/dev.c:4219
- #9: ffffffff8b97c280 (rcu_read_lock){....}-{1:2}, at: br_dev_xmit+0x0/0x16a0 net/bridge/br_device.c:305
-
-stack backtrace:
-CPU: 0 PID: 13 Comm: ksoftirqd/0 Not tainted 5.14.0-rc7-syzkaller #0
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 01/01/2011
-Call Trace:
- __dump_stack lib/dump_stack.c:88 [inline]
- dump_stack_lvl+0xcd/0x134 lib/dump_stack.c:105
- print_deadlock_bug kernel/locking/lockdep.c:2944 [inline]
- check_deadlock kernel/locking/lockdep.c:2987 [inline]
- validate_chain kernel/locking/lockdep.c:3776 [inline]
- __lock_acquire.cold+0x149/0x3ab kernel/locking/lockdep.c:5015
- lock_acquire kernel/locking/lockdep.c:5625 [inline]
- lock_acquire+0x1ab/0x510 kernel/locking/lockdep.c:5590
- __raw_spin_lock include/linux/spinlock_api_smp.h:142 [inline]
- _raw_spin_lock+0x2a/0x40 kernel/locking/spinlock.c:151
- spin_lock include/linux/spinlock.h:354 [inline]
- br_ip6_multicast_query net/bridge/br_multicast.c:3000 [inline]
- br_multicast_ipv6_rcv net/bridge/br_multicast.c:3393 [inline]
- br_multicast_rcv+0x2e31/0x5b90 net/bridge/br_multicast.c:3425
- br_dev_xmit+0x6bf/0x16a0 net/bridge/br_device.c:85
- __netdev_start_xmit include/linux/netdevice.h:4948 [inline]
- netdev_start_xmit include/linux/netdevice.h:4962 [inline]
- xmit_one net/core/dev.c:3659 [inline]
- dev_hard_start_xmit+0x1eb/0x920 net/core/dev.c:3675
- __dev_queue_xmit+0x2988/0x3620 net/core/dev.c:4285
- vlan_dev_hard_start_xmit+0x1b3/0x670 net/8021q/vlan_dev.c:124
- __netdev_start_xmit include/linux/netdevice.h:4948 [inline]
- netdev_start_xmit include/linux/netdevice.h:4962 [inline]
- xmit_one net/core/dev.c:3659 [inline]
- dev_hard_start_xmit+0x1eb/0x920 net/core/dev.c:3675
- __dev_queue_xmit+0x2988/0x3620 net/core/dev.c:4285
- bond_dev_queue_xmit+0xc3/0x170 drivers/net/bonding/bond_main.c:304
- bond_do_alb_xmit+0x5ca/0x8b0 drivers/net/bonding/bond_alb.c:1327
- __bond_start_xmit drivers/net/bonding/bond_main.c:4859 [inline]
- bond_start_xmit+0xaad/0x1220 drivers/net/bonding/bond_main.c:4883
- __netdev_start_xmit include/linux/netdevice.h:4948 [inline]
- netdev_start_xmit include/linux/netdevice.h:4962 [inline]
- xmit_one net/core/dev.c:3659 [inline]
- dev_hard_start_xmit+0x1eb/0x920 net/core/dev.c:3675
- __dev_queue_xmit+0x2988/0x3620 net/core/dev.c:4285
- bond_dev_queue_xmit+0xc3/0x170 drivers/net/bonding/bond_main.c:304
- bond_3ad_xor_xmit drivers/net/bonding/bond_main.c:4621 [inline]
- __bond_start_xmit drivers/net/bonding/bond_main.c:4855 [inline]
- bond_start_xmit+0xb01/0x1220 drivers/net/bonding/bond_main.c:4883
- __netdev_start_xmit include/linux/netdevice.h:4948 [inline]
- netdev_start_xmit include/linux/netdevice.h:4962 [inline]
- xmit_one net/core/dev.c:3659 [inline]
- dev_hard_start_xmit+0x1eb/0x920 net/core/dev.c:3675
- __dev_queue_xmit+0x2988/0x3620 net/core/dev.c:4285
- macvlan_queue_xmit drivers/net/macvlan.c:543 [inline]
- macvlan_start_xmit+0x156/0x5e0 drivers/net/macvlan.c:567
- __netdev_start_xmit include/linux/netdevice.h:4948 [inline]
- netdev_start_xmit include/linux/netdevice.h:4962 [inline]
- xmit_one net/core/dev.c:3659 [inline]
- dev_hard_start_xmit+0x1eb/0x920 net/core/dev.c:3675
- __dev_queue_xmit+0x2988/0x3620 net/core/dev.c:4285
- br_dev_queue_push_xmit+0x252/0x730 net/bridge/br_forward.c:51
- NF_HOOK include/linux/netfilter.h:307 [inline]
- __br_multicast_send_query+0xf7e/0x39f0 net/bridge/br_multicast.c:1527
- br_multicast_send_query+0x27c/0x420 net/bridge/br_multicast.c:1572
- br_multicast_port_query_expired+0x118/0x170 net/bridge/br_multicast.c:1596
- call_timer_fn+0x1a5/0x6b0 kernel/time/timer.c:1421
- expire_timers kernel/time/timer.c:1466 [inline]
- __run_timers.part.0+0x675/0xa20 kernel/time/timer.c:1734
- __run_timers kernel/time/timer.c:1715 [inline]
- run_timer_softirq+0xb3/0x1d0 kernel/time/timer.c:1747
- __do_softirq+0x29b/0x9c2 kernel/softirq.c:558
- run_ksoftirqd kernel/softirq.c:920 [inline]
- run_ksoftirqd+0x2d/0x60 kernel/softirq.c:912
- smpboot_thread_fn+0x645/0x9c0 kernel/smpboot.c:164
- kthread+0x3e5/0x4d0 kernel/kthread.c:319
- ret_from_fork+0x1f/0x30 arch/x86/entry/entry_64.S:295
-bridge0: received packet on veth1_to_bridge with own address as source address (addr:aa:aa:aa:aa:aa:0c, vlan:0)
-bridge0: received packet on bridge_slave_1 with own address as source address (addr:aa:aa:aa:aa:aa:0c, vlan:0)
-bridge0: received packet on veth1_to_bridge with own address as source address (addr:aa:aa:aa:aa:aa:0c, vlan:0)
-bridge0: received packet on bridge_slave_1 with own address as source address (addr:aa:aa:aa:aa:aa:0c, vlan:0)
-bridge0: received packet on veth1_to_bridge with own address as source address (addr:aa:aa:aa:aa:aa:0c, vlan:0)
-bridge0: received packet on veth1_to_bridge with own address as source address (addr:aa:aa:aa:aa:aa:0c, vlan:0)
-bridge0: received packet on bridge_slave_1 with own address as source address (addr:aa:aa:aa:aa:aa:0c, vlan:0)
-bridge0: received packet on veth1_to_bridge with own address as source address (addr:aa:aa:aa:aa:aa:0c, vlan:0)
-bridge0: received packet on bridge_slave_1 with own address as source address (addr:aa:aa:aa:aa:aa:0c, vlan:0)
-bridge0: received packet on veth1_to_bridge with own address as source address (addr:aa:aa:aa:aa:aa:0c, vlan:0)
-
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+Thanks,
+Al
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/000000000000936c3c05cb9f2ff8%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210910122953.400-1-alexandr.lobakin%40intel.com.
