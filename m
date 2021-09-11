@@ -1,123 +1,125 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBYW452EQMGQETS2IAXY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDC2RCVE24NRBUNS6KEQMGQEKPTIKZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
-	by mail.lfdr.de (Postfix) with ESMTPS id 14D034071C3
-	for <lists+clang-built-linux@lfdr.de>; Fri, 10 Sep 2021 21:13:39 +0200 (CEST)
-Received: by mail-lf1-x139.google.com with SMTP id p3-20020a0565121383b0290384997a48fcsf1243311lfa.21
-        for <lists+clang-built-linux@lfdr.de>; Fri, 10 Sep 2021 12:13:39 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1631301218; cv=pass;
+Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 604B8407655
+	for <lists+clang-built-linux@lfdr.de>; Sat, 11 Sep 2021 13:56:02 +0200 (CEST)
+Received: by mail-qk1-x73e.google.com with SMTP id 23-20020a05620a071700b00426392c0e6esf34708337qkc.4
+        for <lists+clang-built-linux@lfdr.de>; Sat, 11 Sep 2021 04:56:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1631361361; cv=pass;
         d=google.com; s=arc-20160816;
-        b=skhmxH3fi6t1I6LDPpWPx2jVasJlBk4jPQvUl/j3lmaTDvu0rhAPTQ4jsoXhhMuwfy
-         4969m5Jc3zhA4ZFqjIhMOrw1bs99T4FrZujVVENCUgzZjoJxKEe3hX7csuDzstoxziZw
-         pcMiGOEmvv4EXkZk+hn7EWPXA6gLx3km9+zSQF/a4XguRAG81n6CTjYxeQO5WaSiDEo4
-         HiJTxQ4cIBRjuUp7zjPBSn0Dovx1IMSJ/z5B9aEyD67y9uJO/YcvFYuwOtoV/XamLEo8
-         DByDQ62ISugqQrsTtDbU0fWl1ta+Er/+YRU/x+GJIHNxX+9ym4RkVUb3BVpWLHNv92dz
-         FUsA==
+        b=mlgP4qw1+Xv/iYbWNmpPkqVp+nJOZbyUfIqpZAmhvlqGxfyx/1iW1SBqSO0o5Lleqy
+         Zk6m4HkZDYiaehvf2EDPonGAvi0bemYIfC9RPsLSbMGlBwjQ2sVoo8p7X2OqyR8Zzb6x
+         ZwJNpdt1ZKOd6/KT+w5nMj+ApdScM9bv+qABKp97VkYDOYHKVkWobmHXnc6+OOMhCmLC
+         hMxKus3vZFYmgEOhe+DVZvrxW8liLD3EyoVG8pYEwgQbZf49UavVitBviyBmGnEpEhlt
+         gh8Vj0VfjpWfzOh9rgE/zvpD/8I3YqRcW/lmGCCbjEowujccGzs54f8wEUq4Iaaa49lU
+         xX4Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=1Xfl2NEefV/PZQgqWaTLxaW2MIlRSgksFCg/JdmgBKc=;
-        b=kfQBGnzr1r7235jiQDxFIx2gSnt1DtWfJ9HG8aw9NMauZdVXPj4eWq3/Ssqohvz1pP
-         yejL++ZLSzA/GO6/ktfmKA7nfb7hSppTZVp9rYPjf9VNqvs7IK26ZH8RFgnSrhwr7O2w
-         9CvtsBR7Vv0306JclZ0HgxLffpupan8s2yWEUcdBIjPYjqpk2qFJ8iw7ItHUZzXkvVDs
-         2kDgIzl44fjhx4rwdHmrr1VjAamjbka2aY0YS3DM8EKFzqSQxfbpzrQpd9L9bxXzoEag
-         Hg5S+6ugzQHGh9+9znyoFyFGabzc7mv79PQ2lid4YSKBqtJv2InEBi3TN3LcSdgY3pdn
-         J5UA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=DOLFgGcn3PT7wpYD26aLS4cmxXQiFFWJnFpUQb+PEZw=;
+        b=w4/hqpxiV84+L4chljI/u4OE0LTBuPu/uk5qmCzD9uAkSNZEDpTH5knIgjshdXH5hY
+         98g2wUWvyB7ByTPFjmkIO0Jk1DfKaxHaZqXrnNn4l76lgoazCk41sWjDugFCRP4YE6H9
+         gz+n2L36z+FR7p8AEqImpIBdbJNt4+9/NoOPMfWCUfQS/n0fJykZ3tlAJcpdSSERS/8k
+         c9wBfbZa1k3ww04KgdfxFuTXcz/oIcATti01C+IW6llwBMMT4pVnCRv5BPE0N9sMtRIf
+         PLbZPj97isZUwyMAnHFAx+rxdKq5M9hkMtSAVxmPq4lHZdfCN/4+oFJV1w6d0h5/cK7a
+         rU5g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=CZ61t5GM;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=1Xfl2NEefV/PZQgqWaTLxaW2MIlRSgksFCg/JdmgBKc=;
-        b=Je6EbRMIhIKyHw3T4rcD6FpC4+Wl6pJ6JlW+e5OXpsOr+OwdpYui5eNtLtnK4ULuN7
-         C4RSVFNTBQqape0ikQg/ZUH07ilPfjP89FbB8/oDUF7jlPiAE0JpsLKbXAKUp2niRBg/
-         NCJKaglTCBzDFIbQEVx/QgZ57Uyf7d4DaS6CFkdzjLgSesuikiHU3HyxNiP8hCAx83f+
-         rQ3MBOyYfquJ/3LXKqGb9n6efB/3/07j7ER+HOpTxw7py+eWgnq2oNND8CUIYocmV1ON
-         vYbOel7uyUPOc7Ha5oY12ig2QVbaDW3cdRo9QPT1V4wbUTXsCEQ+lQD1meWH3BYbl1Ef
-         laIQ==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=DOLFgGcn3PT7wpYD26aLS4cmxXQiFFWJnFpUQb+PEZw=;
+        b=Yh8jiXt+2SWH4W9N3IwYjzU/Nr8EF4C2YOfF2YQcBTQKbnNayKp3SBeezZ2ujMbE4A
+         e4lwUcL5R0huAqWRs7IUPtkBGCL3LFMxbhq6A4Z3Pb2Xy4cPK448mG5NKKmR6NsfXnME
+         984XQIPCHMjc3Vj5cYbdr6veymBmHR9ck7b6+p1H0iOFWvIfs0wdhcI1iFH54MN5Cq2R
+         v0SDsLIymG4DvDPnhj4Pjc7TStdBAmBc+EgGg26n5XmU8R6QJ6gLpXkHRjVvFJz+Kz1Y
+         zWO5CaP62RAXv8agvDhbQCl3e53AgIaOjBfB/y/OGUVcrHSJjTCNHtLQKRII8TkatTe+
+         jJjg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=1Xfl2NEefV/PZQgqWaTLxaW2MIlRSgksFCg/JdmgBKc=;
-        b=bxG0NuXKlE1o+s0usTYSYkNuTg72UQRDtuhht8jMsP9JjLQLa7fKSHj8SYubTeYgjd
-         rOEjWh3zn0YnPNDcmMij+4BjWWj6WUkhIivDiFQcDZu4P33E7kdjB8p1mCJwNbGCQXdT
-         GEz/KQbtlSg4K9q77nXi0iU6n1Nxa0CTQPz+OGkagyqGX3XwYVzjsKH/OFjhWvWq+5nG
-         uZZB3Pb58ZZ/v60gJz0v5Z0WVks+yr7aYqKb0KrYdQSzNtl9m4rTAdcn/iZqoPtUh83t
-         nO26KThGxSNttA0xB1jHFZ/vts73tSjR6r1XVvu6aE86LTxha8fgYowoRxGJPc545HhZ
-         yOHw==
-X-Gm-Message-State: AOAM532zPzEI8Sf0RCPwemkOYDqAyKFcSjzgiNrmG8+8Lkt5tXL/J6Vj
-	0pkQVbZG0sjnNKiDT0D+DXk=
-X-Google-Smtp-Source: ABdhPJysU8XL4sNO86irMpQhSsH/rH2kv2GMViEDByPhAqWftlopDgEag4/ujDOqBzWmlZUCs494uQ==
-X-Received: by 2002:ac2:46c4:: with SMTP id p4mr5135070lfo.668.1631301218566;
-        Fri, 10 Sep 2021 12:13:38 -0700 (PDT)
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=DOLFgGcn3PT7wpYD26aLS4cmxXQiFFWJnFpUQb+PEZw=;
+        b=sgBjHfwYWmU2HogsK0w5h9EFIJ/VnK1TnCCUgjaeHowEIRJKy3BeZ3gyB12f/DfBMG
+         RX27Od8rg05S/1kJf3HqOHXKdzPLODm/MMP3SOwvU35gbIRW9Oi0ZxjcP251wyF6Hhjp
+         F7VxWs/zZ1zZEYfqYfDxT3qze8y2yquWpIiUF72/55SBdIoti5q05hG57PMsw39N2T0C
+         A33U9/WVDFKlJzH+/5ugnqJlnDC6B0gcEx1AwiHLpW2mTwaJK3iQTttXJ8W6yocdk9Ha
+         Ch2yQTgndoo4nvcLiXSpDr1Ye0FVefzI7PxDF7beUtj2lAc3To5OkklIQORpXcH+NZ2H
+         jiwA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530a84DKqVgWDYNvosvpZHolsTR5Xjvh+5lQmTKl61TUXlrovdpY
+	ryZVDUXpQtI8JKf/GUOj2X0=
+X-Google-Smtp-Source: ABdhPJxgziELmRm9nTKiJLAgjJsRi7rEFjbfAxetAFD7EPW2nwvOu1sYQ2GoZZ2pE7v7QyFBpBrC4Q==
+X-Received: by 2002:a05:622a:2d0:: with SMTP id a16mr1873007qtx.402.1631361361325;
+        Sat, 11 Sep 2021 04:56:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:597:: with SMTP id 145ls1447449ljf.7.gmail; Fri, 10 Sep
- 2021 12:13:37 -0700 (PDT)
-X-Received: by 2002:a2e:8810:: with SMTP id x16mr5502943ljh.410.1631301217565;
-        Fri, 10 Sep 2021 12:13:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1631301217; cv=none;
+Received: by 2002:a37:a4c7:: with SMTP id n190ls1361415qke.4.gmail; Sat, 11
+ Sep 2021 04:56:00 -0700 (PDT)
+X-Received: by 2002:a37:e14:: with SMTP id 20mr1785358qko.229.1631361360855;
+        Sat, 11 Sep 2021 04:56:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631361360; cv=none;
         d=google.com; s=arc-20160816;
-        b=blR64vCcEN8/FG1kGIFwasj8Rh6gmRgiRk5axJqNpGkU3w8CYKUFuO/ROQ83aBpnby
-         qE0XrpsPE77sW7W4G8tc/j4dQqPWUh2RghFtu6g6wm4N5quHQzTCOH6UhlgoLinT4tC+
-         I7LoiEUNpgZvs19DXPSmrE1hurUyRRA9g+LPIWqfZ7cN9wX93JWKNEJY6xcqcub01Bfc
-         y6ZtYohzHdSKFQQ1sw7N1H5Nl2la8aSzg9TT/idW7Kyf361Wo/RbDOPaWJ30BsYLuG+K
-         j5REtBLn/uVXaxBbeTCuo8J0SYg5X124nOzeD4XPjYzpqujQ5xS4wF6iVo8GkVO0YRXJ
-         iqfw==
+        b=q/kP7KkNDrBQ87J6shMgz5O7Elp2QCZjpqeNxKG+UOg0tO4runjfMwdZDU+hYV+8e8
+         D3TInDkl3+YlnJq7ChMttWiC0WyZfBMs10XtB2bANvzh13gNBBaZc81RypIaF7ZnxXYU
+         J/Ti4HcLV58RyzEWGyorW5MEyVM8ckhKwHOWfPLkpp0Mm/I6vgyBwAI6VlVfVe+/6f/J
+         N2cA03HR0h7opytcKLqoGYEKqnGqUvQdSMDde9suSHGExcjOpN1AJHLfPL2+QYDQ9fa1
+         ZP0jWsnF1pvE/yt1jhq0kbc3OGDVe4rAnFfPu674MJPgybSdnWp0TVWJLAGDZKnRZU8N
+         h7qg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=TcDMnxGRTLykeutj8nRuBAPXDOoHE9kaLJ/+ttKjtNM=;
-        b=dV8NzzQs9LH2QNoT+3meuUreWsLCHS9HHqGhEDMaiimcctiMAT3F6fpS+VuvK0dDKu
-         /QjGeglSGzsA1GoXOoXH7evyuJ9j4VomSETKxouo15Yzz03vKk1u4sj3ONULxCX5Wg1L
-         tDPjVl5FHIyght/1LsqPvqGZ9HSwyZoe9Sv18QCk6gbg5QNLjLYFqo2tu+Hdnn2/BiF9
-         Cu0Bk/k9KzP4/h/DfrdsTISU+yx9SYxwV6ko9C0XAyt0MSaxhKspSLkO2LYgsNEo4odN
-         cbcOhIWYKY37URLOKLy9ssr2xy4iJzYcJFViabkRi454oiLGDDbfhpiJzckxZt8JlG/y
-         kwYg==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=tACngPECUDvxLZR5Q8TdSwlr/XRxb80ydxRDmiZisbA=;
+        b=nVQG/MQYfIm4I6/6Cs48iUzyg7QJSCsy/xHONlY0kgDMjs4l+2at6aaiiHGAob/9gq
+         nkC9ZS0SiWEfqXTuvOGWB/7P9yCA1k1wCC6Fgn0TQkpUPBDcKKhZojY9Jgq/6B2zQ2Af
+         MUD1ppGR9Di4utSGohUPElnVwfPTkg/sCjuAuZeGL6U7+qCsCsJs0SlKr0KMTaGn/D26
+         EgJj1Hh+p82qKwlIKshiBg3MV3O5k95oID+5b3uyxq0v8Q7PF+aAcB1heBmPWRq+iBhS
+         8052wfquwr6vYyVApae9f5v8OrRu//+qJNILSoSAyuWyrsHgMOTuh4SM3P/HVdeFsV79
+         YqfQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=CZ61t5GM;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22d as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lj1-x22d.google.com (mail-lj1-x22d.google.com. [2a00:1450:4864:20::22d])
-        by gmr-mx.google.com with ESMTPS id t7si447301ljc.4.2021.09.10.12.13.37
+       spf=pass (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+Received: from out4436.biz.mail.alibaba.com (out4436.biz.mail.alibaba.com. [47.88.44.36])
+        by gmr-mx.google.com with ESMTPS id b125si141133qkf.0.2021.09.11.04.55.59
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Sep 2021 12:13:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22d as permitted sender) client-ip=2a00:1450:4864:20::22d;
-Received: by mail-lj1-x22d.google.com with SMTP id s3so4791805ljp.11
-        for <clang-built-linux@googlegroups.com>; Fri, 10 Sep 2021 12:13:37 -0700 (PDT)
-X-Received: by 2002:a05:651c:1305:: with SMTP id u5mr5263539lja.198.1631301217056;
- Fri, 10 Sep 2021 12:13:37 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 11 Sep 2021 04:56:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as permitted sender) client-ip=47.88.44.36;
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e04423;MF=ashimida@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0Unzk85B_1631361353;
+Received: from ashimida.local(mailfrom:ashimida@linux.alibaba.com fp:SMTPD_---0Unzk85B_1631361353)
+          by smtp.aliyun-inc.com(127.0.0.1);
+          Sat, 11 Sep 2021 19:55:54 +0800
+Subject: Re: [PATCH] [RFC] kbuild: add CLANG_TRIPLE to prevent clang from
+ compiling with wrong --target
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: masahiroy@kernel.org, michal.lkml@markovi.net, nathan@kernel.org,
+ linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com, Alistair Delva <adelva@google.com>
+References: <1631173363-40160-1-git-send-email-ashimida@linux.alibaba.com>
+ <CAKwvOdnuiV3mHxxCpWbMaZn9vggL4B+PPrMtuX=QOO-yUQj2mA@mail.gmail.com>
+From: ashimida <ashimida@linux.alibaba.com>
+Message-ID: <2e10c444-50e2-0f86-f86e-ffb982059c88@linux.alibaba.com>
+Date: Sat, 11 Sep 2021 19:55:53 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:68.0)
+ Gecko/20100101 Thunderbird/68.12.1
 MIME-Version: 1.0
-References: <1723771714.8049.1630601502888@localhost>
-In-Reply-To: <1723771714.8049.1630601502888@localhost>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 10 Sep 2021 12:13:25 -0700
-Message-ID: <CAKwvOdmSW1Ntom389FD3qOC=iTCwJH=g5MiuRdeftxMdwbRBbg@mail.gmail.com>
-Subject: Re: [CI-NOTIFY]: TCWG Bisect tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
- - Build # 10 - Successful!
-To: ci_notify@linaro.org, Maxim Kuvyrkov <maxim.kuvyrkov@linaro.org>
-Cc: tcwg-validation@linaro.org, linaro-toolchain@lists.linaro.org, 
-	clang-built-linux@googlegroups.com, arnd@linaro.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20210112 header.b=CZ61t5GM;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22d
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+In-Reply-To: <CAKwvOdnuiV3mHxxCpWbMaZn9vggL4B+PPrMtuX=QOO-yUQj2mA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: ashimida@linux.alibaba.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as
+ permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,154 +132,104 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Maxim,
-We're looking to turn down our old @googlegroups.com mailing list. Any
-chance these reports can instead be sent to llvm@lists.linux.dev so
-that they are archived by lore.kernel.org?
+Hi Desaulniers,
 
-On Thu, Sep 9, 2021 at 10:20 PM <ci_notify@linaro.org> wrote:
->
-> Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig.  So far, this commit has regressed CI configurations:
->  - tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
->
-> Culprit:
-> <cut>
-> commit c3496da580b0fc10fdeba8f6a5e6aef4c78b5598
-> Author: Slark Xiao <slark_xiao@163.com>
-> Date:   Tue Aug 31 10:40:25 2021 +0800
->
->     net: Add depends on OF_NET for LiteX's LiteETH
->
->     Current settings may produce a build error when
->     CONFIG_OF_NET is disabled. The CONFIG_OF_NET controls
->     a headfile <linux/of.h> and some functions
->      in <linux/of_net.h>.
->
->     Signed-off-by: Slark Xiao <slark_xiao@163.com>
->     Signed-off-by: Jakub Kicinski <kuba@kernel.org>
-> </cut>
->
-> Results regressed to (for first_bad == c3496da580b0fc10fdeba8f6a5e6aef4c78b5598)
-> # reset_artifacts:
-> -10
-> # build_abe binutils:
-> -9
-> # build_llvm:
-> -5
-> # build_abe qemu:
-> -2
-> # linux_n_obj:
-> 29873
-> # linux build successful:
-> all
-> # First few build errors in logs:
->
-> from (for last_good == a9e7c3cedc2914f63cd135b75832b9bf850af782)
-> # reset_artifacts:
-> -10
-> # build_abe binutils:
-> -9
-> # build_llvm:
-> -5
-> # build_abe qemu:
-> -2
-> # linux_n_obj:
-> 29873
-> # linux build successful:
-> all
-> # linux boot successful:
-> boot
->
-> Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/artifact/artifacts/build-a9e7c3cedc2914f63cd135b75832b9bf850af782/
-> Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/artifact/artifacts/build-c3496da580b0fc10fdeba8f6a5e6aef4c78b5598/
-> Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/
->
-> Configuration details:
->
->
-> Reproduce builds:
-> <cut>
-> mkdir investigate-linux-c3496da580b0fc10fdeba8f6a5e6aef4c78b5598
-> cd investigate-linux-c3496da580b0fc10fdeba8f6a5e6aef4c78b5598
->
-> git clone https://git.linaro.org/toolchain/jenkins-scripts
->
-> mkdir -p artifacts/manifests
-> curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/artifact/artifacts/manifests/build-baseline.sh --fail
-> curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/artifact/artifacts/manifests/build-parameters.sh --fail
-> curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/artifact/artifacts/test.sh --fail
-> chmod +x artifacts/test.sh
->
-> # Reproduce the baseline build (build all pre-requisites)
-> ./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
->
-> # Save baseline build state (which is then restored in artifacts/test.sh)
-> mkdir -p ./bisect
-> rsync -a --del --delete-excluded --exclude /bisect/ --exclude /artifacts/ --exclude /linux/ ./ ./bisect/baseline/
->
-> cd linux
->
-> # Reproduce first_bad build
-> git checkout --detach c3496da580b0fc10fdeba8f6a5e6aef4c78b5598
-> ../artifacts/test.sh
->
-> # Reproduce last_good build
-> git checkout --detach a9e7c3cedc2914f63cd135b75832b9bf850af782
-> ../artifacts/test.sh
->
-> cd ..
-> </cut>
->
-> History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
->
-> Artifacts: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/artifact/artifacts/
-> Build log: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/consoleText
->
-> Full commit (up to 1000 lines):
-> <cut>
-> commit c3496da580b0fc10fdeba8f6a5e6aef4c78b5598
-> Author: Slark Xiao <slark_xiao@163.com>
-> Date:   Tue Aug 31 10:40:25 2021 +0800
->
->     net: Add depends on OF_NET for LiteX's LiteETH
->
->     Current settings may produce a build error when
->     CONFIG_OF_NET is disabled. The CONFIG_OF_NET controls
->     a headfile <linux/of.h> and some functions
->      in <linux/of_net.h>.
->
->     Signed-off-by: Slark Xiao <slark_xiao@163.com>
->     Signed-off-by: Jakub Kicinski <kuba@kernel.org>
-> ---
->  drivers/net/ethernet/litex/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/drivers/net/ethernet/litex/Kconfig b/drivers/net/ethernet/litex/Kconfig
-> index 265dba414b41..63bf01d28f0c 100644
-> --- a/drivers/net/ethernet/litex/Kconfig
-> +++ b/drivers/net/ethernet/litex/Kconfig
-> @@ -17,6 +17,7 @@ if NET_VENDOR_LITEX
->
->  config LITEX_LITEETH
->         tristate "LiteX Ethernet support"
-> +       depends on OF_NET
->         help
->           If you wish to compile a kernel for hardware with a LiteX LiteEth
->           device then you should answer Y to this.
-> </cut>
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1723771714.8049.1630601502888%40localhost.
+I now understand the meaning here, the command works fine for me.
 
+Thank you very much for the reply!
 
-
--- 
-Thanks,
-~Nick Desaulniers
+On 9/10/21 1:19 AM, Nick Desaulniers wrote:
+ > On Thu, Sep 9, 2021 at 12:42 AM ashimida <ashimida@linux.alibaba.com> 
+wrote:
+ >>
+ >> Kernel compiled with tool chain CROSS_COMPILE=aarch64-linux-android-
+ >> will panic during the startup phase.
+ >>
+ >> Clang's --target option comes from $(CROSS_COMPILE). At the time
+ >> -fstack-protector-strong is enabled, and compiled with command:
+ >> make CC=clang HOSTCC=clang ARCH=arm64 
+CROSS_COMPILE=aarch64-linux-android-
+ >>
+ >> clang will insert code like:
+ >>     mrs     x8, TPIDR_EL0        //default value is zero
+ >>     str     x8, [sp]
+ >>     ldr     x8, [x8, #40]        //access addr 0x40
+ >>
+ >> instead of the code that accesses __stack_chk_guard to get the
+ >> canary, which will cause the kernel to crash due to 0x40
+ >> address access.
+ >>
+ >> This patch (from android) is used to remind the user that current
+ >> tool chain cannot be used as the "--target" of clang, the user
+ >> should specify an additional "--target" through CLANG_TRIPLE.
+ >
+ > Hi Ashimida,
+ > Thanks for sending this patch; I recognize it from Android, which we
+ > had to carry for years due to:
+ > 1. reliance on GNU `as` ie. "GAS"
+ > 2. not distributing binary prefixes of GNU binutils with a target
+ > triple that clang recognized. (ie. Android's binutils were prefixed
+ > aarch64-linux-android- while Clang expected something more like
+ > aarch64-linux-gnu for --target=)
+ >
+ > We solved this by working out the issues in clang's assembler.  With
+ > LLVM=1 LLVM_IAS=1, we no longer rely on GNU binutils, and no longer
+ > need such patch.  You'll find it's been dropped from Android Common
+ > Kernels now.  With mainline, LLVM_IAS=1 is now the default when
+ > building with LLVM=1, and CROSS_COMPILE is now inferred from ARCH for
+ > LLVM=1 as well.
+ >
+ > So all you should need is:
+ > $ ARCH=arm64 make LLVM=1 -j$(nproc)
+ >
+ > Is there a reason why the above doesn't work for you?  I do not wish
+ > to see this patch upstream (or downstream; it should be unnecessary).
+ >
+ >>
+ >> Signed-off-by: ashimida <ashimida@linux.alibaba.com>
+ >> ---
+ >>   Makefile                 | 6 +++++-
+ >>   scripts/clang-android.sh | 4 ++++
+ >>   2 files changed, 9 insertions(+), 1 deletion(-)
+ >>   create mode 100755 scripts/clang-android.sh
+ >>
+ >> diff --git a/Makefile b/Makefile
+ >> index 61741e9..09bb314 100644
+ >> --- a/Makefile
+ >> +++ b/Makefile
+ >> @@ -586,7 +586,11 @@ CC_VERSION_TEXT = $(subst $(pound),,$(shell 
+$(CC) --version 2>/dev/null | head -
+ >>
+ >>   ifneq ($(findstring clang,$(CC_VERSION_TEXT)),)
+ >>   ifneq ($(CROSS_COMPILE),)
+ >> -CLANG_FLAGS    += --target=$(notdir $(CROSS_COMPILE:%-=%))
+ >> +CLANG_TRIPLE    ?= $(CROSS_COMPILE)
+ >> +CLANG_FLAGS     += --target=$(notdir $(CLANG_TRIPLE:%-=%))
+ >> +ifeq ($(shell $(srctree)/scripts/clang-android.sh $(CC) 
+$(CLANG_FLAGS)), y)
+ >> +$(error "Clang with Android --target detected. Did you specify 
+CLANG_TRIPLE?")
+ >> +endif
+ >>   endif
+ >>   ifeq ($(LLVM_IAS),1)
+ >>   CLANG_FLAGS    += -integrated-as
+ >> diff --git a/scripts/clang-android.sh b/scripts/clang-android.sh
+ >> new file mode 100755
+ >> index 0000000..9186c4f
+ >> --- /dev/null
+ >> +++ b/scripts/clang-android.sh
+ >> @@ -0,0 +1,4 @@
+ >> +#!/bin/sh
+ >> +# SPDX-License-Identifier: GPL-2.0
+ >> +
+ >> +$* -dM -E - </dev/null 2>&1 | grep -q __ANDROID__ && echo "y"
+ >> --
+ >> 2.7.4
+ >>
+ >
+ >
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmSW1Ntom389FD3qOC%3DiTCwJH%3Dg5MiuRdeftxMdwbRBbg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/2e10c444-50e2-0f86-f86e-ffb982059c88%40linux.alibaba.com.
