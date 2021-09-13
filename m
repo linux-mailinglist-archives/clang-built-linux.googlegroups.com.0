@@ -1,129 +1,125 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBLHL7WEQMGQEIOKVMRQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT6537ZTEKRBVPV7WEQMGQEIRN3XFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ej1-x637.google.com (mail-ej1-x637.google.com [IPv6:2a00:1450:4864:20::637])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2F62540982C
-	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Sep 2021 18:00:50 +0200 (CEST)
-Received: by mail-ej1-x637.google.com with SMTP id o7-20020a170906288700b005bb05cb6e25sf3870986ejd.23
-        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Sep 2021 09:00:50 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1631548850; cv=pass;
+Received: from mail-oi1-x240.google.com (mail-oi1-x240.google.com [IPv6:2607:f8b0:4864:20::240])
+	by mail.lfdr.de (Postfix) with ESMTPS id B8A0A4098E0
+	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Sep 2021 18:22:46 +0200 (CEST)
+Received: by mail-oi1-x240.google.com with SMTP id s66-20020acaa945000000b0026a444777bbsf5604315oie.7
+        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Sep 2021 09:22:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1631550165; cv=pass;
         d=google.com; s=arc-20160816;
-        b=iyxHPBiBYSRIwfCD3Q2ldMpbwpc8cs4j8xIl6w+qJwGe9Dv5unitsQ1nHH8wYeuwcQ
-         kPQcGFNSixREOWMqYK6M29buvpuX8Ra7Ab2z4tv5Y0ZwswKUfea2H2JQLDM+8I2hRDSL
-         DsR/JiUXQp1qJmnMci/X7THNEKoskzAndb0iAd5h3QNt6O8OCoW6DtsZgBHmh/7Verwx
-         gsk7Nzldbk1gJE86tu/9JYsZZdzZTvsCGaPU5k9Bu8P+8rG0GhABnjwh3Jo3CregYvjd
-         LZ0bTYQhYL4TRsPU55udAKme6d8HkDmgRucLccoIGRSjErhni925OOO92AVFSK/JAFwQ
-         HvHQ==
+        b=kLuddYzkOzZU5ULFuMmMi6o9OhTaqYn2URIVA5/yHa1BvFPbK63SyXDBSdfEaYGkdb
+         2RTzG+jrkHhszh+2wxL21r8kKSQU3flmoVrkOnEsQUZBbOlmCezAsItYCNq7hrnD6gPw
+         A7yE6HC5uyydR0kFFD5aPKNsoHNoeMqD2VZX7QPDaVNhaRTUq8InqyaS4xDGT6MWSBcU
+         m/9yhximjLDpdDdUY3QhAiN9/f7P9sDtgjQT+N6gWQ+w/NjZbWdT01sOg/FPBcHaQ4xW
+         vOoHflSz+8mKRYTWIdKHt2D0BHicmk92ev/uiZNypeUoVRfWjw9d/MNPNbkH/53kj9YQ
+         QyGw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ozw6RkUxrvbLo74nRo5ScueBdXE/SH8Bo5jP2eyO7ps=;
-        b=RX1BIPFLdIHY85ruTuI+N6WhogrC7omc1yuAVnYmWoT2Za0xHZL5WzF2xv2T38WXaz
-         EpWFukuLx8j8XIMmUp+FiFMbT6bbgcz/2vwSQBNwAr8+ueDeKE5hglgIjRs1A4FcpPxY
-         ytpNCzTFZRsLMT96f8MjVzs1Isub1w9dYfYsHxf0g9rcfT7H0j6MKpWzz0eAkAirkWo4
-         cP/iL5Y3FGOACdBLYBLBvVH+S9aSaYUe0LCCbOV+wEIDKE4wbmMR+h/AKX2VTgt6H1Gw
-         CmIsXY8rzeoCjd++emtWyX1+RZSIpm9l13Ct87DiSpvwVUw6fqnpatimUAMKT9xy4voP
-         8O+A==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=cHYLC+dDL1DvhjyDeIwd4dMHl23cVhEKGI7gdlOiOnE=;
+        b=zKlUYL0coRHLX+56TbaiDsBdWpLGUduJ60Bt+Omvg14b/Q2k8ICeJlY6ucrwM2PcbM
+         GhZHW1Ff+iyJ6Ti2AG487vlZZqa12mpiQQhSdHthEMun5rwjMYcMq0Ew/LdzMyDclmmW
+         4TH2BadXEUKgpwMoKpexsNBwNxcry14oNt5Brh+Df1LWoCZtM4BRXqljKxcYsOZu433X
+         K1XUF2XIPJ4Fb8Eas9RT48536fE3ZMJ/qGgC30Rh+VJWGZ3lrpR34ie3Z4MbmywCvT7b
+         DAf1rSiXCZQw2I5Qa18nGTa+ZuulepjKJl1xRAf+ngpjc+oZWUNjfYP+xW8t7YKVRLYG
+         ZPYg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=e0r2tpsD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22f as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=a1kK2KQf;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::236 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=ozw6RkUxrvbLo74nRo5ScueBdXE/SH8Bo5jP2eyO7ps=;
-        b=HXOmdaqh5RDtV1z4eRxxutZMqeJfN2WTtQWyPonlO1zx23rzJQg5lsy8BMabngNP69
-         yQ1rgaaJ/VuFWq5EmhGix/2gF+YpDlFoFIXg6I8+gyiV7iIP/rSl++IpMHrDr3uO66jE
-         85Ama08pTvqyzpD/yj3uPN9qHurv0A66Ozoh4COz+F/rhdvDInKpt11iAKhHV1+ZlwQP
-         wtY76bFpl2mNYbVEC9KBDDL+DvssJawKtckOUthzq/jW7AHML06wqLLPb3E8qXfW2008
-         uWVWumZhjotMe8xhw75TyhEeVdbiaUIw9yDJpR9YfNlG/KYSB6Li0yunL+yxUJp/CX2r
-         mDkA==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cHYLC+dDL1DvhjyDeIwd4dMHl23cVhEKGI7gdlOiOnE=;
+        b=CUwZd0UA2BWFZKfQedEON81pugIknzsGjcTonqSxbzEhpE3QMGaD9EhDquIaT+tkga
+         BtkOh58FGTrlQJM8FVsTa/i0fVaWr82Px5xpyb/ISKUwBMkW8mjoxtG4g+44Iu8iooeh
+         awyOPR1USBHpx3T9D17a3CRfCBX5CqcboJOwhWKl10evBSnqFbcEgHLpDYI9bXktVxNo
+         jCanlbKDN/0jlEIPm7IN4/c1+lAAprj7Ly5XO7hzNtfQ2cSc1Afw1puw3dwvRAIw1FEg
+         dbQuPRc/rDwVCiobXFtgb842e5oOKhY0rBH/m2HlIAanmmyiBW8m1dQHKrQm/ohDfxcy
+         5iCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ozw6RkUxrvbLo74nRo5ScueBdXE/SH8Bo5jP2eyO7ps=;
-        b=HjBGWJ6pq/b+EzvfrUaXzfLrPxaPhQbGL6wafZv4rvaWTojDeXHnjNbi+vuTuU5EzG
-         bUTtL6gQzh4P76ej45dFX/vX8Xk6eHhyobS4yQBapFTLKhii53pSD9XA79dw6LFOrvIa
-         gTVJHgudWZfYoWKNWTUsrRrE3amUqXULf61FiHR8IRRVG0P4Lt57VEq2gxNBBf92RxiK
-         Sy/jBsB3uIMWqYth6YkVA6qjweYmSlklsSZNtC+xECOXh+kXd9gkh7CvbTP4ND4ZXdiD
-         U8tcJwZLFc9hmBDbqisc8/efvH25Y/yXKhjwEMqfbz9P4riK3CMlaMfGzYSW/OkHVu87
-         ZxuA==
-X-Gm-Message-State: AOAM5321WDEcy2zJcne8BYIQiEr8jscJ2XoTvE1jSXWeBvDaf2keM8UQ
-	Z2+hFlTP8cZo2GyJHVXAxiA=
-X-Google-Smtp-Source: ABdhPJy95jWvYYdvDxDRX9Izbc7VsTtE2QaPgP+PdxXLaXctU4mhFDuKTw+HUmG39mrQH38xxSY8JQ==
-X-Received: by 2002:a17:906:1146:: with SMTP id i6mr13879564eja.12.1631548844951;
-        Mon, 13 Sep 2021 09:00:44 -0700 (PDT)
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cHYLC+dDL1DvhjyDeIwd4dMHl23cVhEKGI7gdlOiOnE=;
+        b=P1+KmqxNm0RvgikRd8GqSHiRxtPTUyMzA0lvS6D5JFEnaBZ6hUH2NV6yJ7RLP/4Csr
+         WXsvMXxsUiEtEHpCjVz9V1qGWQsZmasvC6fixhUd5jGD9rU/qcSorW4uaEs9WsI5c02Y
+         0IiiMk5zAjV16WhHPiBMa+m2MEwOKN1loUkccG4hwGOnmlPgA4m98TOMDRC9RT8WtUcj
+         CNHPn9vMvZA/v23dkW4aPtJWboMud9iX4JmuJUAS9IN0ZzR28eywi8yHoY47urXTLkT0
+         xN5s9MHYHEd7JluFMigu4bs7pEWUvQrpc3P9BTRBxji3fOkoAPzw4zQY/ggRXK7mQO5+
+         /p9A==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530VLMOJz0C4hFA+vJ33iN2x4pub3nMnKuzFXMvwgq2M1wNTG1SN
+	nuLlJclVoKScW63hA4CyTmI=
+X-Google-Smtp-Source: ABdhPJy8NAKL4uy1tYGlPKJEvNfckGqQcurhKJ3cs0rRVyREUu9GvWEaYUlSRKMBTY/U+zBx6mlQ8Q==
+X-Received: by 2002:a05:6830:719:: with SMTP id y25mr10315018ots.77.1631550165548;
+        Mon, 13 Sep 2021 09:22:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:c944:: with SMTP id h4ls3056781edt.1.gmail; Mon, 13 Sep
- 2021 09:00:44 -0700 (PDT)
-X-Received: by 2002:aa7:c04e:: with SMTP id k14mr13817717edo.101.1631548844043;
-        Mon, 13 Sep 2021 09:00:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1631548844; cv=none;
+Received: by 2002:aca:210a:: with SMTP id 10ls1136455oiz.1.gmail; Mon, 13 Sep
+ 2021 09:22:45 -0700 (PDT)
+X-Received: by 2002:a54:4402:: with SMTP id k2mr8164623oiw.166.1631550165039;
+        Mon, 13 Sep 2021 09:22:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631550165; cv=none;
         d=google.com; s=arc-20160816;
-        b=vDV/5scJVqx1EV9/IwPenLUz9FgsIggYxOSMe9cKB5ZI5WSPlmOpN4qpSgt2MEVFVy
-         rjHd4o5tRmSt0Ay7FQJeKvkQW4NrAB8tHUgLxDI5hGmTmlAnaT7AbFVYLp46zu97BK1Z
-         nsaqxwIGU9K+BwRLIQEoJRfvuXQir5y7DxIKf3mxdu/Hjk4C3Zcj9874R/uV8J1OmqmI
-         eYepr4Ie3OfFP7A/sT3zh8S2G6Lp1FHIffYhfS0xMMqt8TC6BKHyvZxHNzGNws+DIrRG
-         aYJo7+LLp5FBei2w2PXosYBfOg5dItCowrJ8dQjfr1aA1Ucr18q+CmWd2yr7jIoHkT86
-         nDXg==
+        b=aad394RN7HBGOVCcZ60vAfWnSXrsVh3ZCCUq8IK1CpZgI0LgX6zgKodDxYX45Dw4Wb
+         b66xwhVuatNp5OmIuTAm1KFQzIV62dvxmKY5ysDhT4jAxszZLN9AbLNdTvnXXOg7ck/w
+         nbXniuf4jP3h805HKSiB73On3RD2tqRuAepduLQg6vSpa4NlJinCc7m2QhT/YfUa74Gt
+         VUaxxepsxEJ9QxAgK8GRto+eU1oZLsCAw6Leyh/5JKiRuoqNtcpcdWrp87QCWPaWF8f8
+         ZEgGZgjGMjM1y0sKG5kk51e0saIF7OkGr17XZ4rEv+YAqoj6Gtt3eWSOacPS9c1xPAEw
+         vEuw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=tnso6ZagMQK9pK7YlwLa0K1RsHVORZGH60a5gBpaGlI=;
-        b=rrJVrSUd08J88AOGgcIOWmRs46+OfmrZNE+j+lVo++ezlK9BmnxRi+leL8IFn4XQCs
-         pzS2KmFDjsB8U0fI6kWdJ9FpiWpddEDcCoJlnkTuDHZaw0KECl7/MNulFK8jtRErZaVi
-         R+PzNoMNTznJjVdB7o815TCYM/zDHBNxBTcCf4l11zK4FP23DeztwDDcBnoy6zixWghf
-         XJDKgvvwoXuNNydOLCcMfHPjeWsdV6lISfpwyzf/aDwpiRmSj6Wnuc1lvzXoW6zNGmQ+
-         eBSChoBi70GaLQB1qC9MMByhlTHUYeNrvtJdD4EM+9kn6DPDJXfAZ6Slh/AzhHM6ZVj1
-         8Y0g==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=4/ivNU19vgx8JM95ZcxudD+bsQ3V+RD7J/J7pfkup6o=;
+        b=t3cgp0WWfMq0GQH2SHCkVhrfmRnZIEQwcxoeDAF4AxjgJPzh1fOMP0YxE3ouQ5yvsb
+         d+OFRuU+kkF3qIlnvsDBF/7M0ly+FeXTQh7O4s2Sw/LOyBwNenAABWTyF9x9AWbS9dGw
+         p9rJUq/doWF46QQOV2DNfL0PO5RD+glNLDpM+egZdpKB9HN2460Y14F3lopmTOEjWu9J
+         IWWA5gVNy2+89Dws7GNjSUsi4pW5n7z0w9gGAvRIXYc2vyp6tTgAzwUJ7lIDy9TuwdHG
+         VGN8pVov/SivIHDVTHp/1POz+C0xApvmzOa5jyZoqHGWeXplB/AcmGAVQ0MBZd6QBsCn
+         fGbw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=e0r2tpsD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22f as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lj1-x22f.google.com (mail-lj1-x22f.google.com. [2a00:1450:4864:20::22f])
-        by gmr-mx.google.com with ESMTPS id s18si684355ejo.1.2021.09.13.09.00.44
+       dkim=pass header.i=@linaro.org header.s=google header.b=a1kK2KQf;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::236 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-oi1-x236.google.com (mail-oi1-x236.google.com. [2607:f8b0:4864:20::236])
+        by gmr-mx.google.com with ESMTPS id q18si524296otm.3.2021.09.13.09.22.44
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Sep 2021 09:00:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22f as permitted sender) client-ip=2a00:1450:4864:20::22f;
-Received: by mail-lj1-x22f.google.com with SMTP id s12so18271431ljg.0
-        for <clang-built-linux@googlegroups.com>; Mon, 13 Sep 2021 09:00:44 -0700 (PDT)
-X-Received: by 2002:a05:651c:1305:: with SMTP id u5mr10831205lja.198.1631548843315;
- Mon, 13 Sep 2021 09:00:43 -0700 (PDT)
+        Mon, 13 Sep 2021 09:22:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::236 as permitted sender) client-ip=2607:f8b0:4864:20::236;
+Received: by mail-oi1-x236.google.com with SMTP id w19so14747563oik.10
+        for <clang-built-linux@googlegroups.com>; Mon, 13 Sep 2021 09:22:44 -0700 (PDT)
+X-Received: by 2002:a05:6808:118:: with SMTP id b24mr8614615oie.0.1631550164556;
+ Mon, 13 Sep 2021 09:22:44 -0700 (PDT)
 MIME-Version: 1.0
-References: <1723771714.8049.1630601502888@localhost> <CAKwvOdmSW1Ntom389FD3qOC=iTCwJH=g5MiuRdeftxMdwbRBbg@mail.gmail.com>
- <CAFYwA27_YcNO3zebCAXNZ+Emb2vYNtjeTaoDqm17KMh=23H3DQ@mail.gmail.com>
-In-Reply-To: <CAFYwA27_YcNO3zebCAXNZ+Emb2vYNtjeTaoDqm17KMh=23H3DQ@mail.gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 13 Sep 2021 09:00:31 -0700
-Message-ID: <CAKwvOdndJA-6jEAka9Zzsto==D49=Kk=YyPMf6ZYpFPwHCuriQ@mail.gmail.com>
-Subject: Re: [CI-NOTIFY]: TCWG Bisect tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
- - Build # 10 - Successful!
-To: Diana Picus <diana.picus@linaro.org>
-Cc: ci_notify@linaro.org, Maxim Kuvyrkov <maxim.kuvyrkov@linaro.org>, 
-	tcwg-validation@linaro.org, clang-built-linux@googlegroups.com, 
-	llvm@lists.linux.dev, arnd@linaro.org, 
-	Linaro Toolchain Mailman List <linaro-toolchain@lists.linaro.org>
+References: <20210913131113.390368911@linuxfoundation.org> <20210913131114.028340332@linuxfoundation.org>
+In-Reply-To: <20210913131114.028340332@linuxfoundation.org>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Mon, 13 Sep 2021 21:52:33 +0530
+Message-ID: <CA+G9fYtdPnwf+fi4Oyxng65pWjW9ujZ7dd2Z-EEEHyJimNHN6g@mail.gmail.com>
+Subject: Re: [PATCH 5.14 018/334] nbd: add the check to prevent overflow in __nbd_ioctl()
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Baokun Li <libaokun1@huawei.com>
+Cc: open list <linux-kernel@vger.kernel.org>, linux-stable <stable@vger.kernel.org>, 
+	Hulk Robot <hulkci@huawei.com>, Josef Bacik <josef@toxicpanda.com>, Jens Axboe <axboe@kernel.dk>, 
+	Sasha Levin <sashal@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	lkft-triage@lists.linaro.org, llvm@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: naresh.kamboju@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20210112 header.b=e0r2tpsD;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22f
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@linaro.org header.s=google header.b=a1kK2KQf;       spf=pass
+ (google.com: domain of naresh.kamboju@linaro.org designates
+ 2607:f8b0:4864:20::236 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,217 +132,96 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Sep 13, 2021 at 12:13 AM Diana Picus <diana.picus@linaro.org> wrote=
-:
+On Mon, 13 Sept 2021 at 19:51, Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
 >
-> Hi Nick,
+> From: Baokun Li <libaokun1@huawei.com>
 >
-> We have changed our infrastructure to email llvm@lists.linux.dev on the 6=
-th of September [1]. The email you reported seems to have been sent before =
-that (on the 2nd of September). Newer emails ought to go to the right place=
-, please let us know if you find emails to @googlegroups from jobs started =
-after the 6th of September.
-
-Ah, thanks!
-
+> [ Upstream commit fad7cd3310db3099f95dd34312c77740fbc455e5 ]
 >
-> Cheers,
-> Diana
+> If user specify a large enough value of NBD blocks option, it may trigger
+> signed integer overflow which may lead to nbd->config->bytesize becomes a
+> large or small value, zero in particular.
 >
-> [1] https://git.linaro.org/toolchain/jenkins-scripts.git/commit/?id=3D18e=
-73813f104f4d93b8f2b91c9c676b23cb6adea
+> UBSAN: Undefined behaviour in drivers/block/nbd.c:325:31
+> signed integer overflow:
+> 1024 * 4611686155866341414 cannot be represented in type 'long long int'
+> [...]
+> Call trace:
+> [...]
+>  handle_overflow+0x188/0x1dc lib/ubsan.c:192
+>  __ubsan_handle_mul_overflow+0x34/0x44 lib/ubsan.c:213
+>  nbd_size_set drivers/block/nbd.c:325 [inline]
+>  __nbd_ioctl drivers/block/nbd.c:1342 [inline]
+>  nbd_ioctl+0x998/0xa10 drivers/block/nbd.c:1395
+>  __blkdev_driver_ioctl block/ioctl.c:311 [inline]
+> [...]
 >
-> On Fri, 10 Sept 2021 at 21:13, Nick Desaulniers <ndesaulniers@google.com>=
- wrote:
->>
->> Hi Maxim,
->> We're looking to turn down our old @googlegroups.com mailing list. Any
->> chance these reports can instead be sent to llvm@lists.linux.dev so
->> that they are archived by lore.kernel.org?
->>
->> On Thu, Sep 9, 2021 at 10:20 PM <ci_notify@linaro.org> wrote:
->> >
->> > Successfully identified regression in *linux* in CI configuration tcwg=
-_kernel/llvm-master-aarch64-mainline-allmodconfig.  So far, this commit has=
- regressed CI configurations:
->> >  - tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
->> >
->> > Culprit:
->> > <cut>
->> > commit c3496da580b0fc10fdeba8f6a5e6aef4c78b5598
->> > Author: Slark Xiao <slark_xiao@163.com>
->> > Date:   Tue Aug 31 10:40:25 2021 +0800
->> >
->> >     net: Add depends on OF_NET for LiteX's LiteETH
->> >
->> >     Current settings may produce a build error when
->> >     CONFIG_OF_NET is disabled. The CONFIG_OF_NET controls
->> >     a headfile <linux/of.h> and some functions
->> >      in <linux/of_net.h>.
->> >
->> >     Signed-off-by: Slark Xiao <slark_xiao@163.com>
->> >     Signed-off-by: Jakub Kicinski <kuba@kernel.org>
->> > </cut>
->> >
->> > Results regressed to (for first_bad =3D=3D c3496da580b0fc10fdeba8f6a5e=
-6aef4c78b5598)
->> > # reset_artifacts:
->> > -10
->> > # build_abe binutils:
->> > -9
->> > # build_llvm:
->> > -5
->> > # build_abe qemu:
->> > -2
->> > # linux_n_obj:
->> > 29873
->> > # linux build successful:
->> > all
->> > # First few build errors in logs:
->> >
->> > from (for last_good =3D=3D a9e7c3cedc2914f63cd135b75832b9bf850af782)
->> > # reset_artifacts:
->> > -10
->> > # build_abe binutils:
->> > -9
->> > # build_llvm:
->> > -5
->> > # build_abe qemu:
->> > -2
->> > # linux_n_obj:
->> > 29873
->> > # linux build successful:
->> > all
->> > # linux boot successful:
->> > boot
->> >
->> > Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-ll=
-vm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/artifact/artifacts/b=
-uild-a9e7c3cedc2914f63cd135b75832b9bf850af782/
->> > Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-ll=
-vm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/artifact/artifacts/b=
-uild-c3496da580b0fc10fdeba8f6a5e6aef4c78b5598/
->> > Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect=
--llvm-master-aarch64-mainline-allmodconfig/10/
->> >
->> > Configuration details:
->> >
->> >
->> > Reproduce builds:
->> > <cut>
->> > mkdir investigate-linux-c3496da580b0fc10fdeba8f6a5e6aef4c78b5598
->> > cd investigate-linux-c3496da580b0fc10fdeba8f6a5e6aef4c78b5598
->> >
->> > git clone https://git.linaro.org/toolchain/jenkins-scripts
->> >
->> > mkdir -p artifacts/manifests
->> > curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/jo=
-b/tcwg_kernel-llvm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/arti=
-fact/artifacts/manifests/build-baseline.sh --fail
->> > curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/=
-job/tcwg_kernel-llvm-bisect-llvm-master-aarch64-mainline-allmodconfig/10/ar=
-tifact/artifacts/manifests/build-parameters.sh --fail
->> > curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-llvm-b=
-isect-llvm-master-aarch64-mainline-allmodconfig/10/artifact/artifacts/test.=
-sh --fail
->> > chmod +x artifacts/test.sh
->> >
->> > # Reproduce the baseline build (build all pre-requisites)
->> > ./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-ba=
-seline.sh
->> >
->> > # Save baseline build state (which is then restored in artifacts/test.=
-sh)
->> > mkdir -p ./bisect
->> > rsync -a --del --delete-excluded --exclude /bisect/ --exclude /artifac=
-ts/ --exclude /linux/ ./ ./bisect/baseline/
->> >
->> > cd linux
->> >
->> > # Reproduce first_bad build
->> > git checkout --detach c3496da580b0fc10fdeba8f6a5e6aef4c78b5598
->> > ../artifacts/test.sh
->> >
->> > # Reproduce last_good build
->> > git checkout --detach a9e7c3cedc2914f63cd135b75832b9bf850af782
->> > ../artifacts/test.sh
->> >
->> > cd ..
->> > </cut>
->> >
->> > History of pending regressions and results: https://git.linaro.org/too=
-lchain/ci/base-artifacts.git/log/?h=3Dlinaro-local/ci/tcwg_kernel/llvm-mast=
-er-aarch64-mainline-allmodconfig
->> >
->> > Artifacts: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-mast=
-er-aarch64-mainline-allmodconfig/10/artifact/artifacts/
->> > Build log: https://ci.linaro.org/job/tcwg_kernel-llvm-bisect-llvm-mast=
-er-aarch64-mainline-allmodconfig/10/consoleText
->> >
->> > Full commit (up to 1000 lines):
->> > <cut>
->> > commit c3496da580b0fc10fdeba8f6a5e6aef4c78b5598
->> > Author: Slark Xiao <slark_xiao@163.com>
->> > Date:   Tue Aug 31 10:40:25 2021 +0800
->> >
->> >     net: Add depends on OF_NET for LiteX's LiteETH
->> >
->> >     Current settings may produce a build error when
->> >     CONFIG_OF_NET is disabled. The CONFIG_OF_NET controls
->> >     a headfile <linux/of.h> and some functions
->> >      in <linux/of_net.h>.
->> >
->> >     Signed-off-by: Slark Xiao <slark_xiao@163.com>
->> >     Signed-off-by: Jakub Kicinski <kuba@kernel.org>
->> > ---
->> >  drivers/net/ethernet/litex/Kconfig | 1 +
->> >  1 file changed, 1 insertion(+)
->> >
->> > diff --git a/drivers/net/ethernet/litex/Kconfig b/drivers/net/ethernet=
-/litex/Kconfig
->> > index 265dba414b41..63bf01d28f0c 100644
->> > --- a/drivers/net/ethernet/litex/Kconfig
->> > +++ b/drivers/net/ethernet/litex/Kconfig
->> > @@ -17,6 +17,7 @@ if NET_VENDOR_LITEX
->> >
->> >  config LITEX_LITEETH
->> >         tristate "LiteX Ethernet support"
->> > +       depends on OF_NET
->> >         help
->> >           If you wish to compile a kernel for hardware with a LiteX Li=
-teEth
->> >           device then you should answer Y to this.
->> > </cut>
->> >
->> > --
->> > You received this message because you are subscribed to the Google Gro=
-ups "Clang Built Linux" group.
->> > To unsubscribe from this group and stop receiving emails from it, send=
- an email to clang-built-linux+unsubscribe@googlegroups.com.
->> > To view this discussion on the web visit https://groups.google.com/d/m=
-sgid/clang-built-linux/1723771714.8049.1630601502888%40localhost.
->>
->>
->>
->> --
->> Thanks,
->> ~Nick Desaulniers
->> _______________________________________________
->> linaro-toolchain mailing list
->> linaro-toolchain@lists.linaro.org
->> https://lists.linaro.org/mailman/listinfo/linaro-toolchain
+> Although it is not a big deal, still silence the UBSAN by limit
+> the input value.
+>
+> Reported-by: Hulk Robot <hulkci@huawei.com>
+> Signed-off-by: Baokun Li <libaokun1@huawei.com>
+> Reviewed-by: Josef Bacik <josef@toxicpanda.com>
+> Link: https://lore.kernel.org/r/20210804021212.990223-1-libaokun1@huawei.com
+> [axboe: dropped unlikely()]
+> Signed-off-by: Jens Axboe <axboe@kernel.dk>
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> ---
+>  drivers/block/nbd.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/block/nbd.c b/drivers/block/nbd.c
+> index 19f5d5a8b16a..acf3f85bf3c7 100644
+> --- a/drivers/block/nbd.c
+> +++ b/drivers/block/nbd.c
+> @@ -1388,6 +1388,7 @@ static int __nbd_ioctl(struct block_device *bdev, struct nbd_device *nbd,
+>                        unsigned int cmd, unsigned long arg)
+>  {
+>         struct nbd_config *config = nbd->config;
+> +       loff_t bytesize;
+>
+>         switch (cmd) {
+>         case NBD_DISCONNECT:
+> @@ -1402,8 +1403,9 @@ static int __nbd_ioctl(struct block_device *bdev, struct nbd_device *nbd,
+>         case NBD_SET_SIZE:
+>                 return nbd_set_size(nbd, arg, config->blksize);
+>         case NBD_SET_SIZE_BLOCKS:
+> -               return nbd_set_size(nbd, arg * config->blksize,
+> -                                   config->blksize);
+> +               if (check_mul_overflow((loff_t)arg, config->blksize, &bytesize))
+> +                       return -EINVAL;
+> +               return nbd_set_size(nbd, bytesize, config->blksize);
+>         case NBD_SET_TIMEOUT:
+>                 nbd_set_cmd_timeout(nbd, arg);
+>                 return 0;
+
+arm clang-10, clang-11, clang-12 and clang-13 builds failed.
+due to this commit on 5.14 and 5.13 on following configs,
+  - footbridge_defconfig
+  - mini2440_defconfig
+  - s3c2410_defconfig
+
+This was already reported on the mailing list.
+
+ERROR: modpost: "__mulodi4" [drivers/block/nbd.ko] undefined! #1438
+https://github.com/ClangBuiltLinux/linux/issues/1438
+
+[PATCH 00/10] raise minimum GCC version to 5.1
+https://lore.kernel.org/lkml/20210910234047.1019925-1-ndesaulniers@google.com/
+
+linux-next: build failure while building Linus' tree
+https://lore.kernel.org/all/20210909182525.372ee687@canb.auug.org.au/
+
+Full build log,
+https://gitlab.com/Linaro/lkft/mirrors/stable/linux-stable-rc/-/jobs/1585407346#L1111
 
 
+--
+Linaro LKFT
+https://lkft.linaro.org
 
---=20
-Thanks,
-~Nick Desaulniers
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOdndJA-6jEAka9Zzsto%3D%3DD49%3DKk%3DYyPMf6ZYpFPwHCur=
-iQ%40mail.gmail.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYtdPnwf%2Bfi4Oyxng65pWjW9ujZ7dd2Z-EEEHyJimNHN6g%40mail.gmail.com.
