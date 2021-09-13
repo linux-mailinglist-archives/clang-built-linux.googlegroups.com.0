@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBFPT72EQMGQEEDQ3XRY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBIH672EQMGQEGZEWTHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2AAAE409E6E
-	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Sep 2021 22:50:30 +0200 (CEST)
-Received: by mail-lj1-x23b.google.com with SMTP id s15-20020a2eb8cf000000b001cbf358ed4esf4719600ljp.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Sep 2021 13:50:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1631566229; cv=pass;
+Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 93C46409EEF
+	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Sep 2021 23:14:09 +0200 (CEST)
+Received: by mail-lf1-x13e.google.com with SMTP id h3-20020ac25d63000000b003f11192275esf3664681lft.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Sep 2021 14:14:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1631567649; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GIoowsEZxQTc7arIGz0oHTgOMcLOpObbiq2dqu2llcD9CxdC/4mkQvuL80Q23M4pX7
-         RE0E+z8AnXTI+TpodWvR1ANUMZ2V4OYnYXD93ymOYksW/pOoxZAfsV/pgKg2Y3LYbQGU
-         UoDcvqtz7kw8yXHS77Mza0nBGeYoa8SmskwrA27yeAI8or4WbyY2VFrhznXCikOexK6z
-         80Ar3rZTCaHTa+rQ5qef0gbX22VQQJDZfoLWmCcP9RELEgB3gc4uryh4a0dEu9G8lOPs
-         tpy/YFjYStooEgiP7W5zNnCqU1sPejbwV6CclEhMDjaqC++TAiDvot+dE9+VJtM9kqNH
-         oU3w==
+        b=yFhLojtDWEwQLAvut7fr1g8XdIDVWT6idtFARd1Keq/vbocPtmtkcSrkAmJ/uji0BU
+         tJtPNsSbFcehs7pSSdoc3wP9nEkpyh6e3hykzWLWwMAkv6kIe0rqwUJWuOHMC0NDyNI8
+         FY3NGEqhQBeEDQFj0O6EcbRxQ2EXbsscYwzBh+DAympC4e0OR1AJwZiOVZ5CDKymTQuc
+         +jHyWMZaOQhgRTb0WiPTJU1barjRpWTNQMCs5shylmAEOya7SUmqXSJA9HzQYR2I0S+i
+         vlkAkwWhmjuJb5b/E+GNrfngGKaxTsYsHkrQHfL7tbTWspKauXtGzDTF2PWMf6AFVTKs
+         VGuQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=9Sg6iBcvyiEmXM8/oPOzPiGWFXVHXzK7SXj4BLrYGeU=;
-        b=fAbiPkh4LlkmWIGHGALjOwjpUzSpVAVhlvazK9kpP6xDe2Tg0liiA6WDTwYG7OlWpB
-         xUCouwqcHfv2emwIlJBi0YrWviTNwHO3p5tBjfENnaNMyD5745BsMX9I/xFaiGlPD72X
-         QVujQCF9fhDnZoIIU6QMCX7iEKXTlz3wUZz7FxgdxDCdac5ICNiqWdbBgN+93koZmMCd
-         uEZlmKiKI51uO/NwEvBB4ciPHARzZT9ia5uoD3yMWuLU3dT1VHHO1ZNLD3cY4Q7kOMoA
-         BhKeKCrgPHmGzR/S2fY6hA0ZmE91HcqA6XGK2txG35xmrEDC+fuNLdP+/h+EZ491PrW/
-         A4qA==
+        bh=2autMUPDCKZ+vzp1GGsCEMNdudH//d3VHKIrFdv7w1M=;
+        b=gF/E80ku9y+wtxSAcSLt3GW0BkJka/ssuXo3AlvE1ffHiAuuYwrbugRV4LVNYocYqd
+         rR4YxluPzluI+zZGq6W05mCBvHPUT2ZyV/QAzALfSbL+GLrA2WYnqYnX6Wsc+QJYy5FI
+         8OwwJHYZ5U9S2HUVaA/8i6tOj9JCWBEh1B/JbmV93EIDhBn9D2iYD4iJPY6tpMpazkH1
+         HiHmISysTmNtCgY583SYAKNq6YX3xZuYwoFWuZDiFpsYLT6w/GbN+u/o8vuoQd0/N00M
+         FC4wFIeOCfqygC8VgpKR0ZdJzatk63XLKh/J+mW1+k1ak3EIW1HGE7bhQQppGfYItxJO
+         Ykrw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b="Kx+QXs7/";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b=SEu7xaZS;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9Sg6iBcvyiEmXM8/oPOzPiGWFXVHXzK7SXj4BLrYGeU=;
-        b=LBN653rTdxsKO9ohoHI5d2/JGitjsqAkOjpv9+a7ZeqPZdxnY7e2pebAHYAcZ2ky9f
-         XubWgfAgWSr6jifaeVaGIWAd3NqvKv33F9eUujJUn/Skp1bDkic11ZS/I6JJgCSZxzod
-         AIPbFW7OQEBFDPBk/XJ5FPbUUXngudl0GIO+9w/dyOsJLd38Xq8BVg5wqyDTexAFnsNd
-         DKYEpI0xX+6XEAAc/pq1h1x/iofX7QCkwM1z1sSnYu7yFWkiaAdxmFxaXlqgXHXfHSXR
-         3QfJ1M5v2zN9/lFAt/2IhfNfcX72gNJoJGlpydljwmiyS3+V+4SoVkY/AVXrib31srD5
-         /rIA==
+        bh=2autMUPDCKZ+vzp1GGsCEMNdudH//d3VHKIrFdv7w1M=;
+        b=VkQB+cOaMMfCrC+9p8PrNm9VcJLcfBqnLnSWkchPxukHPw0yDLTEyUKUZYwId70ZNS
+         4AOcFGoGrgunbmV5I7DmddGpWSlUrz64O3AEX+RLYwuwTEUFBtz0ApmD/4K7qtUFumg/
+         BQ2A8DgIlR0zdgeunDm46ofumfqK8V0BhGt2wVPIaVVYooEwSZcPVe+/QTHe2/JgnMB7
+         E+/3kc1I87DfvU8og5ru5QI7GPfZCrud+oj6hA7oHPptdlZNTkCBOuJDE6Fkea3ElSht
+         ZBuV/f9D+s8ySs5XohJfJQnTM1/xXOSZBeDt9VEEgAEa5lD92/xZAKZz24shSrtUk1W+
+         KX2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,55 +49,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9Sg6iBcvyiEmXM8/oPOzPiGWFXVHXzK7SXj4BLrYGeU=;
-        b=l0rp+bUnXRkJK64af7TdSDEDc7QlegwUuIQSD60xBp65pWPAl3QCKtUIpecOv1TjrK
-         /VeuDfNbJ5mAgisROVPsvct0ATjJOksxfEbtPEkfb09gvftvJPIjTzCaEcCzkXdDObY8
-         sPeWbTtF1vTRbZRlw76YtC0aKGCCcF7dWqJaNWiCB/ngbjhB4IH+EAQ66mkDL+hyQv8C
-         arELOO50SM0oRTX33re47uUH3UJ3gm7dMlMkpL9eW4wor1BgV9tWzngzZuxQnTYTc5G3
-         2y5iaR8+gU5GjPwDYHB+VtSKXol9lcBy1oP3kopRKuWQTRB8zbZNFJh+8Eixxwuvp8DS
-         0Xfg==
-X-Gm-Message-State: AOAM5320nPRMhib74NErLbheWPDw/7BvZe2shsRwyL1V9ACx6b+LzKLz
-	WFOBYYnbEvo5fBaT3nmGYyk=
-X-Google-Smtp-Source: ABdhPJxOq3UKM1wj5BsLXT2QYSBzH4+wZu99haTXQ0jKaqTOkEfmrDy3+H3+KEMSKvUzBNVr8zbazg==
-X-Received: by 2002:ac2:5624:: with SMTP id b4mr4349776lff.687.1631566229686;
-        Mon, 13 Sep 2021 13:50:29 -0700 (PDT)
+        bh=2autMUPDCKZ+vzp1GGsCEMNdudH//d3VHKIrFdv7w1M=;
+        b=XPwg1futb631RhxiS7UJ3TRUrYz2bj2s8pLqyyUatoN6tD8aJ1QS+XT2SVKysrYMCy
+         J3WQhoYUHe2/HOB0J3rCypR6L9qPAMkLjnvG28tb+B+NgP3N3jbvsa+cW8Enpbb0J/V4
+         5QtFmO+N+ig813bzpPWW/6k8UgIchFn5+BE7p0nPoTaq7klRikr/R2RkjFXtINPIETpB
+         Tf6r4i4rJulP8mJMB8Ev082b3D6jqRw8mlTqNeFAFktqQo3D2bs9EMa7HcujjpPQTKt2
+         WurGgPg52yomZ4dEA/sL7pwBU1XhFoBeYgi/u1JzBkfX8KKaPLd4H5t5SnChU7meNwPE
+         hz/Q==
+X-Gm-Message-State: AOAM531n0yEVkFuMSkwvw7fLEl7hBw9040hwzyeicAyPxOo7KEsd2dRs
+	8jv3kNiMYW+g3WZBdewwKSw=
+X-Google-Smtp-Source: ABdhPJx1qztc8XqkeTXnnb7Q5LGoJiybLsU+MP7j702GM/pBorzHovxFIyj63SO7HjMoe2qg/32DjQ==
+X-Received: by 2002:a05:6512:376a:: with SMTP id z10mr3879163lft.496.1631567649181;
+        Mon, 13 Sep 2021 14:14:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:58c8:: with SMTP id u8ls1294068lfo.3.gmail; Mon, 13 Sep
- 2021 13:50:28 -0700 (PDT)
-X-Received: by 2002:a05:6512:234f:: with SMTP id p15mr10243347lfu.524.1631566228685;
-        Mon, 13 Sep 2021 13:50:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1631566228; cv=none;
+Received: by 2002:a2e:597:: with SMTP id 145ls1639624ljf.7.gmail; Mon, 13 Sep
+ 2021 14:14:08 -0700 (PDT)
+X-Received: by 2002:a2e:a449:: with SMTP id v9mr9443649ljn.86.1631567648195;
+        Mon, 13 Sep 2021 14:14:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631567648; cv=none;
         d=google.com; s=arc-20160816;
-        b=WnAZRGUofo7pqUhWS7lfOYeEfmQD235JxaJhdJbs+dVbFVf/5XvusZ7JbXLWe99Pdm
-         mm9IX/Q2mAPCLVb92+6YpF1xCR9bJT4g3QRnUtFhWxM4pNtx+oKJ8nmdchrTBY1MvVz+
-         6X3hufhOBCEm2tNdaTe0yIxpIY057icQZZznfX5kA/QupaAvN5s6vgrnB7abH7rFR6rW
-         DItE2NstTYan3h5pgNBude+VohkIf4L9c7/j9bLT4Xb10BNeyklNgLqfvR83ySucPWFN
-         edkWCSTeCRNEKa39/lBZfeQfc6371G+OWgc4MCdNW4hwBmXOqU9dhgSm+/VCq8A2ls/J
-         b5gw==
+        b=LwAcNf2TdNPBBeTBhfPMRoxy5ZBN3gUkQQbRx5atdnZ1G/sAqTIi0AQ/zB9+Cja5CZ
+         iE2Wqcdd6Af+lF6PbmUVj3uFxQNaAqKfOvy5C4tgzzUoo7+Byhnbi61U34O1FQy/SUsu
+         QkycTUtXN3jI/7hWqbLAGceJYXxDlLnqtHtUJ/cNffjb2ulvlVLZnZ4aRjxoOn3GzW0l
+         wnLPASsB2YqjWB4o5dt/VtP9xhxOol5n6bi8eaDB1F6/OTEjCmUWOiUh6E73iYRdreRu
+         zFh0A8QBW9JYWfeAXrj5tbvSBYNNRMaEUD6e1IziqOZaBZjTe+n0E7ryUtjpVXh5aLtn
+         ZWhQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=8TVqbn8thZCqMP/VrYd9m008Vn/d1QsljDuZZA3Cj3U=;
-        b=acrsqpz1X4CvV1ou7XjoMs6RYXqpgoUCC/btJotjsvDVL6b7/ApjChSdjo+iOXI1i3
-         1VApOWaGkJxqIXbV/P45rpSxcj81i17gwAzyovRq9cTcjcVDR2Mm8Igzq5qQHMt+5pmi
-         FNFGqLL1RvDLSej2JrVrB3UFg0yddx/1+0YyuXZsa2UNxz6qZZa5ZAl5/lSRezT+qSFV
-         LJ70RIBxxLEa4fqWi3KNFG8g7cqSu7vNftKw6jlszJcYDjIDpwPM8Yic97ybcZorJxhV
-         wC2oqqtmnfU0EU/E5rQQbmgDpfb704AeQ7NhLkqJxf7fjsQLsRfBVHbL030YeN3ibvPx
-         5VvQ==
+        bh=h6laIf/b4mPqz9ieIo0BoLxfadBv/pBLzz57FwMCWS8=;
+        b=gXOcq/+0HrGaNn/ydb99d818EgHp8Gzr4nWhg+8Lws1uPtZCt8eIZBi5lJg1yl8bkA
+         NpVE/9oraqM4/daarbgdMnCSqm1xv36ZsKhRj1opWuXzZxBC/ixEPyv0Dvy+o6Ak1led
+         X1T8SLF0z4m4OUmOVnkaTwfqgtenrZs/vRLbqx52tpQArS2JX2QklT8LFUV0xhbkMktB
+         pM3ONVPsGYedsTYs+qT16YK/TMv6zvgsVRRKDGikBp86+UTOj/OhHODLNDz3aFZ1Zx5N
+         U9AzJJS45sE8lI2caIbWF9NSm00X2LFVw0Pmb0H+WOBXlIiN1RIdg64bQRiIiHV/ZBax
+         o1yg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b="Kx+QXs7/";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b=SEu7xaZS;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lj1-x22a.google.com (mail-lj1-x22a.google.com. [2a00:1450:4864:20::22a])
-        by gmr-mx.google.com with ESMTPS id e17si794503ljo.2.2021.09.13.13.50.28
+Received: from mail-lf1-x129.google.com (mail-lf1-x129.google.com. [2a00:1450:4864:20::129])
+        by gmr-mx.google.com with ESMTPS id h13si905605ljj.7.2021.09.13.14.14.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Sep 2021 13:50:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a as permitted sender) client-ip=2a00:1450:4864:20::22a;
-Received: by mail-lj1-x22a.google.com with SMTP id j12so19581004ljg.10
-        for <clang-built-linux@googlegroups.com>; Mon, 13 Sep 2021 13:50:28 -0700 (PDT)
-X-Received: by 2002:a05:651c:54d:: with SMTP id q13mr12530242ljp.526.1631566228215;
- Mon, 13 Sep 2021 13:50:28 -0700 (PDT)
+        Mon, 13 Sep 2021 14:14:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) client-ip=2a00:1450:4864:20::129;
+Received: by mail-lf1-x129.google.com with SMTP id k4so23905678lfj.7
+        for <clang-built-linux@googlegroups.com>; Mon, 13 Sep 2021 14:14:08 -0700 (PDT)
+X-Received: by 2002:a05:6512:3b9e:: with SMTP id g30mr10188187lfv.651.1631567647760;
+ Mon, 13 Sep 2021 14:14:07 -0700 (PDT)
 MIME-Version: 1.0
 References: <20210913131113.390368911@linuxfoundation.org> <20210913131114.028340332@linuxfoundation.org>
  <CA+G9fYtdPnwf+fi4Oyxng65pWjW9ujZ7dd2Z-EEEHyJimNHN6g@mail.gmail.com>
@@ -106,11 +106,12 @@ References: <20210913131113.390368911@linuxfoundation.org> <20210913131114.02834
  <CA+icZUVuRaMs=bx775gDF88_xzy8LFkBA5xaK21hFDeYvgo12A@mail.gmail.com>
  <CAKwvOdmN3nQe8aL=jUwi0nGXzYQGic=NA2o40Q=yeHeafSsS3g@mail.gmail.com>
  <CAHk-=whwREzjT7=OSi5=qqOkQsvMkCOYVhyKQ5t8Rdq4bBEzuw@mail.gmail.com>
- <CAKwvOdkf3B41RRe8FDkw1H-0hBt1_PhZtZxBZ5pj0pyh7vDLmA@mail.gmail.com> <CAHk-=wjP2ijctPt2Hw3DagSZ-KgdRsO6zWTTKQNnSk0MajtJgA@mail.gmail.com>
-In-Reply-To: <CAHk-=wjP2ijctPt2Hw3DagSZ-KgdRsO6zWTTKQNnSk0MajtJgA@mail.gmail.com>
+ <CAKwvOdkf3B41RRe8FDkw1H-0hBt1_PhZtZxBZ5pj0pyh7vDLmA@mail.gmail.com>
+ <CAHk-=wjP2ijctPt2Hw3DagSZ-KgdRsO6zWTTKQNnSk0MajtJgA@mail.gmail.com> <CAKwvOd=ZG8sf1ZOkuidX_49VGkQE+BJDa19_vR4gh2FNQ2F_9Q@mail.gmail.com>
+In-Reply-To: <CAKwvOd=ZG8sf1ZOkuidX_49VGkQE+BJDa19_vR4gh2FNQ2F_9Q@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 13 Sep 2021 13:50:17 -0700
-Message-ID: <CAKwvOd=ZG8sf1ZOkuidX_49VGkQE+BJDa19_vR4gh2FNQ2F_9Q@mail.gmail.com>
+Date: Mon, 13 Sep 2021 14:13:56 -0700
+Message-ID: <CAKwvOdkz4e3HdNKFvOdDDWVijB7AKaeP14_vAEbxWXD1AviVhA@mail.gmail.com>
 Subject: Re: [PATCH 5.14 018/334] nbd: add the check to prevent overflow in __nbd_ioctl()
 To: Linus Torvalds <torvalds@linux-foundation.org>
 Cc: Arnd Bergmann <arnd@kernel.org>, Sedat Dilek <sedat.dilek@gmail.com>, 
@@ -124,8 +125,8 @@ Cc: Arnd Bergmann <arnd@kernel.org>, Sedat Dilek <sedat.dilek@gmail.com>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20210112 header.b="Kx+QXs7/";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22a
+ header.i=@google.com header.s=20210112 header.b=SEu7xaZS;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -142,44 +143,89 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Sep 13, 2021 at 1:42 PM Linus Torvalds
-<torvalds@linux-foundation.org> wrote:
+On Mon, Sep 13, 2021 at 1:50 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> On Mon, Sep 13, 2021 at 1:16 PM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
+> On Mon, Sep 13, 2021 at 1:42 PM Linus Torvalds
+> <torvalds@linux-foundation.org> wrote:
 > >
-> > Do we have access to _Generic in GCC 4.9?
+> > On Mon, Sep 13, 2021 at 1:16 PM Nick Desaulniers
+> > <ndesaulniers@google.com> wrote:
+> > >
+> > > Do we have access to _Generic in GCC 4.9?
+> >
+> > We've ended up using it unconditionally since last year, so yes.
 >
-> We've ended up using it unconditionally since last year, so yes.
+> Sorry, grepping would have taken < 1s. I'm very lazy.
+> http://threevirtues.com/
+>
+> >
+> > In fact, the compiler version tests got removed when we raised the gcc
+> > version requirement to 4.9 in commit 6ec4476ac825 ("Raise gcc version
+> > requirement to 4.9"):
+> >
+> >    "In particular, raising the minimum to 4.9 means that we can now just
+> >     assume _Generic() exists, which is likely the much better replacement
+> >     for a lot of very convoluted built-time magic with conditionals on
+> >     sizeof and/or __builtin_choose_expr() with same_type() etc"
+> >
+> > but we haven't used it much since.
+> >
+> > The "seqprop" code for picking the right lock for seqlock is perhaps
+> > the main example, and staring at that code will make you go blind, so
+> > look away.
+>
+> Looking at my patch:
+> https://lore.kernel.org/stable/20210913203201.1844253-1-ndesaulniers@google.com/
+> I don't think _Generic helps us in the case of dispatching based on
+> the result of is_signed_type() (the operands could undergo type
+> promotion, so we'd need lots of cases that are more concisely covered
+> by is_signed_type()). It could replace the nested checks in div_64
+> with nested _Generics, I think. Not sure it's a huge win for
+> readability.  Maybe cut the number of expansions of the parameters in
+> half though. Let me give it a try just to see what it looks like.
 
-Sorry, grepping would have taken < 1s. I'm very lazy.
-http://threevirtues.com/
+Is this more readable? Same line count.  I'm not sure if there's such
+a thing as "fallthrough" between the "cases" of _Generic to minimize
+duplication, or whether this could be factored further.  Needs lots
+more () around macro param use and tab'ed out line endings...
 
->
-> In fact, the compiler version tests got removed when we raised the gcc
-> version requirement to 4.9 in commit 6ec4476ac825 ("Raise gcc version
-> requirement to 4.9"):
->
->    "In particular, raising the minimum to 4.9 means that we can now just
->     assume _Generic() exists, which is likely the much better replacement
->     for a lot of very convoluted built-time magic with conditionals on
->     sizeof and/or __builtin_choose_expr() with same_type() etc"
->
-> but we haven't used it much since.
->
-> The "seqprop" code for picking the right lock for seqlock is perhaps
-> the main example, and staring at that code will make you go blind, so
-> look away.
 
-Looking at my patch:
-https://lore.kernel.org/stable/20210913203201.1844253-1-ndesaulniers@google.com/
-I don't think _Generic helps us in the case of dispatching based on
-the result of is_signed_type() (the operands could undergo type
-promotion, so we'd need lots of cases that are more concisely covered
-by is_signed_type()). It could replace the nested checks in div_64
-with nested _Generics, I think. Not sure it's a huge win for
-readability.  Maybe cut the number of expansions of the parameters in
-half though. Let me give it a try just to see what it looks like.
+
+
+
+
+diff --git a/include/linux/math64.h b/include/linux/math64.h
+index 8652a8a35d70..8fc4d56a45b9 100644
+--- a/include/linux/math64.h
++++ b/include/linux/math64.h
+@@ -162,17 +162,17 @@ static inline s64 div_s64(s64 dividend, s32 divisor)
+                div_u64(dividend, divisor));            \
+ })
+
+-#define __div_64(dividend) _Generic((divisor), \
+-  s64: div64_x64,      \
+-  u64: div64_x64,      \
+-  default: div_x64)
++#define __div_64(dividend, divisor) _Generic((divisor),        \
++  s64: div64_x64(dividend, divisor),   \
++  u64: div64_x64(dividend, divisor),   \
++  default: div_x64(dividend, divisor))
+
+ #define div_64(dividend, divisor) ({
+         \
+        BUILD_BUG_ON_MSG(sizeof(dividend) > sizeof(u64),
+         \
+                         "128b div unsupported");
+         \
+        _Generic((dividend),    \
+-               s64: __div_64(dividend)(dividend, divisor),     \
+-               u64: __div_64(dividend)(dividend, divisor),     \
++               s64: __div_64(dividend, divisor),       \
++               u64: __div_64(dividend, divisor),       \
+                default: dividend / divisor);   \
+ })
+
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -187,4 +233,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DZG8sf1ZOkuidX_49VGkQE%2BBJDa19_vR4gh2FNQ2F_9Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkz4e3HdNKFvOdDDWVijB7AKaeP14_vAEbxWXD1AviVhA%40mail.gmail.com.
