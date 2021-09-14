@@ -1,124 +1,122 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBZEZQOFAMGQECV5OIXI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBWFFQOFAMGQEFY5UGIY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2B62A40B48D
-	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 18:25:09 +0200 (CEST)
-Received: by mail-lj1-x23e.google.com with SMTP id q62-20020a2e2a41000000b001d37080f948sf5116846ljq.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 09:25:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1631636708; cv=pass;
+Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4F1CD40B544
+	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 18:50:33 +0200 (CEST)
+Received: by mail-lj1-x23b.google.com with SMTP id v25-20020a2e9919000000b001bc160ab064sf6238489lji.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 09:50:33 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1631638233; cv=pass;
         d=google.com; s=arc-20160816;
-        b=JBV+of+Y602mXzSGW2daEQClO1PNv38r0t5smF4uf9MC+wNO+li5RaWY4S6zMrefKz
-         gmCv8UyyRzG5P6lAaM/a9qc0AV+8XPo95QHssMCdNhwIaP+evHG4W/8lV6iZZ196fMiF
-         N6cywBwAlYbXOs9jEjM1Ny/eXjRTa81jVt1/XBhnwZEG28GGUn3XICk/UwnS6p7XhmSw
-         m5rOpWQ74CiX1XnJ5oHnc4IBkd33yZ8NJhwaCr81vIKvfSe2WccGuNtSNA13jjcOE8en
-         rufi4A1MLlw7aY25FLwVbpQ9ZWm6ScAgYHjXWXijfwK6VJrvQXwf/pNu/uq1iAElaEGq
-         53HQ==
+        b=uiiIrhxCl6RZN4sVo9bKAiAWhUXks9Qu8nLxY+xcKCSbFhyViFd37zftuzi9OK1b6N
+         pQbEv1wjCjsXOE5cLN3oeX5YdYwj1u8akpjZyv9omuKEVSJQAi/WP0MIhkYN5qwYidcV
+         4XDdujesp4kHpjp0D/1oiK2+PpQpjfW+8RvCb/rDfPtEx86e9/wDLO4ZaEgHYx3KBTv8
+         Pg4Ky1KFkkx9L+g9TBqOo8Ihath60dLWeY3urDj+6RDvGfjbpUeZ+gpw8e2aGgDFmC32
+         MEqbUD2P3GKBLgprOLnvFmSoV1tjWC7A65IBkZtRZ1wYiL9/S/PiKLWAHo6WPJuB3mCo
+         PnOg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=35+pVJbtrYTlVxVZwMMkFtg9FzvaUEtf1kh8mvyWBgY=;
-        b=bBRHRi9t1vuPwFpMLBgML78pT1Wn0woQSaiMeoIbQChxGxIHsE2he4VdxfL71ZnY2R
-         qBXdXhR/0zoZGoHeAHYzO++sf4RnzMC+2I18cirYn98IvUSRwolrRGz/+XhlT20Sfoa2
-         neqnb30INNlPnkejaKVRGxbIplQtE0aRwouIcDMgzYRo6qvh54d6syPyvDFKq/vJEX6e
-         xQrpeNP5e4SgvfO/fQM9CoM7ZRISM77dFvzmuhNetSRuUQK4FSzDjHhONgHicpSyZ2SU
-         UGfau6q2yaxczZfGSHJp/1d75mjvb+KrSra7NaCT1ba7JInnBazcw4zHhO4H5UlPG2qZ
-         JBuA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=EA4EkbVPavep+GxbvK90MwQzcAOfyWoUNnHyaeBxJBo=;
+        b=e/02Sd4IEkJJ4FdOos8HgonnxR5G/HJ9u9LUwM/ri0Ps0rl8n/TK5eIrDAvdznZpF1
+         EzuwUa7iO6MbTrYoD8qIbrDQzznfKLyLtlCmPFQm75fpBHH7uvrE557X4oZEXSbCNokL
+         C1VDL+R7oUfLvQjndKEGXu6TBNqhB6sj6qH4U/4vPjgqHTGK1Z26x6qFX+2E9FtJZ0lk
+         q0oq48du+UG3Cb04vlLl3ml7ff+6TEtJeHYyVwXAtkSvmWn57q/zDg9adHE+En4Na1xl
+         hRBzDA1HeX+n9ADSmcdeu/0VNKzXV9XoSvJxbDqEUh4qX8q82W7SSh/9UvKs73YqNw6s
+         Qe0A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=kUb7Ewwv;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b=Xf+Sc+kB;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22c as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=35+pVJbtrYTlVxVZwMMkFtg9FzvaUEtf1kh8mvyWBgY=;
-        b=XkFuk5/dYegce8h/3NduKhjCbZUcDHfxFV3vXNmitUykbAD7DWCEPCMa1n6/i6tBD8
-         yGRc94ur2qjbaAPZKTjcXaZBAmk9rSfxjIHNkORzs2a3NtAz7MEtA0KWKxcPkEQ6NxQo
-         0WobPNrxuDPAZxmNbtw+POTudm/uevdDG7IBK265JLM2pcIRwLCX2cgZ3eVl01OBfYPZ
-         qZEB48qd6ZacHf92cGIuT25OzKehYeCHpH9cR0qBrK5vhxSUd7Tmge7iZg0RkV0H8FLZ
-         1bNM9T8OMLN2C6FrC6ErcyvX0JqgRsf9YJ6X7c8MlOuajSZDjI87G7S3fVgBlkKol/ag
-         eL7Q==
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=EA4EkbVPavep+GxbvK90MwQzcAOfyWoUNnHyaeBxJBo=;
+        b=KpakfzORn8UFjoLFIhAPCSGADDf+lbvV8s9+LVUH88HkiLMBfj+IOUznbkAAPg1eC8
+         nyFEBvwthnv2h3ZiY6p8ktnIb7lioUqEJMdVzQVUY8Y65Ja/MbebMFRWxQrGaiXhP2q3
+         je1fKwy447dkHlsnRBPUmOYW7BMc27gCe/xsQ8GFTU3vEaoZA7+QoWPP4vP7aXIbT1+o
+         vtFVuBmDEsqZJfKq62GRkeo96BTtqQtHRRIhW92fryAsuccjrSl7bljwZWqfQR2ja0To
+         vqsV3PcH2/VFjI4Omdg2tnZbsD9XbVVwBHoDjSdfZOQyZQEm+TNclLpVo9vDKq1MB4GX
+         qMUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=35+pVJbtrYTlVxVZwMMkFtg9FzvaUEtf1kh8mvyWBgY=;
-        b=Nf4TVt/zzBJu5Ab4UToQGiWa3z2MjOx2CaRpYdoj0kENyTYB/j0pTXpUddJ0eJXOlx
-         FbQzsOlkYWjkSvMJVPA2tTM4AYWP9qS/D769ichTAAFRiBdaTyYjGw7jxc34niGZ601i
-         jbT98PIYmC0DL2x3EYcimWOY4mB8AHoxIC9ikpbXGVqVWZSVkO/JKnjk6Zd4nKkRUGGC
-         siiebMyYuhtyV9+HhBcsFAMcPRE4P3wcoxYUIK8lL2CmZGmJV9IdmKmzES5QwhI6ixDc
-         p6lDmuPxH8QxceKcpzct2tpKjL9gT2KegZIn1sUfisD9LvyJZG6p7A+FQ88anopFd7Ax
-         SgTw==
-X-Gm-Message-State: AOAM5330VPumBkNN5cEYG2E0wqM7QizCexnZ1fGqin3nj2BHq93N7XM0
-	TrWJ1bksMbhHaUFiA0KRnY8=
-X-Google-Smtp-Source: ABdhPJwIj19RaMWMBH0Hq5nPVKA4/l9eyjgUGiuToTZIqwTrD2pGHqn2HYqq7UhBKecvvceQ2boXAA==
-X-Received: by 2002:a19:ee09:: with SMTP id g9mr7710229lfb.677.1631636708721;
-        Tue, 14 Sep 2021 09:25:08 -0700 (PDT)
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=EA4EkbVPavep+GxbvK90MwQzcAOfyWoUNnHyaeBxJBo=;
+        b=S1BDW3CLrVlIZiBajUxfE+85lOFigPB3Ij5KM+zpA+sAFZfxnW265lzDn7VI18LVFN
+         WhRRMTTwB/bWx3o+bZjRas6zmb7mIMJG8ctfDgS7AXI34xdz3tS6EdXwUHNT1MzyIyoB
+         R1oXEC61FUzK/7Vt3AfIRjXxulRqMo9bACeAg4Bb/w6Jga0UvwAmylRUm95EoRn05pEE
+         NDQd0CWvqbJwhFjBM0IOlbR95C//uuac04Hczi8fDysB0hJW2ltEWEeTh3zAjS8jYZ3A
+         BG2vhmFy9IB+sxGOsWQcMIViSKRsCEn6riM4UtUMIw3GslHbc+Z250wzSgvuJrKnaTXf
+         R1MA==
+X-Gm-Message-State: AOAM531rESteMF8N/6+I7a7+PKptKK/m/NsXDdjXuXk55iaBjHHNsEG9
+	O6v+u2CRk/YjxZ7nFMmZz8o=
+X-Google-Smtp-Source: ABdhPJzAYBv/EGhFOx7tNYXZ9LpiOmVRkrm/Pjs8YyX3RDq6DP3FzQUFhVH6RftIaZFc3pL97LeVow==
+X-Received: by 2002:a2e:a413:: with SMTP id p19mr16846618ljn.412.1631638232910;
+        Tue, 14 Sep 2021 09:50:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:780f:: with SMTP id t15ls2530183ljc.6.gmail; Tue, 14 Sep
- 2021 09:25:07 -0700 (PDT)
-X-Received: by 2002:a05:651c:83:: with SMTP id 3mr15623837ljq.341.1631636707715;
-        Tue, 14 Sep 2021 09:25:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1631636707; cv=none;
+Received: by 2002:a05:651c:10e:: with SMTP id a14ls3143057ljb.4.gmail; Tue, 14
+ Sep 2021 09:50:32 -0700 (PDT)
+X-Received: by 2002:a2e:860e:: with SMTP id a14mr16542619lji.215.1631638231917;
+        Tue, 14 Sep 2021 09:50:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631638231; cv=none;
         d=google.com; s=arc-20160816;
-        b=n2yD7GlNnwPY2pMYAsqmG/9YTTweia8ZuMVlMiApeABRqXwo4cA3I6tOXByIiQ7s9T
-         oaNI1+fddQKPjnAszmEBCp52Pg+a2ljYRzYwr/nPNIPeSd4rHxg3aB1J8a1ht71/g61B
-         5egBum7t2iZXuuC0ne1geZADYY/LEeZqpWyE0OUZAmS7e9mVN1EM7Tocf8YtvCz5YMMO
-         mHNvisks/GKoSJnSdkwDwfO1/kHjZCMYjLL8g2qgcHW+5RBVxiumV92jYUkeYNLZ+Lsf
-         Up2Z19rc/8lKuX6SD0ydqDioi15KY6bFk4FjgSmgESV3GSsWz2EXAk3wAecupeQjHTuO
-         J/hw==
+        b=e2EDZOoV9Cr7vowxccMN3+F9DdQ2uSEl3MMRWQr/pxzZ6BJVODyk1NSSBD44t8kzRs
+         fAr6jvIYMj9Khq6QLYIE1tOjLg4IajXwSOk2J0w2+/JXvX4VRDJhnXtWdT/vJWOpzdtH
+         pg0TMM9cE2rZJDW0K/5TER40WRqWW5QVQKa92Yc8WSIhppKMQdW/hUcvESvyuaUtU2tZ
+         xwXpsMATf7g4OlZmopMlauyEXsymC9Rn0ex9SDtqILznDE26hvFY5KJXkqr/4lT9HQLN
+         toPAi8D71+TMI1IeNo+QBSlBoXTUiK1wBoFilUNJlcqItXpVj56MXCGkMC5eeKAcl6fR
+         LNvw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=0XFl+qSFBvVSwzxm/RP8WJzRd9gsausZ/c3B29VHTgk=;
-        b=k3GS79yAzI9uqO2lwz4tEVnoAdBstJIzDIHpWzncn5fmLnE7yIhyDB7zIoUHrYFeAJ
-         s4BfODnHTtALZNpHK482B6LS44hJCaOiS1mxdUQny0srSiXYKdj5E6ph9ohpn8+tUQV1
-         1V9JF9RNnEeExONn1/9lRVatzEbE7bg/xhzBTK66AQCJJ784emLB3Kxlf1+ria0pBepm
-         9kr7tZqtdZ0ufXWmWHhsshwpr7eWXpv7Ew9WNoovxGSo3/Wc9XB1jioLzP2o/1/jcRJn
-         meDgc4X21Cjdqu1z3cJ9FCxYUMPr2iDy9ktLedndfD2Yd98+/FIhZ4i0Meyr8/xYSPx+
-         /UBA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=nYQ3ZHSQEnTrUvuJsAuD2XlUNVqNvQB63DyH5IBbzFs=;
+        b=ac65O/kpZSHXEiPHMIWpcfv8C562W50z6Cjn25x+68yx1PAUoWxVaAP1UWuUZPFWjx
+         oxC6a0GLYQv6d3u7N8gMIdvZn0pKQX55e4UYBe0WohG5OCBezsTRkctRP4Wz+FHeHm9g
+         ZiHRYGrzbZxrV3DXHoo0KOsmSMUfxleteulEV9tZYgp3IAWAjqf/PMciqt6uwSBgFb9X
+         39kJHHRh4rVK0c/1vk3IWLyxQEw1UO/a2kgUoQer7r70jz/Z3CIP0t2cYJgtxn8onba4
+         Ls3Ll17HPxNZhwfunW+KYaN/aatpJzNsffrOEf7QATr1FZGuvsWo9fNJ54ZMQ6Uhlpxa
+         NmrQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=kUb7Ewwv;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b=Xf+Sc+kB;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22c as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lj1-x235.google.com (mail-lj1-x235.google.com. [2a00:1450:4864:20::235])
-        by gmr-mx.google.com with ESMTPS id v25si998512lfr.1.2021.09.14.09.25.07
+Received: from mail-lj1-x22c.google.com (mail-lj1-x22c.google.com. [2a00:1450:4864:20::22c])
+        by gmr-mx.google.com with ESMTPS id e14si1069552lfs.11.2021.09.14.09.50.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Sep 2021 09:25:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235 as permitted sender) client-ip=2a00:1450:4864:20::235;
-Received: by mail-lj1-x235.google.com with SMTP id j12so24965973ljg.10
-        for <clang-built-linux@googlegroups.com>; Tue, 14 Sep 2021 09:25:07 -0700 (PDT)
-X-Received: by 2002:a2e:99da:: with SMTP id l26mr15581274ljj.339.1631636706992;
- Tue, 14 Sep 2021 09:25:06 -0700 (PDT)
+        Tue, 14 Sep 2021 09:50:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22c as permitted sender) client-ip=2a00:1450:4864:20::22c;
+Received: by mail-lj1-x22c.google.com with SMTP id r3so25170217ljc.4
+        for <clang-built-linux@googlegroups.com>; Tue, 14 Sep 2021 09:50:31 -0700 (PDT)
+X-Received: by 2002:a2e:8808:: with SMTP id x8mr16802088ljh.220.1631638231368;
+ Tue, 14 Sep 2021 09:50:31 -0700 (PDT)
 MIME-Version: 1.0
-References: <20210913213415.527306-1-paul@crapouillou.net> <CAKwvOdknN5O2gDUXwLwQDhxJc15foagrfW=+u+6vtxKVHmwDOQ@mail.gmail.com>
- <HMMFZQ.4BHOG14DQZPA3@crapouillou.net>
-In-Reply-To: <HMMFZQ.4BHOG14DQZPA3@crapouillou.net>
+References: <CAKwvOd=8w_nnQpbY2Yyg35oY8j+K0yL6K32Cd9wYLp2VTvQjXw@mail.gmail.com>
+ <CAAt6xTsbC5m6XDkW0DG-ECrhTPHVKiixvb7_3De9=eGENHHKhw@mail.gmail.com>
+ <CAKwvOdnc3pGLUiKRdHMKUADkqb8OxeL8sKfFKxP5CM0xOb1A4w@mail.gmail.com>
+ <CAAt6xTsQpCDWkC+GXrsmS_mfrVSfjLPnOi0ehAzLyZmnf0QoSA@mail.gmail.com>
+ <55b27a4f-67d6-48b9-84ed-e1ab95ae42c0n@googlegroups.com> <CAKwvOdkPYociOMPo7cYH2u13-+jjweCNWvmN3Erqzgx3cvEWhA@mail.gmail.com>
+ <46627d85-ffe9-4d1b-a90a-611d2f774c47n@googlegroups.com>
+In-Reply-To: <46627d85-ffe9-4d1b-a90a-611d2f774c47n@googlegroups.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 14 Sep 2021 09:24:54 -0700
-Message-ID: <CAKwvOd=w0=i2GPiBaXHizaMP=b0VD9Lw_o+GuvvWp-brMx2fRw@mail.gmail.com>
-Subject: Re: [PATCH v2] MIPS: Avoid macro redefinitions
-To: Paul Cercueil <paul@crapouillou.net>
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	Jiaxun Yang <jiaxun.yang@flygoat.com>, Tiezhu Yang <yangtiezhu@loongson.cn>, 
-	linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, list@opendingux.net, 
-	clang-built-linux@googlegroups.com
+Date: Tue, 14 Sep 2021 09:50:19 -0700
+Message-ID: <CAKwvOdm_T+wE=YNJ9bd+v-sZPxmCYwe=frqBFE=6bji55bgV0g@mail.gmail.com>
+Subject: Re: painful llvm x86 bugs
+To: Annita Zhang <annita.zhang@gmail.com>
+Cc: Clang Built Linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20210112 header.b=kUb7Ewwv;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::235
+ header.i=@google.com header.s=20210112 header.b=Xf+Sc+kB;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::22c
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -135,772 +133,122 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Sep 14, 2021 at 9:18 AM Paul Cercueil <paul@crapouillou.net> wrote:
+On Thu, Sep 2, 2021 at 11:25 PM Annita Zhang <annita.zhang@gmail.com> wrote:
 >
 > Hi Nick,
 >
-> Le mar., sept. 14 2021 at 08:56:59 -0700, Nick Desaulniers
-> <ndesaulniers@google.com> a =C3=A9crit :
-> >  On Mon, Sep 13, 2021 at 2:34 PM Paul Cercueil <paul@crapouillou.net>
-> > wrote:
-> >>
-> >>  To be able to compile the kernel with LTO, the assembler macros
-> >> cannot
-> >>  be declared in the global scope, or the compiler will complain about
-> >>  redefined macros.
-> >>
-> >>  Update the code so that macros are defined then undefined when they
-> >> are
-> >>  used.
-> >>
-> >>  Note that virt support was added in 2.24 and xpa in 2.25. So we
-> >> still
-> >>  need the TOOLCHAIN defines for them.
-> >>
-> >>  Signed-off-by: Paul Cercueil <paul@crapouillou.net>
-> >>  ---
-> >>
-> >>  Notes:
-> >>      v2: Removed commented undef line
-> >
-> > Hi Paul, thanks for the v2. I think the point of the #undef was that
-> > the _IFC_REG doesn't make sense outside of this header, so they
-> > probably did not want to pollute the namespace for preprocessor
-> > defines.  As such, I think it should actually stay, not be removed (or
-> > commented out).
->
-> I can test it again later, but IIRC the #undef must be removed. Since
-> we use the new _ASM_SET_PARSE_R macro, which uses _IFC_REG, if we
-> #undef it early then it won't compile.
+> Sorry I missed your email as I was on vacation last Friday. I'm in China time zone. My colleague, Andy Kaylor is in the same time zone with you. I will sync with him and propose some time slots to meet next week. Does it work for you?
 
-Ok, it's not a big deal anyways.
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Hi Annita,
+This week and next week are full of technical conferences for the
+Linux kernel; my schedule is packed.  Perhaps we could sync up after?
+https://www.timeanddate.com/worldclock/meetingtime.html?iso=20210927&p1=283&p2=33
+I'm very happy to meet in the evening or at night (rather than very early).
 
 >
-> Cheers,
-> -Paul
+> Thx,
+> Annita
 >
-> >>
-> >>   arch/mips/include/asm/ginvt.h                 |  11 +-
-> >>   .../asm/mach-loongson64/loongson_regs.h       |  12 ++
-> >>   arch/mips/include/asm/mipsregs.h              | 190
-> >> +++++++++++-------
-> >>   arch/mips/include/asm/msa.h                   |  34 +++-
-> >>   4 files changed, 155 insertions(+), 92 deletions(-)
-> >>
-> >>  diff --git a/arch/mips/include/asm/ginvt.h
-> >> b/arch/mips/include/asm/ginvt.h
-> >>  index 6eb7c2b94dc7..87b2974ffc53 100644
-> >>  --- a/arch/mips/include/asm/ginvt.h
-> >>  +++ b/arch/mips/include/asm/ginvt.h
-> >>  @@ -12,11 +12,13 @@ enum ginvt_type {
-> >>
-> >>   #ifdef TOOLCHAIN_SUPPORTS_GINV
-> >>   # define _ASM_SET_GINV ".set   ginv\n"
-> >>  +# define _ASM_UNSET_GINV
-> >>   #else
-> >>  -_ASM_MACRO_1R1I(ginvt, rs, type,
-> >>  -               _ASM_INSN_IF_MIPS(0x7c0000bd | (__rs << 21) |
-> >> (\\type << 8))
-> >>  -               _ASM_INSN32_IF_MM(0x0000717c | (__rs << 16) |
-> >> (\\type << 9)));
-> >>  -# define _ASM_SET_GINV
-> >>  +# define _ASM_SET_GINV
-> >>     \
-> >>  +       _ASM_MACRO_1R1I(ginvt, rs, type,
-> >>     \
-> >>  +                       _ASM_INSN_IF_MIPS(0x7c0000bd | (__rs << 21)
-> >> | (\\type << 8))    \
-> >>  +                       _ASM_INSN32_IF_MM(0x0000717c | (__rs << 16)
-> >> | (\\type << 9)))
-> >>  +# define _ASM_UNSET_GINV ".purgem ginvt\n"
-> >>   #endif
-> >>
-> >>   static __always_inline void ginvt(unsigned long addr, enum
-> >> ginvt_type type)
-> >>  @@ -25,6 +27,7 @@ static __always_inline void ginvt(unsigned long
-> >> addr, enum ginvt_type type)
-> >>                  ".set   push\n"
-> >>                  _ASM_SET_GINV
-> >>                  "       ginvt   %0, %1\n"
-> >>  +               _ASM_UNSET_GINV
-> >>                  ".set   pop"
-> >>                  : /* no outputs */
-> >>                  : "r"(addr), "i"(type)
-> >>  diff --git a/arch/mips/include/asm/mach-loongson64/loongson_regs.h
-> >> b/arch/mips/include/asm/mach-loongson64/loongson_regs.h
-> >>  index 165993514762..b5be7511f6cd 100644
-> >>  --- a/arch/mips/include/asm/mach-loongson64/loongson_regs.h
-> >>  +++ b/arch/mips/include/asm/mach-loongson64/loongson_regs.h
-> >>  @@ -21,8 +21,10 @@ static inline u32 read_cpucfg(u32 reg)
-> >>          u32 __res;
-> >>
-> >>          __asm__ __volatile__(
-> >>  +               _ASM_SET_PARSE_R
-> >>                  "parse_r __res,%0\n\t"
-> >>                  "parse_r reg,%1\n\t"
-> >>  +               _ASM_UNSET_PARSE_R
-> >>                  ".insn \n\t"
-> >>                  ".word (0xc8080118 | (reg << 21) | (__res <<
-> >> 11))\n\t"
-> >>                  :"=3Dr"(__res)
-> >>  @@ -143,8 +145,10 @@ static inline u32 csr_readl(u32 reg)
-> >>
-> >>          /* RDCSR reg, val */
-> >>          __asm__ __volatile__(
-> >>  +               _ASM_SET_PARSE_R
-> >>                  "parse_r __res,%0\n\t"
-> >>                  "parse_r reg,%1\n\t"
-> >>  +               _ASM_UNSET_PARSE_R
-> >>                  ".insn \n\t"
-> >>                  ".word (0xc8000118 | (reg << 21) | (__res <<
-> >> 11))\n\t"
-> >>                  :"=3Dr"(__res)
-> >>  @@ -160,8 +164,10 @@ static inline u64 csr_readq(u32 reg)
-> >>
-> >>          /* DRDCSR reg, val */
-> >>          __asm__ __volatile__(
-> >>  +               _ASM_SET_PARSE_R
-> >>                  "parse_r __res,%0\n\t"
-> >>                  "parse_r reg,%1\n\t"
-> >>  +               _ASM_UNSET_PARSE_R
-> >>                  ".insn \n\t"
-> >>                  ".word (0xc8020118 | (reg << 21) | (__res <<
-> >> 11))\n\t"
-> >>                  :"=3Dr"(__res)
-> >>  @@ -175,8 +181,10 @@ static inline void csr_writel(u32 val, u32 reg)
-> >>   {
-> >>          /* WRCSR reg, val */
-> >>          __asm__ __volatile__(
-> >>  +               _ASM_SET_PARSE_R
-> >>                  "parse_r reg,%0\n\t"
-> >>                  "parse_r val,%1\n\t"
-> >>  +               _ASM_UNSET_PARSE_R
-> >>                  ".insn \n\t"
-> >>                  ".word (0xc8010118 | (reg << 21) | (val << 11))\n\t"
-> >>                  :
-> >>  @@ -189,8 +197,10 @@ static inline void csr_writeq(u64 val, u32 reg)
-> >>   {
-> >>          /* DWRCSR reg, val */
-> >>          __asm__ __volatile__(
-> >>  +               _ASM_SET_PARSE_R
-> >>                  "parse_r reg,%0\n\t"
-> >>                  "parse_r val,%1\n\t"
-> >>  +               _ASM_UNSET_PARSE_R
-> >>                  ".insn \n\t"
-> >>                  ".word (0xc8030118 | (reg << 21) | (val << 11))\n\t"
-> >>                  :
-> >>  @@ -243,8 +253,10 @@ static inline u64 drdtime(void)
-> >>          u64 val =3D 0;
-> >>
-> >>          __asm__ __volatile__(
-> >>  +               _ASM_SET_PARSE_R
-> >>                  "parse_r rID,%0\n\t"
-> >>                  "parse_r val,%1\n\t"
-> >>  +               _ASM_UNSET_PARSE_R
-> >>                  ".insn \n\t"
-> >>                  ".word (0xc8090118 | (rID << 21) | (val << 11))\n\t"
-> >>                  :"=3Dr"(rID),"=3Dr"(val)
-> >>  diff --git a/arch/mips/include/asm/mipsregs.h
-> >> b/arch/mips/include/asm/mipsregs.h
-> >>  index acdf8c69220b..2616353b940c 100644
-> >>  --- a/arch/mips/include/asm/mipsregs.h
-> >>  +++ b/arch/mips/include/asm/mipsregs.h
-> >>  @@ -1297,22 +1297,22 @@ static inline int mm_insn_16bit(u16 insn)
-> >>          "\\var  =3D " #n "\n\t"                   \
-> >>          ".endif\n\t"
-> >>
-> >>  -__asm__(".macro        parse_r var r\n\t"
-> >>  -       "\\var  =3D -1\n\t"
-> >>  -       _IFC_REG(0)  _IFC_REG(1)  _IFC_REG(2)  _IFC_REG(3)
-> >>  -       _IFC_REG(4)  _IFC_REG(5)  _IFC_REG(6)  _IFC_REG(7)
-> >>  -       _IFC_REG(8)  _IFC_REG(9)  _IFC_REG(10) _IFC_REG(11)
-> >>  -       _IFC_REG(12) _IFC_REG(13) _IFC_REG(14) _IFC_REG(15)
-> >>  -       _IFC_REG(16) _IFC_REG(17) _IFC_REG(18) _IFC_REG(19)
-> >>  -       _IFC_REG(20) _IFC_REG(21) _IFC_REG(22) _IFC_REG(23)
-> >>  -       _IFC_REG(24) _IFC_REG(25) _IFC_REG(26) _IFC_REG(27)
-> >>  -       _IFC_REG(28) _IFC_REG(29) _IFC_REG(30) _IFC_REG(31)
-> >>  -       ".iflt  \\var\n\t"
-> >>  -       ".error \"Unable to parse register name \\r\"\n\t"
-> >>  -       ".endif\n\t"
-> >>  -       ".endm");
-> >>  -
-> >>  -#undef _IFC_REG
-> >
-> > ^ ie. I don't think we want to remove this undef.
-> >
-> >>  +#define _ASM_SET_PARSE_R
-> >>     \
-> >>  +       ".macro parse_r var r\n\t"
-> >>     \
-> >>  +       "\\var  =3D -1\n\t"
-> >>     \
-> >>  +       _IFC_REG(0)  _IFC_REG(1)  _IFC_REG(2)  _IFC_REG(3)
-> >>     \
-> >>  +       _IFC_REG(4)  _IFC_REG(5)  _IFC_REG(6)  _IFC_REG(7)
-> >>     \
-> >>  +       _IFC_REG(8)  _IFC_REG(9)  _IFC_REG(10) _IFC_REG(11)
-> >>     \
-> >>  +       _IFC_REG(12) _IFC_REG(13) _IFC_REG(14) _IFC_REG(15)
-> >>     \
-> >>  +       _IFC_REG(16) _IFC_REG(17) _IFC_REG(18) _IFC_REG(19)
-> >>     \
-> >>  +       _IFC_REG(20) _IFC_REG(21) _IFC_REG(22) _IFC_REG(23)
-> >>     \
-> >>  +       _IFC_REG(24) _IFC_REG(25) _IFC_REG(26) _IFC_REG(27)
-> >>     \
-> >>  +       _IFC_REG(28) _IFC_REG(29) _IFC_REG(30) _IFC_REG(31)
-> >>     \
-> >>  +       ".iflt  \\var\n\t"
-> >>     \
-> >>  +       ".error \"Unable to parse register name \\r\"\n\t"
-> >>     \
-> >>  +       ".endif\n\t"
-> >>     \
-> >>  +       ".endm\n\t"
-> >>  +#define _ASM_UNSET_PARSE_R ".purgem parse_r\n\t"
-> >>
-> >>   /*
-> >>    * C macros for generating assembler macros for common instruction
-> >> formats.
-> >>  @@ -1322,43 +1322,45 @@ __asm__(".macro parse_r var r\n\t"
-> >>    * the ENC encodings.
-> >>    */
-> >>
-> >>  -/* Instructions with no operands */
-> >>  -#define _ASM_MACRO_0(OP, ENC)
-> >>     \
-> >>  -       __asm__(".macro " #OP "\n\t"
-> >>     \
-> >>  -               ENC
-> >>     \
-> >>  -               ".endm")
-> >>  -
-> >>   /* Instructions with 1 register operand & 1 immediate operand */
-> >>   #define _ASM_MACRO_1R1I(OP, R1, I2, ENC)
-> >>     \
-> >>  -       __asm__(".macro " #OP " " #R1 ", " #I2 "\n\t"
-> >>     \
-> >>  +               ".macro " #OP " " #R1 ", " #I2 "\n\t"
-> >>     \
-> >>  +               _ASM_SET_PARSE_R
-> >>     \
-> >>                  "parse_r __" #R1 ", \\" #R1 "\n\t"
-> >>     \
-> >>                  ENC
-> >>     \
-> >>  -               ".endm")
-> >>  +               _ASM_UNSET_PARSE_R
-> >>     \
-> >>  +               ".endm\n\t"
-> >>
-> >>   /* Instructions with 2 register operands */
-> >>   #define _ASM_MACRO_2R(OP, R1, R2, ENC)
-> >>     \
-> >>  -       __asm__(".macro " #OP " " #R1 ", " #R2 "\n\t"
-> >>     \
-> >>  +               ".macro " #OP " " #R1 ", " #R2 "\n\t"
-> >>     \
-> >>  +               _ASM_SET_PARSE_R
-> >>     \
-> >>                  "parse_r __" #R1 ", \\" #R1 "\n\t"
-> >>     \
-> >>                  "parse_r __" #R2 ", \\" #R2 "\n\t"
-> >>     \
-> >>                  ENC
-> >>     \
-> >>  -               ".endm")
-> >>  +               _ASM_UNSET_PARSE_R
-> >>     \
-> >>  +               ".endm\n\t"
-> >>
-> >>   /* Instructions with 3 register operands */
-> >>   #define _ASM_MACRO_3R(OP, R1, R2, R3, ENC)
-> >>     \
-> >>  -       __asm__(".macro " #OP " " #R1 ", " #R2 ", " #R3 "\n\t"
-> >>     \
-> >>  +               ".macro " #OP " " #R1 ", " #R2 ", " #R3 "\n\t"
-> >>     \
-> >>  +               _ASM_SET_PARSE_R
-> >>     \
-> >>                  "parse_r __" #R1 ", \\" #R1 "\n\t"
-> >>     \
-> >>                  "parse_r __" #R2 ", \\" #R2 "\n\t"
-> >>     \
-> >>                  "parse_r __" #R3 ", \\" #R3 "\n\t"
-> >>     \
-> >>                  ENC
-> >>     \
-> >>  -               ".endm")
-> >>  +               _ASM_UNSET_PARSE_R
-> >>     \
-> >>  +               ".endm\n\t"
-> >>
-> >>   /* Instructions with 2 register operands and 1 optional select
-> >> operand */
-> >>   #define _ASM_MACRO_2R_1S(OP, R1, R2, SEL3, ENC)
-> >>             \
-> >>  -       __asm__(".macro " #OP " " #R1 ", " #R2 ", " #SEL3 " =3D
-> >> 0\n\t"    \
-> >>  +               ".macro " #OP " " #R1 ", " #R2 ", " #SEL3 " =3D
-> >> 0\n\t"    \
-> >>  +               _ASM_SET_PARSE_R
-> >>     \
-> >>                  "parse_r __" #R1 ", \\" #R1 "\n\t"
-> >>     \
-> >>                  "parse_r __" #R2 ", \\" #R2 "\n\t"
-> >>     \
-> >>                  ENC
-> >>     \
-> >>  -               ".endm")
-> >>  +               _ASM_UNSET_PARSE_R
-> >>     \
-> >>  +               ".endm\n\t"
-> >>
-> >>   /*
-> >>    * TLB Invalidate Flush
-> >>  @@ -1618,15 +1620,21 @@ do {
-> >>                             \
-> >>   } while (0)
-> >>
-> >>   #ifndef TOOLCHAIN_SUPPORTS_XPA
-> >>  -_ASM_MACRO_2R_1S(mfhc0, rt, rs, sel,
-> >>  -       _ASM_INSN_IF_MIPS(0x40400000 | __rt << 16 | __rs << 11 |
-> >> \\sel)
-> >>  -       _ASM_INSN32_IF_MM(0x000000f4 | __rt << 21 | __rs << 16 |
-> >> \\sel << 11));
-> >>  -_ASM_MACRO_2R_1S(mthc0, rt, rd, sel,
-> >>  -       _ASM_INSN_IF_MIPS(0x40c00000 | __rt << 16 | __rd << 11 |
-> >> \\sel)
-> >>  -       _ASM_INSN32_IF_MM(0x000002f4 | __rt << 21 | __rd << 16 |
-> >> \\sel << 11));
-> >>  -#define _ASM_SET_XPA ""
-> >>  +#define _ASM_SET_MFHC0
-> >>     \
-> >>  +       _ASM_MACRO_2R_1S(mfhc0, rt, rs, sel,
-> >>     \
-> >>  +                        _ASM_INSN_IF_MIPS(0x40400000 | __rt << 16
-> >> | __rs << 11 | \\sel)        \
-> >>  +                        _ASM_INSN32_IF_MM(0x000000f4 | __rt << 21
-> >> | __rs << 16 | \\sel << 11))
-> >>  +#define _ASM_UNSET_MFHC0 ".purgem mfhc0\n\t"
-> >>  +#define _ASM_SET_MTHC0
-> >>     \
-> >>  +       _ASM_MACRO_2R_1S(mthc0, rt, rd, sel,
-> >>     \
-> >>  +                        _ASM_INSN_IF_MIPS(0x40c00000 | __rt << 16
-> >> | __rd << 11 | \\sel)        \
-> >>  +                        _ASM_INSN32_IF_MM(0x000002f4 | __rt << 21
-> >> | __rd << 16 | \\sel << 11))
-> >>  +#define _ASM_UNSET_MTHC0 ".purgem mthc0\n\t"
-> >>   #else  /* !TOOLCHAIN_SUPPORTS_XPA */
-> >>  -#define _ASM_SET_XPA ".set\txpa\n\t"
-> >>  +#define _ASM_SET_MFHC0 ".set\txpa\n\t"
-> >>  +#define _ASM_SET_MTHC0 ".set\txpa\n\t"
-> >>  +#define _ASM_UNSET_MFHC0
-> >>  +#define _ASM_UNSET_MTHC0
-> >>   #endif
-> >>
-> >>   #define __readx_32bit_c0_register(source, sel)
-> >>     \
-> >>  @@ -1636,8 +1644,9 @@ _ASM_MACRO_2R_1S(mthc0, rt, rd, sel,
-> >>          __asm__ __volatile__(
-> >>     \
-> >>          "       .set    push                                    \n"
-> >>     \
-> >>          "       .set    mips32r2                                \n"
-> >>     \
-> >>  -       _ASM_SET_XPA
-> >>     \
-> >>  +       _ASM_SET_MFHC0
-> >>     \
-> >>          "       mfhc0   %0, " #source ", %1                     \n"
-> >>     \
-> >>  +       _ASM_UNSET_MFHC0
-> >>     \
-> >>          "       .set    pop                                     \n"
-> >>     \
-> >>          : "=3Dr" (__res)
-> >>     \
-> >>          : "i" (sel));
-> >>     \
-> >>  @@ -1649,8 +1658,9 @@ do {
-> >>                             \
-> >>          __asm__ __volatile__(
-> >>     \
-> >>          "       .set    push                                    \n"
-> >>     \
-> >>          "       .set    mips32r2                                \n"
-> >>     \
-> >>  -       _ASM_SET_XPA
-> >>     \
-> >>  +       _ASM_SET_MTHC0
-> >>     \
-> >>          "       mthc0   %z0, " #register ", %1                  \n"
-> >>     \
-> >>  +       _ASM_UNSET_MTHC0
-> >>     \
-> >>          "       .set    pop                                     \n"
-> >>     \
-> >>          :
-> >>     \
-> >>          : "Jr" (value), "i" (sel));
-> >>     \
-> >>  @@ -2046,31 +2056,58 @@ do {
-> >>                             \
-> >>    */
-> >>
-> >>   #ifndef TOOLCHAIN_SUPPORTS_VIRT
-> >>  -_ASM_MACRO_2R_1S(mfgc0, rt, rs, sel,
-> >>  -       _ASM_INSN_IF_MIPS(0x40600000 | __rt << 16 | __rs << 11 |
-> >> \\sel)
-> >>  -       _ASM_INSN32_IF_MM(0x000004fc | __rt << 21 | __rs << 16 |
-> >> \\sel << 11));
-> >>  -_ASM_MACRO_2R_1S(dmfgc0, rt, rs, sel,
-> >>  -       _ASM_INSN_IF_MIPS(0x40600100 | __rt << 16 | __rs << 11 |
-> >> \\sel)
-> >>  -       _ASM_INSN32_IF_MM(0x580004fc | __rt << 21 | __rs << 16 |
-> >> \\sel << 11));
-> >>  -_ASM_MACRO_2R_1S(mtgc0, rt, rd, sel,
-> >>  -       _ASM_INSN_IF_MIPS(0x40600200 | __rt << 16 | __rd << 11 |
-> >> \\sel)
-> >>  -       _ASM_INSN32_IF_MM(0x000006fc | __rt << 21 | __rd << 16 |
-> >> \\sel << 11));
-> >>  -_ASM_MACRO_2R_1S(dmtgc0, rt, rd, sel,
-> >>  -       _ASM_INSN_IF_MIPS(0x40600300 | __rt << 16 | __rd << 11 |
-> >> \\sel)
-> >>  -       _ASM_INSN32_IF_MM(0x580006fc | __rt << 21 | __rd << 16 |
-> >> \\sel << 11));
-> >>  -_ASM_MACRO_0(tlbgp,    _ASM_INSN_IF_MIPS(0x42000010)
-> >>  -                      _ASM_INSN32_IF_MM(0x0000017c));
-> >>  -_ASM_MACRO_0(tlbgr,    _ASM_INSN_IF_MIPS(0x42000009)
-> >>  -                      _ASM_INSN32_IF_MM(0x0000117c));
-> >>  -_ASM_MACRO_0(tlbgwi,   _ASM_INSN_IF_MIPS(0x4200000a)
-> >>  -                      _ASM_INSN32_IF_MM(0x0000217c));
-> >>  -_ASM_MACRO_0(tlbgwr,   _ASM_INSN_IF_MIPS(0x4200000e)
-> >>  -                      _ASM_INSN32_IF_MM(0x0000317c));
-> >>  -_ASM_MACRO_0(tlbginvf, _ASM_INSN_IF_MIPS(0x4200000c)
-> >>  -                      _ASM_INSN32_IF_MM(0x0000517c));
-> >>  -#define _ASM_SET_VIRT ""
-> >>  +#define _ASM_SET_MFGC0
-> >>     \
-> >>  +       _ASM_MACRO_2R_1S(mfgc0, rt, rs, sel,
-> >>     \
-> >>  +                        _ASM_INSN_IF_MIPS(0x40600000 | __rt << 16
-> >> | __rs << 11 | \\sel)        \
-> >>  +                        _ASM_INSN32_IF_MM(0x000004fc | __rt << 21
-> >> | __rs << 16 | \\sel << 11))
-> >>  +#define _ASM_UNSET_MFGC0 ".purgem mfgc0\n\t"
-> >>  +#define _ASM_SET_DMFGC0
-> >>             \
-> >>  +       _ASM_MACRO_2R_1S(dmfgc0, rt, rs, sel,
-> >>     \
-> >>  +                        _ASM_INSN_IF_MIPS(0x40600100 | __rt << 16
-> >> | __rs << 11 | \\sel)        \
-> >>  +                        _ASM_INSN32_IF_MM(0x580004fc | __rt << 21
-> >> | __rs << 16 | \\sel << 11))
-> >>  +#define _ASM_UNSET_DMFGC0 ".purgem dmfgc0\n\t"
-> >>  +#define _ASM_SET_MTGC0
-> >>     \
-> >>  +       _ASM_MACRO_2R_1S(mtgc0, rt, rd, sel,
-> >>     \
-> >>  +                        _ASM_INSN_IF_MIPS(0x40600200 | __rt << 16
-> >> | __rd << 11 | \\sel)        \
-> >>  +                        _ASM_INSN32_IF_MM(0x000006fc | __rt << 21
-> >> | __rd << 16 | \\sel << 11))
-> >>  +#define _ASM_UNSET_MTGC0 ".purgem mtgc0\n\t"
-> >>  +#define _ASM_SET_DMTGC0
-> >>             \
-> >>  +       _ASM_MACRO_2R_1S(dmtgc0, rt, rd, sel,
-> >>     \
-> >>  +                        _ASM_INSN_IF_MIPS(0x40600300 | __rt << 16
-> >> | __rd << 11 | \\sel)        \
-> >>  +                        _ASM_INSN32_IF_MM(0x580006fc | __rt << 21
-> >> | __rd << 16 | \\sel << 11))
-> >>  +#define _ASM_UNSET_DMTGC0 ".purgem dmtgc0\n\t"
-> >>  +
-> >>  +#define __tlbgp()
-> >>     \
-> >>  +               _ASM_INSN_IF_MIPS(0x42000010)
-> >>     \
-> >>  +               _ASM_INSN32_IF_MM(0x0000017c)
-> >>  +#define __tlbgr()
-> >>     \
-> >>  +               _ASM_INSN_IF_MIPS(0x42000009)
-> >>     \
-> >>  +               _ASM_INSN32_IF_MM(0x0000117c)
-> >>  +#define __tlbgwi()
-> >>     \
-> >>  +               _ASM_INSN_IF_MIPS(0x4200000a)
-> >>     \
-> >>  +               _ASM_INSN32_IF_MM(0x0000217c)
-> >>  +#define __tlbgwr()
-> >>     \
-> >>  +               _ASM_INSN_IF_MIPS(0x4200000e)
-> >>     \
-> >>  +               _ASM_INSN32_IF_MM(0x0000317c)
-> >>  +#define __tlbginvf()
-> >>     \
-> >>  +               _ASM_INSN_IF_MIPS(0x4200000c)
-> >>     \
-> >>  +               _ASM_INSN32_IF_MM(0x0000517c)
-> >>   #else  /* !TOOLCHAIN_SUPPORTS_VIRT */
-> >>   #define _ASM_SET_VIRT ".set\tvirt\n\t"
-> >>  +#define _ASM_SET_MFGC0 _ASM_SET_VIRT
-> >>  +#define _ASM_SET_DMFGC0        _ASM_SET_VIRT
-> >>  +#define _ASM_SET_MTGC0 _ASM_SET_VIRT
-> >>  +#define _ASM_SET_DMTGC0        _ASM_SET_VIRT
-> >>  +#define _ASM_UNSET_MFGC0
-> >>  +#define _ASM_UNSET_DMFGC0
-> >>  +#define _ASM_UNSET_MTGC0
-> >>  +#define _ASM_UNSET_DMTGC0
-> >>  +
-> >>  +#define __tlbgp()      _ASM_SET_VIRT "tlbgp\n\t"
-> >>  +#define __tlbgr()      _ASM_SET_VIRT "tlbgr\n\t"
-> >>  +#define __tlbgwi()     _ASM_SET_VIRT "tlbgwi\n\t"
-> >>  +#define __tlbgwr()     _ASM_SET_VIRT "tlbgwr\n\t"
-> >>  +#define __tlbginvf()   _ASM_SET_VIRT "tlbginvf\n\t"
-> >>   #endif
-> >>
-> >>   #define __read_32bit_gc0_register(source, sel)
-> >>     \
-> >>  @@ -2078,8 +2115,9 @@ _ASM_MACRO_0(tlbginvf,
-> >> _ASM_INSN_IF_MIPS(0x4200000c)
-> >>          __asm__ __volatile__(
-> >>     \
-> >>                  ".set\tpush\n\t"
-> >>     \
-> >>                  ".set\tmips32r5\n\t"
-> >>     \
-> >>  -               _ASM_SET_VIRT
-> >>     \
-> >>  +               _ASM_SET_MFGC0
-> >>     \
-> >>                  "mfgc0\t%0, " #source ", %1\n\t"
-> >>     \
-> >>  +               _ASM_UNSET_MFGC0
-> >>     \
-> >>                  ".set\tpop"
-> >>     \
-> >>                  : "=3Dr" (__res)
-> >>     \
-> >>                  : "i" (sel));
-> >>     \
-> >>  @@ -2091,8 +2129,9 @@ _ASM_MACRO_0(tlbginvf,
-> >> _ASM_INSN_IF_MIPS(0x4200000c)
-> >>          __asm__ __volatile__(
-> >>     \
-> >>                  ".set\tpush\n\t"
-> >>     \
-> >>                  ".set\tmips64r5\n\t"
-> >>     \
-> >>  -               _ASM_SET_VIRT
-> >>     \
-> >>  +               _ASM_SET_DMFGC0
-> >>     \
-> >>                  "dmfgc0\t%0, " #source ", %1\n\t"
-> >>     \
-> >>  +               _ASM_UNSET_DMFGC0
-> >>     \
-> >>                  ".set\tpop"
-> >>     \
-> >>                  : "=3Dr" (__res)
-> >>     \
-> >>                  : "i" (sel));
-> >>     \
-> >>  @@ -2104,8 +2143,9 @@ do {
-> >>                             \
-> >>          __asm__ __volatile__(
-> >>     \
-> >>                  ".set\tpush\n\t"
-> >>     \
-> >>                  ".set\tmips32r5\n\t"
-> >>     \
-> >>  -               _ASM_SET_VIRT
-> >>     \
-> >>  +               _ASM_SET_MTGC0
-> >>     \
-> >>                  "mtgc0\t%z0, " #register ", %1\n\t"
-> >>     \
-> >>  +               _ASM_UNSET_MTGC0
-> >>     \
-> >>                  ".set\tpop"
-> >>     \
-> >>                  : : "Jr" ((unsigned int)(value)),
-> >>     \
-> >>                      "i" (sel));
-> >>     \
-> >>  @@ -2116,8 +2156,9 @@ do {
-> >>                             \
-> >>          __asm__ __volatile__(
-> >>     \
-> >>                  ".set\tpush\n\t"
-> >>     \
-> >>                  ".set\tmips64r5\n\t"
-> >>     \
-> >>  -               _ASM_SET_VIRT
-> >>     \
-> >>  +               _ASM_SET_DMTGC0
-> >>     \
-> >>                  "dmtgc0\t%z0, " #register ", %1\n\t"
-> >>     \
-> >>  +               _ASM_UNSET_DMTGC0
-> >>     \
-> >>                  ".set\tpop"
-> >>     \
-> >>                  : : "Jr" (value),
-> >>     \
-> >>                      "i" (sel));
-> >>     \
-> >>  @@ -2788,8 +2829,7 @@ static inline void guest_tlb_probe(void)
-> >>          __asm__ __volatile__(
-> >>                  ".set push\n\t"
-> >>                  ".set noreorder\n\t"
-> >>  -               _ASM_SET_VIRT
-> >>  -               "tlbgp\n\t"
-> >>  +               __tlbgp()
-> >>                  ".set pop");
-> >>   }
-> >>
-> >>  @@ -2798,8 +2838,7 @@ static inline void guest_tlb_read(void)
-> >>          __asm__ __volatile__(
-> >>                  ".set push\n\t"
-> >>                  ".set noreorder\n\t"
-> >>  -               _ASM_SET_VIRT
-> >>  -               "tlbgr\n\t"
-> >>  +               __tlbgr()
-> >>                  ".set pop");
-> >>   }
-> >>
-> >>  @@ -2808,8 +2847,7 @@ static inline void
-> >> guest_tlb_write_indexed(void)
-> >>          __asm__ __volatile__(
-> >>                  ".set push\n\t"
-> >>                  ".set noreorder\n\t"
-> >>  -               _ASM_SET_VIRT
-> >>  -               "tlbgwi\n\t"
-> >>  +               __tlbgwi()
-> >>                  ".set pop");
-> >>   }
-> >>
-> >>  @@ -2818,8 +2856,7 @@ static inline void
-> >> guest_tlb_write_random(void)
-> >>          __asm__ __volatile__(
-> >>                  ".set push\n\t"
-> >>                  ".set noreorder\n\t"
-> >>  -               _ASM_SET_VIRT
-> >>  -               "tlbgwr\n\t"
-> >>  +               __tlbgwr()
-> >>                  ".set pop");
-> >>   }
-> >>
-> >>  @@ -2831,8 +2868,7 @@ static inline void guest_tlbinvf(void)
-> >>          __asm__ __volatile__(
-> >>                  ".set push\n\t"
-> >>                  ".set noreorder\n\t"
-> >>  -               _ASM_SET_VIRT
-> >>  -               "tlbginvf\n\t"
-> >>  +               __tlbginvf()
-> >>                  ".set pop");
-> >>   }
-> >>
-> >>  diff --git a/arch/mips/include/asm/msa.h
-> >> b/arch/mips/include/asm/msa.h
-> >>  index e0a3dd52334d..236a49ee2e3e 100644
-> >>  --- a/arch/mips/include/asm/msa.h
-> >>  +++ b/arch/mips/include/asm/msa.h
-> >>  @@ -162,16 +162,26 @@ static inline void init_msa_upper(void)
-> >>    * to allow compilation with toolchains that do not support MSA.
-> >> Once all
-> >>    * toolchains in use support MSA these can be removed.
-> >>    */
-> >>  -_ASM_MACRO_2R(cfcmsa, rd, cs,
-> >>  -       _ASM_INSN_IF_MIPS(0x787e0019 | __cs << 11 | __rd << 6)
-> >>  -       _ASM_INSN32_IF_MM(0x587e0016 | __cs << 11 | __rd << 6));
-> >>  -_ASM_MACRO_2R(ctcmsa, cd, rs,
-> >>  -       _ASM_INSN_IF_MIPS(0x783e0019 | __rs << 11 | __cd << 6)
-> >>  -       _ASM_INSN32_IF_MM(0x583e0016 | __rs << 11 | __cd << 6));
-> >>  -#define _ASM_SET_MSA ""
-> >>  +
-> >>  +#define _ASM_SET_CFCMSA
-> >>             \
-> >>  +       _ASM_MACRO_2R(cfcmsa, rd, cs,
-> >>     \
-> >>  +                     _ASM_INSN_IF_MIPS(0x787e0019 | __cs << 11 |
-> >> __rd << 6)    \
-> >>  +                     _ASM_INSN32_IF_MM(0x587e0016 | __cs << 11 |
-> >> __rd << 6))
-> >>  +#define _ASM_UNSET_CFCMSA ".purgem cfcmsa\n\t"
-> >>  +#define _ASM_SET_CTCMSA
-> >>             \
-> >>  +       _ASM_MACRO_2R(ctcmsa, cd, rs,
-> >>     \
-> >>  +                     _ASM_INSN_IF_MIPS(0x783e0019 | __rs << 11 |
-> >> __cd << 6)    \
-> >>  +                     _ASM_INSN32_IF_MM(0x583e0016 | __rs << 11 |
-> >> __cd << 6))
-> >>  +#define _ASM_UNSET_CTCMSA ".purgem ctcmsa\n\t"
-> >>   #else /* TOOLCHAIN_SUPPORTS_MSA */
-> >>  -#define _ASM_SET_MSA ".set\tfp=3D64\n\t"                         \
-> >>  -                    ".set\tmsa\n\t"
-> >>  +#define _ASM_SET_CFCMSA
-> >>     \
-> >>  +               ".set\tfp=3D64\n\t"                               \
-> >>  +               ".set\tmsa\n\t"
-> >>  +#define _ASM_UNSET_CFCMSA
-> >>  +#define _ASM_SET_CTCMSA
-> >>     \
-> >>  +               ".set\tfp=3D64\n\t"                               \
-> >>  +               ".set\tmsa\n\t"
-> >>  +#define _ASM_UNSET_CTCMSA
-> >>   #endif
-> >>
-> >>   #define __BUILD_MSA_CTL_REG(name, cs)                          \
-> >>  @@ -180,8 +190,9 @@ static inline unsigned int
-> >> read_msa_##name(void)            \
-> >>          unsigned int reg;                                       \
-> >>          __asm__ __volatile__(                                   \
-> >>          "       .set    push\n"                                 \
-> >>  -       _ASM_SET_MSA                                            \
-> >>  +       _ASM_SET_CFCMSA                                         \
-> >>          "       cfcmsa  %0, $" #cs "\n"                         \
-> >>  +       _ASM_UNSET_CFCMSA                                       \
-> >>          "       .set    pop\n"                                  \
-> >>          : "=3Dr"(reg));                                           \
-> >>          return reg;                                             \
-> >>  @@ -191,8 +202,9 @@ static inline void write_msa_##name(unsigned
-> >> int val)               \
-> >>   {                                                              \
-> >>          __asm__ __volatile__(                                   \
-> >>          "       .set    push\n"                                 \
-> >>  -       _ASM_SET_MSA                                            \
-> >>  +       _ASM_SET_CTCMSA                                         \
-> >>          "       ctcmsa  $" #cs ", %0\n"                         \
-> >>  +       _ASM_UNSET_CTCMSA                                       \
-> >>          "       .set    pop\n"                                  \
-> >>          : : "r"(val));                                          \
-> >>   }
-> >>  --
-> >>  2.33.0
-> >>
-> >
-> >
-> > --
-> > Thanks,
-> > ~Nick Desaulniers
+> On Friday, August 27, 2021 at 1:59:10 AM UTC+8 Nick Desaulniers wrote:
+>>
+>> On Wed, Aug 18, 2021 at 12:38 AM Annita Zhang <annita...@gmail.com> wrote:
+>> >
+>> > Hi Nick,
+>> >
+>> > We got the message from Aaron, Andy Kaylor and Fangrui Song. We'd like to have a discussion with you for the requirement and specific issues. Can we set up a meeting for it?
+>>
+>> Hi Annita,
+>> Sorry for the delay; I took time off while family was in town. Yes,
+>> I'd love to set up time to chat more. I'm located in the Pacific time
+>> zone; are you? If so, do you have time Tuesday August 31 before noon?
+>> Otherwise September 1 after 3pm might work for us. We're also happy
+>> to accommodate any timezone differences.
+>>
+>> >
+>> > - Annita
+>> >
+>> > On Wednesday, August 18, 2021 at 1:38:33 AM UTC+8 Aaron Ballman wrote:
+>> >>
+>> >> On Tue, Aug 17, 2021 at 1:22 PM Nick Desaulniers
+>> >> <ndesau...@google.com> wrote:
+>> >> >
+>> >> > On Tue, Aug 17, 2021 at 3:29 AM Aaron Ballman <aa...@aaronballman.com> wrote:
+>> >> > >
+>> >> > > On Mon, Aug 16, 2021 at 6:56 PM Nick Desaulniers
+>> >> > > <ndesau...@google.com> wrote:
+>> >> > > >
+>> >> > > > I was doing a bug scrub of
+>> >> > > > some of the missing features used by the Linux kernel that GCC
+>> >> > > > supports but LLVM doesn't. Is there any chance that you can have some
+>> >> > > > folks on Intel's LLVM team take a look at some of the more x86
+>> >> > > > specific ones?
+>> >> > >
+>> >> > > Sure, I can pass these along to folks internally. No guarantees on any
+>> >> > > action on them, but I can at least prod folks. Thanks for getting in
+>> >> > > touch about them!
+>> >> > >
+>> >> >
+>> >> > Totally; we meet with ARM every other week. I wish we had that
+>> >> > relationship with Intel. Once we get a build up of bugs that are very
+>> >> > architecture-specific I try to reach out to some of the folks working
+>> >> > on those backends. Next up is for me to reach out to Ulrich and
+>> >> > Nemanja at IBM about some s390 and PPC bugs.
+>> >>
+>> >> Ah, that's good to know that you meet regularly with ARM. I've passed
+>> >> your list of bugs over to Andy Kaylor internally, but he's not gotten
+>> >> back to me about the message yet. So at least the ball is slowly
+>> >> starting to roll.
+>> >>
+>> >> ~Aaron
+>> >>
+>> >> >
+>> >> > >
+>> >> > > > * -mno-fp-ret-in-387: https://bugs.llvm.org/show_bug.cgi?id=51498
+>> >> > > > * -mskip-rax-setup: https://bugs.llvm.org/show_bug.cgi?id=23258
+>> >> > > > * -maccumulate-outgoing-args: https://bugs.llvm.org/show_bug.cgi?id=28145
+>> >> > > > * __builtin_ia32_readeflags_u64() unnecessarily forces a frame
+>> >> > > > pointer: https://bugs.llvm.org/show_bug.cgi?id=47531
+>> >> > > > * Inline asm constraint alternatives ignored:
+>> >> > > > https://bugs.llvm.org/show_bug.cgi?id=20197
+>> >> > > >
+>> >> > > > The last two in particular hurt virtualization; reading/writing eflags
+>> >> > > > is significant overhead in virtualization on x86 and with LLVM due to
+>> >> > > > those last 2 links we don't have a way to read/write them as
+>> >> > > > efficiently as possible (as GCC).
+>> >> > > >
+>> >> > > > --
+>> >> > > > Thanks,
+>> >> > > > ~Nick Desaulniers
+>> >> >
+>> >> >
+>> >> >
+>> >> > --
+>> >> > Thanks,
+>> >> > ~Nick Desaulniers
+>> >
+>> > --
+>> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+>> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-li...@googlegroups.com.
+>> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/55b27a4f-67d6-48b9-84ed-e1ab95ae42c0n%40googlegroups.com.
+>>
+>>
+>>
+>> --
+>> Thanks,
+>> ~Nick Desaulniers
 >
->
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/46627d85-ffe9-4d1b-a90a-611d2f774c47n%40googlegroups.com.
 
 
---=20
+
+-- 
 Thanks,
 ~Nick Desaulniers
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOd%3Dw0%3Di2GPiBaXHizaMP%3Db0VD9Lw_o%2BGuvvWp-brMx2f=
-Rw%40mail.gmail.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm_T%2BwE%3DYNJ9bd%2Bv-sZPxmCYwe%3DfrqBFE%3D6bji55bgV0g%40mail.gmail.com.
