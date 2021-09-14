@@ -1,133 +1,125 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBBXUQOFAMGQEC7GOJKQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBYHUQOFAMGQE7E6TNWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3c.google.com (mail-oo1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0910840B83A
-	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 21:37:44 +0200 (CEST)
-Received: by mail-oo1-xc3c.google.com with SMTP id v9-20020a4ae6c9000000b0029003c3f017sf5202oot.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 12:37:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1631648263; cv=pass;
+Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3271340B83F
+	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 21:39:13 +0200 (CEST)
+Received: by mail-wm1-x337.google.com with SMTP id m4-20020a05600c3b0400b00303b904380dsf1044733wms.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 12:39:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1631648353; cv=pass;
         d=google.com; s=arc-20160816;
-        b=F1TDRLCM2a0tGvuFpsCA7q7/xiU2b3iWoFKgVt2GifNj+LxovEZgyRPeNt/4qbZLPv
-         E/aHLaNt9Mnsw1iMnx0sellCydtsIzYpRXxYWFPWiWtaE12hoAqxoUhunImsxg/ejQOW
-         LD5ur+hCrNnCqlJVsSbGhq/+S4I1lWA+rtP6IYA4AE+VgF2gw8msSuDYtcQFMUIOrrOs
-         gRAFm/JLjQYyd2jwaRs0dPsnEA0nnbQTaL0P5d/X/Q7EuWRY7l/9Q6Tj9OnV/1THadBf
-         8NQuWPegWoEmqyU71al4fsC/SUf+OgVPpiPe2F10ZI6U4Av0REBeBYPp9CuiB2ys69V3
-         BC2g==
+        b=BjQ6M/G+Fp+GX4r/ufLLazReyODiHLPABCARwO2s8JqyjPQqeQqUWE0Qg3LRxxIMW9
+         0fIFC8TiN55cRkHiaSuKrGLxuyE/sn6pSpZjKVlfWScb9zYLCdXT4RfHKeiy7J4ASm2K
+         9CoRpxx8gOdf0TjYdHHsvYBJEzrqG91Xf4tvqTQ3OML56qb1Of9qWbVlyuqstHUGjj+V
+         EvAHJOZu/NSQmpR9CVNGKTQjB85aqHG5jHN/jFFjx2c5Yxol+CE5wvkkdSn2wRJlCsRH
+         X/KPrH+Uhv7hz5XNGWI0JC+qiCN/Cvm7o3QPHlu9IYBR7mDwuj1+xNrpfr33nvKAmumt
+         4VlA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=vXqujToGTmgvsPWDAD2FFtqB0r59GBUZNJn8mgBT7xQ=;
-        b=DZU9TLb2mJd0fWvrQ8JQrn9e0UX0Z6ekmevcEjPISu8gZ6Buvo2FJTKSyCbwTXMWp7
-         I994oOgHlKyeXakv9KQCg5yXhywU6rulmdaEyvxz5kooVkvENkN0f8TNWIaQPPF9/PH4
-         xwhiKgPW/KliU7uhQ5YzM3+tLIRPPlxsFIzeyoWmOtzVVvksTa1DOkcur6FaIGDhLY4J
-         tvbaGqq4SBTC9fJStprrQ3NeSmk3ungbK1ynnZPQJ5PS9w5cxd01SeJ2nS8ogyd+ZmF4
-         pvsw1NEE6RDNC/ibCEXGpA82O95hulP23vVmEk4xp1Fd7wDZi5zvc1tSDAImymCDIlr3
-         KSMA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=Rhru6MxhGlZ0YTw5rJOWam9tUWcNqsheETmoBmYzgmc=;
+        b=cXtynAo0ZweUur83sU8Cetf9WqCd+Zqpulk3o5v6yjNYPxsOGyXkkHQCoF0YjZiuAZ
+         XPMIxrhE+++gcZNMzCPFNP5WJk4jz/u2aeJOiSjVoMB/12v3aowwXm9ViLa8xiZCk9Tb
+         hmlfH5PXbbGo8f5y6pd+vDl7wAV+sO2c5vxTQNi6cKv/XG6k4h8RqQxvnwTRb+lV9aAv
+         RBJjI5Rm4VEJ8TxkRr3xvQigyQ+8UCWjOq6K9QFtz6YTLCzUC0rIZq9YMYvMJPbpYzu/
+         FOlW9MRcyelqL3olVHC1gZaUtsLdzQXTklguiyzuFIfqqypfdN0VOxorGbOoTEbMZ3F+
+         MhUQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=OSKuSjLo;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@google.com header.s=20210112 header.b=E2QZm15x;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::232 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vXqujToGTmgvsPWDAD2FFtqB0r59GBUZNJn8mgBT7xQ=;
-        b=HzeKG857FeD5415QusGDM2eMgvn0PbMxDHQ/4Hge1lPXPB61S+5hMQ7N7G4YQRclm3
-         CcY4yL4F9vdjnhruYg3rnrs5N53zJv8wAJ8oaCgPHX5KdUvjaJjNHrbHVGTiSu4i8wHM
-         I80rzRqbc6a0hQjpYAh1+UvhfbTYDR+5lDONjWjEXj2wAQcpsq/hWV7K8AGQs5kOeRbN
-         jFpST9bLKo7PovP7rT+R9BMXLTVlLF/KJffq8La5cLXxTDy4h2bLstbFWsmr6m+dzUHZ
-         vDb2mHd9sehztgl4a9gJvvGKFNdCX6hnZoJM9RYoNs3cNfdZqvo7XgRT3OzswUz+wo89
-         Ganw==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Rhru6MxhGlZ0YTw5rJOWam9tUWcNqsheETmoBmYzgmc=;
+        b=CULrRGzfybkEIMb4u2rPC0dqBhqWpQVe6bctPXyLMVilh4V7hy07CGe2pe3UK+Kasv
+         2wl65WSXuee6MZdGRUy2+f2cgNfluvuzwurdv9cDd+G0xkaIpP/YKGFlFbsk+P0A836S
+         qsIRwYutldkFIl+QZIGz0i6I28CXnoQ+OZSG/RCrz7jvCVf9TJ0fldtCfcWXfnB0lQQO
+         qOSUKKGf7Tc0j1/erF24yurFpGkMcly6/ULV/VhtxtFb6GcNdCu+r5AzW0nD18woHBI9
+         9R9rJlb3r4rxbxXSX1YSnHg+3nzTp5uYdKh1aS13fu9OQXBHkTR4+I38FlIfKp6OPAi7
+         uPew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=vXqujToGTmgvsPWDAD2FFtqB0r59GBUZNJn8mgBT7xQ=;
-        b=TNDW6L6jK4CAFPHHGF0IsuBuaT3qSi4zj3k10zZdj7p1pC7wrhhA+MAoTGv4FoFrDo
-         W8Hg2KyDNBqEvLuQf7ClLR5mbqOUm41cT9b8JA7DSJ7qf7QbVFD8GHVwvJcCVSFxtYN3
-         Zl2nGcsUKTMPlEb4/nEgU002dh/7BxCdIaif93DUWSjjcW80UsDeYA9NlJiTqEEveWc3
-         zjT1GDmXMXL2+HN/DW40GwMp3lk4SqNEnkWtdN3lMi7Y+mGmqRJHRz68H6ZZrN/JCmt8
-         izoaWrK/F4jU9EqfXTc9NsdME3QzrWlyrH0grdn+sB1nGFqJ1nzKf+u2wtPFkvaaGZoi
-         83+w==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532ApDl97vUfDr6+7v511uv50tUMDMt5rbjz3wl2Jbe4rrwplWJs
-	P97dZCANglg/Dt671nbVed0=
-X-Google-Smtp-Source: ABdhPJy8vckPdVLQrjEO3Wg+6cxO9Bw/6K575GQTu5rh4Z5bUap2yuZpmZFMzRvrYvN3aJSmjnm+ug==
-X-Received: by 2002:a05:6830:314b:: with SMTP id c11mr16550360ots.169.1631648263013;
-        Tue, 14 Sep 2021 12:37:43 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Rhru6MxhGlZ0YTw5rJOWam9tUWcNqsheETmoBmYzgmc=;
+        b=qm46tmwaJzGt+XQ35W0Ec459NoL2KiE+zdAljL3dxsAR9b8cpFmWObqAdC4kZND3WQ
+         NztUD4X/ENwRclyqBacKUjSRhmTIICuD3pVQM4BcezLCCCy8ZGoQiC0XkDcHNq/T8oW8
+         0i/aF28fG/EHn4nYqhRwq/FF4oITUGbCIQC4FKux/S3tnoN8SEPv0LI1ZfGitvrKlsTT
+         1igiyfSwbscKpZBVOfJY3tJonxqcL//rAOIOg9SnbphHbwC/LbDzK8jXgjPgNPD1vr3j
+         7eiuonGyTc2uke+tYrqao9l4gYTc483Z0bR4Z9ZhdLPwRUmQ9SYRcM+4BQGuiKWcXoqN
+         ENyg==
+X-Gm-Message-State: AOAM532iUHumPVcHJhB193OnuPmNujpWB9+xjKsxNyFIbVdVvb0mF1hh
+	YgWPtai26Iv3S0ixx+Dhxu8=
+X-Google-Smtp-Source: ABdhPJxlR37zOwfN32Q4pk6HZhcz84ZXLEkwAmfPZC9oddEbYWbV8/VKPJ+idXT9GAkI6ceyy6lTag==
+X-Received: by 2002:a7b:c30b:: with SMTP id k11mr697826wmj.49.1631648352966;
+        Tue, 14 Sep 2021 12:39:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:53d2:: with SMTP id h201ls2330925oib.0.gmail; Tue, 14
- Sep 2021 12:37:42 -0700 (PDT)
-X-Received: by 2002:aca:abd7:: with SMTP id u206mr2704644oie.37.1631648262645;
-        Tue, 14 Sep 2021 12:37:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1631648262; cv=none;
+Received: by 2002:a1c:f614:: with SMTP id w20ls1415875wmc.2.canary-gmail; Tue,
+ 14 Sep 2021 12:39:12 -0700 (PDT)
+X-Received: by 2002:a1c:cc05:: with SMTP id h5mr806793wmb.5.1631648352093;
+        Tue, 14 Sep 2021 12:39:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631648352; cv=none;
         d=google.com; s=arc-20160816;
-        b=qdOHcGmwri/3RLfGTJtDHIvz2D5keI3BewScu4GIQsH4S/eo6yyeYHWn8Hm4K0zuCZ
-         ST/9JbSQc1EOWA3Zkpq4+dXRKGhjnnhUzkEcA25oahkKjC4dAh8w5NeU2OzxK+Eva9jT
-         hUsVN4dfT2buKhDv6CZ/dMsd6xiHZy2jgdiT1vmkdBvOzoz82tSq4pKOi9+WeXRvf1Ib
-         9BVK6qISQAoFCZby8dBJ83Sc7f5usz6QfC5zavOuDFaOBxeyQynF+p7t8ADYyYfLGsq1
-         fDFRSpMPkvlJ4vtdKu5eeGC5fAOqA2aBOPR7nMYPQqUnViu7r68vuMlQc+kaZDXcdfNF
-         YBnw==
+        b=E2j3I+1cPyqZuGgqhujglKChnm3yFiPwpfZmIZrnt541ZoAEevMxz0/X1wT8lJsm/5
+         WCU7SRotRfgsK7BfxBnQyNT9rgZgUq4R71HUK68rDBOsiGql2nwdTdnQqfJwH+LmOqSr
+         D+5l+Y5J8hhCLhSFezmTeroo5PeSklMeJapl8azda2oJp5ppXpy5V5CnkQqCxyphncHf
+         SVRz70K1KIMcNGUXiogb8Y65qnV9f5BMLCh3fguxzPl3l03QYELlfBqsE14HocPvm6of
+         FqcNI0eLi6XZ2js1807gzTWNCuZyte+C8Zln0eJ8t8ZMflE85Pv63C2UQtPijJcVsbB4
+         zSeA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=EaW35x72GNh4jI/yVERXrJlTV6ZAnW2fqMDnsImY8/4=;
-        b=VUR1/UzoTvG2TeZYsnxkRnPPvYZVf4dlKckcnTRxAUqVLnxgdLf7IAJ3fCYMzj/bfo
-         SqAYiqu4SVL7c3Akn6WRYqAxY2G2YtRUqiAAVwzgJbKWFRETpuFm0SxiADRj7jQ772BX
-         PngPsLOWtlO3qCAJCqGsR6GhWcGqPADpf7ZaTYDOD/9a/RN+95yKAsmZunrVRCSceX5m
-         ZhSh/pAq4lqZLJMtR1/hCrGzSkJ2z0IKNrQfNnu8HCSqNqHu9HqHUdB53Tr3eZWyPbkR
-         LIXv0G6cLKmjLGz7IyoR4YbZ9a5tkIXXS4531/0JTnltxBSOa2Kxi1ISeiMGT80xSg7A
-         RmUg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=aeXwmIgch5WdkpveenJmPeY14PQ1LoSRtKhoZ8R2ZN4=;
+        b=xL4JDS0lWyIXWZAiPG9m6L0LNgYnAnXLS/CEB4REgiSjyU6cq2acgY8CVevAwFXe+b
+         FO4eH5StkI3dT4oBD574Mgt7tuGzXZKKtjKjYKmg/f0EfRyWSvsaDT8XnRR1zUCOSZpB
+         wBLgdf0svxbkt67ndnTZU429PDsa8DyrI92qgdFF1T/S8kfhzI6KB552G8HpKb55sqfI
+         OpvG9RNnwqNLqUysNKOYoqJICDIKUn7Yt029gIRvknkQrRunYt7Gnutb/aeFbjLWXIsS
+         HhyCmipWWr6uF6l2Uj/l/f53HZzdK/RsOOa/OihMp8w9ZSaLnrli6T6uWxEDcXGTBKBD
+         k1vA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=OSKuSjLo;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x532.google.com (mail-pg1-x532.google.com. [2607:f8b0:4864:20::532])
-        by gmr-mx.google.com with ESMTPS id v21si1000138oto.0.2021.09.14.12.37.42
+       dkim=pass header.i=@google.com header.s=20210112 header.b=E2QZm15x;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::232 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lj1-x232.google.com (mail-lj1-x232.google.com. [2a00:1450:4864:20::232])
+        by gmr-mx.google.com with ESMTPS id 193si198318wme.0.2021.09.14.12.39.12
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Sep 2021 12:37:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532 as permitted sender) client-ip=2607:f8b0:4864:20::532;
-Received: by mail-pg1-x532.google.com with SMTP id u18so274670pgf.0
-        for <clang-built-linux@googlegroups.com>; Tue, 14 Sep 2021 12:37:42 -0700 (PDT)
-X-Received: by 2002:a62:4dc5:0:b0:438:8133:fcef with SMTP id a188-20020a624dc5000000b004388133fcefmr6457410pfb.44.1631648261915;
-        Tue, 14 Sep 2021 12:37:41 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id p30sm11328125pfh.116.2021.09.14.12.37.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Sep 2021 12:37:41 -0700 (PDT)
-Date: Tue, 14 Sep 2021 12:37:40 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: x86@kernel.org, Josh Poimboeuf <jpoimboe@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Sedat Dilek <sedat.dilek@gmail.com>,
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v3 10/16] x86/extable: Mark handlers __cficanonical
-Message-ID: <202109141235.BE65491A4@keescook>
-References: <20210914191045.2234020-1-samitolvanen@google.com>
- <20210914191045.2234020-11-samitolvanen@google.com>
+        Tue, 14 Sep 2021 12:39:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::232 as permitted sender) client-ip=2a00:1450:4864:20::232;
+Received: by mail-lj1-x232.google.com with SMTP id y6so781966lje.2
+        for <clang-built-linux@googlegroups.com>; Tue, 14 Sep 2021 12:39:12 -0700 (PDT)
+X-Received: by 2002:a05:651c:1305:: with SMTP id u5mr16539923lja.198.1631648351403;
+ Tue, 14 Sep 2021 12:39:11 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210914191045.2234020-1-samitolvanen@google.com> <20210914191045.2234020-6-samitolvanen@google.com>
+In-Reply-To: <20210914191045.2234020-6-samitolvanen@google.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 14 Sep 2021 12:39:00 -0700
+Message-ID: <CAKwvOdmx=XTaKfT1-KNz1j8W0E7HDrWNHKdpCCXQUs+ZDPfXvg@mail.gmail.com>
+Subject: Re: [PATCH v3 05/16] tracepoint: Exclude tp_stub_func from CFI checking
+To: Sami Tolvanen <samitolvanen@google.com>
+Cc: x86@kernel.org, Kees Cook <keescook@chromium.org>, 
+	Josh Poimboeuf <jpoimboe@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Sedat Dilek <sedat.dilek@gmail.com>, 
+	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210914191045.2234020-11-samitolvanen@google.com>
-X-Original-Sender: keescook@chromium.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=OSKuSjLo;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@google.com header.s=20210112 header.b=E2QZm15x;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::232
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,160 +132,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Sep 14, 2021 at 12:10:39PM -0700, Sami Tolvanen wrote:
-> Exception tables are populated in assembly code, but the handlers are
-> called in fixup_exception, which trips indirect call checking with
-> CONFIG_CFI_CLANG. Mark the handlers __cficanonical to allow addresses
-> taken in assembly to pass CFI checking.
-> 
+On Tue, Sep 14, 2021 at 12:11 PM Sami Tolvanen <samitolvanen@google.com> wrote:
+>
+> If allocate_probes fails, func_remove replaces the old function
+> with a pointer to tp_stub_func, which is called using a mismatching
+> function pointer that's will always trip indirect call checks with
+> CONFIG_CFI_CLANG. Use DEFINE_CFI_IMMEDATE_RETURN_STUB to define
+> tp_stub_func to allow it to pass CFI checking.
+>
 > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+
 > ---
->  arch/x86/mm/extable.c | 64 ++++++++++++++++++++++++-------------------
->  1 file changed, 36 insertions(+), 28 deletions(-)
-> 
-> diff --git a/arch/x86/mm/extable.c b/arch/x86/mm/extable.c
-> index e1664e9f969c..d16912dcbb4e 100644
-> --- a/arch/x86/mm/extable.c
-> +++ b/arch/x86/mm/extable.c
-> @@ -24,16 +24,18 @@ ex_fixup_handler(const struct exception_table_entry *x)
->  	return (ex_handler_t)((unsigned long)&x->handler + x->handler);
->  }
->  
-> -__visible bool ex_handler_default(const struct exception_table_entry *fixup,
-> -				  struct pt_regs *regs, int trapnr,
-> -				  unsigned long error_code,
-> -				  unsigned long fault_addr)
-> +__visible __cficanonical
-> +bool ex_handler_default(const struct exception_table_entry *fixup,
-> +			struct pt_regs *regs, int trapnr,
-> +			unsigned long error_code,
-> +			unsigned long fault_addr)
+>  kernel/tracepoint.c | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
+>
+> diff --git a/kernel/tracepoint.c b/kernel/tracepoint.c
+> index 64ea283f2f86..58acc7d86c3f 100644
+> --- a/kernel/tracepoint.c
+> +++ b/kernel/tracepoint.c
+> @@ -99,10 +99,7 @@ struct tp_probes {
+>  };
+>
+>  /* Called in removal of a func but failed to allocate a new tp_funcs */
+> -static void tp_stub_func(void)
+> -{
+> -       return;
+> -}
+> +static DEFINE_CFI_IMMEDIATE_RETURN_STUB(tp_stub_func);
+>
+>  static inline void *allocate_probes(int count)
 >  {
->  	regs->ip = ex_fixup_addr(fixup);
->  	return true;
->  }
->  EXPORT_SYMBOL(ex_handler_default);
->  
-> +__visible __cficanonical
->  __visible bool ex_handler_fault(const struct exception_table_entry *fixup,
-
-Double __visible here, but with that fixed:
-
-Reviewed-by: Kees Cook <keescook@chromium.org>
-
-I would note that given Linus's recent comments on attribute locations,
-it does seem that __cficanonical is more a function behavior attribute
-than a storage class... I'm not really sure:
-https://lore.kernel.org/mm-commits/CAHk-=wiOCLRny5aifWNhr621kYrJwhfURsa0vFPeUEm8mF0ufg@mail.gmail.com
-
--Kees
-
->  				struct pt_regs *regs, int trapnr,
->  				unsigned long error_code,
-> @@ -55,10 +57,11 @@ EXPORT_SYMBOL_GPL(ex_handler_fault);
->   * of vulnerability by restoring from the initial state (essentially, zeroing
->   * out all the FPU registers) if we can't restore from the task's FPU state.
->   */
-> -__visible bool ex_handler_fprestore(const struct exception_table_entry *fixup,
-> -				    struct pt_regs *regs, int trapnr,
-> -				    unsigned long error_code,
-> -				    unsigned long fault_addr)
-> +__visible __cficanonical
-> +bool ex_handler_fprestore(const struct exception_table_entry *fixup,
-> +			  struct pt_regs *regs, int trapnr,
-> +			  unsigned long error_code,
-> +			  unsigned long fault_addr)
->  {
->  	regs->ip = ex_fixup_addr(fixup);
->  
-> @@ -70,10 +73,11 @@ __visible bool ex_handler_fprestore(const struct exception_table_entry *fixup,
->  }
->  EXPORT_SYMBOL_GPL(ex_handler_fprestore);
->  
-> -__visible bool ex_handler_uaccess(const struct exception_table_entry *fixup,
-> -				  struct pt_regs *regs, int trapnr,
-> -				  unsigned long error_code,
-> -				  unsigned long fault_addr)
-> +__visible __cficanonical
-> +bool ex_handler_uaccess(const struct exception_table_entry *fixup,
-> +			struct pt_regs *regs, int trapnr,
-> +			unsigned long error_code,
-> +			unsigned long fault_addr)
->  {
->  	WARN_ONCE(trapnr == X86_TRAP_GP, "General protection fault in user access. Non-canonical address?");
->  	regs->ip = ex_fixup_addr(fixup);
-> @@ -81,10 +85,11 @@ __visible bool ex_handler_uaccess(const struct exception_table_entry *fixup,
->  }
->  EXPORT_SYMBOL(ex_handler_uaccess);
->  
-> -__visible bool ex_handler_copy(const struct exception_table_entry *fixup,
-> -			       struct pt_regs *regs, int trapnr,
-> -			       unsigned long error_code,
-> -			       unsigned long fault_addr)
-> +__visible __cficanonical
-> +bool ex_handler_copy(const struct exception_table_entry *fixup,
-> +		     struct pt_regs *regs, int trapnr,
-> +		     unsigned long error_code,
-> +		     unsigned long fault_addr)
->  {
->  	WARN_ONCE(trapnr == X86_TRAP_GP, "General protection fault in user access. Non-canonical address?");
->  	regs->ip = ex_fixup_addr(fixup);
-> @@ -93,10 +98,11 @@ __visible bool ex_handler_copy(const struct exception_table_entry *fixup,
->  }
->  EXPORT_SYMBOL(ex_handler_copy);
->  
-> -__visible bool ex_handler_rdmsr_unsafe(const struct exception_table_entry *fixup,
-> -				       struct pt_regs *regs, int trapnr,
-> -				       unsigned long error_code,
-> -				       unsigned long fault_addr)
-> +__visible __cficanonical
-> +bool ex_handler_rdmsr_unsafe(const struct exception_table_entry *fixup,
-> +			     struct pt_regs *regs, int trapnr,
-> +			     unsigned long error_code,
-> +			     unsigned long fault_addr)
->  {
->  	if (pr_warn_once("unchecked MSR access error: RDMSR from 0x%x at rIP: 0x%lx (%pS)\n",
->  			 (unsigned int)regs->cx, regs->ip, (void *)regs->ip))
-> @@ -110,10 +116,11 @@ __visible bool ex_handler_rdmsr_unsafe(const struct exception_table_entry *fixup
->  }
->  EXPORT_SYMBOL(ex_handler_rdmsr_unsafe);
->  
-> -__visible bool ex_handler_wrmsr_unsafe(const struct exception_table_entry *fixup,
-> -				       struct pt_regs *regs, int trapnr,
-> -				       unsigned long error_code,
-> -				       unsigned long fault_addr)
-> +__visible __cficanonical
-> +bool ex_handler_wrmsr_unsafe(const struct exception_table_entry *fixup,
-> +			     struct pt_regs *regs, int trapnr,
-> +			     unsigned long error_code,
-> +			     unsigned long fault_addr)
->  {
->  	if (pr_warn_once("unchecked MSR access error: WRMSR to 0x%x (tried to write 0x%08x%08x) at rIP: 0x%lx (%pS)\n",
->  			 (unsigned int)regs->cx, (unsigned int)regs->dx,
-> @@ -126,10 +133,11 @@ __visible bool ex_handler_wrmsr_unsafe(const struct exception_table_entry *fixup
->  }
->  EXPORT_SYMBOL(ex_handler_wrmsr_unsafe);
->  
-> -__visible bool ex_handler_clear_fs(const struct exception_table_entry *fixup,
-> -				   struct pt_regs *regs, int trapnr,
-> -				   unsigned long error_code,
-> -				   unsigned long fault_addr)
-> +__visible __cficanonical
-> +bool ex_handler_clear_fs(const struct exception_table_entry *fixup,
-> +			 struct pt_regs *regs, int trapnr,
-> +			 unsigned long error_code,
-> +			 unsigned long fault_addr)
->  {
->  	if (static_cpu_has(X86_BUG_NULL_SEG))
->  		asm volatile ("mov %0, %%fs" : : "rm" (__USER_DS));
-> -- 
+> --
 > 2.33.0.309.g3052b89438-goog
-> 
+>
+
 
 -- 
-Kees Cook
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202109141235.BE65491A4%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmx%3DXTaKfT1-KNz1j8W0E7HDrWNHKdpCCXQUs%2BZDPfXvg%40mail.gmail.com.
