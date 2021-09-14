@@ -1,107 +1,111 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBOHHQOFAMGQEZ6J222Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBOXHQOFAMGQE4YH3VQA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7489A40B783
-	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 21:10:49 +0200 (CEST)
-Received: by mail-oi1-x237.google.com with SMTP id m8-20020a05680806c800b0026702f1769bsf219991oih.10
-        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 12:10:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1631646648; cv=pass;
+Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id AC70840B784
+	for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 21:10:52 +0200 (CEST)
+Received: by mail-oi1-x23c.google.com with SMTP id n26-20020a05680803ba00b002695053b627sf239270oie.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Sep 2021 12:10:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1631646651; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ngLdC0Tw6uan68HCwxSA9uYW4s/CaFwyGcnglYOH7/D2Z8oU7cqs+ej4KcM8HinuRE
-         +qO3PnTodiYJeFLmAJo9jnTvtl+HGAHtc0lMuAKmvIqM5lxNyW+PJgWFUl5SXENpkOWW
-         gZNqIFPtUWwfebv6f1dyLeSYraAK26hR44Nt3icFxcMDBl1weYOgNvcvu94tN9Smdv9i
-         +XuCFtWiuJdaTo65PgIgdBzUtATzXq8FC6uLQ0FjuzCzgYseAh80ADSH5ikPiChZHbXM
-         EjAKQDvFyxYA0rcmvd9wDX/0adLYJ7GAfjBXo+24jsa1Uybmpd6TWxK3AAh2TPkOiKoz
-         9jsg==
+        b=L/Bu335NQArUpDoLXYq77S5roH+pNVQxEhdoL8yQOa6nRpY/H3+yhg63djfcY4uSAc
+         WrmiG8pBxUbvpnusz3dPiStVQhYOj24Kg4Tn/doQ8ndVm51XWyq8urANzDPCg3sTert7
+         QFvsorR0YgNYAQ0ju//eAh6qKoZ4eSr1A4v6cUcgnDSndVKJbzLe6A9yWSjZz8cST1h8
+         aGk+FgzAsfuGFljJFdxaTekyrxST6UOMU3LbKtLuXoJTwdXGcvWm6ZnyqaPaBGt0HACB
+         XNSav9nraabeYvU4HpSrc3HyCQ8g2ibhYjB6aVZm0uuyLdNYJ8wjDdVTOkjpCaVuzpUO
+         lrCA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :mime-version:message-id:date:dkim-signature;
-        bh=VGw8AGdkgSJ2JleummjUa25O/qcCATxtfDWcmA3zGLc=;
-        b=NU8PUSzTaqxkM0lp0eY/FPdLk+ckqAjirnwbD7ncD4Nc513+ewvY6Y8HBP2EBdOjVS
-         7Wow354Z2Zt7sTVnJXU83S7c+TkinjefbtCRATWtx8EcMpjlX9Pc3cgBs1GHneThtbKA
-         AdbgQMCBwjWvDuSuXn76Ef/rxs/btHwk65yor8YXtI6I6jyAtPXAjuNuayqI2kgOKIIn
-         CO88aqNuUvPcTM89NjNg2VzEnxhn7o4neQJMXsQDiMlr7KxBQhXGK9FOHNYt841ZVvdj
-         57aGOXlpnH7P36SXh42IOBn/gwMQoV8G53hOOdJ7vujfo1dPEMzZ7KqH9/5qfkiQlkku
-         NNOA==
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=okPPAUljQkXYp0mCplyjSBVoLwNUmFIK2Yj36g8e0+w=;
+        b=WgWDqudooY5wSAlNtLMCtXEYpzVDN0LOk84T13IkrhAOQiNRPH/1gFFFW4tVS892ei
+         FNfwsRFoMzwzXoowBKmeL4vpNce+RNEdugSuFI3pP+wxO3D0C/9wPbdTIh1qsPJtJzxg
+         tUPC+TQKl+Y4iOwBbK3fPBa3Uqo+qfLEGmIHCj5logcgRXCuWE/AHXzCTV0u/7ALgAXP
+         vcOkajp4YH88dVSwTzPLAwP6T9+XN7ivCOKKjuIyv7kXSkn0oi/HANT2VFuhD1mDVr2F
+         kMzHsqlkq9pofYsDJdlKVgA97ebZgyMdEwx1TooA8skWmm4CRiAF8eSheYp/NWXkfPMT
+         3X2w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=ZYLtvV6X;
-       spf=pass (google.com: domain of 3t_nayqwkaliksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3t_NAYQwKALIkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b=SltRY0Ph;
+       spf=pass (google.com: domain of 3ufnayqwkalqmugcnifpuhyhaiiafy.wig@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3ufNAYQwKALQmUgcnifpUhYhaiiafY.Wig@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=VGw8AGdkgSJ2JleummjUa25O/qcCATxtfDWcmA3zGLc=;
-        b=W8asQ3SoncQm93E6THdFoGWje12vywH/PZA2ipGenieCBmSed6vNYRNjDTsTT09jOz
-         T7czXaM8U93YO3RbrtrFyp9F2bUq4/WaGj1pLScX/OBciLuO8yU7UVmx+rkmVMnHAaw7
-         dXV/HmRQEf+DlSgEMnVk0HuyRxPQvBnFjmkVeBOiszTQPH2EJCgmsECtsy7jTsnIWbkw
-         RZF3EcIUi0dr7bcNtWQIUzhs9z0EARXqzyGMHvYoAXRXsPBUk2tMA7r0QuxpOi4aHh1P
-         Rx4gRVsvwBDuoGljnVrCfEhmCb/lX0FWGMNS3JY/HtRrZjfTdAN+pacjX7CcP9H3PkNX
-         N8Ow==
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=okPPAUljQkXYp0mCplyjSBVoLwNUmFIK2Yj36g8e0+w=;
+        b=As53xcuoVpdSRJrwdZdbSSsnzgsAEcSEFYyf6TtkTrteFaAzWZ2nbhei7Kj8bm7Y19
+         2V9n4RidkCSvy9rG28qnQl3l0a19qQ5iXbubNf0rAD22Rw+HlYMw7AKkvCVRjsKzGZaj
+         QLuog3Sb7mRc36CO4lLlqtDIbV23Ee30D/S812e5biOt/XSqA9bv8VSHCrvD/14UAJk4
+         m1GYWQinVTF/O8hcT+pky7EkFD4d95vm6xfqWgN4pwX70eOwz8lBX7p7VXqbGT6Prvx4
+         dG+h5oNvQQitPjR8h8O/mG8lnb3MTYNimhHVlWQMeFt4O7fzn+sZ1N8gKaznjyVtbpEH
+         CH6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=VGw8AGdkgSJ2JleummjUa25O/qcCATxtfDWcmA3zGLc=;
-        b=DeWy5xNcAWXO0VLvmW/8C7unKQiDps+X9SNxj9MK4n8VOMI0rmxX5/YxG4IG7Uh0p2
-         yLiB1i/nOjHrub299VdtZe4XY40xJGI9BHAgt8Nh2nwoA/1fMpeOrgNv7DSky7QLcMZW
-         Xxzhe2rOCLUxvnE1YFy/MiFC2RQMJzww7Apc+Oz/Wn72QOI5aXmoXLocHsIHf4ueQaL4
-         lQhPRGb2UZoqrrNfXBOzTS0pHm9x8fGn6573tSViSOPROXhfE8OwOcNbPsHkf+XPkR9I
-         AvZAO8NpDaKKF+chc8+z3lzckJkGomK/2cUQ6SLUOdQmv+p2kIfaEVZCDYn7T7Nn7Agl
-         NByQ==
-X-Gm-Message-State: AOAM530Ex+COldmMXbaFAK7EBqwU5dep+Z4FEKLLnnMwfm3hxnY+eg+y
-	ssMmiMfOh4eLzyO9dlkAWsU=
-X-Google-Smtp-Source: ABdhPJz+d47/lY174ZGa9UbdkJDng3gGhRtjfHmIdgIEsM7ZbnQ6hsby4h2TSD/BLalITUmz9gA9TA==
-X-Received: by 2002:aca:645:: with SMTP id 66mr2600367oig.145.1631646648449;
-        Tue, 14 Sep 2021 12:10:48 -0700 (PDT)
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=okPPAUljQkXYp0mCplyjSBVoLwNUmFIK2Yj36g8e0+w=;
+        b=G25I9S1wIQkBmmrl+ti1feHntyKfk3zPg0as4BuG2UG+GZwooBEUwVHW4W0YeSTxyT
+         p2PxhtAbCZtORvHLs8MuHVjAmdyWAbyzoRnBoC6ZLHQMvuJcy584eHL2M7sLpnybTPSX
+         UdOwhdhysWaq24K83cvhyS3JA91kgP0oqlVxoGin0P7Vz3s9sDw6ar+iO/EIfO6KZXUx
+         d7eryEc30NR4svCrafp+7tbmbjpVWsaDJegoxH7k1Sg9YTb6XOBTJSVkTVi7+zN+K+K3
+         K3pamrtlQkiCPNqIt12tcn72t2Rg0id6+rCHlJUXgApcbDLxxdECwQq+fdhjfmy7Vk/u
+         lGTQ==
+X-Gm-Message-State: AOAM5323oNA2DE9fD2e/MpXMI2aRN0xw/3c/e4b9SRCu5fmP4lfsNPIT
+	oc8M+j92RTJ5G9CyTN82r0c=
+X-Google-Smtp-Source: ABdhPJzjTSoQED8IspUlRiYrUZD3A0v9L3hphGORVcsV9mRhQBfXuNDJpV5w2hpJ4AWdx6ZRiGGtUg==
+X-Received: by 2002:a05:6830:1e4d:: with SMTP id e13mr16367500otj.195.1631646650536;
+        Tue, 14 Sep 2021 12:10:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:53d2:: with SMTP id h201ls2313397oib.0.gmail; Tue, 14
- Sep 2021 12:10:48 -0700 (PDT)
-X-Received: by 2002:a54:459a:: with SMTP id z26mr2555115oib.165.1631646647957;
-        Tue, 14 Sep 2021 12:10:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1631646647; cv=none;
+Received: by 2002:a9d:7b4d:: with SMTP id f13ls3441675oto.11.gmail; Tue, 14
+ Sep 2021 12:10:50 -0700 (PDT)
+X-Received: by 2002:a05:6830:156:: with SMTP id j22mr15836953otp.75.1631646650146;
+        Tue, 14 Sep 2021 12:10:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631646650; cv=none;
         d=google.com; s=arc-20160816;
-        b=TEJNsjU/45laMzaO0w87HfrYH0eqAHCGEuPa17YXMTQ3PPI5NQ+ejMPbK3RWDdoVla
-         S+fJsyNsWBnTdcLnu38LKvU9iMKPAq1jKgpCW1/5rlC3qTyJu/wHqUBFuSf2yqpl+SGf
-         roQflWgLN63ErTpgzuFugsCtSmuAI7fOHY7jU2Ci3gHuw4X1E1c3VjGnpdH+YGtx8tZ7
-         nL8CaHnkTQOKopTRDOARBu6k0Na3oM/mvIXKY8is3XX1+vQ2PtZyyjoyTNDD5kSXxjRC
-         m8A+Jme3ukvBfC85lkWmRriiH4rf/Kht48nVtKHWAo5+ehCOhouldVvVq+04+QAE/li6
-         S2Hw==
+        b=HB0QpnBqv5OPSIhiGKDUhfCBnw/29Oos4Mal+Y2BobrgpJ4SOr0hsCe5aii00kJXuh
+         PHB6UdSKiffzPPtFvfCMTp8TY1Q8F2A13cbVS2eB45fpzrltn04ZTRLb/asu5I6WBJZn
+         agJ4ttMjGD7gu375pyoy3KKLbq5p3YldWmXFCxQFNOSpQ822Fz4mkZ8sRhSMhykJTEtX
+         uAPsH+YzCFObrf2cCAhckASgc2LqEdbWdXu3w/aTJxkMhACmkuUYqzcptYe50qwMIxIE
+         G0BmnOuh9PKTCeQ32FlHChFASym+9idUfF6R3VjqZ1NvjaBkKf9e3D/8dr0NaO26AHEb
+         cSjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
-        bh=0GzzZ7fzGEuoqvnrH5xkZsITGuoIfAORG+08eeMzet8=;
-        b=xwnZmliybIwKQeO9aK1fvQ4nq7yJk6RM7Wb29iiwBY4Gn8F5+2QxbmLEaOw4kjapoX
-         KgJgIsrj8e9Fh5AJ5/Eg12YYs0Kaf4anKeRFxVwmUlpksQ2/SdM9Yr3JHWSMk5FUuSE/
-         RwTvDhtP1L1lhxwG8ceWkmGRtb6iatNNaBBFkymZCso7VyTy6JthIIK1mYU25IgLW1ov
-         ORs5me8EiDdyIwzHuL9zTP580/oXTZpcn6xme1lSccV3QZzdpSnKcpHr5PWnV0R5iLQm
-         kQUl2ZytYTNp0ZQQlLTikcMgJspTp+NKL6Y7iAxb6f+6IHg/89N8s0AvVaAnSoGVu9Gm
-         +Z7g==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=6wsaeVs2pKdYr3cjE54GmOMKWkqFIYtd4ul6D2XgoZU=;
+        b=hjfjI7nEYz+JEvyz+INV1a5QSh13zojGdD7jXyagDAV6uU6m8uyLatybHppX+6Unnx
+         zvfFm77AiuY0nyC3482C2Yhhnls8xU/tJhHLh+amZIgOX9l4lQPHwweUe5GupRps8/Jy
+         ylapyFxygBXR2FxabjbPU073jRejKWtnStG5qQBOLdIFfABZY+A5an6JUJtyAzTAg5el
+         +PrtI6a2USstfbRTBtgzjzgSR2D/QEQzcg+OWWXKOEtRYkZfzJ54H276KWl5m/o5AGoj
+         PUOX1xM63Rrp+j48GG+MGn0k4KAeZZOCT/t0Ldh7gzypDj2iTw8eBT/ZGrOunhBJrIz5
+         cKgA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=ZYLtvV6X;
-       spf=pass (google.com: domain of 3t_nayqwkaliksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3t_NAYQwKALIkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b=SltRY0Ph;
+       spf=pass (google.com: domain of 3ufnayqwkalqmugcnifpuhyhaiiafy.wig@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3ufNAYQwKALQmUgcnifpUhYhaiiafY.Wig@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qk1-x74a.google.com (mail-qk1-x74a.google.com. [2607:f8b0:4864:20::74a])
-        by gmr-mx.google.com with ESMTPS id w16si1025779oti.5.2021.09.14.12.10.47
+Received: from mail-qv1-xf49.google.com (mail-qv1-xf49.google.com. [2607:f8b0:4864:20::f49])
+        by gmr-mx.google.com with ESMTPS id w16si1025784oti.5.2021.09.14.12.10.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Sep 2021 12:10:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3t_nayqwkaliksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::74a as permitted sender) client-ip=2607:f8b0:4864:20::74a;
-Received: by mail-qk1-x74a.google.com with SMTP id h10-20020a05620a284a00b003d30e8c8cb5so689668qkp.11
-        for <clang-built-linux@googlegroups.com>; Tue, 14 Sep 2021 12:10:47 -0700 (PDT)
+        Tue, 14 Sep 2021 12:10:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3ufnayqwkalqmugcnifpuhyhaiiafy.wig@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::f49 as permitted sender) client-ip=2607:f8b0:4864:20::f49;
+Received: by mail-qv1-xf49.google.com with SMTP id w10-20020a0cb54a000000b0037a9848b92fso959138qvd.0
+        for <clang-built-linux@googlegroups.com>; Tue, 14 Sep 2021 12:10:50 -0700 (PDT)
 X-Received: from samitolvanen1.mtv.corp.google.com ([2620:15c:201:2:d19c:5902:49bb:c41])
- (user=samitolvanen job=sendgmr) by 2002:a0c:e0c7:: with SMTP id
- x7mr6956102qvk.55.1631646647327; Tue, 14 Sep 2021 12:10:47 -0700 (PDT)
-Date: Tue, 14 Sep 2021 12:10:29 -0700
-Message-Id: <20210914191045.2234020-1-samitolvanen@google.com>
+ (user=samitolvanen job=sendgmr) by 2002:a0c:aa01:: with SMTP id
+ d1mr7115315qvb.47.1631646649694; Tue, 14 Sep 2021 12:10:49 -0700 (PDT)
+Date: Tue, 14 Sep 2021 12:10:30 -0700
+In-Reply-To: <20210914191045.2234020-1-samitolvanen@google.com>
+Message-Id: <20210914191045.2234020-2-samitolvanen@google.com>
 Mime-Version: 1.0
+References: <20210914191045.2234020-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.33.0.309.g3052b89438-goog
-Subject: [PATCH v3 00/16] x86: Add support for Clang CFI
+Subject: [PATCH v3 01/16] objtool: Add CONFIG_CFI_CLANG support
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: x86@kernel.org
 Cc: Kees Cook <keescook@chromium.org>, Josh Poimboeuf <jpoimboe@redhat.com>, 
@@ -112,9 +116,9 @@ Cc: Kees Cook <keescook@chromium.org>, Josh Poimboeuf <jpoimboe@redhat.com>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20210112 header.b=ZYLtvV6X;       spf=pass
- (google.com: domain of 3t_nayqwkaliksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::74a as permitted sender) smtp.mailfrom=3t_NAYQwKALIkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20210112 header.b=SltRY0Ph;       spf=pass
+ (google.com: domain of 3ufnayqwkalqmugcnifpuhyhaiiafy.wig@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::f49 as permitted sender) smtp.mailfrom=3ufNAYQwKALQmUgcnifpUhYhaiiafY.Wig@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -130,124 +134,164 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This series adds support for Clang's Control-Flow Integrity (CFI)
-checking to x86_64. With CFI, the compiler injects a runtime
-check before each indirect function call to ensure the target is
-a valid function with the correct static type. This restricts
-possible call targets and makes it more difficult for an attacker
-to exploit bugs that allow the modification of stored function
-pointers. For more details, see:
+With CONFIG_CFI_CLANG, the compiler replaces function references with
+references to the CFI jump table, which confuses objtool. This change,
+based on Josh's initial patch [1], goes through the list of relocations
+and replaces jump table symbols with the actual function symbols.
 
-  https://clang.llvm.org/docs/ControlFlowIntegrity.html
+[1] https://lore.kernel.org/r/d743f4b36e120c06506567a9f87a062ae03da47f.1611263462.git.jpoimboe@redhat.com/
 
-The first two patches contain objtool support for CFI, the
-remaining patches change function declarations to use opaque
-types, fix type mismatch issues that confuse the compiler, and
-disable CFI where it can't be used.
-
-You can also pull this series from
-
-  https://github.com/samitolvanen/linux.git x86-cfi-v3
-
+Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
+Suggested-by: Josh Poimboeuf <jpoimboe@redhat.com>
+Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 ---
-Changes in v3:
-- Dropped Clang requirement to >= 13 after the missing compiler
-  fix was backported there.
+ tools/objtool/arch/x86/decode.c      | 16 +++++++++
+ tools/objtool/elf.c                  | 51 ++++++++++++++++++++++++++++
+ tools/objtool/include/objtool/arch.h |  3 ++
+ tools/objtool/include/objtool/elf.h  |  2 +-
+ 4 files changed, 71 insertions(+), 1 deletion(-)
 
-- Added DEFINE_CFI_IMMEDIATE_RETURN_STUB to address the issue
-  with tp_stub_func in kernel/tracepoint.c.
-
-- Renamed asm_func_t to asm_func_ptr.
-
-- Changed extable handlers to use __cficanonical instead of
-  disabling CFI for fixup_exception.
-
-
-Changes in v2:
-- Dropped the first objtool patch as the warnings were fixed in
-  separate patches.
-
-- Changed fix_cfi_relocs() in objtool to not rely on jump table
-  symbols, and to return an error if it can't find a relocation.
-
-- Fixed a build issue with ASM_STACK_FRAME_NON_STANDARD().
-
-- Dropped workarounds for inline assembly references to
-  address-taken static functions with CFI as this was fixed in
-  the compiler.
-
-- Changed the C declarations of non-callable functions to use
-  opaque types and dropped the function_nocfi() patches.
-
-- Changed ARCH_SUPPORTS_CFI_CLANG to depend on Clang >=14 for
-  the compiler fixes.
-
-
-Kees Cook (1):
-  x86, relocs: Ignore __typeid__ relocations
-
-Sami Tolvanen (15):
-  objtool: Add CONFIG_CFI_CLANG support
-  objtool: Add ASM_STACK_FRAME_NON_STANDARD
-  linkage: Add DECLARE_ASM_FUNC_SYMBOL
-  cfi: Add DEFINE_CFI_IMMEDIATE_RETURN_STUB
-  tracepoint: Exclude tp_stub_func from CFI checking
-  ftrace: Use an opaque type for functions not callable from C
-  lkdtm: Disable UNSET_SMEP with CFI
-  lkdtm: Use an opaque type for lkdtm_rodata_do_nothing
-  x86: Use an opaque type for functions not callable from C
-  x86/extable: Mark handlers __cficanonical
-  x86/purgatory: Disable CFI
-  x86, module: Ignore __typeid__ relocations
-  x86, cpu: Use LTO for cpu.c with CFI
-  x86, kprobes: Fix optprobe_template_func type mismatch
-  x86, build: Allow CONFIG_CFI_CLANG to be selected
-
- arch/x86/Kconfig                      |  1 +
- arch/x86/include/asm/ftrace.h         |  2 +-
- arch/x86/include/asm/idtentry.h       | 10 ++---
- arch/x86/include/asm/page_64.h        |  7 +--
- arch/x86/include/asm/paravirt_types.h |  3 +-
- arch/x86/include/asm/processor.h      |  2 +-
- arch/x86/include/asm/proto.h          | 25 ++++++-----
- arch/x86/include/asm/uaccess_64.h     |  9 ++--
- arch/x86/kernel/alternative.c         |  2 +-
- arch/x86/kernel/ftrace.c              |  2 +-
- arch/x86/kernel/kprobes/opt.c         |  4 +-
- arch/x86/kernel/module.c              |  4 ++
- arch/x86/kernel/paravirt.c            |  4 +-
- arch/x86/kvm/emulate.c                |  4 +-
- arch/x86/kvm/kvm_emulate.h            |  9 +---
- arch/x86/mm/extable.c                 | 64 +++++++++++++++------------
- arch/x86/power/Makefile               |  2 +
- arch/x86/purgatory/Makefile           |  2 +-
- arch/x86/tools/relocs.c               |  7 +++
- arch/x86/xen/enlighten_pv.c           |  6 +--
- arch/x86/xen/xen-ops.h                | 10 ++---
- drivers/misc/lkdtm/bugs.c             |  2 +-
- drivers/misc/lkdtm/lkdtm.h            |  2 +-
- drivers/misc/lkdtm/perms.c            |  2 +-
- drivers/misc/lkdtm/rodata.c           |  2 +-
- include/asm-generic/vmlinux.lds.h     | 11 +++++
- include/linux/cfi.h                   | 14 ++++++
- include/linux/ftrace.h                |  7 +--
- include/linux/linkage.h               | 13 ++++++
- include/linux/objtool.h               |  6 +++
- kernel/cfi.c                          | 24 +++++++++-
- kernel/tracepoint.c                   |  5 +--
- tools/include/linux/objtool.h         |  6 +++
- tools/objtool/arch/x86/decode.c       | 16 +++++++
- tools/objtool/elf.c                   | 51 +++++++++++++++++++++
- tools/objtool/include/objtool/arch.h  |  3 ++
- tools/objtool/include/objtool/elf.h   |  2 +-
- 37 files changed, 250 insertions(+), 95 deletions(-)
-
-
-base-commit: d0ee23f9d78be5531c4b055ea424ed0b489dfe9b
+diff --git a/tools/objtool/arch/x86/decode.c b/tools/objtool/arch/x86/decode.c
+index bc821056aba9..318189c8065e 100644
+--- a/tools/objtool/arch/x86/decode.c
++++ b/tools/objtool/arch/x86/decode.c
+@@ -62,6 +62,22 @@ bool arch_callee_saved_reg(unsigned char reg)
+ 	}
+ }
+ 
++unsigned long arch_cfi_section_reloc_offset(struct reloc *reloc)
++{
++	if (!reloc->addend)
++		return 0;
++
++	if (reloc->type == R_X86_64_PC32 || reloc->type == R_X86_64_PLT32)
++		return reloc->addend + 4;
++
++	return reloc->addend;
++}
++
++unsigned long arch_cfi_jump_reloc_offset(unsigned long offset)
++{
++	return offset + 1;
++}
++
+ unsigned long arch_dest_reloc_offset(int addend)
+ {
+ 	return addend + 4;
+diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+index 8676c7598728..05a5f51aad2c 100644
+--- a/tools/objtool/elf.c
++++ b/tools/objtool/elf.c
+@@ -18,6 +18,7 @@
+ #include <errno.h>
+ #include <objtool/builtin.h>
+ 
++#include <objtool/arch.h>
+ #include <objtool/elf.h>
+ #include <objtool/warn.h>
+ 
+@@ -291,6 +292,10 @@ static int read_sections(struct elf *elf)
+ 		if (sec->sh.sh_flags & SHF_EXECINSTR)
+ 			elf->text_size += sec->len;
+ 
++		/* Detect -fsanitize=cfi jump table sections */
++		if (!strncmp(sec->name, ".text..L.cfi.jumptable", 22))
++			sec->cfi_jt = true;
++
+ 		list_add_tail(&sec->list, &elf->sections);
+ 		elf_hash_add(section, &sec->hash, sec->idx);
+ 		elf_hash_add(section_name, &sec->name_hash, str_hash(sec->name));
+@@ -576,6 +581,49 @@ static int read_rela_reloc(struct section *sec, int i, struct reloc *reloc, unsi
+ 	return 0;
+ }
+ 
++/*
++ * CONFIG_CFI_CLANG replaces function relocations to refer to an intermediate
++ * jump table. Undo the conversion so objtool can make sense of things.
++ */
++static int fix_cfi_relocs(const struct elf *elf)
++{
++	struct section *sec;
++	struct reloc *reloc;
++
++	list_for_each_entry(sec, &elf->sections, list) {
++		list_for_each_entry(reloc, &sec->reloc_list, list) {
++			struct reloc *cfi_reloc;
++			unsigned long offset;
++
++			if (!reloc->sym->sec->cfi_jt)
++				continue;
++
++			if (reloc->sym->type == STT_SECTION)
++				offset = arch_cfi_section_reloc_offset(reloc);
++			else
++				offset = reloc->sym->offset;
++
++			/*
++			 * The jump table immediately jumps to the actual function,
++			 * so look up the relocation there.
++			 */
++			offset = arch_cfi_jump_reloc_offset(offset);
++			cfi_reloc = find_reloc_by_dest(elf, reloc->sym->sec, offset);
++
++			if (!cfi_reloc || !cfi_reloc->sym) {
++				WARN("can't find a CFI jump table relocation at %s+0x%lx",
++					reloc->sym->sec->name, offset);
++				return -1;
++			}
++
++			reloc->sym = cfi_reloc->sym;
++			reloc->addend = 0;
++		}
++	}
++
++	return 0;
++}
++
+ static int read_relocs(struct elf *elf)
+ {
+ 	struct section *sec;
+@@ -639,6 +687,9 @@ static int read_relocs(struct elf *elf)
+ 		tot_reloc += nr_reloc;
+ 	}
+ 
++	if (fix_cfi_relocs(elf))
++		return -1;
++
+ 	if (stats) {
+ 		printf("max_reloc: %lu\n", max_reloc);
+ 		printf("tot_reloc: %lu\n", tot_reloc);
+diff --git a/tools/objtool/include/objtool/arch.h b/tools/objtool/include/objtool/arch.h
+index 062bb6e9b865..2205b2b08268 100644
+--- a/tools/objtool/include/objtool/arch.h
++++ b/tools/objtool/include/objtool/arch.h
+@@ -81,6 +81,9 @@ unsigned long arch_jump_destination(struct instruction *insn);
+ 
+ unsigned long arch_dest_reloc_offset(int addend);
+ 
++unsigned long arch_cfi_section_reloc_offset(struct reloc *reloc);
++unsigned long arch_cfi_jump_reloc_offset(unsigned long offset);
++
+ const char *arch_nop_insn(int len);
+ 
+ int arch_decode_hint_reg(struct instruction *insn, u8 sp_reg);
+diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
+index e34395047530..d9c1dacc6572 100644
+--- a/tools/objtool/include/objtool/elf.h
++++ b/tools/objtool/include/objtool/elf.h
+@@ -39,7 +39,7 @@ struct section {
+ 	char *name;
+ 	int idx;
+ 	unsigned int len;
+-	bool changed, text, rodata, noinstr;
++	bool changed, text, rodata, noinstr, cfi_jt;
+ };
+ 
+ struct symbol {
 -- 
 2.33.0.309.g3052b89438-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210914191045.2234020-1-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210914191045.2234020-2-samitolvanen%40google.com.
