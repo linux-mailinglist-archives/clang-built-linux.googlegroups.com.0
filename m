@@ -1,129 +1,120 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB5G6T2FAMGQE7RMYPYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT6537ZTEKRBR76T6FAMGQEH7HINCA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83b.google.com (mail-qt1-x83b.google.com [IPv6:2607:f8b0:4864:20::83b])
-	by mail.lfdr.de (Postfix) with ESMTPS id C3FA3410D82
-	for <lists+clang-built-linux@lfdr.de>; Sun, 19 Sep 2021 23:45:25 +0200 (CEST)
-Received: by mail-qt1-x83b.google.com with SMTP id r5-20020ac85e85000000b0029bd6ee5179sf161383602qtx.18
-        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Sep 2021 14:45:25 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1632087924; cv=pass;
+Received: from mail-lf1-x13c.google.com (mail-lf1-x13c.google.com [IPv6:2a00:1450:4864:20::13c])
+	by mail.lfdr.de (Postfix) with ESMTPS id B8550410ECB
+	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Sep 2021 05:26:00 +0200 (CEST)
+Received: by mail-lf1-x13c.google.com with SMTP id a28-20020a056512021c00b003f5883dcd4bsf11219040lfo.1
+        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Sep 2021 20:26:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1632108360; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vNgVmQq2hQWBG4yZkc7yimAQ69tZfW2aKX+0Wlo9mokeB9sF0W9yk/PeZRDT+QQGia
-         yJLCiNhK1MXRtkG7xVCLL8hv/I5mWAxZllTKEIdF26hfm5nJVykjVb81D1Zb5S/wQKSP
-         n/EJFBQIuZs0EIOA5Pnw9utVIVzuGT1ZmjtfBTVQ+fEu78yYddjgvWfRA/yTrti0k4HC
-         +Yy2FFg4aJef7XEOo72OoVd796kgiTEw1+M5atL5/X3pgcEovYKEJwpvE6b3SlLp4MQW
-         CXyxK6Td4OSHt6+s7GHlL8GTXDhFHs0DPGfb3s1DU1RWNsqtVMQv8SOo8ixTBml7MhFA
-         jcQQ==
+        b=luk5NS2rly27ALJt0AA4L3BrIqNoUECXfWZgxXzqnPG0OenEEDAs+cy50DnMKVS3fu
+         kMRt0SGvI6wuEHjRIHjC1nbd3lasA+iig+VdslZTh42ITb92tU0f/JcUYRQRom1UUmHj
+         kFDo0Lc/ekPFgBwS0zNcHxBleK/hxGvT1mtLS12eOeKqnQxb6jeTda+MPHN/2ealinU5
+         MOk0Wr25oKR/5Bx6G6k6nN1k0Wn3cPdNpfKM4tLq8TT7KDU2cr+8CnKv5aNdreLRMoPN
+         Tko4d7YGuOtab+LQSNanBHQuVpWXQpM92NCh3GR6/EVZ8KOHjIirEHcDDRYocNk3YjJd
+         FqpQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=WCaydRua/5lKQqNi4pOc5u+xEss6xreBVKdLKJO6XLQ=;
-        b=eGeW4bZGoZN7GlCnMbhV7ume3HLh+QLZlOheKAYtWPGIBAOpSAeZoO8T6pqwxipGd6
-         Md901lucfiuxCgsvYT8gYt1e0P2g8Loznpq3FFQ9KT8TPeYsmYTbEWBJszLwJLxNzqDy
-         AMEflfnkuc03tIATLr3Aqjy31bEPKyGxRAU3wh8tAyRuGH2EYo+AeTABgghvboAjVRlM
-         pd0rnDSVOODYD3ZgtcOyFdzMMVQWWf2/u43xwcV1fIrPA1Ank8wdO1XVkbN0pthdyb1o
-         2vsSXF8F+4dqsd+vpJugi3E5eiOasEimh5vxoG9uSLZ0MXOlyzV5ICSIIlXCNaoncEcR
-         ieqg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :mime-version:sender:dkim-signature;
+        bh=GiyjaNyLaOT7B+8LeIL8LSY59kcCtjdOjHJwxfbzRP0=;
+        b=gyjnDRHi8st4XZaHZJMaoF5pq+SXo1l7uyg6c8NjGwfh87LdjwyWeDj73xkZi8dx2G
+         uSIyF56ukhRkpdoi/nr1oWHjbmRPPRBSNze2MRNhTqHoi0Q2acy8jFmu8h/bf3zyeh0L
+         Mg88VbFNWZ1G4qJGsjgDHsPivZyeNPfnY5Kl0TVHgsitWJA6exxgKPql8R8ADvQto7VQ
+         wiTxIlyqJnOxrhRzF1CAQzRTY6P3LeZkveGCLITovAl/XSVZUhZrrC9FscubsZX/WQIg
+         roRu4fDn0sc794IQmYTT9DwHrwxQ2xgBojMs4kxueI1D5u8JEErYmkYlu0/eWZvOGNCk
+         3Uxw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=jkNZeaa9;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@linaro.org header.s=google header.b=ABbKko9j;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::536 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=WCaydRua/5lKQqNi4pOc5u+xEss6xreBVKdLKJO6XLQ=;
-        b=M4Bs0ylLkVEGKRar+RsAIKNyoej0Rf0FDYju5BijqTFltbbIi9bAyPXIQUAx/6PlbL
-         UaJZJgp+pVrYd8QyiN3/vW/xLwEdsoZ69WD9eyZA5y3xbf/s9xpc23UBw4dcRetHpmev
-         6WvLlDMLz+D0ASw3LxeOpegTZb63zW7rnWtyZZJQdI1BgOZ+JPk9/CxpyN68xWtz1dtU
-         px9JY9IlAyOrzBAy+o8ppvlvRKjTRQF7L9bIKoYoPcg4hBZwtRjsdym+lYMhtjK1hEM9
-         IB7QoEPEmkRWvG8XC6cMGeReIG6qMeE2UkkhqlB/zQT6AQee7RFaLQvem1SIAkD6Db3b
-         UJbA==
+        h=sender:mime-version:from:date:message-id:subject:to:cc
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=GiyjaNyLaOT7B+8LeIL8LSY59kcCtjdOjHJwxfbzRP0=;
+        b=rRh121jLfySklV4EnN/706w51N8q5DnbCdgH2DDEYoXn/Tgyv7b8Xekbm6/qtQM/wV
+         iLTSpt/FWwyxVesGMX1wLFWtqzuTXctOaNqoUS2R/HejDa7YouH6g3q1uxlKh2cWLAQd
+         2pxmlU6b6SpguZ3uRtiPHOm00QBAPweirxzuYEEuwT3sFhDuVsRMTallgXAQcVLuEvwY
+         nQCpbOiVgw2T5uopCxk4e6fwc/BDIbD5WtcLqecliLbMkjYxA59AE2+Fb+r24pNkb+4V
+         A5witagQtT9I5SWR7p6VFNxu0Vf5rxUevyuqFmNbxqgoFDnBY6Xlp3Oy5/bU4+fLQI3M
+         ggEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=WCaydRua/5lKQqNi4pOc5u+xEss6xreBVKdLKJO6XLQ=;
-        b=OOgpOVgEDPx5+FKjJV6zLGFcZgKUOi1002Y7wF3hL52y7iPRFtzgXjdYOkPo+r2YHh
-         gnk2dZlhfhdDesR6Daw0nOA73lO9YTXO8k+I9Y9Dr7VdmxN6Wx2QuWmQZGm3M+4ilqNZ
-         2KOauat/cGELQwf5pXUvpwv7drnk55hb7m+kwBxac2XB0NY2+KTBQhTsQahApKy0N7C0
-         GP2e4bN6d/rI6/zItFTP1JXdH7GfSzdX08beCzYwQ+NuOedlFq5cBbznbvIA+xG5V8uH
-         6Ate+iL342mI0A/ump+DGkp2ju1hO+nvcKJ/2BBxKUpGpLhD4hB8UTw0YIVnHn3GABJF
-         +9Sw==
+        h=sender:x-gm-message-state:mime-version:from:date:message-id:subject
+         :to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=GiyjaNyLaOT7B+8LeIL8LSY59kcCtjdOjHJwxfbzRP0=;
+        b=tKvWOEdmJRvrJWfQKgcHuTA3/76irbf0KY/icDi24GzfEESfceQPiPBwYceOkoSIM8
+         xc+jU2gapGeHPpKtNQGAeDl9sOQECifmduSfR5I8XEqXIw4cX4GTxkAXNrEuweemCjpU
+         OqtgivtfTlsz3FxN2sTKKsEsV5Ck54PydTro9PVINhdnQg8V0rYOG4bV4nuShGXKufOo
+         qZsoW+Bjr0x0M9kW+RHNYuw4vZdqljizWnzT0X0TEWELec2/pFalSN628QErgQb/gFAc
+         LHK7S7Sb5vbhcWqJwbNBznQXG1egc2A8NtVmjCK4M2Srw64Cnujcvv7SqmZIKLiT7kzC
+         JO6A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532lZhcye79DQ3+QrrA3wv9uZO9pZXDB4oSUUyrIWIg/Tm+pqDfO
-	wTcZnraHIax67177Acfyk/M=
-X-Google-Smtp-Source: ABdhPJx4AtXdm4NJ+c/vfW2J4mUJoA5I/1+7HKWYCTIByhZxh9h8WiUUf7+ww589iVeIev7Wj6nmAQ==
-X-Received: by 2002:a25:c612:: with SMTP id k18mr29079416ybf.69.1632087924540;
-        Sun, 19 Sep 2021 14:45:24 -0700 (PDT)
+X-Gm-Message-State: AOAM532da8SrI8Esu1Md83n8FC51f5+t6xtucNSl8KsznLCsKwbr9r1T
+	x9rghlRn/T85z8Fiba5N3yg=
+X-Google-Smtp-Source: ABdhPJx1AVkP3tdG0lj2Kac2UcGKY0sannSU47IJpN8f9yRZzKnxeOead9z68+MVs2c0ajp8of/LkA==
+X-Received: by 2002:a2e:544a:: with SMTP id y10mr12055ljd.323.1632108360256;
+        Sun, 19 Sep 2021 20:26:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:d7d3:: with SMTP id o202ls3304773ybg.3.gmail; Sun, 19
- Sep 2021 14:45:24 -0700 (PDT)
-X-Received: by 2002:a25:2256:: with SMTP id i83mr28001321ybi.269.1632087924022;
-        Sun, 19 Sep 2021 14:45:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1632087924; cv=none;
+Received: by 2002:a05:651c:881:: with SMTP id d1ls1546721ljq.11.gmail; Sun, 19
+ Sep 2021 20:25:59 -0700 (PDT)
+X-Received: by 2002:a05:651c:54e:: with SMTP id q14mr21918706ljp.152.1632108359217;
+        Sun, 19 Sep 2021 20:25:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1632108359; cv=none;
         d=google.com; s=arc-20160816;
-        b=yhLh1SIP9XmAdgB7IlZ0SkVBPKE3Iro+K+d58aQrwL4vkVx6Xddbo/QIlPZ3pPyMH2
-         zhuTkqjixvDGjpDkn9LpHAkYx0bgGJLa6bIaI0qHV8hHJ0G93SfDLud6v+pb8e1L+B7G
-         LruyNBKteZ7HxQNzQaPvvLZFi0H6QoeEJ8OCJUa6p5Wv2m515tTKkpi78sZyqXLhx7Ef
-         PurjcmS5g6UyXsebXKjzC+W4x0MdzEV6QwRBdTR8SoHNDnjEiXq5y+kornn/XAf9C9s6
-         6o5OfiBdqjzcpCohs1Oh9To423HD+Lo/1gMT4RDUktvD5zoCFlIIU57HRLvFjsypMHGW
-         rO0Q==
+        b=rVUIhS9ggJqp0MiIWnYjKWlD8+SPMn0cClH/jAENJ7i2V0ZmtIi0F08z7DcyQBy+ok
+         OoYd4so1RQoI2Boqubwah6cFElEnOKiiXX1ISqaN0f2knebosvG5s6Eiu7halraS/uzQ
+         C5DhNsQA3T4xEhyItVZn4onEXKFXLdJ7qu/Fv0+klfLsCeO0WzEkRHs04p4QVNd3UU0V
+         11eSz6AG0pXt7+Oi3riHifWjnS8cxiwfv2xwY40Z+jpmsxQJynGgnRWusv/EMwf+a/Th
+         +ao8mY8LcB3xAySh0UK76VRXFfwmyuyDkzmZakrtORGSxQC8+LGl6bmKx+vaNYwT3QYi
+         kJEw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=rKQ6ckwwSL4MH6zofcIeDU8LlxpAB+FUB44Y3MwMFn0=;
-        b=Vgly48Rw8NCoaEaBjzcp7ScOztoh+M/DNubYcu/F8+Nvn4o/FkDnB9gkF/VCk1GJaD
-         8rVAo1pqHChRhprg+Va/0UMwzBkx/Fai/5qCuIHJjCAlmPKG3PJ8r50Izu6W/xnUIwMb
-         R0SbVeaz/tWasSFwk2uIf24lhhdb1qfjmHClcVlXYSGeT5OkgAeHib4q5C5LCXJT0RKC
-         9VK2pJD2374XkA7Pfbz4LkJooU6M5XMF9awYSaXWc6Sk2R5sisJJTZdrBrJrXl/c6wbv
-         51cecedX0+smEk5usNzgFca25lfujMSPWQMl1ZvW1U3dQiB4qdYy+27l+fTYeLZ4dmmi
-         18ng==
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=UyH5g5gkFhjfVaHvBZg29/bQ5+iZMioda5dgko5wWww=;
+        b=G8RDUAEvwm30We2JU4iZxeBIaFIZQ8EuVQAlX1muh7MjggIUHvms89jmST613UJ32n
+         zJeaxqIVpPBOt3XKl7A47IOtuZe0/2QGlaGgUhBmxfNuyklOldkn8qG6Ju75IyXXI7d4
+         D3Qw2D0lUo6sUARGn5x0aSMpfpo7L7k7Ab8nNS5ySzx4int34lc+3qJt8txnOO2inzNn
+         EtR0mTH4x1OC2L47dkiTErDo/E5hcgfssPOSSc3WYsKoJQ3UDXwQ8Fu2LzpTjVwlRK48
+         kz3xNP/Buc7K1aNXELQToV3dF+30HyYXSLcBXKeIL/8SZ3uqu8EAKCCPlLsI4RIRCUAv
+         KaJw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=jkNZeaa9;
-       spf=pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x6si970239ybn.3.2021.09.19.14.45.23
+       dkim=pass header.i=@linaro.org header.s=google header.b=ABbKko9j;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::536 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-ed1-x536.google.com (mail-ed1-x536.google.com. [2a00:1450:4864:20::536])
+        by gmr-mx.google.com with ESMTPS id o4si84914ljj.3.2021.09.19.20.25.59
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 19 Sep 2021 14:45:23 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 72FBC60F92;
-	Sun, 19 Sep 2021 21:45:18 +0000 (UTC)
-Date: Sun, 19 Sep 2021 14:45:15 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Dan Li <ashimida@linux.alibaba.com>
-Cc: masahiroy@kernel.org, michal.lkml@markovi.net, keescook@chromium.org,
-	ndesaulniers@google.com, akpm@linux-foundation.org,
-	tglx@linutronix.de, peterz@infradead.org, samitolvanen@google.com,
-	frederic@kernel.org, rppt@kernel.org, yifeifz2@illinois.edu,
-	viresh.kumar@linaro.org, colin.king@canonical.com,
-	andreyknvl@gmail.com, mark.rutland@arm.com, ojeda@kernel.org,
-	will@kernel.org, ardb@kernel.org, luc.vanoostenryck@gmail.com,
-	elver@google.com, nivedita@alum.mit.edu,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] [RFC/RFT]SCS:Add gcc plugin to support Shadow Call Stack
-Message-ID: <YUeva0jP7P2qCr+R@archlinux-ax161>
-References: <1632069436-25075-1-git-send-email-ashimida@linux.alibaba.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Sep 2021 20:25:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::536 as permitted sender) client-ip=2a00:1450:4864:20::536;
+Received: by mail-ed1-x536.google.com with SMTP id co2so9001893edb.8
+        for <clang-built-linux@googlegroups.com>; Sun, 19 Sep 2021 20:25:59 -0700 (PDT)
+X-Received: by 2002:a17:907:7601:: with SMTP id jx1mr25835157ejc.69.1632108357657;
+ Sun, 19 Sep 2021 20:25:57 -0700 (PDT)
 MIME-Version: 1.0
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Mon, 20 Sep 2021 08:55:46 +0530
+Message-ID: <CA+G9fYvoyDqbCnmcVMHCO3Zxn9=FGTjyTH9u=7FT7rCz-dh6JA@mail.gmail.com>
+Subject: x86_64: clang-10: <instantiation>:2:2: error: unknown use of
+ instruction mnemonic without a size suffix
+To: clang-built-linux <clang-built-linux@googlegroups.com>, llvm@lists.linux.dev, 
+	open list <linux-kernel@vger.kernel.org>, X86 ML <x86@kernel.org>
+Cc: Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <1632069436-25075-1-git-send-email-ashimida@linux.alibaba.com>
-X-Original-Sender: nathan@kernel.org
+X-Original-Sender: naresh.kamboju@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=jkNZeaa9;       spf=pass
- (google.com: domain of nathan@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@linaro.org header.s=google header.b=ABbKko9j;       spf=pass
+ (google.com: domain of naresh.kamboju@linaro.org designates
+ 2a00:1450:4864:20::536 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,188 +127,66 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Dan,
+[Please ignore this email if it is already reported ]
 
-A couple of initial high level comments, I do not really feel qualified
-to review the plugin itself.
+Following build warnings/ errors noticed while building linux mainline
+master branch
+with clang-10 for x86_64 architecture.
+But clang-11, clang-12 and clang-13 build pass.
 
-On Mon, Sep 20, 2021 at 12:37:16AM +0800, Dan Li wrote:
-> The Clang-based shadow call stack protection has been integrated into the
-> mainline, but kernel compiled by gcc cannot enable this feature for now.
-> 
-> This Patch supports gcc-based SCS protection by adding a plugin.
-> 
-> For each function that x30 will be pushed onto the stack during execution,
-> this plugin:
-> 1) insert "str x30, [x18], #8" at the entry of the function to save x30
->    to current SCS
-> 2) insert "ldr x30, [x18, #-8]!"  before the exit of this function to
->    restore x30
-> 
-> At present, this patch has been successfully compiled(based on defconfig)
-> in the following gcc versions(if plugin is supported) and startup normally:
-> * 6.3.1
-> * 7.3.1
-> * 7.5.0
-> * 8.2.1
-> * 9.2.0
-> * 10.3.1
-> 
-> with commands:
-> make ARCH=arm64 defconfig
-> ./scripts/config -e CONFIG_GCC_PLUGINS -e CONFIG_GCC_PLUGIN_SHADOW_CALL_STACK
-> make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
-> 
-> ---
-> FYI:
-> 1) The function can be used to test whether the shadow stack is effective:
-> //noinline void __noscs scs_test(void)
-> noinline void scs_test(void)
-> {
->     register unsigned long *sp asm("sp");
->     unsigned long * lr = sp + 1;
-> 
->     asm volatile("":::"x30");
->     *lr = 0;
-> }
-> 
-> ffff800010012670 <scs_test>:
-> ffff800010012670:       f800865e        str     x30, [x18], #8
-> ffff800010012674:       a9bf7bfd        stp     x29, x30, [sp, #-16]!
-> ffff800010012678:       910003fd        mov     x29, sp
-> ffff80001001267c:       f90007ff        str     xzr, [sp, #8]
-> ffff800010012680:       a8c17bfd        ldp     x29, x30, [sp], #16
-> ffff800010012684:       f85f8e5e        ldr     x30, [x18, #-8]!
-> ffff800010012688:       d65f03c0        ret
-> 
-> If SCS protection is enabled, this function will return normally.
-> If the function has __noscs attribute (scs disabled), it will crash due to 0
-> address access.
-> 
-> 2) Other tests are in progress ...
-> 
-> Signed-off-by: Dan Li <ashimida@linux.alibaba.com>
-> ---
->  Makefile                               |   2 +-
->  arch/Kconfig                           |   2 +-
->  include/linux/compiler-gcc.h           |   4 +
->  scripts/Makefile.gcc-plugins           |   4 +
->  scripts/gcc-plugins/Kconfig            |   8 ++
->  scripts/gcc-plugins/arm64_scs_plugin.c | 256 +++++++++++++++++++++++++++++++++
->  6 files changed, 274 insertions(+), 2 deletions(-)
->  create mode 100644 scripts/gcc-plugins/arm64_scs_plugin.c
-> 
-> diff --git a/Makefile b/Makefile
-> index 61741e9..0f0121a 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -924,7 +924,7 @@ LDFLAGS_vmlinux += --gc-sections
->  endif
->  
->  ifdef CONFIG_SHADOW_CALL_STACK
+<instantiation>:2:2: error: unknown use of instruction mnemonic
+without a size suffix
+ lsl %rax, %rax
+ ^
+<instantiation>:1:1: note: while in macro instantiation
+LOAD_CPU_AND_NODE_SEG_LIMIT %rax
+^
+<instantiation>:2:2: note: while in macro instantiation
+ GET_PERCPU_BASE %rax
+ ^
+/builds/linux/arch/x86/entry/entry_64.S:887:2: note: while in macro
+instantiation
+ SAVE_AND_SET_GSBASE scratch_reg=%rax save_reg=%rbx
+ ^
+make[3]: *** [/builds/linux/scripts/Makefile.build:379:
+arch/x86/entry/entry_64.o] Error 1
+arch/x86/entry/entry_64_compat.o: warning: objtool: .entry.text+0x215:
+can't find jump dest instruction at .entry.text+0x21a
+make[3]: Target '__build' not remade because of errors.
+make[2]: *** [/builds/linux/scripts/Makefile.build:540: arch/x86/entry] Error 2
+make[2]: Target '__build' not remade because of errors.
+make[1]: *** [/builds/linux/Makefile:1868: arch/x86] Error 2
 
-I would rather see this become
 
-ifeq ($(CONFIG_SHADOW_CALL_STACK)$(CONFIG_CC_IS_CLANG), yy)
-...
-endif
+Build config:
+https://builds.tuxbuild.com/1yNlOcqNwVJJje4WbGjSV4ZeBh6/config
 
-rather than just avoiding assigning to CC_FLAGS_SCS.
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
 
-However, how does disabling the shadow call stack plugin work for a
-whole translation unit or directory? There are a few places where
-CC_FLAGS_SCS are filtered out and I am not sure I see where that happens
-here? It looks like the plugin has a disabled option but I do not see it
-hooked in anywhere.
+meta data:
+-----------
+    git_describe: v5.15-rc2
+    git_ref:
+    git_repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+    git_sha: e4e737bb5c170df6135a127739a9e6148ee3da82
+    git_short_log: e4e737bb5c17 (\"Linux 5.15-rc2\")
+    kconfig: [
+        defconfig
+    ],
+    target_arch: x86_64
+    toolchain: clang-10
 
-> -CC_FLAGS_SCS	:= -fsanitize=shadow-call-stack
-> +CC_FLAGS_SCS	:= $(if $(CONFIG_CC_IS_CLANG),-fsanitize=shadow-call-stack,)
->  KBUILD_CFLAGS	+= $(CC_FLAGS_SCS)
->  export CC_FLAGS_SCS
->  endif
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index 98db634..81ff127 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -594,7 +594,7 @@ config ARCH_SUPPORTS_SHADOW_CALL_STACK
->  
->  config SHADOW_CALL_STACK
->  	bool "Clang Shadow Call Stack"
-> -	depends on CC_IS_CLANG && ARCH_SUPPORTS_SHADOW_CALL_STACK
-> +	depends on (CC_IS_CLANG && ARCH_SUPPORTS_SHADOW_CALL_STACK) || GCC_PLUGIN_SHADOW_CALL_STACK
+steps to reproduce:
+tuxmake --runtime podman --target-arch x86_64 --toolchain clang-10
+--kconfig defconfig
 
-Is this logic right? SHADOW_CALL_STACK is only supported by arm64 (as
-they set ARCH_SUPPORTS_SHADOW_CALL_STACK) but now you are enabling it
-for any architecture, even though it seems like it still only works on
-arm64. I think this wants to be
+https://builds.tuxbuild.com/1yNlOcqNwVJJje4WbGjSV4ZeBh6/tuxmake_reproducer.sh
 
-depends on (CC_IS_CLANG || GCC_PLUGIN_SHADOW_CALL_STACK) && ARCH_SUPPORTS_SHADOW_CALL_STACK
-
->  	depends on DYNAMIC_FTRACE_WITH_REGS || !FUNCTION_GRAPH_TRACER
->  	help
->  	  This option enables Clang's Shadow Call Stack, which uses a
-> diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
-> index cb9217f..426c8e5 100644
-> --- a/include/linux/compiler-gcc.h
-> +++ b/include/linux/compiler-gcc.h
-> @@ -50,6 +50,10 @@
->  #define __latent_entropy __attribute__((latent_entropy))
->  #endif
->  
-> +#if defined(SHADOW_CALL_STACK_PLUGIN) && !defined(__CHECKER__)
-> +#define __noscs __attribute__((no_shadow_call_stack))
-> +#endif
-> +
->  /*
->   * calling noreturn functions, __builtin_unreachable() and __builtin_trap()
->   * confuse the stack allocation in gcc, leading to overly large stack
-> diff --git a/scripts/Makefile.gcc-plugins b/scripts/Makefile.gcc-plugins
-> index 952e468..eeaf2c6 100644
-> --- a/scripts/Makefile.gcc-plugins
-> +++ b/scripts/Makefile.gcc-plugins
-> @@ -46,6 +46,10 @@ ifdef CONFIG_GCC_PLUGIN_ARM_SSP_PER_TASK
->  endif
->  export DISABLE_ARM_SSP_PER_TASK_PLUGIN
->  
-> +gcc-plugin-$(CONFIG_GCC_PLUGIN_SHADOW_CALL_STACK) += arm64_scs_plugin.so
-> +gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_SHADOW_CALL_STACK)	\
-> +		+= -DSHADOW_CALL_STACK_PLUGIN
-> +
->  # All the plugin CFLAGS are collected here in case a build target needs to
->  # filter them out of the KBUILD_CFLAGS.
->  GCC_PLUGINS_CFLAGS := $(strip $(addprefix -fplugin=$(objtree)/scripts/gcc-plugins/, $(gcc-plugin-y)) $(gcc-plugin-cflags-y))
-> diff --git a/scripts/gcc-plugins/Kconfig b/scripts/gcc-plugins/Kconfig
-> index ab9eb4c..2534195e 100644
-> --- a/scripts/gcc-plugins/Kconfig
-> +++ b/scripts/gcc-plugins/Kconfig
-> @@ -19,6 +19,14 @@ menuconfig GCC_PLUGINS
->  
->  if GCC_PLUGINS
->  
-> +config GCC_PLUGIN_SHADOW_CALL_STACK
-> +	bool "GCC Shadow Call Stack plugin"
-
-This should also have a
-
-depends on ARCH_SUPPORTS_SHADOW_CALL_STACK
-
-if you are selecting SHADOW_CALL_STACK, as selecting does not account
-for dependencies.
-
-> +	select SHADOW_CALL_STACK
-> +	help
-> +	  This plugin is used to support the kernel CONFIG_SHADOW_CALL_STACK
-> +	  compiled by gcc. Its principle is basically the same as that of CLANG.
-> +	  For more information, please refer to "config SHADOW_CALL_STACK"
-> +
->  config GCC_PLUGIN_CYC_COMPLEXITY
->  	bool "Compute the cyclomatic complexity of a function" if EXPERT
->  	depends on !COMPILE_TEST	# too noisy
-
-Cheers,
-Nathan
+--
+Linaro LKFT
+https://lkft.linaro.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YUeva0jP7P2qCr%2BR%40archlinux-ax161.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYvoyDqbCnmcVMHCO3Zxn9%3DFGTjyTH9u%3D7FT7rCz-dh6JA%40mail.gmail.com.
