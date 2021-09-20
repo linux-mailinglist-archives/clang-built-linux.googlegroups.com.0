@@ -1,143 +1,130 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRB34WUOFAMGQEA3EWUDA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDC2RCVE24NRB5E3UOFAMGQEZAUA23Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
-	by mail.lfdr.de (Postfix) with ESMTPS id 390824120B7
-	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Sep 2021 19:57:05 +0200 (CEST)
-Received: by mail-il1-x140.google.com with SMTP id y16-20020a929510000000b0024fca7e125bsf5723945ilh.17
-        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Sep 2021 10:57:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1632160624; cv=pass;
+Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1F1484121BA
+	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Sep 2021 20:07:50 +0200 (CEST)
+Received: by mail-pf1-x438.google.com with SMTP id j199-20020a6280d0000000b004448b89ab5esf8059741pfd.12
+        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Sep 2021 11:07:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1632161268; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hkS7U5fqpf4eHBxTPd0NJpVitBrRUQzvXozFBuYcXM9WO8BrfwNVTxTde29Lb4Iork
-         23wr8yjKrw+sc47vDFyGL+1YtYyix6We0dJJjmzdDFDWzDaSD+/oofDOCQsUdBEChSzD
-         rGnfDaqfnco5tLY/Hn8mEWkyHYIA2jdYQI6gRLqCNDMlfEbgQkVRiEz6MirCW8WLHwbL
-         2qyd1vn6UOBs7N/NyeKw43wweNzKzk/zzZDz2P2WrslhpuiPrxkHmK++5FF30G0i7ExP
-         K5atDz4ihBI1DqPiboBuCC3k7eEHry1BJHYccKNSLziiEGh8Cab7rxoS4CPjeFCLFOI0
-         mJrA==
+        b=IMj+GDqxzmAd+7A+Pk1iw+YZrCB0xz0upyVnQOCSjwyx85UUtiNHhq7Vpi5KmfcZhP
+         XxZZXLLn31AeOkIxLKdNhg7MAK2P2PuwGSDDQF6QV8QojX0M7xyhw5LNCYx++bIAROF7
+         Vv1BeftsW53wB3XybzAMazzEtpMt4y5YRHcck3Cj60mJ1hREL2FLKfhbRtyBUmpCm2Ru
+         vRn0VxYbpDLIn8EWEd7DBM9+LIQciahum5/qZUNDEbtP6KCurFX+nGEUHOFsOcScdf2H
+         ickded4QJxPf/ML5/itYle5DSM+EixkLbHCKfZQfzqzWI+jCNIkzkWJBcgaynCWClJiw
+         Nstg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-disposition:in-reply-to
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=1CT4nPmPTTkO2oN3fWkI0haeiwd7drRoF1ft7yK8GZw=;
-        b=rvksMcQvqxCv3RMZSuAhtcKtij1hi5TtpYua+y5ZQ+zqeK61UwQBXwtyP5b2L2zz+z
-         5zs90cq3U6JGe+waGBUNv1NWF73CavR4wDn/xpmg0+QrbdAji8RERc+v/AEPKksqmzoD
-         Tw5oJ2LXpQdOfu4GX9nizyw4b/kUxe9XwOnLQCUO5fnFgSH92smox/9VCetFk2ffkO5p
-         LlqkpaZBhydIDmsLB6fVzztpLhJgOHPaNh07Q06oCtoWr9OyBNPHgYSjslJkL9H92ekU
-         GqZKda1g6mCYv4+No05F/7Hr3aQGJpxxwfZusHdRExi48+BCwL3jRwvkmGlCL1ctvCUX
-         3D7w==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=WGbEsXC11OufLbQIgVtAWg8OvE3R5c52Rk/5cWdm1jA=;
+        b=W8ayQJIRk6l23ShR/O6fI++ZPutZxoeqIp0PhOiAmjAff5/kN8UUfugx5FwgPPJhKI
+         K2OCz/tax9xp6la/Lum4lhefK92SUkDadPeRGnduBTEZf+EfkcVSwffkd8rDgomoE4Xc
+         gKVch1UaTI+0s4Ndt6mWxCKF0XSPRcxiQ5o+fIh0qZMNH5VWKTkdsveEG3ynhOOQwghW
+         YECjcwmPqjFzgpDEOIQfXCpoRgMFLr3crdXRHEELPhQW1jRw40yFW4UuQWATCgpdaZYO
+         h2PgXt7ZPAC1YwOmxi9SBqSj1xZUHVx0UM0xDmgWCQ2eAX0WzitGeOEeh52jtHCfmioO
+         G8Dw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=WiJi7LLN;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       spf=pass (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :in-reply-to:content-disposition:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=1CT4nPmPTTkO2oN3fWkI0haeiwd7drRoF1ft7yK8GZw=;
-        b=VGHhVgxOYNSM1t2FWnv967HzE2VTJIIA+1O2rHnfnaWeStonktDnnmTriemkCp/H6i
-         hVlzxMxt4FaoKC2QDWKaRVc753a8OjsZTEfaHH28rRNhtJQO/C1MrzqtZZOI9o9Ryrd+
-         Q2AXQi7K9gIPkL45u90gVz3gkiBnwtu9xd0sjlFTp7bwxX4zekcwb53L7K8tVk9B+G6H
-         vdebGwB4OP1i/6PmaqiuZihPoOZIskslIm6whddOcU3pXX5y6qaMqO5GIQhYHvRrzXbN
-         LSrid25hc0iltQYeAtFMWwhF1b4UhTLYwEQt4rthOLAmuxKATmrYQn5l8wQ1tmhKmB2R
-         +RgA==
+        bh=WGbEsXC11OufLbQIgVtAWg8OvE3R5c52Rk/5cWdm1jA=;
+        b=jwjl7NwvSfC7oyhuwQsdhp/Qz+9HlelBX1z9XvXpfNdJFZpTNsU1Yw2dYbQNa5W1ji
+         7TPig0B+YskP3BkuVCxy349Z0jYbqdzdZ18lLz2+29iPO/cqEGCh9B7yfYEJM4sGYyZG
+         qd9WwcCK9evuErl8q9vt/C7Sofjj9p66ZpZVD5CmO6LWJ+b0ScctykiD31ZYRtrmW2Ou
+         3G8Ykf7/eAITeV9QkKhvIp0fbh4EviEz4zfD57u+aU62tjve8OqElADPDc3gFGXVlpzp
+         EZg180C7P3MdywdN96ftkmsKjI1rPrRHTj6bFDRNDHY1ymDUIabOFCAwsurtJ7A6QgsB
+         6b6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:in-reply-to:content-disposition
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=1CT4nPmPTTkO2oN3fWkI0haeiwd7drRoF1ft7yK8GZw=;
-        b=aLrhRqYXaEjumtKCy3iOKI0gdwMMpnYMEwBWH+AnsDJAQwwXA8rF3RJVij7NvjGUVk
-         PxQznKklW6nndA/yU/GE9dsOHGtT+BlQu2MxAbNGaO3GvubT0buUnDU3PwlsGdDkgOaF
-         QhjrQjSfN0CkkQXjC+gjtopMGpoQ8GnOAhfhZW4ICY6iiJEnlJsYD/jkhe42NXTbmJ+W
-         OYWTTSBtN5gledNj7QQ7DNBTlmoqpTPhYkgBSqKN6G+nNAqNTT0EcnrVq9mYssTsTFHL
-         e7sQFZQ5qoLUoXLePQsTiGYBz81+vr3h2zQIIvMKB6fBsM5ZRVphlb5JnMp7y5Y7XDAo
-         wv1w==
+        bh=WGbEsXC11OufLbQIgVtAWg8OvE3R5c52Rk/5cWdm1jA=;
+        b=i8SRNsgRqhG9EAK9Pguj24nKgfVH85JigSDFoer0hBFF6KMmZ6m9GDyejvw2M5m/RP
+         GcVqasSe7GZvUj7ns0mCx3+jvcF1W7FsYciihaJtHYsYAqQuJHxcB0pHYRPB2Cgj44ec
+         N1iyRXM3owxuzzEX3C8jzeF6ecVTC3OPOtnzHEimKb67AYqeuZBbjkEYAWaafXD9cz1Q
+         Wph2Xna1cvZupoDIK26NBQHfSBsGSSEONv2mf+ilFAPmI+FwtlBF6p4xk0wd1Jwx2J24
+         PWWp4Ij99rWqUg9mimsHHDksqNw0nXLdM7T9SR/l5RZXRYaxlsrugCrXKnCZRz2KNYDj
+         FBsg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532daG23GfnXLpIX2f9bCsR78gyLahX+LYsOTRAcmTpDiE7xQw+Z
-	ElZUs7QdkUPB6P9tgEPjhWc=
-X-Google-Smtp-Source: ABdhPJzvqPE2vRQ8FdDPeegKiNbYJqKUTeGiNu7kKBVjpD+1v7t4B2kIyA4CrhzzzpLNPe6sEV37sg==
-X-Received: by 2002:a05:6e02:2194:: with SMTP id j20mr17173886ila.268.1632160623853;
-        Mon, 20 Sep 2021 10:57:03 -0700 (PDT)
+X-Gm-Message-State: AOAM532iU83+RAmRDGsyh4chkg/z4BsH2hYYAmtGWcUQLoPtq9hGSIiz
+	POX3pDX89NHjs05CJi6Tnbw=
+X-Google-Smtp-Source: ABdhPJy8Y2nCbhFEmExcFzeDtqciIa1D0ctSOsM0U9SDj/ORbtg9jbkcN6Hc/8RpMQ5bbt6AaHQiAw==
+X-Received: by 2002:a17:90a:cb14:: with SMTP id z20mr342233pjt.230.1632161268514;
+        Mon, 20 Sep 2021 11:07:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:11c1:: with SMTP id g1ls4330547jas.3.gmail; Mon, 20
- Sep 2021 10:57:03 -0700 (PDT)
-X-Received: by 2002:a05:6638:140f:: with SMTP id k15mr20649508jad.113.1632160623332;
-        Mon, 20 Sep 2021 10:57:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1632160623; cv=none;
+Received: by 2002:a63:eb03:: with SMTP id t3ls726351pgh.5.gmail; Mon, 20 Sep
+ 2021 11:07:48 -0700 (PDT)
+X-Received: by 2002:a65:5a81:: with SMTP id c1mr24097561pgt.74.1632161267993;
+        Mon, 20 Sep 2021 11:07:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1632161267; cv=none;
         d=google.com; s=arc-20160816;
-        b=muNLMSa3B6YkrKxrMCMGU4dK3HaQCLjvuoPiAKgYBGmOna4At6YSuClhvv0LkO+EDw
-         YvoaGFfEb0Iz0NpI2ECoOZafnpwDiRIKyfvxQzEXKCsSG62zdDOcZRu2VK69+/hwRuBk
-         nAVihrLLNvqkXQMZx5vYI/LaNtqMGHm8XG+kuz+0W8wXESVhehaWWicdSXhUWuPTG3Sw
-         /BLZYa6+aOBNq/Vx1V669IB4y9tgyvQHTltNXBjnWBf6EfRgmJLjgoaWjlUPrQlZH46p
-         snsDbDsVrn6UsxzIrn2sEQvzrI80uqoY13rYOx6KUQHW511YhvguwSdeuWFJtFEel4m+
-         v8Yg==
+        b=SE746+hHCDwyaNJqdh3x35RLJOo40a1aNq7Lzp0s7pV+KyN3/4zYZhwvKFszAhe+nq
+         N38V312B+F0DXrwzjqoy5K7+1mE1tm+QWrXYlmO3Grp3Bcm1kNwiJA5kfYJZ/ooSR2YL
+         9GnKCj9lLFsrWu9VG/+EX2V5ndWv5U+gFV8EzprJAb3OmMJLXW0bLd1j6upmQRi6I75f
+         wYpD0/4i3YEcNrIR83gLT2dqKxSeZrIvuhiJbAqdkJzScrVSn3iLkdzLQTDRJHVXTkiW
+         C8aF5Rr9aXURESAyzJ7HWnfylkB48l05/WsSsmudwY8h+s4PpDrMK5XpHRVWGCi4TNxS
+         nCjw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:in-reply-to:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=cuAibYLZasUCXt7JfvCFln2RdO+nXugCTkJrYqMtj0c=;
-        b=aIpeQgHSm009Xh6izTaHEd9V15Nx8WjZfRpe6G8BhlMxATVFY5GssKfx3Ji7bfQsZ7
-         BcL1WnPJ/xOzk3mq9JInBCSLOav1mlvABIRstfKB7Gl8RMNjFy4mvLC7LwxO6QMvJdiW
-         Q3r3uT82fgQq0Ias1T3EATcpH+wByqNQ6//4JV8XtLgzdQ4Dmv2FzHU4KHC9ndYlpQQ7
-         212SOJqKQptRIV/JDFD2eIQctasPHk05i/kYhsAPYmk61CA1Zoyn3TY7twgOUXfZFHBU
-         s18wrPoLBCFBMk7tA8xe7D2AxxtQHUZmukoT5i4P2/t/aypG8jQ7RK9l/ZWhjRveOC21
-         C70A==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=MAC+r7j+jW03FS6CjpzmHsGLN2wYOnQNZ9MNL2fpQQU=;
+        b=PyWUWCfF0RI67yvyq5YrZp5DJz++MBhLHjqaFmE8NpXuSLC6oYx4wCoHzrrG4lBDHY
+         HT21nEOTx4xrFnbUzW5vbU31srXOheLFdJxsJL8gniQMfWoI/c+IM2joGVINJL+thCn6
+         ZDkIhz/RlA4gfOu/6NIOQZoBbVDB20SSQxKq4zcDLQ8G+6nVpXz5kjXcx/Oxx5zBnlgo
+         7n6DH9QxEkgKq4VHpXtjkCpDQL0JlbucLklCY0jITjMavmXp9X8B/P3VlcnjWJCT/Eiz
+         l2gidPExwJzNf+rHSstsa/C6NavnpsI9ezcBNqC3OxQMeG7rXwvpLkDHm+DR2f+e707J
+         moBA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=WiJi7LLN;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com. [216.205.24.124])
-        by gmr-mx.google.com with ESMTPS id r4si17708ilb.4.2021.09.20.10.57.03
+       spf=pass (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+Received: from out4436.biz.mail.alibaba.com (out4436.biz.mail.alibaba.com. [47.88.44.36])
+        by gmr-mx.google.com with ESMTPS id 136si81408pfz.2.2021.09.20.11.07.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 20 Sep 2021 10:57:03 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 216.205.24.124 as permitted sender) client-ip=216.205.24.124;
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com
- [209.85.167.199]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-495-dPKBFZpTPAuKKVtsBDZNOg-1; Mon, 20 Sep 2021 13:57:00 -0400
-X-MC-Unique: dPKBFZpTPAuKKVtsBDZNOg-1
-Received: by mail-oi1-f199.google.com with SMTP id y65-20020aca4b44000000b002719194f1e0so22343449oia.7
-        for <clang-built-linux@googlegroups.com>; Mon, 20 Sep 2021 10:56:59 -0700 (PDT)
-X-Received: by 2002:a4a:a289:: with SMTP id h9mr5114978ool.86.1632160619215;
-        Mon, 20 Sep 2021 10:56:59 -0700 (PDT)
-X-Received: by 2002:a4a:a289:: with SMTP id h9mr5114961ool.86.1632160618947;
-        Mon, 20 Sep 2021 10:56:58 -0700 (PDT)
-Received: from treble ([68.74.140.199])
-        by smtp.gmail.com with ESMTPSA id j17sm3643290ots.10.2021.09.20.10.56.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Sep 2021 10:56:58 -0700 (PDT)
-Date: Mon, 20 Sep 2021 10:56:56 -0700
-From: Josh Poimboeuf <jpoimboe@redhat.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Tianjia Zhang <tianjia.zhang@linux.alibaba.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>
-Subject: Re: [linux-next:master 3857/7963]
- arch/x86/crypto/sm4-aesni-avx-asm_64.o: warning: objtool:
- sm4_aesni_avx_crypt8()+0x8: sibling call from callable instruction with
- modified stack frame
-Message-ID: <20210920175656.cjvrr4wn7a3k6tnx@treble>
-References: <202108160330.T1EbbpCi-lkp@intel.com>
- <CAK8P3a3qhfxUC-7y-_q35-tNrs2L93htjuVzSukqZO0hDhOAuw@mail.gmail.com>
+        Mon, 20 Sep 2021 11:07:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as permitted sender) client-ip=47.88.44.36;
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R181e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e04426;MF=ashimida@linux.alibaba.com;NM=1;PH=DS;RN=26;SR=0;TI=SMTPD_---0Up4MQOX_1632161238;
+Received: from ashimida.local(mailfrom:ashimida@linux.alibaba.com fp:SMTPD_---0Up4MQOX_1632161238)
+          by smtp.aliyun-inc.com(127.0.0.1);
+          Tue, 21 Sep 2021 02:07:22 +0800
+Subject: Re: [PATCH] [RFC/RFT]SCS:Add gcc plugin to support Shadow Call Stack
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: masahiroy@kernel.org, michal.lkml@markovi.net, keescook@chromium.org,
+ ndesaulniers@google.com, akpm@linux-foundation.org, tglx@linutronix.de,
+ peterz@infradead.org, samitolvanen@google.com, frederic@kernel.org,
+ rppt@kernel.org, yifeifz2@illinois.edu, viresh.kumar@linaro.org,
+ colin.king@canonical.com, andreyknvl@gmail.com, mark.rutland@arm.com,
+ ojeda@kernel.org, will@kernel.org, ardb@kernel.org,
+ luc.vanoostenryck@gmail.com, elver@google.com, nivedita@alum.mit.edu,
+ linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org, clang-built-linux@googlegroups.com
+References: <1632069436-25075-1-git-send-email-ashimida@linux.alibaba.com>
+ <YUeva0jP7P2qCr+R@archlinux-ax161>
+From: Dan Li <ashimida@linux.alibaba.com>
+Message-ID: <1e00d088-4ced-d345-63b0-7428e9b8452a@linux.alibaba.com>
+Date: Tue, 21 Sep 2021 02:07:17 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:68.0)
+ Gecko/20100101 Thunderbird/68.12.1
 MIME-Version: 1.0
-In-Reply-To: <CAK8P3a3qhfxUC-7y-_q35-tNrs2L93htjuVzSukqZO0hDhOAuw@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-X-Original-Sender: jpoimboe@redhat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=WiJi7LLN;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates
- 216.205.24.124 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+In-Reply-To: <YUeva0jP7P2qCr+R@archlinux-ax161>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: ashimida@linux.alibaba.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as
+ permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,135 +137,162 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Sep 20, 2021 at 01:02:07PM +0200, Arnd Bergmann wrote:
-> On Sun, Aug 15, 2021 at 9:41 PM kernel test robot <lkp@intel.com> wrote:
-> >
-> > CC: Linux Memory Management List <linux-mm@kvack.org>
-> > TO: Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
-> > CC: Herbert Xu <herbert@gondor.apana.org.au>
-> >
-> > Hi Tianjia,
-> >
-> > First bad commit (maybe != root cause):
-> >
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > head:   4b358aabb93a2c654cd1dcab1a25a589f6e2b153
-> > commit: a7ee22ee1445c7fdb00ab80116bb9710ca86a860 [3857/7963] crypto: x86/sm4 - add AES-NI/AVX/x86_64 implementation
-> > config: x86_64-randconfig-r024-20210816 (attached as .config)
-> > compiler: clang version 14.0.0 (https://github.com/llvm/llvm-project 7776b19eed44906e9973bfb240b6279d6feaab41)
-> > reproduce (this is a W=1 build):
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=a7ee22ee1445c7fdb00ab80116bb9710ca86a860
-> >         git remote add linux-next https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-> >         git fetch --no-tags linux-next master
-> >         git checkout a7ee22ee1445c7fdb00ab80116bb9710ca86a860
-> >         # save the attached .config to linux build tree
-> >         mkdir build_dir
-> >         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross O=build_dir ARCH=x86_64 SHELL=/bin/bash arch/x86/
-> >
-> > If you fix the issue, kindly add following tag as appropriate
-> > Reported-by: kernel test robot <lkp@intel.com>
-> >
-> > All warnings (new ones prefixed by >>):
-> >
-> > >> arch/x86/crypto/sm4-aesni-avx-asm_64.o: warning: objtool: sm4_aesni_avx_crypt8()+0x8: sibling call from callable instruction with modified stack frame
-> 
-> I see the same thing in my randconfig builds using gcc. This is an
-> assembler file,
-> my interpretation is that objtool has found an actual code bug:
-> 
-> .macro FRAME_BEGIN
->         push %_ASM_BP
->         _ASM_MOV %_ASM_SP, %_ASM_BP
-> .endm
-> .macro FRAME_END
->         pop %_ASM_BP
-> .endm
-> 
-> SYM_FUNC_START(sm4_aesni_avx_crypt8)
->         /* input:
->          *      %rdi: round key array, CTX
->          *      %rsi: dst (1..8 blocks)
->          *      %rdx: src (1..8 blocks)
->          *      %rcx: num blocks (1..8)
->          */
->         FRAME_BEGIN
-> 
->         cmpq $5, %rcx;
->         jb sm4_aesni_avx_crypt4;
->         ....
-> 
-> SYM_FUNC_START(sm4_aesni_avx_crypt4)
->         /* input:
->          *      %rdi: round key array, CTX
->          *      %rsi: dst (1..4 blocks)
->          *      %rdx: src (1..4 blocks)
->          *      %rcx: num blocks (1..4)
->          */
->         FRAME_BEGIN
->         ...
->         FRAME_END
->         ret;
-> SYM_FUNC_END(sm4_aesni_avx_crypt4)
-> 
-> 
-> sm4_aesni_avx_crypt8() starts a frame and conditionally branches to
-> sm4_aesni_avx_crypt4(), which starts another frame and returns from
-> that without cleaning up the parent frame.
+Hi Nathan,
 
-Indeed!  This looks completely broken with CONFIG_FRAME_POINTER.
+Thanks for your comments.
+I rewrite the configuration as follows:
 
-Needs something like:
-
----8<---
-
-From: Josh Poimboeuf <jpoimboe@redhat.com>
-Subject: [PATCH] x86/crypto/sm4: Fix frame pointer stack corruption
-
-sm4_aesni_avx_crypt8() sets up the frame pointer (which includes pushing
-RBP) before doing a conditional sibling call to sm4_aesni_avx_crypt4(),
-which sets up an additional frame pointer.  Things will not go well when
-sm4_aesni_avx_crypt4() pops only the innermost single frame pointer and
-then tries to return to the outermost frame pointer.
-
-Sibling calls need to occur with an empty stack frame.  Do the
-conditional sibling call *before* setting up the stack pointer.
-
-This fixes the following warning:
-
-  arch/x86/crypto/sm4-aesni-avx-asm_64.o: warning: objtool: sm4_aesni_avx_crypt8()+0x8: sibling call from callable instruction with modified stack frame
-
-Fixes: a7ee22ee1445 ("crypto: x86/sm4 - add AES-NI/AVX/x86_64 implementation")
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Arnd Bergmann <arnd@kernel.org>
-Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
+1) Change the plugin to be enabled by default, and add this option to CC_FLAGS_SCS to keep its behavior consistent with clang
 ---
- arch/x86/crypto/sm4-aesni-avx-asm_64.S | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+diff --git a/Makefile b/Makefile
+@@ -923,12 +923,6 @@ KBUILD_CFLAGS_KERNEL += -ffunction-sections -fdata-sections
+-ifdef CONFIG_SHADOW_CALL_STACK
+-CC_FLAGS_SCS	:= -fsanitize=shadow-call-stack
+-KBUILD_CFLAGS	+= $(CC_FLAGS_SCS)
+-export CC_FLAGS_SCS
+-endif
 
-diff --git a/arch/x86/crypto/sm4-aesni-avx-asm_64.S b/arch/x86/crypto/sm4-aesni-avx-asm_64.S
-index fa2c3f50aecb..a50df13de222 100644
---- a/arch/x86/crypto/sm4-aesni-avx-asm_64.S
-+++ b/arch/x86/crypto/sm4-aesni-avx-asm_64.S
-@@ -367,10 +367,12 @@ SYM_FUNC_START(sm4_aesni_avx_crypt8)
- 	 *	%rdx: src (1..8 blocks)
- 	 *	%rcx: num blocks (1..8)
- 	 */
--	FRAME_BEGIN
- 
- 	cmpq $5, %rcx;
- 	jb sm4_aesni_avx_crypt4;
+@@ -1034,6 +1028,20 @@ include-$(CONFIG_GCC_PLUGINS)	+= scripts/Makefile.gcc-plugins
+  include $(addprefix $(srctree)/, $(include-y))
++ifdef CONFIG_SHADOW_CALL_STACK
 +
-+	FRAME_BEGIN
++ifdef CONFIG_CC_IS_CLANG
++CC_FLAGS_SCS	:= -fsanitize=shadow-call-stack
++endif
 +
- 	vmovdqu (0 * 16)(%rdx), RA0;
- 	vmovdqu (1 * 16)(%rdx), RA1;
- 	vmovdqu (2 * 16)(%rdx), RA2;
--- 
-2.31.1
++ifdef CONFIG_CC_IS_GCC
++CC_FLAGS_SCS	:= $(ENABLE_SHADOW_CALL_STACK_PLUGIN)
++endif
++
++KBUILD_CFLAGS	+= $(CC_FLAGS_SCS)
++export CC_FLAGS_SCS
++endif
+
+diff --git a/scripts/Makefile.gcc-plugins b/scripts/Makefile.gcc-plugins
+@@ -46,6 +46,13 @@ ifdef CONFIG_GCC_PLUGIN_ARM_SSP_PER_TASK
++gcc-plugin-$(CONFIG_GCC_PLUGIN_SHADOW_CALL_STACK) += arm64_scs_plugin.so
++gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_SHADOW_CALL_STACK)	\
++		+= -DSHADOW_CALL_STACK_PLUGIN
++ifdef CONFIG_GCC_PLUGIN_SHADOW_CALL_STACK
++    ENABLE_SHADOW_CALL_STACK_PLUGIN += -fplugin-arg-arm64_scs_plugin-enable
++endif
+
+2) Whether SCS is turned on or not is determined by CONFIG_SHADOW_CALL_STACK
+    * GCC_PLUGIN_SHADOW_CALL_STACK is only used to indicate whether current platform needs the support of the gcc SCS plugin
+      - It only enabled on ARM64 platform with gcc which does not support SCS(!CC_HAVE_SHADOW_CALL_STACK)
+      - If one compiler supports SCS (clang or gcc), then CC_HAVE_SHADOW_CALL_STACK should be true at this time, and the plugin is automatically closed
+    * As long as the current platform can support SCS(compiler or plugin), ARCH_SUPPORTS_SHADOW_CALL_STACK is always selected
+    * CONFIG_SHADOW_CALL_STACK no longer depends on CC_IS_CLANG
+---
+diff --git a/scripts/gcc-plugins/Kconfig b/scripts/gcc-plugins/Kconfig
+@@ -19,6 +19,15 @@ menuconfig GCC_PLUGINS
++config GCC_PLUGIN_SHADOW_CALL_STACK
++	bool "GCC Shadow Call Stack plugin"
++	depends on (!CC_HAVE_SHADOW_CALL_STACK) && ARM64
++	default y
++	help	....
+
+diff --git a/arch/Kconfig b/arch/Kconfig
+@@ -594,7 +594,7 @@ config ARCH_SUPPORTS_SHADOW_CALL_STACK
+  
+  config SHADOW_CALL_STACK
+  	bool "Clang Shadow Call Stack"
+-	depends on CC_IS_CLANG && ARCH_SUPPORTS_SHADOW_CALL_STACK
++	depends on ARCH_SUPPORTS_SHADOW_CALL_STACK
+  	depends on DYNAMIC_FTRACE_WITH_REGS || !FUNCTION_GRAPH_TRACER
+  	help
+  	  This option enables Clang's Shadow Call Stack, which uses a
+	
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+@@ -81,7 +81,7 @@ config ARM64
+-	select ARCH_SUPPORTS_SHADOW_CALL_STACK if CC_HAVE_SHADOW_CALL_STACK
++	select ARCH_SUPPORTS_SHADOW_CALL_STACK if (CC_HAVE_SHADOW_CALL_STACK || GCC_PLUGIN_SHADOW_CALL_STACK)
+  	select ARCH_SUPPORTS_LTO_CLANG if CPU_LITTLE_ENDIAN
+@@ -1060,9 +1060,13 @@ config HW_PERF_EVENTS
+  # Supported by clang >= 7.0
+  config CC_HAVE_SHADOW_CALL_STACK
+-	def_bool $(cc-option, -fsanitize=shadow-call-stack -ffixed-x18)
++	def_bool (CC_IS_CLANG && $(cc-option, -fsanitize=shadow-call-stack -ffixed-x18))
+
+
+On 9/20/21 5:45 AM, Nathan Chancellor wrote:
+> Hi Dan,
+>> diff --git a/Makefile b/Makefile
+>>   ifdef CONFIG_SHADOW_CALL_STACK
+> 
+> I would rather see this become
+> 
+> ifeq ($(CONFIG_SHADOW_CALL_STACK)$(CONFIG_CC_IS_CLANG), yy)
+> ...
+> endif
+> 
+> rather than just avoiding assigning to CC_FLAGS_SCS.
+> 
+> However, how does disabling the shadow call stack plugin work for a
+> whole translation unit or directory? There are a few places where
+> CC_FLAGS_SCS are filtered out and I am not sure I see where that happens
+> here? It looks like the plugin has a disabled option but I do not see it
+> hooked in anywhere.
+   In the new code, translation unit can only enable SCS when CC_FLAGS_SCS is specified.
+   This behavior will be consistent with clang.
+   If there are other problems in the future, those two can be modified together.
+> 
+>> -CC_FLAGS_SCS	:= -fsanitize=shadow-call-stack
+>> +CC_FLAGS_SCS	:= $(if $(CONFIG_CC_IS_CLANG),-fsanitize=shadow-call-stack,)
+
+>>   KBUILD_CFLAGS	+= $(CC_FLAGS_SCS)
+>>   export CC_FLAGS_SCS
+>>   endif
+>> diff --git a/arch/Kconfig b/arch/Kconfig
+>> index 98db634..81ff127 100644
+>> --- a/arch/Kconfig
+>> +++ b/arch/Kconfig
+>> @@ -594,7 +594,7 @@ config ARCH_SUPPORTS_SHADOW_CALL_STACK
+>>   
+>>   config SHADOW_CALL_STACK
+>>   	bool "Clang Shadow Call Stack"
+>> -	depends on CC_IS_CLANG && ARCH_SUPPORTS_SHADOW_CALL_STACK
+>> +	depends on (CC_IS_CLANG && ARCH_SUPPORTS_SHADOW_CALL_STACK) || GCC_PLUGIN_SHADOW_CALL_STACK
+> 
+> Is this logic right? SHADOW_CALL_STACK is only supported by arm64 (as
+> they set ARCH_SUPPORTS_SHADOW_CALL_STACK) but now you are enabling it
+> for any architecture, even though it seems like it still only works on
+> arm64. I think this wants to be
+> 
+> depends on (CC_IS_CLANG || GCC_PLUGIN_SHADOW_CALL_STACK) && ARCH_SUPPORTS_SHADOW_CALL_STACK
+> 
+   It's modified to rely only on ARCH_SUPPORTS_SHADOW_CALL_STACK	
+>> --- a/scripts/gcc-plugins/Kconfig
+>> +++ b/scripts/gcc-plugins/Kconfig
+>> @@ -19,6 +19,14 @@ menuconfig GCC_PLUGINS
+>>   
+>>   if GCC_PLUGINS
+>>   
+>> +config GCC_PLUGIN_SHADOW_CALL_STACK
+>> +	bool "GCC Shadow Call Stack plugin"
+> 
+> This should also have a
+> 
+> depends on ARCH_SUPPORTS_SHADOW_CALL_STACK
+> 
+> if you are selecting SHADOW_CALL_STACK, as selecting does not account
+> for dependencies.
+   Select is removed from the code above
+>> +	select SHADOW_CALL_STACK
+>> +	help
+>> +	  This plugin is used to support the kernel CONFIG_SHADOW_CALL_STACK
+>> +	  compiled by gcc. Its principle is basically the same as that of CLANG.
+>> +	  For more information, please refer to "config SHADOW_CALL_STACK"
+>> +
+>>   config GCC_PLUGIN_CYC_COMPLEXITY
+>>   	bool "Compute the cyclomatic complexity of a function" if EXPERT
+>>   	depends on !COMPILE_TEST	# too noisy
+> 
+> Cheers,
+> Nathan
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210920175656.cjvrr4wn7a3k6tnx%40treble.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1e00d088-4ced-d345-63b0-7428e9b8452a%40linux.alibaba.com.
