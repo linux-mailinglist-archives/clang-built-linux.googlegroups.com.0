@@ -1,136 +1,130 @@
-Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBZEEU2FAMGQE63QN6IQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB45JVKFAMGQE7IQ7IEQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3F45E412EDF
-	for <lists+clang-built-linux@lfdr.de>; Tue, 21 Sep 2021 08:57:41 +0200 (CEST)
-Received: by mail-wr1-x439.google.com with SMTP id e1-20020adfa741000000b0015e424fdd01sf7538328wrd.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Sep 2021 23:57:41 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1632207461; cv=pass;
+Received: from mail-qt1-x83c.google.com (mail-qt1-x83c.google.com [IPv6:2607:f8b0:4864:20::83c])
+	by mail.lfdr.de (Postfix) with ESMTPS id D9370413F6F
+	for <lists+clang-built-linux@lfdr.de>; Wed, 22 Sep 2021 04:29:08 +0200 (CEST)
+Received: by mail-qt1-x83c.google.com with SMTP id o7-20020ac86d07000000b002a69537d614sf5344825qtt.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 21 Sep 2021 19:29:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1632277748; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BmieZcZy4jY5w9iX1yQl751m0UUyM9P791SqZsvwolVOPC+aJDOTiEoXDpo+1/zmTK
-         ydOrWi9kTe4kP0+cSCfJOFuNeLkFZFEb8/bzkMg6B8inpGzfOXeOYZVLj8dFdiRuG1cK
-         h40TDPZFUAHJEcEVtrRGsB1VfIhfs3uDV2euSq0ywZE/pqN2jtYDVTNmIqPJtoYIRUPM
-         DKB3GGTVoXnnxyyTIH5TFFB+Eewxd4cXhnHgx+2j5NblTdm0gf5HGpRxU9tH7DDVlDB0
-         Cff6vsB15wWJthYq1gSfc/HK77DsoV5c+aVjztdj6cV5nFNsy6CSxY/T4IT6aRYd6VKo
-         pu8A==
+        b=nXjADW4hZuop4q0eIUE7+C299usOoqun4e4shOrnWcW/CaP8+QR+4wD6mhoYckn3Au
+         e9J5u6IHccetRAJBR4lPzkEJKNv7CuUreYRgA9HlA0k9SgaNCxSIeKCDidFZa4NWvBgn
+         dc2y6Jle0FIYsiR8XCztc2aJT92ykSW8SThlXsUKUtpuvCv7IlSQ584ys6Enn593iYFl
+         vwL456O/bI5qcJBEkS8O9w+zX7oDSmwuS+IXR+eSyitt6O1J6s3I6y9sswTemJ8L+mXh
+         uQiRAzWKyeR4ATfhxFTYHIaC2cevr+DghlcXEqZ1CALsxD0tga0xhvaZux3512Z6wyvw
+         OEpQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=sMDgO+dvPXyRTwT9AbamJkYIMHmAfAD1B99et7dMgxw=;
-        b=CJNPNQrLk/ba9f7G4WkaMOSi52wxutK1URuRbR19NVcOObNjR9o7mIgq9jzP7jb6Xi
-         FWGDtBMuCXvQB3uUHaHplEtJHjYpmZV2MzgCZ67vkQUOxCi1A4tTT+lXsW+WGW5XH2fK
-         CvB1hVFBrRmFFrL4Ftvb9Wt67B4mZm66WiezlIGc4r5f0XW75im1p3n18F4thqS1wsoy
-         zcNNb7ne1+6y58HxlSdK+jcr7zgWelvoztYyyl2arsHE1ncUOVZCUmpo/sasQcByc7T6
-         nhhYPEEtpK8dVTSzc9UZR5RS/WCQEGQz9MgmCefHkmP0e+iXSkfpXm6laZIdI0vpFUpf
-         ERKg==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=3qZEml5A/e15vIvXPS46qcoE+rGgFw2a2LBLFhoNvmU=;
+        b=d6Wf3xfgb4o6Nzwrr7XFfyFjg26ENLRaNOu43j07mFYF5SPqELpFMRjkHKibhuFZBQ
+         +JAo3jS162Eq56F4yN6a2qnaA4X4D5k0+6TKG9YTLUrYMP83bcYZ9DvedLXHbs8pyCEX
+         P9lC1A/d83f3MAtldAaTggEp+r5pB18R63+zsahYzdzZKwqmyS5ZfhADIK7t0OE0/qYI
+         zZRi/bivUU/HtHstIaec6eIWjcT8ZS6ssyiIskqKpZEx2lk4jvscf78h/RDOrYIwRnYf
+         K8PTL2JbjtjYtee/Ghmmn0cPYqNdGEyXftzgKDgfEmwjN1eBiNm/0cId7MMNSAYEpP1C
+         NwNA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=mQY84ctD;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+       spf=pass (google.com: domain of tianjia.zhang@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=tianjia.zhang@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=sMDgO+dvPXyRTwT9AbamJkYIMHmAfAD1B99et7dMgxw=;
-        b=DY0uA/ASpml3PAFWdaHif776FyWcg0aOnPFBL4CeS5XfD+pWlf2siZ9Xsu2Kjw3gqg
-         tTJS+48rEZhS1ixdwj1TMkSqnxO7f9I8TnZ8r1IZJd6V7AIb40pgUhJhFTrtLASQ351F
-         kOtoHh764MQ7rs7ev8NMoYUQPeIXvR/xO+fb6csFblWNW3+UltiP7d2ORSdKVTCcmbw/
-         PQaxjqycFsaNBhInzHFsjvOQinQCCVMC/lHy/rYYqbhvplzdfHuVP44dIE35Z1P1hpj8
-         rOuijb0AdxCIvee11l8Kyn0RZVklE5mp4QAZvilrE23w959TJYzbmZXDtqYrnD2mZcSO
-         lqcw==
+        bh=3qZEml5A/e15vIvXPS46qcoE+rGgFw2a2LBLFhoNvmU=;
+        b=iCv1FR2ZcDFJeU4/qjRzjD0qL3901e8VvwywenaWX6RApfK03INwvtMGuAQI0TpZ26
+         poREogIB+5GTs2QU8aoXSycUumskGUYzBPa9LlRHJqici64881W0Hb1sE4gXJbM/+GsX
+         4sr0WDfl3pVZc7Q83wKk6XMAjcmrqlryV3PDUzShwkYC/C8m8bw2EApSJllwsTtFsiPS
+         Or/SgnnFkLDQKUTvUWxZkRWUZX/0obheMZWntm4YA1F6yWv2WKjZLGHgj1fvtnCD5OjJ
+         BzZrLfGMVU237+oRFuJGSl/6613BX4oNntkLnB2w+r8ylNk9/szywd6Yy+Kq4L96YwDp
+         D7nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=sMDgO+dvPXyRTwT9AbamJkYIMHmAfAD1B99et7dMgxw=;
-        b=Bzm3fqRZNoF+HRCiP4Xce5qQNSh5b2HL0WMq5t/03i1+zA919ElNdfiUOZ7WTActUk
-         kb6wd/+fEcYUUOwFb4gNb1N14kfGkcdE94k3Bgl7OhA4TvQJqiqX7hroGQryzySshtR5
-         LP3E+xDdZlDw8GF3KkiH2a1JBCg+EQNbEFcYAXhuZBySbXUec6m0t1vnPiFsekY7+uJM
-         HvcqBuswcvXE1CvFkf3zGqWHNcPJ6qKYw+EGf2vvFgDa9wT4rCvaTZL0qgiGSQUJM2y3
-         x5N3HgtxLkVunt984iCbpG9z8GuEmGmlwaIv3B1ScIfYLSCdJCcdN7WgeqFWT2qHt5x3
-         ykjA==
+        bh=3qZEml5A/e15vIvXPS46qcoE+rGgFw2a2LBLFhoNvmU=;
+        b=t1DVsL27WW1sk3My7zPiyxJyjLF+WtQNuWUIR6+hLSzhcD6RfjSSCRG6fc/wTjyI41
+         8Xb8+MgTmxNDXtR1jf3Uids2cqWhSHxVrQgq27GouKq2eyDq7+q4AsQ1vZXaCcDKU6Dd
+         I4a9F6MUh6A5TctwsZ60mzG/ArzsSQ7WcR0Lg7qoQ6D/8oFkNT/00pzTpDDKxeH/owx1
+         TTXMo0UPfdsje9xzqSLhoWd2JC3NYWsWuJeumcE41dG0ph7g81jzimuIvxOMaHZR0/X2
+         bQwV3Z1ILokg14RSiNFYc7odUyp+4VzjgP+LgBJ7Alyj+Y5o7jAqEVViNwsDNl0ljCXv
+         Q/rg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5315LziE1ldvx90PtRno9vsODuQWdjuOUwPcK7AIA5r5DJSLFHUn
-	Z1H0PrMiTD2E3VgxcxorsJc=
-X-Google-Smtp-Source: ABdhPJy67gG/sO0w9Yb7I4RfF430o/wzTMpF3zJHub7JO8+P2YwD9+TOlCgFy6V3CszBEo+nKyOncw==
-X-Received: by 2002:adf:e74b:: with SMTP id c11mr33447348wrn.101.1632207460896;
-        Mon, 20 Sep 2021 23:57:40 -0700 (PDT)
+X-Gm-Message-State: AOAM533l9biIiCMTI6OlS/Xv5oU3/h0fHZC4l+tNISW3+1hkPqDa/Cqr
+	1EKrWBhDwX9jbVUuJrD2XqE=
+X-Google-Smtp-Source: ABdhPJx/6UOm6fGD1oMALAh3tdhAiqyak6vc20Vdn0yadKhZBgdwycnP5kCzGEOp0OEY2zRbV2+aWg==
+X-Received: by 2002:ad4:46ab:: with SMTP id br11mr33981198qvb.15.1632277747733;
+        Tue, 21 Sep 2021 19:29:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:8b92:: with SMTP id o18ls1403394wra.0.gmail; Mon, 20 Sep
- 2021 23:57:40 -0700 (PDT)
-X-Received: by 2002:a5d:6381:: with SMTP id p1mr33191379wru.310.1632207460046;
-        Mon, 20 Sep 2021 23:57:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1632207460; cv=none;
+Received: by 2002:a05:620a:100f:: with SMTP id z15ls931774qkj.2.gmail; Tue, 21
+ Sep 2021 19:29:07 -0700 (PDT)
+X-Received: by 2002:a37:301:: with SMTP id 1mr5417014qkd.510.1632277747313;
+        Tue, 21 Sep 2021 19:29:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1632277747; cv=none;
         d=google.com; s=arc-20160816;
-        b=TjNbUP6djt5afpRBnED+tBxJKltgUCP/i4Z84FgySnh0n48LudnClyqPlUnR1vZNc4
-         7wUy3vLgOzk7eMn9thmUpmz+JCm8uI8fO0B23GhtFeRQcpKNSZrLKO9IESLs2WanZ8jr
-         d+/uYSlr1Bq4tamjqM/oGJarZSW9DbUA73NnufYFAlN16x1DbBqCdr97IwUKUIhvXovE
-         54SN1NhLCB6L5lDBTLrhUfr6/8qNj8rirOV0mrTQezLWAD8L+n1uKKbd88B+ahonvZ8v
-         xY/tzqBlTzu711WyKREnAX2OOy2pxYcvvC4pzhq5/NRD2MV0PAmwHvJGY5gRxvXMj35x
-         lCdg==
+        b=oc8bLaVqe8S3uFji0B0l0lhw+AZ5ueF+2sdXkY6mWFjPO7H/+WsbU/c/48knecrHXe
+         p1+szitXngOcFY3cHlVp+cYuPKV9iTqtywMoov/skP5GRgPF3x9WJLQ0VGL1PJuE670n
+         74WWiVmw2COoUuiHw2xBN1HTmimy9Ii9OCnKvxAgUq4zgC4JGU8G6n/stExNFDo1VxLB
+         gJYdD3ONoCkUdO3HrNrzb+60jRzxbsDqPlyIQLyKK73ciwG4QE5tdtq0rAbc0m8hxDI5
+         95V0I1dCbH7Q8ZW/nOvkDwl+t+zG+Wt+wr+EYjQzJ6DoUMWuiiteaH043fj2wp0vh/fQ
+         0Jmg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=p0YkjdTTA6iER5m9azQvivqmBm9b0xcRpaf9uMBcLQI=;
-        b=CBwY4vjzl1UhyN5vzC4rdR5clEI6EjGWVn6Z5ihsZ/vIISsMWcimX5a+KBC/XnwPiZ
-         H6ZvWM0RqecWZaXB0vMwN5URGyzvQpiLyLykd1iM9aqkeRHWKRAJgjX8RL/I/Mnxtr2d
-         DRQTGZuZxlqtY5thVnRHhfLtkzQZ0kQee49hHW/d3rYTBIDyAHmvkdsZp2iPRzH8eChY
-         +u6SffSf9Xfxwt81JpQIMhwTzMWQmBxENb2yf5fy3cgw9Vv0v1lSw9bP4bmJuDygyyZk
-         yJUxP/lMLgzqq/1HnfhBDH1XQBaNVCB6DhjU54H/Fkoie1JlCLjuvZznvsF4YvtaeOE6
-         NVvw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=J0QVKuWKouQFMFf8LGD3Z4Xk+ABYICk5bSFUnYV02pY=;
+        b=c5+7bjkxhXKNdBZQxNS/f5Kv8GeawCEbKiCJamc5eQZ+sOAMoyYBJYGQuJLZ4slA+5
+         hmFHP6zwKw5hMKf8E5Ebjo9l0a5U7j0t95FD32jXn4Ca6CSK5gda4f6uzkH0jltAznQc
+         ENcvV4kMyc5WgE2nRdHKdx096i9vBnG32I7B5mUK88rLD84lO612983iwbagYjzAumZX
+         6ZrNZlivwviY0IYtPS1mCS4Cfdm1sqn19GcNS866AsPLX9fGFlI2Le8efTYRbksZS3iK
+         u9xXggayfvNw2IWr0z6ddVoH9W4rGS05xMDn1Yg4JawlWiAVPpxkMDyDPzA+faaNhJMD
+         OqYQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=casper.20170209 header.b=mQY84ctD;
-       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
-Received: from casper.infradead.org (casper.infradead.org. [2001:8b0:10b:1236::1])
-        by gmr-mx.google.com with ESMTPS id g202si84309wmg.1.2021.09.20.23.57.40
+       spf=pass (google.com: domain of tianjia.zhang@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=tianjia.zhang@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+Received: from out4436.biz.mail.alibaba.com (out4436.biz.mail.alibaba.com. [47.88.44.36])
+        by gmr-mx.google.com with ESMTPS id a21si102141qtm.3.2021.09.21.19.29.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Sep 2021 23:57:40 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) client-ip=2001:8b0:10b:1236::1;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1mSZi7-003a0w-2i; Tue, 21 Sep 2021 06:57:18 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 311D5300274;
-	Tue, 21 Sep 2021 08:56:56 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 541072C3EE3EA; Tue, 21 Sep 2021 08:56:56 +0200 (CEST)
-Date: Tue, 21 Sep 2021 08:56:56 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Josh Poimboeuf <jpoimboe@redhat.com>
-Cc: Arnd Bergmann <arnd@kernel.org>, kernel test robot <lkp@intel.com>,
-	kbuild-all@lists.01.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Tianjia Zhang <tianjia.zhang@linux.alibaba.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>
+        Tue, 21 Sep 2021 19:29:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of tianjia.zhang@linux.alibaba.com designates 47.88.44.36 as permitted sender) client-ip=47.88.44.36;
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e01424;MF=tianjia.zhang@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0UpB2F3U_1632277730;
+Received: from B-455UMD6M-2027.local(mailfrom:tianjia.zhang@linux.alibaba.com fp:SMTPD_---0UpB2F3U_1632277730)
+          by smtp.aliyun-inc.com(127.0.0.1);
+          Wed, 22 Sep 2021 10:28:51 +0800
 Subject: Re: [linux-next:master 3857/7963]
  arch/x86/crypto/sm4-aesni-avx-asm_64.o: warning: objtool:
  sm4_aesni_avx_crypt8()+0x8: sibling call from callable instruction with
  modified stack frame
-Message-ID: <YUmCOCg0nN5qhoGR@hirez.programming.kicks-ass.net>
+To: Josh Poimboeuf <jpoimboe@redhat.com>, Arnd Bergmann <arnd@kernel.org>
+Cc: kernel test robot <lkp@intel.com>, kbuild-all@lists.01.org,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Herbert Xu <herbert@gondor.apana.org.au>
 References: <202108160330.T1EbbpCi-lkp@intel.com>
  <CAK8P3a3qhfxUC-7y-_q35-tNrs2L93htjuVzSukqZO0hDhOAuw@mail.gmail.com>
  <20210920175656.cjvrr4wn7a3k6tnx@treble>
+From: Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
+Message-ID: <6d49d3ba-ae5d-cd57-d1fb-d9df5b859cbe@linux.alibaba.com>
+Date: Wed, 22 Sep 2021 10:28:49 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.14.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
 In-Reply-To: <20210920175656.cjvrr4wn7a3k6tnx@treble>
-X-Original-Sender: peterz@infradead.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=casper.20170209 header.b=mQY84ctD;
-       spf=pass (google.com: best guess record for domain of
- peterz@infradead.org designates 2001:8b0:10b:1236::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: tianjia.zhang@linux.alibaba.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of tianjia.zhang@linux.alibaba.com designates 47.88.44.36
+ as permitted sender) smtp.mailfrom=tianjia.zhang@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,7 +137,9 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Sep 20, 2021 at 10:56:56AM -0700, Josh Poimboeuf wrote:
+
+
+On 9/21/21 1:56 AM, Josh Poimboeuf wrote:
 > From: Josh Poimboeuf <jpoimboe@redhat.com>
 > Subject: [PATCH] x86/crypto/sm4: Fix frame pointer stack corruption
 > 
@@ -158,42 +154,44 @@ On Mon, Sep 20, 2021 at 10:56:56AM -0700, Josh Poimboeuf wrote:
 > 
 > This fixes the following warning:
 > 
->   arch/x86/crypto/sm4-aesni-avx-asm_64.o: warning: objtool: sm4_aesni_avx_crypt8()+0x8: sibling call from callable instruction with modified stack frame
+>    arch/x86/crypto/sm4-aesni-avx-asm_64.o: warning: objtool: sm4_aesni_avx_crypt8()+0x8: sibling call from callable instruction with modified stack frame
 > 
 > Fixes: a7ee22ee1445 ("crypto: x86/sm4 - add AES-NI/AVX/x86_64 implementation")
 > Reported-by: kernel test robot <lkp@intel.com>
 > Reported-by: Arnd Bergmann <arnd@kernel.org>
 > Signed-off-by: Josh Poimboeuf <jpoimboe@redhat.com>
 
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Thanks for your fix.
+
+Reviewed-by: Tianjia Zhang <tianjia.zhang@linux.alibaba.com>
+
+Thanks.
 
 > ---
->  arch/x86/crypto/sm4-aesni-avx-asm_64.S | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+>   arch/x86/crypto/sm4-aesni-avx-asm_64.S | 4 +++-
+>   1 file changed, 3 insertions(+), 1 deletion(-)
 > 
 > diff --git a/arch/x86/crypto/sm4-aesni-avx-asm_64.S b/arch/x86/crypto/sm4-aesni-avx-asm_64.S
 > index fa2c3f50aecb..a50df13de222 100644
 > --- a/arch/x86/crypto/sm4-aesni-avx-asm_64.S
 > +++ b/arch/x86/crypto/sm4-aesni-avx-asm_64.S
 > @@ -367,10 +367,12 @@ SYM_FUNC_START(sm4_aesni_avx_crypt8)
->  	 *	%rdx: src (1..8 blocks)
->  	 *	%rcx: num blocks (1..8)
->  	 */
+>   	 *	%rdx: src (1..8 blocks)
+>   	 *	%rcx: num blocks (1..8)
+>   	 */
 > -	FRAME_BEGIN
->  
->  	cmpq $5, %rcx;
->  	jb sm4_aesni_avx_crypt4;
+>   
+>   	cmpq $5, %rcx;
+>   	jb sm4_aesni_avx_crypt4;
 > +
 > +	FRAME_BEGIN
 > +
->  	vmovdqu (0 * 16)(%rdx), RA0;
->  	vmovdqu (1 * 16)(%rdx), RA1;
->  	vmovdqu (2 * 16)(%rdx), RA2;
-> -- 
-> 2.31.1
+>   	vmovdqu (0 * 16)(%rdx), RA0;
+>   	vmovdqu (1 * 16)(%rdx), RA1;
+>   	vmovdqu (2 * 16)(%rdx), RA2;
 > 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YUmCOCg0nN5qhoGR%40hirez.programming.kicks-ass.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/6d49d3ba-ae5d-cd57-d1fb-d9df5b859cbe%40linux.alibaba.com.
