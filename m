@@ -1,144 +1,122 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBEXCV2FAMGQEH6GA6FI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPL7R4J6AKRBAUYWGFAMGQEXL5WZ3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 95DF941538C
-	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Sep 2021 00:41:23 +0200 (CEST)
-Received: by mail-ot1-x33a.google.com with SMTP id k30-20020a9d4b9e000000b005472033f04csf1983826otf.16
-        for <lists+clang-built-linux@lfdr.de>; Wed, 22 Sep 2021 15:41:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1632350482; cv=pass;
+Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 32330415B2B
+	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Sep 2021 11:42:27 +0200 (CEST)
+Received: by mail-lf1-x13e.google.com with SMTP id n22-20020a0565120ad600b003fcc09af59fsf236448lfu.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Sep 2021 02:42:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1632390146; cv=pass;
         d=google.com; s=arc-20160816;
-        b=woe8d4Dpwgp2T/a0FSeoACHjDWWOuspLeDBR0VKiJiLkCj5WPQsBKPUCQxwNrNc0tJ
-         y6hMCx6C6vWRBEh+FnE1rE8CaOW5dOMtJ1s7+gvdQNhQdff1DsYe2++GW/UoI3lppN62
-         6R8LYpU4Wi+0yRQ/C5P032WQ/L3g91mlXhRZh4AOipij1YT6j9mK1FIPVqck5eh/n6ec
-         R41hZLWMe8TBiYG/5AG75vBfFDvfA+lEYmeOlLKKsKIc8qvrlG3ORpnksunPeZ8cevgw
-         yvdUDgH644Rx6ho7+k4JDTpOFsPuX+FKDNl8OlfoRUh2PKE8I4IOh8uFxR8kQqJvu8qN
-         EVQw==
+        b=DyRS6DMz8d6usKU9UUhD5eafAdwJoIIuALtFo7Lvkb+lpYy6Vav13QEYTPerA7HWs7
+         CJshebKKMManoOuQqZkY1+5p1W1OP06Z5nN+fqt6YMba0a8XUT+YwO4SZgxmDhm6p4Vu
+         eCQlq5WJc17gbjE01ULJceR239hJV1BY5iyibVS2n7W4YdjGhOkSLg8ZGuiEdwGb7Bmr
+         RmQVoxBoL/0w3fxtm5rBwm0JJbYhtEWMxZ893ZzVAZa1aL9YIUyFFSwSy+xcLIVZyAtW
+         U6+aXtPWEQaGXtWz6iGDElXKgeBM+sgkff4DksunPRmdcU/Vu+EzozHAr/q9uJ4DAzFp
+         CJQQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=VmhkwMMi6XwOc0XmIQpD3idPn9C3UnAXMKkimvQHBm4=;
-        b=LZV5fJF8o72Ve6e54P3tPzkhVNGNFHerEMWAxjB1UumyB3j2/2F7Yq6+CPW9ou6aHk
-         9WNk3iM2sakgNBNmsHeF4ijwDv9U9xCS8XbRio5kJKdLmNMUlFeuJacQ14DQ/ft/4EZq
-         qmWxV/UGJZMoRH5Cv7L5tuzYOlTBi35VW4g9QqsTdg/h42gMYSp0H6okYU4XKpU8QIz0
-         1UOal16s1ucWRuxyLBr46+LhiX921sr+EKnbpun/Ke7lvnz18DtP6O1hOoEJucnhcBts
-         ZXId+qUNLsBFJGqbu/Y5suV1OkaF2MFh8UDGdfqLvkvrJRZGhbCOhkPex1SIDFerG3rq
-         s3cw==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=TifXF7PB74KWeOnLHjgMbTEIHlf39Yi+ukW9RXg0a2k=;
+        b=ElZC9eWjMqG4bzyYE2bK9oWvUh3N3TMoq4JiidM38ioqasCGCD1msG8XLh/Dkf7Vmz
+         jHj6R3fwTX55Xu3vVdvQzVGC4ogg72+WJ604/8A0uUMld081qdzfK2XHbVfQ9OBJ4kOW
+         tXyhN5RLNibiPAE9WBfu2RO2iPf5e/xHUbvs3VY2vpXwRXP4E1SV/1Jjd9CT6CPPRVO6
+         SqL+U99P0X8gXw6Jr6aXcRbmc0+jySV9dsTCkRknaN3PeA+AFV410fvevdCwH+OwwUkC
+         LetAOuFdkuQTh2NcXr6iC1rk1jnUBbqBRZYYje02qHBOyr9yrTb7csfDwilLK5C0NQcb
+         /xEw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=hH+Rj6Hl;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       spf=pass (google.com: best guess record for domain of tsbogend@alpha.franken.de designates 193.175.24.41 as permitted sender) smtp.mailfrom=tsbogend@alpha.franken.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=VmhkwMMi6XwOc0XmIQpD3idPn9C3UnAXMKkimvQHBm4=;
-        b=stLdaeWtY7XoPmdYvNmM+V5FYVqw2m3MZr4wc2+TofjFVmwjF4LspR/cAbSU3MN4LW
-         ojoiXrltKtTAyK4S8qn7VeNicNujuiqH8QrMgfuJ+hQoXzEJhEOxD4cbqf9HiQYg0Y4G
-         AchexXidSKr2zVCA8f6p49Xe9LexY+o19JRCgTnXPflP/G9Weoee1gqca+5zf+3QjOM2
-         ILLSS8TS4LfoVMughEorMid+5diKd/iYmw1ZKBDJ5wa1lTO22m4+Fy2H2aP+NzpXrAUG
-         bvdBKM6zJlGhOjwdF96hsaI1t2SgLnrBYlrZBUGuH7LpzT3uQFEhVozLjOF8dPOd0m8+
-         ky7w==
+        bh=TifXF7PB74KWeOnLHjgMbTEIHlf39Yi+ukW9RXg0a2k=;
+        b=ohbC4sbvWax974TXywuTYK4Gtv6G76eiJtXUb7cM6qAIcMzaIJs7U2rCO+ooH16GUA
+         6OrmfgeEXptgv1S/naEebdcTTKAN3WW9H1yY35a/7+eyl89NevoIa37fG/2niR2Bc4mU
+         WmJ1MPvwI/hAPjVLXa+M7glkuFu7/MIa6xed7RwuCr8CF1DitoaeS3hjAlBl5CnS9SA0
+         AMsux1cPlk6+pwS4NAA1PwJMDtIhogzWgLjveEoxeuhsLKO6hC4zUvQSNjcjrnHhHJnE
+         OicdRZcA7mbqC+fIs1Ojd2ehOBf6q2TZaY/Ea/YpoXCLKnkbTHxI+tZfDCYfhzWtfbdz
+         PeBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=VmhkwMMi6XwOc0XmIQpD3idPn9C3UnAXMKkimvQHBm4=;
-        b=CRJt91BseLR2b3wRwI06tQqBv0K57Z0XN7+IaUl2PrzynQFoVcqQsXl3vonppm7DVl
-         5XpoueijoX1BMSpm8yO92NsbkWU+sw/bzM+jAfUzwDA96Xyv4ZTb8ZQCV7wmYmiSdCkT
-         5eMuqCawYvbDVFfftkjmztOq3UpRkILZi64riFCchZX6zv2CKVVXmq8e+Tq5SUV4s21p
-         Gpfk6dg2Ccaqu1HPT0ws5lLXODwdpkKooECx58PDRk0zUdr+WENDPA2AGwd4nkdg/xsY
-         j6Yp+Q5k9i2Mx85/ibL/rCR3g9HMDwfdOUSo9pD4mOlCJglb2Z0ps1ymDVRm063nL6bm
-         1QWg==
+        bh=TifXF7PB74KWeOnLHjgMbTEIHlf39Yi+ukW9RXg0a2k=;
+        b=Gcpm3KjxvQNCQ+elG8GcxFX+L1KAXuRCfB0FpGh9WZaKvii7cDgsL9MslYtSh3jwcc
+         RemMXIuyygxo51iTRp0GKOU/n9Jz9vbk6vigUlcnLa3sM6xWlWLODs8iUFV600632gUG
+         ztTFa1QwD2+pmfA4TtTHENCIJLp+Tc1CnTyNymCcbGwQzqk8FKMeRcs5yO1Z7ga1cHrq
+         XbkjB50Ygn8Ui0CzN6pBeeEcBo7C2ep5yTfUcx4HK2rRNH0IT1lG9iHPrtGVTjX/vr+3
+         kcFq0HzKq0MuyTdFxLLZ+JoFbVmopId+RI7WqjdcxNVFAjRbg22NToAPpz797p6lSBJ1
+         zsog==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531dFczH3KTMxlnC9NN9B2AWXRNpqvUKE3WUJRS1PF0LjYPum1lk
-	zd869y7IdOMUK1zNV8AtqM8=
-X-Google-Smtp-Source: ABdhPJwcqEHvIsIFB6yBitwmZe/BYEFI9za8AP7Aqy3tID3Hs0CFPPioQK//+tEDY6jo0WAZC76dxA==
-X-Received: by 2002:a05:6808:f0c:: with SMTP id m12mr1243023oiw.149.1632350482307;
-        Wed, 22 Sep 2021 15:41:22 -0700 (PDT)
+X-Gm-Message-State: AOAM5334X8Z+YN+T0aVE7sL1FgAfCa+KgIvE5fud09MVu7MFfD5oFatG
+	LkBQ25C2fgS7TvWnfJneIAE=
+X-Google-Smtp-Source: ABdhPJyUahBlomwLOIF4ORc4NgUT3jfV9h54ptvbdBnnbT1WQXXX9K9cg5H43AKT/0SojcjEJt7jug==
+X-Received: by 2002:a05:6512:12c6:: with SMTP id p6mr3296484lfg.526.1632390146804;
+        Thu, 23 Sep 2021 02:42:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:14d1:: with SMTP id f17ls1087165oiw.4.gmail; Wed,
- 22 Sep 2021 15:41:21 -0700 (PDT)
-X-Received: by 2002:a05:6808:13c8:: with SMTP id d8mr1267720oiw.104.1632350481914;
-        Wed, 22 Sep 2021 15:41:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1632350481; cv=none;
+Received: by 2002:a05:6512:3746:: with SMTP id a6ls827542lfs.3.gmail; Thu, 23
+ Sep 2021 02:42:25 -0700 (PDT)
+X-Received: by 2002:a05:6512:16a9:: with SMTP id bu41mr3268423lfb.41.1632390145837;
+        Thu, 23 Sep 2021 02:42:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1632390145; cv=none;
         d=google.com; s=arc-20160816;
-        b=RAfUzdUO6m1/5jno+UU5IDeawtXktmhMcEQLlpyNYAyaknOm1F36CGnmnxitgfq6V8
-         1SIiXodJsyQZnFPGoMvmb55UMTK8tWfognUsWb7wrxZh4hF3sF7eIeH8pGCh/1F7LLf7
-         S50sLo106VqRyNqom8u8iQ9ELhJ/q6BtaVGl1CHempWQcDyPY0cTHTThbT3oa7UFHTWy
-         M59o/yeE1bSGyaERkwuX3cJVdvCqlKwW0oyBJQgSht86LcHvdGS1/5OUeJMQwz2fjgpS
-         szkLgf0/TMReegoIIZHxowjSp9IYqczEvcNiVuHbMtKoytsELdtKWI9SNoMOoDf4+6/8
-         9YQA==
+        b=nLJBCVa7oDeuiR+LznFSFWmw7yV0wAvtWmOu4GonSduqWxguQahv+1jmY+kiBRuPOV
+         PeVpr2WP+WqtMXsOC0EGtDHC2KNmh9QKE+jRwMjI9Qd3wZUWfO9bfXirUmZr0lJEK1Hu
+         riwaKqSeSoiPjjuE0mWe6/yk28JwZKdsmP6RIzQ+eR5aJEcJ2xqAw4MjCjiAl6UyYMqn
+         vQIEGmhYUNnnIxR5mqNUyG/dQXD9afSkeaoFegxhrIFcvHOZCpb9eQitHbi1PwlybHOv
+         zlnaOn8XnYF+3FNaKTpfiGpZJ+cZLuLWtNHkq18Ww+C/SCovkaaWob5XSfTt0mc9x4NW
+         pRFQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=Clu/CMqYqn57kn46zv2wUM8gp0cFgkCwKnhfOw8qQMI=;
-        b=HmWO1eWZI9kMn/PiQlJJiXZihVRTb6d6TfJGDF27YGT0pOgEG7aqvd0ZPRwx6Zf47a
-         5lUv9yCqWik4PRa8QlOi+XsNTmw/KhiJCbPYVECy76fxi3y2BPFpZhx7/MeGlS9USYyk
-         a49u/iOxothBQMtx5sJwTqMhUrJ7cuAJGcRMDKqRXrKix0cn4TWQUIl4yEREu5QO/Tl7
-         wB8QuTacwmUvm3jM2V/5ptAXoP1o2SRbo9c3xGvOVRbTfsz/ZyQFOVmUDgbciNU6E2g/
-         wLruXq1hlJX5oY+as1izIxgIc9A7WOLQZavQ7qyjcpywH6RuE+MZM8UkAXRTa0COVu3I
-         oyew==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=BTsG4YZpMANQIWBGyUzDVzftQXPC3KRcxsL2tnyNYDs=;
+        b=L4VPErmm5UirKckHbZ3Js/+tJa6Fvv0a6mY3UwYWVgdB24otrsxeU0WcMJbfOB4lCK
+         y5mdOXQk/slJLDlAz/AlFXlFvZcVMB6prCsF7p1sO//JslfzMbTPEY/KG23RsqR2i8dk
+         i4tOd3DVIwmr5GG3pYkKSuxoAe2LYEv/zd3KAJZp46eyc8pNQ6kEZzp0COii7Q4f4kok
+         utWHx0OSAIrReOOdrH/PoM5VhatE4i3EvbS6ZIjDsQjfSV/pPhWK8TWBd4xFgV0MH3ba
+         gzwdnUzZ+l9HHGYCnHulc7mTQwd4qwlVnRD/oN3VJozsIxLFIGipj4/nIWXms7yczdPs
+         TLQA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=hH+Rj6Hl;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x532.google.com (mail-pg1-x532.google.com. [2607:f8b0:4864:20::532])
-        by gmr-mx.google.com with ESMTPS id s20si319792ois.4.2021.09.22.15.41.21
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Sep 2021 15:41:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532 as permitted sender) client-ip=2607:f8b0:4864:20::532;
-Received: by mail-pg1-x532.google.com with SMTP id e7so4357950pgk.2
-        for <clang-built-linux@googlegroups.com>; Wed, 22 Sep 2021 15:41:21 -0700 (PDT)
-X-Received: by 2002:a63:b04c:: with SMTP id z12mr1164353pgo.371.1632350481421;
-        Wed, 22 Sep 2021 15:41:21 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id z62sm6856436pjj.53.2021.09.22.15.41.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Sep 2021 15:41:20 -0700 (PDT)
-Date: Wed, 22 Sep 2021 15:41:19 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: linux-kernel@vger.kernel.org, Daniel Micay <danielmicay@gmail.com>,
-	Christoph Lameter <cl@linux.com>, Pekka Enberg <penberg@kernel.org>,
-	David Rientjes <rientjes@google.com>,
-	Joonsoo Kim <iamjoonsoo.kim@lge.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Vlastimil Babka <vbabka@suse.cz>, linux-mm@kvack.org,
-	Joe Perches <joe@perches.com>, Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Andy Whitcroft <apw@canonical.com>,
-	Dwaipayan Ray <dwaipayanray1@gmail.com>,
-	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	clang-built-linux@googlegroups.com, linux-kbuild@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v2 4/7] slab: Add __alloc_size attributes for better
- bounds checking
-Message-ID: <202109211608.B9B6DEE@keescook>
-References: <20210818214021.2476230-1-keescook@chromium.org>
- <20210818214021.2476230-5-keescook@chromium.org>
- <CAKwvOdmxRMcwKtWt+FogVY8iXn=vQ+0AZ36maJP2LbSdo_NNjg@mail.gmail.com>
+       spf=pass (google.com: best guess record for domain of tsbogend@alpha.franken.de designates 193.175.24.41 as permitted sender) smtp.mailfrom=tsbogend@alpha.franken.de
+Received: from elvis.franken.de (elvis.franken.de. [193.175.24.41])
+        by gmr-mx.google.com with ESMTP id k8si212721ljq.8.2021.09.23.02.42.25
+        for <clang-built-linux@googlegroups.com>;
+        Thu, 23 Sep 2021 02:42:25 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of tsbogend@alpha.franken.de designates 193.175.24.41 as permitted sender) client-ip=193.175.24.41;
+Received: from uucp (helo=alpha)
+	by elvis.franken.de with local-bsmtp (Exim 3.36 #1)
+	id 1mTLFI-00072a-02; Thu, 23 Sep 2021 11:42:24 +0200
+Received: by alpha.franken.de (Postfix, from userid 1000)
+	id 7A2D7C1CE2; Thu, 23 Sep 2021 11:36:28 +0200 (CEST)
+Date: Thu, 23 Sep 2021 11:36:28 +0200
+From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+To: Paul Cercueil <paul@crapouillou.net>
+Cc: Huacai Chen <chenhuacai@kernel.org>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>, linux-mips@vger.kernel.org,
+	linux-kernel@vger.kernel.org, list@opendingux.net,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH v2] MIPS: Avoid macro redefinitions
+Message-ID: <20210923093628.GC7289@alpha.franken.de>
+References: <20210913213415.527306-1-paul@crapouillou.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CAKwvOdmxRMcwKtWt+FogVY8iXn=vQ+0AZ36maJP2LbSdo_NNjg@mail.gmail.com>
-X-Original-Sender: keescook@chromium.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=hH+Rj6Hl;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::532
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+In-Reply-To: <20210913213415.527306-1-paul@crapouillou.net>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: tsbogend@alpha.franken.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of tsbogend@alpha.franken.de
+ designates 193.175.24.41 as permitted sender) smtp.mailfrom=tsbogend@alpha.franken.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,215 +129,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 25, 2021 at 02:31:34PM -0700, Nick Desaulniers wrote:
-> On Wed, Aug 18, 2021 at 2:40 PM Kees Cook <keescook@chromium.org> wrote:
-> >
-> > As already done in GrapheneOS, add the __alloc_size attribute for
-> > regular kmalloc interfaces, to provide additional hinting for better
-> > bounds checking, assisting CONFIG_FORTIFY_SOURCE and other compiler
-> > optimizations.
-> >
-> > Co-developed-by: Daniel Micay <danielmicay@gmail.com>
-> > Signed-off-by: Daniel Micay <danielmicay@gmail.com>
-> > Cc: Christoph Lameter <cl@linux.com>
-> > Cc: Pekka Enberg <penberg@kernel.org>
-> > Cc: David Rientjes <rientjes@google.com>
-> > Cc: Joonsoo Kim <iamjoonsoo.kim@lge.com>
-> > Cc: Andrew Morton <akpm@linux-foundation.org>
-> > Cc: Vlastimil Babka <vbabka@suse.cz>
-> > Cc: linux-mm@kvack.org
-> > Signed-off-by: Kees Cook <keescook@chromium.org>
+On Mon, Sep 13, 2021 at 10:34:15PM +0100, Paul Cercueil wrote:
+> To be able to compile the kernel with LTO, the assembler macros cannot
+> be declared in the global scope, or the compiler will complain about
+> redefined macros.
 > 
-> This is a good start, so
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
-Thanks!
-
-> Do we also want to attribute:
-> * __kmalloc_index
-
-This is just the bucketizer (it returns "int" for the kmalloc bucket).
-
-> * kmem_cache_free_bulk
-
-Not an allocator.
-
-> * kmem_cache_alloc_bulk
-
-This allocates a list of pointers, where "size" is the length of the
-list.
-
-> * kmalloc_order
-> * kmalloc_order_trace
-> * kmalloc_large
-
-Yes, these should be marked, good point.
-
-> * kmalloc_node
-
-This was already marked.
-
-> * kmem_cache_alloc_trace
-> * __kmalloc_track_caller
-> * __kmalloc_node_track_caller
-
-Yeah, these might get passed through in LTO situations. I'll add them.
-
-> * kmalloc_array_node
-
-I'll add this -- I thought it was already here but it got missed.
-
-Thanks!
-
--Kees
-
+> Update the code so that macros are defined then undefined when they are
+> used.
 > 
-> > ---
-> >  include/linux/slab.h | 20 ++++++++++++++++++--
-> >  1 file changed, 18 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/include/linux/slab.h b/include/linux/slab.h
-> > index 10fd0a8c816a..6ce826d8194d 100644
-> > --- a/include/linux/slab.h
-> > +++ b/include/linux/slab.h
-> > @@ -181,7 +181,7 @@ int kmem_cache_shrink(struct kmem_cache *s);
-> >  /*
-> >   * Common kmalloc functions provided by all allocators
-> >   */
-> > -__must_check
-> > +__must_check __alloc_size(2)
-> >  void *krealloc(const void *objp, size_t new_size, gfp_t flags);
-> >  void kfree(const void *objp);
-> >  void kfree_sensitive(const void *objp);
-> > @@ -426,6 +426,7 @@ static __always_inline unsigned int __kmalloc_index(size_t size,
-> >  #define kmalloc_index(s) __kmalloc_index(s, true)
-> >  #endif /* !CONFIG_SLOB */
-> >
-> > +__alloc_size(1)
-> >  void *__kmalloc(size_t size, gfp_t flags) __assume_kmalloc_alignment __malloc;
-> >  void *kmem_cache_alloc(struct kmem_cache *s, gfp_t flags) __assume_kmalloc_alignment __malloc;
-> >  void kmem_cache_free(struct kmem_cache *s, void *objp);
-> > @@ -450,6 +451,7 @@ static __always_inline void kfree_bulk(size_t size, void **p)
-> >  }
-> >
-> >  #ifdef CONFIG_NUMA
-> > +__alloc_size(1)
-> >  void *__kmalloc_node(size_t size, gfp_t flags, int node) __assume_slab_alignment __malloc;
-> >  void *kmem_cache_alloc_node(struct kmem_cache *s, gfp_t flags, int node)
-> >                             __assume_slab_alignment __malloc;
-> > @@ -574,6 +576,7 @@ static __always_inline void *kmalloc_large(size_t size, gfp_t flags)
-> >   *     Try really hard to succeed the allocation but fail
-> >   *     eventually.
-> >   */
-> > +__alloc_size(1)
-> >  static __always_inline void *kmalloc(size_t size, gfp_t flags)
-> >  {
-> >         if (__builtin_constant_p(size)) {
-> > @@ -596,6 +599,7 @@ static __always_inline void *kmalloc(size_t size, gfp_t flags)
-> >         return __kmalloc(size, flags);
-> >  }
-> >
-> > +__alloc_size(1)
-> >  static __always_inline void *kmalloc_node(size_t size, gfp_t flags, int node)
-> >  {
-> >  #ifndef CONFIG_SLOB
-> > @@ -620,6 +624,7 @@ static __always_inline void *kmalloc_node(size_t size, gfp_t flags, int node)
-> >   * @size: element size.
-> >   * @flags: the type of memory to allocate (see kmalloc).
-> >   */
-> > +__alloc_size(1, 2)
-> >  static inline void *kmalloc_array(size_t n, size_t size, gfp_t flags)
-> >  {
-> >         size_t bytes;
-> > @@ -638,7 +643,7 @@ static inline void *kmalloc_array(size_t n, size_t size, gfp_t flags)
-> >   * @new_size: new size of a single member of the array
-> >   * @flags: the type of memory to allocate (see kmalloc)
-> >   */
-> > -__must_check
-> > +__must_check __alloc_size(2, 3)
-> >  static inline void *krealloc_array(void *p, size_t new_n, size_t new_size,
-> >                                    gfp_t flags)
-> >  {
-> > @@ -656,6 +661,7 @@ static inline void *krealloc_array(void *p, size_t new_n, size_t new_size,
-> >   * @size: element size.
-> >   * @flags: the type of memory to allocate (see kmalloc).
-> >   */
-> > +__alloc_size(1, 2)
-> >  static inline void *kcalloc(size_t n, size_t size, gfp_t flags)
-> >  {
-> >         return kmalloc_array(n, size, flags | __GFP_ZERO);
-> > @@ -685,6 +691,7 @@ static inline void *kmalloc_array_node(size_t n, size_t size, gfp_t flags,
-> >         return __kmalloc_node(bytes, flags, node);
-> >  }
-> >
-> > +__alloc_size(1, 2)
-> >  static inline void *kcalloc_node(size_t n, size_t size, gfp_t flags, int node)
-> >  {
-> >         return kmalloc_array_node(n, size, flags | __GFP_ZERO, node);
-> > @@ -718,6 +725,7 @@ static inline void *kmem_cache_zalloc(struct kmem_cache *k, gfp_t flags)
-> >   * @size: how many bytes of memory are required.
-> >   * @flags: the type of memory to allocate (see kmalloc).
-> >   */
-> > +__alloc_size(1)
-> >  static inline void *kzalloc(size_t size, gfp_t flags)
-> >  {
-> >         return kmalloc(size, flags | __GFP_ZERO);
-> > @@ -729,25 +737,31 @@ static inline void *kzalloc(size_t size, gfp_t flags)
-> >   * @flags: the type of memory to allocate (see kmalloc).
-> >   * @node: memory node from which to allocate
-> >   */
-> > +__alloc_size(1)
-> >  static inline void *kzalloc_node(size_t size, gfp_t flags, int node)
-> >  {
-> >         return kmalloc_node(size, flags | __GFP_ZERO, node);
-> >  }
-> >
-> > +__alloc_size(1)
-> >  extern void *kvmalloc_node(size_t size, gfp_t flags, int node);
-> > +__alloc_size(1)
-> >  static inline void *kvmalloc(size_t size, gfp_t flags)
-> >  {
-> >         return kvmalloc_node(size, flags, NUMA_NO_NODE);
-> >  }
-> > +__alloc_size(1)
-> >  static inline void *kvzalloc_node(size_t size, gfp_t flags, int node)
-> >  {
-> >         return kvmalloc_node(size, flags | __GFP_ZERO, node);
-> >  }
-> > +__alloc_size(1)
-> >  static inline void *kvzalloc(size_t size, gfp_t flags)
-> >  {
-> >         return kvmalloc(size, flags | __GFP_ZERO);
-> >  }
-> >
-> > +__alloc_size(1, 2)
-> >  static inline void *kvmalloc_array(size_t n, size_t size, gfp_t flags)
-> >  {
-> >         size_t bytes;
-> > @@ -758,11 +772,13 @@ static inline void *kvmalloc_array(size_t n, size_t size, gfp_t flags)
-> >         return kvmalloc(bytes, flags);
-> >  }
-> >
-> > +__alloc_size(1, 2)
-> >  static inline void *kvcalloc(size_t n, size_t size, gfp_t flags)
-> >  {
-> >         return kvmalloc_array(n, size, flags | __GFP_ZERO);
-> >  }
-> >
-> > +__alloc_size(3)
-> >  extern void *kvrealloc(const void *p, size_t oldsize, size_t newsize,
-> >                 gfp_t flags);
-> >  extern void kvfree(const void *addr);
-> > --
+> Note that virt support was added in 2.24 and xpa in 2.25. So we still
+> need the TOOLCHAIN defines for them.
 > 
-> -- 
-> Thanks,
-> ~Nick Desaulniers
+> Signed-off-by: Paul Cercueil <paul@crapouillou.net>
+> ---
+> 
+> Notes:
+>     v2: Removed commented undef line
+> 
+>  arch/mips/include/asm/ginvt.h                 |  11 +-
+>  .../asm/mach-loongson64/loongson_regs.h       |  12 ++
+>  arch/mips/include/asm/mipsregs.h              | 190 +++++++++++-------
+>  arch/mips/include/asm/msa.h                   |  34 +++-
+>  4 files changed, 155 insertions(+), 92 deletions(-)
+
+applied to mips-next.
+
+Thomas.
 
 -- 
-Kees Cook
+Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
+good idea.                                                [ RFC1925, 2.3 ]
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202109211608.B9B6DEE%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210923093628.GC7289%40alpha.franken.de.
