@@ -1,122 +1,130 @@
-Return-Path: <clang-built-linux+bncBDPL7R4J6AKRBAUYWGFAMGQEXL5WZ3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDZ7JWMQ2EGBBYUDWKFAMGQE5LNKBDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 32330415B2B
-	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Sep 2021 11:42:27 +0200 (CEST)
-Received: by mail-lf1-x13e.google.com with SMTP id n22-20020a0565120ad600b003fcc09af59fsf236448lfu.21
-        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Sep 2021 02:42:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1632390146; cv=pass;
+Received: from mail-qt1-x83c.google.com (mail-qt1-x83c.google.com [IPv6:2607:f8b0:4864:20::83c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 42A19415FF5
+	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Sep 2021 15:32:19 +0200 (CEST)
+Received: by mail-qt1-x83c.google.com with SMTP id c21-20020ac85195000000b002a540bbf1casf17550583qtn.2
+        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Sep 2021 06:32:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1632403938; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DyRS6DMz8d6usKU9UUhD5eafAdwJoIIuALtFo7Lvkb+lpYy6Vav13QEYTPerA7HWs7
-         CJshebKKMManoOuQqZkY1+5p1W1OP06Z5nN+fqt6YMba0a8XUT+YwO4SZgxmDhm6p4Vu
-         eCQlq5WJc17gbjE01ULJceR239hJV1BY5iyibVS2n7W4YdjGhOkSLg8ZGuiEdwGb7Bmr
-         RmQVoxBoL/0w3fxtm5rBwm0JJbYhtEWMxZ893ZzVAZa1aL9YIUyFFSwSy+xcLIVZyAtW
-         U6+aXtPWEQaGXtWz6iGDElXKgeBM+sgkff4DksunPRmdcU/Vu+EzozHAr/q9uJ4DAzFp
-         CJQQ==
+        b=V9XD/hUGljZsdCNGkidMHdKWB6P6rQdmvC+Qe7lo3vhPNXKgM8gn69SKllMSCaPQQY
+         4yowNw9rzzl8GP6m8yl+RzTPRC4u9pA67iBIbthx9Xdokj+WUlOPLaRvc7Vyb7pDrVJh
+         ZyA1WLFFzwY09CI6iZMWfNyTc/WcuRxNeP0Xr/tyXoJpnor1zKzXSQ5Wm7lAjfySJQUT
+         /D8W6PgNRL3Xp2wrfzpc3PYttAwanT8jn5s3lr6OFMVm5cUkxNTcUeT4FiW13oux+q/w
+         DbAdXv2BtO/QB+DBtiTMrG+4zB48SzG20SJiHu+tyPOdyJf8m9wFITGUlIExtYsc3o9Z
+         KQ6g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=TifXF7PB74KWeOnLHjgMbTEIHlf39Yi+ukW9RXg0a2k=;
-        b=ElZC9eWjMqG4bzyYE2bK9oWvUh3N3TMoq4JiidM38ioqasCGCD1msG8XLh/Dkf7Vmz
-         jHj6R3fwTX55Xu3vVdvQzVGC4ogg72+WJ604/8A0uUMld081qdzfK2XHbVfQ9OBJ4kOW
-         tXyhN5RLNibiPAE9WBfu2RO2iPf5e/xHUbvs3VY2vpXwRXP4E1SV/1Jjd9CT6CPPRVO6
-         SqL+U99P0X8gXw6Jr6aXcRbmc0+jySV9dsTCkRknaN3PeA+AFV410fvevdCwH+OwwUkC
-         LetAOuFdkuQTh2NcXr6iC1rk1jnUBbqBRZYYje02qHBOyr9yrTb7csfDwilLK5C0NQcb
-         /xEw==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=PQ4hVKNAzLRhkUe3PkgaNf3LT+63hQC0ekW8591T0ic=;
+        b=UK0ZyFlAzutf8nKNzvSQwRjnqGYiKyiKNz8kB5zga09+xMC+Yt4HZOAyGXOCEXpcNq
+         MfcLVA37ZRm8/YbbgoyNuXoZHYKKYKI9k+jsJ7+TnV9T71Ub5lkwXPRkWUf6ywA4NSPM
+         /KugsCc+NT7/ksGCJseEiL6pdkb7f5iO+IahIHz01l2kSdwh2GoY2hTYGkiuzCQ0WIOR
+         lAkhXJ6IppFtA0/AqTXxVbJ4y4fxHl+Gs3aGPx0cSDPWDaYVSoPLlH8JTPi4a+TXbIjs
+         hGkNjhYHy9/Ild4ezN2e1bQCKGBobHny9yIg6Q7VY5gjYx8COPP/0Tx4kx04es17QzdA
+         C2Rw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tsbogend@alpha.franken.de designates 193.175.24.41 as permitted sender) smtp.mailfrom=tsbogend@alpha.franken.de
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=b2IdFQ9T;
+       spf=pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=acme@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=TifXF7PB74KWeOnLHjgMbTEIHlf39Yi+ukW9RXg0a2k=;
-        b=ohbC4sbvWax974TXywuTYK4Gtv6G76eiJtXUb7cM6qAIcMzaIJs7U2rCO+ooH16GUA
-         6OrmfgeEXptgv1S/naEebdcTTKAN3WW9H1yY35a/7+eyl89NevoIa37fG/2niR2Bc4mU
-         WmJ1MPvwI/hAPjVLXa+M7glkuFu7/MIa6xed7RwuCr8CF1DitoaeS3hjAlBl5CnS9SA0
-         AMsux1cPlk6+pwS4NAA1PwJMDtIhogzWgLjveEoxeuhsLKO6hC4zUvQSNjcjrnHhHJnE
-         OicdRZcA7mbqC+fIs1Ojd2ehOBf6q2TZaY/Ea/YpoXCLKnkbTHxI+tZfDCYfhzWtfbdz
-         PeBw==
+        bh=PQ4hVKNAzLRhkUe3PkgaNf3LT+63hQC0ekW8591T0ic=;
+        b=W5+AVsoXet+1khOto8mbpGNo0nGaMwIPwmY9+tbnVpXerv/MdVYP5/4pGBQxSC9pVX
+         ZRFgF9OtrmdaQW4dyHZp16QuB49J47zokhDi+2SxaYb9JL/7TtyxPiU/7siUktPgbE3c
+         Vdzz5ohPEwTQ+xNAn5f6s3xJpKX99fUsaJXIHQZrEyJdBq74BflrXfKTruKKXzrsruGE
+         IVh60IDU2nQ0DrWuhy+uatjHxhjQhQX8ApIWQBujB6nA6AsSd8DQlp9+39rIPYrhMxr3
+         zWbJ2GLU9ckfRE78iY37gvF1KTXFBbl7b/dJENCzrCdYqddhU0oMo3OJb6Hq6wPQl+hi
+         oqvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :references:mime-version:content-disposition:in-reply-to
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=TifXF7PB74KWeOnLHjgMbTEIHlf39Yi+ukW9RXg0a2k=;
-        b=Gcpm3KjxvQNCQ+elG8GcxFX+L1KAXuRCfB0FpGh9WZaKvii7cDgsL9MslYtSh3jwcc
-         RemMXIuyygxo51iTRp0GKOU/n9Jz9vbk6vigUlcnLa3sM6xWlWLODs8iUFV600632gUG
-         ztTFa1QwD2+pmfA4TtTHENCIJLp+Tc1CnTyNymCcbGwQzqk8FKMeRcs5yO1Z7ga1cHrq
-         XbkjB50Ygn8Ui0CzN6pBeeEcBo7C2ep5yTfUcx4HK2rRNH0IT1lG9iHPrtGVTjX/vr+3
-         kcFq0HzKq0MuyTdFxLLZ+JoFbVmopId+RI7WqjdcxNVFAjRbg22NToAPpz797p6lSBJ1
-         zsog==
+        bh=PQ4hVKNAzLRhkUe3PkgaNf3LT+63hQC0ekW8591T0ic=;
+        b=ZvRRVXLORyt77NLu8b3pqy0BsaQHIDENEL4f+bWeyMDl4em4xa7rjTKXsPu/P3FHDN
+         PkgX+R/TP+wgnTU+9wIsgrmg3pPF0fOTiPnat4y5VqQ9A77PQ9vT4I6cjx9dMMKxhT3t
+         2HrrRHiWGuY4GmCwvgT5yUyQKv8CaKgFXMmHehYoUbEx75bAS8HXIdLorjx8jM/SDHXc
+         UOZMCkpQoQLWRj4r7gXNKAdKDdCx/QDTth+GVGzSlgZe9unOmmD4J/8haX0mx/T0/UZr
+         1VOxxKK/O3keVMyha64sw6hRMFtUirQ1GHpBci81lbiyI7qifqCrds9hQiuCV4VmPHQC
+         T/Rg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5334X8Z+YN+T0aVE7sL1FgAfCa+KgIvE5fud09MVu7MFfD5oFatG
-	LkBQ25C2fgS7TvWnfJneIAE=
-X-Google-Smtp-Source: ABdhPJyUahBlomwLOIF4ORc4NgUT3jfV9h54ptvbdBnnbT1WQXXX9K9cg5H43AKT/0SojcjEJt7jug==
-X-Received: by 2002:a05:6512:12c6:: with SMTP id p6mr3296484lfg.526.1632390146804;
-        Thu, 23 Sep 2021 02:42:26 -0700 (PDT)
+X-Gm-Message-State: AOAM532vr6rJU0s4LpS9cyG8lkV9dJRqC3wCmbc5zHdWilK9JZcleblf
+	L8tym2jlEgNyWxsHYOTiHyw=
+X-Google-Smtp-Source: ABdhPJwTodp58NpimeR0Sg/lxHoY2jy7oow6Mghn+dm5Gm+fcQVclaNIE0JHVmSdKZhxhpTDIRCJYQ==
+X-Received: by 2002:a37:f911:: with SMTP id l17mr4590921qkj.513.1632403938300;
+        Thu, 23 Sep 2021 06:32:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3746:: with SMTP id a6ls827542lfs.3.gmail; Thu, 23
- Sep 2021 02:42:25 -0700 (PDT)
-X-Received: by 2002:a05:6512:16a9:: with SMTP id bu41mr3268423lfb.41.1632390145837;
-        Thu, 23 Sep 2021 02:42:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1632390145; cv=none;
+Received: by 2002:a0c:a9d3:: with SMTP id c19ls1964910qvb.5.gmail; Thu, 23 Sep
+ 2021 06:32:17 -0700 (PDT)
+X-Received: by 2002:ad4:456c:: with SMTP id o12mr4593131qvu.12.1632403937785;
+        Thu, 23 Sep 2021 06:32:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1632403937; cv=none;
         d=google.com; s=arc-20160816;
-        b=nLJBCVa7oDeuiR+LznFSFWmw7yV0wAvtWmOu4GonSduqWxguQahv+1jmY+kiBRuPOV
-         PeVpr2WP+WqtMXsOC0EGtDHC2KNmh9QKE+jRwMjI9Qd3wZUWfO9bfXirUmZr0lJEK1Hu
-         riwaKqSeSoiPjjuE0mWe6/yk28JwZKdsmP6RIzQ+eR5aJEcJ2xqAw4MjCjiAl6UyYMqn
-         vQIEGmhYUNnnIxR5mqNUyG/dQXD9afSkeaoFegxhrIFcvHOZCpb9eQitHbi1PwlybHOv
-         zlnaOn8XnYF+3FNaKTpfiGpZJ+cZLuLWtNHkq18Ww+C/SCovkaaWob5XSfTt0mc9x4NW
-         pRFQ==
+        b=Gua/NCrRBQeiUvCNKR1CC7X0dX19pE9VIXgIEYBVaM2YK/r14GCY2JWRwq+4bNhphT
+         6bvalPnCi2mn06k0ku/AXXEJk9H2uGajNUccPn2aQIiD2HlUfNg5BoYqmfSIMey+vj9B
+         3x3saC8P28PUlXX870uDmfetNf3HkbcKU9Lm33IyNS+QoekVrFfRo86vbGR4qrzFh0uE
+         wr9mUf2zCKH/TCMy6w9CqoaKbg0/8G9mKz8xEtq4w0qtSPHY5Lw+2EIEaEsaiXsu+pIa
+         KNvo7QLzctYeRh04/5NvIf2JYEegGSYGpd3/mKiJoX+R2o5SNZjB5FcYG/LFFFuA/uXf
+         AOpA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=BTsG4YZpMANQIWBGyUzDVzftQXPC3KRcxsL2tnyNYDs=;
-        b=L4VPErmm5UirKckHbZ3Js/+tJa6Fvv0a6mY3UwYWVgdB24otrsxeU0WcMJbfOB4lCK
-         y5mdOXQk/slJLDlAz/AlFXlFvZcVMB6prCsF7p1sO//JslfzMbTPEY/KG23RsqR2i8dk
-         i4tOd3DVIwmr5GG3pYkKSuxoAe2LYEv/zd3KAJZp46eyc8pNQ6kEZzp0COii7Q4f4kok
-         utWHx0OSAIrReOOdrH/PoM5VhatE4i3EvbS6ZIjDsQjfSV/pPhWK8TWBd4xFgV0MH3ba
-         gzwdnUzZ+l9HHGYCnHulc7mTQwd4qwlVnRD/oN3VJozsIxLFIGipj4/nIWXms7yczdPs
-         TLQA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=GFu/HKzZ90iLR/PtIP404gtS9uf5i08VMJFu5xg0rxI=;
+        b=MqqLuAv9gXfL0tZ4zCJumB6uw+80K3gL5RS/pXQrSe41XWxFLJtqMT23Z1xMdybF1+
+         fi2F1/EM8AHDcRHsjAmHHohjtAF+SwMZsvRLuTtFuRcfzhYfaMMvlOvI3XTxUg/tZI7m
+         lxIEKQ92pxcUxi0PK8egjOzjGsKJLRahIjK2zBr3dJd6rEv8GHtCYykwXDh+8DsLQIIV
+         89MlEQ/oT1o9/hKUiX6kD/wyhn/tpVrG56kAE581XxnkEcB1wbQ7aq58gWo/djPlideZ
+         yOF2eoyB9/5Darhy2i76939jtRflMuVJxpdAiR9bb4vnoL0WKySwrO2FHmEzxm2R/opK
+         gjTg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tsbogend@alpha.franken.de designates 193.175.24.41 as permitted sender) smtp.mailfrom=tsbogend@alpha.franken.de
-Received: from elvis.franken.de (elvis.franken.de. [193.175.24.41])
-        by gmr-mx.google.com with ESMTP id k8si212721ljq.8.2021.09.23.02.42.25
-        for <clang-built-linux@googlegroups.com>;
-        Thu, 23 Sep 2021 02:42:25 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of tsbogend@alpha.franken.de designates 193.175.24.41 as permitted sender) client-ip=193.175.24.41;
-Received: from uucp (helo=alpha)
-	by elvis.franken.de with local-bsmtp (Exim 3.36 #1)
-	id 1mTLFI-00072a-02; Thu, 23 Sep 2021 11:42:24 +0200
-Received: by alpha.franken.de (Postfix, from userid 1000)
-	id 7A2D7C1CE2; Thu, 23 Sep 2021 11:36:28 +0200 (CEST)
-Date: Thu, 23 Sep 2021 11:36:28 +0200
-From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-To: Paul Cercueil <paul@crapouillou.net>
-Cc: Huacai Chen <chenhuacai@kernel.org>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>, linux-mips@vger.kernel.org,
-	linux-kernel@vger.kernel.org, list@opendingux.net,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v2] MIPS: Avoid macro redefinitions
-Message-ID: <20210923093628.GC7289@alpha.franken.de>
-References: <20210913213415.527306-1-paul@crapouillou.net>
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=b2IdFQ9T;
+       spf=pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=acme@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id q27si10135qtl.0.2021.09.23.06.32.17
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 23 Sep 2021 06:32:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 5F05D610D1;
+	Thu, 23 Sep 2021 13:32:16 +0000 (UTC)
+Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
+	id C2E50410A1; Thu, 23 Sep 2021 10:32:13 -0300 (-03)
+Date: Thu, 23 Sep 2021 10:32:13 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Jiri Olsa <jolsa@redhat.com>
+Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Namhyung Kim <namhyung@kernel.org>, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Ard Biesheuvel <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+	Stephane Eranian <eranian@google.com>
+Subject: Re: [PATCH v2] perf test: Fix dwarf unwind for optimized builds.
+Message-ID: <YUyB3WQzMIw6U77k@kernel.org>
+References: <20210922173812.456348-1-irogers@google.com>
+ <YUuna3dv+mgkkzqj@krava>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20210913213415.527306-1-paul@crapouillou.net>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: tsbogend@alpha.franken.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of tsbogend@alpha.franken.de
- designates 193.175.24.41 as permitted sender) smtp.mailfrom=tsbogend@alpha.franken.de
+In-Reply-To: <YUuna3dv+mgkkzqj@krava>
+X-Url: http://acmel.wordpress.com
+X-Original-Sender: acme@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=k20201202 header.b=b2IdFQ9T;       spf=pass
+ (google.com: domain of acme@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=acme@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,38 +137,136 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Sep 13, 2021 at 10:34:15PM +0100, Paul Cercueil wrote:
-> To be able to compile the kernel with LTO, the assembler macros cannot
-> be declared in the global scope, or the compiler will complain about
-> redefined macros.
+Em Thu, Sep 23, 2021 at 12:00:11AM +0200, Jiri Olsa escreveu:
+> On Wed, Sep 22, 2021 at 10:38:12AM -0700, Ian Rogers wrote:
+> > To ensure the stack frames are on the stack tail calls optimizations
+> > need to be inhibited. If your compiler supports an attribute use it,
+> > otherwise use an asm volatile barrier.
+> > 
+> > The barrier fix was suggested here:
+> > https://lore.kernel.org/lkml/20201028081123.GT2628@hirez.programming.kicks-ass.net/
+> > Tested with an optimized clang build and by forcing the asm barrier
+> > route with an optimized clang build.
+> > 
+> > A GCC bug tracking a proper disable_tail_calls is:
+> > https://gcc.gnu.org/bugzilla/show_bug.cgi?id=97831
+> > 
+> > Fixes: 9ae1e990f1ab ("perf tools: Remove broken __no_tail_call
+> >        attribute")
+> > 
+> > v2. is a rebase. The original fix patch generated quite a lot of
+> >     discussion over the right place for the fix:
+> > https://lore.kernel.org/lkml/20201114000803.909530-1-irogers@google.com/
+> >     The patch reflects my preference of it being near the use, so that
+> >     future code cleanups don't break this somewhat special usage.
 > 
-> Update the code so that macros are defined then undefined when they are
-> used.
-> 
-> Note that virt support was added in 2.24 and xpa in 2.25. So we still
-> need the TOOLCHAIN defines for them.
-> 
-> Signed-off-by: Paul Cercueil <paul@crapouillou.net>
-> ---
-> 
-> Notes:
->     v2: Removed commented undef line
-> 
->  arch/mips/include/asm/ginvt.h                 |  11 +-
->  .../asm/mach-loongson64/loongson_regs.h       |  12 ++
->  arch/mips/include/asm/mipsregs.h              | 190 +++++++++++-------
->  arch/mips/include/asm/msa.h                   |  34 +++-
->  4 files changed, 155 insertions(+), 92 deletions(-)
+> Acked-by: Jiri Olsa <jolsa@redhat.com>
 
-applied to mips-next.
+Thanks, applied.
 
-Thomas.
+- Arnaldo
+
+ 
+> thanks,
+> jirka
+> 
+> > 
+> > Signed-off-by: Ian Rogers <irogers@google.com>
+> > ---
+> >  tools/perf/tests/dwarf-unwind.c | 39 +++++++++++++++++++++++++++------
+> >  1 file changed, 32 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/tools/perf/tests/dwarf-unwind.c b/tools/perf/tests/dwarf-unwind.c
+> > index a288035eb362..c756284b3b13 100644
+> > --- a/tools/perf/tests/dwarf-unwind.c
+> > +++ b/tools/perf/tests/dwarf-unwind.c
+> > @@ -20,6 +20,23 @@
+> >  /* For bsearch. We try to unwind functions in shared object. */
+> >  #include <stdlib.h>
+> >  
+> > +/*
+> > + * The test will assert frames are on the stack but tail call optimizations lose
+> > + * the frame of the caller. Clang can disable this optimization on a called
+> > + * function but GCC currently (11/2020) lacks this attribute. The barrier is
+> > + * used to inhibit tail calls in these cases.
+> > + */
+> > +#ifdef __has_attribute
+> > +#if __has_attribute(disable_tail_calls)
+> > +#define NO_TAIL_CALL_ATTRIBUTE __attribute__((disable_tail_calls))
+> > +#define NO_TAIL_CALL_BARRIER
+> > +#endif
+> > +#endif
+> > +#ifndef NO_TAIL_CALL_ATTRIBUTE
+> > +#define NO_TAIL_CALL_ATTRIBUTE
+> > +#define NO_TAIL_CALL_BARRIER __asm__ __volatile__("" : : : "memory");
+> > +#endif
+> > +
+> >  static int mmap_handler(struct perf_tool *tool __maybe_unused,
+> >  			union perf_event *event,
+> >  			struct perf_sample *sample,
+> > @@ -91,7 +108,7 @@ static int unwind_entry(struct unwind_entry *entry, void *arg)
+> >  	return strcmp((const char *) symbol, funcs[idx]);
+> >  }
+> >  
+> > -noinline int test_dwarf_unwind__thread(struct thread *thread)
+> > +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__thread(struct thread *thread)
+> >  {
+> >  	struct perf_sample sample;
+> >  	unsigned long cnt = 0;
+> > @@ -122,7 +139,7 @@ noinline int test_dwarf_unwind__thread(struct thread *thread)
+> >  
+> >  static int global_unwind_retval = -INT_MAX;
+> >  
+> > -noinline int test_dwarf_unwind__compare(void *p1, void *p2)
+> > +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__compare(void *p1, void *p2)
+> >  {
+> >  	/* Any possible value should be 'thread' */
+> >  	struct thread *thread = *(struct thread **)p1;
+> > @@ -141,7 +158,7 @@ noinline int test_dwarf_unwind__compare(void *p1, void *p2)
+> >  	return p1 - p2;
+> >  }
+> >  
+> > -noinline int test_dwarf_unwind__krava_3(struct thread *thread)
+> > +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__krava_3(struct thread *thread)
+> >  {
+> >  	struct thread *array[2] = {thread, thread};
+> >  	void *fp = &bsearch;
+> > @@ -160,14 +177,22 @@ noinline int test_dwarf_unwind__krava_3(struct thread *thread)
+> >  	return global_unwind_retval;
+> >  }
+> >  
+> > -noinline int test_dwarf_unwind__krava_2(struct thread *thread)
+> > +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__krava_2(struct thread *thread)
+> >  {
+> > -	return test_dwarf_unwind__krava_3(thread);
+> > +	int ret;
+> > +
+> > +	ret =  test_dwarf_unwind__krava_3(thread);
+> > +	NO_TAIL_CALL_BARRIER;
+> > +	return ret;
+> >  }
+> >  
+> > -noinline int test_dwarf_unwind__krava_1(struct thread *thread)
+> > +NO_TAIL_CALL_ATTRIBUTE noinline int test_dwarf_unwind__krava_1(struct thread *thread)
+> >  {
+> > -	return test_dwarf_unwind__krava_2(thread);
+> > +	int ret;
+> > +
+> > +	ret =  test_dwarf_unwind__krava_2(thread);
+> > +	NO_TAIL_CALL_BARRIER;
+> > +	return ret;
+> >  }
+> >  
+> >  int test__dwarf_unwind(struct test *test __maybe_unused, int subtest __maybe_unused)
+> > -- 
+> > 2.33.0.464.g1972c5931b-goog
+> > 
 
 -- 
-Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
-good idea.                                                [ RFC1925, 2.3 ]
+
+- Arnaldo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210923093628.GC7289%40alpha.franken.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YUyB3WQzMIw6U77k%40kernel.org.
