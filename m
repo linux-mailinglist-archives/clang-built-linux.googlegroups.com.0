@@ -1,142 +1,141 @@
-Return-Path: <clang-built-linux+bncBDC2RCVE24NRB75YWKFAMGQEDBTUDDY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDC2RCVE24NRBCELZSFAMGQEVFX2M5Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc39.google.com (mail-oo1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id E99A8416200
-	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Sep 2021 17:25:52 +0200 (CEST)
-Received: by mail-oo1-xc39.google.com with SMTP id w21-20020a4ae9f5000000b0029116e62638sf4050645ooc.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Sep 2021 08:25:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1632410752; cv=pass;
+Received: from mail-qv1-xf3b.google.com (mail-qv1-xf3b.google.com [IPv6:2607:f8b0:4864:20::f3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id BD8D041AE73
+	for <lists+clang-built-linux@lfdr.de>; Tue, 28 Sep 2021 14:07:37 +0200 (CEST)
+Received: by mail-qv1-xf3b.google.com with SMTP id h25-20020a0cab19000000b0037a49d15c93sf97183197qvb.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 28 Sep 2021 05:07:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1632830856; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ud0qAWppRgFe6pz26NAshbDynS82pyA27iE1VN2GRwcIXRtthLbBTrdd8j0bSGgXH2
-         s57o8GHVekff3MWvzHTfnmbq4gWK9xZ+/t9TJBBVUDyiEARC6xYcrqkbnoHO7b39/Ksi
-         78Y0xSJv7l67k2VfDbLBdW05yFcm7yxXw8kvOCNe87eMTVa8FrLbFhZgnta+wbxluW0H
-         hyqPKMEbcWlfr/TpdRuohEs7ZAqtdMw21p85VTkJWONwxy4wtqwiF3MTAy17atH6ULLS
-         0scVYwURuLBDEIfxRuCRaKlMrecnWGpVaC+oVqkwnswwDjTrvvCTYSMi5isO0mrZMJAW
-         yZcA==
+        b=PEmxoPyXcEB8QW4IZEoedOU4YNTfSJjNL39gaBb3dW5rH7BZ5ZSAidM6SJX8DyHYj2
+         M3R/p4NvNAeJm1bbjN6qCf5LUfbIA2j7J5tGz3p9iHafe3muaBgBmI3aDe1O/MpCAK8n
+         oxjnPcuIkJzxNLcrPCx/ihO0bxCA+q/74czH7hm8GbXC8eQH4Lbk7h5IrWMJcw4fsF93
+         5ZyMPrJv5LAVI7QdR44PtOVwLQA10Fp4XgBqHuSTkoIKzqBA17M3j378UIZeEZVA0Y/P
+         ePL9H3l0CM8HXcX4/x716JE5vo/XwPAyhPEEbi7HBvFGnTmaIZiAcpBpx5QRivfPJRGG
+         5mPQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=THjn3l3pznpg9uzpRr0SxzvIkXsmEnobVYUzUAUh/jM=;
-        b=czcKWNSJJWCCDNO69Yjr+ajuc+pSEdnHD5rKN1Mk0nbQtzFEW+pbgj4tcbnwX7r/RY
-         OkiHBrHGh+S1WT5es7C9AgAsZL/PpwK00S+ZRwzaoxj9gm6AClcSwmowJCm06f2zYrsh
-         DoyHFdCZStaqqakx3uEMAC93doWD/wtLm0JloAqF7Zjd9jqSKh5ex3jxt2x7+Awm+N+8
-         cRyVe5xdnngWMO5SyZNzD9I1pGsmTeQqSnX39Z5apsU4amKSh5hbDEloG0M3Rybvu8xQ
-         dPH2sHgcgYcb/v4QFsRumDzz8cfsWI0STLK0PUf68KxMlDL1UyohCN4LjbptL4yOu1Hn
-         YiQA==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature;
+        bh=7rHR2Ep/fDa2hqrnzxvHbt4Ucf8uG2ntoDMqYrJeJAs=;
+        b=zwM/WwXTjxMyWSfqQerrCZ0Hd8zUMUDDltMTrGf9cYmQSIy2WnxzIJziCyB4fMI4FL
+         Pb38MaaH78M2Quke7kiH6pA8P144lsF7cITfZkcCzXHK2e6simDWYjxW3Wc6fsA6yPZM
+         xVqz53xOwKl4cWukZ1oeo0O1zAdOQkmWKzEEcCGHpsA+Z3M0mBxwO/ob8DqNK6XNistM
+         L3oLoW+f4iccH1as0Vs7LUqneJFK7emzVfwXNNa4VNAGCKqvk6QnglIbUMbSUUP7HkZV
+         zQyAzyWa/G0n2+2UT3WereeWIS6OshkLcNHuV0lZqlyXyB4syVxnbqjeG4hpbrX/2Cb5
+         5FlA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;
+       spf=pass (google.com: domain of ashimida@linux.alibaba.com designates 115.124.30.43 as permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=THjn3l3pznpg9uzpRr0SxzvIkXsmEnobVYUzUAUh/jM=;
-        b=WDw9aJU03MEAqeP3glavqUbL5UYeo1wXnJ3pFP+T+tp9BZI/ADjH4M1V4mKoR66Rhd
-         v2AOXNFeSPQkj22j7NeB1Y/4A0pF9Q/E+KoVb+EKYBDpezO/lu2wK4xAmr3wLMmeCYiY
-         P2BLYCDEmvZO3e8YcXFDXT7sGnW6WycWaHgTF3sNxBjNqrHMzCUbq0HqS42kpyEaIi79
-         u97I3JfGodfGqr28W4Obg82BP/R2Uz+ZB44iLMgZmxPlyXeXGZnxD7QnlJjI7J8gFMB4
-         iPgY6Ij/EQlSLHkITYpDTIn1frAjSEa8X2/7k41DLXEC+M7Rb18joe88mk97vsLrM2cn
-         ioCw==
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=7rHR2Ep/fDa2hqrnzxvHbt4Ucf8uG2ntoDMqYrJeJAs=;
+        b=s+GM6kP889BdeJCMX1PvhyywTxVWcdy/fdgd52BtDxpf1uZww974sFjMVys6JlcRyS
+         Tnms7TG0Qrt0CEM/h09wZlICtpbV7hF763BKALOVPWdfDGhmdcKfgQHiqxcTWopm81Aa
+         eledEIcWB/mFSEeWtlavYLg6q0FlT0EJ7MbffoaJZP6CW1O6VF+W5XbEcocOv+K/1OiX
+         /BSUg6p27p04azCNdQCpYTpnpWoO+d6mAnsq9amjJOwtDVRU+Umc7QrTPrEI23rF6NVi
+         5dLR8z1PiEpT+YNqkE442PbbqCdMxLMNMUVKoxKlzayunmomT+oNtUmLRPRpFI06YJQW
+         DAnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=THjn3l3pznpg9uzpRr0SxzvIkXsmEnobVYUzUAUh/jM=;
-        b=nT+zmj2auysU43MM5/46LyU3R8+L2FTmjUYXi6EZnTp8hgdG5HTTulBN01CRCcEnCZ
-         f6rvRzhceJsM/ALceirNKpd+yPi5M2HPy6kiPMqgjplgwyuMc9ZQpQ3qctTltkwMMHoG
-         80UdcLxizyewLbjXIDWmU2yiSFO6Fws+xoaPvdxBnBpNG6krazcdrubLGwO7Jz1tCarm
-         Fl2qWo8uvj150Q23aZdj78VLm6VB5bWlxxSs56SLWEMEASn4Ut7mAAnz42TtfI4YbSuT
-         xRAmJCuWzKApxwnuN9WyhU8I+72J7NXP26i9/Y7N8ZW2U0+159acJJRNcnEkhw34YVc6
-         +nEA==
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=7rHR2Ep/fDa2hqrnzxvHbt4Ucf8uG2ntoDMqYrJeJAs=;
+        b=XUyJnEPDyf/zR0AbMUM7k/8irbCnkcA1Im1UB7U9CPFYzQsE8ocvG+CdtbHgB9rWwI
+         t6dQozTRbgpZ7U1ZBTRfcXxMn17S+nIizEFhs2DyllWFk6sUX3Bzpt0n2x/VLIgNLIxX
+         olYBQck37dCJ/klfOQoecYLscscp9VOAERDuEo2jF7RldP6fZbg/ptXRlMx8peEdSqwT
+         go84u6/PAQPOv4/NQrEJ8KFaWFWwBJjlzVKXJFAEEkKPuDQd9hveJB4CeNaLQsnT3iJU
+         5tCuHFIb7GJsswbamkltuEX7GZNWH/r8EGWNsVFrLmEfD5N5mytDSlMADGTTG0VPgIn5
+         ZzBw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5321FcXO/60hnV1Y11zUl94qcFqyItzIHNLVsXwV1ynEGuuSX8yc
-	hgUDJrHuwcf0Efzqje+EHks=
-X-Google-Smtp-Source: ABdhPJyjpJttsVBC6GMrvYagu91Ir9rDf3OVFfcz56SP+1nVMUQj5vb6pf3/tPYXV/CM1eV16jdn7A==
-X-Received: by 2002:a9d:5f82:: with SMTP id g2mr4904412oti.318.1632410751866;
-        Thu, 23 Sep 2021 08:25:51 -0700 (PDT)
+X-Gm-Message-State: AOAM5300fqxSxF2jwfMpeZaxVnpPyVrcMj9IEWFdZjwAWZw6Uloggsqw
+	kL3hHjgFNRYsa5LPWX/BM/o=
+X-Google-Smtp-Source: ABdhPJzc4uDGlhArm/Sy4edtnMZuptraI/nouSqnkXfqth55z7JHKSQA6NHpwEaHJ/59I6rx416+Sw==
+X-Received: by 2002:a05:622a:492:: with SMTP id p18mr5192515qtx.282.1632830856597;
+        Tue, 28 Sep 2021 05:07:36 -0700 (PDT)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:2a0c:: with SMTP id y12ls167392otu.6.gmail; Thu, 23
- Sep 2021 08:25:51 -0700 (PDT)
-X-Received: by 2002:a05:6830:2b1e:: with SMTP id l30mr4965843otv.55.1632410751475;
-        Thu, 23 Sep 2021 08:25:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1632410751; cv=none;
+Received: by 2002:ac8:40d0:: with SMTP id f16ls12556400qtm.1.gmail; Tue, 28
+ Sep 2021 05:07:36 -0700 (PDT)
+X-Received: by 2002:ac8:7d46:: with SMTP id h6mr5376387qtb.162.1632830855850;
+        Tue, 28 Sep 2021 05:07:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1632830855; cv=none;
         d=google.com; s=arc-20160816;
-        b=reS7slU6Vm9wGaBNrn+cYSICxyGUABp2vdgJ5J/y8DSSx8xigAQK78yzNv1CJaLIDP
-         sBTdQN8/AGNMl035B4/9zZozowgoVw5dHqJuuHSYQFZKzZkMKn6Mf3g1nYQoALajdlQi
-         gViDciYluszIfTHActQFu/SZ2X2+VCDMmrH79U6lU+jpG5X0IHMZ3ajJO/7DutpyLTwI
-         OGG+0/6Tc0ReFUwMD97cIQxVsDmyxIVHj9aXkf5G9ob2Pfd0qOpGLVJTV+6CPf4NBFus
-         tJuE2w3EmWqWo8et3Pgxd0oj37Djr8t8zOn5JYgAzKiC80eNpn5YcLYXJBesdNIhtTij
-         ck7Q==
+        b=T95qvK830tQH5coG8DZa4PQQK29qLYSZ+lIvXX8nDPXabYtph19ecpV3IaPWbVnyEr
+         5BpWusGaDgMDpH/Gw+EaBu+1QF10RT8ltx7GZL2tKQx0nymoW93K5HbNqrRGuBNAzYPu
+         pGvD0HjxvYc5hxnHuBqRqIdTq6zXI57TQjc6FNEQHeKxOvOJvAkSLy3iQUsBY4aqE7Rd
+         KeKppNxVsW8EsG1Fp2/e9ErvFPzn4H15vCsPODFx+JsDe6pTH/4TOQPHxW+5UPaf7oN4
+         mAoUk+KGt+unAN0CkfDdIanPR8CsmzJHJBwyMKGkmH/jT0kEXgNiH60RNsiP18f8iC7v
+         ZrLg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=TOSYCFxzqR6ugLmOsJVQyblJCay89vHpGFZXPGMbqvU=;
-        b=LP4PD3WfTLPA8S/hAf1OPKc8G67y7XN9d6a1dhqRcN9m1MabHDpKuGEMNvNYWyabce
-         ow3CDUEa0fDlnB96TLS44eE9FI9qbjznSwG1eNG5Qshe1XNtQdUyPYeAYzzdawlXuQtg
-         V7efcj52npTb6ru0O8Tef1RJhlBLYKu5BlTQNkn0f6cdW3g4Xh4XXiC9yo7HpFrEek9y
-         x6eohxuO2QJIa+jw4HUkO9Zt8HdEUt3KrVTyUWnzjOErl3iPAfAG/5ZRyXZB/oKXo35e
-         fuslz8vwNyyzHUAifr7FGEHyrdn1QIdaoxrZ6iO4MyIwtWkuCWpBB1CCdk9A56HHWf47
-         6aVA==
+        h=message-id:date:subject:cc:to:from;
+        bh=FUVIBGutVZ61G9U4eVwHglznQ0PQlNdOH8b2USgSr6Q=;
+        b=uJUHJ+NWQlfDupX0Vl/i11bLKuilLGCCaASax3Juf8bwM3khIlRQq9T/lQUsscjsAa
+         OmBx4/m/NvK+NluckAvc0vibYpBrO3MXt5EwYnsJfooLSjkrjXByz98Jl8gAH5jznbB8
+         Mq41b9SpJHH7TBOWFQ3cB5hewBG3HcYmNsBqvi6zOPI7vqwVOyX+/xwM84HI5J9wb8V/
+         lwkNZmNf7EDDVKfh1sUjj9EON0cnzjg9uQvMX44fz364ofDKbo8AMp8IevT58TaZlJA7
+         J7y0VYvfPPJYh7Hc5O9c9JP31cf/dXgLS1l00TToE6GfiwAQBuOWjZ/je6zKUwWKSEE9
+         Y2HQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;
+       spf=pass (google.com: domain of ashimida@linux.alibaba.com designates 115.124.30.43 as permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
-Received: from out4436.biz.mail.alibaba.com (out4436.biz.mail.alibaba.com. [47.88.44.36])
-        by gmr-mx.google.com with ESMTPS id d24si435796ote.2.2021.09.23.08.25.49
+Received: from out30-43.freemail.mail.aliyun.com (out30-43.freemail.mail.aliyun.com. [115.124.30.43])
+        by gmr-mx.google.com with ESMTPS id d5si1587851qkl.6.2021.09.28.05.07.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Sep 2021 08:25:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as permitted sender) client-ip=47.88.44.36;
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e04423;MF=ashimida@linux.alibaba.com;NM=1;PH=DS;RN=26;SR=0;TI=SMTPD_---0UpLqEtb_1632410722;
-Received: from ashimida.local(mailfrom:ashimida@linux.alibaba.com fp:SMTPD_---0UpLqEtb_1632410722)
+        Tue, 28 Sep 2021 05:07:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ashimida@linux.alibaba.com designates 115.124.30.43 as permitted sender) client-ip=115.124.30.43;
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e04423;MF=ashimida@linux.alibaba.com;NM=1;PH=DS;RN=29;SR=0;TI=SMTPD_---0Upwqlyl_1632830840;
+Received: from localhost(mailfrom:ashimida@linux.alibaba.com fp:SMTPD_---0Upwqlyl_1632830840)
           by smtp.aliyun-inc.com(127.0.0.1);
-          Thu, 23 Sep 2021 23:25:24 +0800
-Subject: Re: [PATCH] [RFC/RFT]SCS:Add gcc plugin to support Shadow Call Stack
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Masahiro Yamada <masahiroy@kernel.org>,
- Michal Marek <michal.lkml@markovi.net>, Kees Cook <keescook@chromium.org>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Thomas Gleixner <tglx@linutronix.de>, Peter Zijlstra <peterz@infradead.org>,
- Sami Tolvanen <samitolvanen@google.com>,
- Frederic Weisbecker <frederic@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- YiFei Zhu <yifeifz2@illinois.edu>, Viresh Kumar <viresh.kumar@linaro.org>,
- Colin King <colin.king@canonical.com>, andreyknvl@gmail.com,
- Mark Rutland <mark.rutland@arm.com>, Miguel Ojeda <ojeda@kernel.org>,
- Will Deacon <will@kernel.org>, luc.vanoostenryck@gmail.com,
- Marco Elver <elver@google.com>, Arvind Sankar <nivedita@alum.mit.edu>,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-hardening@vger.kernel.org,
- clang-built-linux <clang-built-linux@googlegroups.com>
-References: <1632069436-25075-1-git-send-email-ashimida@linux.alibaba.com>
- <CAMj1kXGQ+x243wK-8NP+kxs2dCgSa+MD5+Tv3Xzo3510Td1t3Q@mail.gmail.com>
- <bbe282c6-64f4-cd95-5d64-8266d52ee7a1@linux.alibaba.com>
- <CAMj1kXGr7ZzBmr-SrxmBsqWvn+NSPC_VKAr5gqx1WN-91i7wpg@mail.gmail.com>
- <94198e26-2cfd-fdc8-7427-d41437cae964@linux.alibaba.com>
- <CAMj1kXHTksfrmVLyNW6q4aKV0N38KRRx5_9426zpb6MGPNDdKg@mail.gmail.com>
+          Tue, 28 Sep 2021 20:07:30 +0800
 From: Dan Li <ashimida@linux.alibaba.com>
-Message-ID: <377e7da8-577b-cd8e-1212-ba0c2d31eb05@linux.alibaba.com>
-Date: Thu, 23 Sep 2021 23:25:22 +0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:68.0)
- Gecko/20100101 Thunderbird/68.12.1
-MIME-Version: 1.0
-In-Reply-To: <CAMj1kXHTksfrmVLyNW6q4aKV0N38KRRx5_9426zpb6MGPNDdKg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
+To: masahiroy@kernel.org,
+	michal.lkml@markovi.net,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	keescook@chromium.org,
+	nathan@kernel.org,
+	ndesaulniers@google.com,
+	tglx@linutronix.de,
+	akpm@linux-foundation.org,
+	peterz@infradead.org,
+	samitolvanen@google.com,
+	mark.rutland@arm.com,
+	yifeifz2@illinois.edu,
+	rppt@kernel.org,
+	frederic@kernel.org,
+	viresh.kumar@linaro.org,
+	colin.king@canonical.com,
+	andreyknvl@gmail.com,
+	ojeda@kernel.org,
+	ardb@kernel.org,
+	luc.vanoostenryck@gmail.com,
+	elver@google.com,
+	nivedita@alum.mit.edu
+Cc: linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hardening@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Dan Li <ashimida@linux.alibaba.com>
+Subject: [PATCH] [RFC/RFT,V2] ARM64: SCS: Add gcc plugin to support Shadow Call Stack
+Date: Tue, 28 Sep 2021 20:06:15 +0800
+Message-Id: <1632830775-32267-1-git-send-email-ashimida@linux.alibaba.com>
+X-Mailer: git-send-email 2.7.4
 X-Original-Sender: ashimida@linux.alibaba.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of ashimida@linux.alibaba.com designates 47.88.44.36 as
+ (google.com: domain of ashimida@linux.alibaba.com designates 115.124.30.43 as
  permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,298 +148,558 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+This patch supports gcc-based SCS protection on ARM64 by adding a plugin.
 
+For each function that x30 will be pushed onto the stack during execution,
+this plugin, similar to gcc's pac implementation, will normally:
+1) insert "str x30, [x18], #8" at the beginning of function's prologue
+2) insert "ldr x30, [x18, #-8]!" immediately before function's
+epilogue return/sibling calls
 
-On 9/22/21 9:48 PM, Ard Biesheuvel wrote:
-> On Tue, 21 Sept 2021 at 08:00, Dan Li <ashimida@linux.alibaba.com> wrote:
->>
->>
->>
->> On 9/21/21 5:22 AM, Ard Biesheuvel wrote:
->>> On Mon, 20 Sept 2021 at 20:53, Dan Li <ashimida@linux.alibaba.com> wrote:
->>>>
->>>> Hi Ard,
->>>>
->>>> Thanks for your comment.
->>>>
->>>> I pasted a copy of the config code in my last email, could you please check it again?
->>>>
->>>> On 9/20/21 3:18 PM, Ard Biesheuvel wrote:
->>>>> Hi Dan,
->>>>>
->>>>> On Sun, 19 Sept 2021 at 18:37, Dan Li <ashimida@linux.alibaba.com> wrote:
->>>>>>
->>>>>> The Clang-based shadow call stack protection has been integrated into the
->>>>>> mainline, but kernel compiled by gcc cannot enable this feature for now.
->>>>>>
->>>>>> This Patch supports gcc-based SCS protection by adding a plugin.
->>>>>>
->>>>>
->>>>> Thanks for working on this. I had a stab at this myself about 2 years
->>>>> ago and couldn't make it work.
->>>>>
->>>>>> For each function that x30 will be pushed onto the stack during execution,
->>>>>> this plugin:
->>>>>> 1) insert "str x30, [x18], #8" at the entry of the function to save x30
->>>>>>       to current SCS
->>>>>> 2) insert "ldr x30, [x18, #-8]!"  before the exit of this function to
->>>>>>       restore x30
->>>>>>
->>>>>
->>>>> This logic seems sound to me, but it would be nice if someone more
->>>>> familiar with Clang's implementation could confirm that it is really
->>>>> this simple.
->>>>>
->>>>> Looking at your plugin, there is an issue with tail calls, and I don't
->>>>> think Clang simply disables those altogether as well, right?
->>>>
->>>> I am not familiar with clang's code, the logic comes from clang's description and the
->>>> disassembled binary code for now, so it may be different from the actual situation.
->>>>
->>>
->>> OK
->>>
->>>> The tail call could be handled (theoretically), and I will try to solve the issue in
->>>> the next version.
->>>>>
->>>>>>     ifdef CONFIG_SHADOW_CALL_STACK
->>>>>> -CC_FLAGS_SCS   := -fsanitize=shadow-call-stack
->>>>>> +CC_FLAGS_SCS   := $(if $(CONFIG_CC_IS_CLANG),-fsanitize=shadow-call-stack,)
->>>>>
->>>>> This variable should contain whatever needs to be added to the
->>>>> compiler comamand line
->>>>      In the new code, an 'enable' option is added here to enable the plugin
->>>>>>     KBUILD_CFLAGS  += $(CC_FLAGS_SCS)
->>>>>>     export CC_FLAGS_SCS
->>>>>>     endif
->>>>>> diff --git a/arch/Kconfig b/arch/Kconfig
->>>>>> index 98db634..81ff127 100644
->>>>>> --- a/arch/Kconfig
->>>>>> +++ b/arch/Kconfig
->>>>>> @@ -594,7 +594,7 @@ config ARCH_SUPPORTS_SHADOW_CALL_STACK
->>>>>>
->>>>>>     config SHADOW_CALL_STACK
->>>>>>            bool "Clang Shadow Call Stack"
->>>>>> -       depends on CC_IS_CLANG && ARCH_SUPPORTS_SHADOW_CALL_STACK
->>>>>> +       depends on (CC_IS_CLANG && ARCH_SUPPORTS_SHADOW_CALL_STACK) || GCC_PLUGIN_SHADOW_CALL_STACK
->>>>>
->>>>> This logic needs to be defined in such a way that a builtin
->>>>> implementation provided by GCC will take precedence once it becomes
->>>>> available.
->>>>>
->>>>      In new code, if gcc supports SCS in the future, the plugin will be closed due to
->>>>      CC_HAVE_SHADOW_CALL_STACK is true.
->>>>>>            depends on DYNAMIC_FTRACE_WITH_REGS || !FUNCTION_GRAPH_TRACER
->>>>>>            help
->>>>>>              This option enables Clang's Shadow Call Stack, which uses a
->>>>>> diff --git a/scripts/gcc-plugins/Kconfig b/scripts/gcc-plugins/Kconfig
->>>>>> index ab9eb4c..2534195e 100644
->>>>>> --- a/scripts/gcc-plugins/Kconfig
->>>>>> +++ b/scripts/gcc-plugins/Kconfig
->>>>>> @@ -19,6 +19,14 @@ menuconfig GCC_PLUGINS
->>>>>>
->>>>>>     if GCC_PLUGINS
->>>>>>
->>>>>> +config GCC_PLUGIN_SHADOW_CALL_STACK
->>>>>> +       bool "GCC Shadow Call Stack plugin"
->>>>>> +       select SHADOW_CALL_STACK
->>>>>
->>>>> You shouldn't 'select' something like this if the symbol has its own
->>>>> dependencies which may be unsatisfied, as this causes a Kconfig
->>>>> warning. Also, en/disabling shadow call stacks for the architecture
->>>>> should be done from the arch's 'kernel features' menu, it shouldn't be
->>>>> buried in the GCC plugins menu.
->>>>       I removed 'select' in the new version.
->>>>       SCS's enable is changed to rely on CONFIG_SHADOW_CALL_STACK in arch/kernel,
->>>>       the GCC_PLUGIN_SHADOW_CALL_STACK config is just to add a usable platform to it.
->>>>>> +       help
->>>>>> +         This plugin is used to support the kernel CONFIG_SHADOW_CALL_STACK
->>>>>> +         compiled by gcc. Its principle is basically the same as that of CLANG.
->>>>>> +         For more information, please refer to "config SHADOW_CALL_STACK"
->>>>>> +
->>>>>> +__visible int plugin_is_GPL_compatible;
->>>>>> +
->>>>>> +static struct plugin_info arm64_scs_plugin_info = {
->>>>>> +       .version        = "20210926vanilla",
->>>>>
->>>>> I will respond to this obvious invitation at bikeshedding by saying
->>>>> that 'salted caramel' is clearly the superior flavor of ice cream.
->>>>      I'm sorry, as a non-native English speaker, I think I might not understand
->>>>      what you mean here. My intention is to say that this is the first/initial
->>>>      version, do I miss something?
->>>
->>> It was a joke - don't worry about it.
->>>
->>>>>> +       .help           = "disable\tdo not activate plugin\n"
->>>>>> +                         "verbose\tprint all debug infos\n",
->>>>>> +};
->>>>>> +static unsigned int arm64_scs_execute(void)
->>>>>> +{
->>>>>> +       rtx_insn *insn;
->>>>>> +       enum scs_state state = SCS_SEARCHING_FIRST_INSN;
->>>>>> +
->>>>>> +       for (insn = get_insns(); insn; insn = NEXT_INSN(insn)) {
->>>>>> +               rtx mark = NULL;
->>>>>> +
->>>>>> +               switch (GET_CODE(insn)) {
->>>>>> +               case NOTE:
->>>>>> +               case BARRIER:
->>>>>> +               case CODE_LABEL:
->>>>>> +               case INSN:
->>>>>> +               case DEBUG_INSN:
->>>>>> +               case JUMP_INSN:
->>>>>> +               case JUMP_TABLE_DATA:
->>>>>> +                       break;
->>>>>> +               case CALL_INSN:
->>>>>> +                       if (SIBLING_CALL_P(insn)) {
->>>>>> +                               error(G_("Sibling call found in func:%s, file:%s\n"),
->>>>>> +                                               get_name(current_function_decl),
->>>>>> +                                               main_input_filename);
->>>>>> +                               gcc_unreachable();
->>>>>> +                       }
->>>>>
->>>>> Sibling calls are an important optimization, not only for performance
->>>>> but also for stack utilization, so this needs to be fixed. Can you
->>>>> elaborate on the issue you are working around here?
->>>>>
->>>>      Since the ARM64 has disabled sibling calls (-fno-optimize-sibling-calls) by default,
->>>>      there is almost no sibling call appear in the kernel I encountered.
->>>
->>> What do you mean this is disabled by default? Is that a compiler
->>> setting or a Linux setting?
->> It's a linux setting in aarch64 kernel.
->>
->> In aarch64, since CONFIG_FRAME_POINTER is always selected, -fno-optimize-sibling-calls is
->> usually enable by default, and I think sibling calls rarely appear (I only encountered
->> it once in my cases from bsp's code):
->>
->> ./arch/arm64/Kconfig
->> config ARM64
->> ...
->> select FRAME_POINTER
->>
->> ./Makefile
->> ifdef CONFIG_FRAME_POINTER
->> KBUILD_CFLAGS   += -fno-omit-frame-pointer -fno-optimize-sibling-calls
->> ...
->>
-> 
-> Ah good to know. I don't think we should disable this optimization -
-> we need the frame pointer to unwind the call stack, but that doesn't
-> mean we should obsess about function calls disappearing from the call
-> stack because they end in a tail call.
-> 
-> Anyway, I spotted another issue with your code:
-> 
-> 0000000000000080 <sysctl_net_exit>:
-> {
->    80:   f800865e        str     x30, [x18], #8
->    84:   d503245f        bti     c
->    88:   d503233f        paciasp
-> 
-> You cannot put that str at the start of the function like that: the
-> BTI needs to come first, or you will trigger BTI faults if any of
-> these functions are called indirectly.
-> 
-> There are other reasons why adding it at the start is a bad idea: we
-> insert NOPs there for ftrace, for instance, which also should appear
-> at a fixed offset in the prologue.
+If pac is enabled, scs push/pop will be inserted between paciasp/autiasp.
 
-Thanks for your help, Ard, I did not consider of BTI and NOP
-instructions before.
+At present, this patch has been successfully compiled(based on defconfig
+with kernel 5.14) in the following gcc versions(if plugin is supported)
+and startup normally with commands:
 
-It took me some time to view the source code. Currently, I think
-there may be three problems here(please let me know if i miss
-something):
-1)NOP instruction insertion
-2)Position of BTI instruction
-3)PAC verification
+make ARCH=arm64 defconfig
+./scripts/config -e CONFIG_GCC_PLUGINS -e CONFIG_SHADOW_CALL_STACK \
+-e CONFIG_GCC_PLUGIN_SHADOW_CALL_STACK
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
 
-1)NOP instruction insertion
-As far as I know, the insertion of the kernel nop instruction is
-caused by CONFIG_DYNAMIC_FTRACE_WITH_REGS, which sets
--fpatchable-function-entry=2 to leave positions at the beginning
-of each function.
+Tested gcc version:
+* 6.3.1
+* 7.3.1
+* 7.5.0
+* 8.2.1
+* 9.2.0
+* 10.3.1
 
-SCS push should not be affected, because NOP instructions is
-generated during assembly code output stage(pass final =>
-assemble_start_function),which occurs after the scs pass.
+Signed-off-by: Dan Li <ashimida@linux.alibaba.com>
 
-So in the final binary, the nop instruction is always inserted
-before scs push, such as:
-ffff800010010260 <gic_handle_irq>:
-ffff800010010260:       d503201f        nop
-ffff800010010264:       d503201f        nop
-ffff800010010268:       f800865e        str     x30, [x18], #8
-ffff80001001026c:       a9bb7bfd        stp     x29, x30, [sp, #-80]!
-  
-I enabled CONFIG_DYNAMIC_FTRACE_WITH_REGS + SCS_plugin on the 5.14
-kernel compiled by gcc 10.3, the kernel can startup normally.
+---
+V2:
+- fix incorrect config dependency
+- add support for DYNAMIC_FTRACE_WITH_REGS
+- add support for ARM64_PTR_AUTH_KERNEL/ARM64_BTI_KERNEL
 
-2)Position of BTI instruction
-BTI instructions are mainly inserted in pass_insert_bti, and the pass
-sequence is:
-rtl-mach		:  OFF
-......
-rtl-bti			:  ON
-rtl-arm64_scs		:  ON
-rtl-shorten		:  ON
-.......
-rtl-final
-  
-Since arm64_scs is after rtl-bti, the scs push will inserted before
-bti insns.
+FYI:
+This function can be used to test whether the shadow stack is effective:
 
-To solve this, I changed the insertion point of scs pass to before
-'mach' (which is the insertion point I originally used), patch:
+//noinline void __noscs scs_test(void)
+noinline void scs_test(void)
+{
+    register unsigned long *sp asm("sp");
+    unsigned long * lr = sp + 1;
 
---- a/scripts/gcc-plugins/arm64_scs_plugin.c
+    asm volatile("":::"x30");
+    *lr = 0;
+}
+
+when compiled with:
+CONFIG_DYNAMIC_FTRACE_WITH_REGS=y
+CONFIG_ARM64_PTR_AUTH_KERNEL=y
+CONFIG_ARM64_BTI_KERNEL=y
+
+ffff800010013b60 <scs_test>:
+ffff800010013b60:       d503245f        bti     c
+ffff800010013b64:       d503201f        nop
+ffff800010013b68:       d503201f        nop
+ffff800010013b6c:       d503233f        paciasp
+ffff800010013b70:       f800865e        str     x30, [x18], #8
+ffff800010013b74:       a9bf7bfd        stp     x29, x30, [sp, #-16]!
+ffff800010013b78:       910003fd        mov     x29, sp
+ffff800010013b7c:       910003e0        mov     x0, sp
+ffff800010013b80:       f900041f        str     xzr, [x0, #8]
+ffff800010013b84:       a8c17bfd        ldp     x29, x30, [sp], #16
+ffff800010013b88:       f85f8e5e        ldr     x30, [x18, #-8]!
+ffff800010013b8c:       d50323bf        autiasp
+ffff800010013b90:       d65f03c0        ret
+
+If SCS protection is enabled, this function will return normally.
+If the function has __noscs attribute (scs disabled), it will crash due to 0
+address access.
+---
+ Makefile                               |  20 ++-
+ arch/Kconfig                           |  12 +-
+ arch/arm64/Kconfig                     |   4 +-
+ include/linux/compiler-gcc.h           |   4 +
+ scripts/Makefile.gcc-plugins           |   7 +
+ scripts/gcc-plugins/Kconfig            |   9 +
+ scripts/gcc-plugins/arm64_scs_plugin.c | 299 +++++++++++++++++++++++++++++++++
+ scripts/gcc-plugins/gcc-common.h       |   4 +
+ 8 files changed, 345 insertions(+), 14 deletions(-)
+ create mode 100644 scripts/gcc-plugins/arm64_scs_plugin.c
+
+diff --git a/Makefile b/Makefile
+index 61741e9..8039e61 100644
+--- a/Makefile
++++ b/Makefile
+@@ -923,12 +923,6 @@ KBUILD_CFLAGS_KERNEL += -ffunction-sections -fdata-sections
+ LDFLAGS_vmlinux += --gc-sections
+ endif
+ 
+-ifdef CONFIG_SHADOW_CALL_STACK
+-CC_FLAGS_SCS	:= -fsanitize=shadow-call-stack
+-KBUILD_CFLAGS	+= $(CC_FLAGS_SCS)
+-export CC_FLAGS_SCS
+-endif
+-
+ ifdef CONFIG_LTO_CLANG
+ ifdef CONFIG_LTO_CLANG_THIN
+ CC_FLAGS_LTO	:= -flto=thin -fsplit-lto-unit
+@@ -1034,6 +1028,20 @@ include-$(CONFIG_GCC_PLUGINS)	+= scripts/Makefile.gcc-plugins
+ 
+ include $(addprefix $(srctree)/, $(include-y))
+ 
++ifdef CONFIG_SHADOW_CALL_STACK
++
++ifdef CONFIG_CC_IS_CLANG
++CC_FLAGS_SCS	:= -fsanitize=shadow-call-stack
++endif
++
++ifdef CONFIG_CC_IS_GCC
++CC_FLAGS_SCS	:= $(ENABLE_SHADOW_CALL_STACK_PLUGIN)
++endif
++
++KBUILD_CFLAGS	+= $(CC_FLAGS_SCS)
++export CC_FLAGS_SCS
++endif
++
+ # scripts/Makefile.gcc-plugins is intentionally included last.
+ # Do not add $(call cc-option,...) below this line. When you build the kernel
+ # from the clean source tree, the GCC plugins do not exist at this point.
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 98db634..de61dbc 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -593,14 +593,14 @@ config ARCH_SUPPORTS_SHADOW_CALL_STACK
+ 	  switching.
+ 
+ config SHADOW_CALL_STACK
+-	bool "Clang Shadow Call Stack"
+-	depends on CC_IS_CLANG && ARCH_SUPPORTS_SHADOW_CALL_STACK
++	bool "Shadow Call Stack"
++	depends on ARCH_SUPPORTS_SHADOW_CALL_STACK
+ 	depends on DYNAMIC_FTRACE_WITH_REGS || !FUNCTION_GRAPH_TRACER
+ 	help
+-	  This option enables Clang's Shadow Call Stack, which uses a
+-	  shadow stack to protect function return addresses from being
+-	  overwritten by an attacker. More information can be found in
+-	  Clang's documentation:
++	  This option enables Clang/GCC plugin's Shadow Call Stack, which
++	  uses a shadow stack to protect function return addresses from
++	  being overwritten by an attacker. More information can be found
++	  in Clang's documentation:
+ 
+ 	    https://clang.llvm.org/docs/ShadowCallStack.html
+ 
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 62c3c1d..da2da8c 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -81,7 +81,7 @@ config ARM64
+ 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC
+ 	select ARCH_SUPPORTS_HUGETLBFS
+ 	select ARCH_SUPPORTS_MEMORY_FAILURE
+-	select ARCH_SUPPORTS_SHADOW_CALL_STACK if CC_HAVE_SHADOW_CALL_STACK
++	select ARCH_SUPPORTS_SHADOW_CALL_STACK if (CC_HAVE_SHADOW_CALL_STACK || GCC_PLUGIN_SHADOW_CALL_STACK)
+ 	select ARCH_SUPPORTS_LTO_CLANG if CPU_LITTLE_ENDIAN
+ 	select ARCH_SUPPORTS_LTO_CLANG_THIN
+ 	select ARCH_SUPPORTS_CFI_CLANG
+@@ -1062,7 +1062,7 @@ config ARCH_HAS_FILTER_PGPROT
+ 
+ # Supported by clang >= 7.0
+ config CC_HAVE_SHADOW_CALL_STACK
+-	def_bool $(cc-option, -fsanitize=shadow-call-stack -ffixed-x18)
++	def_bool (CC_IS_CLANG && $(cc-option, -fsanitize=shadow-call-stack -ffixed-x18))
+ 
+ config PARAVIRT
+ 	bool "Enable paravirtualization code"
+diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
+index cb9217f..426c8e5 100644
+--- a/include/linux/compiler-gcc.h
++++ b/include/linux/compiler-gcc.h
+@@ -50,6 +50,10 @@
+ #define __latent_entropy __attribute__((latent_entropy))
+ #endif
+ 
++#if defined(SHADOW_CALL_STACK_PLUGIN) && !defined(__CHECKER__)
++#define __noscs __attribute__((no_shadow_call_stack))
++#endif
++
+ /*
+  * calling noreturn functions, __builtin_unreachable() and __builtin_trap()
+  * confuse the stack allocation in gcc, leading to overly large stack
+diff --git a/scripts/Makefile.gcc-plugins b/scripts/Makefile.gcc-plugins
+index 952e468..b45bd8c 100644
+--- a/scripts/Makefile.gcc-plugins
++++ b/scripts/Makefile.gcc-plugins
+@@ -46,6 +46,13 @@ ifdef CONFIG_GCC_PLUGIN_ARM_SSP_PER_TASK
+ endif
+ export DISABLE_ARM_SSP_PER_TASK_PLUGIN
+ 
++gcc-plugin-$(CONFIG_GCC_PLUGIN_SHADOW_CALL_STACK) += arm64_scs_plugin.so
++gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_SHADOW_CALL_STACK)	\
++		+= -DSHADOW_CALL_STACK_PLUGIN
++ifdef CONFIG_GCC_PLUGIN_SHADOW_CALL_STACK
++    ENABLE_SHADOW_CALL_STACK_PLUGIN += -fplugin-arg-arm64_scs_plugin-enable
++endif
++
+ # All the plugin CFLAGS are collected here in case a build target needs to
+ # filter them out of the KBUILD_CFLAGS.
+ GCC_PLUGINS_CFLAGS := $(strip $(addprefix -fplugin=$(objtree)/scripts/gcc-plugins/, $(gcc-plugin-y)) $(gcc-plugin-cflags-y))
+diff --git a/scripts/gcc-plugins/Kconfig b/scripts/gcc-plugins/Kconfig
+index ab9eb4c..92f7f76 100644
+--- a/scripts/gcc-plugins/Kconfig
++++ b/scripts/gcc-plugins/Kconfig
+@@ -19,6 +19,15 @@ menuconfig GCC_PLUGINS
+ 
+ if GCC_PLUGINS
+ 
++config GCC_PLUGIN_SHADOW_CALL_STACK
++	bool "Plugin for ARM64 Shadow Call Stack"
++	depends on (!CC_HAVE_SHADOW_CALL_STACK) && ARM64
++	help
++	  This plugin is used to support kernel CONFIG_SHADOW_CALL_STACK
++	  compiled by gcc. Its principle is basically the same as that of
++	  CLANG.
++	  For more information, please refer to "config SHADOW_CALL_STACK"
++
+ config GCC_PLUGIN_CYC_COMPLEXITY
+ 	bool "Compute the cyclomatic complexity of a function" if EXPERT
+ 	depends on !COMPILE_TEST	# too noisy
+diff --git a/scripts/gcc-plugins/arm64_scs_plugin.c b/scripts/gcc-plugins/arm64_scs_plugin.c
+new file mode 100644
+index 0000000..bb72baa
+--- /dev/null
 +++ b/scripts/gcc-plugins/arm64_scs_plugin.c
-@@ -214,7 +214,7 @@ __visible int plugin_init(struct plugin_name_args *plugin_info, struct plugin_gc
-         const struct plugin_argument * const argv = plugin_info->argv;
-         bool enable = true;
-  
--       PASS_INFO(arm64_scs, "shorten", 1, PASS_POS_INSERT_BEFORE);
-+       PASS_INFO(arm64_scs, "mach", 1, PASS_POS_INSERT_AFTER);
-
-Then BTI will be inserted before scs push, as follows:
-ffff800010010290 <gic_handle_irq>:
-ffff800010010290:       d503245f        bti     c
-ffff800010010294:       d503201f        nop
-ffff800010010298:       d503201f        nop
-ffff80001001029c:       f800865e        str     x30, [x18], #8
-ffff8000100102a0:       d503233f        paciasp
-ffff8000100102a4:       a9bb7bfd        stp     x29, x30, [sp, #-80]!
-ffff8000100102a8:       910003fd        mov     x29, sp
-   
-At present, the system startup normally with
-CONFIG_ARM64_PTR_AUTH_KERNEL + CONFIG_ARM64_BTI_KERNEL (but my qemu
-does not seem to support BTI commands, and I'm still trying to build
-a test environment)
-
-3)PAC verification
-PAC is processed in rtl-pro_and_epilogue, scs can't be put in front
-of it.
-
-In current patch, it will generate instructions like:
-ffff800010010290 <gic_handle_irq>:
-......
-ffff80001001029c:       f800865e        str     x30, [x18], #8
-ffff8000100102a0:       d503233f        paciasp
-......
-ffff800010010364:       d50323bf        autiasp
-ffff800010010368:       f85f8e5e        ldr     x30, [x18, #-8]!
-
-which means pac is invalid, the attacker only needs to modify the
-x30 from shadow stack.
-
-Modifying the insertion point of scs push/pop should solve this
-problem(I will try it later).
-   
-But what puzzles me is that PAC should be an enhanced implementation
-of SCS. Do we need to support PAC and SCS at the same time?
+@@ -0,0 +1,299 @@
++// SPDX-License-Identifier: GPL-2.0
++#include "gcc-common.h"
++
++#define v_info(fmt, ...)							\
++	do {									\
++		if (verbose)							\
++			fprintf(stderr, "[SCS]:" fmt,  ## __VA_ARGS__);	\
++	} while (0)
++
++#define NOSCS_ATTR_STR  "no_shadow_call_stack"
++#define SCS_ASM_PUSH_STR "str x30, [x18], #8\n\t"
++#define SCS_ASM_POP_STR  "ldr x30, [x18, #-8]!\n\t"
++
++__visible int plugin_is_GPL_compatible;
++
++static struct plugin_info arm64_scs_plugin_info = {
++	.version	= "20210926vanilla",
++	.help		= "enable\tactivate plugin\n"
++			  "verbose\tprint all debug infos\n",
++};
++
++static bool verbose;
++
++#if BUILDING_GCC_VERSION >= 10001
++enum insn_code paciasp_num = CODE_FOR_paciasp;
++enum insn_code autiasp_num = CODE_FOR_autiasp;
++#elif BUILDING_GCC_VERSION >= 7003
++enum insn_code paciasp_num = CODE_FOR_pacisp;
++enum insn_code autiasp_num = CODE_FOR_autisp;
++#else
++enum insn_code paciasp_num = CODE_FOR_nothing;
++enum insn_code autiasp_num = CODE_FOR_nothing;
++#define TARGET_ARMV8_3 0
++#endif
++
++static rtx_insn * (*old_gen_prologue)(void);
++static rtx_insn * (*old_gen_epilogue)(void);
++static rtx_insn * (*old_gen_sibcall_epilogue)(void);
++
++static rtx gen_scs_push(location_t loc)
++{
++	rtx insn = gen_rtx_ASM_INPUT_loc(VOIDmode, ggc_strdup(SCS_ASM_PUSH_STR), loc);
++
++	MEM_VOLATILE_P(insn) = 1;
++	return insn;
++}
++
++static rtx gen_scs_pop(location_t loc)
++{
++	rtx insn = gen_rtx_ASM_INPUT_loc(VOIDmode, ggc_strdup(SCS_ASM_POP_STR), loc);
++
++	MEM_VOLATILE_P(insn) = 1;
++	return insn;
++}
++
++static bool scs_func_ignored(void)
++{
++	bool is_ignored;
++
++#if BUILDING_GCC_VERSION >= 8002
++	is_ignored = !cfun->machine->frame.emit_frame_chain;
++#else
++	is_ignored = !frame_pointer_needed;
++#endif
++
++	/*
++	 * Functions that do not push LR into stack are not protected.
++	 * Functions that call __builin_eh_return is not protected(consistent with gcc's PAC).
++	 */
++	if (is_ignored || crtl->calls_eh_return) {
++		v_info("No protection code inserted into func:%s in file:%s\n",
++			get_name(current_function_decl), main_input_filename);
++		return 1;
++	}
++
++	/* Functions with attribute NOSCS_ATTR_STR need to be unprotected */
++	if (lookup_attribute(NOSCS_ATTR_STR, DECL_ATTRIBUTES(current_function_decl))) {
++		v_info("No protection code inserted into %s func:%s in file:%s\n", NOSCS_ATTR_STR,
++				get_name(current_function_decl), main_input_filename);
++		return 1;
++	}
++
++	return 0;
++}
++
++static rtx_insn *search_insn(enum insn_code code, rtx_insn *seq)
++{
++	rtx_insn *insn;
++
++	for (insn = get_insns(); insn; insn = NEXT_INSN(insn)) {
++		if (code == recog(PATTERN(insn), insn, 0))
++			return insn;
++	}
++
++	return NULL;
++}
++
++static bool scs_return_address_signing_enabled(void)
++{
++#if BUILDING_GCC_VERSION >= 7003
++	return aarch64_return_address_signing_enabled();
++#else
++	return false;
++#endif
++}
++
++static rtx_insn *scs_gen_prologue(void)
++{
++	rtx_insn *seq = NULL, *mark;
++	rtx tmp;
++	bool ret_sign_enabled;
++
++	if (old_gen_prologue)
++		seq = old_gen_prologue();
++
++	if ((!seq) || scs_func_ignored())
++		return seq;
++
++	ret_sign_enabled = scs_return_address_signing_enabled();
++	tmp = gen_scs_push(RESERVED_LOCATION_COUNT);
++
++	start_sequence();
++	emit_insn(seq);
++
++	if (ret_sign_enabled) {
++		/* For functions with pac enabled, insert scs push after the 'paciasp' insn */
++		mark = search_insn(paciasp_num, get_insns());
++		if (!mark)
++			error(G_("Non-standard insn seqs found:\n"
++				"__noscs attr should be added on func:%s,file:%s\n"),
++				get_name(current_function_decl), main_input_filename);
++
++		emit_insn_after(tmp, mark);
++	} else {
++		/* For functions that do not enable pac, insert scs push at the start of insns */
++		mark = get_insns();
++		emit_insn_before(tmp, mark);
++	}
++
++	seq = get_insns();
++	end_sequence();
++	return seq;
++}
++
++static rtx_insn *scs_gen_epilogue(void)
++{
++	rtx_insn *seq = NULL, *mark;
++	rtx tmp;
++	bool ret_sign_enabled;
++
++	if (old_gen_epilogue)
++		seq = old_gen_epilogue();
++
++	if ((!seq) || scs_func_ignored())
++		return seq;
++
++	ret_sign_enabled = scs_return_address_signing_enabled();
++	tmp = gen_scs_pop(RESERVED_LOCATION_COUNT);
++
++	start_sequence();
++	emit_insn(seq);
++
++	if (ret_sign_enabled && (!TARGET_ARMV8_3)) {
++		/* For functions with pac enabled, if 'autiasp' is used in epilogue
++		 * (!TARGET_ARMV8_3), scs pop should inserted before this insn.
++		 */
++		mark = search_insn(autiasp_num, get_insns());
++	} else {
++		/* For functions do not enabled pac or used 'retaa' as pac check,
++		 * scs pop inserted before the last 'return" insn
++		 */
++		mark = get_last_insn();
++	}
++
++	if (!mark)
++		error(G_("Non-standard insn seqs found:\n"
++			"__noscs attr should be added on func:%s,file:%s\n"),
++			get_name(current_function_decl), main_input_filename);
++
++	emit_insn_before(tmp, mark);
++
++	seq = get_insns();
++	end_sequence();
++	return seq;
++}
++
++static rtx_insn *scs_gen_sibcall_epilogue(void)
++{
++	rtx_insn *seq = NULL, *mark;
++	rtx tmp;
++	bool ret_sign_enabled;
++
++	if (old_gen_sibcall_epilogue)
++		seq = old_gen_sibcall_epilogue();
++
++	if ((!seq) || scs_func_ignored())
++		return seq;
++
++	ret_sign_enabled = scs_return_address_signing_enabled();
++	tmp = gen_scs_pop(RESERVED_LOCATION_COUNT);
++
++	start_sequence();
++	emit_insn(seq);
++
++	if (ret_sign_enabled) {
++		/* If pac is enabled, sibling_call will always use 'autiasp' as pac check */
++		mark = search_insn(autiasp_num, get_insns());
++		if (!mark)
++			error(G_("Non-standard insn seqs found:\n"
++				"__noscs attr should be added on func:%s,file:%s\n"),
++				get_name(current_function_decl), main_input_filename);
++		emit_insn_before(tmp, mark);
++	} else {
++		/* If pac is disabled, insert scs pop at the end of insns */
++		mark = get_last_insn();
++		emit_insn_after(tmp, mark);
++	}
++
++	seq = get_insns();
++	end_sequence();
++
++	return seq;
++}
++
++static void callback_before_start_unit(void *gcc_data __unused, void *user_data __unused)
++{
++	old_gen_prologue = targetm.gen_prologue;
++	old_gen_epilogue = targetm.gen_epilogue;
++	old_gen_sibcall_epilogue = targetm.gen_sibcall_epilogue;
++
++	targetm.gen_prologue = scs_gen_prologue;
++	targetm.gen_epilogue = scs_gen_epilogue;
++	targetm.gen_sibcall_epilogue = scs_gen_sibcall_epilogue;
++}
++
++static tree handle_noscs_attribute(tree *node, tree name, tree args __unused, int flags,
++		bool *no_add_attrs)
++{
++	/* NOSCS_ATTR_STR can only be used for function declarations */
++	switch (TREE_CODE(*node)) {
++	case FUNCTION_DECL:
++		break;
++	default:
++		error(G_("%qE attribute can be applies to function decl only (%qE)"), name, *node);
++		gcc_unreachable();
++	}
++
++	*no_add_attrs = false;
++	return NULL_TREE;
++}
++
++static struct attribute_spec noscs_attr = {};
++
++static void scs_register_attributes(void *event_data __unused, void *data __unused)
++{
++	noscs_attr.name	= NOSCS_ATTR_STR;
++	noscs_attr.decl_required = true;
++	noscs_attr.handler = handle_noscs_attribute;
++	register_attribute(&noscs_attr);
++}
++
++__visible int plugin_init(struct plugin_name_args *plugin_info, struct plugin_gcc_version *version)
++{
++	int i;
++	bool enable = false;
++	const char * const plugin_name = plugin_info->base_name;
++	const int argc = plugin_info->argc;
++	const struct plugin_argument * const argv = plugin_info->argv;
++
++	if (!plugin_default_version_check(version, &gcc_version)) {
++		error(G_("Incompatible gcc/plugin versions"));
++		return 1;
++	}
++
++	for (i = 0; i < argc; ++i) {
++		if (!strcmp(argv[i].key, "enable")) {
++			enable = true;
++			continue;
++		}
++		if (!strcmp(argv[i].key, "verbose")) {
++			verbose = true;
++			continue;
++		}
++		error(G_("unknown option '-fplugin-arg-%s-%s'"), plugin_name, argv[i].key);
++	}
++
++	if (!enable) {
++		v_info("Plugin disabled for file:%s\n", main_input_filename);
++		return 0;
++	}
++
++	register_callback(plugin_name, PLUGIN_INFO, NULL, &arm64_scs_plugin_info);
++
++	register_callback(plugin_name, PLUGIN_ATTRIBUTES, scs_register_attributes, NULL);
++
++	register_callback(plugin_name, PLUGIN_START_UNIT, callback_before_start_unit, NULL);
++
++	return 0;
++}
+diff --git a/scripts/gcc-plugins/gcc-common.h b/scripts/gcc-plugins/gcc-common.h
+index 0c08761..7251b00 100644
+--- a/scripts/gcc-plugins/gcc-common.h
++++ b/scripts/gcc-plugins/gcc-common.h
+@@ -27,6 +27,7 @@
+ #include "except.h"
+ #include "function.h"
+ #include "toplev.h"
++#include "insn-codes.h"
+ #if BUILDING_GCC_VERSION >= 5000
+ #include "expr.h"
+ #endif
+@@ -535,6 +536,9 @@ static inline void ipa_remove_stmt_references(symtab_node *referring_node, gimpl
+ }
+ #endif
+ 
++/* RTL related */
++extern int recog(rtx, rtx_insn *, int *);
++
+ #if BUILDING_GCC_VERSION < 6000
+ #define get_inner_reference(exp, pbitsize, pbitpos, poffset, pmode, punsignedp, preversep, pvolatilep, keep_aligning)	\
+ 	get_inner_reference(exp, pbitsize, pbitpos, poffset, pmode, punsignedp, pvolatilep, keep_aligning)
+-- 
+2.7.4
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/377e7da8-577b-cd8e-1212-ba0c2d31eb05%40linux.alibaba.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1632830775-32267-1-git-send-email-ashimida%40linux.alibaba.com.
