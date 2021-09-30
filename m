@@ -1,145 +1,146 @@
-Return-Path: <clang-built-linux+bncBDPYNU65Q4NRBOH23CFAMGQEC4GBFNA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRBYP53CFAMGQEXZ7DVAY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7DA5441E413
-	for <lists+clang-built-linux@lfdr.de>; Fri,  1 Oct 2021 00:42:01 +0200 (CEST)
-Received: by mail-pl1-x63c.google.com with SMTP id o6-20020a170902bcc600b00138a9a5bc42sf4086456pls.17
-        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Sep 2021 15:42:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1633041720; cv=pass;
+Received: from mail-pg1-x540.google.com (mail-pg1-x540.google.com [IPv6:2607:f8b0:4864:20::540])
+	by mail.lfdr.de (Postfix) with ESMTPS id B680841E41D
+	for <lists+clang-built-linux@lfdr.de>; Fri,  1 Oct 2021 00:49:06 +0200 (CEST)
+Received: by mail-pg1-x540.google.com with SMTP id a16-20020a63d410000000b00268ebc7f4fasf5090068pgh.17
+        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Sep 2021 15:49:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1633042145; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Opj1mzVBGOOk4Jt4fl0smrpG12WemubO/a2j7f/EK6AYton9x/5EeCElpcGomWPpnl
-         +p9CfozGFl5lcjijmfd7hLbjjhzEfxNYIgsqu5zr012RiaLiaA6o/Q28d5cTlzmcUWj6
-         S/HrezE+2uEv9AmzVqCM6VaTuKqv5RoY5sNBWSYGZnWeWY2xDLnoJ1nwNpjc+1pEMAoz
-         QdEAK/b4KdPejNiOAV9ofsJFMPQ9e9lHMWCfamO9mAnpxWubpI7HTM0yJZMDAjL6jd7c
-         ETMS19Ff4gqggJHU0MR/Ds65/IUDOjSwy8PZ6ncUYlPUoXUzUeyXlhFqz5hAMkP5jdnV
-         VdJA==
+        b=p4lZyEoA3ewfUNBUH6gN19Muk9V+/yV2PmwO/lfCmxwUKQ1z0Qydag37GUnmqactmI
+         cZQBZsEEuvGitt3WXQvOIPLhFyV90G0diLd5PztuN6ZGwI0rWpQ5kZzVHdFIKe/ZJkr/
+         FjwH2tKigxVNBPqNlgc++ms73agwjynYhpV2pO1qFQYPsAn/c8iyysLljdT3m31zfoL2
+         rkkjonHD+tlbZz7/40WEedOtEZVUbdgg95loTqh/jnHzBOyprwyFrWEoTJS48SDa092E
+         B/Ke98Cq4dz5i+q6EX7JZ5kNz6pd7vRVDlNek37LuzciibiLlKDFNCBpd0Q/ru5E6wdQ
+         NwJQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=M8BtFHr/1p7jSB44kKPMz5viJDK1aY1s9j1qrJoM+Xs=;
-        b=l1cgKS41sjeQ7TKwOcK18aEajHceUk7so689nHoiTcNdRhD8uQlwLFsI0ULsBOz9qC
-         uriPiRTFfgBvb5dnXZZAlO/T9y9OMVb3s2Mc2fiZOb/XIRiGB/MVMYm/uYq1bt/9KpkQ
-         gO0ce2wjDZdHop/3qwlq9Dz0mLLix2l9LMrdyCzwFslnzj5yMmY+Y49l4lOhSOAnD8vM
-         LjsmU90NDOfqOqgtgU4XKt1mPvTiVFH77mCgY0OTXrgbHvmLSyD4sH5GPxuvAX6WqfmF
-         2ZSFfgPY953gO0/eG5mZficXeWJMFxnofk7MaRPvEDF3hASU40qnR6zxplot0pBr596S
-         iwuQ==
+        bh=ktcPxjtbyS1Hm6sBDJD+/9XTRE79PB6FVx5h6ki6QCQ=;
+        b=EziEiADwLN78EHYmIBRAxGpF89DftQtAGYG9b77JoqGTJyi8ZkOY9hepwaK7EhuHjC
+         dUpArmIuc7IalSub4v/+q6jL4ZXzB+5vSWFissCW6ATfSy07CSIOv+6tJuuqtY+GW5HL
+         GzEFEF9xMAjHp+QLqxfBO5xrWsL0OlqCPFUoeFVPt9qIAj1xdRjx1+Cx3lNro6yW+pT3
+         cjP5ofu0b33Y6XewyPuZFvngAbFUZMYT5HmnVR+2n1D6PCzApsHhEv6AgLxNKbltsgnU
+         ujLFykbBQq8zsVsgXI19AVotj8zL9aeGgzBrFQjHloIHkjf+migWl4Pu93BOOxI49KqS
+         uGaA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=dGDIR4Az;
-       spf=pass (google.com: domain of gustavoars@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gustavoars@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=UsJzLo6Y;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::d31 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=M8BtFHr/1p7jSB44kKPMz5viJDK1aY1s9j1qrJoM+Xs=;
-        b=c6V5iw5heGAT0lHAx9zclLbbMOmwJ+Mbap0nE6DU/lad82Bzf1duEh4QjiKVagyciy
-         Azdi2wAUVLW10wc6yFRhV7S9CtSDgCDX36F0eanz1o1iURvWLoy/MMm+ernYlDREY1GE
-         ELW0gqoymTVnB8mIzZTXTuSxk7Ife6zvnD0kA6ighEPNbbKsYLUSP2xVcnezS+G6x7UG
-         ZI7fPOsDloESygHtwzwjyGWAX7FWZV7CJxXW1+aTNkJDYsac0rTQmV6Sfoes+f/kg/fI
-         dc/QrNqv1jSrKH0Yj8Xce5gTDocAPTbLHQGfCq5uF8ABV4ZeSRJ4O3zwgQRZKc9iYy+B
-         zGDA==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ktcPxjtbyS1Hm6sBDJD+/9XTRE79PB6FVx5h6ki6QCQ=;
+        b=nvCVhAlwFq+MC4JClY2TEtDn3td/GVxLiOm99gEI74HY/Vv1U8fFMMujw4Peb3CWvc
+         6t4HTAEJW6det6CIIdj0OIfHRYbutFLxff3X994RoD9XbJCPj1Q6iZanF2u8vFg5KnBY
+         pDVnYBUg2BPxEMbT7co9GtPfCrp0IiWFIOVCjEm3dannaq8QZfoml7vWFhGsrkiFfi/D
+         72pCMHCIVKdC+L0D/LGeZW4MX+lW4xcL3xoj3lvRiM+oSfJv/aV2K3hsVjipR5K2uLUe
+         TKjqn6kSJWfGcKheuIKfDn/l9Wfh+dh5jYnjt9G++4aGuLLbCOlAV9nhwIMfhQCZcOHG
+         QDng==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ktcPxjtbyS1Hm6sBDJD+/9XTRE79PB6FVx5h6ki6QCQ=;
+        b=piz4eYpLqQWopkkKUof3V3OAPnGbkH3zP97GZRBRfTo5NvSClewTAvyrJp1WHss2ZF
+         kdxApP68wMEhvx2mgCfB7rlEM9AWPDB6o3hZlapVgLBMLr9ntbKjZngolXxNevJ9krcl
+         eHCXiefGdi2NgT09HCLvBtdO6DBAWV8MdAKKJQV86l3zXOkXlhb9mS6QVTsczhsTW8Sh
+         zwhbpJhfMZDYKU1mzwEzagZdpI9vOSBHSw+nv6lU0WAYzz4MSVX7UQhrBUetwzJ9GNfb
+         pkYBOF+kkx9ekdRgSlDipPVlx4AmhtOJ2qS9RuwxIBKCbFiHeh2jnvo54pG1+IQlxBjL
+         E1ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=M8BtFHr/1p7jSB44kKPMz5viJDK1aY1s9j1qrJoM+Xs=;
-        b=ZPCMLCq/RiQlgybf24PpyiHmiy/BIA4wn9Pwkkj4iYJTLLa/3B6KI8ZOOWPKfpXJh6
-         N+XSClYPfMnF4v20Nfomve+ijHE6Hdt/vaZBxlI7+Ytn54TszHDraU4XKyou0FMOGULp
-         qQnrdXPBOf7ygM3KOAe5dJLXMtej52MVj0rXXVm9CSqOE45oKhPcIwuNpOj12eWJf6Ma
-         wxb/5+XqVHp95morcsE0FaGThtBfxofIYyq9fL/NW/MECEWLcZfudvLUMa+H09lPqFGg
-         r3WNdFaX+yDBYyRd32VqHAE0sP9JrRNOUy2eRdCWcHC68EzjoL+xiy1e7HLiijM40rcN
-         0Rbg==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ktcPxjtbyS1Hm6sBDJD+/9XTRE79PB6FVx5h6ki6QCQ=;
+        b=mM9sHlVx5Ic2zrZ4ljzCXoRxID4zE+nHo6z7xUpkPmJAbEYT4jgXGOWRTwHHQjb/oe
+         +yMJMLUG4J+v3S/98u7FapJZq+ijkZ1pfPOw+G52afr1xZlhIm6BJs0K+YxCu16E4fRI
+         Kt90wh8ZmAtqz2pViLGgnjhCTjs9KfRi2zQLhzsl+RoayW6b6u4ywROqDBPRq5FHp1d7
+         QNCuzAlzrVLNF+gL2VYgC15CYnvIS+GMNjZi8GbMCFiK/SkRqW6zIL70q9DCIcOdJ0/o
+         sxKS5h0tP2OHjNDrHLxavv4wLKoAC1hiOZ+EjKxrcGJSZTjNEicBsJqQOTkB39DiLxEs
+         xndg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533cjrfhrgGl3sKWRHhVP3+P+YcfnBL12hD//3QBQqrcWHntgL2d
-	VXrqx1rCHS747Koj9eG2low=
-X-Google-Smtp-Source: ABdhPJzRvTjybLqWgDS5JUJFfkT0kc/r1geyUbxHlmJf6Aj8Eq/xG7CdcNZQQ1pTJ6JIh//Uh+bS2g==
-X-Received: by 2002:a17:90b:1d0f:: with SMTP id on15mr7345335pjb.77.1633041720141;
-        Thu, 30 Sep 2021 15:42:00 -0700 (PDT)
+X-Gm-Message-State: AOAM532t4KA7Ydrm15+cO1RLEX4zxjz8hvf5JsSXyMmyvdxmbLcoPyIy
+	RWSQDoL2Zj0afyfwAou8NBo=
+X-Google-Smtp-Source: ABdhPJw9qP5bv+wJEK8Yjb2FoXan0U72ynxTd3eXha3ifWWe8qWsyvQwyUm3UcqR56+WjtnY0R529w==
+X-Received: by 2002:a17:90a:6649:: with SMTP id f9mr9034523pjm.15.1633042145278;
+        Thu, 30 Sep 2021 15:49:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:ba97:: with SMTP id k23ls4218251pls.10.gmail; Thu,
- 30 Sep 2021 15:41:59 -0700 (PDT)
-X-Received: by 2002:a17:90b:4b03:: with SMTP id lx3mr6169414pjb.137.1633041719539;
-        Thu, 30 Sep 2021 15:41:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1633041719; cv=none;
+Received: by 2002:a63:5b52:: with SMTP id l18ls2945710pgm.1.gmail; Thu, 30 Sep
+ 2021 15:49:04 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1789:b0:43d:ea98:7ea8 with SMTP id s9-20020a056a00178900b0043dea987ea8mr7983750pfg.67.1633042144636;
+        Thu, 30 Sep 2021 15:49:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1633042144; cv=none;
         d=google.com; s=arc-20160816;
-        b=RVsNK6obTjPJeH4G3T7I5i71l3dpm6DhYrMLyLhosIyt3av7O4OJHDJTsikZHPCEwY
-         sytFWZ5+GUwKtV6gczOnRph/VapueVfJsHI1YUDBG5iONQN5HfUPsQ2RxHg+tajryNN6
-         +PFMYxB5GLdrqwjjYoe638LyeSDiqikUZvcvo62RG+6KiqQ6SZ4VffHrY+/cxps4FdLz
-         OxEMwXcz8yOdiCxFVLCo65n+CLXQt6vtOHbSdHypSUYNZ5iqo8FuLHFzs8+PFgO3FcIM
-         oHCOGyuxHE5FBdV0JByL/OkdvPi1SxYyJ0XZXO17Zdc+i7saPol49yr4Y8YmraFuxovf
-         C4lg==
+        b=TxdwzHz8DhkJ+pDfIq5DsIqCvvJ54LCwBvwayVg/WT7w+tTMvy2ZyGA2e5qPtCLYVq
+         TFYkH6+deVkbyc5P6sEX1KZJGt8VlY/iklJscTN92r2+gEF5vT98/yJ9gF49dh1UfI+q
+         wORxlNqHkjaPwif3sKG0DNJ/qw89idXggIDpgdxVeRYTwa6w3vjSyPObOI25Nsb6L7qm
+         JL6Y8BO2yWlDothZgmfSfxrvFmjuKJc5UTWXVrhlKo5Jm7qifMp4ysGPrf+5QVKTzCBl
+         1z+HDQTXbJsSz2aAoznE6oqPRTAN2p8kxCp541CqhKafn5gBEsSiHJwsPHQCdaj9vSXn
+         xFQA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=oSJbVQ4hKLnKt6Es8obmnopvtKTg9dCPZhy2aaIFHAU=;
-        b=x/AROkrWatPJJgyVVmHqif6j2uZozGmk2OmlVcmM8gs6sHSgRQlLMsoqvUvGtSn5Pk
-         w8PbUThvelwj3aZaZYW9eNTPa2dyOyiDwJdX8IVURqoaVlqMPDxSI8YkFY0lw1vsZYkr
-         BvFzygoAzwu8D/zgGXPTtxWZjBGBpVkvAgoZa6eqYQV3F0Pt9IjVJiE7uo0zHAcxFncx
-         S9VE2eCwe/UN7Iu1tq6AvkY12pYeKZABDYypOeldX6tekdkIW4gU6Glbtah61jSuTgNj
-         5lyrxkwfrULMZLzDW/yZdqm6TM0U9NriAmGbkgLFHosQhPGjXZ6g5yw2+aEXQlyT6n5j
-         y+/w==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=vOtIXIDfSsulhUrItDNQERb0f0g8vwOd+YpN2bOuFew=;
+        b=DFVKCkm6iSaVZuKbGvLySsljEFreJKY5SkxBF2mb+AZaVJnqbcjYBhELr7CP/+Uzl/
+         0Wu9lujptYN6uSycXfPSgfhvB5l9OKcdDJcz/a5At1eV2x0zLg8XU+VkWcT4k11fdofw
+         ghY/vKgrDZBFKm/Y40YHVVSScXIg0bKk7jU4ROiGyDJl0NCbn7GryasSTGojjEiCseeG
+         kHtmKCX3km0MFcn+8lVozG+J5C2u3AQr4xa3zOkpgD3LbbhYv5Q3eDLFRyqJCQn3YpYx
+         FozEzJTULRaDy2sL9KYRxxlJenmQlAO96hRTPxJ29QBL5PkRCLb8N0J10WAhNOiRm4UN
+         ITUA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=dGDIR4Az;
-       spf=pass (google.com: domain of gustavoars@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gustavoars@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c11si488260pgw.1.2021.09.30.15.41.59
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=UsJzLo6Y;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::d31 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd31.google.com (mail-io1-xd31.google.com. [2607:f8b0:4864:20::d31])
+        by gmr-mx.google.com with ESMTPS id i22si451005pfq.4.2021.09.30.15.49.04
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 30 Sep 2021 15:41:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gustavoars@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 2FA9F6109E;
-	Thu, 30 Sep 2021 22:41:57 +0000 (UTC)
-Date: Thu, 30 Sep 2021 17:46:04 -0500
-From: "Gustavo A. R. Silva" <gustavoars@kernel.org>
-To: Kees Cook <keescook@chromium.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	kernel test robot <lkp@intel.com>,
-	Matt Porter <mporter@kernel.crashing.org>,
-	Alexandre Bounine <alex.bou9@gmail.com>,
-	Jing Xiangfeng <jingxiangfeng@huawei.com>,
-	Ira Weiny <ira.weiny@intel.com>,
-	Souptick Joarder <jrdr.linux@gmail.com>,
-	John Hubbard <jhubbard@nvidia.com>, Joe Perches <joe@perches.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Andy Whitcroft <apw@canonical.com>,
-	Dwaipayan Ray <dwaipayanray1@gmail.com>,
-	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
-	Christoph Lameter <cl@linux.com>, Pekka Enberg <penberg@kernel.org>,
-	David Rientjes <rientjes@google.com>,
-	Joonsoo Kim <iamjoonsoo.kim@lge.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Daniel Micay <danielmicay@gmail.com>,
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	clang-built-linux@googlegroups.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 1/8] rapidio: Avoid bogus __alloc_size warning
-Message-ID: <20210930224604.GA906353@embeddedor>
-References: <20210930222704.2631604-1-keescook@chromium.org>
- <20210930222704.2631604-2-keescook@chromium.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Sep 2021 15:49:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2607:f8b0:4864:20::d31 as permitted sender) client-ip=2607:f8b0:4864:20::d31;
+Received: by mail-io1-xd31.google.com with SMTP id e144so9553366iof.3
+        for <clang-built-linux@googlegroups.com>; Thu, 30 Sep 2021 15:49:04 -0700 (PDT)
+X-Received: by 2002:a02:a60a:: with SMTP id c10mr7053135jam.131.1633042144130;
+ Thu, 30 Sep 2021 15:49:04 -0700 (PDT)
 MIME-Version: 1.0
+References: <20210930222704.2631604-1-keescook@chromium.org> <20210930222704.2631604-3-keescook@chromium.org>
+In-Reply-To: <20210930222704.2631604-3-keescook@chromium.org>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Fri, 1 Oct 2021 00:48:53 +0200
+Message-ID: <CANiq72m3=pD=D_dt1SUZRAp19WV86LjWRj9xd-tt1YNtnkqy5w@mail.gmail.com>
+Subject: Re: [PATCH v3 2/8] Compiler Attributes: add __alloc_size() for better
+ bounds checking
+To: Kees Cook <keescook@chromium.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Andy Whitcroft <apw@canonical.com>, Christoph Lameter <cl@linux.com>, Daniel Micay <danielmicay@gmail.com>, 
+	David Rientjes <rientjes@google.com>, Dennis Zhou <dennis@kernel.org>, 
+	Dwaipayan Ray <dwaipayanray1@gmail.com>, Joe Perches <joe@perches.com>, 
+	Joonsoo Kim <iamjoonsoo.kim@lge.com>, Lukas Bulwahn <lukas.bulwahn@gmail.com>, 
+	Pekka Enberg <penberg@kernel.org>, Tejun Heo <tj@kernel.org>, Vlastimil Babka <vbabka@suse.cz>, 
+	Miguel Ojeda <ojeda@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Michal Marek <michal.lkml@markovi.net>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Linux-MM <linux-mm@kvack.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20210930222704.2631604-2-keescook@chromium.org>
-X-Original-Sender: gustavoars@kernel.org
+X-Original-Sender: miguel.ojeda.sandonis@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=dGDIR4Az;       spf=pass
- (google.com: domain of gustavoars@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gustavoars@kernel.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20210112 header.b=UsJzLo6Y;       spf=pass
+ (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
+ 2607:f8b0:4864:20::d31 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,102 +153,31 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Sep 30, 2021 at 03:26:57PM -0700, Kees Cook wrote:
-> After adding __alloc_size attributes to the allocators, GCC 9.3 (but not
-> later) may incorrectly evaluate the arguments to check_copy_size(),
-> getting seemingly confused by the size being returned from array_size().
-> Instead, perform the calculation once, which both makes the code more
-> readable and avoids the bug in GCC.
-> 
->    In file included from arch/x86/include/asm/preempt.h:7,
->                     from include/linux/preempt.h:78,
->                     from include/linux/spinlock.h:55,
->                     from include/linux/mm_types.h:9,
->                     from include/linux/buildid.h:5,
->                     from include/linux/module.h:14,
->                     from drivers/rapidio/devices/rio_mport_cdev.c:13:
->    In function 'check_copy_size',
->        inlined from 'copy_from_user' at include/linux/uaccess.h:191:6,
->        inlined from 'rio_mport_transfer_ioctl' at drivers/rapidio/devices/rio_mport_cdev.c:983:6:
->    include/linux/thread_info.h:213:4: error: call to '__bad_copy_to' declared with attribute error: copy destination size is too small
->      213 |    __bad_copy_to();
->          |    ^~~~~~~~~~~~~~~
-> 
-> But the allocation size and the copy size are identical:
-> 
-> 	transfer = vmalloc(array_size(sizeof(*transfer), transaction.count));
-> 	if (!transfer)
-> 		return -ENOMEM;
-> 
-> 	if (unlikely(copy_from_user(transfer,
-> 				    (void __user *)(uintptr_t)transaction.block,
-> 				    array_size(sizeof(*transfer), transaction.count)))) {
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Link: https://lore.kernel.org/linux-mm/202109091134.FHnRmRxu-lkp@intel.com/
-> Cc: Matt Porter <mporter@kernel.crashing.org>
-> Cc: Alexandre Bounine <alex.bou9@gmail.com>
-> Cc: Jing Xiangfeng <jingxiangfeng@huawei.com>
-> Cc: Ira Weiny <ira.weiny@intel.com>
-> Cc: Souptick Joarder <jrdr.linux@gmail.com>
-> Cc: Gustavo A. R. Silva <gustavoars@kernel.org>
-> Signed-off-by: Kees Cook <keescook@chromium.org>
-> Reviewed-by: John Hubbard <jhubbard@nvidia.com>
+On Fri, Oct 1, 2021 at 12:27 AM Kees Cook <keescook@chromium.org> wrote:
+>
+> +ifdef CONFIG_CC_IS_GCC
+> +# The allocators already balk at large sizes, so silence the compiler
+> +# warnings for bounds checks involving those possible values. While
+> +# -Wno-alloc-size-larger-than would normally be used here, earlier versions
+> +# of gcc (<9.1) weirdly don't handle the option correctly when _other_
+> +# warnings are produced (?!). Using -Walloc-size-larger-than=SIZE_MAX
+> +# doesn't work (as it is documented to), silently resolving to "0" prior to
+> +# version 9.1 (and producing an error more recently). Numeric values larger
+> +# than PTRDIFF_MAX also don't work prior to version 9.1, which are silently
+> +# ignored, continuing to default to PTRDIFF_MAX. So, left with no other
+> +# choice, we must perform a versioned check to disable this warning.
+> +# https://lore.kernel.org/lkml/20210824115859.187f272f@canb.auug.org.au
+> +KBUILD_CFLAGS += $(call cc-ifversion, -ge, 0901, -Wno-alloc-size-larger-than)
+> +endif
 
-Reviewed-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+An amazing journey!
 
-Thanks
---
-Gustavo
+Reviewed-by: Miguel Ojeda <ojeda@kernel.org>
 
-> ---
->  drivers/rapidio/devices/rio_mport_cdev.c | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/rapidio/devices/rio_mport_cdev.c b/drivers/rapidio/devices/rio_mport_cdev.c
-> index 94331d999d27..7df466e22282 100644
-> --- a/drivers/rapidio/devices/rio_mport_cdev.c
-> +++ b/drivers/rapidio/devices/rio_mport_cdev.c
-> @@ -965,6 +965,7 @@ static int rio_mport_transfer_ioctl(struct file *filp, void __user *arg)
->  	struct rio_transfer_io *transfer;
->  	enum dma_data_direction dir;
->  	int i, ret = 0;
-> +	size_t size;
->  
->  	if (unlikely(copy_from_user(&transaction, arg, sizeof(transaction))))
->  		return -EFAULT;
-> @@ -976,13 +977,14 @@ static int rio_mport_transfer_ioctl(struct file *filp, void __user *arg)
->  	     priv->md->properties.transfer_mode) == 0)
->  		return -ENODEV;
->  
-> -	transfer = vmalloc(array_size(sizeof(*transfer), transaction.count));
-> +	size = array_size(sizeof(*transfer), transaction.count);
-> +	transfer = vmalloc(size);
->  	if (!transfer)
->  		return -ENOMEM;
->  
->  	if (unlikely(copy_from_user(transfer,
->  				    (void __user *)(uintptr_t)transaction.block,
-> -				    array_size(sizeof(*transfer), transaction.count)))) {
-> +				    size))) {
->  		ret = -EFAULT;
->  		goto out_free;
->  	}
-> @@ -994,8 +996,7 @@ static int rio_mport_transfer_ioctl(struct file *filp, void __user *arg)
->  			transaction.sync, dir, &transfer[i]);
->  
->  	if (unlikely(copy_to_user((void __user *)(uintptr_t)transaction.block,
-> -				  transfer,
-> -				  array_size(sizeof(*transfer), transaction.count))))
-> +				  transfer, size)))
->  		ret = -EFAULT;
->  
->  out_free:
-> -- 
-> 2.30.2
-> 
+Cheers,
+Miguel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210930224604.GA906353%40embeddedor.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72m3%3DpD%3DD_dt1SUZRAp19WV86LjWRj9xd-tt1YNtnkqy5w%40mail.gmail.com.
