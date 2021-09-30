@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBPXT3CFAMGQETBD3Z5Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBQHT3CFAMGQETW6QMNI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3b.google.com (mail-oo1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 88C6F41E3D9
-	for <lists+clang-built-linux@lfdr.de>; Fri,  1 Oct 2021 00:27:11 +0200 (CEST)
-Received: by mail-oo1-xc3b.google.com with SMTP id j27-20020a4ad2db000000b0029ac522e7d5sf5770792oos.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Sep 2021 15:27:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1633040830; cv=pass;
+Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7A9A641E3DF
+	for <lists+clang-built-linux@lfdr.de>; Fri,  1 Oct 2021 00:27:13 +0200 (CEST)
+Received: by mail-yb1-xb3f.google.com with SMTP id 124-20020a251182000000b005a027223ed9sf10624870ybr.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Sep 2021 15:27:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1633040832; cv=pass;
         d=google.com; s=arc-20160816;
-        b=REcPkyS18rjNCO72q8EH5+lFwWPKxA1F3b3wNb6Fl9Sc6CpXecL485OMpSzF58nyPH
-         Y+siOszIeu+CdtThwvbUHemGammjilvJ2ndXRs3dTcrK+fHDTqXDicB6oD5Th6tRVDHu
-         RVXtRsqrKOz3sBlb+5eYxBVJ2CwYujnZbWV0PzjkIgUYZPgwKJ5Iz13coluy+6M0dVNF
-         LGMmvtTcAw68N6pt9Z6V3l7AGFgL1YTf/6ZOooaR83f1ti1JLvoAIoChTTTDo/Gvkf9n
-         2IYRUGJ+8fgGBWvyUInMlAigCdsi6HbYrOd3hgSvJKeTDk6NOoDqfosbYrZLjB1LBhIP
-         QotA==
+        b=qs063b85zCXSq+5dYKqkHfItAlbf0m2U0HlVedRkfl8d+oThd0n9jtFhVTcgfK9yLd
+         zObk2jj0HAhZNowThAVe2lX2L/61qEBgpHaSHm8x2wa1xrEemqCQQx8Q/I39qIy0Bvwb
+         svfPyQdvf0vZshv5wKYMpeOKFbs7PIYThneNoaEvjdIppMRJ0XvK1qZ3j7hCYdbyoH8j
+         Y/0aGCN0MRKwSv+Chgg1MO8f0XpoiJusopPCjuiy+G0ZSSPwI7lIvmF/jvkUfci1WPqC
+         v1+WIesEos37ORdpA8Hoq4Y7FAm4ZJzGHsrmp3lPPVeArsf7xe/qKGXEqbMpxjUggcro
+         8yrg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=s7YMWiMLDOV5J1jfQxBWT2+L9gamaQ9CL06z8NIfLhI=;
-        b=z5TeFmR3mo/YwH3vWhRh0zmRgKgzxsmYzvu+q1xGbbXmH/Pgu6rrChn0L0Vr0ON8F9
-         yUIgSSzv79b+Yac+LXYGa8jXrAjgr6bRiKTBXKVxDm6/XRwgDceuqYhPibreRL43/W6c
-         kFkimPio7tM895EDzhhmN9bnUIjk/VgyUEC4+dNA0T7rdgSNjITEL1CEpcj2LRmn+5bH
-         AJ3YBNIe2kRHw2UWfyp0eL5a8KPwef/NVEdm9e1XPSIJcqMP28pcpPLB80gJby/rmIFw
-         nLmXI6P8TaX53vMzKwIUr30Hx7Yjl9X85jWCw5RHz6sReqQGZzx/+4vs2vYFGJIU5+Gj
-         B7+g==
+        bh=tF1UwBei4ACox0mS9TxB5gfqT6w06mdhJPKvJ/AGTDY=;
+        b=Lq+eBVw5QhNPry60w60IKKIPpYpNGtyTFLXe+xd82OIxVv7QnMHMZy5FS5Rhx98QJw
+         EDLYR0BxUu1tH0NbYW+4IMrChtZLkH6HR5qNLGFFaNOvfRTvyCtmEcuDOj0P57VPGgE8
+         HlAuB/dqXqV50c3dwuodTTMwEPiP2INWbN95MS8AL1gmpok+YqE7jikqC51yk+iy0NAv
+         +ODhBKVFdcMQlcHaRZ3QqHTGlKwT6EPSzWF5mxLYhdGKUUKDJJjl0kaL8ofaN/2Dah43
+         oDB4zmDU6AzKi7LXmKvYUK5wSmRQRNB8kmPGXSkNNUrr6z/1Er7PHsaSFPylFBlOkhUR
+         X/Yg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=YGS0FrT8;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=bMZ24ZC9;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52e as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=s7YMWiMLDOV5J1jfQxBWT2+L9gamaQ9CL06z8NIfLhI=;
-        b=HxdIIqClHWDkcRigt/cWqqZG3/GStU+tXXAq/YO2X8aNUTPVvDc557prP0YMIiM5TV
-         TBI+RPJV3vsfc887SD0Ju+KhmhlGwEQBL7HGciaeo3K7cIEKVgiO/xyp4F9g4nplnzBq
-         R03O3eLtVtjOZR7dEi4Wks/9YrwKPRY0y6Hp/dtve4OphWwPQwto9VjKrCMUSD9SSkmM
-         3Mh45vkGcrzwizKyElTg3A3EmLz8Loa7G33PX0rp9d8dsPiFL9ybyTANPtlib9kQg8Ow
-         laKt+iYPNhdjRs2fU/7dfvLwQMwxv5CF6FE3pKByzrw4c/B3IhksKFaai6ivyaRN9suP
-         Nl3w==
+        bh=tF1UwBei4ACox0mS9TxB5gfqT6w06mdhJPKvJ/AGTDY=;
+        b=QEiGyfS2rQfNF3SuZFEbIMRcJrR0BifdnTbkFMKG4zDzYzykPMQ9BZtt1Uw3XAzsBB
+         z8rUoAoftHTantcJBXjL55Vp+cSKfS12BGcusof6ISg5Rqb1Td/1W9dfc4JWJksDNSlm
+         XiWuqvd1rwXN4yJI7P3ZZmp5DQKE8xS7VJGDw5zFdQP2MUunMxDb3u7YHcJAFvwGFdmN
+         Iz5lf8XKQ08PWpHiPVkMbuNPdET8ZH2Nkwul3QzlcPd4IhfLJfX+N6sYlnwgpbLpzJlk
+         hYwwOWs6ji8GbaT9nKDuvWLqzhVu4ELCyvyj9A3zGVyK9AZl8/vPKEGWCtp4NgJj5VOM
+         4r8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,60 +49,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=s7YMWiMLDOV5J1jfQxBWT2+L9gamaQ9CL06z8NIfLhI=;
-        b=WlU7LbTx/QYCzcC6wuyPUIy65c5GOJ2hEBF6oB67he6MrIcKsNL+Kgdzfhltvv5VOw
-         x2ATXkbs2kaTJf4QR4ahmYWo7/4MiWWyMTj3GkVDQmNbo0UOwcfBbdt9bR4fpWwzbUbf
-         tLLj40SxkbzM2r5O/tVJz2QQx+BO6oSOHwnqDy/VtZQfLsSMDof59sh10I9vnwhxPRMh
-         /9Zzp792OD3OFDbsq2gOsd1auv81AGuvEJdtOAe0W9C0Rz1lMmD0oJE6OS/haYIl/Tl9
-         Z2uTq3bs/sL2AHqsag/VH7bCz3tYhaKZdM9IQJ8C0caO9Wzoy25kaHIGVvM/imCRyQiw
-         NUTw==
+        bh=tF1UwBei4ACox0mS9TxB5gfqT6w06mdhJPKvJ/AGTDY=;
+        b=Ugk6Y2cnyXaa+RnP3dpGddPgWto+Jj2ISdZvosV4KtO4hswKeeRkGFhelqG+5romio
+         078srOS5ShLPUA09DjkLoaYxrnxgqTTPrfY8+6ZA8Hfr3Q6J1Zwb8fz+uyofxW1hbFo2
+         sL01t+XBjLfzSDlDfwMLsJOmu7Q52rGKCFJ0dn8vxa8IDhMHYML9fNH3221BlD5qATlE
+         bjR62iiB5apIoHcfYUioIT0S1IcOSQIKh7n2iJn4FlGXprJzM74PlUc+lL926V1vfRWL
+         Cq+ahCacuJwv2q8WABp+Alm3n6xnwBURPL8iYG3swoDN5QVImN2vBh7mbfyy7D7QyhE1
+         78Wg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532ukiiIFe6JFlDfc65chgu0CfStGiYyg7q64vIYub7IEBVBb3rQ
-	laibWHhDoHpaHun8HMKDBBU=
-X-Google-Smtp-Source: ABdhPJyLhDKng6dOYfXBZn/mWlKi40rCbg3dAkP2ZyeWY1PoBKYJ/FoP56YAlbkVukLeQQB6K9imFg==
-X-Received: by 2002:a05:6830:60c:: with SMTP id w12mr7376446oti.370.1633040830374;
-        Thu, 30 Sep 2021 15:27:10 -0700 (PDT)
+X-Gm-Message-State: AOAM532OQ3IR9tmWKP7MfCYiY9qSPEAAg59zpEMn2kwAKfE6VZQRoher
+	WLm74/fwnL7AW83oGsfKkUA=
+X-Google-Smtp-Source: ABdhPJzh8IMZt7F2yA4Yq3iE3J84ocjZM9DaacZs5ft3uGJZIwJSKdY+RwnmdsU/14i9nHQA1RrhfQ==
+X-Received: by 2002:a25:42c9:: with SMTP id p192mr1849813yba.399.1633040832515;
+        Thu, 30 Sep 2021 15:27:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:19e7:: with SMTP id k94ls2460174otk.7.gmail; Thu, 30 Sep
- 2021 15:27:10 -0700 (PDT)
-X-Received: by 2002:a9d:4e04:: with SMTP id p4mr7331664otf.375.1633040829993;
-        Thu, 30 Sep 2021 15:27:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1633040829; cv=none;
+Received: by 2002:a25:5283:: with SMTP id g125ls1144440ybb.9.gmail; Thu, 30
+ Sep 2021 15:27:12 -0700 (PDT)
+X-Received: by 2002:a25:d605:: with SMTP id n5mr2072737ybg.548.1633040831961;
+        Thu, 30 Sep 2021 15:27:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1633040831; cv=none;
         d=google.com; s=arc-20160816;
-        b=MQwuQYFZTiboQH2xvC2oQYmGmOc+5Q7kqclYtZzLeC0dUgqafyZv3cB+bETiqqJNYT
-         GrSo8IdbiQ+8YyQ1hKRLyiZuObBLlUN6q4Lgxq/UIKbpM6EnwiYYyku0dyWwQTUcy9tF
-         okTao/7AI+ih7gmkVWhJc/uAq+LiQYw7FMtajENZol+0JVdx/lhojSgaSLIJeFCO8+Pp
-         ZOzbX1vU26EUbrr7QE9yZqSZi+ewBCOeIZB8L6EsjcSJyzvq8EusBpEpuih2QYzvwdbJ
-         EppZFZPszpVh99iKjIk03DJZtAjtLds5cDISPuzPyjqx0l/Wlp7ojIQrVA91RYb0Xxg7
-         habg==
+        b=c5XyhGiSQV55dy9KFP/7OHNNb3cF10HNQE5wp/+m9Wf95c2SM8kb00Jd7C4AfIzIMw
+         uZR09k/7XX/xGqrqJoerW4BE+vFAdX4dfQgB689S4/wuS+dR3UWGqxPw+mo4lYiBuxi9
+         rJuI5jGC717EPGukK8JwFH7Z9EQWBzKQb084uvXBoPqhdDid/2udpyEJ4ae+PYKi5edJ
+         mq9Ie+De53UwNfqHlTuE4TjO821eoBGHLt/iYHlVE3bwXRSpDaBkZoYdl7HRg1K1PFDY
+         A500HE0HTQ5ih7sYuG+sbr4CMp8YcTBq/tSw2uhCYEjBhTOidjGRe0SWVY+4d9cZfUBb
+         ZdMg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=zygAiLSQoNsoIY1uvxoA1hwJtuo0y1KIlpyKLcao1qw=;
-        b=OsfVbOutyR8FtEnzw7M6bFRWWOwiT7yhk5y6pYuCR3e0w0saSctFmtCtZ12uNwRH4o
-         stpiq6/YOJoeGaQg1AE6wij+5QDFfFrWEbj75X8r9kw/IESVfw7HqHdC3pGpuZbdrAiw
-         luu3xMuDPhQAa2XhcM+lHXoVNz9f21J7hrBpuU5agBHVjd665ysG5vxZv/P9STr7K5I4
-         aqQVz1/glf3p4ImRWh8V6Y11LJle8mXq2/D6TmFwZ6QROjDkrf4cUxncl5ZcN/zcI0Xn
-         LMzOdv5659CYclaQjtZs/Dk4pXzHiOnvtP2HzifA4PFAUA+Mvmrq5Cl4v1OBQgRZ4Xph
-         TK1w==
+        bh=1dXnvTeLUCigPMMnfClviJlp/0W0l8ED7JBU+sWSCTQ=;
+        b=m4eZjyjqAw6ceuv02ia7njL4VFwAcAK46zT/7x/p7XKh8fUuuqRTjQJJ9TNzKypIYM
+         f/SWyTEbAFKF2gqhxuL2v5CM3BYYP4wxkmzBx+/nudPOl06juTFDFh60RltG5NQaflKF
+         MAPMj5x3aQWIKVF1mnuHecJGYSXAfdxkJKzEWsDIYSOUYZXFxskfb5XJ7HZrFz5QDpx3
+         bMa8V7Pp5YcmUYJHMd3nR4GlhZ4SpZEWGrevJHdiNlQkTD2ZovmBPijiN7sw9uhuXEKN
+         20xHeNjt2zBkkbX5yz8g0vZp1+/mOSbKCiccOa1rxOUW6YsEoPjRdhffcZ9/Qnadal5t
+         pc0w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=YGS0FrT8;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=bMZ24ZC9;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52e as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x102b.google.com (mail-pj1-x102b.google.com. [2607:f8b0:4864:20::102b])
-        by gmr-mx.google.com with ESMTPS id u18si203610oiw.3.2021.09.30.15.27.09
+Received: from mail-pg1-x52e.google.com (mail-pg1-x52e.google.com. [2607:f8b0:4864:20::52e])
+        by gmr-mx.google.com with ESMTPS id l8si373689ybt.4.2021.09.30.15.27.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Sep 2021 15:27:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b as permitted sender) client-ip=2607:f8b0:4864:20::102b;
-Received: by mail-pj1-x102b.google.com with SMTP id me3-20020a17090b17c300b0019f44d2e401so3779033pjb.5
-        for <clang-built-linux@googlegroups.com>; Thu, 30 Sep 2021 15:27:09 -0700 (PDT)
-X-Received: by 2002:a17:90b:4d07:: with SMTP id mw7mr15084160pjb.66.1633040829698;
-        Thu, 30 Sep 2021 15:27:09 -0700 (PDT)
+        Thu, 30 Sep 2021 15:27:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52e as permitted sender) client-ip=2607:f8b0:4864:20::52e;
+Received: by mail-pg1-x52e.google.com with SMTP id s75so7639653pgs.5
+        for <clang-built-linux@googlegroups.com>; Thu, 30 Sep 2021 15:27:11 -0700 (PDT)
+X-Received: by 2002:a05:6a00:2355:b0:44c:86c:49f4 with SMTP id j21-20020a056a00235500b0044c086c49f4mr2934102pfj.58.1633040831209;
+        Thu, 30 Sep 2021 15:27:11 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id 127sm4084858pfw.10.2021.09.30.15.27.06
+        by smtp.gmail.com with ESMTPSA id z11sm4343540pff.144.2021.09.30.15.27.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Sep 2021 15:27:07 -0700 (PDT)
+        Thu, 30 Sep 2021 15:27:09 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Kees Cook <keescook@chromium.org>,
@@ -128,19 +128,19 @@ Cc: Kees Cook <keescook@chromium.org>,
 	linux-kernel@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v3 4/8] slab: Add __alloc_size attributes for better bounds checking
-Date: Thu, 30 Sep 2021 15:27:00 -0700
-Message-Id: <20210930222704.2631604-5-keescook@chromium.org>
+Subject: [PATCH v3 5/8] mm/kvmalloc: Add __alloc_size attributes for better bounds checking
+Date: Thu, 30 Sep 2021 15:27:01 -0700
+Message-Id: <20210930222704.2631604-6-keescook@chromium.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210930222704.2631604-1-keescook@chromium.org>
 References: <20210930222704.2631604-1-keescook@chromium.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9514; h=from:subject; bh=jz2EabWJ4V7UBTDnXqnj7V0rrqkbx+8deuoqLgEzAyQ=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhVjm312aTAJy2rK6CUEO/3iGG5lrIgRt8I0BPxLQA ws2ETQaJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYVY5twAKCRCJcvTf3G3AJoJsEA C0rp8pQeMkm2vohx8uuRwQGOg6XG6s9CbtQeM4TyD50PjHE/lRZdMz9+1gs0isac2J/MXzvuqkuUrH 33hBSKyFFTWa7OsdpupncwDiNBrgYjdmG5ZDm4KnGt5fmFjoyHsSkoM2m/q9nvk9HNMYCRj28rIsxw thd+1X5Zp4lfCeZcuQ/Rwf89CFtQTYq4tUN0942g3ii5+uVMMVC//dHySTHaSoSsJQgaYF1cD6BtqC O8xOT4G85XQc77P3POwRAKIc25jmPB7KRDuvnA4W2QDZm7bZOd1bosuM1PIUqm2OLm3yDVJHrNqSTL K/RcyNzkD3XM8gCcXCzzquG85b0e6uLU0gtnToglQo8DrMyVMgEjgCBuYIDZsAubJrfRsUDHrG9Q6M yye6Cz/CBZPzzQp0EXnWrBYQiJcHnuaawTJy4zNUVmlQ4R+raTrwRJYUEoL0lavFq0DXTnTwrjy/yT n5jWoUBS+gIqkOrp/BR8PYnrQjmT5sziW4d5YB4BhuNWhj2KXYyy4DEIhAHk7WDdo28MeVg8xlsUZU 6ipMnWY/3LzGFN6RoJ2fdothXH0DrptbevsKo/R0owUDLmZ+DHaWygKTwv1hSBm6k7oGU3CQmxwwbP Ju2UNQEXJS77ak+emdTaVAlpSNgikS3plbXgSD9VtpE3izBIu05Jhfhs+tDg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2910; h=from:subject; bh=SyAqtHelf0a2iaKyecEWVo/GxwzRnhHwreNN0BUqqAM=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhVjm34uKneQvmJxQTing9NsARvbB4YKVUTexQ0P2y 4HvehcGJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYVY5twAKCRCJcvTf3G3AJsMKD/ 9B9MOpTz9EJCrfrNonEyW3Gcj0s3yDYKmzoBbslhRxx5a0fa99XtVE+I2QWPrCjRokk1liutNYQLoo yLJglYmUbLAFF3WWNXOokAxVRQq8fdfavcfOtP/bRUGwY/F5T1hq2GLFPf8Pb9CYi5x6t/xmJhA67j +xXO5cmxVNE3sx3rIfq1SlyI6mmWvUthEwPSh7eresXvI8dGbuowLNZeO2RM8rj0ztdJxOZwCwojE3 3Nh0gLgYdo9dhmk/n0ZSkivI/4ngDHgEKhWqtPGPB9huz6hMX/SLF43qOm2yp0TwGrbG3z8ttQI8LP Dn7M0W254iTtwkG14RIzU6p7JuSjCfka1aYXPm37kCNv05P7qGr4W9bt89PJCHQCNa65eGirF14Ar4 lswTo3DH3SrXOZYViivXsbrYJmqlvorKH9Qi2sc6wnYb3JPmm6L157vJb3nZrJp7h9vpntHisy9ntI wELx7fONPE9NZHbruTuE6ONgalaoV7d3pxMPeGlKvFvhywPhHBW+GIxJ0ngBMLXTBE5//Ox1Yx/pJ3 VVRY6wlDwRQ/ZGk11cdhPFYF8qRhC1VU3fdZQsEEXaWXNBY//nG3Jm91tU4CTuU3FVuWHlWxyjucol zE7IVVEcgE/wXQAoREtVO7sm2dQSi9j/6da9yKArFV5nlaE7fduEFEigworA==
 X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=YGS0FrT8;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102b
+ header.i=@chromium.org header.s=google header.b=bMZ24ZC9;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52e
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -157,7 +157,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 As already done in GrapheneOS, add the __alloc_size attribute for regular
-kmalloc interfaces, to provide additional hinting for better bounds
+kvmalloc interfaces, to provide additional hinting for better bounds
 checking, assisting CONFIG_FORTIFY_SOURCE and other compiler
 optimizations.
 
@@ -179,208 +179,61 @@ Signed-off-by: Daniel Micay <danielmicay@gmail.com>
 Signed-off-by: Kees Cook <keescook@chromium.org>
 Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
- include/linux/slab.h | 61 ++++++++++++++++++++++++--------------------
- 1 file changed, 33 insertions(+), 28 deletions(-)
+ include/linux/mm.h | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/slab.h b/include/linux/slab.h
-index d9f14125d7a2..844b776deecf 100644
---- a/include/linux/slab.h
-+++ b/include/linux/slab.h
-@@ -181,7 +181,7 @@ int kmem_cache_shrink(struct kmem_cache *s);
- /*
-  * Common kmalloc functions provided by all allocators
-  */
--void * __must_check krealloc(const void *objp, size_t new_size, gfp_t flags);
-+void * __must_check krealloc(const void *objp, size_t new_size, gfp_t flags) __alloc_size(2);
- void kfree(const void *objp);
- void kfree_sensitive(const void *objp);
- size_t __ksize(const void *objp);
-@@ -425,7 +425,7 @@ static __always_inline unsigned int __kmalloc_index(size_t size,
- #define kmalloc_index(s) __kmalloc_index(s, true)
- #endif /* !CONFIG_SLOB */
- 
--void *__kmalloc(size_t size, gfp_t flags) __assume_kmalloc_alignment __malloc;
-+void *__kmalloc(size_t size, gfp_t flags) __assume_kmalloc_alignment __alloc_size(1);
- void *kmem_cache_alloc(struct kmem_cache *s, gfp_t flags) __assume_slab_alignment __malloc;
- void kmem_cache_free(struct kmem_cache *s, void *objp);
- 
-@@ -449,11 +449,12 @@ static __always_inline void kfree_bulk(size_t size, void **p)
- }
- 
- #ifdef CONFIG_NUMA
--void *__kmalloc_node(size_t size, gfp_t flags, int node) __assume_kmalloc_alignment __malloc;
-+void *__kmalloc_node(size_t size, gfp_t flags, int node) __assume_kmalloc_alignment
-+							 __alloc_size(1);
- void *kmem_cache_alloc_node(struct kmem_cache *s, gfp_t flags, int node) __assume_slab_alignment
- 									 __malloc;
- #else
--static __always_inline void *__kmalloc_node(size_t size, gfp_t flags, int node)
-+static __always_inline __alloc_size(1) void *__kmalloc_node(size_t size, gfp_t flags, int node)
- {
- 	return __kmalloc(size, flags);
- }
-@@ -466,23 +467,23 @@ static __always_inline void *kmem_cache_alloc_node(struct kmem_cache *s, gfp_t f
- 
- #ifdef CONFIG_TRACING
- extern void *kmem_cache_alloc_trace(struct kmem_cache *s, gfp_t flags, size_t size)
--				   __assume_slab_alignment __malloc;
-+				   __assume_slab_alignment __alloc_size(3);
- 
- #ifdef CONFIG_NUMA
- extern void *kmem_cache_alloc_node_trace(struct kmem_cache *s, gfp_t gfpflags,
--					 int node, size_t size) __assume_slab_alignment __malloc;
-+					 int node, size_t size) __assume_slab_alignment
-+								__alloc_size(4);
- #else
--static __always_inline void *kmem_cache_alloc_node_trace(struct kmem_cache *s,
--							 gfp_t gfpflags, int node,
--							 size_t size)
-+static __always_inline __alloc_size(4) void *kmem_cache_alloc_node_trace(struct kmem_cache *s,
-+						 gfp_t gfpflags, int node, size_t size)
- {
- 	return kmem_cache_alloc_trace(s, gfpflags, size);
- }
- #endif /* CONFIG_NUMA */
- 
- #else /* CONFIG_TRACING */
--static __always_inline void *kmem_cache_alloc_trace(struct kmem_cache *s, gfp_t flags,
--						    size_t size)
-+static __always_inline __alloc_size(3) void *kmem_cache_alloc_trace(struct kmem_cache *s,
-+								    gfp_t flags, size_t size)
- {
- 	void *ret = kmem_cache_alloc(s, flags);
- 
-@@ -501,19 +502,20 @@ static __always_inline void *kmem_cache_alloc_node_trace(struct kmem_cache *s, g
- #endif /* CONFIG_TRACING */
- 
- extern void *kmalloc_order(size_t size, gfp_t flags, unsigned int order) __assume_page_alignment
--									 __malloc;
-+									 __alloc_size(1);
- 
- #ifdef CONFIG_TRACING
- extern void *kmalloc_order_trace(size_t size, gfp_t flags, unsigned int order)
--				__assume_page_alignment __malloc;
-+				__assume_page_alignment __alloc_size(1);
- #else
--static __always_inline void *kmalloc_order_trace(size_t size, gfp_t flags, unsigned int order)
-+static __always_inline __alloc_size(1) void *kmalloc_order_trace(size_t size, gfp_t flags,
-+								 unsigned int order)
- {
- 	return kmalloc_order(size, flags, order);
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 73a52aba448f..03dfb466d4f5 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -799,21 +799,21 @@ static inline int is_vmalloc_or_module_addr(const void *x)
  }
  #endif
  
--static __always_inline void *kmalloc_large(size_t size, gfp_t flags)
-+static __always_inline __alloc_size(1) void *kmalloc_large(size_t size, gfp_t flags)
+-extern void *kvmalloc_node(size_t size, gfp_t flags, int node);
+-static inline void *kvmalloc(size_t size, gfp_t flags)
++extern void *kvmalloc_node(size_t size, gfp_t flags, int node) __alloc_size(1);
++static inline __alloc_size(1) void *kvmalloc(size_t size, gfp_t flags)
  {
- 	unsigned int order = get_order(size);
- 	return kmalloc_order_trace(size, flags, order);
-@@ -573,7 +575,7 @@ static __always_inline void *kmalloc_large(size_t size, gfp_t flags)
-  *	Try really hard to succeed the allocation but fail
-  *	eventually.
-  */
--static __always_inline void *kmalloc(size_t size, gfp_t flags)
-+static __always_inline __alloc_size(1) void *kmalloc(size_t size, gfp_t flags)
+ 	return kvmalloc_node(size, flags, NUMA_NO_NODE);
+ }
+-static inline void *kvzalloc_node(size_t size, gfp_t flags, int node)
++static inline __alloc_size(1) void *kvzalloc_node(size_t size, gfp_t flags, int node)
  {
- 	if (__builtin_constant_p(size)) {
- #ifndef CONFIG_SLOB
-@@ -595,7 +597,7 @@ static __always_inline void *kmalloc(size_t size, gfp_t flags)
- 	return __kmalloc(size, flags);
+ 	return kvmalloc_node(size, flags | __GFP_ZERO, node);
+ }
+-static inline void *kvzalloc(size_t size, gfp_t flags)
++static inline __alloc_size(1) void *kvzalloc(size_t size, gfp_t flags)
+ {
+ 	return kvmalloc(size, flags | __GFP_ZERO);
  }
  
--static __always_inline void *kmalloc_node(size_t size, gfp_t flags, int node)
-+static __always_inline __alloc_size(1) void *kmalloc_node(size_t size, gfp_t flags, int node)
- {
- #ifndef CONFIG_SLOB
- 	if (__builtin_constant_p(size) &&
-@@ -619,7 +621,7 @@ static __always_inline void *kmalloc_node(size_t size, gfp_t flags, int node)
-  * @size: element size.
-  * @flags: the type of memory to allocate (see kmalloc).
-  */
--static inline void *kmalloc_array(size_t n, size_t size, gfp_t flags)
-+static inline __alloc_size(1, 2) void *kmalloc_array(size_t n, size_t size, gfp_t flags)
+-static inline void *kvmalloc_array(size_t n, size_t size, gfp_t flags)
++static inline __alloc_size(1, 2) void *kvmalloc_array(size_t n, size_t size, gfp_t flags)
  {
  	size_t bytes;
  
-@@ -637,8 +639,10 @@ static inline void *kmalloc_array(size_t n, size_t size, gfp_t flags)
-  * @new_size: new size of a single member of the array
-  * @flags: the type of memory to allocate (see kmalloc)
-  */
--static inline void * __must_check krealloc_array(void *p, size_t new_n, size_t new_size,
--						 gfp_t flags)
-+static inline __alloc_size(2, 3) void * __must_check krealloc_array(void *p,
-+								    size_t new_n,
-+								    size_t new_size,
-+								    gfp_t flags)
- {
- 	size_t bytes;
- 
-@@ -654,7 +658,7 @@ static inline void * __must_check krealloc_array(void *p, size_t new_n, size_t n
-  * @size: element size.
-  * @flags: the type of memory to allocate (see kmalloc).
-  */
--static inline void *kcalloc(size_t n, size_t size, gfp_t flags)
-+static inline __alloc_size(1, 2) void *kcalloc(size_t n, size_t size, gfp_t flags)
- {
- 	return kmalloc_array(n, size, flags | __GFP_ZERO);
- }
-@@ -667,12 +671,13 @@ static inline void *kcalloc(size_t n, size_t size, gfp_t flags)
-  * allocator where we care about the real place the memory allocation
-  * request comes from.
-  */
--extern void *__kmalloc_track_caller(size_t size, gfp_t flags, unsigned long caller);
-+extern void *__kmalloc_track_caller(size_t size, gfp_t flags, unsigned long caller)
-+				   __alloc_size(1);
- #define kmalloc_track_caller(size, flags) \
- 	__kmalloc_track_caller(size, flags, _RET_IP_)
- 
--static inline void *kmalloc_array_node(size_t n, size_t size, gfp_t flags,
--				       int node)
-+static inline __alloc_size(1, 2) void *kmalloc_array_node(size_t n, size_t size, gfp_t flags,
-+							  int node)
- {
- 	size_t bytes;
- 
-@@ -683,7 +688,7 @@ static inline void *kmalloc_array_node(size_t n, size_t size, gfp_t flags,
- 	return __kmalloc_node(bytes, flags, node);
+@@ -823,13 +823,13 @@ static inline void *kvmalloc_array(size_t n, size_t size, gfp_t flags)
+ 	return kvmalloc(bytes, flags);
  }
  
--static inline void *kcalloc_node(size_t n, size_t size, gfp_t flags, int node)
-+static inline __alloc_size(1, 2) void *kcalloc_node(size_t n, size_t size, gfp_t flags, int node)
+-static inline void *kvcalloc(size_t n, size_t size, gfp_t flags)
++static inline __alloc_size(1, 2) void *kvcalloc(size_t n, size_t size, gfp_t flags)
  {
- 	return kmalloc_array_node(n, size, flags | __GFP_ZERO, node);
+ 	return kvmalloc_array(n, size, flags | __GFP_ZERO);
  }
-@@ -691,7 +696,7 @@ static inline void *kcalloc_node(size_t n, size_t size, gfp_t flags, int node)
  
- #ifdef CONFIG_NUMA
- extern void *__kmalloc_node_track_caller(size_t size, gfp_t flags, int node,
--					 unsigned long caller);
-+					 unsigned long caller) __alloc_size(1);
- #define kmalloc_node_track_caller(size, flags, node) \
- 	__kmalloc_node_track_caller(size, flags, node, \
- 			_RET_IP_)
-@@ -716,7 +721,7 @@ static inline void *kmem_cache_zalloc(struct kmem_cache *k, gfp_t flags)
-  * @size: how many bytes of memory are required.
-  * @flags: the type of memory to allocate (see kmalloc).
-  */
--static inline void *kzalloc(size_t size, gfp_t flags)
-+static inline __alloc_size(1) void *kzalloc(size_t size, gfp_t flags)
- {
- 	return kmalloc(size, flags | __GFP_ZERO);
- }
-@@ -727,7 +732,7 @@ static inline void *kzalloc(size_t size, gfp_t flags)
-  * @flags: the type of memory to allocate (see kmalloc).
-  * @node: memory node from which to allocate
-  */
--static inline void *kzalloc_node(size_t size, gfp_t flags, int node)
-+static inline __alloc_size(1) void *kzalloc_node(size_t size, gfp_t flags, int node)
- {
- 	return kmalloc_node(size, flags | __GFP_ZERO, node);
- }
+-extern void *kvrealloc(const void *p, size_t oldsize, size_t newsize,
+-		gfp_t flags);
++extern void *kvrealloc(const void *p, size_t oldsize, size_t newsize, gfp_t flags)
++		      __alloc_size(3);
+ extern void kvfree(const void *addr);
+ extern void kvfree_sensitive(const void *addr, size_t len);
+ 
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210930222704.2631604-5-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210930222704.2631604-6-keescook%40chromium.org.
