@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBP7T3CFAMGQEVN3O63Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBQHT3CFAMGQETW6QMNI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc40.google.com (mail-oo1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
-	by mail.lfdr.de (Postfix) with ESMTPS id C086741E3DD
-	for <lists+clang-built-linux@lfdr.de>; Fri,  1 Oct 2021 00:27:12 +0200 (CEST)
-Received: by mail-oo1-xc40.google.com with SMTP id x23-20020a4a3957000000b0029aff3ae536sf5830011oog.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Sep 2021 15:27:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1633040831; cv=pass;
+Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1972C41E3E0
+	for <lists+clang-built-linux@lfdr.de>; Fri,  1 Oct 2021 00:27:14 +0200 (CEST)
+Received: by mail-pj1-x103e.google.com with SMTP id gf8-20020a17090ac7c800b0019ed5b47b51sf4104493pjb.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Sep 2021 15:27:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1633040832; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YKWwmm1+m5U7o5BiTqT7TKekJGE3CsZS9QFjJNOVdEIPoFay+O6VrAXVmlQJ4YJwp/
-         55UrXb3oNr85N/tVmZ/BIHq0a4WoGWgnpIaFJlZXI3v1mD6/hqozZa0PAU8nBfPcJPvt
-         1X5LNa1OxCfDJ6HEc3kQc1fijetiBbfyv79zr2tGe1IMK7d8+2vUufoTkrp/eM9NkzcE
-         bsF6sDDdD+fmsysgKJsCcGIt01X7sIElH1/FpouVIVtpjnOKqhEP9RvLF7w2NfdzZQAr
-         tA3XCfTNKT1GuLN5sgiNugYmjOTfoxUfeo1kcm3FU829cLyvoFLQkOyk6a/Rl86hV3Tc
-         g+AA==
+        b=NmA1VV8yJxkwx46JiVAMZwajDTYFJb6QGqY5hIEnBtOR41euuIcFokhug5vle8Q+sF
+         aDReXBJBjBAcmff19ffPmKhni8ep0qquMO6ApihUYZAaBRqGsbZ1ckipKTOhRRco2/hW
+         Tkd6Y1CcvMDNcxc+vSMA+gbEqWVPo43R9Js37+11cHd+o6sTI7LtMptp973H/ss40ESu
+         reQkIhMAfvUrc8r8YkcqEwCNOcPTe1/Wtxq4uegys62VlCHZ5crLNr/6NqyCZk5UoNh1
+         tzTDWANfAxryT2/mIHpO5hC7Nj1k4r6lC2vNOkjWJLM2Mx4J1gg40NMZQDlDj4AWQeRr
+         QOQg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=6oJWZD16Z+xes3V313Ujwcs1TD3oJTk+hkLcDOmxFIw=;
-        b=Yq7bU7M2JgWUJoCHYZtKPIgj1GJbcjfHKG6hc97uHbxzNSD6CUsiwxh2pwgmqVCtRI
-         jQra493nVDGW+zYDG6CP8fayIbrFY2uKoM2KByZLU/nrh8e1Y9jQMLqxaIF/ukPDyTyY
-         m3ne5cmu9chPn/NEYGDgEnQTPC3mpN5iQzo+Kn+XnAQtn8jLAJCuMyb4833OG200w8sU
-         XQ0+fuVynQhhgl6Oaqo6KIhBXrcZQbEapdomDZ2Mb1riqC9zGmtGMzKCo8fDTWh00YoH
-         nsl+C7aDhQ15raGGvWEGUkHGl+qbXnhMb75+fiS+uFbaiH5QPnDWkm6cmL9X2Xch0z0r
-         uG1A==
+        bh=sVeQ+txF7BcnRyBg1yqqMx/WqdzZNfWEiAqa2LGvzrw=;
+        b=q2pOgxwRh13e5XQfn9rLr/y9AgQh42IYDkgYD0THdhCUOs9hceICSDE+WiLrA546Fo
+         VTzLkO+D7kxcV8si77XlqucMuXn7h08L2xm8SEKl5KTRMsqQzwQcWTp3WsbX2dfV9HeN
+         9D31J9H5f4CiPqSLVQNenPIR5H0N2p97LnddQkfK7YeU0gYfqRJazia1afS3NBC9jkEb
+         VmPEEZj5yB6bkhxwBw5koiNIwWCurXy7PRDjET1eIccUEdKHYKoK3hsQf3TMJAiwdq+E
+         1aUunvOxjr94eUdZL7jYJYyJkRvj0wCW5ezudyHk6dSmdIvE/8QCRHhPdPs4mfpnxiS5
+         d7PQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=HzrZAfth;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42e as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=E4117kGo;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102f as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6oJWZD16Z+xes3V313Ujwcs1TD3oJTk+hkLcDOmxFIw=;
-        b=Tmvke1vivj7EhMgWFKYytDpGS4pGMMdlK1kgWpB8CBGfLLI7CQ5JCxdEEiTMbp1tkN
-         gUk61rM1bHvnxstIkveLh8OyRpI1R6e1CUmUnSym8U8ZM+eRbXD1f30eXX/+kElPaiAw
-         yKUAhz4V/HiU+Vt+9zdiTugmDqz0R2wdmTTxcYYBc94OI6NmHlx/nvh990XPdVto3tO0
-         cj+ScnfWGqS2qrNm9yydtpH8sP4ZPMqim8jmzzacR173dEfCB9IcDqaGEVXGg5hDLUpU
-         52I+e54nNx0LN/a2kh3oX4oVi5NNr2Mc5NzSIEiNLy51bME4a4s+STBLW6qjZQ6QMAz8
-         Sjpg==
+        bh=sVeQ+txF7BcnRyBg1yqqMx/WqdzZNfWEiAqa2LGvzrw=;
+        b=e7t13TEEhNesVA8scaLeLYKgKE62C9fjQFA9t8sQA/W94vRvnDty+A4cMBbJQoatm+
+         uxH21PYPARPUwBOs/rGoRxkuY5koPyvHGq3JaTO4dqpL2GrAiSA61d2Lkqik7N8z4gkF
+         eX7Zs4cUtLu5iyTl5q1uhps8WNaPBufrXUI/21BpUWILAowsSXFAibSoA6P6JJK5yZ0e
+         +WW0Z5FfcOaBSN3J/0FOeKjrDpv3FxEG0ZyxVajoSZXaiyYzIqjjdkGhXGxpmvAHeLMG
+         u9oXxitFruqvqK0P2FZlfAiSqJ5CqlBcL3HDPclOlHRtMxf0PgnXreZYDQ3idFT3L0he
+         oEDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,58 +49,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6oJWZD16Z+xes3V313Ujwcs1TD3oJTk+hkLcDOmxFIw=;
-        b=UuCY3HQbNPV/WD7n6UAlvRT5Td3D98op90fTOraxYgWy9JVfgV+DsFcFcK9h6l8JL6
-         ulAlk5xo10TTieVaD0yqRwDeljGta6YTPUirYSJDtkTv3khJ9eOF/rdg0FqTaL3smQLI
-         cghvBEAn8RiscDf+oaezwLhvBOKl89rN99VeIh9Hxb1DVvwgfVd0e8pFGGX5S1kexrxo
-         eIvfExGqJ8z6lFAST5kM3tzE62+1HRRxyI9CtlC7fV6R1JxhrIuOTqeNknNb3Vng7L8M
-         7m1LS6NO/vWiirgtH4TVakfOKUaSIO9j7YKb6REwjBIaHPDhMMxzM+v1xhK0OacexGm6
-         NT3Q==
+        bh=sVeQ+txF7BcnRyBg1yqqMx/WqdzZNfWEiAqa2LGvzrw=;
+        b=tFbjQ07fPfsafSDARDqo5LKkhxDsKSGqk8tdXDoV5dCGfvnpm1fEMPyPS72EHVFbbt
+         5u4sXcmJCQnN2X3+okH9mzPQxk5DNU7ui03+oE9mWy6IWNPF9HNznnWGiLXmvRzIqvII
+         lHRSvL0zALWm3r8Bo4XXRNrhdn//gYJb+gh62fW7f91jCeuoLWzxH2oTjQVh2iYz/wfD
+         vBnditX7TUj9K4XN2mxkL8gPD4RN+d+MNCeSLj94gi100zyBbcV78lbcEW6gmzUhgnQp
+         xaQ6713VzwpmAi2vSmqZT2Vfs5nN8i2iWu09rXFNHmh9cZxSUWaS3CjN3I9B9q+z5liK
+         wu2g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533uHoh4NMQA6C+DntdH/wdsYQ8LW7R10/vS+3qv/DPp2hsGAnYK
-	Pa/rEjd7BufaCEOTyZCOgiI=
-X-Google-Smtp-Source: ABdhPJy2E4kJESGm3HaPtF4Ctka7qNC42CzxC4xg0Qmz7nVIOTAXOSlC22CiPb1Z0YaIafNojGMzjw==
-X-Received: by 2002:a9d:6209:: with SMTP id g9mr7235997otj.259.1633040831680;
-        Thu, 30 Sep 2021 15:27:11 -0700 (PDT)
+X-Gm-Message-State: AOAM533XhPWsnxygt3E3CcA1ZvFUeU7y99b+gKQdEHxySoZqlnW2v2UN
+	Pp8CRT0bBnJ8oMyKAR4WupY=
+X-Google-Smtp-Source: ABdhPJzz4kDLVmKtpSHJxJJMJ+ypt070daxGakAE306o2QLQCXTgeQzHrv5rjDQV2PPFfzHTTU4pTg==
+X-Received: by 2002:a17:903:32ce:b0:13e:2245:6fc8 with SMTP id i14-20020a17090332ce00b0013e22456fc8mr6258569plr.67.1633040832695;
+        Thu, 30 Sep 2021 15:27:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:1010:: with SMTP id 16ls2511796oiq.0.gmail; Thu, 30 Sep
- 2021 15:27:11 -0700 (PDT)
-X-Received: by 2002:a05:6808:190a:: with SMTP id bf10mr1388923oib.84.1633040831099;
-        Thu, 30 Sep 2021 15:27:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1633040831; cv=none;
+Received: by 2002:a65:6643:: with SMTP id z3ls2933176pgv.3.gmail; Thu, 30 Sep
+ 2021 15:27:12 -0700 (PDT)
+X-Received: by 2002:a62:7543:0:b0:44b:b97a:d0db with SMTP id q64-20020a627543000000b0044bb97ad0dbmr6603755pfc.9.1633040832101;
+        Thu, 30 Sep 2021 15:27:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1633040832; cv=none;
         d=google.com; s=arc-20160816;
-        b=j+iQSUQJMKWT1XoiR7kQCXiQOIcU8eVfTWYBhfUrKplBYhjZegd0nTNIrEOzv90MGy
-         Hvz1jYrfixOL5DVvi3B9jaXrCtt6WkBspZLYqmkQbpzYEyHQjuVaG8v/fMnv8sodImct
-         TCt9t++un99l27n13mlE5W15bPn19JHUgpUmM5C6SW26uJ15CQ+chW9IqMkcPHE6hxQF
-         FMjj8hgUMWT4gG2z6j7azLkQH9+bBFfFgmDmXdIXc1111Ik/1WD8TNqfKDMhIIFtE7nc
-         kryi3K4fxAGM9X/GTR34M0fsgcLaj51LyuL5yLK8a80khZVeQbUb0hLusmcgcQYbHV02
-         qCEA==
+        b=Cx4bcG7ul6Khqk/WfhAKmoogxoK3lj+NLO4+nJA2WirHT0Chve1o1VzQ4GaDfc1Svk
+         KXtLMjuXmdfUff2vjjGOQr6xKfayaahhjwEqBg8IUrTqL8Uoopnfh6OoPhWNYKp41QPC
+         ATq4os166plClSQbhLZPjhw8wTZ3oRtUwbx5/mENvQkQNqUyeBUIlMrcYhCr4TK62WpT
+         8LRJDYD9rrmcoo3eKiIDE73CApUXPpvBEW/6nYz4TteliU0cxFi7K9Cm0gfrvZJk3mzW
+         faZI6D56hNesZ7plSPQUfdcW7udpQSFxnoZJA8pte7Wgc+ZKCuqjVQ8ZNgP/AiappF+P
+         hZPQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=ESYAKcpw8CJ6aupot12QGhm/1PtWxxa9SFKXu5/HUJo=;
-        b=mZc+fHwwCaMebyVjirfrd5OgX8Jf3M0DiwXSfWZOY6KsdVU8lX80n+aXDFq0nr8KhA
-         uETUhG0puTBrLKabP1kPBJafsY4IVa6z6skH9M3ACGBAbL8KRvD4mHVQYBHK/bDj/Z7w
-         5rXdnyp9xJTgBMjNhc8Ks0+1DVpnOr8zyHWrDTOxNDWTHsTGV+GZBTs/7dkSVN/2OdEX
-         75TUxfFrrSxh585CNmKaXSIJ+EI8e998gzSYmNrnDPV6KLN23gZ1/ZpkSvoxH1EDpoI2
-         IASv06tBghiseY+Yc76jnkmmm4lSoIrrcEDddoiTVxKgrnaxw7p9KbSMXHgJuhxYgnd6
-         Ovdw==
+        bh=u2ub9aDUdGkR7a45M6+RayGW3Mc5Nzpp+BqvE+GQyD4=;
+        b=Ged2RztJc/CgDP22AbDUG+ipUdeDhzWC7RaVlr+or3aiyXPEOpXPIqtAgCoJRkyrhU
+         7gqblzplgRUrip7DYk57fJV2GWBa9RsO484YqWCVgmGhz19ckythCnSsIOcmM+gX6WBp
+         oX99LW94GVki6sqAU/6JS6xGW8GdG8XwzOLvzGs52KeEOi5CtOdUO+L4YX0H4soYKesj
+         tL4USNPjzHRP+SCTTwUt3TaNK0EflAIwwyYPSV4qytdbG9gVBPDhkb8iYGjhV3VIJYEe
+         9Z4glX0ado5pyQt0qF1O1t4rQhE8z+TGmvz5wXBwJLYidBfmPDlhrKBNNSvmRiRoXA7W
+         dS4g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=HzrZAfth;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42e as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=E4117kGo;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102f as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pf1-x42e.google.com (mail-pf1-x42e.google.com. [2607:f8b0:4864:20::42e])
-        by gmr-mx.google.com with ESMTPS id bd5si775673oib.2.2021.09.30.15.27.11
+Received: from mail-pj1-x102f.google.com (mail-pj1-x102f.google.com. [2607:f8b0:4864:20::102f])
+        by gmr-mx.google.com with ESMTPS id c5si223310pjd.2.2021.09.30.15.27.12
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Sep 2021 15:27:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102f as permitted sender) client-ip=2607:f8b0:4864:20::102f;
+Received: by mail-pj1-x102f.google.com with SMTP id qe4-20020a17090b4f8400b0019f663cfcd1so1409101pjb.1
+        for <clang-built-linux@googlegroups.com>; Thu, 30 Sep 2021 15:27:12 -0700 (PDT)
+X-Received: by 2002:a17:90a:47:: with SMTP id 7mr9261738pjb.46.1633040831839;
         Thu, 30 Sep 2021 15:27:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42e as permitted sender) client-ip=2607:f8b0:4864:20::42e;
-Received: by mail-pf1-x42e.google.com with SMTP id y8so6252727pfa.7
-        for <clang-built-linux@googlegroups.com>; Thu, 30 Sep 2021 15:27:11 -0700 (PDT)
-X-Received: by 2002:a65:62d1:: with SMTP id m17mr6913015pgv.370.1633040830779;
-        Thu, 30 Sep 2021 15:27:10 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id q4sm4066225pfl.50.2021.09.30.15.27.08
+        by smtp.gmail.com with ESMTPSA id l185sm4055195pfd.29.2021.09.30.15.27.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Thu, 30 Sep 2021 15:27:09 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
@@ -128,19 +128,19 @@ Cc: Kees Cook <keescook@chromium.org>,
 	linux-kernel@vger.kernel.org,
 	linux-kbuild@vger.kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v3 6/8] mm/vmalloc: Add __alloc_size attributes for better bounds checking
-Date: Thu, 30 Sep 2021 15:27:02 -0700
-Message-Id: <20210930222704.2631604-7-keescook@chromium.org>
+Subject: [PATCH v3 7/8] mm/page_alloc: Add __alloc_size attributes for better bounds checking
+Date: Thu, 30 Sep 2021 15:27:03 -0700
+Message-Id: <20210930222704.2631604-8-keescook@chromium.org>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20210930222704.2631604-1-keescook@chromium.org>
 References: <20210930222704.2631604-1-keescook@chromium.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2969; h=from:subject; bh=PqMG9LUKCcMh794yj62SW/bUvosL4x5yAHHZWjpUkyg=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhVjm34phzSlXdvuTp3+opvclRgdeGSmO+NwyepuYM EN6zSnyJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYVY5twAKCRCJcvTf3G3AJhT0EA CJkQ005XqUiJSOcNF6agctDoJhc+CVk4wZ2PG6HQUVmHJKwFf67w4PZ9g3p1fsjzXDp9eaYZefJFUi 6JHZRF5jjU0UYYfYT+DIAnlZM5F59JkpxVExn9yFX1HQyiWAe5/l+5ivLQmIspyvdgPt0GkAfHmeO/ SAzlS5DsbIsmGTLy3DBecFEarOb1YWkPC2Bv7+6PBHt17TVvlpe3KrKvykV7blZWLbAXP3gFo73aO7 YKXx06jgVvyoFXBmYg1fbqfB/TuIRdafZpd4e4IXdqUM/sz3BfrZ5Sszh4wefHDCoDpNdwCNaq+coA W1Hf6kjXkHCK0W6df8mlNFWzVvlCrt5xS488eSFMmPYbk3ImPlxfMNlYoW21FSY3z2SGV6UMa9UTce PW5Ozc21RqIbDwIc1m/H97hfNvFCH0evpi6086NOBh3kyFU3RbIngjeRpk+C+awlD56ONUjPYf4dwv 8DssvV22U43dK6J18SZPEd1qOnylxxE5blxqg4EpCCncxUm7sQEmCYqMwp4O4BK73wNhCzMt0+Qi2u AWPmBNoHgN9dPBao7l6NRLBvFtVtgn5ojCl6tSMu0ueoGwYkLf2APnPgslcTmsO0a6TiP0U8MDgrpk OD0LxB+07EMcZPI2t5HQuWLuU9N2QxGPHO2KQqts1PVM1qqJ2ZwHw3aPkKWw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1867; h=from:subject; bh=yfsJRZe5VPlXhNpESupqg/Lx3TB+JxswN2/B9c/1qRE=; b=owEBbQKS/ZANAwAKAYly9N/cbcAmAcsmYgBhVjm4IH1a0nV/SMwCAsRFQGt/UlwMh4gkN7oMNoN0 ZBYvfZOJAjMEAAEKAB0WIQSlw/aPIp3WD3I+bhOJcvTf3G3AJgUCYVY5uAAKCRCJcvTf3G3AJnyND/ 9Jn6MqWe77b4tIIKVMs4JhXxwCeYTw1fq3mDnWNU4lSzNE/x3S6AYm3L/txTVyeheRfpOl7SOWwk70 /CWgalV93SIVwrfyQk3eIHwwaYv5XjUxMKTq9OmuY8shTCHA0Dmu9LfiSuLzV9yZ8WUaBEymsdsauL A3bK8vkp9rzhLE4geifpHgJ2ELbeD+A+KNRW5ojXhXB4SBMsdYtEqRGGSsMURPAyAOIn14yPxBLu4M ILNp4YRWjuhJWMN2YAc262qkmCtJjdPPTiQirjxUttsVUtLbK3BsOqjXu+T/dGyFDCb1+eCMJ0arG5 LR10YyJAmOxmECGqzhaP9h18bHNuGDnHAxpPXDn+AhFwwI/Qw5u7+QnYpaOKUkucflZJbd4KykcidL NxsnbLLexoPG7e3txH9ZWIYh72T0Se7V2u93sp9AhF80AYirhFQw26z3rqV3XeCFQkceyWEaZmiras 5eoD20fPo4Dlt04k/F5h2NaBn/LUiB8YxoMnHv2hVt8Ft/cqmhNRqkI/z5Nux69TO3JMtdRDX67id+ /uJBIcZFdewl3ka+oWfCVb3bpMGdaHVp3+bmLiQGZXR1z6tnH3gUZVUECYU98Kh0AW4LuiNi3A/xGa 0WhDo8ht51lnbE7T8FRhQ7FL8vO50a8MszXtDGPQpVltL0E0RubMc+2FVe6A==
 X-Developer-Key: i=keescook@chromium.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=HzrZAfth;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::42e
+ header.i=@chromium.org header.s=google header.b=E4117kGo;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::102f
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -157,9 +157,9 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 As already done in GrapheneOS, add the __alloc_size attribute for
-appropriate vmalloc allocator interfaces, to provide additional hinting
-for better bounds checking, assisting CONFIG_FORTIFY_SOURCE and other
-compiler optimizations.
+appropriate page allocator interfaces, to provide additional hinting for
+better bounds checking, assisting CONFIG_FORTIFY_SOURCE and other compiler
+optimizations.
 
 Cc: Andy Whitcroft <apw@canonical.com>
 Cc: Christoph Lameter <cl@linux.com>
@@ -179,50 +179,29 @@ Co-developed-by: Daniel Micay <danielmicay@gmail.com>
 Signed-off-by: Daniel Micay <danielmicay@gmail.com>
 Signed-off-by: Kees Cook <keescook@chromium.org>
 ---
- include/linux/vmalloc.h | 22 +++++++++++-----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
+ include/linux/gfp.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/include/linux/vmalloc.h b/include/linux/vmalloc.h
-index 671d402c3778..0ed56fc10c11 100644
---- a/include/linux/vmalloc.h
-+++ b/include/linux/vmalloc.h
-@@ -136,21 +136,21 @@ static inline void vmalloc_init(void)
- static inline unsigned long vmalloc_nr_pages(void) { return 0; }
- #endif
+diff --git a/include/linux/gfp.h b/include/linux/gfp.h
+index 55b2ec1f965a..fbd4abc33f24 100644
+--- a/include/linux/gfp.h
++++ b/include/linux/gfp.h
+@@ -608,9 +608,9 @@ static inline struct page *alloc_pages(gfp_t gfp_mask, unsigned int order)
+ extern unsigned long __get_free_pages(gfp_t gfp_mask, unsigned int order);
+ extern unsigned long get_zeroed_page(gfp_t gfp_mask);
  
--extern void *vmalloc(unsigned long size);
--extern void *vzalloc(unsigned long size);
--extern void *vmalloc_user(unsigned long size);
--extern void *vmalloc_node(unsigned long size, int node);
--extern void *vzalloc_node(unsigned long size, int node);
--extern void *vmalloc_32(unsigned long size);
--extern void *vmalloc_32_user(unsigned long size);
--extern void *__vmalloc(unsigned long size, gfp_t gfp_mask);
-+extern void *vmalloc(unsigned long size) __alloc_size(1);
-+extern void *vzalloc(unsigned long size) __alloc_size(1);
-+extern void *vmalloc_user(unsigned long size) __alloc_size(1);
-+extern void *vmalloc_node(unsigned long size, int node) __alloc_size(1);
-+extern void *vzalloc_node(unsigned long size, int node) __alloc_size(1);
-+extern void *vmalloc_32(unsigned long size) __alloc_size(1);
-+extern void *vmalloc_32_user(unsigned long size) __alloc_size(1);
-+extern void *__vmalloc(unsigned long size, gfp_t gfp_mask) __alloc_size(1);
- extern void *__vmalloc_node_range(unsigned long size, unsigned long align,
- 			unsigned long start, unsigned long end, gfp_t gfp_mask,
- 			pgprot_t prot, unsigned long vm_flags, int node,
--			const void *caller);
-+			const void *caller) __alloc_size(1);
- void *__vmalloc_node(unsigned long size, unsigned long align, gfp_t gfp_mask,
--		int node, const void *caller);
--void *vmalloc_no_huge(unsigned long size);
-+		int node, const void *caller) __alloc_size(1);
-+void *vmalloc_no_huge(unsigned long size) __alloc_size(1);
+-void *alloc_pages_exact(size_t size, gfp_t gfp_mask);
++void *alloc_pages_exact(size_t size, gfp_t gfp_mask) __alloc_size(1);
+ void free_pages_exact(void *virt, size_t size);
+-void * __meminit alloc_pages_exact_nid(int nid, size_t size, gfp_t gfp_mask);
++__meminit void *alloc_pages_exact_nid(int nid, size_t size, gfp_t gfp_mask) __alloc_size(1);
  
- extern void vfree(const void *addr);
- extern void vfree_atomic(const void *addr);
+ #define __get_free_page(gfp_mask) \
+ 		__get_free_pages((gfp_mask), 0)
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210930222704.2631604-7-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20210930222704.2631604-8-keescook%40chromium.org.
