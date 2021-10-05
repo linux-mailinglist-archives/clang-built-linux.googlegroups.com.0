@@ -1,141 +1,129 @@
-Return-Path: <clang-built-linux+bncBDQ27FVWWUFRBPM56GFAMGQE2UUI4MI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQ27FVWWUFRBDNO6GFAMGQEF4OGBTY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id B102B42276B
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 Oct 2021 15:10:22 +0200 (CEST)
-Received: by mail-ot1-x338.google.com with SMTP id 15-20020a9d080f000000b0054df99cd96dsf4411962oty.1
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 Oct 2021 06:10:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1633439421; cv=pass;
+Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3F3BC422834
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 Oct 2021 15:45:51 +0200 (CEST)
+Received: by mail-pf1-x437.google.com with SMTP id f16-20020a056a0022d000b0044bbc586598sf11067262pfj.14
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 Oct 2021 06:45:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1633441550; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EOD37LvJcj3o+ZHqG7tau+Y6lvSjlRYujem6mJgFyAQdeNDNRAIZw9+wXXn9nYXxbb
-         ZN+2wDK5RiuEThNUgc4D9K+aL3QB7HqjTJgqYafUk1Wy3mcjQR37A294AYEf/SpawR/Y
-         taUgtJmNVaVwpe8t/s1hyqH4Pl0fZd6tQUfqeNteQ6DBt2UgtLMldCKW6c3GqGX1wP4d
-         i1XNNP6jPQbDTgv1YebXvxq7/NLJFTrNzj1W6oVHc5lxwpk6zkmIV2unzMrhikHRwqD3
-         oMjMv9R7e88FjKzgt4zjmWZsWxwZ8qiwicPGkgy38sxrpwSnCHJzIApW7mQ3ysc+CX4t
-         jl6A==
+        b=FKtUP8Je0nNQrvQhNm3FlVDkWMuyTzbb23RIiVUVOGb5pG5aWTIuAP4H66IdIWREIS
+         QqPrhQ5PHZmORRAps9I7PgXLI7xorP65uq2twOT6i3ELYH/mxPxnXdsebhtKRah/CeDH
+         TS1Y6D9R11ZbPFqV9cKgJlYo3cBA/qDHIIJ6MrfiS6ji6/OhsWMnVq/Lid4/zP9ZsidL
+         tVMzKaxEoYYO4TAujylwOu7gzuOw43kNMY5P8HW9baBPcJDrDfwzcLS06hS0/dJ7Ywuh
+         TAyRBXqpg2cw1ZPKkESh7e47xf25kptgrOyEUWu7sRSFDMs4EXt5xF6CnMphBGj7+B+a
+         dlFA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=tskBk/sY0iz2QY56V6PkI4IKuLzCwns80olH98+2LiY=;
-        b=ky9Jd1DYr/bXBHGSv8BZ8IlZRIs6GcIiTzbc3cXCRkASs46rKfn0Hh/5mkz0esqSCB
-         4zLDcBqHatGi1Q/S7/xrs33BhTTtXSQDrU5jOa1MZf57gQbuVWVrdAYqG0eDdBwc1Db7
-         yzHHxSWYxUkDvyz+Zb9nmXgLvYJrUA3EkWQYov2W+BcgrBDTmo/TDFJMWPgK1A7y2/33
-         XKEEbTvnWNzmtI4H6BC3eaPLatT5Ukj0rRBKMi2dBOxfx3As6bxsrSTbS0/UhUXocwPf
-         7eZ81sLr+Gikz+yKXTyl4a2lrPimReM9amMpizHXwhGqvd+nSL1NiTk+y0LpqTvWgm7m
-         +8jQ==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
+        bh=LP5FhDePIjKc4W2Tr4tSh2Wcroiea4CPrTyUg9/5ARM=;
+        b=x6BREf8iaMqY0IqFUINCIKjq4uBHX9t1MP59UoOprBvDjtoOPO8JgGyYquCc7V0h1q
+         a5o4Zzb6wWehi8K22oagXWAZhWA6qPUegBTufI5dCy0Lo7HY+KmHxRbZDu2aiwBlbWQg
+         gKRBQzP7XN2o3feIuVd4Jvpq9LAyJSgu46E40tpmOZa9NpePwMp5MIKwZ6Vw6ngst6qO
+         Flf04nMskdihQaqm1XmSidldU3ObW/GXvS8vrV4G0ohlLZ9zPLqy7eDZxa4ElKcfO4Z+
+         bFa2EignJxHtYNk+1ufqt8BAnMTJQA7xnTjRjZIy6A091mzOXJvbai+nRw/35+NcpmYh
+         s/SQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@axtens.net header.s=google header.b=nmikV1EC;
-       spf=pass (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=dja@axtens.net
+       dkim=pass header.i=@axtens.net header.s=google header.b=cXEeRWfy;
+       spf=pass (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::42d as permitted sender) smtp.mailfrom=dja@axtens.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tskBk/sY0iz2QY56V6PkI4IKuLzCwns80olH98+2LiY=;
-        b=F+ZZVdGgjji/SL6JZSiFdoZOb6FCVDt/em9NVUO8giwzhtEKxCGE0yv2YnlSkdM3vE
-         dYgbWyOBL+PIby2X09MIrbLVPcPGsLdl1/8OwAwaV4Z3EEnPS6vW0d/1H2FMXcdK+fzs
-         Hnv3ZhuRh5ckjtYYA6Co3NUaTWsX+KGqk3jfQ7iIgiMBnqHg5CosYm1qxamyyhZFOQum
-         LJJ+n0TPl3EdZmqxW8DPLW+LYFJ1rMR4fKNKHUQlVbtQIam5okSL8MRkUsMg2fogijVZ
-         RdjhIQ/WsyW3oV1BgK8HOyERXifjH3zexNDZncO0hgfHECOrjSie0xovi4F1X0SBN2kt
-         rvfA==
+        bh=LP5FhDePIjKc4W2Tr4tSh2Wcroiea4CPrTyUg9/5ARM=;
+        b=UMzVJ/72m/dP3HfbeCJeCfxaMb7nE0FxcnWnZTLkgWsLO/O6d1r+l5x2+Hw1eYbgmY
+         fKgMuTCKEB4ayjLVG0Zj0rmHBL+72X/w+Or+x8VwJaQ74nqrBj3dT3NvF0hwvdJ6YTPl
+         wESwbufkrNXbq1ZzaM/XXeLy8o01SrFMxNqZ1oDJFifXDwY1sqmW8PxgPuuIIZvW+u7A
+         loW3V3sQn0oMzrq1pMHJ6x1eSIf2Lo21fjSCEwzQTYY2yugxqdtwceSsEsaTUCXKq0vH
+         kVjs71zuV0Y1jfBKLMKyPlgPBVBPXvC7NeN+bxLmKWyNsnYpYtbawVPH99ePJBEbyK3l
+         JaHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
+         :date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tskBk/sY0iz2QY56V6PkI4IKuLzCwns80olH98+2LiY=;
-        b=CwyFf6WdGqdHQL/PhlKNc8fg4YvgdSQI+xxKh/RVtZe23vSZ41Qic2UEPo4tqNUaUM
-         R2tjqesukDmOReRTuThlKhfItq9FCqMIyXBIn0oy1Wi9Wdk5PEhpNXYM8JicILr6Kivr
-         tjCC4Q6rNNulmh7pt0lspPw4UQhoREv+V3qm4EpkWwATAKcNverucqqVIY0PgSET0GJ1
-         YIxc2ltFsqYZeIeAiZiNyyMBQilzE6Tyew21uLhhMxFssIPWKSSQJf2Fimr7pdamsiA3
-         XCKLWVac6OVygtgkA0yHApJImvEDuTvlg0CeTIqH3W5Jot2nfoZdVkgwTQScvK1xQY0h
-         xbkw==
+        bh=LP5FhDePIjKc4W2Tr4tSh2Wcroiea4CPrTyUg9/5ARM=;
+        b=WJcUg0A5dFJUojBi3eJITQGg2/5Z6ulFNTRLoYmy5Lr9KgDdb9YR6hQ7CAzw54hTkk
+         tnD1jD8AJvQ5E6nX0QVrD/PJALsgm/kPSG+I9keTgMDuIg75Ns3WE/rd8QS29HK+0Sip
+         u6Bbm4REfBZJSsB0J+sG8p1oSLQ7uQXDGb/mCwXShAAr2Hpur79ZHTKoRRtuwi3DITZt
+         oBuFKM7bZ2ceZ5K35icJfAFNwBDnAGK+3uon+p7RzK2yODRRMKz8M/SFcoVb9onrlUDq
+         LpVkCQHhG9G0UQOZHLzoYY+ZMTtWanl++e1ikiS5fB14seLBPnqlNZjQayUEPKRFv2IF
+         7DEg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532iCKmue98O8FvP07DEkELP7h7IzYacdxh3ZANc8od1R6EyocLM
-	4fyPeQ7Y4ZaWpjVQyeyP2nA=
-X-Google-Smtp-Source: ABdhPJwFwFnzMP40PsfFU7YsVhv+qZImVtYOrUhUQPY0lfK454jHyT5z8Cy6BeFF+qzuTAB2vLScAg==
-X-Received: by 2002:aca:3985:: with SMTP id g127mr2453720oia.149.1633439421705;
-        Tue, 05 Oct 2021 06:10:21 -0700 (PDT)
+X-Gm-Message-State: AOAM531lzckRtdd6+4e9eJD7qcNoNN9JMjdHVyYsm9lJiTGc/YUreC10
+	LR7txiwnjD8RRGa1ISL0sag=
+X-Google-Smtp-Source: ABdhPJwsnOdTXHoMOBFgqHLa4LhAV7B4OjKo+VP1bpltYvRDg8yZyQDYB76WM8YdHGHYCcPx/k8qbA==
+X-Received: by 2002:a05:6a00:a0a:b0:44c:52c9:bf25 with SMTP id p10-20020a056a000a0a00b0044c52c9bf25mr14398373pfh.24.1633441549889;
+        Tue, 05 Oct 2021 06:45:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:1e02:: with SMTP id m2ls5881823oic.2.gmail; Tue, 05 Oct
- 2021 06:10:21 -0700 (PDT)
-X-Received: by 2002:aca:3114:: with SMTP id x20mr2423259oix.174.1633439421138;
-        Tue, 05 Oct 2021 06:10:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1633439421; cv=none;
+Received: by 2002:a17:902:848e:: with SMTP id c14ls11719919plo.1.gmail; Tue,
+ 05 Oct 2021 06:45:49 -0700 (PDT)
+X-Received: by 2002:a17:90b:1d8e:: with SMTP id pf14mr2073330pjb.125.1633441549268;
+        Tue, 05 Oct 2021 06:45:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1633441549; cv=none;
         d=google.com; s=arc-20160816;
-        b=KELGmUKanpBsPaQ1QnXP6Rax8mu+c3wjI0vHUygPX6J2cZdNIvXwdnWSBYsjsLKac1
-         Dpd5XWa5AYW+1PGTvzOTCNK9qMu5vFfwRotiXSrDBM+jQeRsvTPYYqUZc/ZzRBZXbX2t
-         RJI509Qrsz6p6pwSdOpOENyPkfsDTBHj9pzemEqssaLPPz6oaG6NgfH+yjUODWilVz40
-         wrWOcNCLefJVcdYk7l5T60gmt7da0N3UYHLuGVzcw9BgKhN9T7VQoc2MESu5zrxv9CRk
-         z6yfyjGvZKSi3d0zl8ZC8CuH2zlBbd70eFeKOH1DyrUVxbe0k5rYtzPusrliNeoJHogr
-         dfUw==
+        b=LNF7+OkgTstwKCUYZrO7zsyeBgK9lkHnuz4nYv47wNwTjbSqMcsz3aqrzW+d4N74w4
+         CTxz4N8kHV4zGIwycrwQEmFtfqm+AzQbUtEZesqWCdilN4a/7DkXr1rlPPVmUOFbTCdj
+         zXsRNVNqNIbiGfK+DfHkU0AYMXb1uwTJSvs27w/bdJHl5YDw2azU7vZ6Ts6c8s2Yb4Sn
+         /hZh/88AjY+0/Dfe9DxFErdkd1kWphR8Scq2wiLXz8DbIfFzOkui3jjil7h/KT+Dk718
+         C8hDTAuJc+bTs4yWyUN8A1L8fgRedL40bPAK10kQ4bzfQSseZFZL20DlZjml/yBeYwJw
+         zB+w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=TCCUX5JZdookotxRzV8PUR+bQjhgRjRq9vklW0tEBT0=;
-        b=pLU9mHwWvLX81V/z1/m4KMJE/Rc1dk7D2qBC0tEG8AXNuovtGdFdHHHduXyWpHJWDG
-         5dltzD3ajHv/9fM5O9cAIbVh7rg5I3vakB/PbvvrptGpMcbsGgedBGh0cTB2EbfTaimz
-         MtV2MNdciyrXRak5xCjwZdXsXlGO0fQ3XP3UosAH/MIrImGUddR98ayrRRTxqMNeZ9V/
-         BaycwxtZo+/K3+33AxK4tXO90bVZshRPyS6tglyZ3oy2O5sldLr2/9hwp0jj9qJ/x9Lm
-         uLFHLRpvxPWQxkN22kn5C2q3ZU/QZx8dXWUd2gPgREeFVhoMlJA9WjhkBviGbWuKVi82
-         RA6g==
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:dkim-signature;
+        bh=q2sJa+RSjEQ0N7P9tx01XDO9P2azq24o4J0vSll+eDo=;
+        b=Vl/kWGf9KBcNzTP5Fb0oJw82mDRBO2GFy/wQ/o7JQe81s1Y4IlpXDhsmboQKsbhkbx
+         w1ZEWDFcBF0+aKvFovdcW2QJtnop+xkr2obdhSll12gUInzQCwa+8O/ZXOftE1UoOOQ7
+         ymo2dupnkj5ERmQ+S/CMLwO6loTduePYMwmn1PD65v4760Hw/Ta69jitV0YV0OQtFUft
+         ZNTsOr5yxDeTDjTZSpls8racmPuKrUMd1+k+P/V2qSWxN9TJ6qR/yaU4vonbbTL1U0HG
+         m+DWY1ybnoL8Wo4srrvrZTTILKpuVq8B3o14p4+tNz0OE+/VU3aMx/+fbinKodHP6ppg
+         2lzw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@axtens.net header.s=google header.b=nmikV1EC;
-       spf=pass (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::102d as permitted sender) smtp.mailfrom=dja@axtens.net
-Received: from mail-pj1-x102d.google.com (mail-pj1-x102d.google.com. [2607:f8b0:4864:20::102d])
-        by gmr-mx.google.com with ESMTPS id bc13si1742024oob.2.2021.10.05.06.10.21
+       dkim=pass header.i=@axtens.net header.s=google header.b=cXEeRWfy;
+       spf=pass (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::42d as permitted sender) smtp.mailfrom=dja@axtens.net
+Received: from mail-pf1-x42d.google.com (mail-pf1-x42d.google.com. [2607:f8b0:4864:20::42d])
+        by gmr-mx.google.com with ESMTPS id b15si1595551pfl.6.2021.10.05.06.45.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 Oct 2021 06:10:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::102d as permitted sender) client-ip=2607:f8b0:4864:20::102d;
-Received: by mail-pj1-x102d.google.com with SMTP id q7-20020a17090a2e0700b001a01027dd88so494714pjd.1
-        for <clang-built-linux@googlegroups.com>; Tue, 05 Oct 2021 06:10:21 -0700 (PDT)
-X-Received: by 2002:a17:903:2403:b0:13d:cef7:61f1 with SMTP id e3-20020a170903240300b0013dcef761f1mr5203670plo.48.1633439420727;
-        Tue, 05 Oct 2021 06:10:20 -0700 (PDT)
+        Tue, 05 Oct 2021 06:45:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::42d as permitted sender) client-ip=2607:f8b0:4864:20::42d;
+Received: by mail-pf1-x42d.google.com with SMTP id g14so17504375pfm.1
+        for <clang-built-linux@googlegroups.com>; Tue, 05 Oct 2021 06:45:49 -0700 (PDT)
+X-Received: by 2002:a62:6243:0:b0:44b:e10e:61b0 with SMTP id w64-20020a626243000000b0044be10e61b0mr30339538pfb.53.1633441548925;
+        Tue, 05 Oct 2021 06:45:48 -0700 (PDT)
 Received: from localhost ([2001:4479:e300:600:ce15:427:ed6f:99de])
-        by smtp.gmail.com with ESMTPSA id n207sm8291473pfd.143.2021.10.05.06.10.19
+        by smtp.gmail.com with ESMTPSA id q16sm19644560pfk.214.2021.10.05.06.45.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Oct 2021 06:10:20 -0700 (PDT)
+        Tue, 05 Oct 2021 06:45:48 -0700 (PDT)
 From: Daniel Axtens <dja@axtens.net>
 To: keescook@chromium.org
-Cc: catalin.marinas@arm.com,
-	clang-built-linux@googlegroups.com,
-	hca@linux.ibm.com,
-	jarmo.tiitto@gmail.com,
-	linux-kernel@vger.kernel.org,
-	lukas.bulwahn@gmail.com,
-	mark.rutland@arm.com,
-	masahiroy@kernel.org,
-	maskray@google.com,
-	morbo@google.com,
-	nathan@kernel.org,
-	ndesaulniers@google.com,
-	oberpar@linux.ibm.com,
-	ojeda@kernel.org,
-	peterz@infradead.org,
-	samitolvanen@google.com,
-	torvalds@linux-foundation.org,
-	wcw@google.com,
-	will@kernel.org,
-	dja@axtens.net
-Subject: ARCH_WANTS_NO_INSTR (Re: [GIT PULL] Clang feature updates for v5.14-rc1)
-Date: Wed,  6 Oct 2021 00:10:15 +1100
-Message-Id: <20211005131015.3153458-1-dja@axtens.net>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <202106281231.E99B92BB13@keescook>
+Cc: catalin.marinas@arm.com, clang-built-linux@googlegroups.com,
+ hca@linux.ibm.com, jarmo.tiitto@gmail.com, linux-kernel@vger.kernel.org,
+ lukas.bulwahn@gmail.com, mark.rutland@arm.com, masahiroy@kernel.org,
+ maskray@google.com, morbo@google.com, nathan@kernel.org,
+ ndesaulniers@google.com, oberpar@linux.ibm.com, ojeda@kernel.org,
+ peterz@infradead.org, samitolvanen@google.com,
+ torvalds@linux-foundation.org, wcw@google.com, will@kernel.org
+Subject: Re: ARCH_WANTS_NO_INSTR (Re: [GIT PULL] Clang feature updates for
+ v5.14-rc1)
+In-Reply-To: <20211005131015.3153458-1-dja@axtens.net>
 References: <202106281231.E99B92BB13@keescook>
+ <20211005131015.3153458-1-dja@axtens.net>
+Date: Wed, 06 Oct 2021 00:45:45 +1100
+Message-ID: <874k9v60vq.fsf@dja-thinkpad.axtens.net>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: dja@axtens.net
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@axtens.net header.s=google header.b=nmikV1EC;       spf=pass
- (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::102d as
+ header.i=@axtens.net header.s=google header.b=cXEeRWfy;       spf=pass
+ (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::42d as
  permitted sender) smtp.mailfrom=dja@axtens.net
-Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,46 +136,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi,
+>     Kconfig: Introduce ARCH_WANTS_NO_INSTR and CC_HAS_NO_PROFILE_FN_ATTR
+>     
+>     We don't want compiler instrumentation to touch noinstr functions,
+>     which are annotated with the no_profile_instrument_function function
+>     attribute. Add a Kconfig test for this and make GCOV depend on it, and
+>     in the future, PGO.
+>     
+>     If an architecture is using noinstr, it should denote that via this
+>     Kconfig value. That makes Kconfigs that depend on noinstr able to express
+>     dependencies in an architecturally agnostic way.
+>
+> However, things in generic code (such as rcu_nmi_enter) are tagged with
+> `noinstr`, so I'm worried that this commit subtly breaks things like KASAN on
+> platforms that haven't opted in yet. (I stumbled across this while developing
+> KASAN on ppc64, but at least riscv and ppc32 have KASAN but not
+> ARCH_WANTS_NO_INSTR already.)
 
-Apologies, I can't find the original email for this:
+Hmm, so it looks like the commit doesn't affect how noinstr is compiled
+(which means I have another different issue to contend with!), but...
 
->      Kconfig: Introduce ARCH_WANTS_NO_INSTR and CC_HAS_NO_PROFILE_FN_ATTR
+> As I said, I haven't been able to find the original thread - is there any reason
+> this shouldn't be always on? Why would an arch not opt in? What's the motivation
+> for ignoring the noinstr markings?
+>
+> Should generic KASAN/KCSAN/anything else marked in noinstr also have markings
+> requring ARCH_WANTS_NO_INSTR? AFAICT they should, right?
 
-which is now commit 51c2ee6d121c ("Kconfig: Introduce ARCH_WANTS_NO_INSTR and
-CC_HAS_NO_PROFILE_FN_ATTR"). It doesn't seem to show up on Google, this was the
-best I could find.
-
-Anyway, the commit message reads:
-
-    Kconfig: Introduce ARCH_WANTS_NO_INSTR and CC_HAS_NO_PROFILE_FN_ATTR
-    
-    We don't want compiler instrumentation to touch noinstr functions,
-    which are annotated with the no_profile_instrument_function function
-    attribute. Add a Kconfig test for this and make GCOV depend on it, and
-    in the future, PGO.
-    
-    If an architecture is using noinstr, it should denote that via this
-    Kconfig value. That makes Kconfigs that depend on noinstr able to express
-    dependencies in an architecturally agnostic way.
-
-However, things in generic code (such as rcu_nmi_enter) are tagged with
-`noinstr`, so I'm worried that this commit subtly breaks things like KASAN on
-platforms that haven't opted in yet. (I stumbled across this while developing
-KASAN on ppc64, but at least riscv and ppc32 have KASAN but not
-ARCH_WANTS_NO_INSTR already.)
-
-As I said, I haven't been able to find the original thread - is there any reason
-this shouldn't be always on? Why would an arch not opt in? What's the motivation
-for ignoring the noinstr markings?
-
-Should generic KASAN/KCSAN/anything else marked in noinstr also have markings
-requring ARCH_WANTS_NO_INSTR? AFAICT they should, right?
+I'm still curious about all of these questions. I get
+CC_HAS_NO_PROFILE_FN_ATTR, but I don't get ARCH_WANTS_NO_INSTR.
 
 Kind regards,
 Daniel
 
+>
+> Kind regards,
+> Daniel
+
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20211005131015.3153458-1-dja%40axtens.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/874k9v60vq.fsf%40dja-thinkpad.axtens.net.
