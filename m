@@ -1,148 +1,135 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB7V46SFAMGQECM2RAYA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQ2XPNX7EOBBIOX6SFAMGQEU3I36EA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 11AE04236BD
-	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Oct 2021 05:56:48 +0200 (CEST)
-Received: by mail-pj1-x103d.google.com with SMTP id r10-20020a17090b050a00b001a0106020dcsf833686pjz.9
-        for <lists+clang-built-linux@lfdr.de>; Tue, 05 Oct 2021 20:56:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1633492606; cv=pass;
+Received: from mail-ed1-x53d.google.com (mail-ed1-x53d.google.com [IPv6:2a00:1450:4864:20::53d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 16971423741
+	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Oct 2021 06:52:50 +0200 (CEST)
+Received: by mail-ed1-x53d.google.com with SMTP id r11-20020aa7cfcb000000b003d4fbd652b9sf1419809edy.14
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 Oct 2021 21:52:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1633495969; cv=pass;
         d=google.com; s=arc-20160816;
-        b=v2RqkKr1gJOcoxkf+tYA07q2X6ryRGlgpuD77TrCEVTtQzNvV1/ZX08QrKFuVnUNWZ
-         4dyJY2YCovTdCwJFunusmhpkdfvcy2KMUHl25PRAUyvOtwq4wzZeIK0fs6mQ7MaPkAx6
-         YTduhQXIDhMIxnbDhfLcgDw9HmIcPtyZP7UOFoFUp/3ARPzKf1FDk0tKMtgU6+jOE7Bu
-         JE1/wpiDyr8ZIc1Kdp4bjrvrJXbpmGb7h7Tw8MVMUx7yqSSxJFpcA5AfqMuQNuaGTsci
-         lk6AdIhjzcOES7A55oi4ss3KWfWgnYcij88G4giTHE2vDfuelxh0qdivXVkwkGle/Jbs
-         2MoQ==
+        b=l9Jl/Q6l+WISDu1rG8yxNHzaG9zuf3jZKNGB3Bo/B2y5JjTzj60z3t/RUri7r6pXUp
+         zVkmL8l/lavCRVoksmFnIvReYBJ0bPJMvUYxk5J47LS5oMaMqF4gtaMly8tI81LtORPD
+         aeg/W/ng0/VzbSXnECgq77mAR7sK2D7LJ8ZxRWAF72+mw7n8vGWPyHLTKOnE/TRZbLaG
+         Y+6aQ0ZMbuMd2YgD2pNdWZpK0nuV4ASTfFj9eQ7zPBxcdHvuO2nPrXj8qVBHdn4I1Sr4
+         E14O9Ymd2E/2m8g7ovyLkZHyO5pBJ4X+j6brwuD8BEUikvWLCENoSRCap8+Bw9QL8dxJ
+         ISJQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=CxFuVyPxPx5dRjlwOUs1I8jP5rNwO+DgXJZuKcxnUKg=;
-        b=RVj0fWl9cgbRQPP4kvdeK+rkP3hjedWhOuvHHUXRFsyiTWs6GbQ1yDG+QGwAyvx617
-         lUtrZRWtog77huGw6nO+zXYKMu2Q4T3vyWJdIWhrnM1jLg3NXaW+5ZaeP54hiR/HRGdv
-         iMFL2o3sfTsOK1s86HVfRD0ehCynNDofNPqkvA7NGBhvBDv4rYXsaH5kDyzmgItj9iN0
-         ikPF0h3PX3z48THgghlzSIWhzqzwjPQycUGDf3JOLZGAXniu8w+t9V+BVacZU/MlxuKR
-         b1s9lT2QXLaJ1rPIY1BwfXVoh2Rkm08YijN2frJYbJ0RLkwTzn5ScRCarpmDWMx4xdK1
-         hTug==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=3LIOiBwEpolHDApIAc5f5YCy+NKv+6QOcPModEMyTl4=;
+        b=VH8qEulcSIINmU/Jz9fDMaql0j7oAaP3wyDdsahlV5ipblPKYoV4Ceqf/q1uxc78sk
+         VyoQBysxYMtm9HYCY3vvJXqb4nazg4i5JjGWDUVX/NtbozEftLD7IOV0aVRJ23Gc8KSJ
+         5c8LeEc3+mRJobn9bkA1xTe2pYdQIE8/M+XoFZV4zTCBMendrNOFpfj6F1VV6jfpP1+H
+         FPaEIwliuRs0olOaILKfHOJmx1QKX/JxEvGsewhPCYpsG2n/ST5+vkrw56zO1Nh9SqDR
+         ubxv8Xmmacti8NrCK7k1f/FvOpxS94vXawu/Z1UI6sN2n5yc3aXcdgYqUxflBnTk6V2W
+         mSUQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=LURrqYKe;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52d as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@google.com header.s=20210112 header.b=CaOWAOrw;
+       spf=pass (google.com: domain of jannh@google.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=jannh@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=CxFuVyPxPx5dRjlwOUs1I8jP5rNwO+DgXJZuKcxnUKg=;
-        b=qSF1ZWOlfm3l4xW80Mihaf0ZrnVNRqOlBKmqSgQ1bS25RPslTme1j6+0gwBKEUtbjv
-         u4jxjF3up8G+/gk3c6/QOHODvFZIl6mGWKPwsbq/Y7F0qynpxu6rb0Hps3i6xxPSGJAP
-         XkQuIEzqfY/M3A8oKP1/ZzywzPT0zWrHN8UmxIzaeVXBqx5WcbFDITPjSpVAkS0cyxyp
-         HbLJsSUY5S7ayrvnymEjAhakfb7CMaTHw2ETolOEsksdB//4iIKOwIBrrnNtR1A0sr4W
-         NQWxhF4qscQzmJMQNBsuXLNktXiPc7iKxXL/WehniLlXv4SvAyfUQbGBNGRi8hw9XKgM
-         UShg==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=3LIOiBwEpolHDApIAc5f5YCy+NKv+6QOcPModEMyTl4=;
+        b=Lyt+d0ix8B7Xi5xiCT4T2EdgBZUTsV6tEyCeep1qCdkxB0TcpH1vveZvaLgwaJYn9H
+         vHwYu4q4SMYlSE2Y2sYkOrVDK0lJw2ztR7By8MLPVbaoVIRENPFuLqPhImjhBojhTj66
+         KqXUX7ZKmZgaGu2D2lMDhM0rfZPDLuicFzvqvDSllJYPIKhvrZrc3l2N0u/ND8f//UEn
+         xpM8ovWcW4qCo5A0IKfLkS+QceuTcdBpxwj2mVTbZDn1XweSXaf5dX9tHsvD4GYEu7EB
+         4sN6K8Cwer363abVq93osJYWyjJLlx2eSux3pDPLNyQooWMODtk1asLPDgs+sEwjldSq
+         kQ0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=CxFuVyPxPx5dRjlwOUs1I8jP5rNwO+DgXJZuKcxnUKg=;
-        b=Goqyn4QE18tLLmywrfBYiY25+Vew1GreVjTHmyK/IkySzQ6U7upTgj5XyTMNwqSJBV
-         9jvdmE963LVbc/iX0C6ag401t3AilhlX4AYn1bMj/rAVT/7oYxYl2+2ChrWglOmZ+BT/
-         fPdQFISkTRci2SZOOamq5nO+7cRi9quAu5nsv5GT448MLwwpNoghOSGRdHYz2m1LOKvd
-         B+ceK36hgk1052JEKROUes6OnSk0q4FSoGn8myrpDBOs5IWk6/A1NlWGpp8+2f1yQ0IP
-         4YEKajSXdcPH18Qr7E9XrlRaYZs+wbE1zPRsnaitbBtHOzg/wPjzcssVJTF3NJhw7Xv0
-         z3ZA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5301NgOyTt1k5sxk3Fdn/Et4wiCZw5Yv4yprsDduVtwPEeRffnpP
-	d0EsFl+BxZRYGafCAXtFvDI=
-X-Google-Smtp-Source: ABdhPJwrbdYnLrDKq+p6LyFw6EqpCB2LCgG3EfHISLZ3r6MvGvtVpdBhhxPOAStMNzvc1bu/aFSBkQ==
-X-Received: by 2002:a17:90a:9908:: with SMTP id b8mr8266110pjp.203.1633492606681;
-        Tue, 05 Oct 2021 20:56:46 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=3LIOiBwEpolHDApIAc5f5YCy+NKv+6QOcPModEMyTl4=;
+        b=dYXL7y44fcHsX+8mZG6VMTSTNwfM3iMXtGiiEVZg3q+Uk8Q/Bd6rUns7LYs6B+rHJb
+         zuLbltmCPydWV7UBDkKwuoXkHyrNJV4nszl6E+bbR7yS3RyxeJMwNuY9Y5lSIvjASySt
+         lwHXOTF5UjzWd6ETJjlESkLXPDY+l0beBqhuhl6rhRL3S6lsGGdjM5wrJZnLfcMSaRS/
+         Mo/Jk8A5UGI4PB0+8OWe/fphHno7Nui+JECZiAKQozLqdsc7y8fXQa2GIXAQUnjWnFap
+         FxnmlP5RvQSxfLbnELTRy+aCID7Vz8ptH75voybUcKtuKlSE5H3s0+lAtulEthK5wkdP
+         +/+A==
+X-Gm-Message-State: AOAM533KFk6YNqvUIr4PzUml2lySGYXCyhZZ3gg84MpKmcyCW71J35Qn
+	S2HvkqzQ/DGp5VKiSZINed4=
+X-Google-Smtp-Source: ABdhPJwOl8DPpZd0WSoLoU7kHwdZx+GHe50VDJzBzOz/08NBvrfy4xYQwXdaQesWEU+siT6Z+201HA==
+X-Received: by 2002:a17:906:2a8f:: with SMTP id l15mr20601695eje.156.1633495969829;
+        Tue, 05 Oct 2021 21:52:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:505b:: with SMTP id q27ls8579233pgl.6.gmail; Tue, 05 Oct
- 2021 20:56:46 -0700 (PDT)
-X-Received: by 2002:a63:c:: with SMTP id 12mr18766229pga.477.1633492606111;
-        Tue, 05 Oct 2021 20:56:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1633492606; cv=none;
+Received: by 2002:aa7:c944:: with SMTP id h4ls6525392edt.1.gmail; Tue, 05 Oct
+ 2021 21:52:49 -0700 (PDT)
+X-Received: by 2002:a50:dac3:: with SMTP id s3mr31607188edj.322.1633495968954;
+        Tue, 05 Oct 2021 21:52:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1633495968; cv=none;
         d=google.com; s=arc-20160816;
-        b=XaDCreEIi465sEunik/WlGxEPArGxl5CpPDOAOdfA0Ym3PwVCTwT+jYx091Qxt2y7y
-         M+XBSkjGnCWy6BHlvbHszf1MZFf0wC7jFGGWKLmlgIkmz7IvJICJSdT1ueCB6Nc+jy4b
-         2d1VjlyTyARzx2SLceVWDxACkvgN7XPJWzTgms91Dlk9bsXUgaypteYkDLXsDu1+Ts4M
-         jtt44A7y9UyWA6mlLXsFzV0F91HSBJRif17cQBDVzO+vu7nbonxyGbJNs8fYhiRE68mq
-         YXnyEra/+fPWw8I+/hnMH7l76Ylq+kBz8hQ57DqLmvkwUHwsHb20VUSFgL7MjU0NTbQc
-         11fg==
+        b=KvYkexOup6/lR1aZjurD6lrdwP3gpQaf5QPPUkiBPHAZBFpZ03llc0y8LGxGPhAiM6
+         9XEROg1hz53liT1FITl6xUaMGtAntz5TWWgfxoVDNA7sM94cHE2POAjWeGTRV8ILy/0/
+         4e5zfCGXHdqlGZlqC0EX6WQ2S3COmwPeMYoNQvI251VjyeRxqJsCY2jBOrHCFnLE10p/
+         KIf4hBe+YxAOVYm3OoEzUViKO9SSw9jqI3GJbglG0H6db5vSL3pwAr1sGoOBIqXTLGk+
+         sfV6eaiC2ytU7ET+d6vUkvSiKlctd72BItcHiGb0Hg8QkXjl2hmgKKEhdihl6chrJr8d
+         KzPA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=b84QyZzxdfWttrk72IQ61VKUmWrKjM777rszm24bGaM=;
-        b=fVzX1FL+vm6/XJGxoUCN2kri2DlLqpoJm7OeMrc7SjlAP9nQDdQMaBzAiU+Te4tZ1c
-         A9XxhMnUxBWTCADrwDVivLI90kjfeBnysBEDRnIfoTjucjOqyI66LqAQ9ZR9c+yszBVQ
-         PJMlM8xmXc/IhyAw8IEwR3A1CRlqdlCCv2fGYIIeryLJrupN7KK9o8wk5m+7SQ6RE8mR
-         IlzVOHS8bXFJblVwMYZww4AEpHRtEk23vCwCgoXrdlOAfFO+JrkaSq/ojB2r80DbouE1
-         PW90BDcDM838PsA0ZnzjcaOmic61j0MRgDHmE+XyMe1aaZYnHzpykIZ+XBD5blU5DUjU
-         NNBw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=3KNLEP17J4fGFGePafL9e/em5qLyI4/H75ODeeqFPy4=;
+        b=OG9vDs0GGTpikT+PAAPLw6ATc5JXjnloFlxK1YdjexA3TWigyUa80rmj/viah2kGfA
+         XHsEXoX3kR0H7jn2QzugbZX6CB/AEGL3UiVt+MqnekuZciTgfI0MvvjE9UMJp3Skvloj
+         u0wpF6kR07RfdXJLb4wybdmETwBBvmUCrsN8oKvFoV51cMmPuRXSOeucFeHT8dTv6Suc
+         vYMII++61WfkggMSWY0zn9rMz4FO9xY1cNI1tp7k3OYSx9em8RyQawbPQSclHwaHMfzU
+         jqMi95XjKzPIzLb8E6Cibmv3h55NzBKBbI5wrQiQ4RTzoUn5onH9+jtG6v8XYtcfE2Gq
+         JD+A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=LURrqYKe;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52d as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x52d.google.com (mail-pg1-x52d.google.com. [2607:f8b0:4864:20::52d])
-        by gmr-mx.google.com with ESMTPS id o2si421796pjj.1.2021.10.05.20.56.46
+       dkim=pass header.i=@google.com header.s=20210112 header.b=CaOWAOrw;
+       spf=pass (google.com: domain of jannh@google.com designates 2a00:1450:4864:20::12d as permitted sender) smtp.mailfrom=jannh@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-lf1-x12d.google.com (mail-lf1-x12d.google.com. [2a00:1450:4864:20::12d])
+        by gmr-mx.google.com with ESMTPS id 6si464016edx.5.2021.10.05.21.52.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 Oct 2021 20:56:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52d as permitted sender) client-ip=2607:f8b0:4864:20::52d;
-Received: by mail-pg1-x52d.google.com with SMTP id q201so1227446pgq.12
-        for <clang-built-linux@googlegroups.com>; Tue, 05 Oct 2021 20:56:46 -0700 (PDT)
-X-Received: by 2002:aa7:9209:0:b0:44b:e5d4:d8cb with SMTP id 9-20020aa79209000000b0044be5d4d8cbmr34958352pfo.65.1633492605823;
-        Tue, 05 Oct 2021 20:56:45 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id z23sm19421948pgv.45.2021.10.05.20.56.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Oct 2021 20:56:45 -0700 (PDT)
-Date: Tue, 5 Oct 2021 20:56:44 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Jann Horn <jannh@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Christoph Lameter <cl@linux.com>, Pekka Enberg <penberg@kernel.org>,
-	David Rientjes <rientjes@google.com>,
-	Joonsoo Kim <iamjoonsoo.kim@lge.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Andy Whitcroft <apw@canonical.com>, Dennis Zhou <dennis@kernel.org>,
-	Dwaipayan Ray <dwaipayanray1@gmail.com>,
-	Joe Perches <joe@perches.com>,
-	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Daniel Micay <danielmicay@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	clang-built-linux@googlegroups.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	linux-hardening@vger.kernel.org
+        Tue, 05 Oct 2021 21:52:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jannh@google.com designates 2a00:1450:4864:20::12d as permitted sender) client-ip=2a00:1450:4864:20::12d;
+Received: by mail-lf1-x12d.google.com with SMTP id n8so5001643lfk.6
+        for <clang-built-linux@googlegroups.com>; Tue, 05 Oct 2021 21:52:48 -0700 (PDT)
+X-Received: by 2002:ac2:4f01:: with SMTP id k1mr7561021lfr.157.1633495968423;
+ Tue, 05 Oct 2021 21:52:48 -0700 (PDT)
+MIME-Version: 1.0
+References: <20210930222704.2631604-1-keescook@chromium.org>
+ <20210930222704.2631604-5-keescook@chromium.org> <20211005184717.65c6d8eb39350395e387b71f@linux-foundation.org>
+ <202110052002.34E998B@keescook> <CAG48ez19raco+s+UF8eiXqTvaDEoMAo6_qmW2KdO24QDpmZpFQ@mail.gmail.com>
+ <202110052056.F09CD8A@keescook>
+In-Reply-To: <202110052056.F09CD8A@keescook>
+From: "'Jann Horn' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 6 Oct 2021 06:52:21 +0200
+Message-ID: <CAG48ez30MS2sNQX1Sb-MDF7SbLEbD8p0ncOvQteyj38fygG8bQ@mail.gmail.com>
 Subject: Re: [PATCH v3 4/8] slab: Add __alloc_size attributes for better
  bounds checking
-Message-ID: <202110052056.F09CD8A@keescook>
-References: <20210930222704.2631604-1-keescook@chromium.org>
- <20210930222704.2631604-5-keescook@chromium.org>
- <20211005184717.65c6d8eb39350395e387b71f@linux-foundation.org>
- <202110052002.34E998B@keescook>
- <CAG48ez19raco+s+UF8eiXqTvaDEoMAo6_qmW2KdO24QDpmZpFQ@mail.gmail.com>
-MIME-Version: 1.0
+To: Kees Cook <keescook@chromium.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Christoph Lameter <cl@linux.com>, 
+	Pekka Enberg <penberg@kernel.org>, David Rientjes <rientjes@google.com>, 
+	Joonsoo Kim <iamjoonsoo.kim@lge.com>, Vlastimil Babka <vbabka@suse.cz>, 
+	Andy Whitcroft <apw@canonical.com>, Dennis Zhou <dennis@kernel.org>, 
+	Dwaipayan Ray <dwaipayanray1@gmail.com>, Joe Perches <joe@perches.com>, 
+	Lukas Bulwahn <lukas.bulwahn@gmail.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Tejun Heo <tj@kernel.org>, Daniel Micay <danielmicay@gmail.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Michal Marek <michal.lkml@markovi.net>, clang-built-linux@googlegroups.com, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAG48ez19raco+s+UF8eiXqTvaDEoMAo6_qmW2KdO24QDpmZpFQ@mail.gmail.com>
-X-Original-Sender: keescook@chromium.org
+X-Original-Sender: jannh@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=LURrqYKe;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52d
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@google.com header.s=20210112 header.b=CaOWAOrw;       spf=pass
+ (google.com: domain of jannh@google.com designates 2a00:1450:4864:20::12d as
+ permitted sender) smtp.mailfrom=jannh@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Jann Horn <jannh@google.com>
+Reply-To: Jann Horn <jannh@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -155,71 +142,79 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Oct 06, 2021 at 05:22:06AM +0200, Jann Horn wrote:
-> On Wed, Oct 6, 2021 at 5:06 AM Kees Cook <keescook@chromium.org> wrote:
-> > On Tue, Oct 05, 2021 at 06:47:17PM -0700, Andrew Morton wrote:
-> > > On Thu, 30 Sep 2021 15:27:00 -0700 Kees Cook <keescook@chromium.org> wrote:
+On Wed, Oct 6, 2021 at 5:56 AM Kees Cook <keescook@chromium.org> wrote:
+> On Wed, Oct 06, 2021 at 05:22:06AM +0200, Jann Horn wrote:
+> > On Wed, Oct 6, 2021 at 5:06 AM Kees Cook <keescook@chromium.org> wrote:
+> > > On Tue, Oct 05, 2021 at 06:47:17PM -0700, Andrew Morton wrote:
+> > > > On Thu, 30 Sep 2021 15:27:00 -0700 Kees Cook <keescook@chromium.org> wrote:
+> > > >
+> > > > > As already done in GrapheneOS, add the __alloc_size attribute for regular
+> > > > > kmalloc interfaces, to provide additional hinting for better bounds
+> > > > > checking, assisting CONFIG_FORTIFY_SOURCE and other compiler
+> > > > > optimizations.
+> > > >
+> > > > x86_64 allmodconfig:
 > > >
-> > > > As already done in GrapheneOS, add the __alloc_size attribute for regular
-> > > > kmalloc interfaces, to provide additional hinting for better bounds
-> > > > checking, assisting CONFIG_FORTIFY_SOURCE and other compiler
-> > > > optimizations.
+> > > What compiler and version?
 > > >
-> > > x86_64 allmodconfig:
-> >
-> > What compiler and version?
-> >
+> > > >
+> > > > In file included from ./arch/x86/include/asm/preempt.h:7,
+> > > >                  from ./include/linux/preempt.h:78,
+> > > >                  from ./include/linux/spinlock.h:55,
+> > > >                  from ./include/linux/mmzone.h:8,
+> > > >                  from ./include/linux/gfp.h:6,
+> > > >                  from ./include/linux/mm.h:10,
+> > > >                  from ./include/linux/mman.h:5,
+> > > >                  from lib/test_kasan_module.c:10:
+> > > > In function 'check_copy_size',
+> > > >     inlined from 'copy_user_test' at ./include/linux/uaccess.h:191:6:
+> > > > ./include/linux/thread_info.h:213:4: error: call to '__bad_copy_to' declared with attribute error: copy destination size is too small
+> > > >   213 |    __bad_copy_to();
+> > > >       |    ^~~~~~~~~~~~~~~
+> > > > In function 'check_copy_size',
+> > > >     inlined from 'copy_user_test' at ./include/linux/uaccess.h:199:6:
+> > > > ./include/linux/thread_info.h:211:4: error: call to '__bad_copy_from' declared with attribute error: copy source size is too small
+> > > >   211 |    __bad_copy_from();
+> > > >       |    ^~~~~~~~~~~~~~~~~
+> > > > make[1]: *** [lib/test_kasan_module.o] Error 1
+> > > > make: *** [lib] Error 2
 > > >
-> > > In file included from ./arch/x86/include/asm/preempt.h:7,
-> > >                  from ./include/linux/preempt.h:78,
-> > >                  from ./include/linux/spinlock.h:55,
-> > >                  from ./include/linux/mmzone.h:8,
-> > >                  from ./include/linux/gfp.h:6,
-> > >                  from ./include/linux/mm.h:10,
-> > >                  from ./include/linux/mman.h:5,
-> > >                  from lib/test_kasan_module.c:10:
-> > > In function 'check_copy_size',
-> > >     inlined from 'copy_user_test' at ./include/linux/uaccess.h:191:6:
-> > > ./include/linux/thread_info.h:213:4: error: call to '__bad_copy_to' declared with attribute error: copy destination size is too small
-> > >   213 |    __bad_copy_to();
-> > >       |    ^~~~~~~~~~~~~~~
-> > > In function 'check_copy_size',
-> > >     inlined from 'copy_user_test' at ./include/linux/uaccess.h:199:6:
-> > > ./include/linux/thread_info.h:211:4: error: call to '__bad_copy_from' declared with attribute error: copy source size is too small
-> > >   211 |    __bad_copy_from();
-> > >       |    ^~~~~~~~~~~~~~~~~
-> > > make[1]: *** [lib/test_kasan_module.o] Error 1
-> > > make: *** [lib] Error 2
+> > > Hah, yes, it caught an intentionally bad copy. This may bypass the
+> > > check, as I've had to do in LKDTM before. I will test...
+> > >
+> > > diff --git a/lib/test_kasan_module.c b/lib/test_kasan_module.c
+> > > index 7ebf433edef3..9fb2fb2937da 100644
+> > > --- a/lib/test_kasan_module.c
+> > > +++ b/lib/test_kasan_module.c
+> > > @@ -19,7 +19,12 @@ static noinline void __init copy_user_test(void)
+> > >  {
+> > >         char *kmem;
+> > >         char __user *usermem;
+> > > -       size_t size = 128 - KASAN_GRANULE_SIZE;
+> > > +       /*
+> > > +        * This is marked volatile to avoid __alloc_size()
+> > > +        * noticing the intentionally out-of-bounds copys
+> > > +        * being done on the allocation.
+> > > +        */
+> > > +       volatile size_t size = 128 - KASAN_GRANULE_SIZE;
 > >
-> > Hah, yes, it caught an intentionally bad copy. This may bypass the
-> > check, as I've had to do in LKDTM before. I will test...
-> >
-> > diff --git a/lib/test_kasan_module.c b/lib/test_kasan_module.c
-> > index 7ebf433edef3..9fb2fb2937da 100644
-> > --- a/lib/test_kasan_module.c
-> > +++ b/lib/test_kasan_module.c
-> > @@ -19,7 +19,12 @@ static noinline void __init copy_user_test(void)
-> >  {
-> >         char *kmem;
-> >         char __user *usermem;
-> > -       size_t size = 128 - KASAN_GRANULE_SIZE;
-> > +       /*
-> > +        * This is marked volatile to avoid __alloc_size()
-> > +        * noticing the intentionally out-of-bounds copys
-> > +        * being done on the allocation.
-> > +        */
-> > +       volatile size_t size = 128 - KASAN_GRANULE_SIZE;
-> 
-> Maybe OPTIMIZER_HIDE_VAR()? The normal version of that abuses an empty
-> asm statement to hide the value from the compiler.
+> > Maybe OPTIMIZER_HIDE_VAR()? The normal version of that abuses an empty
+> > asm statement to hide the value from the compiler.
+>
+> Oh! I hadn't seen that before. Is that better than volatile in this
+> case?
 
-Oh! I hadn't seen that before. Is that better than volatile in this
-case?
+It forces the compiler to assume an arbitrary modification of the
+value, but doesn't force allocation of a stack slot like "volatile"
+does, so it probably generates nicer code? Not that it really matters here...
 
--- 
-Kees Cook
+It also has the difference that you can explicitly specify where the
+compiler's analysis should cut off, instead of just doing it on every
+access to a variable. But I guess maybe in this case, that's an
+argument in favor of "volatile"? I don't know... I guess maybe
+"volatile" does make sense here.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202110052056.F09CD8A%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAG48ez30MS2sNQX1Sb-MDF7SbLEbD8p0ncOvQteyj38fygG8bQ%40mail.gmail.com.
