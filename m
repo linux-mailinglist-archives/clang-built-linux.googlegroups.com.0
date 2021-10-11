@@ -1,174 +1,142 @@
-Return-Path: <clang-built-linux+bncBCYL7PHBVABBB2EWSCFQMGQEHUPQNYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDC2RCVE24NRBTFWSGFQMGQEC6VKSKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 31D50428A4E
-	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Oct 2021 12:01:14 +0200 (CEST)
-Received: by mail-oi1-x23c.google.com with SMTP id x145-20020aca3197000000b002986e47af95sf3647302oix.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Oct 2021 03:01:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1633946473; cv=pass;
+Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8871E4293A2
+	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Oct 2021 17:42:06 +0200 (CEST)
+Received: by mail-pl1-x637.google.com with SMTP id o6-20020a170902bcc600b00138a9a5bc42sf7936220pls.17
+        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Oct 2021 08:42:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1633966925; cv=pass;
         d=google.com; s=arc-20160816;
-        b=prDKxUwx4/pMaShHR3qXBgY0h+CBkN8dvlEQAisE0PEOhdUsxPR9l9gDhXQFHPVYBK
-         erliyeiGGEBwcDZgeVixS43ALDW1BNSkmAVXVi31pRxJ2vNyaK6mfuHaeZrrzIkTa8kz
-         5fsqhqLmWXuAS8gOTP8ijUGYaR35KoYJ/lQ7QtWUHSsijQ1wYlAG8Ep8oa8HOKQjF0eQ
-         d0IvehINt3/G9Qh/TvmR33BDtEW86Lge4fVGvEXUV+NIrKyNNIzliT2sHJNWOA8h/yR3
-         8WkfqldrZmXSCBcueblC5XmMOf1sirJ7ztTsUAfelvgKkxy7dKG6PL9evhOL7iqbOeXj
-         eXig==
+        b=QynrX7X0SJDi5qBK6BU5yaXC6QMC3vZRQp9l0NQWE6Pu9uOmwxYwTIZYUYx803D+Rr
+         RCwWCLJ6/VajhNaNkSwyVPqd5HJeixwzzexl4JjCsuhayCLAKuuMiq47y8/iKBqmQRej
+         4thGP3yMkS7JuYdRuk4AvYekFCZBEXPS4aQhRyHh2nycUy8tcrjNQ12SlwvKC3fuxVgY
+         5m2V1j8EUbGe6YgyzOo962V0gVQuV9kOuuiiTK5B8ZDcpffuHWPWBWorfyxefTYi+yxh
+         7Nu413bWY1UrqNKueFuuTreD9qbTuIBjfG9Bgzr/a4PaZaI7pTjlUrVKuDk/wUnX4qCo
+         mbcQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:in-reply-to
-         :content-disposition:references:message-id:subject:cc:to:from:date
-         :sender:dkim-signature;
-        bh=m7WT553WrgTzXOhL/JaxjPfvYWSKprsDyCP4wfbAn3Y=;
-        b=xCJ3c5+y8Zq05paO8fQ6KeHcuFQcws7UgXhHLBEyA2FT6nBVclZzURgFjZR6WefqRV
-         4fecSIDkzVCaow8pXSvguDomT7FuK9dOmOUGLnqcmtPanbYh708d22VYZ18PyGL1jthm
-         aeOA4WWEk48wI563bsNXEUPuOn83RTfhoLg+C+k6+Vzvnv0qjB68RVQMuVisKosaiS/j
-         0EFhpwKetMCVLsHNKkBstWQFkC4rYRgrGGdDQw6YmpRNpTlXqZAxsA3gW2f06Yi7zStG
-         PcU7JsahHOaQ4hVaNpZPeq5MunYRj4pqg2GgrXXdB11Q9iueRKyDkPwyTO+aTiTxVn3+
-         RLnw==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=BDPxCzdS9j4znql7wpAI9Y3y5LQwrJ+5pNruAAuViUI=;
+        b=MXuxej/VtyrcozOC0JoN9RHHvFL9dwVsXoJnIu/jBw4vhtaWuNzPtK1eF0N3lHFoF2
+         sZWFPmCnzU5CyGjj6omtSxdy78c5czmv8QfsTsnRYXu6IRF5qBAMTdccyDVCxSm50XD1
+         js8G8sgHqzKLVWRsihukJcY3ixFvt8MpLmNgs8j0StlnVVTnzd47LoqwKEe7AjAg5Hve
+         GVWaLOxjVv86gca5hYr5pcxiV/fleU1ANi9NUQer54AtvDGhHeIPAnI7rsTkOBIAnNc7
+         cvWaFP7QTsRHXZ54pxNyUWEYAcZQ0Ka5ljvxEW84Md2zQ/9QIeempEfeQsurjo/TCBAv
+         pA+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=GmGL0WOz;
-       spf=pass (google.com: domain of hca@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=hca@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+       spf=pass (google.com: domain of ashimida@linux.alibaba.com designates 115.124.30.45 as permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references
-         :content-disposition:in-reply-to:mime-version:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=m7WT553WrgTzXOhL/JaxjPfvYWSKprsDyCP4wfbAn3Y=;
-        b=XK1nq0Ytcc3WHU3oH9oqbKzVRJpXmnVTIA5xgDjDkc8+uCdV5OkVsBnJPJ9Qxncmql
-         Qo6+ILlZAh7qOz+ACOiQuhK3GH6ZhnuBT20U4BQDiZdlrIZOZpq68XlsGBxBtyZ+ed9e
-         HbMlI2nHsLXJi5IcS5Kb3Vaw+FHss7drIDOzwoXfucHC5pu/0KOaxjs5cAWbUDyAHf1Y
-         pnky2e+/mT8gIL2byu7YnNXj/E0onv+X9V/VwwXNm9ENbZz/zjq8ylxI+S6Ctyll/Nho
-         oOFy4Id4q+k1Ep+m+30qLZ075T12PUp0bwJKis2KzIYdalpOZUMif2/yfV/6vYQQM6Ph
-         /FPA==
+        bh=BDPxCzdS9j4znql7wpAI9Y3y5LQwrJ+5pNruAAuViUI=;
+        b=VmGP5V0a8k9RucHkKHA8f6dz8aXB1zAnXF/BMPtqsgh52bEfuG3necT+AEeAYqNGPi
+         3PMGZogCn9ceQNtV9NDOZl7h3TKk4hmJbJpLQCBahUFvKKndVYVM0cDfp1VXYLTrV7km
+         hGirHgJN3ec4Mqi1VqZYbWGgbuFNKpyt+c2j4JrUn1H/nXARSW2cF2RQDlnXrDq1dGSn
+         1g3U1T9nbFi1MafVxZ7DYM8lfO7oVnhGqvYdZrdWCBoomcFaA7JgM6ARN8/sCTBaNXQh
+         Yy8Q+CB5PjvHnDx98JAOfvmWPUsl0mKIafCsspUMKwRD94jX6FsZWxNuyM/McZfAzjV5
+         57+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:content-disposition:in-reply-to:mime-version
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=m7WT553WrgTzXOhL/JaxjPfvYWSKprsDyCP4wfbAn3Y=;
-        b=VtXrwYMKzIQkVH/gGt65RH5wPZyWmHs9c5uKy7YecJ3YE+0gTCwaVaDGr7J0c2L0Xd
-         WAtwqzouDWEYkhi87NQSffcKMhAJIxZxR1gBTkAbA8EQugKHZUU0B+BDNWKs98eh+cHp
-         HnkcwH1aPoaH7KIvNMgAKDHH4pwNfpaojNs22io7BuFmQRM3dHY7yVy0zKX76Z5Be6jN
-         XDr/zcQ9WDnCZinqmB2VWOwYMpaQLAFkU2D8+ZwHJKUeOyf0BHHbiIOBrRH33MZg2vDD
-         C8VnwHB4t8WTgE/+XCTb5JdbjZ9+3VAwAK88WRpA5TbtGqvnLDxC73lXGoXPRbirfwXh
-         GzyQ==
+        bh=BDPxCzdS9j4znql7wpAI9Y3y5LQwrJ+5pNruAAuViUI=;
+        b=Drwf+Q42/gWEs0JC7taWaAF8Lp5Kxt5I2dhQubXDJLBH+jhDaf+T5CRZY84YM0C3U4
+         bM0+CaJjEeloVwbW5zzgbISNq2uV8RJ3KcH4TdhmYw6Uw7Y3eZj1fL41pzgpPau33PrE
+         lYrNlGI07/zMnO1QqmHVMCCAUwPrDC5+VVVfwd8gpWh6rB/DjZ7IQw/CQX8rZ+E0yRv8
+         ErBLCCHWl8kVD7TIaWntrvCrEWRxU+b3KYv+HkcL8xS2O7dF6iXFvm2QIThw+4wz+AmO
+         l8sCSincEHU3rc+oMq1b2m0kIMx9o5jxMjdxGUsnG089RuTr2oNtnUIO3JR4ZWLjkjX8
+         iRHA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532g+EirEkBBDcKbubHmkDlr3jTGIXWPCbb985lJDbMBlld12lSv
-	nqW+qaemPC4KJ2Ep4HT+0Wg=
-X-Google-Smtp-Source: ABdhPJwzGQMzRhhBzPVZgfq+4G39IlwGFhY2+ydOeln+7qaP+aCR+lYXt9dG916TKzKpFkZx7wVTOA==
-X-Received: by 2002:a05:6830:3151:: with SMTP id c17mr20263397ots.372.1633946473094;
-        Mon, 11 Oct 2021 03:01:13 -0700 (PDT)
+X-Gm-Message-State: AOAM530FstKADFd35ti/vSOmH1tRsyISdLPg09uAfUPKx9Zo2Nek6Rj7
+	bTT9amqVRbyhmxjqr6s46JY=
+X-Google-Smtp-Source: ABdhPJwpRlIQXN+hicx/Kgrd10CDvOy6Ey6veSFryBBUByWJLurcFPbjyTHNm7jYmKbuSMbejx1S7w==
+X-Received: by 2002:a63:63c5:: with SMTP id x188mr18497154pgb.391.1633966924936;
+        Mon, 11 Oct 2021 08:42:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:19e7:: with SMTP id k94ls2900798otk.7.gmail; Mon, 11 Oct
- 2021 03:01:12 -0700 (PDT)
-X-Received: by 2002:a05:6830:56d:: with SMTP id f13mr19728872otc.382.1633946472635;
-        Mon, 11 Oct 2021 03:01:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1633946472; cv=none;
+Received: by 2002:aa7:9afa:: with SMTP id y26ls3079917pfp.4.gmail; Mon, 11 Oct
+ 2021 08:42:04 -0700 (PDT)
+X-Received: by 2002:a65:6aa3:: with SMTP id x3mr17623810pgu.253.1633966924395;
+        Mon, 11 Oct 2021 08:42:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1633966924; cv=none;
         d=google.com; s=arc-20160816;
-        b=DqcmvHF7rv2ev/2IaZD0U07hHS5XyVJKGOkZuMtaS0C6pH/PiKk9KYpIVslaU7Izse
-         eWQ8jTA/xVaiDCKLhM9bkMb7MbnPhptzNwqEAzujjN4vbyWoDEsHWDvTrMI6zjW6GUrU
-         SrpsisFLsgvivV8caqfqgynsRuLR1GoRy4TVnvPHWSiJW49NsnfCdm99xz7lMambheM8
-         2lR1qyFKZNcu7QVukKMIkrNXapx2RgLIk/zLSxPYMqjmZUeiD/WibaR6mZSU5JkYLCMs
-         WXxuXY4c2qKaSgTVGrnM7wTsv/q2ppunOvBN6pG1Ly79wrpeGHdz3rYD/Qn0Hxg6bu8t
-         oauA==
+        b=OgqErm2BYaVuI7OaZ04smlFN7ghEWnHtSDzJuFOTrkJFqfgL/EIvBxjD0kudRW1oRB
+         bg36wbMOvRmzBdvRYEdG8QvBgv7MUrcNrKtAeUqPSgnITrXcp/Y6aGrvGrXojD/xjuZV
+         +jH0GoaI1yVGZGCh4k6J5+Jiss8/MJBzLSKgmtaum+T3nh5Q2qK+LodFJEWmGiOGM7De
+         Brd3JHNMQn2ClYYggOxD4eVpwy9RBNM0Ng9s4EkK2p3Cv5yswuTLCu7HkT667JUW75g7
+         AN51R2DxGE1M+jxuOl528uRckmfegVgWC6f4IQofPyeWMlH0LUnK9b4jFPtL52QMpQgq
+         FvvA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:in-reply-to:content-disposition:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=WCNQW008KqRadTwMEqOJX2IJ4+dVZVQvodrIMlZrvdQ=;
-        b=CuwsJoEIA6CE7CjlfSa8pD8BsooVAdU0sz3LjwEjeYp6Rzs8VlLj3JC2g1KNA2eG/q
-         3rknYEntk3btqafUNCTwu4aZDlD1GAALbMopRlI8FU3eVx5Fxp4LOCRviF9pP2SBfJvM
-         p+IUbh24QD5qZEaGrVLfo6tcZWhg5XRV97Yk/omUaBMBBDZb6flXxw/UbSCyjVmHnJd9
-         +WWdLxG0EI42/x72RrFgS8RABefnvLkZYAqiGSXnAA1If73ERsd0zF5qvbFk03A64z9m
-         jowSFmzTZc99tplbu4QlLBjcEihielrQFpOO23ZKp9NdlA29hQ8OAIkq5ENdLcDPhHDu
-         P37A==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=EuseyvhaUKSVKArE9uzXYz6ROW27HOzcnX7Vo6ZgcDk=;
+        b=Y3tj+wxGwHMolUdzMOoy2+oH+BODKo8gGxBPWomEWHBfVI4SsuCYylZCoXHwSbH3Ql
+         nRJ2Kfbw3vbLkeShAZ2AetzsxeY3rTqEZb1pTLsxVEX6Y1/URW8HBXB5+fM72Ij5Dx3q
+         uH5eofSLe9o6paS0nLNY9jrCKpdeXtFmTDE5Dlu49xyrKU5BueOMzFcIrWdu16RrIvyh
+         lCh90/FaLBMZF44OGt6ulOQz2uz5mNyPoRbvuAj4aHdS/HmN8+PivrRAP7uXl5BCz/6u
+         NXd6gaM4T4dIneGw1wcoDk7sP1y81oSCO8Rwyh5LvyhJVzK3AhzwRlQ19KNg5Pm2AIuH
+         brxw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@ibm.com header.s=pp1 header.b=GmGL0WOz;
-       spf=pass (google.com: domain of hca@linux.ibm.com designates 148.163.158.5 as permitted sender) smtp.mailfrom=hca@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0a-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com. [148.163.158.5])
-        by gmr-mx.google.com with ESMTPS id v21si507846oto.0.2021.10.11.03.01.12
+       spf=pass (google.com: domain of ashimida@linux.alibaba.com designates 115.124.30.45 as permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
+Received: from out30-45.freemail.mail.aliyun.com (out30-45.freemail.mail.aliyun.com. [115.124.30.45])
+        by gmr-mx.google.com with ESMTPS id x17si411742pge.4.2021.10.11.08.42.03
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 11 Oct 2021 03:01:12 -0700 (PDT)
-Received-SPF: pass (google.com: domain of hca@linux.ibm.com designates 148.163.158.5 as permitted sender) client-ip=148.163.158.5;
-Received: from pps.filterd (m0098413.ppops.net [127.0.0.1])
-	by mx0b-001b2d01.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 19B938RY021282;
-	Mon, 11 Oct 2021 06:01:12 -0400
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0b-001b2d01.pphosted.com with ESMTP id 3bmj9s13ku-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 11 Oct 2021 06:01:11 -0400
-Received: from m0098413.ppops.net (m0098413.ppops.net [127.0.0.1])
-	by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 19B9S7Fu030037;
-	Mon, 11 Oct 2021 06:01:11 -0400
-Received: from ppma06ams.nl.ibm.com (66.31.33a9.ip4.static.sl-reverse.com [169.51.49.102])
-	by mx0b-001b2d01.pphosted.com with ESMTP id 3bmj9s13k0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 11 Oct 2021 06:01:11 -0400
-Received: from pps.filterd (ppma06ams.nl.ibm.com [127.0.0.1])
-	by ppma06ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 19B9vmlt021154;
-	Mon, 11 Oct 2021 10:01:09 GMT
-Received: from b06cxnps4076.portsmouth.uk.ibm.com (d06relay13.portsmouth.uk.ibm.com [9.149.109.198])
-	by ppma06ams.nl.ibm.com with ESMTP id 3bk2bhvj5n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 11 Oct 2021 10:01:09 +0000
-Received: from d06av25.portsmouth.uk.ibm.com (d06av25.portsmouth.uk.ibm.com [9.149.105.61])
-	by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 19BA0pHq60490126
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 11 Oct 2021 10:00:51 GMT
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A2C7A11C069;
-	Mon, 11 Oct 2021 10:00:51 +0000 (GMT)
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 22A0B11C073;
-	Mon, 11 Oct 2021 10:00:51 +0000 (GMT)
-Received: from osiris (unknown [9.145.33.245])
-	by d06av25.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
-	Mon, 11 Oct 2021 10:00:51 +0000 (GMT)
-Date: Mon, 11 Oct 2021 12:00:49 +0200
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Naresh Kamboju <naresh.kamboju@linaro.org>
-Cc: llvm@lists.linux.dev, linux-s390@vger.kernel.org,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        open list <linux-kernel@vger.kernel.org>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Alexander Egorenkov <egorenar@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Andreas Krebbel <krebbel@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Jonas Paulsson <paulsson@linux.vnet.ibm.com>
-Subject: Re: clang-13: s390/kernel/head64.S:24:17: error: invalid operand for
- instruction
-Message-ID: <YWQLUd+BQ1Cc88HG@osiris>
-References: <CA+G9fYuqwJD5bFO74vG6Mvbbt1G8rxzd_NDHg-gtOZ6rPjeu3A@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CA+G9fYuqwJD5bFO74vG6Mvbbt1G8rxzd_NDHg-gtOZ6rPjeu3A@mail.gmail.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: IkMHF_JJLk0yR1ir2y9ttGHU4E_89xur
-X-Proofpoint-ORIG-GUID: 4joU-_84x3xGn-j9pomuJqH9vVMSAvf1
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Oct 2021 08:42:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ashimida@linux.alibaba.com designates 115.124.30.45 as permitted sender) client-ip=115.124.30.45;
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R461e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e01424;MF=ashimida@linux.alibaba.com;NM=1;PH=DS;RN=29;SR=0;TI=SMTPD_---0UrUXPEj_1633966917;
+Received: from ashimida.local(mailfrom:ashimida@linux.alibaba.com fp:SMTPD_---0UrUXPEj_1633966917)
+          by smtp.aliyun-inc.com(127.0.0.1);
+          Mon, 11 Oct 2021 23:42:00 +0800
+Subject: Re: [PATCH] [PATCH V2]ARM64: SCS: Add gcc plugin to support Shadow
+ Call Stack
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+ Michal Marek <michal.lkml@markovi.net>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Kees Cook <keescook@chromium.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Sami Tolvanen <samitolvanen@google.com>, frederic@kernel.org,
+ Mike Rapoport <rppt@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ yifeifz2@illinois.edu, Steven Rostedt <rostedt@goodmis.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, andreyknvl@gmail.com,
+ Colin King <colin.king@canonical.com>, Miguel Ojeda <ojeda@kernel.org>,
+ Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
+ Marco Elver <elver@google.com>, Arvind Sankar <nivedita@alum.mit.edu>,
+ Ard Biesheuvel <ardb@kernel.org>,
+ Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-hardening@vger.kernel.org,
+ clang-built-linux <clang-built-linux@googlegroups.com>
+References: <1633878992-32884-1-git-send-email-ashimida@linux.alibaba.com>
+ <CANiq72nBqiyrcaW47ZW-6i7zJ6HrmjZWSOr==HkEuBR5rXmpdQ@mail.gmail.com>
+From: Dan Li <ashimida@linux.alibaba.com>
+Message-ID: <a25b9286-fc1f-d398-150c-ce073eadc6c1@linux.alibaba.com>
+Date: Mon, 11 Oct 2021 23:41:57 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:68.0)
+ Gecko/20100101 Thunderbird/68.12.1
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.182.1,Aquarius:18.0.790,Hydra:6.0.391,FMLib:17.0.607.475
- definitions=2021-10-11_03,2021-10-07_02,2020-04-07_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
- mlxlogscore=853 clxscore=1011 mlxscore=0 adultscore=0 bulkscore=0
- priorityscore=1501 spamscore=0 impostorscore=0 phishscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2109230001 definitions=main-2110110057
-X-Original-Sender: hca@linux.ibm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@ibm.com header.s=pp1 header.b=GmGL0WOz;       spf=pass (google.com:
- domain of hca@linux.ibm.com designates 148.163.158.5 as permitted sender)
- smtp.mailfrom=hca@linux.ibm.com;       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+In-Reply-To: <CANiq72nBqiyrcaW47ZW-6i7zJ6HrmjZWSOr==HkEuBR5rXmpdQ@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: ashimida@linux.alibaba.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of ashimida@linux.alibaba.com designates 115.124.30.45 as
+ permitted sender) smtp.mailfrom=ashimida@linux.alibaba.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=alibaba.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -181,48 +149,37 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Oct 11, 2021 at 11:47:42AM +0530, Naresh Kamboju wrote:
-> [Please ignore this email if it is already reported ]
-> 
-> Following s390 builds failed due to warnings / errors.
-> 
-> metadata:
->     git_describe: v5.15-rc5
->     git_repo: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
->     git_short_log: 64570fbc14f8 (\"Linux 5.15-rc5\")
->     target_arch: s390
->     toolchain: clang-13
-> 
-> 
-> Fail (2861 errors) s390 (tinyconfig) with clang-nightly
->   @ https://builds.tuxbuild.com/1zL35IUSGhDGeVuyIrAp7eyzEUi/
-> Fail (2861 errors) s390 (tinyconfig) with clang-13
->   @ https://builds.tuxbuild.com/1zL35Hn7wjErKsLDM6zAgh27BYJ/
-> Fail (4112 errors) s390 (allnoconfig) with clang-13
->   @ https://builds.tuxbuild.com/1zL35HR60hSFvBmAcYJvKHm8Lko/
-> Fail (4112 errors) s390 (allnoconfig) with clang-nightly
->   @ https://builds.tuxbuild.com/1zL35DTlrX9qRGCtGqgtmmMDjnQ/
-> Fail (23048 errors) s390 (defconfig) with clang-13
->   @ https://builds.tuxbuild.com/1zL35DE2KWQUPxbbXeTbwIJaWXS/
-> Fail (23045 errors) s390 (defconfig) with clang-nightly
->   @ https://builds.tuxbuild.com/1zL35EgeQfWQDXDupp4itkUO5At/
-> 
-> 
-> Build errors log:
-> ----------------
-> arch/s390/kernel/head64.S:24:17: error: invalid operand for instruction
->  lctlg %c0,%c15,.Lctl-.LPG1(%r13) # load control registers
->                 ^
-> arch/s390/kernel/head64.S:40:8: error: invalid operand for instruction
->  lpswe .Ldw-.(%r13) # load disabled wait psw
 
-You need to pass LLVM_IAS=0 on the make command line on s390 since
-commit f12b034afeb3 ("scripts/Makefile.clang: default to LLVM_IAS=1").
 
-LLVM's integrated assembler doesn't seem to work well when compiling
-the kernel for s390 yet.
+On 10/10/21 11:43 PM, Miguel Ojeda wrote:
+> On Sun, Oct 10, 2021 at 5:16 PM Dan Li <ashimida@linux.alibaba.com> wrote:
+>>
+>> -         This option enables Clang's Shadow Call Stack, which uses a
+>> -         shadow stack to protect function return addresses from being
+>> -         overwritten by an attacker. More information can be found in
+>> -         Clang's documentation:
+>> +         This option enables Clang/GCC plugin's Shadow Call Stack, which
+>> +         uses a shadow stack to protect function return addresses from
+>> +         being overwritten by an attacker. More information can be found
+>> +         in Clang's documentation:
+> 
+> Perhaps it could be worded in a better way? It sounds like it is a
+> custom plugin for Clang as well, e.g.:
+> 
+>      This option enables Shadow Call Stack (in the case of GCC, as a plugin),
+> 
+> Cheers,
+> Miguel
+>
+
+Thanks Miguel.
+
+How about writing like this:
+This option enables Shadow Call Stack (supported as a compiler option in
+the case of clang, supported as a plugin in the case of gcc), which uses
+a shadow stack to ...
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YWQLUd%2BBQ1Cc88HG%40osiris.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/a25b9286-fc1f-d398-150c-ce073eadc6c1%40linux.alibaba.com.
