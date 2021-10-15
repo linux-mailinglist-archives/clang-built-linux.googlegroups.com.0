@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBRVEU6FQMGQE43HXUBA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB2VFU6FQMGQEJCZ7OLY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id B869A42FBBF
-	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Oct 2021 21:11:03 +0200 (CEST)
-Received: by mail-lf1-x13f.google.com with SMTP id b29-20020a0565120b9d00b003fdc9b2546dsf2361391lfv.14
-        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Oct 2021 12:11:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1634325063; cv=pass;
+Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2D9B742FBCE
+	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Oct 2021 21:13:48 +0200 (CEST)
+Received: by mail-lf1-x137.google.com with SMTP id i1-20020a056512340100b003fdd5b951e0sf496811lfr.22
+        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Oct 2021 12:13:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1634325227; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Jn2O2J9YFlS+Jndn0ggay24kaPaoHYm/z30IHoJjf3pJ6MtxhF2iczK3qTOF4EEM8P
-         TqONufDb3CuZjm5xbrUZTLrJNnu23lRKeGH4UUQnhE6LqlBH5M7ivrlv/YeF+yWb0Sth
-         2da4Owsu2fG9kXlhucSH7meOYlJifr6dcyUFw92p3HnPFTmtWSZAug97eYWrpa0mU7Dz
-         +G9oY1B8MmDm/P/VPvVeX4yk70JegzEgqhac/DNh/ar2mTFuknsY5P5vlJv/KoMwcpxE
-         ACS4Wa1g3sihmm6juXtdylbW3OMSrQZcjr0/I3QbXNc29pM+87FG110mocnG6a0ZAb0a
-         7j6A==
+        b=E21/FWGd2/Kn2zF3D19QFLBAuLNJvT2pzz6282jaYhhDWYE2z76kBfBPiVSsKkVRuF
+         vXx4LkfVtcrpzDO6JMr7CKIIJfQ1GS23lyw41VwRUr4PxkEyWSIYjHqJxEURToHtRDuU
+         l49vElATDbiLb8s9KBQwF+yEtmTSmtYgJCVeCa+pHVKusKxvwhrjbQ49U7+BKbjeOvX/
+         7SBeKYzYcd1BNaxaBj0fSZG8L/yH0Yb1H5PyuP3pTW7Y2UlKuuki8NpQpEUiSnLIbaDc
+         WUmaCFMe0dgq8NvRtu1QM8VtHzqltLfljZ+ihFgwL2UU3QPx4q0aQ1UYsfiImZThm77z
+         cZ3g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=sV4uL7A+/ZyNv61HCJnD5GnwlB4fLrgnE/w0Mnvwokc=;
-        b=M/kbSu/JQ+PvCsNjIExWj3pYEVqZ1+OTiIwfGburKybmJBrNkFefhDvkHBrD7dedpk
-         qCpdtBPdo2iJSf9YuOrC0677c1UADjOxiHTDrzLYBvDkKWtSytmoJgF1qRjbIkJoeX5U
-         o42JS2RkeRsbkMksjPNsU0KYEbsvi2qRp4v1nTNCkmICTy98plIzx54/7JUiNmcI+JZJ
-         eGieE5sUJzfeeFytRWzVKyggiYCS3/Gcxt9zCoJ8wbRUkjMLxEVzP0znDQLOgV372Kca
-         htSgtp0FCKeNP3q01Gm2MQKCqQnS5xSNQJnu9LI3crvgxzw2BXD+RhQIcURwRil5K4NY
-         NKrw==
+        bh=1M7YudBkEe7OJ4bvBlfaCmeo6t21XNv9TSWaEH2Fuqs=;
+        b=K0RoHQN+U0Ms8TCOptvUFSnNYPs+L5Bnkg2bb6sIOFlr2zZ2WgAw7TLtcShPzUo1yN
+         KnkyOWzLGV0yUcmsO0zrwxHDPmHqrtBn0kEWplxUMlHw0VGf9gpeBJbty6Bdg3RHRNZ+
+         O7DniHPgSuM1NPRsmRulOtk5vCddt4Pzeq8hTXiVtoZCLMXOO5s2uHjMvDKOPMIPriSh
+         T0YtJOQfb72AmhgoL9a85vIC+BMeetBZmjskKGOAvOE2PbBgyiaZnJqZXTUAY0Zlgp17
+         7K1i2IS5z7qLPprKGn74KlAPgr9VjH9eR/m/Rp9ApDMLv2SjfdvK/JA97GgEgwQldIrS
+         JmnQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=KItGKghb;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b="BA/5lSdu";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::130 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=sV4uL7A+/ZyNv61HCJnD5GnwlB4fLrgnE/w0Mnvwokc=;
-        b=iCOBDYWqN+hHLTsHwlJ+P9Y8PCU91P92s5GlQoxHoAZ4qFb/1oBi0lZldJPXYxlDtC
-         JE+ixKNU5lzP2WGNYQTaWBzDHd7efvW7auPy+66AwTMkC187ZIrAVclHlufpKaSGUzRk
-         rjO9QLSIDRRNwStrr15jP9HJaVjvZ/Xu2pJa14+6d87y5tPT2oFf59wGg2bwDflYeHu1
-         9cuDhhZjTblwNVjBEj7iSoZgXO1VOf5+dJMKyr+8U7GKOHaoOhIhq/hUBQRzWN1vXaC5
-         matMobRFLvZUepPdkV858xzGsRJmt4f3EFEkyoJU4Su5NaVcPII/BxOzeO4/b72g6XuH
-         nJbQ==
+        bh=1M7YudBkEe7OJ4bvBlfaCmeo6t21XNv9TSWaEH2Fuqs=;
+        b=oUEf4MDMdWjK6naZCvqWblTHkPtauY9iBhnfBiazkAUdzg0J2dZxAiVCEJuDwW5q8k
+         53lauWQeXMrf3V083sSXvIm2uKpU98bJg+CqFCXR5OiK5IVP5DPOOnMbXDT3DTqjoFCi
+         P0hfgTQ4aAjRIhrmV6n5rYHUCOdUawybNiRmG3TtQtOFWgGok8AOgSGM1WrCRQ7MoHqs
+         y0qXMdtNEf+sfQKJ4IRsX6D/FaHweKBuZTW+sbBYsZzn0Awjq7Q4MyuqBk3uUUBvytXx
+         hVRlhNMghBCBV0buGMEqIzzoeTJOidodBoNMexdT7HOcb0BerlSOcYyT0LeRO0d/gxbb
+         ytWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=sV4uL7A+/ZyNv61HCJnD5GnwlB4fLrgnE/w0Mnvwokc=;
-        b=gLuLjCwsMRdZNczpl+LUV04omQ8WVu/FJAAkSsXjlZIeD3c7JhWchzxvmrb3eviaN4
-         p0A5awGN4IurGPYhF4S7me3HGpchKRunVWrrEr0lpPES+ehp2y9sj319L08CX1U05X4B
-         RDQh6l+rSqBbb8Owmqt9q0IlI0UiZP3PzXLW0dyPrpeiiAHCwtXoOZitTpQkMDNV2VpZ
-         j+VFU5lv68ykRXGqPfZI1fJ5Y7bN5V20ZuRpM0jPYdtVi4cnKFprnRznkUAiXaH2ZqfH
-         oVS88DKfpPmue/+QjlQVXLf4E8vDX/5CHlxo9ysvfP+0ZYeSfd67jXWcDcgOcdyL5h6M
-         h5mg==
-X-Gm-Message-State: AOAM533QTDiU6FhQwMvpnDBSS81qSjWqagItKrr0VDRpexgmfZmbC4Xg
-	17DWbWlISnmicmqCSCJqDCE=
-X-Google-Smtp-Source: ABdhPJwoMCGVZ7mUiA29MjslIonyFG5wst4IIcLxa2pOYaInFnLj5jGeCL0yDqB+Gf4qE0SfP334hg==
-X-Received: by 2002:a05:6512:2347:: with SMTP id p7mr13045299lfu.558.1634325062297;
-        Fri, 15 Oct 2021 12:11:02 -0700 (PDT)
+        bh=1M7YudBkEe7OJ4bvBlfaCmeo6t21XNv9TSWaEH2Fuqs=;
+        b=gUUmyloslhfRv+uGPmoZDX3lQotCGdNEBpj5g443opU9zJxWmC3H7DC5zrn4uWzrFK
+         jYR868TULldv3sxuI4zVTxVJJh6JExc/+TFCygcfjW2j4OzEzvz+XagEYG11nUjK1VS+
+         dlK90TgpQbakRpHQlstkU1kke6QolMFJCfZW62rCDziGnJWlSXmAx2qcBkEOdhUxDoG6
+         jWXgN0Ii/kdlgifo6Zlihp8W6/zsMYTy0/4vZaEBSVBII9saj0XnC8uHXmzNBhknW3XG
+         I3sSuAJhC8KLkd1IxHiYxO3MT/Ij1EmSzF1d2nK2MOg1BFJ86N43bt8QY1G3OlNdYEj5
+         AM4w==
+X-Gm-Message-State: AOAM5302EcMhGQd+R4cPBHgJCQSltiPuV5FJJxpxRKQBAHe4en4bU2d+
+	f9ETVEzipNR6Mrq3H1q5wGg=
+X-Google-Smtp-Source: ABdhPJwAua/fKwRtRX0ZVOVjctMRMz3Pe4NBWKMwlpJpFQQig5FL1bO0jcbBzBGdxj9LfAyKUG1RPA==
+X-Received: by 2002:a05:6512:30f:: with SMTP id t15mr12304530lfp.64.1634325226420;
+        Fri, 15 Oct 2021 12:13:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3081:: with SMTP id z1ls542413lfd.2.gmail; Fri, 15
- Oct 2021 12:11:01 -0700 (PDT)
-X-Received: by 2002:a05:6512:3a8d:: with SMTP id q13mr8176186lfu.172.1634325061295;
-        Fri, 15 Oct 2021 12:11:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1634325061; cv=none;
+Received: by 2002:a05:6512:3499:: with SMTP id v25ls545856lfr.0.gmail; Fri, 15
+ Oct 2021 12:13:45 -0700 (PDT)
+X-Received: by 2002:a05:6512:3181:: with SMTP id i1mr13983299lfe.29.1634325225153;
+        Fri, 15 Oct 2021 12:13:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1634325225; cv=none;
         d=google.com; s=arc-20160816;
-        b=AE3QlLRlibqs773WSmokWKOzXlaDrI9fe87UqVgVzfd5GZek8JfOCyzzPc6HLR/7ln
-         qcJ8PTDaa/WPPmsDAZGcWmDHKp4VA8Wf2FrG7yniPxwAoFWiMOuLVPUe1zB88ph6JAHh
-         0rfdJ1r8ImBdLcuajfxRlrMX6BMKSe71vrJCVT0SB/yf/byksEDnaxE6KTN0mgASU0wB
-         KtlOOu0Ljdz4YlOkhRlPdXTC6DjYOO5muhDmd77M2hQAr7Dfq5N+yEAcH9N47rv4YQ02
-         g37Y2n2G+2jFMY9+//1kkQwebVjmdUjl670TZJIifH/Ab07b7zdx5Zi+Ly6mMzWZEbv4
-         rQAQ==
+        b=lHC23qkzY9ezJFkx/aTyoK6Ab2W86Sj5I5sNFtIUJ43I11eB22oPDP/DttgF3MiXeb
+         hiAy/e1k+8akFCTqU/0NpgIBqZbj16ianUSHDpidibIZNd/DaS+yBXJ11cuVUWy1R+E5
+         by0ONrB1XTVMsDp+APpDN4ABnu37beAEDcn+Olt8QE2kGynJN5zQyt98b+03/V1u8Fj7
+         DgQWSYzEwOZzC39BaDGvHULY1WfEurOI8G/SjtLYIOUb/A7w9a/seMb3tVyiwQS6pkLV
+         ISALKSHGKLHHC3vRF+IZcFe98AW8pbCkK2ZIezIojicKwB2wRxLeVG1GYDDLPBAqiGel
+         by5Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=oI0JQpdNcS1rPABaNRpOZ/cT39QBnr4F5JH8mM3KD1w=;
-        b=wV3O/IABBdjQ6KDCuLdqOaPKOoUPPNi5iDX1ioKQ6IV7VMeSiao6b4flf0zj1oj0bi
-         gmOb4JeobTS5s6Xilc+ENBx07lEwslf/XHxCM/pRzMwrYnrWhbEn+hBKiuTlkN/iOuLQ
-         jgKzgyMo365eSzXbr6elzb0F0/vvA+xBz47UOGVwzxmhDBtVec95TJ1IRy9/ZF4h7lVR
-         E/hYvpcNxlyhntP9hQT7t8HP1DiiyIe7zwfcXOj36kezinmwt5VAhVEfF10cmcXBg8NF
-         yU3BgGIpe53iBMvFGrY7NUkbF1V3nNh8FED87WPlwWqnrqhZ+gHPmHuyt6aE8ctivwFH
-         oqZQ==
+        bh=HBzr0B3tGGPW4EBa2LvZed6scqvnq5Oml+sl03YQDio=;
+        b=0NFv9tvBHwJJfKXlByEcIgd0lDl+LC4z1U9Gkq3cXaWRgReu7WR78kO9UzH1/EPYhN
+         g8SmMiyjbm0JGZSWU81tI7XqsM5rdN2Qy3dmjxzrfeyvvcGwzhXYnHX0tMkkoaq6ZnPm
+         QeV2oZdM9RV7h9tAOzaDSk1L0C8qBGZAP7KjAOasH1eUEFIwY9PavV5PbJQdNF6tG7BD
+         Lklv/96vnChICKuYk/OhtphwegyusbhcGmq2EvQqdCk4GGkvfwvmNi7aJmy2GwbrOYm+
+         AwwLdJRVInSVKDLPzMkzrVCF7bjo7Ej0PZW52w0Ae5q6vagwz1W3+JuR1wt0RVcTx9Qy
+         5IyQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=KItGKghb;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20210112 header.b="BA/5lSdu";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::130 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-lf1-x129.google.com (mail-lf1-x129.google.com. [2a00:1450:4864:20::129])
-        by gmr-mx.google.com with ESMTPS id d19si416258lfa.0.2021.10.15.12.11.01
+Received: from mail-lf1-x130.google.com (mail-lf1-x130.google.com. [2a00:1450:4864:20::130])
+        by gmr-mx.google.com with ESMTPS id c35si420784lfv.4.2021.10.15.12.13.45
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 15 Oct 2021 12:11:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129 as permitted sender) client-ip=2a00:1450:4864:20::129;
-Received: by mail-lf1-x129.google.com with SMTP id r19so44585377lfe.10
-        for <clang-built-linux@googlegroups.com>; Fri, 15 Oct 2021 12:11:01 -0700 (PDT)
-X-Received: by 2002:a05:651c:1108:: with SMTP id d8mr14747364ljo.220.1634325060799;
- Fri, 15 Oct 2021 12:11:00 -0700 (PDT)
+        Fri, 15 Oct 2021 12:13:45 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::130 as permitted sender) client-ip=2a00:1450:4864:20::130;
+Received: by mail-lf1-x130.google.com with SMTP id z11so44414536lfj.4
+        for <clang-built-linux@googlegroups.com>; Fri, 15 Oct 2021 12:13:45 -0700 (PDT)
+X-Received: by 2002:a05:6512:3ba3:: with SMTP id g35mr13415925lfv.651.1634325224740;
+ Fri, 15 Oct 2021 12:13:44 -0700 (PDT)
 MIME-Version: 1.0
 References: <1634167668-60198-1-git-send-email-ashimida@linux.alibaba.com>
  <CAKwvOdkv70XDdK-k3n4ycFQsz+h7V-sTiH8RuxxaLofp-okweQ@mail.gmail.com> <722d9662-e27c-2efb-e8cf-d505b6950475@linux.alibaba.com>
 In-Reply-To: <722d9662-e27c-2efb-e8cf-d505b6950475@linux.alibaba.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 15 Oct 2021 12:10:49 -0700
-Message-ID: <CAKwvOdmfbcT5bWhm5zVhuBRjx4PxLXY8dKUCV0JFrSKRy1Bpwg@mail.gmail.com>
+Date: Fri, 15 Oct 2021 12:13:33 -0700
+Message-ID: <CAKwvOdnMvBP-1=YbXTpYOgWqCBy44tUvWdtMXp8p485bYnPYNQ@mail.gmail.com>
 Subject: Re: [PATCH] [PATCH V4]ARM64: SCS: Add gcc plugin to support Shadow
  Call Stack
 To: Dan Li <ashimida@linux.alibaba.com>
@@ -121,8 +121,8 @@ Cc: masahiroy@kernel.org, michal.lkml@markovi.net, catalin.marinas@arm.com,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20210112 header.b=KItGKghb;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::129
+ header.i=@google.com header.s=20210112 header.b="BA/5lSdu";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2a00:1450:4864:20::130
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -144,26 +144,102 @@ On Fri, Oct 15, 2021 at 11:29 AM Dan Li <ashimida@linux.alibaba.com> wrote:
 >
 >
 > On 10/15/21 2:44 AM, Nick Desaulniers wrote:
-> > Overall, I'm happy with the patch and am ready to ack it, but I would
-> > like to see a link to to the upstream GCC feature request for SCS (and
-> > one created if it doesn't exist) cited explicitly in the commit
-> > message.  I think that would be a good demonstration that this can or
-> > will be upstreamed into the compiler proper for the compiler vendors
-> > to maintain, rather than the kernel folks.  The compiler vendors may
-> > have further feedback on the approach, such as my question above
-> > pertaining to inlining.
+> >   On Wed, Oct 13, 2021 at 4:28 PM Dan Li <ashimida@linux.alibaba.com> wrote:
+> >> --- a/include/linux/compiler-gcc.h
+> >> +++ b/include/linux/compiler-gcc.h
+> >> @@ -50,6 +50,10 @@
+> >>   #define __latent_entropy __attribute__((latent_entropy))
+> >>   #endif
+> >>
+> >> +#if defined(SHADOW_CALL_STACK_PLUGIN) && !defined(__CHECKER__)
+> >> +#define __noscs __attribute__((no_shadow_call_stack))
+> >> +#endif
 > >
-> I have submitted a feature request to the gcc community, and waiting
-> for a follow-up response.
+> > Cool this is a nice addition, and something I don't think that clang
+> > has.  For any new feature, having a function attribute to disable it
+> > at the function granularity is nice, and plays better with LTO than -f
+> > group flags.  Though that begs the question: what happens if a __noscs
+> > callee is inlined into a non-__noscs caller, or vice versa?
+> Thanks Nick,
 >
-> Is it fine to add the following description in [PATCH V5]?
+> According to my understanding, all inline optimizations in gcc should
+> happen before inserting scs insns (scs and paciasp/autiasp use the
+> same insertion point). Therefore, the check for the __noscs attribute
+> will also occur after all inlining is completed.
 >
-> A similar feature request has also been sent to gcc.
-> link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=102768
+> As in the following example:
+> - Since __noscs attribute is specified, scs_test1 does not insert scs insns
+> - Since normal functions scs_test2/3 uses x30, it needs to insert scs insns
+> - Since __noscs attribute is specified, scs_test4 after inlining does not
+> need to insert scs insns
+>
+> __always_inline __noscs void scs_test1(void)
+> {
+>      asm volatile("mov x1, x1\n\t":::"x30");
+> }
+>
+> //scs insns inserted after function inline
+> void scs_test2(void)
+> {
+>      scs_test1();
+> }
 
-Yes, and you can include
-Acked-by: Nick Desaulniers <ndesaulniers@google.com>
-too.
+That may be surprising to developers.  Perhaps __always_inline on
+scs_test1 is distracting this test case, but I suspect it may not make
+a difference.  This particular issue comes up time and again with
+stack protectors; ie. the callee is marked no stack protector, then
+gets inlined into a caller and suddenly gets a stack protector.
+
+>
+> __always_inline void scs_test3(void)
+> {
+>      asm volatile("mov x3, x3\n\t":::"x30");
+> }
+>
+> //no scs insns inserted
+> __noscs void scs_test4(void)
+> {
+>      scs_test3();
+> }
+>
+> ffff800010012900 <scs_test1>:
+> ffff800010012900:       a9bf7bfd        stp     x29, x30, [sp, #-16]!
+> ffff800010012904:       910003fd        mov     x29, sp
+> ffff800010012908:       aa0103e1        mov     x1, x1
+> ffff80001001290c:       a8c17bfd        ldp     x29, x30, [sp], #16
+> ffff800010012910:       d65f03c0        ret
+>
+> ffff800010012914 <scs_test2>:
+> ffff800010012914:       f800865e        str     x30, [x18], #8
+> ffff800010012918:       a9bf7bfd        stp     x29, x30, [sp, #-16]!
+> ffff80001001291c:       910003fd        mov     x29, sp
+> ffff800010012920:       aa0103e1        mov     x1, x1
+> ffff800010012924:       a8c17bfd        ldp     x29, x30, [sp], #16
+> ffff800010012928:       f85f8e5e        ldr     x30, [x18, #-8]!
+> ffff80001001292c:       d65f03c0        ret
+>
+> ffff800010012930 <scs_test3>:
+> ffff800010012930:       f800865e        str     x30, [x18], #8
+> ffff800010012934:       a9bf7bfd        stp     x29, x30, [sp, #-16]!
+> ffff800010012938:       910003fd        mov     x29, sp
+> ffff80001001293c:       aa0303e3        mov     x3, x3
+> ffff800010012940:       a8c17bfd        ldp     x29, x30, [sp], #16
+> ffff800010012944:       f85f8e5e        ldr     x30, [x18, #-8]!
+> ffff800010012948:       d65f03c0        ret
+> ffff80001001294c:       d503201f        nop
+>
+> ffff800010012950 <scs_test4>:
+> ffff800010012950:       a9bf7bfd        stp     x29, x30, [sp, #-16]!
+> ffff800010012954:       910003fd        mov     x29, sp
+> ffff800010012958:       aa0303e3        mov     x3, x3
+> ffff80001001295c:       a8c17bfd        ldp     x29, x30, [sp], #16
+> ffff800010012960:       d65f03c0        ret
+> > I noticed that __noscs isn't actually applied anywhere in the kernel,
+> > yet, at least in this series.  Were there any places necessary that
+> > you've found thus far?
+> At present, I have not found a function that must use the __noscs
+> attribute in the kernel. I have only used this attribute in test cases.
+
 
 -- 
 Thanks,
@@ -172,4 +248,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmfbcT5bWhm5zVhuBRjx4PxLXY8dKUCV0JFrSKRy1Bpwg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnMvBP-1%3DYbXTpYOgWqCBy44tUvWdtMXp8p485bYnPYNQ%40mail.gmail.com.
