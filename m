@@ -1,135 +1,187 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBTUVW6FQMGQEKCTGNIY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCFIV7H5YYEBB5VUXOFQMGQEUJTIY7Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id 404FF43278F
-	for <lists+clang-built-linux@lfdr.de>; Mon, 18 Oct 2021 21:28:16 +0200 (CEST)
-Received: by mail-oi1-x237.google.com with SMTP id e186-20020acab5c3000000b00273804e72c8sf501786oif.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 18 Oct 2021 12:28:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1634585295; cv=pass;
+Received: from mail-qv1-xf39.google.com (mail-qv1-xf39.google.com [IPv6:2607:f8b0:4864:20::f39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5E67D4338F8
+	for <lists+clang-built-linux@lfdr.de>; Tue, 19 Oct 2021 16:47:20 +0200 (CEST)
+Received: by mail-qv1-xf39.google.com with SMTP id bz13-20020ad44c0d000000b0038379dd89e5sf63413qvb.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Oct 2021 07:47:20 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1634654839; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qUq+8N4HThf0O54NfJm3NpTU6e14FPm3ww6S+it/A1oeqe9jIBZgib4MIQRUzF5mha
-         Tk2YrJIPmpf8c2kPVXw77qzIFvfEDl/hkI7fYYuZdsZAcul+oSnMKXcXL1qMo4dURk9C
-         bOK2WbTigJzyczN68UvYWooqJX7CRmWaHDrusalB8a039GbXPsA+SlGkkQne0BFwciUM
-         SA2TIU5fmNAny3adfE2ypcAzOHsLFdToShU+w5OGf+dgwlgtO4oww8XuDMaQZ4L7zI6G
-         KPcQkJk9VMaclP0ysM9Cc34mSClZ4QRkLsPsZwD8ECU8leRi0vQi9LkJEIth/FKiKJrm
-         p8XA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=KWj96+thiSCSvqnCgi6C4vHTkUaI5w4m/+alOHHFSug/sjDU/h4A/qUF3FfKPQ8AP5
+         owrGUJt2EZUcMb+PM0XQPu8Fm3pcZ76ozihc1OdGsg11VHf03JsA01QRUsZa1kQ4WFNI
+         4zsbfqTkudJrNhaSZzaVCedYLZkf5Rq83ckC9H6OLsd9ZKddyM1+jjm0tdk0dq1yfjX0
+         Bk1H4cLKdQDeh7zNT31KX9c4OjAV7KHGyUaJtK5L5zDegr8FKPOuy8SVHFJ0chb/Bnko
+         VvB5bGNIVhHAxn8JzjWZ4fcKKF7jDecmTIF45RkAtQUahztODSCLaD38D4FD0AzfK/hj
+         x76A==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=x6B3XfqffTtKcleOkw424XdaD3RlOnLJ2VtPkJHcTXc=;
-        b=A09fJAybGAGEb7JcTNavtghNIWoHLTnOrZB+xNIWYXgqHM6nDuYOOQNEcsaCgu9t29
-         msbMqnytPfX9wMKe00pSLueZQ+U9PSHUJFMuaakrTx47dVQj/YcypgMJvLrmrQHBhiEi
-         WIr+9k7FF2fUq/VyalboEHACg8LOO1/j+KVGQc0nrAFSUCeCMZ6zdgIm+DvlavhPiLdm
-         apW0c/P4xhCfk9KYCRD5s+a3f7fE55hjJ/DWxiugzPIYgte4vbq0InjoE6a5GW4AwYLe
-         smS2EkmoCC5mEDIjZM7sguADx25Q4HMebSEQ8pof6C8YwKoE0Y+gLnuVOie256Tgji5i
-         NrpQ==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b="TZ1/KPtQ";
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1036 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+         :list-id:mailing-list:precedence:reply-to:mime-version:message-id
+         :date:subject:cc:to:from:dkim-signature;
+        bh=Lb0b9EzIWoLjBaPiclGHASekCS1Yw0gSh/WWGaWp2LU=;
+        b=0g10wSqlsHdcxOly1Xnrb22lqp3PZQK/XudLq2VhxzO/PPMln066qUSiNsq1LwGUwR
+         z2bo22ZzMOjZHTR143M0gsYRDqX74xls+uV0sLrGo7fetFD8AUY+3mtsqZuspH+afvvd
+         PQgKACVYYqNDcRb8YhUHgtOlucrAVHChfhHCUhzzWx3WzPerqlV4YmG5DkMxXetMeqQZ
+         b1FBmPH6arwG8vTzuT40TTEUrUty6kYkW3dPrGMPCc1aSor0J2qJ4cnWrKjzn6dzbVmM
+         4i0KTPEHnRSBSKuq1/CpD2T8SbXHarZyKtVqjSTF3rv02WiUcdx9tkxIg03sKTDn964t
+         Mc/w==
+ARC-Authentication-Results: i=3; gmr-mx.google.com;
+       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=qAKUAVZc;
+       arc=pass (i=1 spf=pass spfdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
+       spf=pass (google.com: domain of maximmi@nvidia.com designates 40.107.92.69 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=nvidia.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=x6B3XfqffTtKcleOkw424XdaD3RlOnLJ2VtPkJHcTXc=;
-        b=peRnYBYkKai4p925L/RA1P5zkFHiaAKuhy8raSQ73n2UIebMDaOO8mRq1fQrNWUUrG
-         V2B7wldrBxo75zfxBPnTkfIXGuaKm4dWR3dwCCpDGuP3NGjlx8dHkk42VsXmh0fF22Qk
-         Fjneyl6XjcYuMEVDMl6tgdLS5BF8ZhCyUa7Y0jH4OBPJa+E6/YsTHuUMtIQyKxA+V961
-         drxfeIg2nkjNiK7AxDzODraC+O+BewysX3lhrXp/VhcZTWkYS5IoNFLHm9zolqfeYnFK
-         1j32R1V6FIKyxd82nCj898lfOMRjRWFqGKmyTuQeaCQuF0eEaTsXoyKp/WH63DUFbX03
-         rKYw==
+        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=Lb0b9EzIWoLjBaPiclGHASekCS1Yw0gSh/WWGaWp2LU=;
+        b=I+ewQARGIv9Y+Jb5qsx5bwdhu0A44VBjhhN2/kbt77/UR4xbelZk+LPStvkZdCRM9H
+         Ri9obk060Jy9KYjEMQzZ/HdfgznTuwO2zALkAI/T2A7PKfhDBAGVBFqEtoYqpHLIOOuU
+         UBNyJNVu4RbDMN2IOxe3vm9bRx6BwoaE7GgXtNNh5NvvQPZptHbc6C/t2Ca866WVVWf3
+         4D51V9TxeoaCCpWYJclplM04UChcZjdxkUP+ve7PfQOBndUSA6ARA3HTOcTLSGxrplUZ
+         aQnbxx4mqhuMzJaigBl/9Jj6HG2fuSHzZJlfermaijEc48zcmZSKsHLEDPDTV90+MONg
+         WYpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=x6B3XfqffTtKcleOkw424XdaD3RlOnLJ2VtPkJHcTXc=;
-        b=qYkokZo1AbZJ5ZIz0YbyTnV15LErvgCybtw9D5JkffA7+NzV3TnStS13PxabMrw8ML
-         PcJWp7nDLdjIFQlZxQYI+bfIGeGH3ixV4ClG9fOGEOnmrPpb57cglow+dfwm2SelLu2B
-         CW6ezj5rBjzocohLM1AjG5z7ZfYcxzT7ww27c8wUXeDHY0eHFurKjv44JBJN16X9154w
-         jGZTnz0807eZOv1kr1++wBjbaGJoSW8piJtCkBlV9zj3cdqPU4lw9YdWKTm5b19ceOue
-         0nHG7w60OYx/gq8iJmskL/XU/J8eVnuggSUYpqgz20W5F8pBEcMDWJYLcvE44QVfMV68
-         /Gsg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM532+tTdHwb8IAI4HLvPYOx0xTvoCapfC9sqJNwqnFKTc+T33TLiR
-	edVmQu1NAwg8SW645GnNWPQ=
-X-Google-Smtp-Source: ABdhPJz+laRNtzQnFK9YYZ1wcv0rziVawUtbKhZP3GM2A7hDz1RzCJAJ8VBPrB0yzjXw4duG/sBmFg==
-X-Received: by 2002:a05:6808:6c2:: with SMTP id m2mr687419oih.8.1634585294943;
-        Mon, 18 Oct 2021 12:28:14 -0700 (PDT)
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Lb0b9EzIWoLjBaPiclGHASekCS1Yw0gSh/WWGaWp2LU=;
+        b=gmRJqez0Iypa56hulzBeepH1Y8biADwkLEuTiodGA2GKROJzHRcdg3/1ObQsmUggIr
+         8OWoAVp0/lQym76pRMfzeUwRdpxgXIFIdVmvDkXzwUfCWb/CbVk84sy1kQ4mnEp8f3fc
+         /xic7F55lKjfH+IimvssXePoPuS4U/GMp4z7uYrq8OgsKhLrDaqDhVgYNShdBO0wHeP+
+         Uo35K4HJelfTtTztGaJWjLydMpHMzGG8y3WhE5xYm2zfv9hqYE6Qvl8ArfTQP0NnkWBf
+         j2IfhwzT0ADAKcCUwrtmi7HQAsO5L46mX4K2n/vdte6Go22TRxYEUAugawUlEExYqBdu
+         V1Ig==
+X-Gm-Message-State: AOAM533qHy+KWKQc0e2fmpUX7QLUf9eGw/xgybCxvVdZLi1Cgu+F8h0+
+	gQMox0OoxVZkui3XoqeskrY=
+X-Google-Smtp-Source: ABdhPJxPMa3Rh74OcVFymhLqYCsZF0/1TDpVX9DytP7DS/ioTrCVN+X0SI9uQLPeb7ougIP9HN9L5g==
+X-Received: by 2002:a05:622a:1195:: with SMTP id m21mr414772qtk.96.1634654839165;
+        Tue, 19 Oct 2021 07:47:19 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:4486:: with SMTP id r6ls5355767otv.3.gmail; Mon, 18
- Oct 2021 12:28:14 -0700 (PDT)
-X-Received: by 2002:a9d:3b8:: with SMTP id f53mr1501447otf.253.1634585294612;
-        Mon, 18 Oct 2021 12:28:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1634585294; cv=none;
+Received: by 2002:ac8:611a:: with SMTP id a26ls10644476qtm.7.gmail; Tue, 19
+ Oct 2021 07:47:17 -0700 (PDT)
+X-Received: by 2002:ac8:598d:: with SMTP id e13mr452342qte.76.1634654837165;
+        Tue, 19 Oct 2021 07:47:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1634654837; cv=pass;
         d=google.com; s=arc-20160816;
-        b=q3FRJpwWFTbYQ0NUGiCUC9l6i/sZGAYtHafiYFdwlBWg+kd0/H1aLKhusOdVlZ9nH9
-         2gCkvgxArNAaskjWXdyRmD0rD8aKuwkEKQMgZ9rRCp+7HRu1O2OHpmFvstAEf5cCkEaF
-         Tvs4Hf/g6oE72VZXZB/CsGlEWoloPp5enLtmqqYSHqR3t+VYwUktD8XKLjczJOzmg71X
-         6tcPDWZq4HS2XIq8QTwsetQ9pioDlVlPTJX1iP5iGnVqNljI8+U7eMdIcAi3kjvHPEI1
-         nfQry/ul/fV8kE5ALAdO0kAiJVmG6SnATa2Qmt33QEGbZ0omfPpWXgKAhoZoLKCmAvQ5
-         l1tg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=T17Zx5b+9cZpZ2b2XmW+zfPtibEmmpshlWxKBV4MDzM=;
-        b=eMvOi8u1h3lJDuhqWk1xx2f0aB2YqaB2kzaZ5DW32LKALcxO0/fRF9G+FGQCglBJgY
-         URwrDTBnHGTYOE7WlpTugsQq1/SO+eA3slQCpJjFJTO6IFxYhgyLS2pDS34rNkhGfLhT
-         SgjGHbyHrlT3ZsODKb9hCLdrpxoQB8IyGcPiSnG86J1zxAajiPFsXDikrFTEm1CwYegk
-         B1qJVFFDnR9Q6KtBhxGqfrNYMoJqRkpU4hGLyCDG90cusnvq4ZLe3wK2FOxMnuw/lSkl
-         k/7ZxAq7PuPJ8YRmYfHhh+7jh2ozJSPlgGVgnxnJIf1/WBIaslq6AkmguKU4mzDJ2FpT
-         ddtg==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b="TZ1/KPtQ";
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1036 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pj1-x1036.google.com (mail-pj1-x1036.google.com. [2607:f8b0:4864:20::1036])
-        by gmr-mx.google.com with ESMTPS id e12si170940otf.1.2021.10.18.12.28.14
+        b=MVdmiPm6tedw8PdyVfOpqSqWir2sivnS0gMns4IG8chI90COQuFPS44ULISKmADPWh
+         YrMLY7wImIUVaVM6iJx/N1vKMWr3sFYOp9vgSqhbpTVWV3BAZLp6xtXPztwHds7BCaRC
+         cR67zTEWvMO5gWuKbpFPDOTaqD2rYOWpWt05qqrkLayUlFxBslflNuuDgKXqz6eufJak
+         YKXwOptZjgIWbTjVSZcqk94eiWBNk//zO4zYT+uBab3iqTQfYYc7IT8MOtjO2Ut9XCvD
+         7fYzfoIe06XLmwlGnLBQBN/iGenPAjL6IXHqEN1Fc4xYW/I29x78kW5+Ocsw51I78OA5
+         5iUA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=auIJVvcekKeADolNmqbnZfwt4cA/dEQ2G3LBJ3YKrqQ=;
+        b=xQNbxULbk+6QzT2RE2veKZp5ME2aI5uTbpYw4T3WHTPWit7G22ZQiUKU7lM9gJ0y0K
+         n0WDjIrBcM15WylXRR1T4epSDsTv8HhcexDSzOrUhYBjCx3gvIc6jEvl3GRlj9zLAUwx
+         sKwFhtdjtR6W4LK1IRPkwlbcMjlJ5qLmuYbv/0b3ChST+3NO+e431hCappKbEyEdzo6w
+         LEfKKKF2UklhWVfvXtM6HHH8FMQy3x/shSu+ofl2mgnm/Xu5MqOLumrxIL8eiYebYuME
+         SipqBrOrS5X/qJECoEEZvdQvaVXQxuQJkFV18Q1LMW8sJVwGiqpLCCpswNtPXn/+v8wb
+         H5wQ==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=qAKUAVZc;
+       arc=pass (i=1 spf=pass spfdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
+       spf=pass (google.com: domain of maximmi@nvidia.com designates 40.107.92.69 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=nvidia.com
+Received: from NAM10-BN7-obe.outbound.protection.outlook.com (mail-bn7nam10on2069.outbound.protection.outlook.com. [40.107.92.69])
+        by gmr-mx.google.com with ESMTPS id n20si408090qtl.1.2021.10.19.07.47.16
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 Oct 2021 12:28:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1036 as permitted sender) client-ip=2607:f8b0:4864:20::1036;
-Received: by mail-pj1-x1036.google.com with SMTP id q2-20020a17090a2e0200b001a0fd4efd49so522212pjd.1
-        for <clang-built-linux@googlegroups.com>; Mon, 18 Oct 2021 12:28:14 -0700 (PDT)
-X-Received: by 2002:a17:903:1112:b0:13d:ce49:e275 with SMTP id n18-20020a170903111200b0013dce49e275mr29826166plh.5.1634585293673;
-        Mon, 18 Oct 2021 12:28:13 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id ng5sm211359pjb.51.2021.10.18.12.28.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Oct 2021 12:28:13 -0700 (PDT)
-Date: Mon, 18 Oct 2021 12:28:11 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Daniel Micay <danielmicay@gmail.com>,
-	Francis Laniel <laniel_francis@privacyrequired.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	David Gow <davidgow@google.com>, Linux-MM <linux-mm@kvack.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH for-next 21/25] lib: Introduce CONFIG_TEST_MEMCPY
-Message-ID: <202110181227.534491C34@keescook>
-References: <20210822075122.864511-1-keescook@chromium.org>
- <20210822075122.864511-22-keescook@chromium.org>
- <CAK8P3a1o58qeUsn9_+o1v1POZ9=3p17TCEba4-TRQ7Hf5mRg1A@mail.gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 19 Oct 2021 07:47:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of maximmi@nvidia.com designates 40.107.92.69 as permitted sender) client-ip=40.107.92.69;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ZAda/mSzlt1aYjWsTY4+dkuvzvgbQAZ7hwrXihfWA/6dlpFvPFFMXrejo+r79PVH7EWce+B+U3N87sSonFQKxKze7WNKLfad50GRwOhJkp5X5AWR6/IiTOx3Tyl3wrvN6vqtF7e00NeyAjJgYgvhvAoMS9SVoxyS0Bn1e5X/fQ9PgRo33jrYugytLTgwOJBuE/DeGWwMN7j58scSwqK/H3BfImNJk9I+LJEO16B3+6RYpqi0wsIaVtoQ0XeX97id2HCP8dZajyyMWAhBsYGDv/3oEbZBOILX8Zp1/NtdZBX/0c2oAsTSXsXnMOhg3aANK9tCmgTdQTe/PcXuAyq7Zw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=auIJVvcekKeADolNmqbnZfwt4cA/dEQ2G3LBJ3YKrqQ=;
+ b=aEqENf5KAOoU1+GNEPUylXf4LUqQ03ydKIAzyxbGWGaukB5dQi3LUQiMK+Gc+nhYSvK/3tPIE/xkrJ4Ev4tAvvKxo6PdC99Dak9klD/iHwPC7wDdpwbVhMzG1HDGDfd4tJetjKciWrNCXh5s8adTKGa4BShOavVe9GdwiePYhbYr2I5DOXHpzB1SOqo1Ice8ITVeATJhCnm2l6lCmvDrywbyNFe+IP5rxiyKMDcGAsUcbm2K+2d2KDu4pk3a1zSgmks6cVx8GGfV77sAqWwSFupmtMYMiCAcTkxdsTcb+V9Q51FvqkliCfkLzmAEvLXlcL5rZrf93mANMM6CQW5x6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.112.32) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=nvidia.com; dkim=none (message not signed); arc=none
+Received: from DM5PR2201CA0002.namprd22.prod.outlook.com (2603:10b6:4:14::12)
+ by CH0PR12MB5386.namprd12.prod.outlook.com (2603:10b6:610:d5::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4608.16; Tue, 19 Oct
+ 2021 14:47:15 +0000
+Received: from DM6NAM11FT003.eop-nam11.prod.protection.outlook.com
+ (2603:10b6:4:14:cafe::f0) by DM5PR2201CA0002.outlook.office365.com
+ (2603:10b6:4:14::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4608.16 via Frontend
+ Transport; Tue, 19 Oct 2021 14:47:15 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.112.32)
+ smtp.mailfrom=nvidia.com; google.com; dkim=none (message not signed)
+ header.d=none;google.com; dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.112.32 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.112.32; helo=mail.nvidia.com;
+Received: from mail.nvidia.com (216.228.112.32) by
+ DM6NAM11FT003.mail.protection.outlook.com (10.13.173.162) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
+ 15.20.4608.15 via Frontend Transport; Tue, 19 Oct 2021 14:47:14 +0000
+Received: from HQMAIL107.nvidia.com (172.20.187.13) by HQMAIL109.nvidia.com
+ (172.20.187.15) with Microsoft SMTP Server (TLS) id 15.0.1497.18; Tue, 19 Oct
+ 2021 07:47:13 -0700
+Received: from vdi.nvidia.com (172.20.187.6) by mail.nvidia.com
+ (172.20.187.13) with Microsoft SMTP Server id 15.0.1497.18 via Frontend
+ Transport; Tue, 19 Oct 2021 14:47:01 +0000
+From: "'Maxim Mikityanskiy' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+	<kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>
+CC: Eric Dumazet <edumazet@google.com>, "David S. Miller"
+	<davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Hideaki YOSHIFUJI
+	<yoshfuji@linux-ipv6.org>, David Ahern <dsahern@kernel.org>, "Jesper Dangaard
+ Brouer" <hawk@kernel.org>, Nathan Chancellor <nathan@kernel.org>, "Nick
+ Desaulniers" <ndesaulniers@google.com>, Brendan Jackman
+	<jackmanb@google.com>, Florent Revest <revest@chromium.org>, Joe Stringer
+	<joe@cilium.io>, Lorenz Bauer <lmb@cloudflare.com>, Tariq Toukan
+	<tariqt@nvidia.com>, <netdev@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<clang-built-linux@googlegroups.com>, Maxim Mikityanskiy <maximmi@nvidia.com>
+Subject: [PATCH bpf-next 00/10] New BPF helpers to accelerate synproxy
+Date: Tue, 19 Oct 2021 17:46:45 +0300
+Message-ID: <20211019144655.3483197-1-maximmi@nvidia.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAK8P3a1o58qeUsn9_+o1v1POZ9=3p17TCEba4-TRQ7Hf5mRg1A@mail.gmail.com>
-X-Original-Sender: keescook@chromium.org
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 48377360-7e95-44da-1e44-08d9930f575f
+X-MS-TrafficTypeDiagnostic: CH0PR12MB5386:
+X-Microsoft-Antispam-PRVS: <CH0PR12MB5386245CB04E3BDE40791D73DCBD9@CH0PR12MB5386.namprd12.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:8882;
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: nzU552Q26CMms9xobNTDp9Oam2m9QhXo8qn8V1TUpXzmro8qwBMz8q0x0FdDZigOnNnzh3ccNC+UogzjChZEzdTvtAJQl1Eg7Wpqq+U5hDdmC6w8OYlMIbww7mVW0A8QrlkvFU6x7ABAE0lSAyOY3SmKeRtGqRod3wyjJ01HrG9NQ+GkvIxZaKA/PZYoRRubG3v7MNUdE1AmiPjbxMXrwGjTNdFz3SIf94psKbuh+UEBseMtKH5sC2Vm4mwU5U15uu5zDS8e2qKVeggNqVNT/Olnh2S/tvGFYyun9CVCb6k+z8KNj0AKrNq1iwUcaKeBpS5rQKdmEAqHgKDHfQpJ2OYfxn9/2kkDWIhCYqNbe4VZjkxJkElWHEzIlHgPrqu2QvTc3RFmVePiaUbk7+Lp3NrhivUk2r+nJfq2DeuXSaBawl5pQ+pYZMKdfMr/tKYIiKUn6juZymOwXyiYMQz40HjZgkmrk4+N3tHFAHWa1HU/fhnIv9nOC1INUcrhwz6uMYcj5XOPtQbu+2gxoWh4EUehANH24dmChhkfA6DQ2G5zKFOggsKmzRTVFdltmjUJuQGND+cnu8YpleA+TURJHJ4yspZKyJKqGwLZm/sZ5vuvagD/K0jXXVR/mXVfLJiXZCqjjqP9KHQNlULlqLJIuUSP2WnnSWvzxlJA80yvRruvHkRipsIjiMvxICFxfxuurp/NmACKmzjJ7t+iZdmxEUUuCXkdANmi1rbuer1od7udKAnjPeFc5uqTrpEinkBeYfUZ2Xak+mm7Gahy7icjpO9juYl3NFHBqqFPy+hLn5M=
+X-Forefront-Antispam-Report: CIP:216.228.112.32;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:schybrid01.nvidia.com;CAT:NONE;SFS:(4636009)(46966006)(36840700001)(82310400003)(2906002)(186003)(8936002)(6666004)(8676002)(336012)(316002)(7416002)(36860700001)(4326008)(83380400001)(26005)(107886003)(356005)(36756003)(5660300002)(47076005)(70586007)(54906003)(7636003)(508600001)(426003)(7696005)(1076003)(70206006)(110136005)(2616005)(86362001)(966005);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2021 14:47:14.3116
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 48377360-7e95-44da-1e44-08d9930f575f
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.112.32];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DM6NAM11FT003.eop-nam11.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR12MB5386
+X-Original-Sender: maximmi@nvidia.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b="TZ1/KPtQ";       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1036
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@Nvidia.com header.s=selector2 header.b=qAKUAVZc;       arc=pass
+ (i=1 spf=pass spfdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
+       spf=pass (google.com: domain of maximmi@nvidia.com designates
+ 40.107.92.69 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=nvidia.com
+X-Original-From: Maxim Mikityanskiy <maximmi@nvidia.com>
+Reply-To: Maxim Mikityanskiy <maximmi@nvidia.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,24 +194,62 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Oct 18, 2021 at 05:46:09PM +0200, Arnd Bergmann wrote:
-> On Sun, Aug 22, 2021 at 9:56 AM Kees Cook <keescook@chromium.org> wrote:
-> > +FORTIFY_SOURCE
-> > +M:     Kees Cook <keescook@chomium.org>
-> > +L:     linux-hardening@vger.kernel.org
-> > +S:     Supported
-> 
-> I had added you to Cc on a patch because of this entry, and the email
-> bounced. It looks like you need an extra 'r' in the address.
+This series starts with some cleanup and bugfixing in the existing BPF
+helpers for SYN cookies. The second half adds new functionality that
+allows XDP to accelerate iptables synproxy.
 
-*facepalm*
+struct nf_conn is exposed to BPF, new helpers are added to query
+conntrack info by 5-tuple. The only field exposed for now is status, but
+it can be extended easily in the future.
 
-Thank you, fixing...
+New helpers are added to issue SYN and timestamp cookies and to check
+SYN cookies without binding to a socket, which is useful in the synproxy
+scenario.
+
+Finally, a sample XDP and userspace program is added that show how all
+components work together. The XDP program uses socketless SYN cookie
+helpers and queries conntrack status instead of socket status. A demo
+script shows how to deploy the synproxy+XDP solution.
+
+The draft of the new functionality was presented on Netdev 0x15:
+
+https://netdevconf.info/0x15/session.html?Accelerating-synproxy-with-XDP
+
+Maxim Mikityanskiy (10):
+  bpf: Use ipv6_only_sock in bpf_tcp_gen_syncookie
+  bpf: Support dual-stack sockets in bpf_tcp_check_syncookie
+  bpf: Use EOPNOTSUPP in bpf_tcp_check_syncookie
+  bpf: Make errors of bpf_tcp_check_syncookie distinguishable
+  bpf: Fix documentation of th_len in bpf_tcp_{gen,check}_syncookie
+  bpf: Expose struct nf_conn to BPF
+  bpf: Add helpers to query conntrack info
+  bpf: Add helpers to issue and check SYN cookies in XDP
+  bpf: Add a helper to issue timestamp cookies in XDP
+  bpf: Add sample for raw syncookie helpers
+
+ include/linux/bpf.h            |  46 +++
+ include/net/tcp.h              |   2 +
+ include/uapi/linux/bpf.h       | 193 ++++++++++-
+ kernel/bpf/verifier.c          | 104 +++++-
+ net/core/filter.c              | 433 +++++++++++++++++++++++-
+ net/ipv4/syncookies.c          |  60 ++++
+ net/ipv4/tcp_input.c           |   3 +-
+ samples/bpf/.gitignore         |   1 +
+ samples/bpf/Makefile           |   3 +
+ samples/bpf/syncookie_kern.c   | 591 +++++++++++++++++++++++++++++++++
+ samples/bpf/syncookie_test.sh  |  55 +++
+ samples/bpf/syncookie_user.c   | 388 ++++++++++++++++++++++
+ scripts/bpf_doc.py             |   1 +
+ tools/include/uapi/linux/bpf.h | 193 ++++++++++-
+ 14 files changed, 2047 insertions(+), 26 deletions(-)
+ create mode 100644 samples/bpf/syncookie_kern.c
+ create mode 100755 samples/bpf/syncookie_test.sh
+ create mode 100644 samples/bpf/syncookie_user.c
 
 -- 
-Kees Cook
+2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202110181227.534491C34%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20211019144655.3483197-1-maximmi%40nvidia.com.
