@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCFIV7H5YYEBBJ5VXOFQMGQEPGIOQJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCFIV7H5YYEBBM5VXOFQMGQEMRY6BVI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc39.google.com (mail-oo1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 580BA433908
-	for <lists+clang-built-linux@lfdr.de>; Tue, 19 Oct 2021 16:48:08 +0200 (CEST)
-Received: by mail-oo1-xc39.google.com with SMTP id h15-20020a4a6b4f000000b002b6fa118bfesf1520409oof.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Oct 2021 07:48:08 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1634654887; cv=pass;
+Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8DD13433909
+	for <lists+clang-built-linux@lfdr.de>; Tue, 19 Oct 2021 16:48:20 +0200 (CEST)
+Received: by mail-qt1-x83e.google.com with SMTP id 59-20020aed2041000000b002a78c85c668sf101110qta.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Oct 2021 07:48:20 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1634654899; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ICW+sfKcj/Tesxk3UPy+VzKJxKS7NiRqlfsTTBuuZlGJcdh4qdUh4K2P94Gzs3dJCg
-         t3oH5AMEUPmWR5rFmdDzp/VKDTA39mFq1e4RH+m0GW22VkVadBHxP94WFQw6CfotT3Uj
-         gCZhA/iiP+H3XzXUF9B0dF29ZZF7l54MLxmUXaneBVIhUN1ttG2Jc8O9RN0J29gD8tSx
-         zZeI24itUeRkVCPTlT7hdVdM46IzF1oqPaSM2geezYd9k6umkGZsCw9anybNNXUcWX9O
-         ItspmrJbppEe9Y2IGRKnWMAmj07GeukH31Qrv1DzJSrYItFmHnV/vkwQ4iJfs0kEonKl
-         Rapg==
+        b=xjSZ0Dhctw+7FyXr8MDE5uxrGsWHwaFuRm7hrl19l9f7VCwfvj0UE32E2VVDWQI3pg
+         Rz2bKPK0LTdZXajhT7JFTvIIx0ClGQ+5LH2luI2JRIUADU4eESBBf5vM9KpzY2HeDJ0j
+         Q52TJ9q1t+ExJmqAc4XycX5PT1gE0tjVb0sDz33Vd29RwbP2qQa3ra0YKgaWKKo0qAV5
+         i0pmw2IOX1bJc6a4VXTOk7js4j70wTIgxw4evYADeQvCHlYIpVagInY7rCS3nWWkh9sz
+         GAGHfZ+p2cusxWXGc29XzsveRUN5dr2IsgNVwo14whr1f8wp18AS9hA6/zz2dEmLEXH5
+         RAow==
 ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=6kDwMIZdRZjkxI2pu1z/M8dJN11clcRMQaIwYteDDD8=;
-        b=oE5atqaOCeeB63TNvNIzfvQ7WW4U3eTq5CtlZT8wkhDA/KRYLKHtYVvKMTkRiVRmcf
-         QYdRUUqFnGpMCV5ZDTU0PeBD0IhFnHrBW6untS/LQwDSC9Wr6vLriOVs5kKr3+C8E1ev
-         Rw0uljX95QsdT5DtAyCgYdrrc06RqE9e6a77MdjgxTSO2ikbi+hv8bMW8sH1B61QgP1H
-         eGlje6Z4yTLlPLJISqLenUAsWNuQ7qkHHbeETMzUxwFppag3P/Vun/mdTJrAMbPxEu/E
-         H7q+hqdS+rK/1GncDkxlg1GyVI5OS1pNyn/TMA7Q/trZ4I22KKQhE+tK1JZtkHcfeYT2
-         mNSA==
+        bh=uwloRAPZAWV1ItjBkpnyjyGQdTP+kIQdWoa1YYuIk6k=;
+        b=zQYMVVGrbUkqVOTXanHMus6cY1/iEpNBSr27b2VA8zD+Tt/MP1MOKXtXRZ/L5K5xU4
+         1ehzXqmMcPbXt1aOKSH8JHtYGwGz0RfpSKL+KG0gC0inGFhSrZTnNThVZDjaUItb7bQj
+         xmcSq1Z54GXd50mLjLfvdGQNqsXCdda3YTMPnkBgXlkBTdqXQDmFaMSo6phyhxiy/ekV
+         k+ga1E0zs5BDFgihNtJ067/+hav4uI3nmHZvaehCxgTjaQpt8KOaC6cN7ZsRtNRTW8TJ
+         Hl/FPM9DGOXuTTEZt6O+YtGzLzsWKFzJtmYNXJFQJykfiO82tJW55akJlLSWKJmAdL9a
+         xs9w==
 ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=OmhToDrl;
+       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=noWFWeo9;
        arc=pass (i=1 spf=pass spfdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
-       spf=pass (google.com: domain of maximmi@nvidia.com designates 40.107.220.85 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
+       spf=pass (google.com: domain of maximmi@nvidia.com designates 40.107.244.67 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=nvidia.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=6kDwMIZdRZjkxI2pu1z/M8dJN11clcRMQaIwYteDDD8=;
-        b=h4/2I6/wtF/Lm09pW80pOlQuaSYulHsUeun43prWrUXn5sZ0PsbSV7jREClQzt80WV
-         +MNiIGsczFGQ10Obac9Dv6uMaZkYl+vMrAbPnwAIc0P9EekY9nVN9wzFsFchxnMAeB2N
-         aBrJXTx1NIrNvjZVBk62fSaux2p3HL/6zXoFTFC7+HEd3hszScO9gc0ajrKI9J4KrVg4
-         XIE1VfTfd2/gFh4UfEblRgFdWcHETvWC3yspoHhBuSivHn4MHEyPA+k6tjcekZx+oPJ2
-         mDMePCcQpDBD4WviKUd1GnHqbyoQWMM1fmUPk3dX4LobMUT3frxuCveYpO6esxbakplg
-         GWJA==
+        bh=uwloRAPZAWV1ItjBkpnyjyGQdTP+kIQdWoa1YYuIk6k=;
+        b=D88SCwUABGisBiK+PaXNolK75FXgtD+AS5slFPYD0IUrqpRKPfkbHpsZIqJPKFsHDT
+         /G7jzDx8bxgk5ZbibhFXotWf3lxLEFkxwdls+0ZovdUYSBz3/p//dEj+gdd5wxeIUNdN
+         F8EUiE9X5297o0UiFjcN+sFht+C0O6nbvIUUmlxDRvHE2SmIZGw407eNt7fjTwA+5Rb0
+         mPX6HAVUrw2eye2pIBFw1agzqkkM8ytnxvfXuGzPScbWOL3qqxUUjXwNB2Cg0mE/QU2U
+         Blbil3uWVFWGVric1X+N6XX2qh0pkAEaPcLKKNdIM3Uo6TN6+XPhZZ4ovuF1MsJ2oStV
+         jQ9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
@@ -50,89 +50,89 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6kDwMIZdRZjkxI2pu1z/M8dJN11clcRMQaIwYteDDD8=;
-        b=XkC48C0YTTKK0b1AYCoZolYq/6gZuqQ50Gn7imeofr2GRmUCMgJDPYufQvrMbA6Upt
-         1Ojpfc6Z+RNdSGyuMoUOUsF8w5s2B7TSKhbte4QEcDsWSm1bcd24tPFElb1qw+kTh7go
-         UcC6Jd1UhEUcvaVNp5TfQxnLVDQeJCLvX6xXHM4s7Jv4Tgl1QkjnlvSXhX9GBPOGqbC1
-         ZnwAiVqSRL1rLyk3bziWMrZbmEMQlfLxbtiCftW0lF28uE1p1UGXpxu129XZs1HUYDw5
-         MzDyQzfsJm+ObBLHpehvOWCsso3KqxfVfYi9sgpvgx+yLMBc7po13qmZ1QEEdmBwrriQ
-         zQSw==
-X-Gm-Message-State: AOAM532zZR5ED9nH2lXCvnj0+Wnlgu7tq6k2RMT92KMhA3TasH7eb+4o
-	LRCmnE7uH9PW5pZ/z+59E38=
-X-Google-Smtp-Source: ABdhPJxzxZJiuDQ2Lg9TDGyZUGUAniRirmWmIX9M8sfZp+sGK8SG37Xo2nhK2TkZlOCPSyz1v1GNIA==
-X-Received: by 2002:a4a:4006:: with SMTP id n6mr5067508ooa.73.1634654887131;
-        Tue, 19 Oct 2021 07:48:07 -0700 (PDT)
+        bh=uwloRAPZAWV1ItjBkpnyjyGQdTP+kIQdWoa1YYuIk6k=;
+        b=sv2NlbnpY40p9JIDY8dBPIWIB8xxwwnUtk7Sa1Gm0EWzgQ5P+x5jNuIi6hCqPIe6I6
+         MUVgoUbnNsTiVwhFxuFzBBsAn+exohoYiT2PrCgr1uccGw2aHz+WNhW6grCn8E+ew19x
+         kFZ5gJqyBXxx1ee3m16+bsPi2Zaat00SFLyvg0INwZROIjYYpkcssxQcHF7gSCMVye1m
+         bBEaxAw7sfW7Sk8tdkVVpN8/p/uIXMJAHAs1Uryu7wyCrripNKpeKQV9kb7SfV/fZi7g
+         G7IYLXIO0rQaBbc2LNXkQaMgVofsMRE3LRUL2NwT+MHcZTd4kqYq2oXhOvrsFSAiShhM
+         YTwQ==
+X-Gm-Message-State: AOAM533zKHFpbVRNtr/aqHlkTMO5cdTy3yMI3Uy9gSDsn8cpDakkn9pz
+	F/t7P/zfzsmi45v19lKc0FU=
+X-Google-Smtp-Source: ABdhPJy5xac3o6VLzZmdhx320l/YQZeoFvAihKm8c2rxGR/p6OErYb07mUiEjgJ0ZZAVaJ1O78yuHA==
+X-Received: by 2002:a37:4250:: with SMTP id p77mr348727qka.130.1634654899520;
+        Tue, 19 Oct 2021 07:48:19 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:6155:: with SMTP id c21ls6138930otk.10.gmail; Tue, 19
- Oct 2021 07:48:06 -0700 (PDT)
-X-Received: by 2002:a05:6830:1ad5:: with SMTP id r21mr5857258otc.192.1634654886800;
-        Tue, 19 Oct 2021 07:48:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1634654886; cv=pass;
+Received: by 2002:ae9:f118:: with SMTP id k24ls10279775qkg.11.gmail; Tue, 19
+ Oct 2021 07:48:19 -0700 (PDT)
+X-Received: by 2002:ae9:ebc2:: with SMTP id b185mr266339qkg.491.1634654899035;
+        Tue, 19 Oct 2021 07:48:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1634654899; cv=pass;
         d=google.com; s=arc-20160816;
-        b=r7ajHtYKLE7nllNh2X1msTnFfi/mi3q7fOZmtBcxI58UXa3ocMALttofvSuS53O7JK
-         N2cQJuXXoWGeyFa4UWRhSRbeUalnWKCA0SjUaBmZELyktroaQYqX0Jl55Cul6PnrsXPF
-         DKJcuNTc7Qwu5CeIzL0AL+oXiwLN32HR3gSryKbM1IRxG1oKW1LiTw8gnaVFVMtL/Usc
-         2jffsvstZL80J1l9nEWx9FB5A30ykcs/uBAUB284InQI4KuKVld5GOG37zNwMEdUM0+/
-         bL70lsqRpq60Cc/d9p2pDHMStLHqNwB2miozZWLniVIFkQhB06j83HTDTzdldGBomDdk
-         MDPw==
+        b=Uw+T2z/DpgMZkj3JXnW5ajHUHjnoG7QzSMYlHcuRihGqy9tJOZgY1KeO6R74LRZ8dv
+         enkR5zFRROp5uND3wScPuJ9Z89Qmn2bSEYOsnFRgo8ZvVwAqUsjQQ9Iq/vIVu1rf9voN
+         aaxVxgf7Gft89A9rrYQCG+POin24NVoBLayyt61mUWIp7dcBBX03ARjOjKxIAnynH6q4
+         7KI6hMFAO57JFUZSPYWKgMg/tIqygPAFydSDd+lQbJL8agTxhm19eNL/kq12alhVKJ1v
+         GXcOuFWPsNxNxh9ORoDWf9qgUh4dUwXaG7r2dTEZ3tC3HYnBpg0iZbWBxqPuBLtWyv41
+         2+rA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=jXLQ7xAs8EOu6G2zUj4E0yFOji2FUos7HtcrIt0viUk=;
-        b=Ryyzq1mb2e22LM5x5NnXVbPkqB8+kb6lFNAeZJ6XkAiFHmHEs+xUaTrCbD37UvyXPx
-         ICo00Q+cNGAX8J4U21YjtJjb85Heit+ePQKWCFfqpc3k8TAvr84ALSS/xo8c9BWTXVlE
-         TjPsuj5FpAvPWtIhVi6+QSjOoBXNMIPFEGWAPQZ/Gq7efm7hWYKUWH31n6rKFUHupJ39
-         zqtoPTImye/cu2qzXGdQRO+AanrKecsb+HDO2m1dOiGhEOuo/V2MC0CBqsLaFMn3ZeKn
-         Ig6GcJYaR6Yzm/aMJrHVg6lGtSoSxuV2J/9ZigqII0XxKHq6eqiDT8P/zpL4L+6V814A
-         T1Aw==
+        bh=Jb1uETqWVAaoOM305t81Q0H2Deol3CCp7nQLsSHbUSs=;
+        b=qdxw3oitWrB8xHAEOrlwOqPUBTeq/50yBEI7SR3nXV489H6IyUCekqEzpXCgyRWDES
+         X0PaS7eG6wOQ5L7AixQV6Nius1uxhzc26D+9bV+dtwEhFU64h2OhPB7HqTKuFzYYHcC7
+         DxdpOJBfiT0jzmRZRu4+//eV6QGChjOFRiDH8VF3vKAC3QpFE8glJ/raddZ/YnxPTbem
+         S74Nda10c98vAqKbl+M6mx/Jj6Te+0l724Aut3uesMdCuC7GUfIyK4BGdrdG+/LUWhgu
+         85RPXyDYDjc8AgW0bA1vT5ntspcf+P366G///40xtkFnA/nhjcuIjjxPyxVNauzzatzV
+         Tp0Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=OmhToDrl;
+       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b=noWFWeo9;
        arc=pass (i=1 spf=pass spfdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
-       spf=pass (google.com: domain of maximmi@nvidia.com designates 40.107.220.85 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
+       spf=pass (google.com: domain of maximmi@nvidia.com designates 40.107.244.67 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=nvidia.com
-Received: from NAM11-CO1-obe.outbound.protection.outlook.com (mail-co1nam11on2085.outbound.protection.outlook.com. [40.107.220.85])
-        by gmr-mx.google.com with ESMTPS id o24si769899otp.2.2021.10.19.07.48.06
+Received: from NAM12-MW2-obe.outbound.protection.outlook.com (mail-mw2nam12on2067.outbound.protection.outlook.com. [40.107.244.67])
+        by gmr-mx.google.com with ESMTPS id k18si198036qke.1.2021.10.19.07.48.18
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 19 Oct 2021 07:48:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of maximmi@nvidia.com designates 40.107.220.85 as permitted sender) client-ip=40.107.220.85;
+        Tue, 19 Oct 2021 07:48:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of maximmi@nvidia.com designates 40.107.244.67 as permitted sender) client-ip=40.107.244.67;
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=X4N6/ndJtwnRABwvbQMO9vh66s8G5E95Nmg6eSFEAokrBIdAyW2QvzPLFVzvPTDHsdUpx79jgARyifP5ca8C9vPPUnNE6W0artPPrBJq3L5RZ/h6cb3AFAgqI2Yjr/Dr2xO1MD13bO7JOuaNRHHzwdiBjHaxIMfjfsXsqXqTyimKMczklB/Lg4eGicJNVWgkbMfosiCvDibnz1yoeZBdXjg1CyaClOhA80k+umZVAP9J5J5F68rGnYXlSNKjBj5YY/TErIP7wwGKLvPRbZ7iobgDNXohii+tOoG0WprR3txorwZkQ6M3DqqJqYFGS+/OXimoe+s/Dcr/FpoWtvfahA==
+ b=YuaITKXVjeV2xeMUkmILYlBI0mX+fNub31B9JBT3Ms5+x1lrgOkZxrCKyQSpuvO+Y7++DhBo3x8ByJDYEAyk1fqIWecUfIYUpQRQ9Vwe2xrrJwXDlDiMH6iRA47mVQNWWuH4bVTqYL1QxOm2l/mgbQv8c9CjKpeCxGRWjWPTm/P+PFsBF4TCW5zcLejr86BlLhsl9FA8nOwYBL+fJwfsMOlYkQEMw0VmtDA9DeYQkMdoNqrgt/vH0PTU5kM1IyRb8V/l6VYLlqbuP0Uk/gsYDdbgsRdUJ4uOLmU+XtKXjWDzdV2AmmgEepdYLGjbhvcVc73qF84hmxRMQQqp12SVeg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jXLQ7xAs8EOu6G2zUj4E0yFOji2FUos7HtcrIt0viUk=;
- b=fib6ncjq2r8saJChd3oebAZPjywo4FDxhK/eeUpQ2rz+kNUwRvG649xT0bWSQ9KrmhjRkWScRBD3SWdERjHXBEuiENL+0CnGkW8lsiCNakHCPmvZ0w9W0qfbaekc/Vfuqf8dT2HmDckUFPdJ5TAyVYQiSY3mNaH6pahyZnTZ2Y7MV9Np/2kp/h9O6YsUfjQwMgCXEtj6k4LKbMXoPQddKSi9dAwuyjQZY5mokNBNznntDBQb3KE2umjWJ3iADNR2XmoO9cEDHiDrZQzvSBTMzBJLlZ8L+nb1nMW+HLWHiofXLUnlPUT7FpSlwf6pp6NcHD5DplKC5YQcbZSA/k6nHg==
+ bh=Jb1uETqWVAaoOM305t81Q0H2Deol3CCp7nQLsSHbUSs=;
+ b=cUV0fWxbR1yJgKF7ATeDn3LWL70Yw1Kvlt75aXJj4Xg/NmfrgpYw5Vx5kj7h7TQxTCnvoKYlQHinMJtSph7wJ5i6HiEq33zotDHGQM/VEXNbnn5kobBV7raE6noLkiAlge+BvvB+nAH4D8J5HqjWOYJs39qxRsB0+D0FFFd0oaoA877P69doPwo2wDR3moL+i8ELAponwAihIcDOSx7RNBCBrBtvFDL0p0zbme2PGSS9mMhCBzjEdwIC2fY5svrXB3JyokgJ3vcJSF1ZcO2xMemPqDZT6RZ6lsbxW5FHhvFwvvbsNUD8dRomcNspaB6EDtl5XTe5xDUl9Fy3yti7XA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.112.32) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ 216.228.112.34) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=nvidia.com; dkim=none (message not signed); arc=none
-Received: from DM6PR03CA0013.namprd03.prod.outlook.com (2603:10b6:5:40::26) by
- CY4PR1201MB0199.namprd12.prod.outlook.com (2603:10b6:910:1c::10) with
+Received: from DM3PR08CA0021.namprd08.prod.outlook.com (2603:10b6:0:52::31) by
+ BY5PR12MB3684.namprd12.prod.outlook.com (2603:10b6:a03:1a2::32) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4608.18; Tue, 19 Oct
- 2021 14:48:03 +0000
-Received: from DM6NAM11FT028.eop-nam11.prod.protection.outlook.com
- (2603:10b6:5:40:cafe::4) by DM6PR03CA0013.outlook.office365.com
- (2603:10b6:5:40::26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4608.16 via Frontend
- Transport; Tue, 19 Oct 2021 14:48:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.112.32)
+ 2021 14:48:16 +0000
+Received: from DM6NAM11FT067.eop-nam11.prod.protection.outlook.com
+ (2603:10b6:0:52:cafe::fe) by DM3PR08CA0021.outlook.office365.com
+ (2603:10b6:0:52::31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4628.15 via Frontend
+ Transport; Tue, 19 Oct 2021 14:48:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.112.34)
  smtp.mailfrom=nvidia.com; google.com; dkim=none (message not signed)
  header.d=none;google.com; dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.112.32 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.112.32; helo=mail.nvidia.com;
-Received: from mail.nvidia.com (216.228.112.32) by
- DM6NAM11FT028.mail.protection.outlook.com (10.13.173.140) with Microsoft SMTP
+ 216.228.112.34 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.112.34; helo=mail.nvidia.com;
+Received: from mail.nvidia.com (216.228.112.34) by
+ DM6NAM11FT067.mail.protection.outlook.com (10.13.172.76) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- 15.20.4608.15 via Frontend Transport; Tue, 19 Oct 2021 14:48:03 +0000
-Received: from HQMAIL107.nvidia.com (172.20.187.13) by HQMAIL109.nvidia.com
- (172.20.187.15) with Microsoft SMTP Server (TLS) id 15.0.1497.18; Tue, 19 Oct
- 2021 07:48:02 -0700
+ 15.20.4608.15 via Frontend Transport; Tue, 19 Oct 2021 14:48:15 +0000
+Received: from HQMAIL107.nvidia.com (172.20.187.13) by HQMAIL107.nvidia.com
+ (172.20.187.13) with Microsoft SMTP Server (TLS) id 15.0.1497.18; Tue, 19 Oct
+ 2021 14:48:14 +0000
 Received: from vdi.nvidia.com (172.20.187.6) by mail.nvidia.com
  (172.20.187.13) with Microsoft SMTP Server id 15.0.1497.18 via Frontend
- Transport; Tue, 19 Oct 2021 14:47:51 +0000
+ Transport; Tue, 19 Oct 2021 14:48:03 +0000
 From: "'Maxim Mikityanskiy' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
 	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
@@ -144,12 +144,12 @@ CC: Eric Dumazet <edumazet@google.com>, "David S. Miller"
  Brouer" <hawk@kernel.org>, Nathan Chancellor <nathan@kernel.org>, "Nick
  Desaulniers" <ndesaulniers@google.com>, Brendan Jackman
 	<jackmanb@google.com>, Florent Revest <revest@chromium.org>, Joe Stringer
-	<joe@cilium.io>, "Lorenz Bauer" <lmb@cloudflare.com>, Tariq Toukan
+	<joe@cilium.io>, Lorenz Bauer <lmb@cloudflare.com>, Tariq Toukan
 	<tariqt@nvidia.com>, <netdev@vger.kernel.org>, <bpf@vger.kernel.org>,
 	<clang-built-linux@googlegroups.com>, Maxim Mikityanskiy <maximmi@nvidia.com>
-Subject: [PATCH bpf-next 04/10] bpf: Make errors of bpf_tcp_check_syncookie distinguishable
-Date: Tue, 19 Oct 2021 17:46:49 +0300
-Message-ID: <20211019144655.3483197-5-maximmi@nvidia.com>
+Subject: [PATCH bpf-next 05/10] bpf: Fix documentation of th_len in bpf_tcp_{gen,check}_syncookie
+Date: Tue, 19 Oct 2021 17:46:50 +0300
+Message-ID: <20211019144655.3483197-6-maximmi@nvidia.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20211019144655.3483197-1-maximmi@nvidia.com>
 References: <20211019144655.3483197-1-maximmi@nvidia.com>
@@ -157,31 +157,31 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: dbffa9f1-e9d6-4067-fb84-08d9930f7452
-X-MS-TrafficTypeDiagnostic: CY4PR1201MB0199:
-X-Microsoft-Antispam-PRVS: <CY4PR1201MB0199E769E8000F0E40711B55DCBD9@CY4PR1201MB0199.namprd12.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:2512;
+X-MS-Office365-Filtering-Correlation-Id: ea5932fd-8d1c-4ff7-2166-08d9930f7bb1
+X-MS-TrafficTypeDiagnostic: BY5PR12MB3684:
+X-Microsoft-Antispam-PRVS: <BY5PR12MB368401FA52943580A4C36C28DCBD9@BY5PR12MB3684.namprd12.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:7219;
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: HUDYheS+pV6nwD7bM5lIZQ+sE+Qpea1QxXSfKXbFkeW+cZFjpaL5owE+buJzw64Ld+iws2ZcAsJi5KQSRvISs0xw78ls2G8ydv2X8vgkDOoCYQE6wXa602ucJPhAryAtA5LouAMI6kwYsEwnNumrbGVcVZ543G0R7ZLJ5YSeNEuiv24yVJgePzVMc7sqWFlC8OhndOHT4GI8jFP9NNZ3LTdpuugjgf91EIUY+eNIYmLS5QyonFih7w5bls/yxZVThIgt10wAU1ZTbKt+r4nTHaB6j5u16sNa1z6+P030FwE9EbbmmL9k9SNJcimSH0B3sfE5HfrjJFjNkD/MdK/dSU1b2Wl4M0OnXBw4iN+WV6oPuef3GJ0TXtDkxZz6h9sAAe9KHiJo5/KcXbAe8s4xil82FMz8sfguJad+y4P4gh2cYfrfAbxSgvYOgp14DrAhVOJ7te94fhwXYPvYWWLkX4xtm94BWxTmRxNPUHmFqCt+ugtDWQHws4iADUaQLeJFSj3/nOf3twT/n6Qdw0yRAxQekkDmQ186+JSLrk/XBoQ05IY5qOhboPXrEfqxlaerkCcU8mG9i/8pdBn09+J+TQQJ0ULUUDJpU2z8nynW5HzPaxQaBMr3YQkn6KeFXWi/jg2iu4m+UA40SIxufhapIl299m7K9h/XC+yD8W0qm5TyUm+4nYURA/vYaSAvdi2xhX0lCMeP4Cm5eV+hjs3E7Q==
-X-Forefront-Antispam-Report: CIP:216.228.112.32;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:schybrid01.nvidia.com;CAT:NONE;SFS:(4636009)(46966006)(36840700001)(110136005)(2616005)(54906003)(70586007)(107886003)(2906002)(8676002)(47076005)(1076003)(316002)(83380400001)(7696005)(5660300002)(70206006)(7416002)(36860700001)(82310400003)(426003)(26005)(36756003)(186003)(356005)(7636003)(336012)(508600001)(8936002)(86362001)(4326008);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Message-Info: C6RKjhAPiBOoyuhWSy0Kg2ciyNFQdhKI0nlgpZbbsRhdrz94GzU5SXt9UvyEStw/+eQYsI+znpIg3vjfuZCtKgIu9oeDh/aEUXo1KlHx9g1v2GpJcIfW1xfcM4inUsYOi546LPU3TuVybGZo4YQzt2mcfDy8M3/wZsgTykhjD2sBA11EhpO05oR/GTobdnecCEUCMtIhk0ITlsffjHkpPLZp/4JnRGq4nqP61HfewNCaRi7qzdOx04O2QmsTb5W+anW1zCcMYKCmUaJIaMetcQa2KkNBrz8D7YOmCjJyEn0cpK4whMR4kaOfjVve66S8uroXGdtU8owLIHKvOqAzuddAfZiyWlzt8re22OyTHliUelGlmQ/ug2ejSPUYrfSZpTKZGz6AhbGcAU+QKIvbp4DP04/z3lO/t/iWJh0XAknIpF7W2L+4XBoceN2QXifZrH8/VdPNLCDiUY7w531MmmaoaNlVnqF/eTiKsJflJ//idWMz0OHy+8UP0coM1UvlPuWQGknyK00awGzg/gfHD3p91BQipUeGLpZjbd5t0UQKfJXrXl08Fyfq9IZiwLLB8vM7wPM6CEFN4TREDM+y+h5fJE/e+fFM6PvQxSXrmcb9INHUvAw++yS297cvxswb2iZ10/NO9IyLYd0QDTEmqOKV3AtS2KEDVVDgxA2c7HyhvN7fyjag2ATfIrk7rWmbeKCFWxejAN6CoZvCyiD53Q==
+X-Forefront-Antispam-Report: CIP:216.228.112.34;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:schybrid03.nvidia.com;CAT:NONE;SFS:(4636009)(36840700001)(46966006)(8936002)(107886003)(36860700001)(316002)(6666004)(7636003)(356005)(7416002)(83380400001)(82310400003)(2906002)(336012)(47076005)(2616005)(86362001)(70206006)(70586007)(36756003)(7696005)(110136005)(54906003)(426003)(8676002)(5660300002)(508600001)(186003)(1076003)(4326008)(26005);DIR:OUT;SFP:1101;
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2021 14:48:03.3404
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Oct 2021 14:48:15.7135
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dbffa9f1-e9d6-4067-fb84-08d9930f7452
+X-MS-Exchange-CrossTenant-Network-Message-Id: ea5932fd-8d1c-4ff7-2166-08d9930f7bb1
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.112.32];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM6NAM11FT028.eop-nam11.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.112.34];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DM6NAM11FT067.eop-nam11.prod.protection.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY4PR1201MB0199
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB3684
 X-Original-Sender: maximmi@nvidia.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@Nvidia.com header.s=selector2 header.b=OmhToDrl;       arc=pass
+ header.i=@Nvidia.com header.s=selector2 header.b=noWFWeo9;       arc=pass
  (i=1 spf=pass spfdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
        spf=pass (google.com: domain of maximmi@nvidia.com designates
- 40.107.220.85 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
+ 40.107.244.67 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=nvidia.com
 X-Original-From: Maxim Mikityanskiy <maximmi@nvidia.com>
 Reply-To: Maxim Mikityanskiy <maximmi@nvidia.com>
@@ -197,144 +197,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-bpf_tcp_check_syncookie returns errors when SYN cookie generation is
-disabled (EINVAL) or when no cookies were recently generated (ENOENT).
-The same error codes are used for other kinds of errors: invalid
-parameters (EINVAL), invalid packet (EINVAL, ENOENT), bad cookie
-(ENOENT). Such an overlap makes it impossible for a BPF program to
-distinguish different cases that may require different handling.
-
-For a BPF program that accelerates generating and checking SYN cookies,
-typical logic looks like this (with current error codes annotated):
-
-1. Drop invalid packets (EINVAL, ENOENT).
-
-2. Drop packets with bad cookies (ENOENT).
-
-3. Pass packets with good cookies (0).
-
-4. Pass all packets when cookies are not in use (EINVAL, ENOENT).
-
-The last point also matches the behavior of cookie_v4_check and
-cookie_v6_check that skip all checks if cookie generation is disabled or
-no cookies were recently generated. Overlapping error codes, however,
-make it impossible to distinguish case 4 from cases 1 and 2.
-
-The original commit message of commit 399040847084 ("bpf: add helper to
-check for a valid SYN cookie") mentions another use case, though:
-traffic classification, where it's important to distinguish new
-connections from existing ones, and case 4 should be distinguishable
-from case 3.
-
-To match the requirements of both use cases, this patch reassigns error
-codes of bpf_tcp_check_syncookie and adds missing documentation:
-
-1. EINVAL: Invalid packets.
-
-2. EACCES: Packets with bad cookies.
-
-3. 0: Packets with good cookies.
-
-4. ENOENT: Cookies are not in use.
-
-This way all four cases are easily distinguishable.
+bpf_tcp_gen_syncookie and bpf_tcp_check_syncookie expect the full length
+of the TCP header (with all extensions). Fix the documentation that says
+it should be sizeof(struct tcphdr).
 
 Signed-off-by: Maxim Mikityanskiy <maximmi@nvidia.com>
 Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
 ---
- include/uapi/linux/bpf.h       | 18 ++++++++++++++++--
- net/core/filter.c              |  6 +++---
- tools/include/uapi/linux/bpf.h | 18 ++++++++++++++++--
- 3 files changed, 35 insertions(+), 7 deletions(-)
+ include/uapi/linux/bpf.h       | 6 ++++--
+ tools/include/uapi/linux/bpf.h | 6 ++++--
+ 2 files changed, 8 insertions(+), 4 deletions(-)
 
 diff --git a/include/uapi/linux/bpf.h b/include/uapi/linux/bpf.h
-index 6fc59d61937a..2f12b11f1259 100644
+index 2f12b11f1259..efb2750f39c6 100644
 --- a/include/uapi/linux/bpf.h
 +++ b/include/uapi/linux/bpf.h
-@@ -3545,8 +3545,22 @@ union bpf_attr {
-  * 		*th* points to the start of the TCP header, while *th_len*
-  * 		contains **sizeof**\ (**struct tcphdr**).
-  * 	Return
-- * 		0 if *iph* and *th* are a valid SYN cookie ACK, or a negative
-- * 		error otherwise.
-+ *		0 if *iph* and *th* are a valid SYN cookie ACK.
-+ *
-+ *		On failure, the returned value is one of the following:
-+ *
-+ *		**-EACCES** if the SYN cookie is not valid.
-+ *
-+ *		**-EINVAL** if the packet or input arguments are invalid.
-+ *
-+ *		**-ENOENT** if SYN cookies are not issued (no SYN flood, or SYN
-+ *		cookies are disabled in sysctl).
-+ *
-+ *		**-EOPNOTSUPP** if the kernel configuration does not enable SYN
-+ *		cookies (CONFIG_SYN_COOKIES is off).
-+ *
-+ *		**-EPROTONOSUPPORT** if the IP version is not 4 or 6 (or 6, but
-+ *		CONFIG_IPV6 is disabled).
+@@ -3543,7 +3543,8 @@ union bpf_attr {
+  * 		**sizeof**\ (**struct ip6hdr**).
   *
-  * long bpf_sysctl_get_name(struct bpf_sysctl *ctx, char *buf, size_t buf_len, u64 flags)
-  *	Description
-diff --git a/net/core/filter.c b/net/core/filter.c
-index 2c5877b775d9..d04988e67640 100644
---- a/net/core/filter.c
-+++ b/net/core/filter.c
-@@ -6709,10 +6709,10 @@ BPF_CALL_5(bpf_tcp_check_syncookie, struct sock *, sk, void *, iph, u32, iph_len
- 		return -EINVAL;
- 
- 	if (!sock_net(sk)->ipv4.sysctl_tcp_syncookies)
--		return -EINVAL;
-+		return -ENOENT;
- 
- 	if (!th->ack || th->rst || th->syn)
--		return -ENOENT;
-+		return -EINVAL;
- 
- 	if (unlikely(iph_len < sizeof(struct iphdr)))
- 		return -EINVAL;
-@@ -6752,7 +6752,7 @@ BPF_CALL_5(bpf_tcp_check_syncookie, struct sock *, sk, void *, iph, u32, iph_len
- 	if (ret > 0)
- 		return 0;
- 
--	return -ENOENT;
-+	return -EACCES;
- #else
- 	return -EOPNOTSUPP;
- #endif
+  * 		*th* points to the start of the TCP header, while *th_len*
+- * 		contains **sizeof**\ (**struct tcphdr**).
++ *		contains the length of the TCP header (at least
++ *		**sizeof**\ (**struct tcphdr**)).
+  * 	Return
+  *		0 if *iph* and *th* are a valid SYN cookie ACK.
+  *
+@@ -3743,7 +3744,8 @@ union bpf_attr {
+  *		**sizeof**\ (**struct ip6hdr**).
+  *
+  *		*th* points to the start of the TCP header, while *th_len*
+- *		contains the length of the TCP header.
++ *		contains the length of the TCP header (at least
++ *		**sizeof**\ (**struct tcphdr**)).
+  *	Return
+  *		On success, lower 32 bits hold the generated SYN cookie in
+  *		followed by 16 bits which hold the MSS value for that cookie,
 diff --git a/tools/include/uapi/linux/bpf.h b/tools/include/uapi/linux/bpf.h
-index 6fc59d61937a..2f12b11f1259 100644
+index 2f12b11f1259..efb2750f39c6 100644
 --- a/tools/include/uapi/linux/bpf.h
 +++ b/tools/include/uapi/linux/bpf.h
-@@ -3545,8 +3545,22 @@ union bpf_attr {
-  * 		*th* points to the start of the TCP header, while *th_len*
-  * 		contains **sizeof**\ (**struct tcphdr**).
-  * 	Return
-- * 		0 if *iph* and *th* are a valid SYN cookie ACK, or a negative
-- * 		error otherwise.
-+ *		0 if *iph* and *th* are a valid SYN cookie ACK.
-+ *
-+ *		On failure, the returned value is one of the following:
-+ *
-+ *		**-EACCES** if the SYN cookie is not valid.
-+ *
-+ *		**-EINVAL** if the packet or input arguments are invalid.
-+ *
-+ *		**-ENOENT** if SYN cookies are not issued (no SYN flood, or SYN
-+ *		cookies are disabled in sysctl).
-+ *
-+ *		**-EOPNOTSUPP** if the kernel configuration does not enable SYN
-+ *		cookies (CONFIG_SYN_COOKIES is off).
-+ *
-+ *		**-EPROTONOSUPPORT** if the IP version is not 4 or 6 (or 6, but
-+ *		CONFIG_IPV6 is disabled).
+@@ -3543,7 +3543,8 @@ union bpf_attr {
+  * 		**sizeof**\ (**struct ip6hdr**).
   *
-  * long bpf_sysctl_get_name(struct bpf_sysctl *ctx, char *buf, size_t buf_len, u64 flags)
-  *	Description
+  * 		*th* points to the start of the TCP header, while *th_len*
+- * 		contains **sizeof**\ (**struct tcphdr**).
++ *		contains the length of the TCP header (at least
++ *		**sizeof**\ (**struct tcphdr**)).
+  * 	Return
+  *		0 if *iph* and *th* are a valid SYN cookie ACK.
+  *
+@@ -3743,7 +3744,8 @@ union bpf_attr {
+  *		**sizeof**\ (**struct ip6hdr**).
+  *
+  *		*th* points to the start of the TCP header, while *th_len*
+- *		contains the length of the TCP header.
++ *		contains the length of the TCP header (at least
++ *		**sizeof**\ (**struct tcphdr**)).
+  *	Return
+  *		On success, lower 32 bits hold the generated SYN cookie in
+  *		followed by 16 bits which hold the MSS value for that cookie,
 -- 
 2.30.2
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20211019144655.3483197-5-maximmi%40nvidia.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20211019144655.3483197-6-maximmi%40nvidia.com.
