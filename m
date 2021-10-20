@@ -1,164 +1,158 @@
-Return-Path: <clang-built-linux+bncBDB2BCVHRUBBBWUZX2FQMGQESKTAXJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCL37IXQZQHRB2VGX2FQMGQE4C5J5RY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id 35CE04343E2
-	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Oct 2021 05:28:28 +0200 (CEST)
-Received: by mail-pg1-x537.google.com with SMTP id g26-20020a63521a000000b0029524f04f5asf12702873pgb.5
-        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Oct 2021 20:28:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1634700507; cv=pass;
+Received: from mail-oo1-xc3e.google.com (mail-oo1-xc3e.google.com [IPv6:2607:f8b0:4864:20::c3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id B29014343FF
+	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Oct 2021 05:56:27 +0200 (CEST)
+Received: by mail-oo1-xc3e.google.com with SMTP id c8-20020a4ad208000000b002b6b6df6b7fsf2510245oos.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Oct 2021 20:56:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1634702186; cv=pass;
         d=google.com; s=arc-20160816;
-        b=03gBcSVof7EJhVuD93IAUiemdcj7Wzji3vx5dZoQKOX8q+l2LZT5cJmLLgiX9UnyfL
-         L4/GAxZGT0pOAAt6mbYgWr1FodfaGz10SkGKZEy635s/tcCHqxzh58S4dZkhhBYIeTrL
-         cCxsZIaHxVmzg5vkhHL+PcJZoo8BVHSsbsf8JInp+gGAS6WilDDYD5+tuy2VxUnOv0Uk
-         ZgcwrwNO1JMvZkyav+LWB5EPoD4tTUJQWJV9+quuX6arK1Yqw2dW4pj5QQ5rWoIlcbhH
-         BjgCFsnwFjbUQxl3WnefbYr3aLeZ5+DxQ+eotfQF8c7N2tWAopMTdP5R6blw+VH/n9xO
-         lRqw==
+        b=mU+nVJzJUeb3mma1ITUwkhUw3D1+wY49clixhGl3a0+uRqilxzOuODb9vdEnZdeu1o
+         NxexEdCax2BoJYo2UYGpeNgzfgG7hVMw2/OOfAlZ0CorkBH7zsmgW3u0JZLrBv7snIwG
+         YLW25WWPVNc7LiO538/O7qZjpmOJIIjHBggWS/Ajd1i4zX/IQDJSyCl46hcdv4VcHuhd
+         m7wp44yiX5xd5v8JF8lydrGcEpeV3vzO4lIAXmR42f5ZapsOtbGNZYH8EjwD26q5iKP8
+         C4yBs0yu/6SJRy0dn69ssrFKcuPA5MrjvA6jG8MP/0u42L7c6WsU1ype55PJP1xSj/D8
+         ubfQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:sender:dkim-signature
-         :dkim-signature;
-        bh=i5THEu9OO2Y+Rkkdtntm11EN6MsF72tBw2C5t9iyYvY=;
-        b=j2x/xEtTz/tW/RajF4652pbRi4bTit9H6BJ8aPrY0oL6b3vZC7Zsof/YGALFVOAcAt
-         DtcyhlPETdX4JM4SBCHYpD+SoQGUFEV4OuzMClIhWnrGLr5JeipK2ppyyqyqICVPPk1u
-         sI5ZIOECRCxt9kO158Hf3NccabZp0TiiCgbQ1t6BBfV7wzXiAFAHydNKHbfXh9H+dfO4
-         oEsA/a4g5jrBkcu8HF0SXrkUow3SPmNSRWic3cOJPLgQ3ZqOLu/hzgd3SzDKxIeMugeZ
-         AZK1SZvvCHLg77i3JVKeBnYiOP7UgfX+/bVhpn3lp2+K+LlMHW4La6h0LJWZm6k3iFnT
-         d8qA==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature:dkim-signature;
+        bh=5THE5u70I0MBcM2o7OX+adVyCPcgzxjGOijQfPOZzF0=;
+        b=AOWS9/hKowHuTL17wx6QHc8xDB/HuP4CX6eTbFOxes5jIWZbzw5HwTSlpbRwr3n3Y/
+         aIEye4gSVmepcaUgt0cNpRXTo7ygNczVyQWIbvqZFmwNWZ/Ro2VFqjYnE/M1pDkUgsqY
+         FGww4Vg4esEW3j9EUR4FUDWxn+oDo0Fin9PCSo+YIdHONQ6mKaNJAM5ByG9tlCD8k9XB
+         3GgCLEHK+kkUeCcvQGH/fXuIr3fIA8BgvwQO/ZsCEwgtBKF0BTK+B2E/jXcez6NUltge
+         1lu60fgxrJG4xW4V0NPE3bdLmYMMwJbOGoMuuzDffdZjGkkyx57srGKNKsz8gVtzpnYR
+         nGfg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20210112 header.b=Nk3tgkVz;
-       spf=pass (google.com: domain of john.fastabend@gmail.com designates 2607:f8b0:4864:20::12a as permitted sender) smtp.mailfrom=john.fastabend@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b="EV3be/r3";
+       spf=pass (google.com: domain of memxor@gmail.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=memxor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:message-id:in-reply-to:references:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=i5THEu9OO2Y+Rkkdtntm11EN6MsF72tBw2C5t9iyYvY=;
-        b=rzUX6C2IQ9MBBAgM29zcTpYkeJ6F59+iVfsY0XUo8VEerOjxFJnUDGwnJusdlLY/Zr
-         wvtVZ2UwJLz0WQPIfFmC4kcPSQxUKbZFI2p5NFxJEo/47gxVpHATxg7C1Uq7/eBo6ynE
-         xXAD0UqF3z4Q5pycDZLdFJk3ztYuB7ZO9D5NLJZ4E+sLRJ6wCIT2sM7W2teNi5sWYYnv
-         zCqkYqxQB9rUE8ry2x1nqFmamHhMFWwaGdrS2UlvNRshGhCHRfXGKWw8f4bHwJ/gyu6y
-         A0hMFq9XxISM9eEVub+xuyfFHhOgk8mkHeIq2uoRCk4c3UseAFE4NSo9yLja99ScX0tB
-         /v0w==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=5THE5u70I0MBcM2o7OX+adVyCPcgzxjGOijQfPOZzF0=;
+        b=HQ5kqZnnhr6NWC0H6/zqZIRIRkzb8HHAjfhM8EESbeAq/NPe22l/1fFUshLHXWEgZO
+         HL5fOtvZWv4AMF16J0IAiYypAKouZFDXKHWzO9OHkXh8ozVeeyMAa/qYMew9F9LS7n4J
+         AVw4BsRJl0XLv3mzLQIn0FJzFD9ZM4dZ9e5SUZqufwxyGDzeNkGD9tJC3y9AZS+12Xhp
+         KFJFERNn1Vzw1C49b9VTyPdWr3oGid+4XBOxw3vXNRk0dGNE2nZXu5AvTfyalCeNme0l
+         sBxVSouDfzikxgfYAByN+LlfDnVuDn/qZpSQ2TjvFfF0eu2c5Ixycy4WG59RYGqARFiq
+         b81g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
-        h=date:from:to:cc:message-id:in-reply-to:references:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=i5THEu9OO2Y+Rkkdtntm11EN6MsF72tBw2C5t9iyYvY=;
-        b=n3nIG2qUM1+2zY7XhAnQbGCzU/LDIdNNuFiWfo58mhylsXVcp6TAeV9VhGmpHr4T5z
-         o+c3LfKgKPnHMpxqOTjLTy5hGY3Qh1brPZxniYLbnDcdLuiIigAxRD4TwSr8YHs3X+wW
-         XLipN2VoVrldINe5dkXby/HbFEovXxkWANllsqdod/r9qvefxsIzT8OnInFwOXQzoQqK
-         C0AAVfwV2/ov532WExRymEC1Ndm19SCszbKooCvEFGg9sRRRxTLzh6hpkG32M7fka1JY
-         RG0OCLnw1Mj+bt68yDDwGOI3jToWE6kshbXDQyIAy2Jlbmfjv0ey7ga3XWRJk+/+lSUO
-         iyxg==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=5THE5u70I0MBcM2o7OX+adVyCPcgzxjGOijQfPOZzF0=;
+        b=gnDH/JTz7f8mqZ3EiC9ZRpJIgl8muGl1ZHDSyg/h8FjpFTg3k0/yF4297zKdK7L48q
+         +ETmIB6zro0Yu/3rhSx4pwc6HYooCuUX+SfRhEwWJDFFu4Rq3/HoCIrAyEjJGJAVSef8
+         fs8vZJjoAkV0eVhdFJ2MuXAlnvZUSohwoNRENpn/gLVfqawKkoYpQUZqm+Kic16um7iJ
+         CcY4TpnuBuDJ1+CjvTBvNMW8pCu8euyLkK9VwU/MJQaVpb2hwR0ycWKS9YIs/FWg9aDV
+         NGRKW1yNP03Hy41ZOQEG+2JDAJLUwOnr3IXyOpTuEEMiG028u2Ax4DUTIGmlk5sxDbdp
+         mmAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:date:from:to:cc:message-id:in-reply-to
-         :references:subject:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=i5THEu9OO2Y+Rkkdtntm11EN6MsF72tBw2C5t9iyYvY=;
-        b=pZacwbYHjxhByO8h4Llg7xP2fpbiYdyjQ0dj7xRbiNbIeZalgvwjCIlwTvgh1czXpz
-         bMyLYzNMMpmtWV39ENAjcy+yLbwtFv/x4INQnx1aSVxYiWfwjb3990N/SNKq4NtvXZi4
-         HT8zoV3LE5j3dsqyiZcQXvkNJR0daFF4ldrPs5FwdFyZI5jSmqFjLMZpcSmOAGJuTuzl
-         cud/cWlG3xmiCDAQGaxw2c+SGTDQACKV9yweCQ9kBepCQZp8dAZIaHWnRcPFVTbK7+FX
-         AebRUzSc1+FVqhyWwucQmrj0rFZJjS/gTaZ6OFLLZK25uDgW17mgF2OR2+hOAptkyWqm
-         fjNg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=5THE5u70I0MBcM2o7OX+adVyCPcgzxjGOijQfPOZzF0=;
+        b=rHqUJaPCYlvLWHI8WVtEBDVM0WqdicaSbm4WGNgfwHZ+WYzR5HkkOei30VGlR8cIUk
+         fcXcPm+UqrsRc+VmxvChHkFtYNR/MexOdaRdQ2ao6B1zIg0Hkl3u9bgZ0TlZJtk4LfmG
+         hSLgQGKaIixQ/vlA55adapFf0v6YMiozwhfzln3fAc9t5H9ltkhic2EKtfYVB5psTFvt
+         zoAsisC8u6zI0unWJkUFgNwdKaJzjKWswNxHF23XM1/JhQwYWOHsoB+dcyxzAMVKrqSp
+         c6SB2Dg/prl2z7Z6d2nEbUqodHvpLt0kTjCt5/C8h3jO8HJbQf7QSGN9lq9ZDD2Z3T2F
+         mUFw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530gIe2h71nmGgtb/uPwENdtlhyfr+WDiGlIbQISNTLzdCvpMw95
-	0O7zSv5LN0YCccWcvqtgEvs=
-X-Google-Smtp-Source: ABdhPJx3p5zZZ8VePbGV0qGs0DEZ6CZq0KY29ivlySW6wTvEXMdUw1ibQqmXPAcDFG3zxzW3dCV3RA==
-X-Received: by 2002:a62:8f53:0:b0:44c:5d10:9378 with SMTP id n80-20020a628f53000000b0044c5d109378mr3755845pfd.19.1634700506840;
-        Tue, 19 Oct 2021 20:28:26 -0700 (PDT)
+X-Gm-Message-State: AOAM530g/99/3J9zdMp5IfwEVx5pqV7uNBEVabpierAJvjBzXjhFmDcK
+	HxguenyAg7ejAoSY9/fAflk=
+X-Google-Smtp-Source: ABdhPJwKc3XwC2hQElfw7SupnI7S0iBbcUqUmXH1BO2SeEgfre42w2HT6kqdVzDp0fX1XaJVf6zUUA==
+X-Received: by 2002:aca:3bd4:: with SMTP id i203mr7100672oia.69.1634702186277;
+        Tue, 19 Oct 2021 20:56:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:41c5:: with SMTP id b5ls313471pgq.11.gmail; Tue, 19 Oct
- 2021 20:28:26 -0700 (PDT)
-X-Received: by 2002:a05:6a00:c8a:b0:44d:8985:ff4f with SMTP id a10-20020a056a000c8a00b0044d8985ff4fmr3797581pfv.1.1634700506194;
-        Tue, 19 Oct 2021 20:28:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1634700506; cv=none;
+Received: by 2002:a05:6830:356:: with SMTP id h22ls284284ote.5.gmail; Tue, 19
+ Oct 2021 20:56:26 -0700 (PDT)
+X-Received: by 2002:a05:6830:1dfa:: with SMTP id b26mr8676720otj.325.1634702185940;
+        Tue, 19 Oct 2021 20:56:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1634702185; cv=none;
         d=google.com; s=arc-20160816;
-        b=gM8injKM5vpqXdSsJPsXl6/GxjmWVVvY0FSttvOjFkGVnOoYTgeNSMYk2i6NTttFaT
-         NTguD5gZLMiRDRGA7eLCfkkBhWZLMljuktqOSbGppDBAzI+sjBN9+yQ7VYJdFkQakSck
-         T5Y/uC+8+xwCnsynfH56Zc0pBXO9nCK6JC1p34FKur8lAKwc0FnBxqVvzc+ojvUB1Z1x
-         U7v+eoGw47lBJKYFuL0bCyroqbz9tp8nbpwjM9eGZfWXkIMTk0/FYGRKrPjSOzVit4vs
-         bzALOkvKRHLMIZkRTswSTpELQ66M6TY20C7yLKo2WxOtqbd3mQ1Ly563aFF7JyQ/UqhE
-         6OXg==
+        b=T13RbgJKeyJj6Ozj6IU0wLsF30x6ZZvMRX20lAdRk+85x5hssav/T9wxd7fg36sZM4
+         thL+SULsxi6GxmWeCphAlFaGAmRVzlpeYYo85XsKgDNwrrXqk7dKaOVKZhk730H3L3Wg
+         La3eYhwTtVNk7b+Pupl4V0iNcrfL8Q8iFqdJGJhwa0h7zSJhKNRdE/iVPc159C9yxS7D
+         jTQ8xxpXCraZoDVnKr/hlkfzIucEONPzjiq6h84SE+NVe4mbz0+xE5jClKPA5bD28fvG
+         YzjtM4O8lyfYWvE9zZJVNXG+BBEGNXdFao5SdYXFW0GegQk98mmWk+NwfEYOCVETGUYN
+         eniQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:dkim-signature;
-        bh=eBIDOwTiVEDpLZJCtDQ9qFP0TuQHVkD3tTneVRsqqv4=;
-        b=JtljkwndduCTMvTptWscRbprTDpzsOuK9sT1oXTEWli5foXgYCAT/kC9v7e4y8v2f0
-         aV5IXe9R6Tp936U47JSwW+Anuv4bxeO9Jit4w4M117FqXTf7XysSa3219qv2FQHMEdA1
-         bwL/md1hKPObtTsjwOb24bjK8xv+efqHIcb0zJMoy1c/krApMRMz0myCTmIxAVqakKzI
-         2zrlO5S2J1c2wB8fm0kYmmu4rzl5YU5eOmaO3fc9ksv7QNXTaowOCSk/SyxP2ypMar50
-         MPitA/xF07kYIJEvzLNUIqG7wMEiYH0cdqZpBvp1FOYlbCOD/Wv6AHumP8nNoiM7Vd1C
-         uB+w==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=op8GyiwFUTxPnKC1m15ZOngYa5VFL0Iokc2X0Lz1nP0=;
+        b=v+j6vFr50OmUUUkuFgyKh3b8HViHMTn5utiZbkVLrYWWQSNLIiEasr1rqmoNQXEF/T
+         fvi2sw+9w6QQxtO/bxL/Ioo26h/XCaKphdaWf7P35reONnWM/JIMmJ4tBVD3fROoLuzw
+         b0Mni1V30/pOv0IiQzCf1sEdlWvlhqOGm/duS0roPgzoUfEmzmlOpjHj8ZKSWTQlUGi6
+         kwsgt0i0gpYdKV7kOXAnsmy8IRQjq8W6EHSC4AeCW2ytkMYr+9AhS1n/MxYRSpz6FTY+
+         +Ysmxa15+Qu8NjOxpKIIBM1joTokXb02G2De4xN31ucK0W1gMDhEB6IBEDNK1VdmQU/4
+         yTUA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20210112 header.b=Nk3tgkVz;
-       spf=pass (google.com: domain of john.fastabend@gmail.com designates 2607:f8b0:4864:20::12a as permitted sender) smtp.mailfrom=john.fastabend@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b="EV3be/r3";
+       spf=pass (google.com: domain of memxor@gmail.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=memxor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-il1-x12a.google.com (mail-il1-x12a.google.com. [2607:f8b0:4864:20::12a])
-        by gmr-mx.google.com with ESMTPS id me13si44049pjb.3.2021.10.19.20.28.26
+Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id e12si119531otf.1.2021.10.19.20.56.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 Oct 2021 20:28:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of john.fastabend@gmail.com designates 2607:f8b0:4864:20::12a as permitted sender) client-ip=2607:f8b0:4864:20::12a;
-Received: by mail-il1-x12a.google.com with SMTP id h10so20621893ilq.3
-        for <clang-built-linux@googlegroups.com>; Tue, 19 Oct 2021 20:28:26 -0700 (PDT)
-X-Received: by 2002:a05:6e02:19ca:: with SMTP id r10mr15540186ill.148.1634700505518;
-        Tue, 19 Oct 2021 20:28:25 -0700 (PDT)
-Received: from localhost ([172.243.157.240])
-        by smtp.gmail.com with ESMTPSA id x5sm474959ioh.23.2021.10.19.20.28.22
+        Tue, 19 Oct 2021 20:56:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of memxor@gmail.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
+Received: by mail-pf1-x443.google.com with SMTP id m14so1762651pfc.9
+        for <clang-built-linux@googlegroups.com>; Tue, 19 Oct 2021 20:56:25 -0700 (PDT)
+X-Received: by 2002:a63:b006:: with SMTP id h6mr24101108pgf.366.1634702185232;
+        Tue, 19 Oct 2021 20:56:25 -0700 (PDT)
+Received: from localhost ([2405:201:6014:d058:a28d:3909:6ed5:29e7])
+        by smtp.gmail.com with ESMTPSA id mq3sm2125712pjb.33.2021.10.19.20.56.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Oct 2021 20:28:24 -0700 (PDT)
-Date: Tue, 19 Oct 2021 20:28:16 -0700
-From: John Fastabend <john.fastabend@gmail.com>
-To: Maxim Mikityanskiy <maximmi@nvidia.com>, 
- Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, 
- Andrii Nakryiko <andrii@kernel.org>, 
- Martin KaFai Lau <kafai@fb.com>, 
- Song Liu <songliubraving@fb.com>, 
- Yonghong Song <yhs@fb.com>, 
- John Fastabend <john.fastabend@gmail.com>, 
- KP Singh <kpsingh@kernel.org>
-Cc: Eric Dumazet <edumazet@google.com>, 
- "David S. Miller" <davem@davemloft.net>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>, 
- David Ahern <dsahern@kernel.org>, 
- Jesper Dangaard Brouer <hawk@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Brendan Jackman <jackmanb@google.com>, 
- Florent Revest <revest@chromium.org>, 
- Joe Stringer <joe@cilium.io>, 
- Lorenz Bauer <lmb@cloudflare.com>, 
- Tariq Toukan <tariqt@nvidia.com>, 
- netdev@vger.kernel.org, 
- bpf@vger.kernel.org, 
- clang-built-linux@googlegroups.com, 
- Maxim Mikityanskiy <maximmi@nvidia.com>
-Message-ID: <616f8cd0a0c6c_340c7208ae@john-XPS-13-9370.notmuch>
-In-Reply-To: <20211019144655.3483197-5-maximmi@nvidia.com>
+        Tue, 19 Oct 2021 20:56:24 -0700 (PDT)
+Date: Wed, 20 Oct 2021 09:26:22 +0530
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+To: Maxim Mikityanskiy <maximmi@nvidia.com>
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Eric Dumazet <edumazet@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>,
+	David Ahern <dsahern@kernel.org>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Brendan Jackman <jackmanb@google.com>,
+	Florent Revest <revest@chromium.org>, Joe Stringer <joe@cilium.io>,
+	Lorenz Bauer <lmb@cloudflare.com>, Tariq Toukan <tariqt@nvidia.com>,
+	netdev@vger.kernel.org, bpf@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH bpf-next 07/10] bpf: Add helpers to query conntrack info
+Message-ID: <20211020035622.lgrxnrwfeak2e75a@apollo.localdomain>
 References: <20211019144655.3483197-1-maximmi@nvidia.com>
- <20211019144655.3483197-5-maximmi@nvidia.com>
-Subject: RE: [PATCH bpf-next 04/10] bpf: Make errors of
- bpf_tcp_check_syncookie distinguishable
-Mime-Version: 1.0
+ <20211019144655.3483197-8-maximmi@nvidia.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: john.fastabend@gmail.com
+Content-Disposition: inline
+In-Reply-To: <20211019144655.3483197-8-maximmi@nvidia.com>
+X-Original-Sender: memxor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20210112 header.b=Nk3tgkVz;       spf=pass
- (google.com: domain of john.fastabend@gmail.com designates
- 2607:f8b0:4864:20::12a as permitted sender) smtp.mailfrom=john.fastabend@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@gmail.com header.s=20210112 header.b="EV3be/r3";       spf=pass
+ (google.com: domain of memxor@gmail.com designates 2607:f8b0:4864:20::443 as
+ permitted sender) smtp.mailfrom=memxor@gmail.com;       dmarc=pass (p=NONE
+ sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -171,150 +165,28 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Maxim Mikityanskiy wrote:
-> bpf_tcp_check_syncookie returns errors when SYN cookie generation is
-> disabled (EINVAL) or when no cookies were recently generated (ENOENT).
-> The same error codes are used for other kinds of errors: invalid
-> parameters (EINVAL), invalid packet (EINVAL, ENOENT), bad cookie
-> (ENOENT). Such an overlap makes it impossible for a BPF program to
-> distinguish different cases that may require different handling.
-
-I'm not sure we can change these errors now. They are embedded in
-the helper API. I think a BPF program could uncover the meaning
-of the error anyways with some error path handling?
-
-Anyways even if we do change these most of us who run programs
-on multiple kernel versions would not be able to rely on them
-being one way or the other easily.
-
-> 
-> For a BPF program that accelerates generating and checking SYN cookies,
-> typical logic looks like this (with current error codes annotated):
-> 
-> 1. Drop invalid packets (EINVAL, ENOENT).
-> 
-> 2. Drop packets with bad cookies (ENOENT).
-> 
-> 3. Pass packets with good cookies (0).
-> 
-> 4. Pass all packets when cookies are not in use (EINVAL, ENOENT).
-> 
-> The last point also matches the behavior of cookie_v4_check and
-> cookie_v6_check that skip all checks if cookie generation is disabled or
-> no cookies were recently generated. Overlapping error codes, however,
-> make it impossible to distinguish case 4 from cases 1 and 2.
-> 
-> The original commit message of commit 399040847084 ("bpf: add helper to
-> check for a valid SYN cookie") mentions another use case, though:
-> traffic classification, where it's important to distinguish new
-> connections from existing ones, and case 4 should be distinguishable
-> from case 3.
-> 
-> To match the requirements of both use cases, this patch reassigns error
-> codes of bpf_tcp_check_syncookie and adds missing documentation:
-> 
-> 1. EINVAL: Invalid packets.
-> 
-> 2. EACCES: Packets with bad cookies.
-> 
-> 3. 0: Packets with good cookies.
-> 
-> 4. ENOENT: Cookies are not in use.
-> 
-> This way all four cases are easily distinguishable.
-> 
+On Tue, Oct 19, 2021 at 08:16:52PM IST, Maxim Mikityanskiy wrote:
+> The new helpers (bpf_ct_lookup_tcp and bpf_ct_lookup_udp) allow to query
+> connection tracking information of TCP and UDP connections based on
+> source and destination IP address and port. The helper returns a pointer
+> to struct nf_conn (if the conntrack entry was found), which needs to be
+> released with bpf_ct_release.
+>
 > Signed-off-by: Maxim Mikityanskiy <maximmi@nvidia.com>
 > Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
 
-At very leasst this would need a fixes tag and should be backported
-as a bug. Then we at least have a chance stable and LTS kernels
-report the same thing.
+The last discussion on this [0] suggested that stable BPF helpers for conntrack
+were not desired, hence the recent series [1] to extend kfunc support to modules
+and base the conntrack work on top of it, which I'm working on now (supporting
+both CT lookup and insert).
 
-[...]
+[0]: https://lore.kernel.org/bpf/CAADnVQJTJzxzig=1vvAUMXELUoOwm2vXq0ahP4mfhBWGsCm9QA@mail.gmail.com
+[1]: https://lore.kernel.org/bpf/CAADnVQKDPG+U-NwoAeNSU5Ef9ZYhhGcgL4wBkFoP-E9h8-XZhw@mail.gmail.com
 
-> --- a/net/core/filter.c
-> +++ b/net/core/filter.c
- 
-I'll take a stab at how a program can learn the error cause today.
-
-BPF_CALL_5(bpf_tcp_check_syncookie, struct sock *, sk, void *, iph, u32, iph_len,
-	   struct tcphdr *, th, u32, th_len)
-{
-#ifdef CONFIG_SYN_COOKIES
-	u32 cookie;
-	int ret;
-
-// BPF program should know it pass bad values and can check
-	if (unlikely(!sk || th_len < sizeof(*th)))
-		return -EINVAL;
-
-// sk_protocol and sk_state are exposed in sk and can be read directly 
-	/* sk_listener() allows TCP_NEW_SYN_RECV, which makes no sense here. */
-	if (sk->sk_protocol != IPPROTO_TCP || sk->sk_state != TCP_LISTEN)
-		return -EINVAL;
-
-// This is a user space knob right? I think this is a misconfig user can
-// check before loading a program with check_syncookie?
-	if (!sock_net(sk)->ipv4.sysctl_tcp_syncookies)
-		return -EINVAL;
-
-// We have th pointer can't we just check?
-	if (!th->ack || th->rst || th->syn)
-		return -ENOENT;
-
-	if (tcp_synq_no_recent_overflow(sk))
-		return -ENOENT;
-
-	cookie = ntohl(th->ack_seq) - 1;
-
-	switch (sk->sk_family) {
-	case AF_INET:
-// misconfiguration but can be checked.
-		if (unlikely(iph_len < sizeof(struct iphdr)))
-			return -EINVAL;
-
-		ret = __cookie_v4_check((struct iphdr *)iph, th, cookie);
-		break;
-
-#if IS_BUILTIN(CONFIG_IPV6)
-	case AF_INET6:
-// misconfiguration can check as well
-		if (unlikely(iph_len < sizeof(struct ipv6hdr)))
-			return -EINVAL;
-
-		ret = __cookie_v6_check((struct ipv6hdr *)iph, th, cookie);
-		break;
-#endif /* CONFIG_IPV6 */
-
-	default:
-		return -EPROTONOSUPPORT;
-	}
-
-	if (ret > 0)
-		return 0;
-
-	return -ENOENT;
-#else
-	return -ENOTSUPP;
-#endif
-}
-
-
-So I guess my point is we have all the fields we could write a bit
-of BPF to find the error cause if necessary. Might be better than
-dealing with changing the error code and having to deal with the
-differences in kernels. I do see how it would have been better
-to get errors correct on the first patch though :/
-
-By the way I haven't got to the next set of patches with the
-actual features, but why not push everything above this patch
-as fixes in its own series. Then the fixes can get going why
-we review the feature.
-
-Thanks,
-John
+--
+Kartikeya
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/616f8cd0a0c6c_340c7208ae%40john-XPS-13-9370.notmuch.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20211020035622.lgrxnrwfeak2e75a%40apollo.localdomain.
