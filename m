@@ -1,135 +1,131 @@
-Return-Path: <clang-built-linux+bncBAABB35T52FQMGQELYUHMSQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD52NB4QTQARB36V7WFQMGQEW4V3QDI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 05E0D43F77D
-	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Oct 2021 08:51:29 +0200 (CEST)
-Received: by mail-oi1-x23d.google.com with SMTP id v188-20020acadec5000000b002991e2471dcsf4511474oig.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 28 Oct 2021 23:51:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1635490287; cv=pass;
+Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2225C4412B9
+	for <lists+clang-built-linux@lfdr.de>; Mon,  1 Nov 2021 05:20:01 +0100 (CET)
+Received: by mail-ua1-x93d.google.com with SMTP id e5-20020ab04985000000b002cad81164cbsf8376358uad.10
+        for <lists+clang-built-linux@lfdr.de>; Sun, 31 Oct 2021 21:20:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1635740400; cv=pass;
         d=google.com; s=arc-20160816;
-        b=q02Cumjz30CThIi0yPEfEc+IAE+7dJkrNkPqWE4wjRoVclIGutTCIFQ2yQ02tXAd7w
-         +Cm+0hmF+RQNZnntSJuRt/rh/WJa8Bh/5p2bv3pXgNBrgofiRAfqpORRqU4fNZKvSqlp
-         5Z2X5nrzhG5yLgAAmGxvUzZ7+vpOEuV1ZwEFT02VBYNJXJew6runjYWAep8oROq15kk7
-         HRMGQuOtC62eHwQ+ijtVctkYtOeH2Rfre0BB9CAabG/Kc6WGNf3wKnLoQHjki88uAz0q
-         VPoKhsKvPiK6j5jcfa7v6VIyQsyXAhgIj7jRIOPYxhjxSVVy2VVNXtBIjL25/CFpbEQ+
-         AjLw==
+        b=wMneVEdIic2ZQmf5N8iw6Awn+Jc6qZGFJ8ckzviJCSgYqloJaXeV21r0cXcyndz67n
+         4gaM+xIIKY5YNhoUYr+cPKWwO4qmeyRPlfxENMBWMMJDREX7zmp5Cj3HnVmm8r4B5uCm
+         RHAh7ez7Dy0hD+BGygv6JNDyNsa5oDg2SNeK5YWv9TvZzviANSW720hA9PcJDN1HDrTD
+         ossJ+JbV5KRsPBysee4amYx4Rpv54jF1OCEctNA4cfGPm2r8Thw2QEObNhzxym3cl0S1
+         +SWqCXcprOcYAUPg2SnudjaYXwXWA2o6cfZjytQOinZQWdZPY2i7SbS4NKgiZnP6ZbFF
+         HOlg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=xDSCnjRdIndr8utQvGI3TmLgTummlMQ2u/wW+S05xJo=;
-        b=PCoMuCQBL+c0Px8r3yHYgAyQVJUzM9veMigWH5C0N2p+kta18oN6vwYRSWBH6raRfX
-         H0ETdkxMpw2n/BwmVletO8IimZyDAnuEj5sJU9NlatZMGBDtKozrwjNt1NNvZFgEKim0
-         0YevK7V/IVWGfPpelN3FkkAzLHOBDLBvaMKZ4TpMzztzUWnpphMh1Vx5J7oPg3CghEWg
-         diXPKgRasumi9qmCqWUz23ejFEiSnipa6Ar6KYWXFpT9Pshi4PXZ8yTj5Bpy4JVoCe6b
-         i/tRDE9vzXsQgWcBPv4DBCNxSDzvDC8pge0l2dIU6mAMWrHim/Y3S+WjViF41KY3kD+V
-         8RAA==
+         :list-id:mailing-list:precedence:to:subject:message-id:date:from
+         :reply-to:mime-version:sender:dkim-signature:dkim-signature;
+        bh=CQhbg6vxWh8TZlCAZCdVa713Z4Je5Hwy1s7KJ4WZO2w=;
+        b=szwW2yg3FuHxWEzfMY5px/qTsnDyx0W3ymNzDLsaz/QY6BP+hDgJD5vYVZb7sI9AvG
+         0ksb0eGvrIH6fTSSicoaeZJSodHzu16/56bpCOaV0MOgyT17lsAp9xQjEqj3pmlePgoC
+         jzOWT7nvJXU5HJmXdWFI769CdcVe6sHSgyYL3Kjj4rjA/qKz5x75c7OcoRA0UUrThGvH
+         e5egKY5PtWawUaxODlBPDLZOAy0K9c8hzWaAl7y/i8zoBdoKC31oZN3sxHyhhevAPpkr
+         5qhd+rgyP/Lcp1tiJeiTiB2uEzHpv3Lal1qVF+2ap34E17rT4Yti8xTqZbW7JPubFEnB
+         PiWg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of shaolexi@huawei.com designates 45.249.212.189 as permitted sender) smtp.mailfrom=shaolexi@huawei.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=huawei.com
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b="etOLEF4/";
+       spf=pass (google.com: domain of intermstores38@gmail.com designates 2607:f8b0:4864:20::535 as permitted sender) smtp.mailfrom=intermstores38@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:reply-to:from:date:message-id:subject:to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xDSCnjRdIndr8utQvGI3TmLgTummlMQ2u/wW+S05xJo=;
-        b=Cjcoem0YOTc25NlcK9OoSo14DlKbtiD3pQeOGKkYdqF1rBnGyylaY9n9GkHBvh9KOK
-         yNjDBWwv9jLvXzsz2p3daiNE6yL2eVELJ53OAIFQoquB/X7HiIrPA11Oz/kE1vgotMXN
-         Q/hj2aUIFfcTqHcgDwrX9iJuDBVGu1g4cjZXUSnuBQS0g+7IsLekSaYEg+odP2J5Cun1
-         jCOqRe7szoh1bC3VRGV7Xijxldue1sffrYtNDBZmJjCJSHgYdPLVyujCkCXOotFuHdam
-         pB2owrIol8w96b6O5GDhyglfXs+KSiV89j+CRWCI8SIOGIlVzmGJkKjV/3rbBdq2GYyU
-         glBg==
+        bh=CQhbg6vxWh8TZlCAZCdVa713Z4Je5Hwy1s7KJ4WZO2w=;
+        b=hgle5sl6Jx2mAlsElq97a5VNpGdWkAHCL3vgzMflxKxOgmaFdsmuNNBLtGVyiK/huW
+         xhvGeUSvV30JYdzrUvoBfg/+oYULpRkf/EdDUIjEAEQEnUDe3p0K3Al+jvhcufoTEv6T
+         mDBRs6/1/brP4KH1Ld+hcTgAgyk9Ld2K9SH+HH3URA5QpTWzMEhJGyor+77sEMyzkULU
+         e5jrR84GfIYM0AOTTBLjNCO9kOv+jipnwoTb21eaFr0CQM+Tdw0CpZjdw1us0KnfZTC5
+         NfpAgxLGNWVq3OXE7fe9vLhuVEYgBTncSzOiiz3BCe2/7zdMbkh0R8zEOgCSVq4j2+xm
+         ubjA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:reply-to:from:date:message-id:subject:to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=CQhbg6vxWh8TZlCAZCdVa713Z4Je5Hwy1s7KJ4WZO2w=;
+        b=QEDjdmtHFXK8+So7Gb8BYPlufZ/CHvM7aXNjya+cdok673OlRSL6VXnurRDsw7rtU0
+         uRgTOKyhWT7+aLfUmedn7MnT5h5Rv/0VbW6Z1HF9rP1KLOCBDIjsIMpM2XxJUhPH4cMp
+         V6msAAArVzJb27rptYICQSeo8G37ZGFYY665rxpulzuJ2nkkllS9iaxC3BqlEZxCFhW5
+         2jTp4keqlfpI3LkP/CYqKdi2Q8dBHAz+GUsE/aJTSIg2aeWlCwQuPFr6LsA4AD/7+Kq7
+         A4ssWt5Eo0xXHzJf1HldQpi5WBnG8rAy/9QoFCMhXSF2pdpiYi9sLrqMmFXTdviewggw
+         XVhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:reply-to:from:date
+         :message-id:subject:to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xDSCnjRdIndr8utQvGI3TmLgTummlMQ2u/wW+S05xJo=;
-        b=JcAr6eMDyS3k0m1BhZ/gin1YLc897Wh9d/QVGAwmmofl+haWhEouS6TGUXJdhI8WlW
-         7PVluS45aPaDeQb8SDuPgEyK2jKHkD4xjEIkxBuoDnxfkHBBdHfsz+03xo7Pdm6EixJn
-         KEEkLMCcrjDE1XpkTN2J004/CBeKhFDIg8UGzpePTW1XnkjeLppAuKMSjEogZdwS8wUY
-         td8IytleFnm6ti+iudaHmW6bUl3FYAJYqWVTgJSn1Pf9qvo9914K3X6bN4uQRlVN9tK0
-         qGGI2HmnmxA+jb04iMAOftf6/9Gu72f61FaIdWjmdsro5/abyfIFc8owkPKvznxMtfx0
-         amrQ==
+        bh=CQhbg6vxWh8TZlCAZCdVa713Z4Je5Hwy1s7KJ4WZO2w=;
+        b=7XDHnFLEMTZdH/0G0qYUHjEmcCEBEpjMI1dM5NPtdGojbHDmto/V7V2QyaEUsasbnQ
+         acsdNmQj3lBzqWQ6KGKMUgZdxvZcLtptJ2YOoHYqQwfLtYJs1GrW4GVpAMsN/DOp7LKb
+         yUKV0sSjpnXLH58tIOI8mZviCJOb0DEORgWHd9/YYiSNdHRZhzJ19GtijlX6grQ+r/a5
+         PPkJ77H0bAPxLzwUisJTSq2gSNnPb7VSIBB+RAYauNJiiDiCY4o88LiV4ktybQwrywYN
+         NT+znUSGdNHJjvkA9dPFiJgKQYhvwu1n2UGzo7gOTMgq5d5t7dhbFKNKH5QmT8X0nwtC
+         L+yw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533q8fn1l/3N6CzLHtTKoWc5mn8fjJ8YrwH1GtLawR2m1eh+KG6v
-	CwguDT9ZGp85FOC0o6jGQ+E=
-X-Google-Smtp-Source: ABdhPJz3eeSAzEtspUgheoCfLOCKUv7OFt0YpWYiLUL8R8vGzLiyepOVuXy+KXoWzpbvKZoD59hphg==
-X-Received: by 2002:aca:ba04:: with SMTP id k4mr6877892oif.76.1635490287644;
-        Thu, 28 Oct 2021 23:51:27 -0700 (PDT)
+X-Gm-Message-State: AOAM530x2O6/GIMxdkMHJzqKEn0kd0f9097DG9AXr5kqFMwmv+RMuNx1
+	NMbfYP9DdOjcgYZZaeP763w=
+X-Google-Smtp-Source: ABdhPJzd4NFmG0fvfQs7HM6dnTB93U6+HHgvo38/TfBLNxnzYG4SkQLwe2qtpxkz02RogPd+Zd7gzA==
+X-Received: by 2002:a67:ee88:: with SMTP id n8mr26829017vsp.58.1635740400002;
+        Sun, 31 Oct 2021 21:20:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:b60a:: with SMTP id g10ls1549458oif.5.gmail; Thu, 28 Oct
- 2021 23:51:27 -0700 (PDT)
-X-Received: by 2002:a05:6808:643:: with SMTP id z3mr6605815oih.156.1635490287294;
-        Thu, 28 Oct 2021 23:51:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1635490287; cv=none;
+Received: by 2002:a05:6122:8cf:: with SMTP id 15ls1419805vkg.8.gmail; Sun, 31
+ Oct 2021 21:19:59 -0700 (PDT)
+X-Received: by 2002:ac5:c757:: with SMTP id b23mr11541400vkn.21.1635740399502;
+        Sun, 31 Oct 2021 21:19:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1635740399; cv=none;
         d=google.com; s=arc-20160816;
-        b=mHAKuxVoHAehtN4IZOZ+RAwkMl9EE58pmX+zf3xPATeSkc3B36N26i7Wz49SulKlZm
-         RMgyp87h6jg/EMT/k2omMB2Gjs7M7zDuIJiwM3GxI0LRCHTltlKi9394JwH8CCXMP75w
-         tGHr/+I7wiYIqunvfMRH1mL/0hknhfBaXwrhb+HnYirdxa10sayDm7NL7oMpUPhP9aEF
-         A+HXZsEjxzeJOY7ol3aC17MR7Mn3+woWiClxtB980uIOiLXQJisbQM2QOdIfjCBoqIbu
-         vEGkWpLA49sORYK1EVkYzJUwnZr0uQVTwmwNFpGO0Jblh1Ng9jn75JemsYl40hFH2SOY
-         15fw==
+        b=VfuPrHwqkaKLNt083KEmyobMuIXWuS/SrsDwYoCb2FncPsVRLibblMikMb0B6P/9sX
+         JZmF8875e1GYB6FiDuMaRGHg4CfJXDrywTLoDX6OaOnnipy5hh7ht3j8ApzCDj3zMq9K
+         ljDBao4gORHbXQ+XeulO0mEDjwJxz8v1NanC+b5w9WQ2LiS3uFWTFfr657T28X9lOPS6
+         HE9jrqq4gd0c2UeWJw3QEHXYZF9jiPWA+KMnSSC9WPZZ7jArSIfOMq0GbUfCXSL9tD2r
+         +XbkFeDEXIxQpfxGJhmDB4CqJeh8JyBqDLe3UXoNPI14wk8tYtQKN8HfqwrTYQE4C3Nr
+         RMew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from;
-        bh=AuVnx9RBuPtpx1Fqc57z3Wujpa9oh0AUMambDtcRv40=;
-        b=sFAp2rkaKYNmB0Gpz7DmrRWiG9qRgxC1G7kEZV1ipEDdGXsnrt4gzj2lk156MGf8ED
-         l+51gb1VXWzYjcdnRbxD1pV7zDfDDWtgt01Lz86rzNZ7vfH4k5tAUTTBihDYumpII057
-         2GFBe9voWQhu2uU+9XZx+bHpE7+WdFpYcqLlHPSavvTVaWBfCpUPB9Kn8j5R2++hwN8h
-         8uk2F+VkdXcNzUZe46WJ/BSILUlAPBc+j48oyDnU6vqIWuQvusOy7QMdECGhGotHwYoX
-         XNVwCwuPewTpgzywsz7QIQfGRzReCGywcdvxLZrSPvZbocDBYAM0eheB5gch6Oym0JL/
-         HtCw==
+        h=to:subject:message-id:date:from:reply-to:mime-version
+         :dkim-signature;
+        bh=jD52UBxgMH7/wiDOJj4/6rqqFU8210TnM6SD2/Alo5c=;
+        b=XipZ+dDerM4STVO8JKwyh7xeccW5AZ9zoBPowv8aabGAM5w7XgAgBzhloYI5Hlpn1j
+         BkfFiKMGNMOaC31nI1j8uDUOocnfmwVPe4FtgDkJzaPayRJ72kpDTycSk5FQi/pRMO+P
+         AK6NPCxp2mC5twNF4W8yWQykbq7jwzx3FlImISPwVyM+7DqvnqYMokTx2/v7sFMj2YLI
+         c4o7PiLWOhgFcl1IOGtLfTdbmBhIWfceCqM6oGwmSdc8BE4dWujrHzOlcabNgUOWVJUw
+         DP0B9dSzGzOIfN505sJ2T0LLu3izSDqxsfAgMCDzuCFlaA7s5NakGhj3gv8xzd00Ny6Y
+         AWWQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of shaolexi@huawei.com designates 45.249.212.189 as permitted sender) smtp.mailfrom=shaolexi@huawei.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=huawei.com
-Received: from szxga03-in.huawei.com (szxga03-in.huawei.com. [45.249.212.189])
-        by gmr-mx.google.com with ESMTPS id v21si462126oto.0.2021.10.28.23.51.26
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b="etOLEF4/";
+       spf=pass (google.com: domain of intermstores38@gmail.com designates 2607:f8b0:4864:20::535 as permitted sender) smtp.mailfrom=intermstores38@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pg1-x535.google.com (mail-pg1-x535.google.com. [2607:f8b0:4864:20::535])
+        by gmr-mx.google.com with ESMTPS id f26si636098uaq.0.2021.10.31.21.19.59
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 28 Oct 2021 23:51:27 -0700 (PDT)
-Received-SPF: pass (google.com: domain of shaolexi@huawei.com designates 45.249.212.189 as permitted sender) client-ip=45.249.212.189;
-Received: from dggeme762-chm.china.huawei.com (unknown [172.30.72.53])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4HgY232Lp1z8tx9;
-	Fri, 29 Oct 2021 14:49:31 +0800 (CST)
-Received: from huawei.com (10.67.189.2) by dggeme762-chm.china.huawei.com
- (10.3.19.108) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2308.15; Fri, 29
- Oct 2021 14:50:54 +0800
-From: Lexi Shao <shaolexi@huawei.com>
-To: <linux-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>
-CC: <james.clark@arm.com>, <acme@kernel.org>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@redhat.com>,
-	<mark.rutland@arm.com>, <mingo@redhat.com>, <namhyung@kernel.org>,
-	<nixiaoming@huawei.com>, <peterz@infradead.org>, <qiuxi1@huawei.com>,
-	<shaolexi@huawei.com>, <wangbing6@huawei.com>, <jeyu@kernel.org>,
-	<ast@kernel.org>, <daniel@iogearbox.net>, <andrii@kernel.org>,
-	<kafai@fb.com>, <songliubraving@fb.com>, <yhs@fb.com>,
-	<john.fastabend@gmail.com>, <kpsingh@kernel.org>, <natechancellor@gmail.com>,
-	<ndesaulniers@google.com>, <bpf@vger.kernel.org>,
-	<clang-built-linux@googlegroups.com>
-Subject: [PATCH v2 2/2] kallsyms: ignore arm mapping symbols when loading module
-Date: Fri, 29 Oct 2021 14:50:38 +0800
-Message-ID: <20211029065038.39449-3-shaolexi@huawei.com>
-X-Mailer: git-send-email 2.12.3
-In-Reply-To: <20211029065038.39449-1-shaolexi@huawei.com>
-References: <cb7e9ef7-eda4-b197-df8a-0b54f9b56181@arm.com>
- <20211029065038.39449-1-shaolexi@huawei.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 31 Oct 2021 21:19:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of intermstores38@gmail.com designates 2607:f8b0:4864:20::535 as permitted sender) client-ip=2607:f8b0:4864:20::535;
+Received: by mail-pg1-x535.google.com with SMTP id r28so16175484pga.0
+        for <clang-built-linux@googlegroups.com>; Sun, 31 Oct 2021 21:19:59 -0700 (PDT)
+X-Received: by 2002:a65:62c4:: with SMTP id m4mr20317694pgv.453.1635740399098;
+ Sun, 31 Oct 2021 21:19:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-X-Originating-IP: [10.67.189.2]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- dggeme762-chm.china.huawei.com (10.3.19.108)
-X-CFilter-Loop: Reflected
-X-Original-Sender: shaolexi@huawei.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of shaolexi@huawei.com designates 45.249.212.189 as
- permitted sender) smtp.mailfrom=shaolexi@huawei.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=huawei.com
+Reply-To: paulantony516@gmail.com
+From: "Mr. Paul Anthony" <intermstores38@gmail.com>
+Date: Mon, 1 Nov 2021 04:19:45 +0000
+Message-ID: <CACuitkv2yWJe_ZfW+cDXOiOescb9tfSbxvMEphRR4zU0pDpkAg@mail.gmail.com>
+Subject: INQUIRY ON PRODUCT PROCUREMENT AND SUPPLY.
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="0000000000006ee08a05cfb27d27"
+X-Original-Sender: intermstores38@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20210112 header.b="etOLEF4/";       spf=pass
+ (google.com: domain of intermstores38@gmail.com designates
+ 2607:f8b0:4864:20::535 as permitted sender) smtp.mailfrom=intermstores38@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,86 +138,105 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Arm modules contains mapping symbols(e.g. $a $d) which are ignored in
-module_kallsyms_on_each_symbol. However, these symbols are still
-displayed when catting /proc/kallsyms. This confuses tools(e.g. perf)
-that resolves kernel symbols with address using information from
-/proc/kallsyms. See discussion in Link:
-https://lore.kernel.org/all/c7dfbd17-85fd-b914-b90f-082abc64c9d1@arm.com/
+--0000000000006ee08a05cfb27d27
+Content-Type: text/plain; charset="UTF-8"
 
-Being left out in vmlinux(see scripts/kallsyms.c is_ignored_symbol) and
-kernelspace API implies that these symbols are not used in any cases.
-So we can ignore them in the first place by not adding them to module
-kallsyms.
+Attention Sir. I am Sr Paul, currently working in the Marketing department
+of one of the leading pharmaceutical companies in the United kingdom, a
+major manufacturer of Anti-Viral and Retroviral Vaccines and pharmaceutical
+products here in the UK.
 
-Signed-off-by: Lexi Shao <shaolexi@huawei.com>
----
- kernel/module.c | 19 +++++++++++--------
- 1 file changed, 11 insertions(+), 8 deletions(-)
+I need a reliable foreign business associate to partner with me in
+procuring and supplying a rare raw material used by my company in
+development/manufacturing high quality anti-viral vaccines, cancer
+treatments and various life-saving pharmaceutical products. The scarcity of
+this raw material has hindered product developments in the company.
 
-diff --git a/kernel/module.c b/kernel/module.c
-index 5c26a76e800b..b30cbbe144c7 100644
---- a/kernel/module.c
-+++ b/kernel/module.c
-@@ -2662,16 +2662,22 @@ static char elf_type(const Elf_Sym *sym, const struct load_info *info)
- 	return '?';
- }
- 
--static bool is_core_symbol(const Elf_Sym *src, const Elf_Shdr *sechdrs,
--			unsigned int shnum, unsigned int pcpundx)
-+static inline int is_arm_mapping_symbol(const char *str);
-+static bool is_core_symbol(const Elf_Sym *src, const struct load_info *info)
- {
- 	const Elf_Shdr *sec;
-+	const Elf_Shdr *sechdrs = info->sechdrs;
-+	unsigned int shnum = info->hdr->e_shnum;
-+	unsigned int pcpundx = info->index.pcpu;
- 
- 	if (src->st_shndx == SHN_UNDEF
- 	    || src->st_shndx >= shnum
- 	    || !src->st_name)
- 		return false;
- 
-+	if (is_arm_mapping_symbol(&info->strtab[src->st_name]))
-+		return false;
-+
- #ifdef CONFIG_KALLSYMS_ALL
- 	if (src->st_shndx == pcpundx)
- 		return true;
-@@ -2714,8 +2720,7 @@ static void layout_symtab(struct module *mod, struct load_info *info)
- 	/* Compute total space required for the core symbols' strtab. */
- 	for (ndst = i = 0; i < nsrc; i++) {
- 		if (i == 0 || is_livepatch_module(mod) ||
--		    is_core_symbol(src+i, info->sechdrs, info->hdr->e_shnum,
--				   info->index.pcpu)) {
-+		    is_core_symbol(src+i, info)) {
- 			strtab_size += strlen(&info->strtab[src[i].st_name])+1;
- 			ndst++;
- 		}
-@@ -2778,8 +2783,7 @@ static void add_kallsyms(struct module *mod, const struct load_info *info)
- 	for (ndst = i = 0; i < mod->kallsyms->num_symtab; i++) {
- 		mod->kallsyms->typetab[i] = elf_type(src + i, info);
- 		if (i == 0 || is_livepatch_module(mod) ||
--		    is_core_symbol(src+i, info->sechdrs, info->hdr->e_shnum,
--				   info->index.pcpu)) {
-+		    is_core_symbol(src+i, info)) {
- 			mod->core_kallsyms.typetab[ndst] =
- 			    mod->kallsyms->typetab[i];
- 			dst[ndst] = src[i];
-@@ -4246,8 +4250,7 @@ static const char *find_kallsyms_symbol(struct module *mod,
- 		 * We ignore unnamed symbols: they're uninformative
- 		 * and inserted at a whim.
- 		 */
--		if (*kallsyms_symbol_name(kallsyms, i) == '\0'
--		    || is_arm_mapping_symbol(kallsyms_symbol_name(kallsyms, i)))
-+		if (*kallsyms_symbol_name(kallsyms, i) == '\0')
- 			continue;
- 
- 		if (thisval <= addr && thisval > bestval) {
--- 
-2.12.3
+The previous supplier could no longer meet our company's huge demand due to
+the recent economic meltdown caused by COVID-19 pandemic, a retired
+colleague informed me of a source in India. I made inquiries and found out
+that the manufacturer actually exists in India and the raw material is sold
+at a cheap rate, in fact very cheaper than the company's previous purchases
+but my ineligibility as an employee has hindered me from participating,
+hence my reason for contacting you.
+
+I can understand if this line of business may not be your area of expertise
+but it will be another good income generating stream out of your specialty
+for the next 24 months and beyond.
+
+Here is my proposal: I seek your consent to step-in as the direct supplier
+(middleman between the manufacturer and my company) to execute this project
+and you hand me a commission. I cannot bid for the supply contract myself
+due to my company rules and regulations and I wouldn't want my company to
+have direct contact with the manufacturer in India.
+
+This will enable us to work together as partners and share profits,
+completely legal. We will discuss the profit sharing ratio, and crucial
+details you need to know about this raw material if you are keen to close
+this deal with me.
+
+Note: You have the right to quit by the end of my detailed explanation if
+you don't feel like moving forward with me, but trust me, you would be
+proud meeting a partner like me and won't regret venturing into this deal.
+
+I look forward to hearing your thoughts, and further discussions.
+
+Thanks for your time.
+Sr. Paul Anthony.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20211029065038.39449-3-shaolexi%40huawei.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACuitkv2yWJe_ZfW%2BcDXOiOescb9tfSbxvMEphRR4zU0pDpkAg%40mail.gmail.com.
+
+--0000000000006ee08a05cfb27d27
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Attention Sir. I am Sr Paul, currently working in the Mark=
+eting department of one of the leading pharmaceutical companies in the Unit=
+ed kingdom, a major manufacturer of Anti-Viral and Retroviral Vaccines and =
+pharmaceutical products here in the UK.<br><br>I need a reliable foreign bu=
+siness associate to partner with me in procuring and supplying a rare raw m=
+aterial used by my company in development/manufacturing high quality anti-v=
+iral vaccines, cancer treatments and various life-saving pharmaceutical pro=
+ducts. The scarcity of this raw material has hindered product developments =
+in the company. <br><br>The previous supplier could no longer meet our comp=
+any&#39;s huge demand due to the recent economic meltdown caused by COVID-1=
+9 pandemic, a retired colleague informed me of a source in India. I made in=
+quiries and found out that the manufacturer actually exists in India and th=
+e raw material is sold at a cheap rate, in fact very cheaper than the compa=
+ny&#39;s previous purchases but my ineligibility as an employee has hindere=
+d me from participating, hence my reason for contacting you.<br><br>I can u=
+nderstand if this line of business may not be your area of expertise but it=
+ will be another good income generating stream out of your specialty for th=
+e next 24 months and beyond.<br><br>Here is my proposal: I seek your consen=
+t to step-in as the direct supplier (middleman between the manufacturer and=
+ my company) to execute this project and you hand me a commission. I cannot=
+ bid for the supply contract myself due to my company rules and regulations=
+ and I wouldn&#39;t want my company to have direct contact with the manufac=
+turer in India.<br><br>This will enable us to work together as partners and=
+ share profits, completely legal. We will discuss the profit sharing ratio,=
+ and crucial details you need to know about this raw material if you are ke=
+en to close this deal with me. <br><br>Note: You have the right to quit by =
+the end of my detailed explanation if you don&#39;t feel like moving forwar=
+d with me, but trust me, you would be proud meeting a partner like me and w=
+on&#39;t regret venturing into this deal.<br><br>I look forward to hearing =
+your thoughts, and further discussions.<br><br>Thanks for your time.<br>Sr.=
+ Paul Anthony.<br><br></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CACuitkv2yWJe_ZfW%2BcDXOiOescb9tfSbxvMEphRR4zU=
+0pDpkAg%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://gr=
+oups.google.com/d/msgid/clang-built-linux/CACuitkv2yWJe_ZfW%2BcDXOiOescb9tf=
+SbxvMEphRR4zU0pDpkAg%40mail.gmail.com</a>.<br />
+
+--0000000000006ee08a05cfb27d27--
