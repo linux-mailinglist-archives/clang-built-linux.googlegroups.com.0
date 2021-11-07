@@ -1,127 +1,125 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBV74T6GAMGQETIPMN3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDG5DB7V6IBBB2OMUCGAMGQERFDGO4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf39.google.com (mail-qv1-xf39.google.com [IPv6:2607:f8b0:4864:20::f39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 375084473C7
-	for <lists+clang-built-linux@lfdr.de>; Sun,  7 Nov 2021 17:27:04 +0100 (CET)
-Received: by mail-qv1-xf39.google.com with SMTP id n18-20020a0cbe92000000b00384d0c98fccsf13583856qvi.2
-        for <lists+clang-built-linux@lfdr.de>; Sun, 07 Nov 2021 08:27:04 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1636302423; cv=pass;
+Received: from mail-lj1-x23f.google.com (mail-lj1-x23f.google.com [IPv6:2a00:1450:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 89962447539
+	for <lists+clang-built-linux@lfdr.de>; Sun,  7 Nov 2021 20:18:02 +0100 (CET)
+Received: by mail-lj1-x23f.google.com with SMTP id l9-20020a2e8349000000b00218c7c981bcsf446437ljh.8
+        for <lists+clang-built-linux@lfdr.de>; Sun, 07 Nov 2021 11:18:02 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1636312682; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oELX6ILMc/tlI9HUpxlxNxO1lMwK2xA/N/hDFp08rP8pDE5VnOIkP8BUwdP1QgyLys
-         UdCE31Ei2FXCXSKWPFUs2POlQxp/Tk814pqkrww/0qZ1RWOKGueDSiAQ+Cjq7juHK2kL
-         yJVkcR/234qTj6zK+QarBMhqKTnWjhxbYRIUeNKLKBWX6GHZV9/GvcjOxVR69KtRtX3O
-         mPrRKA5gDgBKlHl4PEXiwPvmO8MTps63KLEGRjUAUp5cVhcsEtBMMf04HpXK1vnmHZEL
-         lGh+7gps4esYTHoqgz5OVKpXVVBkt0/9aHkpHKHvrt4yE7vNiJDIUNN9Iry9fh6jPqPp
-         WJwA==
+        b=T8rNjO5N6HZeGVetDH/6s+3kHwZ4ufOJ3XyXjtZ46kpaHD1HLIt6Dng8AzVq/4fWN3
+         FX+RPknNdoie/uZ6WcMN9Lp46PjHtiKHPrdORFu2QcUxzZeNsj/KO5XVwn38Y8cDU+xY
+         FV1gN8hOCsZ0Oxv8MyOAlS7qPmz0Kgv6+6t4GH4Nk6YdYuzQSslxVK3xIhJmQRA4lZKd
+         iBy0m1O0nkwTAsyayA+Z3D7RIvZaycGYb5JbCSCvusjxNZ5N1fypnuWwu0NkInm5UyW8
+         2JeYkjI4qNkkhndVTmURbBJ8GoO+t1emW0O0nd8sncMvm6dsX2F0AyEcBCPJeli6FPuS
+         XG5g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-filter:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=gl6TdxFHt7Br/EaXB06P68bWmz8f5+SAaCHewB3C9cg=;
-        b=SKPZ87rG9Y9rPcbWVwNfKjE6qjR2r0a/xzg9onW+QxhKLxQedUeUSh1UUy9L4cH3J4
-         G+pavnj+9cClVUiQfECr47pycosUTX9uPuyoxqmehFhJYMVjewgNaBN7saLm/E2cOQ4h
-         BGVwh42qD5gbhGWqd3F9n5UfWa30HXZQGhG6U4CoTVNflW4r8L9E4QqqC7ZpfJoQnZvi
-         rl7sZ0anJhHqfxtPrUzebp0zzCbjNsbk0HuGSrZiEWJPkp+lzych8omoIWWNScbOo/K3
-         IvabvXt66bBXggUt/YwWCW3x+GOacNQCViIvIgMU9/g0/gw17F/HK0sG2wTMLrVFdYeA
-         5kZQ==
+        bh=RSIe2HwnEwEOTvt1TdrRUPu2ElctCPtqFVnP5huOli4=;
+        b=aTYRmktVHIb1tb3hYVErM1eoOu013PVy9ACqBf4OwnTWG1vdyU+qrwae8vhA8h63jL
+         1PSpHaaGtxaCM+eig2cOsIpGZJxm5fTbAlx7aMJnsqQTcACzEVVIy4i3c+VlmZ5lxq1f
+         z1avLWRjfCnKHAY/77PuL0fZ6dMbALmUIUM+EXQWkXcaBw6VUxcaMPuykrhyVB5p58N1
+         TzQaE3RDar7brqWeSJJ2m4yy7+87o09aPahpL9DIqMS3DLRr2lz0u/3yTTfL6/mvLNZx
+         +vpIoPjRnDaQWBkGNYStompKkiFB/ZVwfKEX49WzMAtQlNjIL8aBLCLXdoXHfK8yfts9
+         vWuQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ttO9uhKo;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=neutral (google.com: 91.221.196.215 is neither permitted nor denied by best guess record for domain of sam@ravnborg.org) smtp.mailfrom=sam@ravnborg.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:dkim-filter:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=gl6TdxFHt7Br/EaXB06P68bWmz8f5+SAaCHewB3C9cg=;
-        b=o05BcTekfExhXn6yQZ1+1WlB13kckR6tnQROug34tm1B+cV+EqqKlqE235YNM1mXyJ
-         uzt4F/pi7Q1aTgKNOHxrjwFWtuZhc5qquKKl9SF6l0BKZlHbpjF8c6x38yag2TIZBaOc
-         wE1iCzoNoQQtxuhf841Pwc3lOiiA780CkUwLyI2ZsTLviUxZtjWUU8jv8goG/AaEWhEz
-         7xqFC1s5R86ZYL92KpxiKljqZrSv+vplPohoHGTSRO143UcQCAHiabjDe2IjsZyjZU5/
-         7xmD2fnWE+GcC0YYVid06tjAZi7PcP6ROAdrEfxAyDb3Mk7CBLYqXdHblQ5N6m5iwG2P
-         5tzg==
+        bh=RSIe2HwnEwEOTvt1TdrRUPu2ElctCPtqFVnP5huOli4=;
+        b=f23V4rZ290fWgPqvzRPK4ySeAFBbWJ9KjefgxEUMYOZG3NEUTIMRd+UPQ84fcwXi8s
+         LqJ5o4OtvZj0Z1ciRriVBjzix4WwcRo0N04TffC1ZtGAJeVBJ4LoCoLs2MI6brPm2avX
+         tKAhsQ9Qez79xxLSCLLW6pcI65iqWwRPaL1aa65FH0AhTQdNSTu872BYxT6wu/kzUFRs
+         banhGMIEdR38988/V17eTL9LoKQtPt3eXEyK7FKJNIfbrwlrlmYpJX3ImW0SldNDU8/g
+         FuOaROdZWsuA30IJ0uCJopk3nWbq70REz4UVsTLPqRFCdtRFqGlhsuUgo7xCWiZgolry
+         iD+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
-         :message-id:in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=gl6TdxFHt7Br/EaXB06P68bWmz8f5+SAaCHewB3C9cg=;
-        b=J1HLo/JBp2/J8bi8FQJT+/+8r0zRmG/LeUqB52mXRpnO3sgsBdepb8tdYI8F9Maaif
-         nDV7Wta4/iGyHz2KPa6gvnH+mIc2BJDyDbXiWiXcMGICjhZj6JL6nVyrahWzw1IReiB9
-         piXMhDjB4yzyQO92fAsy37Z85RTP53/mbceHYfU+HHpLZF5Zc6E8k5Dxzj/gODffirHo
-         6UijVpsdnUtShMSTesvPCCn3UYOhSqc2Mu9Y5m4Z+TyVRojWvsoTIoXfKKYTSVoCJIwO
-         id1vw/xoBF6W539+2S0Ey4Yee7Vn1hmawHWfhlq2jSNcLL4pgzewRVJKTnNA3rXi6eYR
-         Yjjg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=RSIe2HwnEwEOTvt1TdrRUPu2ElctCPtqFVnP5huOli4=;
+        b=ChHUCMM9cRjRSWN+R0jUwTPQqMsonL3zcqI7co1A7smFTDL2zt1mx5TvHhVlzamTKJ
+         QbQRIOkAIGnxnoDIgLDddK6QMG44RqdsdYAlGmdQtjYrusTverdaK0DyKRzIQKaPoju/
+         1i/1NC+0wZzGmGC9jiJtXZuHVAWONNTYP9lOSw1n8dBeVgWEo2chRU8BUgb8N6zVRxXi
+         YV8sbME8525qrQiuyQUi+F5QMEPEVxIOBGHebstiF76DGculVzvaCAEDPIlrzBjQ8gGE
+         gJlIPq39KqH0UP2Eeb6eDYu1kulPFLUiHMab70N9g/IsknbsIlBalfdqqWkcv/zQ+l43
+         3EHg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM533fjlPFMbl7MaOk76qYFlyinSXuYCdMaD58vHOmENLCcW8uEPWJ
-	TkaI6u0vrrHx8ZYFWrqaxRk=
-X-Google-Smtp-Source: ABdhPJyJCF85rbLSc5EyWxn322vMN6drL0yH5C0tnw04yS6m9bQ6KMqBzY7CI3IAN4CZGL9wvPq9vA==
-X-Received: by 2002:a05:622a:1301:: with SMTP id v1mr52007585qtk.119.1636302423381;
-        Sun, 07 Nov 2021 08:27:03 -0800 (PST)
+X-Gm-Message-State: AOAM532D9YBLzRRiajlRwKrr/qWO6awTQLK6m2YaPWbnKm1/1zJlBk2f
+	6ssAnW4kuXBVYPlYq8lfcME=
+X-Google-Smtp-Source: ABdhPJyHVFGyB6e5I5d8h7reC4yCh8FC2IvBcN5qG4Hn7kj+GN3wvlJ/AhicuvlGHvuIabSoIkf/IA==
+X-Received: by 2002:a05:6512:10c9:: with SMTP id k9mr20273689lfg.448.1636312682038;
+        Sun, 07 Nov 2021 11:18:02 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ae9:f118:: with SMTP id k24ls7620990qkg.11.gmail; Sun, 07
- Nov 2021 08:27:03 -0800 (PST)
-X-Received: by 2002:a05:620a:4711:: with SMTP id bs17mr59577362qkb.474.1636302422943;
-        Sun, 07 Nov 2021 08:27:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1636302422; cv=none;
+Received: by 2002:a2e:a378:: with SMTP id i24ls85074ljn.3.gmail; Sun, 07 Nov
+ 2021 11:18:00 -0800 (PST)
+X-Received: by 2002:a05:651c:218:: with SMTP id y24mr7364798ljn.50.1636312680885;
+        Sun, 07 Nov 2021 11:18:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1636312680; cv=none;
         d=google.com; s=arc-20160816;
-        b=dKGZpT8qjbe5jJE/kvfIOCoaevjzaitZI+tIReW051zyeNoFBacX0jRbjZysi4xPHw
-         NITCxHChSGRfWSTNWUXuD3Qibo12JPYVqSMfvZgkWH+y0ptvB8VjBBkY96VpDAKNycbK
-         G4CGmz8B4j9RkwtTcEGsNw2N8Tq/uDgY/SOgHKhBK77CK6cRRUu19b3IZ7UNxIAAvqZV
-         4UaJbbt7XihSQpXJrdlkjdFjTZz9m1JfiAO0SLDAyhbsnVHQekE+GiJz3hlVg+6ifB3o
-         3Htl/qGRKAQFbeSNju5DgDFowsZbPMqbAptmVf1nvT1hIQuCrXBTYamoTOpsFaR50pFn
-         RFGQ==
+        b=wqndz9c+LrF9Jvjt9IktCw6/OW9VFqZn4F2ENAsVDE1JUKy0e7QiS5Z+h+DM6KhJyR
+         YnQfqeIzNSoH1aXZ+JPFfxWZR3xKWBtfZeNiDeon0iWDiSPGelgcTVcyYxF6Os0HlNIq
+         M4Hy4URT9PQ8GCWRXluTTBGlZjZgI0u+e2go9pmMEpVAGdwbXuBUrkjytgPjPxn3MH2J
+         yc/KyseUcPVvmAdI/VpBMTOku7N12XKsAeikY+mPRkf1pb1w6eNN+tDs3eK1ayAxP5NQ
+         t9RCVe5SPOsDt15Gqgly/sZS6t+BsMEGGBHrT42F4CcGQI0nrQ3w+MMYn9UTGSma0kkY
+         hA+Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
-        bh=95y4b+YUJWNBzDqMVnCdZ8PrZpY1+cjKzj0CIJk+uXU=;
-        b=LQ14qqKcp7e/pom1M0NNhmyMCdUQvB1/0K/TMQNdECK6UDFCuI8YmKL3HJS0nL6lcS
-         1v9qq1hpxPZKOuo1tAwtNW+cURlTHDplierBnoKqjxdg5JcABBbfuUnWnLXuh48f81ay
-         8Z6HZHsdc6xgYJtd66PvYH/8mZnwNu5w/GGC3+Kl4FH1pfwIFzQXXMaELu1Of9FvIPHY
-         zxTbaVMQyX+ghqKsJ2FdRXY34ysQgPC6bBAQb5Wh+YTVxL1awofH4SeZehAisNRF4dwC
-         /WTRETLmX83OvQzag5+vtDKCytBEmwbvAq5KHvq3TgiEMoqNr7pQ0V69dN8AooAlzm7D
-         tJCg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=XcQyW9ybmTvGkCq1L7O9kvMSXkHUQG/TH4mlvDp5Yq8=;
+        b=CR6vVxca5LOt+qFfDF4QHgPqYvSkwSyLONomgPnyT0dN3A7d/T1j9cYH6rRDtQ9LMB
+         K9hDyDtdFir8r1SNaodYRFUyp+g1E08gm2eALjaQlL5/eWK1e2pRw1esKBmKjVp7pIg6
+         ok1kpdWg68oBZR+qXNENO6D450ObYZqbGv3UWtMQOSlmbv1VqHU4xc362CIUkmK/CGfj
+         gYWOVdElMBsPyJR+oss2pRwdpYUOqGav2fgFFkApAG2i7s9U655rMVzGnz4NI4XINb62
+         IXAvA5ao8Dg/0Vx2lyAQ74t165p0AnlFDLB55SM9uRWMXAiT9iehI2ECVccFlQ3zOgYE
+         gvMw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ttO9uhKo;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conuserg-12.nifty.com (conuserg-12.nifty.com. [210.131.2.79])
-        by gmr-mx.google.com with ESMTPS id i2si1428525qtg.3.2021.11.07.08.27.02
+       spf=neutral (google.com: 91.221.196.215 is neither permitted nor denied by best guess record for domain of sam@ravnborg.org) smtp.mailfrom=sam@ravnborg.org
+Received: from mx1.smtp.larsendata.com (mx1.smtp.larsendata.com. [91.221.196.215])
+        by gmr-mx.google.com with ESMTPS id t71si664374lff.6.2021.11.07.11.18.00
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 07 Nov 2021 08:27:02 -0800 (PST)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) client-ip=210.131.2.79;
-Received: from grover.. (133-32-232-101.west.xps.vectant.ne.jp [133.32.232.101]) (authenticated)
-	by conuserg-12.nifty.com with ESMTP id 1A7GQh1E020834;
-	Mon, 8 Nov 2021 01:26:45 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 1A7GQh1E020834
-X-Nifty-SrcIP: [133.32.232.101]
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: x86@kernel.org, Thomas Gleixner <tglx@linutronix.de>,
-        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>
-Cc: "H . Peter Anvin" <hpa@zytor.com>, clang-built-linux@googlegroups.com,
-        Masahiro Yamada <masahiroy@kernel.org>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] x86/purgatory: remove -nostdlib compiler flag
-Date: Mon,  8 Nov 2021 01:26:41 +0900
-Message-Id: <20211107162641.324688-2-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20211107162641.324688-1-masahiroy@kernel.org>
-References: <20211107162641.324688-1-masahiroy@kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 07 Nov 2021 11:18:00 -0800 (PST)
+Received-SPF: neutral (google.com: 91.221.196.215 is neither permitted nor denied by best guess record for domain of sam@ravnborg.org) client-ip=91.221.196.215;
+Received: from mail01.mxhotel.dk (mail01.mxhotel.dk [91.221.196.236])
+	by mx1.smtp.larsendata.com (Halon) with ESMTPS
+	id 7478f3ef-3fff-11ec-9c3f-0050568c148b;
+	Sun, 07 Nov 2021 19:18:14 +0000 (UTC)
+Received: from ravnborg.org (80-162-45-141-cable.dk.customer.tdc.net [80.162.45.141])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: sam@ravnborg.org)
+	by mail01.mxhotel.dk (Postfix) with ESMTPSA id 742C3194B77;
+	Sun,  7 Nov 2021 20:17:57 +0100 (CET)
+Date: Sun, 7 Nov 2021 20:17:55 +0100
+X-Report-Abuse-To: abuse@mxhotel.dk
+From: Sam Ravnborg <sam@ravnborg.org>
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: sparclinux@vger.kernel.org, clang-built-linux@googlegroups.com,
+	"David S. Miller" <davem@davemloft.net>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] sparc: vdso: remove -nostdlib compiler flag
+Message-ID: <YYgmY+zGHadW0EXO@ravnborg.org>
+References: <20211107162157.323873-1-masahiroy@kernel.org>
 MIME-Version: 1.0
-X-Original-Sender: masahiroy@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=ttO9uhKo;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20211107162157.323873-1-masahiroy@kernel.org>
+X-Original-Sender: sam@ravnborg.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 91.221.196.215 is neither permitted nor denied by best guess
+ record for domain of sam@ravnborg.org) smtp.mailfrom=sam@ravnborg.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,36 +132,20 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The -nostdlib option requests the compiler to not use the standard
-system startup files or libraries when linking. It is effective only
-when $(CC) is used as a linker driver.
+Hi Masahiro,
 
-$(LD) is directly used for linking purgatory.{ro,chk} here, hence
--nostdlib is unneeded.
-
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
----
-
- arch/x86/purgatory/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
-index 95ea17a9d20c..ae53d54d7959 100644
---- a/arch/x86/purgatory/Makefile
-+++ b/arch/x86/purgatory/Makefile
-@@ -16,7 +16,7 @@ CFLAGS_sha256.o := -D__DISABLE_EXPORTS
- 
- # When linking purgatory.ro with -r unresolved symbols are not checked,
- # also link a purgatory.chk binary without -r to check for unresolved symbols.
--PURGATORY_LDFLAGS := -e purgatory_start -nostdlib -z nodefaultlib
-+PURGATORY_LDFLAGS := -e purgatory_start -z nodefaultlib
- LDFLAGS_purgatory.ro := -r $(PURGATORY_LDFLAGS)
- LDFLAGS_purgatory.chk := $(PURGATORY_LDFLAGS)
- targets += purgatory.ro purgatory.chk
--- 
-2.30.2
+On Mon, Nov 08, 2021 at 01:21:57AM +0900, Masahiro Yamada wrote:
+> The -nostdlib option requests the compiler to not use the standard
+> system startup files or libraries when linking. It is effective only
+> when $(CC) is used as a linker driver.
+> 
+> Since commit 3c2b2d9408b1 ("sparc: Really use linker with LDFLAGS."),
+> $(LD) is directly used, hence -nostdlib is unneeded.
+> 
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+Acked-by: Sam Ravnborg <sam@ravnborg.org>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20211107162641.324688-2-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YYgmY%2BzGHadW0EXO%40ravnborg.org.
