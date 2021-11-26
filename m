@@ -1,160 +1,122 @@
-Return-Path: <clang-built-linux+bncBCFIV7H5YYEBB2F572GAMGQEIF5UVHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSPFHXUVMKBBJ7IQGGQMGQEXUXNCVQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
 Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 33C2845DC68
-	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Nov 2021 15:34:18 +0100 (CET)
-Received: by mail-qk1-x73b.google.com with SMTP id v14-20020a05620a0f0e00b0043355ed67d1sf6849193qkl.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Nov 2021 06:34:18 -0800 (PST)
-ARC-Seal: i=3; a=rsa-sha256; t=1637850857; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=VjGJf7PQwojqzstXRHLuFvp+o41zE3u5ecO/++5ogERMkcNmrufCd31kQzLou3uwri
-         MPqrkAEUozQeo+6aCZIMNcmAMTyaEhpVgzPV5BHPJLlg5cgR/08oFYM19AsLEFUk7f3D
-         9RPFmjO7gUT80aL//5CQWbeOIStKnUmT/Zs2MiwFLEqv7W5m0017Dz1DvJtmeSQPSlcn
-         zGFCIHHJYlP6AJNLLBbrH7SS5dpV9UqthLPvYUxbI24C7MhRcuxwBou1IutosGGAkwZV
-         UqFTwtJ5A7GSBZZ12ed9fjApmuy7nJkaS/NsibMl1Vv/yJ0NaovgNm2IrNgi9JhSem1I
-         Gl/A==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :in-reply-to:from:references:cc:to:content-language:subject
-         :user-agent:mime-version:date:message-id:dkim-signature;
-        bh=qIah9MdJyx7xSYXL4egdKo3WC1xsRsoqmR3aFbYU9xY=;
-        b=Eu0qWLYEZLjzLCmA6ec6zA4SFWGhsDXSw5AYGZunEZ5JyPZB+0+0DVtEHoFLVHZoOp
-         UIwKPwWZWVgv0SxhohwZ6+rH/FeFJ+aZHqItuB9xo7M0C2MWgZe9RYH0zduDv27tjylb
-         6dU313ei0/Swz/mWXR+mfESUCMFztltIjaOWOMMNkdhY9QaGZC7GeHnpu1Lg/AGLXfV2
-         rj7FlsVt54HPpMPoWTMdsWSBIKobsqtrAhLbE3QK5iKFPFATOxacvXcUvY1HNZBsapgV
-         vn0yc/4EhBcCW+3GME8j43jvDu9fc4iC872xFXwrxZrHKxNsplH7y36/pqZBRgGjbfGS
-         5Hdg==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b="Nr/7eFA+";
-       arc=pass (i=1 spf=pass spfdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
-       spf=pass (google.com: domain of maximmi@nvidia.com designates 40.107.236.87 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=nvidia.com
+	by mail.lfdr.de (Postfix) with ESMTPS id 8D1D245E783
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Nov 2021 06:44:08 +0100 (CET)
+Received: by mail-qk1-x73b.google.com with SMTP id w13-20020a05620a0e8d00b0045fad6245e8sf8954071qkm.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Nov 2021 21:44:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=message-id:date:mime-version:user-agent:subject:content-language:to
-         :cc:references:from:in-reply-to:content-transfer-encoding
+        h=message-id:date:user-agent:subject:content-language:to:cc
+         :references:from:in-reply-to:content-transfer-encoding:mime-version
          :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qIah9MdJyx7xSYXL4egdKo3WC1xsRsoqmR3aFbYU9xY=;
-        b=jeyyacf7PnAiesqg9mmKh0NCiq/G9K3WEyoHEqUnNYY8Pkj09bSvfcTuhRxGOfi1zu
-         7ZexLlvJPU9kpIHDSV76MrUAEVEEF+MSdeH8EvrSFnbOZapYdLM6b36ZVoJjpswxt3Ne
-         OLssQKeXy9MpqQPaAywLS/I5QHbes803j1vrzFUahnitBBMQZSvxXojhO/ZfvTWFZsoB
-         Kbp6xVg406mEj1ZjXemnxgikq+ybfyCemNO7HtY18M+uxeGLhVDNCjN9clz3UEH95AOs
-         zB6v9qWASoIeArtJRML4cF/XFK100eP1Zg0cAa7YFltBCXFGGmwOawWE7+nXv9kYdVf3
-         Iqfw==
+        bh=WTbuILRGAFiqKBRKlnlv8BkpxK1QKi8Z9qu7IDcbmb8=;
+        b=m53g08izFT9FgXvE1bTC6VFqKKP8mEwlJs+2YkpHxO1+y/pel6D5TObOOrXXyyagcN
+         DJPiyzNagXuesfWjwk20MRaVQdMu5Nd1UuR19Z9G2/Z8KDGhQpljGR/EAmXL6xVp7ycQ
+         o1rb/zcZI4NsY3EbysPBoP+ncQ6Yyy5oH38mzTSQGUPvD+vq61qP7hgyAk/ZDLmn/Ucg
+         bWfrlXgauX+9EyyAWyNJ6ESasWMTY0uUWaMddQ9++xC2mlG6CK9eH2lbNuqhNE+buQ33
+         C6oxJH03v/dM+rzNchOIcu2H7hbkVOi0JBkPMG9EFcEUYsALv84Vb2hMD8lzs1pSdvOy
+         OMVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+        h=x-gm-message-state:message-id:date:user-agent:subject
          :content-language:to:cc:references:from:in-reply-to
-         :content-transfer-encoding:x-original-sender
+         :content-transfer-encoding:mime-version:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qIah9MdJyx7xSYXL4egdKo3WC1xsRsoqmR3aFbYU9xY=;
-        b=AmUZJnNBpaVPwbupdrM0Ml6M8qQhex8gBYrJC41QRxVsz8T8RHklAz3Bd62Fc5B7lD
-         yMmFQMwvZ5lbrl58bvZ6SBbelv25Y+MnptodQe/mCg64vk345J0Er3gJqgTwlIe3Bm5m
-         xRT8mLlXqtwzY0YyrJLa0wkfUs31KFY6kqw1HBSJSWsXLSsYCMkK5hLOXdsSkw4DnSUK
-         YjRaoplJlc4BMCD3XLOSO30u9NEQWgaTtr4RP0Ou0FcVb/nzQxZES3hiKFQXxaT1lR+Q
-         x9tfwPv/3xaFriaQDwAW/NzvqaqDsqFh+yEizyWhnVgme3MsZYx22o1N7fh0Ju0hsiBc
-         JfKw==
-X-Gm-Message-State: AOAM530d/SCyOupsIq8hGROieeio2TYujjYnbsytdg098WQ1LbQ62CMR
-	D1PgO163sYCM1CQZbp64AYk=
-X-Google-Smtp-Source: ABdhPJzXLZql7/g4yZEB/RjzhfnpXzsG8t1yQsx50VfeNdlEQUJj6G17ZADDBGCCYhgOvVYXDD4Adw==
-X-Received: by 2002:ac8:7f13:: with SMTP id f19mr8988136qtk.423.1637850856926;
-        Thu, 25 Nov 2021 06:34:16 -0800 (PST)
+        bh=WTbuILRGAFiqKBRKlnlv8BkpxK1QKi8Z9qu7IDcbmb8=;
+        b=IpjKYyTWcexqLmFMdE5AGH3wYht3T/eWpIuJULXV9gzH10SKRlTYWBo7HJX1iY6U33
+         JtKbKf6r/4HWClSsY5r0MuobenHBFgEri/PrvmNreavJG3EjpQCuaKAjxoP3bjMXGHJE
+         B6zUv4nP16I3z5UjQu5YyredGQsDGnY6m6fRCgEqrr2ewgbxRvv4XRuNo6VHoaeEoF18
+         LH02O7/gmNw87Bqh3mJptoNmAVWqlKd3qebBpm/GxGO7oRf1qm9WPcXrEn5Tx7Vl/EDN
+         6CcsGG4WbsP99NMT0gThEdM5s98N9bxKI/qcz/Kr2kiiTqCC97LvulMM5wAt9LLWgj/l
+         Gw7g==
+X-Gm-Message-State: AOAM531qz5CN+Z+MQ5L68vuzEc2dxPPfkOpyqRcw0mAc7YlOf4PvnbeB
+	hwn3R9blFBoLMJeUwAB93S4=
+X-Google-Smtp-Source: ABdhPJwsHA7pYvvNuwKD/IEfhS4Cb58VMl6BUliSnRwYVUkvosEGJpsA/Q/cPs60lKR79FlkWNECZA==
+X-Received: by 2002:a05:6214:27c6:: with SMTP id ge6mr10987392qvb.103.1637905447372;
+        Thu, 25 Nov 2021 21:44:07 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:440e:: with SMTP id v14ls1956134qkp.0.gmail; Thu,
- 25 Nov 2021 06:34:16 -0800 (PST)
-X-Received: by 2002:a05:620a:2796:: with SMTP id g22mr15879797qkp.341.1637850856441;
-        Thu, 25 Nov 2021 06:34:16 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1637850856; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=f7QR31gL4cdmAjplfnqT/A0IB4DpksTxOnHQQEn3sixxymlC5KgYUTZbIUM5S5bEKH
-         6np1NRmojYUONvn/RqMnltcdC1kj2Bh59tVMoiDq/PqJZff7g/v9c6pncfQ3WNGeBwCy
-         mVldIpDIo4ajqpi0IMYehvU2A7QgMswqiZvqyIhctsFU/MLD6agbxBrEgMUmoTADbDg2
-         adxc+RIA202AcZzevr86FxvaTfKa6zRT/CuTW/L3KApXI+MvKtIluKCHWE4gnMa5Y7z8
-         fVnDoaBx+CSPZkKqjgCb6JloMp0hlSgLk2nRQpBiGQW7STqtXNHZokQtI01U4osEtLCq
-         F8Tg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :dkim-signature;
-        bh=q7E1QnrLGsJfobaR4D2SIjWe35pxhcuK+pJKWRzSvuw=;
-        b=lRxBmutz5clA87kgGcjNCP7nlqSvuWa8SBIryRHbHlrpuHxGzaT/epJslyi+c0tM0Q
-         ChAMy2ZTyCsDQCYhJhV4e632fflrQbbhH1WdiT5ACh4O0uG+j4A7fQhGOs1aa74M388t
-         rDkGhTSDiRsip1OVlWrEhfdGw8giBYRXSmMotin0lyjB1XwNrybaKvhFKQNWyKGjkVUp
-         LuSY/DTU0sxnIO2iJEptoas5WnH1AYOm/TDNDIrbYr/g/toUYGEeFP3U3QdVD2pZC/vz
-         a3pJcLFKlenvvbUvG04gCAC2PBk2YYB9YedKtsxEvxbK5btvxtuRm0cjUN9Di8vhzMyy
-         X41Q==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@Nvidia.com header.s=selector2 header.b="Nr/7eFA+";
-       arc=pass (i=1 spf=pass spfdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
-       spf=pass (google.com: domain of maximmi@nvidia.com designates 40.107.236.87 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=nvidia.com
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (mail-bn8nam11on2087.outbound.protection.outlook.com. [40.107.236.87])
-        by gmr-mx.google.com with ESMTPS id b8si478879qtg.5.2021.11.25.06.34.16
+Received: by 2002:ac8:24b:: with SMTP id o11ls2821232qtg.0.gmail; Thu, 25 Nov
+ 2021 21:44:07 -0800 (PST)
+X-Received: by 2002:ac8:6112:: with SMTP id a18mr22339496qtm.401.1637905446923;
+        Thu, 25 Nov 2021 21:44:06 -0800 (PST)
+Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com. [67.231.153.30])
+        by gmr-mx.google.com with ESMTPS id u2si915794qkp.6.2021.11.25.21.44.06
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 25 Nov 2021 06:34:16 -0800 (PST)
-Received-SPF: pass (google.com: domain of maximmi@nvidia.com designates 40.107.236.87 as permitted sender) client-ip=40.107.236.87;
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 25 Nov 2021 21:44:06 -0800 (PST)
+Received-SPF: pass (google.com: domain of prvs=096484b02e=yhs@fb.com designates 67.231.153.30 as permitted sender) client-ip=67.231.153.30;
+Received: from pps.filterd (m0109331.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.16.1.2/8.16.1.2) with SMTP id 1AQ1GSPm025029;
+	Thu, 25 Nov 2021 21:44:02 -0800
+Received: from maileast.thefacebook.com ([163.114.130.16])
+	by mx0a-00082601.pphosted.com with ESMTP id 3cjnru0tgu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Thu, 25 Nov 2021 21:44:01 -0800
+Received: from NAM04-MW2-obe.outbound.protection.outlook.com (100.104.31.183)
+ by o365-in.thefacebook.com (100.104.36.101) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2308.20; Thu, 25 Nov 2021 21:44:00 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=mNEZ97fIRVle38av3VGMKPUlNyiDLH9rzemM51qiAN8lexwMNlY+3/HR8c1z5kBvFSJAi8SzA/DwnAMUcaTTgAZ8Ug0Set6hla3KVBYVQm6gcZ75GHeCuMRvCcT7zYT5pc0GeGHDBQFXcSM6/xs3VP4+9Sw/SkiYc27l9OZkAET14eMwQ3lm8ZvCy9yIzel1NwFFUo8LqhLLxzAWTmzzZy4kpxCQ4Ok6+GbLZNBwpLlJnYeINWQ/B0kfIEQ2pPWCtVzBs4L9Q91kPRcTN1Iq40CcCLnsCgSOhnOI8AlwuIzh58XpfJrbsJ/0GOVTsgQISNhLwM2tmK0PkL62NudwzQ==
+ b=fPGHMcXuQnoWHqHuuQTE6aZBNWFDKNza5tlKuGmvonqwfxY9ZwlqzSQQtQCCNosms1DuetHPEsKYjoWC+EXXrwS7+d6iDoWRjPwkCXJeJmWQm3sLhajHZ23HQHxD6Jp310cRT79GMTv5V5kNJWMekGbyygtglklSpJcinVndFaffdMeutJZInILl3+JIkAhhrhg+yH/7HKXbG61CtSsBh2AfLrU5DOtLWPpPvbMojy6X4J9erO8KV4PthuBue8B5sH8k+EI+TcrILsQbeeNXn9JTw/+8to3US8WsUvbN/8lTsDbqmXMtQb1uGO6SANTJ6/oGpot8GnzrwQluU3m1NQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q7E1QnrLGsJfobaR4D2SIjWe35pxhcuK+pJKWRzSvuw=;
- b=LG/jfUdg99ZZTzWQ1ou4iOxjOYRkGgWhR3PbQdovK22KvFuxnP3iKkao/cWsHAOjxGq+bTaJvyink0pS++1sDC4Z8Bkq8PwdX/WzemiCEj7p9J8eEp3HgQhXfo4w8sZ8O5FTbjd9/jzPcoXqlN2x0+QrsDEgNMnzCHiQomB8zxFTw6+cCQHw5IpDL2fYvW9q9Me1/iNsLwXVTpZhESwSufjeCfzuDhPQyJ8EEl9fkF78lzYeaGanYIg0vOWL+NsP7SEUMyDcXkMi8h4bC6pkZErEm4hCitWEb6C3XH7GQOvZ41yithG5ZDnb8LCEY9RvLbykGV0Im4Wr+12Q7YbqTA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.112.34) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=nvidia.com; dkim=none (message not signed); arc=none
-Received: from CO2PR04CA0202.namprd04.prod.outlook.com (2603:10b6:104:5::32)
- by DM5PR12MB2360.namprd12.prod.outlook.com (2603:10b6:4:bb::21) with
+ bh=+dRCzsljmfRDH/14+zraS146B2inNjkvPecLf/DAVNg=;
+ b=IzHa9PsevMVbXia2QnRMBgWudTDw8w7TF2V6ZdMcJgTixrN92B6Oizt5WZ2pPBgiX/LSekM+M/vG2ui/yC8CPXxSgqi1l1ZoOT5kUhvaF2mBDlZ9LwTlKwrXn+7WhQHNV3Ox4m581HnvPGBk3HZAbqJKQfKVny3xeFikMGOh5jRXcnJX/Axw6tztXALSEymBLye9X6JBkQGqq4F8GrBUyojN2KQJ4qU/Zv9WJXgKsh7f4CGrxQXmfvCusvrEHQUsHeHVizthbvUYdqpXSUGp7eujPkWw4Cp3iSuQRP8gX9AseIbSThjWp5r3Ue9n+IfgC4ocbHR2O9wEOUOqjhDK4A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
+ header.d=fb.com; arc=none
+Received: from SN6PR1501MB2064.namprd15.prod.outlook.com (2603:10b6:805:d::27)
+ by SN6PR1501MB4093.namprd15.prod.outlook.com (2603:10b6:805:63::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4734.22; Thu, 25 Nov
- 2021 14:34:14 +0000
-Received: from CO1NAM11FT052.eop-nam11.prod.protection.outlook.com
- (2603:10b6:104:5:cafe::81) by CO2PR04CA0202.outlook.office365.com
- (2603:10b6:104:5::32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4734.22 via Frontend
- Transport; Thu, 25 Nov 2021 14:34:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.112.34)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.112.34 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.112.34; helo=mail.nvidia.com;
-Received: from mail.nvidia.com (216.228.112.34) by
- CO1NAM11FT052.mail.protection.outlook.com (10.13.174.225) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- 15.20.4734.22 via Frontend Transport; Thu, 25 Nov 2021 14:34:14 +0000
-Received: from [172.27.15.34] (172.20.187.6) by HQMAIL107.nvidia.com
- (172.20.187.13) with Microsoft SMTP Server (TLS) id 15.0.1497.18; Thu, 25 Nov
- 2021 14:34:06 +0000
-Message-ID: <3e673e1a-2711-320b-f0be-2432cf4bbe9c@nvidia.com>
-Date: Thu, 25 Nov 2021 16:34:03 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.3.2
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4713.22; Fri, 26 Nov
+ 2021 05:43:58 +0000
+Received: from SN6PR1501MB2064.namprd15.prod.outlook.com
+ ([fe80::a91b:fba1:b79c:812c]) by SN6PR1501MB2064.namprd15.prod.outlook.com
+ ([fe80::a91b:fba1:b79c:812c%5]) with mapi id 15.20.4713.027; Fri, 26 Nov 2021
+ 05:43:58 +0000
+Message-ID: <f08fa9aa-8b0d-8217-1823-2830b2b2587c@fb.com>
+Date: Thu, 25 Nov 2021 21:43:54 -0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
+ Gecko/20100101 Thunderbird/91.3.2
 Subject: Re: [PATCH bpf-next 09/10] bpf: Add a helper to issue timestamp
  cookies in XDP
 Content-Language: en-US
-To: Yonghong Song <yhs@fb.com>, =?UTF-8?Q?Toke_H=c3=b8iland-J=c3=b8rgensen?=
-	<toke@redhat.com>, Lorenz Bauer <lmb@cloudflare.com>
-CC: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
-	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
-	<kafai@fb.com>, Song Liu <songliubraving@fb.com>, John Fastabend
-	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Eric Dumazet
-	<edumazet@google.com>, "David S. Miller" <davem@davemloft.net>, "Jakub
- Kicinski" <kuba@kernel.org>, Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>,
-	David Ahern <dsahern@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers
-	<ndesaulniers@google.com>, Brendan Jackman <jackmanb@google.com>, "Florent
- Revest" <revest@chromium.org>, Joe Stringer <joe@cilium.io>, Tariq Toukan
-	<tariqt@nvidia.com>, Networking <netdev@vger.kernel.org>, bpf
+To: Maxim Mikityanskiy <maximmi@nvidia.com>,
+        =?UTF-8?Q?Toke_H=c3=b8iland-J=c3=b8rgensen?= <toke@redhat.com>,
+        Lorenz Bauer
+	<lmb@cloudflare.com>
+CC: Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann
+	<daniel@iogearbox.net>,
+        Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+	<kafai@fb.com>,
+        Song Liu <songliubraving@fb.com>,
+        John Fastabend
+	<john.fastabend@gmail.com>,
+        KP Singh <kpsingh@kernel.org>, Eric Dumazet
+	<edumazet@google.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Jakub
+ Kicinski <kuba@kernel.org>,
+        Hideaki YOSHIFUJI <yoshfuji@linux-ipv6.org>,
+        David Ahern <dsahern@kernel.org>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers
+	<ndesaulniers@google.com>,
+        Brendan Jackman <jackmanb@google.com>,
+        Florent
+ Revest <revest@chromium.org>, Joe Stringer <joe@cilium.io>,
+        Tariq Toukan
+	<tariqt@nvidia.com>, Networking <netdev@vger.kernel.org>,
+        bpf
 	<bpf@vger.kernel.org>, <clang-built-linux@googlegroups.com>
 References: <20211019144655.3483197-1-maximmi@nvidia.com>
  <20211019144655.3483197-10-maximmi@nvidia.com>
@@ -163,43 +125,95 @@ References: <20211019144655.3483197-1-maximmi@nvidia.com>
  <103c5154-cc29-a5ab-3c30-587fc0fbeae2@fb.com>
  <1b9b3c40-f933-59c3-09e6-aa6c3dda438f@nvidia.com>
  <68a63a77-f856-1690-cb60-327fc753b476@fb.com>
-From: "'Maxim Mikityanskiy' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-In-Reply-To: <68a63a77-f856-1690-cb60-327fc753b476@fb.com>
+ <3e673e1a-2711-320b-f0be-2432cf4bbe9c@nvidia.com>
+From: "'Yonghong Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+In-Reply-To: <3e673e1a-2711-320b-f0be-2432cf4bbe9c@nvidia.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [172.20.187.6]
-X-ClientProxiedBy: HQMAIL101.nvidia.com (172.20.187.10) To
- HQMAIL107.nvidia.com (172.20.187.13)
-X-EOPAttributedMessage: 0
+X-ClientProxiedBy: MWHPR22CA0032.namprd22.prod.outlook.com
+ (2603:10b6:300:69::18) To SN6PR1501MB2064.namprd15.prod.outlook.com
+ (2603:10b6:805:d::27)
+MIME-Version: 1.0
+Received: from [IPV6:2620:10d:c085:21e8::1060] (2620:10d:c090:400::5:b5af) by MWHPR22CA0032.namprd22.prod.outlook.com (2603:10b6:300:69::18) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.4734.20 via Frontend Transport; Fri, 26 Nov 2021 05:43:56 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 6c2855b4-d273-4c6c-7097-08d9b020a79b
-X-MS-TrafficTypeDiagnostic: DM5PR12MB2360:
-X-Microsoft-Antispam-PRVS: <DM5PR12MB2360CA708F6A32EC90D8110DDC629@DM5PR12MB2360.namprd12.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
+X-MS-Office365-Filtering-Correlation-Id: d686657f-e9ba-45f4-2abf-08d9b09fbe27
+X-MS-TrafficTypeDiagnostic: SN6PR1501MB4093:
+X-Microsoft-Antispam-PRVS: <SN6PR1501MB40932340E51D5FD3B2CAB030D3639@SN6PR1501MB4093.namprd15.prod.outlook.com>
+X-FB-Source: Internal
+X-MS-Oob-TLC-OOBClassifiers: OLM:10000;
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: esV5TYoR2qsTNqZ8Qvk8ws89YpGJ8tMP2LdAUbRMkdicpx76+OY1JycUCzYZtPIS1WKkM5OWb+6xwjF/w2UppOOw/KQ+SPzlxBVf4WQfSXLpICYfSWtiAzyUEyOI9vDPzpLk8sAowhq2Zt0c4xDc+OIlkgFzPrtrbx2W/xCUgKfoJ3r6kANuOXT4gYroQoOHR+reSwnYTGgCGOxR79CHOo6bqjDEYsFmxfO3TIGeYTOp+YJpxRKN0NrPCBc8VVYlO7f8sWiISFNthdR8r2j96Bk3RcM3UzttW3jhoffUX22QTddZN+rzDHz84Jceqky8MnTa9ANZBMM99wS2mywwQ9lqHg2py7L/uLZ5Lep5Sk5VxTf1lYd8J3YfSDGt2S1uxP5nW6tXmwfM+6FTPxKDutRi0/4vsH3AcBRFdipQPALkXvGNm+OR2PUALeaa7LC1Xihksj74R2k70fHlm9Pmqifp0WdAwgFLWTmhLPJ+5TDJjiyjmzzUfGt8eqNvZ0LvwezXTCELjoJ2TxD8AnHPjBF/UxAtvfMF8CROhdvNXCuP6Z6NNKGBc04hsM5pkJK0C0uPIj1XhqQrPAO03mbrMFcBu9/FfWU16P2QgH4QZUBdnTVIO/cl0QsnkOQXcbVil4y8csnjRg1GeytsauVgEhLk8o/eolZhSfV/tprvR+CLffyf4RMljO1/ARdhCGRS3URg44YboKx1TFZu1fSp/gW4PBo6ejULupScphYswww=
-X-Forefront-Antispam-Report: CIP:216.228.112.34;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:schybrid03.nvidia.com;CAT:NONE;SFS:(4636009)(36840700001)(46966006)(5660300002)(2616005)(31686004)(6666004)(508600001)(336012)(2906002)(31696002)(7416002)(16576012)(8676002)(8936002)(82310400004)(36860700001)(110136005)(54906003)(66574015)(316002)(186003)(426003)(356005)(36756003)(47076005)(7636003)(70206006)(16526019)(4001150100001)(70586007)(4326008)(26005)(53546011)(86362001)(83380400001)(43740500002);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2021 14:34:14.5730
+X-Microsoft-Antispam-Message-Info: jfJ59cd+LPQ6b0hfvh+Hzn5dn1Ep/AxBOYJeeYqhvMgwkkYWWM23IHjQWMPc48S1TZfFoPUOYnE8NXHrMK3LFvvGEuKK+9XyNi58Ezg77tJe0j/nXdxNhhVSqN4clTC9mjMEndzwlpP4k+R9WituCjHlE/qO4QJjm/VvxPyToY1hMvWh0g3/vmbD8pNLnARIExQbnR2dIzTSNgn7k2Pptn6aLX5mkKKi89Y8KZIhFIQ/gM6dQq4QhebMHScs/xfFofZfEeZnMXb1RYCX892pYc09vU4ocpJfby0N66/OODLdREsETzZ1fuZX3Gt1JC+2aETf1ryDTnC8+rj69tujf33RGZ1l3g2Tr2zMsshOm12jdR4dsT/CTPia6bAY4HrsFF85+MmbY513e5qOjnpvJUKpINKTH4fZAJkJmiDhe6cHDOEDfyMH27mp6SkMLGRxXcVfJhTbNpf+EOH9+BDBsl7uSgsXrsuAh5hiN3rR8VLzRAV/G0ebm10WzuLW9yIIo/QPa+Lv7yaPW2lNzmK8h/GkElknJXfvObWd2awpi+9Oz5VmPrQQ1LI/Qzn0PjDZyKRaAfMRXQnpHRubhG+iDTdDgLbIpToYEw1JzFm8wtMLruQGB2s9DPoT9yIj6IOppa+ylHI/fppoYWsZgHNhiammRAHqyAACJxqh2a8rCCsTJZw+KmIhzLRUm43vu9P3369huKt1NvKrW+/l06DH97UbURZ8XlLfdzLOALEqT1PiLCO60TLMeGfkK/GTv+zJ
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR1501MB2064.namprd15.prod.outlook.com;PTR:;CAT:NONE;SFS:(4636009)(366004)(31686004)(186003)(7416002)(508600001)(4001150100001)(86362001)(36756003)(8676002)(66574015)(4326008)(8936002)(31696002)(66476007)(110136005)(52116002)(53546011)(5660300002)(66556008)(66946007)(83380400001)(6486002)(316002)(38100700002)(2906002)(2616005)(54906003)(43740500002)(45980500001);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V1ZGYkhkZWhmS1VmLzhzTGN0aEZIczdmaC9mS2R0QXlnb3BkSE5mK0UzRHky?=
+ =?utf-8?B?VnJMR1ppR29FOFBpVG43UnNNdTF2WWtxVk8rdDdHNnNQQmlpRW5qbmtKRlMw?=
+ =?utf-8?B?L2VaaU5FYzFOWUduS1pDVDN6MkdZeGNqVngvNEw0dStseXZML0svKzV6YlJY?=
+ =?utf-8?B?enpVZVVUVU9EZnlrNmNZTU5EUFlFTjYwV1g5bFFJNnpOdThRdVhVcVByL0hL?=
+ =?utf-8?B?RDJjWmdNVk1PcGRuYjN0aFVCY0xsRmRBbm1VbGNuWTJYOW0yRlJSN3JhSGlr?=
+ =?utf-8?B?NXJEQmg3QkI0ekdDaERSYldGTTJ5dlVqc0tzcDhhakRUMXEzalNXMGFOMFhC?=
+ =?utf-8?B?Q1FzR3NKaUJWdEhCMGdaN1hvclFtVk1NZFNBSklnRitiVi9MTjlBVndrajVw?=
+ =?utf-8?B?Y1E0UUJ5SHI2YTFFS25sKzNHOHZLOXR2a3ZMWTNvRHNoYzkxUmYvakV1b3VT?=
+ =?utf-8?B?OGZYOWNhdXVNSDJEcXJtbU5zdmdENnZUZjVSMnpaSjUzRnU5YXk1TGhKRVVt?=
+ =?utf-8?B?WDQ3RUNaRFA0aURpRG4zV1J5MUhSd2t3eW9PVmYwWWNYeTBZQUFoM3Q5ZndC?=
+ =?utf-8?B?SzgwYzNJQmxPK0twSWZsMWpWaEI0U0ZLTW5HQTJzZGdreTh3VlQ4TlRidGhm?=
+ =?utf-8?B?eEp0V29jWUxKcnRHLzZ2S29DcS9ZZHZzQ3ZWSE5zVkpkdXAzbGRBbTY0bzVt?=
+ =?utf-8?B?UzNiNUV2T21iTGY0WEFsWWJjS1N3RkUwYjB1bVdmYnEybDNuVGl5aU9nTDBZ?=
+ =?utf-8?B?eTM2eVVZR3k0T3UwNE1SSzVYVS9DWGZLN1lJNTF2cFNobXVZRi9JWEdjY0k0?=
+ =?utf-8?B?OUVvR3hPN1gyeDB2TnExWkx6bHhrQmFkanNPcG9RazB4b0pkZHdHcGxKblBP?=
+ =?utf-8?B?Z0U2ZGd1SUhGSUhwWHpXc2dDTDY2eHRRUk0rYU1WSjFUZWIwOXJ6ejBtb0M2?=
+ =?utf-8?B?R0tEMnhtVHBIeDllOSt1OHMzdDBLYjFtUEZBU1BnQ1FBUElEcEJwUlloTVNs?=
+ =?utf-8?B?YXZzS1pJQURSK1dpRGZRSFE1SHBKZVhHYjV6Nm54cnk5UURQU3l0THJMdVZL?=
+ =?utf-8?B?TldCZGZNMVREZVpOVUVxK29wdGdxZzNVNnVzNHNOMlZZczk1UXo2TjIxUEdp?=
+ =?utf-8?B?QWpuTzVhck1oTG1oK3Jrd3QwOExVNmpob2ZCNE9UK0ZMdTdPYlkrT0RqL0pl?=
+ =?utf-8?B?bk41T010MlZYSVMxNXZHK0FaTlFnSEhFdzJuOUw5bVdSb2VXMWZjdEV3WndE?=
+ =?utf-8?B?OFJSQlp2MlJXdnBEbS9hVVQxdzJRNFNTWUR5RjZvR0laSWh0cUc1Mkh5TUlH?=
+ =?utf-8?B?WHkrbmRxQXlYemNRSmV2ZHVYU3M4eE1YZUJEODVwa3puK0YxRmxyVmV4dEpY?=
+ =?utf-8?B?dEh5RUVqc3RYR1kvM1p2UDdob1JQWXYxUDFLbG9BbmN4dnhvb0wvMEIzMTRl?=
+ =?utf-8?B?aTVyTDFOWnI1VmJYS1NWeG1OcVRmaWNOWGMzTDFLSGNDRUFVcVc0akRseFJl?=
+ =?utf-8?B?bEpRT29vbStJT0lXWlppVk1HSzM4ejJURy9haHYweTdLalVjUHRVSEFJOTBQ?=
+ =?utf-8?B?ZW9obExTcGlyZHA3NVNzRlRVVUFjMWdiU0czY1pqZDlaMzIwN0cvTW41eUts?=
+ =?utf-8?B?UWpUbUxRZkJ0ejR0ZmNMdGUxSmxOWUlsZnRyODBqMmVDVGozVnRmditlKytS?=
+ =?utf-8?B?cmlOTnE4SDNKM2R6bmxwLzVkM1VEMXI0cHlkeFZWUnkzNGV1a3Nyci92aEdN?=
+ =?utf-8?B?WExDb01YRzBQc1ZwZ29ZRWdDUGY4bnNGcEZjY1FqakFGeklKQW9NQ0tkVHFN?=
+ =?utf-8?B?d2hJdEJEMXgvRVprV0hwcW1EamVmOXRIbTRHTXQ0OWNYNWdWSlhDZGxoR1ov?=
+ =?utf-8?B?QXM1Z2lLTTJUd3VxYjFjMGdsQXpRb0Jrd1Q5UkNXM0k4V1hBZEJ5dlBzVGxG?=
+ =?utf-8?B?elBtU3AwOXErTkFzUGdPRys1ZVI0REFCUE5nVVNhUzBpbHdueXZ2cFc0VG9K?=
+ =?utf-8?B?b1lXVWthOStCTTZSVDhjMWt6MTE0YjhyL2E0ZEhsUnlIZktrdnRjOXBob0hZ?=
+ =?utf-8?B?OWlrMjRNbkU2OWJmRkRsK0x3WThiNWhuTXdjTC9USXl4TGR5eW90K3BsK2li?=
+ =?utf-8?B?YmwzMVBuL0FzRkJjNVA3UXZvUlhCems0bXYyalBDWWZMdVlrOXdzTThaeEpp?=
+ =?utf-8?B?cGc9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: d686657f-e9ba-45f4-2abf-08d9b09fbe27
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR1501MB2064.namprd15.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2021 05:43:58.7591
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c2855b4-d273-4c6c-7097-08d9b020a79b
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.112.34];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1NAM11FT052.eop-nam11.prod.protection.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR12MB2360
-X-Original-Sender: maximmi@nvidia.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6pQG2xDRmaS0JzztaKGfma2TCQQY/qiunkALSm06swb5YF1taHCjZMfrudrj11Uk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN6PR1501MB4093
+X-OriginatorOrg: fb.com
+X-Proofpoint-ORIG-GUID: g7CDktSOQtNGFox7rlKNHtzNdhapJA5c
+X-Proofpoint-GUID: g7CDktSOQtNGFox7rlKNHtzNdhapJA5c
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.790,Hydra:6.0.425,FMLib:17.0.607.475
+ definitions=2021-11-26_01,2021-11-25_02,2020-04-07_01
+X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 phishscore=0
+ clxscore=1011 bulkscore=0 priorityscore=1501 lowpriorityscore=0
+ adultscore=0 spamscore=0 mlxlogscore=999 impostorscore=0 mlxscore=0
+ suspectscore=0 malwarescore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.12.0-2110150000 definitions=main-2111260031
+X-FB-Internal: deliver
+X-Original-Sender: yhs@fb.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@Nvidia.com header.s=selector2 header.b="Nr/7eFA+";       arc=pass
- (i=1 spf=pass spfdomain=nvidia.com dmarc=pass fromdomain=nvidia.com);
-       spf=pass (google.com: domain of maximmi@nvidia.com designates
- 40.107.236.87 as permitted sender) smtp.mailfrom=maximmi@nvidia.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=nvidia.com
-X-Original-From: Maxim Mikityanskiy <maximmi@nvidia.com>
-Reply-To: Maxim Mikityanskiy <maximmi@nvidia.com>
+ header.i=@fb.com header.s=facebook header.b=efmVJOEy;       arc=fail
+ (signature failed);       spf=pass (google.com: domain of prvs=096484b02e=yhs@fb.com
+ designates 67.231.153.30 as permitted sender) smtp.mailfrom="prvs=096484b02e=yhs@fb.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=fb.com
+X-Original-From: Yonghong Song <yhs@fb.com>
+Reply-To: Yonghong Song <yhs@fb.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -212,242 +226,132 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2021-11-09 09:11, Yonghong Song wrote:
->=20
->=20
-> On 11/3/21 7:02 AM, Maxim Mikityanskiy wrote:
->> On 2021-11-03 04:10, Yonghong Song wrote:
->>>
->>>
->>> On 11/1/21 4:14 AM, Maxim Mikityanskiy wrote:
->>>> On 2021-10-20 19:16, Toke H=C3=B8iland-J=C3=B8rgensen wrote:
->>>>> Lorenz Bauer <lmb@cloudflare.com> writes:
->>>>>
->>>>>>> +bool cookie_init_timestamp_raw(struct tcphdr *th, __be32 *tsval,=
-=20
->>>>>>> __be32 *tsecr)
+
+
+On 11/25/21 6:34 AM, Maxim Mikityanskiy wrote:
+> On 2021-11-09 09:11, Yonghong Song wrote:
+>>
+>>
+>> On 11/3/21 7:02 AM, Maxim Mikityanskiy wrote:
+>>> On 2021-11-03 04:10, Yonghong Song wrote:
+>>>>
+>>>>
+>>>> On 11/1/21 4:14 AM, Maxim Mikityanskiy wrote:
+>>>>> On 2021-10-20 19:16, Toke H=C3=B8iland-J=C3=B8rgensen wrote:
+>>>>>> Lorenz Bauer <lmb@cloudflare.com> writes:
 >>>>>>
->>>>>> I'm probably missing context, Is there something in this function=20
->>>>>> that
->>>>>> means you can't implement it in BPF?
->>>>>
->>>>> I was about to reply with some other comments but upon closer=20
->>>>> inspection
->>>>> I ended up at the same conclusion: this helper doesn't seem to be=20
->>>>> needed
->>>>> at all?
->>>>
->>>> After trying to put this code into BPF (replacing the underlying=20
->>>> ktime_get_ns with ktime_get_mono_fast_ns), I experienced issues with=
+>>>>>>>> +bool cookie_init_timestamp_raw(struct tcphdr *th, __be32=20
+>>>>>>>> *tsval, __be32 *tsecr)
+>>>>>>>
+>>>>>>> I'm probably missing context, Is there something in this function=
 =20
->>>> passing the verifier.
->>>>
->>>> In addition to comparing ptr to end, I had to add checks that=20
->>>> compare ptr to data_end, because the verifier can't deduce that end=20
->>>> <=3D data_end. More branches will add a certain slowdown (not measured=
-).
->>>>
->>>> A more serious issue is the overall program complexity. Even though=20
->>>> the loop over the TCP options has an upper bound, and the pointer=20
->>>> advances by at least one byte every iteration, I had to limit the=20
->>>> total number of iterations artificially. The maximum number of=20
->>>> iterations that makes the verifier happy is 10. With more=20
->>>> iterations, I have the following error:
->>>>
->>>> BPF program is too large. Processed 1000001 insn
->>>>
->>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+>>>>>>> that
+>>>>>>> means you can't implement it in BPF?
+>>>>>>
+>>>>>> I was about to reply with some other comments but upon closer=20
+>>>>>> inspection
+>>>>>> I ended up at the same conclusion: this helper doesn't seem to be=20
+>>>>>> needed
+>>>>>> at all?
+>>>>>
+>>>>> After trying to put this code into BPF (replacing the underlying=20
+>>>>> ktime_get_ns with ktime_get_mono_fast_ns), I experienced issues=20
+>>>>> with passing the verifier.
+>>>>>
+>>>>> In addition to comparing ptr to end, I had to add checks that=20
+>>>>> compare ptr to data_end, because the verifier can't deduce that end=
+=20
+>>>>> <=3D data_end. More branches will add a certain slowdown (not measure=
+d).
+>>>>>
+>>>>> A more serious issue is the overall program complexity. Even though=
+=20
+>>>>> the loop over the TCP options has an upper bound, and the pointer=20
+>>>>> advances by at least one byte every iteration, I had to limit the=20
+>>>>> total number of iterations artificially. The maximum number of=20
+>>>>> iterations that makes the verifier happy is 10. With more=20
+>>>>> iterations, I have the following error:
+>>>>>
+>>>>> BPF program is too large. Processed 1000001 insn
+>>>>>
+>>>>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
 =A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 proce=
 ssed 1000001 insns (limit 1000000)=20
->>>> max_states_per_insn 29 total_states 35489 peak_states 596 mark_read 45
->>>>
->>>> I assume that BPF_COMPLEXITY_LIMIT_INSNS (1 million) is the=20
->>>> accumulated amount of instructions that the verifier can process in=20
->>>> all branches, is that right? It doesn't look realistic that my=20
->>>> program can run 1 million instructions in a single run, but it might=
+>>>>> max_states_per_insn 29 total_states 35489 peak_states 596 mark_read 4=
+5
+>>>>>
+>>>>> I assume that BPF_COMPLEXITY_LIMIT_INSNS (1 million) is the=20
+>>>>> accumulated amount of instructions that the verifier can process in=
 =20
->>>> be that if you take all possible flows and add up the instructions=20
->>>> from these flows, it will exceed 1 million.
->>>>
->>>> The limitation of maximum 10 TCP options might be not enough, given=20
->>>> that valid packets are permitted to include more than 10 NOPs. An=20
->>>> alternative of using bpf_load_hdr_opt and calling it three times=20
->>>> doesn't look good either, because it will be about three times=20
->>>> slower than going over the options once. So maybe having a helper=20
->>>> for that is better than trying to fit it into BPF?
->>>>
->>>> One more interesting fact is the time that it takes for the verifier=
+>>>>> all branches, is that right? It doesn't look realistic that my=20
+>>>>> program can run 1 million instructions in a single run, but it=20
+>>>>> might be that if you take all possible flows and add up the=20
+>>>>> instructions from these flows, it will exceed 1 million.
+>>>>>
+>>>>> The limitation of maximum 10 TCP options might be not enough, given=
 =20
->>>> to check my program. If it's limited to 10 iterations, it does it=20
->>>> pretty fast, but if I try to increase the number to 11 iterations,=20
->>>> it takes several minutes for the verifier to reach 1 million=20
->>>> instructions and print the error then. I also tried grouping the=20
->>>> NOPs in an inner loop to count only 10 real options, and the=20
->>>> verifier has been running for a few hours without any response. Is=20
->>>> it normal?=20
+>>>>> that valid packets are permitted to include more than 10 NOPs. An=20
+>>>>> alternative of using bpf_load_hdr_opt and calling it three times=20
+>>>>> doesn't look good either, because it will be about three times=20
+>>>>> slower than going over the options once. So maybe having a helper=20
+>>>>> for that is better than trying to fit it into BPF?
+>>>>>
+>>>>> One more interesting fact is the time that it takes for the=20
+>>>>> verifier to check my program. If it's limited to 10 iterations, it=20
+>>>>> does it pretty fast, but if I try to increase the number to 11=20
+>>>>> iterations, it takes several minutes for the verifier to reach 1=20
+>>>>> million instructions and print the error then. I also tried=20
+>>>>> grouping the NOPs in an inner loop to count only 10 real options,=20
+>>>>> and the verifier has been running for a few hours without any=20
+>>>>> response. Is it normal?=20
+>>>>
+>>>> Maxim, this may expose a verifier bug. Do you have a reproducer I=20
+>>>> can access? I would like to debug this to see what is the root case.=
+=20
+>>>> Thanks!
 >>>
->>> Maxim, this may expose a verifier bug. Do you have a reproducer I can=
+>>> Thanks, I appreciate your help in debugging it. The reproducer is=20
+>>> based on the modified XDP program from patch 10 in this series.=20
+>>> You'll need to apply at least patches 6, 7, 8 from this series to get=
 =20
->>> access? I would like to debug this to see what is the root case. Thanks=
-!
+>>> new BPF helpers needed for the XDP program (tell me if that's a=20
+>>> problem, I can try to remove usage of new helpers, but it will affect=
+=20
+>>> the program length and may produce different results in the verifier).
+>>>
+>>> See the C code of the program that passes the verifier (compiled with=
+=20
+>>> clang version 12.0.0-1ubuntu1) in the bottom of this email. If you=20
+>>> increase the loop boundary from 10 to at least 11 in=20
+>>> cookie_init_timestamp_raw(), it fails the verifier after a few minutes.=
+=20
 >>
->> Thanks, I appreciate your help in debugging it. The reproducer is=20
->> based on the modified XDP program from patch 10 in this series. You'll=
-=20
->> need to apply at least patches 6, 7, 8 from this series to get new BPF=
-=20
->> helpers needed for the XDP program (tell me if that's a problem, I can=
-=20
->> try to remove usage of new helpers, but it will affect the program=20
->> length and may produce different results in the verifier).
->>
->> See the C code of the program that passes the verifier (compiled with=20
->> clang version 12.0.0-1ubuntu1) in the bottom of this email. If you=20
->> increase the loop boundary from 10 to at least 11 in=20
->> cookie_init_timestamp_raw(), it fails the verifier after a few minutes.=
-=20
+>> I tried to reproduce with latest llvm (llvm-project repo),
+>> loop boundary 10 is okay and 11 exceeds the 1M complexity limit. For 10,
+>> the number of verified instructions is 563626 (more than 0.5M) so it is
+>> totally possible that one more iteration just blows past the limit.
 >=20
-> I tried to reproduce with latest llvm (llvm-project repo),
-> loop boundary 10 is okay and 11 exceeds the 1M complexity limit. For 10,
-> the number of verified instructions is 563626 (more than 0.5M) so it is
-> totally possible that one more iteration just blows past the limit.
+> So, does it mean that the verifying complexity grows exponentially with=
+=20
+> increasing the number of loop iterations (options parsed)?
 
-So, does it mean that the verifying complexity grows exponentially with=20
-increasing the number of loop iterations (options parsed)?
-
-Is it a good enough reason to keep this code as a BPF helper, rather=20
-than trying to fit it into the BPF program?
+Depending on verification time pruning results, it is possible slightly=20
+increase number of branches could result quite some (2x, 4x, etc.) of
+to-be-verified dynamic instructions.
 
 >=20
->> If you apply this tiny change, it fails the verifier after about 3 hours=
-:
->>
->> --- a/samples/bpf/syncookie_kern.c
->> +++ b/samples/bpf/syncookie_kern.c
->> @@ -167,6 +167,7 @@ static __always_inline bool cookie_init_
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 for (i =3D 0; i < 10; i++) {
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u8 opcode, opsize=
-;
->>
->> +skip_nop:
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ptr >=3D end)
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 break;
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ptr + 1 > dat=
-a_end)
->> @@ -178,7 +179,7 @@ static __always_inline bool cookie_init_
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 break;
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (opcode =3D=3D=
- TCPOPT_NOP) {
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0 ++ptr;
->> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cont=
-inue;
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 goto=
- skip_nop;
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
->>
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ptr + 1 >=3D =
-end)
+> Is it a good enough reason to keep this code as a BPF helper, rather=20
+> than trying to fit it into the BPF program?
+
+Another option is to use global function, which is verified separately
+from the main bpf program.
+
 >=20
-> I tried this as well, with latest llvm, and got the following errors
-> in ~30 seconds:
->=20
-> ......
-> 536: (79) r2 =3D *(u64 *)(r10 -96)
-> 537: R0=3Dinv(id=3D0,umax_value=3D255,var_off=3D(0x0; 0xff))=20
-> R1=3Dpkt(id=3D9,off=3D499,r=3D518,umax_value=3D60,var_off=3D(0x0; 0x3c))=
-=20
-> R2=3Dpkt_end(id=3D0,off=3D0,imm=3D0)=20
-> R3=3Dpkt(id=3D27,off=3D14,r=3D0,umin_value=3D20,umax_value=3D120,var_off=
-=3D(0x0;=20
-> 0x7c),s32_min_value=3D0,s32_max_value=3D124,u32_max_value=3D124) R4=3Dinv=
-P3=20
-> R5=3Dinv1 R6=3Dctx(id=3D0,off=3D0,imm=3D0) R7=3Dpkt(id=3D9,off=3D519,r=3D=
-518,umax_va^C
-> [yhs@devbig309.ftw3 ~/work/bpf-next/samples/bpf] tail -f log
-> 550: (55) if r0 !=3D 0x4 goto pc+4
-> The sequence of 8193 jumps is too complex.
-> verification time 30631375 usec
-> stack depth 160
-> processed 330595 insns (limit 1000000) max_states_per_insn 4=20
-> total_states 20377 peak_states 100 mark_read 37
->=20
-> With llvm12, I got the similar verification error:
->=20
-> The sequence of 8193 jumps is too complex.
-> processed 330592 insns (limit 1000000) max_states_per_insn 4=20
-> total_states 20378 peak_states 101 mark_read 37
->=20
-> Could you check again with your experiment which takes 3 hours to
-> fail? What is the verification failure log?
-
-The log is similar:
-
-...
-; if (opsize =3D=3D TCPOLEN_WINDOW) {
-460: (55) if r8 !=3D 0x3 goto pc+31
-=20
-R0_w=3Dpkt(id=3D28132,off=3D4037,r=3D0,umin_value=3D20,umax_value=3D2610,va=
-r_off=3D(0x0;=20
-0x3ffff),s32_min_value=3D0,s32_max_value=3D262143,u32_max_value=3D262143)=
-=20
-R1=3Dinv0=20
-R2=3Dpkt(id=3D27,off=3D14,r=3D0,umin_value=3D20,umax_value=3D120,var_off=3D=
-(0x0;=20
-0x7c),s32_min_value=3D0,s32_max_value=3D124,u32_max_value=3D124) R3_w=3Dinv=
-3=20
-R4_w=3Dinv9 R5=3Dinv0 R6=3Dctx(id=3D0,off=3D0,imm=3D0)=20
-R7_w=3Dpkt(id=3D44,off=3D4047,r=3D4039,umin_value=3D18,umax_value=3D2355,va=
-r_off=3D(0x0;=20
-0x1ffff),s32_min_value=3D0,s32_max_value=3D131071,u32_max_value=3D131071)=
-=20
-R8_w=3DinvP3 R9=3Dinv0 R10=3Dfp0 fp-16=3D????mmmm fp-24=3D00000000 fp-64=3D=
-????mmmm=20
-fp-72=3Dmmmmmmmm fp-80=3Dmmmmmmmm fp-88=3Dpkt fp-96=3Dpkt_end fp-104=3Dpkt=
-=20
-fp-112=3Dpkt fp-120=3Dinv20 fp-128=3Dmmmmmmmm fp-136_w=3Dinv14 fp-144=3Dpkt
-; if (ptr + TCPOLEN_WINDOW > data_end)
-461: (bf) r3 =3D r7
-462: (07) r3 +=3D -7
-; if (ptr + TCPOLEN_WINDOW > data_end)
-463: (79) r8 =3D *(u64 *)(r10 -96)
-464: (2d) if r3 > r8 goto pc+56
-The sequence of 8193 jumps is too complex.
-processed 414429 insns (limit 1000000) max_states_per_insn 4=20
-total_states 8097 peak_states 97 mark_read 49
-
-libbpf: -- END LOG --
-libbpf: failed to load program 'syncookie_xdp'
-libbpf: failed to load object '.../samples/bpf/syncookie_kern.o'
-Error: bpf_prog_load: Unknown error 4007
-
-real    189m49.659s
-user    0m0.012s
-sys     189m26.322s
-
-Ubuntu clang version 12.0.0-1ubuntu1
-
-I wonder why it takes only 30 seconds for you. As I understand, the=20
-expectation is less than 1 second anyway, but the difference between 30=20
-seconds and 3 hours is huge. Maybe some kernel config options matter=20
-(KASAN?)
-
-Is it expected that increasing the loop length linearly increases the=20
-verifying complexity exponentially? Is there any mitigation?
-
-Thanks,
-Max
-
 >>
->> --cut--
->>
->> // SPDX-License-Identifier: GPL-2.0 OR Linux-OpenIB
->> /* Copyright (c) 2021, NVIDIA CORPORATION & AFFILIATES. All rights=20
->> reserved. */
->>
-> [...]
+>>> If you apply this tiny change, it fails the verifier after about 3=20
+>>> hours:
+>>>
+[...]
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -455,4 +359,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/3e673e1a-2711-320b-f0be-2432cf4bbe9c%40nvidia.com.
+clang-built-linux/f08fa9aa-8b0d-8217-1823-2830b2b2587c%40fb.com.
