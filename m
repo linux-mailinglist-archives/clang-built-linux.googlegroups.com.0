@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDOILZ6ZXABBBNPMQGHAMGQEAAQIJVY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDOILZ6ZXABBBNXMQGHAMGQENQIY6KI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0432B47A97E
-	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Dec 2021 13:25:26 +0100 (CET)
-Received: by mail-lf1-x138.google.com with SMTP id cf27-20020a056512281b00b004259e7fce67sf864886lfb.0
-        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Dec 2021 04:25:25 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1640003125; cv=pass;
+Received: from mail-ed1-x538.google.com (mail-ed1-x538.google.com [IPv6:2a00:1450:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id 15A2447A97F
+	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Dec 2021 13:25:27 +0100 (CET)
+Received: by mail-ed1-x538.google.com with SMTP id z8-20020a056402274800b003f8580bfb99sf2046671edd.11
+        for <lists+clang-built-linux@lfdr.de>; Mon, 20 Dec 2021 04:25:27 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1640003126; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qCWmggH9OlAAI46LoOectlTsw0Rji0WIy1nafTIlmouwO9fMsSwi/YxJddlsliDvGf
-         U+cHFXJPxH3Sgc38qgJobncAoJmRpCbkvJZ/QlX9sJqH85QcEG+LtiT5m+sA8ZLS/F1L
-         TlynTC2mXDm54ttJPyRO1zbDf43iugQiD79K7qYw/6EWr2zr9Ebz1UvE+WUDgLHIiv6N
-         dupsY7+8euFXKt8Z1qpMRMpRvB7WLPMeaD2Alf24c0OfC1pffMGf2Fz8BEtuAul9aWEx
-         ItLtdX5dFDHDDYLr+goKCmfrKoxWmI2pAu1N7lp/VFf6Xo0+gwzt1EGUvfDcV0h1XwEO
-         kNEw==
+        b=j90S1fiE+yIApOem3J8Z3O6Q1gln9JU28Saot2e0CljZj9EKUpTyn0AxKFc/76OvSb
+         UqxSRhDfQrEycq34CEcWHfBI3kB4FxypYpGKKW3Y4APO4gTYQ3Bl17V0KqvoBHM/RwmN
+         VN5G1BLVJqXwUZq7rmstAZwyY+aq17iOGrvkHbv72ibaoVw1UGA9oUlVSCyBMVr20cFz
+         ZAJ0YYjS/5Fqq/WZ1rfBiDZAIGCySib6uqwKXFm0RZ4c9bm5K4NZg5qmog+ldBQjQNJi
+         GYe/nj+mHZsrq9K1RuX6V/QAXMH6L5EDfZTnQac6zQ8xFOap1yDjsWUAJcMHmVO/GGLb
+         MxXA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=Tvqz40cfHbkKvmQx98XZjGXHsLiKEKFOOK4ig9G+3ok=;
-        b=jiQYYjCPZBBJf4mjp/BYQTdmK2dzoKrW8o1EIuPf4xx4tmHLqaoSqe4fb+hnwBgPLM
-         mD6vsLlDdLb8ohOZ6Qm+lsu5iHa52lkvWQbaSk52YRMOM2X+0XqSvFvU4ITb9m4uNjvg
-         BrH6mPeJ6/s3lVtXQEFktNU1xSStmxQ6+biMItD9O7TpFb0jelAb56aZQC9nLHqGuYAV
-         lrWbyfqt6jwYAJ2QbbCA8diUkWUwmtVk3bEbPUsysnn/qXWjrktV8j4DNrkk2zAa+kM1
-         rEVzPnOw5K0bPsid6gUq6Wn5wn7Y15kct9/T0oh4mDx5gJlDhJNIy4SYOaKdQIbn6HKj
-         o6yg==
+        bh=j10dTC4rHXy+RALUvpVYb4Oxn4VkegMwQbzUVGi1Tco=;
+        b=ao7fwKTIHqmJvx0FkRBfjdiHtK5abwF3PA4BMxT8aKcI9K3bz9YiMGytwEQoAo1cqe
+         0jKK8OTa4/+iA9lpQWSmBlPRXYJCFQH9Fp2MWkwtOwbFgGF8RTWpl7m2eISDP5TsdNIL
+         81Ft7S9Vki2Qx8TSxP5yMVGLkOoKJYqdFyG3B+SL/w02rBY3L+Ko1FBUqrukn7hlxppR
+         9s9d5Luf0EJek4qd5M12rPK9aesgNvAN3Lx2tai27xMY8bJM3l5nBc3tFv/tFBZb+Sh1
+         Rp2BxQfz7h09ZLABFozHlDc4vgz+cirrV+2yf5c8TCnQcOQjcfbYcvcka6KRP+vFTi+4
+         vDEg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=E8cyRV5D;
-       spf=pass (google.com: domain of anders.roxell@linaro.org designates 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=anders.roxell@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=MpTcWqSq;
+       spf=pass (google.com: domain of anders.roxell@linaro.org designates 2a00:1450:4864:20::534 as permitted sender) smtp.mailfrom=anders.roxell@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Tvqz40cfHbkKvmQx98XZjGXHsLiKEKFOOK4ig9G+3ok=;
-        b=pO9RtIhrHMf9vLEg7uTTugItqO6SwFVLsHfZtEPVYsTm2Y9C5bhpJUg0tm3kHNDAWX
-         FS2OyfT2MXyl5xtE7/TvNolBb7lTeNeV4eGckQseyb3KiKkULzsfpFi6h+TtmiNDulOF
-         4R2arzlx3mm+FsKmjtrIo+674pg9ck/y2NfRz92GvetYagzPkipM9cHpNAt0uNB3eYSk
-         fTgS6uJnMu1+BtI9bhiZjH3t8BR50afiocqJocOOs7IzyyGMuOh+EXveP0i0Dov/CzsG
-         cIUo9tdk8/C00VtyZir6C9FZFVqwVQ4tI8dRIju1YTDbu2gCEhl12a1pW1eK8HUB51w9
-         UKbA==
+        bh=j10dTC4rHXy+RALUvpVYb4Oxn4VkegMwQbzUVGi1Tco=;
+        b=EGNv4iXcjQK9jQ5BjfJcvgFDAJIph0NySfbzXwrMKbWIWZrqLNRhzpif29E/k+S+yh
+         mak58xRVJ3h0wicML0gFgmQVEGZlEMXhjXothWh3GxoLqtaIjz44O7c9dJ5Gc9HGE8yM
+         TTTiXoaq6M6Zj55h/IZEB0wUnxG992idxQYurXrmoj1oVUrIZNpSgtLS+/LsVlsVrwm9
+         JtEkePw2KISf3GTAf66/i6+7i6uX2mZ9oB+DQ6jE1cC6kv0IxJDwlDhzgL3PRUK/d3JH
+         u4RD39F9e9Djg65N4cV6QeEP0LwKEBqV0iKTGuf8R9iJpbk2YKCn5IB8Ra7d+LxvLHUl
+         ZHoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,60 +49,60 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Tvqz40cfHbkKvmQx98XZjGXHsLiKEKFOOK4ig9G+3ok=;
-        b=KEP/ziin1PV5YWZw/wP2OFRdcUHAXT88ciKQeolFBnIQxP3eLcNCclVHVLhQ39ZTka
-         T0rdOZ0PaFjMpJyfzW3iyAdL4QPoxXBpwhmCUqo/+Xy/zb67Gs1vE1/L/pAoK8dwxQLi
-         WW4Uw623SvA9QXbI4etMX5F4UQI8gRZT1AxZJnt/VM1+GClzPKET/H4ry7HAKRpem++P
-         dXbkV90pTH+7F17HPlGDgDzQFU6XggQigA2woADSKuZuwmp94WGBX7K1pRPBpZkG7ZVT
-         iT0DJhhYxTHWAB77aS2WIUDHCzpiKEIsOENdooQuQIeOvek+9IZS9CFDeD/OyqWLVIab
-         Vttg==
+        bh=j10dTC4rHXy+RALUvpVYb4Oxn4VkegMwQbzUVGi1Tco=;
+        b=yMMZM5x6/JsYUcGhl6hAUu4/n4x0BbdxpyZlNIF59H+kjg9LhsHTvasYcX3+iWeKfS
+         uQazjr9JnvxINJCLQDizX9xfn9gYHJx6zpM+JPXATGQGBj4bjj0gXvvWmWjWtuiB2Vmw
+         6DOpGVlpbAbqce/0YD9AdUPTrPSpd8bUG6OayhQ5c8tQFLS2qi/+emIPabsByPr8WeP7
+         dLi9Vba+wZbEsJNeuibI8/NGllvqIPcblftptInS+aVMYP3Whzmkmgk0wi7niOgRjZo3
+         8M2cXNKcwOyEyJGYiUFRf20DnjgGpm/igBnXamzCZpFQPqK+t/bK1CccDmjDs7ukJG2K
+         b68g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530tbkf9+dh/JFNpNHP7Yh55alPS4mR57BGeAH9cPo6o9Ndzjp8B
-	q3FomdLKeaLvGbNMn9Nks3I=
-X-Google-Smtp-Source: ABdhPJw5exQbW1vYBedG781U0u1/GlmffffW5xf6XWvbp7HOBIeti0YxI2PDpcZvjbDQoRf5hOyQ+w==
-X-Received: by 2002:a05:6512:c20:: with SMTP id z32mr1772840lfu.295.1640003125474;
-        Mon, 20 Dec 2021 04:25:25 -0800 (PST)
+X-Gm-Message-State: AOAM533EfdtgBn+OxPpqQt7IkERMD0okFLGFpBsTFLBYXeRAq0HNG+KG
+	Oi5fDFuxcsOatLUdJ0CbY2g=
+X-Google-Smtp-Source: ABdhPJywYFQQnXtPu1vQ3DPjp90Oyg8KwpyhMfz0FEcpAV+/C5PNcNR4/6iuk6HbB13rsyB3+CJwsg==
+X-Received: by 2002:a17:906:6c96:: with SMTP id s22mr12842285ejr.756.1640003126680;
+        Mon, 20 Dec 2021 04:25:26 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:a222:: with SMTP id i2ls2451350ljm.9.gmail; Mon, 20 Dec
- 2021 04:25:24 -0800 (PST)
-X-Received: by 2002:a2e:5c86:: with SMTP id q128mr13829339ljb.245.1640003124443;
-        Mon, 20 Dec 2021 04:25:24 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1640003124; cv=none;
+Received: by 2002:a17:907:3e87:: with SMTP id hs7ls823880ejc.9.gmail; Mon, 20
+ Dec 2021 04:25:25 -0800 (PST)
+X-Received: by 2002:a17:907:7ba8:: with SMTP id ne40mr5055363ejc.329.1640003125433;
+        Mon, 20 Dec 2021 04:25:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1640003125; cv=none;
         d=google.com; s=arc-20160816;
-        b=Lp8R3WPxZ1ppb2WxDyzzUg1xdVDM6c5C6+O7Cjug0UVfhq+bLW8qav2UcCGs0CTTiR
-         1o1l5G4vT0nyfYvsjnB2pSP9kUc9j+lXBcOURkdL7V/TnSWuJ9ddwAgOPdXTbAVcP2Wg
-         YwTC75l+RHGRxlpWkg/fgMMp7BJDWdw7Cmwe2XjPIErQdR61B0Hc9EZSF8+fMo0E+rak
-         hKYS6O0/ddzGz+xzZP+Ly4NJL7vP54gtAGb2wSCGohbPIRUpPhRGss2YAv4Re+1rRJPY
-         HgFq9ILbYJjAusSS85eVseedDCMejZ9PZzLYEmqpCJnS+UiW30FINB0ijTmEJ4ScbkTi
-         MkRA==
+        b=N2JG8zuwTZLltjpbhpkLbyaONAnjRtdlX2VKZENbqA/gdeQ9BZcXh5hKNdI0VBmCjd
+         mKZX8OY1y+2Ex34cz80kGVNH5lbAE074UvxAbh1Yy7dtTZuG4N699kjl90ENJuS6aS/T
+         2H13KR/irEp19agrqYUtnjdoep5QAUu/o4BkYgn7vMu96O4ruUAc0bDjcOOTKSK8gxtq
+         KwJGhudzhLkYdni4Z74Kf82kVZkRjDkLjlwTz2R1n4Toj0TWxPnGWPDgS0VcCs2bsId6
+         AhaQVFTyzgcjQJEAWBaU9YCo6D3ywcFVetNRqA4kk15sThWXXs4GC+1kusOA3IuXz7Un
+         60ww==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=BkU0CaGENz4v/3Yu7z2QNSSezrRYwzxHe/jHn0X53Fs=;
-        b=zPdxHvqjiFUdCI885hlaseBvit4zr8JFLwOkBpfmnE6MbTsCNGYOxXlc/U7l/3j4q1
-         0ZyTb4aqnsOzz3lzy1N06RDkMK2o6+MvtOFpPhqDGO/8USFSPrMUSJfNAbSq1h8gunZA
-         Kuu1OkhIgNY3Z6CDTFd2NlAAnx4iuX6g9RfO3Ahk2HrANzqfuCOhntmrNQh7JLvtDUug
-         xBSSe0hbpSCKNKE0R8lkbMuEQl2Wr30793jWkDixrnY+IkGkd2gbFuj3wnHinaFfKzN8
-         y1cKrrRC+F4wbLAP4GlJTVZMwD7HiCyrYoerpD2o0spkUSReVrJb+F77rxKKIumiKgYh
-         bsvw==
+        bh=T/8LJRgZvz6xLlkqDCeJ4cjJNm0uXZzaYpYyxO0JE80=;
+        b=whn7op3h9Mw/EGtObfnI28wOJGqLOdduj5+L+IACsi0Y40+P3aBUCh6U3mQcC1KPg1
+         ZM4Qm4rD4rGEmgzrltpFsEJGZrDpgZ3q8bbgoxz0oBi4KEhZcJxt2vk8e0zUoCTWdtjm
+         bC1fO4pMdkJ93Zm08PCaOvpVv0QD7EPWfI5niKbDP9DZf9SJapV7XGAYIco66uivrcbi
+         s+T+UE3Hhj3zJUq6uNSZnGjCEGL4HBnoepT6RiFia4POi4wHVfdEYnDeY0aHUTpbjSyT
+         rItZouIevL6hQ0kz5VCOiVRJrUXrQc/PdZ3sVczhwmBFAugz9vN8xw1mnVi8Wh27xxZ0
+         H1Aw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=E8cyRV5D;
-       spf=pass (google.com: domain of anders.roxell@linaro.org designates 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=anders.roxell@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=MpTcWqSq;
+       spf=pass (google.com: domain of anders.roxell@linaro.org designates 2a00:1450:4864:20::534 as permitted sender) smtp.mailfrom=anders.roxell@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-ed1-x531.google.com (mail-ed1-x531.google.com. [2a00:1450:4864:20::531])
-        by gmr-mx.google.com with ESMTPS id e18si843018lji.3.2021.12.20.04.25.24
+Received: from mail-ed1-x534.google.com (mail-ed1-x534.google.com. [2a00:1450:4864:20::534])
+        by gmr-mx.google.com with ESMTPS id eb8si885812edb.0.2021.12.20.04.25.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Dec 2021 04:25:24 -0800 (PST)
-Received-SPF: pass (google.com: domain of anders.roxell@linaro.org designates 2a00:1450:4864:20::531 as permitted sender) client-ip=2a00:1450:4864:20::531;
-Received: by mail-ed1-x531.google.com with SMTP id m21so10339445edc.0
-        for <clang-built-linux@googlegroups.com>; Mon, 20 Dec 2021 04:25:24 -0800 (PST)
-X-Received: by 2002:a17:906:4788:: with SMTP id cw8mr1045314ejc.22.1640003124185;
-        Mon, 20 Dec 2021 04:25:24 -0800 (PST)
+        Mon, 20 Dec 2021 04:25:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of anders.roxell@linaro.org designates 2a00:1450:4864:20::534 as permitted sender) client-ip=2a00:1450:4864:20::534;
+Received: by mail-ed1-x534.google.com with SMTP id o20so37434642eds.10
+        for <clang-built-linux@googlegroups.com>; Mon, 20 Dec 2021 04:25:25 -0800 (PST)
+X-Received: by 2002:aa7:cb1a:: with SMTP id s26mr15727768edt.19.1640003125090;
+        Mon, 20 Dec 2021 04:25:25 -0800 (PST)
 Received: from localhost (c-9b28e555.07-21-73746f28.bbcust.telenor.se. [85.229.40.155])
-        by smtp.gmail.com with ESMTPSA id z1sm6666242edq.54.2021.12.20.04.25.23
+        by smtp.gmail.com with ESMTPSA id mr38sm4691638ejc.109.2021.12.20.04.25.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Dec 2021 04:25:23 -0800 (PST)
+        Mon, 20 Dec 2021 04:25:24 -0800 (PST)
 From: Anders Roxell <anders.roxell@linaro.org>
 To: stable@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -127,20 +127,23 @@ Cc: linux-kernel@vger.kernel.org,
 	ndesaulniers@google.com,
 	nathan@kernel.org,
 	linux-input@vger.kernel.org,
-	Nathan Chancellor <natechancellor@gmail.com>,
+	Nicolas Pitre <nicolas.pitre@linaro.org>,
+	Nicolas Pitre <nico@linaro.org>,
+	Stefan Agner <stefan@agner.ch>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
 	Anders Roxell <anders.roxell@linaro.org>
-Subject: [PATCH 4.14 1/6] net: lan78xx: Avoid unnecessary self assignment
-Date: Mon, 20 Dec 2021 13:25:01 +0100
-Message-Id: <20211220122506.3631672-2-anders.roxell@linaro.org>
+Subject: [PATCH 4.14 2/6] ARM: 8805/2: remove unneeded naked function usage
+Date: Mon, 20 Dec 2021 13:25:02 +0100
+Message-Id: <20211220122506.3631672-3-anders.roxell@linaro.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20211220122506.3631672-1-anders.roxell@linaro.org>
 References: <20211220122506.3631672-1-anders.roxell@linaro.org>
 MIME-Version: 1.0
 X-Original-Sender: anders.roxell@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=E8cyRV5D;       spf=pass
+ header.i=@linaro.org header.s=google header.b=MpTcWqSq;       spf=pass
  (google.com: domain of anders.roxell@linaro.org designates
- 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=anders.roxell@linaro.org;
+ 2a00:1450:4864:20::534 as permitted sender) smtp.mailfrom=anders.roxell@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -155,51 +158,546 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+From: Nicolas Pitre <nicolas.pitre@linaro.org>
 
-commit 94e7c844990f0db92418586b107be135b4963b66 upstream.
+commit b99afae1390140f5b0039e6b37a7380de31ae874 upstream.
 
-Clang warns when a variable is assigned to itself.
+The naked attribute is known to confuse some old gcc versions when
+function arguments aren't explicitly listed as inline assembly operands
+despite the gcc documentation. That resulted in commit 9a40ac86152c
+("ARM: 6164/1: Add kto and kfrom to input operands list.").
 
-drivers/net/usb/lan78xx.c:940:11: warning: explicitly assigning value of
-variable of type 'u32' (aka 'unsigned int') to itself [-Wself-assign]
-                        offset = offset;
-                        ~~~~~~ ^ ~~~~~~
-1 warning generated.
+Yet that commit has problems of its own by having assembly operand
+constraints completely wrong. If the generated code has been OK since
+then, it is due to luck rather than correctness. So this patch also
+provides proper assembly operand constraints, and removes two instances
+of redundant register usages in the implementation while at it.
 
-Reorder the if statement to acheive the same result and avoid a self
-assignment warning.
+Inspection of the generated code with this patch doesn't show any
+obvious quality degradation either, so not relying on __naked at all
+will make the code less fragile, and avoid some issues with clang.
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/129
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: David S. Miller <davem@davemloft.net>
+The only remaining __naked instances (excluding the kprobes test cases)
+are exynos_pm_power_up_setup(), tc2_pm_power_up_setup() and
+
+cci_enable_port_for_self(. But in the first two cases, only the function
+address is used by the compiler with no chance of inlining it by
+mistake, and the third case is called from assembly code only. And the
+fact that no stack is available when the corresponding code is executed
+does warrant the __naked usage in those cases.
+
+Signed-off-by: Nicolas Pitre <nico@linaro.org>
+Reviewed-by: Stefan Agner <stefan@agner.ch>
+Tested-by: Stefan Agner <stefan@agner.ch>
+Signed-off-by: Russell King <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Anders Roxell <anders.roxell@linaro.org>
 ---
- drivers/net/usb/lan78xx.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/arm/mm/copypage-fa.c       | 35 ++++++------
+ arch/arm/mm/copypage-feroceon.c | 98 ++++++++++++++++-----------------
+ arch/arm/mm/copypage-v4mc.c     | 19 +++----
+ arch/arm/mm/copypage-v4wb.c     | 41 +++++++-------
+ arch/arm/mm/copypage-v4wt.c     | 37 ++++++-------
+ arch/arm/mm/copypage-xsc3.c     | 71 +++++++++++-------------
+ arch/arm/mm/copypage-xscale.c   | 71 ++++++++++++------------
+ 7 files changed, 178 insertions(+), 194 deletions(-)
 
-diff --git a/drivers/net/usb/lan78xx.c b/drivers/net/usb/lan78xx.c
-index 838b6fe9dfaa..e286188b6ea1 100644
---- a/drivers/net/usb/lan78xx.c
-+++ b/drivers/net/usb/lan78xx.c
-@@ -920,11 +920,9 @@ static int lan78xx_read_otp(struct lan78xx_net *dev, u32 offset,
- 	ret = lan78xx_read_raw_otp(dev, 0, 1, &sig);
+diff --git a/arch/arm/mm/copypage-fa.c b/arch/arm/mm/copypage-fa.c
+index d130a5ece5d5..bf24690ec83a 100644
+--- a/arch/arm/mm/copypage-fa.c
++++ b/arch/arm/mm/copypage-fa.c
+@@ -17,26 +17,25 @@
+ /*
+  * Faraday optimised copy_user_page
+  */
+-static void __naked
+-fa_copy_user_page(void *kto, const void *kfrom)
++static void fa_copy_user_page(void *kto, const void *kfrom)
+ {
+-	asm("\
+-	stmfd	sp!, {r4, lr}			@ 2\n\
+-	mov	r2, %0				@ 1\n\
+-1:	ldmia	r1!, {r3, r4, ip, lr}		@ 4\n\
+-	stmia	r0, {r3, r4, ip, lr}		@ 4\n\
+-	mcr	p15, 0, r0, c7, c14, 1		@ 1   clean and invalidate D line\n\
+-	add	r0, r0, #16			@ 1\n\
+-	ldmia	r1!, {r3, r4, ip, lr}		@ 4\n\
+-	stmia	r0, {r3, r4, ip, lr}		@ 4\n\
+-	mcr	p15, 0, r0, c7, c14, 1		@ 1   clean and invalidate D line\n\
+-	add	r0, r0, #16			@ 1\n\
+-	subs	r2, r2, #1			@ 1\n\
++	int tmp;
++
++	asm volatile ("\
++1:	ldmia	%1!, {r3, r4, ip, lr}		@ 4\n\
++	stmia	%0, {r3, r4, ip, lr}		@ 4\n\
++	mcr	p15, 0, %0, c7, c14, 1		@ 1   clean and invalidate D line\n\
++	add	%0, %0, #16			@ 1\n\
++	ldmia	%1!, {r3, r4, ip, lr}		@ 4\n\
++	stmia	%0, {r3, r4, ip, lr}		@ 4\n\
++	mcr	p15, 0, %0, c7, c14, 1		@ 1   clean and invalidate D line\n\
++	add	%0, %0, #16			@ 1\n\
++	subs	%2, %2, #1			@ 1\n\
+ 	bne	1b				@ 1\n\
+-	mcr	p15, 0, r2, c7, c10, 4		@ 1   drain WB\n\
+-	ldmfd	sp!, {r4, pc}			@ 3"
+-	:
+-	: "I" (PAGE_SIZE / 32));
++	mcr	p15, 0, %2, c7, c10, 4		@ 1   drain WB"
++	: "+&r" (kto), "+&r" (kfrom), "=&r" (tmp)
++	: "2" (PAGE_SIZE / 32)
++	: "r3", "r4", "ip", "lr");
+ }
  
- 	if (ret == 0) {
--		if (sig == OTP_INDICATOR_1)
--			offset = offset;
--		else if (sig == OTP_INDICATOR_2)
-+		if (sig == OTP_INDICATOR_2)
- 			offset += 0x100;
--		else
-+		else if (sig != OTP_INDICATOR_1)
- 			ret = -EINVAL;
- 		if (!ret)
- 			ret = lan78xx_read_raw_otp(dev, offset, length, data);
+ void fa_copy_user_highpage(struct page *to, struct page *from,
+diff --git a/arch/arm/mm/copypage-feroceon.c b/arch/arm/mm/copypage-feroceon.c
+index 49ee0c1a7209..cc819732d9b8 100644
+--- a/arch/arm/mm/copypage-feroceon.c
++++ b/arch/arm/mm/copypage-feroceon.c
+@@ -13,58 +13,56 @@
+ #include <linux/init.h>
+ #include <linux/highmem.h>
+ 
+-static void __naked
+-feroceon_copy_user_page(void *kto, const void *kfrom)
++static void feroceon_copy_user_page(void *kto, const void *kfrom)
+ {
+-	asm("\
+-	stmfd	sp!, {r4-r9, lr}		\n\
+-	mov	ip, %2				\n\
+-1:	mov	lr, r1				\n\
+-	ldmia	r1!, {r2 - r9}			\n\
+-	pld	[lr, #32]			\n\
+-	pld	[lr, #64]			\n\
+-	pld	[lr, #96]			\n\
+-	pld	[lr, #128]			\n\
+-	pld	[lr, #160]			\n\
+-	pld	[lr, #192]			\n\
+-	pld	[lr, #224]			\n\
+-	stmia	r0, {r2 - r9}			\n\
+-	ldmia	r1!, {r2 - r9}			\n\
+-	mcr	p15, 0, r0, c7, c14, 1		@ clean and invalidate D line\n\
+-	add	r0, r0, #32			\n\
+-	stmia	r0, {r2 - r9}			\n\
+-	ldmia	r1!, {r2 - r9}			\n\
+-	mcr	p15, 0, r0, c7, c14, 1		@ clean and invalidate D line\n\
+-	add	r0, r0, #32			\n\
+-	stmia	r0, {r2 - r9}			\n\
+-	ldmia	r1!, {r2 - r9}			\n\
+-	mcr	p15, 0, r0, c7, c14, 1		@ clean and invalidate D line\n\
+-	add	r0, r0, #32			\n\
+-	stmia	r0, {r2 - r9}			\n\
+-	ldmia	r1!, {r2 - r9}			\n\
+-	mcr	p15, 0, r0, c7, c14, 1		@ clean and invalidate D line\n\
+-	add	r0, r0, #32			\n\
+-	stmia	r0, {r2 - r9}			\n\
+-	ldmia	r1!, {r2 - r9}			\n\
+-	mcr	p15, 0, r0, c7, c14, 1		@ clean and invalidate D line\n\
+-	add	r0, r0, #32			\n\
+-	stmia	r0, {r2 - r9}			\n\
+-	ldmia	r1!, {r2 - r9}			\n\
+-	mcr	p15, 0, r0, c7, c14, 1		@ clean and invalidate D line\n\
+-	add	r0, r0, #32			\n\
+-	stmia	r0, {r2 - r9}			\n\
+-	ldmia	r1!, {r2 - r9}			\n\
+-	mcr	p15, 0, r0, c7, c14, 1		@ clean and invalidate D line\n\
+-	add	r0, r0, #32			\n\
+-	stmia	r0, {r2 - r9}			\n\
+-	subs	ip, ip, #(32 * 8)		\n\
+-	mcr	p15, 0, r0, c7, c14, 1		@ clean and invalidate D line\n\
+-	add	r0, r0, #32			\n\
++	int tmp;
++
++	asm volatile ("\
++1:	ldmia	%1!, {r2 - r7, ip, lr}		\n\
++	pld	[%1, #0]			\n\
++	pld	[%1, #32]			\n\
++	pld	[%1, #64]			\n\
++	pld	[%1, #96]			\n\
++	pld	[%1, #128]			\n\
++	pld	[%1, #160]			\n\
++	pld	[%1, #192]			\n\
++	stmia	%0, {r2 - r7, ip, lr}		\n\
++	ldmia	%1!, {r2 - r7, ip, lr}		\n\
++	mcr	p15, 0, %0, c7, c14, 1		@ clean and invalidate D line\n\
++	add	%0, %0, #32			\n\
++	stmia	%0, {r2 - r7, ip, lr}		\n\
++	ldmia	%1!, {r2 - r7, ip, lr}		\n\
++	mcr	p15, 0, %0, c7, c14, 1		@ clean and invalidate D line\n\
++	add	%0, %0, #32			\n\
++	stmia	%0, {r2 - r7, ip, lr}		\n\
++	ldmia	%1!, {r2 - r7, ip, lr}		\n\
++	mcr	p15, 0, %0, c7, c14, 1		@ clean and invalidate D line\n\
++	add	%0, %0, #32			\n\
++	stmia	%0, {r2 - r7, ip, lr}		\n\
++	ldmia	%1!, {r2 - r7, ip, lr}		\n\
++	mcr	p15, 0, %0, c7, c14, 1		@ clean and invalidate D line\n\
++	add	%0, %0, #32			\n\
++	stmia	%0, {r2 - r7, ip, lr}		\n\
++	ldmia	%1!, {r2 - r7, ip, lr}		\n\
++	mcr	p15, 0, %0, c7, c14, 1		@ clean and invalidate D line\n\
++	add	%0, %0, #32			\n\
++	stmia	%0, {r2 - r7, ip, lr}		\n\
++	ldmia	%1!, {r2 - r7, ip, lr}		\n\
++	mcr	p15, 0, %0, c7, c14, 1		@ clean and invalidate D line\n\
++	add	%0, %0, #32			\n\
++	stmia	%0, {r2 - r7, ip, lr}		\n\
++	ldmia	%1!, {r2 - r7, ip, lr}		\n\
++	mcr	p15, 0, %0, c7, c14, 1		@ clean and invalidate D line\n\
++	add	%0, %0, #32			\n\
++	stmia	%0, {r2 - r7, ip, lr}		\n\
++	subs	%2, %2, #(32 * 8)		\n\
++	mcr	p15, 0, %0, c7, c14, 1		@ clean and invalidate D line\n\
++	add	%0, %0, #32			\n\
+ 	bne	1b				\n\
+-	mcr	p15, 0, ip, c7, c10, 4		@ drain WB\n\
+-	ldmfd	sp!, {r4-r9, pc}"
+-	:
+-	: "r" (kto), "r" (kfrom), "I" (PAGE_SIZE));
++	mcr	p15, 0, %2, c7, c10, 4		@ drain WB"
++	: "+&r" (kto), "+&r" (kfrom), "=&r" (tmp)
++	: "2" (PAGE_SIZE)
++	: "r2", "r3", "r4", "r5", "r6", "r7", "ip", "lr");
+ }
+ 
+ void feroceon_copy_user_highpage(struct page *to, struct page *from,
+diff --git a/arch/arm/mm/copypage-v4mc.c b/arch/arm/mm/copypage-v4mc.c
+index 1267e64133b9..db624170854a 100644
+--- a/arch/arm/mm/copypage-v4mc.c
++++ b/arch/arm/mm/copypage-v4mc.c
+@@ -40,12 +40,11 @@ static DEFINE_RAW_SPINLOCK(minicache_lock);
+  * instruction.  If your processor does not supply this, you have to write your
+  * own copy_user_highpage that does the right thing.
+  */
+-static void __naked
+-mc_copy_user_page(void *from, void *to)
++static void mc_copy_user_page(void *from, void *to)
+ {
+-	asm volatile(
+-	"stmfd	sp!, {r4, lr}			@ 2\n\
+-	mov	r4, %2				@ 1\n\
++	int tmp;
++
++	asm volatile ("\
+ 	ldmia	%0!, {r2, r3, ip, lr}		@ 4\n\
+ 1:	mcr	p15, 0, %1, c7, c6, 1		@ 1   invalidate D line\n\
+ 	stmia	%1!, {r2, r3, ip, lr}		@ 4\n\
+@@ -55,13 +54,13 @@ mc_copy_user_page(void *from, void *to)
+ 	mcr	p15, 0, %1, c7, c6, 1		@ 1   invalidate D line\n\
+ 	stmia	%1!, {r2, r3, ip, lr}		@ 4\n\
+ 	ldmia	%0!, {r2, r3, ip, lr}		@ 4\n\
+-	subs	r4, r4, #1			@ 1\n\
++	subs	%2, %2, #1			@ 1\n\
+ 	stmia	%1!, {r2, r3, ip, lr}		@ 4\n\
+ 	ldmneia	%0!, {r2, r3, ip, lr}		@ 4\n\
+-	bne	1b				@ 1\n\
+-	ldmfd	sp!, {r4, pc}			@ 3"
+-	:
+-	: "r" (from), "r" (to), "I" (PAGE_SIZE / 64));
++	bne	1b				@ "
++	: "+&r" (from), "+&r" (to), "=&r" (tmp)
++	: "2" (PAGE_SIZE / 64)
++	: "r2", "r3", "ip", "lr");
+ }
+ 
+ void v4_mc_copy_user_highpage(struct page *to, struct page *from,
+diff --git a/arch/arm/mm/copypage-v4wb.c b/arch/arm/mm/copypage-v4wb.c
+index 067d0fdd630c..cd3e165afeed 100644
+--- a/arch/arm/mm/copypage-v4wb.c
++++ b/arch/arm/mm/copypage-v4wb.c
+@@ -22,29 +22,28 @@
+  * instruction.  If your processor does not supply this, you have to write your
+  * own copy_user_highpage that does the right thing.
+  */
+-static void __naked
+-v4wb_copy_user_page(void *kto, const void *kfrom)
++static void v4wb_copy_user_page(void *kto, const void *kfrom)
+ {
+-	asm("\
+-	stmfd	sp!, {r4, lr}			@ 2\n\
+-	mov	r2, %2				@ 1\n\
+-	ldmia	r1!, {r3, r4, ip, lr}		@ 4\n\
+-1:	mcr	p15, 0, r0, c7, c6, 1		@ 1   invalidate D line\n\
+-	stmia	r0!, {r3, r4, ip, lr}		@ 4\n\
+-	ldmia	r1!, {r3, r4, ip, lr}		@ 4+1\n\
+-	stmia	r0!, {r3, r4, ip, lr}		@ 4\n\
+-	ldmia	r1!, {r3, r4, ip, lr}		@ 4\n\
+-	mcr	p15, 0, r0, c7, c6, 1		@ 1   invalidate D line\n\
+-	stmia	r0!, {r3, r4, ip, lr}		@ 4\n\
+-	ldmia	r1!, {r3, r4, ip, lr}		@ 4\n\
+-	subs	r2, r2, #1			@ 1\n\
+-	stmia	r0!, {r3, r4, ip, lr}		@ 4\n\
+-	ldmneia	r1!, {r3, r4, ip, lr}		@ 4\n\
++	int tmp;
++
++	asm volatile ("\
++	ldmia	%1!, {r3, r4, ip, lr}		@ 4\n\
++1:	mcr	p15, 0, %0, c7, c6, 1		@ 1   invalidate D line\n\
++	stmia	%0!, {r3, r4, ip, lr}		@ 4\n\
++	ldmia	%1!, {r3, r4, ip, lr}		@ 4+1\n\
++	stmia	%0!, {r3, r4, ip, lr}		@ 4\n\
++	ldmia	%1!, {r3, r4, ip, lr}		@ 4\n\
++	mcr	p15, 0, %0, c7, c6, 1		@ 1   invalidate D line\n\
++	stmia	%0!, {r3, r4, ip, lr}		@ 4\n\
++	ldmia	%1!, {r3, r4, ip, lr}		@ 4\n\
++	subs	%2, %2, #1			@ 1\n\
++	stmia	%0!, {r3, r4, ip, lr}		@ 4\n\
++	ldmneia	%1!, {r3, r4, ip, lr}		@ 4\n\
+ 	bne	1b				@ 1\n\
+-	mcr	p15, 0, r1, c7, c10, 4		@ 1   drain WB\n\
+-	ldmfd	 sp!, {r4, pc}			@ 3"
+-	:
+-	: "r" (kto), "r" (kfrom), "I" (PAGE_SIZE / 64));
++	mcr	p15, 0, %1, c7, c10, 4		@ 1   drain WB"
++	: "+&r" (kto), "+&r" (kfrom), "=&r" (tmp)
++	: "2" (PAGE_SIZE / 64)
++	: "r3", "r4", "ip", "lr");
+ }
+ 
+ void v4wb_copy_user_highpage(struct page *to, struct page *from,
+diff --git a/arch/arm/mm/copypage-v4wt.c b/arch/arm/mm/copypage-v4wt.c
+index b85c5da2e510..8614572e1296 100644
+--- a/arch/arm/mm/copypage-v4wt.c
++++ b/arch/arm/mm/copypage-v4wt.c
+@@ -20,27 +20,26 @@
+  * dirty data in the cache.  However, we do have to ensure that
+  * subsequent reads are up to date.
+  */
+-static void __naked
+-v4wt_copy_user_page(void *kto, const void *kfrom)
++static void v4wt_copy_user_page(void *kto, const void *kfrom)
+ {
+-	asm("\
+-	stmfd	sp!, {r4, lr}			@ 2\n\
+-	mov	r2, %2				@ 1\n\
+-	ldmia	r1!, {r3, r4, ip, lr}		@ 4\n\
+-1:	stmia	r0!, {r3, r4, ip, lr}		@ 4\n\
+-	ldmia	r1!, {r3, r4, ip, lr}		@ 4+1\n\
+-	stmia	r0!, {r3, r4, ip, lr}		@ 4\n\
+-	ldmia	r1!, {r3, r4, ip, lr}		@ 4\n\
+-	stmia	r0!, {r3, r4, ip, lr}		@ 4\n\
+-	ldmia	r1!, {r3, r4, ip, lr}		@ 4\n\
+-	subs	r2, r2, #1			@ 1\n\
+-	stmia	r0!, {r3, r4, ip, lr}		@ 4\n\
+-	ldmneia	r1!, {r3, r4, ip, lr}		@ 4\n\
++	int tmp;
++
++	asm volatile ("\
++	ldmia	%1!, {r3, r4, ip, lr}		@ 4\n\
++1:	stmia	%0!, {r3, r4, ip, lr}		@ 4\n\
++	ldmia	%1!, {r3, r4, ip, lr}		@ 4+1\n\
++	stmia	%0!, {r3, r4, ip, lr}		@ 4\n\
++	ldmia	%1!, {r3, r4, ip, lr}		@ 4\n\
++	stmia	%0!, {r3, r4, ip, lr}		@ 4\n\
++	ldmia	%1!, {r3, r4, ip, lr}		@ 4\n\
++	subs	%2, %2, #1			@ 1\n\
++	stmia	%0!, {r3, r4, ip, lr}		@ 4\n\
++	ldmneia	%1!, {r3, r4, ip, lr}		@ 4\n\
+ 	bne	1b				@ 1\n\
+-	mcr	p15, 0, r2, c7, c7, 0		@ flush ID cache\n\
+-	ldmfd	sp!, {r4, pc}			@ 3"
+-	:
+-	: "r" (kto), "r" (kfrom), "I" (PAGE_SIZE / 64));
++	mcr	p15, 0, %2, c7, c7, 0		@ flush ID cache"
++	: "+&r" (kto), "+&r" (kfrom), "=&r" (tmp)
++	: "2" (PAGE_SIZE / 64)
++	: "r3", "r4", "ip", "lr");
+ }
+ 
+ void v4wt_copy_user_highpage(struct page *to, struct page *from,
+diff --git a/arch/arm/mm/copypage-xsc3.c b/arch/arm/mm/copypage-xsc3.c
+index 03a2042aced5..55cbc3a89d85 100644
+--- a/arch/arm/mm/copypage-xsc3.c
++++ b/arch/arm/mm/copypage-xsc3.c
+@@ -21,53 +21,46 @@
+ 
+ /*
+  * XSC3 optimised copy_user_highpage
+- *  r0 = destination
+- *  r1 = source
+  *
+  * The source page may have some clean entries in the cache already, but we
+  * can safely ignore them - break_cow() will flush them out of the cache
+  * if we eventually end up using our copied page.
+  *
+  */
+-static void __naked
+-xsc3_mc_copy_user_page(void *kto, const void *kfrom)
++static void xsc3_mc_copy_user_page(void *kto, const void *kfrom)
+ {
+-	asm("\
+-	stmfd	sp!, {r4, r5, lr}		\n\
+-	mov	lr, %2				\n\
+-						\n\
+-	pld	[r1, #0]			\n\
+-	pld	[r1, #32]			\n\
+-1:	pld	[r1, #64]			\n\
+-	pld	[r1, #96]			\n\
++	int tmp;
++
++	asm volatile ("\
++	pld	[%1, #0]			\n\
++	pld	[%1, #32]			\n\
++1:	pld	[%1, #64]			\n\
++	pld	[%1, #96]			\n\
+ 						\n\
+-2:	ldrd	r2, [r1], #8			\n\
+-	mov	ip, r0				\n\
+-	ldrd	r4, [r1], #8			\n\
+-	mcr	p15, 0, ip, c7, c6, 1		@ invalidate\n\
+-	strd	r2, [r0], #8			\n\
+-	ldrd	r2, [r1], #8			\n\
+-	strd	r4, [r0], #8			\n\
+-	ldrd	r4, [r1], #8			\n\
+-	strd	r2, [r0], #8			\n\
+-	strd	r4, [r0], #8			\n\
+-	ldrd	r2, [r1], #8			\n\
+-	mov	ip, r0				\n\
+-	ldrd	r4, [r1], #8			\n\
+-	mcr	p15, 0, ip, c7, c6, 1		@ invalidate\n\
+-	strd	r2, [r0], #8			\n\
+-	ldrd	r2, [r1], #8			\n\
+-	subs	lr, lr, #1			\n\
+-	strd	r4, [r0], #8			\n\
+-	ldrd	r4, [r1], #8			\n\
+-	strd	r2, [r0], #8			\n\
+-	strd	r4, [r0], #8			\n\
++2:	ldrd	r2, [%1], #8			\n\
++	ldrd	r4, [%1], #8			\n\
++	mcr	p15, 0, %0, c7, c6, 1		@ invalidate\n\
++	strd	r2, [%0], #8			\n\
++	ldrd	r2, [%1], #8			\n\
++	strd	r4, [%0], #8			\n\
++	ldrd	r4, [%1], #8			\n\
++	strd	r2, [%0], #8			\n\
++	strd	r4, [%0], #8			\n\
++	ldrd	r2, [%1], #8			\n\
++	ldrd	r4, [%1], #8			\n\
++	mcr	p15, 0, %0, c7, c6, 1		@ invalidate\n\
++	strd	r2, [%0], #8			\n\
++	ldrd	r2, [%1], #8			\n\
++	subs	%2, %2, #1			\n\
++	strd	r4, [%0], #8			\n\
++	ldrd	r4, [%1], #8			\n\
++	strd	r2, [%0], #8			\n\
++	strd	r4, [%0], #8			\n\
+ 	bgt	1b				\n\
+-	beq	2b				\n\
+-						\n\
+-	ldmfd	sp!, {r4, r5, pc}"
+-	:
+-	: "r" (kto), "r" (kfrom), "I" (PAGE_SIZE / 64 - 1));
++	beq	2b				"
++	: "+&r" (kto), "+&r" (kfrom), "=&r" (tmp)
++	: "2" (PAGE_SIZE / 64 - 1)
++	: "r2", "r3", "r4", "r5");
+ }
+ 
+ void xsc3_mc_copy_user_highpage(struct page *to, struct page *from,
+@@ -85,8 +78,6 @@ void xsc3_mc_copy_user_highpage(struct page *to, struct page *from,
+ 
+ /*
+  * XScale optimised clear_user_page
+- *  r0 = destination
+- *  r1 = virtual user address of ultimate destination page
+  */
+ void xsc3_mc_clear_user_highpage(struct page *page, unsigned long vaddr)
+ {
+diff --git a/arch/arm/mm/copypage-xscale.c b/arch/arm/mm/copypage-xscale.c
+index 0fb85025344d..c775d4b7adb0 100644
+--- a/arch/arm/mm/copypage-xscale.c
++++ b/arch/arm/mm/copypage-xscale.c
+@@ -36,52 +36,51 @@ static DEFINE_RAW_SPINLOCK(minicache_lock);
+  * Dcache aliasing issue.  The writes will be forwarded to the write buffer,
+  * and merged as appropriate.
+  */
+-static void __naked
+-mc_copy_user_page(void *from, void *to)
++static void mc_copy_user_page(void *from, void *to)
+ {
++	int tmp;
++
+ 	/*
+ 	 * Strangely enough, best performance is achieved
+ 	 * when prefetching destination as well.  (NP)
+ 	 */
+-	asm volatile(
+-	"stmfd	sp!, {r4, r5, lr}		\n\
+-	mov	lr, %2				\n\
+-	pld	[r0, #0]			\n\
+-	pld	[r0, #32]			\n\
+-	pld	[r1, #0]			\n\
+-	pld	[r1, #32]			\n\
+-1:	pld	[r0, #64]			\n\
+-	pld	[r0, #96]			\n\
+-	pld	[r1, #64]			\n\
+-	pld	[r1, #96]			\n\
+-2:	ldrd	r2, [r0], #8			\n\
+-	ldrd	r4, [r0], #8			\n\
+-	mov	ip, r1				\n\
+-	strd	r2, [r1], #8			\n\
+-	ldrd	r2, [r0], #8			\n\
+-	strd	r4, [r1], #8			\n\
+-	ldrd	r4, [r0], #8			\n\
+-	strd	r2, [r1], #8			\n\
+-	strd	r4, [r1], #8			\n\
++	asm volatile ("\
++	pld	[%0, #0]			\n\
++	pld	[%0, #32]			\n\
++	pld	[%1, #0]			\n\
++	pld	[%1, #32]			\n\
++1:	pld	[%0, #64]			\n\
++	pld	[%0, #96]			\n\
++	pld	[%1, #64]			\n\
++	pld	[%1, #96]			\n\
++2:	ldrd	r2, [%0], #8			\n\
++	ldrd	r4, [%0], #8			\n\
++	mov	ip, %1				\n\
++	strd	r2, [%1], #8			\n\
++	ldrd	r2, [%0], #8			\n\
++	strd	r4, [%1], #8			\n\
++	ldrd	r4, [%0], #8			\n\
++	strd	r2, [%1], #8			\n\
++	strd	r4, [%1], #8			\n\
+ 	mcr	p15, 0, ip, c7, c10, 1		@ clean D line\n\
+-	ldrd	r2, [r0], #8			\n\
++	ldrd	r2, [%0], #8			\n\
+ 	mcr	p15, 0, ip, c7, c6, 1		@ invalidate D line\n\
+-	ldrd	r4, [r0], #8			\n\
+-	mov	ip, r1				\n\
+-	strd	r2, [r1], #8			\n\
+-	ldrd	r2, [r0], #8			\n\
+-	strd	r4, [r1], #8			\n\
+-	ldrd	r4, [r0], #8			\n\
+-	strd	r2, [r1], #8			\n\
+-	strd	r4, [r1], #8			\n\
++	ldrd	r4, [%0], #8			\n\
++	mov	ip, %1				\n\
++	strd	r2, [%1], #8			\n\
++	ldrd	r2, [%0], #8			\n\
++	strd	r4, [%1], #8			\n\
++	ldrd	r4, [%0], #8			\n\
++	strd	r2, [%1], #8			\n\
++	strd	r4, [%1], #8			\n\
+ 	mcr	p15, 0, ip, c7, c10, 1		@ clean D line\n\
+-	subs	lr, lr, #1			\n\
++	subs	%2, %2, #1			\n\
+ 	mcr	p15, 0, ip, c7, c6, 1		@ invalidate D line\n\
+ 	bgt	1b				\n\
+-	beq	2b				\n\
+-	ldmfd	sp!, {r4, r5, pc}		"
+-	:
+-	: "r" (from), "r" (to), "I" (PAGE_SIZE / 64 - 1));
++	beq	2b				"
++	: "+&r" (from), "+&r" (to), "=&r" (tmp)
++	: "2" (PAGE_SIZE / 64 - 1)
++	: "r2", "r3", "r4", "r5", "ip");
+ }
+ 
+ void xscale_mc_copy_user_highpage(struct page *to, struct page *from,
 -- 
 2.34.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20211220122506.3631672-2-anders.roxell%40linaro.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20211220122506.3631672-3-anders.roxell%40linaro.org.
