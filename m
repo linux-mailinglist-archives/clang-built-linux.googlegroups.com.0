@@ -1,132 +1,133 @@
-Return-Path: <clang-built-linux+bncBCOM3EN3WECRB26IZKIAMGQEAN6Y3ZA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB37M2WIAMGQETZ67NHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43f.google.com (mail-wr1-x43f.google.com [IPv6:2a00:1450:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 912DF4BD173
-	for <lists+clang-built-linux@lfdr.de>; Sun, 20 Feb 2022 21:28:27 +0100 (CET)
-Received: by mail-wr1-x43f.google.com with SMTP id w26-20020adf8bda000000b001e33dbc525csf6277770wra.18
-        for <lists+clang-built-linux@lfdr.de>; Sun, 20 Feb 2022 12:28:27 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1645388907; cv=pass;
+Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5B54C4C0589
+	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Feb 2022 00:49:04 +0100 (CET)
+Received: by mail-io1-xd40.google.com with SMTP id 24-20020a5d9c18000000b0064075f4edbdsf9690064ioe.19
+        for <lists+clang-built-linux@lfdr.de>; Tue, 22 Feb 2022 15:49:04 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1645573743; cv=pass;
         d=google.com; s=arc-20160816;
-        b=b8jDpeXFhoBIZ1H5wVMCBwTP4TcVWceDvguvpxLrWBUb/+jbs4RfH9zX93SDy+PaQl
-         W5f9fOcxSsMt+wdADc67sW9Pccn3xF4vwU9+mCKbOorkO3zMDZmbDS6tng1rldLFJHsR
-         8c4lwPCvUPzV3TlqU0b8EOA71o5ZsNxpCvEjHhd/7FK5jWaA5lWcIu9sz7GCuZUJ9+HN
-         omNhkrpI4jcjti1VTeGsjjSr0R06254C7ZZU2GsUB3sdE3euxh00xD5+MiHBQTxjHx6X
-         ybUuHGnbPvZPy3r9Q7C1Bb9dkmyUkQzz3oC/zSzgTXi9XIHuIHuy5SS7Fh7p0hZjXqGs
-         XoTQ==
+        b=MmsK08ZO/tK1XUoSN38CXRHjETrEPVVmPAhNmSQJEleA9yd273vu6sV9V/fAkXIjj5
+         1pWSJ8gy1hwBXvq+CITZSxPlpzLBj9zcC7Wrvu6NRWfGbuTjPpKqv5zK8ha28UbA53uM
+         RT48NwchQvlWreACydlxomg34JtkKKKUZc8enqs5YbBIgYgQ2e2tLzYmYpAoop4z4UFc
+         43oWvzq9BP2VCteHuoDN7u9NoZ/u8kBDLOu2bv6rBJ0Gz+YgInf1BxVq1gZyYwT+m4Tk
+         Kxgx06UTrFfsgsCCDoItheHWK9JwtafTQ6FUFNGhtzg68ZeuzXCZh8gdAY/dv4IiZrnr
+         pihA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:to:subject:message-id:date:from
-         :reply-to:mime-version:sender:dkim-signature:dkim-signature;
-        bh=T3v/nZkMMDlyJzHJYPRZY4FxXqzDqi/No301ljFNXac=;
-        b=lxQWtd8uYX/qs9ZPNIgcKz9DxoKyP8NBlP6cELw1kekfZkdXt8HQAx+jGU0UfuEy2A
-         tgAhW4lmqPMwwZ4m/GHgA0DjgHjUaH5H1kHHPX8YgAGPfXQz49iQ/iuiILHo+8QzHikI
-         lIROEygIJ5ZUJHmnO3SYmH3Bvs5PitRxwblfYAw0vi14nZ3UT/rW61gDrD+1NJfqwTQa
-         /n0F0vtm7tZDi2uQBvDYV3J9XA3Gs9jBNxQDkwnJc6fDhtlk3HKGrBF8RExmZC+gURcE
-         OkPtFXwUihPm/fu5C96q7AVkox/xgR1gUWyBcJcGtFX6Oaq7B9nkKo5EzZWpql8PZusL
-         Bs6Q==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=ZGXux0pjXMf5ISJHaOCzU0eFyzKubZfZGY1CtmI8TzA=;
+        b=dh2urbJAM2tHsbLBlXOqybB4XCNzpPDWxEnwAFupZICdNPUF/Ukr7wSh1cDcc0qzj2
+         6HfZnPPFPDhUxyr0fsv351SieLhuwsrIAw7d3t5wTR5dXcnBwU6VpOMR73DgCio2hO7Y
+         mW80vIis/T8YXLqnyhiWnZA/QSA8SLglEf6V70UlzjQLrdtvQzXU/uU3CX+fBthvC/Mg
+         rqWYfNueoAf1JwuZoRXC/FvY2thmorsfr3f++LPD2zzxE9XyoMIkbAkeyfteXnWivKzK
+         IZryXF9VRW4Di47lJnqH1C6/sa2zrfUIXW8Gua4dz9ByUOAeEfDrjNUP8WXKILo7FPkO
+         8NXA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20210112 header.b=ow7PfGZs;
-       spf=pass (google.com: domain of festusbanailla@gmail.com designates 2a00:1450:4864:20::52b as permitted sender) smtp.mailfrom=festusbanailla@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=ZmrKv5e3;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52a as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:mime-version:reply-to:from:date:message-id:subject:to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=T3v/nZkMMDlyJzHJYPRZY4FxXqzDqi/No301ljFNXac=;
-        b=ihFCIvg2iCPklzlu0N7FIdKd9aDj65W1ZfIrW1+R2m9eiLipz/xeGXfRRchbbdmSon
-         8Oatiozjctm4kIca+XGrcWaVAPGDMIu2Xlc+lQuork881TTAQAV1/P1yW2h2XjIVdtga
-         51q8bPaPaCh+piV2L4XelfCZTyEI7dqibKF+Ic9YqKRFc40ar5nJiiyrh+0F9lJMFVkr
-         WkIrlQ/6g0jIULlJGC2aWBC8dmd+3ZkWIsoP6ziyeDgC6na7l7o2kHKPFqVbvaJo+ATc
-         wyc4wFc82saTuZPq82KbRw4XSkpV0AZ3edt/KCG/aiVUmhLjMZPTmiQ8IEwxcKYLc82G
-         avcg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=mime-version:reply-to:from:date:message-id:subject:to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=T3v/nZkMMDlyJzHJYPRZY4FxXqzDqi/No301ljFNXac=;
-        b=JbpHWcUJw6h77WGfKbFT/MQvHtwlENBJCnowCob2GcrZ2uQjangVblOru9/OVeAEL5
-         Du6Fewb/Zt1sLFMpait5o4+aZjF3kmAEdyzSiUDvt4k+uW9Jq2pVbp23MUaKm1blqPXG
-         8T1MN493a/Igm0aSK5DCmbm0l4VnUGd6FN5DT1T8qD0MN7E+dY4RAjNCU3gL7u4h28jN
-         dJeRjHNj4VgMGwCuz57YquHtPUxRwFE718i9llFq/iA1l2xAEBa3Cto2yITDGjPEOygz
-         7HMLnGjRMT9Lpd8pA3YS3MNjmkRO5BxoDj2PtFjDCMBxDOX+tZN2nUcan0kJE0FPCCSN
-         fG6w==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ZGXux0pjXMf5ISJHaOCzU0eFyzKubZfZGY1CtmI8TzA=;
+        b=tMoNEtdRhrayq3JS7kb87j3EbmNf8KcL2eWOu5sbOfSyk4fghLzFHKNWQoWI7Dz8ik
+         fAOWWIzjCK5a5RARoVVbphLYHjr4W/Rhp9MjM8uVcqrVcYnVFPYU3RcCsG2UhBxwiIBu
+         dM5D2VzRQIPaQNlbGc/Uhxq8krGSyjOk3lFn4qmILQYtFo4VHV7L6GTtGugchOsh3mQF
+         iKA8eGrlFnh8xa5nmpX7GVKHl4YLB1lUivMw4Uh+ffsaeybIVOI11adc2AR+JuWbh0OJ
+         FVIZCea1/ivUGMRG8LA2wPfDHU4CdEIB1DHrbVi2cSFHeNNbqRBT4SKmE7r4/yWV3Qgf
+         36Sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:mime-version:reply-to:from:date
-         :message-id:subject:to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=T3v/nZkMMDlyJzHJYPRZY4FxXqzDqi/No301ljFNXac=;
-        b=Q+9yPKx8YedKNQkQVwt4pK4la+PY8OHEkd65XVJF6CsCY1upR571MiwXDCgefDgtwp
-         ih4aYwLoUfUa0um9t8ZAFBva8/UnbNfdfuVmcIOD7c5s2kGo3IGRenq7R3mmVmnMTagj
-         D6t+jZGXtiQOSzhGGLCICSIzojlqmQ2VAVi+0z4wp/DD57e8Li/xrxUENGeSjyQOe4ek
-         vB3193zR1K9uMN56ZGXHgvGMJZsWSGBkRVkrQe05k1jlJnATWEeTcTuZocdkWA3IcMoW
-         ghoPRw/tf5zfgRbstCE5LL3RWFCIEJPspNR+P6MIzFa39i2NfhySJyotokphwHxer0cb
-         5evQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ZGXux0pjXMf5ISJHaOCzU0eFyzKubZfZGY1CtmI8TzA=;
+        b=yv17w6QGSpY3HoFIdUcMLaOfOJFBvWOar7cXqNTCZzerE7gB6GU5DzPoegCwxKCMCB
+         IMc5pNrPWXni6Qq3Tz/IQTJELgYW0QcIFLLS1CQZ3h9Y00J+H9bhf7yzzYdSzUN3/j+l
+         JO4SgVu8qWK0vwoDu+wkSAELEQvzNWEMYzW7rDAg/RV7xMUKb+1qx4MjsqHb7lOd8/57
+         pUWf3a7hWK0izJ+REk11yWeTwPWXN8XqFEdiP0RbZ6IMNIWxZQvIDvsUUgMlclj4iBX4
+         2z9cvLwkTmiKuzAsCOLPaJ48QhvvP2GvgEz/cXR6V1ABmKKVkvenpzgQS0IjWIbyZBp3
+         Tpdg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5312CYhuZzL5exx8jWaa+857EKo+3MxlbhSxD+yspESYyVtrv638
-	BWrU4lQdLefqLl3qqjSKyc8=
-X-Google-Smtp-Source: ABdhPJww2/wowj2v9dH/ZOTV9RdJrYDYvBwJlJICLon7NbKVWNTEcnRib/37AlFhDh1hYkDprHwaGw==
-X-Received: by 2002:a5d:648b:0:b0:1e2:181:96cb with SMTP id o11-20020a5d648b000000b001e2018196cbmr13345308wri.508.1645388907226;
-        Sun, 20 Feb 2022 12:28:27 -0800 (PST)
+X-Gm-Message-State: AOAM533MxQBXlVvAnuxQd8yDVtRN30kIoKuJ0+Gzh1dpVTU6Oh6vfOvn
+	sbQv57NZ/ff1QNsmnBu30nY=
+X-Google-Smtp-Source: ABdhPJxofV92hNxUuG7VeawsEz2Vl767HIcsvJTNqdDJhPN1x8LwYUoPmo/S3vQjJAYGBi/FTxZROA==
+X-Received: by 2002:a05:6638:23b:b0:314:a260:1c0f with SMTP id f27-20020a056638023b00b00314a2601c0fmr19583251jaq.26.1645573743334;
+        Tue, 22 Feb 2022 15:49:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:fec3:0:b0:1e3:3e51:b38d with SMTP id q3-20020adffec3000000b001e33e51b38dls18169wrs.1.gmail;
- Sun, 20 Feb 2022 12:28:26 -0800 (PST)
-X-Received: by 2002:a05:6000:c9:b0:1e4:bcc1:f806 with SMTP id q9-20020a05600000c900b001e4bcc1f806mr13436556wrx.372.1645388906359;
-        Sun, 20 Feb 2022 12:28:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1645388906; cv=none;
+Received: by 2002:a05:6e02:1b8b:b0:2bf:a93f:e5b7 with SMTP id
+ h11-20020a056e021b8b00b002bfa93fe5b7ls3447531ili.2.gmail; Tue, 22 Feb 2022
+ 15:49:03 -0800 (PST)
+X-Received: by 2002:a05:6e02:1c49:b0:2c1:ec10:70af with SMTP id d9-20020a056e021c4900b002c1ec1070afmr16088064ilg.184.1645573742967;
+        Tue, 22 Feb 2022 15:49:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1645573742; cv=none;
         d=google.com; s=arc-20160816;
-        b=B8hrJToW7dDD3UgLLNeXhF1iyfDJT6abeT/dKA94npZOUy069+yEdr4y+vwOIUDBHV
-         N7DGkzLDTBiiTw8V53ot+2RwRg93tY9fG8a8DnHDvYYxYyIH0NgsXqI4ea39vybSPPnk
-         aoFVvwfA+V1YudjOizYwKZDjePXjczB+MSs2241DXR4Dgm6UoJEUarMCDmh8yJr1un62
-         vw4NuYWYntyD+N3l2z6MKLcyi/77oRfieeBAGrKsxY2CG1J6mMYnE2Elq5NvZYQuHoKl
-         ga2eoP6s8yRDJw1tpfGlv2q9jvQf5JqQqNzXqsb9GWuUzVazwjlQIPCOnHWes5qfwUnb
-         EcGw==
+        b=rZPL0t5yz97IJJeIlHjBhg4ykzIWmXd58sZT2ZDx3wnVDdbvhYE/xyWREhgFPSvfcB
+         /1A83n7jFrzkv1YVOl7ahxiuP11F8thva9lKg6l0zd4pF1KtIh8VdfEh5KsOupXBZqag
+         28cVbPBMqLh0F2/Zcmh6d9mfa+9s4jol41FYyh/ipzFHnbdIu4PP292tCALmD7qSxCWs
+         G7pdGTe658ITHn0orEqg7/d7gOo52aP0QnIF7wRURlmb0UqLmylzi+0eGICVLsO1E0m4
+         q6ifGuANKNfMaHk8H9Vy0cf60ILev195PAYAIykk2mJr1dj5ux2ztFvIEMX+txa/3RKj
+         dMBw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=to:subject:message-id:date:from:reply-to:mime-version
-         :dkim-signature;
-        bh=/XMbsarxVjDShZq7gdRu1m0M4b8NENi/PWnkby/P4Zg=;
-        b=VWgZ8Ca7fG5VFg6qzWRA9iz7dcq2Y6J56Z2vAzfbUyTS9V8vt73+Fr0h4MAqwfqcDO
-         9K5a3X7jVgOabkCiUy+5StYxwdGcmNZMebgnHzbz1V8boW/nksCoWdnyObx0S597+W+5
-         pOtkdzBMfBldZbMyIC11LDnEx2ivMZzQIoHgRJwTtzy4BECYbhzjsWrdGWxxEEPAG++t
-         j0Q2zWJd0sGUXFXAKbr8JJsGRxh8bHq35/3oE8aiZBXJtHMuAyGoe0v/8lxOb0+G8SJO
-         GZcqoe612Ei8v7dqAVcrqB+mwhND1xC5XP1rFwJNyHQEm6KFsqLmAHnwQMIaInhPXy8Y
-         EDEA==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=k4qXAFqi0ySdR1Aw0Ol4TjEnW6pDCjdujI4uqf/WnnU=;
+        b=utHQJAjeI6QY5yMZzG/+Snoe2uLpsXhY07JNt3hLGDbq7KquacJtzlNcKEBm5gnOZH
+         euUUDHL7YFTFjHtz5iFaY5BKXxtgQwJURHxVbk2orO/o8DJBR1n1Tkgt9YTlt/8ycOrM
+         KaSIiBGQm8m6U8NHqas28gXWSojL/ThLrVtVxnfQyau9qQas8TTdZ3GTkE39TyZwdudW
+         wv6fbw3OWZxwDwcIPBj608DPl0TjiTORY23MV0QDwEqkLk7MLTa2ZeHViOvoa+XQoINQ
+         ejkycypjvdeYNegOvuUO/Sox6fr3Oozzqi6PrFk2pFaOhMIc6oQ9tppgk+CgZnTA5onv
+         HpLg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20210112 header.b=ow7PfGZs;
-       spf=pass (google.com: domain of festusbanailla@gmail.com designates 2a00:1450:4864:20::52b as permitted sender) smtp.mailfrom=festusbanailla@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ed1-x52b.google.com (mail-ed1-x52b.google.com. [2a00:1450:4864:20::52b])
-        by gmr-mx.google.com with ESMTPS id k39-20020a05600c1ca700b0037bb8ca0e20si183202wms.2.2022.02.20.12.28.26
+       dkim=pass header.i=@chromium.org header.s=google header.b=ZmrKv5e3;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52a as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pg1-x52a.google.com (mail-pg1-x52a.google.com. [2607:f8b0:4864:20::52a])
+        by gmr-mx.google.com with ESMTPS id n10si3260845jaj.0.2022.02.22.15.49.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 20 Feb 2022 12:28:26 -0800 (PST)
-Received-SPF: pass (google.com: domain of festusbanailla@gmail.com designates 2a00:1450:4864:20::52b as permitted sender) client-ip=2a00:1450:4864:20::52b;
-Received: by mail-ed1-x52b.google.com with SMTP id bq11so4021056edb.2
-        for <clang-built-linux@googlegroups.com>; Sun, 20 Feb 2022 12:28:26 -0800 (PST)
-X-Received: by 2002:aa7:cc96:0:b0:410:b9ac:241 with SMTP id
- p22-20020aa7cc96000000b00410b9ac0241mr18813178edt.246.1645388906003; Sun, 20
- Feb 2022 12:28:26 -0800 (PST)
+        Tue, 22 Feb 2022 15:49:02 -0800 (PST)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52a as permitted sender) client-ip=2607:f8b0:4864:20::52a;
+Received: by mail-pg1-x52a.google.com with SMTP id p23so18359193pgj.2
+        for <clang-built-linux@googlegroups.com>; Tue, 22 Feb 2022 15:49:02 -0800 (PST)
+X-Received: by 2002:a63:224c:0:b0:372:9ec7:e7e4 with SMTP id t12-20020a63224c000000b003729ec7e7e4mr21075101pgm.385.1645573742144;
+        Tue, 22 Feb 2022 15:49:02 -0800 (PST)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+        by smtp.gmail.com with ESMTPSA id z14sm19080775pfe.30.2022.02.22.15.49.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Feb 2022 15:49:01 -0800 (PST)
+Date: Tue, 22 Feb 2022 15:49:00 -0800
+From: Kees Cook <keescook@chromium.org>
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Xuefeng Li <lixuefeng@loongson.cn>,
+	Juxin Gao <gaojuxin@loongson.cn>, linux-mips@vger.kernel.org,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH] MIPS: Modernize READ_IMPLIES_EXEC
+Message-ID: <202202221548.40C0AA5E@keescook>
+References: <20210901194208.2420671-1-keescook@chromium.org>
 MIME-Version: 1.0
-Reply-To: anthonykuja8@gmail.com
-From: MR ANTHONY KUJA <festusbanailla@gmail.com>
-Date: Sun, 20 Feb 2022 22:28:10 +0200
-Message-ID: <CAMid4LTPV9MimdzXrV3GmjYS8zt4zZP=3FcuLQjS=Xqie-vObQ@mail.gmail.com>
-Subject: NOCL OIL LICENSE
-To: undisclosed-recipients:;
-Content-Type: multipart/alternative; boundary="00000000000042828205d878f5a5"
-X-Original-Sender: festusbanailla@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20210901194208.2420671-1-keescook@chromium.org>
+X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20210112 header.b=ow7PfGZs;       spf=pass
- (google.com: domain of festusbanailla@gmail.com designates
- 2a00:1450:4864:20::52b as permitted sender) smtp.mailfrom=festusbanailla@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@chromium.org header.s=google header.b=ZmrKv5e3;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::52a
+ as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,101 +140,111 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---00000000000042828205d878f5a5
-Content-Type: text/plain; charset="UTF-8"
+Friendly ping. :)
 
-Good Morning,
+On Wed, Sep 01, 2021 at 12:42:08PM -0700, Kees Cook wrote:
+> I'm doing some thread necromancy of
+> https://lore.kernel.org/lkml/202007081624.82FA0CC1EA@keescook/
+> 
+> x86, arm64, and arm32 adjusted their READ_IMPLIES_EXEC logic to better
+> align with the safer defaults and the interactions with other mappings,
+> which I illustrated with this comment on x86:
+> 
+> /*
+>  * An executable for which elf_read_implies_exec() returns TRUE will
+>  * have the READ_IMPLIES_EXEC personality flag set automatically.
+>  *
+>  * The decision process for determining the results are:
+>  *
+>  *                 CPU: | lacks NX*  | has NX, ia32     | has NX, x86_64 |
+>  * ELF:                 |            |                  |                |
+>  * ---------------------|------------|------------------|----------------|
+>  * missing PT_GNU_STACK | exec-all   | exec-all         | exec-none      |
+>  * PT_GNU_STACK == RWX  | exec-stack | exec-stack       | exec-stack     |
+>  * PT_GNU_STACK == RW   | exec-none  | exec-none        | exec-none      |
+>  *
+>  *  exec-all  : all PROT_READ user mappings are executable, except when
+>  *              backed by files on a noexec-filesystem.
+>  *  exec-none : only PROT_EXEC user mappings are executable.
+>  *  exec-stack: only the stack and PROT_EXEC user mappings are
+>  *  executable.
+>  *
+>  *  *this column has no architectural effect: NX markings are ignored by
+>  *   hardware, but may have behavioral effects when "wants X" collides with
+>  *   "cannot be X" constraints in memory permission flags, as in
+>  *   https://lkml.kernel.org/r/20190418055759.GA3155@mellanox.com
+>  *
+>  */
+> 
+> For MIPS, the "lacks NX" above is the "!cpu_has_rixi" check. On x86,
+> we decided that the READ_IMPLIES_EXEC flag needed to reflect the
+> expectations, not the architectural behavior due to bad interactions
+> as noted above, as always returning "1" on non-NX hardware breaks
+> some mappings.
+> 
+> The other part of the issue is "what does the MIPS toolchain do for
+> PT_GNU_STACK?" The answer seems to be "by default, include PT_GNU_STACK,
+> but mark it executable" (likely due to concerns over non-NX hardware):
+> 
+> $ mipsel-linux-gnu-gcc -o hello_world hello_world.c
+> $ llvm-readelf -lW hellow_world | grep GNU_STACK
+>   GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RWE 0x10
+> 
+> Given that older hardware doesn't support non-executable memory, it
+> seems safe to make the "PT_GNU_STACK is absent" logic mean "assume
+> non-executable", but this might break very old software running on
+> modern MIPS. This situation matches the ia32-on-x86_64 logic x86
+> uses (which assumes needing READ_IMPLIES_EXEC in that situation). But
+> modern toolchains on modern MIPS hardware should follow a safer default
+> (assume NX stack).
+> 
+> A follow-up to this change would be to switch the MIPS toolchain to emit
+> a non-executable PT_GNU_STACK, as this seems to be unneeded.
+> 
+> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> Cc: Tiezhu Yang <yangtiezhu@loongson.cn>
+> Cc: Xuefeng Li <lixuefeng@loongson.cn>
+> Cc: Juxin Gao <gaojuxin@loongson.cn>
+> Cc: linux-mips@vger.kernel.org
+> Signed-off-by: Kees Cook <keescook@chromium.org>
+> ---
+>  arch/mips/kernel/elf.c | 16 +++++-----------
+>  1 file changed, 5 insertions(+), 11 deletions(-)
+> 
+> diff --git a/arch/mips/kernel/elf.c b/arch/mips/kernel/elf.c
+> index 7b045d2a0b51..5582a4ca1e9e 100644
+> --- a/arch/mips/kernel/elf.c
+> +++ b/arch/mips/kernel/elf.c
+> @@ -328,16 +328,10 @@ void mips_set_personality_nan(struct arch_elf_state *state)
+>  
+>  int mips_elf_read_implies_exec(void *elf_ex, int exstack)
+>  {
+> -	if (exstack != EXSTACK_DISABLE_X) {
+> -		/* The binary doesn't request a non-executable stack */
+> -		return 1;
+> -	}
+> -
+> -	if (!cpu_has_rixi) {
+> -		/* The CPU doesn't support non-executable memory */
+> -		return 1;
+> -	}
+> -
+> -	return 0;
+> +	/*
+> +	 * Set READ_IMPLIES_EXEC only on non-NX systems that
+> +	 * do not request a specific state via PT_GNU_STACK.
+> +	 */
+> +	return (!cpu_has_rixi && exstack == EXSTACK_DEFAULT);
+>  }
+>  EXPORT_SYMBOL(mips_elf_read_implies_exec);
+> -- 
+> 2.30.2
+> 
 
-Please permit me to introduce myself. I am  MR ANTHONY KUJA. I am an expert
-and specialist in the oil industry as an independent Feasibility/Project
-Management Consultant to oil refineries and other oil industries in
-Southern African, East Africa and some parts of Asia. Our mandate includes
-identifying specific licensed crude oil export/ marketing firms and
-recommending these firms to the oil refineries for supply of crude oil to
-the refineries.
-
-On my desk is a mandate from one of the refineries to arrange for crude oil
-purchase from Libya for up to 2,000,000 barrels on monthly bases for 12
-calendar months. The essence of my reaching out to you is the fact that I
-am in the process of building a middle man structure to mediate between the
-2 parties involved before the contract is signed. You may be wondering why
-I cannot do it by myself right? The honest fact is that as a consultant to
-these oil refineries, we are not allowed to act as suppliers of crude oil
-to them as well, hence the reason I need a trustworthy person outside my
-work circle in order to maintain a discreet profile.
-
-I wish to extend this partnership to you my friend to build a middle man
-structure with you, while I work from the back to guide you. Our
-commission/brokerage as middle persons is between $2 - $3 per barrel as
-case may be. So if the target of 2M barrels is met monthly we stand to
-share $4M - $6M every month for a span of 12 months with possible extension.
-
-Worry less about the speedy sales as I have contacts within oil producing
-country's top officials for license of crude oil export/lifting to any firm
-I present for this business. Therefore if you are able to handle this
-transaction with honesty and integrity, you should come back to me
-immediately for more details. Your urgent response is highly needed and you
-can reach me on the following email address below
-
-Regards.
-
-
-MR ANTHONY KUJA
-EMAIL - imfor100for10@gmail.com
-Independent Feasibility/Project Management Consultant
-Oil Refining Companies Africa/Asia
+-- 
+Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMid4LTPV9MimdzXrV3GmjYS8zt4zZP%3D3FcuLQjS%3DXqie-vObQ%40mail.gmail.com.
-
---00000000000042828205d878f5a5
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><br>Good Morning,<br><br>Please permit me to introduce mys=
-elf. I am =C2=A0MR ANTHONY KUJA. I am an expert and specialist in the oil i=
-ndustry as an independent Feasibility/Project Management Consultant to oil =
-refineries and other oil industries in Southern African, East Africa and so=
-me parts of Asia. Our mandate includes identifying specific licensed crude =
-oil export/ marketing firms and recommending these firms to the oil refiner=
-ies for supply of crude oil to the refineries.<br><br>On my desk is a manda=
-te from one of the refineries to arrange for crude oil purchase from Libya =
-for up to 2,000,000 barrels on monthly bases for 12 calendar months. The es=
-sence of my reaching out to you is the fact that I am in the process of bui=
-lding a middle man structure to mediate between the 2 parties involved befo=
-re the contract is signed. You may be wondering why I cannot do it by mysel=
-f right? The honest fact is that as a consultant to these oil refineries, w=
-e are not allowed to act as suppliers of crude oil to them as well, hence t=
-he reason I need a trustworthy person outside my work circle in order to ma=
-intain a discreet profile.<br><br>I wish to extend this partnership to you =
-my friend to build a middle man structure with you, while I work from the b=
-ack to guide you. Our commission/brokerage as middle persons is between $2 =
-- $3 per barrel as case may be. So if the target of 2M barrels is met month=
-ly we stand to share $4M - $6M every month for a span of 12 months with pos=
-sible extension.<br><br>Worry less about the speedy sales as I have contact=
-s within oil producing country&#39;s top officials for license of crude oil=
- export/lifting to any firm I present for this business. Therefore if you a=
-re able to handle this transaction with honesty and integrity, you should c=
-ome back to me immediately for more details. Your urgent response is highly=
- needed and you can reach me on the following email address below<br><br>Re=
-gards.<br><br><br>MR ANTHONY KUJA<br>EMAIL - <a href=3D"mailto:imfor100for1=
-0@gmail.com">imfor100for10@gmail.com</a><br>Independent Feasibility/Project=
- Management Consultant<br>Oil Refining Companies Africa/Asia<br></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CAMid4LTPV9MimdzXrV3GmjYS8zt4zZP%3D3FcuLQjS%3D=
-Xqie-vObQ%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://=
-groups.google.com/d/msgid/clang-built-linux/CAMid4LTPV9MimdzXrV3GmjYS8zt4zZ=
-P%3D3FcuLQjS%3DXqie-vObQ%40mail.gmail.com</a>.<br />
-
---00000000000042828205d878f5a5--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202202221548.40C0AA5E%40keescook.
