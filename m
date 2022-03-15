@@ -1,122 +1,122 @@
-Return-Path: <clang-built-linux+bncBDUNBGN3R4KRB67EYCIQMGQE4ONSWNA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDR5N7WPRQGRBIHUYOIQMGQEE4ND3RA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53d.google.com (mail-ed1-x53d.google.com [IPv6:2a00:1450:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id B518A4D9498
-	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Mar 2022 07:30:19 +0100 (CET)
-Received: by mail-ed1-x53d.google.com with SMTP id bq19-20020a056402215300b0040f276105a4sf10018189edb.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Mar 2022 23:30:19 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1647325819; cv=pass;
+Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 124E64DA423
+	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Mar 2022 21:42:10 +0100 (CET)
+Received: by mail-pj1-x103e.google.com with SMTP id h7-20020a17090adb8700b001c62f021a28sf309985pjv.1
+        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Mar 2022 13:42:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1647376928; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pF06t12X52BFvAJh2RSw1UvZsrrm54sWsy2HJgkYpVoFDEbKRsBfZiQU68PFSo6Afm
-         u9T3wNfqj9AQcpzDEfQhKlXCuQhPkifsXIFDFE6z2ulcXivVSYkit8r6YsKZPkWMu/I4
-         LioDaT0l8ipAPczvPQ2sLk3tASPAhRonJKAeq+SQhTxBz2FbnKtSbK/YBqSwiihV9xzo
-         yLh0vt1/knzhszKWJmnFRuzp2IfSj2rA4xkOiIq9PhfR25biyRVJnUzH6nHgU+xbYvDI
-         NhljlsOp71t2pg5SWwCxUhX24AGzBVo35gy++pMMQIUWRz+OL+s0Qeq4l7nU4LsA+2Jf
-         hzKw==
+        b=STYUBbVqUjxOZf4mkIVRKndBkYENKVRqhf3Hj+n0rod24uxJeDG+Wd9doUlBg5AFXd
+         Re3zI79XtKEYPNvs78sAPNL/xxwdNR3znFH/TaSLrLu4CAJNSg4DT/1Xl/Dz79hBMhxG
+         tTD2Q2gV29s0NhAF0jf+MAq/qe7Xq2/13yPTFXAEB2TzwXVze1L9WBtMHeotAujvPQfo
+         ak1elybQWpe+BKk45dohhud7+IqikBJy6TBKvAxgl151oj7Z/R+G1znOE9sDAn9weQ4/
+         qPILz553hH26skjV9Q7dPzTGRwVsEYbJQ/M6DLlUrhI8B4Ku985MOd/Lbmkxda1dQCU7
+         Aq9w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=fu93j0Ibg/AhGNbWnnp/RzLe5P1dyWTAGa/D5eJPWcA=;
-        b=pShRLxxeR/2ZwcbTalssP6pxiu0Sbh0vDJ6U3YgF7TBAKXZZzeooAJXKQFSrUJ8ga1
-         Zixh92+LWlWijNHpgKzKuFgA3ZN0gSalCWwqeD5kdmX5N8bhXzppu0Mxhey0qyOXwq18
-         7KOoZUD6y1qPo6ZL7CYiIRGw/B1t+QKB/TmXgEPAM29nfUZs/lEgpT4Y7DtfVsoQdpdJ
-         FMc/HSJxcgqU4fDbiPE0P5WJbIrnyN/1PY3h5bu68W2IIznyAFv85n4nnduNeQM69dKq
-         2Q+8sEKOo4X5eOCxQ2biM0nNQFzDU/NTGj0dI1cUrYaiQdDcgskUTnmnm4flkxLlVHK9
-         z3Gg==
+         :list-id:mailing-list:precedence:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:sender:dkim-signature;
+        bh=02QqR/pRalTXUPfOc2leiCognSaSQvdWWon028iONLQ=;
+        b=EJ0tv1k5AarwjCxfTk6Y5t8Bb+JTDh2ULh+xTkJ1ZccQCnOiPLQMxGve4qV8kdZMmB
+         AeA9LfCzCfMVq0kVwF0NBvgbhhDXgqwAFQv26dgYRIxwdyEJ7HtI4TdD+IJMA7LiaTXa
+         h3j2UE4EmAeTTA3D0PnUQmWkbAZUNrDw98AkWRPm3KQQHIfq9uj5hKY0q36WKVWbbyH6
+         8rzAvTva8eultb3sM7CJ1Js+RQm50BFuwfkdm5PUyBFSTbsIcMUF0x8X59lt/b6/G5sy
+         lVyG1JD5q44Jp48YV6Zn4ZlUyi52uw186MR5x8RbhtexWoR6Ae85BK/79grMvb/8xNkX
+         p7PQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of hch@lst.de designates 213.95.11.211 as permitted sender) smtp.mailfrom=hch@lst.de
+       dkim=pass header.i=@kernel-dk.20210112.gappssmtp.com header.s=20210112 header.b=JeaFSWMA;
+       spf=pass (google.com: domain of axboe@kernel.dk designates 2607:f8b0:4864:20::d34 as permitted sender) smtp.mailfrom=axboe@kernel.dk
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=fu93j0Ibg/AhGNbWnnp/RzLe5P1dyWTAGa/D5eJPWcA=;
-        b=CA/DL+0Y4/CSGFiG7i29aGfCHZPxQBOREcAGi+++IyPEaKH0xWk2+CFl+IcGgCpd46
-         5EEOc9OmYpVzi5Pry/7yrcQgUbC6tBbI7yNIHJ64qW+PuvFEj5G/I6c58CSLk+hO4t1m
-         RupEG0WHuGo39CDiAoekYfyLR+YAsJrEvvmPyA66xjJ2WUn+l6l86Ge0cpbqFQHwviov
-         j5njawEqWmkCOrLYFSRsi4PkkNcCmFD2/SFkXyh6t+XmU2DaWXOVFqG5n0/U2XntkJge
-         1Odwa+FI8m1anjRUouMpqwF1GNoTTjAC+E1X7SjaTU3UCORmaCxFF6zFk0iazKzELgkT
-         bzEQ==
+        h=sender:from:to:cc:in-reply-to:references:subject:message-id:date
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=02QqR/pRalTXUPfOc2leiCognSaSQvdWWon028iONLQ=;
+        b=M06mrbNMmlf4KCvR8uxQ8NtHYfSIFFOV3Ztb+z6lWmCkK+dC04HUWjDRQdYmTUh+Km
+         RWvxwJKWtoUV2gNLq5NHDlxwFbHGy6wW9Ct3u6Wx29NgDAes8g6mfZml4L1tqVvAfz/p
+         saWfcjX4Xb2S61Abnb8Q4W7lgcGyoHA1LuwdaD8SO5fDM3CtzoTBE5pvf4D7p/Scb5dM
+         SAf6xo7T4OqgUdsLeTcKGMD+5zTCr7cVCw++BCoqusY/FBiHwmEOV3sby52vKzGwxmfu
+         q22iQFPpPFZXsJupJOYghB91oiv8MWtIyKPiDhQNiydw0o2kmv9h0g8Q9zrV4ngN5C7X
+         EmGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=fu93j0Ibg/AhGNbWnnp/RzLe5P1dyWTAGa/D5eJPWcA=;
-        b=nH7BGCs2raKOnjGJorBdyOKB8gwZnRW5UBAM9oKguIIiaVrPRS6HcjRp6Kj1CH429O
-         3tPbKTVYwG509lXRK+Sq1wNSHBfg1nstvA+cTgvV4ovdw7CD73HW7yQyhFx8qUQuREpW
-         65yJntQu7ljfuzVvbca1kee96RfQc0xqF5QhV3XYDoaOpvrabi6YYi0wkXKMoiY53Swa
-         PvPO+vUbKFXffjAAwgmjDWfxhPkCdbYtahyeFPzFQDSx5R0WgEIYbDRuvsMk1RX06o4V
-         2E4rDwNDOEIlBnmHmmfzDlzV6WRItOYgqYnlmcqwC0XggJtVodNj2W86xRI/c+eKqfdh
-         ifpw==
+        h=sender:x-gm-message-state:from:to:cc:in-reply-to:references:subject
+         :message-id:date:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=02QqR/pRalTXUPfOc2leiCognSaSQvdWWon028iONLQ=;
+        b=blctSPdWAQ/Dirlp+StNz85t4ZMakdENBw+G2Kyjdp0v6hOSoJcNREvh4PXYu1mOxe
+         qf9vqWEy04XBs59sPPy1aLbqF8qQG0zwmolrVNLJMd1FaF4qA5igau7yUdlm1WZ0Gu3E
+         sRsqqWsMWL+o1jHtY+jdMvsnl37omjWqM9sT5/Ahe08wE2v0mk3Q0hrydUVIvoarXF6F
+         357NmYpNBtosc9n7NpLildDEaay3IU3TDqKzgsxZfDjZHHnyXLSMPiGvtQimr1GoTk++
+         peR3U+ryvaPQFtBwgzKklHPSSxh5oVDxBu+hirsk8mL1Cws/kiAH2YrvHTdi2hha/c4W
+         FCMg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5309z+U4j43wcvZ3FumabvQC2W7+PD8EJT8JK8sfuoFqYvUxy8Gg
-	DPwkwLxAHjLePcDcO9wU/3U=
-X-Google-Smtp-Source: ABdhPJz/zqfxH1l6tdcICPLIxq8Tt9r1rSayydbtWh8dqNvvKbDpUjiQbbVeqYLu7Wj8wVyPL/Yg5A==
-X-Received: by 2002:a17:906:5ad6:b0:6cf:5d7d:45e1 with SMTP id x22-20020a1709065ad600b006cf5d7d45e1mr21085053ejs.226.1647325819331;
-        Mon, 14 Mar 2022 23:30:19 -0700 (PDT)
+X-Gm-Message-State: AOAM530cs1eM1Oc3IRpP9cqaAaOPm2gvqajBWTG74wGv8+LlttyJe/g3
+	jLbKTbo3BxJPQu4Q2cRio8c=
+X-Google-Smtp-Source: ABdhPJxibb5wctKaqkBTnFb3yskJPJq3faaKFEfbgBmgtis09rXinjldRP/saGVFzf3Xc6SLTpnUuw==
+X-Received: by 2002:a17:90a:bd04:b0:1bf:951d:5bf2 with SMTP id y4-20020a17090abd0400b001bf951d5bf2mr6600183pjr.18.1647376928541;
+        Tue, 15 Mar 2022 13:42:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:54d:b0:6ce:e16a:c0a1 with SMTP id
- k13-20020a170906054d00b006cee16ac0a1ls5234313eja.6.gmail; Mon, 14 Mar 2022
- 23:30:18 -0700 (PDT)
-X-Received: by 2002:a17:907:1b25:b0:6da:8206:fc56 with SMTP id mp37-20020a1709071b2500b006da8206fc56mr20451051ejc.81.1647325818216;
-        Mon, 14 Mar 2022 23:30:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1647325818; cv=none;
+Received: by 2002:a17:902:9b8c:b0:151:eadc:9992 with SMTP id
+ y12-20020a1709029b8c00b00151eadc9992ls9659834plp.8.gmail; Tue, 15 Mar 2022
+ 13:42:08 -0700 (PDT)
+X-Received: by 2002:a17:902:f551:b0:153:b179:291a with SMTP id h17-20020a170902f55100b00153b179291amr1199309plf.13.1647376927939;
+        Tue, 15 Mar 2022 13:42:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1647376927; cv=none;
         d=google.com; s=arc-20160816;
-        b=ts88pvm9/9JDPohEEU9ofoaUK1+p1LB4LpfflGaqaF0iZ+21N7NxsjxuXlRd6ygGag
-         3XXwQEryFBooB0SKb25S/Kkz+H0wClP53aDV6ZKd/R6ER7sWjXOSsJlM2OeBx3ElnGc+
-         Zhqiitf7G1Htp8Ddvsf/HS/Au5nR1nSCAHL9qvCZ2pahNhHFBrn3LNVNxL002FNuM2c5
-         eZMPlxB8TKNSt7Q+ERjzNrlSlHWZzHSqWuzwcZN98ZE73wmwEwDUJXfwEz+JBe5gZLB6
-         RDuVpUUuxv9TMkDtSsi7iZB7uy0785H+EAp0h4kxYtH8uy0fZh07471yM2H8dCnMbW45
-         B3/g==
+        b=klW0shLbUgIOREvOi42hKQy+Fn2A657IFk5blDQ3tS4uSY4+HbetBkUg+3HdlTw5au
+         jXnRNy5QFMdHqzNjuXOK+a1XMnrTScgKrikTyWsSIKY6S7KYugRFgdWxKQOz4adC8GSl
+         QBejH11vBMVxy5wOd9LmYE2J2QhEc2jJNfY5ykPsG7cJj1Y3TO1M7lqWm4ETAaWd/bJU
+         WvszskNB1tQ1yBVmG/NjWICKs62PsMWGEjNPOh418ysaLlGGycdUr5acA5VAemxrHu2T
+         0jdSgkM5dRiXzQ4PyddoYaOHPKR1YV4R2T6XS1W6XoV0kG9L583xmw9LduVg7qYaRsBw
+         Ij8A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=ESCK1h/dS5vSXFJvcaG7DUVTdLRjXne97t3/B0cdRfY=;
-        b=NKSmpJo7dUg5yb6QqMI7TK+drhTc7YeiFVoRshvujgATfHKuugdm7213icEYRT2P5X
-         LPRGXHnQGV2B9zNpmPgzC1thenspEbm+M5XB7M6wEzOVVVNXzZAAPL3ZYFzBujUm2IQI
-         Rr+iNv/+Ui2dbAsOSKSvJgBiGXVK9h5f+tlrcAwrUCg0dH/WEMBXCOknQxRunaCRgNGm
-         HNVfa0H8Cb7sxR8mSrYIrly9Cz6P2kJm9y4FBi/jHl+SNq80Lm/HymxXI0UH2BYfaXfy
-         BLbvXzxisckRBuwFuBYQu6Zd0u/UuYhZEgBhY6PXrKpnCFqefa/78pu3KHEeuA0Ezf4v
-         iFsQ==
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:dkim-signature;
+        bh=3LYA3F2vS7/qRcuHKgfo+jK9meyWqLhonxVb0i4Hx5E=;
+        b=HF9YsYv47KkqzlhnaRTyLVwbkIxOHJ8NrtVpZyZUz2p5eepP8QJc9TQlayoJu8KWiT
+         z1LEyRM1Wty+c11s3HWU4hicMv6HISTMnGyVP9Hy5ZExT0FvofkEub08di1O19dVGKRd
+         TOu1oO4woFwkTheAW/lTcG+lMXAO0QmMgL052MCncobq0k2rZ+/azPm6OKSQMTZWPCY1
+         3Uy5+c1PbuhaD4Rl+CpkjOHt1t3LinN7/nNcXVhsWpFqpupuvUm1+ioVxaLoEQuqAkj7
+         XDEKXEvHFfZyvvxcBhewesYGvbPghVLI88EzyG85sLlFLCGCLI9Q5Otlo+4byNL7TNVo
+         qEGg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of hch@lst.de designates 213.95.11.211 as permitted sender) smtp.mailfrom=hch@lst.de
-Received: from verein.lst.de (verein.lst.de. [213.95.11.211])
-        by gmr-mx.google.com with ESMTPS id r16-20020aa7cb90000000b00410871504d8si981880edt.0.2022.03.14.23.30.18
+       dkim=pass header.i=@kernel-dk.20210112.gappssmtp.com header.s=20210112 header.b=JeaFSWMA;
+       spf=pass (google.com: domain of axboe@kernel.dk designates 2607:f8b0:4864:20::d34 as permitted sender) smtp.mailfrom=axboe@kernel.dk
+Received: from mail-io1-xd34.google.com (mail-io1-xd34.google.com. [2607:f8b0:4864:20::d34])
+        by gmr-mx.google.com with ESMTPS id d12-20020a170903230c00b0015382b58747si9904plh.0.2022.03.15.13.42.07
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 14 Mar 2022 23:30:18 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of hch@lst.de designates 213.95.11.211 as permitted sender) client-ip=213.95.11.211;
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 4C49968AFE; Tue, 15 Mar 2022 07:30:16 +0100 (CET)
-Date: Tue, 15 Mar 2022 07:30:15 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-Cc: Christoph Hellwig <hch@lst.de>, Jens Axboe <axboe@kernel.dk>,
-	linux-block@vger.kernel.org,
-	"James E . J . Bottomley" <jejb@linux.ibm.com>,
-	"Martin K . Petersen" <martin.petersen@oracle.com>,
-	linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com, kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH] sr: simplify the local variable initialization in
- sr_block_open()
-Message-ID: <20220315063015.GC1086@lst.de>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 15 Mar 2022 13:42:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of axboe@kernel.dk designates 2607:f8b0:4864:20::d34 as permitted sender) client-ip=2607:f8b0:4864:20::d34;
+Received: by mail-io1-xd34.google.com with SMTP id x4so180196iop.7
+        for <clang-built-linux@googlegroups.com>; Tue, 15 Mar 2022 13:42:07 -0700 (PDT)
+X-Received: by 2002:a05:6638:259:b0:319:e237:b6f9 with SMTP id w25-20020a056638025900b00319e237b6f9mr16110035jaq.186.1647376927106;
+        Tue, 15 Mar 2022 13:42:07 -0700 (PDT)
+Received: from [127.0.1.1] ([207.135.234.126])
+        by smtp.gmail.com with ESMTPSA id k5-20020a5d97c5000000b006412c791f90sm10260598ios.31.2022.03.15.13.42.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Mar 2022 13:42:06 -0700 (PDT)
+From: Jens Axboe <axboe@kernel.dk>
+To: linux-block@vger.kernel.org, Lukas Bulwahn <lukas.bulwahn@gmail.com>, Christoph Hellwig <hch@lst.de>
+Cc: "James E . J . Bottomley" <jejb@linux.ibm.com>, clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org, "Martin K . Petersen" <martin.petersen@oracle.com>, kernel-janitors@vger.kernel.org
+In-Reply-To: <20220314150321.17720-1-lukas.bulwahn@gmail.com>
 References: <20220314150321.17720-1-lukas.bulwahn@gmail.com>
+Subject: Re: [PATCH] sr: simplify the local variable initialization in sr_block_open()
+Message-Id: <164737692606.34720.13651107602467649811.b4-ty@kernel.dk>
+Date: Tue, 15 Mar 2022 14:42:06 -0600
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20220314150321.17720-1-lukas.bulwahn@gmail.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
-X-Original-Sender: hch@lst.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of hch@lst.de designates
- 213.95.11.211 as permitted sender) smtp.mailfrom=hch@lst.de
+X-Original-Sender: axboe@kernel.dk
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel-dk.20210112.gappssmtp.com header.s=20210112
+ header.b=JeaFSWMA;       spf=pass (google.com: domain of axboe@kernel.dk
+ designates 2607:f8b0:4864:20::d34 as permitted sender) smtp.mailfrom=axboe@kernel.dk
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,7 +129,7 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Mar 14, 2022 at 04:03:21PM +0100, Lukas Bulwahn wrote:
+On Mon, 14 Mar 2022 16:03:21 +0100, Lukas Bulwahn wrote:
 > Commit 01d0c698536f ("sr: implement ->free_disk to simplify refcounting")
 > refactored sr_block_open(), initialized one variable with a duplicate
 > assignment (probably an unintended copy & paste duplication) and turned one
@@ -139,20 +139,19 @@ On Mon, Mar 14, 2022 at 04:03:21PM +0100, Lukas Bulwahn wrote:
 > So, simplify the local variable initialization in sr_block_open() to make
 > the code a bit more clear.
 > 
-> No functional change. No change in resulting object code.
-> 
-> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@gmail.com>
-> ---
-> Christoph, please ack.
-> 
-> Jens, please pick this minor clean-up on your -next branch on top of the
-> commit above.
+> [...]
 
-Looks good:
+Applied, thanks!
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+[1/1] sr: simplify the local variable initialization in sr_block_open()
+      commit: 79d45f57a19537a1ec6ebf836944e968b154f86e
+
+Best regards,
+-- 
+Jens Axboe
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220315063015.GC1086%40lst.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/164737692606.34720.13651107602467649811.b4-ty%40kernel.dk.
