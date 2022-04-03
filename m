@@ -1,132 +1,119 @@
-Return-Path: <clang-built-linux+bncBAABB2P5TKJAMGQEA6TZIEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBOX2USJAMGQEMX6R4XI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6A25E4EEA0D
-	for <lists+clang-built-linux@lfdr.de>; Fri,  1 Apr 2022 10:59:22 +0200 (CEST)
-Received: by mail-il1-x137.google.com with SMTP id o17-20020a92c691000000b002c2c04aebe7sf1421011ilg.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 01 Apr 2022 01:59:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1648803561; cv=pass;
+Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1B45A4F080F
+	for <lists+clang-built-linux@lfdr.de>; Sun,  3 Apr 2022 08:22:52 +0200 (CEST)
+Received: by mail-lj1-x23b.google.com with SMTP id l7-20020a2e8687000000b0024b04e9c912sf1574378lji.11
+        for <lists+clang-built-linux@lfdr.de>; Sat, 02 Apr 2022 23:22:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1648966971; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RPX6wPV3kcTVrwme1REIAZ6sirdBN1GcbuAea+nq8qbB7Tx5LUgWCOD7QgP4kJpE6b
-         FegZ5XtB1kZjXoP67Ne/HYiFK3037GZEl7PqrbQGZzgzJYrl0k2X/Bb9SVUZITOMdO4m
-         x2ItSE/xnsqAscwI2sle3K69tQurUDzVUPfdU82R7NVMOpMf2co1f5FyMTIk5+voRW3Z
-         v3/TA7XkhZJZqBgmNUj985mSmgUkgrb2df6B/oikd3LXHpBCtIJ0a1z6FJWhvg86t9IN
-         V4jtU+Pj/bFqIvq0WJ8a/75NUpI7nzpCWw1NTk17hZt1z5/EX2Mw7nJ1JDJJgQ67nenx
-         AaNw==
+        b=DarkT6nRRGWw8sUhSxB22fKsGSsRdN4D1BJBcqy7IpLHuuv1PGztztbO/wnzlo2Bub
+         lUO4VkjkFLcNhjbH9uOX8aYw5IdO23oAuDX6N9/uAy8WHXt8WtqPDORJgMDc4wI4m9Qk
+         bpZAAHd3+umae4cOHk+bGRHaqtFsNV39NHxSybmFiH4Gs6Kf7UxdluR33TEB2x1MCZsQ
+         TlOIWXoiW3gZ5FeDVeSq6OhSqg1Z33bvEpIXFefzso9Gwm+lw7E8iHMs1Kue9lecpqXv
+         c+uVDzMMwG3zfhycxjW+htZ5KQf3UVrIjiH3jqb1bKwe3fNnKdAqpz64AsJTA7VwgC6S
+         ecuA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:mime-version:to
-         :subject:from:sender:dkim-signature;
-        bh=890uYm3NZHf9wBK53+vntkHLMxIzhgvwRGJWLsIDlEE=;
-        b=ZftEbCUN4F3PGQa1gdBcSmY+OBifW7LxvCC8xR5b7BRD1LwbUZNcNrY7VXgp1j5TrE
-         0gd5sD3Kd6MiidyDjqwsA+tT614aSoMfVOVUHmsJtI6UY2lV47SkRklXdCVTjtWtQoaT
-         BU1tj35g5u7C6fMCn/OpMFOMciJzKYa3iE9Dntu3+CwTjrjaN2Qx6Ws28fPywvGS1Tew
-         A2kZm08a0Kgxk+Z/78Y8JL2xnDd1dQLBEh3aczKDR5zv+XD+QaHmrT238yEgYiBzIf1D
-         Hja95M4sB5gbQapuBo5j3OEr/0ykLbJ5mpuvV3eDem6xqUqPH2VDD2X3gHu0vH0pHN5A
-         ISJw==
+         :list-id:mailing-list:precedence:mime-version:subject:message-id
+         :from:date:sender:dkim-signature;
+        bh=1UtZbdXmzOd8MLVuOgtLHW2bLMzYZ3Z9gXJXYWBwyac=;
+        b=0urU/mqvuYJAh3egKVeBslAGATIsWMTpy+4Vv7024LcVIM5/hfJbt7FOXYfV+pYXzk
+         NBGQjaq7gC1JznLP+XfJmPRBm/tP2m+D/FSE/7ugKAhtvCC2J0bMA3vn4J8Iq5xi9EpF
+         7jopoQLL2NEelki3LH7m5fuMokEEF3OXe7oRS1W5L5C0eFC/6PdPSEKj8YzrvpSmH8S+
+         9mL0D3N9owVn5MTG0agHi1+AhblHC8Oin54q5PwQhNdgF+8fkpRjevJFtgt+lFveUxm+
+         JkTk0LXTRoybYf/rFMrJZCX6kgjC7Wl49vggqYuT1cPMNWDD/QtXlxA2uOwuiUsTtuq8
+         ydtw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@casthebeltandroad.com.sg header.s=default header.b=d0lt7SvL;
-       spf=pass (google.com: domain of yuting.shi@casthebeltandroad.com.sg designates 27.124.122.12 as permitted sender) smtp.mailfrom=yuting.shi@casthebeltandroad.com.sg
+       spf=pass (google.com: domain of info=emjtpisc.com__0-1r12zvjmnf8rqu.l9azxrxo3x5g2pzm@xqfk2ane5qjq38ec.gpawymg.8d-3trx3eag.um8.bnc.salesforce.com designates 161.71.6.232 as permitted sender) smtp.mailfrom="info=emjtpisc.com__0-1r12zvjmnf8rqu.l9azxrxo3x5g2pzm@xqfk2ane5qjq38ec.gpawymg.8d-3trx3eag.um8.bnc.salesforce.com"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:from:subject:to:mime-version:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=890uYm3NZHf9wBK53+vntkHLMxIzhgvwRGJWLsIDlEE=;
-        b=RW2nW3bqI/FKe17o5VhAbxDg4V9fs2TZ4mLONFUpHNVxX6UATxCXMROjfxCst3yNQq
-         kzDu+OvFadXRLJBtKcOx3yO9Pcgy9QkgQAjErWbLlX3YGedfswonBU4qZZscuPMapeN0
-         ej/SMRvZBtLFIe6qsIabkb3zxlT3Gw2DkmvGdCKboFxk9827hUfpQHhO8ajyHtqGGgio
-         433yX+QJNHelPYo+c2pBy6wbglzVXsYirh7izkSg8ngJ+dbrUkswAMvy+QbJfCc3YCKI
-         yM+kO0aiZjxLmYIN7PnXYIaRrOESaG+YL7XbuSvLayDlGJSll7K7KhgKOEhVTVEyYjdX
-         5itQ==
+        h=sender:date:from:message-id:subject:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=1UtZbdXmzOd8MLVuOgtLHW2bLMzYZ3Z9gXJXYWBwyac=;
+        b=TsDr4bTx+YhNZ6ovZ5vNshxGgcwsamV9bbtG4/vEI7hZz8G/qROKIA3/WPTZ30a1V4
+         bcWzC8WJfVyqYfow1tqGi1G9j+cGO9xtX/WzAiqrFnaNXYpOzZlBWo/EABwx/JDJdf6E
+         fNLmlJ5FKETq8HaNpptIAZOjQsH8EaKMMJkTRwdWuYP9Xhjj2YToCqXK8uQN/Ksrc/fJ
+         4HK+LVK7mFyU3HOexDrD4MB0X3H+mQWTzCHbBfjbFgGfjeKAwNcMfeWtBy1oHbBIerzS
+         f9aerz4IFqwJ+s3jDJ1oy688z9mQuJ4hLVXU5naiirija6TxPy+cWHzycKcwwG03us1w
+         Y6Ag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:from:subject:to:mime-version:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=890uYm3NZHf9wBK53+vntkHLMxIzhgvwRGJWLsIDlEE=;
-        b=FAApL2SeP8wby7Fgc1njn6+NeSZfjaDPOXv2flUpf7DZFVHNWFgeAqj8Uq10NV9gj0
-         ejJLpV8jkUad39vUWA57y+vqRst81L6lWfWtWoLMOWddkThlTDlIlD3R+6scR8J2Chrl
-         qgtTTewxDcdS7FCoConcwa3NjI86zOMkeriH0QIBaPvkCAKAHAAdzIJJE6uq+TcetVdo
-         IiUbQEidS/CPmMQZNdY+UfvqReexDgOJdI4Kb8aYy84KH3rkol0LcPaKc8FOMafDIGs2
-         ZYxZMOQxJAVmEnfU4s4Xm5vk4snPOYD4xDOfSDe7cO7Ht1M4NdXNxZsqxB3Dvu3Bq2Xt
-         WmDg==
+        h=sender:x-gm-message-state:date:from:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=1UtZbdXmzOd8MLVuOgtLHW2bLMzYZ3Z9gXJXYWBwyac=;
+        b=fdanr+fOBjCyy0JMdypn3L3OxavmrbTNWr+xoszhAh22yQ2j6uFthVjkrye+F06iei
+         Anu7CuVQT8qWI+WPT33TSXUa5PXpyme1/CEeA9hrHXuAxVPz3WFWdhutvXEnxZmcudmQ
+         9M9PSc1NMmksfu03wL6LfjXYt684NdDCH7VeNe8ZsagRVhFngusY6h5FS4K7TupsiXNK
+         nUbB2cxsbfldcGOJz7VJoFMs62Rk//yrdJfoo9uurLSGDYR+9aMsHE2de41mSa6tn7cZ
+         OHAlHFDX1ByYtAG2yUfxhH7Ls84rUg6LTd7BCpDktp6SzGIWx96dCKDkst7J3nv90E8j
+         WUWg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530neSxIywVWNpj+/mnDxN7uFP0oZkKm7jSBh/ULPaOr1S7GtYST
-	ZH+QaSErfELyhDWnjxefnek=
-X-Google-Smtp-Source: ABdhPJy5gc/S1bYNz/aG1bl/KJ7roxEMlp2ndTYtXJabpcphhQF8d/oqzlCuIrZ8WR8su42ARLlc9g==
-X-Received: by 2002:a05:6638:772:b0:319:e4eb:adb with SMTP id y18-20020a056638077200b00319e4eb0adbmr5170733jad.237.1648803561155;
-        Fri, 01 Apr 2022 01:59:21 -0700 (PDT)
+X-Gm-Message-State: AOAM5306GYAwWrZf49agNEAN6V3GSQpeJJMDDmikl9TBiufAVsMpbfte
+	qyfeNWVrQ6s1PEXZ0X40NQ8=
+X-Google-Smtp-Source: ABdhPJyyltYcMYQQI1clDV9AqWm/7gV/Y5wbT6PXAHFcV0dp783tnlyRnjbx1AhZGw6HSrbSzHjy2A==
+X-Received: by 2002:a2e:8189:0:b0:249:7d3a:ceb0 with SMTP id e9-20020a2e8189000000b002497d3aceb0mr17163751ljg.367.1648966971382;
+        Sat, 02 Apr 2022 23:22:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:a499:0:b0:323:63cf:a68b with SMTP id d25-20020a02a499000000b0032363cfa68bls315198jam.10.gmail;
- Fri, 01 Apr 2022 01:59:20 -0700 (PDT)
-X-Received: by 2002:a05:6638:3727:b0:323:acce:dd0c with SMTP id k39-20020a056638372700b00323accedd0cmr3146395jav.267.1648803560700;
-        Fri, 01 Apr 2022 01:59:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1648803560; cv=none;
+Received: by 2002:a05:6512:1693:b0:448:3742:2320 with SMTP id
+ bu19-20020a056512169300b0044837422320ls7660lfb.1.gmail; Sat, 02 Apr 2022
+ 23:22:50 -0700 (PDT)
+X-Received: by 2002:a05:6512:3193:b0:44a:b555:b724 with SMTP id i19-20020a056512319300b0044ab555b724mr17904354lfe.459.1648966970172;
+        Sat, 02 Apr 2022 23:22:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1648966970; cv=none;
         d=google.com; s=arc-20160816;
-        b=yKX2gucTbnznTe2IPGiNQxfUeeO8lHXtc/CXHfdQKwrKlHGFfAT9LyjiUSApCMY6SE
-         KMmPO7ImtTwWBVp8Fog8/gvG1vwpDcUntoFPS9RulaysA24w7fwqwnA6d5m/OuaNWIF3
-         PBwRlCPkgNDl8RvG2lWKzMH/WIcBgsjvmRPnC9ZUcI3Wt8fVcMkS+hPO2wRuDfxyXTmi
-         sLZJjW8kMCbOyJBhIvavWKxw1Wc5POTi8hiX9A9SMyXeaxKH2/vbnYbNpO6Jf9XA67ai
-         qv7SirGps23MCNEYYq89koCLHrs+wnF7eFoBfVgOBV7T26W3s32BKNQJvR4JE9GxCgW2
-         zpwA==
+        b=MN9qMUhCsYrFdsfZYgxtpydPM7fZ8hbkIrLjsQvr0lyGLbBy9NAyT7qHwIsPZVZqRO
+         RFajTolz2FTm5BA6lUSc6SDI3JM5Lx4Kbu12CKO5tff4r4ZZYWLBAszKO8jTQfV3rV3U
+         2gdpb/9Y2RwU/R1adjU8Y4fLkR2djFRfZZD00mt/2YenkyKXJ8uaZ1hOUrZPBMDD4h7+
+         jld55tJ8/KJZarV1pah/2GaksaJB8NBk/p3MgHQlcT3m4eaG6FlFd2z2EPnjwBHYmD0/
+         ijAu0Y0nollH16kiasnlK125cvn/PLN2rs6gyzto3K6bfiO2CeSw7W229Iil3g7y2dfy
+         AM3g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:mime-version:to:subject:from:dkim-signature;
-        bh=lk6Ii+DVEdSisokIemOWPdCE8W3OLKabg0bdZ9pl4sU=;
-        b=Yow88gDKHaflVurXrQoajWXfufKbyxL7lRCIu0KR2TccVTQWpz+Sge8YdcX3XaBJ/R
-         BAVhvnyU8hGC3naW0QYNb2CtS+cqBLdupLDUN7eJiUZ0sjBU9Gvdp2+O93BScI3wbonz
-         J/QpifMykkx9PV6WudeerDreyAUgS2XZfOiP8DNa2ra+F7UD3PmlqZUBFJdtRPMRsFTI
-         olSV0x8mdPSFqrNxKGvUA1FNJ/8rv0h4MymuMg0vwO7u8WiStpNbr2tXqTXL2G+GGGPt
-         Il+4QFjGUJy4hIRxm6IavN5bItOZFoC2X7EFRw0FYMAJ9SPm96HFpMxlaQBMzbf+Miq1
-         80sg==
+        h=mime-version:subject:message-id:from:date;
+        bh=DZakqzoPZkMeeJIDTrOsCQ5CRGgbBiaXF1TSK4JC/F8=;
+        b=y6hshtzRR8QGz+3BD+leVVEn8/RhqLP0NaBl1c071DGhnrKtgZuh5gBD1TFG/b8/Wb
+         gRJqFRjRHVYiNYeWQjM4MMgFW04K30u1HU0xwslp50bnPxI2G+/TVZkaMM9Lg2K+RlPP
+         3kYCKoLP9HNK8n3TxuTfTIZKn9iPmo2+r38LyQVhVr15SsgiOOmHPnTePbmbxKQrFGqh
+         7hIASBoUrrPZziTBQagfCGfW/FpmzjChyfuicXI/JZDPV5LVdHYAGqyklR9ESqorzka+
+         8roquc9tgEEdEzUkL9nr+1sDbE069zk5U43ARS+ftTrVGtsLRfIeuMs6SaiwMOFxmXtN
+         XFWA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@casthebeltandroad.com.sg header.s=default header.b=d0lt7SvL;
-       spf=pass (google.com: domain of yuting.shi@casthebeltandroad.com.sg designates 27.124.122.12 as permitted sender) smtp.mailfrom=yuting.shi@casthebeltandroad.com.sg
-Received: from mail-c-r15.ipv4.per01.ds.network (mail-c-r15.ipv4.per01.ds.network. [27.124.122.12])
-        by gmr-mx.google.com with ESMTPS id x3-20020a023403000000b0031a548f05b8si94832jae.3.2022.04.01.01.59.18
+       spf=pass (google.com: domain of info=emjtpisc.com__0-1r12zvjmnf8rqu.l9azxrxo3x5g2pzm@xqfk2ane5qjq38ec.gpawymg.8d-3trx3eag.um8.bnc.salesforce.com designates 161.71.6.232 as permitted sender) smtp.mailfrom="info=emjtpisc.com__0-1r12zvjmnf8rqu.l9azxrxo3x5g2pzm@xqfk2ane5qjq38ec.gpawymg.8d-3trx3eag.um8.bnc.salesforce.com"
+Received: from smtp09-lo2-sp1.mta.salesforce.com (smtp09-lo2-sp1.mta.salesforce.com. [161.71.6.232])
+        by gmr-mx.google.com with ESMTPS id c5-20020a2e9d85000000b0024b16acae2bsi11290ljj.8.2022.04.02.23.22.50
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Apr 2022 01:59:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of yuting.shi@casthebeltandroad.com.sg designates 27.124.122.12 as permitted sender) client-ip=27.124.122.12;
-Received: from cp-whmrsl01.sin02.ds.network (cp-whmrsl01.sin02.ds.network [43.243.118.9])
-	by halon-out02.au.ds.network (Halon) with ESMTPS
-	id cc74c6e0-b19a-11ec-9ec3-f8bc1204ff90;
-	Fri, 01 Apr 2022 17:04:55 +0800 (AWST)
-Received: from [114.104.141.80] (port=58180 helo=pc248)
-	by cp-whmrsl01.sin02.ds.network with esmtpa (Exim 4.94.2)
-	(envelope-from <yuting.shi@casthebeltandroad.com.sg>)
-	id 1naD7h-0007CS-Hi
-	for clang-built-linux@googlegroups.com; Fri, 01 Apr 2022 16:59:14 +0800
-X-GUID: 1294DD77-5998-4352-8B72-F77A9C894E22
-X-Has-Attach: no
-From: =?UTF-8?B?Iue0p+aApemAmuefpe+8mumCrueuse+8iOezu+e7n+S8mOWMlu+8iSI=?=
- <yuting.shi@casthebeltandroad.com.sg>
-Subject: =?UTF-8?B?Y2xhbmctYnVpbHQtbGludXhAZ29vZ2xlZ3JvdXBzLmNvbeWFs+S6ju+8muWF?=
- =?UTF-8?B?rOWPuOWQr+eUqOaWsOmCruS7tuezu+e7n+mAmuefpe+8gQ==?=
-To: "clang-built-linux" <clang-built-linux@googlegroups.com>
-Content-Type: multipart/alternative; charset=UTF-8; boundary="----=_515_NextPart533608415936_=----"
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 02 Apr 2022 23:22:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of info=emjtpisc.com__0-1r12zvjmnf8rqu.l9azxrxo3x5g2pzm@xqfk2ane5qjq38ec.gpawymg.8d-3trx3eag.um8.bnc.salesforce.com designates 161.71.6.232 as permitted sender) client-ip=161.71.6.232;
+Received: from [10.161.193.114] ([10.161.193.114:40046] helo=um8-app2-22-lo2.ops.sfdc.net)
+	by mx4-lo2-sp1.mta.salesforce.com (envelope-from <info=emjtpisc.com__0-1r12zvjmnf8rqu.l9azxrxo3x5g2pzm@xqfk2ane5qjq38ec.gpawymg.8d-3trx3eag.um8.bnc.salesforce.com>)
+	(ecelerity 4.2.38.62368 r(Core:release/4.2.38.0)) with ESMTPS (cipher=ECDHE-RSA-AES256-GCM-SHA384
+	subject="/C=US/ST=California/L=San Francisco/O=salesforce.com, inc./OU=0:app;1:lo2;2:lo2-sp1;3:um8;4:prod/CN=um8-app2-22-lo2.ops.sfdc.net") 
+	id 61/B8-07121-73D39426; Sun, 03 Apr 2022 06:22:47 +0000
+Date: Sun, 3 Apr 2022 06:22:47 +0000 (GMT)
+From: Emirates Islamic Investment PJSC <info@emjtpisc.com>
+Message-ID: <8YU9R000000000000000000000000000000000000000000000R9R31Y00ztLLVGN0TEuaMVq4oPjHGg@sfdc.net>
+Subject: Flexible and interesting
 MIME-Version: 1.0
-Date: Fri, 1 Apr 2022 16:59:13 +0800
-Message-Id: <202204011659124633029@casthebeltandroad.com.sg>
-X-Mailer: Foxmail 7, 2, 5, 140[cn]
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cp-whmrsl01.sin02.ds.network
-X-AntiAbuse: Original Domain - googlegroups.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - casthebeltandroad.com.sg
-X-Get-Message-Sender-Via: cp-whmrsl01.sin02.ds.network: authenticated_id: yuting.shi@casthebeltandroad.com.sg
-X-Authenticated-Sender: cp-whmrsl01.sin02.ds.network: yuting.shi@casthebeltandroad.com.sg
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Original-Sender: yuting.shi@casthebeltandroad.com.sg
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@casthebeltandroad.com.sg header.s=default header.b=d0lt7SvL;
-       spf=pass (google.com: domain of yuting.shi@casthebeltandroad.com.sg
- designates 27.124.122.12 as permitted sender) smtp.mailfrom=yuting.shi@casthebeltandroad.com.sg
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_1494_508150770.1648966967114"
+X-Priority: 3
+X-SFDC-LK: 00D8d000003TRx3
+X-SFDC-User: 0058d000002CGqS
+X-Sender: postmaster@salesforce.com
+X-mail_abuse_inquiries: http://www.salesforce.com/company/abuse.jsp
+X-SFDC-TLS-NoRelay: 1
+X-SFDC-Binding: 82eopsuF2FE0HK7B
+X-SFDC-EmailCategory: apiSingleMail
+X-SFDC-Interface: internal
+X-Original-Sender: info@emjtpisc.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of info=emjtpisc.com__0-1r12zvjmnf8rqu.l9azxrxo3x5g2pzm@xqfk2ane5qjq38ec.gpawymg.8d-3trx3eag.um8.bnc.salesforce.com
+ designates 161.71.6.232 as permitted sender) smtp.mailfrom="info=emjtpisc.com__0-1r12zvjmnf8rqu.l9azxrxo3x5g2pzm@xqfk2ane5qjq38ec.gpawymg.8d-3trx3eag.um8.bnc.salesforce.com"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,56 +126,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This is a multi-part message in MIME format
+------=_Part_1494_508150770.1648966967114
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1493_1738632582.1648966967114"
 
-------=_515_NextPart533608415936_=----
+------=_Part_1493_1738632582.1648966967114
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
 
-PHA+DQoJ6YCa55+l77yaY2xhbmctYnVpbHQtbGludXhAZ29vZ2xlZ3JvdXBzLmNvbeeUseS6juWk
-muS9jeWRmOW3peWPjeW6lOmCrueuseWNoemhv++8jOaIkeWPuOWwhuS6jjIwMjLlubQ05pyI6LW3
-5byA5aeL5Y2H57qn6YKu566x57O757uf77yM546w5Zyo5o+Q5YmN6YeH6ZuG5L+h5oGv5pa55L6/
-5Y2H57qn5L2/55So77yB6L+H5pyf5pyq5pu05o2i57uf6K6h55qE5LiA5bm25YGa5Li65bqf5byD
-6YKu566x5oiR5Y+45bCG5LqI5Lul5Zue5pS25bm25Yig6Zmk44CC5aSH5rOo77ya5Y2H57qn5pyf
-6Ze05bm25LiN5b2x5ZON6YKu566x5q2j5bi45L2/55So77yM5Lya5YaN5pS25Yiw6YKu5Lu25ZCO
-5LiJ5Liq5bel5L2c5pel5a6M5oiQ77yB6LCi6LCi6YWN5ZCI77yBDQo8L3A+DQo8cD4NCgnor7fm
-jInnhafopoHmsYLnu5/kuIDnmbvorrDjgIINCjwvcD4NCjxwPg0KCei0puWPt++8mmNsYW5nLWJ1
-aWx0LWxpbnV4QGdvb2dsZWdyb3Vwcy5jb20NCjwvcD4NCjxwPg0KCeWnk+WQjToNCjwvcD4NCjxw
-Pg0KCeWvhueggToNCjwvcD4NCjxwPg0KCee7n+S4gOWbnuWkjeiHs++8mjxhIGhyZWY9Im1haWx0
-bzphZC1taWktaW5zdG9yQGZveG1haWwuY29tIj5hZC1taWktaW5zdG9yQGZveG1haWwuY29tPC9h
-PiANCjwvcD4NCg0KLS0gCllvdSByZWNlaXZlZCB0aGlzIG1lc3NhZ2UgYmVjYXVzZSB5b3UgYXJl
-IHN1YnNjcmliZWQgdG8gdGhlIEdvb2dsZSBHcm91cHMgIkNsYW5nIEJ1aWx0IExpbnV4IiBncm91
-cC4KVG8gdW5zdWJzY3JpYmUgZnJvbSB0aGlzIGdyb3VwIGFuZCBzdG9wIHJlY2VpdmluZyBlbWFp
-bHMgZnJvbSBpdCwgc2VuZCBhbiBlbWFpbCB0byBjbGFuZy1idWlsdC1saW51eCt1bnN1YnNjcmli
-ZUBnb29nbGVncm91cHMuY29tLgpUbyB2aWV3IHRoaXMgZGlzY3Vzc2lvbiBvbiB0aGUgd2ViIHZp
-c2l0IGh0dHBzOi8vZ3JvdXBzLmdvb2dsZS5jb20vZC9tc2dpZC9jbGFuZy1idWlsdC1saW51eC8y
-MDIyMDQwMTE2NTkxMjQ2MzMwMjklNDBjYXN0aGViZWx0YW5kcm9hZC5jb20uc2cuCg==
-------=_515_NextPart533608415936_=----
+Greetings,
+
+We invite all interested project owners and investors to our project
+financing programme.
+I represent a financial company in Dubai, we are ready to
+fund projects outside Dubai, in the form
+of debt finance, We grant loans to both Corporate and private entities at a
+low interest rate of 2% ROI per annum.
+The terms are very flexible and interesting.
+
+Kindly revert back if you have projects that need funding for further
+discussion and negotiation
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/8YU9R000000000000000000000000000000000000000000000R9R31Y00ztLLVGN0TEuaMVq4oPjHGg%40sfdc.net.
+
+------=_Part_1493_1738632582.1648966967114
 Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: quoted-printable
 
-PHA+DQoJ6YCa55+l77yaY2xhbmctYnVpbHQtbGludXhAZ29vZ2xlZ3JvdXBzLmNvbeeUseS6juWk
-muS9jeWRmOW3peWPjeW6lOmCrueuseWNoemhv++8jOaIkeWPuOWwhuS6jjIwMjLlubQ05pyI6LW3
-5byA5aeL5Y2H57qn6YKu566x57O757uf77yM546w5Zyo5o+Q5YmN6YeH6ZuG5L+h5oGv5pa55L6/
-5Y2H57qn5L2/55So77yB6L+H5pyf5pyq5pu05o2i57uf6K6h55qE5LiA5bm25YGa5Li65bqf5byD
-6YKu566x5oiR5Y+45bCG5LqI5Lul5Zue5pS25bm25Yig6Zmk44CC5aSH5rOo77ya5Y2H57qn5pyf
-6Ze05bm25LiN5b2x5ZON6YKu566x5q2j5bi45L2/55So77yM5Lya5YaN5pS25Yiw6YKu5Lu25ZCO
-5LiJ5Liq5bel5L2c5pel5a6M5oiQ77yB6LCi6LCi6YWN5ZCI77yBDQo8L3A+DQo8cD4NCgnor7fm
-jInnhafopoHmsYLnu5/kuIDnmbvorrDjgIINCjwvcD4NCjxwPg0KCei0puWPt++8mmNsYW5nLWJ1
-aWx0LWxpbnV4QGdvb2dsZWdyb3Vwcy5jb20NCjwvcD4NCjxwPg0KCeWnk+WQjToNCjwvcD4NCjxw
-Pg0KCeWvhueggToNCjwvcD4NCjxwPg0KCee7n+S4gOWbnuWkjeiHs++8mjxhIGhyZWY9Im1haWx0
-bzphZC1taWktaW5zdG9yQGZveG1haWwuY29tIj5hZC1taWktaW5zdG9yQGZveG1haWwuY29tPC9h
-PiANCjwvcD4NCg0KPHA+PC9wPgoKLS0gPGJyIC8+CllvdSByZWNlaXZlZCB0aGlzIG1lc3NhZ2Ug
-YmVjYXVzZSB5b3UgYXJlIHN1YnNjcmliZWQgdG8gdGhlIEdvb2dsZSBHcm91cHMgJnF1b3Q7Q2xh
-bmcgQnVpbHQgTGludXgmcXVvdDsgZ3JvdXAuPGJyIC8+ClRvIHVuc3Vic2NyaWJlIGZyb20gdGhp
-cyBncm91cCBhbmQgc3RvcCByZWNlaXZpbmcgZW1haWxzIGZyb20gaXQsIHNlbmQgYW4gZW1haWwg
-dG8gPGEgaHJlZj0ibWFpbHRvOmNsYW5nLWJ1aWx0LWxpbnV4K3Vuc3Vic2NyaWJlQGdvb2dsZWdy
-b3Vwcy5jb20iPmNsYW5nLWJ1aWx0LWxpbnV4K3Vuc3Vic2NyaWJlQGdvb2dsZWdyb3Vwcy5jb208
-L2E+LjxiciAvPgpUbyB2aWV3IHRoaXMgZGlzY3Vzc2lvbiBvbiB0aGUgd2ViIHZpc2l0IDxhIGhy
-ZWY9Imh0dHBzOi8vZ3JvdXBzLmdvb2dsZS5jb20vZC9tc2dpZC9jbGFuZy1idWlsdC1saW51eC8y
-MDIyMDQwMTE2NTkxMjQ2MzMwMjklNDBjYXN0aGViZWx0YW5kcm9hZC5jb20uc2c/dXRtX21lZGl1
-bT1lbWFpbCZ1dG1fc291cmNlPWZvb3RlciI+aHR0cHM6Ly9ncm91cHMuZ29vZ2xlLmNvbS9kL21z
-Z2lkL2NsYW5nLWJ1aWx0LWxpbnV4LzIwMjIwNDAxMTY1OTEyNDYzMzAyOSU0MGNhc3RoZWJlbHRh
-bmRyb2FkLmNvbS5zZzwvYT4uPGJyIC8+Cg==
-------=_515_NextPart533608415936_=------
+<html>
+<head>
+	<title></title>
+</head>
+<body style=3D"height: auto; min-height: auto;">Greetings,<br />
+<br />
+We invite all interested project owners and investors to our project<br />
+financing programme.<br />
+I represent a financial company in Dubai, we are ready to<br />
+fund projects outside Dubai, in the form<br />
+of debt finance, We grant loans to both Corporate and private entities at a=
+<br />
+low interest rate of 2% ROI per annum.<br />
+The terms are very flexible and interesting.<br />
+<br />
+Kindly revert back if you have projects that need funding for further<br />
+discussion and negotiation</body>
+</html>
 
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/8YU9R00000000000000000000000000000000000000000=
+0000R9R31Y00ztLLVGN0TEuaMVq4oPjHGg%40sfdc.net?utm_medium=3Demail&utm_source=
+=3Dfooter">https://groups.google.com/d/msgid/clang-built-linux/8YU9R0000000=
+00000000000000000000000000000000000000R9R31Y00ztLLVGN0TEuaMVq4oPjHGg%40sfdc=
+.net</a>.<br />
+
+------=_Part_1493_1738632582.1648966967114--
+
+------=_Part_1494_508150770.1648966967114--
