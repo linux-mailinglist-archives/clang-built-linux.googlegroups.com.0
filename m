@@ -1,141 +1,135 @@
-Return-Path: <clang-built-linux+bncBCS7XUWOUULBB3HVVCJQMGQE2SJDWOA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCU4TIPXUUFRBB6AVGJQMGQETW3F63I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x540.google.com (mail-pg1-x540.google.com [IPv6:2607:f8b0:4864:20::540])
-	by mail.lfdr.de (Postfix) with ESMTPS id 80C0D512C18
-	for <lists+clang-built-linux@lfdr.de>; Thu, 28 Apr 2022 08:57:49 +0200 (CEST)
-Received: by mail-pg1-x540.google.com with SMTP id z132-20020a63338a000000b003844e317066sf1982470pgz.19
-        for <lists+clang-built-linux@lfdr.de>; Wed, 27 Apr 2022 23:57:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1651129068; cv=pass;
+Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id 39D25512F74
+	for <lists+clang-built-linux@lfdr.de>; Thu, 28 Apr 2022 11:36:08 +0200 (CEST)
+Received: by mail-lj1-x237.google.com with SMTP id y7-20020a2e95c7000000b0024f29bcd594sf1564118ljh.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 28 Apr 2022 02:36:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1651138567; cv=pass;
         d=google.com; s=arc-20160816;
-        b=x6jniy2w2WY+mEcz8HY3dJE8FbCMEH8HccaPd0m/x+Iw0SfKoymjjhJoxUX7VKeSGM
-         tTqWtQHmFkKnOrysvzx8RySwVIy98+cDi+U1SfAqx7eQ9upQ7xhq/UbvYsQ7cVJ4tSgF
-         +63ImbAFyQ13qYZ6PtpfL18jpqYMNejTeYNV8iZoJjlbL/h3FE0bj9cJFrViKmtREdCZ
-         AyoieBwii+grQED2RRnnp4iC1UUfUsGSi3NZguQEApgigr9Y0xhQVMoiwCKQXI+3MXLu
-         FLcRL1NV2n5N4Xk6ig2vd8tCQ3sYyPlTOPd2BfEKQOyqxWdYseRZBzStpBH6SFpNl47h
-         vCiQ==
+        b=iyUUXb+HtVXjEggQP1q4laC5/J79tgfoLmz/eU0VY9afNbx4cYjfb0vFTs8M1c/bpZ
+         L5ouP4IhwUZRjzRE2Et8FJafLo58f5TUktQJsWusQKU8V0PHfOJ6Pc/VX4WtirbpHxuv
+         7MaFrNMK0bYCtnGHYwhinkIa7LWoVvA85icFqWdsZSIBtlpxfhjnzj0jItPCrhdTannI
+         NF0yCrwSr1ddxx7GqtZVfQ5Z8fl47eivF+2liKNEkKPrS9v/sExJ8RJZVw9JxszQR4Ka
+         kJMSNOzT3h24CRV5S73YMup219qOeGC5qzwa2swXA0PbZavIW1AANBGvkVbZO6wW+8QP
+         8tiw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=YZS96VkkkU1gWqahkjn+lV91hi1lg2HOh1tlTDr3X1I=;
-        b=n7Dgga2zqtVZntUOXNGJKOvQZeo0PK7RbxJWnkb+vCfNgwrtpOOr6smewtY+7HTJoN
-         e/wfJOrXy9a9EWgbyedPJLaNjmVgo6QCOMuH4MIfZSFR/B5Bz6TjvQqaRAoOz8y1gcwc
-         50oArMrbCVViDE92kYWRZSxYOwsldPGyjtyxd9BhEIcI3KoQXUnjHqba33FPdURyylXA
-         9GImKkCIucG+fx31CcJ5vlXoznJPF7LvAjvDXk9NDHSBvaoGIvjmKfL8gx7lSc3W60/l
-         Q+acxuG0VIq2O8r+1/j61bbITo5t3b+UG0BWCYPjMZylcrlPh8O+N9xtZm+Gxnb6Xomq
-         R4GQ==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=0ZDs230iXwGBPFSLVPBd8uzSG1zissLZmKgp2AaMYM8=;
+        b=0KD2Q/LavnRO9BSG1dVHwyAggNcURCek+7Njh8dHdqCDiZmD0k7J4iygtqKeSAdLOh
+         eGjXQNQFqTdn9rfcyfvS1E0fFFk2ezAbziYfi0THVH70qKjQWzJuexN4lGW0mDCJjISF
+         rS+EnkuGZQqH0jabSNLO9uWWwF7tMi3rgL5/3f+nnPr5vbOBoIXjIkQK01z98T7SjaVJ
+         8Sm7grQZbctLaf1Ddg4gkU9Ch7hKokx6U78gwX8qoB4FnJk2YA4l8vXY+sn5D7NLrlof
+         MdhxebXKGeTJvocNMS+04GEN84SJkuz/L5l0k8sShBaMswaqNJVbXBRoBzhkayFIR8m3
+         c1bg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=KYkXTkpf;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::62c as permitted sender) smtp.mailfrom=maskray@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=hIzQdLCu;
+       spf=pass (google.com: domain of ardb@kernel.org designates 145.40.68.75 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=YZS96VkkkU1gWqahkjn+lV91hi1lg2HOh1tlTDr3X1I=;
-        b=UxwlwJQ4cUdR+w9grDGz6O4awnAm6/hJO9ls5N5JrZXziWdca6CUZdXkXtxBepjFC6
-         cljUWTgP2g/Ay9M8EMa/k6ahfFVux3vlAZxPeUPl5J6WTg5Ls+xQLZNX2VPXMdNU+U05
-         MHetFnMbhkrxC3HkIj7cE3rJ4px8tBh2xiWa5saRgAwbCWl4Nw3TCLbR8i27SjlzQLik
-         RdPfiQZYkO7Qbfm4IEBP4e05PwffXAtYMzH3b1CJd/fnejCOQRDzUNLIgqaqU3O/kKvb
-         ts8PfSsdjWejzUZrLJfFCEQeCScobSnwYNkfmsFKoLKnGZr0KbB6MHW+CkAiNeuzfTiy
-         5UAg==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=0ZDs230iXwGBPFSLVPBd8uzSG1zissLZmKgp2AaMYM8=;
+        b=Y5EoKe69r3GvuW8gnmIsR/wZ4+dUjepbb1WmS1QHhCJLJdgBlzQ6sFj5787tgwVjYe
+         bOCeRh8jTFEjlrlHV6gASDJ50VK5OiWKzDA9sbMqUtNCgGTSw5tBTDGJILikr7M4U58k
+         RkfxGmbcffotx1m7lPDF76nBakdlLGeM1h8ODxCfcjqg30cCvVkg5Ac/d+cMRwZpw6vh
+         VXQnd5ujOYpDlmodAUW7vmxfUR+p+yZcA9SHxMuVnZcntKC9w13y+HPtnNJ52kQiUgR5
+         smoDNJ622D2QCLg5x1u//TAYQCtL+COBPpgEDyFHPHicJLdSYKOFiE+zLoCWL0RVkxy1
+         wITQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YZS96VkkkU1gWqahkjn+lV91hi1lg2HOh1tlTDr3X1I=;
-        b=ceFMEggc23KrO3oWkHvAPn38XwjPl6u6GtZn0cd4UcQijGfIpngfXfkht92Ybdj9Xr
-         BGPyXneMUPMbJdV5lqE05gHfiG+sF96p4qGEpybG9FxwZ8oO9ASb5CENM92DhROXFaKs
-         ZTJft2wTv8dluHHusasJAgs2QPFzosF99UIqQSAzs+RRPhOSP/yNCf5vRAy9Zq05NPXt
-         41xver+JdA2U269AcDn3D7Zd6ECNxMdjwvrVXDc6V372IakSgUdx9HAKB7Uq4vMdw0Vs
-         IJOorxPoZPBn7z8v+jj1LV9je6PkGf7EtDSdq3yjOrqnTbmlcaKGMwv5DNdEcvP7siPL
-         2k+w==
-X-Gm-Message-State: AOAM532Q/U1ql9amu2nD4kK5TxTstshmTgGTd6KK6W+VmD4absdpDL6i
-	WEj8s5WXz3qADNJWmk+pkVo=
-X-Google-Smtp-Source: ABdhPJwImuS8aYQTBzJTkKu3LLrkcTxVu8GOR2KDSK3KY1cDTqAgoTRcQECpf+ISs57D7e1PKnyN6g==
-X-Received: by 2002:a17:902:7298:b0:158:3a08:3163 with SMTP id d24-20020a170902729800b001583a083163mr31705794pll.133.1651129068187;
-        Wed, 27 Apr 2022 23:57:48 -0700 (PDT)
+        bh=0ZDs230iXwGBPFSLVPBd8uzSG1zissLZmKgp2AaMYM8=;
+        b=EnWx6IlozvMSyd5zS8isZdih5MjX/HzwlIAanQzT/QSejjN/53k2fs6U1E3w3pU2Td
+         6bi61CGzbVToO2M0Ea1yqwxtUXcaXSIwdgGGbddHHtwVcIhQ0LL5W5052EOwPKI9eQFN
+         C8M+5lBnhDdz3a00pL+dhW0ElRm5JByLxtcVUpAocxWl3AYH4rznGCaWVfak+fatOhK/
+         MWrlqj7AIrYjfpdgH8dWW4z8sZyhejuceM7RZDJywVF4mT+GEeY73H/5sp3ZkjAXk09p
+         sqGULgDHaGtlsEGWJT42FDaYSsAmOW2x9VUPnfLqjo57Di9OuqrcL6UE6fAJFpgZCsAg
+         9nNw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOAM530j6ZS75K9wECdsyJZkcgELileQhzotx/QsdSrh1C920rLCXkbJ
+	4yuNzptQu4id91d0JcaisDw=
+X-Google-Smtp-Source: ABdhPJxHKOnj2BvrNvgkbZJDs+7ygnU4gnRihb6OQ7Tpuch8a34rTTKXsIk3IsCpXWCLuBGVMidbWw==
+X-Received: by 2002:a05:6512:3a89:b0:471:c6ba:c522 with SMTP id q9-20020a0565123a8900b00471c6bac522mr23549612lfu.371.1651138567427;
+        Thu, 28 Apr 2022 02:36:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:da92:b0:15d:45d8:8f96 with SMTP id
- j18-20020a170902da9200b0015d45d88f96ls5038166plx.4.gmail; Wed, 27 Apr 2022
- 23:57:47 -0700 (PDT)
-X-Received: by 2002:a17:90a:ce13:b0:1d9:acbe:7ede with SMTP id f19-20020a17090ace1300b001d9acbe7edemr14241675pju.16.1651129067413;
-        Wed, 27 Apr 2022 23:57:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1651129067; cv=none;
+Received: by 2002:a05:651c:17a4:b0:24d:5627:cbb7 with SMTP id
+ bn36-20020a05651c17a400b0024d5627cbb7ls3303093ljb.0.gmail; Thu, 28 Apr 2022
+ 02:36:06 -0700 (PDT)
+X-Received: by 2002:a2e:b8d4:0:b0:24f:2cc3:2c51 with SMTP id s20-20020a2eb8d4000000b0024f2cc32c51mr4025920ljp.176.1651138565950;
+        Thu, 28 Apr 2022 02:36:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1651138565; cv=none;
         d=google.com; s=arc-20160816;
-        b=m8mkt121vUr/0KcQxbV9ngaYVAByA+ePiQXuU18LJ4Q3YdayR1luxsoz/XNPdyU2tF
-         mAclKh7fQHYExeKidMcEs9gQOo7jwLiPWFJBtYiUyLQbba+dd9zqXH9S2aHiFBoFe3z0
-         e+k9K2qHCzpRTyJ7zgPhwG8IGm+QAkMV2pnZ2DOcuaIPSvwZZJ68wi2uDRbAO3zzld/n
-         U7i1REQBcaocr1mR0wWCHfzyt61oD+UojlN1ufEoupciF+ijDCxarW/KvTV/AIaUOF2q
-         HODt4TguhKRXGXWD8F2sKsY3YFfWjSld8EVFqegU/WTTuVabdaBQqEYZUl2S9A94RR3z
-         3cAg==
+        b=d15ybOa95JWl3a5mRMFPjB+pz7T6QJFALDIuf7VFVRKeaWD/zhmYCwMThYFo534+DD
+         oGpFURbJ99Rc4S3IsXxEEzRvDJgLGBdQvxa9iw24KIpWh19IQKIMvTqtQCC+i1sdjFu9
+         3f/ecUF+1PPuRhlcWAXue+pcBvpYva/dTbwBffP2h5mzMkkCf9GMmsI2fbn6dZ6a7Pz2
+         fsrPcjnZ+n1owj7yFAa6hFnywrtxbXLEaq4sC9YJcQ2tM9Gu3YOUPJNGRhnN64bD1s7j
+         8PtYWot+n+0lT81szRmtiACI9dcadrl1yHZGiGCkelJjUYyjmjRmE/mMMA90Qw7nFIlH
+         8TIw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=applOq61A1kPgrAqYMQ6DdRNoLWzc8K0I42SOGrOzNQ=;
-        b=qlXFZLcl27InhpP6OCYwBYJaIROLQdrSBtr0G4BQrIE65doiS8WiUR0P3bFpTXBbio
-         cd36HW+cyrHlGF/6xm67sqCwxJ75JVWn8kBxjsM3r4TcbkvTxLDXaYlVyDnRz+PwxV9x
-         EHGMR6gfnTAbR4Wdxa2sEQ3IQ6sRXJ8Padkn2rhWO1hzPiBp6vvVGGm2rDN+6vXVe9Da
-         m2kkYkuwDZB5MMU7wo0sUUzrHyvAdrMu0EtyJ3m5v4ygnnRGTx4dwKpx7sQu5a24LogV
-         rBrh/exGbbDdQN1I8WkoxTbKmjfbomaiuS2uzL3+k+pkiX6wQcl3X+vxzkkM7YUcwT0s
-         UETw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=mIxJh6HC32Qj4+RO7RN2rYFTQUHtaSd4FdLgpRZPNm0=;
+        b=MR9OV25CI3pWksbSp4lq/1vcRsZaTwx/GZpIVipLH0s+1oyi5HccjaNazWCh6VNekq
+         4kPd9ywzNine9a/VZYNIbNxpPB6/m1oTe/WFPOCG6Sr/FFjXl7JmwEx63MBtmmcBsPbV
+         za0KfjLQQytDsGagsHkINSVsrq6sI7GK0cWpga3Tw1pgWS3bnPRR8BNDB1SfoEbUhM+K
+         LhcaCHoQhngF/YrI8ZvQRPmmK6GDfkfPATNYWw3ABAWFh56RlnfnpOjBAsGZlUuiQRrt
+         UCeukvU8ibg2FTv+ulimN0OHfO0wxQ7eRRAdWpIYA0mL6u5ITsHswsIHALqIjSUX6jmf
+         Hurw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20210112 header.b=KYkXTkpf;
-       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::62c as permitted sender) smtp.mailfrom=maskray@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x62c.google.com (mail-pl1-x62c.google.com. [2607:f8b0:4864:20::62c])
-        by gmr-mx.google.com with ESMTPS id ls13-20020a17090b350d00b001d9ead4c0cbsi533538pjb.0.2022.04.27.23.57.47
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=hIzQdLCu;
+       spf=pass (google.com: domain of ardb@kernel.org designates 145.40.68.75 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from ams.source.kernel.org (ams.source.kernel.org. [145.40.68.75])
+        by gmr-mx.google.com with ESMTPS id bp23-20020a056512159700b00470f8f82ce4si195926lfb.1.2022.04.28.02.36.05
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Apr 2022 23:57:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::62c as permitted sender) client-ip=2607:f8b0:4864:20::62c;
-Received: by mail-pl1-x62c.google.com with SMTP id b12so3554477plg.4
-        for <clang-built-linux@googlegroups.com>; Wed, 27 Apr 2022 23:57:47 -0700 (PDT)
-X-Received: by 2002:a17:90b:606:b0:1d9:5dd5:1489 with SMTP id gb6-20020a17090b060600b001d95dd51489mr24210556pjb.171.1651129066875;
-        Wed, 27 Apr 2022 23:57:46 -0700 (PDT)
-Received: from google.com ([2620:15c:2ce:200:97d8:6a3e:53c0:230d])
-        by smtp.gmail.com with ESMTPSA id v189-20020a622fc6000000b004fb72e95806sm20868781pfv.48.2022.04.27.23.57.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Apr 2022 23:57:46 -0700 (PDT)
-Date: Wed, 27 Apr 2022 23:57:42 -0700
-From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Nick Desaulniers <ndesaulniers@google.com>
-Subject: Re: [RFC PATCH 2/2] arm64: kernel: switch to PIE code generation for
- relocatable kernels
-Message-ID: <20220428065742.rl3w5rz2ni2fhngl@google.com>
-References: <20220427171241.2426592-1-ardb@kernel.org>
- <20220427171241.2426592-3-ardb@kernel.org>
- <20220428024030.gwxb746c5gwvcnw6@google.com>
- <CAMj1kXEW-KPVWqS33OX0Qw-EAeX+XfocHGisVw8gsb2k_KffJA@mail.gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 28 Apr 2022 02:36:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ardb@kernel.org designates 145.40.68.75 as permitted sender) client-ip=145.40.68.75;
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 6F642B82B2B
+	for <clang-built-linux@googlegroups.com>; Thu, 28 Apr 2022 09:36:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B058C385AE
+	for <clang-built-linux@googlegroups.com>; Thu, 28 Apr 2022 09:36:04 +0000 (UTC)
+Received: by mail-ot1-f41.google.com with SMTP id i11-20020a9d4a8b000000b005cda3b9754aso2759443otf.12
+        for <clang-built-linux@googlegroups.com>; Thu, 28 Apr 2022 02:36:04 -0700 (PDT)
+X-Received: by 2002:a05:6830:33eb:b0:5f8:d36d:3831 with SMTP id
+ i11-20020a05683033eb00b005f8d36d3831mr11451226otu.265.1651138563294; Thu, 28
+ Apr 2022 02:36:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXEW-KPVWqS33OX0Qw-EAeX+XfocHGisVw8gsb2k_KffJA@mail.gmail.com>
-X-Original-Sender: maskray@google.com
+References: <20220427171241.2426592-1-ardb@kernel.org> <20220427171241.2426592-2-ardb@kernel.org>
+ <CAKwvOdkzrTRK9y6zmGqqmZM8RvTktomDkUh7CMop0+fAr1Y8hg@mail.gmail.com> <CAMj1kXGVE-TJ9Sg1+wQ_e1cN=fkfeBADo7zyUkFc3Kkr6Okhcg@mail.gmail.com>
+In-Reply-To: <CAMj1kXGVE-TJ9Sg1+wQ_e1cN=fkfeBADo7zyUkFc3Kkr6Okhcg@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 28 Apr 2022 11:35:51 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXF4RfC8fqbhM61w4uVoy5=Do=XYT=JjrG5Mr49Oo6r1kA@mail.gmail.com>
+Message-ID: <CAMj1kXF4RfC8fqbhM61w4uVoy5=Do=XYT=JjrG5Mr49Oo6r1kA@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/2] arm64: jump_label: use more precise asm constraints
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Kees Cook <keescook@chromium.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Sami Tolvanen <samitolvanen@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ardb@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20210112 header.b=KYkXTkpf;       spf=pass
- (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::62c
- as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Fangrui Song <maskray@google.com>
-Reply-To: Fangrui Song <maskray@google.com>
+ header.i=@kernel.org header.s=k20201202 header.b=hIzQdLCu;       spf=pass
+ (google.com: domain of ardb@kernel.org designates 145.40.68.75 as permitted
+ sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,228 +142,144 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2022-04-28, Ard Biesheuvel wrote:
->On Thu, 28 Apr 2022 at 04:40, Fangrui Song <maskray@google.com> wrote:
->>
->> On 2022-04-27, Ard Biesheuvel wrote:
->> >We currently use ordinary, position dependent code generation for the
->> >core kernel, which happens to default to the 'small' code model on both
->> >GCC and Clang. This is the code model that relies on ADRP/ADD or
->> >ADRP/LDR pairs for symbol references, which are PC-relative with a range
->> >of -/+ 4 GiB, and therefore happen to be position independent in
->> >practice.
->> >
->> >This means that the fact that we can link the relocatable KASLR kernel
->> >using the -pie linker flag (which generates the runtime relocations and
->> >inserts them into the binary) is somewhat of a coincidence, and not
->> >something which is explicitly supported by the toolchains.
->>
->> Agree. The current -fno-PIE + -shared -Bsymbolic combo works as a
->> conincidence, not guaranteed by the toolchain.
->>
->> -shared needs -fpic object files. -shared -Bsymbolic is very similar to
->> -pie and therefore works with -fpie object files, but the usage is not
->> recommended from the toolchain perspective.
->>
+On Wed, 27 Apr 2022 at 23:50, Ard Biesheuvel <ardb@kernel.org> wrote:
 >
->So are you suggesting we should also switch from -shared to -Bsymbol
->to -pie if we can? I don't remember the details, but IIRC ld.bfd
->didn't set the ELF binary type correctly, but perhaps this has now
->been fixed.
-
-Yes, -shared -Bsymbolic => -pie, but that can be done later.
-
-For e_type: ET_DYN, I think unlikely there was a bug.
--pie was added by binutils in 2003: it's close to -shared but doesn't
-allow its definitions to be preempted/interposed. Code earlier than that
-might use -shared -Bsymbolic before -pie was available.
-
->> >The reason we have not used -fpie for code generation so far (which is
->> >the compiler flag that should be used to generate code that is to be
->> >linked with -pie) is that by default, it generates code based on
->> >assumptions that only hold for shared libraries and PIE executables,
->> >i.e., that gathering all relocatable quantities into a Global Offset
->> >Table (GOT) is desirable because it reduces the CoW footprint, and
->> >because it permits ELF symbol preemption (which lets an executable
->> >override symbols defined in a shared library, in a way that forces the
->> >shared library to update all of its internal references as well).
->> >Ironically, this means we end up with many more absolute references that
->> >all need to be fixed up at boot.
->>
->> This is not about symbol preemption (when the executable and a shared
->> objectdefine the same symbol, which one wins). An executable using a GOT
->> which will be resolved to a shared object => this is regular relocation
->> resolving and there is no preemption.
->>
->> It is that the compiler prefers code generation which can avoid text
->> relocations / copy relocations / canonical PLT entries
->> (https://maskray.me/blog/2021-01-09-copy-relocations-canonical-plt-entries-and-protected#summary).
->>
+> Hi Nick,
 >
->Fair enough. So the compiler cannot generate relative references to
->undefined external symbols since it doesn't know at codegen time
->whether the symbol reference will be satisfied by the executable
->itself or by a shared library, and in the latter case, the relative
->distance to the symbol is not known at build time, and so a runtime
->relocation is required.
-
-Right.
-
->But how about references to symbols with
->external visibility that are defined in the same compilation unit? I
->don't quite understand why those references need to go via the GOT as
->well.
-
-If you mean references to a non-local STV_DEFAULT (default visibility) definition =>
-
-* -fpic: use GOT because the definition may be replaced by another at run time.
-   Conservatively use a GOT-generating code sequence to allow potential symbol
-   preemption(interposition). The linker may optimize out the GOT (x86-64
-   GOTPCRELX, recent ld.lld for aarch64, powerpc64 TOC-indirect to
-   TOC-relative optimization).
-* -fpie or -fno-pie: the definition cannot be replaced. GOT is unneeded.
-
--fpie is an optimization on top of -fpic: (a) non-local STV_DEFAULT
-definitions can be assumed non-interposable (b) (irrelevant to the
-kernel) TLS can use more optimized models.
-
->> >Fortunately, we can convince the compiler to handle this in a way that
->> >is a bit more suitable for freestanding binaries such as the kernel, by
->> >setting the 'hidden' visibility #pragma, which informs the compiler that
->> >symbol preemption or CoW footprint are of no concern to us, and so
->> >PC-relative references that are resolved at link time are perfectly
->> >fine.
->>
->> Agree
->>
+> On Wed, 27 Apr 2022 at 20:59, Nick Desaulniers <ndesaulniers@google.com> wrote:
+> >
+> > On Wed, Apr 27, 2022 at 10:13 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+> > >
+> > > In order to set bit #0 of the struct static_key pointer in the the jump
+> > > label struct, we currently cast the pointer to char[], and take the
+> > > address of either the 0th or 1st array member, depending on the value of
+> > > 'branch'. This works but creates problems with -fpie code generation:
+> > > GCC complains about the constraint being unsatisfiable, and Clang
+> > > miscompiles the code in a way that causes stability issues (immediate
+> > > panic on 'attempt to kill init')
+> >
+> > Any more info on the "miscompile?" Perhaps worth an upstream bug report?
+> >
 >
->The only unfortunate thing is that -fvisibility=hidden does not give
->us the behavior we want, and we are forced to use the #pragma instead.
-
-Right. For a very long time there had been no option controlling the
-access mode for undefined symbols (-fvisibility= is for defined
-symbols).
-
-I added -fdirect-access-external-data to Clang which supports
-many architectures (x86, aarch64, arm, riscv, ...).
-GCC's x86 port added -mdirect-extern-access in 2022-02 (not available on aarch64).
-
-The use of `#pragma GCC visibility push(hidden)` looks good as a
-portable solution.
-
->> >So let's enable this #pragma and build with -fpie when building a
->> >relocatable kernel. This also means that all constant data items that
->> >carry statically initialized pointer variables are now emitted into the
->> >.data.rel.ro* sections, so move these into .rodata where they belong.
->>
->> LGTM, except: is ".rodata" a typo? The patch doesn't reference .rodata
->>
+> I made very little progress trying to narrow it down: a segfault in
+> user space caused by who knows what. I'd file a bug if I knew how to
+> reproduce it.
 >
->I am referring to the .rodata pseudo-segment that we have in the
->kernel, which runs from _etext to __inittext_begin.
 
-OK
+... and now, I cannot even reproduce it anymore, so I'll drop this
+mention altogether.
 
->> >Code size impact (GCC):
->> >
->> >Before:
->> >
->> >      text       data        bss      total filename
->> >  16712396   18659064     534556   35906016 vmlinux
->> >
->> >After:
->> >
->> >      text       data        bss      total filename
->> >  16804400   18612876     534556   35951832 vmlinux
->> >
->> >Code size impact (Clang):
->> >
->> >Before:
->> >
->> >      text       data        bss      total filename
->> >  17194584   13335060     535268   31064912 vmlinux
->> >
->> >After:
->> >
->> >      text       data        bss      total filename
->> >  17194536   13310032     535268   31039836 vmlinux
+> > >
+> > > So instead, pass the struct static_key reference and the 'branch'
+> > > immediate individually, in a way that satisfies both GCC and Clang (GCC
+> > > wants the 'S' constraint, whereas Clang wants the 'i' constraint for
+> > > argument %0)
+> >
+> > Anything we can do to improve Clang's handling of S constraints?
+> > https://gcc.gnu.org/onlinedocs/gcc/Machine-Constraints.html#Machine-Constraints
+> > >> An absolute symbolic address or a label reference
+> >
+>
+> "S" seems more appropriate than "i" for a symbol reference, and GCC
+> rejects "i" when using -fpie. But the actual literal being emitted is
+> a relative reference, not an absolute one. This likely needs more
+> discussion, but using "i" in the way we do now is definitely dodgy.
+>
 
-The size difference for Clang matches my expecation:)
-I am somewhat surprised that data is smaller, though...
+I have tried to create a reproducer for this issue, but the code
+below, which does essentially the same thing as jump_label.h, works
+fine with Clang and GCC with or without -fpie.
 
-I wonder how GCC makes code bloated so much...
+extern struct s {
+  struct { } m;
+} ss;
 
->> >Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
->> >---
->> > arch/arm64/Makefile             | 4 ++++
->> > arch/arm64/kernel/vmlinux.lds.S | 9 ++++-----
->> > 2 files changed, 8 insertions(+), 5 deletions(-)
->> >
->> >diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
->> >index 2f1de88651e6..94b6c51f5de6 100644
->> >--- a/arch/arm64/Makefile
->> >+++ b/arch/arm64/Makefile
->> >@@ -18,6 +18,10 @@ ifeq ($(CONFIG_RELOCATABLE), y)
->> > # with the relocation offsets always being zero.
->> > LDFLAGS_vmlinux               += -shared -Bsymbolic -z notext \
->> >                       $(call ld-option, --no-apply-dynamic-relocs)
->> >+
->> >+# Generate position independent code without relying on a Global Offset Table
->> >+KBUILD_CFLAGS_KERNEL   += -fpie -include $(srctree)/include/linux/hidden.h
->> >+
->> > endif
->> >
->> > ifeq ($(CONFIG_ARM64_ERRATUM_843419),y)
->> >diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
->> >index edaf0faf766f..b1e071ac1acf 100644
->> >--- a/arch/arm64/kernel/vmlinux.lds.S
->> >+++ b/arch/arm64/kernel/vmlinux.lds.S
->> >@@ -174,8 +174,6 @@ SECTIONS
->> >                       KEXEC_TEXT
->> >                       TRAMP_TEXT
->> >                       *(.gnu.warning)
->> >-              . = ALIGN(16);
->> >-              *(.got)                 /* Global offset table          */
->> >       }
->> >
->> >       /*
->> >@@ -192,6 +190,8 @@ SECTIONS
->> >       /* everything from this point to __init_begin will be marked RO NX */
->> >       RO_DATA(PAGE_SIZE)
->> >
->> >+      .data.rel.ro : ALIGN(8) { *(.got) *(.data.rel.ro*) }
->> >+
->> >       HYPERVISOR_DATA_SECTIONS
->> >
->> >       idmap_pg_dir = .;
->> >@@ -273,6 +273,8 @@ SECTIONS
->> >       _sdata = .;
->> >       RW_DATA(L1_CACHE_BYTES, PAGE_SIZE, THREAD_ALIGN)
->> >
->> >+      .data.rel : ALIGN(8) { *(.data.rel*) }
->> >+
->> >       /*
->> >        * Data written with the MMU off but read with the MMU on requires
->> >        * cache lines to be invalidated, discarding up to a Cache Writeback
->> >@@ -320,9 +322,6 @@ SECTIONS
->> >               *(.plt) *(.plt.*) *(.iplt) *(.igot .igot.plt)
->> >       }
->> >       ASSERT(SIZEOF(.plt) == 0, "Unexpected run-time procedure linkages detected!")
->> >-
->> >-      .data.rel.ro : { *(.data.rel.ro) }
->> >-      ASSERT(SIZEOF(.data.rel.ro) == 0, "Unexpected RELRO detected!")
->> > }
->> >
->> > #include "image-vars.h"
->> >--
->> >2.30.2
->> >
->> >--
->> >You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
->> >To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
->> >To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220427171241.2426592-3-ardb%40kernel.org.
+static inline __attribute__((always_inline)) int inner(struct s *s) {
+  asm goto("adrp xzr, %c0" : : "S"(&s->m) : : l);
+
+  return 0;
+l:return 1;
+}
+
+int outer(void) {
+  return inner(&ss);
+}
+
+So what's tricky here is that arch_static_branch() [like inner()
+above] does not refer to the global directly, which is either struct
+static_key_true or struct static_key_false, but to its 'key' member,
+which is the first member of either former type. However, Clang does
+not seem to care in case of this example, but when building the
+kernel, it errors out with
+
+/home/ard/linux/arch/arm64/include/asm/jump_label.h:22:3: error:
+invalid operand for inline asm constraint 'S'
+
+Another thing I hate about this code is that it needs optimizations
+enabled, or it won't compile.
+
+> > >
+> > > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > > ---
+> > >  arch/arm64/include/asm/jump_label.h | 8 ++++----
+> > >  1 file changed, 4 insertions(+), 4 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/include/asm/jump_label.h b/arch/arm64/include/asm/jump_label.h
+> > > index cea441b6aa5d..f741bbacf175 100644
+> > > --- a/arch/arm64/include/asm/jump_label.h
+> > > +++ b/arch/arm64/include/asm/jump_label.h
+> > > @@ -23,9 +23,9 @@ static __always_inline bool arch_static_branch(struct static_key *key,
+> > >                  "      .pushsection    __jump_table, \"aw\"    \n\t"
+> > >                  "      .align          3                       \n\t"
+> > >                  "      .long           1b - ., %l[l_yes] - .   \n\t"
+> > > -                "      .quad           %c0 - .                 \n\t"
+> > > +                "      .quad           %c0 - . + %1            \n\t"
+> >
+> > If %1 is "i" constrained, then I think we can use the %c output
+> > template for it as well?
+> > https://gcc.gnu.org/onlinedocs/gccint/Output-Template.html
+> >
+>
+> Is %c what prevents the leading # from being emitted? I'm not sure
+> whether that matters here, as AArch64 asm does not require it (and the
+> code builds fine with either compiler). But if it reflects the use
+> more precisely, I agree we should add it.
+>
+> > Is the expression clearer if we keep the `- .` at the end of each expression?
+> >
+>
+> I don't think so. The add sets the enabled bit, so I'd even be
+> inclined to write this as (%c0 - .) + %c1 to emphasize that this is a
+> relative reference with bit #0 set separately.
+>
+> > >                  "      .popsection                             \n\t"
+> > > -                :  :  "i"(&((char *)key)[branch]) :  : l_yes);
+> > > +                :  :  "Si"(key), "i"(branch) :  : l_yes);
+> > >
+> > >         return false;
+> > >  l_yes:
+> > > @@ -40,9 +40,9 @@ static __always_inline bool arch_static_branch_jump(struct static_key *key,
+> > >                  "      .pushsection    __jump_table, \"aw\"    \n\t"
+> > >                  "      .align          3                       \n\t"
+> > >                  "      .long           1b - ., %l[l_yes] - .   \n\t"
+> > > -                "      .quad           %c0 - .                 \n\t"
+> > > +                "      .quad           %c0 - . + %1            \n\t"
+> > >                  "      .popsection                             \n\t"
+> > > -                :  :  "i"(&((char *)key)[branch]) :  : l_yes);
+> > > +                :  :  "Si"(key), "i"(branch) :  : l_yes);
+> > >
+> > >         return false;
+> > >  l_yes:
+> > > --
+> > > 2.30.2
+> > >
+> >
+> >
+> > --
+> > Thanks,
+> > ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220428065742.rl3w5rz2ni2fhngl%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXF4RfC8fqbhM61w4uVoy5%3DDo%3DXYT%3DJjrG5Mr49Oo6r1kA%40mail.gmail.com.
