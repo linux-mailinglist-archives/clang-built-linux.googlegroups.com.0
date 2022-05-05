@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDG4DXNHV4CRBUO42CJQMGQEYLJ4SBY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDG4DXNHV4CRBHG62CJQMGQE2RAL5MA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6D62651C9EE
-	for <lists+clang-built-linux@lfdr.de>; Thu,  5 May 2022 22:06:42 +0200 (CEST)
-Received: by mail-wm1-x337.google.com with SMTP id t2-20020a7bc3c2000000b003528fe59cb9sf2053997wmj.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 05 May 2022 13:06:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1651781202; cv=pass;
+Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
+	by mail.lfdr.de (Postfix) with ESMTPS id C648B51CA2F
+	for <lists+clang-built-linux@lfdr.de>; Thu,  5 May 2022 22:10:05 +0200 (CEST)
+Received: by mail-lf1-x13b.google.com with SMTP id m2-20020a0565120a8200b00473a809c6e0sf2112417lfu.11
+        for <lists+clang-built-linux@lfdr.de>; Thu, 05 May 2022 13:10:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1651781405; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yyN5/XJ+f7LmpoZ0z5/wlksvV8szAuTVJY3rRou8Srcj19kQnxUz2x9eiKhgZD2Hbb
-         5upQRT7daDWzttm3PquPkcx9miCoMfDleV6jvg7XkE+ajQA4bB7LLgyn0Vxj4raXs5kQ
-         w6y2F6tVwxqkXQHUY3feN1UJir1MrTPCzok/a0tEUBIp5PTLipxFffN1MhTJeKRJKTAr
-         GFzaqGi9sdjezVN+Ci8wfnx636p2ywoHj4kcxkczV61737uUL9bkrG7KSTtfHeodrakY
-         fWF8UqujXgjDc+azzzqkI4ka7yprGs3WuNIvOhZG54jGs0c6vnGBDt5ur4EC0qKjwWqQ
-         tp2w==
+        b=GX+7Bhw1UbB3D6g72I/MBgUvooJ6bLW5VirDbXMwZjnIrEx3UTO90KDhREVWMdBAd1
+         K48k1BQKltak2wIiWOzUtE3THnkGkWa7GhMqJ8JBF+W+huV9xEsWd0GgGpCMYuv4jLN6
+         3xPrqvT+eWkYq9+qg79RBooP3RSLz7CnvPUmIZiEHc7aOKTvm0MfxGNhAIujSFc8USHy
+         SB2DcAXkL6VbWTiOOC/EmzmDH8GzQN1c13USe1qmcFTaS/rwC1AXzmP0KuZpXtZkNFse
+         4hId6Fs+t8n5iZk8CmfgqKAHL4ola5+k36qYRon0cOCDVerysDb3YQnPBdNDSUBz0KOQ
+         RiWQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=deK8w3JjH9e8hDCLWf+GQGY3EqBQdQxgR2uXXXGmip0=;
-        b=I0nB05ngcbsX3tk4dba0ippnsEEPdrlPjKMfi5F3O/JViiQM/HlOyf/07yU4PgAYZU
-         lGM/geMIuHclR65qPmh4x8z1YZnbwW9z79cbG1+GgKE7bIyYcu7R1nArvbs0xfTT9W9L
-         FgrIfi9KArmq/+0fIyfMREnbRb+IAqdNFueDXgp4teJwIbk0+hkVRtMvFZNxA9/yKt5d
-         eVz4YLU3ukyWzTn7KbzVhAUca0nsU1JwijQcYLndfMP/MRvcoeqOACcO7Jk3n6klOgrS
-         vFO0MmGihpbSc3IcAAuEQ6oKwEzvxPD0ykHdbrW1AjwV4T3zaxGQC41HMU//HiPd4d4A
-         3+UA==
+        bh=+bt6Yd8Tx/FuYwoTFpvzsLKMb1MUPpT80spDmRyarFY=;
+        b=VEuEY7IEyr+xxWigM44UUQAQO1Z+o4CLy/AJMlYgNV7SfUacl7XsH+Kh3owM3ZP0K0
+         PTkxyN272MX7U8lgxjT5wh/Vx3aBCRaxd6XkGcwbpgacdfK8mJeQFqyoWET+mN94Bsrm
+         2wRMqyJrvYcwokzf/6la7S9EZ67dxGyeLXRAIcuxHFf4WNpvbmaZ04Q+AjnPAB3JWQ7B
+         NoDvu+p1PjOO9i84kgt4D2udbtHRckofI2qR4iyUWKKRQKkBsHAfbXxxzkXK19HqxqbC
+         WUt+YjcMhnmvi/1TN/X41zO2TPfi3iHbfksk6sS+fpbKMeg/XbgBB1x8ssLFYdf/0hBC
+         sdYg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@fjasle.eu header.s=mail header.b="Bo+hY/Tp";
-       spf=pass (google.com: domain of nicolas@fjasle.eu designates 212.227.17.13 as permitted sender) smtp.mailfrom=nicolas@fjasle.eu;
+       dkim=pass header.i=@fjasle.eu header.s=mail header.b=AeMjd5vv;
+       spf=pass (google.com: domain of nicolas@fjasle.eu designates 217.72.192.75 as permitted sender) smtp.mailfrom=nicolas@fjasle.eu;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=fjasle.eu
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=deK8w3JjH9e8hDCLWf+GQGY3EqBQdQxgR2uXXXGmip0=;
-        b=FqoPoL7vlglBMI0Q/bBKQG4sFrolFEN0IlraATatrN896YJbBeQmZkaMwJYe7Xdl8h
-         nVWXGHp9qS2xBOxg1PWQhsvKSi0CPgXpqo6a7tYBJC91j1wRQmcTf1Jv5AtSsJgcoJul
-         aP9LIMEOw1cH3Tw8nxBRdcdAc/koGZGoAcc8qbH3L2tpruZ/O8IczyzjD+1ZkvPGfcyL
-         e2wLI4m6CwKsC1Hm1VIwiNgLiTQBJqlTjW78tb0XWh9BL8ka5hh6WywqKoeWZOJMK/wR
-         7kEybymdUc2Nwms0avrPMqOLhC4ioc0/uj//B6wIP4jExMQMiO6GN129CY7roYwECCXk
-         k9nw==
+        bh=+bt6Yd8Tx/FuYwoTFpvzsLKMb1MUPpT80spDmRyarFY=;
+        b=j7doW8f4D2sBFsPEmubgTJvv6ignCnNW/jI67K+P0Pz0rCWrNZXDfdeiktcP3R9yG6
+         Yb9YiUOYTeRXXk1uo5p6niqpPnveDaV5O46cHnD8ap2J7lSfQLeE5dY97fibe1wliPQx
+         Y/HgsO+qyivGHURSH9PEslfDWHUK37EJ8ufrqbyw76Wzgn4cIUWD7jy36Zg79v9CLEqQ
+         qTYcudo/0b4mq3Mw64XwahgkVDMJ3MXLyGBUiwEhnkuU/uU80nuX2/3xZYKtgKdW/0tX
+         bMxrZMv4oAy0fuBDQFi9CjZirwFlWUJvB7p+AJ1pZ/jhS4Xf9JM/qkwkr4L4kGlsM9NL
+         C01A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,58 +50,59 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=deK8w3JjH9e8hDCLWf+GQGY3EqBQdQxgR2uXXXGmip0=;
-        b=lXClbOYaUT2inUz0cMCGoUSIyeW684gpPBqT3nxVH4FaWcrJ3eWYeWvLz14ql2Sq2w
-         CQd5V8kHMULfO1ey9V58rntvQnu/k6Co//+RYibTQMSAiEvXugsvBJeft7QlrnCH9K0h
-         DHGs0N7zV42lnDt0cqr4WSwWaRAg1eWhC322z8r8CkRJAUh1X1+Mhi8NMJFB4KiulqXW
-         gyYe0m+upRt1bxRAMgeOh+aFErNzMIHefZZVs6LrJXvMepsY7MleGEhaVdSrtq7qlbnB
-         2Sg5kO3AWMLUnZkOqqW9GYqa3JMJRZte+MB/wFTwtwhgmjXu8IaeWVMjzt9ICD/eU6GM
-         O3Hw==
+        bh=+bt6Yd8Tx/FuYwoTFpvzsLKMb1MUPpT80spDmRyarFY=;
+        b=rko5EnsoqbLG09+6Nb2k2KZPV2vp9FvKgb57A2mwtnTGt7wo7zM1XQ3c6u64fD9JsJ
+         bJgoDdmKY+rEbsZucKGBlASH/1vt224aB5RCeaUeYn6XBRgZyBCU8skyr7qh2gBVVpiu
+         i/efrhMz9AoNgwaVSoCSi9p3IpAFfAugwgMaT7IUfYxPmP8gPy4KJEN7xDUdWK4c3L88
+         ITwAH/XmgiXXEyvAZ/RSxSDCZHKkg9uA12Nwhal5L92UOhz6fXTlymU8oHVutHd/S4XO
+         l0wZXSUB736tiLVjuUA2gdxh07JAkvjyyvplARYiVSn+uOTO+DPfvp9M2MMLfd8nAKDm
+         Siew==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531SiiMmSaC4yxQ13glN3D8vDFZdkg0894GA9u3PuHPvPFA0dCI3
-	dEHwFoCxmjQ2D9nySMHaxTo=
-X-Google-Smtp-Source: ABdhPJxAW2K3eekCxjg4JsmytqrEIPLJ5w85L0L5+CM1p5eBW4SSJ9wfOHs7Qq3P2TG2QURSEgybJw==
-X-Received: by 2002:a05:600c:3393:b0:394:160a:18aa with SMTP id o19-20020a05600c339300b00394160a18aamr6574428wmp.58.1651781202047;
-        Thu, 05 May 2022 13:06:42 -0700 (PDT)
+X-Gm-Message-State: AOAM532xBfyLPyTAvbr/DQ2X/5Kc2FK7QlEy2nhXWjdsKHpVQ2Slt3RQ
+	z1EqEvQ8240v0gRKt7lbz3o=
+X-Google-Smtp-Source: ABdhPJzAxXZ9+DM2m25y3gK+3yxr/bPOqNoReGxy3YbnzIpNmQydjI8sb83ZFRJnYyFO4OBe6un9CQ==
+X-Received: by 2002:a05:651c:555:b0:24f:4dfe:5b83 with SMTP id q21-20020a05651c055500b0024f4dfe5b83mr15960719ljp.122.1651781405031;
+        Thu, 05 May 2022 13:10:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:2747:0:b0:381:80e8:be59 with SMTP id n68-20020a1c2747000000b0038180e8be59ls2745419wmn.1.gmail;
- Thu, 05 May 2022 13:06:41 -0700 (PDT)
-X-Received: by 2002:a05:600c:2112:b0:393:ff25:fb92 with SMTP id u18-20020a05600c211200b00393ff25fb92mr30293wml.194.1651781201067;
-        Thu, 05 May 2022 13:06:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1651781201; cv=none;
+Received: by 2002:a05:6512:b1c:b0:472:38f0:bc75 with SMTP id
+ w28-20020a0565120b1c00b0047238f0bc75ls599502lfu.0.gmail; Thu, 05 May 2022
+ 13:10:03 -0700 (PDT)
+X-Received: by 2002:ac2:5ecc:0:b0:472:3c01:9a2e with SMTP id d12-20020ac25ecc000000b004723c019a2emr13523lfq.245.1651781403839;
+        Thu, 05 May 2022 13:10:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1651781403; cv=none;
         d=google.com; s=arc-20160816;
-        b=SPp+Dl+xIx/HnPktJOeXbWh7JT2+OnLhcJCalOilo0M0UySUOAab1qAzEbGA5xOINg
-         s5Vb0gwjpecQQDERpwrvvxIh58VHZ/2h/eXA+Hr0ttS5HzIvkP2GgglQOVe7Iy5Q2QTc
-         7LFd0ltzemzi7mC4UadtOHC9yZTCSoTqqqmKNzH6RGvK+jJUB/sC3R3IApXHs1kbucL/
-         haRUgHFbKQeXqfRDDbzD+P32/oBsNb0+uvOr2ABeGTp5ZQnzhIK7mIHJiPDaywcBNsH5
-         yUpQIJktiY0KbYkv2Q78Jye/ifCRIlxdsw4RhqhNdtQr0Fda6pCRsmsv+72f9YCvmseO
-         1ubQ==
+        b=M9LDJx6Brq47bo/8TXEvLyWyAH3fd33cZqldy9ut18oQrehPNC9D3Ud3qOnooHi5IH
+         5CCBAoUjUwvTLDJKPBb3Q2AmZx1fpoOq8eGg0YG8LnDqhEiQG/5Z0njuvwnq6fEKU+hb
+         vm/7vK6uBQ7K5krjhk+YvTMkVuP15lWtow9C6jQ4iJyxAj6uIP+YXgQ0yQLFHTiZNRJ7
+         K59ZCKvx3K7ai6DIweWOb11+cWY5rVgMDT02hkSfpvkGcil92GcpSFGabgZOMva2R8jU
+         nIQUq0gZG4GAymh38WULWRtzJ1hH3qf5pIU1X8VJRYb14CcjN24QFnKtVd/T6ejrbVVT
+         XCgQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=O20T7HBpi4DFJk4ao2x7cWJww53XmVloaSVJ4TsRjog=;
-        b=MNKQQF4ncatdhK/gUsJ2D2r11jYcv4qu5aQOo2D1iHk+zvuO1lnPdHOPaD+80VsiRP
-         0kA9XcMNqXlOhP0Lsrcj0GBl7wRK+0wD9CLIHVLx3mgEZJ9V3QYRkH32Wiq57oipuWo3
-         kWd9qKAlTjUu4bly8gZBIX8PiCCs0H6M5uu+Ab2uDFYcBIsR3zq1LR6705/qMhUzCRbE
-         5gH0ako0VfNTEciKryqiFgsuFLZ5vvzXrF1MPs/3PdSa194V9K5UIJLPdgoRYNbLiB0u
-         TS/JIl93j7Q63BH+RTbFDLvSaSED/KtUA8SnvUHh2XraDPiDs/sd80q16Ti2bmxrNbd1
-         pBwQ==
+        bh=MXJbfny749ogT53gy1UTswH2y6VT8TuPfgJjUE0bAP8=;
+        b=iIO1TCcmiZtoD2ZyA7gMv3PsUolm75dBq51BmdloNG4EWk1skYkeeppNkqjZL7//Gy
+         RxFcGaMhzarlW7APIlQ/I66uHnQu5wat0fQwRfploUa2GGCdhcACVzmQI84HXYmQMRIj
+         D5yziSq8LGPjbZsCLIIFq6mOJTGPpdX4FqgWZlKhUgDt0MbUOcf6WtrFlBLQfTwkD9hr
+         H2aGKdB7Ul83MlMHZJbWtbj5RTdOr838Qp+ZzDbfJ/vBggQVtoI+I2CBgrSrWLpaLekk
+         94tazGInPrdaAPkSZKuwsMaZpDj8C9pVhuX25zTr6c0nKc/G2y5HdzG0HvEj3pBYc18X
+         0Szw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@fjasle.eu header.s=mail header.b="Bo+hY/Tp";
-       spf=pass (google.com: domain of nicolas@fjasle.eu designates 212.227.17.13 as permitted sender) smtp.mailfrom=nicolas@fjasle.eu;
+       dkim=pass header.i=@fjasle.eu header.s=mail header.b=AeMjd5vv;
+       spf=pass (google.com: domain of nicolas@fjasle.eu designates 217.72.192.75 as permitted sender) smtp.mailfrom=nicolas@fjasle.eu;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=fjasle.eu
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.17.13])
-        by gmr-mx.google.com with ESMTPS id n2-20020a1c2702000000b0038e70fa4e56si18328wmn.3.2022.05.05.13.06.40
+Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.75])
+        by gmr-mx.google.com with ESMTPS id m17-20020a2e9111000000b0024c7f087105si134396ljg.8.2022.05.05.13.09.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 May 2022 13:06:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nicolas@fjasle.eu designates 212.227.17.13 as permitted sender) client-ip=212.227.17.13;
+        Thu, 05 May 2022 13:09:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nicolas@fjasle.eu designates 217.72.192.75 as permitted sender) client-ip=217.72.192.75;
 Received: from leknes.fjasle.eu ([46.142.98.182]) by mrelayeu.kundenserver.de
- (mreue109 [212.227.15.183]) with ESMTPSA (Nemesis) id
- 1MXY2T-1nJrvv1Lbz-00Z2wJ; Thu, 05 May 2022 22:06:36 +0200
+ (mreue106 [212.227.15.183]) with ESMTPSA (Nemesis) id
+ 1Mbj7g-1oNfyF0MsY-00dBs2; Thu, 05 May 2022 22:09:49 +0200
 Received: by leknes.fjasle.eu (Postfix, from userid 1000)
-	id 425153C088; Thu,  5 May 2022 22:06:34 +0200 (CEST)
-Date: Thu, 5 May 2022 22:06:34 +0200
+	id 4200C3C088; Thu,  5 May 2022 22:09:47 +0200 (CEST)
+Date: Thu, 5 May 2022 22:09:47 +0200
 From: Nicolas Schier <nicolas@fjasle.eu>
 To: Masahiro Yamada <masahiroy@kernel.org>
 Cc: linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com,
@@ -113,35 +114,35 @@ Cc: linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Sami Tolvanen <samitolvanen@google.com>,
 	Kees Cook <keescook@chromium.org>
-Subject: Re: [PATCH v3 04/15] modpost: move *.mod.c generation to
- write_mod_c_files()
-Message-ID: <YnQuSlb9EbjWJ1WI@fjasle.eu>
+Subject: Re: [PATCH v3 07/15] modpost: extract symbol versions from *.cmd
+ files
+Message-ID: <YnQvC66wiDIGzeDo@fjasle.eu>
 References: <20220505072244.1155033-1-masahiroy@kernel.org>
- <20220505072244.1155033-5-masahiroy@kernel.org>
+ <20220505072244.1155033-8-masahiroy@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20220505072244.1155033-5-masahiroy@kernel.org>
-X-Provags-ID: V03:K1:NVcW/uOG7hJwXpmRx2e2BH5Puvh6Ojdt+6/38GHTT0l9qn00sPK
- mb5A6qRDZFFaWqyV2YBB5R5vXVSCBzBqaqiBXLPtn8TGLZ5JEk/obIbJukr8o0LAhXsSAys
- SPaOeLdLW+s4Ubq9f9ZRC15OMxQpuokc7fcfA5iDxjOiFo++IbqdeRwMYDmCrZeoD2AADHK
- vfoE47G3EbzUcPD4PXjaQ==
+In-Reply-To: <20220505072244.1155033-8-masahiroy@kernel.org>
+X-Provags-ID: V03:K1:F1/VS82Iexieq6BXZvrYKwem7arUucGMnRl5JUmDSL2Cn4toyRh
+ BiZDMe2fIFL75Rkkgs4S9qPdoLef3nun3zgHr1agdSb0dLgsFCy3HBccOLELRBbYZkpWmfO
+ lkxp6NAkYP9zIVnu1AC5zA5HKxr6+Gx4rk3QWVl4GGT64S9vC6H+uxwV7xDXUWiZDcDrumk
+ Cobvs7bmX0PvIXypVN5vg==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:hvm6SQfU/54=:B27ppraTEoTCHG1w+Qyylw
- PHb84M6nkcAZHwE/9vNdYCQ44KfhXAClv7rjHZLCYLo2FihK7+7f1+sgd30txIwmbCzz7ruxp
- riLZd4jgQmkdgqfWFrJGNJHKswbq9P4ZY2KSbaBxkr3GQCJVF5ycX1Wed7f/95MrkzRQPFkRe
- h9CQrfBbxrZ8ydK7icLwv1zvEQdtZnbMwJmGq1KIWJ9vM0yplpjhmQITwyOM6YnjQP5IoGGSK
- koxqlVUBIF6SJt6YLMpx9fwiGt3CgyGfk5YvnPnCu3q5KXuSZblbs5RRYe4S0WToNu0xvtVac
- YvxU9Ux0qIj03Cq4J7pUvCTwO+HpYSco0ZROCqxA5ilanHQpGs6h74MHn3wscePESHbcOxCk/
- vFF+1G2h8o4QrPu/0MsdM8pcbznUfEo+c4QzB6IW5LdHafFuWJevNqVc/SrxiXDCyPSTVYT5o
- cR2CWEYwdFwKkK2Xt6WTGUKKY2+U6kFqS9YlGQ0QsiaslpQVkZGamDuRJ5GzNeM8fPGkLVK/N
- jeHk/5gTA0rivYcoLIdRvXsfnub9xxXFgxQpIoQhDsOV0bORXAj4NtZhjB/GmXJvaauYhR/7x
- YD4Q7gAaHtMs1yEgpqhDtAKzkwwg3IY17mhlnNFH2v6YMYwVudBwsHQErj8mLiXzpQkMwCT1x
- ROH58xDrLs7FtMfqCRJgDgKi3UoBI4B8ELGxjg4XuSIca7dEIwsY7ZKpCGQFfUeboK04=
+X-UI-Out-Filterresults: notjunk:1;V03:K0:8k2jbGGnYZE=:w4UWgqYcXXdjfLXk7fGV9Y
+ UbT9TJ9Njv3XWYhfpGsbiqeTcpOApWH0njNVhoSFK8A1Vcnj3DX3/FVN2hk2im2AyRwdvSOSb
+ tfdvmgC/S6OXv/DEMgQThgOHqPyLeaodIPfl/gPTnaLab7QpWMeVxRuD3CueU+TFwowSJ0sIX
+ theIQpAqyfmTsahTvDGCRfAn8Ft6lSFzdSKvNyLbZiR/U9yPu2vzr8OYs3YijweODcT9fRjcF
+ 3tMW7Usc+EUMxiBarv4U2FpcfrMMz89hKmmFZ5QYAW+OrDcyf8oq425Hq29dvqxjMk6AOJ30n
+ UaDgHlBKM/OVcXroIgH0xErhsFFNUfE30iBJ/EGtDLXvtQhgPGAhjIwXmfrtg4fa8ldf7CX0g
+ dlItE3BHTRQFJbSJeT6Sz33whx5OH4kaPnkXUmy64AW3NiXynncKaibwKvWg0ifGkpfoE2zHq
+ 9L4WusTGAy/frl2cmtnDdWzi0JUVFEDe/XkrBLJDFP34eM5ile2kbA/lwr8tCw3au4uhKAarM
+ d7j04mpm6IT9W1N8w3YMU2w+EiG1/JstVzR16tglhv5Sa6vUOT5rKF8I+qnuuMgQJUaS8uq2p
+ LQlEWKlY4VMYN4ftOqpVVdestiCQxKeE8tLq0qD4eaDCS1JKZOP82/aQtKex2gDI/KFlIjWYM
+ mrrBn4nlP+skECocJEVtdoIXvVqIi8lyhfW9kGi2FOR7bWpAXotkDnHOviRcpFjoOP5A=
 X-Original-Sender: nicolas@fjasle.eu
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@fjasle.eu header.s=mail header.b="Bo+hY/Tp";       spf=pass
- (google.com: domain of nicolas@fjasle.eu designates 212.227.17.13 as
+ header.i=@fjasle.eu header.s=mail header.b=AeMjd5vv;       spf=pass
+ (google.com: domain of nicolas@fjasle.eu designates 217.72.192.75 as
  permitted sender) smtp.mailfrom=nicolas@fjasle.eu;       dmarc=pass (p=NONE
  sp=QUARANTINE dis=NONE) header.from=fjasle.eu
 Precedence: list
@@ -156,109 +157,304 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, May 05, 2022 at 04:22:33PM +0900 Masahiro Yamada wrote:
-> A later commit will add more code to this list_for_each_entry loop.
+On Thu, May 05, 2022 at 04:22:36PM +0900 Masahiro Yamada wrote:
+> Currently, CONFIG_MODVERSIONS needs extra link to embed the symbol
+> versions into ELF objects. Then, modpost extracts the version CRCs
+> from them.
 > 
-> Before that, move the loop body into a separate helper function.
+> The following figures show how it currently works, and how I am trying
+> to change it.
+> 
+> Current implementation
+> ======================
+>                                                            |----------|
+>                  embed CRC      -------------------------->| final    |
+>       $(CC)        $(LD)       /  |---------|              | link for |
+>   *.c ------> *.o -------> *.o -->| modpost |              | vmlinux  |
+>                      /            |         |-- *.mod.c -->| or       |
+>      genksyms       /             |---------|              | module   |
+>   *.c ------> *.symversions                                |----------|
+> 
+> Genksyms outputs the calculated CRCs in the form of linker script
+> (*.symversions), which is used by $(LD) to update the object.
+> 
+> If CONFIG_LTO_CLANG=y, the build process becomes much more complex.
+> Embedding the CRCs is postponed until the LLVM bitcode is converted
+> into ELF, creating another intermediate *.prelink.o.
+> 
+> However, this complexity is unneeded. There is no reason why we must
+> embed version CRCs in objects so early.
+> 
+> There is final link stage for vmlinux (scripts/link-vmlinux.sh) and
+> modules (scripts/Makefile.modfinal). We can link CRCs at the very last
+> moment.
+> 
+> New implementation
+> ==================
+>                                                            |----------|
+>                    --------------------------------------->| final    |
+>       $(CC)       /    |---------|                         | link for |
+>   *.c ------> *.o ---->|         |                         | vmlinux  |
+>                        | modpost |--- .vmlinux-symver.c -->| or       |
+>      genksyms          |         |--- *.mod.c ------------>| module   |
+>   *.c ------> *.cmd -->|---------|                         |----------|
+> 
+> Pass the symbol versions to modpost as separate text data, which are
+> available in *.cmd files.
+> 
+> This commit changes modpost to extract CRCs from *.cmd files instead of
+> from ELF objects.
 > 
 > Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 > ---
 > 
-> Changes in v3:
->   - New patch
+> (no changes since v2)
 > 
->  scripts/mod/modpost.c | 56 ++++++++++++++++++++++++-------------------
->  1 file changed, 31 insertions(+), 25 deletions(-)
+> Changes in v2:
+>   - Simplify the implementation (parse .cmd files after ELF)
+> 
+>  scripts/mod/modpost.c | 177 ++++++++++++++++++++++++++++++------------
+>  1 file changed, 129 insertions(+), 48 deletions(-)
 > 
 > diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-> index ae8e4a4dcfd2..78a7107fcc40 100644
+> index 78a7107fcc40..92ee1f454e29 100644
 > --- a/scripts/mod/modpost.c
 > +++ b/scripts/mod/modpost.c
-> @@ -2347,6 +2347,34 @@ static void write_if_changed(struct buffer *b, const char *fname)
->  	write_buf(b, fname);
+> @@ -383,19 +383,10 @@ static struct symbol *sym_add_exported(const char *name, struct module *mod,
+>  	return s;
 >  }
 >  
-> +/* do sanity checks, and generate *.mod.c file */
-> +static void write_mod_c_file(struct module *mod)
+> -static void sym_set_crc(const char *name, unsigned int crc)
+> +static void sym_set_crc(struct symbol *sym, unsigned int crc)
+>  {
+> -	struct symbol *s = find_symbol(name);
+> -
+> -	/*
+> -	 * Ignore stand-alone __crc_*, which might be auto-generated symbols
+> -	 * such as __*_veneer in ARM ELF.
+> -	 */
+> -	if (!s)
+> -		return;
+> -
+> -	s->crc = crc;
+> -	s->crc_valid = true;
+> +	sym->crc = crc;
+> +	sym->crc_valid = true;
+>  }
+>  
+>  static void *grab_file(const char *filename, size_t *size)
+> @@ -618,33 +609,6 @@ static int ignore_undef_symbol(struct elf_info *info, const char *symname)
+>  	return 0;
+>  }
+>  
+> -static void handle_modversion(const struct module *mod,
+> -			      const struct elf_info *info,
+> -			      const Elf_Sym *sym, const char *symname)
+> -{
+> -	unsigned int crc;
+> -
+> -	if (sym->st_shndx == SHN_UNDEF) {
+> -		warn("EXPORT symbol \"%s\" [%s%s] version generation failed, symbol will not be versioned.\n"
+> -		     "Is \"%s\" prototyped in <asm/asm-prototypes.h>?\n",
+> -		     symname, mod->name, mod->is_vmlinux ? "" : ".ko",
+> -		     symname);
+> -
+> -		return;
+> -	}
+> -
+> -	if (sym->st_shndx == SHN_ABS) {
+> -		crc = sym->st_value;
+> -	} else {
+> -		unsigned int *crcp;
+> -
+> -		/* symbol points to the CRC in the ELF object */
+> -		crcp = sym_get_data(info, sym);
+> -		crc = TO_NATIVE(*crcp);
+> -	}
+> -	sym_set_crc(symname, crc);
+> -}
+> -
+>  static void handle_symbol(struct module *mod, struct elf_info *info,
+>  			  const Elf_Sym *sym, const char *symname)
+>  {
+> @@ -1955,6 +1919,102 @@ static char *remove_dot(char *s)
+>  	return s;
+>  }
+>  
+> +/*
+> + * The CRCs are recorded in .*.cmd files in the form of:
+> + * #SYMVER <name> <crc>
+> + */
+> +static void extract_crcs_for_object(const char *object, struct module *mod)
 > +{
-> +	struct buffer buf = { };
-> +	char fname[PATH_MAX];
-> +	int ret;
+> +	char cmd_file[PATH_MAX];
+> +	char *buf, *p;
+> +	const char *base;
+> +	int dirlen, ret;
 > +
-> +	check_modname_len(mod);
-> +	check_exports(mod);
-> +
-> +	add_header(&buf, mod);
-> +	add_versions(&buf, mod);
-> +	add_depends(&buf, mod);
-> +	add_moddevtable(&buf, mod);
-> +	add_srcversion(&buf, mod);
-> +
-> +	ret = snprintf(fname, sizeof(fname), "%s.mod.c", mod->name);
-> +	if (ret >= sizeof(fname)) {
-> +		error("%s: too long path was truncated\n", fname);
-> +		goto free;
+> +	base = strrchr(object, '/');
+> +	if (base) {
+> +		base++;
+> +		dirlen = base - object;
+> +	} else {
+> +		dirlen = 0;
+> +		base = object;
 > +	}
 > +
-> +	write_if_changed(&buf, fname);
+> +	ret = snprintf(cmd_file, sizeof(cmd_file), "%.*s.%s.cmd",
+> +		       dirlen, object, base);
+> +	if (ret >= sizeof(cmd_file)) {
+> +		error("%s: too long path was truncated\n", cmd_file);
+> +		return;
+> +	}
 > +
-> +free:
-> +	free(buf.p);
+> +	buf = read_text_file(cmd_file);
+> +	p = buf;
+> +
+> +	while ((p = strstr(p, "\n#SYMVER "))) {
+> +		char *name;
+> +		size_t namelen;
+> +		unsigned int crc;
+> +		struct symbol *sym;
+> +
+> +		name = p + strlen("\n#SYMVER ");
+> +
+> +		p = strchr(name, ' ');
+> +		if (!p)
+> +			break;
+> +
+> +		namelen = p - name;
+> +		p++;
+> +
+> +		if (!isdigit(*p))
+> +			continue;	/* skip this line */
+> +
+> +		crc = strtol(p, &p, 0);
+> +		if (*p != '\n')
+> +			continue;	/* skip this line */
+> +
+> +		name[namelen] = '\0';
+> +
+> +		sym = sym_find_with_module(name, mod);
+> +		if (!sym) {
+> +			warn("Skip the version for unexported symbol \"%s\" [%s%s]\n",
+> +			     name, mod->name, mod->is_vmlinux ? "" : ".ko");
+> +			continue;
+> +		}
+> +		sym_set_crc(sym, crc);
+> +	}
+> +
+> +	free(buf);
 > +}
 > +
->  /* parse Module.symvers file. line format:
->   * 0x12345678<tab>symbol<tab>module<tab>export<tab>namespace
->   **/
-> @@ -2462,7 +2490,6 @@ struct dump_list {
->  int main(int argc, char **argv)
+> +/*
+> + * The symbol versions (CRC) are recorded in the .*.cmd files.
+> + * Parse them to retrieve CRCs for the current module.
+> + */
+> +static void mod_set_crcs(struct module *mod)
+> +{
+> +	char objlist[PATH_MAX];
+> +	char *buf, *p, *obj;
+> +	int ret;
+> +
+> +	if (mod->is_vmlinux) {
+> +		strcpy(objlist, ".vmlinux.objs");
+> +	} else {
+> +		/* objects for a module are listed in the *.mod file. */
+> +		ret = snprintf(objlist, sizeof(objlist), "%s.mod", mod->name);
+> +		if (ret >= sizeof(objlist)) {
+> +			error("%s: too long path was truncated\n", objlist);
+> +			return;
+> +		}
+> +	}
+> +
+> +	buf = read_text_file(objlist);
+> +	p = buf;
+> +
+> +	while ((obj = strsep(&p, "\n")) && obj[0])
+> +		extract_crcs_for_object(obj, mod);
+> +
+> +	free(buf);
+> +}
+> +
+>  static void read_symbols(const char *modname)
 >  {
->  	struct module *mod;
-> -	struct buffer buf = { };
->  	char *missing_namespace_deps = NULL;
->  	char *dump_write = NULL, *files_source = NULL;
->  	int opt;
-> @@ -2524,30 +2551,11 @@ int main(int argc, char **argv)
->  		read_symbols_from_files(files_source);
->  
->  	list_for_each_entry(mod, &modules, list) {
-> -		char fname[PATH_MAX];
-> -		int ret;
-> -
-> -		if (mod->is_vmlinux || mod->from_dump)
-> -			continue;
-> -
-> -		buf.pos = 0;
-> -
-> -		check_modname_len(mod);
-> -		check_exports(mod);
-> -
-> -		add_header(&buf, mod);
-> -		add_versions(&buf, mod);
-> -		add_depends(&buf, mod);
-> -		add_moddevtable(&buf, mod);
-> -		add_srcversion(&buf, mod);
-> -
-> -		ret = snprintf(fname, sizeof(fname), "%s.mod.c", mod->name);
-> -		if (ret >= sizeof(fname)) {
-> -			error("%s: too long path was truncated\n", fname);
-> +		if (mod->from_dump)
->  			continue;
-> -		}
->  
-> -		write_if_changed(&buf, fname);
-> +		if (!mod->is_vmlinux)
-> +			write_mod_c_file(mod);
+>  	const char *symname;
+> @@ -2015,9 +2075,6 @@ static void read_symbols(const char *modname)
+>  		if (strstarts(symname, "__kstrtabns_"))
+>  			sym_update_namespace(symname + strlen("__kstrtabns_"),
+>  					     sym_get_data(&info, sym));
+> -		if (strstarts(symname, "__crc_"))
+> -			handle_modversion(mod, &info, sym,
+> -					  symname + strlen("__crc_"));
 >  	}
 >  
->  	if (missing_namespace_deps)
-> @@ -2563,7 +2571,5 @@ int main(int argc, char **argv)
->  		warn("suppressed %u unresolved symbol warnings because there were too many)\n",
->  		     nr_unresolved - MAX_UNRESOLVED_REPORTS);
+>  	// check for static EXPORT_SYMBOL_* functions && global vars
+> @@ -2046,12 +2103,17 @@ static void read_symbols(const char *modname)
 >  
-> -	free(buf.p);
-> -
->  	return error_occurred ? 1 : 0;
+>  	parse_elf_finish(&info);
+>  
+> -	/* Our trick to get versioning for module struct etc. - it's
+> -	 * never passed as an argument to an exported function, so
+> -	 * the automatic versioning doesn't pick it up, but it's really
+> -	 * important anyhow */
+> -	if (modversions)
+> +	if (modversions) {
+> +		/*
+> +		 * Our trick to get versioning for module struct etc. - it's
+> +		 * never passed as an argument to an exported function, so
+> +		 * the automatic versioning doesn't pick it up, but it's really
+> +		 * important anyhow
+> +		 */
+>  		sym_add_unresolved("module_layout", mod, false);
+> +
+> +		mod_set_crcs(mod);
+> +	}
 >  }
+>  
+>  static void read_symbols_from_files(const char *filename)
+> @@ -2214,6 +2276,23 @@ static void add_header(struct buffer *b, struct module *mod)
+>  		buf_printf(b, "\nMODULE_INFO(staging, \"Y\");\n");
+>  }
+>  
+> +static void check_symversions(struct module *mod)
+> +{
+> +	struct symbol *sym;
+> +
+> +	if (!modversions)
+> +		return;
+> +
+> +	list_for_each_entry(sym, &mod->exported_symbols, list) {
+> +		if (!sym->crc_valid) {
+> +			warn("EXPORT symbol \"%s\" [%s%s] version generation failed, symbol will not be versioned.\n"
+> +			     "Is \"%s\" prototyped in <asm/asm-prototypes.h>?\n",
+> +			     sym->name, mod->name, mod->is_vmlinux ? "" : ".ko",
+> +			     sym->name);
+> +		}
+> +	}
+> +}
+> +
+>  /**
+>   * Record CRCs for unresolved symbols
+>   **/
+> @@ -2429,7 +2508,7 @@ static void read_dump(const char *fname)
+>  		}
+>  		s = sym_add_exported(symname, mod, gpl_only);
+>  		s->is_static = false;
+> -		sym_set_crc(symname, crc);
+> +		sym_set_crc(s, crc);
+>  		sym_update_namespace(symname, namespace);
+>  	}
+>  	free(buf);
+> @@ -2554,6 +2633,8 @@ int main(int argc, char **argv)
+>  		if (mod->from_dump)
+>  			continue;
+>  
+> +		check_symversions(mod);
+> +
+>  		if (!mod->is_vmlinux)
+>  			write_mod_c_file(mod);
+>  	}
 > -- 
 > 2.32.0
 
@@ -267,4 +463,4 @@ Reviewed-by: Nicolas Schier <nicolas@fjasle.eu>
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YnQuSlb9EbjWJ1WI%40fjasle.eu.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YnQvC66wiDIGzeDo%40fjasle.eu.
