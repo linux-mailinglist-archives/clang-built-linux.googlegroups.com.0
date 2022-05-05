@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBUHXZWJQMGQEIAJFFWA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBU7XZWJQMGQET4FNJDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3c.google.com (mail-qv1-xf3c.google.com [IPv6:2607:f8b0:4864:20::f3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id A94D851B8BC
-	for <lists+clang-built-linux@lfdr.de>; Thu,  5 May 2022 09:25:05 +0200 (CEST)
-Received: by mail-qv1-xf3c.google.com with SMTP id s19-20020ad44b33000000b00456107e1120sf2601967qvw.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 05 May 2022 00:25:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1651735504; cv=pass;
+Received: from mail-yw1-x1137.google.com (mail-yw1-x1137.google.com [IPv6:2607:f8b0:4864:20::1137])
+	by mail.lfdr.de (Postfix) with ESMTPS id AD0C951B8BD
+	for <lists+clang-built-linux@lfdr.de>; Thu,  5 May 2022 09:25:08 +0200 (CEST)
+Received: by mail-yw1-x1137.google.com with SMTP id 00721157ae682-2f4dfd09d7fsf32307047b3.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 05 May 2022 00:25:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1651735507; cv=pass;
         d=google.com; s=arc-20160816;
-        b=brS4bd94GUGL/ylCBMwTwwFx2aNLvwgZiD/g0mzHXzNNZwAvAteqKtNshwiQGZRFhU
-         dY/xQQp3eoenemIiGt+Vsy3cHQcUAb82JjR6+Qf1kefFXWIrO0KsL/HrYMRFI65+SEap
-         wwogHTwuaF2Q2ibAdpwqaHZ3KHgHLq1T8FRdW4pCpQMeAlprJ6G9Q8qduUNfy2MwUI40
-         6K2P1QI4dIVShl88gep51YPE6t4VW4XrbyDyOY6VyIdsxfHltRRSpFx/3ZgZSj5Osq/x
-         ApkbNV8b43Zhga8GwP5xDbgMqLfneF1ewCstGZkOgiPbCKCp3HrUk6v3xYvpW7qIp8qn
-         8hLQ==
+        b=C8X3b2MIwe9dEoec3/5WnoRnmVWSa9haPcpjFvQLbnCsSp1rIoxXw0PQoKmbbs1Dir
+         civw8mUEp394Eu9uRF7DbGk5cngJNOETZ9MfyKRzhYbq7D0Gg82DpMUSsShcdBk5/wXV
+         gPpcakRQ3VZErXQ6z8wdcPts7MOn/5tl8QdoUxNF8qD0X8Iv3vjx0D3L0vmWemwS9S9O
+         B0ptEwqXAWDBaKQ47IoqzljeceLZK06PFo+THJyIYS19ZMSJeypAvbi5WuNCYxYPt2UA
+         JyDop7U8KQ0+9MYXxGuCNIGa5rHYU+WJUwPG7xdoBrd9hMd9gUTt2d45/O9XmMgblWV5
+         0M2A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-filter:sender
          :dkim-signature;
-        bh=pfBQ0Kri5RP+cnG5RaSj3CDZ9ymZhkztV89+muhzxNA=;
-        b=c83Z47IyiCj58FWFt7M69yM6ZtAd4XHlyWpnro5qV0Wf1GitD/9H6Y/ACDAz27Ahls
-         hsurYAlGk3m6SGCcehyE+2Frr7IFR6nnCDkxB9OQQWoJSMmQQR6+VufPkXc2BwdvD5zc
-         /wj1B7IU6H5ySso6rsaxhBWdWDBG45q2TY/U2coWTMLG+a9R6fL9QjUgI5KYNXQ3Pko3
-         HbykwiXVoUxMtn06YXAPxhxZJOvtjioIMQdoIJ+4fvwUkHIW11pAqZHHs4TuVkAUyGXX
-         P9FrqkY0ZuilLAS6Y5o2Mua0Ykje7jFvZs5RRQF0pF+/MbLziM0+jRr+QOZqAhDr/9IY
-         hfFg==
+        bh=f9bLMKspvaKHkAUvVyCYNi5S9tKXo4RI9kYw0JBbD04=;
+        b=I33T42bvqU0+Xbk/WAbr3zrO8OXzhEeZQMlIPpIOZOysIxYGATmkUj1JEvycG4rpyT
+         GBJNHSXM+SpzjwZM4OYBsVc+JzkCkxIFaLpvA9bLcaSdfjVJeXPV2/EHSMxaLpxnknUR
+         2Pdy+3/dB7/ogb86YfHdjVpGEwlV7CoscuPd8+/9uGjFcKFHssoPRIU2o1RarsIoe/Co
+         q/yzKSJvmr+cpBH7JzIV0vI2jB8/tgt34x/IL26rHbsEdx53oZwOED37cugOKvvMNSk2
+         5m2AeKJxZtph//HtDpkHEzrvvrdArgnlMnJwneCX37yNMsdovbAJfdaHD/xmESphW4ie
+         JVYQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=OHcV5xhK;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=mzdwuZ8S;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=pfBQ0Kri5RP+cnG5RaSj3CDZ9ymZhkztV89+muhzxNA=;
-        b=NtAw3iISeK+eSt3LkAk3PoXBiMtu0BXYIxH8ZbicakJO3DW8ZVmj+UsmsTxP5FNdGb
-         TTh5kKiiiRSErX5zkRx5Q3New3eT8sZ8y2d8pVwD4qjKdVaqyV3ckRZ8wbokPgbW4wWy
-         eV7qte3sur57rRUMWxm5oQBgDGjVyFbkZP6efl+Hjnm3pixM55LTy5qtJ7OHMcjzDwCb
-         FeO/4FebC9REJrdnoruviCpmuwum1rix07zBXJDJf0RIRwsHNvg0retZqVdgajBCSZYk
-         qD6hvfKxX/CzGTAap6PI5dBbu0QoT77Zyq1sEGZUMjagg4n3Qpg+EQGFaG3YZxpf6IbZ
-         nvGQ==
+        bh=f9bLMKspvaKHkAUvVyCYNi5S9tKXo4RI9kYw0JBbD04=;
+        b=n/2ZJ6ApYjfPVt+q7S3YX15L6HodvKF3E1rpsw+40/kbWNk5Upgrxq7Zo/2aShY6Zi
+         urcx1zIIr1v3jU/WruZrJnTKwMAsCxJX3nWMMJV0dzL411lJvuOuu9YUhV53D2i6eHl/
+         hPxXUbP/ZNIAPq8lym+iyLbsIFBwzKHiUcmwxPFp6FaGehfrFXmS5KF0CB6lCnqHaGpv
+         qnltHGuYQvL9G9YNTbdyPm68Gw73TF1e/l6wU4XdfJncnVitrp9JS/Tb8cwutk0F0AFJ
+         rN5NVkLyqpxnTGCQnzNj5cyAQVHStf08fW03neAAHQs/QPVhCaN0SwE8ZiiEyOtQosU8
+         eG2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
@@ -50,57 +50,56 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pfBQ0Kri5RP+cnG5RaSj3CDZ9ymZhkztV89+muhzxNA=;
-        b=0/1XkGfL1+fyjwh53EloTReBCaAOg55P9457RlPYy8iFdJMTNKBni4TApnj0WVp5bI
-         X59oQuIgMOljUSgzrMRS3iKg2nXPw1Kkkrc8CCx/OLLWh+bOuJ9UGUnDQyygiAD3vudY
-         dPU0ZCRx23ONkNG8O86szyKn/KWzHmaGivT3IpiOQCnbrYEcTm05jqDqSs02lUSRhrHt
-         tImPdl6s3XeeSR/QT1oZNCqW8+Q4aAL7Rvn+KQ24vWGsm/OXMVcguApKjDJI8tAj4jTG
-         jO1hPwqdlOk3RVUzBqN+czkUzXDqz/AuFe0tnJ3NxImDMLabl9Bch11tv6zJ6N4zijcT
-         +d5Q==
+        bh=f9bLMKspvaKHkAUvVyCYNi5S9tKXo4RI9kYw0JBbD04=;
+        b=sHuY6hxoxuBgdXwZYYrohLc0ecilgpcxHNsPPMJVifExKxAIGHpHgkO9TnuDk48vRy
+         BgR96ibILCbvdkL7uE5mSG4chbr34xkIZOLFO+l+d6hC5ov9ilS3HpEmZqojTq4Gpa3G
+         9xrPhkj/tO1xI3t9t/UMBPPcRCPizfRmoqXFY3qgpRlmxVEqFHuFxAjn0kpGNBV97uxq
+         jE+LufPSEehaaZAC699ZYS1taaRUZ75CcBYlQlQ6StaEaEtV2v1u4818hgSrJEYQRyCz
+         Y34T7nQzaqEWHEIPZ1kxT8AKFRt1BdncyAGWI+84b9h/PU3NT+Nu9Q4xSAfpZ8HfR+7G
+         vjJg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531/ubobOJMlaCX9/wajVpBET3XAYE4TzwwhmaFAuRKTV7A4+KMR
-	kGYcMjrYX/esIPvx9mp5CLg=
-X-Google-Smtp-Source: ABdhPJyGePr1Ypr4FiCbHr8m6XRuLAKauyYh5oyPMAomhlKHFKscfaR8VR0X9LdVKuYIfs7TA1U8Bw==
-X-Received: by 2002:a05:6214:2342:b0:42d:7c8b:9eac with SMTP id hu2-20020a056214234200b0042d7c8b9eacmr21010473qvb.5.1651735504804;
-        Thu, 05 May 2022 00:25:04 -0700 (PDT)
+X-Gm-Message-State: AOAM533LG4DtgSb5fxstcPoriRJommcHdh8hVeQJwI8l2zXn9qDx7lWe
+	Qh4kBu3nylboJKYr2lVJKRY=
+X-Google-Smtp-Source: ABdhPJwRcN053kRk8z30Mx3I6pc1Hi/SN0GCk+fQYAZaIlHx0Gxp7IwE0j3aQwpwdMB4gdA8IABedA==
+X-Received: by 2002:a25:bb0f:0:b0:61d:60f9:aaf9 with SMTP id z15-20020a25bb0f000000b0061d60f9aaf9mr19388066ybg.199.1651735507504;
+        Thu, 05 May 2022 00:25:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:25d:b0:6a0:1817:3d24 with SMTP id
- q29-20020a05620a025d00b006a018173d24ls2326653qkn.8.gmail; Thu, 05 May 2022
- 00:25:04 -0700 (PDT)
-X-Received: by 2002:a05:620a:24c5:b0:69e:e777:4323 with SMTP id m5-20020a05620a24c500b0069ee7774323mr18702759qkn.465.1651735504373;
-        Thu, 05 May 2022 00:25:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1651735504; cv=none;
+Received: by 2002:a0d:e84a:0:b0:2f6:a2a8:8349 with SMTP id r71-20020a0de84a000000b002f6a2a88349ls1954978ywe.10.gmail;
+ Thu, 05 May 2022 00:25:07 -0700 (PDT)
+X-Received: by 2002:a81:20c1:0:b0:2f8:5dcd:91d4 with SMTP id g184-20020a8120c1000000b002f85dcd91d4mr23073059ywg.443.1651735506955;
+        Thu, 05 May 2022 00:25:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1651735506; cv=none;
         d=google.com; s=arc-20160816;
-        b=WeWdPPwgw0Pgig3yHw9R8AnCdSvv691VXpFtrOPbtjc+CiuZhwZbQBCnKzMYqF/PlM
-         32swCsI+x7Jj+7alJYK0ZDi2Bf569hhL9qZmYSeg/7OYNf7+7hxrA7eVElRV99iQ+o4t
-         Jgo1kZ4XJKoxZWxh0DcAxp0Mc3LgZDyqWfUAuRjxBU0oBPY2qFq2ZDnGkQaqYZaGwXXb
-         uLH/UQDbvx4wCtRF+PbXtLQERAzS0/mW/C3rWk11m6SgAFB7VdXW5GeGsKCJxQ81+itY
-         clxAxeTDRTImHwk59Paml/7GsvTA7NnWoZbC6aBntsdGld2eIwjgDW8qTrsBFyXkKV95
-         LmfA==
+        b=0p3/AFVXgQMd7RNAz6zfqebawsh8yBjNbuhtprUMKAr9rimWUe3QYihGKlZ4NNIZ/K
+         wgZj7YqRvpbRJaniwASiqNQDHUCT17e3I20HFLInHTPk4CmWSVAW1hUa2qP1aXTuReo8
+         IcnR6S9FBIIc32iM+MR4LuVFXSYXqe8MqIF3czzzb2/PCeasUNYawrAzekpm31g+WRnh
+         6NLxMZzAWtXtLa+POvr+D/WB8IU0FvNhaUrWyZ708tyiCPsd3tTA/EbZ8KDhqooEnue7
+         X9ad/Bs9kcyUKtmCT+Zg46mNyNNkfmh9XLSovHKWi9nQ3T97QX6cw1lqJpr8ACaSmzJ6
+         e/gw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
-        bh=2CHxbipFjHlbz2O5iW/rNzyobuLxsHB9/jS1YJ/YnkI=;
-        b=N7si18qfht14rvGH7tMQ12Hg+jC4d6W9sOrw1/R94um95pGPLmLldRp7WE/6Hdh1OP
-         7+0pDZNOcEDFUh6roIT2MiOlMKxlz7nl6kcyA9B0ObhWQM8U85dilJjZMgu4XXmv/bYE
-         lrbeSqrMidVtcyH2yDGb7JNXGCYVWLxvDIAErDA6X40MRQ7Slrb7LdHo9oWP5EkvoI+j
-         Euf6l0bQw5h98SC1SbFwXiyYtwOXPVEklayB/rwcgCQyhiu2thAY7D6CqKvzreMTPkJm
-         YJiKIA4Tg+77U5kaWW6Vc82OKZJ3V4k03ozvLgdAIhE5KQ5Opq/SoRTl0NuZnogNWvcl
-         ybNA==
+        bh=T5cNjDt3m8DqLCL49zCb2tssnSiEUZVqbUsRPkELhE8=;
+        b=FDM0jGX8GbTcgnljXzngwzzSocTZJwEpsuQjedEdaiVq9+qLen+eIUdAi3x4T4W1la
+         nSkYvlF/bBW0WNJ2zMwGgiif4NwocFIJ3Z8i8VKXm+/x1vWJpYZovDHdIGG/4rBm+bqX
+         xovxI0xJIPBWqj7jOORs9qHArhFGB2f1qXfwHsmEK19y8XoNSxExImiomI+AfPFkeR0K
+         vklNiTezWb7Hog0bcI9O1wFKeglVXLmuK+OPziGV4v+3gcmtK9iUUMRZSXkGAlmxduIk
+         rDlPCS6vjCVx+C3ENxLi8noGkGX/ZsrTyeDRlHbjycXdn5GejEmzycKp7fdXlHh4wKsw
+         whVw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=OHcV5xhK;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=mzdwuZ8S;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-12.nifty.com (conuserg-12.nifty.com. [210.131.2.79])
-        by gmr-mx.google.com with ESMTPS id o2-20020ac872c2000000b002eba0cb25f3si26591qtp.4.2022.05.05.00.25.03
+        by gmr-mx.google.com with ESMTPS id y82-20020a813255000000b002f85dcc61casi75072ywy.0.2022.05.05.00.25.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 05 May 2022 00:25:04 -0700 (PDT)
+        Thu, 05 May 2022 00:25:06 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) client-ip=210.131.2.79;
 Received: from grover.sesame (133-32-177-133.west.xps.vectant.ne.jp [133.32.177.133]) (authenticated)
-	by conuserg-12.nifty.com with ESMTP id 2457Nenp019426;
-	Thu, 5 May 2022 16:23:48 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 2457Nenp019426
+	by conuserg-12.nifty.com with ESMTP id 2457Nenq019426;
+	Thu, 5 May 2022 16:23:49 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 2457Nenq019426
 X-Nifty-SrcIP: [133.32.177.133]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
@@ -113,16 +112,16 @@ Cc: clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
         Sami Tolvanen <samitolvanen@google.com>,
         Kees Cook <keescook@chromium.org>,
         Masahiro Yamada <masahiroy@kernel.org>
-Subject: [PATCH v3 07/15] modpost: extract symbol versions from *.cmd files
-Date: Thu,  5 May 2022 16:22:36 +0900
-Message-Id: <20220505072244.1155033-8-masahiroy@kernel.org>
+Subject: [PATCH v3 08/15] kbuild: link symbol CRCs at final link, removing CONFIG_MODULE_REL_CRCS
+Date: Thu,  5 May 2022 16:22:37 +0900
+Message-Id: <20220505072244.1155033-9-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220505072244.1155033-1-masahiroy@kernel.org>
 References: <20220505072244.1155033-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=OHcV5xhK;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=mzdwuZ8S;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
  210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -139,307 +138,543 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Currently, CONFIG_MODVERSIONS needs extra link to embed the symbol
-versions into ELF objects. Then, modpost extracts the version CRCs
-from them.
+include/{linux,asm-generic}/export.h defines a weak symbol, __crc_*
+as a placeholder.
 
-The following figures show how it currently works, and how I am trying
-to change it.
+Genksyms writes the version CRCs into the linker script, which will be
+used for filling the __crc_* symbols. The linker script format depends
+on CONFIG_MODULE_REL_CRCS. If it is enabled, __crc_* holds the offset
+to the reference of CRC.
 
-Current implementation
-======================
-                                                           |----------|
-                 embed CRC      -------------------------->| final    |
-      $(CC)        $(LD)       /  |---------|              | link for |
-  *.c ------> *.o -------> *.o -->| modpost |              | vmlinux  |
-                     /            |         |-- *.mod.c -->| or       |
-     genksyms       /             |---------|              | module   |
-  *.c ------> *.symversions                                |----------|
+We are ready to get rid of this complexity.
 
-Genksyms outputs the calculated CRCs in the form of linker script
-(*.symversions), which is used by $(LD) to update the object.
+Now that modpost parses text files (.*.cmd) to collect all the CRCs,
+it can generate C code that will be linked to the vmlinux or modules.
 
-If CONFIG_LTO_CLANG=y, the build process becomes much more complex.
-Embedding the CRCs is postponed until the LLVM bitcode is converted
-into ELF, creating another intermediate *.prelink.o.
+Generate a new C file, .vmlinux-symver.c, which contains the CRCs of
+symbols exported by vmlinux. It is compiled and linked to vmlinux in
+scripts/link-vmlinux.sh.
 
-However, this complexity is unneeded. There is no reason why we must
-embed version CRCs in objects so early.
+Put the CRCs of symbols exported by modules into the existing *.mod.c
+files. No additional build step is needed for modules. As usual,
+*.mod.c are compiled and linked to *.ko in scripts/Makefile.modfinal.
 
-There is final link stage for vmlinux (scripts/link-vmlinux.sh) and
-modules (scripts/Makefile.modfinal). We can link CRCs at the very last
-moment.
+Please note we no longer use the linker magic. The new C implementation
+works in the same way, whether CONFIG_RELOCATABLE is enabled or not.
+CONFIG_MODULE_REL_CRCS is no longer needed.
 
-New implementation
-==================
-                                                           |----------|
-                   --------------------------------------->| final    |
-      $(CC)       /    |---------|                         | link for |
-  *.c ------> *.o ---->|         |                         | vmlinux  |
-                       | modpost |--- .vmlinux-symver.c -->| or       |
-     genksyms          |         |--- *.mod.c ------------>| module   |
-  *.c ------> *.cmd -->|---------|                         |----------|
-
-Pass the symbol versions to modpost as separate text data, which are
-available in *.cmd files.
-
-This commit changes modpost to extract CRCs from *.cmd files instead of
-from ELF objects.
+Previously, Kbuild invoked additional $(LD) to update the CRCs in
+objects, but this step is unneeded too.
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
 
-(no changes since v2)
+Changes in v3:
+  - New patch
 
-Changes in v2:
-  - Simplify the implementation (parse .cmd files after ELF)
+ arch/powerpc/Kconfig         |  1 -
+ arch/s390/Kconfig            |  1 -
+ arch/um/Kconfig              |  1 -
+ include/asm-generic/export.h | 22 ++++++++--------------
+ include/linux/export.h       | 30 ++++++++----------------------
+ include/linux/symversion.h   | 13 +++++++++++++
+ init/Kconfig                 |  4 ----
+ kernel/module.c              | 10 +---------
+ scripts/Makefile.build       | 27 ++++-----------------------
+ scripts/genksyms/genksyms.c  | 17 ++++-------------
+ scripts/link-vmlinux.sh      | 20 +++++++++++++-------
+ scripts/mod/modpost.c        | 31 +++++++++++++++++++++++++++----
+ 12 files changed, 78 insertions(+), 99 deletions(-)
+ create mode 100644 include/linux/symversion.h
 
- scripts/mod/modpost.c | 177 ++++++++++++++++++++++++++++++------------
- 1 file changed, 129 insertions(+), 48 deletions(-)
-
-diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-index 78a7107fcc40..92ee1f454e29 100644
---- a/scripts/mod/modpost.c
-+++ b/scripts/mod/modpost.c
-@@ -383,19 +383,10 @@ static struct symbol *sym_add_exported(const char *name, struct module *mod,
- 	return s;
- }
+diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
+index 174edabb74fa..a4e8dd889e29 100644
+--- a/arch/powerpc/Kconfig
++++ b/arch/powerpc/Kconfig
+@@ -566,7 +566,6 @@ config RELOCATABLE
+ 	bool "Build a relocatable kernel"
+ 	depends on PPC64 || (FLATMEM && (44x || FSL_BOOKE))
+ 	select NONSTATIC_KERNEL
+-	select MODULE_REL_CRCS if MODVERSIONS
+ 	help
+ 	  This builds a kernel image that is capable of running at the
+ 	  location the kernel is loaded at. For ppc32, there is no any
+diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+index 77b5a03de13a..aa5848004c76 100644
+--- a/arch/s390/Kconfig
++++ b/arch/s390/Kconfig
+@@ -567,7 +567,6 @@ endchoice
  
--static void sym_set_crc(const char *name, unsigned int crc)
-+static void sym_set_crc(struct symbol *sym, unsigned int crc)
- {
--	struct symbol *s = find_symbol(name);
+ config RELOCATABLE
+ 	bool "Build a relocatable kernel"
+-	select MODULE_REL_CRCS if MODVERSIONS
+ 	default y
+ 	help
+ 	  This builds a kernel image that retains relocation information
+diff --git a/arch/um/Kconfig b/arch/um/Kconfig
+index 4d398b80aea8..e8983d098e73 100644
+--- a/arch/um/Kconfig
++++ b/arch/um/Kconfig
+@@ -106,7 +106,6 @@ config LD_SCRIPT_DYN
+ 	bool
+ 	default y
+ 	depends on !LD_SCRIPT_STATIC
+-	select MODULE_REL_CRCS if MODVERSIONS
+ 
+ config LD_SCRIPT_DYN_RPATH
+ 	bool "set rpath in the binary" if EXPERT
+diff --git a/include/asm-generic/export.h b/include/asm-generic/export.h
+index 07a36a874dca..51ce72ce80fa 100644
+--- a/include/asm-generic/export.h
++++ b/include/asm-generic/export.h
+@@ -2,6 +2,14 @@
+ #ifndef __ASM_GENERIC_EXPORT_H
+ #define __ASM_GENERIC_EXPORT_H
+ 
++/*
++ * This comment block is used by fixdep. Please do not remove.
++ *
++ * When CONFIG_MODVERSIONS is changed from n to y, all source files having
++ * EXPORT_SYMBOL variants must be re-compiled because genksyms is run as a
++ * side effect of the .o build rule.
++ */
++
+ #ifndef KSYM_FUNC
+ #define KSYM_FUNC(x) x
+ #endif
+@@ -12,9 +20,6 @@
+ #else
+ #define KSYM_ALIGN 4
+ #endif
+-#ifndef KCRC_ALIGN
+-#define KCRC_ALIGN 4
+-#endif
+ 
+ .macro __put, val, name
+ #ifdef CONFIG_HAVE_ARCH_PREL32_RELOCATIONS
+@@ -43,17 +48,6 @@ __ksymtab_\name:
+ __kstrtab_\name:
+ 	.asciz "\name"
+ 	.previous
+-#ifdef CONFIG_MODVERSIONS
+-	.section ___kcrctab\sec+\name,"a"
+-	.balign KCRC_ALIGN
+-#if defined(CONFIG_MODULE_REL_CRCS)
+-	.long __crc_\name - .
+-#else
+-	.long __crc_\name
+-#endif
+-	.weak __crc_\name
+-	.previous
+-#endif
+ #endif
+ .endm
+ 
+diff --git a/include/linux/export.h b/include/linux/export.h
+index 27d848712b90..6c8e24e723bd 100644
+--- a/include/linux/export.h
++++ b/include/linux/export.h
+@@ -11,6 +11,14 @@
+  * hackers place grumpy comments in header files.
+  */
+ 
++/*
++ * This comment block is used by fixdep. Please do not remove.
++ *
++ * When CONFIG_MODVERSIONS is changed from n to y, all source files having
++ * EXPORT_SYMBOL variants must be re-compiled because genksyms is run as a
++ * side effect of the .o build rule.
++ */
++
+ #ifndef __ASSEMBLY__
+ #ifdef MODULE
+ extern struct module __this_module;
+@@ -19,26 +27,6 @@ extern struct module __this_module;
+ #define THIS_MODULE ((struct module *)0)
+ #endif
+ 
+-#ifdef CONFIG_MODVERSIONS
+-/* Mark the CRC weak since genksyms apparently decides not to
+- * generate a checksums for some symbols */
+-#if defined(CONFIG_MODULE_REL_CRCS)
+-#define __CRC_SYMBOL(sym, sec)						\
+-	asm("	.section \"___kcrctab" sec "+" #sym "\", \"a\"	\n"	\
+-	    "	.weak	__crc_" #sym "				\n"	\
+-	    "	.long	__crc_" #sym " - .			\n"	\
+-	    "	.previous					\n")
+-#else
+-#define __CRC_SYMBOL(sym, sec)						\
+-	asm("	.section \"___kcrctab" sec "+" #sym "\", \"a\"	\n"	\
+-	    "	.weak	__crc_" #sym "				\n"	\
+-	    "	.long	__crc_" #sym "				\n"	\
+-	    "	.previous					\n")
+-#endif
+-#else
+-#define __CRC_SYMBOL(sym, sec)
+-#endif
 -
--	/*
--	 * Ignore stand-alone __crc_*, which might be auto-generated symbols
--	 * such as __*_veneer in ARM ELF.
--	 */
--	if (!s)
--		return;
+ #ifdef CONFIG_HAVE_ARCH_PREL32_RELOCATIONS
+ #include <linux/compiler.h>
+ /*
+@@ -85,7 +73,6 @@ struct kernel_symbol {
+ /*
+  * For every exported symbol, do the following:
+  *
+- * - If applicable, place a CRC entry in the __kcrctab section.
+  * - Put the name of the symbol and namespace (empty string "" for none) in
+  *   __ksymtab_strings.
+  * - Place a struct kernel_symbol entry in the __ksymtab section.
+@@ -98,7 +85,6 @@ struct kernel_symbol {
+ 	extern typeof(sym) sym;							\
+ 	extern const char __kstrtab_##sym[];					\
+ 	extern const char __kstrtabns_##sym[];					\
+-	__CRC_SYMBOL(sym, sec);							\
+ 	asm("	.section \"__ksymtab_strings\",\"aMS\",%progbits,1	\n"	\
+ 	    "__kstrtab_" #sym ":					\n"	\
+ 	    "	.asciz 	\"" #sym "\"					\n"	\
+diff --git a/include/linux/symversion.h b/include/linux/symversion.h
+new file mode 100644
+index 000000000000..09971145710a
+--- /dev/null
++++ b/include/linux/symversion.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/* This header is used by C files generated by modpost. */
++
++#ifndef __LINUX_SYMVERSION_H__
++#define __LINUX_SYMVERSION_H__
++
++#include <linux/compiler.h>
++#include <linux/types.h>
++
++#define SYMBOL_CRC(sym, crc, sec)   \
++	u32 __section("___kcrctab" sec "+" #sym) __crc_##sym = crc
++
++#endif /* __LINUX_SYMVERSION_H__ */
+diff --git a/init/Kconfig b/init/Kconfig
+index ddcbefe535e9..f5b14318dfcb 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -2136,10 +2136,6 @@ config ASM_MODVERSIONS
+ 	  assembly. This can be enabled only when the target architecture
+ 	  supports it.
+ 
+-config MODULE_REL_CRCS
+-	bool
+-	depends on MODVERSIONS
 -
--	s->crc = crc;
--	s->crc_valid = true;
-+	sym->crc = crc;
-+	sym->crc_valid = true;
- }
+ config MODULE_SRCVERSION_ALL
+ 	bool "Source checksum for all modules"
+ 	help
+diff --git a/kernel/module.c b/kernel/module.c
+index 6cea788fd965..c9e2342da28e 100644
+--- a/kernel/module.c
++++ b/kernel/module.c
+@@ -1231,11 +1231,6 @@ static int try_to_force_load(struct module *mod, const char *reason)
  
- static void *grab_file(const char *filename, size_t *size)
-@@ -618,33 +609,6 @@ static int ignore_undef_symbol(struct elf_info *info, const char *symname)
- 	return 0;
- }
+ #ifdef CONFIG_MODVERSIONS
  
--static void handle_modversion(const struct module *mod,
--			      const struct elf_info *info,
--			      const Elf_Sym *sym, const char *symname)
+-static u32 resolve_rel_crc(const s32 *crc)
 -{
--	unsigned int crc;
--
--	if (sym->st_shndx == SHN_UNDEF) {
--		warn("EXPORT symbol \"%s\" [%s%s] version generation failed, symbol will not be versioned.\n"
--		     "Is \"%s\" prototyped in <asm/asm-prototypes.h>?\n",
--		     symname, mod->name, mod->is_vmlinux ? "" : ".ko",
--		     symname);
--
--		return;
--	}
--
--	if (sym->st_shndx == SHN_ABS) {
--		crc = sym->st_value;
--	} else {
--		unsigned int *crcp;
--
--		/* symbol points to the CRC in the ELF object */
--		crcp = sym_get_data(info, sym);
--		crc = TO_NATIVE(*crcp);
--	}
--	sym_set_crc(symname, crc);
+-	return *(u32 *)((void *)crc + *crc);
 -}
 -
- static void handle_symbol(struct module *mod, struct elf_info *info,
- 			  const Elf_Sym *sym, const char *symname)
- {
-@@ -1955,6 +1919,102 @@ static char *remove_dot(char *s)
- 	return s;
- }
+ static int check_version(const struct load_info *info,
+ 			 const char *symname,
+ 			 struct module *mod,
+@@ -1264,10 +1259,7 @@ static int check_version(const struct load_info *info,
+ 		if (strcmp(versions[i].name, symname) != 0)
+ 			continue;
  
-+/*
-+ * The CRCs are recorded in .*.cmd files in the form of:
-+ * #SYMVER <name> <crc>
-+ */
-+static void extract_crcs_for_object(const char *object, struct module *mod)
-+{
-+	char cmd_file[PATH_MAX];
-+	char *buf, *p;
-+	const char *base;
-+	int dirlen, ret;
-+
-+	base = strrchr(object, '/');
-+	if (base) {
-+		base++;
-+		dirlen = base - object;
-+	} else {
-+		dirlen = 0;
-+		base = object;
-+	}
-+
-+	ret = snprintf(cmd_file, sizeof(cmd_file), "%.*s.%s.cmd",
-+		       dirlen, object, base);
-+	if (ret >= sizeof(cmd_file)) {
-+		error("%s: too long path was truncated\n", cmd_file);
-+		return;
-+	}
-+
-+	buf = read_text_file(cmd_file);
-+	p = buf;
-+
-+	while ((p = strstr(p, "\n#SYMVER "))) {
-+		char *name;
-+		size_t namelen;
-+		unsigned int crc;
-+		struct symbol *sym;
-+
-+		name = p + strlen("\n#SYMVER ");
-+
-+		p = strchr(name, ' ');
-+		if (!p)
-+			break;
-+
-+		namelen = p - name;
-+		p++;
-+
-+		if (!isdigit(*p))
-+			continue;	/* skip this line */
-+
-+		crc = strtol(p, &p, 0);
-+		if (*p != '\n')
-+			continue;	/* skip this line */
-+
-+		name[namelen] = '\0';
-+
-+		sym = sym_find_with_module(name, mod);
-+		if (!sym) {
-+			warn("Skip the version for unexported symbol \"%s\" [%s%s]\n",
-+			     name, mod->name, mod->is_vmlinux ? "" : ".ko");
-+			continue;
-+		}
-+		sym_set_crc(sym, crc);
-+	}
-+
-+	free(buf);
-+}
-+
-+/*
-+ * The symbol versions (CRC) are recorded in the .*.cmd files.
-+ * Parse them to retrieve CRCs for the current module.
-+ */
-+static void mod_set_crcs(struct module *mod)
-+{
-+	char objlist[PATH_MAX];
-+	char *buf, *p, *obj;
-+	int ret;
-+
-+	if (mod->is_vmlinux) {
-+		strcpy(objlist, ".vmlinux.objs");
-+	} else {
-+		/* objects for a module are listed in the *.mod file. */
-+		ret = snprintf(objlist, sizeof(objlist), "%s.mod", mod->name);
-+		if (ret >= sizeof(objlist)) {
-+			error("%s: too long path was truncated\n", objlist);
-+			return;
-+		}
-+	}
-+
-+	buf = read_text_file(objlist);
-+	p = buf;
-+
-+	while ((obj = strsep(&p, "\n")) && obj[0])
-+		extract_crcs_for_object(obj, mod);
-+
-+	free(buf);
-+}
-+
- static void read_symbols(const char *modname)
- {
- 	const char *symname;
-@@ -2015,9 +2075,6 @@ static void read_symbols(const char *modname)
- 		if (strstarts(symname, "__kstrtabns_"))
- 			sym_update_namespace(symname + strlen("__kstrtabns_"),
- 					     sym_get_data(&info, sym));
--		if (strstarts(symname, "__crc_"))
--			handle_modversion(mod, &info, sym,
--					  symname + strlen("__crc_"));
+-		if (IS_ENABLED(CONFIG_MODULE_REL_CRCS))
+-			crcval = resolve_rel_crc(crc);
+-		else
+-			crcval = *crc;
++		crcval = *crc;
+ 		if (versions[i].crc == crcval)
+ 			return 1;
+ 		pr_debug("Found checksum %X vs module %lX\n",
+diff --git a/scripts/Makefile.build b/scripts/Makefile.build
+index a1023868775f..ddd9080fc028 100644
+--- a/scripts/Makefile.build
++++ b/scripts/Makefile.build
+@@ -128,7 +128,6 @@ $(obj)/%.i: $(src)/%.c FORCE
+ 
+ genksyms = scripts/genksyms/genksyms		\
+ 	$(if $(1), -T $(2))			\
+-	$(if $(CONFIG_MODULE_REL_CRCS), -R)	\
+ 	$(if $(KBUILD_PRESERVE), -p)		\
+ 	-r $(or $(wildcard $(2:.symtypes=.symref)), /dev/null)
+ 
+@@ -162,19 +161,11 @@ ifdef CONFIG_MODVERSIONS
+ # o if <file>.o doesn't contain a __ksymtab version, i.e. does
+ #   not export symbols, it's done.
+ # o otherwise, we calculate symbol versions using the good old
+-#   genksyms on the preprocessed source and postprocess them in a way
+-#   that they are usable as a linker script
+-# o generate .tmp_<file>.o from <file>.o using the linker to
+-#   replace the unresolved symbols __crc_exported_symbol with
+-#   the actual value of the checksum generated by genksyms
+-# o remove .tmp_<file>.o to <file>.o
++#   genksyms on the preprocessed source and dump them into the .cmd file.
++# o modpost will extract versions from that file and create *.c files that will
++#   be compiled and linked to the kernel and/or modules.
+ 
+-# Generate .o.symversions files for each .o with exported symbols, and link these
+-# to the kernel and/or modules at the end.
+-
+-genksyms_format_rel_crc := [^_]*__crc_\([^ ]*\) = \.; LONG(\([^)]*\)).*
+-genksyms_format_normal := __crc_\(.*\) = \(.*\);
+-genksyms_format := $(if $(CONFIG_MODULE_REL_CRCS),$(genksyms_format_rel_crc),$(genksyms_format_normal))
++genksyms_format := __crc_\(.*\) = \(.*\);
+ 
+ gen_symversions =								\
+ 	if $(NM) $@ 2>/dev/null | grep -q __ksymtab; then			\
+@@ -188,12 +179,6 @@ gen_symversions =								\
+ 
+ cmd_gen_symversions_c =	$(call gen_symversions,c)
+ 
+-cmd_modversions =								\
+-	if [ -r $@.symversions ]; then						\
+-		$(LD) $(KBUILD_LDFLAGS) -r -o $(@D)/.tmp_$(@F) $@ 		\
+-			-T $@.symversions;					\
+-		mv -f $(@D)/.tmp_$(@F) $@;					\
+-	fi
+ endif
+ 
+ ifdef CONFIG_FTRACE_MCOUNT_USE_RECORDMCOUNT
+@@ -273,7 +258,6 @@ define rule_cc_o_c
+ 	$(call cmd,checkdoc)
+ 	$(call cmd,gen_objtooldep)
+ 	$(call cmd,gen_symversions_c)
+-	$(if $(CONFIG_LTO_CLANG),,$(call cmd,modversions))
+ 	$(call cmd,record_mcount)
+ endef
+ 
+@@ -282,7 +266,6 @@ define rule_as_o_S
+ 	$(call cmd,gen_ksymdeps)
+ 	$(call cmd,gen_objtooldep)
+ 	$(call cmd,gen_symversions_S)
+-	$(call cmd,modversions)
+ endef
+ 
+ # Built-in and composite module parts
+@@ -296,8 +279,6 @@ ifneq ($(CONFIG_LTO_CLANG)$(CONFIG_X86_KERNEL_IBT),)
+ quiet_cmd_cc_prelink_modules = LD [M]  $@
+       cmd_cc_prelink_modules =						\
+ 	$(LD) $(ld_flags) -r -o $@					\
+-               $(shell [ -s $(@:.prelink.o=.o.symversions) ] &&		\
+-                       echo -T $(@:.prelink.o=.o.symversions))		\
+ 		--whole-archive $(filter-out FORCE,$^)			\
+ 		$(cmd_objtool)
+ 
+diff --git a/scripts/genksyms/genksyms.c b/scripts/genksyms/genksyms.c
+index 4827c5abe5b7..6e6933ae7911 100644
+--- a/scripts/genksyms/genksyms.c
++++ b/scripts/genksyms/genksyms.c
+@@ -33,7 +33,7 @@ char *cur_filename;
+ int in_source_file;
+ 
+ static int flag_debug, flag_dump_defs, flag_reference, flag_dump_types,
+-	   flag_preserve, flag_warnings, flag_rel_crcs;
++	   flag_preserve, flag_warnings;
+ 
+ static int errors;
+ static int nsyms;
+@@ -681,10 +681,7 @@ void export_symbol(const char *name)
+ 			fputs(">\n", debugfile);
+ 
+ 		/* Used as a linker script. */
+-		printf(!flag_rel_crcs ? "__crc_%s = 0x%08lx;\n" :
+-		       "SECTIONS { .rodata : ALIGN(4) { "
+-		       "__crc_%s = .; LONG(0x%08lx); } }\n",
+-		       name, crc);
++		printf("__crc_%s = 0x%08lx;\n", name, crc);
  	}
- 
- 	// check for static EXPORT_SYMBOL_* functions && global vars
-@@ -2046,12 +2103,17 @@ static void read_symbols(const char *modname)
- 
- 	parse_elf_finish(&info);
- 
--	/* Our trick to get versioning for module struct etc. - it's
--	 * never passed as an argument to an exported function, so
--	 * the automatic versioning doesn't pick it up, but it's really
--	 * important anyhow */
--	if (modversions)
-+	if (modversions) {
-+		/*
-+		 * Our trick to get versioning for module struct etc. - it's
-+		 * never passed as an argument to an exported function, so
-+		 * the automatic versioning doesn't pick it up, but it's really
-+		 * important anyhow
-+		 */
- 		sym_add_unresolved("module_layout", mod, false);
-+
-+		mod_set_crcs(mod);
-+	}
  }
  
- static void read_symbols_from_files(const char *filename)
-@@ -2214,6 +2276,23 @@ static void add_header(struct buffer *b, struct module *mod)
+@@ -733,7 +730,6 @@ static void genksyms_usage(void)
+ 	      "  -q, --quiet           Disable warnings (default)\n"
+ 	      "  -h, --help            Print this message\n"
+ 	      "  -V, --version         Print the release version\n"
+-	      "  -R, --relative-crc    Emit section relative symbol CRCs\n"
+ #else				/* __GNU_LIBRARY__ */
+ 	      "  -s                    Select symbol prefix\n"
+ 	      "  -d                    Increment the debug level (repeatable)\n"
+@@ -745,7 +741,6 @@ static void genksyms_usage(void)
+ 	      "  -q                    Disable warnings (default)\n"
+ 	      "  -h                    Print this message\n"
+ 	      "  -V                    Print the release version\n"
+-	      "  -R                    Emit section relative symbol CRCs\n"
+ #endif				/* __GNU_LIBRARY__ */
+ 	      , stderr);
+ }
+@@ -766,14 +761,13 @@ int main(int argc, char **argv)
+ 		{"preserve", 0, 0, 'p'},
+ 		{"version", 0, 0, 'V'},
+ 		{"help", 0, 0, 'h'},
+-		{"relative-crc", 0, 0, 'R'},
+ 		{0, 0, 0, 0}
+ 	};
+ 
+-	while ((o = getopt_long(argc, argv, "s:dwqVDr:T:phR",
++	while ((o = getopt_long(argc, argv, "s:dwqVDr:T:ph",
+ 				&long_opts[0], NULL)) != EOF)
+ #else				/* __GNU_LIBRARY__ */
+-	while ((o = getopt(argc, argv, "s:dwqVDr:T:phR")) != EOF)
++	while ((o = getopt(argc, argv, "s:dwqVDr:T:ph")) != EOF)
+ #endif				/* __GNU_LIBRARY__ */
+ 		switch (o) {
+ 		case 'd':
+@@ -813,9 +807,6 @@ int main(int argc, char **argv)
+ 		case 'h':
+ 			genksyms_usage();
+ 			return 0;
+-		case 'R':
+-			flag_rel_crcs = 1;
+-			break;
+ 		default:
+ 			genksyms_usage();
+ 			return 1;
+diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+index eceb3ee7ec06..2742b7dd089a 100755
+--- a/scripts/link-vmlinux.sh
++++ b/scripts/link-vmlinux.sh
+@@ -88,11 +88,6 @@ modpost_link()
+ 		gen_initcalls
+ 		lds="-T .tmp_initcalls.lds"
+ 
+-		if is_enabled CONFIG_MODVERSIONS; then
+-			gen_symversions
+-			lds="${lds} -T .tmp_symversions.lds"
+-		fi
+-
+ 		# This might take a while, so indicate that we're doing
+ 		# an LTO link
+ 		info LTO ${1}
+@@ -277,7 +272,7 @@ kallsyms_step()
+ 	kallsymso=${kallsyms_vmlinux}.o
+ 	kallsyms_S=${kallsyms_vmlinux}.S
+ 
+-	vmlinux_link ${kallsyms_vmlinux} "${kallsymso_prev}" ${btf_vmlinux_bin_o}
++	vmlinux_link ${kallsyms_vmlinux} "${kallsymso_prev}" ${vmlinux_symver_o} ${btf_vmlinux_bin_o}
+ 	kallsyms ${kallsyms_vmlinux} ${kallsyms_S}
+ 
+ 	info AS ${kallsyms_S}
+@@ -312,6 +307,7 @@ cleanup()
+ 	rm -f vmlinux.o
+ 	rm -f .vmlinux.d
+ 	rm -f .vmlinux.objs
++	rm -f .vmlinux-symver.c
+ }
+ 
+ # Use "make V=1" to debug this script
+@@ -373,6 +369,16 @@ if is_enabled CONFIG_DEBUG_INFO_BTF; then
+ 	fi
+ fi
+ 
++vmlinux_symver_o=
++if is_enabled CONFIG_MODVERSIONS; then
++	vmlinux_symver_o=.vmlinux-symver.o
++	info CC ${vmlinux_symver_o}
++	${CC} ${NOSTDINC_FLAGS} ${LINUXINCLUDE} \
++		${KBUILD_CPPFLAGS} ${KBUILD_CFLAGS} \
++		${KBUILD_CFLAGS_KERNEL} ${CFLAGS_KERNEL} \
++		-c -o ${vmlinux_symver_o} ${vmlinux_symver_o%.o}.c
++fi
++
+ kallsymso=""
+ kallsymso_prev=""
+ kallsyms_vmlinux=""
+@@ -413,7 +419,7 @@ if is_enabled CONFIG_KALLSYMS; then
+ 	fi
+ fi
+ 
+-vmlinux_link vmlinux "${kallsymso}" ${btf_vmlinux_bin_o}
++vmlinux_link vmlinux "${kallsymso}" ${vmlinux_symver_o} ${btf_vmlinux_bin_o}
+ 
+ # fill in BTF IDs
+ if is_enabled CONFIG_DEBUG_INFO_BTF && is_enabled CONFIG_BPF; then
+diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+index 92ee1f454e29..be7d8adc5d31 100644
+--- a/scripts/mod/modpost.c
++++ b/scripts/mod/modpost.c
+@@ -2276,20 +2276,30 @@ static void add_header(struct buffer *b, struct module *mod)
  		buf_printf(b, "\nMODULE_INFO(staging, \"Y\");\n");
  }
  
-+static void check_symversions(struct module *mod)
+-static void check_symversions(struct module *mod)
++/* Record CRCs for exported symbols */
++static void add_exported_symversions(struct buffer *buf, struct module *mod)
+ {
+ 	struct symbol *sym;
+ 
+ 	if (!modversions)
+ 		return;
+ 
++	buf_printf(buf,
++		   "\n"
++		   "#include <linux/symversion.h>\n"
++		   "\n");
++
+ 	list_for_each_entry(sym, &mod->exported_symbols, list) {
+ 		if (!sym->crc_valid) {
+ 			warn("EXPORT symbol \"%s\" [%s%s] version generation failed, symbol will not be versioned.\n"
+ 			     "Is \"%s\" prototyped in <asm/asm-prototypes.h>?\n",
+ 			     sym->name, mod->name, mod->is_vmlinux ? "" : ".ko",
+ 			     sym->name);
++			continue;
+ 		}
++
++		buf_printf(buf, "SYMBOL_CRC(%s, 0x%08x, \"%s\");\n",
++			   sym->name, sym->crc, sym->is_gpl_only ? "_gpl" : "");
+ 	}
+ }
+ 
+@@ -2426,6 +2436,18 @@ static void write_if_changed(struct buffer *b, const char *fname)
+ 	write_buf(b, fname);
+ }
+ 
++static void write_vmlinux_symver_c_file(struct module *mod)
 +{
-+	struct symbol *sym;
++	struct buffer buf = { };
 +
 +	if (!modversions)
 +		return;
 +
-+	list_for_each_entry(sym, &mod->exported_symbols, list) {
-+		if (!sym->crc_valid) {
-+			warn("EXPORT symbol \"%s\" [%s%s] version generation failed, symbol will not be versioned.\n"
-+			     "Is \"%s\" prototyped in <asm/asm-prototypes.h>?\n",
-+			     sym->name, mod->name, mod->is_vmlinux ? "" : ".ko",
-+			     sym->name);
-+		}
-+	}
++	add_exported_symversions(&buf, mod);
++	write_if_changed(&buf, ".vmlinux-symver.c");
++	free(buf.p);
 +}
 +
- /**
-  * Record CRCs for unresolved symbols
-  **/
-@@ -2429,7 +2508,7 @@ static void read_dump(const char *fname)
- 		}
- 		s = sym_add_exported(symname, mod, gpl_only);
- 		s->is_static = false;
--		sym_set_crc(symname, crc);
-+		sym_set_crc(s, crc);
- 		sym_update_namespace(symname, namespace);
- 	}
- 	free(buf);
-@@ -2554,6 +2633,8 @@ int main(int argc, char **argv)
+ /* do sanity checks, and generate *.mod.c file */
+ static void write_mod_c_file(struct module *mod)
+ {
+@@ -2437,6 +2459,7 @@ static void write_mod_c_file(struct module *mod)
+ 	check_exports(mod);
+ 
+ 	add_header(&buf, mod);
++	add_exported_symversions(&buf, mod);
+ 	add_versions(&buf, mod);
+ 	add_depends(&buf, mod);
+ 	add_moddevtable(&buf, mod);
+@@ -2633,9 +2656,9 @@ int main(int argc, char **argv)
  		if (mod->from_dump)
  			continue;
  
-+		check_symversions(mod);
-+
- 		if (!mod->is_vmlinux)
+-		check_symversions(mod);
+-
+-		if (!mod->is_vmlinux)
++		if (mod->is_vmlinux)
++			write_vmlinux_symver_c_file(mod);
++		else
  			write_mod_c_file(mod);
  	}
+ 
 -- 
 2.32.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220505072244.1155033-8-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220505072244.1155033-9-masahiroy%40kernel.org.
