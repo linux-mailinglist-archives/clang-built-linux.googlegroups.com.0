@@ -1,105 +1,106 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBSXXZWJQMGQE7SAXTIY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBSPXZWJQMGQEHE5NZVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3b.google.com (mail-qv1-xf3b.google.com [IPv6:2607:f8b0:4864:20::f3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6C4E351B8B3
-	for <lists+clang-built-linux@lfdr.de>; Thu,  5 May 2022 09:24:59 +0200 (CEST)
-Received: by mail-qv1-xf3b.google.com with SMTP id a12-20020a056214062c00b0045a7b4a1a29sf2569189qvx.10
-        for <lists+clang-built-linux@lfdr.de>; Thu, 05 May 2022 00:24:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1651735498; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8C0EC51B8AE
+	for <lists+clang-built-linux@lfdr.de>; Thu,  5 May 2022 09:24:58 +0200 (CEST)
+Received: by mail-oi1-x23b.google.com with SMTP id p9-20020a544609000000b00325565968bdsf1221155oip.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 05 May 2022 00:24:58 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1651735497; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nNyaDVukNdu1UIlU6zlk7XP6KP9o5zgglSJU1gmyLMwfzlCIo8h2w5JgdE5W5bh2CH
-         bBVTmbtDVL9NzKhrxidCgc8rSwPNvj9NFdqSahmPJzc/YsVuvZ1KjPyv7GYDtI3VndQS
-         ysXGkw8TCmnGudxxX5a7BqV30ZfRqrcaF9wYz78sMfesIp6l6gJKkYpGJbfCsmT0wm1Y
-         nGt/h/4sySnmy39EJRnaCOPwILlKWvRzg9sqOMtchr37XrzDsgrnppMNmzDGetia3F/J
-         Y9yVyYqqp45i4ucNL/xfEwxt9ng86f5jngslJoxu/Mv69T+e0Pf0g24El0ljSCRqlhy8
-         xGEA==
+        b=NK5FcbeiiM+27aWT5OEOriSDikShLkAL6j1613qHbdg4CyQZqZ6BCW58k8a70PkWha
+         aQ1On9lJBpkEu1XSRkQKQtt+fp8/FaCFLZbuz3Qkkf9NCLFyn+QAw4uSarpka7PBi1Uh
+         paQvHqh1FTc81qZsXi/caRc32JSqzxU/7N5E5+oiBFNnfUC/jtv3g1WgVHJcT6Rsc4Yu
+         YsgMCEDrk97z9z5hULF39qzZENNMm3D7QEles/c2Uc32CUM0ukw9AkgFKkErxBtcLoXl
+         QKWjNum9Mol3P56tJOVVHU7REmRmftoaGgpaPgdhQh9Pam4JI8skVOsdkSYLzyQ8QQHb
+         ui+w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:dkim-filter:sender:dkim-signature;
-        bh=B40JrQUJcqYgzk633KMH4Il5xvatuuhaUnkLPZeaOaY=;
-        b=0LSP9jfS9pv3p8+lReLOa/vzXfY6m20rAIxfqEDUNaqarxkFQkM08bC3lo3YTZ/hj1
-         h/lf1jVcnpWkud0WBFlSUFC/FIwYoRp5pXQklGryMgcl1vs5kABtQHXgC3NXXMZuSGzI
-         F2d3CD7pu4sKlAz7gfhfLCYW8EXLmu79haRl5KWhbkFkctG2UccRRFnczRJAfHSLSh8c
-         wpwXKYqVAJb3nFEIL5V4F/r78+87ibPJBcvUuOAB70wYk0Yo1BFomcVQ4OKuhW2azKj3
-         jK4wYg4jmlIEPe9SJOoP5gqMx0yrl0wRhhO7uIVmr1s/M32evIJrMkQZ8o5ja9s3EHN/
-         cxVw==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-filter:sender
+         :dkim-signature;
+        bh=Jy0dfVKEsYv9k2QSpjggus8v150htP56GCS07ND9gBM=;
+        b=AoayYX2cUWIc5jON+vA6m/yDIgIYfqJfaiG2uoWISe1yekZ/nUugJWx/1n/fVU1Gzg
+         v8jaZD5BWelxW0R1cNfoWcPme6vuY8JADn98d7zvsXBAIvem+N/xLMM2IyKu+JDWsP0F
+         q9zGV/EdGPyGP6JEKRrPtDCIEwS35+vYLvOCuhPEBot+anRJkc4g1Sic1NpcQ9uDw0Al
+         VaTqbqVl3OeCPsDD/cOPgtmOTYS4gp/IRg0zjjIsflVG6MVHcOVGeG1CsfaMOhAlpoG4
+         dx9yXDwfN/ZXGyo2yw9uzvZFCZFsZJ7wkFNsi4TrkbPRTda635X6kAKcaJjEeRu0QkLD
+         ozdg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=T77AYbWp;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=RheR5FxU;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:dkim-filter:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=B40JrQUJcqYgzk633KMH4Il5xvatuuhaUnkLPZeaOaY=;
-        b=oiNVMKi7bg2xaxfOGBaYUU8z7qCrCWR2RN7DcOWkNiwrkqjFEuQUE3nLSSQROuRsBx
-         go714uqhc82gx3IL32yPXh4f66k/zbyeVPmh8YprwDKoprqXuURsIBT5+sTTX/qCYzlO
-         asiv1fwMRR3BmOX5uzJ1my/OTSJwKZVdpUYCPoQPjTACIc8LONs7F/7YDZIVRw2/42l+
-         VB79gXaR76gbMk+4ugWiBj3mztiqBipvrCROwVNhKXzA6Kg0aQnZt/I1HrYhyJgmYJ5J
-         5RLGct1Cl8yGTwqueRIQHLLa2GDMTHRrBXNGR/7LyYrISYQ85sms7AANYW6nK6a7N/XP
-         qPDg==
+        h=sender:dkim-filter:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Jy0dfVKEsYv9k2QSpjggus8v150htP56GCS07ND9gBM=;
+        b=L++3f7hRRNARAcKqDSgKxbFCJw8dybnK/x7O51CQ9LzG6Aa5R+8Si1HQ8ZKQ55M/4V
+         tG+7BEeNz6/EcUUqVlcI34IAQFbnvmv9LK9mIi1SKpKjpdq4pT7qp9FgDtmj7WShkyxd
+         BpLxZvw2JduGyz1P1M2+uUSCPKm2raAos05p7zx2cFWdkpwXuhiXGsAY8aFjdBtf0xZn
+         NWM7wSY1Yy3l7baur8vayuHhARwgQBqMRh/ovK+kR8bONs/7LZ/+5pO0MdOrDP8szXZA
+         3UfqD1zYP61UMPBCRe+ttrI1sRNKnrIxFgdlpHnSscmuxk3Jo196pj0WrLwFFAReV79x
+         FYKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
-         :message-id:mime-version:x-original-sender
+         :message-id:in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=B40JrQUJcqYgzk633KMH4Il5xvatuuhaUnkLPZeaOaY=;
-        b=rYdx9EPH8E0j7+aKamHqS5dIdvB/TOiPQZ+/GK2nklRMQoq6AZ/YlL8fVbHhlxHSEy
-         mo7cPDeMDA7HabtMszmPaJJ+KNK85J97gxBvLKspPJFzRNjZ/PsWXTJi/vOWNsczGDUZ
-         YjA8YHDO6XWo6ej3YmeMXCQ9oi2uI3GGc7eWaGEJKzpEdpdUbCJwu4qfgxQX3n+fxur5
-         KBBt71qyCdesuPYbRgU07xXBI+k6ZjRFG50uaQs6RCGyzD0ANiQC0DWbPHfwTiVRJbK/
-         cq0GASFJbWqrqBo69J493X+/o9uPCrNU9+OhzKXKm0iWFnCuWDrvYlzFeanUmYlNlfxh
-         v5Gw==
+        bh=Jy0dfVKEsYv9k2QSpjggus8v150htP56GCS07ND9gBM=;
+        b=akGe9dpdcnq68M6yaJ2YtU20xG47Hf7ON/o5uqrEpikGBCCkVUOpJ2onA2d7B7lROY
+         GjoEyYczol7VlmBsUHCOG3u1kcI1dUg/T4Mr/1biYEFKkmg9JOppH8q3JLIYGQEWBoP3
+         n/Mf1QIxDQD1ayWmM4LA1CRKY7S37mK8FPyHJhJObSQYW/qTVSGA7qnKkWB6uy7t62Vq
+         ng/dRBYXL/jyrKRuSSIyZmJ9pHQWMrOmZu1dPykOAJ8TkQ+GznBrKtATcPpiHSDcxviu
+         GPbDhCzYdYVX+zP/6L6VU9xcEr864QnxDTDYqsogRnS/1G2Fa2L5q48qtGAX06ZVRwQT
+         c6yA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5328wJy81yBx8IBefEILPo8zRDbCxs1ViO9gA338RitCFMufym3J
-	No8yIQouFSspva45QbF4HZQ=
-X-Google-Smtp-Source: ABdhPJyb48vDL5gBeWL+n2FI2+2RDpADRJA+1YFsd3ADbVV5Ji1j7mODbmgFSobD//XKEaTGsXlLbw==
-X-Received: by 2002:a0c:fd8d:0:b0:456:3481:603c with SMTP id p13-20020a0cfd8d000000b004563481603cmr21069021qvr.69.1651735498197;
-        Thu, 05 May 2022 00:24:58 -0700 (PDT)
-X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:1709:b0:69f:9e28:483d with SMTP id
- az9-20020a05620a170900b0069f9e28483dls2619439qkb.2.gmail; Thu, 05 May 2022
- 00:24:57 -0700 (PDT)
-X-Received: by 2002:a05:620a:71a:b0:6a0:15d6:60cc with SMTP id 26-20020a05620a071a00b006a015d660ccmr4828283qkc.413.1651735497812;
+X-Gm-Message-State: AOAM531Qp8o3Nl84od5b+E46/D4xwb0lEOY1fKKzNRqudzvhrVQTPUfC
+	JBOTY2nZ5mnaotcUNKwfxxQ=
+X-Google-Smtp-Source: ABdhPJyqExg7j2ezSCelRc6fCnBmzGdgfGSgDlwy3mB3UP02CDEyec5loroIGpZIkIhHiHY4i3h9sQ==
+X-Received: by 2002:a05:6830:1e13:b0:605:f05e:d413 with SMTP id s19-20020a0568301e1300b00605f05ed413mr8901450otr.296.1651735497074;
         Thu, 05 May 2022 00:24:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1651735497; cv=none;
+X-BeenThere: clang-built-linux@googlegroups.com
+Received: by 2002:a05:6808:f0f:b0:326:6279:e7c with SMTP id
+ m15-20020a0568080f0f00b0032662790e7cls1163504oiw.4.gmail; Thu, 05 May 2022
+ 00:24:56 -0700 (PDT)
+X-Received: by 2002:a54:4688:0:b0:325:9a36:ecfe with SMTP id k8-20020a544688000000b003259a36ecfemr1789544oic.96.1651735496746;
+        Thu, 05 May 2022 00:24:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1651735496; cv=none;
         d=google.com; s=arc-20160816;
-        b=yVCtWVvAklYT+4WJR6R54IYfYH7qNPs2BfoBLAdm4u+6Ad9e1J9V66D5sI8k2lb3UD
-         2LC8R5yjuviEQfTagiry9UPMHlQaz0FgBhiVpYlWdlPyrM7zHaBcFF0Tr0mTLbxxlbHY
-         aqib8iEspXUrlV2E/jaEgMjDTY6wRft4KndzJOw31vzgVNFYTQ/G0PeD5kICI0Cg6d3e
-         qPi/ZWky/FadlUp0/VgnGhMC1AFezH9tQHW/QpQzGt9tK30F7fkaF3wtlr4XjSU5nt/7
-         DG14DFLypPrnX1Kzz2NdZVtVSIpyGrq8OQtaTiB+tT5alrwtmBJ3m0lfqFGvLchbHA9q
-         Lanw==
+        b=WLp4NLM6d/hAB8K/syki1lYGcXEgtzpUgxkuTSdSorwN3XMbZ7FsX3CGnwy4UteYOO
+         OBZ9pIki6IUZTA6S6P7zk985wuDB7FBdd814EFCQ743+yYpI+I5htiPh5zFUj/ZmX1g6
+         X2k3h+iIt+EkhOANs2H+OzHdGnzs1sr2hmnu4JvbGxacYtSSVann7JBWcq/JA9RVP1FT
+         4SExjGebH9JTMSGVCiOdQBWYywe2S54JjtZkRr0X4pILYVoD9W1ub4G7jxNc+A25x6Iu
+         a9n3Mn9JQGyDJlrNGzILoukOyRmHRXau1rPeDBoLTdTzZX5dhkXTSWoyZmHD8raCt3Gx
+         SyEA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:dkim-filter;
-        bh=mq8Yk8ot1m2mhjLX32XL2W0Bgs0dGB51vVKxKbSTMUk=;
-        b=KLTjWiyLGC1RUWP1GUxE/bk2Cm/jDIpeBjeADwX7i9CkmR2MYZi+EeedL4UqdJK7/Y
-         RbxsPqUH3XbNfE2t1Pf8w3j5t7Hk/P0EqVeJaieF/wU2+wA2r08UYFmcZcdoEhzoz33O
-         PcEB9JFFfYbdx/69a8gbS4dv6RvbSFrg60LplpWXMUFJiMC1jlCbu9bMkBAokJgqkId6
-         8VDEeWbXQ3RP7iAnp+hpGjQOfwGBuVxSQE4TTMp9gUSvIGvQlpNXBlCxfpXLLuS5M8qY
-         sVLwA4a6dwkhG8lXsqiy+oJ+P2GDsN4y8sXd/xbeasheqa7Nn9hyeme5yFtcp0p0gyWJ
-         bLeQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
+        bh=XSY8vEAsNwUxWuIu8VWQF0+mhoFGCgLIKTmGfMENfeo=;
+        b=o6RMRAtkarQqF8xfHjEfQQSW+Cz6nZReWPmH+kpo+WPheH3+l9CXtZPQ3TVXNm5Qqz
+         4jpykQaY7WTcF6ADFKW549u5CYDxzal+EiqhY/17DCkA4WFxME/fa81urkOvdopaTdOG
+         SAVI5ndtGKfQbTFurPyhgjTLBQBZqf4/s8HuRrq+PK6srVjg0VkKJfwJIVHSz787u0O0
+         YAQeGwGE+kByRQI9xIcywV/SKkVuohwD6W3txW5G2OZU+dcxgJ81FF8zbn9o/Syqc/C8
+         MEdk+1S/dNObgjO9BQD7ewE81ENsTXMAwiMJcyXjJ3wEuzQLkD7p61W/hJkYZcUynxom
+         1QOQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=T77AYbWp;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=RheR5FxU;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-12.nifty.com (conuserg-12.nifty.com. [210.131.2.79])
-        by gmr-mx.google.com with ESMTPS id j10-20020a05620a410a00b0069fc740f4cesi55449qko.1.2022.05.05.00.24.57
+        by gmr-mx.google.com with ESMTPS id f23-20020a4a9d57000000b0035e8a81e5fcsi49541ook.2.2022.05.05.00.24.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 05 May 2022 00:24:57 -0700 (PDT)
+        Thu, 05 May 2022 00:24:56 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) client-ip=210.131.2.79;
 Received: from grover.sesame (133-32-177-133.west.xps.vectant.ne.jp [133.32.177.133]) (authenticated)
-	by conuserg-12.nifty.com with ESMTP id 2457Neni019426;
-	Thu, 5 May 2022 16:23:40 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 2457Neni019426
+	by conuserg-12.nifty.com with ESMTP id 2457Nenj019426;
+	Thu, 5 May 2022 16:23:41 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 2457Nenj019426
 X-Nifty-SrcIP: [133.32.177.133]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
@@ -112,14 +113,16 @@ Cc: clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
         Sami Tolvanen <samitolvanen@google.com>,
         Kees Cook <keescook@chromium.org>,
         Masahiro Yamada <masahiroy@kernel.org>
-Subject: [PATCH v3 00/15] kbuild: yet another series of cleanups (modpost, LTO, MODULE_REL_CRCS)
-Date: Thu,  5 May 2022 16:22:29 +0900
-Message-Id: <20220505072244.1155033-1-masahiroy@kernel.org>
+Subject: [PATCH v3 01/15] modpost: mitigate false-negatives for static EXPORT_SYMBOL checks
+Date: Thu,  5 May 2022 16:22:30 +0900
+Message-Id: <20220505072244.1155033-2-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.32.0
+In-Reply-To: <20220505072244.1155033-1-masahiroy@kernel.org>
+References: <20220505072244.1155033-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=T77AYbWp;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=RheR5FxU;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
  210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -136,69 +139,116 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+The 'static' specifier and EXPORT_SYMBOL() are an odd combination.
 
-This is the third batch of cleanups in this development cycle.
+Since commit 15bfc2348d54 ("modpost: check for static EXPORT_SYMBOL*
+functions"), modpost tries to detect it, but there are false negatives.
 
-Major changes in v3:
+Here is the sample code.
 
- - Generate symbol CRCs as C code, and remove CONFIG_MODULE_REL_CRCS.
+[Sample 1]
 
-Major changes in v2:
+  Makefile:
 
- - V1 did not work with CONFIG_MODULE_REL_CRCS.
-   I fixed this for v2.
+    obj-m += mymod1.o mymod2.o
 
- - Reflect some review comments in v1
+  mymod1.c:
 
- - Refactor the code more
+    #include <linux/export.h>
+    #include <linux/module.h>
+    static void foo(void) {}
+    EXPORT_SYMBOL(foo);
+    MODULE_LICENSE("GPL");
 
- - Avoid too long argument error
+  mymod2.c:
 
+    #include <linux/module.h>
+    void foo(void) {}
+    MODULE_LICENSE("GPL");
 
-Masahiro Yamada (15):
-  modpost: mitigate false-negatives for static EXPORT_SYMBOL checks
-  modpost: change the license of EXPORT_SYMBOL to bool type
-  modpost: merge add_{intree_flag,retpoline,staging_flag} to add_header
-  modpost: move *.mod.c generation to write_mod_c_files()
-  kbuild: generate a list of objects in vmlinux
-  kbuild: record symbol versions in *.cmd files
-  modpost: extract symbol versions from *.cmd files
-  kbuild: link symbol CRCs at final link, removing
-    CONFIG_MODULE_REL_CRCS
-  kbuild: stop merging *.symversions
-  genksyms: adjust the output format to modpost
-  kbuild: do not create *.prelink.o for Clang LTO or IBT
-  modpost: simplify the ->is_static initialization
-  modpost: use hlist for hash table implementation
-  kbuild: make built-in.a rule robust against too long argument error
-  kbuild: make *.mod rule robust against too long argument error
+mymod1 exports the static symbol 'foo', but modpost cannot catch it
+because it is fooled by the same name symbol in another module, mymod2.
+(Without mymod2, modpost can detect the error in mymod1)
 
- arch/powerpc/Kconfig         |   1 -
- arch/s390/Kconfig            |   1 -
- arch/um/Kconfig              |   1 -
- include/asm-generic/export.h |  22 +-
- include/linux/export.h       |  30 +--
- include/linux/symversion.h   |  13 +
- init/Kconfig                 |   4 -
- kernel/module.c              |  10 +-
- scripts/Kbuild.include       |   4 +
- scripts/Makefile.build       | 118 +++------
- scripts/Makefile.lib         |   7 -
- scripts/Makefile.modfinal    |   5 +-
- scripts/Makefile.modpost     |   9 +-
- scripts/genksyms/genksyms.c  |  18 +-
- scripts/link-vmlinux.sh      |  46 ++--
- scripts/mod/file2alias.c     |   2 -
- scripts/mod/list.h           |  52 ++++
- scripts/mod/modpost.c        | 449 ++++++++++++++++++++---------------
- scripts/mod/modpost.h        |   2 +
- 19 files changed, 402 insertions(+), 392 deletions(-)
- create mode 100644 include/linux/symversion.h
+find_symbol() returns the first symbol found in the hash table with the
+given name. This hash table is global, so it may return a symbol from
+an unrelated module. So, a global symbol in a module may unset the
+'is_static' flag of another module.
 
+To mitigate this issue, add sym_find_with_module(), which receives the
+module pointer as the second argument. If non-NULL pointer is passed, it
+returns the symbol in the specified module. If NULL is passed, it is
+equivalent to find_module().
+
+Please note there are still false positives in the composite module,
+like below (or when both are built-in). I have no idea how to do this
+correctly.
+
+[Sample 2]  (not fixed by this commit)
+
+  Makefile:
+    obj-m += mymod.o
+    mymod-objs := mymod1.o mymod2.o
+
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
+
+(no changes since v2)
+
+Changes in v2:
+  - Rename the new func to sym_find_with_module()
+
+ scripts/mod/modpost.c | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
+index b605f4a58759..a55fa2b88a9a 100644
+--- a/scripts/mod/modpost.c
++++ b/scripts/mod/modpost.c
+@@ -272,7 +272,7 @@ static void sym_add_unresolved(const char *name, struct module *mod, bool weak)
+ 	list_add_tail(&sym->list, &mod->unresolved_symbols);
+ }
+ 
+-static struct symbol *find_symbol(const char *name)
++static struct symbol *sym_find_with_module(const char *name, struct module *mod)
+ {
+ 	struct symbol *s;
+ 
+@@ -281,12 +281,17 @@ static struct symbol *find_symbol(const char *name)
+ 		name++;
+ 
+ 	for (s = symbolhash[tdb_hash(name) % SYMBOL_HASH_SIZE]; s; s = s->next) {
+-		if (strcmp(s->name, name) == 0)
++		if (strcmp(s->name, name) == 0 && (!mod || s->module == mod))
+ 			return s;
+ 	}
+ 	return NULL;
+ }
+ 
++static struct symbol *find_symbol(const char *name)
++{
++	return sym_find_with_module(name, NULL);
++}
++
+ struct namespace_list {
+ 	struct list_head list;
+ 	char namespace[];
+@@ -2063,8 +2068,9 @@ static void read_symbols(const char *modname)
+ 
+ 		if (bind == STB_GLOBAL || bind == STB_WEAK) {
+ 			struct symbol *s =
+-				find_symbol(remove_dot(info.strtab +
+-						       sym->st_name));
++				sym_find_with_module(remove_dot(info.strtab +
++								sym->st_name),
++						     mod);
+ 
+ 			if (s)
+ 				s->is_static = false;
 -- 
 2.32.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220505072244.1155033-1-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220505072244.1155033-2-masahiroy%40kernel.org.
