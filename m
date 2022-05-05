@@ -1,33 +1,33 @@
 Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBSPXZWJQMGQEHE5NZVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8C0EC51B8AE
-	for <lists+clang-built-linux@lfdr.de>; Thu,  5 May 2022 09:24:58 +0200 (CEST)
-Received: by mail-oi1-x23b.google.com with SMTP id p9-20020a544609000000b00325565968bdsf1221155oip.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 05 May 2022 00:24:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1651735497; cv=pass;
+Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4F61951B8B1
+	for <lists+clang-built-linux@lfdr.de>; Thu,  5 May 2022 09:24:59 +0200 (CEST)
+Received: by mail-io1-xd3a.google.com with SMTP id k2-20020a0566022a4200b00654c0f121a9sf2394468iov.1
+        for <lists+clang-built-linux@lfdr.de>; Thu, 05 May 2022 00:24:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1651735498; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NK5FcbeiiM+27aWT5OEOriSDikShLkAL6j1613qHbdg4CyQZqZ6BCW58k8a70PkWha
-         aQ1On9lJBpkEu1XSRkQKQtt+fp8/FaCFLZbuz3Qkkf9NCLFyn+QAw4uSarpka7PBi1Uh
-         paQvHqh1FTc81qZsXi/caRc32JSqzxU/7N5E5+oiBFNnfUC/jtv3g1WgVHJcT6Rsc4Yu
-         YsgMCEDrk97z9z5hULF39qzZENNMm3D7QEles/c2Uc32CUM0ukw9AkgFKkErxBtcLoXl
-         QKWjNum9Mol3P56tJOVVHU7REmRmftoaGgpaPgdhQh9Pam4JI8skVOsdkSYLzyQ8QQHb
-         ui+w==
+        b=cZToqzZD2GGjAZGFrkgvO91US0TbHrzHi0AK8ywlJugCk62o4GTt39tJPKh3c+y/8o
+         TEa6AYYgQcAsB7/s7L50S+/ECdOQctJQlrjRQthKixZAm3BaPNRUz5y9NH/mHWU5ONTc
+         54zWnmo3JV4yosWtHcVYL9gBxSHoPBmzrDHUmbyGrgve7ntzMhuaAz/sVxb5zVxX1GfU
+         ePrRjuO8wPFXPBvZ1UrPD/lS0qGCPyMw+aTPvCw1i+ZdUuLVLhsFIDFbxS6/VCq4cqGS
+         JoGdxSFI3RBaABOlt0iAr2SCbiGh0CdovxVsRPH92ubW80EpPWtCivmpTb6dihtqzvnf
+         tpiA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-filter:sender
          :dkim-signature;
-        bh=Jy0dfVKEsYv9k2QSpjggus8v150htP56GCS07ND9gBM=;
-        b=AoayYX2cUWIc5jON+vA6m/yDIgIYfqJfaiG2uoWISe1yekZ/nUugJWx/1n/fVU1Gzg
-         v8jaZD5BWelxW0R1cNfoWcPme6vuY8JADn98d7zvsXBAIvem+N/xLMM2IyKu+JDWsP0F
-         q9zGV/EdGPyGP6JEKRrPtDCIEwS35+vYLvOCuhPEBot+anRJkc4g1Sic1NpcQ9uDw0Al
-         VaTqbqVl3OeCPsDD/cOPgtmOTYS4gp/IRg0zjjIsflVG6MVHcOVGeG1CsfaMOhAlpoG4
-         dx9yXDwfN/ZXGyo2yw9uzvZFCZFsZJ7wkFNsi4TrkbPRTda635X6kAKcaJjEeRu0QkLD
-         ozdg==
+        bh=SIO1AVYYiDZmtfDNd37RDhNqnMpNekN2WiuH4WsaiSI=;
+        b=sMl6qxH/mP2MaCUtmhhag4vagjv+y3w46I3VbRHtJX+V+037SUxE0KfVj/6i4HXk9G
+         +6R4laQU4GEfXz3FS1Xmfpm5tZSur2/d3g9yhIt46MThvV3/1hREt0s2xLDXWSKG/5gF
+         w0g1MEXTlrV7zW/cMXIrym/6GWfX2jx2HZbnAsBOf68uC0CGsWVo1vd3BjS+5P6DaSYE
+         xEW6Zk/Qwko0QZC7M58e3P8wTo0LCWkCV8iu2WC8chXFljFaJ+LfR9MT5ON3G08ziQ+r
+         HH1XHU3aRJlrdmAG6BHmvq6YjlGlM8X9Ai9c9euxp9yVxrrf1YLdg1oEDf/5CIVJliTn
+         J0dw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=RheR5FxU;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=lnhRgRnl;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Jy0dfVKEsYv9k2QSpjggus8v150htP56GCS07ND9gBM=;
-        b=L++3f7hRRNARAcKqDSgKxbFCJw8dybnK/x7O51CQ9LzG6Aa5R+8Si1HQ8ZKQ55M/4V
-         tG+7BEeNz6/EcUUqVlcI34IAQFbnvmv9LK9mIi1SKpKjpdq4pT7qp9FgDtmj7WShkyxd
-         BpLxZvw2JduGyz1P1M2+uUSCPKm2raAos05p7zx2cFWdkpwXuhiXGsAY8aFjdBtf0xZn
-         NWM7wSY1Yy3l7baur8vayuHhARwgQBqMRh/ovK+kR8bONs/7LZ/+5pO0MdOrDP8szXZA
-         3UfqD1zYP61UMPBCRe+ttrI1sRNKnrIxFgdlpHnSscmuxk3Jo196pj0WrLwFFAReV79x
-         FYKg==
+        bh=SIO1AVYYiDZmtfDNd37RDhNqnMpNekN2WiuH4WsaiSI=;
+        b=JKGku1z/IKaiYlPdKz41wa4xAMa6PdvkkQ33op5NHchX5paqBVicnhnKjnz2dMXG2z
+         qLvER9WViuu6e2FdsjI1r6S/01/JyURCHYkyTCZmCGETxv/jlkLh4g28Z0gerWWxmzVG
+         JsAPQpIZsEDbEkbxbIAFNdxkMKjN8prmAnoIhZ04td4uqjn3lWq71JtBoGHVlEVCKsN3
+         0cxvCR3I/s+4zx7Gi4zLPWZKgN2tGQW1KgYe8vRMZ2itfy9tDb4OFYYgEyAbdEIcnXnY
+         KDw/nGFw9za+p6YkotOoDQ8e9vLUkzx0BQ5DvSKNdW/9Wk07lEMTbGQgTde4ySCsd+oE
+         JofQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
@@ -50,57 +50,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Jy0dfVKEsYv9k2QSpjggus8v150htP56GCS07ND9gBM=;
-        b=akGe9dpdcnq68M6yaJ2YtU20xG47Hf7ON/o5uqrEpikGBCCkVUOpJ2onA2d7B7lROY
-         GjoEyYczol7VlmBsUHCOG3u1kcI1dUg/T4Mr/1biYEFKkmg9JOppH8q3JLIYGQEWBoP3
-         n/Mf1QIxDQD1ayWmM4LA1CRKY7S37mK8FPyHJhJObSQYW/qTVSGA7qnKkWB6uy7t62Vq
-         ng/dRBYXL/jyrKRuSSIyZmJ9pHQWMrOmZu1dPykOAJ8TkQ+GznBrKtATcPpiHSDcxviu
-         GPbDhCzYdYVX+zP/6L6VU9xcEr864QnxDTDYqsogRnS/1G2Fa2L5q48qtGAX06ZVRwQT
-         c6yA==
+        bh=SIO1AVYYiDZmtfDNd37RDhNqnMpNekN2WiuH4WsaiSI=;
+        b=YuksT32tu9EJn9Vuoz4CZXLiset0iDAeAQK81cezQ9RJ6oIbeU+JOIT+RAUtI00kU8
+         VPSbSMuJDcRJkCC4PZ0aJBSjHE+Bpkw9Dshkpud2XsBt+0TrZh59oc37AmSItokIfL6c
+         DWgYd2jGGD3z43vC5Vd8pPGgsKneqnvNGteK0dXbEp1ivylgoDB0LOxu5PpHz3yncBXF
+         Omz0z2oZn7eQAQwyDMXq9rhuTbKyXX43qNXNWM0WdNY6IPOYmSWZ5NEjzbll0nlpNIZr
+         1Wu+R/G68jQNuSUGC6gtgHxaNRU1hKJyOfyzL3Q2f3VbeK4YNuPBk5H/mYkHcacbRXIj
+         Mqhw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM531Qp8o3Nl84od5b+E46/D4xwb0lEOY1fKKzNRqudzvhrVQTPUfC
-	JBOTY2nZ5mnaotcUNKwfxxQ=
-X-Google-Smtp-Source: ABdhPJyqExg7j2ezSCelRc6fCnBmzGdgfGSgDlwy3mB3UP02CDEyec5loroIGpZIkIhHiHY4i3h9sQ==
-X-Received: by 2002:a05:6830:1e13:b0:605:f05e:d413 with SMTP id s19-20020a0568301e1300b00605f05ed413mr8901450otr.296.1651735497074;
-        Thu, 05 May 2022 00:24:57 -0700 (PDT)
+X-Gm-Message-State: AOAM530MEiZfa38SXz7PX9G9l8WQtbKW4dkyYinsF9OHqToCsQuMhK4t
+	awVoyJ8qKtuE21z8NZU6vj8=
+X-Google-Smtp-Source: ABdhPJxhDvVGa9KxkDLNzZ6BAoM8j7jVaYhcx/gM4HytXBvwGWtjkhu/IJBkIC5wyV1OR0jgFLO5nQ==
+X-Received: by 2002:a05:6602:1485:b0:65a:a5e6:1ec1 with SMTP id a5-20020a056602148500b0065aa5e61ec1mr2433505iow.33.1651735498038;
+        Thu, 05 May 2022 00:24:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:f0f:b0:326:6279:e7c with SMTP id
- m15-20020a0568080f0f00b0032662790e7cls1163504oiw.4.gmail; Thu, 05 May 2022
- 00:24:56 -0700 (PDT)
-X-Received: by 2002:a54:4688:0:b0:325:9a36:ecfe with SMTP id k8-20020a544688000000b003259a36ecfemr1789544oic.96.1651735496746;
-        Thu, 05 May 2022 00:24:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1651735496; cv=none;
+Received: by 2002:a05:6638:130c:b0:32b:8cba:d72d with SMTP id
+ r12-20020a056638130c00b0032b8cbad72dls728628jad.5.gmail; Thu, 05 May 2022
+ 00:24:57 -0700 (PDT)
+X-Received: by 2002:a05:6638:345b:b0:32b:171c:e98a with SMTP id q27-20020a056638345b00b0032b171ce98amr10540620jav.157.1651735497573;
+        Thu, 05 May 2022 00:24:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1651735497; cv=none;
         d=google.com; s=arc-20160816;
-        b=WLp4NLM6d/hAB8K/syki1lYGcXEgtzpUgxkuTSdSorwN3XMbZ7FsX3CGnwy4UteYOO
-         OBZ9pIki6IUZTA6S6P7zk985wuDB7FBdd814EFCQ743+yYpI+I5htiPh5zFUj/ZmX1g6
-         X2k3h+iIt+EkhOANs2H+OzHdGnzs1sr2hmnu4JvbGxacYtSSVann7JBWcq/JA9RVP1FT
-         4SExjGebH9JTMSGVCiOdQBWYywe2S54JjtZkRr0X4pILYVoD9W1ub4G7jxNc+A25x6Iu
-         a9n3Mn9JQGyDJlrNGzILoukOyRmHRXau1rPeDBoLTdTzZX5dhkXTSWoyZmHD8raCt3Gx
-         SyEA==
+        b=AsLrDDuiyZ2Jys0Vu738ihFNdBQ2BgchjUC16yWRkrJI+SFxwJBv5z6QIuiB2yIhYn
+         k5hYvGxjl2MLNAyWTxITP1yK8KNvql8xkxuqej4F0DzAFdANJvBrxd7XE9cksCQX3VcM
+         pOsNVsCzz64Sth2Sbh6xzvnti5UcBwTh7ZoKfjhHE6JoFTYzjzoiQ3ZDtMOpATt0UkwX
+         ZZtXzul4NXKqo3q0S4lDu4ibjZGY0lgyIKwdK00mf7AyL9NRSbxo1k6Irei220Metjkh
+         ZZjWtssyqS1mG/l/sDlj2KGe8c7+gGhZIK6R8gkSHwce4tnfoPBkoSS5EZTa03eepUnb
+         77fA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
-        bh=XSY8vEAsNwUxWuIu8VWQF0+mhoFGCgLIKTmGfMENfeo=;
-        b=o6RMRAtkarQqF8xfHjEfQQSW+Cz6nZReWPmH+kpo+WPheH3+l9CXtZPQ3TVXNm5Qqz
-         4jpykQaY7WTcF6ADFKW549u5CYDxzal+EiqhY/17DCkA4WFxME/fa81urkOvdopaTdOG
-         SAVI5ndtGKfQbTFurPyhgjTLBQBZqf4/s8HuRrq+PK6srVjg0VkKJfwJIVHSz787u0O0
-         YAQeGwGE+kByRQI9xIcywV/SKkVuohwD6W3txW5G2OZU+dcxgJ81FF8zbn9o/Syqc/C8
-         MEdk+1S/dNObgjO9BQD7ewE81ENsTXMAwiMJcyXjJ3wEuzQLkD7p61W/hJkYZcUynxom
-         1QOQ==
+        bh=H5IgqTUvzvIAQNbWlA80TiHii36q0B+qbmYPDwvWwHg=;
+        b=oil9VUtjQRACapQ4u1JNPQvvjeoeGFIJX5+LobfgzpSl6ohAHJckoenaUmb9n9/y7S
+         Nny8mC548ca0H7HtvMwKi5tCRBCF8g3qCfLHrFC44CDGBNJsjC+IAxjv4r5SeSRNADoz
+         9B+AgO7BOaRjmx3i1kCXf6fXfkgOxKG3hjE/Oazz2/IxPIXFvj1vUgQp2CMY7sQQoITJ
+         LvRwFAfVhD/L8XX69bSln3TIjeUyIIrtJ/DyUes9NdWH/QcGYhgvySirUtLSU8ytkGbc
+         2nr9Em21HCnVyPxrgN0iUiXw2mNoSyAljA+VdHNtY+AJ19o5EWxz/5FvWuK+bdvrIM0G
+         fOFQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=RheR5FxU;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=lnhRgRnl;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-12.nifty.com (conuserg-12.nifty.com. [210.131.2.79])
-        by gmr-mx.google.com with ESMTPS id f23-20020a4a9d57000000b0035e8a81e5fcsi49541ook.2.2022.05.05.00.24.56
+        by gmr-mx.google.com with ESMTPS id u12-20020a02c94c000000b0032660e40518si95176jao.4.2022.05.05.00.24.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 05 May 2022 00:24:56 -0700 (PDT)
+        Thu, 05 May 2022 00:24:57 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.79 as permitted sender) client-ip=210.131.2.79;
 Received: from grover.sesame (133-32-177-133.west.xps.vectant.ne.jp [133.32.177.133]) (authenticated)
-	by conuserg-12.nifty.com with ESMTP id 2457Nenj019426;
-	Thu, 5 May 2022 16:23:41 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 2457Nenj019426
+	by conuserg-12.nifty.com with ESMTP id 2457Nenk019426;
+	Thu, 5 May 2022 16:23:42 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 2457Nenk019426
 X-Nifty-SrcIP: [133.32.177.133]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
@@ -113,16 +113,16 @@ Cc: clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org,
         Sami Tolvanen <samitolvanen@google.com>,
         Kees Cook <keescook@chromium.org>,
         Masahiro Yamada <masahiroy@kernel.org>
-Subject: [PATCH v3 01/15] modpost: mitigate false-negatives for static EXPORT_SYMBOL checks
-Date: Thu,  5 May 2022 16:22:30 +0900
-Message-Id: <20220505072244.1155033-2-masahiroy@kernel.org>
+Subject: [PATCH v3 02/15] modpost: change the license of EXPORT_SYMBOL to bool type
+Date: Thu,  5 May 2022 16:22:31 +0900
+Message-Id: <20220505072244.1155033-3-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220505072244.1155033-1-masahiroy@kernel.org>
 References: <20220505072244.1155033-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=RheR5FxU;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=lnhRgRnl;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
  210.131.2.79 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -139,116 +139,260 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The 'static' specifier and EXPORT_SYMBOL() are an odd combination.
+Currently, enum export is tristate, but export_unknown does not make
+sense in any way.
 
-Since commit 15bfc2348d54 ("modpost: check for static EXPORT_SYMBOL*
-functions"), modpost tries to detect it, but there are false negatives.
+If the symbol name starts with "__ksymtab_", but the section name
+does not start with "___ksymtab+" or "___ksymtab_gpl+", it is not
+an exported symbol. The variable name just happens to start with
+"__ksymtab_". Do not call sym_add_exported() in this case.
 
-Here is the sample code.
+__ksymtab_* is internally by EXPORT_SYMBOL(_GPL) but somebody may
+directly define a global variable with a such name, like this:
 
-[Sample 1]
+   int __ksymtab_foo;
 
-  Makefile:
+Presumably, there is no practical issue for this, but there is no good
+reason to use such a weird name.
 
-    obj-m += mymod1.o mymod2.o
+This commit adds a new warning for such a case:
 
-  mymod1.c:
+    WARNING: modpost: __ksymtab_foo: Please consider renaming. Variables starting with "__ksymtab_" is for internal use.
 
-    #include <linux/export.h>
-    #include <linux/module.h>
-    static void foo(void) {}
-    EXPORT_SYMBOL(foo);
-    MODULE_LICENSE("GPL");
+With pointless export_unknown removed, the license type of exported
+symbols is boolean (EXPORT_SYMBOL or EXPORT_SYMBOL_GPL).
 
-  mymod2.c:
-
-    #include <linux/module.h>
-    void foo(void) {}
-    MODULE_LICENSE("GPL");
-
-mymod1 exports the static symbol 'foo', but modpost cannot catch it
-because it is fooled by the same name symbol in another module, mymod2.
-(Without mymod2, modpost can detect the error in mymod1)
-
-find_symbol() returns the first symbol found in the hash table with the
-given name. This hash table is global, so it may return a symbol from
-an unrelated module. So, a global symbol in a module may unset the
-'is_static' flag of another module.
-
-To mitigate this issue, add sym_find_with_module(), which receives the
-module pointer as the second argument. If non-NULL pointer is passed, it
-returns the symbol in the specified module. If NULL is passed, it is
-equivalent to find_module().
-
-Please note there are still false positives in the composite module,
-like below (or when both are built-in). I have no idea how to do this
-correctly.
-
-[Sample 2]  (not fixed by this commit)
-
-  Makefile:
-    obj-m += mymod.o
-    mymod-objs := mymod1.o mymod2.o
+I renamed the field name to is_gpl_only. If it is true, only GPL-compat
+modules can use it.
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
 
-(no changes since v2)
+Changes in v3:
+  - New patch
 
-Changes in v2:
-  - Rename the new func to sym_find_with_module()
-
- scripts/mod/modpost.c | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+ scripts/mod/modpost.c | 108 +++++++++++++-----------------------------
+ 1 file changed, 32 insertions(+), 76 deletions(-)
 
 diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-index b605f4a58759..a55fa2b88a9a 100644
+index a55fa2b88a9a..ebd80c77fa03 100644
 --- a/scripts/mod/modpost.c
 +++ b/scripts/mod/modpost.c
-@@ -272,7 +272,7 @@ static void sym_add_unresolved(const char *name, struct module *mod, bool weak)
- 	list_add_tail(&sym->list, &mod->unresolved_symbols);
- }
+@@ -47,12 +47,6 @@ static bool error_occurred;
+ #define MAX_UNRESOLVED_REPORTS	10
+ static unsigned int nr_unresolved;
  
--static struct symbol *find_symbol(const char *name)
-+static struct symbol *sym_find_with_module(const char *name, struct module *mod)
- {
- 	struct symbol *s;
+-enum export {
+-	export_plain,
+-	export_gpl,
+-	export_unknown
+-};
+-
+ /* In kernel, this size is defined in linux/module.h;
+  * here we use Elf_Addr instead of long for covering cross-compile
+  */
+@@ -219,7 +213,7 @@ struct symbol {
+ 	bool crc_valid;
+ 	bool weak;
+ 	bool is_static;		/* true if symbol is not global */
+-	enum export  export;       /* Type of export */
++	bool is_gpl_only;	/* exported by EXPORT_SYMBOL_GPL */
+ 	char name[];
+ };
  
-@@ -281,12 +281,17 @@ static struct symbol *find_symbol(const char *name)
- 		name++;
- 
- 	for (s = symbolhash[tdb_hash(name) % SYMBOL_HASH_SIZE]; s; s = s->next) {
--		if (strcmp(s->name, name) == 0)
-+		if (strcmp(s->name, name) == 0 && (!mod || s->module == mod))
- 			return s;
+@@ -321,34 +315,6 @@ static void add_namespace(struct list_head *head, const char *namespace)
  	}
- 	return NULL;
  }
  
-+static struct symbol *find_symbol(const char *name)
-+{
-+	return sym_find_with_module(name, NULL);
-+}
+-static const struct {
+-	const char *str;
+-	enum export export;
+-} export_list[] = {
+-	{ .str = "EXPORT_SYMBOL",            .export = export_plain },
+-	{ .str = "EXPORT_SYMBOL_GPL",        .export = export_gpl },
+-	{ .str = "(unknown)",                .export = export_unknown },
+-};
+-
+-
+-static const char *export_str(enum export ex)
+-{
+-	return export_list[ex].str;
+-}
+-
+-static enum export export_no(const char *s)
+-{
+-	int i;
+-
+-	if (!s)
+-		return export_unknown;
+-	for (i = 0; export_list[i].export != export_unknown; i++) {
+-		if (strcmp(export_list[i].str, s) == 0)
+-			return export_list[i].export;
+-	}
+-	return export_unknown;
+-}
+-
+ static void *sym_get_data_by_offset(const struct elf_info *info,
+ 				    unsigned int secindex, unsigned long offset)
+ {
+@@ -379,18 +345,6 @@ static const char *sec_name(const struct elf_info *info, int secindex)
+ 
+ #define strstarts(str, prefix) (strncmp(str, prefix, strlen(prefix)) == 0)
+ 
+-static enum export export_from_secname(struct elf_info *elf, unsigned int sec)
+-{
+-	const char *secname = sec_name(elf, sec);
+-
+-	if (strstarts(secname, "___ksymtab+"))
+-		return export_plain;
+-	else if (strstarts(secname, "___ksymtab_gpl+"))
+-		return export_gpl;
+-	else
+-		return export_unknown;
+-}
+-
+ static void sym_update_namespace(const char *symname, const char *namespace)
+ {
+ 	struct symbol *s = find_symbol(symname);
+@@ -410,7 +364,7 @@ static void sym_update_namespace(const char *symname, const char *namespace)
+ }
+ 
+ static struct symbol *sym_add_exported(const char *name, struct module *mod,
+-				       enum export export)
++				       bool gpl_only)
+ {
+ 	struct symbol *s = find_symbol(name);
+ 
+@@ -422,7 +376,7 @@ static struct symbol *sym_add_exported(const char *name, struct module *mod,
+ 
+ 	s = alloc_symbol(name);
+ 	s->module = mod;
+-	s->export    = export;
++	s->is_gpl_only = gpl_only;
+ 	list_add_tail(&s->list, &mod->exported_symbols);
+ 	hash_add_symbol(s);
+ 
+@@ -694,8 +648,6 @@ static void handle_modversion(const struct module *mod,
+ static void handle_symbol(struct module *mod, struct elf_info *info,
+ 			  const Elf_Sym *sym, const char *symname)
+ {
+-	const char *name;
+-
+ 	switch (sym->st_shndx) {
+ 	case SHN_COMMON:
+ 		if (strstarts(symname, "__gnu_lto_")) {
+@@ -729,12 +681,18 @@ static void handle_symbol(struct module *mod, struct elf_info *info,
+ 	default:
+ 		/* All exported symbols */
+ 		if (strstarts(symname, "__ksymtab_")) {
+-			enum export export;
++			const char *name, *secname;
+ 
+ 			name = symname + strlen("__ksymtab_");
+-			export = export_from_secname(info,
+-						     get_secindex(info, sym));
+-			sym_add_exported(name, mod, export);
++			secname = sec_name(info, get_secindex(info, sym));
 +
- struct namespace_list {
- 	struct list_head list;
- 	char namespace[];
-@@ -2063,8 +2068,9 @@ static void read_symbols(const char *modname)
++			if (strstarts(secname, "___ksymtab_gpl+"))
++				sym_add_exported(name, mod, true);
++			else if (strstarts(secname, "___ksymtab+"))
++				sym_add_exported(name, mod, false);
++			else
++				warn("%s: Please consider renaming. Variables starting with \"__ksymtab_\" is for internal use.\n",
++				     symname);
+ 		}
+ 		if (strcmp(symname, "init_module") == 0)
+ 			mod->has_init = true;
+@@ -2146,20 +2104,6 @@ void buf_write(struct buffer *buf, const char *s, int len)
+ 	buf->pos += len;
+ }
  
- 		if (bind == STB_GLOBAL || bind == STB_WEAK) {
- 			struct symbol *s =
--				find_symbol(remove_dot(info.strtab +
--						       sym->st_name));
-+				sym_find_with_module(remove_dot(info.strtab +
-+								sym->st_name),
-+						     mod);
+-static void check_for_gpl_usage(enum export exp, const char *m, const char *s)
+-{
+-	switch (exp) {
+-	case export_gpl:
+-		error("GPL-incompatible module %s.ko uses GPL-only symbol '%s'\n",
+-		      m, s);
+-		break;
+-	case export_plain:
+-	case export_unknown:
+-		/* ignore */
+-		break;
+-	}
+-}
+-
+ static void check_exports(struct module *mod)
+ {
+ 	struct symbol *s, *exp;
+@@ -2198,14 +2142,15 @@ static void check_exports(struct module *mod)
+ 			add_namespace(&mod->missing_namespaces, exp->namespace);
+ 		}
  
- 			if (s)
- 				s->is_static = false;
+-		if (!mod->is_gpl_compatible)
+-			check_for_gpl_usage(exp->export, basename, exp->name);
++		if (!mod->is_gpl_compatible && exp->is_gpl_only)
++			error("GPL-incompatible module %s.ko uses GPL-only symbol '%s'\n",
++			      basename, exp->name);
+ 	}
+ 
+ 	list_for_each_entry(s, &mod->exported_symbols, list) {
+ 		if (s->is_static)
+-			error("\"%s\" [%s] is a static %s\n",
+-			      s->name, mod->name, export_str(s->export));
++			error("\"%s\" [%s] is a static EXPORT_SYMBOL\n",
++			      s->name, mod->name);
+ 	}
+ }
+ 
+@@ -2429,6 +2374,7 @@ static void read_dump(const char *fname)
+ 		unsigned int crc;
+ 		struct module *mod;
+ 		struct symbol *s;
++		bool gpl_only;
+ 
+ 		if (!(symname = strchr(line, '\t')))
+ 			goto fail;
+@@ -2446,12 +2392,22 @@ static void read_dump(const char *fname)
+ 		crc = strtoul(line, &d, 16);
+ 		if (*symname == '\0' || *modname == '\0' || *d != '\0')
+ 			goto fail;
++
++		if (!strcmp(export, "EXPORT_SYMBOL_GPL"))
++			gpl_only = true;
++		else if (!strcmp(export, "EXPORT_SYMBOL"))
++			gpl_only = false;
++		else {
++			error("%s: unknown license for %s. skip", export, symname);
++			continue;
++		}
++
+ 		mod = find_module(modname);
+ 		if (!mod) {
+ 			mod = new_module(modname);
+ 			mod->from_dump = true;
+ 		}
+-		s = sym_add_exported(symname, mod, export_no(export));
++		s = sym_add_exported(symname, mod, gpl_only);
+ 		s->is_static = false;
+ 		sym_set_crc(symname, crc);
+ 		sym_update_namespace(symname, namespace);
+@@ -2473,9 +2429,9 @@ static void write_dump(const char *fname)
+ 		if (mod->from_dump)
+ 			continue;
+ 		list_for_each_entry(sym, &mod->exported_symbols, list) {
+-			buf_printf(&buf, "0x%08x\t%s\t%s\t%s\t%s\n",
++			buf_printf(&buf, "0x%08x\t%s\t%s\tEXPORT_SYMBOL%s\t%s\n",
+ 				   sym->crc, sym->name, mod->name,
+-				   export_str(sym->export),
++				   sym->is_gpl_only ? "_GPL" : "",
+ 				   sym->namespace ?: "");
+ 		}
+ 	}
 -- 
 2.32.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220505072244.1155033-2-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220505072244.1155033-3-masahiroy%40kernel.org.
