@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDG4DXNHV4CRB2HC2CJQMGQE4BXKZ5Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDG4DXNHV4CRBJXE2CJQMGQE7A2GI2A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33c.google.com (mail-wm1-x33c.google.com [IPv6:2a00:1450:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3608451CA77
-	for <lists+clang-built-linux@lfdr.de>; Thu,  5 May 2022 22:19:53 +0200 (CEST)
-Received: by mail-wm1-x33c.google.com with SMTP id m186-20020a1c26c3000000b003943e12185dsf2099501wmm.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 05 May 2022 13:19:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1651781993; cv=pass;
+Received: from mail-lj1-x23a.google.com (mail-lj1-x23a.google.com [IPv6:2a00:1450:4864:20::23a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 872EC51CA7F
+	for <lists+clang-built-linux@lfdr.de>; Thu,  5 May 2022 22:23:03 +0200 (CEST)
+Received: by mail-lj1-x23a.google.com with SMTP id y7-20020a2e95c7000000b0024f29bcd594sf1834920ljh.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 05 May 2022 13:23:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1651782183; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cBSn7XokdX6VxtUfu4u3bCO21Vk/y0XT8HC8fUNqC3UOZ1O4s18p3zH85/JYIrdO4k
-         41j0x46ZdvvV7Hhxjw63UfKeUbdJuX/hE+EE8XUlb6FjGdTTURCoUbaqjFtWfZ5qf+7k
-         HMuRn9tfJG9PY40g1eJNACA/zlBNTpAD01Y+AGaOJjyBqpwYr3KqCYRjaDhvYEEDoiIi
-         Ppl/OxfpOB+Sa9QZHlTZ184niu8urjCxTUDN+QXMkRksUpzCS6IRBO0nOtXF3Ial6avi
-         TXBnx2H56H7DexMq9RhZkYV/CAschRG1E66tjkWcTQju6Os2eZ43hVsZz46HsSpDHj7P
-         A4+g==
+        b=lzmHHKHgnTt6Hbyug/SRQiG03AT5DqCB2dJ4+ihjPKNeE6IQzU6ofpxQZh7+xJcB0o
+         kLnzfMV28h2OfbIO0r/I+9opbn822uAiBeGPom2ghrA2+zK58nWt98U6vFXIOI12H/2t
+         Mz5g0rwZuD7IOyPj/gFNrQIeVq/7/9cEWHUr9oZDWhNZim4peSAr9TTGVHNituu8Xf04
+         bhuwAkm0yTEF+zCgRajMcutklNgGHkcwv1oWD6lY2sITaQqlWaVYfMZpEBb44vidbZvE
+         dyILCSXSgIGzaMBoiZSS23At8LOjPiOFoUy6pXOzyOYBHweThWMa6kxxkObFSMigiuug
+         QGsg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=WwSBLkwzs633PZcjiwheb5EB9Z0qa1jNiPRihn4WLIg=;
-        b=zQK0iImyNCe7j0Gs2UTNDqJIIFPGVzR6ISnWZxYPuNmchOrefcX/cpYUY8djF9FrvZ
-         NDpyIT2K7wwjQmkw8tifudVxAWALXg45tsSTkHe4FkMPwszsj1z3FUDMPf3DIJxUfS4w
-         +I4RLqtDvIT1+oM7I0tvtwT8dLwsxSuM2hOhxoClynRrMxXPR7xZLQhUDiOKpK2Gv9tU
-         mz7B89k5hrlCoBCqNK4ZrjBY71/wb6QoabHOxRd6KSsM1rW/Zcix0cmJd2+91vS5I0sM
-         V67/VYa/OroYusdg5xI9tPBtKiv6b1SSm8sRJILwf2Ot++nJa7Yy+DthpCgCBM6gffIN
-         YrdQ==
+        bh=mES5l1MtzvyNHWWTtZb8HYHSg08myahjvnK/3pm1R8U=;
+        b=p5mFQzKNzS/vVr03T0cfcT10i406LScigQmP5TA23zo8RnxppVYmm8Nrz8QtOhkqDf
+         Rxp7/eprvVj37MqJChL0iiqBYqgLPEzLhBERzrMZo03iBNc2k97EYIqsnQ6mp+vekn7d
+         OTQMaQzWU543VVQMNcaLux1tJfMrz0YTEAnsxzpvbgzYHcDcgcsaIHbZyuZ2JTtP7nP1
+         dRGwFXoJ276YOERfCLCEKN70vXnOcWQdl18V0wZbQllwY+Yk3EuXkXKB5+PPv6MesjEG
+         PD0pj1tnQyHFq+FVB3x4LeOBudZ55v+HenoLh3BMciUD7+ag1SMnHkb8zL1onh5X+brj
+         Hf3w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@fjasle.eu header.s=mail header.b=PAx9fB2N;
-       spf=pass (google.com: domain of nicolas@fjasle.eu designates 212.227.126.135 as permitted sender) smtp.mailfrom=nicolas@fjasle.eu;
+       dkim=pass header.i=@fjasle.eu header.s=mail header.b=P5JqnzKq;
+       spf=pass (google.com: domain of nicolas@fjasle.eu designates 217.72.192.74 as permitted sender) smtp.mailfrom=nicolas@fjasle.eu;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=fjasle.eu
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=WwSBLkwzs633PZcjiwheb5EB9Z0qa1jNiPRihn4WLIg=;
-        b=mrpJYXk9BVdP7JpM/Ewwf0cb8GJNfydWkTNXIiQhJN4WVhVRMxhDa0x83qZi9rjI0x
-         yFzppp6iRH0mtEMhbd5WyXQQWlmp/dKwBvzqpsye+mGvTorpeqPmlJrKtvoKItouKGI3
-         tgwt+k8z5nzpMJdU5u61qZlVzgMHwx/WIS1qEXDY612JME2GdaBwyklq0S7yQalUTF2L
-         CsUQUR1ODhJBUVk16qw/JSos02PjIUVQPHUZl+r3eMVZr1klPUjhwJ2Gngu/i7Sm41/v
-         OMeGxGV9rKwRsA17ZN0Oe3UnGY21gALWloEVno9xIwxD+GRmG4cRt1BB+1dv230nQsPl
-         4vSQ==
+        bh=mES5l1MtzvyNHWWTtZb8HYHSg08myahjvnK/3pm1R8U=;
+        b=FZENDjvc/QkdQiARCF+3TMnul1xnMVXzfqaRz7nZB4BlkWrfGTx9WkjdRVxvj/3faj
+         pSFC+T1c9IfMAkosSEWhuwQx7lJbNzls7wR5vUgGOkiVnHRmXvlIDtAC9JnknE0fIDf/
+         v+VNGlAUWFf8Vng8Bgx7AHJAy6Me4vJE09t2g+B/vq9f06+QRUNG+abSkih1uoKzDHUu
+         gO4o54tsfgAJM49Sk+D2HA7YsG2nh5872G2X+DCJtsub5dsJuMYbl904V7+WHQ+Sve5k
+         HWk9OPPbsQlK8sSBLPQrt1RUNEz6yKyO11TJPXxD3WB+aCo4M1Hv3+kkRB6NtKvQPMPS
+         fzRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,59 +50,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=WwSBLkwzs633PZcjiwheb5EB9Z0qa1jNiPRihn4WLIg=;
-        b=Z+4OKGzpG6ckagdX9ibl2K2EG8MjMpUwFdFg7XIEVOuO+ddU7SL4Kte/W6B++iRuLp
-         XGrZpzAuFpBeuJgMhIw2ADcXfMDIlhf8jemEyJ6b1TUX+TDY1QDnGHuQ8CG3Mp1tnsQY
-         haVP7LAdysrzaB+v/iWHTKjno/xhFVegeZrc7jf6E2HAg3gxWiUvHtIy3juxPxdJGZkH
-         pKbGY8SDoJbbjZPlFFAPBhT4TH+j3D12Pa3QmZmeeLFUM00n8aOULIDPC8EVfzAj1/Px
-         VT5vGhGe0T1v/GW3SdqBCyqhKdtq12FcAfNg1Le6ivwGXSRc/vf1s1VoxrJKTrpqxxUM
-         l2Dg==
+        bh=mES5l1MtzvyNHWWTtZb8HYHSg08myahjvnK/3pm1R8U=;
+        b=0pU/qSbfEQ+4c3EQuOG2MJ8m3O77iLfUE9oLqx2XEMT1M0x7IGEoLRyVjUzx0c/HsM
+         R1YwuA0PpaAaeXhJWCBQ1aM00zYHuwsIfMSx1e3HSn1ZT80voZUFWdQgd/AJwjH7ytUY
+         GUKIJ+2CViKLkXGCsdloJkhRcFG0ozbtOiiA+cXS7hfXaC1UwN/RBtM3dXcO/yERdppP
+         /9/gaP+9rht8YrShEtSnAfc0ahmorUSoioIOoOn35d1bldaR3a3HvlOd48Qz32oZWtc1
+         EDm/wEKYRotAfRCROOtDOkjssGzLWXMfV3UsM32rLCbejxQ+adx+CA2gKXcvSqERtiU5
+         L1JQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5316ZPePOQtSK4Mjdfc5PVeJNKfSL9MdHc0igAHqFWGZohRxsCBD
-	wXH+MI6RbL7RFnshshwOpso=
-X-Google-Smtp-Source: ABdhPJx9Ddh7X2ZYANY1VKJ8h2s5WAr681tBvfgyDNV3IK53vA1HHWdiOmBcuzFVsuzR89EsO7iuag==
-X-Received: by 2002:adf:ded2:0:b0:20c:55cc:ab3e with SMTP id i18-20020adfded2000000b0020c55ccab3emr21031274wrn.376.1651781992829;
-        Thu, 05 May 2022 13:19:52 -0700 (PDT)
+X-Gm-Message-State: AOAM532qYVNY2PnwBcOcFEjKcC3zulJ17vGEQaVNtRuAlnnvUjY3Xwes
+	T2+69PW0vtADpfth+S5pMkg=
+X-Google-Smtp-Source: ABdhPJx4huq0xM4EQ09/aRlCksn/C9bGIu4nk2M8JzGSfbSSFeK+S1imPD6svjwUFprYQx3nxkQzjA==
+X-Received: by 2002:a05:6512:3da8:b0:473:a3d4:e3d6 with SMTP id k40-20020a0565123da800b00473a3d4e3d6mr35116lfv.117.1651782182930;
+        Thu, 05 May 2022 13:23:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:600c:1c9a:b0:393:e698:3558 with SMTP id
- k26-20020a05600c1c9a00b00393e6983558ls2758999wms.0.gmail; Thu, 05 May 2022
- 13:19:51 -0700 (PDT)
-X-Received: by 2002:a1c:f018:0:b0:37b:c13c:3128 with SMTP id a24-20020a1cf018000000b0037bc13c3128mr6444382wmb.157.1651781991851;
-        Thu, 05 May 2022 13:19:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1651781991; cv=none;
+Received: by 2002:a2e:b888:0:b0:250:638a:caae with SMTP id r8-20020a2eb888000000b00250638acaaels1306333ljp.2.gmail;
+ Thu, 05 May 2022 13:23:01 -0700 (PDT)
+X-Received: by 2002:a2e:150e:0:b0:24a:c41a:a3e4 with SMTP id s14-20020a2e150e000000b0024ac41aa3e4mr17209767ljd.371.1651782181813;
+        Thu, 05 May 2022 13:23:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1651782181; cv=none;
         d=google.com; s=arc-20160816;
-        b=maIWsz52E4WlsnlfEPhKhGesZDF4L7FCfJnq2jvhRcMSCdyHxnaM33hpaCCAo4BJWm
-         DJziPmQhcMaNn7/sYLuBRggkuxSj9MVfTzSIZadbfR4ET7I2VjRydNwg6ox7LleXnkXo
-         U3EHjvd6eMSpegg2U8NwOW6H7ZsO5+OkCuONQgutpdB2n33AWT0ExsbugaFeqZtH1P4a
-         WuNoIcsJdaGdAHnf8ontRHKLMfmTAtWKx/fzs6DY4My41Q6pdf7eaCwjMmrdqIhmXkzv
-         3xFlqh+bQi91lujN3L++lviPOmzL6P8bvx/0S7aQKXvnJF5sfhqRWdZcDMPKqe64IZQn
-         3/EA==
+        b=RMlitlkvyKvFdzdZAJECPVgFVjsfaiogIeWgfbaPqKVNtKmN65UedprO9TR2i1zwmm
+         b/Mnte2QQPHJ2nRxaquq5vy0wdhdFn/l6TsM9Z/1fA0nTB/jZ5s1IUlxuyS2AtvYAzDi
+         xqwaHWR2WexWUgmDAdEb4nnsODG+6QNIJ16WCtRjsrADbIyEQWJJpdiiTlU7uHMPCGoj
+         mnZHAw8FVx5oZPC9geXtO4PcM6crDnS2SKlAja9Z7+K0ptoYJ3EnWAIGp9AfzhHnK6hl
+         LuPkop9uFbfTghXVFHvuDLnicMkq2wZNp0NVKZ/+DXTI16hRpJ8t/LtWOGR0Hm1u9P9p
+         lUOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=mfmmC45qU72ZmI2J0NGCrXAXkweqtB+4X0ahEV+s6zQ=;
-        b=Pov1f3PnGCdgL6JFcQiz7/getv9utabhIDGTxsiogIzXfP9SqfpOcaPDfhVh/k36uY
-         wf1Q4i9IbAZ2g65JPxuCu1rIo7pQxB22rfdBcMApZF4L7vN2HAKrnuO1ydzgS170KzEC
-         eh00sfW+diAlcGQxpqxqZwZIjphi+Ku0+oc0A7LlBWA9h3mtxv4RRGIjSlZVYNs/+g8v
-         emvk02mOQd+c34f5d6HrQN3rVmvhPlWxerRY0wq8Skahjfw0TD4sdJGP8YpaHAHkcM9o
-         +2tmysbJ6rJUcYhlxU1yziaXzkjjG3DROscHAcfRDzds5hWVvykQswyPz7/F+SyShxya
-         +JYQ==
+        bh=lL5rDyrpbitFkphJSuZYdRPsQiMDSZ9X0pWpV9hjBKE=;
+        b=D03eHVj0W7aqhHEqu6M905WuC2Hiixk5YNWtEbGKxE2V2cxJ39k4xE/ogSCmL5rswB
+         zTsmSsAccQAnmCg/sx7aFqJzSvsj5J6y5A/XRKXsIIS2FaIGW4xv5biP/Jc2SyQoa1rn
+         Up2uJYoW1di5xcAkNJEyxbYMrosAGUUjSlkGxHQEOQtzBU716sdlbfQ1ABFhBYrzH3Nw
+         zKJDnTITt30zwdBX9ZaDk1WuaKVBnaIozmT8Op2iXkuW2Urad8G9diyOv2YKXcn3Xlfr
+         RXFqroFEwqa2rJli3tr6z0d6swo/OI0tXVh1bq4blzBS+XFF+h6yF9yGzSDl3tK3xYG3
+         QbgQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@fjasle.eu header.s=mail header.b=PAx9fB2N;
-       spf=pass (google.com: domain of nicolas@fjasle.eu designates 212.227.126.135 as permitted sender) smtp.mailfrom=nicolas@fjasle.eu;
+       dkim=pass header.i=@fjasle.eu header.s=mail header.b=P5JqnzKq;
+       spf=pass (google.com: domain of nicolas@fjasle.eu designates 217.72.192.74 as permitted sender) smtp.mailfrom=nicolas@fjasle.eu;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=fjasle.eu
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.135])
-        by gmr-mx.google.com with ESMTPS id b5-20020adff245000000b0020c7b2af134si108723wrp.0.2022.05.05.13.19.50
+Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.74])
+        by gmr-mx.google.com with ESMTPS id v22-20020a05651203b600b0047208583d26si127008lfp.11.2022.05.05.13.22.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 05 May 2022 13:19:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nicolas@fjasle.eu designates 212.227.126.135 as permitted sender) client-ip=212.227.126.135;
+        Thu, 05 May 2022 13:22:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nicolas@fjasle.eu designates 217.72.192.74 as permitted sender) client-ip=217.72.192.74;
 Received: from leknes.fjasle.eu ([46.142.98.182]) by mrelayeu.kundenserver.de
- (mreue012 [212.227.15.167]) with ESMTPSA (Nemesis) id
- 1MGgRW-1na0dH2Qr4-00DsuE; Thu, 05 May 2022 22:19:45 +0200
+ (mreue107 [212.227.15.183]) with ESMTPSA (Nemesis) id
+ 1Mz9EL-1o0vC22a9b-00wFu7; Thu, 05 May 2022 22:22:53 +0200
 Received: by leknes.fjasle.eu (Postfix, from userid 1000)
-	id 2B3143C088; Thu,  5 May 2022 22:19:42 +0200 (CEST)
-Date: Thu, 5 May 2022 22:19:42 +0200
+	id 9326E3C088; Thu,  5 May 2022 22:22:49 +0200 (CEST)
+Date: Thu, 5 May 2022 22:22:49 +0200
 From: Nicolas Schier <nicolas@fjasle.eu>
 To: Masahiro Yamada <masahiroy@kernel.org>
 Cc: linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com,
@@ -114,34 +113,34 @@ Cc: linux-kbuild@vger.kernel.org, clang-built-linux@googlegroups.com,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Sami Tolvanen <samitolvanen@google.com>,
 	Kees Cook <keescook@chromium.org>
-Subject: Re: [PATCH v3 09/15] kbuild: stop merging *.symversions
-Message-ID: <YnQxXsVKDZwj9ML7@fjasle.eu>
+Subject: Re: [PATCH v3 10/15] genksyms: adjust the output format to modpost
+Message-ID: <YnQyGUlhvUIZwoNy@fjasle.eu>
 References: <20220505072244.1155033-1-masahiroy@kernel.org>
- <20220505072244.1155033-10-masahiroy@kernel.org>
+ <20220505072244.1155033-11-masahiroy@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20220505072244.1155033-10-masahiroy@kernel.org>
-X-Provags-ID: V03:K1:kLv07Zu9KjSI8dVtarU8l8sxPufYBTVjB5tuKOltZ/T9hk437XX
- vNQ8NEBvRXubh7ts7FDOU2bMa4E55pDRJDTQNO77MACY5JbN+i20cUNkkZfWpaF6VKXKNsO
- K6ZEEHtGEvsnSVoXklrgpTo5J5l7CIEDsKJ4KoactoMHkKWNef3Lt1Zb6Uqthrmqhijy68i
- o6vPO+d07ACl7HYX2WrsA==
+In-Reply-To: <20220505072244.1155033-11-masahiroy@kernel.org>
+X-Provags-ID: V03:K1:RUI2NxERijqBLuHI7G+nXGlaQN7ojuvdXw0yIKPmaAmlM/WXDvD
+ z+undfnS5/BQmDavRN0dHs0z6ogRT8PP96LkZFU2gGTqewRhjkyZjh4El221JnzIHz6JwSJ
+ FIhTrT6LlR9hlmohtlQUd6uMFu6QJ7kd2iTahnc9SV5tIegCWreRierRRGI87knT1tQKDev
+ 5SuWioT/YknSjZKC8ulFg==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:GEBew1HkSyw=:CtA2dALYABuAeqnB9s6zbz
- WOrkOByaGQn5pcQXLlYJM2W0SjTSxLOzGdZATyfGrSRH7h0O6V/HOp9oWzPg6xX9BKpKjRfOn
- IzWVAC9fLV+eqByCp5JRUpiImfbkHtks/O4PQjJjfjf+mw+CK+der90kd6OzfEP41/QFVd1kP
- iy7yqhYjAG1ixEkux1zPphXuSrfepTDIM5k2rAA/zLwT7Pf0cnlhCESbBcgZL5LjOh2dAYTV9
- IYkDFZq0yo4kBhkGibz85xtPz0L2Echql/qhbkWnZswwoALs6XjTkaYyIu6Jt8Sp0BrNlLwE2
- eGLy710OJ42xqDt1sGCZZczpo+ZjSUC1pbgFG6Lr198tjT/8EZgQZNNsw+caQ8OqUmXJEz89b
- IGxjrPuNhFxo4jLPceIrjw7I/UxkEHOlbvpBXFWHmHCn0LHBHGKwAEohy2mtbu9gErq48ktUG
- 9MeCflRvY1pQyEytdMLaCm1jRgvZQTbhPrLP7K8xsjjhgiG8mC422czSvsktOQWd6T8Q+Ui1C
- Q3TZctSJ2xLF0gQMkExGmab4W9imwAAXop4ZuL4Pta0gslhicvoU3LrzpAWW+FScK5zfNp+eQ
- 13LkT6YoChWDUfO1PogcQ6bSZlf7PwmjNy0lbIHtliTLRwupX5uEeysoyWib+0CY5ycIMBYBY
- q8ViV1QYV6Ct7wPgJCPvb4hHgOCtAr60Jh40I5rVKat8vlZw8F8wpZF+x6Jo0R/XDUQ4=
+X-UI-Out-Filterresults: notjunk:1;V03:K0:jxZ5y2jNwbs=:j0VaPvAClzfPiR1zMMPS2V
+ 4Blib3kzqTqZt1lgsARx53lSLe9k1NMGOsYT5OVcHQu4avv8lOHyCqM9ge5kRBsupEaTAiEDp
+ YZvw50YwnVmqQi2z5eHO7+xqfM2iaEAj8EwyYJV5eiCo34hRU0J2uw6Ci3L0x4cOjIIPgx9/1
+ zrcgC0WyzTJt9xSdNOKt0ektBE71fExhkTfIvbB1iEOfhOHXpF8jd0Ymtb0E8gOpN5eWtnVnB
+ wG6sDDKzE74ixKhLuiFNjzicAIlE4GuGpkzVaBidxwpjMmDm2UeZrWYuJPKY7s/x3CCknfg/8
+ WZn/PYyJjRa3LU9540K7cbgLBLPtalY1P8OwfhLXDst1Rjrb4WzFa3YuV+2aw6QjxcQr99jxo
+ YrA1gYvz6DCU9L+AZTrv+JYfyE7wGJqgW+qy11WUnp1Gobv3OoFfQOBFfqELZonNPBSZ4eE4U
+ XtlQV1ubC6gXN8m7nhZY3WwKKOswQGQ+cfwMy9MkT95n+ctFcpxNJrqVNM4T+3z6t8srLnLiu
+ 0/Mwgj0E1+RWwtUWEpRSSLSBj7QOBfYMDywGzq5JMDZQbXNiB5yMXV7TM7WvPZVi2iO3EYdQQ
+ 6TMgU4M620I5XBRPj1A7DVrOvt4A/uVy2Y44MtohxyNtOCaq4srTazIQazf69a2RHeiYwmpaJ
+ gyM61KOlwm1QMxusvpBmDh/WQ4qBNSIr1JDl4Ir2cAq1H3uxxCTd6skGJOE975VRrmMw=
 X-Original-Sender: nicolas@fjasle.eu
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@fjasle.eu header.s=mail header.b=PAx9fB2N;       spf=pass
- (google.com: domain of nicolas@fjasle.eu designates 212.227.126.135 as
+ header.i=@fjasle.eu header.s=mail header.b=P5JqnzKq;       spf=pass
+ (google.com: domain of nicolas@fjasle.eu designates 217.72.192.74 as
  permitted sender) smtp.mailfrom=nicolas@fjasle.eu;       dmarc=pass (p=NONE
  sp=QUARANTINE dis=NONE) header.from=fjasle.eu
 Precedence: list
@@ -156,106 +155,62 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, May 05, 2022 at 04:22:38PM +0900 Masahiro Yamada wrote:
-> Now modpost reads symbol versions from .*.cmd files.
+On Thu, May 05, 2022 at 04:22:39PM +0900 Masahiro Yamada wrote:
+> Make genksyms output symbol versions in the format modpost expects,
+> so the 'sed' is unneeded.
 > 
-> These merged *.symversions are not used any more.
+> This commit makes *.symversions completely unneeded.
+> 
+> I will keep *.symversions in .gitignore and 'make clean' for a while.
+> Otherwise, some people might be upset with 'git status'.
 > 
 > Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 > ---
 > 
-> (no changes since v1)
+> (no changes since v2)
 > 
->  scripts/Makefile.build  | 21 ++-------------------
->  scripts/link-vmlinux.sh | 15 ---------------
->  2 files changed, 2 insertions(+), 34 deletions(-)
+> Changes in v2:
+>   - New patch
+> 
+>  scripts/Makefile.build      | 6 ------
+>  scripts/genksyms/genksyms.c | 3 +--
+>  2 files changed, 1 insertion(+), 8 deletions(-)
 > 
 > diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-> index ddd9080fc028..dff9220135c4 100644
+> index dff9220135c4..461998a2ad2b 100644
 > --- a/scripts/Makefile.build
 > +++ b/scripts/Makefile.build
-> @@ -390,17 +390,6 @@ $(obj)/%.asn1.c $(obj)/%.asn1.h: $(src)/%.asn1 $(objtree)/scripts/asn1_compiler
->  $(subdir-builtin): $(obj)/%/built-in.a: $(obj)/% ;
->  $(subdir-modorder): $(obj)/%/modules.order: $(obj)/% ;
+> @@ -165,16 +165,10 @@ ifdef CONFIG_MODVERSIONS
+>  # o modpost will extract versions from that file and create *.c files that will
+>  #   be compiled and linked to the kernel and/or modules.
 >  
-> -# combine symversions for later processing
-> -ifeq ($(CONFIG_LTO_CLANG) $(CONFIG_MODVERSIONS),y y)
-> -      cmd_update_lto_symversions =					\
-> -	rm -f $@.symversions						\
-> -	$(foreach n, $(filter-out FORCE,$^),				\
-> -		$(if $(shell test -s $(n).symversions && echo y),	\
-> -			; cat $(n).symversions >> $@.symversions))
-> -else
-> -      cmd_update_lto_symversions = echo >/dev/null
-> -endif
+> -genksyms_format := __crc_\(.*\) = \(.*\);
 > -
->  #
->  # Rule to compile a set of .o files into one .a file (without symbol table)
->  #
-> @@ -408,11 +397,8 @@ endif
->  quiet_cmd_ar_builtin = AR      $@
->        cmd_ar_builtin = rm -f $@; $(AR) cDPrST $@ $(real-prereqs)
+>  gen_symversions =								\
+>  	if $(NM) $@ 2>/dev/null | grep -q __ksymtab; then			\
+>  		$(call cmd_gensymtypes_$(1),$(KBUILD_SYMTYPES),$(@:.o=.symtypes)) \
+> -		    > $@.symversions;						\
+> -		sed -n 's/$(genksyms_format)/$(pound)SYMVER \1 \2/p' $@.symversions \
+>  			>> $(dot-target).cmd;					\
+> -	else									\
+> -		rm -f $@.symversions;						\
+>  	fi
 >  
-> -quiet_cmd_ar_and_symver = AR      $@
-> -      cmd_ar_and_symver = $(cmd_update_lto_symversions); $(cmd_ar_builtin)
-> -
->  $(obj)/built-in.a: $(real-obj-y) FORCE
-> -	$(call if_changed,ar_and_symver)
-> +	$(call if_changed,ar_builtin)
+>  cmd_gen_symversions_c =	$(call gen_symversions,c)
+> diff --git a/scripts/genksyms/genksyms.c b/scripts/genksyms/genksyms.c
+> index 6e6933ae7911..f5dfdb9d80e9 100644
+> --- a/scripts/genksyms/genksyms.c
+> +++ b/scripts/genksyms/genksyms.c
+> @@ -680,8 +680,7 @@ void export_symbol(const char *name)
+>  		if (flag_dump_defs)
+>  			fputs(">\n", debugfile);
 >  
->  #
->  # Rule to create modules.order file
-> @@ -432,16 +418,13 @@ $(obj)/modules.order: $(obj-m) FORCE
->  #
->  # Rule to compile a set of .o files into one .a file (with symbol table)
->  #
-> -quiet_cmd_ar_lib = AR      $@
-> -      cmd_ar_lib = $(cmd_update_lto_symversions); $(cmd_ar)
->  
->  $(obj)/lib.a: $(lib-y) FORCE
-> -	$(call if_changed,ar_lib)
-> +	$(call if_changed,ar)
->  
->  ifneq ($(CONFIG_LTO_CLANG)$(CONFIG_X86_KERNEL_IBT),)
->  quiet_cmd_link_multi-m = AR [M]  $@
->  cmd_link_multi-m =						\
-> -	$(cmd_update_lto_symversions);				\
->  	rm -f $@; 						\
->  	$(AR) cDPrsT $@ @$(patsubst %.o,%.mod,$@)
->  else
-> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-> index 2742b7dd089a..07333181938b 100755
-> --- a/scripts/link-vmlinux.sh
-> +++ b/scripts/link-vmlinux.sh
-> @@ -56,20 +56,6 @@ gen_initcalls()
->  		> .tmp_initcalls.lds
+> -		/* Used as a linker script. */
+> -		printf("__crc_%s = 0x%08lx;\n", name, crc);
+> +		printf("#SYMVER %s 0x%08lx\n", name, crc);
+>  	}
 >  }
 >  
-> -# If CONFIG_LTO_CLANG is selected, collect generated symbol versions into
-> -# .tmp_symversions.lds
-> -gen_symversions()
-> -{
-> -	info GEN .tmp_symversions.lds
-> -	rm -f .tmp_symversions.lds
-> -
-> -	for o in ${KBUILD_VMLINUX_OBJS} ${KBUILD_VMLINUX_LIBS}; do
-> -		if [ -f ${o}.symversions ]; then
-> -			cat ${o}.symversions >> .tmp_symversions.lds
-> -		fi
-> -	done
-> -}
-> -
->  # Link of vmlinux.o used for section mismatch analysis
->  # ${1} output file
->  modpost_link()
-> @@ -299,7 +285,6 @@ cleanup()
->  	rm -f .btf.*
->  	rm -f .tmp_System.map
->  	rm -f .tmp_initcalls.lds
-> -	rm -f .tmp_symversions.lds
->  	rm -f .tmp_vmlinux*
->  	rm -f System.map
->  	rm -f vmlinux
 > -- 
 > 2.32.0
 
@@ -264,4 +219,4 @@ Reviewed-by: Nicolas Schier <nicolas@fjasle.eu>
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YnQxXsVKDZwj9ML7%40fjasle.eu.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/YnQyGUlhvUIZwoNy%40fjasle.eu.
