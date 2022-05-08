@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBCFL4CJQMGQE25EXSXI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBCNL4CJQMGQET3E5NUQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8CCB351EF1D
-	for <lists+clang-built-linux@lfdr.de>; Sun,  8 May 2022 21:10:01 +0200 (CEST)
-Received: by mail-io1-xd3b.google.com with SMTP id h17-20020a056602155100b0065aa0081429sf8694603iow.10
-        for <lists+clang-built-linux@lfdr.de>; Sun, 08 May 2022 12:10:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1652037000; cv=pass;
+Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 31E9751EF20
+	for <lists+clang-built-linux@lfdr.de>; Sun,  8 May 2022 21:10:02 +0200 (CEST)
+Received: by mail-io1-xd38.google.com with SMTP id k184-20020a6bbac1000000b0065aeedd4ba8sf1463771iof.20
+        for <lists+clang-built-linux@lfdr.de>; Sun, 08 May 2022 12:10:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1652037001; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XSnbRxMV3+/l2+Ssl1lQeGroardL7mHPpSd96h0HFbD9OId3lOqMyn1Y93bXcU97NU
-         /29eIAVHzhdm3DkFE8rg64dJZMiKUs7mZ76EI7tRTw022sTaIVJ3Ekh7YDunNeQlNvx1
-         nWdTwEbWIJDlF5Y2tGm+Sg5dPrg9MetR82rgxrBeNmdSEp4EC/p9+j292T454UKd76RP
-         5Yjjbjocmfh3+9NiBcckO+vgs9O/vf3/HQBJIMmkP7GxZ+iAowq9vqGdFyMAbjf4KOeO
-         A739SYDQtmgeD/OvsaVUIj8gffgPl7VYNPurJqFAN6fwwEbi2nw32ToMFOiN/jkCFg0b
-         RRFQ==
+        b=pamlSt0f0vjjt7sqc3hQ3lMORibFwvyfFGT2cKQriowm5RvV5LWpwyNIeWHJGeVZdj
+         hjIIl0dKwLOtU6fnuO5a77IJr6kAP88sy7k/58it2najJ8x0JCvs3mlxD2UFxHaQ/xNR
+         xbk4ApukH02cccE3Is3GpjtW/elxxkpvbsFGaxel5FJCHsOY2Lp37VFudY2hVtDxLDuh
+         oAN5y2A4ekU8WD9O+RjKPh2SpcxsekvuDxjqMVbgQvFuhmvpx6ddhlzMf8NPZ334kgZm
+         sRBYk20kz5Vj7tCzbJ/csDpdnJa++VY5sKWP3k7VA9Fv/sREy3HX7oX3nAqJvseKP4qk
+         zhgA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-filter:sender
          :dkim-signature;
-        bh=gK6rGMq4VaD48Ztr6xN8cE+2K8sQ0BAKxJYYoKTMYhA=;
-        b=mg8nY6/AIk156D6st6sHO4uV2pOjkTBKkvLPSfHlqLNrX62fUbzauOtoSJI+XkbOtL
-         iblKMEifvsb0Vg9BaX3sbgR0dsINgFh2cXLxym8I+iNzEkNMDMr+72kMyTLZ8WNU+sku
-         N8aP/sqIe7+J9aR4s4A6YxBhaOvcDvH6OLA+8Tu5mYSlR/kB6E5e2bdofXSQDCCirPl7
-         SioF6DX0BGP7thMbPkcET8euYBjHy7yRG2BWB9rODW481kk9WNkim9GJwiqvXfY4u/ut
-         sia3/FvwvOaHVJb7orBQlaTX7YH5pStQ9SiWL9WiESlJQWWP3G/xGNjUqH7mGjML9XzR
-         q4aA==
+        bh=Je9HZRWLu00S5Kju903e3pkv5w66gitrpEgpZwgtURM=;
+        b=Q/1jnW4Y3RrTLkzi0hjg4YeC/im/ssdU0JnX+osYI6HOJ8AexpQYIao2P8dbAoBVe8
+         CIMQBXeI7Zt6+mNOzzeQ9p9jMQJygTszj50ZwJUJlGmoV9xk+QAp80OzoVQtL3b4FcR+
+         eu7nCD81V6eiuhjAqRlOGi1zQ2gXsQRqgtS9nwfAPGhkkUXTonBDrNDyBtafeK3yg8yi
+         I2BQVHxH3If+uCRjNDtXT5Y74U6x4aqsBKP702ViAome8TnUppDnECZXkJDZrZXtLaV8
+         X4Ns3+kfi60BF6aE7H45MXTS+QXn4veL8NIXXiJ5d3jNz34sEwQda3lgvOQ8csl+oWUC
+         0IUA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=gMjpBo08;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=v567Pj5G;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=gK6rGMq4VaD48Ztr6xN8cE+2K8sQ0BAKxJYYoKTMYhA=;
-        b=Ickmu6PALPedFQmZPQ0rktudlgc0NQGsUuTP5p23OuwXCie90xLL7ITEu0DJgJUe5u
-         81x1LHKuuWZI34YetDkIU8/RpVAlTJ/q0iGJkm0BjLDXKxRD4lQmx1QoeA1V5+L4FZcV
-         XFdFJfKJdUdT0IczURJ2aIhLWpF8qu8IIHyFcEHkb1mWfXAyMLvYDcSWv2j1LvAXIbnL
-         nNoeIKfkZ93AgaFuzVSUUR/4PRLcRZhg2j+eoURiiW9Q0Nm07H4Eoq8PYmJ7MxIbgYWx
-         zwk3DEvjRXl9cJbjOEOLPK2ek5NTGvEaDF8TbB2p/dl12weTj23jlO0XoIG4KJbm5kuH
-         SNcg==
+        bh=Je9HZRWLu00S5Kju903e3pkv5w66gitrpEgpZwgtURM=;
+        b=sa0BSADQ9lrohddGLMjp514Rpu32lGGAOaC/zNPN1Cstb6EANEfe8U7epoq6scYkLu
+         f3EAI5J2c/n6VSGlDFLtzVXFKTKY14qsclwOSfs0z8/9ROC34aAncdv1QXf6y+6JoOPv
+         JImWSTBHoqmyx9x9ekweYjFTVl6HwgCMLBXSsXj1kIjNwepLokDtiGjOSHIEiJJoRsGh
+         +jNLx8Ka7JYIHpc0+GW35pNVVhkUNI29/UZGBzT4FiJgS/zIIOB987TrDt9BK6/ZQ8o/
+         5TmePegdZHqc/HyUPGIQKReUrMAnzAfVvNBePWrkW4PcFVhdxF9VNcr4fWud/mGY4c1m
+         P7/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
@@ -50,57 +50,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gK6rGMq4VaD48Ztr6xN8cE+2K8sQ0BAKxJYYoKTMYhA=;
-        b=EpiTaPeVc6hFMjnhmQBEAki8z1jdTKIgy/tVb5jr252HzqlL1OmKt3jBAwh+hvMC+M
-         RnigG26ae7z/+Zxr5W3Mw/xaCkiv5eLlaE+hmNDn4bi/q9o3xnC5Fb0/u9C6sJocxn0O
-         sz3sTh0GXDZGVFWjQgO5Y892z+oHAwieSl95hfmtT5JqGAjW693QCIE1SEa8PMN+bT9/
-         0RKORbGRMDYW5od1aoPFvrEwYmtU1ipf6C+SdabOB7OTi2KJinOEBCVTFVG/GiYn7hvZ
-         LIGRqPGKEBhWlpt4SjSTrmKeUpupizwbElCdvgma9wr0SKGgYmqnPqUXGRDupO03iUIO
-         FZGw==
+        bh=Je9HZRWLu00S5Kju903e3pkv5w66gitrpEgpZwgtURM=;
+        b=h27OqHQSjFA2+NriHuVtuBcBSRFUhO5g/VJsll5n00Lj64gYEhqNKSCmSlvmSQN074
+         l+CKWnxl12Qk685pa5glOAtznavKFs19B5fwv51jCAH1QQLehPnX5+M/jwFhm2JQs/cH
+         cLbFbf9SAzuJl24Rlv4Ep4vBSj9trrrtGOpidZXB/65hwrLCbjIP5iHLdA3lC+D1iFus
+         GJNq1CBgfZRvjftjQm/iaaC58qiXP9XPAJ9MpvUOCAjOTl+YE3TXM1q71mM35gWqINXA
+         HumQHFSxtrJg1p2rDx9gNqSAP0COJUuKXbPzdp0Cl7iKI2NTVDQbLBMnT1Fq8Qkj7HRF
+         qYqg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM530RBkDMhgVB4sqUEkILyDLW557WdERB6IQnv69/VcoUSlrlRTzf
-	WcJMQoEblCJwafOYE3Tj/gI=
-X-Google-Smtp-Source: ABdhPJwYbdejHwkuppRkW22wRI++/jVwo3eYMiF5DTzvKAO02YzpnJ2Jvkq8w696ScJYftG5wjJCJw==
-X-Received: by 2002:a05:6e02:1cac:b0:2cf:55af:2dd9 with SMTP id x12-20020a056e021cac00b002cf55af2dd9mr4922089ill.259.1652037000575;
-        Sun, 08 May 2022 12:10:00 -0700 (PDT)
+X-Gm-Message-State: AOAM532bsIY7KZlF0l2LynUGJoP1pMqTjWlbhhr4Lmar8Qz4gI6NSll0
+	/6t2p/gvTHY3/zAavkzthig=
+X-Google-Smtp-Source: ABdhPJy2XVyTxBiyMT65j08s2Ph69ol4rHKfmw7lLMUlhd76YnPWQAV2slzI0GuXpVV/WZ39JWrpeg==
+X-Received: by 2002:a05:6602:48:b0:657:ccb5:1d85 with SMTP id z8-20020a056602004800b00657ccb51d85mr5045476ioz.217.1652037001186;
+        Sun, 08 May 2022 12:10:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:3710:b0:32b:ea47:b136 with SMTP id
- k16-20020a056638371000b0032bea47b136ls432677jav.2.gmail; Sun, 08 May 2022
+Received: by 2002:a05:6638:1490:b0:32b:5e53:67d9 with SMTP id
+ j16-20020a056638149000b0032b5e5367d9ls2377651jak.10.gmail; Sun, 08 May 2022
  12:10:00 -0700 (PDT)
-X-Received: by 2002:a05:6638:d06:b0:32b:da48:4879 with SMTP id q6-20020a0566380d0600b0032bda484879mr3419079jaj.117.1652037000178;
+X-Received: by 2002:a05:6638:228e:b0:32b:4476:8e73 with SMTP id y14-20020a056638228e00b0032b44768e73mr5954339jas.147.1652037000807;
         Sun, 08 May 2022 12:10:00 -0700 (PDT)
 ARC-Seal: i=1; a=rsa-sha256; t=1652037000; cv=none;
         d=google.com; s=arc-20160816;
-        b=SwfmSXqTfUgFjPBchl3kCRLAi+5JPKmRwVgLL9EuE63WoV6cqnEQdST1iYcyw2XrkI
-         804ZkIImSxHMjn3mQsiDAkyt04ZxtTteF6pUjWfjYsUOlzWeVw+kvPUAhvx4qVgIDfhX
-         CFj16mlQEU5gUtgySwv/gMsw3EWbeyhugkuDxuEABX2C4kDlgUVIEhtuGUta4g8sgM1m
-         c4JUUgZZuFbL+EXnknYDBt4ABArhGvYWribB8ZGF3ZYv7kwRIy1WQrG6xDuUQraKBzUM
-         E7vo9NzOB6jSjRqnaBYBksYqi6Xgml5j1hMzgITXRE2VgLbtmTblhtfYIFH38/6AJqrU
-         rVsg==
+        b=KvC9w6fNj4h53Hy5uWhNlIeJXyR9AckAXdNt/worcunUQT7qapGyFMoNSHdCelz8yJ
+         +4e0PvMl7dqcYVpTbLyZkzAQRo/rdIKZ87wrwg/Dw74vxTIFoiW6nnbSd3/i24A/oHFN
+         LnmEnK8dZkC8uRrGb35wEL0onCZMSubtz+fwKTN4BER+qUgbPO6njIiV0foCWdmRW7u1
+         QNQdrewMbK8p+JR/0A0D1SENkbff1Ctz1vlJOWZqEtGmw460maDwJX4xRJ/kXAjtg31U
+         HpDZjPoO1QQRjAJ3uPTYxrv2ZFLngTkSG8gPKByUHIpjDfv1PmP4DC61TCzklvlVDFW2
+         AWEw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
-        bh=C2arjqjMnqW/2vP8/HANG7RVhUBPKrPzWxX1ZKHXvlo=;
-        b=wy/otDM6YooRg/hdkzXGEBKaUiXz2SAv8xG6faRTx88SDgH4PaVz0kgDoCt4S8bMjl
-         sh5TMxfKCZX/FtgPHU/xbGqquz/7wLqqhLTXYYofJTSw0ZqpGG36DHHopd3jx8z8FZvL
-         /GOd5zASPnpt1N285oII2j+9MkFe/OVPfIXHLc3N3Q2exDBauAS1GnkaQQE5UuSOtcHy
-         vToFLQICQ866ekuVIf0KAi6FDUea6QYzYccaw4+/zs1I6vsQsor2Yif4xwEhAgtZupPs
-         naPenfJvZePyHrQ2jYo+bMRUGa+YyslNotd8RGaLBLcZzbweEHlfLH5y97ZVE3Gt7PZd
-         XX8g==
+        bh=7dVosA98YsgJAc1+4NwlKOpt2daMW/NjA4iASuFudpw=;
+        b=GKejUCSz0bs2eHkMUtOo2Toym/RtnAaeMH6+jrrn8C9FFMcZVkDdfUiIbGsUxNlMrl
+         6y4pwNfbtHZ1bJcx2+jZpf8C1GxaFYSIsjdBz4OhNVOP7lfg/eMn2kMoQLifssGoGGj3
+         IZEVyLrrbeaJVJYeHZHzPDn5+/jZ/yAXTCGTqMMeG3BGImtTS1dgfcP9PYf2JbsOukuW
+         nT/Zb3GlaYdzzTIHCDdAHXAqTDFhhSugWOdizW8a/vgf9dzzuvaTcI6YyrMwu+qw++UV
+         FLOMmhm6jZk1auLGzfP1RhMduyLDFT0e5oYeqWng8GFHRlbl/KIcAqSl4+f1YHXxpKMC
+         LRHA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=gMjpBo08;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=v567Pj5G;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-09.nifty.com (conuserg-09.nifty.com. [210.131.2.76])
-        by gmr-mx.google.com with ESMTPS id i21-20020a056638381500b0032b603bf16esi1253751jav.2.2022.05.08.12.09.59
+        by gmr-mx.google.com with ESMTPS id u12-20020a02c94c000000b0032660e40518si1217061jao.4.2022.05.08.12.10.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
         Sun, 08 May 2022 12:10:00 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) client-ip=210.131.2.76;
 Received: from grover.sesame (133-32-177-133.west.xps.vectant.ne.jp [133.32.177.133]) (authenticated)
-	by conuserg-09.nifty.com with ESMTP id 248J8qSW030019;
-	Mon, 9 May 2022 04:09:02 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 248J8qSW030019
+	by conuserg-09.nifty.com with ESMTP id 248J8qSX030019;
+	Mon, 9 May 2022 04:09:03 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 248J8qSX030019
 X-Nifty-SrcIP: [133.32.177.133]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
@@ -112,16 +112,16 @@ Cc: linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>,
         clang-built-linux@googlegroups.com, Ard Biesheuvel <ardb@kernel.org>,
         Sami Tolvanen <samitolvanen@google.com>,
         Masahiro Yamada <masahiroy@kernel.org>
-Subject: [PATCH v4 09/14] kbuild: do not create *.prelink.o for Clang LTO or IBT
-Date: Mon,  9 May 2022 04:06:26 +0900
-Message-Id: <20220508190631.2386038-10-masahiroy@kernel.org>
+Subject: [PATCH v4 10/14] kbuild: check static EXPORT_SYMBOL* by script instead of modpost
+Date: Mon,  9 May 2022 04:06:27 +0900
+Message-Id: <20220508190631.2386038-11-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220508190631.2386038-1-masahiroy@kernel.org>
 References: <20220508190631.2386038-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=gMjpBo08;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=v567Pj5G;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
  210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -138,324 +138,218 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-When CONFIG_LTO_CLANG=y, additional intermediate *.prelink.o is created
-for each module. Also, objtool is postponed until LLVM bitcode is
-converted to ELF.
+The 'static' specifier and EXPORT_SYMBOL() are an odd combination.
 
-CONFIG_X86_KERNEL_IBT works in a similar way to postpone objtool until
-objects are merged together.
+Commit 15bfc2348d54 ("modpost: check for static EXPORT_SYMBOL*
+functions") tried to detect it, but this check has false negatives.
 
-This commit stops generating *.prelink.o, so the build flow will look
-the same with/without LTO.
+Here is the sample code.
 
-The following figures show how the LTO build currently works, and
-how this commit is changing it.
+  Makefile:
 
-Current build flow
-==================
+    obj-y += foo1.o foo2.o
 
- [1] single-object module
+  foo1.c:
 
-                                      $(LD)
-           $(CC)                     +objtool              $(LD)
-    foo.c --------------------> foo.o -----> foo.prelink.o -----> foo.ko
-                           (LLVM bitcode)        (ELF)       |
-                                                             |
-                                                 foo.mod.o --/
+    #include <linux/export.h>
+    static void foo(void) {}
+    EXPORT_SYMBOL(foo);
 
- [2] multi-object module
-                                      $(LD)
-           $(CC)         $(AR)       +objtool               $(LD)
-    foo1.c -----> foo1.o -----> foo.o -----> foo.prelink.o -----> foo.ko
-                           |  (archive)          (ELF)       |
-    foo2.c -----> foo2.o --/                                 |
-                (LLVM bitcode)                   foo.mod.o --/
+  foo2.c:
 
-  One confusion is foo.o in multi-object module is an archive despite of
-  its suffix.
+    void foo(void) {}
 
-New build flow
-==============
+foo1.c exports the static symbol 'foo', but modpost cannot catch it
+because it is fooled by foo2.c, which has a global symbol with the
+same name.
 
- [1] single-object module
+s->is_static is cleared if a global symbol with the same name is found
+somewhere, but EXPORT_SYMBOL() and the global symbol do not necessarily
+belong to the same compilation unit.
 
-  Since there is only one object, we do not need to have the LLVM
-  bitcode stage. Use $(CC)+$(LD) to generate an ELF object in one
-  build rule. When LTO is disabled, $(LD) is unneeded because $(CC)
-  produces an ELF object.
+This check should be done per compilation unit, but I do not know how
+to do it in modpost. modpost runs against vmlinux.o or modules, which
+merges multiple objects, then forgets their origin.
 
-           $(CC)+$(LD)+objtool             $(LD)
-    foo.c ------------------------> foo.o -------> foo.ko
-                                    (ELF)    |
-                                             |
-                                 foo.mod.o --/
+It is true modpost gets access to the lists of all the member objects
+(.vmlinux.objs and *.mod), but it is impossible to parse individual
+objects in modpost; they might be LLVM IR instead of ELF when
+CONFIG_LTO_CLANG=y.
 
- [2] multi-object module
+Add a simple bash script to parse the output from ${NM}. This works for
+CONFIG_LTO_CLANG=y because llvm-nm can dump symbols of LLVM bitcode.
 
-  Previously, $(AR) was used to combine LLVM bitcode into an archive,
-  but there was no technical reason to do so.
-  This commit just uses $(LD) to combine and convert them into a single
-  ELF object.
-
-                            $(LD)
-            $(CC)          +objtool        $(LD)
-    foo1.c -------> foo1.o -------> foo.o -------> foo.ko
-                              |     (ELF)    |
-    foo2.c -------> foo2.o ---/              |
-                (LLVM bitcode)   foo.mod.o --/
+Revert 15bfc2348d54.
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-Reviewed-by: Nicolas Schier <nicolas@fjasle.eu>
-Tested-by: Nathan Chancellor <nathan@kernel.org>
 ---
 
-(no changes since v2)
+Changes in v4:
+  - New patch
 
-Changes in v2:
- - replace the chain of $(if ...) with $(and )
+ scripts/Makefile.build     |  4 ++++
+ scripts/check-local-export | 48 ++++++++++++++++++++++++++++++++++++++
+ scripts/mod/modpost.c      | 28 +---------------------
+ 3 files changed, 53 insertions(+), 27 deletions(-)
+ create mode 100755 scripts/check-local-export
 
- scripts/Kbuild.include    |  4 +++
- scripts/Makefile.build    | 58 ++++++++++++---------------------------
- scripts/Makefile.lib      |  7 -----
- scripts/Makefile.modfinal |  5 ++--
- scripts/Makefile.modpost  |  9 ++----
- scripts/mod/modpost.c     |  7 -----
- 6 files changed, 25 insertions(+), 65 deletions(-)
-
-diff --git a/scripts/Kbuild.include b/scripts/Kbuild.include
-index 3514c2149e9d..455a0a6ce12d 100644
---- a/scripts/Kbuild.include
-+++ b/scripts/Kbuild.include
-@@ -15,6 +15,10 @@ pound := \#
- # Name of target with a '.' as filename prefix. foo/bar.o => foo/.bar.o
- dot-target = $(dir $@).$(notdir $@)
- 
-+###
-+# Name of target with a '.tmp_' as filename prefix. foo/bar.o => foo/.tmp_bar.o
-+tmp-target = $(dir $@).tmp_$(notdir $@)
-+
- ###
- # The temporary file to save gcc -MMD generated dependencies must not
- # contain a comma
 diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-index 461998a2ad2b..838ea5e83174 100644
+index 838ea5e83174..c2a173b3fd60 100644
 --- a/scripts/Makefile.build
 +++ b/scripts/Makefile.build
-@@ -88,10 +88,6 @@ endif
- targets-for-modules := $(foreach x, o mod $(if $(CONFIG_TRIM_UNUSED_KSYMS), usyms), \
- 				$(patsubst %.o, %.$x, $(filter %.o, $(obj-m))))
- 
--ifneq ($(CONFIG_LTO_CLANG)$(CONFIG_X86_KERNEL_IBT),)
--targets-for-modules += $(patsubst %.o, %.prelink.o, $(filter %.o, $(obj-m)))
--endif
--
- ifdef need-modorder
- targets-for-modules += $(obj)/modules.order
+@@ -244,9 +244,12 @@ cmd_gen_ksymdeps = \
+ 	$(CONFIG_SHELL) $(srctree)/scripts/gen_ksymdeps.sh $@ >> $(dot-target).cmd
  endif
-@@ -152,8 +148,16 @@ $(obj)/%.ll: $(src)/%.c FORCE
- # The C file is compiled and updated dependency information is generated.
- # (See cmd_cc_o_c + relevant part of rule_cc_o_c)
  
-+is-single-obj-m = $(and $(part-of-module),$(filter $@, $(obj-m)),y)
++cmd_check_local_export = $(srctree)/scripts/check-local-export $@
 +
-+ifdef CONFIG_LTO_CLANG
-+cmd_ld_single_m = $(if $(is-single-obj-m), ; $(LD) $(ld_flags) -r -o $(tmp-target) $@; mv $(tmp-target) $@)
-+endif
+ define rule_cc_o_c
+ 	$(call cmd_and_fixdep,cc_o_c)
+ 	$(call cmd,gen_ksymdeps)
++	$(call cmd,check_local_export)
+ 	$(call cmd,checksrc)
+ 	$(call cmd,checkdoc)
+ 	$(call cmd,gen_objtooldep)
+@@ -257,6 +260,7 @@ endef
+ define rule_as_o_S
+ 	$(call cmd_and_fixdep,as_o_S)
+ 	$(call cmd,gen_ksymdeps)
++	$(call cmd,check_local_export)
+ 	$(call cmd,gen_objtooldep)
+ 	$(call cmd,gen_symversions_S)
+ endef
+diff --git a/scripts/check-local-export b/scripts/check-local-export
+new file mode 100755
+index 000000000000..d1721fa63057
+--- /dev/null
++++ b/scripts/check-local-export
+@@ -0,0 +1,48 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0-only
++#
++# Copyright (C) 2022 Masahiro Yamada
 +
- quiet_cmd_cc_o_c = CC $(quiet_modtag)  $@
--      cmd_cc_o_c = $(CC) $(c_flags) -c -o $@ $< $(cmd_objtool)
-+      cmd_cc_o_c = $(CC) $(c_flags) -c -o $@ $< \
-+		$(cmd_ld_single_m) \
-+		$(cmd_objtool)
- 
- ifdef CONFIG_MODVERSIONS
- # When module versioning is enabled the following steps are executed:
-@@ -224,21 +228,16 @@ cmd_gen_objtooldep = $(if $(objtool-enabled), { echo ; echo '$@: $$(wildcard $(o
- 
- endif # CONFIG_STACK_VALIDATION
- 
--ifneq ($(CONFIG_LTO_CLANG)$(CONFIG_X86_KERNEL_IBT),)
--
--# Skip objtool for LLVM bitcode
--$(obj)/%.o: objtool-enabled :=
--
--else
- 
- # 'OBJECT_FILES_NON_STANDARD := y': skip objtool checking for a directory
- # 'OBJECT_FILES_NON_STANDARD_foo.o := 'y': skip objtool checking for a file
- # 'OBJECT_FILES_NON_STANDARD_foo.o := 'n': override directory skip for a file
- 
--$(obj)/%.o: objtool-enabled = $(if $(filter-out y%, \
--	$(OBJECT_FILES_NON_STANDARD_$(basetarget).o)$(OBJECT_FILES_NON_STANDARD)n),y)
-+is-standard-object = $(if $(filter-out y%, $(OBJECT_FILES_NON_STANDARD_$(basetarget).o)$(OBJECT_FILES_NON_STANDARD)n),y)
- 
--endif
-+delay-objtool := $(or $(CONFIG_LTO_CLANG),$(CONFIG_X86_KERNEL_IBT))
++set -e
++set -o pipefail
 +
-+$(obj)/%.o: objtool-enabled = $(if $(is-standard-object),$(if $(delay-objtool),$(is-single-obj-m),y))
- 
- ifdef CONFIG_TRIM_UNUSED_KSYMS
- cmd_gen_ksymdeps = \
-@@ -267,24 +266,6 @@ $(obj)/%.o: $(src)/%.c $(recordmcount_source) FORCE
- 	$(call if_changed_rule,cc_o_c)
- 	$(call cmd,force_checksrc)
- 
--ifneq ($(CONFIG_LTO_CLANG)$(CONFIG_X86_KERNEL_IBT),)
--# Module .o files may contain LLVM bitcode, compile them into native code
--# before ELF processing
--quiet_cmd_cc_prelink_modules = LD [M]  $@
--      cmd_cc_prelink_modules =						\
--	$(LD) $(ld_flags) -r -o $@					\
--		--whole-archive $(filter-out FORCE,$^)			\
--		$(cmd_objtool)
--
--# objtool was skipped for LLVM bitcode, run it now that we have compiled
--# modules into native code
--$(obj)/%.prelink.o: objtool-enabled = y
--$(obj)/%.prelink.o: part-of-module := y
--
--$(obj)/%.prelink.o: $(obj)/%.o FORCE
--	$(call if_changed,cc_prelink_modules)
--endif
--
- cmd_mod = echo $(addprefix $(obj)/, $(call real-search, $*.o, .o, -objs -y -m)) | \
- 	$(AWK) -v RS='( |\n)' '!x[$$0]++' > $@
- 
-@@ -294,7 +275,7 @@ $(obj)/%.mod: FORCE
- # List module undefined symbols
- cmd_undefined_syms = $(NM) $< | sed -n 's/^  *U //p' > $@
- 
--$(obj)/%.usyms: $(obj)/%$(mod-prelink-ext).o FORCE
-+$(obj)/%.usyms: $(obj)/%.o FORCE
- 	$(call if_changed,undefined_syms)
- 
- quiet_cmd_cc_lst_c = MKLST   $@
-@@ -416,16 +397,11 @@ $(obj)/modules.order: $(obj-m) FORCE
- $(obj)/lib.a: $(lib-y) FORCE
- 	$(call if_changed,ar)
- 
--ifneq ($(CONFIG_LTO_CLANG)$(CONFIG_X86_KERNEL_IBT),)
--quiet_cmd_link_multi-m = AR [M]  $@
--cmd_link_multi-m =						\
--	rm -f $@; 						\
--	$(AR) cDPrsT $@ @$(patsubst %.o,%.mod,$@)
--else
- quiet_cmd_link_multi-m = LD [M]  $@
--      cmd_link_multi-m = $(LD) $(ld_flags) -r -o $@ @$(patsubst %.o,%.mod,$@)
--endif
-+      cmd_link_multi-m = $(LD) $(ld_flags) -r -o $@ @$(patsubst %.o,%.mod,$@) $(cmd_objtool)
- 
-+$(multi-obj-m): objtool-enabled := $(delay-objtool)
-+$(multi-obj-m): part-of-module := y
- $(multi-obj-m): %.o: %.mod FORCE
- 	$(call if_changed,link_multi-m)
- $(call multi_depend, $(multi-obj-m), .o, -objs -y -m)
-diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-index 0453a1904646..f75138385449 100644
---- a/scripts/Makefile.lib
-+++ b/scripts/Makefile.lib
-@@ -225,13 +225,6 @@ dtc_cpp_flags  = -Wp,-MMD,$(depfile).pre.tmp -nostdinc                    \
- 		 $(addprefix -I,$(DTC_INCLUDE))                          \
- 		 -undef -D__DTS__
- 
--ifneq ($(CONFIG_LTO_CLANG)$(CONFIG_X86_KERNEL_IBT),)
--# With CONFIG_LTO_CLANG, .o files in modules might be LLVM bitcode, so we
--# need to run LTO to compile them into native code (.lto.o) before further
--# processing.
--mod-prelink-ext := .prelink
--endif
--
- # Useful for describing the dependency of composite objects
- # Usage:
- #   $(call multi_depend, multi_used_targets, suffix_to_remove, suffix_to_add)
-diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
-index 7f39599e9fae..35100e981f4a 100644
---- a/scripts/Makefile.modfinal
-+++ b/scripts/Makefile.modfinal
-@@ -9,7 +9,7 @@ __modfinal:
- include include/config/auto.conf
- include $(srctree)/scripts/Kbuild.include
- 
--# for c_flags and mod-prelink-ext
-+# for c_flags
- include $(srctree)/scripts/Makefile.lib
- 
- # find all modules listed in modules.order
-@@ -54,9 +54,8 @@ if_changed_except = $(if $(call newer_prereqs_except,$(2))$(cmd-check),      \
- 	$(cmd);                                                              \
- 	printf '%s\n' 'cmd_$@ := $(make-cmd)' > $(dot-target).cmd, @:)
- 
--
- # Re-generate module BTFs if either module's .ko or vmlinux changed
--$(modules): %.ko: %$(mod-prelink-ext).o %.mod.o scripts/module.lds $(if $(KBUILD_BUILTIN),vmlinux) FORCE
-+$(modules): %.ko: %.o %.mod.o scripts/module.lds $(if $(KBUILD_BUILTIN),vmlinux) FORCE
- 	+$(call if_changed_except,ld_ko_o,vmlinux)
- ifdef CONFIG_DEBUG_INFO_BTF_MODULES
- 	+$(if $(newer-prereqs),$(call cmd,btf_ko))
-diff --git a/scripts/Makefile.modpost b/scripts/Makefile.modpost
-index 48585c4d04ad..f2ce411acd59 100644
---- a/scripts/Makefile.modpost
-+++ b/scripts/Makefile.modpost
-@@ -41,9 +41,6 @@ __modpost:
- include include/config/auto.conf
- include $(srctree)/scripts/Kbuild.include
- 
--# for mod-prelink-ext
--include $(srctree)/scripts/Makefile.lib
--
- MODPOST = scripts/mod/modpost								\
- 	$(if $(CONFIG_MODVERSIONS),-m)							\
- 	$(if $(CONFIG_MODULE_SRCVERSION_ALL),-a)					\
-@@ -118,8 +115,6 @@ $(input-symdump):
- 	@echo >&2 '         Modules may not have dependencies or modversions.'
- 	@echo >&2 '         You may get many unresolved symbol warnings.'
- 
--modules := $(sort $(shell cat $(MODORDER)))
--
- # KBUILD_MODPOST_WARN can be set to avoid error out in case of undefined symbols
- ifneq ($(KBUILD_MODPOST_WARN)$(filter-out $(existing-input-symdump), $(input-symdump)),)
- MODPOST += -w
-@@ -128,9 +123,9 @@ endif
- # Read out modules.order to pass in modpost.
- # Otherwise, allmodconfig would fail with "Argument list too long".
- quiet_cmd_modpost = MODPOST $@
--      cmd_modpost = sed 's/\.ko$$/$(mod-prelink-ext)\.o/' $< | $(MODPOST) -T -
-+      cmd_modpost = sed 's/ko$$/o/' $< | $(MODPOST) -T -
- 
--$(output-symdump): $(MODORDER) $(input-symdump) $(modules:.ko=$(mod-prelink-ext).o) FORCE
-+$(output-symdump): $(MODORDER) $(input-symdump) FORCE
- 	$(call if_changed,modpost)
- 
- targets += $(output-symdump)
++declare -A symbol_types
++declare -a export_symbols
++
++exit_code=0
++
++while read value type name
++do
++	# to avoid error for clang LTO; $name may be empty
++	if [[ $value = -* && -z $name ]]; then
++		continue
++	fi
++
++	# The first field (value) may be empty. If so, fix it up.
++	if [[ -z $name ]]; then
++	   name=${type}
++	   type=${value}
++	fi
++
++	# save (name, type) in the associative array
++	symbol_types[$name]=$type
++
++	# append the exported symbol to the array
++	if [[ $name == __ksymtab_* ]]; then
++		export_symbols+=(${name#__ksymtab_})
++	fi
++done < <(${NM} ${1} 2>/dev/null)
++
++# Catch error in the process substitution
++wait $!
++
++for name in "${export_symbols[@]}"
++do
++	# nm(3) says "If lowercase, the symbol is usually local"
++	if [[ ${symbol_types[$name]} =~ [a-z] ]]; then
++		echo "$@: error: local symbol '${name}' was exported" >&2
++		exit_code=1
++	fi
++done
++
++exit ${exit_code}
 diff --git a/scripts/mod/modpost.c b/scripts/mod/modpost.c
-index b46653d46e3d..018527d96680 100644
+index 018527d96680..fa73ddb6a6cf 100644
 --- a/scripts/mod/modpost.c
 +++ b/scripts/mod/modpost.c
-@@ -716,10 +716,6 @@ static char *remove_dot(char *s)
- 		size_t m = strspn(s + n + 1, "0123456789");
- 		if (m && (s[n + m] == '.' || s[n + m] == 0))
- 			s[n] = 0;
--
--		/* strip trailing .prelink */
--		if (strends(s, ".prelink"))
--			s[strlen(s) - 8] = '\0';
- 	}
+@@ -212,7 +212,6 @@ struct symbol {
+ 	unsigned int crc;
+ 	bool crc_valid;
+ 	bool weak;
+-	bool is_static;		/* true if symbol is not global */
+ 	bool is_gpl_only;	/* exported by EXPORT_SYMBOL_GPL */
+ 	char name[];
+ };
+@@ -242,7 +241,7 @@ static struct symbol *alloc_symbol(const char *name)
+ 
+ 	memset(s, 0, sizeof(*s));
+ 	strcpy(s->name, name);
+-	s->is_static = true;
++
  	return s;
  }
-@@ -839,9 +835,6 @@ static void read_symbols(const char *modname)
- 		/* strip trailing .o */
- 		tmp = NOFAIL(strdup(modname));
- 		tmp[strlen(tmp) - 2] = '\0';
--		/* strip trailing .prelink */
--		if (strends(tmp, ".prelink"))
--			tmp[strlen(tmp) - 8] = '\0';
- 		mod = new_module(tmp);
- 		free(tmp);
+ 
+@@ -875,20 +874,6 @@ static void read_symbols(const char *modname)
+ 					     sym_get_data(&info, sym));
  	}
+ 
+-	// check for static EXPORT_SYMBOL_* functions && global vars
+-	for (sym = info.symtab_start; sym < info.symtab_stop; sym++) {
+-		unsigned char bind = ELF_ST_BIND(sym->st_info);
+-
+-		if (bind == STB_GLOBAL || bind == STB_WEAK) {
+-			struct symbol *s =
+-				find_symbol(remove_dot(info.strtab +
+-						       sym->st_name));
+-
+-			if (s)
+-				s->is_static = false;
+-		}
+-	}
+-
+ 	check_sec_ref(mod, modname, &info);
+ 
+ 	if (!mod->is_vmlinux) {
+@@ -1318,7 +1303,6 @@ static void read_dump(const char *fname)
+ 			mod->from_dump = true;
+ 		}
+ 		s = sym_add_exported(symname, mod, gpl_only);
+-		s->is_static = false;
+ 		sym_set_crc(s, crc);
+ 		sym_update_namespace(symname, namespace);
+ 	}
+@@ -1383,7 +1367,6 @@ int main(int argc, char **argv)
+ 	char *missing_namespace_deps = NULL;
+ 	char *dump_write = NULL, *files_source = NULL;
+ 	int opt;
+-	int n;
+ 	LIST_HEAD(dump_lists);
+ 	struct dump_list *dl, *dl2;
+ 
+@@ -1459,15 +1442,6 @@ int main(int argc, char **argv)
+ 	if (sec_mismatch_count && !sec_mismatch_warn_only)
+ 		error("Section mismatches detected.\n"
+ 		      "Set CONFIG_SECTION_MISMATCH_WARN_ONLY=y to allow them.\n");
+-	for (n = 0; n < SYMBOL_HASH_SIZE; n++) {
+-		struct symbol *s;
+-
+-		for (s = symbolhash[n]; s; s = s->next) {
+-			if (s->is_static)
+-				error("\"%s\" [%s] is a static EXPORT_SYMBOL\n",
+-				      s->name, s->module->name);
+-		}
+-	}
+ 
+ 	if (nr_unresolved > MAX_UNRESOLVED_REPORTS)
+ 		warn("suppressed %u unresolved symbol warnings because there were too many)\n",
 -- 
 2.32.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220508190631.2386038-10-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220508190631.2386038-11-masahiroy%40kernel.org.
