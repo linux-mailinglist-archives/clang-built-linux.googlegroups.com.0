@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBCVL4CJQMGQE3K3QYFQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT2NE7U5UFRBKFL4CJQMGQE3JBJZDI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
-	by mail.lfdr.de (Postfix) with ESMTPS id D844051EF21
-	for <lists+clang-built-linux@lfdr.de>; Sun,  8 May 2022 21:10:03 +0200 (CEST)
-Received: by mail-il1-x13c.google.com with SMTP id q6-20020a056e0215c600b002c2c4091914sf6497659ilu.14
-        for <lists+clang-built-linux@lfdr.de>; Sun, 08 May 2022 12:10:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1652037003; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5F50051EF25
+	for <lists+clang-built-linux@lfdr.de>; Sun,  8 May 2022 21:10:34 +0200 (CEST)
+Received: by mail-pl1-x63c.google.com with SMTP id s2-20020a17090302c200b00158ea215fa2sf7105462plk.3
+        for <lists+clang-built-linux@lfdr.de>; Sun, 08 May 2022 12:10:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1652037033; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AFvsC5Im1kGbiC5FsRZmFDN1J7kOR0orxL1pwlaZnt0YAFEhlOwdpsdQ1btjkk4Xmy
-         zpUYCoXLn+k0lx6AYkZ2i8Urxfpqkf747AY0TsCTgk0Cn/+8dtJC8bZj8z9h2gQ0tW50
-         2DquyzhcWkOoUYNL8XiRZKxvDYg6EHYniYgRH0YlXkDgE8cm5PbL+cDwD8k5b3oQ4BfS
-         btSG+GF/g9uyB0WMvDjgKwgBDcMWdJwdXyZidVfMRN2SMpl2alGD7HCzCIvNH5w27BiV
-         YxepSkTh+iKGZewEWOAKToHiWY+g0303Jc1Csd09l1haBeVHX+aJ8SAq//arNgkxF55v
-         H6/Q==
+        b=C+tri+LUqwWk5hBHnul4xib/VxwvgkwLoa7NNXu7p+9hFzAwLbfZkQibm+/cM8XdgY
+         XqQ9svVjGviSyJb6zeirrOelEPWitJ0YadYwGN9M3bSGwz7ITIhrC4DbUooLBoR1y1hu
+         yMqa9KhdSlukjZALuDaMAtAjRMsHjbSIIuZUhwm04SfiJJ99q6UlpPvYg3GqQ5U1ZIIS
+         vJFWPaWXrBxkM7f6ZQp51GViphjDOD4tj4tRiDhWCgo34WgNE1npfnuMSUT1SfuEL/6G
+         oolpyUT1xTwlE0iMMBODw9EEKeVUU/JDCyJXc1U75WvU2G/eJNiFeALIDm3towO6xAwW
+         tjtw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-filter:sender
          :dkim-signature;
-        bh=Q2M3dHEogfXyBxPA+JHvPZuF3LAUhu3Kb9wLs6brAaQ=;
-        b=bHUGoJQhbrVy936Qpy36vmI2kZoHappiIQ6S9wnsisUgIjvnGOuUG26CJsF4r/q7yw
-         oxv4YakWm9PRrPKlTbyxeQHaTqnb4R2o0H8qX0IQDy7g8l6LtTNWULlVp/3IoUNLb2cp
-         tn5EoAY2G9jj8nCPHensd188wza+DTddralQIMi7sbd1KtYu6nEGxaiK3CZK+LlOBLBM
-         Ui9deF7xdp4GjX4a1t3VZRIS12c+qN6jycKhhwYjODIa9uL+fjDMWbu24dIO++P86gEP
-         FKvzRulaujVQxnkx4mPDQMiuJQOJbvqbBl6coCyOYQGyegpvaIf8C9z5MI1dn04Oz8vK
-         ktBg==
+        bh=1vT59ZjF+wLC/jhE9QnS+KHhhwVi7y1FhfLeQKKVEfM=;
+        b=T9Qkhv3g1QK7/Cv03hn/5Sk1iwM8qN91qP5NdtBjP6Za7NtcU5vpkfrj1WjqaLqeLq
+         nJvhP0E4JzK9MS6tDsAeKjqRFGb0HEXBRz0JXc95egwrNi0CqzunET1ctcKW3TJ6zCUr
+         arYwKStJf9bs49FaVs0d/9sb2Di7QtY2WjKpD8DRbXcWOpd5+DfwfwnHP1z+NwEj+Cyi
+         PsBHw33DBB1xplzuCH2Alj05yygRzJ3vGHsqxkw2AwIlWD6K+xr8w4qzcTMs7XUQa3xw
+         0mJFENMoICXLf6qlijYB5Jxt13/NhwGjazSkdlB0KwmYthyFV48yakJBhxleX30bJukz
+         9Gig==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=eZIpxuzV;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=d+jmdaod;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Q2M3dHEogfXyBxPA+JHvPZuF3LAUhu3Kb9wLs6brAaQ=;
-        b=rnsrRzax4Fc2BWbPdyjdcpDqv7WX5Sog21iosHJfkswLNht4J4h7EWyvAg7UgpYd+Q
-         rIzHMtVX7W/otjXLI9hYdLSVpEGcU57WU818YWo1vR5hfZh7pI1uC/jM4YonyM3T18cA
-         ZMIE6LKO6seH3zdiVzrds3VC7KuhhNA0Wpt6BDZL5blppUQ12mrJxoIFS17TUxzHFO9J
-         cBTUzZEP783uJS9yHdEWLOQe2hPa/hjXm4Y9N9O2vRgnS8Bcn4FMy9cDIR6/dFb5YRqR
-         Eoj91sbcpOtRTEXX/bxG2QsK83GdNrGCvzVhNp3IZxcyeUqjVKllWYOeOdaUg9/BAM8r
-         NDwg==
+        bh=1vT59ZjF+wLC/jhE9QnS+KHhhwVi7y1FhfLeQKKVEfM=;
+        b=r0bZN+INP5VO0wnQvwcJfKAncMKp3HGfG53dBrVpCYzN40Im9RpTOZwMT4m21u08tJ
+         0GdddMcBD9gl1/CgieX9Gi6T14BLT0EomOcrStEjojHicWfqPzzbzZHb/mWZyOkd7l8X
+         xbia/bcTtYr5UuOBlMCUXGwCenbD3JZGFsHj1qmrBPCnNHVGFkniuFptEqv6ImK2tlaE
+         lKgAqH7DG57waNTjk974sYHxzAOEP5x3wkuUcK4RtM/fHOK2z/EeDAp5U5/uUq1QeoqT
+         Gh98UCdQc0nav9YIvUpf8jkyPTuPmvN7CpjyfJCY5JY7FIJPYwdg64N47/CZpgmSrIAc
+         W7QQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:dkim-filter:from:to:cc:subject:date
@@ -50,57 +50,56 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Q2M3dHEogfXyBxPA+JHvPZuF3LAUhu3Kb9wLs6brAaQ=;
-        b=uauElghTAszgQW6qZAdyWJO1LVyEOBVn6DBfSJocGpdo1Lt4BVyMK8Lw3b6i7W2f9H
-         COSxr/f/He2jYTTv86IAzguDvvRQm3shET1Cb84p9X0K0USXPsXcTc/XBHQ3tV2Cf7EO
-         Re37QDjaOejxR6c+Zoz9662C1Etwg4FaJk6aP2PUbaMjraGClpo/rfXch2IPHcC3RdHK
-         LldsQHZP0DZRLSX4BuG5n8AhTy+mKkZF4FY5hlWurY6Cj18vlipEHKiDP6I2KzN+bjvD
-         CTpsqUM/50+o6aQpQom4dhOTB4fwqFbD7QQOL50A7BH9i/rAYCIBCNcymoGgP2E62dK5
-         Khbw==
+        bh=1vT59ZjF+wLC/jhE9QnS+KHhhwVi7y1FhfLeQKKVEfM=;
+        b=KWo66+wNGDtf1XUksX4t/orEUfDUH0RJqow/3cepDi5XSInXPSQnKcE/9wMxj8WgNj
+         fYhpux6+Y5lXh6Xh1J37TYws73YDOMWIs4tydpQEdRMU6cervil6UmoqNc1U0dbqZG+I
+         RzVO2j8my9oY9sneU7vzOjI3YVVuhBpFEQBkfSLE1MozKNMxFbhRNv79mwZQ/32JeRMu
+         80+vC5e3gxH0bI76Sb6amGPaipc1kXiLq64EP21P8NEukqW+Cg+HT4UDvOoybZSZWx3H
+         9CE06gXXUq1eKMw9vjhYEDzRn+NZGXsQ8RfgSvolO+AcDnvbomiCHuALKDK2pBwFSl0Y
+         zYWw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOAM5327LM2qWokMwyehbrH7hRCA9I8zaOAZihq7inViM+vq6mtf9+PL
-	O6G6XO6O46oKBrSNvCsvJ0Y=
-X-Google-Smtp-Source: ABdhPJz1xZlhZV3TZnZlrED9XZRUYzgqjeKAReFm5Vxf9F/tkWinO5b9UUXIW3igPPxndcMfDIVCEg==
-X-Received: by 2002:a05:6e02:101:b0:2ca:c6d7:b077 with SMTP id t1-20020a056e02010100b002cac6d7b077mr5113259ilm.306.1652037002814;
-        Sun, 08 May 2022 12:10:02 -0700 (PDT)
+X-Gm-Message-State: AOAM531R7sl7a9i1Cj6RzltXX2vsU2/ZsZo849ZijMXUdnMNiH38SJqs
+	qcRsu8zctw3iC9OL1KVl0no=
+X-Google-Smtp-Source: ABdhPJybi7lHe2Yx4DUL+iFau6VedoJBQ/hlHQWA1hydpiBvJNNUCunMtxpr7QPg87n6jKwI9OoGMw==
+X-Received: by 2002:a17:903:213:b0:15f:4ea:cd63 with SMTP id r19-20020a170903021300b0015f04eacd63mr5004237plh.68.1652037032916;
+        Sun, 08 May 2022 12:10:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6638:1395:b0:32b:85e8:b3a with SMTP id
- w21-20020a056638139500b0032b85e80b3als2379873jad.7.gmail; Sun, 08 May 2022
- 12:10:02 -0700 (PDT)
-X-Received: by 2002:a05:6638:2116:b0:32b:7d73:67f1 with SMTP id n22-20020a056638211600b0032b7d7367f1mr5772445jaj.135.1652037002453;
-        Sun, 08 May 2022 12:10:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1652037002; cv=none;
+Received: by 2002:a63:c00b:0:b0:3c1:c6c8:3826 with SMTP id h11-20020a63c00b000000b003c1c6c83826ls4494858pgg.10.gmail;
+ Sun, 08 May 2022 12:10:32 -0700 (PDT)
+X-Received: by 2002:a63:4459:0:b0:39d:3808:7c84 with SMTP id t25-20020a634459000000b0039d38087c84mr10463212pgk.130.1652037032312;
+        Sun, 08 May 2022 12:10:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1652037032; cv=none;
         d=google.com; s=arc-20160816;
-        b=r/CYJfBg6T/1VVKiyb2ZoUGlhMHZ+9xrumt6AyVkHiBeb0CmvPXF4DiPaA9b/oEqls
-         PiwS+cAGkixyA/a4sd7/ZuHIHaNKwXzJYHLBX0iNtftOlTWGSwYwrPZkaj/oztDzOO4W
-         fTBGJBfvt16WLJV5md2M1I8YktEwGvW6PYZdAOThm0psVCWaqVc9M7Al8lndJnJiZlzG
-         obIXMJNnAGFCUmmKmlnWpQ+k8FiFT8PjOYzzWyWz6Fvu0e86XRnXmrr6Weo5MDaf+4pp
-         vxjoa/L7PSVQemDuJVz4klPiMWMgPfl2U3RrbuvXvxuslWQ8GIxh+luEhQEZEkNH+3UX
-         EKzA==
+        b=t8NeXhaTF2/sJkDdz4a7Co8dh77K08MZr7XHYvOSY1rmwEZhfKnIiwjXvRbVgL/urn
+         CLzOoixYh7lltstHQXFYnD7sl+AezqSTqJB/gJ4EE+dmPHGgMZYsk+PHZA2OcWfJPLW3
+         byv4xjacZzAvOeWQgedPFqovD0vyZoakJCXsYT9Q6zQWqFNRoS/uqZ0Hq2UHq8/tWRIr
+         SncDRXgR2zNkdR/zECML37z5sDiRCCFt2F+q51j7+NinCiJZfh4QgyToqOPC5WB2sv5z
+         dUD3n4eSbSabT+fSkpLOKuUm9VgKjYRIG5r6zDcJMq/+EcVNlbjSeZJChZoN+s4npCY1
+         Sgmg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
-        bh=OcOEuS6jEbLubdZRYm9mI6nzM08ugGxo0tuefY4hIgE=;
-        b=R0UGAxkWmBMzZ9UJKT+1cp1q7750hd8Cj1N1XK9r5dCPHwA7JhwZuYP3zBKxiOIUc1
-         gq4G3QTMedEIen70qxg7WqhpN29zdxJ5QCc+EsWIBr9A3iGno4hZty8AjmsQRfyoFmqD
-         MD7Bv0LbB/V3575CytU2tLjY3YNfj3/hy0BODempuYXMY6c2os64y18N9Bi6C76fChjr
-         72HHIxsgkfpzWhlwEMmiWRfgkzdMSy0fxkC86a9gg95/qYEb0T/wCJ0xBBp1yT0BVlf4
-         +hDsYWP8U55CoZrUEiGkRB0lzyi9k3k6GhguuPg2oO6G+8M8FGF2rqSZBAwoTodNsMu9
-         o/Rg==
+        bh=DmsBv1fv38LgYT/uFaEQzmELMmHgADfzOYYANxRYdz0=;
+        b=Mj0U+i4VmQdaXet/ySduYxskKhHvbyWlMeFiZURmvaqRrQ6H5kYwtFGRC0GaK/uoK5
+         BwcVrGstsPajxthafUXQyUR9c0q/XHNS1EkfpSXuojr/H/HgiYfVrM0CCaDpCFDY9ObL
+         VRX7EjCZpWoSUOdNGBHMDNZC9krT+xQmEZ3wmyfz+JYZ0IJ4QRnSE96TORNUVO4xkaMb
+         nw4y6zPH8kbaj+C8vw3wwq6TD7pOzz5OvOjLiTBmXB8Q4RhBQ+K2hkybhD+8P880jsKE
+         TmbA3jsZWYzMhsFnF4ecGsVdVmDXt/PJqkVDSRbXwUBwVKsqBNVTMOfm2LSLuN11YE6o
+         SSJA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=eZIpxuzV;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=d+jmdaod;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-09.nifty.com (conuserg-09.nifty.com. [210.131.2.76])
-        by gmr-mx.google.com with ESMTPS id j9-20020a92ca09000000b002cc33178a69si900683ils.1.2022.05.08.12.10.01
+        by gmr-mx.google.com with ESMTPS id g19-20020a056a00079300b004e1a39c4e87si517053pfu.0.2022.05.08.12.10.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 08 May 2022 12:10:02 -0700 (PDT)
+        Sun, 08 May 2022 12:10:32 -0700 (PDT)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.76 as permitted sender) client-ip=210.131.2.76;
 Received: from grover.sesame (133-32-177-133.west.xps.vectant.ne.jp [133.32.177.133]) (authenticated)
-	by conuserg-09.nifty.com with ESMTP id 248J8qSZ030019;
-	Mon, 9 May 2022 04:09:06 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 248J8qSZ030019
+	by conuserg-09.nifty.com with ESMTP id 248J8qSa030019;
+	Mon, 9 May 2022 04:09:07 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-09.nifty.com 248J8qSa030019
 X-Nifty-SrcIP: [133.32.177.133]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
@@ -111,17 +110,18 @@ Cc: linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>,
         linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
         clang-built-linux@googlegroups.com, Ard Biesheuvel <ardb@kernel.org>,
         Sami Tolvanen <samitolvanen@google.com>,
-        Masahiro Yamada <masahiroy@kernel.org>
-Subject: [PATCH v4 12/14] kbuild: make *.mod rule robust against too long argument error
-Date: Mon,  9 May 2022 04:06:29 +0900
-Message-Id: <20220508190631.2386038-13-masahiroy@kernel.org>
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Kees Cook <keescook@chromium.org>
+Subject: [PATCH v4 13/14] kbuild: add cmd_and_savecmd macro
+Date: Mon,  9 May 2022 04:06:30 +0900
+Message-Id: <20220508190631.2386038-14-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.32.0
 In-Reply-To: <20220508190631.2386038-1-masahiroy@kernel.org>
 References: <20220508190631.2386038-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=eZIpxuzV;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=d+jmdaod;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
  210.131.2.76 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -138,55 +138,50 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Like built-in.a, the command length of the *.mod rule scales with
-the depth of the directory times the number of objects in the Makefile.
+Separate out the command execution part of if_changed, as we did
+for if_changed_dep.
 
-Add $(obj)/ by the shell command (awk) instead of by Make's builtin
-function.
+This allows us to reuse it in if_changed_rule.
 
-In-tree modules still have some room to the limit (ARG_MAX=2097152),
-but this is more future-proof for big modules in a deep directory.
-
-For example, you can build i915 as a module (CONFIG_DRM_I915=m) and
-compare drivers/gpu/drm/i915/.i915.mod.cmd with/without this commit.
-
-The issue is more critical for external modules because the M= path
-can be very long as Jeff Johnson reported before [1].
-
-[1] https://lore.kernel.org/linux-kbuild/4c02050c4e95e4cb8cc04282695f8404@codeaurora.org/
+  define rule_foo
+          $(call cmd_and_savecmd,foo)
+          $(call cmd,bar)
+  endef
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-Reviewed-by: Nicolas Schier <nicolas@fjasle.eu>
-Tested-by: Nathan Chancellor <nathan@kernel.org>
+Reviewed-by: Kees Cook <keescook@chromium.org>
 ---
 
-(no changes since v2)
+Changes in v4:
+  - New.
+    Resent of my previous submission.
+    https://lore.kernel.org/all/20210831074004.3195284-10-masahiroy@kernel.org/
 
-Changes in v2:
-  - New patch
+ scripts/Kbuild.include | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
- scripts/Makefile.build | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-index 8f1a355df7aa..f546b5f1f33f 100644
---- a/scripts/Makefile.build
-+++ b/scripts/Makefile.build
-@@ -270,8 +270,8 @@ $(obj)/%.o: $(src)/%.c $(recordmcount_source) FORCE
- 	$(call if_changed_rule,cc_o_c)
- 	$(call cmd,force_checksrc)
+diff --git a/scripts/Kbuild.include b/scripts/Kbuild.include
+index 455a0a6ce12d..ece44b735061 100644
+--- a/scripts/Kbuild.include
++++ b/scripts/Kbuild.include
+@@ -142,9 +142,11 @@ check-FORCE = $(if $(filter FORCE, $^),,$(warning FORCE prerequisite is missing)
+ if-changed-cond = $(newer-prereqs)$(cmd-check)$(check-FORCE)
  
--cmd_mod = echo $(addprefix $(obj)/, $(call real-search, $*.o, .o, -objs -y -m)) | \
--	$(AWK) -v RS='( |\n)' '!x[$$0]++' > $@
-+cmd_mod = echo $(call real-search, $*.o, .o, -objs -y -m) | \
-+	$(AWK) -v RS='( |\n)' '!x[$$0]++ { print("$(obj)/"$$0) }' > $@
+ # Execute command if command has changed or prerequisite(s) are updated.
+-if_changed = $(if $(if-changed-cond),                                        \
++if_changed = $(if $(if-changed-cond),$(cmd_and_savecmd),@:)
++
++cmd_and_savecmd =                                                            \
+ 	$(cmd);                                                              \
+-	printf '%s\n' 'cmd_$@ := $(make-cmd)' > $(dot-target).cmd, @:)
++	printf '%s\n' 'cmd_$@ := $(make-cmd)' > $(dot-target).cmd
  
- $(obj)/%.mod: FORCE
- 	$(call if_changed,mod)
+ # Execute the command and also postprocess generated .d dependencies file.
+ if_changed_dep = $(if $(if-changed-cond),$(cmd_and_fixdep),@:)
 -- 
 2.32.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220508190631.2386038-13-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220508190631.2386038-14-masahiroy%40kernel.org.
