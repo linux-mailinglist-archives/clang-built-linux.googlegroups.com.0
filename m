@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCH67JWTV4DBBS5H6KKQMGQEJS7253A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCH67JWTV4DBBTFH6KKQMGQE5FMPCZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9D7F456083B
-	for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jun 2022 20:02:52 +0200 (CEST)
-Received: by mail-yb1-xb3e.google.com with SMTP id i67-20020a252246000000b0066c5c387c1bsf13239614ybi.14
-        for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jun 2022 11:02:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1656525771; cv=pass;
+Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id D3B1556083C
+	for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jun 2022 20:02:53 +0200 (CEST)
+Received: by mail-yb1-xb3a.google.com with SMTP id 130-20020a251288000000b0066c81091670sf12704376ybs.18
+        for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jun 2022 11:02:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1656525773; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AYcXXXxZsZgUsbJb3vsp3osL4zyKjdhtk5JxvLhPAbCBgc2ONJJTfFw9JMD+5WLp0F
-         TWDuNJG30EfnB2kid9bA5LEw3SMS7q8Gcom4Nbz+TUjB/CPHjjIWU5q+Fmizb7+NyWdd
-         zNpopGq6b1h2EYSB6jCnzjlHKbTKFG7vgaMML27Y2xpqTVXMDKXiSh38MH/aXKwSfz4G
-         /3zxXkRzNu50WSRW3C0injFSguyq523To6CGKIAHhIsZm6uFegKqrhsWy8ZPRC5eh7A7
-         7vCQW/xM0xYVkE8hF3Bnt04p5v6F3wddpLg6GrDmDnwxKOb1sGEP0bf7vEzuWjF+CcS1
-         oslA==
+        b=CUCzsPLBCFLacQKFlHvuZ+SlBUXAzr6itcOpn0GdQIj5pichppZ4lNw6tIeBq/9CmE
+         myW1ZgXNSxwtMBtWG/Hg8xMMEDXe+qeq2/xsz5OWwwXXVAEyMF9Q1v49LiRNVL0/oKgm
+         /nMPXDJajWCCyO/56FLAJPIw2cwjFMoP1IzPV4sjn0LxR/4zSab131DTZQAZYZAu/vtS
+         nlTvSGQq5fikSJq18iPnv3ppfTgtrVb9raJWZe2JQPxw1SnLW1RQoeY5ImSYY1xlqo/o
+         JPnT4yo/UX1XRWO/KMc3KjYOnkjPMI80ROh6nbfWoNXeirjnRYcciiqvEBs8rsxOfvhQ
+         3wTg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature
          :dkim-signature;
-        bh=nC68Un5duB/p4bqnrQeEknFhXS6QfP7zlYaxFpt/2BE=;
-        b=z9kDfdDQeMiA12Uv6uGwtnHGygH0Y0Q6VcMl64559rUQNbydw+v7PrWt4v4s+rbKML
-         O6j8rtNu/G9YsM9nQxmHhWMfN7+9QCQoJwwkS0eTejG+JCiJ/DSfoZ7XN4RWg9rmMzta
-         7IOJn0nbzOIeJZn7hi+KIlOiuWwyqAasBQ3duhCsBKIBmkiC26ioR5Uaf4rnya2FAfwN
-         bmR40my2jOk/kD0qvVJa0Pk10Mzh1NyKKf0nBkoz0I6JMEpRxXUOunk5WfDawiGcXPuz
-         8wvkvbXNrfqXwq06BiWJf9y49+yGwMXrt4R48jRiYx9dCQo3O/cfjgBu4FjL6LlbSBZW
-         sUTQ==
+        bh=7VCdcT/gOIPdMz32i10Xa3eoYW10caprUy105GPLV3I=;
+        b=vwPPzmBRc6dAmki46FrG7zeESrB0xe2sZt4/56U0GxDtLgLuBHylKI3tFcSiccSwLE
+         CUmoo1ET0IWPecXmvq46JipegNw3DfFqinLmIC+W9LiXIay0xnrFkOwOROJOH3D9vMua
+         za6VQWij+eZd8VIkzkFjP7votRo/SkwFcaF+ByJiAsrRdiYcT+za6Mso9rNqUeNqqbp4
+         vnATrAEiQtU4y7M0ROP+dW4U8lpZR0DE3oKg+YHZap914lBfQ2hha+w2Q6vVI2w0GjVl
+         OozJXT8hrR5w/CFtfTAmluXugnQdVvJ3YKX5z7cqMXPewJd4Dc8Rg/bX3tv2omg9plWr
+         Hc/A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20210112 header.b=XN0yOxDi;
-       spf=pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=f.fainelli@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=ISwwkFSM;
+       spf=pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::435 as permitted sender) smtp.mailfrom=f.fainelli@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nC68Un5duB/p4bqnrQeEknFhXS6QfP7zlYaxFpt/2BE=;
-        b=U2pg+5cxPtwJ3w6MWTWvXzTN9YFwqtMHl7iVFHbMXC/Nwxyah7a/MK34cKrW/oHbRl
-         oFpJKTLQCY9rTPDq0n3fsvCd2ne6JQyqNaSjLwKuVCXPiSYChjKd1T7wkNtJlLFE9x2x
-         zuGdRPA8WlOv6/sVhtVXrBGwzS4L/YmeusGAnbF9oWVLS1UZz5L2HRU9MuQiQwpr+8p3
-         WZQekFdeWIFCUy2VgenkxkpTIkJOni2bjoLp+T+3ACNpBICWrRTcOzOmO22yUdenGRr1
-         dosMI7UNjASTPClCb5K7TzABI1iuNgWPNNq66PXT7EVwKr7lkDFGAU2KmRjTNMYEBXF1
-         jUfg==
+        bh=7VCdcT/gOIPdMz32i10Xa3eoYW10caprUy105GPLV3I=;
+        b=muHETkEakvqbeLG8mfJilpSeh9AqSQn1asn81uda/tMGep6gCLKlkVEBSkkjz9XS8g
+         Pddo1Jv/+otm54G5pN//nOugxe5HIBJ3cFxpCG5IPbwQy/NgOK0HiLuvi5v4SisFwy9T
+         D5Y8YAhW0G4rGM3FYY0SiUO6kdCbNdzd2K7cWTIw8mZYQeJwlMlzgaxI6Q4b+OdvYkXu
+         +F86ZWx8IBjuxZ133lmoaL/u+k/XmKKIpi2YS7izYFiQSdroXQg6EQyA52RJcYIR7IOn
+         1kRIx8+XziTT6YuCa/GgcDE19kGtIiqB/p9ump6Hm2rKZhmsMBLqP1TQPfXs5d3rN76X
+         tUrg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nC68Un5duB/p4bqnrQeEknFhXS6QfP7zlYaxFpt/2BE=;
-        b=ChD3Ua0jCzerqzV/PARB8gSE2uS4bRGSvS+I/l7Q3bbqulEvMXjIZZSwdtr3YPQFFe
-         kkCiB/HtX/H0A12Xw1+RLV/Emt09w+A9D9ieeUrdWf7TiR0fEAVNkVotCru2pW+oANg9
-         aq56lCQl4znirrKiHuygTS7jUUUeFrnUNNzqfvvZXnhFBt/QTp7Sz3RH3jHdUuwfxlp5
-         NTtcDe9vlxAqU/MM5gnJbpbfZ+Q0dGS3BEocV3GjlomuQMspI6MiPQfBtILzhhnJHyUy
-         zLoXta7fwADt+bQE/vC3x9og6I230W2ocrHlAkdLSDCNt6Lm3GHfasidpW9DNEJv/EVv
-         lCQQ==
+        bh=7VCdcT/gOIPdMz32i10Xa3eoYW10caprUy105GPLV3I=;
+        b=BQhC5cRQKuK3lurSvbNakxaRhpaY7MbSIh8AaVVLeObs3uLgFRysSa63zUG0DBOeBq
+         ATcaM6HKKXxyOJtx/6qqX2YuQ4/LY6sx8x9+nkggbF7dgmK1heNGB0OmpJ0FfWRvocqW
+         IU/RbBwcfH+VLxiQis3QnU1mfzyxZgcNB90WB90ZhTmqgFuzOyok/i9YC0vXkl3uiGRI
+         Lk8oxxyUCYRLuIaJf06PlZgvmlsKLck0c5lj0+z3S7uZ2yg8OeY+u86JeQ1HH0AWfi5n
+         PqMym65dMs7gbBKVrekPgtYEJJM7SsX/TeCmvIOc992awbAK4JgFIddUC+em8cZ+B8TT
+         8YpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -63,69 +63,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nC68Un5duB/p4bqnrQeEknFhXS6QfP7zlYaxFpt/2BE=;
-        b=WwBV4N2KCd1cvh7YCR1iHRZDdXCJnXWqnhvvcCCPpfc0KPFADzi4rPUJLigs2nvJ9I
-         kcWXa5OWCDg7lcOZX917voDgNYIQg89TukqBTLSjgjCTdW0ecjkQkXcsnlm+4vZJKXBx
-         E91w9KD+Jp5fM6x5YlR94pqGrulGDBHxrJvQhKWvT7JP9qU2kxqlEGz9QxKWGsaNpBih
-         CHlHvmeJwx6NVEkESRRdbDpNnVJCYmwcA2fKRbniZ24BIOzvY7cdnsTeL559arHkzuie
-         xwfFWutC2qSTCej6bsBJI/TwwKgpWbxJQwfArOPgWuOrVFOFECbBk7AqiAxyEehw4t6T
-         piGw==
+        bh=7VCdcT/gOIPdMz32i10Xa3eoYW10caprUy105GPLV3I=;
+        b=m5usPffouTgKo9uYm5rvhWPRwhCKqzR2mtRE6g/EYiBespavcfdzxB60FHhOHI2A5K
+         hfv7YkNkX+QrCKp9ofO8joXgYNKdh3hNiVk/AZvUGDCAPbYAkPIU/sYagfR39vwXuTlo
+         aGmJOIO3/y+Duu6A8LaSydNuXHrNA+Mvli93sitDtU3ApEPA3QRdwFfPL4Q1RWH4tyI4
+         18Bi4Veu1mYRmuZ57cNs2qTB5RvBiOz9GxKoPHqRXI6XuhciTRuaHCZU9C3kfRt6zWV7
+         sE4qsyDAkTwGKvMUekZCyEGDl74EeRHxtgcqEDIl2bnmNLadVrgpt+Q6ncSn6pCYcU1Y
+         ORgA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AJIora/Tn8dZpgLfL6omAJLse1RDnFxrazYeK/rCOkBhk2MXlkzYf6Nq
-	pc3r77dyveXbthjV7FKTQsU=
-X-Google-Smtp-Source: AGRyM1vsC/SjEqNPUqhPtPi9Et+YCm5oGqwZ8/pr0xuBPMM0gQHFhQPJOy1x7MLaZ94WYWbGN44lWQ==
-X-Received: by 2002:a25:d14a:0:b0:669:aee9:f259 with SMTP id i71-20020a25d14a000000b00669aee9f259mr4802630ybg.484.1656525771279;
-        Wed, 29 Jun 2022 11:02:51 -0700 (PDT)
+X-Gm-Message-State: AJIora9zZFPXz7lE13O4d0/GA6ZjvIOaB7+XSCMX5V+OFdb0KrXPKpyi
+	a93yel7P5dUdZPpksyzTKC4=
+X-Google-Smtp-Source: AGRyM1voefULgsTqciEQT/Kdna6b7VlQPA5s/CjCXgzIlWlE7gIqisGmD49nDn7NY6byHl98eGbm8w==
+X-Received: by 2002:a81:1ac1:0:b0:317:c2f7:a69d with SMTP id a184-20020a811ac1000000b00317c2f7a69dmr5453710ywa.60.1656525772729;
+        Wed, 29 Jun 2022 11:02:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:9b0e:0:b0:317:7fe0:b30 with SMTP id s14-20020a819b0e000000b003177fe00b30ls17207846ywg.4.gmail;
- Wed, 29 Jun 2022 11:02:50 -0700 (PDT)
-X-Received: by 2002:a81:5883:0:b0:317:8d33:fdc7 with SMTP id m125-20020a815883000000b003178d33fdc7mr5249790ywb.182.1656525770656;
-        Wed, 29 Jun 2022 11:02:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1656525770; cv=none;
+Received: by 2002:a05:690c:b84:b0:31b:d12c:83cc with SMTP id
+ ck4-20020a05690c0b8400b0031bd12c83ccls4369262ywb.6.gmail; Wed, 29 Jun 2022
+ 11:02:52 -0700 (PDT)
+X-Received: by 2002:a81:6507:0:b0:313:cc8d:fd79 with SMTP id z7-20020a816507000000b00313cc8dfd79mr5041563ywb.319.1656525772031;
+        Wed, 29 Jun 2022 11:02:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1656525772; cv=none;
         d=google.com; s=arc-20160816;
-        b=YCxVpmeEkXGcxNRcmE6b0supmDSjSIvsUsDaxSTPmv5AIjCn2J46f5akKNSSSj97cp
-         jlpCi7QJ4epw2UDczFjqIKr3QgoOtGomKL/iNSgz2HJBTtN8hX29CM9Ux0tuT5nVklRr
-         QW+Y9PSqzskKpwoHNLZZy8HW3h0wwT7gDneaVwclZw1FgkaoaBWdL8WKFaNDlav7oevm
-         dMBZLJpWbcON0O9mS+E7xyG0rvVyv6lMATnN/brv+S0rDAKI7QxERejg9pRflI0ximRc
-         9EkRUlLml6gMNrI0CfvIG0QqunPOoMWeTE8dFHbX/Ppha465Gte2QFSBX5qhZIEpfH2w
-         Nwig==
+        b=OfbeiQW7cOfv2m2bQrwDLKiT18HDD9lJ/QPn57sOpfmFtVzlSE2Zk5NhFenQZmtmW8
+         BD22SJzvgo3VmkemN0iXEnHgTmWPVMg3mcrT2EB+Ifuz7P4/gCyTEmbQ2qk2nPrNz3ox
+         gcbWThBMAtAhsBYgoAdwT/+Y4JTHWUu13yy6uLaDo88h9xUtcWbouOX1W3B0eSzpvaUi
+         5Mgdpds7hMV/qpHx29oV5hk/iubdQTyRnR4XkDn1SwYywTIeRKYaCdkoelcE6DvkonOr
+         1mnNocEqHa3JZBIMFwHyZb7m0FMykfqjzyGVTgQMTcWk4aSr5Y3zzu8GEtti9VmhETkG
+         ALqA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=v7ukqFCopneTF5JM48kXBrgpkylAdniy/lC4BeYwuWQ=;
-        b=s3cV26gkDQIDPrKHemNuH8YnZ7wrZNrl8ZCHvng7BcNka6PUDS+ab9g0G1Sc3Tnscn
-         iaV8eRY8B+B2qkxgUfzTAZnGcusPzryCdRUNYjKhbJho2tCDeG6F1GH2Tj2bN2DQbix8
-         wgT26NUjE/AknKNXU1FRCbgU9GNPpeAYlRKi7myjKIKa7vYvplIepLWtPXEDgfPZm/sh
-         LsqLpBG408s835LtZ+vdnQLTgvKYvP4kvGbPDNFmlW5iOW+J47sN1RJlBAgV+zMvYmit
-         yP6RFIFIPmsq26Ix0eJ+UtyYjCftBQEAGL74w3BQuJbqooYhMyR6ttgDM0iwlx+8j76U
-         0BPg==
+        bh=yKeg97WBqSrHg/vFckVR4dCqjwAhqI/IXZ1Q/lkCmf8=;
+        b=JPsPX90w0IT+Mfo2tkNKcWz2zCc5noKGYgKApjA+Jt2VdEQRpSZM5U/9ngjxbTHyxJ
+         EtsMjDT9WffbHghdrLJ+5u6hsOV5RUhMKAOLBa/lTUMnvUJ9lCg54T+PqOSUWzu8UhIG
+         E9zy7hy06bLf6F1Bc9UDzu0X1c/CxCamrHs9uQYapabns+798veogxoOwGs0+7rWlNy4
+         3Cmwu5Yqwh6NNvCVt8UjyPcNT9TYbdFjBGMNXGARHxtA+vZ7P696W7i1ib+UIfZbW/dV
+         4MM8ueBuXLdp6jKfQp4ylPoDRJy5pevhFc9TKAt8p9hnzjxS7QzpBVyjKp5Als2nQ3EE
+         QGwg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20210112 header.b=XN0yOxDi;
-       spf=pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::430 as permitted sender) smtp.mailfrom=f.fainelli@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=ISwwkFSM;
+       spf=pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::435 as permitted sender) smtp.mailfrom=f.fainelli@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pf1-x430.google.com (mail-pf1-x430.google.com. [2607:f8b0:4864:20::430])
-        by gmr-mx.google.com with ESMTPS id k3-20020a813d03000000b0031b749ae5b3si619634ywa.0.2022.06.29.11.02.50
+Received: from mail-pf1-x435.google.com (mail-pf1-x435.google.com. [2607:f8b0:4864:20::435])
+        by gmr-mx.google.com with ESMTPS id 19-20020a810913000000b0030c2e0694absi719154ywj.2.2022.06.29.11.02.52
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Jun 2022 11:02:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::430 as permitted sender) client-ip=2607:f8b0:4864:20::430;
-Received: by mail-pf1-x430.google.com with SMTP id bo5so15831758pfb.4
-        for <clang-built-linux@googlegroups.com>; Wed, 29 Jun 2022 11:02:50 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1f0b:b0:525:4214:c087 with SMTP id be11-20020a056a001f0b00b005254214c087mr11598139pfb.0.1656525769718;
-        Wed, 29 Jun 2022 11:02:49 -0700 (PDT)
+        Wed, 29 Jun 2022 11:02:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::435 as permitted sender) client-ip=2607:f8b0:4864:20::435;
+Received: by mail-pf1-x435.google.com with SMTP id t21so15829276pfq.1
+        for <clang-built-linux@googlegroups.com>; Wed, 29 Jun 2022 11:02:51 -0700 (PDT)
+X-Received: by 2002:a63:91c1:0:b0:40d:33cb:3d57 with SMTP id l184-20020a6391c1000000b0040d33cb3d57mr4038974pge.10.1656525771628;
+        Wed, 29 Jun 2022 11:02:51 -0700 (PDT)
 Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id s7-20020a17090302c700b00168e83eda56sm11736371plk.3.2022.06.29.11.02.47
+        by smtp.gmail.com with ESMTPSA id s7-20020a17090302c700b00168e83eda56sm11736371plk.3.2022.06.29.11.02.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jun 2022 11:02:49 -0700 (PDT)
+        Wed, 29 Jun 2022 11:02:51 -0700 (PDT)
 From: Florian Fainelli <f.fainelli@gmail.com>
 To: stable@vger.kernel.org
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Nicolas Pitre <nico@fluxnic.net>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Stefan Agner <stefan@agner.ch>,
-	Fangrui Song <maskray@google.com>,
-	Jian Cai <jiancai@google.com>,
-	Peter Smith <peter.smith@linaro.org>,
+Cc: Stefan Agner <stefan@agner.ch>,
 	Russell King <rmk+kernel@armlinux.org.uk>,
 	Florian Fainelli <f.fainelli@gmail.com>,
 	Russell King <linux@armlinux.org.uk>,
@@ -133,6 +128,9 @@ Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	"David S. Miller" <davem@davemloft.net>,
 	Tony Lindgren <tony@atomide.com>,
 	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nicolas Pitre <nico@fluxnic.net>,
 	Andre Przywara <andre.przywara@arm.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
@@ -143,17 +141,17 @@ Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	linux-omap@vger.kernel.org (open list:OMAP2+ SUPPORT),
 	clang-built-linux@googlegroups.com (open list:CLANG/LLVM BUILD SUPPORT),
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH stable 5.4 06/11] ARM: 8933/1: replace Sun/Solaris style flag on section directive
-Date: Wed, 29 Jun 2022 11:02:22 -0700
-Message-Id: <20220629180227.3408104-7-f.fainelli@gmail.com>
+Subject: [PATCH stable 5.4 07/11] ARM: 8929/1: use APSR_nzcv instead of r15 as mrc operand
+Date: Wed, 29 Jun 2022 11:02:23 -0700
+Message-Id: <20220629180227.3408104-8-f.fainelli@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220629180227.3408104-1-f.fainelli@gmail.com>
 References: <20220629180227.3408104-1-f.fainelli@gmail.com>
 MIME-Version: 1.0
 X-Original-Sender: f.fainelli@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20210112 header.b=XN0yOxDi;       spf=pass
- (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::430
+ header.i=@gmail.com header.s=20210112 header.b=ISwwkFSM;       spf=pass
+ (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::435
  as permitted sender) smtp.mailfrom=f.fainelli@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
@@ -169,437 +167,90 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nick Desaulniers <ndesaulniers@google.com>
+From: Stefan Agner <stefan@agner.ch>
 
-commit 790756c7e0229dedc83bf058ac69633045b1000e upstream
+commit 9f1984c6ae30e2a379751339ce3375a21099b5d4 upstream
 
-It looks like a section directive was using "Solaris style" to declare
-the section flags. Replace this with the GNU style so that Clang's
-integrated assembler can assemble this directive.
+LLVM's integrated assembler does not accept r15 as mrc operand.
+  arch/arm/boot/compressed/head.S:1267:16: error: operand must be a register in range [r0, r14] or apsr_nzcv
+  1: mrc p15, 0, r15, c7, c14, 3 @ test,clean,invalidate D cache
+                 ^
 
-The modified instances were identified via:
-$ ag \.section | grep #
+Use APSR_nzcv instead of r15. The GNU assembler supports this
+syntax since binutils 2.21 [0].
 
-Link: https://ftp.gnu.org/old-gnu/Manuals/gas-2.9.1/html_chapter/as_7.html#SEC119
-Link: https://github.com/ClangBuiltLinux/linux/issues/744
-Link: https://bugs.llvm.org/show_bug.cgi?id=43759
-Link: https://reviews.llvm.org/D69296
+[0] https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=commit;h=db472d6ff0f438a21b357249a9b48e4b74498076
 
-Acked-by: Nicolas Pitre <nico@fluxnic.net>
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Reviewed-by: Stefan Agner <stefan@agner.ch>
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-Suggested-by: Fangrui Song <maskray@google.com>
-Suggested-by: Jian Cai <jiancai@google.com>
-Suggested-by: Peter Smith <peter.smith@linaro.org>
+Signed-off-by: Stefan Agner <stefan@agner.ch>
 Signed-off-by: Russell King <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
 ---
- arch/arm/boot/bootp/init.S            | 2 +-
- arch/arm/boot/compressed/big-endian.S | 2 +-
- arch/arm/boot/compressed/head.S       | 2 +-
- arch/arm/boot/compressed/piggy.S      | 2 +-
- arch/arm/mm/proc-arm1020.S            | 2 +-
- arch/arm/mm/proc-arm1020e.S           | 2 +-
- arch/arm/mm/proc-arm1022.S            | 2 +-
- arch/arm/mm/proc-arm1026.S            | 2 +-
- arch/arm/mm/proc-arm720.S             | 2 +-
- arch/arm/mm/proc-arm740.S             | 2 +-
- arch/arm/mm/proc-arm7tdmi.S           | 2 +-
- arch/arm/mm/proc-arm920.S             | 2 +-
- arch/arm/mm/proc-arm922.S             | 2 +-
- arch/arm/mm/proc-arm925.S             | 2 +-
- arch/arm/mm/proc-arm926.S             | 2 +-
- arch/arm/mm/proc-arm940.S             | 2 +-
- arch/arm/mm/proc-arm946.S             | 2 +-
- arch/arm/mm/proc-arm9tdmi.S           | 2 +-
- arch/arm/mm/proc-fa526.S              | 2 +-
- arch/arm/mm/proc-feroceon.S           | 2 +-
- arch/arm/mm/proc-mohawk.S             | 2 +-
- arch/arm/mm/proc-sa110.S              | 2 +-
- arch/arm/mm/proc-sa1100.S             | 2 +-
- arch/arm/mm/proc-v6.S                 | 2 +-
- arch/arm/mm/proc-v7.S                 | 2 +-
- arch/arm/mm/proc-v7m.S                | 4 ++--
- arch/arm/mm/proc-xsc3.S               | 2 +-
- arch/arm/mm/proc-xscale.S             | 2 +-
- 28 files changed, 29 insertions(+), 29 deletions(-)
+ arch/arm/boot/compressed/head.S | 2 +-
+ arch/arm/mm/proc-arm1026.S      | 4 ++--
+ arch/arm/mm/proc-arm926.S       | 4 ++--
+ 3 files changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm/boot/bootp/init.S b/arch/arm/boot/bootp/init.S
-index 5c476bd2b4ce..b562da2f7040 100644
---- a/arch/arm/boot/bootp/init.S
-+++ b/arch/arm/boot/bootp/init.S
-@@ -13,7 +13,7 @@
-  *  size immediately following the kernel, we could build this into
-  *  a binary blob, and concatenate the zImage using the cat command.
-  */
--		.section .start,#alloc,#execinstr
-+		.section .start, "ax"
- 		.type	_start, #function
- 		.globl	_start
- 
-diff --git a/arch/arm/boot/compressed/big-endian.S b/arch/arm/boot/compressed/big-endian.S
-index 88e2a88d324b..0e092c36da2f 100644
---- a/arch/arm/boot/compressed/big-endian.S
-+++ b/arch/arm/boot/compressed/big-endian.S
-@@ -6,7 +6,7 @@
-  *  Author: Nicolas Pitre
-  */
- 
--	.section ".start", #alloc, #execinstr
-+	.section ".start", "ax"
- 
- 	mrc	p15, 0, r0, c1, c0, 0	@ read control reg
- 	orr	r0, r0, #(1 << 7)	@ enable big endian mode
 diff --git a/arch/arm/boot/compressed/head.S b/arch/arm/boot/compressed/head.S
-index 0a2410adc25b..cdaf94027d3b 100644
+index cdaf94027d3b..17f87f4c74f5 100644
 --- a/arch/arm/boot/compressed/head.S
 +++ b/arch/arm/boot/compressed/head.S
-@@ -140,7 +140,7 @@
- #endif
- 		.endm
- 
--		.section ".start", #alloc, #execinstr
-+		.section ".start", "ax"
- /*
-  * sort out different calling conventions
-  */
-diff --git a/arch/arm/boot/compressed/piggy.S b/arch/arm/boot/compressed/piggy.S
-index 0284f84dcf38..27577644ee72 100644
---- a/arch/arm/boot/compressed/piggy.S
-+++ b/arch/arm/boot/compressed/piggy.S
-@@ -1,5 +1,5 @@
- /* SPDX-License-Identifier: GPL-2.0 */
--	.section .piggydata,#alloc
-+	.section .piggydata, "a"
- 	.globl	input_data
- input_data:
- 	.incbin	"arch/arm/boot/compressed/piggy_data"
-diff --git a/arch/arm/mm/proc-arm1020.S b/arch/arm/mm/proc-arm1020.S
-index 4fa5371bc662..2785da387c91 100644
---- a/arch/arm/mm/proc-arm1020.S
-+++ b/arch/arm/mm/proc-arm1020.S
-@@ -491,7 +491,7 @@ cpu_arm1020_name:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	.type	__arm1020_proc_info,#object
- __arm1020_proc_info:
-diff --git a/arch/arm/mm/proc-arm1020e.S b/arch/arm/mm/proc-arm1020e.S
-index 5d8a8339e09a..e9ea237ed785 100644
---- a/arch/arm/mm/proc-arm1020e.S
-+++ b/arch/arm/mm/proc-arm1020e.S
-@@ -449,7 +449,7 @@ arm1020e_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	.type	__arm1020e_proc_info,#object
- __arm1020e_proc_info:
-diff --git a/arch/arm/mm/proc-arm1022.S b/arch/arm/mm/proc-arm1022.S
-index b3dd95c345e4..920c279e7879 100644
---- a/arch/arm/mm/proc-arm1022.S
-+++ b/arch/arm/mm/proc-arm1022.S
-@@ -443,7 +443,7 @@ arm1022_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	.type	__arm1022_proc_info,#object
- __arm1022_proc_info:
+@@ -1274,7 +1274,7 @@ iflush:
+ __armv5tej_mmu_cache_flush:
+ 		tst	r4, #1
+ 		movne	pc, lr
+-1:		mrc	p15, 0, r15, c7, c14, 3	@ test,clean,invalidate D cache
++1:		mrc	p15, 0, APSR_nzcv, c7, c14, 3	@ test,clean,invalidate D cache
+ 		bne	1b
+ 		mcr	p15, 0, r0, c7, c5, 0	@ flush I cache
+ 		mcr	p15, 0, r0, c7, c10, 4	@ drain WB
 diff --git a/arch/arm/mm/proc-arm1026.S b/arch/arm/mm/proc-arm1026.S
-index ac5afde12f35..10e21012380b 100644
+index 10e21012380b..0bdf25a95b10 100644
 --- a/arch/arm/mm/proc-arm1026.S
 +++ b/arch/arm/mm/proc-arm1026.S
-@@ -437,7 +437,7 @@ arm1026_crval:
- 	string	cpu_arm1026_name, "ARM1026EJ-S"
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	.type	__arm1026_proc_info,#object
- __arm1026_proc_info:
-diff --git a/arch/arm/mm/proc-arm720.S b/arch/arm/mm/proc-arm720.S
-index c99d24363f32..39361e196d61 100644
---- a/arch/arm/mm/proc-arm720.S
-+++ b/arch/arm/mm/proc-arm720.S
-@@ -172,7 +172,7 @@ arm720_crval:
-  * See <asm/procinfo.h> for a definition of this structure.
-  */
- 	
--		.section ".proc.info.init", #alloc
-+		.section ".proc.info.init", "a"
- 
- .macro arm720_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, cpu_flush:req
- 		.type	__\name\()_proc_info,#object
-diff --git a/arch/arm/mm/proc-arm740.S b/arch/arm/mm/proc-arm740.S
-index 1b4a3838393f..1a94bbf6e53f 100644
---- a/arch/arm/mm/proc-arm740.S
-+++ b/arch/arm/mm/proc-arm740.S
-@@ -128,7 +128,7 @@ __arm740_setup:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 	.type	__arm740_proc_info,#object
- __arm740_proc_info:
- 	.long	0x41807400
-diff --git a/arch/arm/mm/proc-arm7tdmi.S b/arch/arm/mm/proc-arm7tdmi.S
-index 17a4687065c7..52b66cf0259e 100644
---- a/arch/arm/mm/proc-arm7tdmi.S
-+++ b/arch/arm/mm/proc-arm7tdmi.S
-@@ -72,7 +72,7 @@ __arm7tdmi_setup:
- 
- 		.align
- 
--		.section ".proc.info.init", #alloc
-+		.section ".proc.info.init", "a"
- 
- .macro arm7tdmi_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, \
- 	extra_hwcaps=0
-diff --git a/arch/arm/mm/proc-arm920.S b/arch/arm/mm/proc-arm920.S
-index 298c76b47749..31ac8acc34dc 100644
---- a/arch/arm/mm/proc-arm920.S
-+++ b/arch/arm/mm/proc-arm920.S
-@@ -434,7 +434,7 @@ arm920_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	.type	__arm920_proc_info,#object
- __arm920_proc_info:
-diff --git a/arch/arm/mm/proc-arm922.S b/arch/arm/mm/proc-arm922.S
-index 824be3a0bc23..ca2c7ca8af21 100644
---- a/arch/arm/mm/proc-arm922.S
-+++ b/arch/arm/mm/proc-arm922.S
-@@ -412,7 +412,7 @@ arm922_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	.type	__arm922_proc_info,#object
- __arm922_proc_info:
-diff --git a/arch/arm/mm/proc-arm925.S b/arch/arm/mm/proc-arm925.S
-index d40cff8f102c..a381a0c9f109 100644
---- a/arch/arm/mm/proc-arm925.S
-+++ b/arch/arm/mm/proc-arm925.S
-@@ -477,7 +477,7 @@ arm925_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- .macro arm925_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, cache
- 	.type	__\name\()_proc_info,#object
+@@ -138,7 +138,7 @@ ENTRY(arm1026_flush_kern_cache_all)
+ 	mov	ip, #0
+ __flush_whole_cache:
+ #ifndef CONFIG_CPU_DCACHE_DISABLE
+-1:	mrc	p15, 0, r15, c7, c14, 3		@ test, clean, invalidate
++1:	mrc	p15, 0, APSR_nzcv, c7, c14, 3		@ test, clean, invalidate
+ 	bne	1b
+ #endif
+ 	tst	r2, #VM_EXEC
+@@ -363,7 +363,7 @@ ENTRY(cpu_arm1026_switch_mm)
+ #ifdef CONFIG_MMU
+ 	mov	r1, #0
+ #ifndef CONFIG_CPU_DCACHE_DISABLE
+-1:	mrc	p15, 0, r15, c7, c14, 3		@ test, clean, invalidate
++1:	mrc	p15, 0, APSR_nzcv, c7, c14, 3		@ test, clean, invalidate
+ 	bne	1b
+ #endif
+ #ifndef CONFIG_CPU_ICACHE_DISABLE
 diff --git a/arch/arm/mm/proc-arm926.S b/arch/arm/mm/proc-arm926.S
-index f3cd08f353f0..3188ab2bac61 100644
+index 3188ab2bac61..1ba253c2bce1 100644
 --- a/arch/arm/mm/proc-arm926.S
 +++ b/arch/arm/mm/proc-arm926.S
-@@ -460,7 +460,7 @@ arm926_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	.type	__arm926_proc_info,#object
- __arm926_proc_info:
-diff --git a/arch/arm/mm/proc-arm940.S b/arch/arm/mm/proc-arm940.S
-index 1c26d991386d..4b8a00220cc9 100644
---- a/arch/arm/mm/proc-arm940.S
-+++ b/arch/arm/mm/proc-arm940.S
-@@ -340,7 +340,7 @@ __arm940_setup:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	.type	__arm940_proc_info,#object
- __arm940_proc_info:
-diff --git a/arch/arm/mm/proc-arm946.S b/arch/arm/mm/proc-arm946.S
-index 2dc1c75a4fd4..555becf9c758 100644
---- a/arch/arm/mm/proc-arm946.S
-+++ b/arch/arm/mm/proc-arm946.S
-@@ -395,7 +395,7 @@ __arm946_setup:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 	.type	__arm946_proc_info,#object
- __arm946_proc_info:
- 	.long	0x41009460
-diff --git a/arch/arm/mm/proc-arm9tdmi.S b/arch/arm/mm/proc-arm9tdmi.S
-index 913c06e590af..ef517530130b 100644
---- a/arch/arm/mm/proc-arm9tdmi.S
-+++ b/arch/arm/mm/proc-arm9tdmi.S
-@@ -66,7 +66,7 @@ __arm9tdmi_setup:
- 
- 		.align
- 
--		.section ".proc.info.init", #alloc
-+		.section ".proc.info.init", "a"
- 
- .macro arm9tdmi_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req
- 		.type	__\name\()_proc_info, #object
-diff --git a/arch/arm/mm/proc-fa526.S b/arch/arm/mm/proc-fa526.S
-index 8120b6f4dbb8..dddf833fe000 100644
---- a/arch/arm/mm/proc-fa526.S
-+++ b/arch/arm/mm/proc-fa526.S
-@@ -185,7 +185,7 @@ fa526_cr1_set:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	.type	__fa526_proc_info,#object
- __fa526_proc_info:
-diff --git a/arch/arm/mm/proc-feroceon.S b/arch/arm/mm/proc-feroceon.S
-index bb6dc34d42a3..b12b76bc8d30 100644
---- a/arch/arm/mm/proc-feroceon.S
-+++ b/arch/arm/mm/proc-feroceon.S
-@@ -571,7 +571,7 @@ feroceon_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- .macro feroceon_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, cache:req
- 	.type	__\name\()_proc_info,#object
-diff --git a/arch/arm/mm/proc-mohawk.S b/arch/arm/mm/proc-mohawk.S
-index f08308578885..d47d6c5cee63 100644
---- a/arch/arm/mm/proc-mohawk.S
-+++ b/arch/arm/mm/proc-mohawk.S
-@@ -416,7 +416,7 @@ mohawk_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	.type	__88sv331x_proc_info,#object
- __88sv331x_proc_info:
-diff --git a/arch/arm/mm/proc-sa110.S b/arch/arm/mm/proc-sa110.S
-index d5bc5d702563..baba503ba816 100644
---- a/arch/arm/mm/proc-sa110.S
-+++ b/arch/arm/mm/proc-sa110.S
-@@ -196,7 +196,7 @@ sa110_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	.type	__sa110_proc_info,#object
- __sa110_proc_info:
-diff --git a/arch/arm/mm/proc-sa1100.S b/arch/arm/mm/proc-sa1100.S
-index be7b611c76c7..75ebacc8e4e5 100644
---- a/arch/arm/mm/proc-sa1100.S
-+++ b/arch/arm/mm/proc-sa1100.S
-@@ -239,7 +239,7 @@ sa1100_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- .macro sa1100_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req
- 	.type	__\name\()_proc_info,#object
-diff --git a/arch/arm/mm/proc-v6.S b/arch/arm/mm/proc-v6.S
-index c1c85eb3484f..1dd0d5ca27da 100644
---- a/arch/arm/mm/proc-v6.S
-+++ b/arch/arm/mm/proc-v6.S
-@@ -261,7 +261,7 @@ v6_crval:
- 	string	cpu_elf_name, "v6"
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	/*
- 	 * Match any ARMv6 processor core.
-diff --git a/arch/arm/mm/proc-v7.S b/arch/arm/mm/proc-v7.S
-index c4e8006a1a8c..48e0ef6f0dcc 100644
---- a/arch/arm/mm/proc-v7.S
-+++ b/arch/arm/mm/proc-v7.S
-@@ -644,7 +644,7 @@ __v7_setup_stack:
- 	string	cpu_elf_name, "v7"
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- 	/*
- 	 * Standard v7 proc info content
-diff --git a/arch/arm/mm/proc-v7m.S b/arch/arm/mm/proc-v7m.S
-index 1a49d503eafc..84459c1d31b8 100644
---- a/arch/arm/mm/proc-v7m.S
-+++ b/arch/arm/mm/proc-v7m.S
-@@ -93,7 +93,7 @@ ENTRY(cpu_cm7_proc_fin)
- 	ret	lr
- ENDPROC(cpu_cm7_proc_fin)
- 
--	.section ".init.text", #alloc, #execinstr
-+	.section ".init.text", "ax"
- 
- __v7m_cm7_setup:
- 	mov	r8, #(V7M_SCB_CCR_DC | V7M_SCB_CCR_IC| V7M_SCB_CCR_BP)
-@@ -177,7 +177,7 @@ ENDPROC(__v7m_setup)
- 	string cpu_elf_name "v7m"
- 	string cpu_v7m_name "ARMv7-M"
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- .macro __v7m_proc name, initfunc, cache_fns = nop_cache_fns, hwcaps = 0,  proc_fns = v7m_processor_functions
- 	.long	0			/* proc_info_list.__cpu_mm_mmu_flags */
-diff --git a/arch/arm/mm/proc-xsc3.S b/arch/arm/mm/proc-xsc3.S
-index 1ac0fbbe9f12..42eaecc43cfe 100644
---- a/arch/arm/mm/proc-xsc3.S
-+++ b/arch/arm/mm/proc-xsc3.S
-@@ -496,7 +496,7 @@ xsc3_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- .macro xsc3_proc_info name:req, cpu_val:req, cpu_mask:req
- 	.type	__\name\()_proc_info,#object
-diff --git a/arch/arm/mm/proc-xscale.S b/arch/arm/mm/proc-xscale.S
-index bdb2b7749b03..18ac5a1f8922 100644
---- a/arch/arm/mm/proc-xscale.S
-+++ b/arch/arm/mm/proc-xscale.S
-@@ -610,7 +610,7 @@ xscale_crval:
- 
- 	.align
- 
--	.section ".proc.info.init", #alloc
-+	.section ".proc.info.init", "a"
- 
- .macro xscale_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, cache
- 	.type	__\name\()_proc_info,#object
+@@ -131,7 +131,7 @@ __flush_whole_cache:
+ #ifdef CONFIG_CPU_DCACHE_WRITETHROUGH
+ 	mcr	p15, 0, ip, c7, c6, 0		@ invalidate D cache
+ #else
+-1:	mrc	p15, 0, r15, c7, c14, 3 	@ test,clean,invalidate
++1:	mrc	p15, 0, APSR_nzcv, c7, c14, 3 	@ test,clean,invalidate
+ 	bne	1b
+ #endif
+ 	tst	r2, #VM_EXEC
+@@ -358,7 +358,7 @@ ENTRY(cpu_arm926_switch_mm)
+ 	mcr	p15, 0, ip, c7, c6, 0		@ invalidate D cache
+ #else
+ @ && 'Clean & Invalidate whole DCache'
+-1:	mrc	p15, 0, r15, c7, c14, 3 	@ test,clean,invalidate
++1:	mrc	p15, 0, APSR_nzcv, c7, c14, 3 	@ test,clean,invalidate
+ 	bne	1b
+ #endif
+ 	mcr	p15, 0, ip, c7, c5, 0		@ invalidate I cache
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220629180227.3408104-7-f.fainelli%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220629180227.3408104-8-f.fainelli%40gmail.com.
