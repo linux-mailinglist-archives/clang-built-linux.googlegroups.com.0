@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCH67JWTV4DBBRFH6KKQMGQEPIOHSOI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCH67JWTV4DBBRVH6KKQMGQEAE23FSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93b.google.com (mail-ua1-x93b.google.com [IPv6:2607:f8b0:4864:20::93b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5E9B7560837
-	for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jun 2022 20:02:46 +0200 (CEST)
-Received: by mail-ua1-x93b.google.com with SMTP id 68-20020a9f204a000000b00381f94e700fsf2458917uam.9
-        for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jun 2022 11:02:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1656525765; cv=pass;
+Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
+	by mail.lfdr.de (Postfix) with ESMTPS id BCE42560838
+	for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jun 2022 20:02:48 +0200 (CEST)
+Received: by mail-pj1-x1039.google.com with SMTP id h11-20020a17090a130b00b001eca05382e7sf69246pja.9
+        for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jun 2022 11:02:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1656525767; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Q4idzjB67Nj4GRPlMmTBraFPWW4wozFGwF9Ubtl/g04G532wpEUbCCFcQV7z7S4mUU
-         hW+JiMGIfmMLDMyP5u51mL5uYATUcBNKEE83Kws7qaJf1IijNH8ISNk5WChOU58tTq2H
-         47dGd3nj7u//c41SabyG+7AvKSuZnS/vm3DRlrY62MlJnqHYX4YtOEaNRqfJuDBEQ9QE
-         LfX1G0FGPUxxTIXlkaKUWCUvQHUsGjCGS1Sqnh+M3AY84lMR4t2Bz2gaBJ998xBCSebu
-         QoPi3dN+a4eykNcXGo8N60ugM0mcA7H/aSI2Mno5bXt/70QGNv7Z8K/ljh7GVT+rY9F5
-         NaXQ==
+        b=h1eI/DaSIrRkysBa3sSEtAnNJVh++eBblgUsEi8glob95NGdFRjUcwPTf7HjozfuFB
+         trzf7ErsEFpBB904Lnrex0uZ98H31OapPuqj/LGBf/kwztsQtrwI/0YrbaDvLTUnngxH
+         XzWrkIz7bLhsgCgQ6/QtqsSBJS0ZKI8IsiSaBTeLrJqROQrvyYJtlwRG08+Too46ffVD
+         6K65lz+uhH3nkXYVaFRInZ4RWN77L9j6uOZw4VqlSQpR5vf0ElBz0iu9wxyYbtJ3rw1o
+         64zkjciom0ZARVos/+zkCF8hYCYLLxLapRjDM3Wy1Gqn+ME8GDJv8cMGWN1SHPrPD7mR
+         zTKw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature
          :dkim-signature;
-        bh=23zDgGs1AM9l2DTcmCunajlvMfIKLMubgfs7oEec1Zc=;
-        b=x0tqcbyizJGyd24b4T5cDDZgfqK6yca/vjAif8Gk6WlyCyCntfbsMSHpYyxXdpny0P
-         RRwQIwhHhzYTirj5XsIQ1irKdNEja7qczXNAXKnvJh16ah2VdYGaNYl5JqnlWKx4pask
-         fN4zcwQO3AyNy8pW4YTocOs7QCwqgUY56XnA7L2qh+g1vDfDL2cbn2/8fp7vrsDG7Zak
-         uoOIAjo/S+24VpHxv4mjWo7CLbna0kM+WzzcOf2C6M0bPJW2kiLorgk2iday+k1BtkOp
-         eE2i3+ZLDdDRxPLivi0jyxm+b4DZHAEBN8t1fkiJIQDZTbBhEfPWPMNW5S5g5UopaJD7
-         QKLw==
+        bh=YZ2YWGa77zs87X3xs/9yLSsc49/bqhmDN1Zxhe3DDtU=;
+        b=SN9/KQ3jUqyTQFCxTjS7+3m24zRTFAl2MBpzaeWaGf2KHm+XUtM81O+XFbQSgONozd
+         tdexDBZV97UToiqRyWIbKzVyHo7zKNvV2TzGuo13C+t2jQa1kwtRE+F5Ub0/rZmzr1pS
+         U3mwFeYAQP4+Sw2MVFNysf/pW5mibvhCWCcHq8oMlFulsTG+uEwt6HdaSSNM7DHlBI/Z
+         BEKjBdmfnlThYLV1E/JuX2yd0OsyuLPqpv8Xk34e5s0NoQrSc7cpj77QMULbZ2UZIing
+         EaVaNC8C7yfq8/uUFE94Lsmwg05XvoqB2Z392LSRzlZDXUr0p97KTN2JK2fZ0iGccUeL
+         KWWw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20210112 header.b=BOlmhCIK;
-       spf=pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::436 as permitted sender) smtp.mailfrom=f.fainelli@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=Og3VmaHD;
+       spf=pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::534 as permitted sender) smtp.mailfrom=f.fainelli@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=23zDgGs1AM9l2DTcmCunajlvMfIKLMubgfs7oEec1Zc=;
-        b=PvomOomty3o6kLL6OHa7CYPZak79AzaK1CBStEdC35hyruoQj33vZ5Rpxqz4cmsCyu
-         Z4b9ClXqqtu7Z5aKOD4y/OEDYyXbezadqo0GNtmjfORTKUqYcPrDDB9olS9Cej9QhQD5
-         0h9FKT90b7V+mR+RYt4Rsy62myVipWezh/y03vqW1oVKlDq/D1lm/hsOZNA3SdmpFRAv
-         hhHA1TNyc6BzuuMxiSaix3Z6HVU7d4CracaKyHeM6D+gfoMux81CwTvvXZx5zd7vNScn
-         QBMOpYUE8Ruh2o0AfpgV7Nl4TYIbBnIVwRLc8whII2Z9046HccLsOwDGxsDFgxXxT10H
-         sWBw==
+        bh=YZ2YWGa77zs87X3xs/9yLSsc49/bqhmDN1Zxhe3DDtU=;
+        b=o5CY/XqIHAtIeoYIvquDCaPjt6I9pc+wdkd2FIb/tiwOUaS84iEFLScxsmCKQyZ3U9
+         FBm2+35X5qkvkC4qR6/g+OaOWFHOH+PevGzmHoXZnMwGcCupycPvxP0Jilr945s7x6xQ
+         zjGEbtccFeomeiqyH8KtVHv9/SKsH3DTx0E7JGTiqZ9q0EvbXXXxIp0bBNY1wTEP9QjB
+         SR+z4IF6odW+PJSykbfm7joS8j2YyLGGvKXosfh4Vjdf4V5CIZfv0Xy/7XTxqlIqcouF
+         9wjaVigMGDwkCPbiJr8OtY0I7GDVex8fYH0GkoZroxPFxU+bLw2JsQ1MUFxDGctoCA5J
+         FQRA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=23zDgGs1AM9l2DTcmCunajlvMfIKLMubgfs7oEec1Zc=;
-        b=ai8T2zE4x6S2zh9kYUcvmv3HL8TorrmPwfYmZOcZeA1KoaBuINgrTKJOntBBOB0Str
-         3xPz8tKLwue2JdPDsHgihE/vExEsE0yIi4oT8gNlE+19KmVdBKcM1yK7pl4ldBFJOhCy
-         x1/zPwPIIGNSDgYSREUVDvA/jXFOg/JhEg9GLX8bMDewhI4VCOfZoSdWPs/Tg4DEWuCm
-         4K5sICB0Oxq3FXEPxVmfQk6h2ziDcpkL9u3neDXdz8y8MEqP2QNVsKaBlJ0jJb+Q6qda
-         1YdhwE7tYcm5avu1Ll+gau5vJTmcyeXQ7EmTzfcZwHWOuwXBzAPFd5MvIA22NZmgEd1h
-         bPQg==
+        bh=YZ2YWGa77zs87X3xs/9yLSsc49/bqhmDN1Zxhe3DDtU=;
+        b=eo/VjnWzao2S9m9XXgRLckzUzDJnAlLrO5eu0ogPlVb/iHVnmMPxAw4zLOTwIHm4ZP
+         GosvMGG1lI/FTKnBJJ0nnLq2s74YKJtOeI2LuiKl3FxEbbLbPFiDce/ZaAQbiweqdLtI
+         xrihVVbg8h+YA1m6ag/mdVWH0nsQH+yrKMrZ/J2tYoXwu5us1jSzuC9K2Ic6ZwxV1iIC
+         3cAL+LZWCGd8Gezj45WhDVeq6VStF13oTkeVzImkDEwyTwQsCDqluUw7yFwP2eIjLqQx
+         Jl/0V9JFBhGkPl30OiABNVdh7JjuUICnIij68Jt+jJkV6imVBU8X1XjTqQVQwReidUid
+         a9mA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -63,94 +63,94 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=23zDgGs1AM9l2DTcmCunajlvMfIKLMubgfs7oEec1Zc=;
-        b=sqA6mL+bRDJPBB4RsrBpzjJLz5a2hOGtIr6TdA83imyAhECPzGfsruKwaxhEYUEvbb
-         XZYq7wdstUjOgHvbG3vwic2RVWIazmjI7AXgzo3+q5TAWtJ7el579+ryHhhtHNspC03T
-         BDozQYd8HILFIWsqph4bvTFvSUFa808RQ1TDJRKeLms6Zv4RoVTOnwwerdY4wkmFW4lt
-         BY6leApSkdK2SrspuXgC41VW8VH7hmgvFWymTY0UyG/gzVmvFwEuzf46UBHyXzMx/xu+
-         N5yOaNvHt9GyI6t1E7bM6Q/aKZ7+j0dewDcl+EtJsOGNvA4cevFIvQNQ90HYpdXlQ8sP
-         EULg==
+        bh=YZ2YWGa77zs87X3xs/9yLSsc49/bqhmDN1Zxhe3DDtU=;
+        b=fWEcxXzYlii04V4JR27gSrMLueB/FcH3UJSfSwzKZ9jLlygp68IXufKoGOKf4ivT0z
+         uD9Wv+lnt1FzYW+9j7i3fNLQlQvusqF8PLEp8PnkADsNjTtA6oSLlhI5nL4cdBOlT+UT
+         g/3gsyWk9eVF84mIar9tFUJ9IdLPOoWtDjgOfQi828Qvnm/TxcAxtl31z3vP/6Jqudqo
+         NKmBkC6vpAseY/TTS07QgPjf0cooyM6+uGA74zT8RLsktoMJynP0kJcV9daoijXn/j+G
+         OvhHVSoe7y/8NW2uo4+wJ4Xh/k6+DeMmFJgWWOyxuf6NtxfKhdzOKNpaXRRvXYYtH4Ft
+         y/tw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AJIora8gUtfRG77xrvlWKyaf4EtUjI8J+UYKNrJTza4NCNXTq3PRS+vQ
-	4g746Ir5fBNOCpH+JB+2WKQ=
-X-Google-Smtp-Source: AGRyM1vih1JSk9iu1uK1/dlRSFckMLhXRjZd6C3VxJa+tp/aAebLiqFaUOTPDGHxAZfKheZM4Q4/Ng==
-X-Received: by 2002:a67:b009:0:b0:356:7d43:d409 with SMTP id z9-20020a67b009000000b003567d43d409mr2393505vse.16.1656525765102;
-        Wed, 29 Jun 2022 11:02:45 -0700 (PDT)
+X-Gm-Message-State: AJIora88evjvQ77zBYePOaFfmZX+Ut9iZJtE8jSs9Y6IcgzAxX9wPTzm
+	c+xS4FzIUnOpQu6hSlAmlpU=
+X-Google-Smtp-Source: AGRyM1tX3Ps+gQXyIrhEfi7iplbq/LsHoUerhlcRFInYh3q7y+BK4csqdoWZocYnp8pIW17l67fR1A==
+X-Received: by 2002:a63:6c4a:0:b0:3fe:2813:b1d with SMTP id h71-20020a636c4a000000b003fe28130b1dmr3967428pgc.613.1656525767007;
+        Wed, 29 Jun 2022 11:02:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:2146:0:b0:378:f70b:cf8b with SMTP id t6-20020ab02146000000b00378f70bcf8bls2748908ual.6.gmail;
- Wed, 29 Jun 2022 11:02:44 -0700 (PDT)
-X-Received: by 2002:ab0:5781:0:b0:37b:de3d:5d4e with SMTP id x1-20020ab05781000000b0037bde3d5d4emr2704256uaa.1.1656525764490;
-        Wed, 29 Jun 2022 11:02:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1656525764; cv=none;
+Received: by 2002:a62:7bd7:0:b0:525:2aad:246b with SMTP id w206-20020a627bd7000000b005252aad246bls11994548pfc.9.gmail;
+ Wed, 29 Jun 2022 11:02:46 -0700 (PDT)
+X-Received: by 2002:a63:5343:0:b0:40d:9ebf:da0 with SMTP id t3-20020a635343000000b0040d9ebf0da0mr3862743pgl.501.1656525766127;
+        Wed, 29 Jun 2022 11:02:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1656525766; cv=none;
         d=google.com; s=arc-20160816;
-        b=fM0A6dFKochgYYHvtYMRYf5iPye3pURbv/7JoaSMTAeuniWme9LXblA1IlC9RUxpo1
-         g3Cvw+jGs4x1kzE99WpiLrPuIPe9bDMnpsHKw+GX4sJ1G4tYn/FDjNUcTWkjfrx07A9n
-         yNb52CNSS/Q6p2SonHFpEKRmks6Fbplv5RjkVLrFUE+QPEwtTABClFz2TDwUUvGicGom
-         BTT163i5S3IlWd6QovdTeMQEto8bJBplATnQsxpm12cx4i4wMfd43pzgCK/1v3cgSBRk
-         dJKSzKVyn58VryTwF1d0kKXHa3XZizG6EyvG5DXnDqser67w9EIGXDOcUlYDMuF/EreZ
-         /9NA==
+        b=M9QG8ucNhONFK68hqOP43IXfWtouiWOxufqYgt+rd99Dc6y1mgT5dO58Qznk0nOheV
+         N71a2Zw76VF2VmAZcDa16ZKaY6j6YBi+CwtVX+ywDGjLDpVt0gHz5RFERfwqihzgOkem
+         7oBFW6FBfZa/POY+mVlUGFWRMP8n/cOeR/q/A2G8u7EXFSMcCqAVQGhIyEFB/alJ76BV
+         XdQXCpYpkb0+qMOxvwmLLqhwuEKH63t68E17931ohcNZxqNtyC+F7cpmkFeHLyFo+JIp
+         kpNJFhCx3aIaMJjRwR8CEv4ERWTq6zP2v4tYDIcAxtP3BJY1pkozIvItjDev2xD+hE20
+         XYmw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=1CUR8O9fHhSNAhX4q/Xzc+ql6Bnj76byUj4wK9Q15Ic=;
-        b=TvgcqKW66S4gISPPEl9i+gXNTaBlgYjjA9E4eJfzD3axuL0Dsx3nJYrpMbRFgJTdmD
-         U4fQnmTxnJk/7Ymms09zWn/cGH9/QE7Z2RiWOG/QTrC3fmaifCv9pZozRAiyi3lBa1d6
-         bpLWyjYLkAL370dw9BLHpYjVVaAg+MBQds+M6pGm0zSMU/zeNxfQEXbP+swwJZGoByjX
-         vAWnHSV5Xohh83WVBUMSckX6lBZ0W15RURiOyB4rp2kQbAkAhkhWNTAoqcvAMqwZTks6
-         YlpScjDEsOc/w3rz5G9U4ZJpo7PY939qVUTEw84HH/sMprQSNq9AxglphsiPR+gqnvIu
-         2b2Q==
+        bh=8m1lytctefJudrhC62eHkDYEhgmvtWB/qfcXy6/Skb0=;
+        b=S4pU8SSv39Mb0q7ProsJdmKCys/pAwhgScX9QVf3ogtGWyvUp2dLmc2jEWvvnL8jbM
+         hLkuALR/m0yTz1gG9g0LBHs2jd8HyM/GsxUGxrAc2AmW2bcvaLTiDnbBxUvCoBAjHyi1
+         d0dLAg4MVXl5ncPlSAKtP9FdGynQ4cvt2Ip7qMyyYOpuTtJcQMNOwEE9IRWy15UItOEs
+         rmC0ybNK4h2udz4C/P+kemQYS19UTTAWm5viebsw4V6+3hhC23sTgjkcC5LOdT2nh4/1
+         Y3jCi4mtHfNxiqgRNr7GQN291QPaKpkbVdIJBvLu1lfplFltEpIcRjlj9RDbNf0e0W1t
+         Hc8A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20210112 header.b=BOlmhCIK;
-       spf=pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::436 as permitted sender) smtp.mailfrom=f.fainelli@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=Og3VmaHD;
+       spf=pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::534 as permitted sender) smtp.mailfrom=f.fainelli@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pf1-x436.google.com (mail-pf1-x436.google.com. [2607:f8b0:4864:20::436])
-        by gmr-mx.google.com with ESMTPS id p65-20020a1fa644000000b003700a12ecbcsi411447vke.5.2022.06.29.11.02.44
+Received: from mail-pg1-x534.google.com (mail-pg1-x534.google.com. [2607:f8b0:4864:20::534])
+        by gmr-mx.google.com with ESMTPS id o1-20020a056a00214100b005253d5b9000si637020pfk.2.2022.06.29.11.02.46
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 29 Jun 2022 11:02:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::436 as permitted sender) client-ip=2607:f8b0:4864:20::436;
-Received: by mail-pf1-x436.google.com with SMTP id c205so15801590pfc.7
-        for <clang-built-linux@googlegroups.com>; Wed, 29 Jun 2022 11:02:44 -0700 (PDT)
-X-Received: by 2002:a63:2a8d:0:b0:40c:9b5f:13d3 with SMTP id q135-20020a632a8d000000b0040c9b5f13d3mr3849554pgq.465.1656525764047;
-        Wed, 29 Jun 2022 11:02:44 -0700 (PDT)
+        Wed, 29 Jun 2022 11:02:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::534 as permitted sender) client-ip=2607:f8b0:4864:20::534;
+Received: by mail-pg1-x534.google.com with SMTP id x8so11431060pgj.13
+        for <clang-built-linux@googlegroups.com>; Wed, 29 Jun 2022 11:02:46 -0700 (PDT)
+X-Received: by 2002:a63:82c6:0:b0:40d:c2d8:b910 with SMTP id w189-20020a6382c6000000b0040dc2d8b910mr3912728pgd.309.1656525765785;
+        Wed, 29 Jun 2022 11:02:45 -0700 (PDT)
 Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id s7-20020a17090302c700b00168e83eda56sm11736371plk.3.2022.06.29.11.02.42
+        by smtp.gmail.com with ESMTPSA id s7-20020a17090302c700b00168e83eda56sm11736371plk.3.2022.06.29.11.02.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jun 2022 11:02:43 -0700 (PDT)
+        Wed, 29 Jun 2022 11:02:45 -0700 (PDT)
 From: Florian Fainelli <f.fainelli@gmail.com>
 To: stable@vger.kernel.org
-Cc: Jian Cai <caij2003@gmail.com>,
+Cc: Ard Biesheuvel <ardb@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
 	Florian Fainelli <f.fainelli@gmail.com>,
 	Russell King <linux@armlinux.org.uk>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
 	"David S. Miller" <davem@davemloft.net>,
 	Tony Lindgren <tony@atomide.com>,
 	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
 	Stefan Agner <stefan@agner.ch>,
 	Nicolas Pitre <nico@fluxnic.net>,
 	Andre Przywara <andre.przywara@arm.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
+	Jian Cai <caij2003@gmail.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM PORT),
 	linux-kernel@vger.kernel.org (open list),
 	linux-crypto@vger.kernel.org (open list:CRYPTO API),
 	linux-omap@vger.kernel.org (open list:OMAP2+ SUPPORT),
 	clang-built-linux@googlegroups.com (open list:CLANG/LLVM BUILD SUPPORT),
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH stable 5.4 03/11] ARM: 8971/1: replace the sole use of a symbol with its definition
-Date: Wed, 29 Jun 2022 11:02:19 -0700
-Message-Id: <20220629180227.3408104-4-f.fainelli@gmail.com>
+Subject: [PATCH stable 5.4 04/11] crypto: arm/sha256-neon - avoid ADRL pseudo instruction
+Date: Wed, 29 Jun 2022 11:02:20 -0700
+Message-Id: <20220629180227.3408104-5-f.fainelli@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220629180227.3408104-1-f.fainelli@gmail.com>
 References: <20220629180227.3408104-1-f.fainelli@gmail.com>
 MIME-Version: 1.0
 X-Original-Sender: f.fainelli@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20210112 header.b=BOlmhCIK;       spf=pass
- (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::436
+ header.i=@gmail.com header.s=20210112 header.b=Og3VmaHD;       spf=pass
+ (google.com: domain of f.fainelli@gmail.com designates 2607:f8b0:4864:20::534
  as permitted sender) smtp.mailfrom=f.fainelli@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
@@ -166,55 +166,79 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Jian Cai <caij2003@gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
 
-commit a780e485b5768e78aef087502499714901b68cc4 upstream
+commit 54781938ec342cadbe2d76669ef8d3294d909974 upstream
 
-ALT_UP_B macro sets symbol up_b_offset via .equ to an expression
-involving another symbol. The macro gets expanded twice when
-arch/arm/kernel/sleep.S is assembled, creating a scenario where
-up_b_offset is set to another expression involving symbols while its
-current value is based on symbols. LLVM integrated assembler does not
-allow such cases, and based on the documentation of binutils, "Values
-that are based on expressions involving other symbols are allowed, but
-some targets may restrict this to only being done once per assembly", so
-it may be better to avoid such cases as it is not clearly stated which
-targets should support or disallow them. The fix in this case is simple,
-as up_b_offset has only one use, so we can replace the use with the
-definition and get rid of up_b_offset.
+The ADRL pseudo instruction is not an architectural construct, but a
+convenience macro that was supported by the ARM proprietary assembler
+and adopted by binutils GAS as well, but only when assembling in 32-bit
+ARM mode. Therefore, it can only be used in assembler code that is known
+to assemble in ARM mode only, but as it turns out, the Clang assembler
+does not implement ADRL at all, and so it is better to get rid of it
+entirely.
 
- Link:https://github.com/ClangBuiltLinux/linux/issues/920
+So replace the ADRL instruction with a ADR instruction that refers to
+a nearer symbol, and apply the delta explicitly using an additional
+instruction.
 
- Reviewed-by: Stefan Agner <stefan@agner.ch>
-
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Signed-off-by: Jian Cai <caij2003@gmail.com>
-Signed-off-by: Russell King <rmk+kernel@armlinux.org.uk>
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
 ---
- arch/arm/include/asm/assembler.h | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ arch/arm/crypto/sha256-armv4.pl       | 4 ++--
+ arch/arm/crypto/sha256-core.S_shipped | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm/include/asm/assembler.h b/arch/arm/include/asm/assembler.h
-index 6b3e64e19fb6..70e1c23feedb 100644
---- a/arch/arm/include/asm/assembler.h
-+++ b/arch/arm/include/asm/assembler.h
-@@ -279,10 +279,9 @@
- 	.endif							;\
- 	.popsection
- #define ALT_UP_B(label)					\
--	.equ	up_b_offset, label - 9998b			;\
- 	.pushsection ".alt.smp.init", "a"			;\
- 	.long	9998b						;\
--	W(b)	. + up_b_offset					;\
-+	W(b)	. + (label - 9998b)					;\
- 	.popsection
+diff --git a/arch/arm/crypto/sha256-armv4.pl b/arch/arm/crypto/sha256-armv4.pl
+index a03cf4dfb781..d927483985c2 100644
+--- a/arch/arm/crypto/sha256-armv4.pl
++++ b/arch/arm/crypto/sha256-armv4.pl
+@@ -175,7 +175,6 @@ $code=<<___;
  #else
- #define ALT_SMP(instr...)
+ .syntax unified
+ # ifdef __thumb2__
+-#  define adrl adr
+ .thumb
+ # else
+ .code   32
+@@ -471,7 +470,8 @@ sha256_block_data_order_neon:
+ 	stmdb	sp!,{r4-r12,lr}
+ 
+ 	sub	$H,sp,#16*4+16
+-	adrl	$Ktbl,K256
++	adr	$Ktbl,.Lsha256_block_data_order
++	sub	$Ktbl,$Ktbl,#.Lsha256_block_data_order-K256
+ 	bic	$H,$H,#15		@ align for 128-bit stores
+ 	mov	$t2,sp
+ 	mov	sp,$H			@ alloca
+diff --git a/arch/arm/crypto/sha256-core.S_shipped b/arch/arm/crypto/sha256-core.S_shipped
+index 054aae0edfce..9deb515f3c9f 100644
+--- a/arch/arm/crypto/sha256-core.S_shipped
++++ b/arch/arm/crypto/sha256-core.S_shipped
+@@ -56,7 +56,6 @@
+ #else
+ .syntax unified
+ # ifdef __thumb2__
+-#  define adrl adr
+ .thumb
+ # else
+ .code   32
+@@ -1885,7 +1884,8 @@ sha256_block_data_order_neon:
+ 	stmdb	sp!,{r4-r12,lr}
+ 
+ 	sub	r11,sp,#16*4+16
+-	adrl	r14,K256
++	adr	r14,.Lsha256_block_data_order
++	sub	r14,r14,#.Lsha256_block_data_order-K256
+ 	bic	r11,r11,#15		@ align for 128-bit stores
+ 	mov	r12,sp
+ 	mov	sp,r11			@ alloca
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220629180227.3408104-4-f.fainelli%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20220629180227.3408104-5-f.fainelli%40gmail.com.
