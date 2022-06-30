@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBVWK62KQMGQEMBUE3QY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBX6K62KQMGQEM7Z25EQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23c.google.com (mail-lj1-x23c.google.com [IPv6:2a00:1450:4864:20::23c])
-	by mail.lfdr.de (Postfix) with ESMTPS id B7CFB561B54
-	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Jun 2022 15:29:59 +0200 (CEST)
-Received: by mail-lj1-x23c.google.com with SMTP id k6-20020a2e9206000000b0025a8ce1a22esf3159840ljg.9
-        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Jun 2022 06:29:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1656595799; cv=pass;
+Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 63989561B59
+	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Jun 2022 15:30:08 +0200 (CEST)
+Received: by mail-ot1-x33f.google.com with SMTP id h24-20020a9d61d8000000b00616c6090a56sf5423880otk.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Jun 2022 06:30:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1656595807; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SKIXmo01yWYfgKWQlOre28EBUq4k+jPW1F7/jcrdgRmw1+21GqK7yrTF3Jxr8EkmdO
-         T9sV8uHFfVMdCCEsiJgquj6YRYj2uorvnFae+fpM9JesfiGRDAo50xZuGA9WWABq9yST
-         TlBB7rw+kYyA0b0PxKqWX5NquxaqdYgBm/0GKkgi3wKQSMycO4clzQivXk/VEcSf+EJz
-         PO2Tu+82rixux3qqTkyQwV6jMMjaP/3dD7eI2W6piH3bXB62QV99/G/JfkNj72VegG41
-         sIeGm2wu2mESe3MCU7IRQF10FoghrqKAVZ+arVsNH7CnVw/5O+3LA0OwTWxOAMK0Wo0q
-         qMyw==
+        b=SnzDH3QeCcfAorLYAhCp1KelOrNo+ESBt0VVMYp4kZqPYb6bZCf+xdvcDGxzc/wemq
+         uQYrxoT9719UMJf77Oj/Jelyd7cxnclN9NsLXqm9c/y8Pd65L+rxwYlDGTcTjQw85pAm
+         WiUVFiB6QdkH9GXY+JrzKrdl7C74ISStMintSRicdSXz7VrkIjzZ4tMhLxBYkd6OvOoe
+         Ig5eo1qmQiZobzOCK1GGFkDaJDOcDzWkSIoU1KWmxB6tOx3ZzNY0qsB0jxFqo4RwstwH
+         FWEJsMkFAo/DT1181jnjgAtS3YqXm/6rff9qU83UkCzM58w6NonzLboMgYEC8nplkhmi
+         GYzQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-transfer-encoding
          :mime-version:message-id:in-reply-to:date:from:cc:to:subject:sender
          :dkim-signature;
-        bh=puFuS1ggg16bpfyDLkp5Z+IzyEDu0Aqwdx9vdCIYCpM=;
-        b=edBf0h+aQFjplw0X6fxBOqjc9DzDZqqL7qPPDaR9WG9qXDUAh4yxA95A9l1hT3IjEO
-         38DdYzBTK4RCXM4ow8AFC3sdvmHAZef4iIp37uZkHvvhkPpbdi+WwuKfel9Q+tKTh6Y5
-         C9USrlsLiusaNFC7MjaoFK7/3kUunTDnGGAXKYH+P+xRI0njZQZJNprhAd/rdtsT1CIR
-         7If/Scc1BZW3bWdjH/m89LKHYY9WCxvV6ENn1+KZzk1jDwlT9abilPoId6oHQWZ4ualW
-         adXUPQEKO+UZ8x3JJlQgF9n96WrbYlDbJjMOYIwEIgxdnzOjnnFVxm1UvJsgDFjE+ehK
-         YMig==
+        bh=K/AhbC06DtcH3/ogXOlRlxHsoE9uy3HIVhuwiv5fKgE=;
+        b=pZS0+hVR0i09WXc5BP88qKh2Y88vcTIrpXjMt6/qBOyEDJONo68Kl27pFgx/agxsxD
+         8F4MbOHl35e04ZkW6sCcn1RnfexWYyGD9pLSUTLpzddWH5HMW9mx5upM12/24LUaOXR2
+         pWQTgAVRLdzXlLmT5MQjsvz/VzhhqBXgY6KAdfufId1o4H0ywHxgR+E9vXXANDotyUkI
+         R2N4Ipd3AadyneiMwBhSs1dn5b6gk/8JatcPFx8613mSZF4+d1wYXOARZ2ev0cpT8fCa
+         GqN7IBvTTELHywmB/deKjws/kSlXozfmUfeP2wOF+jN4VI0h4FRqnEf7tKcSFC1+Mcoc
+         XmBg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=ABoGQeAz;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 145.40.68.75 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=MPcM37BR;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:40e1:4800::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=puFuS1ggg16bpfyDLkp5Z+IzyEDu0Aqwdx9vdCIYCpM=;
-        b=s1cUqwbYwg5VGx+WTTsGrbEnMB1FpEU4w0wP3Xf8aD8AKnj2tSsuxM1yspbHvsDaNc
-         4FNSBJF+lNajPO8u5xgfbsyF1NWgOc1ME1HBqiSaulpUh9isCIX4r2QLjyZrnj/RstxH
-         KvuR5SHAv+74lQtHD9hh+fl+ZsAxmQwaeLI3xkHz8uZp7YzyXVDQkqeqgpoY1SrMp0Sp
-         Dx7BicYLjA7po0KLNzqD8h+WM/V618ukgATcIsej53J1J41MvPHjpf3RuDYWrHiNuyGX
-         Y6XxT77atpbWliekHpKFHQLHGKUHbfKniq+SR3ewu/WugtX2LtugUA9cWyMBizHYlu/a
-         AaiQ==
+        bh=K/AhbC06DtcH3/ogXOlRlxHsoE9uy3HIVhuwiv5fKgE=;
+        b=nVIhWH33/IAy2/YVkEMPokjZtlcfp+cijpiaki9LEcOBP2QI9EqERypoCcSp0NOrGK
+         3DPo0NauwXrgxZokMLEprZxi6CYjO3C/J7HgXYaEtVY9DMf2jg12s3WkPFaBzuKUpqNZ
+         8e5vVF8r9SwMlG8NEgVrzfYzMhkZdTzcfZ7e9e6xjmTNqHSQcFFW3YdfhC2h4PwMFHFi
+         3xfwyPNi+WntDN78bKYXJxIPT7T+lqkFr3ASiFPItHomxiC5NqcByZTg1DPUu5V6z2ni
+         RgFrr/qRKKpald82ADOAvvP+vO5QLuKb6jnX9QqaHoN7fv9vm7Gmrf4YMYPQFhO1OTzh
+         Nw/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:subject:to:cc:from:date:in-reply-to
@@ -50,67 +50,67 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=puFuS1ggg16bpfyDLkp5Z+IzyEDu0Aqwdx9vdCIYCpM=;
-        b=KLQF3vZJmnuNCUY4/huh14CoAauksWU+B8frXLd8luBtg4fDEqj601Bf4bkdvwydPr
-         hX5b7/aabPqDWzGtHhrWkFDICZPeVXRu819uhx3vD84wwPF//1uyCLq/VBlGzqC588d2
-         6VyyaFj9SWs3fKEK/s8ypwyXpIXW9bPCVUYCprFzluzjn3FZPJGRtNRyUIJatlda8VBV
-         53eERDi5onuzi32PqQy6yUSBxi3Yyc9nPhqNP7bbof/+wEakkEXG8QpAZ90NrlmNeAVd
-         pHXB6CtdcWjwZ501GHeS5Y/3ET99PaC+EmErSje8TfTrfBvqPUQv7+s4jbM4mFly21iN
-         ouXQ==
+        bh=K/AhbC06DtcH3/ogXOlRlxHsoE9uy3HIVhuwiv5fKgE=;
+        b=EKhFpb54E5eMAu+lT83N8MrltQdhxtybLq66fZrCgar+5s4S1TZ+Dkizn1PYY1crVT
+         Smw1o1VpowHBZZtesIPodIIVqki7Ffp8EaFSTh6knQyMLfMqyxh6fMY9n5hA+k/v25Gr
+         qvYlIVuKwdFj3uZ69hpVv5ui6jkzIz7JinMrAMN5hn4dU5U8iFtjU6R81+JbW1zTwUZ0
+         c/8UkxF/6EJLIiGCXXKoBsg1C7WqMAlj8S4hCrH6Ry6MMA+BC2fYuWgAUF9y5Ze0yBsb
+         E4XBpfXe6NViX43h3maKtjc582sbpCjaQXz7pKc4opcA4egk12/CARG/jGP8DAxUlHBm
+         fSMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AJIora8cSm3TeCTatalN03QWr9QPLpwJWv1ldIfI7Ph6N/iPWl5OYlTA
-	GeRl2js4Q3Pe5d8qU89IxDc=
-X-Google-Smtp-Source: AGRyM1u3a88A5mcm5T/eCwOc5VRW5s5FAt+ly+r1ncEXJLyMaw3l6XJHfSCLU6rnM6Lj74nb6Gs70w==
-X-Received: by 2002:a05:651c:890:b0:25a:4a66:cca7 with SMTP id d16-20020a05651c089000b0025a4a66cca7mr4976328ljq.59.1656595798976;
-        Thu, 30 Jun 2022 06:29:58 -0700 (PDT)
+X-Gm-Message-State: AJIora9TuR50rpKshbfiGRXCqgI4KXols1bAPZQD3Ivj1aq9KWbLFbQG
+	Z3m4c+Mrb/EH1mN58oic7/U=
+X-Google-Smtp-Source: AGRyM1uypVJn9PX2gw5yr1qpFkCqiOzeTK84Bjyrw8Of58FTX/mzd/lsac5VBddVSlEbtdFEu+fSYg==
+X-Received: by 2002:a9d:810:0:b0:616:b9bb:b746 with SMTP id 16-20020a9d0810000000b00616b9bbb746mr3899342oty.188.1656595807357;
+        Thu, 30 Jun 2022 06:30:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6512:3b0c:b0:47f:9907:2b50 with SMTP id
- f12-20020a0565123b0c00b0047f99072b50ls91713lfv.3.gmail; Thu, 30 Jun 2022
- 06:29:56 -0700 (PDT)
-X-Received: by 2002:a05:6512:1284:b0:47f:8d1d:c62a with SMTP id u4-20020a056512128400b0047f8d1dc62amr6034414lfs.310.1656595796284;
-        Thu, 30 Jun 2022 06:29:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1656595796; cv=none;
+Received: by 2002:a05:6808:1394:b0:335:762d:b884 with SMTP id
+ c20-20020a056808139400b00335762db884ls4603242oiw.8.gmail; Thu, 30 Jun 2022
+ 06:30:07 -0700 (PDT)
+X-Received: by 2002:a05:6808:200e:b0:335:9962:2954 with SMTP id q14-20020a056808200e00b0033599622954mr6314349oiw.178.1656595807007;
+        Thu, 30 Jun 2022 06:30:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1656595807; cv=none;
         d=google.com; s=arc-20160816;
-        b=etzRwXXXFA7QeiyfSHEpPUcY0vSNN8wmRAUWRM/2B1s8UvPWFVY0Fpfoe9z+5MBRWD
-         do4R8S52989i+f5C6uWfFZ52ALhyYZjdjGMYTuTWIesVrvayZNjFDMHocKjpxaoHpPiX
-         Tfb1s9ojSwvtp1eNKDxAhoOusdnGXk8rUoPajqbafLYUmvILw6Z/5fX9fzj6ZuD4W6mS
-         ost8ud2RPSeQ8LibvdDcQmpejtH8Y9k2TkSwvPsVm+K35uJIFAoeDwGrZUFF47VxzfPp
-         Z4UtntTTp4m7MI0g/cEXI7dXc5XRar3X8F/4bjX7iEwiGE6ml6Rchv4wYideeSze0Hrt
-         Pyfw==
+        b=RGcN3zp11WtM1uIVzKG3/+F7i10ZBsz6yM5xWXMuMisskP3ThCnBbY2XRyRyWEA05l
+         BSwIIsQs9PaB34SWCGbhUZLsOg86piWZoEvr6nhyMQwOqitaAWuVHJwZkyw59HOV3xny
+         MrMKoQ5f08kI3UKTPlPrDn6P497SLbql5MzYO7BA1c0QJJMPtZilI//sGd/7vyWTllFj
+         mwUv3lCq/MVXodF16HSSAr32UjOgTggQh+u2HkZ5RqgMd+67a0cwTHzw9b1Op4g/v8rh
+         W0zcryQTMpk/HrzFb3SUBTTffJjxkIGt2q97PQ1gRPB51BJPxUJfi15JvQPNr3UxzPKI
+         TpDw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
          :from:cc:to:subject:dkim-signature;
-        bh=eqdmYJk0QPzh6f3IBnqVDmiK3No3ePrqExXOS2PcDJM=;
-        b=Ux8BmFgOAqSxAPUzGoCq1h49JCKynCSSGhGflHJA15AN29a0cx2PVpM1izQ4B/LrtZ
-         hwL8/hW1vUzECs1C1odTGG6jwDz1XbKBzFR98IjQ3ATZy5tVQgENPpU2o7h+e4OF3+/O
-         q7M3rvs0Xf3GmcDLJuNUpk+015g6HXH3xCUMLvPmXvCGvKSKUhDJRnITYuv+sd1klRO3
-         m/vLlPKH+867IProbMrNM6+CZ9LJbjub9tPLkxqUldcPeUyGA6vt7ls7o07Z1sDniPTz
-         1v1OQuewRtE49NrXmMLOuNPUMLkRLLHXBvmtPHipDX+5GP0zJNgi13lvYYEyNH8oNqg9
-         rRTQ==
+        bh=9pt085lvQB8jLgUtPstoA/gY3yhRasDGGXuZTAX3O1E=;
+        b=yN7KSFG8jA+PCU2eXmzIUWEUzqaczMQlrE4Vs8CIm39PWn0uQTzTYipsCf47va1P5b
+         9/hSUVKaZoiA8fW2t+9o966gXoQQH0D3+vhiMSXYx62AgiudYRs5MHzGvohkEDakae3G
+         5Tm+sAJpHRZnFm2P1CxVGhSRjtKjh2FJMJ/G6uPtVB9vzoNk6zFsBNAe4a4p+c4R0I+s
+         gthuLhg/T3Hx/VlwSrxwfLvCcVnaFWdHQqXzh9s3NbDSV8ec0JPsdG1EN8QLBweLYc2W
+         3FDHjY5sjTu3TC8egPsJSraeRiVKosQPoT3K/yZipCRjDu6j2jH/u6u2mXkEKl+DePd6
+         DVlQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=ABoGQeAz;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 145.40.68.75 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=MPcM37BR;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:40e1:4800::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
-Received: from ams.source.kernel.org (ams.source.kernel.org. [145.40.68.75])
-        by gmr-mx.google.com with ESMTPS id bp20-20020a056512159400b0047f8c989147si781458lfb.3.2022.06.30.06.29.56
+Received: from sin.source.kernel.org (sin.source.kernel.org. [2604:1380:40e1:4800::1])
+        by gmr-mx.google.com with ESMTPS id o17-20020a056870969100b00101a5546931si2444500oaq.4.2022.06.30.06.30.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 30 Jun 2022 06:29:56 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 145.40.68.75 as permitted sender) client-ip=145.40.68.75;
+        Thu, 30 Jun 2022 06:30:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:40e1:4800::1 as permitted sender) client-ip=2604:1380:40e1:4800::1;
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id CE52BB82ABF;
-	Thu, 30 Jun 2022 13:29:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ABB8C34115;
-	Thu, 30 Jun 2022 13:29:53 +0000 (UTC)
-Subject: Patch "ARM: 8989/1: use .fpu assembler directives instead of assembler arguments" has been added to the 5.4-stable tree
+	by sin.source.kernel.org (Postfix) with ESMTPS id CB5FECE2E8B;
+	Thu, 30 Jun 2022 13:30:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5887C34115;
+	Thu, 30 Jun 2022 13:30:02 +0000 (UTC)
+Subject: Patch "crypto: arm/ghash-ce - define fpu before fpu registers are referenced" has been added to the 5.4-stable tree
 To: andre.przywara@arm.com,ardb@kernel.org,caij2003@gmail.com,catalin.marinas@arm.com,clang-built-linux@googlegroups.com,davem@davemloft.net,f.fainelli@gmail.com,gregkh@linuxfoundation.org,herbert@gondor.apana.org.au,linux-arm-kernel@lists.infradead.org,linux@armlinux.org.uk,ndesaulniers@google.com,nico@fluxnic.net,rmk+kernel@armlinux.org.uk,sashal@kernel.org,stefan@agner.ch,tony@atomide.com,ulli.kroll@googlemail.com
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
-Date: Thu, 30 Jun 2022 15:29:30 +0200
-In-Reply-To: <20220629180227.3408104-2-f.fainelli@gmail.com>
-Message-ID: <165659577016271@kroah.com>
+Date: Thu, 30 Jun 2022 15:29:31 +0200
+In-Reply-To: <20220629180227.3408104-12-f.fainelli@gmail.com>
+Message-ID: <165659577114047@kroah.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
@@ -118,10 +118,10 @@ X-stable: commit
 X-Patchwork-Hint: ignore
 X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=ABoGQeAz;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 145.40.68.75 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+ header.i=@linuxfoundation.org header.s=korg header.b=MPcM37BR;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates
+ 2604:1380:40e1:4800::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,16 +137,15 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 This is a note to let you know that I've just added the patch titled
 
-    ARM: 8989/1: use .fpu assembler directives instead of assembler argumen=
-ts
+    crypto: arm/ghash-ce - define fpu before fpu registers are referenced
 
 to the 5.4-stable tree which can be found at:
     http://www.kernel.org/git/?p=3Dlinux/kernel/git/stable/stable-queue.git=
 ;a=3Dsummary
 
 The filename of the patch is:
-     arm-8989-1-use-.fpu-assembler-directives-instead-of-assembler-argument=
-s.patch
+     crypto-arm-ghash-ce-define-fpu-before-fpu-registers-are-referenced.pat=
+ch
 and it can be found in the queue-5.4 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
@@ -155,141 +154,71 @@ please let <stable@vger.kernel.org> know about it.
 
 From foo@baz Thu Jun 30 03:27:07 PM CEST 2022
 From: Florian Fainelli <f.fainelli@gmail.com>
-Date: Wed, 29 Jun 2022 11:02:17 -0700
-Subject: ARM: 8989/1: use .fpu assembler directives instead of assembler ar=
-guments
+Date: Wed, 29 Jun 2022 11:02:27 -0700
+Subject: crypto: arm/ghash-ce - define fpu before fpu registers are referen=
+ced
 To: stable@vger.kernel.org
-Cc: Stefan Agner <stefan@agner.ch>, Russell King <rmk+kernel@armlinux.org.u=
-k>, Florian Fainelli <f.fainelli@gmail.com>, Russell King <linux@armlinux.o=
-rg.uk>, Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@=
-davemloft.net>, Tony Lindgren <tony@atomide.com>, Hans Ulli Kroll <ulli.kro=
-ll@googlemail.com>, Ard Biesheuvel <ardb@kernel.org>, Nick Desaulniers <nde=
-saulniers@google.com>, Nicolas Pitre <nico@fluxnic.net>, Andre Przywara <an=
-dre.przywara@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Cat=
-alin Marinas <catalin.marinas@arm.com>, Jian Cai <caij2003@gmail.com>, linu=
-x-arm-kernel@lists.infradead.org (moderated list:ARM PORT), linux-kernel@vg=
-er.kernel.org (open list), linux-crypto@vger.kernel.org (open list:CRYPTO A=
-PI), linux-omap@vger.kernel.org (open list:OMAP2+ SUPPORT), clang-built-lin=
-ux@googlegroups.com (open list:CLANG/LLVM BUILD SUPPORT), Sasha Levin <sash=
-al@kernel.org>
-Message-ID: <20220629180227.3408104-2-f.fainelli@gmail.com>
+Cc: Stefan Agner <stefan@agner.ch>, Nick Desaulniers <ndesaulniers@google.c=
+om>, Ard Biesheuvel <ardb@kernel.org>, Herbert Xu <herbert@gondor.apana.org=
+.au>, Florian Fainelli <f.fainelli@gmail.com>, Russell King <linux@armlinux=
+.org.uk>, "David S. Miller" <davem@davemloft.net>, Tony Lindgren <tony@atom=
+ide.com>, Hans Ulli Kroll <ulli.kroll@googlemail.com>, Nicolas Pitre <nico@=
+fluxnic.net>, Andre Przywara <andre.przywara@arm.com>, "Russell King (Oracl=
+e)" <rmk+kernel@armlinux.org.uk>, Greg Kroah-Hartman <gregkh@linuxfoundatio=
+n.org>, Catalin Marinas <catalin.marinas@arm.com>, Jian Cai <caij2003@gmail=
+.com>, linux-arm-kernel@lists.infradead.org (moderated list:ARM PORT), linu=
+x-kernel@vger.kernel.org (open list), linux-crypto@vger.kernel.org (open li=
+st:CRYPTO API), linux-omap@vger.kernel.org (open list:OMAP2+ SUPPORT), clan=
+g-built-linux@googlegroups.com (open list:CLANG/LLVM BUILD SUPPORT), Sasha =
+Levin <sashal@kernel.org>
+Message-ID: <20220629180227.3408104-12-f.fainelli@gmail.com>
 
 From: Stefan Agner <stefan@agner.ch>
 
-commit a6c30873ee4a5cc0549c1973668156381ab2c1c4 upstream
+commit 7548bf8c17d84607c106bd45d81834afd95a2edb upstream
 
-Explicit FPU selection has been introduced in commit 1a6be26d5b1a
-("[ARM] Enable VFP to be built when non-VFP capable CPUs are selected")
-to make use of assembler mnemonics for VFP instructions.
+Building ARMv7 with Clang's integrated assembler leads to errors such
+as:
+arch/arm/crypto/ghash-ce-core.S:34:11: error: register name expected
+ t3l .req d16
+          ^
 
-However, clang currently does not support passing assembler flags
-like this and errors out with:
-clang-10: error: the clang compiler does not support '-Wa,-mfpu=3Dsoftvfp+v=
-fp'
-
-Make use of the .fpu assembler directives to select the floating point
-hardware selectively. Also use the new unified assembler language
-mnemonics. This allows to build these procedures with Clang.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/762
+Since no FPU has selected yet Clang considers d16 not a valid register.
+Moving the FPU directive on-top allows Clang to parse the registers and
+allows to successfully build this file with Clang's integrated assembler.
 
 Signed-off-by: Stefan Agner <stefan@agner.ch>
-Signed-off-by: Russell King <rmk+kernel@armlinux.org.uk>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- arch/arm/vfp/Makefile |    2 --
- arch/arm/vfp/vfphw.S  |   30 ++++++++++++++++++++----------
- 2 files changed, 20 insertions(+), 12 deletions(-)
+ arch/arm/crypto/ghash-ce-core.S |    5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
---- a/arch/arm/vfp/Makefile
-+++ b/arch/arm/vfp/Makefile
-@@ -8,6 +8,4 @@
- # ccflags-y :=3D -DDEBUG
- # asflags-y :=3D -DDEBUG
+--- a/arch/arm/crypto/ghash-ce-core.S
++++ b/arch/arm/crypto/ghash-ce-core.S
+@@ -8,6 +8,9 @@
+ #include <linux/linkage.h>
+ #include <asm/assembler.h>
 =20
--KBUILD_AFLAGS	:=3D$(KBUILD_AFLAGS:-msoft-float=3D-Wa,-mfpu=3Dsoftvfp+vfp -=
-mfloat-abi=3Dsoft)
--
- obj-y		+=3D vfpmodule.o entry.o vfphw.o vfpsingle.o vfpdouble.o
---- a/arch/arm/vfp/vfphw.S
-+++ b/arch/arm/vfp/vfphw.S
-@@ -253,11 +253,14 @@ vfp_current_hw_state_address:
++	.arch		armv8-a
++	.fpu		crypto-neon-fp-armv8
++
+ 	SHASH		.req	q0
+ 	T1		.req	q1
+ 	XL		.req	q2
+@@ -88,8 +91,6 @@
+ 	T3_H		.req	d17
 =20
- ENTRY(vfp_get_float)
- 	tbl_branch r0, r3, #3
-+	.fpu	vfpv2
- 	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	mrc	p10, 0, r0, c\dr, c0, 0	@ fmrs	r0, s0
-+1:	vmov	r0, s\dr
- 	ret	lr
- 	.org	1b + 8
--1:	mrc	p10, 0, r0, c\dr, c0, 4	@ fmrs	r0, s1
-+	.endr
-+	.irp	dr,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
-+1:	vmov	r0, s\dr
- 	ret	lr
- 	.org	1b + 8
- 	.endr
-@@ -265,11 +268,14 @@ ENDPROC(vfp_get_float)
+ 	.text
+-	.arch		armv8-a
+-	.fpu		crypto-neon-fp-armv8
 =20
- ENTRY(vfp_put_float)
- 	tbl_branch r1, r3, #3
-+	.fpu	vfpv2
- 	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	mcr	p10, 0, r0, c\dr, c0, 0	@ fmsr	r0, s0
-+1:	vmov	s\dr, r0
- 	ret	lr
- 	.org	1b + 8
--1:	mcr	p10, 0, r0, c\dr, c0, 4	@ fmsr	r0, s1
-+	.endr
-+	.irp	dr,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
-+1:	vmov	s\dr, r0
- 	ret	lr
- 	.org	1b + 8
- 	.endr
-@@ -277,15 +283,17 @@ ENDPROC(vfp_put_float)
-=20
- ENTRY(vfp_get_double)
- 	tbl_branch r0, r3, #3
-+	.fpu	vfpv2
- 	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	fmrrd	r0, r1, d\dr
-+1:	vmov	r0, r1, d\dr
- 	ret	lr
- 	.org	1b + 8
- 	.endr
- #ifdef CONFIG_VFPv3
- 	@ d16 - d31 registers
--	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	mrrc	p11, 3, r0, r1, c\dr	@ fmrrd	r0, r1, d\dr
-+	.fpu	vfpv3
-+	.irp	dr,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
-+1:	vmov	r0, r1, d\dr
- 	ret	lr
- 	.org	1b + 8
- 	.endr
-@@ -299,15 +307,17 @@ ENDPROC(vfp_get_double)
-=20
- ENTRY(vfp_put_double)
- 	tbl_branch r2, r3, #3
-+	.fpu	vfpv2
- 	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	fmdrr	d\dr, r0, r1
-+1:	vmov	d\dr, r0, r1
- 	ret	lr
- 	.org	1b + 8
- 	.endr
- #ifdef CONFIG_VFPv3
-+	.fpu	vfpv3
- 	@ d16 - d31 registers
--	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
--1:	mcrr	p11, 3, r0, r1, c\dr	@ fmdrr	r0, r1, d\dr
-+	.irp	dr,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
-+1:	vmov	d\dr, r0, r1
- 	ret	lr
- 	.org	1b + 8
- 	.endr
+ 	.macro		__pmull_p64, rd, rn, rm, b1, b2, b3, b4
+ 	vmull.p64	\rd, \rn, \rm
 
 
 Patches currently in stable-queue which might be from f.fainelli@gmail.com =
@@ -321,4 +250,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/165659577016271%40kroah.com.
+clang-built-linux/165659577114047%40kroah.com.
