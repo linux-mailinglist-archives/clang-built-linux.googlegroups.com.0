@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBS6K62KQMGQEJ6LAGQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBUGK62KQMGQEQLP4CXY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id 423F4561B51
-	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Jun 2022 15:29:48 +0200 (CEST)
-Received: by mail-wm1-x339.google.com with SMTP id h125-20020a1c2183000000b003a0374f1eb8sf1397409wmh.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Jun 2022 06:29:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1656595787; cv=pass;
+Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 347E3561B53
+	for <lists+clang-built-linux@lfdr.de>; Thu, 30 Jun 2022 15:29:54 +0200 (CEST)
+Received: by mail-ua1-x93d.google.com with SMTP id g5-20020ab060c5000000b00378f363f03bsf7747285uam.15
+        for <lists+clang-built-linux@lfdr.de>; Thu, 30 Jun 2022 06:29:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1656595793; cv=pass;
         d=google.com; s=arc-20160816;
-        b=C89pQ6P2ES5H3aeX8Oxzbsaot42M9WCIuzI3QRTg0oq0uagpp3L6aeONGXYUaPP4hn
-         bsbxgsnjsMvEY737idaBD8MXqkRweF9KoSnyzmK2XeL5WostdIctHUOC1xAvM5eaA8HZ
-         YZfrbKLGwo9+aan2yAjXWGkEpbmQmvb9zpeJGrDZdWswJnz1LfOkuHADNo8Ucx34gsm7
-         gFo0hi/Qc1Q8ScAMTWNfRWw/OoFM/mKloJMY2XRNoPZZ8NDPIgG4efN/DmgQvroxEO4d
-         Iu6iKrF696Wx2zRdVhu9oAwl8Jr2BbVz527H+OtXJ8OoOt0eTE9Vyy1DGgKUlfMS7Brd
-         3agg==
+        b=lTLVTwTAehN8CRXfmhTekjmo0SF6iLS8P2JdWsIwPzYeMWiJScJH+Mbonf8M5sXhO6
+         b102pFzEfFOIcEmvN+iyTKGtnNMdNdQeb7FLvd2PzkwNZ9OMXh8NYBTSbnmfyJwNyjEi
+         Bt8q81LlECnbmd3RJH2Onl50/H9ectmL4ZEoPoa8pa8qFXGNRb7SHcvfZaO3Iybnu8uS
+         o78dvSLOLYsuxaey4SE6q6NEpJxogSBHYleO9eBVnyha/y+qH0Dc0I2O3elv6JiMro4Z
+         WQmXyxUE9s9CDKO5WDq+GYoLqDCIbhuhZjhjx897Ui2PjrX/k24nXSuS/b+K43+J3Yil
+         VbOQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-transfer-encoding
          :mime-version:message-id:in-reply-to:date:from:cc:to:subject:sender
          :dkim-signature;
-        bh=IFdcFndvneg2+y/6vcrX06WDN08zn5qIiYLnRd/fTis=;
-        b=e8KkBDApI93tZZUfcDsATrlxN1vGGQgPyW8NmpbHewrYkAL3XEg3c4WK3vQYlESYMb
-         nLg7fuz6IR2bteQccaRgc1pvS+8m7bvGiNOeT9gcHEcsWslmSaYNFT5fVhNEIVHxM9Vn
-         +0w1NR7pCP2f0fpcIvZ5uLIxj9PRLhcd8Q4CQwfEGnoZC9pqheugNqIXz/hO9OOzoxkS
-         ESea97OiF3N4TFiRmZKtQtnoSUgz5ngq8we/6FPt2IOcy7O5MMCoYUsgwmjzj2JxNPrx
-         mz27V9wZhOLGe+YJxoKlnwylu1zT0Zfi3cf3XBrTCbfkejzJ/x26W6zaOPePPVybU0cv
-         7PWg==
+        bh=LInosgDUrc5QjNI9MpTw4HYpM8NEwb3xA95U1GawoKs=;
+        b=O3bOAtrwGUdXsbBpC1xMRBWf+/RJKLI7J9GYPgt9GzSgz/SNE53XvEGK6WJ2mZtCuX
+         vPqM5ExASVaWvwYzJDMThRPc4FtvLqiaWiYhVBOUYKGhLXtsox0WTIqfeMNB1lqnfqcf
+         O9D0HwWb+DbOD6Mk6ppKtkoSheS70xCtnSoecZLHDxbyD3XtBg1BHrB1F0qtLgNDs9hQ
+         tpDrpix2VZkE4EkCLg6pqWux/l9DPjWBSN/Dcd0KvrA77xp+bg6/OYj1/CnnJ9HyGe+M
+         4JysnmKaJpkqfFI0RdJsn6ZHPPm7wGhu/bLwnNGAOB7sjPoF0itUkumomxtlg0rJqDn/
+         Wzew==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="qmhnVV/v";
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 145.40.68.75 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=mMsHRXvj;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=IFdcFndvneg2+y/6vcrX06WDN08zn5qIiYLnRd/fTis=;
-        b=oLNF7BWWYzMu3sdFIkpBjVGDUsjZM1aH4w1WNEz5WWtEs2qMzhMiBZvhA4iF0Oy44c
-         yfWsWH8zFlWA5LAWyccvIqS0IMPHlF/tGPc6AiVT0yGt6qSdHnBnzr2q9VgKEdFF5Ydk
-         WpV/L+6DDYA/OFwDNIzvF3Aco6hI9KE88I7r8690DPTLocNkcfJrejpGDKCPRBTiUnoG
-         ZD6RRx+JurA9wnpCMTzsKHZNwv7fjfwV+PMS/DAFsIAylslM22nybV4gMNvBxnjytX5o
-         ViTE/BDCS3mDYeZCy1x34AgCo8M1saB2NP0PyJiJpTGtylg28XpFF7eFUuOc0iCwl5lp
-         mc+w==
+        bh=LInosgDUrc5QjNI9MpTw4HYpM8NEwb3xA95U1GawoKs=;
+        b=aNgCQnY+//lpYoPwwyEdQNA4rqQBwzCxvX0dKN2njixD7XKZma6WOOL/VIgBhapatc
+         s8YZCA1EPF3uNzbkJGbzkAqC4bsBADTgORU/j/KCeV0ERVYgMTSIAlLV7fqWnpOtdchr
+         FKnyOyZEGaPEBK3CdZXD+Ei1U1XOuG5dGBLJdnBV+G2xpPbAM4790QMGUD1Z8SvMpehj
+         V0w7t/LlJV5O6eW5D8I348/P28+8YWq570luDNmkDjkbtaKq0Vosfkrfrs/1+Zq+XqmD
+         Yz7AiY7VvGod13vzKYwQaaiOM8OHJ/T6DvXpfpfaHtRCQuBBvTsc20I4wa/roHSzKg2+
+         acoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=sender:x-gm-message-state:subject:to:cc:from:date:in-reply-to
@@ -50,67 +50,66 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IFdcFndvneg2+y/6vcrX06WDN08zn5qIiYLnRd/fTis=;
-        b=Efr4FLGXNH0NVdyTEjG0NzpVWXvjVdEP/IeoOG9o93pCcCtd0ECrFNy+MK/lsbCaeM
-         JGI4ajW7McKQDnRyyAu6Pk5bY8dWXdvx2RTHy17aX2hHaPBKufbxWYT+tsn9jADAQ/03
-         nEFNA1aDf80ZJy6xpzvZcih6HQarx6GM74O9fRExF2p20A8onPtyL+YTD1cAEmB3hddK
-         qHS/AfmrWC09OpHhu82ud8xJkSCGyVRrfw+oKmIbOxAM2pTLzY21kylfD4hVCLc0jkjL
-         5h30keeNTA1Gx2G+lAsTyYOv5wU+dCObKHEfljmxloJm50Zx5wb/8zqvBcdsIWey23Xe
-         GoRg==
+        bh=LInosgDUrc5QjNI9MpTw4HYpM8NEwb3xA95U1GawoKs=;
+        b=qB6KMX3SLBHMScpKeJFQcsaPjnBns022+3bWNpixzBAJwbDgKrMOULkHv3L6YGQsF3
+         cxukVX+sMBhMN/5fP0hmuToBrAyn8E/8i/i81rOTIxtMoYz1ZJho6ImWQmAhVbY/Cwlt
+         0fOeLUnlL68w8lyGNMpCGFbSohBhk2YHA1/mb3egddQ6d/I6Ts22nqclmYjutre7SwNp
+         0YPhDnyGhlnzmHLRgEXTbbc0m7zjfSm2qnuVJve7TJdsawtiMIEUJ/s1Q8cprZLRN1Kn
+         H+3Hf+bf2UyMpROwe+hxQTwN0hKFOqOzSjpDi1HRSUEBZXAfbnD0EQGwbm9Iqg332ar7
+         bT0A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AJIora/x9qn5t4ww3Nb3yzxE5IqQqKBZAyJrTIZn2ObIwDEyRiiwWAIp
-	wzmGATtORSTSPw9XaV+AR4k=
-X-Google-Smtp-Source: AGRyM1vrzlltDIsWUCTz8uhPnAr1Z/m2ivJASU5v7Z3Sxc5aUjqAKljxGDhw34gEEJC8Pww8kBX3Zw==
-X-Received: by 2002:a5d:4987:0:b0:21b:8f2a:48aa with SMTP id r7-20020a5d4987000000b0021b8f2a48aamr8493646wrq.551.1656595787539;
-        Thu, 30 Jun 2022 06:29:47 -0700 (PDT)
+X-Gm-Message-State: AJIora8kinSvF8cD4HRaK/AGhr5FZ7mXMMk0SWpcuax9cN8IG4QKrQ3q
+	uKifAQDrPYcp0KR845/1S/w=
+X-Google-Smtp-Source: AGRyM1s82NpGfm1uOAhn7mSmcuLr+3bVboMoyCkhlirF8n7jE5Gt4zFElIQsOwkQIwVHP76vAGmGZg==
+X-Received: by 2002:ab0:6704:0:b0:37c:c743:eebe with SMTP id q4-20020ab06704000000b0037cc743eebemr4603650uam.84.1656595793078;
+        Thu, 30 Jun 2022 06:29:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6000:178b:b0:21d:350e:23a6 with SMTP id
- e11-20020a056000178b00b0021d350e23a6ls3882125wrg.2.gmail; Thu, 30 Jun 2022
- 06:29:46 -0700 (PDT)
-X-Received: by 2002:a5d:6a0b:0:b0:21a:3a8e:d5ae with SMTP id m11-20020a5d6a0b000000b0021a3a8ed5aemr8773665wru.79.1656595786481;
-        Thu, 30 Jun 2022 06:29:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1656595786; cv=none;
+Received: by 2002:ab0:3419:0:b0:37f:1f24:f780 with SMTP id z25-20020ab03419000000b0037f1f24f780ls2222772uap.8.gmail;
+ Thu, 30 Jun 2022 06:29:52 -0700 (PDT)
+X-Received: by 2002:ab0:6857:0:b0:37f:15c2:b949 with SMTP id a23-20020ab06857000000b0037f15c2b949mr4678473uas.86.1656595792394;
+        Thu, 30 Jun 2022 06:29:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1656595792; cv=none;
         d=google.com; s=arc-20160816;
-        b=jtbYLtNFAax/ZgJK+ZpNO++cHLuVNgfovVzExlltuCLyZ9WByOfsZndTH+qfBf7UEw
-         O5A6LuNSPX0jaDYyjPDGcLsmctrMqd4rGWeN3gqh5CUsbIvou/QSemwdX1IIEri/BtLV
-         jjQIy1eZ7mrOF0rWcjW94wRBTr6By4uUxuVjxOnGq0yo+hThrCI8r34gwjTyfpEz4L7r
-         vht3CTZfbkTndzpNH/FRT8sNAPHNM8WJK8ctpPV4/OE7wgiZq1Mxjb+RDxtkEjTb6Ujy
-         xNDsbcDgmrcJ18svC8qLGdVk+yOiwrYB6ytn4BNc3l6nazr/Kuzzy0BUFs0VNUy4ZEZ4
-         A7/w==
+        b=Qhvief6UVkOS6n7Iw8f3bgGmEHEuxAdML2fJyaFxvBgBytxg3v7gkb3PMD4yL47xqt
+         dIvEoZ3UvYTOF/E9PUz4Jcz52k/cgwJrbE0kdlLcyA0ScEoUcIInUrq22nrDtVjPcxEC
+         ODmTrian8U9Sc0X0UzPnw6+lqeQYzYNsOSYrxxMHmE+PfgzYu1050l3I+atDSxBoet7r
+         5b5/O2SrUhJm8YRzZRHEvuNf0362zxhGTa89eySHCgO+QbIo023cft217Ww2ncK/wBHB
+         hPKjK1o5Mm1Q3gzWV1SwmZDj2Nt4WEDCoYq1grmRM9N9LJ0t1qZqh2/iyFMp63giH7Xn
+         BGZg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
          :from:cc:to:subject:dkim-signature;
-        bh=E03Q6Ev83aFWLFOQpokJVxvIHwAE+EWuevTqw+TCaEQ=;
-        b=MDEgthGAe4RPnineEWvKb73xug2Bn0U9+cJjvwB6WKkYEf9qWF2XCgUE37tm1BJblR
-         kWfyuFDdARLtkNCX7AvhW9wU9DqCj2ajguF84uq+45Q6HcNBVljoBq2aTOG/51NEUjDT
-         4oganzx/Q34bR4S9vO9eq+GfKrU8PFMAAtoZ2Lt1/pqnFXYvMXBF1vC7vu4TCOJvyrlw
-         qxoqydEzvS5iQeMRo8dTos6IGZOoJ/lX/ACdQUNlFMaHc9ME9lW+LOozc4wK1D+dk/b9
-         rmDnEMJ1L1t6CfJohODPGAIt83r0NddLJFnsSbeFZ6g7ux9631LHHfDeHlLgkuFKaND3
-         UeGg==
+        bh=RguQlGz3AL7lQdEJS0b6UqK8MJWdBaq7Iu6xUpVRHCM=;
+        b=XMvTkheUfF7hlQjFRYLY7sQINdu82SJ5NxOm9T7n+ZEWgK55yOmsvrxwXYi/D3RnMA
+         dulHNIOaDDL1xn1eytQ65j5ssPHKmLzn/gHiP4Z+ypTl72mOwXdHBZDWx5q4ApOb4KXu
+         6rHKH+bDaIR5qNwQjIxKJFgKmKlF75+H7cOVDnROncB4ZkFT6d1HpoQ/OnlN57fAMcWW
+         Utd+7c9sfl+EpNCf91YM9SKy+mWGxONZ2THazgiJTxwl9aGsWRLfYIOyb6d2Sl3taiJJ
+         4NdOVD85tXtcpjEzRcfeqJHbU3LxsdBKY5g7/cD+YJV2eWwFtvOwn6ndFVCezakXT+wR
+         zUrA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b="qmhnVV/v";
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 145.40.68.75 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=mMsHRXvj;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
-Received: from ams.source.kernel.org (ams.source.kernel.org. [145.40.68.75])
-        by gmr-mx.google.com with ESMTPS id f6-20020a1c3806000000b0039c948d7614si44712wma.3.2022.06.30.06.29.46
+Received: from dfw.source.kernel.org (dfw.source.kernel.org. [2604:1380:4641:c500::1])
+        by gmr-mx.google.com with ESMTPS id e3-20020a1f1e03000000b0036c18b4c646si769246vke.2.2022.06.30.06.29.52
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 30 Jun 2022 06:29:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 145.40.68.75 as permitted sender) client-ip=145.40.68.75;
+        Thu, 30 Jun 2022 06:29:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:4641:c500::1 as permitted sender) client-ip=2604:1380:4641:c500::1;
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id F33E1B82AC0;
-	Thu, 30 Jun 2022 13:29:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10CC3C34115;
-	Thu, 30 Jun 2022 13:29:43 +0000 (UTC)
-Subject: Patch "ARM: 8929/1: use APSR_nzcv instead of r15 as mrc operand" has been added to the 5.4-stable tree
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E583D61F88;
+	Thu, 30 Jun 2022 13:29:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CAB7C34115;
+	Thu, 30 Jun 2022 13:29:51 +0000 (UTC)
+Subject: Patch "ARM: 8971/1: replace the sole use of a symbol with its definition" has been added to the 5.4-stable tree
 To: andre.przywara@arm.com,ardb@kernel.org,caij2003@gmail.com,catalin.marinas@arm.com,clang-built-linux@googlegroups.com,davem@davemloft.net,f.fainelli@gmail.com,gregkh@linuxfoundation.org,herbert@gondor.apana.org.au,linux-arm-kernel@lists.infradead.org,linux@armlinux.org.uk,ndesaulniers@google.com,nico@fluxnic.net,rmk+kernel@armlinux.org.uk,sashal@kernel.org,stefan@agner.ch,tony@atomide.com,ulli.kroll@googlemail.com
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
 Date: Thu, 30 Jun 2022 15:29:30 +0200
-In-Reply-To: <20220629180227.3408104-8-f.fainelli@gmail.com>
-Message-ID: <1656595770211170@kroah.com>
+In-Reply-To: <20220629180227.3408104-4-f.fainelli@gmail.com>
+Message-ID: <1656595770106137@kroah.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
@@ -118,9 +117,9 @@ X-stable: commit
 X-Patchwork-Hint: ignore
 X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b="qmhnVV/v";
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates
- 145.40.68.75 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+ header.i=@linuxfoundation.org header.s=korg header.b=mMsHRXvj;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates
+ 2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -137,14 +136,14 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 This is a note to let you know that I've just added the patch titled
 
-    ARM: 8929/1: use APSR_nzcv instead of r15 as mrc operand
+    ARM: 8971/1: replace the sole use of a symbol with its definition
 
 to the 5.4-stable tree which can be found at:
     http://www.kernel.org/git/?p=3Dlinux/kernel/git/stable/stable-queue.git=
 ;a=3Dsummary
 
 The filename of the patch is:
-     arm-8929-1-use-apsr_nzcv-instead-of-r15-as-mrc-operand.patch
+     arm-8971-1-replace-the-sole-use-of-a-symbol-with-its-definition.patch
 and it can be found in the queue-5.4 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
@@ -153,101 +152,68 @@ please let <stable@vger.kernel.org> know about it.
 
 From foo@baz Thu Jun 30 03:27:07 PM CEST 2022
 From: Florian Fainelli <f.fainelli@gmail.com>
-Date: Wed, 29 Jun 2022 11:02:23 -0700
-Subject: ARM: 8929/1: use APSR_nzcv instead of r15 as mrc operand
+Date: Wed, 29 Jun 2022 11:02:19 -0700
+Subject: ARM: 8971/1: replace the sole use of a symbol with its definition
 To: stable@vger.kernel.org
-Cc: Stefan Agner <stefan@agner.ch>, Russell King <rmk+kernel@armlinux.org.u=
-k>, Florian Fainelli <f.fainelli@gmail.com>, Russell King <linux@armlinux.o=
-rg.uk>, Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@=
-davemloft.net>, Tony Lindgren <tony@atomide.com>, Hans Ulli Kroll <ulli.kro=
-ll@googlemail.com>, Ard Biesheuvel <ardb@kernel.org>, Nick Desaulniers <nde=
-saulniers@google.com>, Nicolas Pitre <nico@fluxnic.net>, Andre Przywara <an=
-dre.przywara@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Cat=
-alin Marinas <catalin.marinas@arm.com>, Jian Cai <caij2003@gmail.com>, linu=
+Cc: Jian Cai <caij2003@gmail.com>, Nick Desaulniers <ndesaulniers@google.co=
+m>, Russell King <rmk+kernel@armlinux.org.uk>, Florian Fainelli <f.fainelli=
+@gmail.com>, Russell King <linux@armlinux.org.uk>, Herbert Xu <herbert@gond=
+or.apana.org.au>, "David S. Miller" <davem@davemloft.net>, Tony Lindgren <t=
+ony@atomide.com>, Hans Ulli Kroll <ulli.kroll@googlemail.com>, Ard Biesheuv=
+el <ardb@kernel.org>, Stefan Agner <stefan@agner.ch>, Nicolas Pitre <nico@f=
+luxnic.net>, Andre Przywara <andre.przywara@arm.com>, Greg Kroah-Hartman <g=
+regkh@linuxfoundation.org>, Catalin Marinas <catalin.marinas@arm.com>, linu=
 x-arm-kernel@lists.infradead.org (moderated list:ARM PORT), linux-kernel@vg=
 er.kernel.org (open list), linux-crypto@vger.kernel.org (open list:CRYPTO A=
 PI), linux-omap@vger.kernel.org (open list:OMAP2+ SUPPORT), clang-built-lin=
 ux@googlegroups.com (open list:CLANG/LLVM BUILD SUPPORT), Sasha Levin <sash=
 al@kernel.org>
-Message-ID: <20220629180227.3408104-8-f.fainelli@gmail.com>
+Message-ID: <20220629180227.3408104-4-f.fainelli@gmail.com>
 
-From: Stefan Agner <stefan@agner.ch>
+From: Jian Cai <caij2003@gmail.com>
 
-commit 9f1984c6ae30e2a379751339ce3375a21099b5d4 upstream
+commit a780e485b5768e78aef087502499714901b68cc4 upstream
 
-LLVM's integrated assembler does not accept r15 as mrc operand.
-  arch/arm/boot/compressed/head.S:1267:16: error: operand must be a registe=
-r in range [r0, r14] or apsr_nzcv
-  1: mrc p15, 0, r15, c7, c14, 3 @ test,clean,invalidate D cache
-                 ^
+ALT_UP_B macro sets symbol up_b_offset via .equ to an expression
+involving another symbol. The macro gets expanded twice when
+arch/arm/kernel/sleep.S is assembled, creating a scenario where
+up_b_offset is set to another expression involving symbols while its
+current value is based on symbols. LLVM integrated assembler does not
+allow such cases, and based on the documentation of binutils, "Values
+that are based on expressions involving other symbols are allowed, but
+some targets may restrict this to only being done once per assembly", so
+it may be better to avoid such cases as it is not clearly stated which
+targets should support or disallow them. The fix in this case is simple,
+as up_b_offset has only one use, so we can replace the use with the
+definition and get rid of up_b_offset.
 
-Use APSR_nzcv instead of r15. The GNU assembler supports this
-syntax since binutils 2.21 [0].
+ Link:https://github.com/ClangBuiltLinux/linux/issues/920
 
-[0] https://sourceware.org/git/gitweb.cgi?p=3Dbinutils-gdb.git;a=3Dcommit;h=
-=3Ddb472d6ff0f438a21b357249a9b48e4b74498076
+ Reviewed-by: Stefan Agner <stefan@agner.ch>
 
-Signed-off-by: Stefan Agner <stefan@agner.ch>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Signed-off-by: Jian Cai <caij2003@gmail.com>
 Signed-off-by: Russell King <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- arch/arm/boot/compressed/head.S |    2 +-
- arch/arm/mm/proc-arm1026.S      |    4 ++--
- arch/arm/mm/proc-arm926.S       |    4 ++--
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ arch/arm/include/asm/assembler.h |    3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
---- a/arch/arm/boot/compressed/head.S
-+++ b/arch/arm/boot/compressed/head.S
-@@ -1274,7 +1274,7 @@ iflush:
- __armv5tej_mmu_cache_flush:
- 		tst	r4, #1
- 		movne	pc, lr
--1:		mrc	p15, 0, r15, c7, c14, 3	@ test,clean,invalidate D cache
-+1:		mrc	p15, 0, APSR_nzcv, c7, c14, 3	@ test,clean,invalidate D cache
- 		bne	1b
- 		mcr	p15, 0, r0, c7, c5, 0	@ flush I cache
- 		mcr	p15, 0, r0, c7, c10, 4	@ drain WB
---- a/arch/arm/mm/proc-arm1026.S
-+++ b/arch/arm/mm/proc-arm1026.S
-@@ -138,7 +138,7 @@ ENTRY(arm1026_flush_kern_cache_all)
- 	mov	ip, #0
- __flush_whole_cache:
- #ifndef CONFIG_CPU_DCACHE_DISABLE
--1:	mrc	p15, 0, r15, c7, c14, 3		@ test, clean, invalidate
-+1:	mrc	p15, 0, APSR_nzcv, c7, c14, 3		@ test, clean, invalidate
- 	bne	1b
- #endif
- 	tst	r2, #VM_EXEC
-@@ -363,7 +363,7 @@ ENTRY(cpu_arm1026_switch_mm)
- #ifdef CONFIG_MMU
- 	mov	r1, #0
- #ifndef CONFIG_CPU_DCACHE_DISABLE
--1:	mrc	p15, 0, r15, c7, c14, 3		@ test, clean, invalidate
-+1:	mrc	p15, 0, APSR_nzcv, c7, c14, 3		@ test, clean, invalidate
- 	bne	1b
- #endif
- #ifndef CONFIG_CPU_ICACHE_DISABLE
---- a/arch/arm/mm/proc-arm926.S
-+++ b/arch/arm/mm/proc-arm926.S
-@@ -131,7 +131,7 @@ __flush_whole_cache:
- #ifdef CONFIG_CPU_DCACHE_WRITETHROUGH
- 	mcr	p15, 0, ip, c7, c6, 0		@ invalidate D cache
+--- a/arch/arm/include/asm/assembler.h
++++ b/arch/arm/include/asm/assembler.h
+@@ -279,10 +279,9 @@
+ 	.endif							;\
+ 	.popsection
+ #define ALT_UP_B(label)					\
+-	.equ	up_b_offset, label - 9998b			;\
+ 	.pushsection ".alt.smp.init", "a"			;\
+ 	.long	9998b						;\
+-	W(b)	. + up_b_offset					;\
++	W(b)	. + (label - 9998b)					;\
+ 	.popsection
  #else
--1:	mrc	p15, 0, r15, c7, c14, 3 	@ test,clean,invalidate
-+1:	mrc	p15, 0, APSR_nzcv, c7, c14, 3 	@ test,clean,invalidate
- 	bne	1b
- #endif
- 	tst	r2, #VM_EXEC
-@@ -358,7 +358,7 @@ ENTRY(cpu_arm926_switch_mm)
- 	mcr	p15, 0, ip, c7, c6, 0		@ invalidate D cache
- #else
- @ && 'Clean & Invalidate whole DCache'
--1:	mrc	p15, 0, r15, c7, c14, 3 	@ test,clean,invalidate
-+1:	mrc	p15, 0, APSR_nzcv, c7, c14, 3 	@ test,clean,invalidate
- 	bne	1b
- #endif
- 	mcr	p15, 0, ip, c7, c5, 0		@ invalidate I cache
+ #define ALT_SMP(instr...)
 
 
 Patches currently in stable-queue which might be from f.fainelli@gmail.com =
@@ -279,4 +245,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/1656595770211170%40kroah.com.
+clang-built-linux/1656595770106137%40kroah.com.
