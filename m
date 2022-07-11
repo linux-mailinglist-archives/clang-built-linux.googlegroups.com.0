@@ -1,122 +1,133 @@
-Return-Path: <clang-built-linux+bncBCT6537ZTEKRBJVWWCLAMGQEL5H6OFQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD56ZXUYQUBRBYXVWCLAMGQED6EV6GY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
-	by mail.lfdr.de (Postfix) with ESMTPS id E930A57030C
-	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jul 2022 14:44:23 +0200 (CEST)
-Received: by mail-vk1-xa39.google.com with SMTP id w127-20020a1fad85000000b00374c92bb78esf461875vke.23
-        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jul 2022 05:44:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1657543463; cv=pass;
+Received: from mail-wm1-x33f.google.com (mail-wm1-x33f.google.com [IPv6:2a00:1450:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0ADB2570671
+	for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jul 2022 16:59:47 +0200 (CEST)
+Received: by mail-wm1-x33f.google.com with SMTP id m20-20020a05600c4f5400b003a03aad6bdfsf2767038wmq.6
+        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Jul 2022 07:59:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1657551586; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Q/b3ceOZLS+xRVYbsdh4QJxus8pZN/WiL+4OMgFkCiuQtjqTGijhVOb7H35Jz6LdXI
-         NRAmiX1qTyLt4iGTA2cZTTrjejjO57YtKPlr4erfwKPyZ4eLa1gAxEYHoT7Wft2VBapp
-         qaMkpEWYvEEcFmjVcnSiv4AibDfcfUlOcCFhMNHufGqiappy6Vpd5bS/4R7GGFZ3Hty2
-         UYP9HNmCrzAQxws1s9WRQf8WaiLFlDIxsrIa8K7isMUQVyKNqmu5lzXaj0r7gBOnhLhi
-         +cmvXz0nDLOkhCTjJJRy8K8Fg06sBPm6rbKsCqmsCYSJw6YbnoLwUIUkWvbcJieBOgxI
-         I3bQ==
+        b=vHGgEFAhVcFdowBOwPPC8hxFeLpvXza+MfL76CciYyVN5Z6/GfNYGqMDqH60sNdSK/
+         6fJOQkpsyDhM0Kr9ndYZAs+05yO5jsKyTBrw6/PVEo8/9j6k84IBLf9P/rEjeXGgGFz/
+         KRQI+hUop+9n1f/4qHra82VItlujRwg9gQWC+52gN9j+2rYgxgR5rNUVRJeeMYGsoEs9
+         rBbzFGPDnM+0CWPWOj0BFBJ2oKAOcMQeW1E6KnO+/Y2v/XjAWUZJngvFa9yduFOBR4xN
+         +cw3pL5cGFeB9TguTHmuu4Aed8P/UH4ewmtXa8wtZavfJ/6mnRuFZNGUgNTjnmQ6TWqY
+         0W9Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :mime-version:sender:dkim-signature;
-        bh=JcGa7ikFmdZoDLsFzQpfR0soifX+/xhHkzjRG54IG7A=;
-        b=BliFnBKEJAzrYT2KhV8MzxikIWmtsocgSJ/ada+OrjQASvsRPOVRAyr4q6hGFrVTNh
-         svMM7wJYV4PKBZZc4/g3wHT0UhhmE2IV/xCMc4n+sTOleFY35HDaTCkAY/eF07C+eH9T
-         icj6UlmgWjEORZFQ5zf+hxShGTxRuwOaEB9JOsJzhhRtb8oFTh16dW+jvZx5qjJYLFqh
-         Nbrk73VbOowf/DxTRNapKFBGDMl1fNpbutuZ+mVeKDZsCCOJ79hy4T+oUOaYWmYf9tQB
-         M8tdiCJIBNhhbXvX0nsSITErSNDdxmElLMWkIS2Z9znqUBlqLyXcudNMHLUf919j0gY/
-         2ywg==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=J0/O4ozAk5HRfFdzJOL7pKNtt7GY8A/Joe/06rKMSdY=;
+        b=hwzvWCelZgXD/MfcB2FE3o+7S9PwQRt+q+LbXYtkjZttk+CrFE1pxEQ631EpUfVNoS
+         2HZ/4j/iPnRP7+w8/AvZ6M5qchBp4Fg6bGbsiZYfmEDdbrx4CYPxjrPMlIQlHmKP9+Ve
+         1cHW2LEvLRQDtVsBtfAJq04sSPJGWhgR97afSGY5WUDBXcNb3sAPdRPmUeRvOUrJrULL
+         jZHhcBIaGn9xiHLtoBxD1+jWw5VxpnVhtsL4V+jM0xQ6jl2n6Oa1LAteG16O+Dbs++H+
+         2XdyuCrQBPCz+9BD1IEfSua3gBG5OVRMuSl0Uvm0TEkrd2S5rTLxw8blp0QJ6qFp5qO4
+         kxmA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=Bi0thlVz;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::129 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=NGwk1jTu;
+       spf=pass (google.com: domain of kbusch@kernel.org designates 145.40.68.75 as permitted sender) smtp.mailfrom=kbusch@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
-        h=sender:mime-version:from:date:message-id:subject:to:cc
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=JcGa7ikFmdZoDLsFzQpfR0soifX+/xhHkzjRG54IG7A=;
-        b=fzsl9oHg3F91nDK8Sk3kwvoFsHDKiMthgIipEi4BiSBABU5fbIYZx1zI+6/kDaezUi
-         IekRcHalWIGNGkXrDMR7x2RkaRKV/3Dph0s+88/JHxb9LngCgsrswLFza9gNYkRJGACH
-         /RfU3cqiZ5CNQewUYf4xjui6/PhKXN6BkoOHQDigpEeqVqKXejVQoIaU2d3OKdTKOzgN
-         BRqvdmWm0LwfyHzgn8tlfAY4yqXiuK4q6BCa9N2oc28IeH5At0qMK/QZLyN3CfvRNPji
-         HNEftFlSmvi0KnaqIYo8v/MbTUQvQc4uZGpbxWbe8hjsPGl95jtJceU4YLbFZ8qKCu3w
-         BLEA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=J0/O4ozAk5HRfFdzJOL7pKNtt7GY8A/Joe/06rKMSdY=;
+        b=UK7T7oO4Tp560NqLLELWafRIi8wxAEL83Q/u+ztFmMevIFJyr5PMUvZxNPzniGW6q7
+         lYOKV28SFH7rFDHI8wDtlLAQdhBtAJftwNpShEco5MIy/Deu/ky/GpHn6szpCg6/bBnb
+         mFKRKj6mPYx+1ODvMnLo4XW0+36U36OTGtinbywByavK9C4cLVAM2nhmCJS0yP+eS7A6
+         HeY5bXSV+u4S4BtTEV2+OPTrm5PTxwSMAzW7mjWSHYrr3gob/Qpz1IBWb4LjeV2mNctZ
+         bqXGJBFrNiSZ8Dp7TYRL/OUd6fAvoH+4YiDsQyqoKzFzf3pTZI9pOg0nfiwuHQ/h7uff
+         aD+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=sender:x-gm-message-state:mime-version:from:date:message-id:subject
-         :to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=JcGa7ikFmdZoDLsFzQpfR0soifX+/xhHkzjRG54IG7A=;
-        b=U2pvEhCU/qbFJSWmjG7H8hy0RNeLi16I71gJCYKFZqmPzbXenNN7sjv4ze0TbDtStX
-         7K47YBRSDTcpteO086yLxQs0a+3fH3yvkzeasnlSeCG0BJeRaHexfIBPHtmmnu0UyWFs
-         l/KBQrtBpIbDB9eNHnHfUL+Z6+6+SOrlHxrg5yVyxpcnhkWRQTc8dXEmcInZ/4qzuO80
-         eg4qgIOE0VVwjmc2TIVcRXtSYl6DAstPoJYmyYm6u2zc+NkE2JURCn6jarZ9H2pG3fEh
-         AMI/0K/FXllmzmHjAHcgKP9kxbdYO/65G9+6DNqx6HA8lfvxeaZ0oYsIm/7j7UCwAQdF
-         hz/w==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=J0/O4ozAk5HRfFdzJOL7pKNtt7GY8A/Joe/06rKMSdY=;
+        b=aXQ7Yhbg6QAJKKf1hAvdBRjuZ1cQ7pssqurIG23/9VYC6g45HwALC62jRwVXSvY0He
+         i19SqgGs2Ems61cSH6uaUrUUs6qn2l6qYZYFGt3vlUAH3gbGnEPVdeY1TeoQ4t4+3/bQ
+         5vyMJ875qxS4kQGO0LFczC8QVktNvGEHCsF/M60T60w9KH8nKaTo02+pIysDpPSB14MQ
+         BNSd/sUxC64DvZKsC5WONI7C3SRoa9X8dseD65qyRy5rioL5RLQ8R35dBsXSDrxbEZwB
+         8mmMs2d0jugyLgly55k/JO4BDfo704iZ6FwUvyYk/0vPC4WTTD21ZMgzC9ZJPKNCvF1A
+         bNWA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AJIora9Odv2boJvwl70UoXa3D0U11r6lBOoW4FhcngCWaKfZz7fIhyzB
-	q4zLYzywgqXIbSRyq/C6Gfk=
-X-Google-Smtp-Source: AGRyM1usfx6HTRCObHEJEMr/2D0dmkfe47yhK2qmAwjd0kYA98jwXVYv7Xor+21Swd/zhGOOftxzLg==
-X-Received: by 2002:a05:6102:1628:b0:357:682a:fb15 with SMTP id cu40-20020a056102162800b00357682afb15mr754038vsb.50.1657543462818;
-        Mon, 11 Jul 2022 05:44:22 -0700 (PDT)
+X-Gm-Message-State: AJIora/QQuxzz3wHA6Y/Fkx3rN93WGtee8+0Y80os41xgYrRsaC1RKFo
+	HOIa79Pb5jbwntLOntdHato=
+X-Google-Smtp-Source: AGRyM1tQ604sU3H5GIenT1uMrCzNL2vQJqDqALR6Q7a8BsLmpIcZpWAZb+Qmt/08uszeQSZ7weU1fA==
+X-Received: by 2002:a5d:48ce:0:b0:21b:9f34:f297 with SMTP id p14-20020a5d48ce000000b0021b9f34f297mr17606444wrs.351.1657551586307;
+        Mon, 11 Jul 2022 07:59:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6122:86:b0:374:bd27:2b6e with SMTP id
- r6-20020a056122008600b00374bd272b6els134833vka.4.gmail; Mon, 11 Jul 2022
- 05:44:22 -0700 (PDT)
-X-Received: by 2002:ac5:c5d9:0:b0:374:5166:36c0 with SMTP id g25-20020ac5c5d9000000b00374516636c0mr6162748vkl.2.1657543462269;
-        Mon, 11 Jul 2022 05:44:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1657543462; cv=none;
+Received: by 2002:a05:600c:34c6:b0:3a0:4f27:977f with SMTP id
+ d6-20020a05600c34c600b003a04f27977fls5797wmq.2.gmail; Mon, 11 Jul 2022
+ 07:59:45 -0700 (PDT)
+X-Received: by 2002:a05:600c:4f14:b0:3a2:e8be:c184 with SMTP id l20-20020a05600c4f1400b003a2e8bec184mr4672886wmq.34.1657551584950;
+        Mon, 11 Jul 2022 07:59:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1657551584; cv=none;
         d=google.com; s=arc-20160816;
-        b=t4WTAV1Q0M4JbYX383WnkHQEkZo9r1vgofsKfxqalxLb+hCXVewk0JY39GMi1pdIPC
-         tGSj4bwi9P+mWL7uwpsed5tV/2bv014ixCLvEWRTQ7GaYhyxkPAx/QhDEcpDqcGqq5oN
-         DgtqP635yfKja2bt3iDBCvOx/kULpepdkLq4SA/SkaRmLyzPvYK5BgJrisEjlf4dy1oq
-         4Ap670g+qAP0a3DBhhmKijOC/pS2z/dNyDQzgQSSFjl+DgyMNQmgtr6OQNbnerCZ1YAS
-         Hl6FZLT+p0bSdFItvAB407ZF97+LR7DWuMkUk+5BHopSzOXN9YgmaBkvuKk/SStoQTtR
-         CaSA==
+        b=Dnn6O19+TibnKWr8OYeohNF9kqOjNOIw+lR3uOnnyZzjnQv7AjcHGBGgp9mlPAOGNA
+         EO+l7BDhHD1eH3fYJz34RL0++AzUHFK3lIN3ebnzWbRxkONa2CCD3f7qxt/KYUmLKuXM
+         deTqlSVap6oplYbYSZTEfJdFZxBJZa9UysbUzKqPN/aK6zC6TgCOOqWykn5eh97M9OaC
+         hmmwSyy+aEr/KyYgrBtr/Wspg7ylbEr1+X4jt4N6dhhLjxt1cpFb/Lp4XnDVWR7qw++x
+         mjFoPhOkLwDAxA38eAn3j9QXIWHOHMwy+98afUwD8Csi2d2BLgJ7eAwwnlYHLA8FadG3
+         u5/w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=br3tJQEkgsdXZG9sAFREqjWpIgB35zSs0NthrE2bN3k=;
-        b=eRpfdczyvL3yhaDkd/5yYBJDwQpLXiD95Nt413Wd/6fixL63aeolqjjVmZrwwWJKwJ
-         QZfwEc4hd9j/XVTmxiTjVkyaSv1Qo2cLg4dsgngwaUIptdf72d4OFTa2USEL1906rCpG
-         33bjdr6dhArAZyugteu/E/GSgF3DoV0xwQfI5E5bxPAnnvie3zULD6ZM9NKmnzbZT2YC
-         2O7bmn3WAcsqfVNx+HhZq9fOhK61rizpksJr7w/muqc8wVjl+ZdD9Ug7VCBNVHj1ygYB
-         VGGk3YkDfXt3/pe1uhtRSiXT5nYyYc2i4TK2gVLzXEzJQoaWPONw2v5L5N95F4RTg1Ze
-         QW3w==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=Ns0owu8BD+uGHf5ASIS+0ai7M1OA2wd0TTTYsy+Z1QM=;
+        b=VZTO6OLYfCrvEEQBV5kAeTiwuRmD9tTh51R9YlQ/2JLsmqezoka6HAQnxAxg04EE2l
+         sIwej3R9fzZRGqs68RNBc5KULp0jArSYuxJK+F3ompAMy7VRw2RdMzqbdnk88oA7MfAL
+         w/oIm0oMNPUOcpvmcUE8Ow5ZPCaUMQ4cVjGhQVL5NOdtbgoyJrCk6j4uNDNsCAviJMfC
+         nrO5Yduxxk/vE9YGbXatDvu4ulFHt1RpFpkuac9+J3jmz8uljw9R4+2ygUkL6omnTz8D
+         h75Bd6zT7TtFNqaMpr8XoPNPhr3EZEDKLB15UVfC4blvBydi3QehkyOSjGLjJ1/RFs10
+         E/uA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=Bi0thlVz;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::129 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-il1-x129.google.com (mail-il1-x129.google.com. [2607:f8b0:4864:20::129])
-        by gmr-mx.google.com with ESMTPS id h135-20020a1f218d000000b0036c18b4c646si194930vkh.2.2022.07.11.05.44.22
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=NGwk1jTu;
+       spf=pass (google.com: domain of kbusch@kernel.org designates 145.40.68.75 as permitted sender) smtp.mailfrom=kbusch@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from ams.source.kernel.org (ams.source.kernel.org. [145.40.68.75])
+        by gmr-mx.google.com with ESMTPS id ay14-20020a05600c1e0e00b003a2e98573desi84008wmb.3.2022.07.11.07.59.44
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Jul 2022 05:44:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::129 as permitted sender) client-ip=2607:f8b0:4864:20::129;
-Received: by mail-il1-x129.google.com with SMTP id h16so2935156ila.2
-        for <clang-built-linux@googlegroups.com>; Mon, 11 Jul 2022 05:44:22 -0700 (PDT)
-X-Received: by 2002:a05:6e02:1549:b0:2dc:616a:1dd4 with SMTP id
- j9-20020a056e02154900b002dc616a1dd4mr8633961ilu.131.1657543461597; Mon, 11
- Jul 2022 05:44:21 -0700 (PDT)
-MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Mon, 11 Jul 2022 18:14:10 +0530
-Message-ID: <CA+G9fYtDr=tqPmM6f9aGQOfqkxUo-yP-kHBQG787D0Cj6oO-dg@mail.gmail.com>
-Subject: Block: bio.c:1232:6: error: variable 'i' is used uninitialized
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 11 Jul 2022 07:59:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kbusch@kernel.org designates 145.40.68.75 as permitted sender) client-ip=145.40.68.75;
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 9083BB80EB5;
+	Mon, 11 Jul 2022 14:59:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CA62C34115;
+	Mon, 11 Jul 2022 14:59:42 +0000 (UTC)
+Date: Mon, 11 Jul 2022 08:59:39 -0600
+From: Keith Busch <kbusch@kernel.org>
+To: Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: open list <linux-kernel@vger.kernel.org>,
+	Linux-Next Mailing List <linux-next@vger.kernel.org>,
+	linux-block <linux-block@vger.kernel.org>,
+	lkft-triage@lists.linaro.org, regressions@lists.linux.dev,
+	Jens Axboe <axboe@kernel.dk>, Al Viro <viro@zeniv.linux.org.uk>,
+	Christoph Hellwig <hch@lst.de>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: Block: bio.c:1232:6: error: variable 'i' is used uninitialized
  whenever 'if' condition is true [-Werror,-Wsometimes-uninitialized]
-To: open list <linux-kernel@vger.kernel.org>, 
-	Linux-Next Mailing List <linux-next@vger.kernel.org>, linux-block <linux-block@vger.kernel.org>, 
-	lkft-triage@lists.linaro.org, regressions@lists.linux.dev
-Cc: Jens Axboe <axboe@kernel.dk>, Al Viro <viro@zeniv.linux.org.uk>, 
-	Christoph Hellwig <hch@lst.de>, clang-built-linux <clang-built-linux@googlegroups.com>
+Message-ID: <Ysw627zSWSrEzrUZ@kbusch-mbp>
+References: <CA+G9fYtDr=tqPmM6f9aGQOfqkxUo-yP-kHBQG787D0Cj6oO-dg@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: naresh.kamboju@linaro.org
+Content-Disposition: inline
+In-Reply-To: <CA+G9fYtDr=tqPmM6f9aGQOfqkxUo-yP-kHBQG787D0Cj6oO-dg@mail.gmail.com>
+X-Original-Sender: kbusch@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=Bi0thlVz;       spf=pass
- (google.com: domain of naresh.kamboju@linaro.org designates
- 2607:f8b0:4864:20::129 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@kernel.org header.s=k20201202 header.b=NGwk1jTu;       spf=pass
+ (google.com: domain of kbusch@kernel.org designates 145.40.68.75 as permitted
+ sender) smtp.mailfrom=kbusch@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,83 +140,18 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Following regression found with clang i386 and x86 builds failed on
-Linux next-20220711 tag. Please find the build error logs.
+On Mon, Jul 11, 2022 at 06:14:10PM +0530, Naresh Kamboju wrote:
+> Following regression found with clang i386 and x86 builds failed on
+> Linux next-20220711 tag. Please find the build error logs.
+> 
+> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Reported-by: Naresh Kamboju <naresh.kamboju@linaro.org>
-
-Regressions found on i386:
-
-   - build-clang-12-defconfig
-   - build-clang-nightly-lkftconfig
-   - build-clang-13-defconfig
-   - build-clang-12-lkftconfig
-   - build-clang-14-lkftconfig
-   - build-clang-nightly-defconfig
-   - build-clang-13-lkftconfig
-
-Regressions found on x86_64:
-
-   - build-clang-nightly-x86_64_defconfig
-   - build-clang-nightly-lkftconfig
-   - build-clang-13-lkftconfig
-   - build-clang-12-lkftconfig
-   - build-clang-13-lkftconfig-kcsan
-   - build-clang-14-lkftconfig
-   - build-clang-14-x86_64_defconfig
-
-make --silent --keep-going --jobs=8
-O=/home/tuxbuild/.cache/tuxmake/builds/1/build LLVM=1 LLVM_IAS=1
-ARCH=x86_64 CROSS_COMPILE=x86_64-linux-gnu- 'HOSTCC=sccache clang'
-'CC=sccache clang'
-block/bio.c:1232:6: error: variable 'i' is used uninitialized whenever
-'if' condition is true [-Werror,-Wsometimes-uninitialized]
-        if (unlikely(!size)) {
-            ^~~~~~~~~~~~~~~
-include/linux/compiler.h:78:22: note: expanded from macro 'unlikely'
-# define unlikely(x)    __builtin_expect(!!(x), 0)
-                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
-block/bio.c:1254:9: note: uninitialized use occurs here
-        while (i < nr_pages)
-               ^
-block/bio.c:1232:2: note: remove the 'if' if its condition is always false
-        if (unlikely(!size)) {
-        ^~~~~~~~~~~~~~~~~~~~~~
-block/bio.c:1202:17: note: initialize the variable 'i' to silence this warning
-        unsigned len, i;
-                       ^
-                        = 0
-1 error generated.
-
-Build details:
----------------
-        download_url: https://builds.tuxbuild.com/2BnQO6OXSJejfpLO4fQ3fWa5wVT/,
-        git_describe: next-20220711,
-        git_repo: https://gitlab.com/Linaro/lkft/mirrors/next/linux-next,
-        git_sha: 4112a8699ae2eac797415b9be1d7901b3f79e772,
-        git_short_log: 4112a8699ae2 (\Add linux-next specific files
-for 20220711\),
-        kconfig: https://builds.tuxbuild.com/2BnQO6OXSJejfpLO4fQ3fWa5wVT/config
-        kernel_version: 5.19.0-rc6,
-        make_variables: {
-            LLVM: 1,
-            LLVM_IAS: 1
-        },
-
-Steps to reproduce:
-tuxmake --runtime podman --target-arch x86_64 --toolchain clang-14
---kconfig https://builds.tuxbuild.com/2BnQO6OXSJejfpLO4fQ3fWa5wVT/config
-LLVM=1 LLVM_IAS=1
-
-Best regards
-Naresh Kamboju
-
---
-Linaro LKFT
-https://lkft.linaro.org
+Sorry, I needed to send a v2 of this patch. I didn't realize this was already
+merged (it doesn't appear in the block tree), though, so I'm not sure if I need
+send a fixup patch or the correct version now.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYtDr%3DtqPmM6f9aGQOfqkxUo-yP-kHBQG787D0Cj6oO-dg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/Ysw627zSWSrEzrUZ%40kbusch-mbp.
