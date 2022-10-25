@@ -1,136 +1,122 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBVUF3KNAMGQES2XJOBY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCT6537ZTEKRBWWH3WNAMGQETVC2A6Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 78F8A60A4F1
-	for <lists+clang-built-linux@lfdr.de>; Mon, 24 Oct 2022 14:19:35 +0200 (CEST)
-Received: by mail-lj1-x23b.google.com with SMTP id t8-20020a2e9548000000b0027702e8a5b2sf2319460ljh.20
-        for <lists+clang-built-linux@lfdr.de>; Mon, 24 Oct 2022 05:19:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1666613974; cv=pass;
+Received: from mail-ed1-x538.google.com (mail-ed1-x538.google.com [IPv6:2a00:1450:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0B10160C28C
+	for <lists+clang-built-linux@lfdr.de>; Tue, 25 Oct 2022 06:19:39 +0200 (CEST)
+Received: by mail-ed1-x538.google.com with SMTP id z7-20020a05640235c700b0045d3841ccf2sf10967676edc.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 24 Oct 2022 21:19:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1666671578; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HSjaB0O2lW3ywSULQfaDGpE8F1NG74vlbEOqhxDa85leXVr5SGgDB1y2xLzZTsL7Wm
-         C88Bzit3houJHWyIPQmQfdzfQo6j3/A0Vka2BKUhtzbtALW+jOMBOfB9RJFzrt8UyTLu
-         3BdzsBKHkCgc4rMOBBBnbch0zPPoKL6P673atwTf+mZU4eJ676ro6WF4DDPHRDB86n9d
-         uBE8EqjSnob7AnvcS99RtJ6X4C+VVWUCUc11QEXJpjN1CY0WvcPt035SkHEs23uc2jDd
-         wYtkjMwrdYTKez4/xYUjbutHRrH/IflVF0e2DF25wixXR4n5Q5FfyFq6b8OtTAHWR4ri
-         8U/g==
+        b=InXgOJFJTZmydx1V1kHcaq1zQ5kUtVAwkJuqFFQgZVotxgxHbBzgQAgPsQyJqOa4ui
+         9FuXM8F/aWgLqErJNdmfLpOHw5y1x/im0R21wXEDGYzITljuVRaAD+a/SkkaqhiXAnT6
+         aWcNDo/eOODsH4cCQxmXQGL/giKwQDBZPUK69kFvksDlYV3UgMNY8YCIwWxyeSunWmbn
+         ywKwJbFMxGZV1HHjV5Ki88IKdFH1h0zpeZ74+kHxGGsAEFmaEFkp4bb78De73Gc5yCES
+         Kuz0Bj2jUiXfpMLl6maQoK12M0Mn4hoeLcdmz79CDa6RU+2S+IdKDtWVXiRCRqg16N3F
+         CGsA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:message-id:date:subject:cc:to:from:sender
-         :dkim-signature;
-        bh=JlWdC8gf8mT9omD3Hfg4NZUfgQBaETNBd7UQFNuVZco=;
-        b=sX57YwsBpjqH0vjDuKoxISdg5DY0mI3/A/RBSUYCUtjDRMTVdsAyk4b0FZ1opdEjF4
-         9ECogTobRvApddJ8f2SWqIfldLoNJ1kAZAyY6X/a+9ueTC9EpnwYM2hVDnBiE7gOnBLT
-         XE1zOnosCaJBcx9UHEUQu8NUsdAfFbBDHHyaULle70ArBdtX0kWsqbDp1i6UjWWu3vT1
-         OAKLl2ctiEemVrordFqBl1yXi2cglEkbZZhcYbg5uiZ8IVbt6cJQpV9I5ZVS3mZx52h1
-         PD8ObNC5/k7NnP16bISl0BgaH4RFaa3vS0N5ceJVBRjTJiZWbmmLIUoLN+e6YnHA07H6
-         ZGvA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :mime-version:sender:dkim-signature;
+        bh=a+trQz8zYExtfNR8X7GaXUqIV4Bi9I78PRG4ysXhMcY=;
+        b=VaFOReBwae51ZFKfMHq11TniyruauxnrreUF7m+zI1a/3FOOEhGzwdDm8SQgJMFphv
+         bsLijISzbOZhhfFj90Xv8B+MYb34c9rh7KjL6g7mN0/HxueSj1on6QCB77lcIz8SFKNB
+         Zv0Q4n2oAgeLtVMda90sa3BUkNVWuDJvAiTZQ84xE2oEGTOoPigS1cUaRh+L2/bWo1LP
+         FCzrC70B2h2oVc1oKXbIsQMd0TPZDf6zr7nDJx3+TUx9CZ4lKA1676kLq/3zje8tfKCx
+         zEen4LfNxGmzmHmD1ntdpkO3IJ5vp8rMHZQBCTAoSmXK3o3ViIhllu6qprHFe5sn/cYx
+         ds5w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=pDQqV9s9;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:4601:e00::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+       dkim=pass header.i=@linaro.org header.s=google header.b=L5t9dACO;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::536 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:x-original-authentication-results
-         :x-original-sender:mime-version:user-agent:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JlWdC8gf8mT9omD3Hfg4NZUfgQBaETNBd7UQFNuVZco=;
-        b=JdvXUAZySKSibtLD6vTlrMiYWu9Bs6b//tvpCFE3x0csQk+xzUdmYV3W/+XU093TyS
-         eAgeo75m662XO4zZVWTcPBDGGjYuTux/KsD6QCuijia60/uIsZ3B4Q4UKxi6FP9UQ5Ti
-         i6FyVnlbvpb0Q4T6ZAS2DAk89iQ9NcQS3PdNml9p1dC5edaS2eF1euOe4kIj/qFLl5xa
-         GJiip1JO+Nm5hDjusyiXJVzEOKDYruFpx7bBiDj8rw67DXb5xguK7w4SHSbKOhctU1oj
-         HwkR6GpKTfgWP9Cbvu1HvIyT5YlJaBMrH4ONcFtKhYUeFonCSXX0zVu3AfEBwkmWZljo
-         pkaA==
+         :x-original-sender:cc:to:subject:message-id:date:from:mime-version
+         :sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=a+trQz8zYExtfNR8X7GaXUqIV4Bi9I78PRG4ysXhMcY=;
+        b=OMSFTfKsKtMA1FEGuUhWNVcI0MJ1EbnMYJJIFPc6f8pVVsAYV70jsCTcFIaUDFjk4t
+         pEvIm6Z0nbbdb68a8zkeAG0vuzdAv3HJsDHIelcR2JyKkS/iSPY9Njto7BoO7beP+8Xs
+         k8kR+1QNq+/Wkt+aX8qWE/Y9qGqYCsTzj3UEvvjPN+N+6caAK0714qRocZaCsriDBHkt
+         XCAIfJXg0lfiW37mXdNCairYdZYrBUhWlxLvEBroDMTVEboEGJcKRos8GU4pkVeTG/09
+         RX6t9jvES43BCYphOET/jMdDYyoiViJNmwZRNo/T3wfto/ATt3+vixMeQZj2LE5YmOeX
+         DvBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:mime-version
-         :user-agent:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-message-state:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JlWdC8gf8mT9omD3Hfg4NZUfgQBaETNBd7UQFNuVZco=;
-        b=tLBXHldzkEc26GyQ1ANHc7Fe9uTd2EgS4/UzZAyr3+a/tQma9dJhaXOaSgknNyMTN3
-         hcdB/L7CTMZnVvz4iAFBp+6p2cQomShvbUfucpOYCiDQbNd1J4owe4hZe23pBBkEwIYY
-         +GJk9k4yKphtl968YDHHXG3/j1XMGcpAp7jUQb1FhRsRinq+2hmELVOW/8sb6A+bF7eV
-         jMqpWFTzzO35s2EzqO8tmtO/JYiD5AYLAMSo8PeU4sq3hRxl89TrrX47shYmVJ1Sb0+H
-         kz+/rTcLKVm2hahS8d1m8n16DDu8x3uT9tnm+Jd3OpLOvDuLPvo9W9sQG05oXdhX1Vsi
-         Ojaw==
+         :x-original-authentication-results:x-original-sender:cc:to:subject
+         :message-id:date:from:mime-version:x-gm-message-state:sender:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=a+trQz8zYExtfNR8X7GaXUqIV4Bi9I78PRG4ysXhMcY=;
+        b=FCfxWX2WcZrMNTiVWv2ZyEPNhvvV8Be/sg2o8haV738EA5M40q8qMZgSR8zkAFpACf
+         QGwAqDyGiGKFNc4V97+oDQneDfaP1sl4LaHpjjleFMUjvIIAZts1CC3JwzC4h8rEAjV/
+         MnjBlll6bmWOSbHqe9AhMgG/9VNVpeOA5N1OZs6bWAKvpgA6Bbt2OwPuMWFAKGW7oanz
+         ejsKxmF7j7F089TmLAmKXNq23mWHBizsXMnEQ8V5D950CCBwPtYRphXED6cZz6TIRUkC
+         +G8VR348cEWsydtLKT6GWnPtEhzAjkwsHbbDciSUArUeHrexze8t1KByu8z9lQrU1JOy
+         71xg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ACrzQf1At411+KURfcZIlwTMDjNZ8FsnKGFVbY8g94d6wRGFWtB3i8Bo
-	+ZMQPU2i4uCfLRhvUDgRWk0=
-X-Google-Smtp-Source: AMsMyM50YIcX1WZNbYhfmyZHWqYzUuzSKhRejFU7SOkkgf5faUSnr+7khlkDQZQ8dKhfKCh1V66jiA==
-X-Received: by 2002:a05:6512:3e13:b0:499:1829:5181 with SMTP id i19-20020a0565123e1300b0049918295181mr12227795lfv.71.1666613974384;
-        Mon, 24 Oct 2022 05:19:34 -0700 (PDT)
+X-Gm-Message-State: ACrzQf16ENeHqqHfE6wukyWFlGoYI1LuFTV2VziSVkk6xC4ewvRI4/y+
+	L6J9hgMLFuB/M/6/unSrcuI=
+X-Google-Smtp-Source: AMsMyM75Qd8cWqkKNAwtRw+SSngKFJvtvVy2mYwio/CUy4bcDe88N+sXXOwHWRk1HFtD/XwYIqsEPg==
+X-Received: by 2002:a17:907:d22:b0:78e:2788:51ae with SMTP id gn34-20020a1709070d2200b0078e278851aemr29951613ejc.689.1666671578312;
+        Mon, 24 Oct 2022 21:19:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:bf29:0:b0:26f:b780:6802 with SMTP id c41-20020a2ebf29000000b0026fb7806802ls1810738ljr.0.-pod-prod-gmail;
- Mon, 24 Oct 2022 05:19:33 -0700 (PDT)
-X-Received: by 2002:a05:651c:54e:b0:26f:df91:ba27 with SMTP id q14-20020a05651c054e00b0026fdf91ba27mr11343969ljp.414.1666613973147;
-        Mon, 24 Oct 2022 05:19:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1666613973; cv=none;
+Received: by 2002:a17:906:3a91:b0:776:305f:399f with SMTP id
+ y17-20020a1709063a9100b00776305f399fls5665158ejd.1.-pod-prod-gmail; Mon, 24
+ Oct 2022 21:19:37 -0700 (PDT)
+X-Received: by 2002:a17:906:4791:b0:7ac:98e7:eda7 with SMTP id cw17-20020a170906479100b007ac98e7eda7mr271948ejc.321.1666671576715;
+        Mon, 24 Oct 2022 21:19:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1666671576; cv=none;
         d=google.com; s=arc-20160816;
-        b=POJC049HFZqOK1FduHRvKCO2PHTDXjaNwXBl4D3Q+TdyYIQVQtuhKbi6kl/dk25ad2
-         aHs+KgjnAWBC+ijJ1VrqhwcOZ90JBGR08CTiB7kKS111jx8atvIeDNtW3xk2hXScDk2l
-         r2OYAgMe0R5mbgtv4uLqeiQo/dZNsYcl7LwkoPqd6CYDV4sMCpummeCc9xlJtPXH7kyH
-         lke5Dhf/Cbtaa3QWBolK6w2Gb+vmZkhsv5w39rw5SdHLI2qXUMQIpRDr2aI4mabiCuuy
-         HSkziLvucFfZl3mIDgvmwYXrDOZSaXDMaPPgyK0ejcqeghaCj/L+ikhUsCmgcWou4TPO
-         Vb8A==
+        b=vZtJuEkFB4ZH+j8HYLLIlMqzWxAoMDa2JlOza5LCqYU0HOHWPiQ2J6O2EOybwpve+F
+         zz8nsVYG3t9MRYyGnlfhH8sjbfjHJ+wb0KhoyYFPjjWRMk1NWtCfoxdJeqhHpntfXbO2
+         KbxgGaCjFnGMi43XnsQSSiZVjul6WeVpvdR9cZ71Nipz11pR6gt+8IjFOcBrut5+uZ8E
+         /nYzTcX8dzgd08tf5iEC/Fg6deV5BuK6x3EKyzfMonRFanYLqXDGRKCyLa3WspJF+lMT
+         0pqWOkyYtU1KMOkd4Y706UzljDM5d9wz8DwRxOthJPgcM3kDnwU9AvU4We4UXlwfZKOe
+         Leng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=wZPxi2FHspOrUvPKLX0hasprZ91j50U1MYBVGhjBYgM=;
-        b=RI0+k9kvaNT0n/PDgR1dJL58F91ZpmTscbU6+WmtHoOQGbDQ7u1ah30Wzc9BlcC5j0
-         R9jM/Z6s/SScWfLkr6OHxiwYF49UypXOeGoScPSdN+rFO6l+xRqlsNng1DKGUA0irtWN
-         /qKJtQmmg3sA7PJUhH7qdlHfWcKBYayh39rVUrZ77tJAKFEmiaC8WEdqElIxMcusAiOB
-         yhk25tKbwpn2eOAuE2FBHM2BgOryqzbIdrFQ5+0B545Kwpgi130HY+W8G9HcQbafcqoP
-         yK3l/S56B+LYyUrY3juAQ3GhTRbwdI2mcSWsP+ZoOU0LmZ/KRIQVrqoTLnvk0Eg0uXKB
-         5kfw==
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=jE7EEHygapTbBlOi1/r0KUl4gfCfTSeyBtwcchujuS4=;
+        b=gt7nHDDpRB9SKMMC5xAQeZnxBqaDvvL4bReoENqvRQnW7mBXeGZXj+98anh2oHVun5
+         UShIFzawYuA1gADQom3+VLBx9HdgQFg+h/b3zl3WjtO8DFwcxjYmHlxcJn0Fk7Ven5UP
+         07Nyrf2N7Yev/hTFuTEDxCYnulh9tknncOo7vfPht/r5bHAmC8rxrROduBGG6ChaDweb
+         3xGhG2ugHtl5UHsV8TU8y5puzZuqr7M2ufuJwpD5WqzLorwTOJ21ZLiHJbEMcs0DPhgt
+         5muGeMUcFVqJw9s3Vdwb6Dwu1+ZeFSVkGJfctTLLjgMsyVOLhDiiA77hKmGi2z7SrJbc
+         VNmQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=pDQqV9s9;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:4601:e00::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
-Received: from ams.source.kernel.org (ams.source.kernel.org. [2604:1380:4601:e00::1])
-        by gmr-mx.google.com with ESMTPS id m6-20020a056512114600b004abdb5d1128si66675lfg.2.2022.10.24.05.19.33
+       dkim=pass header.i=@linaro.org header.s=google header.b=L5t9dACO;
+       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::536 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-ed1-x536.google.com (mail-ed1-x536.google.com. [2a00:1450:4864:20::536])
+        by gmr-mx.google.com with ESMTPS id t11-20020aa7d4cb000000b0045757c7cb91si50771edr.4.2022.10.24.21.19.36
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 24 Oct 2022 05:19:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:4601:e00::1 as permitted sender) client-ip=2604:1380:4601:e00::1;
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 97A22B8163F;
-	Mon, 24 Oct 2022 12:19:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F25AFC433C1;
-	Mon, 24 Oct 2022 12:19:30 +0000 (UTC)
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: linux-kernel@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	stable@vger.kernel.org,
-	glider@google.com,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	linux-security-module@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Kees Cook <keescook@chromium.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>
-Subject: [PATCH 5.10 053/390] hardening: Clarify Kconfig text for auto-var-init
-Date: Mon, 24 Oct 2022 13:27:30 +0200
-Message-Id: <20221024113024.895215368@linuxfoundation.org>
-X-Mailer: git-send-email 2.38.1
-In-Reply-To: <20221024113022.510008560@linuxfoundation.org>
-References: <20221024113022.510008560@linuxfoundation.org>
-User-Agent: quilt/0.67
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Oct 2022 21:19:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2a00:1450:4864:20::536 as permitted sender) client-ip=2a00:1450:4864:20::536;
+Received: by mail-ed1-x536.google.com with SMTP id a67so34461668edf.12
+        for <clang-built-linux@googlegroups.com>; Mon, 24 Oct 2022 21:19:36 -0700 (PDT)
+X-Received: by 2002:a05:6402:3c5:b0:45b:55d8:21ff with SMTP id
+ t5-20020a05640203c500b0045b55d821ffmr34082611edw.253.1666671575538; Mon, 24
+ Oct 2022 21:19:35 -0700 (PDT)
 MIME-Version: 1.0
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Tue, 25 Oct 2022 09:49:24 +0530
+Message-ID: <CA+G9fYvGe+fHXw8RMeZuXB-rGVDjs81m9_RwDq73R+pnVpYjEw@mail.gmail.com>
+Subject: Clang Build warning detected - include/linux/memremap.h:258:9: error:
+ expression which evaluates to zero treated as a null pointer constant of type
+ 'struct folio *' [-Werror,-Wnon-literal-null-conversion]
+To: clang-built-linux <clang-built-linux@googlegroups.com>, 
+	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org
+Cc: Nathan Chancellor <nathan@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: gregkh@linuxfoundation.org
+X-Original-Sender: naresh.kamboju@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=pDQqV9s9;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates
- 2604:1380:4601:e00::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+ header.i=@linaro.org header.s=google header.b=L5t9dACO;       spf=pass
+ (google.com: domain of naresh.kamboju@linaro.org designates
+ 2a00:1450:4864:20::536 as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,126 +129,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Kees Cook <keescook@chromium.org>
+Following build warning / errors noticed while building x86_64 with clang
+on Linux next-20221025 tag.
 
-commit dcb7c0b9461c2a30f6616262736daac6f01ecb09 upstream.
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
 
-Clarify the details around the automatic variable initialization modes
-available. Specifically this details the values used for pattern init
-and expands on the rationale for zero init safety. Additionally makes
-zero init the default when available.
+## Build
+* kernel: 6.1.0-rc1
+* git: https://gitlab.com/Linaro/lkft/mirrors/next/linux-next
+* git branch: master
+* git commit: 76cf65d1377f733af1e2a55233e3353ffa577f54
+* git describe: next-20221024
+* test details:
+https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20221024
 
-Cc: glider@google.com
-Cc: Nathan Chancellor <nathan@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>
-Cc: linux-security-module@vger.kernel.org
-Cc: clang-built-linux@googlegroups.com
-Signed-off-by: Kees Cook <keescook@chromium.org>
-Acked-by: Gustavo A. R. Silva <gustavoars@kernel.org>
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- security/Kconfig.hardening |   52 +++++++++++++++++++++++++++------------------
- 1 file changed, 32 insertions(+), 20 deletions(-)
+## Test Regressions (compared to next-20221021)
+* i386, build
+  - clang-12-lkftconfig
+  - clang-13-lkftconfig
+  - clang-14-lkftconfig
+  - clang-nightly-lkftconfig
 
---- a/security/Kconfig.hardening
-+++ b/security/Kconfig.hardening
-@@ -29,6 +29,7 @@ choice
- 	prompt "Initialize kernel stack variables at function entry"
- 	default GCC_PLUGIN_STRUCTLEAK_BYREF_ALL if COMPILE_TEST && GCC_PLUGINS
- 	default INIT_STACK_ALL_PATTERN if COMPILE_TEST && CC_HAS_AUTO_VAR_INIT_PATTERN
-+	default INIT_STACK_ALL_ZERO if CC_HAS_AUTO_VAR_INIT_PATTERN
- 	default INIT_STACK_NONE
- 	help
- 	  This option enables initialization of stack variables at
-@@ -39,11 +40,11 @@ choice
- 	  syscalls.
- 
- 	  This chooses the level of coverage over classes of potentially
--	  uninitialized variables. The selected class will be
-+	  uninitialized variables. The selected class of variable will be
- 	  initialized before use in a function.
- 
- 	config INIT_STACK_NONE
--		bool "no automatic initialization (weakest)"
-+		bool "no automatic stack variable initialization (weakest)"
- 		help
- 		  Disable automatic stack variable initialization.
- 		  This leaves the kernel vulnerable to the standard
-@@ -80,7 +81,7 @@ choice
- 		  and is disallowed.
- 
- 	config GCC_PLUGIN_STRUCTLEAK_BYREF_ALL
--		bool "zero-init anything passed by reference (very strong)"
-+		bool "zero-init everything passed by reference (very strong)"
- 		depends on GCC_PLUGINS
- 		depends on !(KASAN && KASAN_STACK=1)
- 		select GCC_PLUGIN_STRUCTLEAK
-@@ -91,33 +92,44 @@ choice
- 		  of uninitialized stack variable exploits and information
- 		  exposures.
- 
-+		  As a side-effect, this keeps a lot of variables on the
-+		  stack that can otherwise be optimized out, so combining
-+		  this with CONFIG_KASAN_STACK can lead to a stack overflow
-+		  and is disallowed.
-+
- 	config INIT_STACK_ALL_PATTERN
--		bool "0xAA-init everything on the stack (strongest)"
-+		bool "pattern-init everything (strongest)"
- 		depends on CC_HAS_AUTO_VAR_INIT_PATTERN
- 		help
--		  Initializes everything on the stack with a 0xAA
--		  pattern. This is intended to eliminate all classes
--		  of uninitialized stack variable exploits and information
--		  exposures, even variables that were warned to have been
--		  left uninitialized.
-+		  Initializes everything on the stack (including padding)
-+		  with a specific debug value. This is intended to eliminate
-+		  all classes of uninitialized stack variable exploits and
-+		  information exposures, even variables that were warned about
-+		  having been left uninitialized.
- 
- 		  Pattern initialization is known to provoke many existing bugs
- 		  related to uninitialized locals, e.g. pointers receive
--		  non-NULL values, buffer sizes and indices are very big.
-+		  non-NULL values, buffer sizes and indices are very big. The
-+		  pattern is situation-specific; Clang on 64-bit uses 0xAA
-+		  repeating for all types and padding except float and double
-+		  which use 0xFF repeating (-NaN). Clang on 32-bit uses 0xFF
-+		  repeating for all types and padding.
- 
- 	config INIT_STACK_ALL_ZERO
--		bool "zero-init everything on the stack (strongest and safest)"
-+		bool "zero-init everything (strongest and safest)"
- 		depends on CC_HAS_AUTO_VAR_INIT_ZERO
- 		help
--		  Initializes everything on the stack with a zero
--		  value. This is intended to eliminate all classes
--		  of uninitialized stack variable exploits and information
--		  exposures, even variables that were warned to have been
--		  left uninitialized.
--
--		  Zero initialization provides safe defaults for strings,
--		  pointers, indices and sizes, and is therefore
--		  more suitable as a security mitigation measure.
-+		  Initializes everything on the stack (including padding)
-+		  with a zero value. This is intended to eliminate all
-+		  classes of uninitialized stack variable exploits and
-+		  information exposures, even variables that were warned
-+		  about having been left uninitialized.
-+
-+		  Zero initialization provides safe defaults for strings
-+		  (immediately NUL-terminated), pointers (NULL), indices
-+		  (index 0), and sizes (0 length), so it is therefore more
-+		  suitable as a production security mitigation than pattern
-+		  initialization.
- 
- endchoice
- 
+* x86_64, build
+  - clang-12-lkftconfig
+  - clang-13-lkftconfig
+  - clang-14-lkftconfig
+  - clang-nightly-lkftconfig
 
+
+make --silent --keep-going --jobs=8
+O=/home/tuxbuild/.cache/tuxmake/builds/1/build LLVM=1 LLVM_IAS=1
+ARCH=x86_64 CROSS_COMPILE=x86_64-linux-gnu- HOSTCC=clang CC=clang
+In file included from arch/x86/kernel/asm-offsets.c:13:
+In file included from include/linux/suspend.h:5:
+In file included from include/linux/swap.h:9:
+In file included from include/linux/memcontrol.h:20:
+In file included from include/linux/mm.h:31:
+include/linux/memremap.h:258:9: error: expression which evaluates to
+zero treated as a null pointer constant of type 'struct folio *'
+[-Werror,-Wnon-literal-null-conversion]
+        return false;
+               ^~~~~
+1 error generated.
+make[2]: *** [scripts/Makefile.build:118: arch/x86/kernel/asm-offsets.s] Error 1
+
+
+--
+Linaro LKFT
+https://lkft.linaro.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20221024113024.895215368%40linuxfoundation.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYvGe%2BfHXw8RMeZuXB-rGVDjs81m9_RwDq73R%2BpnVpYjEw%40mail.gmail.com.
