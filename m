@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDDO3Z5P4YJRBJGOVKOQMGQEC5DHPXY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDDO3Z5P4YJRBKOOVKOQMGQEE4DZHFI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id A81BC65681F
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Dec 2022 09:04:53 +0100 (CET)
-Received: by mail-io1-xd3a.google.com with SMTP id u1-20020a5d8181000000b006ee29a8c421sf4162774ion.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Dec 2022 00:04:53 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1672128292; cv=pass;
+Received: from mail-ua1-x93f.google.com (mail-ua1-x93f.google.com [IPv6:2607:f8b0:4864:20::93f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7F349656826
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Dec 2022 09:04:58 +0100 (CET)
+Received: by mail-ua1-x93f.google.com with SMTP id x29-20020ab05add000000b0050f5111c4f0sf519618uae.5
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Dec 2022 00:04:58 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1672128297; cv=pass;
         d=google.com; s=arc-20160816;
-        b=G2/72llVZhIJ6srVAjSMAAm8ktTF8KxqhCoi2pq59N962uJcehMh44tb1jqoI4dvLV
-         79PT6jpXXuxhHjf+t6NB5JGtRPZ5vXriKp/eKeRsiGKo8gKuLKB9NGSWt20ym2KihXpG
-         CvtvhQCNcj5wxdhyAlJBLALDUdpGmf4Vig4rjz8S04oNlNWFZkzs4JObUG0IfYlkwthL
-         eAcSKBWyK9MrVQiAM4EMa1oA2OgMviIQ1nlhyIhZPkkpaADEx/LaJ2Y4D49KLVHsoOq1
-         QGNQLIKqp6Z6Yex8sPW9f6Wh7czaMUGjBqsO3yDkU0xP7CYLjujlPNwzcUv8ysfP7ynT
-         vCcQ==
+        b=k8MhJaXjwd2LbqfHcsWgaJVjPdpXjybEVIhQx9/1TjI8uzovcpVLjf4Nsh+qmDPHPC
+         TREjjzs6/Ga9Cu08E1UdQgDK+524JPKe0PgXOnYbtYg5GGKR2NrkJWQ1Kw/GrVmHXXhq
+         zQcF45iO6A/ROEt/hDjyvognEoN/ZW/NOnz+QPmsxHWKGNBcPU9Z39ne1HalfEv1z65n
+         Yy2kGSff6DIY7ako/L6T1keBeA2y02KT3REToAco+kgAo/waqsjjakIh6YloIuSJYcni
+         kCXJRaIqm6YFaeWmRvvQDqqKJ5kPR2EkB6OEH1uKM9hprAzjg/xIhVySzXDTwv3EBv/l
+         V0xA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=+MYL+1r1CtE8Ean7tQP0fAjYiiCPTKnupkcj0Si+8n8=;
-        b=flJC+WiL3UAQaFYphi7fi8GtopciJwuQWOZqpxXemfpKl5a+A8s0JOq6wHakCA6ktH
-         GAYuqZ8kTSiVZWYghLOlIgbTIJlDr7AC/U+86xVNeGdftXfZpO5mEP/QJgsuYrw4HBhy
-         nyMW9lNa97kw0nJJy8OA8uWez1zMzq7EDXAJAJ9ihq6+Ligcnb3yj1MCng5CZAGEvjuM
-         2GZyThcTPbrD0Yxm3thaqSqgHqpNnJx1fTPEzZNTZj1rO+ojuXDmQhk5hcLqKDUf5S1N
-         6KKcn3Md4m7kCI48fTIfIHcF9dOb/zAGa8BKBTwhj0qDJsXn98CqMfKMXSc8S8wXeJgc
-         ivUw==
+        bh=GtGOdPg7OCReaq/wDUO9VgBt6ZPVJ9PTDoYVTOweDQo=;
+        b=csTYCWJPiRsjxC8zUHA1tiVll2kKtRIXShSEX9gm9AhFMBMcOSrqbJ++/F8FPiX8Wy
+         0zsmav024SIYjYEOwx8roVaB/Q5kzfe8lTDlh49gPmq9o8fNV3w/XGyUVyFrwp+buMf9
+         H81ztuPM6BFz565TQ3vsB1VusjQNv4fs9AoUlDIej/vgphga21KYriLAtvre8JGJzTfQ
+         SLXpHo5hswlunCbjheahLpDCOla+pyCaIEoNqwCAnigARv74uU9sN/NYIcbpgEPaDis8
+         IUM4fWPRO0K4sIoA46xA4I4OhYHxIxm+phmjvvdDejaA6n4BQpunahYAlmVxnVD1e2wk
+         ueaQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mediatek.com header.s=dk header.b=A5KsqmHn;
-       spf=pass (google.com: domain of nancy.lin@mediatek.com designates 60.244.123.138 as permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;
+       dkim=pass header.i=@mediatek.com header.s=dk header.b=UTivBGqq;
+       spf=pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:x-original-sender:mime-version
          :references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=+MYL+1r1CtE8Ean7tQP0fAjYiiCPTKnupkcj0Si+8n8=;
-        b=pEPf/RlJRtXekqzvXDhRHt84Tgf0AEi/JmOorgSzum+ToZnuWIpcM0cjURQAkfk8ir
-         o5x9oNLppA9kBiTr36ZevWnHom+yCY8BeIwUdEBp1HAJrFba36JpdWZEVny4U7n185++
-         0gm4r51+AcDtINJPmOo3mfIprc7ml+qKRwLh8ASOd0ntKattETcXMn2Eu01jBoZ6YAP8
-         MYflRaFDzu38aUTySup+TJTMdW1wKPlNDZK7gWg4qQs9wqP7LQf6OXucB6CxZtBHbWcu
-         z3TIw1SrMTiZ58dvp/S7S2X+E2goubHC2Rc5NCA8/uROOp86JVPC5mVwFcJQlphJ3/gN
-         GF1w==
+        bh=GtGOdPg7OCReaq/wDUO9VgBt6ZPVJ9PTDoYVTOweDQo=;
+        b=U10DxQTZHvBgpm+kpASyLDWod4tjcfaznVfpjrbc+f1ocB+nEjEqABUSe2QMZm+FPL
+         budpAvqPr3gB3p6GYCKIJnjCtIZjIBgNoD0A7kItuXSFuLpI1XjXJ+3BxrUiOZfb12fX
+         ok2k8UYUwWTM7RggL4qu8iQTx91bomAWsq8oIckp2RNqS/A4A985SydD1I2GUoIlcZXT
+         W748l/KKVOre8jEL3o1MoOn1t8bsiZLeqwhopuwZ/YLKLsVoQTyc8VQdCAk7n58e84m6
+         sR4d5udg7RaeoKZEBoLIZLh5XOsKPYcnf7JAu5xKp7+eu4PceQbOWhbWysE/u0Hmm6ZJ
+         mcgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
@@ -50,66 +50,69 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:x-original-sender:mime-version
          :references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+MYL+1r1CtE8Ean7tQP0fAjYiiCPTKnupkcj0Si+8n8=;
-        b=aY4yquEOmLxMFQrT92XwFbiSk+pLOPz5b/caztoTRbCB5wmzQx+mmqJhvhb/qu0WlL
-         7Pv8xa8o6YvDPeG3MddROvwAQxRXP1SgWn93og4Iy3Hk6GWhgCI/9ZIrOTnfUL2u+3bG
-         0lZO6RDtdkj1ICeQXeyMJOBiM7g+O65PfGfA4ps/LSOXSLAZdK8KToZbgbtjC1i06sWm
-         wRrwvWsNkP/MTJeh+96x2O7nluNVynBwThpEq0UbnloC1I/bWB61ReJvLzQMB4ygOOaH
-         T77bVMuylcAIMrdKKLsZHvM/z8UywoJH4rJ1VJHIAX3VrONCUGJUZRq7wefG2dPg8gUS
-         sNVA==
-X-Gm-Message-State: AFqh2koY6vJ2EJlntYvMZxWf/nAQSdnkssKXBBe19CPs49p4VJiGPyRl
-	e7TijxZlPjW83wghPPpKHEA=
-X-Google-Smtp-Source: AMrXdXvB2N5vg3NC5Z+/owjqwL5IumIvfoAYS4Y4t/+vY9epee7h0d6zwKfIlKPG/IWE8QEYoOEVRQ==
-X-Received: by 2002:a05:6e02:d8f:b0:30b:df09:de12 with SMTP id i15-20020a056e020d8f00b0030bdf09de12mr1077010ilj.244.1672128292546;
-        Tue, 27 Dec 2022 00:04:52 -0800 (PST)
+        bh=GtGOdPg7OCReaq/wDUO9VgBt6ZPVJ9PTDoYVTOweDQo=;
+        b=0KPJQkUiWixdutkdVYGsK0og2l0OQCM9w10NafovqA08NkQ4AO83c0mpGJXFIHvX3l
+         vXvm+Px2iiRaomJV7RL6rpAUsEXrQCX/DcAKfTIUDYXx+FlZ3rH9wBharxx81d9rQB38
+         NPH9ryfTIJCV0nquJLR68x6V4h3uF0nvhqH2kO3dK45+BEYA/ZoAaPg0wvU7U4CNC/YJ
+         jsD76jSNzLZ7OBkeKZjd6aEh5BeZKWexxMDxUPJB7cOvHtguCA5pB2MG2txcU5PbG6VA
+         vAW2ogy/CO6W47YRaPnSQlFw84qFfxG5gSqlOMzwr0vp8pMtukpFIAk2jN7m36mAZLGM
+         tvvA==
+X-Gm-Message-State: AFqh2koukTHhRSnCSp31mCNDpkLi1vBYzKeUXEh/HI3NN+sNK5/DvGrL
+	bloNWzANAn8X/EwgGAMqCUg=
+X-Google-Smtp-Source: AMrXdXv8JudTp/aMttsEMDEG7vjDKhuAInK3hp96aq80xj+rN8tDSidXDoj+5TlJ/0cxZzllpeHSGA==
+X-Received: by 2002:a67:c383:0:b0:3c4:6b2b:592d with SMTP id s3-20020a67c383000000b003c46b2b592dmr1367258vsj.45.1672128297443;
+        Tue, 27 Dec 2022 00:04:57 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:9396:0:b0:6bc:6044:840e with SMTP id c22-20020a5d9396000000b006bc6044840els1882551iol.0.-pod-prod-gmail;
- Tue, 27 Dec 2022 00:04:52 -0800 (PST)
-X-Received: by 2002:a05:6602:14c:b0:6e0:2404:39b3 with SMTP id v12-20020a056602014c00b006e0240439b3mr13962516iot.0.1672128292077;
-        Tue, 27 Dec 2022 00:04:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1672128292; cv=none;
+Received: by 2002:a67:cb0c:0:b0:3b0:e9d9:3013 with SMTP id b12-20020a67cb0c000000b003b0e9d93013ls3065805vsl.0.-pod-prod-gmail;
+ Tue, 27 Dec 2022 00:04:57 -0800 (PST)
+X-Received: by 2002:a67:ce0f:0:b0:3b1:2b40:5213 with SMTP id s15-20020a67ce0f000000b003b12b405213mr12906539vsl.18.1672128296892;
+        Tue, 27 Dec 2022 00:04:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1672128296; cv=none;
         d=google.com; s=arc-20160816;
-        b=S3j83bOpLJR0gwcBQMiRldkOgNZkI4XPhFJA7iyK3C6PYYKFTZ9lIuyeY/WF3qCCI/
-         DS1lCEF7Vmm2mYevOB/oyFIDHTg2isTSISs/3iZzd1qqMmzJXN6Vj/5UD+Y5BHezTmfy
-         VavNlFObVEAGwnpnuAM1NYKNsa4zdjglc1oxZVcFJPgh5WKpx+/ZmtvUwGLs/2A7/8Rg
-         tgBqtpxMTJPNy9mBm+cShI8byQ0uPgDPBgv3s88VeHqOM7/H3aO/M0d77slkprWkFCDZ
-         8cMUgdpvttXM6iQz20YxtVrvNJgYNeq6jTm74Fi/cJJbQ7/IXoqc4csO0VoR7p2YK3MA
-         8h3w==
+        b=zWLCDOBiYKSGZ/YT15p6UhNkXCvinntLwfz2/DI9kWo9SwzaFPIGl5RV6fiH1qDiqJ
+         sV/3nNVek3K8f1LVoL6ENGS6NJ5zkMce5/foR8gMrBul5g8Lkn3XcHFvEnk00RpHaluL
+         zP51vgpa2+sefxEqSpku6e8ILWSMhK13Flo/7HlR5mhSN8dGlskGK3m/00dQ6kCOkcfH
+         25eFp5QrSvBXv2Za1a/+DxlPCKGiSPU+pD2cO1k/s1Cwr+GPvKSTw7/KAjI2TROiFMHf
+         3DVYicqcBhx8u7g1vNI2Ui7MNPk2RTQimxzKBV1c7QuPNBzjHMy2BzL7b52ROioLbplI
+         XggQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
          :from:dkim-signature;
-        bh=LI6KXZZE/kkO7EEm4dWHUktdzH3RaSMlvcmGHH9Zdtc=;
-        b=tPVKdchxN8Q4fnL6ZezeA4HL3bUk3M/kmJrG+D9C0lQJDOa+Ctz3kVuObeW2LpjWjn
-         g9LMrsew/YOAJJULBaX+x7473yVfCf1wSm5Z/up2iUA9k3nP2/6pYL1TTwWHx2Kyapf/
-         8r/nSFWc7YE7Ajdm/kH4/tQU9YzYw7Fd/VgZFkomXSG7uDS1B3AtWkimQnYsB+AVlisq
-         XHEboRPx9bltaHxG7Wv2CfDdXHP4gX44HB9oYiNmJAVxfzwSIUZyrX8w/GnLimI6HS1e
-         XaHIFokj483omUQ7dW8mmphFtpTn9rOa60MT8ErXZiWDBBrC9XNkioCvE8g4yEO1j4Yd
-         Lqgg==
+        bh=asubsfrj3x6D9k6xZSygp3Kz4dq3j95sozbxvbHSfRw=;
+        b=N+3GTyuSMw7aJBOv6gyNBXxI6Zv7HRtUw81Ti4ykfnzoYC8NtbhB+xB+zg/8toCujS
+         oBMs9pa3bIsQiS4FohkP0IZfdqG/0h3/XBce40kvZCeEqzE/m6jE9g0s2V9vglGkKUg+
+         pw+nUQkxlN7JbYIhOCen0j2pP7eJjiPN7DGKHD7Nxuh0BTf6e0Xdw+1u7c6Vpvea78gX
+         nFW3HmU+ovkrngse7wLLhzaUebX0HWmoIiE+6PgSdKUBMicUP96LZOrlmriGD2dBKVmP
+         8NU9oR9OoTLiirqnFnuNkBL9ZusUyyw6LQrhufsoXvX/0c6G958qOoUMeFw2kPWkFtSO
+         eWBg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mediatek.com header.s=dk header.b=A5KsqmHn;
-       spf=pass (google.com: domain of nancy.lin@mediatek.com designates 60.244.123.138 as permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;
+       dkim=pass header.i=@mediatek.com header.s=dk header.b=UTivBGqq;
+       spf=pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
-Received: from mailgw01.mediatek.com ([60.244.123.138])
-        by gmr-mx.google.com with ESMTPS id x1-20020a92b001000000b00302df8abfa9si894335ilh.1.2022.12.27.00.04.51
+Received: from mailgw02.mediatek.com ([210.61.82.184])
+        by gmr-mx.google.com with ESMTPS id az42-20020a05613003aa00b00418e1741f27si3098575uab.0.2022.12.27.00.04.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Dec 2022 00:04:52 -0800 (PST)
-Received-SPF: pass (google.com: domain of nancy.lin@mediatek.com designates 60.244.123.138 as permitted sender) client-ip=60.244.123.138;
-X-UUID: f2356c117da644ab82ea27516957f501-20221227
+        Tue, 27 Dec 2022 00:04:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) client-ip=210.61.82.184;
+X-UUID: 942cf9f31c044d89b319a1de87bd2c4a-20221227
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.14,REQID:5217815c-31ce-41a3-8a77-8e8bb958790c,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:dcaaed0,CLOUDID:39ac838a-8530-4eff-9f77-222cf6e2895b,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:11|1,File:nil,Bulk:nil,QS:nil,BEC:nil,COL:0
-X-UUID: f2356c117da644ab82ea27516957f501-20221227
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+X-CID-O-INFO: VERSION:1.1.14,REQID:a2bc0fa6-432a-4eaf-84ec-e6c13eeaf13b,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:95,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:95
+X-CID-INFO: VERSION:1.1.14,REQID:a2bc0fa6-432a-4eaf-84ec-e6c13eeaf13b,IP:0,URL
+	:0,TC:0,Content:0,EDM:0,RT:0,SF:95,FILE:0,BULK:0,RULE:Spam_GS981B3D,ACTION
+	:quarantine,TS:95
+X-CID-META: VersionHash:dcaaed0,CLOUDID:975212f4-ff42-4fb0-b929-626456a83c14,B
+	ulkID:221227160449I4JMQQUS,BulkQuantity:0,Recheck:0,SF:38|28|17|19|48,TC:n
+	il,Content:0,EDM:-3,IP:nil,URL:11|1,File:nil,Bulk:nil,QS:nil,BEC:nil,COL:0
+X-UUID: 942cf9f31c044d89b319a1de87bd2c4a-20221227
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
 	(envelope-from <nancy.lin@mediatek.com>)
 	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1162796468; Tue, 27 Dec 2022 16:04:46 +0800
+	with ESMTP id 1400316129; Tue, 27 Dec 2022 16:04:46 +0800
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.792.15; Tue, 27 Dec 2022 16:04:45 +0800
 Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
@@ -127,9 +130,9 @@ CC: Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers
 	<clang-built-linux@googlegroups.com>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
 	<singo.chang@mediatek.com>, Nancy.Lin <nancy.lin@mediatek.com>
-Subject: [PATCH v29 03/11] soc: mediatek: add mtk-mmsys ethdr and mdp_rdma components
-Date: Tue, 27 Dec 2022 16:04:35 +0800
-Message-ID: <20221227080443.6273-4-nancy.lin@mediatek.com>
+Subject: [PATCH v29 04/11] soc: mediatek: add mtk-mmsys support for mt8195 vdosys1
+Date: Tue, 27 Dec 2022 16:04:36 +0800
+Message-ID: <20221227080443.6273-5-nancy.lin@mediatek.com>
 X-Mailer: git-send-email 2.18.0
 In-Reply-To: <20221227080443.6273-1-nancy.lin@mediatek.com>
 References: <20221227080443.6273-1-nancy.lin@mediatek.com>
@@ -138,8 +141,8 @@ Content-Type: text/plain; charset="UTF-8"
 X-MTK: N
 X-Original-Sender: nancy.lin@mediatek.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mediatek.com header.s=dk header.b=A5KsqmHn;       spf=pass
- (google.com: domain of nancy.lin@mediatek.com designates 60.244.123.138 as
+ header.i=@mediatek.com header.s=dk header.b=UTivBGqq;       spf=pass
+ (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as
  permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;       dmarc=pass
  (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
 X-Original-From: Nancy.Lin <nancy.lin@mediatek.com>
@@ -156,43 +159,206 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Add new mmsys component: ethdr_mixer and mdp_rdma. These components will
-use in mt8195 vdosys1.
+Add mt8195 vdosys1 routing table to the driver data of mtk-mmsys.
 
 Signed-off-by: Nancy.Lin <nancy.lin@mediatek.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Rex-BC Chen <rex-bc.chen@mediatek.com>
 Reviewed-by: CK Hu <ck.hu@mediatek.com>
 Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Tested-by: Bo-Chen Chen <rex-bc.chen@mediatek.com>
 ---
- include/linux/soc/mediatek/mtk-mmsys.h | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/soc/mediatek/mt8195-mmsys.h | 139 ++++++++++++++++++++++++++++
+ drivers/soc/mediatek/mtk-mmsys.c    |  10 ++
+ 2 files changed, 149 insertions(+)
 
-diff --git a/include/linux/soc/mediatek/mtk-mmsys.h b/include/linux/soc/mediatek/mtk-mmsys.h
-index d37fa6a426a2..d4b535a3383e 100644
---- a/include/linux/soc/mediatek/mtk-mmsys.h
-+++ b/include/linux/soc/mediatek/mtk-mmsys.h
-@@ -35,7 +35,16 @@ enum mtk_ddp_comp_id {
- 	DDP_COMPONENT_DSI1,
- 	DDP_COMPONENT_DSI2,
- 	DDP_COMPONENT_DSI3,
-+	DDP_COMPONENT_ETHDR_MIXER,
- 	DDP_COMPONENT_GAMMA,
-+	DDP_COMPONENT_MDP_RDMA0,
-+	DDP_COMPONENT_MDP_RDMA1,
-+	DDP_COMPONENT_MDP_RDMA2,
-+	DDP_COMPONENT_MDP_RDMA3,
-+	DDP_COMPONENT_MDP_RDMA4,
-+	DDP_COMPONENT_MDP_RDMA5,
-+	DDP_COMPONENT_MDP_RDMA6,
-+	DDP_COMPONENT_MDP_RDMA7,
- 	DDP_COMPONENT_MERGE0,
- 	DDP_COMPONENT_MERGE1,
- 	DDP_COMPONENT_MERGE2,
+diff --git a/drivers/soc/mediatek/mt8195-mmsys.h b/drivers/soc/mediatek/mt8195-mmsys.h
+index abfe94a30248..fd7b455bd675 100644
+--- a/drivers/soc/mediatek/mt8195-mmsys.h
++++ b/drivers/soc/mediatek/mt8195-mmsys.h
+@@ -75,6 +75,70 @@
+ #define MT8195_SOUT_DSC_WRAP1_OUT_TO_SINA_VIRTUAL0		(2 << 16)
+ #define MT8195_SOUT_DSC_WRAP1_OUT_TO_VPP_MERGE			(3 << 16)
+ 
++#define MT8195_VDO1_VPP_MERGE0_P0_SEL_IN			0xf04
++#define MT8195_VPP_MERGE0_P0_SEL_IN_FROM_MDP_RDMA0			1
++
++#define MT8195_VDO1_VPP_MERGE0_P1_SEL_IN			0xf08
++#define MT8195_VPP_MERGE0_P1_SEL_IN_FROM_MDP_RDMA1			1
++
++#define MT8195_VDO1_DISP_DPI1_SEL_IN				0xf10
++#define MT8195_DISP_DPI1_SEL_IN_FROM_VPP_MERGE4_MOUT			0
++
++#define MT8195_VDO1_DISP_DP_INTF0_SEL_IN			0xf14
++#define MT8195_DISP_DP_INTF0_SEL_IN_FROM_VPP_MERGE4_MOUT		0
++
++#define MT8195_VDO1_MERGE4_SOUT_SEL				0xf18
++#define MT8195_MERGE4_SOUT_TO_DPI1_SEL					2
++#define MT8195_MERGE4_SOUT_TO_DP_INTF0_SEL				3
++
++#define MT8195_VDO1_MIXER_IN1_SEL_IN				0xf24
++#define MT8195_MIXER_IN1_SEL_IN_FROM_MERGE0_ASYNC_SOUT			1
++
++#define MT8195_VDO1_MIXER_IN2_SEL_IN				0xf28
++#define MT8195_MIXER_IN2_SEL_IN_FROM_MERGE1_ASYNC_SOUT			1
++
++#define MT8195_VDO1_MIXER_IN3_SEL_IN				0xf2c
++#define MT8195_MIXER_IN3_SEL_IN_FROM_MERGE2_ASYNC_SOUT			1
++
++#define MT8195_VDO1_MIXER_IN4_SEL_IN				0xf30
++#define MT8195_MIXER_IN4_SEL_IN_FROM_MERGE3_ASYNC_SOUT			1
++
++#define MT8195_VDO1_MIXER_OUT_SOUT_SEL				0xf34
++#define MT8195_MIXER_SOUT_TO_MERGE4_ASYNC_SEL				1
++
++#define MT8195_VDO1_VPP_MERGE1_P0_SEL_IN			0xf3c
++#define MT8195_VPP_MERGE1_P0_SEL_IN_FROM_MDP_RDMA2			1
++
++#define MT8195_VDO1_MERGE0_ASYNC_SOUT_SEL			0xf40
++#define MT8195_SOUT_TO_MIXER_IN1_SEL					1
++
++#define MT8195_VDO1_MERGE1_ASYNC_SOUT_SEL			0xf44
++#define MT8195_SOUT_TO_MIXER_IN2_SEL					1
++
++#define MT8195_VDO1_MERGE2_ASYNC_SOUT_SEL			0xf48
++#define MT8195_SOUT_TO_MIXER_IN3_SEL					1
++
++#define MT8195_VDO1_MERGE3_ASYNC_SOUT_SEL			0xf4c
++#define MT8195_SOUT_TO_MIXER_IN4_SEL					1
++
++#define MT8195_VDO1_MERGE4_ASYNC_SEL_IN				0xf50
++#define MT8195_MERGE4_ASYNC_SEL_IN_FROM_MIXER_OUT_SOUT			1
++
++#define MT8195_VDO1_MIXER_IN1_SOUT_SEL				0xf58
++#define MT8195_MIXER_IN1_SOUT_TO_DISP_MIXER				0
++
++#define MT8195_VDO1_MIXER_IN2_SOUT_SEL				0xf5c
++#define MT8195_MIXER_IN2_SOUT_TO_DISP_MIXER				0
++
++#define MT8195_VDO1_MIXER_IN3_SOUT_SEL				0xf60
++#define MT8195_MIXER_IN3_SOUT_TO_DISP_MIXER				0
++
++#define MT8195_VDO1_MIXER_IN4_SOUT_SEL				0xf64
++#define MT8195_MIXER_IN4_SOUT_TO_DISP_MIXER				0
++
++#define MT8195_VDO1_MIXER_SOUT_SEL_IN				0xf68
++#define MT8195_MIXER_SOUT_SEL_IN_FROM_DISP_MIXER			0
++
+ static const struct mtk_mmsys_routes mmsys_mt8195_routing_table[] = {
+ 	{
+ 		DDP_COMPONENT_OVL0, DDP_COMPONENT_RDMA0,
+@@ -367,4 +431,79 @@ static const struct mtk_mmsys_routes mmsys_mt8195_routing_table[] = {
+ 	}
+ };
+ 
++static const struct mtk_mmsys_routes mmsys_mt8195_vdo1_routing_table[] = {
++	{
++		DDP_COMPONENT_MDP_RDMA0, DDP_COMPONENT_MERGE1,
++		MT8195_VDO1_VPP_MERGE0_P0_SEL_IN, GENMASK(0, 0),
++		MT8195_VPP_MERGE0_P0_SEL_IN_FROM_MDP_RDMA0
++	}, {
++		DDP_COMPONENT_MDP_RDMA1, DDP_COMPONENT_MERGE1,
++		MT8195_VDO1_VPP_MERGE0_P1_SEL_IN, GENMASK(0, 0),
++		MT8195_VPP_MERGE0_P1_SEL_IN_FROM_MDP_RDMA1
++	}, {
++		DDP_COMPONENT_MDP_RDMA2, DDP_COMPONENT_MERGE2,
++		MT8195_VDO1_VPP_MERGE1_P0_SEL_IN, GENMASK(0, 0),
++		MT8195_VPP_MERGE1_P0_SEL_IN_FROM_MDP_RDMA2
++	}, {
++		DDP_COMPONENT_MERGE1, DDP_COMPONENT_ETHDR_MIXER,
++		MT8195_VDO1_MERGE0_ASYNC_SOUT_SEL, GENMASK(1, 0),
++		MT8195_SOUT_TO_MIXER_IN1_SEL
++	}, {
++		DDP_COMPONENT_MERGE2, DDP_COMPONENT_ETHDR_MIXER,
++		MT8195_VDO1_MERGE1_ASYNC_SOUT_SEL, GENMASK(1, 0),
++		MT8195_SOUT_TO_MIXER_IN2_SEL
++	}, {
++		DDP_COMPONENT_MERGE3, DDP_COMPONENT_ETHDR_MIXER,
++		MT8195_VDO1_MERGE2_ASYNC_SOUT_SEL, GENMASK(1, 0),
++		MT8195_SOUT_TO_MIXER_IN3_SEL
++	}, {
++		DDP_COMPONENT_MERGE4, DDP_COMPONENT_ETHDR_MIXER,
++		MT8195_VDO1_MERGE3_ASYNC_SOUT_SEL, GENMASK(1, 0),
++		MT8195_SOUT_TO_MIXER_IN4_SEL
++	}, {
++		DDP_COMPONENT_ETHDR_MIXER, DDP_COMPONENT_MERGE5,
++		MT8195_VDO1_MIXER_OUT_SOUT_SEL, GENMASK(0, 0),
++		MT8195_MIXER_SOUT_TO_MERGE4_ASYNC_SEL
++	}, {
++		DDP_COMPONENT_MERGE1, DDP_COMPONENT_ETHDR_MIXER,
++		MT8195_VDO1_MIXER_IN1_SEL_IN, GENMASK(0, 0),
++		MT8195_MIXER_IN1_SEL_IN_FROM_MERGE0_ASYNC_SOUT
++	}, {
++		DDP_COMPONENT_MERGE2, DDP_COMPONENT_ETHDR_MIXER,
++		MT8195_VDO1_MIXER_IN2_SEL_IN, GENMASK(0, 0),
++		MT8195_MIXER_IN2_SEL_IN_FROM_MERGE1_ASYNC_SOUT
++	}, {
++		DDP_COMPONENT_MERGE3, DDP_COMPONENT_ETHDR_MIXER,
++		MT8195_VDO1_MIXER_IN3_SEL_IN, GENMASK(0, 0),
++		MT8195_MIXER_IN3_SEL_IN_FROM_MERGE2_ASYNC_SOUT
++	}, {
++		DDP_COMPONENT_MERGE4, DDP_COMPONENT_ETHDR_MIXER,
++		MT8195_VDO1_MIXER_IN4_SEL_IN, GENMASK(0, 0),
++		MT8195_MIXER_IN4_SEL_IN_FROM_MERGE3_ASYNC_SOUT
++	}, {
++		DDP_COMPONENT_ETHDR_MIXER, DDP_COMPONENT_MERGE5,
++		MT8195_VDO1_MIXER_SOUT_SEL_IN, GENMASK(2, 0),
++		MT8195_MIXER_SOUT_SEL_IN_FROM_DISP_MIXER
++	}, {
++		DDP_COMPONENT_ETHDR_MIXER, DDP_COMPONENT_MERGE5,
++		MT8195_VDO1_MERGE4_ASYNC_SEL_IN, GENMASK(2, 0),
++		MT8195_MERGE4_ASYNC_SEL_IN_FROM_MIXER_OUT_SOUT
++	}, {
++		DDP_COMPONENT_MERGE5, DDP_COMPONENT_DPI1,
++		MT8195_VDO1_DISP_DPI1_SEL_IN, GENMASK(1, 0),
++		MT8195_DISP_DPI1_SEL_IN_FROM_VPP_MERGE4_MOUT
++	}, {
++		DDP_COMPONENT_MERGE5, DDP_COMPONENT_DPI1,
++		MT8195_VDO1_MERGE4_SOUT_SEL, GENMASK(1, 0),
++		MT8195_MERGE4_SOUT_TO_DPI1_SEL
++	}, {
++		DDP_COMPONENT_MERGE5, DDP_COMPONENT_DP_INTF1,
++		MT8195_VDO1_DISP_DP_INTF0_SEL_IN, GENMASK(1, 0),
++		MT8195_DISP_DP_INTF0_SEL_IN_FROM_VPP_MERGE4_MOUT
++	}, {
++		DDP_COMPONENT_MERGE5, DDP_COMPONENT_DP_INTF1,
++		MT8195_VDO1_MERGE4_SOUT_SEL, GENMASK(1, 0),
++		MT8195_MERGE4_SOUT_TO_DP_INTF0_SEL
++	}
++};
+ #endif /* __SOC_MEDIATEK_MT8195_MMSYS_H */
+diff --git a/drivers/soc/mediatek/mtk-mmsys.c b/drivers/soc/mediatek/mtk-mmsys.c
+index f3431448e843..6deb6552f035 100644
+--- a/drivers/soc/mediatek/mtk-mmsys.c
++++ b/drivers/soc/mediatek/mtk-mmsys.c
+@@ -80,6 +80,12 @@ static const struct mtk_mmsys_driver_data mt8195_vdosys0_driver_data = {
+ 	.num_routes = ARRAY_SIZE(mmsys_mt8195_routing_table),
+ };
+ 
++static const struct mtk_mmsys_driver_data mt8195_vdosys1_driver_data = {
++	.clk_driver = "clk-mt8195-vdo1",
++	.routes = mmsys_mt8195_vdo1_routing_table,
++	.num_routes = ARRAY_SIZE(mmsys_mt8195_vdo1_routing_table),
++};
++
+ static const struct mtk_mmsys_driver_data mt8365_mmsys_driver_data = {
+ 	.clk_driver = "clk-mt8365-mm",
+ 	.routes = mt8365_mmsys_routing_table,
+@@ -311,6 +317,10 @@ static const struct of_device_id of_match_mtk_mmsys[] = {
+ 		.compatible = "mediatek,mt8195-vdosys0",
+ 		.data = &mt8195_vdosys0_driver_data,
+ 	},
++	{
++		.compatible = "mediatek,mt8195-vdosys1",
++		.data = &mt8195_vdosys1_driver_data,
++	},
+ 	{
+ 		.compatible = "mediatek,mt8365-mmsys",
+ 		.data = &mt8365_mmsys_driver_data,
 -- 
 2.18.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20221227080443.6273-4-nancy.lin%40mediatek.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20221227080443.6273-5-nancy.lin%40mediatek.com.
