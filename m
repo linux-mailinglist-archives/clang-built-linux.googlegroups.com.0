@@ -1,210 +1,142 @@
-Return-Path: <clang-built-linux+bncBDDO3Z5P4YJRBFOTQSPAMGQE3GVWBLY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD7274FIT4EBBFMJ52PAMGQEH3SG66I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0018266934C
-	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Jan 2023 10:51:19 +0100 (CET)
-Received: by mail-pf1-x438.google.com with SMTP id n22-20020a62e516000000b005817b3a197asf10070022pff.14
-        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Jan 2023 01:51:19 -0800 (PST)
+Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id ACC6D687908
+	for <lists+clang-built-linux@lfdr.de>; Thu,  2 Feb 2023 10:38:30 +0100 (CET)
+Received: by mail-wm1-x339.google.com with SMTP id m3-20020a05600c3b0300b003dfdc6021bcsf530638wms.3
+        for <lists+clang-built-linux@lfdr.de>; Thu, 02 Feb 2023 01:38:30 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1675330710; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=iwfjCceghYPpm/KQBsEuXsbVTab/44m8euNn3HSqKAh16VRag1KQAih/8cL7Q+WIWF
+         Zx6f+5utjvEAnmWUz/DipAtaMmMa2rDzh6nQIBrd8wrsTe3fD93WjU9zSXtXp09vhdHr
+         2kbsGJdLDhxfs4AE4+/Iji+dxjYWiRcmA7Ot5Ic2VwuV7KgOPfWxoW7IbtRSd99Oxvnz
+         0rLzb/bhaVHlL3jJnKQL9cJWpcOMhodAEab44To87IanFpmH6o2+3EqLgEHpxRLCB4h/
+         Himx8rEtO8j1lH/NzQHPB53OVv0SPHQWlEaj2CNIYQJ+P2zvrfsbCSD+m+AsvnNoNR5/
+         fhGw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:reply-to:in-reply-to:from
+         :references:cc:to:content-language:subject:user-agent:mime-version
+         :date:message-id:dkim-signature;
+        bh=4oobEMVSH8LbZ3ppuCAslnSf6T769dcdNCl7bBT2/xQ=;
+        b=xKrXm2lFMFi/a+yegdxhliRanOeoA+nr8P5Xep8rjV4ypJA2M8qux7vRkpGx8/FovK
+         Y43R5eiiAUwT+3Cus8VOa66PZU4UNbfYr8ScJoGymS6f2I7t5eeRAd+E1iCdRuRgONQ9
+         U6KOCWID2zyaZ2HndJHsK8w+Ywiw+kxkqJEG40jxC0O1KbxfAxkIs78N35MN+HogHs/A
+         1vTJyYqyEZuCqgkFzvLtF5o6JZhWbo7rD3n5SpzWRMAgTf5cno0rIp9oy+xiTmHAaj4U
+         u1F0GGcQaEGikQkV/CyB5zSqz+J1iP0fY5J7d7nNT901q7f2h5Y3AW120tdrUMADSIZ9
+         438A==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@collabora.com header.s=mail header.b=Q6ulCjWS;
+       spf=pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=collabora.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20210112;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:mime-version
-         :content-transfer-encoding:content-id:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:from:to:cc:subject:date:message-id
+         :x-original-authentication-results:x-original-sender:in-reply-to
+         :from:references:cc:to:content-language:subject:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=FHGI7FzbUCkSidU3yXSRtC0VFTdlJ0xKLC+sA285BEk=;
-        b=VglFUkSPD0pfa8c6ZiE2NF2bZ1ZMXEGYIELpxYRwle7EOlymfmURVmzC5QbSN+TSDk
-         yPMJDuWkM2cxB57CIv2k557M553q7ujjHNhaq46mUUKwxNBTtnZOu54KkKQqeJKI4Ep9
-         uWyitYyR0TUwmpfcbRJYHTHJ1xsm3Civke1br9NnF3BiS52o9PGcWcboOEpUT0KMTVhY
-         j5LZ2PE/VMaNI5x6TfyQxlt98/EgsGnncBIYspXtETjfd6pf79hZ9q/f0xUIg/5dqo2u
-         yygSZGffaLDFJT7hrFoRZCpmYmKsYx3Jo50cynzZgpGcEE7gTK66qFh+ak0kvGf2mXMR
-         baSA==
+        bh=4oobEMVSH8LbZ3ppuCAslnSf6T769dcdNCl7bBT2/xQ=;
+        b=Yqwd+llDWWjZxjFyKhTDtW/xBX6Hz8IRgVt2NQrPn+0IO4epWUKV0zQJnJH6GsMhby
+         q7vgG6EafUPXL6IuJrVOvwNyLVsEkRGgnEgmrGLOluUXtxgivzZR+k+jeGLHRWXSu+cP
+         wcG3aEcLaf2JSAFTSUA5zK5B48hCuUR2hrqkBoJUYEJOPk3K16tPhGVn+fB5Izn1f35s
+         q5S/G4D10iPgpStLf3LrNtC66mQ/oxd7wxUE9TU2h3Sq+bZRwRoaYsImaHCZdZif696F
+         DlDi6A09guZz/u6FULy+MTsK+FeRBj9kvc5s3424GVmbxxVcahO3UdT/uUXAAviXs6Io
+         yP3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:mime-version
-         :content-transfer-encoding:content-id:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FHGI7FzbUCkSidU3yXSRtC0VFTdlJ0xKLC+sA285BEk=;
-        b=cOMo6tI7jXlzSFVzvucafk6hfSUE6N1gIAvNv8XmDRltc9XVBKPXfh7dbXQOOeslqG
-         kpObdzqXShdNi6K9T0IEfNoLeXJXioFU801gGHlQrqjq719xhyaYaRdxdEmxEE6Wm4qK
-         58Z7IXb8ziWr4AF8j52gxsvoDdiEZMEhRc7Xr8AIxoSZAi1viQXC3vC5D5bvq/ibrRBv
-         aYPkw04uU9wueYHjVWrZ4Z4eHG0zWoQ7KmWjnFTnUcDndSVY4XS2DDfU2i0U6aQSDTda
-         yUyuchLaHBZ9ROFxsOPUoBs6qY4+kmAn8tM0zvh8tFz2bGXkEYWmM5hzc6LiZysz0wy2
-         P+Kw==
-X-Gm-Message-State: AFqh2kqZrbtY9w4SR0u9Gu0ugywuccYLT6B4aPckaQZeE8ftjiUWsIJf
-	n0zpCeoGYod+lzls3/9+n4w=
-X-Google-Smtp-Source: AMrXdXtU+d3ACsQWXgaeRlNlhWFvE2yNR5cYrCkmM7h5VKAnaOvl4VdDQxk+JpqBOXzeRRbQmOGseQ==
-X-Received: by 2002:a63:e54c:0:b0:4be:74f7:d3f7 with SMTP id z12-20020a63e54c000000b004be74f7d3f7mr437048pgj.124.1673603477417;
-        Fri, 13 Jan 2023 01:51:17 -0800 (PST)
+         :x-original-authentication-results:x-original-sender:in-reply-to
+         :from:references:cc:to:content-language:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=4oobEMVSH8LbZ3ppuCAslnSf6T769dcdNCl7bBT2/xQ=;
+        b=3pqSL0H1CW1/7UROhLOrx3krKZkBq11vvHRqmRDfqO4zgrKYeOp/leiKHFqHUjpxY/
+         ivGfMRIui39m6PYlqSlZDdWiUFKWrU77kI9Md98oi3E+sQOO7iVPM2VcIcpK2b3OxXV+
+         SXsEcFI0V7VdGSJLbIiHplkdMpiTHpqzUxRcKJC5N/l4gYCZT9jXRHAmIucTr0es6gFS
+         oFQC3d5JhFpVjRM+9VLVZ3J9wVmpSGRObZ/83j9hpyDONkYEqWEgkQqWURO2ZXP4Ugkg
+         dyCfSOfkRIfPWREA9MfwU+ZbVQ6kdEWFGsGy7civBOP29QEXZmAR2DdnU4ArnvG48h4H
+         NxcQ==
+X-Gm-Message-State: AO0yUKUxP+3jXc/pcvGpZ4H8y2y2hel3ZLtnxzRrYsb/KJxjin3XFfpr
+	mhbvvnzPiPPhR2Byjc3kpik=
+X-Google-Smtp-Source: AK7set/Izyqhp+tpYEzx7EV68G1Tg92X4Te0UkwaI8jaxh4zjzEdP4x6BFqrNp3aaK9fzezcXkXOLQ==
+X-Received: by 2002:a05:600c:2249:b0:3df:12ac:7cb4 with SMTP id a9-20020a05600c224900b003df12ac7cb4mr178046wmm.80.1675330710023;
+        Thu, 02 Feb 2023 01:38:30 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:2cc6:0:b0:475:7659:869 with SMTP id s189-20020a632cc6000000b0047576590869ls1317707pgs.6.-pod-prod-gmail;
- Fri, 13 Jan 2023 01:51:16 -0800 (PST)
-X-Received: by 2002:a05:6a00:a07:b0:580:9431:1b1a with SMTP id p7-20020a056a000a0700b0058094311b1amr99835047pfh.5.1673603476627;
-        Fri, 13 Jan 2023 01:51:16 -0800 (PST)
-Received: from mailgw02.mediatek.com ([210.61.82.184])
-        by gmr-mx.google.com with ESMTPS id k21-20020a628415000000b0058613de43a9si1540390pfd.2.2023.01.13.01.51.16
+Received: by 2002:a05:6000:18c3:b0:298:bd4a:4dd9 with SMTP id
+ w3-20020a05600018c300b00298bd4a4dd9ls1782164wrq.1.-pod-prod-gmail; Thu, 02
+ Feb 2023 01:38:28 -0800 (PST)
+X-Received: by 2002:a05:6000:1c19:b0:2bf:f024:de5e with SMTP id ba25-20020a0560001c1900b002bff024de5emr5524149wrb.55.1675330708700;
+        Thu, 02 Feb 2023 01:38:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1675330708; cv=none;
+        d=google.com; s=arc-20160816;
+        b=EcZCcpX3IN/W/PyUOvs2hcW2y7I3pXSYSZ7En3AsRNxxT4/16rKwtT5ucD7bNBZyBD
+         wvzEn+ivtjy+Hu2XUHz1gGaiKfXd4lCGWrQjulKtyJryB7yfIoyyUXquNc1wkXmWSPMm
+         MGyhblyJ1cAyHxRNaBRwxcbrSOYwhQ16pha6S67CDYk1YWIcef9hC7iTJatZYOONoqMI
+         PuuT0+AcJ07ijT9KnllC/DjE2IuujeKW7FMuMbBDrofCTi2S9O9t5CXjm48bGRKHKd1P
+         hCqTkoKUnaiI/A8cjDQMdoF9yADGJyrQZvCJyM/0ePTTTuxMalT2iF70NI8eb+3YVLJK
+         QSPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :dkim-signature;
+        bh=jKrgFwFKEg6lvyElRVWW7VcSjqhhWcVxlOy3NHzBj6Q=;
+        b=B0VmVLQ+KEA7w8jppUkqtT0zLAAilwuRCwZ2tqGhasm5ChbjS1g9Wov5xxA7bYqPF9
+         f3Ny3xbbUg4+TOy9mIRkwZipl/aVSWKJIvLPltIlnXz3ltNqGFxSzxj3hSsPuq6FmFe6
+         0JTEoT6CgfCihc7pFEcI+iIB4h7nfJCLqRl1btsBPxc845h30RLxgsHS7OEoKBtDQXGM
+         PvQv4ZkGnejVVLHpu4LplCqmsAjKs6FbPW0ABJxNsu9qThVIkBA9Debfpdq6je6A54V3
+         6cfqNa3OkrpLDfzTH4/hULXOb/GNne5Og/owyOZkZhMvciyBDJTaysnKtWIzglkE37y1
+         55jQ==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@collabora.com header.s=mail header.b=Q6ulCjWS;
+       spf=pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=collabora.com
+Received: from madras.collabora.co.uk (madras.collabora.co.uk. [2a00:1098:0:82:1000:25:2eeb:e5ab])
+        by gmr-mx.google.com with ESMTPS id m18-20020adfdc52000000b002bfc35954dasi1088224wrj.7.2023.02.02.01.38.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 13 Jan 2023 01:51:16 -0800 (PST)
-Received-SPF: pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) client-ip=210.61.82.184;
-X-UUID: ceed7c90932711ed945fc101203acc17-20230113
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.17,REQID:e6c4800a-24c2-4c4e-9760-b3dce5d604d1,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:-5,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-INFO: VERSION:1.1.17,REQID:e6c4800a-24c2-4c4e-9760-b3dce5d604d1,IP:0,URL
-	:0,TC:0,Content:0,EDM:0,RT:0,SF:-5,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:-5
-X-CID-META: VersionHash:543e81c,CLOUDID:afe6bbf5-ff42-4fb0-b929-626456a83c14,B
-	ulkID:230113175113HICS2AWR,BulkQuantity:0,Recheck:0,SF:38|17|19|102,TC:nil
-	,Content:0,EDM:-3,IP:nil,URL:0,File:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:
-	0,OSA:0
-X-CID-APTURL: Status:success,Category:nil,Trust:0,Unknown:0,Malicious:0
-X-CID-BVR: 0
-X-UUID: ceed7c90932711ed945fc101203acc17-20230113
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <nancy.lin@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1389240408; Fri, 13 Jan 2023 17:51:10 +0800
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.792.3;
- Fri, 13 Jan 2023 17:51:09 +0800
-Received: from APC01-TYZ-obe.outbound.protection.outlook.com (172.21.101.239)
- by mtkmbs10n1.mediatek.com (172.21.101.34) with Microsoft SMTP Server id
- 15.2.792.15 via Frontend Transport; Fri, 13 Jan 2023 17:51:09 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=dDpQEm2K3pZuW99jmDhz+SJBu48FdDs8Nz3TP610+wnqVXni7fOsO1o+2T1PvtnV7DWcBHeC3swZG7a9CrwyW0ykr2FcJrqEavBsPAz38ehG3WBuxl73hIiUwaaWE1rZuXe2SST0YX8hsNBXd3Lli4Cd2xnRyAfLBlEtUY3kDEmT8rSI04d8DVYjDS6bLh+8HVb0G5qteks93MFFB3RWXm54HtKt83j5hrIhHNOSvRbE/51kleiM78D8rRZhpxUrsKqoqNaRE6bhi+GtQxGTJCdhkOM2RdE4qof8M/j6yHbKr82FDHMEtSj/mpzc/u2bhzbg8H/iM3YyL6RdIlqMPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lKlVCm5a7+ZRDB1kDr0f0gvys7YWDrPR4fIXcoBeuZA=;
- b=IkFLbeoQkNNYd2MWrqqgBVh4t0DrC8A3+xLYOqkOe8xTLULKq2ioTKZKr+iNc5Yt6qYq8cUzuFdtolRZThYkk5KOlg4NWOcvI7Zdv2AC93EEqkfUzQuW/HpINdGbGg1ssngLbC8qglkdY289yF8C+FUpd4s6qeRKNuW9QzohOtcrsiM+IhWLRWCx0ZYrlqVrkf9xtQybr/gWobfbnBJcPWqRzT/5JuGMrsG+av6whDJ2R7Nvp3j73yNpxAMZRLr04SgJL1YzWsvc+P7Ufl+cBf7moZxZAp4PoDo24uPrapjOlp+B8UGjp87VRLACd69N/mDEnBHDDCPCGXSMOgbWZg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-Received: from KL1PR03MB5175.apcprd03.prod.outlook.com (2603:1096:820:8::11)
- by SEZPR03MB6812.apcprd03.prod.outlook.com (2603:1096:101:67::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5986.18; Fri, 13 Jan
- 2023 09:51:07 +0000
-Received: from KL1PR03MB5175.apcprd03.prod.outlook.com
- ([fe80::9386:8c80:d06e:1c5b]) by KL1PR03MB5175.apcprd03.prod.outlook.com
- ([fe80::9386:8c80:d06e:1c5b%5]) with mapi id 15.20.6002.013; Fri, 13 Jan 2023
- 09:51:06 +0000
-From: =?UTF-8?B?J05hbmN5IExpbiAo5p6X5qyj6J6iKScgdmlhIENsYW5nIEJ1aWx0IExpbnV4?= <clang-built-linux@googlegroups.com>
-To: "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "wim@linux-watchdog.org"
-	<wim@linux-watchdog.org>, "krzysztof.kozlowski@linaro.org"
-	<krzysztof.kozlowski@linaro.org>, "robh+dt@kernel.org" <robh+dt@kernel.org>,
-	=?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
-	"krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	=?utf-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
-	"nathan@kernel.org" <nathan@kernel.org>,
-	=?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "clang-built-linux@googlegroups.com"
-	<clang-built-linux@googlegroups.com>, "ndesaulniers@google.com"
-	<ndesaulniers@google.com>
-Subject: Re: [PATCH v29 01/11] dt-bindings: arm: mediatek: mmsys: add vdosys1
- compatible for MT8195
-Thread-Topic: [PATCH v29 01/11] dt-bindings: arm: mediatek: mmsys: add vdosys1
- compatible for MT8195
-Thread-Index: AQHZGcol0i/l8fqSpkSrcJKRGEgYGa6XjyIAgASmZIA=
-Date: Fri, 13 Jan 2023 09:51:06 +0000
-Message-ID: <752d6f553af0aeaadaa518c2a6517a93fca4731f.camel@mediatek.com>
-References: <20221227080443.6273-1-nancy.lin@mediatek.com>
-	 <20221227080443.6273-2-nancy.lin@mediatek.com>
-	 <cbd6ff49-a31b-00ad-c5bb-9a185391132d@linaro.org>
-In-Reply-To: <cbd6ff49-a31b-00ad-c5bb-9a185391132d@linaro.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR03MB5175:EE_|SEZPR03MB6812:EE_
-x-ms-office365-filtering-correlation-id: 8b7c6309-7dcb-45e8-8297-08daf54bb0e8
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: skKVXYOAMm26fYLk6q2e/d7zTl0ATBRv6W9lxIZ9K4hEwzlcNzJielfAfYDIVYo0AdZMJ6ZF5rAw86x77Qyd/OFu/eE8eYLGXhEJEbKzBA3xAllmWEi3VxrmcEpmxA0XLSbB8Y9DmE/gx35VyaoyktVdEKIROdSLD5+V13YNuEWvMUaLAO5/Lj6dVPQvtJfCfTmU5nmxQOp8ejdMx0RCIKIQOuyq/B8j6HRao9BteTIZRA1/l2K+IsnKAFWMJI1mx97EoqOuQQwaHTQMWubSjd2sv1lQwZjj37KmLqTS2v711bi6NPuu0KqVvHSM1xsLa75jxiDeTR5kz8FmtfhLK8z5fEYOkNOQAdoqILAC0de4XviQV1DyNXj7pu1+QXhXgBHkSarJt08lIn1kd/bLh4AkVChbnU3K37Lt4DPtHBuu7IomN6F8qtN3emMnczFPIDqBElj0xms9f8nHQVHZpSzGP4qfSoMkT5DSRPmGX/Gt34C5vBzZLdS0A8M17nWidN8vCqvXhaO20LY5avkp9NP9VcbD1QyWNO3pb8yBs+NqKlVtdmCgEUPAtlFov2QGieZ6/nrBm9yKerJHej7YQdFJ7Y6sAusRiHvb9qk5s+DvEilNJer+Iio1dJWKvVt4v4n2Z8UgBJXQ3hjPIUdc98yVig0M/h7QtOvrR3IJE63DaS+h1155TwXUWTlbO2OESSNDihkPkMfvZQN8vCnUprW2my60HjxGxpsUDyL4q/odaDgtoOpOj5g6zDAk47Y9
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5175.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(4636009)(39860400002)(366004)(136003)(396003)(346002)(376002)(451199015)(26005)(2616005)(7416002)(316002)(6512007)(478600001)(71200400001)(186003)(5660300002)(38070700005)(4326008)(41300700001)(76116006)(8676002)(64756008)(66476007)(66556008)(110136005)(66446008)(66946007)(66574015)(54906003)(91956017)(83380400001)(8936002)(86362001)(85182001)(36756003)(6486002)(6506007)(122000001)(38100700002)(53546011)(2906002);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RldxcDBtbEdtZnZQajJBQ21EdG9uR3FuNy9kMHl1c04wMVppTUJDcEpCM1Rs?=
- =?utf-8?B?V2F1cUozOXBFby94cHBOVFFUNDFaRnFlVlJYZVV4aC9XNkNyUFZWTXBXMFpI?=
- =?utf-8?B?OTNqUWRNNFFWZWc5dG93WTlZZmZ6OFFoQ0RvVnBIWmVra2R3dDhWbTFJU1FC?=
- =?utf-8?B?ajIxaXdKSUtnN2ZoNERSZkF4Yld0NW1JZUtwbUdETEZXelFaWEhJZDIxQVY2?=
- =?utf-8?B?RmFlSFZMZElOZEJRcEtPZi9oRWZTM0kyMmxrWEVtK0ROSG91U0ZWUEJqdnRa?=
- =?utf-8?B?KzZraUp3bHlhUE5ncjI1RUtoZVBMYmR6cGpqZ2VyQXB6T0dkdEJCNjdPTU1s?=
- =?utf-8?B?ZGdXNDVZV1RsUjVoOVQvOGNpbXVBVzY3K1lVaEVQeWhaNVJrWDhaeXc3UXk2?=
- =?utf-8?B?cW5LTGszTjFzYTJxK0E0WmpUZEhzODV6L0FKV1Y5c2VDYTBhSXk1bFNKeFZO?=
- =?utf-8?B?d0JkQ0p3d3ZrQmtTRVZmWkkxNTE1QkVTa0x3TXhKL014RWVvSFRJRHN0Wlhx?=
- =?utf-8?B?NzdkMnNZYlByTXh5dWNDVURmTXRPOWhLRFpzMUFEemRyaDRhaVVPQk9EU3Vu?=
- =?utf-8?B?eDFqdjZnR25IMjd0VWdOWmZBSk95dEt4QXk4UENCZlIydUViTjA0Z1lXMnF5?=
- =?utf-8?B?OUgyUkY4U2dVdkhaMGNXZ1JyYXliTkVIeFRTZ0FRQXhhSHkzdVkzQWpKSm9R?=
- =?utf-8?B?Rm1iQ0J3Y0hsWlptZEowc1FCckptNi80WXBnT1o5ZnBOWVN4VXViZFFaVlY5?=
- =?utf-8?B?aDN3Z2pWU29rRHZWYWo3QWk2cGRDMnBhUmpZUGlLUnNPMW1pUCtxV0FnL1JX?=
- =?utf-8?B?REJQZ0gxRmlsMUE1SlpPMmUydWlHRnJsZ1FleHR1d3VOUUIrQi9hb2VJR2o0?=
- =?utf-8?B?SWJHN2x0S0pGSzhkUzRmd2taRmhTclhQM3V2aVlVUERNVUNJWE9lOGJXVDdD?=
- =?utf-8?B?QjRwNHVTMmUrSWFTSStqSUxpMTI4b3BkdGhIa0pKRWgyb0htOVY2blcrZmFl?=
- =?utf-8?B?b3I5QW1qTEdGOEJ5SC9zdThsQTUwcEtJdmJNRFNQQ3RkZG10L2hwTUdpWWRt?=
- =?utf-8?B?NXJHMmxNUVFCMnkyZlJLY2VZOGhYUEU2N3ViUDVlbWFuTkk0VGo4SWdzUURT?=
- =?utf-8?B?TWhQdlIrbytmZWl6K2Iza2QreVZVcTlvSGI4M3MxNk1pWVBzK2NmQitzMVRt?=
- =?utf-8?B?SUw1T09oNmU3VG1ZZTU1WXkrYTFlYUtCYTRTMjBnZTdlMnVPTTJPa0E5OUhs?=
- =?utf-8?B?SmpZeUdBTzhjOExJdUp4bzViVFhJM1h5SEdVdmN3eVpsRGdnZDYvendpelNz?=
- =?utf-8?B?UGs5Qk9LYjZoS2JIQk9wMlN1bmY1OVprbWNRd0ZTYkd3elBHbTFSYzV5NkV6?=
- =?utf-8?B?QlJ5K2RwNUFMWnFKRE1scnBrSE1DZURSSlh2UDF4YklWNk5ONHBFYklVWlRm?=
- =?utf-8?B?VXFlaE5BT2R3RC9ab25pOGh6dXpHKy9pekpiTGpValQxM3lqM0grKzVCcjFU?=
- =?utf-8?B?STROV2VzTDNFQ3VNVk5TcHJMOEtLamQ4MlY0L21DcXQwZ2tGM0tkM3plZzJR?=
- =?utf-8?B?Z2JQUDNxaThaNEpvWDFsYmovWEJ0dWw0RzJXWG9oeWY3UXV2Ykx3a2pUTUVY?=
- =?utf-8?B?QUNvM28vTVcwNmNZY0tVWTdwQ29kQ2NjUnJjekVVMDhScUpkbzVlTTA0NEZk?=
- =?utf-8?B?QnNpbDBnQ25aeldUNUVyVHVWdmtHR2swbGY1Zy9OYnhEQVBTMlJWTTB0RUpn?=
- =?utf-8?B?b0szM1ZNN1laMmtqU3hmUTFBRWxLUUVveDgxZFZPbFhVSkxpR3dUSzNucWNE?=
- =?utf-8?B?TUZnUmxmV3JhZDJseG1OSXZVbEFDMXJkS3pKY3F6blBsWUgyL1JkYzM2RUhT?=
- =?utf-8?B?YVlEWHF2TVhOcUU3WW4yTHdielRwalZheWJ3Q2VPQmlSY0R1blpnS0FSd3cy?=
- =?utf-8?B?ekhJMUI3VjY4SzFyZFF5QVF5S0ZRKytjNytrYUVrT2N6ejM5b1NZRWtsUVJl?=
- =?utf-8?B?NHVxeDl4ZU0rVlVzM3ZiK3AzMXM4QTkyRkVUZHJDMmJvS00wMGFrM0gya1BX?=
- =?utf-8?B?U1o3dnVSTUtXcFI4cHh0bmdVb0pzZE50alFpYkFpSTlWa2pEbENYTWVEQ1g2?=
- =?utf-8?B?YXpmcUhvOVQ5T1NpOUNsOXFJeVZ2ZTZmZjdNTHJuSmswMXJzNHhhU0t5Mjlj?=
- =?utf-8?B?NFE9PQ==?=
-Content-ID: <E338D85A6DD41045B82DF21AD8674A0F@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        Thu, 02 Feb 2023 01:38:28 -0800 (PST)
+Received-SPF: pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) client-ip=2a00:1098:0:82:1000:25:2eeb:e5ab;
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 6DFF46602EDA;
+	Thu,  2 Feb 2023 09:38:27 +0000 (GMT)
+Message-ID: <ddf75149-e5ec-8093-2d36-55b6f2341d6a@collabora.com>
+Date: Thu, 2 Feb 2023 10:38:24 +0100
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5175.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8b7c6309-7dcb-45e8-8297-08daf54bb0e8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jan 2023 09:51:06.5101
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: UzG7lx8XKY4TvNtmGWI8zTFg4uB5LHQdbubDBfaNKhdRgUzlvnsDUQTrNxicjvtiUr9AHdqS8lkOL/Vncxw6cA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB6812
-Content-Type: multipart/alternative;
-	boundary="__=_Part_Boundary_004_896955126.1989562382"
-X-Original-Sender: nancy.lin@mediatek.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v29 0/7] Add MediaTek SoC DRM (vdosys1) support for mt8195
+Content-Language: en-US
+To: "Nancy.Lin" <nancy.lin@mediatek.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>, krzysztof.kozlowski+dt@linaro.org
+Cc: David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>,
+ Rob Herring <robh+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, CK Hu <ck.hu@mediatek.com>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, clang-built-linux@googlegroups.com,
+ Project_Global_Chrome_Upstream_Group@mediatek.com, singo.chang@mediatek.com
+References: <20221227081011.6426-1-nancy.lin@mediatek.com>
+From: "'AngeloGioacchino Del Regno' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+In-Reply-To: <20221227081011.6426-1-nancy.lin@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-Original-Sender: angelogioacchino.delregno@collabora.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mediatek.com header.s=dk header.b=XtxfuM+M;       dkim=neutral
- (body hash did not verify) header.i=@mediateko365.onmicrosoft.com
- header.s=selector2-mediateko365-onmicrosoft-com header.b="FiHJDp/e";
-       arc=fail (body hash mismatch);       spf=pass (google.com: domain of
- nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender)
- smtp.mailfrom=nancy.lin@mediatek.com;       dmarc=pass (p=QUARANTINE
- sp=QUARANTINE dis=NONE) header.from=mediatek.com
-X-Original-From: =?utf-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>
-Reply-To: =?utf-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>
+ header.i=@collabora.com header.s=mail header.b=Q6ulCjWS;       spf=pass
+ (google.com: domain of angelogioacchino.delregno@collabora.com designates
+ 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=collabora.com
+X-Original-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reply-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -217,191 +149,221 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---__=_Part_Boundary_004_896955126.1989562382
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Il 27/12/22 09:10, Nancy.Lin ha scritto:
+> The hardware path of vdosys1 with DPTx output need to go through by several modules, such as, OVL_ADAPTOR and MERGE.
+> 
+> Add DRM and these modules support by the patches below:
+> 
 
-<pre>
-Dear&#32;Krzysztof,
+Hello Chun-Kuang,
 
-Thanks&#32;for&#32;the&#32;review.
+This series reached version 29 and was tested for a long time.
+Is there anything else to fix in here, or can it be finally picked?
 
-On&#32;Tue,&#32;2023-01-10&#32;at&#32;11:50&#32;+0100,&#32;Krzysztof&#32;Ko=
-zlowski&#32;wrote:
-&gt;&#32;On&#32;27/12/2022&#32;09:04,&#32;Nancy.Lin&#32;wrote:
-&gt;&#32;&gt;&#32;Add&#32;vdosys1&#32;mmsys&#32;compatible&#32;for&#32;MT81=
-95&#32;platform.
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;For&#32;MT8195,&#32;VDOSYS0&#32;and&#32;VDOSYS1&#32;are&#=
-32;2&#32;display&#32;HW&#32;pipelines&#32;binding
-&gt;&#32;&gt;&#32;to
-&gt;&#32;&gt;&#32;2&#32;different&#32;power&#32;domains,&#32;different&#32;=
-clock&#32;drivers&#32;and&#32;different
-&gt;&#32;&gt;&#32;mediatek-drm&#32;drivers.
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;Signed-off-by:&#32;Nancy.Lin&#32;&lt;nancy.lin@mediatek.c=
-om&gt;
-&gt;&#32;&gt;&#32;Reviewed-by:&#32;N&#237;colas&#32;F.&#32;R.&#32;A.&#32;Pr=
-ado&#32;&lt;nfraprado@collabora.com&gt;
-&gt;&#32;&gt;&#32;---
-&gt;&#32;&gt;&#32;&#32;.../devicetree/bindings/arm/mediatek/mediatek,mmsys.=
-yaml&#32;&#32;&#32;&#32;&#32;&#32;|&#32;4
-&gt;&#32;&gt;&#32;++++
-&gt;&#32;&gt;&#32;&#32;1&#32;file&#32;changed,&#32;4&#32;insertions(+)
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;diff&#32;--git
-&gt;&#32;&gt;&#32;a/Documentation/devicetree/bindings/arm/mediatek/mediatek=
-,mmsys.yam
-&gt;&#32;&gt;&#32;l
-&gt;&#32;&gt;&#32;b/Documentation/devicetree/bindings/arm/mediatek/mediatek=
-,mmsys.yam
-&gt;&#32;&gt;&#32;l
-&gt;&#32;&gt;&#32;index&#32;0711f1834fbd..242ce5a69432&#32;100644
-&gt;&#32;&gt;&#32;---
-&gt;&#32;&gt;&#32;a/Documentation/devicetree/bindings/arm/mediatek/mediatek=
-,mmsys.yam
-&gt;&#32;&gt;&#32;l
-&gt;&#32;&gt;&#32;+++
-&gt;&#32;&gt;&#32;b/Documentation/devicetree/bindings/arm/mediatek/mediatek=
-,mmsys.yam
-&gt;&#32;&gt;&#32;l
-&gt;&#32;&gt;&#32;@@&#32;-52,6&#32;+52,10&#32;@@&#32;properties:
-&gt;&#32;&gt;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&=
-#32;const:&#32;mediatek,mt8195-mmsys
-&gt;&#32;&gt;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&=
-#32;const:&#32;syscon
-&gt;&#32;&gt;&#32;&#32;
-&gt;&#32;&gt;&#32;+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;items:
-&gt;&#32;&gt;&#32;+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;=
-const:&#32;mediatek,mt8195-vdosys1
-&gt;&#32;
-&gt;&#32;This&#32;should&#32;be&#32;part&#32;of&#32;first&#32;enum.&#32;Don=
-&#39;t&#32;create&#32;redundant&#32;entries.
-&gt;&#32;
-&gt;&#32;Best&#32;regards,
-&gt;&#32;Krzysztof
+Its soc/mediatek counterpart was already picked by Matthias.
 
-OK,&#32;I&#32;will&#32;modify&#32;as&#32;following:
+Thanks,
+Angelo
 
-@@&#32;-33,6&#32;+33,7&#32;@@&#32;properties:
-&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=
--&#32;mediatek,mt8186-mmsys
-&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=
--&#32;mediatek,mt8188-vdosys0
-&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=
--&#32;mediatek,mt8192-mmsys
-+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#3=
-2;mediatek,mt8195-vdosys1
-&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=
--&#32;mediatek,mt8365-mmsys
-&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;const:&#32;sys=
-con
+> Changes in v29:
+> - rebase to next-20221226
+> - fix reviewer comment in v28
+>    - keep original flow if comp node not found in mtk_drm_crtc_create()
+> 
+> Changes in v28:
+> - rebase to next-20221107
+> - fix reviewer comment in v27
+>    - extra new line at the end mtk_ethdr.h
+> 
+> Changes in v27:
+> - rebase to next-20221102
+> - change mmsys compatible for mt8195 vdosys1
+>    - base on jason's series[ref 1]
+> - fix reviewer comment
+>    - add error return code if no ovl_adaptor's comp found
+> 
+> Changes in v26:
+> - rebase to next-20220819
+> - resend for patch corrupted in v25
+> 
+> Changes in v25:
+> - rebase to next-20220803
+> 
+> Changes in v24:
+> - fix ovl_adaptor binding issue (mtk_disp_ovl_adaptor.c)
+>    - Since ovl_adaptor is an aggregated component, it should be bounded after
+>      all its child components are bounded.
+> - rebase to next-20220708
+> 
+> Changes in v23:
+> - separate[7] mmsys/mutex and drm patches into two series
+> 
+> Changes in v22:
+> - rebase to next-20220525
+> - rebase to vdosys0 series v22
+> - separate dts to a new patch
+> 
+> Changes in v21:
+> - fix reviewer comment
+>    - fix rdma and ethdr binding doc and dts
+> 
+> Changes in v20:
+> - fix reviewer comment
+>    - update mmsys update bit api name
+>    - add mtk_mmsys_update_bits error message if lose gce property
+>    - list all mt8195 vdosys1 reset bits
+> 
+> Changes in v19:
+> - fix reviewer comment
+>    - separate mt8195 mmsys component to a new patch
+>    - separate mt8195 vdo0 and vdo1 routing table
+>    - separate mmsys_write_reg api to a new patch and simplify write reg code
+>    - separate mmsys 64 bit reset to a new patch
+>    - separate mtk-mutex dp_intf1 component to a new patch
+> 
+> Changes in v18:
+> - fix reviewer comment
+>    - fix rdma binding doc
+>    - fix ethdr binding doc
+>    - refine mmsys config cmdq support
+>    - refine merge reset control flow, get reset control in probe function
+>    - add ethdr reset control error handling and remove dbg log
+> - rebase to vdosys0 series v20 (ref [5])
+> 
+> Changes in v17:
+> - fix reviewer comment in v16
+>    - separate ovl adaptor comp in mtk-mmsys and mtk-mutex
+>    - separate mmsys config API
+>    - move mdp_rdma binding yaml
+> - fix ovl adaptor pm runtime get sync timing issue
+> - rebase to vdosys0 series v19 (ref [5])
+> - rebase to [7] for modify vblank register change
+> 
+> Changes in v16:
+> - fix reviewer comment in v 15
+>    - fix mtk_drm_ddp_comp.c alignment
+>    - fix vdosys0 mmsys num before adding vdosys1 patch
+> 
+> Changes in v15:
+> - fix ethdr uppercase hex number in dts
+> 
+> Changes in v14:
+> - remove MTK_MMSYS 64 bit dependency
+> - add ethdr.yaml back and fix dt_schema check fail
+> 
+> Resend v13
+> - add related maintainer in maillist
+> 
+> Changes in v13:
+> - fix reviewer comment in v12
+>    - fix rdma dt-binding format
+>    - fix dts node naming
+> - fix 32 bit build error
+>    - modify 64bit dependency for mtk-mmsys
+> - rebase to vdosys0 series v16. (ref [5])
+> 
+> Changes in v12:
+> - fix reviewer comment in v11
+>    - modify mbox index
+>    - refine dma dev for ovl_adaptor sub driver
+> 
+> Changes in v11:
+> - remove ethdr vblank spin lock
+> - refine ovl_adaptor print message
+> 
+> Changes in v10:
+> - refine ethdr reset control using devm_reset_control_array_get_optional_exclusive
+> - fix ovl_adaptor mtk_ovl_adaptor_clk_enable error handle issue
+> 
+> Changes in v9:
+> - rebase on kernel-5.16-rc1
+> - rebase on vdosys0 series v13. (ref [5])
+> - fix ovl_adaptor sub driver is brought up unintentionally
+> - fix clang build test fail- duplicate ethdr/mdp_rdma init_module/cleanup_module symbol issue
+> 
+> Changes in v8:
+> - separate merge async reset to new patch.
+> - separate drm ovl_adaptor sub driver to new patch.
+> - fix reviewer comment in v7.
+> 
+> Changes in v7:
+> - rebase on vdosys0 series v12 (ref[5])
+> - add dma description in ethdr binding document.
+> - refine vdosys1 bit definition of mmsys routing table.
+> - separate merge modification into 3 pathces.
+> - separate mutex modification into 2 patches.
+> - add plane color coding for mdp_rdma csc.
+> - move mdp_rdma pm control to ovl_adaptor.
+> - fix reviewer comment in v6.
+> 
+> Changes in v6:
+> - rebase on kernel-5.15-rc1.
+> - change mbox label to gce0 for dts node of vdosys1.
+> - modify mmsys reset num for mt8195.
+> - rebase on vdosys0 series v10. (ref [5])
+> - use drm to bring up ovl_adaptor driver.
+> - move drm iommu/mutex check from kms init to drm bind.
+> - modify rdma binding doc location. (Documentation/devicetree/bindings/arm/)
+> - modify for reviewer's comment in v5.
+> 
+> Changes in v5:
+> - add mmsys reset controller reference.
+> 
+> Changes in v4:
+> - use merge common driver for merge1~4.
+> - refine ovl_adaptor rdma driver.
+> - use ovl_adaptor ddp_comp function instead of ethdr.
+> - modify for reviewer's comment in v3.
+> 
+> Changes in v3:
+> - modify for reviewer's comment in v2.
+> - add vdosys1 2 pixels align limit.
+> - add mixer odd offset support.
+> 
+> Changes in v2:
+> - Merge PSEUDO_OVL and ETHDR into one DRM component.
+> - Add mmsys config API for vdosys1 hardware setting.
+> - Add mmsys reset control using linux reset framework.
+> 
+> Signed-off-by: Nancy.Lin <nancy.lin@mediatek.com>
+> 
+> This series are based on the following patch:
+> [1] Change mmsys compatible for mt8195 mediatek-drm
+>      20221126101220.18179-1-jason-jh.lin@mediatek.com
+> [2] Add MediaTek SoC(vdosys1) support for mt8195
+>      20221103032512.9144-1-nancy.lin@mediatek.com
+> 
+> Nancy.Lin (7):
+>    dt-bindings: mediatek: add ethdr definition for mt8195
+>    drm/mediatek: add ETHDR support for MT8195
+>    drm/mediatek: add ovl_adaptor support for MT8195
+>    drm/mediatek: add dma dev get function
+>    drm/mediatek: modify mediatek-drm for mt8195 multi mmsys support
+>    drm/mediatek: add drm ovl_adaptor sub driver for MT8195
+>    drm/mediatek: add mediatek-drm of vdosys1 support for MT8195
+> 
+>   .../display/mediatek/mediatek,ethdr.yaml      | 188 ++++++
+>   drivers/gpu/drm/mediatek/Makefile             |   2 +
+>   drivers/gpu/drm/mediatek/mtk_disp_drv.h       |  26 +
+>   .../gpu/drm/mediatek/mtk_disp_ovl_adaptor.c   | 533 ++++++++++++++++++
+>   drivers/gpu/drm/mediatek/mtk_drm_crtc.c       |  85 ++-
+>   drivers/gpu/drm/mediatek/mtk_drm_crtc.h       |   6 +-
+>   drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c   | 129 +++--
+>   drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.h   |  58 +-
+>   drivers/gpu/drm/mediatek/mtk_drm_drv.c        | 366 ++++++++----
+>   drivers/gpu/drm/mediatek/mtk_drm_drv.h        |  24 +-
+>   drivers/gpu/drm/mediatek/mtk_ethdr.c          | 370 ++++++++++++
+>   drivers/gpu/drm/mediatek/mtk_ethdr.h          |  25 +
+>   12 files changed, 1624 insertions(+), 188 deletions(-)
+>   create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml
+>   create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c
+>   create mode 100644 drivers/gpu/drm/mediatek/mtk_ethdr.c
+>   create mode 100644 drivers/gpu/drm/mediatek/mtk_ethdr.h
+> 
 
-Best,
-Nancy
-&gt;&#32;
 
-</pre><!--type:text--><!--{--><pre>************* MEDIATEK Confidentiality N=
-otice ********************
-The information contained in this e-mail message (including any=20
-attachments) may be confidential, proprietary, privileged, or otherwise
-exempt from disclosure under applicable laws. It is intended to be=20
-conveyed only to the designated recipient(s). Any use, dissemination,=20
-distribution, printing, retaining or copying of this e-mail (including its=
-=20
-attachments) by unintended recipient(s) is strictly prohibited and may=20
-be unlawful. If you are not an intended recipient of this e-mail, or believ=
-e=20
-that you have received this e-mail in error, please notify the sender=20
-immediately (by replying to this e-mail), delete any and all copies of=20
-this e-mail (including any attachments) from your system, and do not
-disclose the content of this e-mail to any other person. Thank you!
-</pre><!--}-->
 
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/752d6f553af0aeaadaa518c2a6517a93fca4731f.camel=
-%40mediatek.com?utm_medium=3Demail&utm_source=3Dfooter">https://groups.goog=
-le.com/d/msgid/clang-built-linux/752d6f553af0aeaadaa518c2a6517a93fca4731f.c=
-amel%40mediatek.com</a>.<br />
-
---__=_Part_Boundary_004_896955126.1989562382
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Dear Krzysztof,
-
-Thanks for the review.
-
-On Tue, 2023-01-10 at 11:50 +0100, Krzysztof Kozlowski wrote:
-> On 27/12/2022 09:04, Nancy.Lin wrote:
-> > Add vdosys1 mmsys compatible for MT8195 platform.
-> >=20
-> > For MT8195, VDOSYS0 and VDOSYS1 are 2 display HW pipelines binding
-> > to
-> > 2 different power domains, different clock drivers and different
-> > mediatek-drm drivers.
-> >=20
-> > Signed-off-by: Nancy.Lin <nancy.lin@mediatek.com>
-> > Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> > ---
-> >  .../devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml      | 4
-> > ++++
-> >  1 file changed, 4 insertions(+)
-> >=20
-> > diff --git
-> > a/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yam
-> > l
-> > b/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yam
-> > l
-> > index 0711f1834fbd..242ce5a69432 100644
-> > ---
-> > a/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yam
-> > l
-> > +++
-> > b/Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yam
-> > l
-> > @@ -52,6 +52,10 @@ properties:
-> >            - const: mediatek,mt8195-mmsys
-> >            - const: syscon
-> > =20
-> > +      - items:
-> > +          - const: mediatek,mt8195-vdosys1
->=20
-> This should be part of first enum. Don't create redundant entries.
->=20
-> Best regards,
-> Krzysztof
-
-OK, I will modify as following:
-
-@@ -33,6 +33,7 @@ properties:
-               - mediatek,mt8186-mmsys
-               - mediatek,mt8188-vdosys0
-               - mediatek,mt8192-mmsys
-+              - mediatek,mt8195-vdosys1
-               - mediatek,mt8365-mmsys
-           - const: syscon
-
-Best,
-Nancy
->=20
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/752d6f553af0aeaadaa518c2a6517a93fca4731f.camel%40mediatek=
-.com.
-
---__=_Part_Boundary_004_896955126.1989562382--
-
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ddf75149-e5ec-8093-2d36-55b6f2341d6a%40collabora.com.
