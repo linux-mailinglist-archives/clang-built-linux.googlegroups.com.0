@@ -1,124 +1,130 @@
-Return-Path: <clang-built-linux+bncBCT6537ZTEKRBKOKTOQAMGQEC35ZQJI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDOKDS6A5QLBBSEDU6QAMGQECV7X4BY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id 595616AD83F
-	for <lists+clang-built-linux@lfdr.de>; Tue,  7 Mar 2023 08:18:03 +0100 (CET)
-Received: by mail-il1-x138.google.com with SMTP id k13-20020a056e021a8d00b0031bae68b383sf5472016ilv.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 06 Mar 2023 23:18:03 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1678173482; cv=pass;
+Received: from mail-lj1-x240.google.com (mail-lj1-x240.google.com [IPv6:2a00:1450:4864:20::240])
+	by mail.lfdr.de (Postfix) with ESMTPS id E87B56B22C0
+	for <lists+clang-built-linux@lfdr.de>; Thu,  9 Mar 2023 12:23:54 +0100 (CET)
+Received: by mail-lj1-x240.google.com with SMTP id a9-20020a05651c210900b0028b97d2c493sf499853ljq.2
+        for <lists+clang-built-linux@lfdr.de>; Thu, 09 Mar 2023 03:23:54 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1678361033; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kVZvdorLhHXXV/WFxYhLXhCcZMOYZkDVkt3+bGWrAClnJtPQesEuXrGqYjOwXfY5Dj
-         Dk/f5WTljwMFd2Wxq+jgDnurEy1ne6NkxCPfWYWFxuhxP2aKtHR2GJGs65rWZHSWbdNd
-         8wBg/YnFFHTaXjjATL6xQJe3Jt1mJy+JM4RvU1BJRnJGFzaMQWFu13py5fjB2aX+2f4h
-         LSGit8c4sjUCTWq2q2dCpoBPJKLnJVobjpS4KekeB1yUFAw62YuPFRNTmZTKoTQmFa0Y
-         bTfJSP2DwGnkcvhcf3Q9Q5qWXZoQnsx19fyU8mb6JHMlio+eUMoMcl0kc3KOgs8TZ2RJ
-         MzMw==
+        b=rH+lO6x3q7wa5CA7F83j0Clu12xUteg9K7NSbWxRCgSYD4YX/mCoVq50/bkPiOWfK6
+         wa1xyuNLsf7rBQM10f7jPN8dQTU1kruPHw2vZgXVVgekJ3fvEDYjHy1Wj+cecTn2gX4h
+         4GlhEJUNEO37jNic43ZOf68Me7k83KRc+/wRH0m7av7/CsgbFvbwDOEwOe7/kM+B8eRX
+         +aSHvdGm/zOJnM5Rfmze4m2vGj587ujgdXHdgS0tWwbPkVnH9VMebRS7Dem5fDKlc2s/
+         vk09lvl1RkI0kTSb/PltaatVQWXB600Xaqvn9rq3iNHiefC6JUkxxO1MF++0vWJ7Ciut
+         4HJA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :mime-version:sender:dkim-signature;
-        bh=EUehE0NhezUr7Z7ZIoKaS8fE/n96YRWYBYqIt8jgmso=;
-        b=DoxPPL6MI56GBlLadsSVPWaES1D76tDXUj7qhRbES2MLj2Y9CiOl1AQ/eHPk3NtLsO
-         N8bk7E+n+o8+J9YDRJ8KMW35XRDo2x2/cOmnzvdSQj939Xn0+I2CqX4BYTfy5GNFsdk+
-         yQwmBzGNygnONHGvewNTcUWzhVZ4JZuUEsug2E7A0FYqZGi8A0l+1iqYV+C0pi63ndP6
-         OH8vff73/ybexUC5rtytQFuwY/XhUAwrGvwB/VNdJFrxBKjV2MxpIrfvmm4ujXZbtKRE
-         qJMLkMbEWdJBrru14YrhKfB8fV6yPBY65NYSp6hehNBD13MEFyzbV06SzakcjPL14PE4
-         n/kQ==
+         :list-id:mailing-list:precedence:to:subject:message-id:date:from
+         :mime-version:sender:dkim-signature:dkim-signature;
+        bh=aEcEEq1CG9sY+qN7j8IqoGsypgS7Ns4W6ierfPOEieg=;
+        b=ScgdTGc+q21BnqZfUwCMib/VvyUXZCiM2pPAbaFlcDokGlIobDaHb+jdQ9GyI6s6Y6
+         kFYfnwrxajBtOoM3no3jH8Wwt0aO2g1+n/qzxAtKttXapc4uthFS/OYDM+nS5Bw6qL94
+         IiP9r/7L6QtBOgmt8cqKXzWfMCPobtnZpEhnd4AXr8LtWcVt0YvyPEQGKF4cbHOqMNM3
+         7bS11fF7JGQczmZQz4o97nSjLhW2FcclQ+a1wzvBLkqMLlftjfsnHlGo3QbShF7z2RRo
+         R+m6Pmbsw4vYKhnqd3ce+22T0qDEU6p+mQGpFYfHtFAgSe9C1ExsJJpYO0xnLoNl7mY8
+         fg7g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=lo7pVp56;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::e2a as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=iGEyKsaJ;
+       spf=pass (google.com: domain of sabourousira@gmail.com designates 2a00:1450:4864:20::42b as permitted sender) smtp.mailfrom=sabourousira@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20210112; t=1678173482;
+        d=googlegroups.com; s=20210112; t=1678361033;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:x-original-authentication-results
-         :x-original-sender:cc:to:subject:message-id:date:from:mime-version
+         :x-original-sender:to:subject:message-id:date:from:mime-version
          :sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=EUehE0NhezUr7Z7ZIoKaS8fE/n96YRWYBYqIt8jgmso=;
-        b=Kn35OE2WLbYxEpr8CVfjAobX1plE9tHxB78BPe+mwwM6GoACje0yhYhuTx0y4674b6
-         2XIFm95oiKXtJYARREbEXKp0MnNr5pGQ83y0kPN/jjfLvJ7/U2PuX5jhIip71SGzTfsq
-         aH9WBST/W5UQz1yoNEMeuiYLfi3441Mkzk+RV3szaLY2lav3d2+OYL4kcGHxVMIBMHFy
-         CdOaKUgIJyCNhuTRm7bBuGrWBWCHZGgUolb+3U/7UqE4wVggvZG8xGk0mjMdV6erCf1h
-         GCoi8fK/4eyrTqG+DPZKbT2NlLwd3woHehqRRCeEIl1vRRuTn1eTgv9xEC8oT4G3uhpX
-         F/xA==
+        bh=aEcEEq1CG9sY+qN7j8IqoGsypgS7Ns4W6ierfPOEieg=;
+        b=MFi5izLcnosCvk+/SFn5Q8OpXaO45fcfSwmk9O2viy0VAqUGNqLBaVaEyks3pHD7I9
+         8y6UAPz1wzni3xcjfu7qhIPeKHGSn3xRMUjcRXPfviD7d78yFvkOEZM825bUdTn8GT9r
+         VrwSzIyttZiSTq0WznYCBTmWGr+pwjO+xBEb9b7cRq/IY7lSg0q630gNHTpZZMheF8IX
+         9PQwe4e2TnMoJWokTkr0k8+hPAqwtNGt059nSh9K02S6R/pICm1g7gV2c9Gjcj7jKNu3
+         UJiTv2oC8CAoQI0G2qVSrr0DnlNm/5Vi9sHY4YI+TK5Csgq7lIe60sUjbET+A30/WZge
+         N5XQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112; t=1678361033;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:x-original-authentication-results
+         :x-original-sender:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=aEcEEq1CG9sY+qN7j8IqoGsypgS7Ns4W6ierfPOEieg=;
+        b=pjDHKVVrQvUZeJaqhn4uteN+JQERjl6eZ5R2X4nDMYrh+bsZaRaAjGhM/Q0+KCjWTt
+         H0ekRslTHzF/fSTHdim0TvUUZxg38S9S7WQBsXf72D17fUsBn9FiWOZ3S5iPgLr0nRBT
+         VuTbbTaHZzp/AhXzKxh/NHz94FoJFkPz4yEKLO3P4c7ZHHoBvXnFkJIVjkwjSaKEgODh
+         uB4jgFE/izW37xkWHfNMAJsN+iLme/ECWXUn7zxKqb8kNhv7PULRK73RycPuDpkFhkuR
+         Zexb40ES6+7GcYGtC9oqhgb97hYGX0iTqi+w1ksBza8I8VxFqDVP91LP9d57YrCkB7+/
+         khUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1678173482;
+        d=1e100.net; s=20210112; t=1678361033;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:cc:to:subject
+         :x-original-authentication-results:x-original-sender:to:subject
          :message-id:date:from:mime-version:x-gm-message-state:sender:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=EUehE0NhezUr7Z7ZIoKaS8fE/n96YRWYBYqIt8jgmso=;
-        b=wQMCDIcPBp4Jepkq7rzN7lrOC/yicxkrZkecJgZDswLfIIWQgncj0jrs0fNZI5PmT8
-         2Uj7PpsNLN5cgC/0cqKDs6edgVNpKa6oBgTwUr3vYMzUWQkYa/X0aG8S/32ARvcCPrJB
-         t7DcBXE1dXfpaU0Gy/8WN04iCCyNVCfbo8twlpBr0gYLIF6lvKuE8wQ2XSi51QwwAt9i
-         UnL2zeGxJ99l/NnnZKJcCRRnbI5U2UgvQToZeg1T/y12Cn7bo/6NReyds3aaBbtEnfdQ
-         35FkBfQLIFr7qnH5Qyrz4R/M+SGyCBTC7hj3I8Qz/dUnkeu7aRBhWoRqN13ExpDZQNgm
-         vFXA==
+        bh=aEcEEq1CG9sY+qN7j8IqoGsypgS7Ns4W6ierfPOEieg=;
+        b=Q0jndNrp4kUGd9RhqzWcjPm9AbdYfnxBc+LEK+ZbDvlHLExNIaqOWqNTPJ7STqoTR2
+         b5tB7CzJ/pKtJLT9xm2BXwV8GMmexXQQcai1wUj6Eluz1s6ngcGch2TA8snY513tTBp1
+         /a+OY5DlDi4MUP/97oVHjuxPkjD+0oWIMEpRC1gP0cFYLDTOb2aosYmD25LwDnMDlJKg
+         ctW3mLHfZWUpQ8mgw8EEONX1xjb1HNnJNr+2UYA6uIW4P4tFLI7tiK/yCXgfixikJcZH
+         53o3xQ7S4ggSesnFCZGMbEp6mIIFUA6ne3o8PJgiL0gnUJAnxeptHEPAxuM9gnJXU6eV
+         EC7g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AO0yUKUvxk+wMduxHsymC1J7CT562JFjNZ/+5Rcd7mcUhv4EJQDXzZn0
-	YKXsq+IraVVxNZOrTp5csNE=
-X-Google-Smtp-Source: AK7set8S88tof7eNYaRL3Kk9dc1dLBC7OXmx05LwNBxhGck6SBZLRSMhFBHhKMiz8VdqVP0VpxJLjw==
-X-Received: by 2002:a05:6e02:f02:b0:315:544b:911f with SMTP id x2-20020a056e020f0200b00315544b911fmr6690282ilj.0.1678173482033;
-        Mon, 06 Mar 2023 23:18:02 -0800 (PST)
+X-Gm-Message-State: AO0yUKVe0nsOoDBgb9sfnlOOKjlk/HL1vLAKeB66DVa/tA0AKZlc8vaT
+	RL/FL4Q+ZJowRM82unpKlDg=
+X-Google-Smtp-Source: AK7set83cWYiZVpcioToieSmlzxFTlKKzp4DRW9vlg3BQqgdedyoVefdrfbNw9rskggzpAOe2UwOZg==
+X-Received: by 2002:a05:651c:1725:b0:295:8ef2:8707 with SMTP id be37-20020a05651c172500b002958ef28707mr6623571ljb.2.1678361032827;
+        Thu, 09 Mar 2023 03:23:52 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:c914:0:b0:745:5be5:240d with SMTP id z20-20020a6bc914000000b007455be5240dls1849340iof.2.-pod-prod-gmail;
- Mon, 06 Mar 2023 23:18:01 -0800 (PST)
-X-Received: by 2002:a05:6602:130f:b0:74c:b592:4c5e with SMTP id h15-20020a056602130f00b0074cb5924c5emr9226175iov.1.1678173481528;
-        Mon, 06 Mar 2023 23:18:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1678173481; cv=none;
+Received: by 2002:a2e:be22:0:b0:293:12a9:1ca5 with SMTP id z34-20020a2ebe22000000b0029312a91ca5ls277094ljq.6.-pod-prod-gmail;
+ Thu, 09 Mar 2023 03:23:51 -0800 (PST)
+X-Received: by 2002:a2e:b8d2:0:b0:28e:b061:7a9b with SMTP id s18-20020a2eb8d2000000b0028eb0617a9bmr7687412ljp.42.1678361031112;
+        Thu, 09 Mar 2023 03:23:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1678361031; cv=none;
         d=google.com; s=arc-20160816;
-        b=jEfex8nDMW/1ka5AGX8wiCYqj6/NX5Kz2WqH8huFVzBjnwJOTY8lvTIjqQav58m572
-         dt1uiwCVFVSoTqw4zi0MxCu4UMw0BwJ+auXq6cpj7y+Aqz3dCd+HeHotVzp/5zoQl/8i
-         GAnTEmgdPVjGiJR0TH0Zy+WyBPS8hEHqBWVzNoWIEhmx9ENz2Qsn/2H1PBZLbiddP/Bc
-         mlnog9dk/kM1dYteXTr9A/qO5jSg7FCTK2sNIbAGOeg3lVs5kYGS2QxwoqqBOd46HhYG
-         eW2t8hzgxTr3vxz1U1ZWiZA5yosRpFB2lKkHx4ZUysueDi7IShNu5z7kiT4fSfNY+zcJ
-         nIgw==
+        b=qNPLAjuoKzb5mg7b4pjLEJLOWIHCEfsJJ+Lsg/rYZGhkpK/YvfHpuFY4a3gd8R/coy
+         /RRSAeqnHfPxju/P2E4htRWMHIH0pSwpNiVpgpowwWmZSAU8dJTLLeToJRh0YONOjYUO
+         ifziwzFY5DAy9NNQplFhlk/PDSzyOcXYBgPa7WiV34BeWazw5sVvkWMPwSiLk+vz9jkR
+         8PPtG0IuHqgyTGkyFrkYBpX5nDgdNwLEDg7CxAtMyO0eGwVerXxv0N4pvCIjhQ+u9DCo
+         DCV+SCC4Pn+LGxWMwl/nLSyFTW5KhFhzDwiRJQD9KkZcxoizPg93BWPdgiPfUQEPE0je
+         V0ug==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=DLDvNJAiPBjBod3Tywevhuwhg5NQD2WRFvTgKWfFwAQ=;
-        b=hVILX5kLFhT9igMJh4Q6xCFJN3Ej1A+t9tYqxyERvoBX2M2wCluNvxdi6YKJ/o2eN1
-         y+AQBu6IO/wXflJ6N0Sn4DHsh0sUSgYrLOo/78mrtu8SYXjUw/15abjWdNjSDtqSCfuL
-         uASi1HVzmR6Npzt4DerxSXGORq6fpUewrAl8JROd2mhM5KBHZH1XdSgDc53RhalRz4qW
-         +B5Tl6SGs3hbhmBnbnhvzjgj7K7BdwDzUuKgn+24/guqn3+8oGKKRScv+xjPxFDVm5Uu
-         Ef7wyDYqWBI8ytvY8PBZ6yBm960BWxpc50M3b4gPb7XckWYXhw2zM3+zr9x4W/qpSGAZ
-         5NgQ==
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=YqSixpZC9gbNYn5b1NENVoz0URUrk0IPtTIx4W+RQVw=;
+        b=0EcT5zxWQokcd8FfVjcalIzqHwoCPPNGOhQS2ZoOWXOpxWxykxuTfZOUMI5E3iqkX5
+         sDQSqlyIuRHpXDP73KsluQWbVbnvrXfO9RHoXH9N8vf1l+6thYYN+AjdX50KKOOSpyiX
+         ukyHUmz+qReIPI5CCkA08c8K4yyymbtV98gEyLR1I38aRmV0KeU7r/PS505OjwhUMpPO
+         iZHJ3U/hnSqC7sZa9AaKIHo3aLTE8Af53jNQiN9gsfgJOHOxUsLVkszt+0anfTAoEeYP
+         U/M9EDt8eobZJbrKFhFRLIKa20Pp6i96kzr0RCsafs9TZQKnUSZe2DfKsA6+nBuUEi6v
+         mKmg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=lo7pVp56;
-       spf=pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::e2a as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-vs1-xe2a.google.com (mail-vs1-xe2a.google.com. [2607:f8b0:4864:20::e2a])
-        by gmr-mx.google.com with ESMTPS id t16-20020a92c0d0000000b0031864fa3abesi712557ilf.1.2023.03.06.23.18.01
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=iGEyKsaJ;
+       spf=pass (google.com: domain of sabourousira@gmail.com designates 2a00:1450:4864:20::42b as permitted sender) smtp.mailfrom=sabourousira@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x42b.google.com (mail-wr1-x42b.google.com. [2a00:1450:4864:20::42b])
+        by gmr-mx.google.com with ESMTPS id o4-20020a2ebd84000000b0029596269cbasi833274ljq.3.2023.03.09.03.23.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Mar 2023 23:18:01 -0800 (PST)
-Received-SPF: pass (google.com: domain of naresh.kamboju@linaro.org designates 2607:f8b0:4864:20::e2a as permitted sender) client-ip=2607:f8b0:4864:20::e2a;
-Received: by mail-vs1-xe2a.google.com with SMTP id by13so11509436vsb.3
-        for <clang-built-linux@googlegroups.com>; Mon, 06 Mar 2023 23:18:01 -0800 (PST)
-X-Received: by 2002:a67:db97:0:b0:412:2ed6:d79b with SMTP id
- f23-20020a67db97000000b004122ed6d79bmr9040317vsk.3.1678173480962; Mon, 06 Mar
- 2023 23:18:00 -0800 (PST)
+        Thu, 09 Mar 2023 03:23:51 -0800 (PST)
+Received-SPF: pass (google.com: domain of sabourousira@gmail.com designates 2a00:1450:4864:20::42b as permitted sender) client-ip=2a00:1450:4864:20::42b;
+Received: by mail-wr1-x42b.google.com with SMTP id l1so1466614wry.12
+        for <clang-built-linux@googlegroups.com>; Thu, 09 Mar 2023 03:23:51 -0800 (PST)
+X-Received: by 2002:a05:6000:1364:b0:2cc:4c4e:793e with SMTP id
+ q4-20020a056000136400b002cc4c4e793emr4184907wrz.13.1678361030481; Thu, 09 Mar
+ 2023 03:23:50 -0800 (PST)
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Tue, 7 Mar 2023 12:47:50 +0530
-Message-ID: <CA+G9fYt+5tML3BTyk4_z_Ro1Dv+W6OvZqoZcqjc5NRhqBNZrVg@mail.gmail.com>
-Subject: selftest: rtctest.c:290:alarm_wkalm_set:Expected -1 (-1) != rc (-1) :
- Test terminated by assertion
-To: "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org
-Cc: Shuah Khan <shuah@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Anders Roxell <anders.roxell@linaro.org>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, =?UTF-8?Q?Mateusz_Jo=C5=84czyk?= <mat.jonczyk@o2.pl>, 
-	Nathan Chancellor <nathan@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: naresh.kamboju@linaro.org
+From: Sarah Owen <sarahbaby070@gmail.com>
+Date: Thu, 9 Mar 2023 11:23:38 +0000
+Message-ID: <CA++-uOCktUEFVTY8BVEA9B7Oe0QhOJMhwR5QpoGLvbkYZESqAg@mail.gmail.com>
+Subject: Hi
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="00000000000006dc9405f675e1bb"
+X-Original-Sender: sarahbaby070@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=lo7pVp56;       spf=pass
- (google.com: domain of naresh.kamboju@linaro.org designates
- 2607:f8b0:4864:20::e2a as permitted sender) smtp.mailfrom=naresh.kamboju@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@gmail.com header.s=20210112 header.b=iGEyKsaJ;       spf=pass
+ (google.com: domain of sabourousira@gmail.com designates 2a00:1450:4864:20::42b
+ as permitted sender) smtp.mailfrom=sabourousira@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,172 +137,34 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-kselftest: rtc built with clang-16 getting failed but passed with gcc-12
-build. Please find more details about test logs on clang-16 and gcc-12
-and steps to reproduce locally on your machine by using tuxrun.
+--00000000000006dc9405f675e1bb
+Content-Type: text/plain; charset="UTF-8"
 
-On the qemu-x86-64 clang builds it is intermittent failure;
-you could notice that from the test history link below.
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-
-Test log:
-----------
-Linux version 6.3.0-rc1-next-20230307 (tuxmake@tuxmake) (Debian clang
-version 16.0.0 (++20230228093516+60692a66ced6-1~exp1~20230228093525.41),
-Debian LLD 16.0.0) #1 SMP PREEMPT @1678159722
-...
-kselftest: Running tests in rtc
-TAP version 13
-1..1
-# selftests: rtc: rtctest
-# TAP version 13
-# 1..8
-# # Starting 8 tests from 1 test cases.
-# #  RUN           rtc.date_read ...
-# # rtctest.c:54:date_read:Current RTC date/time is 07/03/2023 03:55:04.
-# #            OK  rtc.date_read
-# ok 1 rtc.date_read
-# #  RUN           rtc.date_read_loop ...
-# # rtctest.c:96:date_read_loop:Continuously reading RTC time for 30s
-(with 11ms breaks after every read).
-# # rtctest.c:122:date_read_loop:Performed 2630 RTC time reads.
-# #            OK  rtc.date_read_loop
-# ok 2 rtc.date_read_loop
-# #  RUN           rtc.uie_read ...
-# #            OK  rtc.uie_read
-# ok 3 rtc.uie_read
-# #  RUN           rtc.uie_select ...
-# #            OK  rtc.uie_select
-# ok 4 rtc.uie_select
-# #  RUN           rtc.alarm_alm_set ...
-# # rtctest.c:222:alarm_alm_set:Alarm time now set to 03:55:44.
-# # rtctest.c:241:alarm_alm_set:data: 1a0
-# #            OK  rtc.alarm_alm_set
-# ok 5 rtc.alarm_alm_set
-# #  RUN           rtc.alarm_wkalm_set ...
-# # rtctest.c:284:alarm_wkalm_set:Alarm time now set to 07/03/2023 03:55:47.
-# # rtctest.c:290:alarm_wkalm_set:Expected -1 (-1) != rc (-1)
-# # alarm_wkalm_set: Test terminated by assertion
-# #          FAIL  rtc.alarm_wkalm_set
-# not ok 6 rtc.alarm_wkalm_set
-# #  RUN           rtc.alarm_alm_set_minute ...
-# # rtctest.c:332:alarm_alm_set_minute:Alarm time now set to 03:56:00.
-# # rtctest.c:351:alarm_alm_set_minute:data: 1a0
-# #            OK  rtc.alarm_alm_set_minute
-# ok 7 rtc.alarm_alm_set_minute
-# #  RUN           rtc.alarm_wkalm_set_minute ...
-# # rtctest.c:394:alarm_wkalm_set_minute:Alarm time now set to
-07/03/2023 03:57:00.
-# # rtctest.c:400:alarm_wkalm_set_minute:Expected -1 (-1) != rc (-1)
-# # alarm_wkalm_set_minute: Test terminated by assertion
-# #          FAIL  rtc.alarm_wkalm_set_minute
-# not ok 8 rtc.alarm_wkalm_set_minute
-# # FAILED: 6 / 8 tests passed.
-# # Totals: pass:6 fail:2 xfail:0 xpass:0 skip:0 error:0
-
-Links,
-
-  qemu-x86_64:
-  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20230306/testrun/15287646/suite/kselftest-rtc/test/rtc_rtctest/details/
-  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20230306/testrun/15287646/suite/kselftest-rtc/test/rtc_rtctest/log
-
-  qemu-arm64:
-  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20230307/testrun/15302349/suite/kselftest-rtc/test/rtc_rtctest/log
-  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20230307/testrun/15302349/suite/kselftest-rtc/tests/
-
-Test history:
-- https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20230307/testrun/15302349/suite/kselftest-rtc/test/rtc_rtctest/history/
-
-Test log:
----------
-Linux version 6.3.0-rc1-next-20230307 (tuxmake@tuxmake)
-(aarch64-linux-gnu-gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils
-for Debian) 2.40) #1 SMP PREEMPT @1678159736
-...
-kselftest: Running tests in rtc
-TAP version 13
-1..1
-# selftests: rtc: rtctest
-# TAP version 13
-# 1..8
-# # Starting 8 tests from 1 test cases.
-# #  RUN           rtc.date_read ...
-# # rtctest.c:52:date_read:Current RTC date/time is 07/03/2023 03:48:22.
-# #            OK  rtc.date_read
-# ok 1 rtc.date_read
-# #  RUN           rtc.date_read_loop ...
-# # rtctest.c:95:date_read_loop:Continuously reading RTC time for 30s
-(with 11ms breaks after every read).
-# # rtctest.c:122:date_read_loop:Performed 2670 RTC time reads.
-# #            OK  rtc.date_read_loop
-# ok 2 rtc.date_read_loop
-# #  RUN           rtc.uie_read ...
-# #            OK  rtc.uie_read
-# ok 3 rtc.uie_read
-# #  RUN           rtc.uie_select ...
-# #            OK  rtc.uie_select
-# ok 4 rtc.uie_select
-# #  RUN           rtc.alarm_alm_set ...
-# # rtctest.c:221:alarm_alm_set:Alarm time now set to 03:49:02.
-# # rtctest.c:241:alarm_alm_set:data: 1a0
-# #            OK  rtc.alarm_alm_set
-# ok 5 rtc.alarm_alm_set
-# #  RUN           rtc.alarm_wkalm_set ...
-# # rtctest.c:281:alarm_wkalm_set:Alarm time now set to 07/03/2023 03:49:05.
-# #            OK  rtc.alarm_wkalm_set
-# ok 6 rtc.alarm_wkalm_set
-# #  RUN           rtc.alarm_alm_set_minute ...
-# # rtctest.c:331:alarm_alm_set_minute:Alarm time now set to 03:50:00.
-<47>[  106.383091] systemd-journald[98]: Sent WATCHDOG=1 notification.
-# # rtctest.c:351:alarm_alm_set_minute:data: 1a0
-# #            OK  rtc.alarm_alm_set_minute
-# ok 7 rtc.alarm_alm_set_minute
-# #  RUN           rtc.alarm_wkalm_set_minute ...
-# # rtctest.c:391:alarm_wkalm_set_minute:Alarm time now set to
-07/03/2023 03:51:00.
-# #            OK  rtc.alarm_wkalm_set_minute
-# ok 8 rtc.alarm_wkalm_set_minute
-# # PASSED: 8 / 8 tests passed.
-# # Totals: pass:8 fail:0 xfail:0 xpass:0 skip:0 error:0
-ok 1 selftests: rtc: rtctest
-
-Links,
- qemu-x86_64:
-  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20230307/testrun/15303767/suite/kselftest-rtc/test/rtc_rtctest/details/
- qemu-arm64:
-  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20230307/testrun/15302372/suite/kselftest-rtc/tests/
-  - https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20230307/testrun/15302372/suite/kselftest-rtc/test/rtc_rtctest/log
-
-Steps to reproduce:
---------------
-
-# To install tuxrun on your system globally:
-# sudo pip3 install -U tuxrun==0.37.2
-#
-# See https://tuxrun.org/ for complete documentation.
-
-tuxrun  \
- --runtime podman  \
- --device qemu-x86_64  \
- --boot-args rw  \
- --kernel https://storage.tuxsuite.com/public/linaro/lkft/builds/2McWP6obiL1x51zgkgLXRAmI9Ei/bzImage
- \
- --modules https://storage.tuxsuite.com/public/linaro/lkft/builds/2McWP6obiL1x51zgkgLXRAmI9Ei/modules.tar.xz
- \
- --rootfs https://storage.tuxboot.com/debian/bookworm/amd64/rootfs.ext4.xz  \
- --parameters SKIPFILE=skipfile-lkft.yaml  \
- --parameters KSELFTEST=https://storage.tuxsuite.com/public/linaro/lkft/builds/2McWP6obiL1x51zgkgLXRAmI9Ei/kselftest.tar.xz
- \
- --image docker.io/lavasoftware/lava-dispatcher:2023.01.0020.gc1598238f  \
- --tests kselftest-rtc  \
- --timeouts boot=15
-
---
-Linaro LKFT
-https://lkft.linaro.org
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BG9fYt%2B5tML3BTyk4_z_Ro1Dv%2BW6OvZqoZcqjc5NRhqBNZrVg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2B%2B-uOCktUEFVTY8BVEA9B7Oe0QhOJMhwR5QpoGLvbkYZESqAg%40mail.gmail.com.
+
+--00000000000006dc9405f675e1bb
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CA%2B%2B-uOCktUEFVTY8BVEA9B7Oe0QhOJMhwR5QpoGLv=
+bkYZESqAg%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://=
+groups.google.com/d/msgid/clang-built-linux/CA%2B%2B-uOCktUEFVTY8BVEA9B7Oe0=
+QhOJMhwR5QpoGLvbkYZESqAg%40mail.gmail.com</a>.<br />
+
+--00000000000006dc9405f675e1bb--
