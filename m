@@ -1,127 +1,124 @@
-Return-Path: <clang-built-linux+bncBCB6X76TWIIRBAO22CQAMGQEJNKTSLQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD7274FIT4EBB67J2CQAMGQEYINYXJY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id 608FD6BE4C8
-	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Mar 2023 10:04:03 +0100 (CET)
-Received: by mail-lf1-x137.google.com with SMTP id z20-20020a195e54000000b004e9609a300csf761344lfi.2
-        for <lists+clang-built-linux@lfdr.de>; Fri, 17 Mar 2023 02:04:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1679043842; cv=pass;
+Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id B21156BE5BE
+	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Mar 2023 10:38:04 +0100 (CET)
+Received: by mail-ot1-x33c.google.com with SMTP id f14-20020a9d5f0e000000b0069d8d0ff799sf1637608oti.6
+        for <lists+clang-built-linux@lfdr.de>; Fri, 17 Mar 2023 02:38:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1679045883; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cioEB+BbCVyaUqVlktbpgUhm3zNYwK/PO5fInzhThbEkMGEkBJUY1/gLaq7auvYUcL
-         s0+6JIGNYyBJHPtHywttMlSpepQiKbm/iUT+7EzKJmuSNOq9ZYX2mT0DkZG4HMLwTCpo
-         iXUJTarDIkoQSdj7OBB3YISbf4CG9+PIn8G+HCWBMSXoBpNqOJe/2bglLWeasIRUeNMG
-         NCxaR1H8sdtS+EYq0NCIj9FJoy25A1Zu2kwqiLE4aA00VnCW15NU04rBvImIiOAzq7Zq
-         ntbCPPTUAbV3DXpC9w7cu+BWy4syUKVSRdbaE3yEHdd/1vj0f3ej+fSwGfhqpzJrPAI9
-         Rayw==
+        b=zV9kkFmWFLfddhA9b8zg9fjmmqKYJmksRaII90cMKD7c/oWChqlzBCdS9MGwevDhEa
+         /9GMErhgbZlBuI6XvFZScinyWUzaME9p2ZqtBp1CjGYon0HvE4eX/c7hCca3v0U2Krqi
+         nZJ41l4mZzMryy7JFxpyJv2B7jBANDMSU1NYUCiVwWnwnIAdiKM3r+0hSREoOJSrrj+M
+         MmQ2WJNWMawksab5efwUa/E7SsUDc9UVXfttKv+vPoQEEhhibh0ItASLc8yQDu9YWWEi
+         zXN9kO0DxKyCUouQtSUNC4kxMncslNJrNYJfmZZdSYt/2GM2YT5Yf/QDOFaCzvYWwHmv
+         /QCg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
          :in-reply-to:from:references:cc:to:content-language:subject
-         :user-agent:mime-version:date:message-id:sender:dkim-signature;
-        bh=p3m7EgFzORuvBWc3S2QG8GxLjvkAUTSytE1i0uwNirA=;
-        b=0sC6ChHgT8DfQT6mZL7YFJapgeYDJjKQsg8Dff7++Ai1QErXUZLfwHiEwy9JVgeJF5
-         bf2hWpU7v0LtNrjcAmuTZenCp+zUABn39ErHOF8aKA3DcK99QuRjaIIPxJL7Sn8PuLKv
-         GuX7kNYGTU4jnKCinfjMAP4FC2RAbOe7JQXQIXVWNZdQJL5QiTCcba+3zGU4rGcUcZIb
-         1RdZrozsdVc6OpDWq5hL3wNfkkyOCW5sIXgziGuC/M2lXMmTcm5i/zBrSjOxaVn6UVtR
-         2/lqJDhRk4A5M8tjcQLV7xR0Vq2B5DZW8BKcuSLVnaK7chJWBAVbRDJXp1B/Iz4GFv7Y
-         oDZw==
+         :user-agent:mime-version:date:message-id:dkim-signature;
+        bh=rw8weQEwxFgliP+6rwEeAjgkCbCMtGNiwIi1UT37To8=;
+        b=Y/dQHg8z4J4NU8vpVzRAcjO7AKwFpnPTugCerk/MYQ9/aZ+AYvaDK8QFxWf/8fpf3u
+         yMHiOqJI0VfRb93gZJK2HDlROeyJPgFFiI/SE53O0pOQjpeqpTmHYhUe7otTED6e9+9x
+         iDbvMpDHDTJLITTBWghMSzfIFGSkwyFLgjRWG7I5kBoh58SaGpo2Zyfl0Odb6jRTXM4W
+         cXbH5XmxxyIDM9zvAMxtRGd8mU4se+WWKcTbVumy5zE1Hy/8swRm3hzODYrreeIcyJf9
+         PDgVK7Cn+/ejmyPYHd3IiMXzt5F5gOAmzDFFt3qwCho4fOqzPU8x+wbZZ/LOBWFTYG96
+         YPbg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=monslhkk;
-       spf=pass (google.com: domain of krzysztof.kozlowski@linaro.org designates 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=krzysztof.kozlowski@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@collabora.com header.s=mail header.b=aBnKahfJ;
+       spf=pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20210112; t=1679043842;
+        d=googlegroups.com; s=20210112; t=1679045883;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:x-original-authentication-results
-         :x-original-sender:content-transfer-encoding:in-reply-to:from
-         :references:cc:to:content-language:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=p3m7EgFzORuvBWc3S2QG8GxLjvkAUTSytE1i0uwNirA=;
-        b=VXJ/rU/6ylzWcNOZbmbvLw8DwvcbpMvaE5kErmkCvPv4CfS3+mML2I4JbaHbOfloc3
-         qz2VnPtjGO9qog7GlxBkiKtUG3IMhkWeu6PdFqo/BSPLk7+ZjN0+tl130Hp1ffJxDW0Q
-         6/PRqdiPqWlvblnOi+4ybIqWaJmayInp4ik5QkWYmx2aWCYs/EElRNhNwW5UoRIBwGqZ
-         kllRPYWhnsgVP0uk2zuLh/Y3Rv+Pde2dL/sNAFzK2YgtihOD4gDJn4snx/GO7SL3A8ec
-         1LSZNSv1L3aur4q1iuL6gerdFY6gnFkNFrV0CV1gCF7Ao+wWN+QI9K0rLJNrcvlyEzRW
-         Hs4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679043842;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender
          :content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=p3m7EgFzORuvBWc3S2QG8GxLjvkAUTSytE1i0uwNirA=;
-        b=TSIroN0flOwXLSeF8ZYwolkRYSE/uU4NHcLIhdHFHYMsuoDa2PXXOwWI/WEYYmgG9B
-         1Dt83n+9MSJms9bIYn1vZrkqGSzTSsdWdzuMX1ysv3vvtLsoQR1Jyih4aTtmuskOAmQj
-         YkAFzqJYcrtgAxDwjZoRr0uqwqFejvCxMf9agbw9NVytGWaNOW4bgXma7cGklw+6xzNS
-         2eaWwwNUtQZ2b7MnlD2NUUn0tfDu0Bhgk+TB5CRZKaqHlIG9oBAeDpWltb1hHysh3IsK
-         SAGo1jnzad+fv9xZVQjhJ2OfmskLJDwnkoSj0n8fisrD4dva+g4M2y9+x9BTc2W2Jw3n
-         SqcQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AO0yUKUH50OkkcZiUNzhN+LXlzT0BXE+U4DsUuUBVigVUfC2zXKNvff8
-	u9MStkNxA3PTtigqAuq2QXE=
-X-Google-Smtp-Source: AK7set8vZgX6WwO9qBknP9W7+fcFDcqkr2ztrpw+fSNLksCdsVMG2PewaLSmuKSTRPioBQMUBQD+wA==
-X-Received: by 2002:ac2:5639:0:b0:4e8:5112:1fd5 with SMTP id b25-20020ac25639000000b004e851121fd5mr3822257lff.1.1679043841954;
-        Fri, 17 Mar 2023 02:04:01 -0700 (PDT)
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rw8weQEwxFgliP+6rwEeAjgkCbCMtGNiwIi1UT37To8=;
+        b=ZWCZ+Mvp5Ihmubfu2RZw4Y/RYn3PHHFPt017SNZxhcW35msZ9PGwhGU7R9wl8Vfab8
+         5xW7Q1i9FMxKRYzPV0ZyIoZzM8B1xQ0AHKo7qjpfkmrd5IrEI+PHjF4bks92hdOh4yHp
+         gH9+Qxndo8fIWxFMATiAGa9Rjc/UwPp98OTAMNbV648lQXKlNJY9jRYEdVfoG24LAVEW
+         cSkvq0BEH/yGEM86GJ/9kJmm3z46HRdNuijAgXSumvZK1mfa/HtsUp0dIV7HfXggcU2d
+         b/S5GmuwvagDllWsa4VnvHsP+2o5kVW2Rua4Elz2VLO+ZXfzLjxFykkr2fJ8CuLUfw02
+         qJxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1679045883;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender
+         :content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rw8weQEwxFgliP+6rwEeAjgkCbCMtGNiwIi1UT37To8=;
+        b=1DvhQ+tcQR3Iu7hwL4gXxhiJoudwSAMH/Xi6QBKX1dlnr36U75AFWF/I+1ggc1V8EU
+         ZhDu/oV5xQHGoY9gzXluivL7oOVcavyJvodcClYS3Z/tXhwZjBjQU2iTeGfSIBJOGMEQ
+         X8TpZ+iGME3iHkeRLoG0HoNMC56JvXFO5CqVTzTXqb9dhFg5A0iVGqUpftFnJiV3WfkD
+         jZhptkTfXYULtvnySmfrYad0k+Zxw71Oaiosg/rHgO7Zrizf3k8ivEe5Fne7HwrbRx+w
+         3vu6eYP8b1cOnCIsj4n7URzl9IpHhjXTyMzFez1/LuJ2SYW4FPvVX3H7e7ejHaLN4erj
+         pnFQ==
+X-Gm-Message-State: AO0yUKXqwjeZcWD9Tp9juyFfRdrYSnCiNTdrQyfFRFYpqEYpZM/76Vbt
+	17Th6ItY8tmZzYYEcqqwucw=
+X-Google-Smtp-Source: AK7set9kFYCTPxEuypfVMlq/LEVHtZRFKYjJS3H7djK1OoAjkMIugH1RIVujatcu1PSkRfOx+rErDw==
+X-Received: by 2002:a9d:6090:0:b0:694:634:8fd8 with SMTP id m16-20020a9d6090000000b0069406348fd8mr16885900otj.1.1679045883581;
+        Fri, 17 Mar 2023 02:38:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:222a:b0:299:8859:2407 with SMTP id
- y42-20020a05651c222a00b0029988592407ls898487ljq.1.-pod-prod-gmail; Fri, 17
- Mar 2023 02:04:00 -0700 (PDT)
-X-Received: by 2002:a2e:be8d:0:b0:295:ba1d:c2bc with SMTP id a13-20020a2ebe8d000000b00295ba1dc2bcmr4026375ljr.45.1679043840470;
-        Fri, 17 Mar 2023 02:04:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1679043840; cv=none;
+Received: by 2002:a05:6870:2a48:b0:179:4735:e363 with SMTP id
+ jd8-20020a0568702a4800b001794735e363ls1682563oab.8.-pod-prod-gmail; Fri, 17
+ Mar 2023 02:38:03 -0700 (PDT)
+X-Received: by 2002:a05:6870:4799:b0:177:91a1:8801 with SMTP id c25-20020a056870479900b0017791a18801mr12390691oaq.45.1679045882961;
+        Fri, 17 Mar 2023 02:38:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679045882; cv=none;
         d=google.com; s=arc-20160816;
-        b=FzI6oeFhqMK5NoNyUQ7vD/H6HLBniCq2+G7z3fZVBlnuxJtwmQD9ysQ4Ee90v3l0vS
-         DSDJJqzsKVtp4wFJcmwU3LrE+Ot0Z0fjbRrEaEVW+Od1lp9Tk0RsRQBVfB+xB0JpMjJP
-         sClP6bTrNon93xE9raj7Wabq5fbZOXKJJa7GIl4Ga3AOjc09wnW8Kayi2Wc4KjJMQnN4
-         R0xUrLQgZn70zUTuuCYspgXysjo+ILlX116pS6n0BQbnMc3eSbK4DXbzr9m8514XMq/j
-         38K4+0Xh1Wij1msDo1x7GJmU1Y/yuVUFno7lOj5mnUJwRktc8gHooEplWpAt3t8u8z0J
-         L9Vw==
+        b=ax2TieYhTYHyWcGuohwMT1h3KKlI30KD/0qNx24AieLwwX2bIQm1PqpNFh9a1S62v4
+         UDEa73QaGwi0V5Ue6oeMfa8TcFcBQJnYrbU4T7myXavOkh0vQyRSQk9ZyL7dezt+pVPn
+         a+QdfgzYedSou20IgLIaL6Rj2y+9q47InsQhqzSSiXVJB5GIw/M1GOaGyrzUiw9SWLmb
+         9rWitDlN3wuNrWhzKgua4kE/TI5qJ1VX6J111BpbeX+km4Ji/YEaa3e/8OHkKosD1qcZ
+         MCP6HgJpLDE/wRQVTvFdnVelOoRMW8BrkJPLkq0Y7c5ccepRiluhj8RzziRc/zMkKqRe
+         CfwQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :dkim-signature;
-        bh=F+9q32H5maQAY7+Dr81+RVllp8r8V/8Ihh6QFteXqFU=;
-        b=x+e/2qJFfHbE+/yT1rj0ns258HxrnnP6acRcfBCij+tkMk5JCiL/8hF8cL0YCnc/gf
-         QDOSLAJ9N2x2QC88iUDTrkbl25jp6o64fPgHB5NIhwkEbEhTnBLhxZ130EqYBLjThFWE
-         zWMdqDLmvA1u+ikmMCkIpfjyyOVeiej7rnNT9ABtRtqYWliPJrTY5ZtQXcnXYLg+I5qt
-         CUc5BsJCyDGm8Wjk8MkviewJ32ac24e/a9P+sPLZyseavOom8MoIaft15tLEznRe7eOo
-         3WPaq1WxBRt+/M0Ikx749rMB5APo1sEcutbY0naoDJFWJ6DrxayfI/Dx9LvvhZA6OscZ
-         Uohw==
+        bh=W4ZtIXw0ir18QEQZljYtT4f7hKsW6tJ5NYQpUlJrVvM=;
+        b=DRUAc7NC2s9wDGZJLcI5EoNoxUFjaG+9MK7Nwj63cx9ESHbhdeLnPfPe5isgKSyLRB
+         1RYSIVHAf2YtNDBazr+yIIYGTYjhQO77jYmse0hXUnCIaFsLqV6bu6Xw+3Y9SdA83w9K
+         yG+A2oVpxxUW+nQlWG1pAWjrGND0izPAOXv/FVcT0Pa4DT8x6YSgfjf0A6QJSjhhiMzT
+         Tkc7791duwnHx+tSzZektEQypy2Qr0Dg5ZgFXcLA7xsd3fPgQ7Gag2wfHq+sJlTTwL1p
+         QhaFh+36ovU2GblILd37psq54zw42xFzlDVE6YPw0NNa1sWz/IuRkrJktPqSOVz7FNeP
+         +1ug==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=monslhkk;
-       spf=pass (google.com: domain of krzysztof.kozlowski@linaro.org designates 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=krzysztof.kozlowski@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-ed1-x531.google.com (mail-ed1-x531.google.com. [2a00:1450:4864:20::531])
-        by gmr-mx.google.com with ESMTPS id by30-20020a05651c1a1e00b00298a88a8f1csi73784ljb.5.2023.03.17.02.04.00
+       dkim=pass header.i=@collabora.com header.s=mail header.b=aBnKahfJ;
+       spf=pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
+Received: from madras.collabora.co.uk (madras.collabora.co.uk. [2a00:1098:0:82:1000:25:2eeb:e5ab])
+        by gmr-mx.google.com with ESMTPS id gr25-20020a056870aa9900b001762cd3225csi249260oab.3.2023.03.17.02.38.02
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Mar 2023 02:04:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of krzysztof.kozlowski@linaro.org designates 2a00:1450:4864:20::531 as permitted sender) client-ip=2a00:1450:4864:20::531;
-Received: by mail-ed1-x531.google.com with SMTP id ek18so17639833edb.6
-        for <clang-built-linux@googlegroups.com>; Fri, 17 Mar 2023 02:04:00 -0700 (PDT)
-X-Received: by 2002:a17:907:9622:b0:932:35b1:47fa with SMTP id gb34-20020a170907962200b0093235b147famr601376ejc.64.1679043840103;
-        Fri, 17 Mar 2023 02:04:00 -0700 (PDT)
-Received: from ?IPV6:2a02:810d:15c0:828:848a:1971:93e0:b465? ([2a02:810d:15c0:828:848a:1971:93e0:b465])
-        by smtp.gmail.com with ESMTPSA id lg10-20020a170906f88a00b008cc920469b5sm744608ejb.18.2023.03.17.02.03.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Mar 2023 02:03:59 -0700 (PDT)
-Message-ID: <4027714e-b4e8-953b-68e2-f74f7a7f0e8e@linaro.org>
-Date: Fri, 17 Mar 2023 10:03:58 +0100
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Mar 2023 02:38:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) client-ip=2a00:1098:0:82:1000:25:2eeb:e5ab;
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id AA6F3660309E;
+	Fri, 17 Mar 2023 09:38:00 +0000 (GMT)
+Message-ID: <fdd0a157-eedb-bf21-c632-79b02a4cd6b0@collabora.com>
+Date: Fri, 17 Mar 2023 10:37:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.9.0
 Subject: Re: [PATCH v29 1/7] dt-bindings: mediatek: add ethdr definition for
  mt8195
 Content-Language: en-US
-To: =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
  "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
  "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "angelogioacchino.delregno@collabora.com"
- <angelogioacchino.delregno@collabora.com>,
  "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
  "robh+dt@kernel.org" <robh+dt@kernel.org>,
  "krzysztof.kozlowski+dt@linaro.org" <krzysztof.kozlowski+dt@linaro.org>
@@ -148,16 +145,19 @@ References: <20221227081011.6426-1-nancy.lin@mediatek.com>
  <e5ceec9e-d51b-2aeb-1db7-b79b151bd44c@collabora.com>
  <0ebf187d-972e-4228-d8a0-8c0ce02f642d@linaro.org>
  <72cf6344a1c5942bff0872d05dce82b787b49b76.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <72cf6344a1c5942bff0872d05dce82b787b49b76.camel@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
+ <4027714e-b4e8-953b-68e2-f74f7a7f0e8e@linaro.org>
+From: "'AngeloGioacchino Del Regno' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+In-Reply-To: <4027714e-b4e8-953b-68e2-f74f7a7f0e8e@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: krzysztof.kozlowski@linaro.org
+X-Original-Sender: angelogioacchino.delregno@collabora.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=monslhkk;       spf=pass
- (google.com: domain of krzysztof.kozlowski@linaro.org designates
- 2a00:1450:4864:20::531 as permitted sender) smtp.mailfrom=krzysztof.kozlowski@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@collabora.com header.s=mail header.b=aBnKahfJ;       spf=pass
+ (google.com: domain of angelogioacchino.delregno@collabora.com designates
+ 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
+X-Original-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reply-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -170,82 +170,94 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 17/03/2023 08:55, Nancy Lin (=E6=9E=97=E6=AC=A3=E8=9E=A2) wrote:
-> On Thu, 2023-03-16 at 12:36 +0100, Krzysztof Kozlowski wrote:
->> On 16/03/2023 10:53, AngeloGioacchino Del Regno wrote:
+Il 17/03/23 10:03, Krzysztof Kozlowski ha scritto:
+> On 17/03/2023 08:55, Nancy Lin (=E6=9E=97=E6=AC=A3=E8=9E=A2) wrote:
+>> On Thu, 2023-03-16 at 12:36 +0100, Krzysztof Kozlowski wrote:
+>>> On 16/03/2023 10:53, AngeloGioacchino Del Regno wrote:
+>>>
+>>>> Hello Krzysztof, Nancy,
+>>>>
+>>>> Since this series has reached v29, can we please reach an agreement
+>>>> on the bindings
+>>>> to use here, so that we can get this finally upstreamed?
+>>>>
+>>>> I will put some examples to try to get this issue resolved.
+>>>>
+>>>> ### Example 1: Constrain the number of GCE entries to *seven* array
+>>>> elements (7x4!)
+>>>>
+>>>>     mediatek,gce-client-reg:
+>>>>       $ref: /schemas/types.yaml#/definitions/phandle-array
+>>>>       maxItems: 1
+>>>>       description: The register of display function block to be set
+>>>> by gce.
+>>>>         There are 4 arguments in this property, gce node, subsys id,
+>>>> offset and
+>>>>         register size. The subsys id is defined in the gce header of
+>>>> each chips
+>>>>         include/dt-bindings/gce/<chip>-gce.h, mapping to the
+>>>> register of display
+>>>>         function block.
+>>>>       items:
+>>>>         minItems: 28
+>>>>         maxItems: 28
+>>>>         items:                     <----- this block doesn't seem to
+>>>> get checked :\
+>>>>           - description: phandle of GCE
+>>>>           - description: GCE subsys id
+>>>>           - description: register offset
+>>>>           - description: register size
+>>>
+>>> This is what we would like to have but it requires exception in
+>>> dtschema. Thus:
+>>>
+>>>>
+>>>>
+>>>> ### Example 2: Don't care about constraining the number of
+>>>> arguments
+>>>>
+>>>>     mediatek,gce-client-reg:
+>>>>       $ref: /schemas/types.yaml#/definitions/phandle-array
+>>>>       maxItems: 1
+>>>>       description: The register of display function block to be set
+>>>> by gce.
+>>>>         There are 4 arguments in this property, gce node, subsys id,
+>>>> offset and
+>>>>         register size. The subsys id is defined in the gce header of
+>>>> each chips
+>>>>         include/dt-bindings/gce/<chip>-gce.h, mapping to the
+>>>> register of display
+>>>>         function block.
+>>>
+>>> use this.
+>>>
+>>> Best regards,
+>>> Krzysztof
 >>
->>> Hello Krzysztof, Nancy,
->>>
->>> Since this series has reached v29, can we please reach an agreement
->>> on the bindings
->>> to use here, so that we can get this finally upstreamed?
->>>
->>> I will put some examples to try to get this issue resolved.
->>>
->>> ### Example 1: Constrain the number of GCE entries to *seven* array
->>> elements (7x4!)
->>>
->>>    mediatek,gce-client-reg:
->>>      $ref: /schemas/types.yaml#/definitions/phandle-array
->>>      maxItems: 1
->>>      description: The register of display function block to be set
->>> by gce.
->>>        There are 4 arguments in this property, gce node, subsys id,
->>> offset and
->>>        register size. The subsys id is defined in the gce header of
->>> each chips
->>>        include/dt-bindings/gce/<chip>-gce.h, mapping to the
->>> register of display
->>>        function block.
->>>      items:
->>>        minItems: 28
->>>        maxItems: 28
->>>        items:                     <----- this block doesn't seem to
->>> get checked :\
->>>          - description: phandle of GCE
->>>          - description: GCE subsys id
->>>          - description: register offset
->>>          - description: register size
 >>
->> This is what we would like to have but it requires exception in
->> dtschema. Thus:
+>> Hi Krzysztof, Angelo,
 >>
->>>
->>>
->>> ### Example 2: Don't care about constraining the number of
->>> arguments
->>>
->>>    mediatek,gce-client-reg:
->>>      $ref: /schemas/types.yaml#/definitions/phandle-array
->>>      maxItems: 1
->>>      description: The register of display function block to be set
->>> by gce.
->>>        There are 4 arguments in this property, gce node, subsys id,
->>> offset and
->>>        register size. The subsys id is defined in the gce header of
->>> each chips
->>>        include/dt-bindings/gce/<chip>-gce.h, mapping to the
->>> register of display
->>>        function block.
+>> Thanks for the comment.
+>> The Example 2 can pass dt_binding_check.
 >>
->> use this.
->>
->> Best regards,
->> Krzysztof
+>> But the example in the binding has 7 items [1] and dts [2]. Does the
+>> "maxItems: 1" affect any other schema or dts check?
 >=20
+> Ah, then it should be maxItems: 7, not 1.
 >=20
-> Hi Krzysztof, Angelo,
->=20
-> Thanks for the comment.
-> The Example 2 can pass dt_binding_check.=20
->=20
-> But the example in the binding has 7 items [1] and dts [2]. Does the
-> "maxItems: 1" affect any other schema or dts check?=20
 
-Ah, then it should be maxItems: 7, not 1.
+Keep in mind for your v30:
 
-Best regards,
-Krzysztof
+maxItems: 7 will pass - but only if minItems is *not* 7 :-)
+
+-> (so, do not declare minItems, as default is 1) <-
+
+Regards,
+Angelo
+
+> Best regards,
+> Krzysztof
+>=20
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -253,4 +265,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/4027714e-b4e8-953b-68e2-f74f7a7f0e8e%40linaro.org.
+clang-built-linux/fdd0a157-eedb-bf21-c632-79b02a4cd6b0%40collabora.com.
