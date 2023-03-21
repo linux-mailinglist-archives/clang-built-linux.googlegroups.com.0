@@ -1,117 +1,118 @@
-Return-Path: <clang-built-linux+bncBDDO3Z5P4YJRBPGB42QAMGQE4MJWGXY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDDO3Z5P4YJRBP6B42QAMGQEA2OYDKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x439.google.com (mail-pf1-x439.google.com [IPv6:2607:f8b0:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id 644276C315E
-	for <lists+clang-built-linux@lfdr.de>; Tue, 21 Mar 2023 13:19:10 +0100 (CET)
-Received: by mail-pf1-x439.google.com with SMTP id 16-20020a056a00071000b00627e9b4871esf3881790pfl.11
-        for <lists+clang-built-linux@lfdr.de>; Tue, 21 Mar 2023 05:19:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1679401149; cv=pass;
+Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
+	by mail.lfdr.de (Postfix) with ESMTPS id B03036C3163
+	for <lists+clang-built-linux@lfdr.de>; Tue, 21 Mar 2023 13:19:12 +0100 (CET)
+Received: by mail-io1-xd39.google.com with SMTP id 85-20020a6b1458000000b007545a9d6706sf5887763iou.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 21 Mar 2023 05:19:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1679401151; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nXQNeVtONIL2vRt2uRSjPBa06b8izS9leMa2PoB2u2cLp9WHJdGngTgcbpzuded7HL
-         7zNnukSk32YRou0WRtJ6w1dSHlT3runRIc1ZPfSrEZNIHuiUTDyqx1s1KBjbbCFwe5pU
-         bAQq5YnejyU7SHk6S6IMDO5yx2KCuuO/svQ5umuOUIpB4uIP5CvlaJLqYJs0M0PeXCct
-         4u+TrZ77epxLnIsXFI/IP/2zwYU7IX2AI+qqlWvkDd/lhoj/U0q1uVAxs3eDPD6Y+E/q
-         LjTC/nfiUbxDn7rnolXHrDf4GoFQaMd8liLrMnQJKqAbP1Eyvitp8OkDYIoMsryBjmoT
-         NYnw==
+        b=x5K0DhPESjy/q+rc1KH1RSibln09JeVHBnPXt6TGXd/Qaa1UcEqrDlM5Nr0YOrpy7A
+         ZLah0RqBJ5yIea1WwYjljybK6JhGLiHXukSjnnyFnuz6i4iohj3Nr3I44klbFPc+M7fm
+         sLZWT0aaDrQnhNXbq7sU1P+KrtPr9jHgfc0H8+0RDlK2pdM/Xv4+B22oZoxRfJl7lLbF
+         Tj779UwU3fBt6TdHI9GHohkTnuY3hekbAKbPrLsH1E8i8sq77i0kpvPoWddb6wadirCU
+         xUNINaf9/9lA519QrwX5OpWWjr5zgfb7TQ8U8Wgin5cVNWmxy2gG0Em5dhdcFymq4cTx
+         NH5Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:mime-version:message-id
-         :date:subject:cc:to:from:dkim-signature;
-        bh=/WR0nbBEsy4SywllmdPHqeKrJ3e+IyUgMoIIog77R0g=;
-        b=uPVmgACz1HTtUhsiGDB2IITUXqfvG/fFNDCDT2BqgGEGxCFGYrxcTeC1ln/bnf1wkm
-         xTrPiZv0oLQG8VCteI8aNZyfuy3FsEf8fNbaysX/1rKv8fNCTII6IrlQtWbn7BHRJ7cj
-         olwfVdgQwKpd4DqdAuTqw1PQ5l34rD8T9xxUGAEaJzc663AvxI0rSnk477PrOvu01FPG
-         YzjguxBSzeGve731uNpbRLGNCnt4gpLtRFu50hc3DY1jEAZCJwxPKEQ6LumEhKDiUs/C
-         QW4E/W2Dr9CvkWFtXPJriWTb+RL3Ab9b1SCrfGw6/4Zps3NfizddHvhhCJyfaoq0w/hF
-         hknw==
+         :list-id:mailing-list:precedence:reply-to:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
+        bh=LTcUXx7p1kD6vVVLRlNvr84EEGTakESUH1DIbAH30GE=;
+        b=iqQFW+A8ww9zd3a3gvExZHXyQ4FvRNFxKFdkp1iLNMc0GMG1643MykHFqcgpiiIuDg
+         0x9zs4Jfz7afoelR55VORzcrgxig1DWs4ZoW0VoXrXtctx8aI7A1nnQCXBsdVltC8hHF
+         9yOOeCY8pmYM6z56GQjaiyE1O7qo/g5AVvwc8BJErQGoIG08yi6qf4deY46SNIx/VWbD
+         VZ0FwIiNPZ4btUs0WO2I+ENXi29mNq4iZYNm5a40XJSmbdTRcrD8b+egL7QPeHVR7BGq
+         1WYa6JKiaov59gIXHV1164V/sFo4Oj1a4cN6vjPiaNlCJxFwylWANJ/NPYxxFLriDSGf
+         8Gig==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mediatek.com header.s=dk header.b=rPqVCo1X;
+       dkim=pass header.i=@mediatek.com header.s=dk header.b=rvFWSeae;
        spf=pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20210112; t=1679401149;
+        d=googlegroups.com; s=20210112; t=1679401151;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender:mime-version
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/WR0nbBEsy4SywllmdPHqeKrJ3e+IyUgMoIIog77R0g=;
-        b=sOCo6YCNNKg32WEfTXYmG4z/KBZorZLkHD3QmJSioUaDVIviWSkQBQrKiYDf/uwofF
-         STCDK4si/cdV6BrSp8x2yiezNBMtYhdq13LQMnM1vPuBplnsLw7Icbv1ZpqoHKEtw6sX
-         C4YVJn8jP/fJj3XpKylnqV8CkO2rcjvB/Fb56XY2uCyIufkOzY3tUPbZgf1v61mu79xA
-         SokD7qOW0c2ykiBcxEXbT5T1agiPjRw32ogI+7k4wDGBh0J9+Y7QMkzKwQ7bekEoYgMZ
-         RD27N7tnh2sGUy+L9RDM6fiT/dm/97RMX2/bS1pfsA84YftuD0GnN4/RHQ2v2mcrexDN
-         9dFw==
+         :references:in-reply-to:message-id:date:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=LTcUXx7p1kD6vVVLRlNvr84EEGTakESUH1DIbAH30GE=;
+        b=FI+ms3ofBiDEjw5kiQAgUnCsaKgLjVmIjaZuZu751vIPe60TTGJf2ppfnf3AByStMa
+         HfIMmOrentfhYJpkA7CHR9Fwbff64etPGhAzXi2biRgpnfmNri77rQM5OVJClUhG9ONo
+         jIQOBa3jBvYqs0iraPhHSoLDldHY69+c6CdVlrrg9FMB1XQKhBeotfEfi2orIQmimduA
+         ObgDUEtqPZtZKyMBjTSYUQCRHvQR9wcQRxuK1jROnm2XcSX7CNvbjFdiF5EKNcF/dCJm
+         AfVEbGNe3/l3fHfNy7X9QLKXYQsTZ3xjjWaVEGXca+pLCAQDk3Svf/y3FKacztKf9TuQ
+         WS0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679401149;
+        d=1e100.net; s=20210112; t=1679401151;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender:mime-version
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/WR0nbBEsy4SywllmdPHqeKrJ3e+IyUgMoIIog77R0g=;
-        b=gQZFBLXhI++OBdsOH6bjoi22cAbu7N5TfBTe9Jj7vf2kzvi7GPN1C7rYXcIzPabD6u
-         RVn7ZlQkM5s2JXH1K88rY8HGtyc1zBzlmR35SWJZUZ/fqGxBMZDOPXw2/Jo3jHAyBu1s
-         Ai1wrjyzt7I9Hi921BwyhLE4KD9+jj6hDOGyzF3vOzo0Nw5gMyzjBChRA8r9ciovP/yP
-         UMN6AM4QEMJ/MG4arp29w8apfrDpxNijcIiR8gJOYLhiMzLhZmVK5UHcev//XxTkbpJ7
-         GSCoXp2Dwhc69XRbBSeRaU2ZqfK5I9VX95tAsfrdjj9C4+RzaMFJjxOwDJfIxqF1oX/C
-         2dyQ==
-X-Gm-Message-State: AO0yUKWETmtO8tWBmxFntLdX5fKjHLgnZnrlv7/N/95B4BJOBhRVSLKa
-	78kw0bJ6jWCzxtOQY4m/PF8=
-X-Google-Smtp-Source: AK7set9E5zhPcC9PSweCN/zarFbTSpLJMY0Kq0jLHAh5Qu1eOAFBNqFQ//tHtWGK29AdBvGBtulgYQ==
-X-Received: by 2002:a17:90a:420c:b0:237:9ca5:4d5d with SMTP id o12-20020a17090a420c00b002379ca54d5dmr589441pjg.6.1679401148584;
-        Tue, 21 Mar 2023 05:19:08 -0700 (PDT)
+         :references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LTcUXx7p1kD6vVVLRlNvr84EEGTakESUH1DIbAH30GE=;
+        b=a3YzViOmeDt6REWii5EhCkqhtDaKS7YGBRPh6TwV94nRjSTo01QzGELjr5H8dYdYpz
+         83Jgc66bkWMVrbYKlAq8XTbcLAtP+of8yLX30PnqV/7pa2O0Ggcm2scegFT33w94+9a8
+         TFPF+A5TMETahQ3d4acmFLCdgb/AhaFp1EqF81EFa9I4fUoJhxZp+NsX9FS4XRTD/Ao0
+         iIISq8pvVx1y7xu/VUhnfH+h7BxNXJy9B1iUGcEYGcAbPwbuNoboGmNLInqt0U5qCl73
+         n13xuUmB1UT64N52eq2eOLDsBnjoibkq686CgNctxoTreZhMVpnOZ9hxs03iJXBesrWF
+         PzWQ==
+X-Gm-Message-State: AO0yUKXabp1WxJTkXmUbiefUrXFxlyxvyV3B4T5ob4BMd599jhgI5nUD
+	3DDGSQ0IuNlcRap3MbejGHo=
+X-Google-Smtp-Source: AK7set8RIN2wlXxiCVsgcy2PxkZC5STdpKoRyWglyI4rN4+g7ixVuilcfYvyp2ovPgbTGaPDxOhG+A==
+X-Received: by 2002:a05:6e02:12a8:b0:317:6eac:97e1 with SMTP id f8-20020a056e0212a800b003176eac97e1mr698180ilr.0.1679401151481;
+        Tue, 21 Mar 2023 05:19:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:d242:0:b0:50b:ed87:84f3 with SMTP id t2-20020a63d242000000b0050bed8784f3ls2400371pgi.1.-pod-prod-gmail;
- Tue, 21 Mar 2023 05:19:07 -0700 (PDT)
-X-Received: by 2002:aa7:9624:0:b0:5a8:ad9d:83f with SMTP id r4-20020aa79624000000b005a8ad9d083fmr2275570pfg.24.1679401147773;
-        Tue, 21 Mar 2023 05:19:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1679401147; cv=none;
+Received: by 2002:a05:6602:358a:b0:752:e91b:7425 with SMTP id
+ bi10-20020a056602358a00b00752e91b7425ls1826664iob.9.-pod-prod-gmail; Tue, 21
+ Mar 2023 05:19:11 -0700 (PDT)
+X-Received: by 2002:a6b:e006:0:b0:753:786a:bffd with SMTP id z6-20020a6be006000000b00753786abffdmr1551879iog.13.1679401150953;
+        Tue, 21 Mar 2023 05:19:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679401150; cv=none;
         d=google.com; s=arc-20160816;
-        b=M098Q4ADgkrXS7VKeKy4X2DaoRFvqme6TRMUstKYJ4Au/lNtMvp83/5N3niskXXizw
-         SKaeM7XDxhwRfl21GQiO/MuXSoFe2zfLqFAw0cXP/hg5eJQDjnOssJvQR4FzTp018kGu
-         SQBC/TA+IYAdJDQ5qpYGq9Nu3acxN5ynK+Zab9dDMIdd1JttpFJFv9stbOJcdnz2TRiS
-         MVaP71d1qDGDNdnj7Ou4fSEY3WXqCJ6MXlax9FkMIoWoe3FR2Jy8TnnvbxCIiZyGDOrK
-         ysu1ltIl/sVEPvNnV9BkSywaOJnUyHrTu0pp8mQwHJgY88EjUlUxMBBOqNOaCEg0AZN5
-         RrOA==
+        b=FPbOJySqn2wqddoWMqZOzi/GbTRbVzAdOMm19hlaC+7Z0QZf5JVZf1iVJg+ypHrE+s
+         6rJfYYJBMgCDe2Wa7Ix/h88HiL5dpLGTZ5VpFJputDD2nTL3w5751rbP/xds9a7Ya0/v
+         KGPm2uK5Mq+bsM3x+WVKnJ+iR+7BOlqhxYhpKJTH4AYUWhubgvEUWkvGPeTB6twNpOjx
+         CXymf66IKvY8GQWz42pxsu9hSlr2aakbbpb/iBs2vQ6Zyym+hAAZk2SMxoshuEEX9xhb
+         p6r6/64AD4rYXtZ+jy3k2gZGaKtULhzLB/HEwbVuaqbLvPSOwwjIHTBz1Flgw70Lqopd
+         RF4Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=jrCvTzIbVvxH6uMWnsnLXVxwOzZH0ezOx7V+R43jkK0=;
-        b=xJ7+56mXCs9Vlx1bZN2p/x0an2cezduqcD+xgr4FA+OUnfdW0rSzMckmItc2IW9poO
-         vWDTPgNkfLZ+lZsqgwZMcxDR1DFSN4NYO3cAsEENPAvLcMpFSxYcY/LSDzcU9wl03EpE
-         mhqXmOSUhd0yYkLv8P+3Usz7yVvv/XvNgdRoQCtxPZnCLBhmDi1zc5cr+skPmccNrY0D
-         rbLnyUIR6QgI1FmHP0oiXH2aBGTyrON3ilLl1JaC1qsaLiu+GqubF9dcRe8CMKiJ8thx
-         nVP/mz+FoDjp+clt3sAPi0jbQ76dcxKCptvyju0+xng0arg8l20UZ0lGH7f3k5+hz54V
-         xKfQ==
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:dkim-signature;
+        bh=4nMEBTuCZtYxoAXkI/DlrrR5sAEuMtOsxPAWoHTcRuk=;
+        b=tbNZzvsKdaodBvr7R8cReN6t/1OrUnwr0HN0bwByfDjg+3kXh5lxw1SdOazepdSr5k
+         jM+i8xyh1gGWQiuLIx9lfpx0gOGRapzCqy6ChOjKIEq4y+3qE3UjHALB2LFU2s+fqNko
+         ezcmeb0UjrkyMQQBI4jfcWF3sWvGkYXG6ibGqcTi/w0/2Mvy3PMBWUEN+KINRoD8AKmw
+         033J21pxA+qd7HTEdSiwDS9U+Jmu8goji1slFa11DRWDkwKE/ZBMiKna/XxVn2qPdiA/
+         VwT3yvswublSQCA7XnxUxwd1HUEBmmzdccRg3lBuXp7h79tzsLOyn0spiQfkgmzPzEhM
+         R8mQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mediatek.com header.s=dk header.b=rPqVCo1X;
+       dkim=pass header.i=@mediatek.com header.s=dk header.b=rvFWSeae;
        spf=pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
 Received: from mailgw02.mediatek.com ([210.61.82.184])
-        by gmr-mx.google.com with ESMTPS id bh27-20020a056a00309b00b00625965308absi648602pfb.3.2023.03.21.05.19.07
+        by gmr-mx.google.com with ESMTPS id l16-20020a056602277000b00752f670b819si35430ioe.3.2023.03.21.05.19.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Mar 2023 05:19:07 -0700 (PDT)
+        Tue, 21 Mar 2023 05:19:10 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) client-ip=210.61.82.184;
-X-UUID: 90e59f28c7e211edb6b9f13eb10bd0fe-20230321
+X-UUID: 9078d744c7e211edb6b9f13eb10bd0fe-20230321
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.22,REQID:8f0136f6-636c-4466-a5c6-12c8691e92b9,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:120426c,CLOUDID:50b5e9b3-beed-4dfc-bd9c-e1b22fa6ccc4,B
+X-CID-O-INFO: VERSION:1.1.22,REQID:f38c7036-f0f7-4d05-97e2-47748691de17,IP:0,U
+	RL:25,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:0
+X-CID-META: VersionHash:120426c,CLOUDID:51b5e9b3-beed-4dfc-bd9c-e1b22fa6ccc4,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:0,File:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-UUID: 90e59f28c7e211edb6b9f13eb10bd0fe-20230321
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	RL:11|1,File:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-UUID: 9078d744c7e211edb6b9f13eb10bd0fe-20230321
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
 	(envelope-from <nancy.lin@mediatek.com>)
 	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 495843048; Tue, 21 Mar 2023 20:19:02 +0800
+	with ESMTP id 2057751068; Tue, 21 Mar 2023 20:19:01 +0800
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.1118.25; Tue, 21 Mar 2023 20:19:01 +0800
 Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
@@ -128,16 +129,18 @@ CC: Daniel Vetter <daniel@ffwll.ch>, Nathan Chancellor <nathan@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <clang-built-linux@googlegroups.com>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
 	<singo.chang@mediatek.com>, Nancy.Lin <nancy.lin@mediatek.com>
-Subject: [PATCH v30 0/7] Add MediaTek SoC DRM (vdosys1) support for mt8195
-Date: Tue, 21 Mar 2023 20:18:52 +0800
-Message-ID: <20230321121859.2355-1-nancy.lin@mediatek.com>
+Subject: [PATCH v30 1/7] dt-bindings: mediatek: add ethdr definition for mt8195
+Date: Tue, 21 Mar 2023 20:18:53 +0800
+Message-ID: <20230321121859.2355-2-nancy.lin@mediatek.com>
 X-Mailer: git-send-email 2.18.0
+In-Reply-To: <20230321121859.2355-1-nancy.lin@mediatek.com>
+References: <20230321121859.2355-1-nancy.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-MTK: N
 X-Original-Sender: nancy.lin@mediatek.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mediatek.com header.s=dk header.b=rPqVCo1X;       spf=pass
+ header.i=@mediatek.com header.s=dk header.b=rvFWSeae;       spf=pass
  (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as
  permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;       dmarc=pass
  (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
@@ -155,211 +158,210 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The hardware path of vdosys1 with DPTx output need to go through by several modules, such as, OVL_ADAPTOR and MERGE.
-
-Add DRM and these modules support by the patches below:
-
-Changes in v30:
-- rebase to next-20230321
-- fix ethdr dt_binding_check message
-
-Changes in v29:
-- rebase to next-20221226
-- fix reviewer comment in v28
-  - keep original flow if comp node not found in mtk_drm_crtc_create()
-
-Changes in v28:
-- rebase to next-20221107
-- fix reviewer comment in v27
-  - extra new line at the end mtk_ethdr.h
-
-Changes in v27:
-- rebase to next-20221102
-- change mmsys compatible for mt8195 vdosys1
-  - base on jason's series[ref 1]
-- fix reviewer comment
-  - add error return code if no ovl_adaptor's comp found
-
-Changes in v26:
-- rebase to next-20220819
-- resend for patch corrupted in v25
-
-Changes in v25:
-- rebase to next-20220803
-
-Changes in v24:
-- fix ovl_adaptor binding issue (mtk_disp_ovl_adaptor.c)
-  - Since ovl_adaptor is an aggregated component, it should be bounded after
-    all its child components are bounded.
-- rebase to next-20220708
-
-Changes in v23:
-- separate[7] mmsys/mutex and drm patches into two series
-
-Changes in v22:
-- rebase to next-20220525
-- rebase to vdosys0 series v22
-- separate dts to a new patch
-
-Changes in v21:
-- fix reviewer comment
-  - fix rdma and ethdr binding doc and dts
-
-Changes in v20:
-- fix reviewer comment
-  - update mmsys update bit api name
-  - add mtk_mmsys_update_bits error message if lose gce property
-  - list all mt8195 vdosys1 reset bits
-
-Changes in v19:
-- fix reviewer comment
-  - separate mt8195 mmsys component to a new patch
-  - separate mt8195 vdo0 and vdo1 routing table
-  - separate mmsys_write_reg api to a new patch and simplify write reg code
-  - separate mmsys 64 bit reset to a new patch
-  - separate mtk-mutex dp_intf1 component to a new patch
-
-Changes in v18:
-- fix reviewer comment
-  - fix rdma binding doc
-  - fix ethdr binding doc
-  - refine mmsys config cmdq support
-  - refine merge reset control flow, get reset control in probe function
-  - add ethdr reset control error handling and remove dbg log
-- rebase to vdosys0 series v20 (ref [5])
-
-Changes in v17:
-- fix reviewer comment in v16
-  - separate ovl adaptor comp in mtk-mmsys and mtk-mutex
-  - separate mmsys config API
-  - move mdp_rdma binding yaml
-- fix ovl adaptor pm runtime get sync timing issue
-- rebase to vdosys0 series v19 (ref [5])
-- rebase to [7] for modify vblank register change
-
-Changes in v16:
-- fix reviewer comment in v 15
-  - fix mtk_drm_ddp_comp.c alignment
-  - fix vdosys0 mmsys num before adding vdosys1 patch
-
-Changes in v15:
-- fix ethdr uppercase hex number in dts
-
-Changes in v14:
-- remove MTK_MMSYS 64 bit dependency
-- add ethdr.yaml back and fix dt_schema check fail
-
-Resend v13
-- add related maintainer in maillist
-
-Changes in v13:
-- fix reviewer comment in v12
-  - fix rdma dt-binding format
-  - fix dts node naming
-- fix 32 bit build error
-  - modify 64bit dependency for mtk-mmsys
-- rebase to vdosys0 series v16. (ref [5])
-
-Changes in v12:
-- fix reviewer comment in v11
-  - modify mbox index
-  - refine dma dev for ovl_adaptor sub driver
-
-Changes in v11:
-- remove ethdr vblank spin lock
-- refine ovl_adaptor print message
-
-Changes in v10:
-- refine ethdr reset control using devm_reset_control_array_get_optional_exclusive
-- fix ovl_adaptor mtk_ovl_adaptor_clk_enable error handle issue
-
-Changes in v9:
-- rebase on kernel-5.16-rc1
-- rebase on vdosys0 series v13. (ref [5])
-- fix ovl_adaptor sub driver is brought up unintentionally
-- fix clang build test fail- duplicate ethdr/mdp_rdma init_module/cleanup_module symbol issue 
-
-Changes in v8:
-- separate merge async reset to new patch.
-- separate drm ovl_adaptor sub driver to new patch.
-- fix reviewer comment in v7.
-
-Changes in v7:
-- rebase on vdosys0 series v12 (ref[5])
-- add dma description in ethdr binding document.
-- refine vdosys1 bit definition of mmsys routing table.
-- separate merge modification into 3 pathces.
-- separate mutex modification into 2 patches.
-- add plane color coding for mdp_rdma csc.
-- move mdp_rdma pm control to ovl_adaptor.
-- fix reviewer comment in v6.
-
-Changes in v6:
-- rebase on kernel-5.15-rc1.
-- change mbox label to gce0 for dts node of vdosys1.
-- modify mmsys reset num for mt8195.
-- rebase on vdosys0 series v10. (ref [5])
-- use drm to bring up ovl_adaptor driver.
-- move drm iommu/mutex check from kms init to drm bind.
-- modify rdma binding doc location. (Documentation/devicetree/bindings/arm/)
-- modify for reviewer's comment in v5.
-
-Changes in v5:
-- add mmsys reset controller reference.
-
-Changes in v4:
-- use merge common driver for merge1~4.
-- refine ovl_adaptor rdma driver.
-- use ovl_adaptor ddp_comp function instead of ethdr.
-- modify for reviewer's comment in v3.
-
-Changes in v3:
-- modify for reviewer's comment in v2.
-- add vdosys1 2 pixels align limit.
-- add mixer odd offset support.
-
-Changes in v2:
-- Merge PSEUDO_OVL and ETHDR into one DRM component.
-- Add mmsys config API for vdosys1 hardware setting.
-- Add mmsys reset control using linux reset framework.
+Add vdosys1 ETHDR definition.
 
 Signed-off-by: Nancy.Lin <nancy.lin@mediatek.com>
-
-This series are based on the following patch:
-[1] Change mmsys compatible for mt8195 mediatek-drm
-    20221126101220.18179-1-jason-jh.lin@mediatek.com
-
-Nancy.Lin (7):
-  dt-bindings: mediatek: add ethdr definition for mt8195
-  drm/mediatek: add ETHDR support for MT8195
-  drm/mediatek: add ovl_adaptor support for MT8195
-  drm/mediatek: add dma dev get function
-  drm/mediatek: modify mediatek-drm for mt8195 multi mmsys support
-  drm/mediatek: add drm ovl_adaptor sub driver for MT8195
-  drm/mediatek: add mediatek-drm of vdosys1 support for MT8195
-
- .../display/mediatek/mediatek,ethdr.yaml      | 182 ++++++
- drivers/gpu/drm/mediatek/Makefile             |   2 +
- drivers/gpu/drm/mediatek/mtk_disp_drv.h       |  26 +
- .../gpu/drm/mediatek/mtk_disp_ovl_adaptor.c   | 533 ++++++++++++++++++
- drivers/gpu/drm/mediatek/mtk_drm_crtc.c       |  85 ++-
- drivers/gpu/drm/mediatek/mtk_drm_crtc.h       |   6 +-
- drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c   | 129 +++--
- drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.h   |  58 +-
- drivers/gpu/drm/mediatek/mtk_drm_drv.c        | 366 ++++++++----
- drivers/gpu/drm/mediatek/mtk_drm_drv.h        |  24 +-
- drivers/gpu/drm/mediatek/mtk_ethdr.c          | 370 ++++++++++++
- drivers/gpu/drm/mediatek/mtk_ethdr.h          |  25 +
- 12 files changed, 1618 insertions(+), 188 deletions(-)
+Reviewed-by: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Tested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../display/mediatek/mediatek,ethdr.yaml      | 182 ++++++++++++++++++
+ 1 file changed, 182 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml
- create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c
- create mode 100644 drivers/gpu/drm/mediatek/mtk_ethdr.c
- create mode 100644 drivers/gpu/drm/mediatek/mtk_ethdr.h
 
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml
+new file mode 100644
+index 000000000000..801fa66ae615
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml
+@@ -0,0 +1,182 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/mediatek/mediatek,ethdr.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek Ethdr Device
++
++maintainers:
++  - Chun-Kuang Hu <chunkuang.hu@kernel.org>
++  - Philipp Zabel <p.zabel@pengutronix.de>
++
++description:
++  ETHDR (ET High Dynamic Range) is a MediaTek internal HDR engine and is
++  designed for HDR video and graphics conversion in the external display path.
++  It handles multiple HDR input types and performs tone mapping, color
++  space/color format conversion, and then combine different layers,
++  output the required HDR or SDR signal to the subsequent display path.
++  This engine is composed of two video frontends, two graphic frontends,
++  one video backend and a mixer. ETHDR has two DMA function blocks, DS and ADL.
++  These two function blocks read the pre-programmed registers from DRAM and
++  set them to HW in the v-blanking period.
++
++properties:
++  compatible:
++    const: mediatek,mt8195-disp-ethdr
++
++  reg:
++    maxItems: 7
++
++  reg-names:
++    items:
++      - const: mixer
++      - const: vdo_fe0
++      - const: vdo_fe1
++      - const: gfx_fe0
++      - const: gfx_fe1
++      - const: vdo_be
++      - const: adl_ds
++
++  interrupts:
++    maxItems: 1
++
++  iommus:
++    minItems: 1
++    maxItems: 2
++
++  clocks:
++    items:
++      - description: mixer clock
++      - description: video frontend 0 clock
++      - description: video frontend 1 clock
++      - description: graphic frontend 0 clock
++      - description: graphic frontend 1 clock
++      - description: video backend clock
++      - description: autodownload and menuload clock
++      - description: video frontend 0 async clock
++      - description: video frontend 1 async clock
++      - description: graphic frontend 0 async clock
++      - description: graphic frontend 1 async clock
++      - description: video backend async clock
++      - description: ethdr top clock
++
++  clock-names:
++    items:
++      - const: mixer
++      - const: vdo_fe0
++      - const: vdo_fe1
++      - const: gfx_fe0
++      - const: gfx_fe1
++      - const: vdo_be
++      - const: adl_ds
++      - const: vdo_fe0_async
++      - const: vdo_fe1_async
++      - const: gfx_fe0_async
++      - const: gfx_fe1_async
++      - const: vdo_be_async
++      - const: ethdr_top
++
++  power-domains:
++    maxItems: 1
++
++  resets:
++    items:
++      - description: video frontend 0 async reset
++      - description: video frontend 1 async reset
++      - description: graphic frontend 0 async reset
++      - description: graphic frontend 1 async reset
++      - description: video backend async reset
++
++  reset-names:
++    items:
++      - const: vdo_fe0_async
++      - const: vdo_fe1_async
++      - const: gfx_fe0_async
++      - const: gfx_fe1_async
++      - const: vdo_be_async
++
++  mediatek,gce-client-reg:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    minItems: 1
++    maxItems: 7
++    description: The register of display function block to be set by gce.
++      There are 4 arguments in this property, gce node, subsys id, offset and
++      register size. The subsys id is defined in the gce header of each chips
++      include/dt-bindings/gce/<chip>-gce.h, mapping to the register of display
++      function block.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - power-domains
++  - resets
++  - mediatek,gce-client-reg
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/clock/mt8195-clk.h>
++    #include <dt-bindings/gce/mt8195-gce.h>
++    #include <dt-bindings/memory/mt8195-memory-port.h>
++    #include <dt-bindings/power/mt8195-power.h>
++    #include <dt-bindings/reset/mt8195-resets.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        hdr-engine@1c114000 {
++                compatible = "mediatek,mt8195-disp-ethdr";
++                reg = <0 0x1c114000 0 0x1000>,
++                      <0 0x1c115000 0 0x1000>,
++                      <0 0x1c117000 0 0x1000>,
++                      <0 0x1c119000 0 0x1000>,
++                      <0 0x1c11a000 0 0x1000>,
++                      <0 0x1c11b000 0 0x1000>,
++                      <0 0x1c11c000 0 0x1000>;
++                reg-names = "mixer", "vdo_fe0", "vdo_fe1", "gfx_fe0", "gfx_fe1",
++                            "vdo_be", "adl_ds";
++                mediatek,gce-client-reg = <&gce0 SUBSYS_1c11XXXX 0x4000 0x1000>,
++                                          <&gce0 SUBSYS_1c11XXXX 0x5000 0x1000>,
++                                          <&gce0 SUBSYS_1c11XXXX 0x7000 0x1000>,
++                                          <&gce0 SUBSYS_1c11XXXX 0x9000 0x1000>,
++                                          <&gce0 SUBSYS_1c11XXXX 0xa000 0x1000>,
++                                          <&gce0 SUBSYS_1c11XXXX 0xb000 0x1000>,
++                                          <&gce0 SUBSYS_1c11XXXX 0xc000 0x1000>;
++                clocks = <&vdosys1 CLK_VDO1_DISP_MIXER>,
++                         <&vdosys1 CLK_VDO1_HDR_VDO_FE0>,
++                         <&vdosys1 CLK_VDO1_HDR_VDO_FE1>,
++                         <&vdosys1 CLK_VDO1_HDR_GFX_FE0>,
++                         <&vdosys1 CLK_VDO1_HDR_GFX_FE1>,
++                         <&vdosys1 CLK_VDO1_HDR_VDO_BE>,
++                         <&vdosys1 CLK_VDO1_26M_SLOW>,
++                         <&vdosys1 CLK_VDO1_HDR_VDO_FE0_DL_ASYNC>,
++                         <&vdosys1 CLK_VDO1_HDR_VDO_FE1_DL_ASYNC>,
++                         <&vdosys1 CLK_VDO1_HDR_GFX_FE0_DL_ASYNC>,
++                         <&vdosys1 CLK_VDO1_HDR_GFX_FE1_DL_ASYNC>,
++                         <&vdosys1 CLK_VDO1_HDR_VDO_BE_DL_ASYNC>,
++                         <&topckgen CLK_TOP_ETHDR>;
++                clock-names = "mixer", "vdo_fe0", "vdo_fe1", "gfx_fe0", "gfx_fe1",
++                              "vdo_be", "adl_ds", "vdo_fe0_async", "vdo_fe1_async",
++                              "gfx_fe0_async", "gfx_fe1_async","vdo_be_async",
++                              "ethdr_top";
++                power-domains = <&spm MT8195_POWER_DOMAIN_VDOSYS1>;
++                iommus = <&iommu_vpp M4U_PORT_L3_HDR_DS>,
++                         <&iommu_vpp M4U_PORT_L3_HDR_ADL>;
++                interrupts = <GIC_SPI 517 IRQ_TYPE_LEVEL_HIGH 0>; /* disp mixer */
++                resets = <&vdosys1 MT8195_VDOSYS1_SW1_RST_B_HDR_VDO_FE0_DL_ASYNC>,
++                         <&vdosys1 MT8195_VDOSYS1_SW1_RST_B_HDR_VDO_FE1_DL_ASYNC>,
++                         <&vdosys1 MT8195_VDOSYS1_SW1_RST_B_HDR_GFX_FE0_DL_ASYNC>,
++                         <&vdosys1 MT8195_VDOSYS1_SW1_RST_B_HDR_GFX_FE1_DL_ASYNC>,
++                         <&vdosys1 MT8195_VDOSYS1_SW1_RST_B_HDR_VDO_BE_DL_ASYNC>;
++                reset-names = "vdo_fe0_async", "vdo_fe1_async", "gfx_fe0_async",
++                              "gfx_fe1_async", "vdo_be_async";
++        };
++    };
++...
 -- 
 2.18.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20230321121859.2355-1-nancy.lin%40mediatek.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20230321121859.2355-2-nancy.lin%40mediatek.com.
