@@ -1,144 +1,141 @@
-Return-Path: <clang-built-linux+bncBD7274FIT4EBBX5M6CQAMGQEFUGKVAY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCRYF65Q5QORB3F76OQAMGQE27YXYJY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3a.google.com (mail-vs1-xe3a.google.com [IPv6:2607:f8b0:4864:20::e3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 64FA66C62B1
-	for <lists+clang-built-linux@lfdr.de>; Thu, 23 Mar 2023 10:05:37 +0100 (CET)
-Received: by mail-vs1-xe3a.google.com with SMTP id i16-20020a67c210000000b00425f051bf84sf4639424vsj.13
-        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Mar 2023 02:05:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1679562336; cv=pass;
+Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 22FBD6C7400
+	for <lists+clang-built-linux@lfdr.de>; Fri, 24 Mar 2023 00:25:34 +0100 (CET)
+Received: by mail-lf1-x13f.google.com with SMTP id y9-20020a056512044900b004b4b8aabd0csf8723077lfk.16
+        for <lists+clang-built-linux@lfdr.de>; Thu, 23 Mar 2023 16:25:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1679613933; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZysJAUHgUp/+BvcrWFuCU6pu7v3HtzgZh8/sZdLVsQqnTptSh6sLuxA/LPkeLZ2nrX
-         Iqh9d8OoOe5EhXeh4ZCS1JR8VaiQhEm3X6Q705U1hQ4+ZtBQhXAjw6hcSm51FiiCAVgt
-         tvoksXhHr4TxdGIi+VemBapi+rpAV0MHyXOEH6eoDmuS59hdXUcrQ/vx76i4wXFprfEM
-         pUHHQGEoy6myw9uOSqahJCc8uNGW8fYTWLMp2u2Nbpf5+zYP/qiOZPTRxNJ2bpvzRVo2
-         OeQ7OWolMzBkYQorWYq04GioLzmipIkbRVvrAvCr9f6vlrhGq5oyTIi0/W6+udIKdDA7
-         0R+Q==
+        b=rZAIMmMu9s/E9Ky3SLazTvam/cPDZIqLEFfEvqfeNA9FbnywWAmLyfVn8IlOuqj9CZ
+         ynRB1jozf7myC0qs0/xOGSal7EC7DzkcOykc7YX+VEEPVb5itOXNDZd7I1gT2VFznStn
+         egL0aInzMwSoSvRAYi0wS0l/OSCioaHmibYTcEOrYhpQC8MmIia11Jqa7bAaULHhl+JP
+         1ANLjWAEa2oj+uj1wSSiuDvD1NqOplmQ5sP+HRsukpuoQOG/Gyu08t0tAlBxrGzwCHcx
+         ms32tALevTVl1fZ3ou1O5Fw47nmhYQXg867a3FM3Wf0QfvWxxq0az4f28+/WVcQzFv/u
+         HtlA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :in-reply-to:from:references:cc:to:content-language:subject
-         :user-agent:mime-version:date:message-id:dkim-signature;
-        bh=0ZjA++WcwFGjfsWJRupKcsjmL4BvXy08GP1RH3o8Ch8=;
-        b=K48b+3Tmyw+LpCZQXCQyCeKKWnE6r7tjZaG0JfEQZjUHt3glh9/WnFIqx8W7vPHzD5
-         4Uwg08857t+j3QPHsSyiMvUxg3Ea+MVtnx287v9Mtc9SyiO7duj23unUIVT9iMIgJpC0
-         D4E2geibuZe5icewdRSyP3CuauONlzurC4bkKUv219n36AfZqilUjHW4DGNPkZIE+i5U
-         pm1l/TNGfg9gTxlLqSGnr8idTnlYAYtOVq/nNwsdiVY/uCCxATM/W56Nwj+Wp2LYICn3
-         8AUIeAxQ5qC/zBldRWew8rCKfowYRtujSwKg/rfTvKkRgFqzCMm973aXLsuX2M5hy46u
-         NNAw==
+         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
+         :subject:message-id:date:from:in-reply-to:references:mime-version
+         :sender:dkim-signature;
+        bh=0J/ybx0OrV1mFLTPOhNVS/hm6EWvQ6UJ2WPLTSCVBto=;
+        b=a1si7EwkhBDMWjmUAr3dVGM14h8WZJ/dh8/jw9IH5ZdDdcL1G1AGIlzn56iHaT4B/5
+         +vRmZ/WUvj5VOSfPEzrnbMOq0nm8jQu4//8tM8C2v/BY6TZgy4OpvLH8tS8AKiGYVqdx
+         SgEehPvRmBNz3UdLFdmEawLcCtYIikTLbVylurlOW0QwyZdmMeA7IsTKUBeU+6isv76X
+         3wIq0ldviwZDhm4FF1SKsvXNTat6qHM/lA1gn4A8F0+tPLH8DE/5y4faqekGqz0LGMHa
+         ZWAP1e2R49uO8sAbmqIaZDH7G0F4/Cc00Zk3V5PRZ1YRZfgCuBzBgnUtpGZmcF255FVw
+         iVIg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@collabora.com header.s=mail header.b=UEZnifG9;
-       spf=pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 46.235.227.172 as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="sP5/ZKwa";
+       spf=pass (google.com: domain of chunkuang.hu@kernel.org designates 145.40.68.75 as permitted sender) smtp.mailfrom=chunkuang.hu@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20210112; t=1679562336;
+        d=googlegroups.com; s=20210112; t=1679613933;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender
-         :content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
+         :list-id:mailing-list:precedence:x-original-authentication-results
+         :x-original-sender:content-transfer-encoding:cc:to:subject
+         :message-id:date:from:in-reply-to:references:mime-version:sender
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=0ZjA++WcwFGjfsWJRupKcsjmL4BvXy08GP1RH3o8Ch8=;
-        b=gMi4luoBdpBNdvjFW/sERLM/A6FJKeMIhIHo93rSL7y0/O4D2roN6UkHl721gO68I4
-         qlxECSgFjH43PIxuA1nelN2HcKiUIndcU1iUNh+V1EOJaz0QdEOmEQU+5lYt8vP1rEeX
-         RthqyL86DJM1lbBuI24ofGuQIW/zSvO22W9ZBrgeNxQ1UFM2VFTRuYPnRNOUYYH8lPxt
-         +PmkXI5OjNkFgk85mUce/l+wI8Jy9JDs8fkIOo65wVPaAYl6M0QcxsaP8KPf1KppiY/T
-         bkBj8l89mKvzAZpe57jU0qqqidqEpHzYhvgqmnQAGs1cgV/yumi6sqU+1JshpBlvZvGF
-         oJqA==
+        bh=0J/ybx0OrV1mFLTPOhNVS/hm6EWvQ6UJ2WPLTSCVBto=;
+        b=fs4DNOY+pP/9Ea+8+SwaQsMS9/5cKm/ESKgmjFHvzGPyyIlp6/WanXANR9XA9B/P0l
+         BgehvI6O1BOTsrIhujUBgeJ93NNKzugQNcAQHMV/lXkJKSGzRxVQL/x3cb5/skLcfJsK
+         JhqIsDWGJgvMLQF3Kv9rrM+0Oh/x62tyPfeN0cw5D6p2lYPlj9+rJ/Pmje2yiX5GvboR
+         bQnUWQKs6SBDNuVRmnFXTFvwPlwBeZU2strruVKNjMRjlaWmYwqecxyKolV5eXAqoXDT
+         vO6ctV7+aITshfqxIZMbF9eLHQeXfAehZCnYtrtH/+6C3+4JDKGkXqPKczKfY+gpvPTm
+         Q71Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112; t=1679562336;
+        d=1e100.net; s=20210112; t=1679613933;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender
-         :content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0ZjA++WcwFGjfsWJRupKcsjmL4BvXy08GP1RH3o8Ch8=;
-        b=4jaJ7CbVNxhHNS0BQ9MNd/3Oghcv/zjqyExzmIl6wdPymv2/Hcq/or7uQSFBjm37HN
-         mTbag/NeblOaHhx4mz/WQnP3MQ4sXnNdLf2JtjspX4GFULCDwRclN3hWaRpTvtrL6D56
-         N06POpQF0kkTR9O4RY14JXyQPV6NHc6EtQlSHlrDXr8/NWEKy3uWWoTvv8wVAXl9gMEt
-         iTzjKDi/f6MLpSFVnNIDRUa5TCudG0opjdOVd48xhczF/nobrkUnQIs2mQDdYRtyDMS1
-         NBNhRLmArJOwOXpMDF5j6bQvd6ZT2wvjNR5Hy1tqCt0OsGWgWCbikp+mSZrv8CQEziLa
-         mctw==
-X-Gm-Message-State: AAQBX9dGVI+1nET9XYd1qLwhocRDIRJvTP/iEptbDvGQONn15NppUfrp
-	r22I9+aGxQ/byQeZpcF40O8PHw==
-X-Google-Smtp-Source: AKy350YJeLU3a39hS//bBE3rzpGBTlDDQ6TKzUmvfd1k0bDqXDEbFDTL13Ja4GwCEPMPbijnwrpBQw==
-X-Received: by 2002:a05:6130:a6:b0:68b:9eed:1c7c with SMTP id x38-20020a05613000a600b0068b9eed1c7cmr5181950uaf.0.1679562335714;
-        Thu, 23 Mar 2023 02:05:35 -0700 (PDT)
+         :content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:sender:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=0J/ybx0OrV1mFLTPOhNVS/hm6EWvQ6UJ2WPLTSCVBto=;
+        b=2VyNgJI5fwiUfY+sxbqLnCgrekwx3eF1Y/c/br16slQLGfHwnayzhjLRzwQWpKcafs
+         Lxs/LM9xK/oIEZfZ53dgvD5ST+q34Hf90hgMNRhNqvg59d2YQVsX26G49cGcFiLFcMGf
+         iVrbrGsyhJAxv6+McmSBL4HgN89flDG+hn01QTlvcdQ3vgswTt9wJlPWKJAAr7HGm7ML
+         +x5XWNQrbKmbUhUphN30ppJZXHEfsaJKUr4VA2ane1JhbRHzr50jHUHQ3IFKHXpBR5Ec
+         sMpvvBjwvidkDBhd5BXjDBm4apmnUb6ThTWwpphj2/BLl5S1N5HvobXBv3Od0nenaJF9
+         ozsg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AAQBX9fOpL84y4vquW2C5blzcn0D+CONaiy9b84r+0p5YxqNCSP46+Zp
+	x7MRwqfb5TVTtx+BwM02ehI=
+X-Google-Smtp-Source: AKy350a4dWJaPQv7wT6nJr1KMwGZT4IO/SIKQZG5xNI1cZkVQnO57gBmNFPEb/7kG0vhiZxEH2MShA==
+X-Received: by 2002:a2e:9281:0:b0:298:9d0c:ad5a with SMTP id d1-20020a2e9281000000b002989d0cad5amr281040ljh.2.1679613933029;
+        Thu, 23 Mar 2023 16:25:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:9196:0:b0:406:3e99:a1c with SMTP id t144-20020a1f9196000000b004063e990a1cls2350904vkd.2.-pod-prod-gmail;
- Thu, 23 Mar 2023 02:05:35 -0700 (PDT)
-X-Received: by 2002:a05:6122:ca5:b0:436:1cb:bf1c with SMTP id ba37-20020a0561220ca500b0043601cbbf1cmr1038995vkb.8.1679562334998;
-        Thu, 23 Mar 2023 02:05:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1679562334; cv=none;
+Received: by 2002:a2e:b0ce:0:b0:295:a3ad:f338 with SMTP id g14-20020a2eb0ce000000b00295a3adf338ls17483ljl.4.-pod-prod-gmail;
+ Thu, 23 Mar 2023 16:25:31 -0700 (PDT)
+X-Received: by 2002:a2e:b0c4:0:b0:288:7a51:3882 with SMTP id g4-20020a2eb0c4000000b002887a513882mr282888ljl.10.1679613931482;
+        Thu, 23 Mar 2023 16:25:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1679613931; cv=none;
         d=google.com; s=arc-20160816;
-        b=rlrNouYG4iiEs6Zl9IH5Ts99v0LeMRDix/CTJRBWR+eQu3xoVyF+D2FWhVlOxrS8kC
-         yIwHsk4+TvJqfWi9k55eGTFnpImySYFWu2RWmzYhTAuceZqxmYEbFVhrO/eFV+7/6jjp
-         Hzkfev+Vppk7fVyZtRXP5TZd3uAvCjoi4Qj4HDG4sIa0vVVCKlymd41jTguSs5NGj4Oq
-         TE5MrNb/WcVWndzmG0ja9Me0rCIS/llPgMW9aXp5zxBRZHZpAeYI116qwJrK1WdC2pKj
-         Js+rSQJSk1gMyFafTIPhMynWFFfcaPhSaWdElYUx0rsiz4TUdCF9Liu+LQHsipKLOquK
-         rpxQ==
+        b=ceajhzjSynICmcH759IV7cAugqknknZ53PjEZrLweW1kiY75LERVSZphy1eYeT+XIe
+         WCC/lNd+TCs+nMJz4L4DuKg23eMmMeSpPOCPUDj1tx1AdfesZ22dhulI2GCmsdVY6Enz
+         /GIf0ldj3n8xFn5BX4mkPfiibydWb8F93NRl0pFq5h5QD8+VuY+RKEnGZA9Fb7rHS17Z
+         ceMHu/Nvoj/YYGqrTd5Z1jHsYTLPWSki2CUKAzBIxbAchJ3C7rCysfjc9grmF8w8cPwz
+         /IaHclKwCWblQWNhIC/dd1PmITB5ldsus88pbdIY9617LuYs5KxUXkEnx7jzuH87RM0X
+         wtDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :dkim-signature;
-        bh=tSGMZ0DXxSMkETvQUMza3l/dMCnNL+ukYiI0PwAfIfc=;
-        b=inDOj3KrwUUauQS9VZef+8ihT+vhxk9t5Y405CEwDbedM4JXczrLsZD+kHClRxvvy7
-         gk+13r4uNlxmBVoWmefE59XoUH5w+MeG8tJS2UD/QyyuYQgWnG9YDY77DlX09Ver78Es
-         Ivid6c/7gUFosK6RZ0t4LAg0dmJhpxuYpJKqmQx9fncGYTQ560DXcWUE+sfnrNFAbvrx
-         1P77H9GJAbUfQjBIih0SxLedIlYXOoY6gi9JGTr7q19ZHLTjTwSQxOyFRguFTPLdtrsf
-         7Y0+pu9Nn3XmywS/5V0+4SNigmo9p/v7YuwoMNaCKux/K/bCtyWcuQCVYB1rxo+gDZAi
-         7p9w==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=4Ynyp+S9BGcwrttvmGqGTVkG9UhEwnTOcUptS58xcI4=;
+        b=cRwFBftvwcAl0rFKeGOE03Sk60EeyOmXtHlJZ+5tr5/fXeh+3zKo+QA0JIPSU4rtHf
+         m/sZVJXqkPrrfDjgsU1Vtx27snLPSAofMKwD3xfKQMdOZtUgBHLQ4gBqw48Sn7rhDGln
+         3+z8DtKgv8VYdw8xlzkCl7deSzeSv/tFD/k7BlYXkzynh+hTnxodpXbxN8Bx40UgFXHs
+         VdrWw0cKB5D6InckUX5LKE0WEi2uyd4GEEVsLJeF9NuFLo/INhJVbVmpGRRcI/FF/IAO
+         bQFgaIOoc+F4O/onmVsRlEJ5M4a9kwcGHpfQBOnap/5rswz1B761mFy2Rx4bcn8tMVY6
+         uShQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@collabora.com header.s=mail header.b=UEZnifG9;
-       spf=pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 46.235.227.172 as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
-Received: from madras.collabora.co.uk (madras.collabora.co.uk. [46.235.227.172])
-        by gmr-mx.google.com with ESMTPS id s20-20020a05612204f400b00432f6f6419asi868688vkf.1.2023.03.23.02.05.34
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b="sP5/ZKwa";
+       spf=pass (google.com: domain of chunkuang.hu@kernel.org designates 145.40.68.75 as permitted sender) smtp.mailfrom=chunkuang.hu@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from ams.source.kernel.org (ams.source.kernel.org. [145.40.68.75])
+        by gmr-mx.google.com with ESMTPS id h1-20020a2ebc81000000b00299a6cef333si978950ljf.0.2023.03.23.16.25.31
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Mar 2023 02:05:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 46.235.227.172 as permitted sender) client-ip=46.235.227.172;
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 23 Mar 2023 16:25:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of chunkuang.hu@kernel.org designates 145.40.68.75 as permitted sender) client-ip=145.40.68.75;
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 0E43866030B7;
-	Thu, 23 Mar 2023 09:05:33 +0000 (GMT)
-Message-ID: <99e1d5b2-509f-3291-f327-2050f1bd9aa3@collabora.com>
-Date: Thu, 23 Mar 2023 10:05:30 +0100
+	by ams.source.kernel.org (Postfix) with ESMTPS id D4EA7B8228D
+	for <clang-built-linux@googlegroups.com>; Thu, 23 Mar 2023 23:25:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF535C4339C
+	for <clang-built-linux@googlegroups.com>; Thu, 23 Mar 2023 23:25:28 +0000 (UTC)
+Received: by mail-lf1-f50.google.com with SMTP id t11so41258lfr.1
+        for <clang-built-linux@googlegroups.com>; Thu, 23 Mar 2023 16:25:28 -0700 (PDT)
+X-Received: by 2002:ac2:5639:0:b0:4dd:9931:c555 with SMTP id
+ b25-20020ac25639000000b004dd9931c555mr273032lff.0.1679613926916; Thu, 23 Mar
+ 2023 16:25:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.9.0
+References: <20230321121859.2355-1-nancy.lin@mediatek.com> <17831605-5c9d-9c92-d190-04f91060ace4@collabora.com>
+In-Reply-To: <17831605-5c9d-9c92-d190-04f91060ace4@collabora.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Fri, 24 Mar 2023 07:25:15 +0800
+X-Gmail-Original-Message-ID: <CAAOTY_8ZAxVSLnJ1u5snsRgkszV7ixwhjUS2nDimE_Lpj=cUCA@mail.gmail.com>
+Message-ID: <CAAOTY_8ZAxVSLnJ1u5snsRgkszV7ixwhjUS2nDimE_Lpj=cUCA@mail.gmail.com>
 Subject: Re: [PATCH v30 0/7] Add MediaTek SoC DRM (vdosys1) support for mt8195
-Content-Language: en-US
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: "Nancy.Lin" <nancy.lin@mediatek.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- krzysztof.kozlowski+dt@linaro.org, devicetree@vger.kernel.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com, singo.chang@mediatek.com,
- Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, Nathan Chancellor <nathan@kernel.org>,
- clang-built-linux@googlegroups.com, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20230321121859.2355-1-nancy.lin@mediatek.com>
- <17831605-5c9d-9c92-d190-04f91060ace4@collabora.com>
- <CAGXv+5F82Ctz0pit4LsR5mQizPq-v2k3OVfiRhsGnG0a2J=Dyg@mail.gmail.com>
-From: "'AngeloGioacchino Del Regno' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-In-Reply-To: <CAGXv+5F82Ctz0pit4LsR5mQizPq-v2k3OVfiRhsGnG0a2J=Dyg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: "Nancy.Lin" <nancy.lin@mediatek.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, krzysztof.kozlowski+dt@linaro.org, 
+	Daniel Vetter <daniel@ffwll.ch>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, CK Hu <ck.hu@mediatek.com>, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, clang-built-linux@googlegroups.com, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, singo.chang@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: angelogioacchino.delregno@collabora.com
+X-Original-Sender: chunkuang.hu@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@collabora.com header.s=mail header.b=UEZnifG9;       spf=pass
- (google.com: domain of angelogioacchino.delregno@collabora.com designates
- 46.235.227.172 as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
-X-Original-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reply-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+ header.i=@kernel.org header.s=k20201202 header.b="sP5/ZKwa";       spf=pass
+ (google.com: domain of chunkuang.hu@kernel.org designates 145.40.68.75 as
+ permitted sender) smtp.mailfrom=chunkuang.hu@kernel.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,30 +148,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Il 23/03/23 10:04, Chen-Yu Tsai ha scritto:
-> On Thu, Mar 23, 2023 at 4:58=E2=80=AFPM AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com> wrote:
->>
->> Il 21/03/23 13:18, Nancy.Lin ha scritto:
->>> The hardware path of vdosys1 with DPTx output need to go through by sev=
+Hi, Angelo:
+
+AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
+=BC
+2023=E5=B9=B43=E6=9C=8823=E6=97=A5 =E9=80=B1=E5=9B=9B =E4=B8=8B=E5=8D=884:5=
+8=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> Il 21/03/23 13:18, Nancy.Lin ha scritto:
+> > The hardware path of vdosys1 with DPTx output need to go through by sev=
 eral modules, such as, OVL_ADAPTOR and MERGE.
->>>
->>> Add DRM and these modules support by the patches below:
->>>
->>
->> I've tested v30 again on MT8173, MT8192 and MT8195 based Chromebooks.
->> Green light from me.
->>
->> Chun-Kuang, can you please pick it?
->=20
-> It was picked up a few hours ago.
->=20
-> ChenYu
+> >
+> > Add DRM and these modules support by the patches below:
+> >
+>
+> I've tested v30 again on MT8173, MT8192 and MT8195 based Chromebooks.
+> Green light from me.
 
-Sorry, I didn't receive that email. Perfect!
+I'm curious about how you build code and test on Chromebooks. Do you
+build in cros environment or pure linux
+(https://archlinuxarm.org/platforms/armv8/mediatek/acer-chromebook-r13).
+I've a MT8183 based Chromebook (HP 11a) and I've tried to run a
+upstream kernel on it. cros is too heavy for me and I doubt I could
+use it. I've tried the pure linux and could boot up with console, but
+display does not work. If you use the pure linux environment, could
+you share how it works?
 
-Thanks!
-Angelo
+Regards,
+Chun-Kuang.
+
+>
+> Chun-Kuang, can you please pick it?
+>
+> Thanks!
+> Angelo
+>
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -182,4 +190,5 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/99e1d5b2-509f-3291-f327-2050f1bd9aa3%40collabora.com.
+clang-built-linux/CAAOTY_8ZAxVSLnJ1u5snsRgkszV7ixwhjUS2nDimE_Lpj%3DcUCA%40m=
+ail.gmail.com.
