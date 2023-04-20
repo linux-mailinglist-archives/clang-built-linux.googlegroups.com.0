@@ -1,135 +1,146 @@
-Return-Path: <clang-built-linux+bncBD56JVUBSEPBB2EF4CQQMGQEYVLJZHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDDO3Z5P4YJRBL5SQSRAMGQE2WI7GTQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4CE396E0E79
-	for <lists+clang-built-linux@lfdr.de>; Thu, 13 Apr 2023 15:26:02 +0200 (CEST)
-Received: by mail-yb1-xb3e.google.com with SMTP id 186-20020a2510c3000000b00b880000325bsf32097316ybq.3
-        for <lists+clang-built-linux@lfdr.de>; Thu, 13 Apr 2023 06:26:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1681392361; cv=pass;
+Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4203C6E90FD
+	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Apr 2023 12:51:29 +0200 (CEST)
+Received: by mail-qk1-x73a.google.com with SMTP id af79cd13be357-74a9043b68bsf35876885a.1
+        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Apr 2023 03:51:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1681987888; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tNw/FG0KEt6E94GhLomUYMBa/q0qE4fWbObBFzEe+wFI64A9oYg9Zxn73WisShBQOL
-         efhyT9vZJyDBQw6g3FPQm4nAa7KrwkN1Z4NQUCttlkSFvXDz4DLwHgoAfzyssdo/XB3+
-         Q2ncZgEzOKsd/Yo0U+xTmEkk/8f7LNYmotLBUwnLf0EZ9Q72Wl8I4fxUjz6HlN4jnJ/d
-         hUsCJULL/I7JQCsTed2qENyJTsP7CwNP8xljhiLGJtt6pDWeMgolcBiVfpxaunPBZ9IU
-         5ExSHX0fzFd8yCUnNC+wZYSdjscHQJ/AakIetF64G6D80gEi9Fk/RU2Bdha0tE/mMYOQ
-         HG7g==
+        b=m1vsAfCcH62g8Yjig0+8ixTIFDCorP1Ne2TCwEGgk4zm7kOC6rsGGdCRReS0X4jfyo
+         UvE9buGyOihXCaI1IgkD09ygemRjbyBWvJXtaqq1ttGSF1jx88BIV5T0xQTA89yVRDE7
+         Tbb1QswVwloXp25BeUmUmpqzyY5mvP0qxUp1+XOqmpUYiicmUzJTlB9eKHfLkwSy0X0C
+         tYmGictK07fPWmENwx49tdO20HuccoLn0H9FEMqwojM8/qnDFvOQmyUul5fysd7yAe0B
+         Ewr53T6BeZl0afNzU+ZVIDEioiVEaAFFxPuiIXUp0NwRn2+QmYeTNN53zQcN4bJ5eywa
+         aE2w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:to:subject:message-id:date:from
-         :reply-to:mime-version:sender:dkim-signature:dkim-signature;
-        bh=EgEP6cNr+Y6CW5UrfqZ6/d2Nghc2HQ76h8UqtSmOk3o=;
-        b=wcsg/gODOIpp0jk6JwaF3lBngWen0dmLHW98I/C1mvueTOmEpd7O5xqchGnkVdyLe6
-         rx66fJFqV68/NVJO94ScafVFbHuepB38M71cKdkQeE2I7p2L4oL4RgyPiqRiyR/Mu4Jk
-         UnyimLFmlqxJpqvTv/poSIs/wbBTkjcskz5QWiQQl+bDwH6SvzyQfGPBFywRuAQuM/ln
-         2djnSyuanr2iGNBBf3gWmVJ1ewoyJFiDDU1Gjriqm1/vTjOSKnUbI9sb6bTeo2ez4fgd
-         bj2xzIsCfC5eY3PfgXfi0FyoLi7qMtuhFNtdhUgY1V1piJsIZWJiqBlonAZOb89iXkjw
-         UqwQ==
+         :list-id:mailing-list:precedence:reply-to:mime-version:message-id
+         :date:subject:cc:to:from:dkim-signature;
+        bh=vcBJEIyi0nI7GORJAXd4SvSRL5BUVyDm86CMuVyGaDk=;
+        b=A2c7y3nKxIN407J2OA1i4Msf33e32Zr9xG4d1fNVkht5jpISC6bnFWjhALnWh9SQ/T
+         rubWoGRYoWaNnd+Y05YcGSI9F3+QhTsQziA4HigPBOsZXiucHQd+niENz66FAJ1kEHaE
+         U99VUJSdYgiqZCtkAT80H7zy7mO51KYeiVtpPd/HVCIXEtAV7L7CaiOVuheTp27jDFwS
+         QWS8Iy/ilNTHEeTBRMtxpkcBMYegVmDb9ZK5kEDUboKNCVZ2s3yT9XXcwdOekHhXNUKm
+         DGyEQecQ7DJx6xSLI2fwuq+G1pS5VMd/wwdadpRnF6xVDovqggC/CLHQ0jM7XKO/R3/L
+         BF7A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20221208 header.b=sWBdyghr;
-       spf=pass (google.com: domain of westernunionheadoffice65@gmail.com designates 2607:f8b0:4864:20::72e as permitted sender) smtp.mailfrom=westernunionheadoffice65@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@mediatek.com header.s=dk header.b=lArS8IsV;
+       spf=pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20221208; t=1681392361; x=1683984361;
+        d=googlegroups.com; s=20221208; t=1681987888; x=1684579888;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:x-original-authentication-results
-         :x-original-sender:to:subject:message-id:date:from:reply-to
-         :mime-version:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=EgEP6cNr+Y6CW5UrfqZ6/d2Nghc2HQ76h8UqtSmOk3o=;
-        b=k0UuloZNVCULWmeAoS7wFh2wXlA1e7gZdSuDJ4lupW9mu7UW27oLdn1TvzZlmb54XY
-         lM6d7FyBhEoyYU9a2RJtNJHd2Hzy9mBXD9k8souSHHo07SEWSHOj3q2FEwfRjNw1bMah
-         Iv6W9R3Zz5iftV2PM9Xla/JLTVKGPda4Od4yjL98LQh8dEu37IxrSWVtlsEjnlluS3Ai
-         WyB4wzkqNp5UoKoQ4E3zLijOkr9xOUfHbB/gjb4EaOzvdmh3GdE/OxUtcgbG/d4siE2/
-         SpuUY+xaOTVSJclGkP858u0j285Sj9ycdFCPN+MPXqTRJ+caRbrTlrufeFcf/5tdgsAK
-         dPXw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20221208; t=1681392361; x=1683984361;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:x-original-authentication-results
-         :x-original-sender:to:subject:message-id:date:from:reply-to
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=EgEP6cNr+Y6CW5UrfqZ6/d2Nghc2HQ76h8UqtSmOk3o=;
-        b=CJSmQpH0kxEO3adFdlN9Bp9QfPlES1FlkZKuVrGQmLuudA/mhwC6+i5EA9FdPqcAXk
-         9EQxLnhf4nuBW87MaoVs4VRPB2hn8rzU3BMlZ/bvSqNVavD3mElpJq69T7OcRU07kmNm
-         /HsVJprANQzZ6QN6+1AAcc1iekC1P7pHjSPsYqRJQ+Zp01MlXNM6u2Ys7bEp34AXOvck
-         TXpz5tqHgBr2PLnXDVX/JOs2iSHoVcHL21uxxFK8Kosnovitx3wVWBgRMjs3+bA7aoua
-         Tje3BVFlNnRhVhUxYsWeI/0U5vX9HxGNQmElRds2Vg1zQitzMs2+yBQKsc+k8SrAXKtP
-         OWyQ==
+         :list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vcBJEIyi0nI7GORJAXd4SvSRL5BUVyDm86CMuVyGaDk=;
+        b=IMeE2EChHbO8JpMflQuuS1ho9G5j7LNK/Pr8Tdw9O9dfO10+uh2iKXWz6+wSftfgbh
+         0wKXXYIVSl5RTFVLu+7nKj7NrMXQi/4NWFMp5esOyY1VoxD1N5FK0Er0HLtQEbLrSGbe
+         MMy+QRATxGVh8Buf2zqcd7ArR2xgJg7+Wgheh9tTBEDUKJ/WPTunqXbxHs8yO2aFTEq8
+         0Rgfu1/GFXslTMEdIDhAqu/QiG69pj/AZFw4cGiE0+Cpxr0gI1KZqB1JXNaaygb7Y26d
+         slV1rh8wxUBoalyQcv1kXgm+58tFONu4xBMOWwNhZfdwO7wRW/EpNFAW1wt86YwbxRs1
+         eamw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681392361; x=1683984361;
+        d=1e100.net; s=20221208; t=1681987888; x=1684579888;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:to:subject
-         :message-id:date:from:reply-to:mime-version:x-beenthere
-         :x-gm-message-state:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=EgEP6cNr+Y6CW5UrfqZ6/d2Nghc2HQ76h8UqtSmOk3o=;
-        b=PT7NKIPjFr9J7xtzz4mGpFh1sNT8L5/Oony0SGA+UqA2z+jVk+7/loIypxW8i+Hkw7
-         0S4GsxY7kQg0LWCkOQNZ3vVf5tvFicK4u/qi2SKNGMyUlMSjAgFu3MbBxKfqalEqVRb+
-         jaChRpQEy8S/oHbQ7lPLjdVRhh/CF0pRevZcYg211F9Dru9PH41ZcWbXgbeKjSFuvbCv
-         sCkhEwL3vb49o86Vy8oljTqWFz++IF5R/iaWfNONxti5C62CYQCVjHclAPLNc0TkS5eC
-         G1FhI7hxmR2RjHVlpk7nqOhUwciTSWRpHtQUZrByQhVj5oGHHikurZQ0Vi+QtbZd7oNZ
-         /aAg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AAQBX9fSHXCfX69IRH7kYUzEUj1wtzD7fNgqYgRcWDNpHH+gCwjunnZM
-	LOkICt2m5ZV9j60pk89KvEg=
-X-Google-Smtp-Source: AKy350Z04AIFvlmpSJHpNh+Nc759Oaoxk0cVgEJsPFdw+S3AoGPXhnsgedhxEXAWHNrIp/K+0ky31w==
-X-Received: by 2002:a81:ad45:0:b0:533:8f19:4576 with SMTP id l5-20020a81ad45000000b005338f194576mr1445603ywk.0.1681392361001;
-        Thu, 13 Apr 2023 06:26:01 -0700 (PDT)
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:mime-version
+         :message-id:date:subject:cc:to:from:x-beenthere:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vcBJEIyi0nI7GORJAXd4SvSRL5BUVyDm86CMuVyGaDk=;
+        b=ee6rebW4pXvjmHWMJiPUH4W22wMd0PlIrAwRDwb3Fi1J02D8YuC4KJp9E9XgExBi8H
+         GUvXLmO9LnsLfecxTIuUgPUPiRHs5YB/GtDVF7RrpXi8B/osqU3ns8+n6Szx5PAYHE4V
+         uyOib25U7OqtCJv3DaNm6ZPXoMXLSTwsQdtbFlVdZQmTyTe3cB6RWxvm/flhPTrX0C7T
+         nHyyRats97A7SuMOI0q1rJmG2+mLFFe2re9PwgZQzLITsXM7WdmRJp2T60yc2sXmYXrA
+         JsfP0V6pUq41PdGEDA1W+6GtPsNhDQiwd/l4GTdcBv8bWbk+XvoJhkDGFXZ/A/zdBLl/
+         kRjg==
+X-Gm-Message-State: AAQBX9c7kY3RpIzeSQCd1jdWK/rX29Vb+l1yQCK7GEVhWs2sucvpHnS/
+	Y9cjqzlhFB6mfucjioC5t7I=
+X-Google-Smtp-Source: AKy350a+EGS3pA91joDpLRFIvkLigI4V9txC6c9O4EISEKas/Gi6/oYX6OriMasWFJF4siy2gsXf7w==
+X-Received: by 2002:ac8:58c9:0:b0:3ef:3266:940d with SMTP id u9-20020ac858c9000000b003ef3266940dmr255588qta.0.1681987887822;
+        Thu, 20 Apr 2023 03:51:27 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:800c:0:b0:b8c:27c:1473 with SMTP id m12-20020a25800c000000b00b8c027c1473ls1037630ybk.6.-pod-prod-gmail;
- Thu, 13 Apr 2023 06:26:00 -0700 (PDT)
-X-Received: by 2002:a05:6902:1891:b0:b6a:514e:9d85 with SMTP id cj17-20020a056902189100b00b6a514e9d85mr2143694ybb.10.1681392360308;
-        Thu, 13 Apr 2023 06:26:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1681392360; cv=none;
+Received: by 2002:ad4:5690:0:b0:5ef:61a6:9da2 with SMTP id bd16-20020ad45690000000b005ef61a69da2ls1040698qvb.11.-pod-prod-gmail;
+ Thu, 20 Apr 2023 03:51:27 -0700 (PDT)
+X-Received: by 2002:a05:6214:2504:b0:5ef:435f:dc7e with SMTP id gf4-20020a056214250400b005ef435fdc7emr1376805qvb.52.1681987887277;
+        Thu, 20 Apr 2023 03:51:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1681987887; cv=none;
         d=google.com; s=arc-20160816;
-        b=KAxr8ZtvZ2BwtzzgW6/QtbbVoANDATpbdkwIMcSpo2xzlGYMkQZQaMAjMjrbMVwRvy
-         mm6AtPXw4cZXbdFyLGCmf5rGnvcBZRjPur6oByY2DgkkQTf02YyPRjtpBH6vOUg56zud
-         v5IXhDpa+mlWJfQbdLWbQ7L0G84tEjHN4fXzPnjfW6mZ8qGPpE9U5LmGua2Vaggz0YnT
-         7skc2MlxGFKt/OG/bVZbWDpHvb813hMfixALMaNRLBSBoVS4sRv2l1cosIlMUrTlJWCU
-         HtrNUHKCcgvv4uzzXR5KAEq8ZH1xC1aqNqeN+sOUi00vBr8SEQjlOsPNDb/Hq1eRNQw4
-         IM9g==
+        b=wkrufw8mk6IGfUDGLsDG7wkPW2/bVUASLowzikvt1kbr1CYU5OcUqGqOU/Yu8R3MbD
+         3AZ1p5u0ITgPvUQn7ajR/2tQRVkNhQdcb/7YdB+2lGJoZjbV3VtZCoERqQZrQzAhHqEH
+         veAyq9qwMVcUOylIR5teXYPAUFKPk3O7F3hyFfgoeAeg52jpb/juHg3mRH818AoOKnjH
+         8Fg5MJzQ3mz5EJEZ/DhLtMEIf5ECFmDKdF+GzQLlLWYjQz66qg85sK7ucr1eWDSMThos
+         6jh2mxKx2ugTqfIlsH0SFt2dg3Xc0eCo98e+u5+42I1RGGbXUoGuIghV9QyuucNMv1Hb
+         tBJg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=to:subject:message-id:date:from:reply-to:mime-version
-         :dkim-signature;
-        bh=5RfXJvDmjvocWuhXvJ6jLpYq4JXsjR+fgzQcvxm1L7I=;
-        b=THgg/ykmKw7HJKrdDkz0yjyCvWhJuUgtcDPuJzdg+BGXqSSqhV7uUi33x2TvMXRHoD
-         DeOJPrV2uZQkHnE9fzlcdiYzEh508O4jgO1FM37xJonQuPGYbYohgW8AIHdVwUG56Fr7
-         1PHRkA09nQap7uk3IKF17jHGj6mFm2eR2TWj9lCZs6yWWcsAIN266mPsWs1HXQYfL9EH
-         Iqpemzz8vNann96+MKmFymlCZNHLKbBaCG0GPmxKleG1pvFViqxocWU8ybEM3xciJqmU
-         EfLuZnW7FUZEgmBKw7kcpUcfJi7OzD2PtO/dlUzr84AHqphAJf84IwoxdlQOQ2WSvhFO
-         99SA==
+        h=mime-version:message-id:date:subject:cc:to:from:dkim-signature;
+        bh=HRqBpQlE3SEtleY2HNlMwleNJ7KOCqqrXuqNhzkdE4c=;
+        b=jV8KSk6ZJBd5mKw5rzYywL8bTfy8gnzZxXAOafFTUbPpBWnfr1fvlBu20X+dAWwG7u
+         ZYQxS/XPMYDAxvt7F+gDRiYmNDdAeT7IVIipBQcBGjdW39wHQWgFY0N73k/6qRMrKT2D
+         1NkOfrpxkFeD+3IcUKHwcXux6Grk179BYIkjlGzDB/ZTclhMxWWTbpAj6AQGrjzzLvRJ
+         Shc4Z+Dn6wwhYApHmMD2rGQYvy/0EcqXB4lpGFCu9usEIyn/E5KAvmfdJNdh0piXaSm8
+         wq/XsjEXy+rjKziYUcd7pmLvpRUjVFzlGMka7HX05ApCpqxtGOzIe/c4l0ZfdwXgwZYG
+         yonA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20221208 header.b=sWBdyghr;
-       spf=pass (google.com: domain of westernunionheadoffice65@gmail.com designates 2607:f8b0:4864:20::72e as permitted sender) smtp.mailfrom=westernunionheadoffice65@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qk1-x72e.google.com (mail-qk1-x72e.google.com. [2607:f8b0:4864:20::72e])
-        by gmr-mx.google.com with ESMTPS id e13-20020a5b004d000000b00b8d981f2bebsi85793ybp.3.2023.04.13.06.26.00
+       dkim=pass header.i=@mediatek.com header.s=dk header.b=lArS8IsV;
+       spf=pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
+Received: from mailgw02.mediatek.com ([210.61.82.184])
+        by gmr-mx.google.com with ESMTPS id e15-20020a056214110f00b005dd8b749184si78996qvs.7.2023.04.20.03.51.25
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Apr 2023 06:26:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of westernunionheadoffice65@gmail.com designates 2607:f8b0:4864:20::72e as permitted sender) client-ip=2607:f8b0:4864:20::72e;
-Received: by mail-qk1-x72e.google.com with SMTP id j19so4945399qkk.8
-        for <clang-built-linux@googlegroups.com>; Thu, 13 Apr 2023 06:26:00 -0700 (PDT)
-X-Received: by 2002:ae9:e50f:0:b0:742:9899:98fb with SMTP id
- w15-20020ae9e50f000000b00742989998fbmr279492qkf.7.1681392359970; Thu, 13 Apr
- 2023 06:25:59 -0700 (PDT)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Apr 2023 03:51:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) client-ip=210.61.82.184;
+X-UUID: 47750d62df6911edb6b9f13eb10bd0fe-20230420
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.22,REQID:d2920aac-fcfc-49b3-be49-6d5c374ff0cd,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:120426c,CLOUDID:ee1cfaa1-8fcb-430b-954a-ba3f00fa94a5,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
+	RL:0,File:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-UUID: 47750d62df6911edb6b9f13eb10bd0fe-20230420
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <nancy.lin@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1470003907; Thu, 20 Apr 2023 18:51:18 +0800
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1118.25; Thu, 20 Apr 2023 18:51:16 +0800
+Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1118.25 via Frontend Transport; Thu, 20 Apr 2023 18:51:16 +0800
+From: "'Nancy.Lin' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<clang-built-linux@googlegroups.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<singo.chang@mediatek.com>, Nancy.Lin <nancy.lin@mediatek.com>
+Subject: [PATCH] drm/mediatek: fix uninitialized symbol
+Date: Thu, 20 Apr 2023 18:51:15 +0800
+Message-ID: <20230420105115.26838-1-nancy.lin@mediatek.com>
+X-Mailer: git-send-email 2.18.0
 MIME-Version: 1.0
-Received: by 2002:a0c:f353:0:b0:5ef:434b:5d25 with HTTP; Thu, 13 Apr 2023
- 06:25:59 -0700 (PDT)
-Reply-To: mrs.elizabethedward77@gmail.com
-From: "Mrs. Elizabeth Edward" <westernunionheadoffice65@gmail.com>
-Date: Thu, 13 Apr 2023 05:25:59 -0800
-Message-ID: <CAFuZoN+5=VJGMkF3aGU4VVrUCs0FAsUB_xtvq05Z=0jQFm-xtw@mail.gmail.com>
-Subject: HELLO
-To: undisclosed-recipients:;
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: westernunionheadoffice65@gmail.com
+X-MTK: N
+X-Original-Sender: nancy.lin@mediatek.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20221208 header.b=sWBdyghr;       spf=pass
- (google.com: domain of westernunionheadoffice65@gmail.com designates
- 2607:f8b0:4864:20::72e as permitted sender) smtp.mailfrom=westernunionheadoffice65@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@mediatek.com header.s=dk header.b=lArS8IsV;       spf=pass
+ (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as
+ permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;       dmarc=pass
+ (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
+X-Original-From: Nancy.Lin <nancy.lin@mediatek.com>
+Reply-To: Nancy.Lin <nancy.lin@mediatek.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,31 +153,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Greetings
-Please forgive me for approaching you through this media. I am Mrs.
-Elizabeth Edward, 63 years, from the USA, I am childless and I am
-suffering from a pro-long critical cancer, my doctors confirmed I may
-not live a few months from now as my ill health has defiled all forms
-of medical treatment.
+fix Smatch static checker warning
+  - uninitialized symbol comp_pdev in mtk_ddp_comp_init.
 
-Since my days are numbered, I have decided willingly to fulfill my
-long-time promise to donate you the sum ($7.000.000.00) million
-dollars I inherited from my late husband Mr. Edward Herbart foreign
-bank account for charities work of God and there is no risk involved;
-it is 100% hitch free & safe because it is my inheritance from late
-husband.
+Signed-off-by: Nancy.Lin <nancy.lin@mediatek.com>
+---
+ drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-If you will be interesting to assist in getting this deposit fund
-transfer into your account for charity for the mutual benefit of
-orphans and the less privileged project to fulfill my promise before I
-die, please let me Know immediately and you will take 50% percent of
-the total money for your effort and assistance while 50% of the money
-will go to charity project. I will appreciate your utmost
-confidentiality as I wait for your reply.
-God Bless you,
-Mrs. Elizabeth Edward.
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c
+index f114da4d36a9..e987ac4481bc 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c
+@@ -546,7 +546,7 @@ unsigned int mtk_drm_find_possible_crtc_by_comp(struct drm_device *drm,
+ int mtk_ddp_comp_init(struct device_node *node, struct mtk_ddp_comp *comp,
+ 		      unsigned int comp_id)
+ {
+-	struct platform_device *comp_pdev;
++	struct platform_device *comp_pdev = NULL;
+ 	enum mtk_ddp_comp_type type;
+ 	struct mtk_ddp_comp_dev *priv;
+ #if IS_REACHABLE(CONFIG_MTK_CMDQ)
+@@ -588,6 +588,9 @@ int mtk_ddp_comp_init(struct device_node *node, struct mtk_ddp_comp *comp,
+ 	    type == MTK_DSI)
+ 		return 0;
+ 
++	if (!comp_pdev)
++		return -EPROBE_DEFER;
++
+ 	priv = devm_kzalloc(comp->dev, sizeof(*priv), GFP_KERNEL);
+ 	if (!priv)
+ 		return -ENOMEM;
+-- 
+2.18.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAFuZoN%2B5%3DVJGMkF3aGU4VVrUCs0FAsUB_xtvq05Z%3D0jQFm-xtw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20230420105115.26838-1-nancy.lin%40mediatek.com.
