@@ -1,146 +1,140 @@
-Return-Path: <clang-built-linux+bncBDDO3Z5P4YJRBL5SQSRAMGQE2WI7GTQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD7274FIT4EBBOWTQSRAMGQEXOWHVZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4203C6E90FD
-	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Apr 2023 12:51:29 +0200 (CEST)
-Received: by mail-qk1-x73a.google.com with SMTP id af79cd13be357-74a9043b68bsf35876885a.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Apr 2023 03:51:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1681987888; cv=pass;
+Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id C82426E9393
+	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Apr 2023 14:02:04 +0200 (CEST)
+Received: by mail-ot1-x339.google.com with SMTP id 46e09a7af769-6a5e9b24243sf582919a34.1
+        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Apr 2023 05:02:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1681992123; cv=pass;
         d=google.com; s=arc-20160816;
-        b=m1vsAfCcH62g8Yjig0+8ixTIFDCorP1Ne2TCwEGgk4zm7kOC6rsGGdCRReS0X4jfyo
-         UvE9buGyOihXCaI1IgkD09ygemRjbyBWvJXtaqq1ttGSF1jx88BIV5T0xQTA89yVRDE7
-         Tbb1QswVwloXp25BeUmUmpqzyY5mvP0qxUp1+XOqmpUYiicmUzJTlB9eKHfLkwSy0X0C
-         tYmGictK07fPWmENwx49tdO20HuccoLn0H9FEMqwojM8/qnDFvOQmyUul5fysd7yAe0B
-         Ewr53T6BeZl0afNzU+ZVIDEioiVEaAFFxPuiIXUp0NwRn2+QmYeTNN53zQcN4bJ5eywa
-         aE2w==
+        b=D6C+m5dc+ehE+pCg8nw5rbunnMcX3iOt4QCBm6C9mQ+lwLbRQ8dJBB0UDtVedcYIGu
+         x2XqwQwFE9DCqAjk2Z7rKK8t//44tzDxQsca0ftm84ncCsf/ymwSjx8HPGc273xgTpMt
+         u9Eg/9C4FUvUURaMZvD+9MYZ8aJLa/UnNaAcSdcaK2d5aIcWzQsA3XpMlTuHBwoyLPh4
+         Y+pwi2NTx2m0hqhYkXjz5Mc0y/7yFWNOKSu8ZI8W6vvCgluC9TYMZ65KwcM+I1iKhMGa
+         cvnHRHBboYyiQV2sdlos/kjtYcW+Tta81g4Dl0CUe8MkeOXEj6ydq8v/tGXX39qOjR0j
+         Z/9Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:mime-version:message-id
-         :date:subject:cc:to:from:dkim-signature;
-        bh=vcBJEIyi0nI7GORJAXd4SvSRL5BUVyDm86CMuVyGaDk=;
-        b=A2c7y3nKxIN407J2OA1i4Msf33e32Zr9xG4d1fNVkht5jpISC6bnFWjhALnWh9SQ/T
-         rubWoGRYoWaNnd+Y05YcGSI9F3+QhTsQziA4HigPBOsZXiucHQd+niENz66FAJ1kEHaE
-         U99VUJSdYgiqZCtkAT80H7zy7mO51KYeiVtpPd/HVCIXEtAV7L7CaiOVuheTp27jDFwS
-         QWS8Iy/ilNTHEeTBRMtxpkcBMYegVmDb9ZK5kEDUboKNCVZ2s3yT9XXcwdOekHhXNUKm
-         DGyEQecQ7DJx6xSLI2fwuq+G1pS5VMd/wwdadpRnF6xVDovqggC/CLHQ0jM7XKO/R3/L
-         BF7A==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to:from
+         :references:cc:to:content-language:subject:user-agent:mime-version
+         :date:message-id:dkim-signature;
+        bh=a0zw6CbcTJUVQ856ImoRXTf5kWp5i7W5biC4zkbV1d4=;
+        b=bWFSHpZEydyhPuhYCIeZLzY1JNtiURWrJ3XBeMIJOjLhxlTHUrt/g3iCQbNneK4DKl
+         XSJKlcMgLA7MRMwG6RWTYonayC3sv1U9RvLndQn9qSJJFtbz4afwv+Q7XscsiZRXvSeS
+         dYUIE1SbjG2/5QAk5k0OF1tD3fKZh48Dx0AJ6L5OEHmb3dCscZgPFUmxdYoCMLLMS/Xs
+         jKc0h89YYtpOClAZSiRloxmiXs15d5IyNzomFPL23KMlsDoK4BeRhtKepqMOuEna3axv
+         sxBgbNULu5vUgzopO7RYHA+F9Oj9mvu9RLNDzTdX5z9zDZIZHApIb29KPJF20KPpjb4e
+         oqew==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mediatek.com header.s=dk header.b=lArS8IsV;
-       spf=pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
+       dkim=pass header.i=@collabora.com header.s=mail header.b=GORNTUxT;
+       spf=pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 46.235.227.172 as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20221208; t=1681987888; x=1684579888;
+        d=googlegroups.com; s=20221208; t=1681992123; x=1684584123;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:mime-version
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vcBJEIyi0nI7GORJAXd4SvSRL5BUVyDm86CMuVyGaDk=;
-        b=IMeE2EChHbO8JpMflQuuS1ho9G5j7LNK/Pr8Tdw9O9dfO10+uh2iKXWz6+wSftfgbh
-         0wKXXYIVSl5RTFVLu+7nKj7NrMXQi/4NWFMp5esOyY1VoxD1N5FK0Er0HLtQEbLrSGbe
-         MMy+QRATxGVh8Buf2zqcd7ArR2xgJg7+Wgheh9tTBEDUKJ/WPTunqXbxHs8yO2aFTEq8
-         0Rgfu1/GFXslTMEdIDhAqu/QiG69pj/AZFw4cGiE0+Cpxr0gI1KZqB1JXNaaygb7Y26d
-         slV1rh8wxUBoalyQcv1kXgm+58tFONu4xBMOWwNhZfdwO7wRW/EpNFAW1wt86YwbxRs1
-         eamw==
+         :x-original-authentication-results:x-original-sender:in-reply-to
+         :from:references:cc:to:content-language:subject:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=a0zw6CbcTJUVQ856ImoRXTf5kWp5i7W5biC4zkbV1d4=;
+        b=j7yjh6kK4yX+oAP0NQum7c+4ENQEOPpjkyAYMNQs48+A8QxzankgvthKzV/MO3I6ia
+         goCRRfuH3wXR/socA2uTrOfPJiw4bVxxowVDOcsDxK5Jd1DekNfrOIB3+8386SnJflyC
+         w4dv5dcpvxwNuR/fTGCPLy96oZWA/Tj+Wo0EcKLw8NnABM9mMt6g/aSzC6fDWgRgDxEe
+         +To3kgfFU5gwRW54hzFeqJjLtMg4C5jH8R0F22ebQCSlSJ1RFePdIMhrsvrCsbJajk4K
+         aspHOtWzhrsriNPHwDpaDec6Cvi1xYALQerKBuaPjidIBul+tWOo/SsVy8RK+UvMqFqg
+         mUEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1681987888; x=1684579888;
+        d=1e100.net; s=20221208; t=1681992123; x=1684584123;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:mime-version
-         :message-id:date:subject:cc:to:from:x-beenthere:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vcBJEIyi0nI7GORJAXd4SvSRL5BUVyDm86CMuVyGaDk=;
-        b=ee6rebW4pXvjmHWMJiPUH4W22wMd0PlIrAwRDwb3Fi1J02D8YuC4KJp9E9XgExBi8H
-         GUvXLmO9LnsLfecxTIuUgPUPiRHs5YB/GtDVF7RrpXi8B/osqU3ns8+n6Szx5PAYHE4V
-         uyOib25U7OqtCJv3DaNm6ZPXoMXLSTwsQdtbFlVdZQmTyTe3cB6RWxvm/flhPTrX0C7T
-         nHyyRats97A7SuMOI0q1rJmG2+mLFFe2re9PwgZQzLITsXM7WdmRJp2T60yc2sXmYXrA
-         JsfP0V6pUq41PdGEDA1W+6GtPsNhDQiwd/l4GTdcBv8bWbk+XvoJhkDGFXZ/A/zdBLl/
-         kRjg==
-X-Gm-Message-State: AAQBX9c7kY3RpIzeSQCd1jdWK/rX29Vb+l1yQCK7GEVhWs2sucvpHnS/
-	Y9cjqzlhFB6mfucjioC5t7I=
-X-Google-Smtp-Source: AKy350a+EGS3pA91joDpLRFIvkLigI4V9txC6c9O4EISEKas/Gi6/oYX6OriMasWFJF4siy2gsXf7w==
-X-Received: by 2002:ac8:58c9:0:b0:3ef:3266:940d with SMTP id u9-20020ac858c9000000b003ef3266940dmr255588qta.0.1681987887822;
-        Thu, 20 Apr 2023 03:51:27 -0700 (PDT)
+         :x-original-authentication-results:x-original-sender:in-reply-to
+         :from:references:cc:to:content-language:subject:user-agent
+         :mime-version:date:message-id:x-beenthere:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=a0zw6CbcTJUVQ856ImoRXTf5kWp5i7W5biC4zkbV1d4=;
+        b=IeBuAjjo/GW+X6aay5UaSkBL4sJ0ttVYLXVa5pUg8jAt8JsmSykhW44Oldt6B+wOIE
+         /P2ih201whlzQFyszk61f9KHyjLDvABSgxKCX4e5lLXaa9yPbPflXo/PgbKggAwQh7V6
+         QKH5oaJqbZw2fZXxfC/dF9h5j40lA8Xh+Xr2HkyfdOiM13/4w4TvjJtIP5wznrcwwhej
+         fwFR/9t8tfyWD5YyQ6veRQpEZie+greqNiY4qZUAYkIm5/b90rPyZQ0qW8zOcL8JwRu+
+         yos/YdjZK3FsQl2HwaW6vRSLc0KKRah11hKyIV0XYN9a8CKF9WUsRZr8mBGmcxQTte6A
+         43pw==
+X-Gm-Message-State: AAQBX9fYudUlxlxyAdknVO25l7owCUe/u02LRldZVMFCxefMVkf1xImQ
+	FXnqxT1U11j5VUuJJnf0WuY=
+X-Google-Smtp-Source: AKy350Z6r+cGUVih4zwmU9WrnG6aX54gVHouWJ5CaB/n7PrQ1YZUW3pMPF7IRk3Wj3LK289bs6XaCg==
+X-Received: by 2002:a9d:470c:0:b0:6a5:e9c9:5b58 with SMTP id a12-20020a9d470c000000b006a5e9c95b58mr299111otf.1.1681992122989;
+        Thu, 20 Apr 2023 05:02:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ad4:5690:0:b0:5ef:61a6:9da2 with SMTP id bd16-20020ad45690000000b005ef61a69da2ls1040698qvb.11.-pod-prod-gmail;
- Thu, 20 Apr 2023 03:51:27 -0700 (PDT)
-X-Received: by 2002:a05:6214:2504:b0:5ef:435f:dc7e with SMTP id gf4-20020a056214250400b005ef435fdc7emr1376805qvb.52.1681987887277;
-        Thu, 20 Apr 2023 03:51:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1681987887; cv=none;
+Received: by 2002:a05:6830:650c:b0:69f:7d7b:d8f6 with SMTP id
+ cm12-20020a056830650c00b0069f7d7bd8f6ls242186otb.4.-pod-prod-gmail; Thu, 20
+ Apr 2023 05:02:02 -0700 (PDT)
+X-Received: by 2002:a9d:4810:0:b0:6a5:f682:44c2 with SMTP id c16-20020a9d4810000000b006a5f68244c2mr488742otf.14.1681992122477;
+        Thu, 20 Apr 2023 05:02:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1681992122; cv=none;
         d=google.com; s=arc-20160816;
-        b=wkrufw8mk6IGfUDGLsDG7wkPW2/bVUASLowzikvt1kbr1CYU5OcUqGqOU/Yu8R3MbD
-         3AZ1p5u0ITgPvUQn7ajR/2tQRVkNhQdcb/7YdB+2lGJoZjbV3VtZCoERqQZrQzAhHqEH
-         veAyq9qwMVcUOylIR5teXYPAUFKPk3O7F3hyFfgoeAeg52jpb/juHg3mRH818AoOKnjH
-         8Fg5MJzQ3mz5EJEZ/DhLtMEIf5ECFmDKdF+GzQLlLWYjQz66qg85sK7ucr1eWDSMThos
-         6jh2mxKx2ugTqfIlsH0SFt2dg3Xc0eCo98e+u5+42I1RGGbXUoGuIghV9QyuucNMv1Hb
-         tBJg==
+        b=WJxX+KjpOkJ3qvvjdB9k+cNpM2Q4GxJ66tcUAOMXYlYmhHVRjHNt/479uamJ5TCInG
+         fPn6U5/unpWTmvKgrfz1etrsPrO9G4zHVjZ1wJibHLpeFAyoGc75qnvB9VChPL4JVGEp
+         57M4ZafD5+l6AxdcYmQ3Y+LI3BgtVnJWd9SfBUx5l/CLOBrNDKS3pFd4vaYOR1Ompvkh
+         DLSg7akb6RbOWcsMTjknPOnBXZt4HGSNT7Lis3brWyUg8ojlq1h1ZZ9oeoJEB8z8/ek2
+         rEqMcxSWgTZTRjqajBKTSzLneIkedDqBQOUAD/57ihzhaA+tq+imx9NXvz7Gaxvmdg3/
+         lApw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=HRqBpQlE3SEtleY2HNlMwleNJ7KOCqqrXuqNhzkdE4c=;
-        b=jV8KSk6ZJBd5mKw5rzYywL8bTfy8gnzZxXAOafFTUbPpBWnfr1fvlBu20X+dAWwG7u
-         ZYQxS/XPMYDAxvt7F+gDRiYmNDdAeT7IVIipBQcBGjdW39wHQWgFY0N73k/6qRMrKT2D
-         1NkOfrpxkFeD+3IcUKHwcXux6Grk179BYIkjlGzDB/ZTclhMxWWTbpAj6AQGrjzzLvRJ
-         Shc4Z+Dn6wwhYApHmMD2rGQYvy/0EcqXB4lpGFCu9usEIyn/E5KAvmfdJNdh0piXaSm8
-         wq/XsjEXy+rjKziYUcd7pmLvpRUjVFzlGMka7HX05ApCpqxtGOzIe/c4l0ZfdwXgwZYG
-         yonA==
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :dkim-signature;
+        bh=ksapSUQUSUrOxuFEasdFlmXhyERx2YxIir4Vej0yRaw=;
+        b=VE2m/PHtSpV4TJMNiOO48FeS0Ohapk2tCedjM3NQ0E/+gOlr/4/dQl3mRPNgmIfYCj
+         WN9pdTs9qh6TqBNUfeDm59+Y32IhPNbpyJBeZf9Qwdli3cmVAhqlbMMAH+HDfwMtETw8
+         RZ9B2dkWt3tlAnXM+iLnVom5UVCN6kYv9i5eNG0URhe23OTdu4ybF1mN0qEr3sC5ApEc
+         KmG9zmkJM56pL+GG3C6Si/JviR4Qv92BajLBUCPNyoDSU7cvylJoLzGt6HmdtS2rGbCr
+         +cdLB2+yrigcxQsNIz+V47Dy3/n1P3zBKdCGTtezqPrhdXDtMBKXr6izhYHSGWEYPQrE
+         yhdQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mediatek.com header.s=dk header.b=lArS8IsV;
-       spf=pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
-Received: from mailgw02.mediatek.com ([210.61.82.184])
-        by gmr-mx.google.com with ESMTPS id e15-20020a056214110f00b005dd8b749184si78996qvs.7.2023.04.20.03.51.25
+       dkim=pass header.i=@collabora.com header.s=mail header.b=GORNTUxT;
+       spf=pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 46.235.227.172 as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
+Received: from madras.collabora.co.uk (madras.collabora.co.uk. [46.235.227.172])
+        by gmr-mx.google.com with ESMTPS id bl10-20020a056830370a00b006a5f12c714bsi125443otb.0.2023.04.20.05.02.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Apr 2023 03:51:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) client-ip=210.61.82.184;
-X-UUID: 47750d62df6911edb6b9f13eb10bd0fe-20230420
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.22,REQID:d2920aac-fcfc-49b3-be49-6d5c374ff0cd,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:120426c,CLOUDID:ee1cfaa1-8fcb-430b-954a-ba3f00fa94a5,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:0,File:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-UUID: 47750d62df6911edb6b9f13eb10bd0fe-20230420
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <nancy.lin@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1470003907; Thu, 20 Apr 2023 18:51:18 +0800
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.25; Thu, 20 Apr 2023 18:51:16 +0800
-Received: from mtksdccf07.mediatek.inc (172.21.84.99) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1118.25 via Frontend Transport; Thu, 20 Apr 2023 18:51:16 +0800
-From: "'Nancy.Lin' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
-	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<clang-built-linux@googlegroups.com>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<singo.chang@mediatek.com>, Nancy.Lin <nancy.lin@mediatek.com>
-Subject: [PATCH] drm/mediatek: fix uninitialized symbol
-Date: Thu, 20 Apr 2023 18:51:15 +0800
-Message-ID: <20230420105115.26838-1-nancy.lin@mediatek.com>
-X-Mailer: git-send-email 2.18.0
+        Thu, 20 Apr 2023 05:02:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 46.235.227.172 as permitted sender) client-ip=46.235.227.172;
+Received: from [IPV6:2001:b07:2ed:14ed:c5f8:7372:f042:90a2] (unknown [IPv6:2001:b07:2ed:14ed:c5f8:7372:f042:90a2])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 3537E66030CC;
+	Thu, 20 Apr 2023 13:01:59 +0100 (BST)
+Message-ID: <e1619d7a-2ac3-55bf-bcf1-cad3f07d20fe@collabora.com>
+Date: Thu, 20 Apr 2023 14:01:55 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-X-MTK: N
-X-Original-Sender: nancy.lin@mediatek.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.9.1
+Subject: Re: [PATCH] drm/mediatek: fix uninitialized symbol
+Content-Language: en-US
+To: "Nancy.Lin" <nancy.lin@mediatek.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ clang-built-linux@googlegroups.com,
+ Project_Global_Chrome_Upstream_Group@mediatek.com, singo.chang@mediatek.com
+References: <20230420105115.26838-1-nancy.lin@mediatek.com>
+From: "'AngeloGioacchino Del Regno' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+In-Reply-To: <20230420105115.26838-1-nancy.lin@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+X-Original-Sender: angelogioacchino.delregno@collabora.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mediatek.com header.s=dk header.b=lArS8IsV;       spf=pass
- (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as
- permitted sender) smtp.mailfrom=nancy.lin@mediatek.com;       dmarc=pass
- (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=mediatek.com
-X-Original-From: Nancy.Lin <nancy.lin@mediatek.com>
-Reply-To: Nancy.Lin <nancy.lin@mediatek.com>
+ header.i=@collabora.com header.s=mail header.b=GORNTUxT;       spf=pass
+ (google.com: domain of angelogioacchino.delregno@collabora.com designates
+ 46.235.227.172 as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
+X-Original-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reply-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,41 +147,18 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-fix Smatch static checker warning
-  - uninitialized symbol comp_pdev in mtk_ddp_comp_init.
+Il 20/04/23 12:51, Nancy.Lin ha scritto:
+> fix Smatch static checker warning
+>    - uninitialized symbol comp_pdev in mtk_ddp_comp_init.
+> 
+> Signed-off-by: Nancy.Lin <nancy.lin@mediatek.com>
 
-Signed-off-by: Nancy.Lin <nancy.lin@mediatek.com>
----
- drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+I agree with this commit, but please add a Fixes tag.
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c
-index f114da4d36a9..e987ac4481bc 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_ddp_comp.c
-@@ -546,7 +546,7 @@ unsigned int mtk_drm_find_possible_crtc_by_comp(struct drm_device *drm,
- int mtk_ddp_comp_init(struct device_node *node, struct mtk_ddp_comp *comp,
- 		      unsigned int comp_id)
- {
--	struct platform_device *comp_pdev;
-+	struct platform_device *comp_pdev = NULL;
- 	enum mtk_ddp_comp_type type;
- 	struct mtk_ddp_comp_dev *priv;
- #if IS_REACHABLE(CONFIG_MTK_CMDQ)
-@@ -588,6 +588,9 @@ int mtk_ddp_comp_init(struct device_node *node, struct mtk_ddp_comp *comp,
- 	    type == MTK_DSI)
- 		return 0;
- 
-+	if (!comp_pdev)
-+		return -EPROBE_DEFER;
-+
- 	priv = devm_kzalloc(comp->dev, sizeof(*priv), GFP_KERNEL);
- 	if (!priv)
- 		return -ENOMEM;
--- 
-2.18.0
+Thanks,
+Angelo
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20230420105115.26838-1-nancy.lin%40mediatek.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/e1619d7a-2ac3-55bf-bcf1-cad3f07d20fe%40collabora.com.
