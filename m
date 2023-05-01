@@ -1,140 +1,119 @@
-Return-Path: <clang-built-linux+bncBD7274FIT4EBBZWTTCRAMGQE6R2QJYA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD66FMGZA4IKRQOAUIDBUBAGXPXRW@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 910116EC6BF
-	for <lists+clang-built-linux@lfdr.de>; Mon, 24 Apr 2023 09:04:08 +0200 (CEST)
-Received: by mail-pl1-x63a.google.com with SMTP id d9443c01a7336-1a69ae5e220sf47765975ad.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 24 Apr 2023 00:04:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1682319847; cv=pass;
+Received: from mail-wm1-x33c.google.com (mail-wm1-x33c.google.com [IPv6:2a00:1450:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 128166F3921
+	for <lists+clang-built-linux@lfdr.de>; Mon,  1 May 2023 22:27:21 +0200 (CEST)
+Received: by mail-wm1-x33c.google.com with SMTP id 5b1f17b1804b1-3f168827701sf9359945e9.0
+        for <lists+clang-built-linux@lfdr.de>; Mon, 01 May 2023 13:27:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1682972840; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CsLR6Y8JJrSGMrfyOMaaDemAjMHcRPob5+AEwKJ9MO/16Z8zyKOoNNs9V7NOKRII8g
-         NsO1mdSHNhl2/pHAk5/6FVO6M4fvcev864/J7lGN/wHRQprpqsghUcynrbVZhDIQz0/u
-         P+xrrU7mreceKBkxoBu7tWuIcb3Lxwb1Tbfj5bse0L6YmHMvb0uu0ghnup7coPxV3jJ4
-         VpU27zh+hwoPSocfxWoJstoUdxaBepwqo2gpb97faDw0q3FuU4YqVFBh9CFJN5E907Zv
-         X1+NbU0iiybcSBsb8ftSEdPjI3UyjZGIkYwFMUSMzI4Jli9G5q4eIHIGG32wcL/j0+0v
-         IAOA==
+        b=LWTJi84b0Af10PDpKL9QhTO5X30pkpb5WsE1txr2cnffzhQvKVbkFc9wrkaUWHIOY1
+         +MQG8icHBrTyb/EJMxz1Q0eE5doEgUHMhGR5mquaKxDyWlH6+J2lBfLo460qIPMVL4zZ
+         stIdsk12mLs1w+9cGs6L7nlt+nJMLAX0WrJK8eQUG3pqBGNnNnfGB1wc+0nknEbcWpwF
+         58F58BPTI1XlAtZmbetEU1vYIHrL6ZSwDYvN64BYB6CNTCcod/mEBl9pRwMJ/kuB2U2U
+         cLKYgtowstG53lqtWRiCHtgf0DpP42LiPSQRhbsBIrR9fd7UAw8k4r4oCPl5fbY0pJ/B
+         2Azw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:in-reply-to:from
-         :references:cc:to:content-language:subject:user-agent:mime-version
-         :date:message-id:dkim-signature;
-        bh=PAoJooPym/SbqaQ5DaMoRNDTrtsr4zfx69JH6MkChnA=;
-        b=EawwA4/NmN9JGGcTQ3x6qIFL3ZMOQmBBAulKMvQG/DONIAg4NYPCz+OFxc/nHaxqwE
-         URBDkK48Sj2afVDwu7i1h/C7AHgF/8M6u5UjbOOERAw12Vd3+RCRBO3Ph251fWPtGT4s
-         4MBxvocvJk4RFoqI+oHGRPxxESKYNMMLpJ/56cb9yf/zfRobPzjB/uNdr3Zkndy9Pn8a
-         oNAgcVBib6VZIGSgfEgN6HBdLaGu+Q6Aee/c5mMgRLUOJ8ARN0WUn4iRH3xkbRyFZNGu
-         OavkNwhTcGj0OgnG+h8l2kVVX2dLOIZdpN/uwsrBRliuR52u5QQI2fzm+BQxdoIQNNLH
-         VnQA==
+         :list-id:mailing-list:precedence:reply-to:to:subject:message-id:date
+         :from:mime-version:dkim-signature;
+        bh=1fYGVBQ3/9hfJAOp3qPMHCtaAt4P7w+UPiMp9gUh3yM=;
+        b=SZUc8f/KmcZfFKJzyeR66v4K7vuGp3RL5orIxYAZaitcuxeUjvDc7GACOj6xZmv73b
+         6/kV4qg0Jf2/76CiG5yhlS0gKnvyPfUHX6FwoWpI9AlGU1vRzML60zB8LGCudAGGkN5G
+         akiyRjqhpDFOkKbDXym5y+6bYwn4j7EydbyAhUfGXWb5EBQlJop2a46j2rDN/gyLYNMn
+         s/FBw4YLnJrHrMwGhv53baSr564GAKXZ+1tfO+d593rgXTPrDIt6kKGDHKOScr8VwWDy
+         c9nwrcKThTbReWnznvElaUv4GAFfTPyvp1Z7hwD9/tbYxd2il6IVd47D5GVtH++iI5J/
+         DCZQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@collabora.com header.s=mail header.b=mv0Y1ohO;
-       spf=pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
+       dkim=pass header.i=@google.com header.s=20221208 header.b=KYBcl74k;
+       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::530 as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20221208; t=1682319847; x=1684911847;
+        d=googlegroups.com; s=20221208; t=1682972840; x=1685564840;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:in-reply-to
-         :from:references:cc:to:content-language:subject:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PAoJooPym/SbqaQ5DaMoRNDTrtsr4zfx69JH6MkChnA=;
-        b=aMC7ISfTcsjHwXQK/HR7YRSPzqjdlxhlPxBG6GzBROJ2jth0OGqfI1YrcW4HkIjuy7
-         y1fZO3nMB09BDcsOiLtxoVgbSLyR7YziOPYrHDDI2B9rPKSshF6bshfprPkQomu9fd10
-         E2qiblMXtxpo2WNgXut33BaMwYVLn78Y9lHCKZ6h6BpriToxb4NOIerHk9OxYas5iwUV
-         FK69wnAY6wTmwx+L1oAHOs56Bj/5ogxMyOMQ5KTbmsHXIsb76rrtbYRE66fi1zqPXQCv
-         vlIJPdl8c+YJZqeuo9Xg+UtXhujFeaHygWGbHAqUyV5BZggJ5YHVTlwADBAzkpap95Oq
-         5Cvw==
+         :x-original-authentication-results:x-original-sender:to:subject
+         :message-id:date:from:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1fYGVBQ3/9hfJAOp3qPMHCtaAt4P7w+UPiMp9gUh3yM=;
+        b=aaybVbt+tk8f70AFtgMMwAQYaufpaRyDYbBG5xSSByryYZ3Gt6Ab+6Is287GRv4tPo
+         /nT39YQtI4qC2wfMD3sRw9f2BKEpVBx1yMmZ+9a3dHKgL9V1ElyM2NTfMtpYpbbLrgqj
+         BA58V0LkMYRkGzfbIw112/2I5ovraET4CU3Mt/uFK71Dqu+j/5vpSwJrn376HOlbh5be
+         ogLkEc9FmpmPIbeUUSt3UHYeQ00jJsMhSW/qwYKyilOUtFj7soDJJ5R/5YRx370KZN4f
+         2JcOm5Poe/qtJzvO8tLckYd/ECbAcLxdpZVREmWXjMhlDQZpj6qjuKVJdEdrYgGnLJAl
+         Cxuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1682319847; x=1684911847;
+        d=1e100.net; s=20221208; t=1682972840; x=1685564840;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:in-reply-to
-         :from:references:cc:to:content-language:subject:user-agent
-         :mime-version:date:message-id:x-beenthere:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=PAoJooPym/SbqaQ5DaMoRNDTrtsr4zfx69JH6MkChnA=;
-        b=Yjiq7g5rIuqJINsLO/4t6MIgeU+K7yZHGC7kvfM1pV6Dm+Ym1kgAiGqojzU7HOIkgu
-         V0HTd5ZGGxj+p1dv9UZpBX+XxqBivXniYYtTqaBXpcJ5/5JyXyYnG2PniqpDLGvVyHJP
-         TuCm+esKlOjKwdHSiKCvLYwgrRrJ2cnfUjrAv5iuDi7R4FP2x3PDPmxT8zohuokoZhDy
-         yYwRRk4m0HCTiTIMtNvn3KLYO/gCTjj/Uhsst0rNsnhgkT7UhabHbBcfei2ARpqolaoj
-         Z/KTi0fQj30CVgrAHNyV57xE8UfVV5wHofgxorgR0Q9uo/EwmlI6aYJqIgvI5Mta2Nbo
-         4vzg==
-X-Gm-Message-State: AAQBX9fey6yCjaN/5SitFOi3ANKQOx5gKDi+KZFjyRhPTDptCF5UF28X
-	SqFCozzQJKFgkzcHFFdehHU=
-X-Google-Smtp-Source: AKy350a+VUSNFUko8rY8gUo0YWmKSD/lzzCsWU1V2Inb1B9HGaxSUxnK1plppOIoEnWg0BtL8J7rjQ==
-X-Received: by 2002:a17:902:6ac8:b0:1a0:41ea:b9ba with SMTP id i8-20020a1709026ac800b001a041eab9bamr4224293plt.8.1682319846733;
-        Mon, 24 Apr 2023 00:04:06 -0700 (PDT)
+         :x-original-authentication-results:x-original-sender:to:subject
+         :message-id:date:from:mime-version:x-beenthere:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=1fYGVBQ3/9hfJAOp3qPMHCtaAt4P7w+UPiMp9gUh3yM=;
+        b=g1QzlXOLlFXnorocPOWx5ReJSdyJokx2TmKR3/MGSHxR+yhdv+hK3ejpV+mYCrhaXv
+         URavsHzoJXR2raqXyaI/HGqieAoxHmDxu2DVI1/JFAvhbUyzlaIlnywDj2x1oG+1LB6H
+         XaPu3TNY2kF2vhVvGvmp+uQ/wjSE0QAp1dm7dLmrQSUfIRSjaqZ0vaBsWvxbM5WY1iJD
+         vRykN0pWjxLVDwXS7v4UYbJ7wd7Yyj4k9kpkDrhT1SeSdJCy7DF45TMEgzX2exRcbxVO
+         VvhHaYvoor/I5mO5hNnspt1DyjtwlTdSOfhJdI5z0USrZbq5dsMU3oLiCcpQE7pkecRJ
+         JyqA==
+X-Gm-Message-State: AC+VfDzikHI71YYbVSUdDuSFZgF6J4bBxZW2ZbpQmfkMBdbU51Mc3FZM
+	6P0xdEK+BblRkTyR+yQbcmY=
+X-Google-Smtp-Source: ACHHUZ5KCMkwUAymlwh9bMaSCaZXPZGkER8bN2vxCFUCEONUiGtPBPBPG0tJ5Q6nBgFotvsblTGbNg==
+X-Received: by 2002:a1c:7211:0:b0:3f1:6ec5:bc61 with SMTP id n17-20020a1c7211000000b003f16ec5bc61mr2646350wmc.5.1682972840293;
+        Mon, 01 May 2023 13:27:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:8542:b0:199:50f5:6729 with SMTP id
- d2-20020a170902854200b0019950f56729ls9786246plo.11.-pod-prod-gmail; Mon, 24
- Apr 2023 00:04:06 -0700 (PDT)
-X-Received: by 2002:a17:902:e884:b0:1a0:50bd:31c0 with SMTP id w4-20020a170902e88400b001a050bd31c0mr16287399plg.24.1682319845921;
-        Mon, 24 Apr 2023 00:04:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1682319845; cv=none;
+Received: by 2002:a1c:f717:0:b0:3f1:7596:66be with SMTP id v23-20020a1cf717000000b003f1759666bels5735982wmh.3.-pod-control-gmail;
+ Mon, 01 May 2023 13:27:19 -0700 (PDT)
+X-Received: by 2002:a05:600c:2212:b0:3f1:7aff:e14a with SMTP id z18-20020a05600c221200b003f17affe14amr10939714wml.39.1682972839066;
+        Mon, 01 May 2023 13:27:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1682972839; cv=none;
         d=google.com; s=arc-20160816;
-        b=YcZ3GjtE4MFkU3lnkISjSvNad8G5CFXru2M+51cuvshaKu0v09LOnEK8vqG39m3aAs
-         QQ7+PZDOW231lmwUe4muUEc/B+svlzXmDvRG4NkLxk9Sz2eOQ/LBrzBLz4Y3mJLHkX5m
-         3vylc/Iwr10u+tNGm/MGDm5C4I8wr5or6qBln+rWUH34PVjnHOhYCHzqizPwUzQ9sKU3
-         OBOwLbM8E8+UeumOQbadB/ij1UGlOSQCMzkU4KYBLS23K3YVY/XPrYhgl+3K2Tgqz+2N
-         oroLc5215tj+kp3mJnBfH4VETSdXP3Gp+gt/+Spmv+3n5S8GKWyT1gRJHCjtIdw6KY3a
-         yobA==
+        b=sx8kimHV/BqR8mh2iD2hTcYlwnwltcmVWWoPLLeqowVkI02p0sFoi2TttJQlFTMTno
+         6i6r13GbsRmETGqaJMN5kuL5qQBHJD3JawiYPe5UB//zMCM+B1gBJCX0bXAyu96pLSm7
+         /ac6122us3JHuTIhSHpKb4s6l4kZvTcuV3pkSJ2PV3DRlLh71Qcyi6fPSJ6ntfU52I3u
+         FKyNKMjGcSy5Dm1XlBy11qrnHIczyF3iRhE0XbWrYtD9kqqAVf+Vd8S2yfkkWym6R5L9
+         rZTM2douQOONmqdnN1SiiWBdGHME9JmrnBvERbp+TyZy6V7fQjSa8TxE6IQnqeU/XXW0
+         Zveg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :dkim-signature;
-        bh=npOId2mZRfy97Yew6iDWD/qRDq3NzAPb60sowLxfQ6Q=;
-        b=KENwtsDU1S8EyNHsuBY48n2wBfX6GwKC3nuRa9AJ1+PzBgtCTUtrD5hAK1be75Ri7p
-         vQS9MarIfFdaCV/k1ZhsHW3RoKaStarXUU2AOyHRWw2QcmyfCD1DhyFjW8zFadPzEK/v
-         LjiQznjw6EdNMaw6Lq00S269nBUA3+JpKDALan2sO40nbgXNMKBrrjURTIJGGGjVzaBj
-         jZQqn7G2sPBoHOuI227RgHyHqWIO4SXbc6eLbIG4XzgeZOOJFtTmobTXy4LxwruHT1hc
-         VYBiEqikfdv/4hzLnhoW/i4c1EBOmEshhlhivCff7ftccIZtWo7FEaiDQMvqXiIHIBuz
-         BzFw==
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=1A2MsfOVZEuiK++YzvE3jgo2ph5eAEBNJeE4uEbOkUI=;
+        b=aUV13QCM7V/LFWmIvx9bMtP8EP8qTApj/f9dPOx4cVZaTufNIfVwdQXrdgUFuuuJyy
+         ZBye7SH1mNNBaaQFusy6yA2tdSf0G3bV/yZFF/MXDVELn1MRo6893PCUmau0cwpOwjX8
+         Xrz3NlauZHatK5y75IhrMAZEJG76pV6KVZ8P5Uy+mIdZ4+Xv6ZIW6w9+V6+VPqClNyit
+         VDYrwlnC0k8O3BeU0xiSOLrEb1s7VLrCuxleWMftWK7IRtub3p148XVspH60gDFZckVM
+         CTsuiT6ofz+R0MNL22POqWzd2ZNqC9a47mwz0a/zm+JrxU7m8W29haNNoN59Iszl3VWY
+         AexQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@collabora.com header.s=mail header.b=mv0Y1ohO;
-       spf=pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
-Received: from madras.collabora.co.uk (madras.collabora.co.uk. [2a00:1098:0:82:1000:25:2eeb:e5ab])
-        by gmr-mx.google.com with ESMTPS id h7-20020a170902f70700b001a0767b58e8si263331plo.7.2023.04.24.00.04.05
+       dkim=pass header.i=@google.com header.s=20221208 header.b=KYBcl74k;
+       spf=pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::530 as permitted sender) smtp.mailfrom=morbo@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-ed1-x530.google.com (mail-ed1-x530.google.com. [2a00:1450:4864:20::530])
+        by gmr-mx.google.com with ESMTPS id n37-20020a05600c502500b003f189de7e3fsi1669232wmr.0.2023.05.01.13.27.19
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Apr 2023 00:04:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of angelogioacchino.delregno@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) client-ip=2a00:1098:0:82:1000:25:2eeb:e5ab;
-Received: from [IPV6:2001:b07:2ed:14ed:c5f8:7372:f042:90a2] (unknown [IPv6:2001:b07:2ed:14ed:c5f8:7372:f042:90a2])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 8D424660328C;
-	Mon, 24 Apr 2023 08:04:03 +0100 (BST)
-Message-ID: <9b26f3e4-fcef-0e51-3443-78624e96fe8c@collabora.com>
-Date: Mon, 24 Apr 2023 09:04:01 +0200
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 01 May 2023 13:27:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::530 as permitted sender) client-ip=2a00:1450:4864:20::530;
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-4d9b2045e1cso16a12.1
+        for <clang-built-linux@googlegroups.com>; Mon, 01 May 2023 13:27:19 -0700 (PDT)
+X-Received: by 2002:a05:6402:5295:b0:505:863:d85f with SMTP id
+ en21-20020a056402529500b005050863d85fmr18789edb.4.1682972838293; Mon, 01 May
+ 2023 13:27:18 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.10.0
-Subject: Re: [PATCH v2] drm/mediatek: fix uninitialized symbol
-Content-Language: en-US
-To: "Nancy.Lin" <nancy.lin@mediatek.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- clang-built-linux@googlegroups.com,
- Project_Global_Chrome_Upstream_Group@mediatek.com, singo.chang@mediatek.com
-References: <20230421021609.7730-1-nancy.lin@mediatek.com>
-From: "'AngeloGioacchino Del Regno' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-In-Reply-To: <20230421021609.7730-1-nancy.lin@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-Original-Sender: angelogioacchino.delregno@collabora.com
+From: "'Bill Wendling' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 1 May 2023 13:27:02 -0700
+Message-ID: <CAGG=3QWao2bQ0R8yzkjZQwiwGcDf2u67fztPAv09S1ixDUxYrg@mail.gmail.com>
+Subject: [Announcement] Clang-Built Linux Meetup 2023 Dates
+To: undisclosed-recipients:;
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: morbo@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@collabora.com header.s=mail header.b=mv0Y1ohO;       spf=pass
- (google.com: domain of angelogioacchino.delregno@collabora.com designates
- 2a00:1098:0:82:1000:25:2eeb:e5ab as permitted sender) smtp.mailfrom=angelogioacchino.delregno@collabora.com;
-       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=collabora.com
-X-Original-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reply-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+ header.i=@google.com header.s=20221208 header.b=KYBcl74k;       spf=pass
+ (google.com: domain of morbo@google.com designates 2a00:1450:4864:20::530 as
+ permitted sender) smtp.mailfrom=morbo@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Bill Wendling <morbo@google.com>
+Reply-To: Bill Wendling <morbo@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,17 +126,19 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Il 21/04/23 04:16, Nancy.Lin ha scritto:
-> fix Smatch static checker warning
->    - uninitialized symbol comp_pdev in mtk_ddp_comp_init.
-> 
-> Fixes: 0d9eee9118b7 ("drm/mediatek: Add drm ovl_adaptor sub driver for MT8195")
-> Signed-off-by: Nancy.Lin <nancy.lin@mediatek.com>
+We plan to hold this year's Clang-Built Linux Meetup on the 11th of
+November in Richmond VA. (the Saturday before the Linux Plumbers
+Conference). It'll be a time to discuss Clang-specific topics and give
+people an opportunity to present their work and/or do a dry run of
+their LPC talks. We'll also have hacking sessions, bug hunts, and
+future planning.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Further details will be forthcoming later this month.
 
+Share and enjoy!
+-bw
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/9b26f3e4-fcef-0e51-3443-78624e96fe8c%40collabora.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGG%3D3QWao2bQ0R8yzkjZQwiwGcDf2u67fztPAv09S1ixDUxYrg%40mail.gmail.com.
