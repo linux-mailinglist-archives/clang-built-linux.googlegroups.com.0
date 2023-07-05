@@ -1,105 +1,105 @@
-Return-Path: <clang-built-linux+bncBAABBDVESSSQMGQELGH3KQQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBEFESSSQMGQEOBIY4DI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oa1-x3b.google.com (mail-oa1-x3b.google.com [IPv6:2001:4860:4864:20::3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7E5F2747D42
-	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Jul 2023 08:47:44 +0200 (CEST)
-Received: by mail-oa1-x3b.google.com with SMTP id 586e51a60fabf-1b393e5fd7fsf286389fac.1
-        for <lists+clang-built-linux@lfdr.de>; Tue, 04 Jul 2023 23:47:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1688539663; cv=pass;
+Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7CDBD747D44
+	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Jul 2023 08:47:46 +0200 (CEST)
+Received: by mail-io1-xd3f.google.com with SMTP id ca18e2360f4ac-77e3eaa1343sf260771639f.2
+        for <lists+clang-built-linux@lfdr.de>; Tue, 04 Jul 2023 23:47:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1688539665; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bat8qHfGkVowIBNNk52Js93ErPVRJhQeI0wYDr/vYb9AUUfsuFX9BezUmAc+PD1fDl
-         ntw55dNfnMRydpE5FEn1Hqi77jrjGpkSzBXFGiqFnoTc93Wc4bMUgRnZJ69wi3sY+Rhj
-         nVnRy+qoYW2Xwq1/V605ggc/M4dorQT+GyuvpXW0acnEcEhCnyJdcXpvTYClLpcxDUGX
-         9QXkGEqjO2DMIInlq7CjNsgoTeE3I+bFCk12RzgzGamuCzWLR0o6IHe9ZYGTRGqEvVVz
-         Od11JSRqwfh9EvzyPTRN7wyaBWr+qgpOgp7g4b0XFrXAAeKJPYxj7uexQN0KW6v+tiA4
-         BKVQ==
+        b=tp8NfG/rjyIU4izV1vBTp3Vz/rsZY9Ehf8Zodz+WzS9BD4uEL2ji84S+rK11R9Moh1
+         Zyl0y/vTNnl7UrhNuHtPEUAuvJtno8KJfFX4ydQKiwTzea3V0h0avxU6b3z98dOf+NC+
+         YFd1yXmjZGTlB+46IQlaffVJYbPPj1bn0rcui3aqSMe/ITaCPtGbBjqUjsCmvB545LN3
+         Rxo7JYuqcQ59iPqB1m4tb6rovtecygCw5HZOyMxLuCcm+GU8UOmVg8N5VsN9XBizvx5C
+         4rZHWsbCQbooUC0L1ND1qGo938M5h8I2JRsAFh5Blg8HYvboBdMFBlMKcmWxGh9MFTpL
+         rjbA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=Jqu3LVgqbovaL55dGAtkRLk50E3dV0zyEd6+ImaE0cU=;
+        bh=st5uIglPoD+2sI4lixteOsVFZT4bHTo9XN3EXDbR89I=;
         fh=0aO6IHdmIGEeyblc5BGLyqLApWOzZ3sYXY88uRTc9UQ=;
-        b=Vno2uaaC4Xf26bVSuGXapDRY1TS5OFZQ5WvE8LZ4H9FBmduuoilRnHO3h3bCfyLT6D
-         YwqRHgj3/ZCylCOJP5wloeaISZCgY6YdKLKPMbNOb2U4KmVrfVZVHarBvdeotVIYLhs7
-         jzZwVOPBuMCp4Rz8eGxQyz8JpoeWOrb/k1Im2ykR5T3TdOw4eeOq+27mGoWY9Gc7LKa3
-         ZKE77DCxTiKWpbq3fMwII330pqatY8ug0T7t6PO/4zZTpaMis8b2s2a0Was+tFb2DoGY
-         PjYWvz1XqUL//dmU2ru6UUzFNVT6xjk+usgWCxBrDGgrqs1lMQNkG4qKFxi7pUa0jDOZ
-         SPEA==
+        b=GXGd8MJO3QMDpy82OPCqmSNfDYGbGtSoYq/osks6KSpXh+8jDYyq22R+muRFkeUf/1
+         dSBEGNmrItX12/5j8Dc43RfSI4zJ4Iy5zON54PIt243vfS1ScMql1YaUxcQRwYfuMgdv
+         i/f9bgeWQyb2ZwIFlfjDmBoK2tTjuajZ4+J+dPze2NFXBRGXc7EoGD+ibcPtGMjEN4Lh
+         WyK2wISn7txWMSR5OEeua1wR5ptBaJ0dzX9iBeiLBHdBakC5iIsQwYjDl4v3s6R1NO0b
+         O1971FkuHaXgTdWu94v4H88tLO4GccZr/J11b7u9PA/cuwAalnPN47NaV4xvRN3YhtCD
+         jkPA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.188 as permitted sender) smtp.mailfrom=lihuafei1@huawei.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=huawei.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20221208; t=1688539663; x=1691131663;
+        d=googlegroups.com; s=20221208; t=1688539665; x=1691131665;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender:mime-version
          :references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=Jqu3LVgqbovaL55dGAtkRLk50E3dV0zyEd6+ImaE0cU=;
-        b=CrkMFsAfU6WAYoY9YRudKQQQ7Glzvr6cYJ3e4V7CqnctNjb4qJOqhR1eIae4dBiwkD
-         Da9PUJzaQkTh9qjd8/bm6K4iHxmE1eVRAQkInvJK2l4jK1rvpWrw8jVu1vuPN50Rr7We
-         lcj4SZ8gXEc+A14R3v8C7kos0NK8QvX8IOJslV5j9FqM/dCkecmfs1e+kuYZT9wDRyWA
-         F+mNQ6LpyLYyyEI0vn4+yAnAscjiUu+3R3e6a3aDlIaAikvWfqZLGn6tAXcEUqgYex6j
-         636Hf3Dst+NmQGYxJzKdgZkP/Mrl8uIIcUrR3NtRp81+VjclbB6QUvlMqarQWJj2vC1B
-         xBSA==
+        bh=st5uIglPoD+2sI4lixteOsVFZT4bHTo9XN3EXDbR89I=;
+        b=tfbJXWG6Td88gED5P1nP/EfC7CuBjLmzhr6nGg9NtCgeBEqvdxSz/J8NgzFiJgsAbp
+         Mc6YtIM6ubs24SAskeHsPpp+7dUPUfWGncj5p9Cj4p6nSBt0htexFxoGzAZkPUsHBQfw
+         hmWo/1MJKr/ymFbzD10DrWuER/6xpdlbuLjD8905q07fBA0boTHVnkEJBMHTYNVkCTT3
+         +qa2uTEGQfEUXAwZ+jvPqog3yQK8dfvebVuLU4z4NdgC2oiDFHrFZHHQrGbnOPxu7r6E
+         aluGjZyvh0FF+0NZsJtYP+r4PVGs91gn25qb/RfI+7iI1ahfEldEzeC/c1/+jkLGQQs3
+         OMCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688539663; x=1691131663;
+        d=1e100.net; s=20221208; t=1688539665; x=1691131665;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender:mime-version
          :references:in-reply-to:message-id:date:subject:cc:to:from
          :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Jqu3LVgqbovaL55dGAtkRLk50E3dV0zyEd6+ImaE0cU=;
-        b=CU9cMBRtw1AJB02hGdvIU/D7866NOw3G32yOvD503G8Xu2zWnzPnfscw/lBxKsvzO/
-         kWtlA556TD+p18Jv2uA1SlO2yZP1AqtlsHwc31AgE7xSCLgBHgTZAQ9yHlnl4MkqZf7a
-         ie4IGNo/GZQ9xNYr0xWvNf/TWHmezdUNYTAUuP0LNFuUK4oyOMCIctEDYYY/9Kz3uPHy
-         5EKy9Nmzh6oIsqahpr/yKRC1wq6OhbJA4YUl8FF/D3YhFp6WyKvhp0Hoz0GWKhHlHtgN
-         x4ZWlZardsgBWQFBbRAN3QptDrwVGnM1tjbLOGhVrDdVKEjVFKMvdmgkWWeLBpm7pp51
-         TAew==
-X-Gm-Message-State: ABy/qLbzGQimhu5OO3G/tE8S4vMneW/YAeF0YVeduURm4ryhCOpe1q8l
-	3sgVA22+Q9QoNzI7t/3b81k=
-X-Google-Smtp-Source: APBJJlFZoFDI+p/RunwORjPzZ0HIT5XfNPbBVWLUzOUqvFxo0kREmbHGQTg/Nmn26X3JO/7vxP89SQ==
-X-Received: by 2002:a05:6870:414f:b0:1b0:738f:712d with SMTP id r15-20020a056870414f00b001b0738f712dmr13013693oad.5.1688539663060;
-        Tue, 04 Jul 2023 23:47:43 -0700 (PDT)
+        bh=st5uIglPoD+2sI4lixteOsVFZT4bHTo9XN3EXDbR89I=;
+        b=Yz07yk2W9xWjRaG/P3o4Vsr2PsgCPR2wxdIPGVnU8+8hjH+DVs/dAN2YYGW9Q+BYg5
+         lkcpIxFc2s7NBwyEtiparIx/O1sz3cfDP2A1zFQyeDKYIYWcY8ar1qHHUpplNe+WBQmB
+         HcCM2cA/Mhuf0NFc4069zf7crO3gweWirk4uQs5p4pg4SaM31trMquVzEWERORNUPgg/
+         sf7CMGJgCMfd7Dh1qm82lbD6W/VEyexYLTNBYIYLoOO05AVu8wEhKU4kxjCWEgCqaYf7
+         OiJUVAJA3EErPDf7StQ8cdWwjd2nWEWkF94bBNWDkwT0GuZiYrOZG4Kab7Cyv8r5zS1p
+         mVwA==
+X-Gm-Message-State: ABy/qLaTxDi/ck6vXYe/dqaiXW+I4nNx8iovK9IQ5Y+Op5ESgXXGoPnq
+	hn+KcYUboE84J2W9JV7sSEM=
+X-Google-Smtp-Source: APBJJlFJZ1KMLAIFNE92kl46vGaL/8zfmlgld+CWOvjI6Dg7o5vIkW3joks1QsxZwIWcohijForPuQ==
+X-Received: by 2002:a92:d48e:0:b0:345:6ffa:63c5 with SMTP id p14-20020a92d48e000000b003456ffa63c5mr13428756ilg.32.1688539664636;
+        Tue, 04 Jul 2023 23:47:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6870:d1c8:b0:1ad:11bf:6d1a with SMTP id
- b8-20020a056870d1c800b001ad11bf6d1als64142oac.2.-pod-prod-04-us; Tue, 04 Jul
- 2023 23:47:42 -0700 (PDT)
-X-Received: by 2002:a05:6808:11cc:b0:39c:767e:bfc6 with SMTP id p12-20020a05680811cc00b0039c767ebfc6mr18027676oiv.10.1688539662609;
-        Tue, 04 Jul 2023 23:47:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1688539662; cv=none;
+Received: by 2002:a05:6e02:1baf:b0:345:993c:d726 with SMTP id
+ n15-20020a056e021baf00b00345993cd726ls3073652ili.2.-pod-prod-07-us; Tue, 04
+ Jul 2023 23:47:44 -0700 (PDT)
+X-Received: by 2002:a05:6602:21cc:b0:783:5c26:db82 with SMTP id c12-20020a05660221cc00b007835c26db82mr16742771ioc.5.1688539664232;
+        Tue, 04 Jul 2023 23:47:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1688539664; cv=none;
         d=google.com; s=arc-20160816;
-        b=dkraQZi3mT5DijeGkXNkDs2P9sRUziBRQd82H0ztTTYlxMjrgtEcXPL50kHaYn5Nl5
-         Q99N691RxwOGpHPqg4CK80sYK5uY6xZQ0RkNCI1FztEYYcSUAM+rmQXMxIskGa7v8WfK
-         LTzQfxrm+q2V2FvUPeUXk2L5Shkt9OR4ye8NBI4tsSSAuy0BjeZJty7/wXbUcIz2YwlS
-         9UpJuiUQbBRD/n9SvJzXRmufl6Xgaxvj2eJpMpij2ka+VG7Nl/AV/HK6Vjw4jk+FHoG5
-         ev4wPT/9jQ5eL4OBtCCPItKy39mUBSMq4PevZkBdny6bOATSIKVo+i0weNz92W9P/k7Y
-         IWZQ==
+        b=Ag/afgVB4rCDsr9sRa5MBZhyMr3qUCTEbPnQ4TatLvTuJ1nQEr7+rBAgf9b03bxN/o
+         q8r+paSyJp9PjLTx3rFDZ3LRRTS16r2eZv971xGULz/m5KowWy3FB/NuEpoeNVM43Oab
+         DydH9BVflJbhhyORsnFbpuegtR0AuEbSssYGL3hon99YlopoEo6TFstmfejOKWTPwHFn
+         OaPBOH0cSgHW263ZF5rht6jBVfhWDS7jAVYqD9JTtiSp218gU1IOpNdiGRfq3xYIoJUL
+         qcLOrWp6JLIFZ1AGQ4wcS/+JfmHtAkCxKm7DbpwfkIZuj11/rZ+DBsW/kIHuxyR3P4Wi
+         e8MA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
          :from;
-        bh=/bytAk0q6Mve9yJnpwK1MGbE1CsIhEqiFUc6OmrHnFE=;
+        bh=IcOLRf/bXdy3to+fjjOL/AJlRzRR7ij7FBYY+xv+95g=;
         fh=Gx/Xd3SuR7wfzTJCm4fH9mYLv4JUXxtCS0BsHUQzeiY=;
-        b=Us966Sq1uKIk1NlxuuFAJKJIfJtCtxRPQN3mlFb4pkG2dU5/gAwDV1Up15g7jcMRGe
-         IOtiS7H+E5WDHqqocn0tx7A+iAu1dIq1pI0P4u5qC4qIEnMN9dOOKWaI1shr0JcxXAnL
-         O5PCerUhyN+mSALrvG4o5wzXu/csewN+5q329oJlEejsj/oancNMB34E+c2kX6UysU1X
-         bOzLnuuNwsLPCVw6FxLuVEGlJ46lwd2AdtwU2we0qingj42iJbYFiDWnL3tOS20j8c60
-         5bN3zWNzNr5FvwmJ3C+fFyoaoZC6IAlBLhB3j4kyqJSodtT4Z9kiEUPDZoHNYX8s3NAB
-         9R7A==
+        b=IXPLZfs5yUi3QMZEX7jov3fix7ZjB/mnuBDN1xavMiH5Pn2uMo1GxP49iUWpZlFA8G
+         Gm07aYb3ZGyvabCHBwbnXFlci5ccNW3H+HmBsl3mwMJc57diE4Ma16FYybAOQLg/MtSr
+         qvdQfg6dbN5MoWa5Ugw8bLmsrN3tawSEmwp4ZUSS2iBNf4F1yiZppAeKjxJ1ZZYqRzQO
+         MqvW3KRVig6rOPNpbI+X5GCsFUaahPHvUxgOmKqWHQwcdUcI8ZhKmnxhGaU6hkvLLZDB
+         rFOh12S6BfpwtfO/LVEgjZUeCs+zpj3JpatBD3SK7ZCVIKD9BzAohwKfhg4nwx6uMnKt
+         SAmg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.188 as permitted sender) smtp.mailfrom=lihuafei1@huawei.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=huawei.com
 Received: from szxga02-in.huawei.com (szxga02-in.huawei.com. [45.249.212.188])
-        by gmr-mx.google.com with ESMTPS id q24-20020a63f958000000b005289dd0b142si1649081pgk.3.2023.07.04.23.47.42
+        by gmr-mx.google.com with ESMTPS id bm10-20020a05663842ca00b0042af5dea7cbsi1004205jab.3.2023.07.04.23.47.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 04 Jul 2023 23:47:42 -0700 (PDT)
+        Tue, 04 Jul 2023 23:47:44 -0700 (PDT)
 Received-SPF: pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.188 as permitted sender) client-ip=45.249.212.188;
-Received: from kwepemi500019.china.huawei.com (unknown [172.30.72.57])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Qwqrp5zQdzMq8t;
-	Wed,  5 Jul 2023 14:44:26 +0800 (CST)
+Received: from kwepemi500019.china.huawei.com (unknown [172.30.72.56])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Qwqrq3KpGzMq9t;
+	Wed,  5 Jul 2023 14:44:27 +0800 (CST)
 Received: from ubuntu1804.huawei.com (10.67.174.174) by
  kwepemi500019.china.huawei.com (7.221.188.117) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -113,9 +113,9 @@ CC: <gregkh@linuxfoundation.org>, <mhiramat@kernel.org>, <tglx@linutronix.de>,
 	<rostedt@goodmis.org>, <weiyongjun1@huawei.com>, <gustavoars@kernel.org>,
 	<namit@vmware.com>, <laijs@linux.alibaba.com>,
 	<clang-built-linux@googlegroups.com>, <lihuafei1@huawei.com>
-Subject: [PATCH 5.10 1/9] kprobes/x86: Fix fall-through warnings for Clang
-Date: Wed, 5 Jul 2023 14:46:45 +0800
-Message-ID: <20230705064653.226811-2-lihuafei1@huawei.com>
+Subject: [PATCH 5.10 2/9] x86/kprobes: Do not decode opcode in resume_execution()
+Date: Wed, 5 Jul 2023 14:46:46 +0800
+Message-ID: <20230705064653.226811-3-lihuafei1@huawei.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230705064653.226811-1-lihuafei1@huawei.com>
 References: <20230705064653.226811-1-lihuafei1@huawei.com>
@@ -144,38 +144,296 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: "Gustavo A. R. Silva" <gustavoars@kernel.org>
+From: Masami Hiramatsu <mhiramat@kernel.org>
 
-[ Upstream commit e689b300c99ca2dd80d3f662e19499bba27cda09 ]
+[ Upstream commit abd82e533d88df1521e3da6799b83ce88852ab88 ]
 
-In preparation to enable -Wimplicit-fallthrough for Clang, fix a warning
-by explicitly adding a break statement instead of just letting the code
-fall through to the next case.
+Currently, kprobes decodes the opcode right after single-stepping in
+resume_execution(). But the opcode was already decoded while preparing
+arch_specific_insn in arch_copy_kprobe().
 
-Signed-off-by: Gustavo A. R. Silva <gustavoars@kernel.org>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Link: https://github.com/KSPP/linux/issues/115
+Decode the opcode in arch_copy_kprobe() instead of in resume_execution()
+and set some flags which classify the opcode for the resuming process.
+
+ [ bp: Massage commit message. ]
+
+Signed-off-by: Masami Hiramatsu <mhiramat@kernel.org>
+Signed-off-by: Borislav Petkov <bp@suse.de>
+Acked-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
+Link: https://lkml.kernel.org/r/160830072561.349576.3014979564448023213.stgit@devnote2
 Signed-off-by: Li Huafei <lihuafei1@huawei.com>
 ---
- arch/x86/kernel/kprobes/core.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/x86/include/asm/kprobes.h |  11 ++-
+ arch/x86/kernel/kprobes/core.c | 168 +++++++++++++++------------------
+ 2 files changed, 81 insertions(+), 98 deletions(-)
 
+diff --git a/arch/x86/include/asm/kprobes.h b/arch/x86/include/asm/kprobes.h
+index 991a7ad540c7..d20a3d6be36e 100644
+--- a/arch/x86/include/asm/kprobes.h
++++ b/arch/x86/include/asm/kprobes.h
+@@ -58,14 +58,17 @@ struct arch_specific_insn {
+ 	/* copy of the original instruction */
+ 	kprobe_opcode_t *insn;
+ 	/*
+-	 * boostable = false: This instruction type is not boostable.
+-	 * boostable = true: This instruction has been boosted: we have
++	 * boostable = 0: This instruction type is not boostable.
++	 * boostable = 1: This instruction has been boosted: we have
+ 	 * added a relative jump after the instruction copy in insn,
+ 	 * so no single-step and fixup are needed (unless there's
+ 	 * a post_handler).
+ 	 */
+-	bool boostable;
+-	bool if_modifier;
++	unsigned boostable:1;
++	unsigned if_modifier:1;
++	unsigned is_call:1;
++	unsigned is_pushf:1;
++	unsigned is_abs_ip:1;
+ 	/* Number of bytes of text poked */
+ 	int tp_len;
+ };
 diff --git a/arch/x86/kernel/kprobes/core.c b/arch/x86/kernel/kprobes/core.c
-index 5de757099186..ed9a4fb87168 100644
+index ed9a4fb87168..19ca5164be4d 100644
 --- a/arch/x86/kernel/kprobes/core.c
 +++ b/arch/x86/kernel/kprobes/core.c
-@@ -880,6 +880,7 @@ static void resume_execution(struct kprobe *p, struct pt_regs *regs,
- 			p->ainsn.boostable = true;
- 			goto no_change;
- 		}
-+		break;
- 	default:
- 		break;
+@@ -133,26 +133,6 @@ void synthesize_relcall(void *dest, void *from, void *to)
+ }
+ NOKPROBE_SYMBOL(synthesize_relcall);
+ 
+-/*
+- * Skip the prefixes of the instruction.
+- */
+-static kprobe_opcode_t *skip_prefixes(kprobe_opcode_t *insn)
+-{
+-	insn_attr_t attr;
+-
+-	attr = inat_get_opcode_attribute((insn_byte_t)*insn);
+-	while (inat_is_legacy_prefix(attr)) {
+-		insn++;
+-		attr = inat_get_opcode_attribute((insn_byte_t)*insn);
+-	}
+-#ifdef CONFIG_X86_64
+-	if (inat_is_rex_prefix(attr))
+-		insn++;
+-#endif
+-	return insn;
+-}
+-NOKPROBE_SYMBOL(skip_prefixes);
+-
+ /*
+  * Returns non-zero if INSN is boostable.
+  * RIP relative instructions are adjusted at copying time in 64 bits mode
+@@ -326,25 +306,6 @@ static int can_probe(unsigned long paddr)
+ 	return (addr == paddr);
+ }
+ 
+-/*
+- * Returns non-zero if opcode modifies the interrupt flag.
+- */
+-static int is_IF_modifier(kprobe_opcode_t *insn)
+-{
+-	/* Skip prefixes */
+-	insn = skip_prefixes(insn);
+-
+-	switch (*insn) {
+-	case 0xfa:		/* cli */
+-	case 0xfb:		/* sti */
+-	case 0xcf:		/* iret/iretd */
+-	case 0x9d:		/* popf/popfd */
+-		return 1;
+-	}
+-
+-	return 0;
+-}
+-
+ /*
+  * Copy an instruction with recovering modified instruction by kprobes
+  * and adjust the displacement if the instruction uses the %rip-relative
+@@ -427,9 +388,9 @@ static int prepare_boost(kprobe_opcode_t *buf, struct kprobe *p,
+ 		synthesize_reljump(buf + len, p->ainsn.insn + len,
+ 				   p->addr + insn->length);
+ 		len += JMP32_INSN_SIZE;
+-		p->ainsn.boostable = true;
++		p->ainsn.boostable = 1;
+ 	} else {
+-		p->ainsn.boostable = false;
++		p->ainsn.boostable = 0;
  	}
+ 
+ 	return len;
+@@ -466,6 +427,67 @@ void free_insn_page(void *page)
+ 	module_memfree(page);
+ }
+ 
++static void set_resume_flags(struct kprobe *p, struct insn *insn)
++{
++	insn_byte_t opcode = insn->opcode.bytes[0];
++
++	switch (opcode) {
++	case 0xfa:		/* cli */
++	case 0xfb:		/* sti */
++	case 0x9d:		/* popf/popfd */
++		/* Check whether the instruction modifies Interrupt Flag or not */
++		p->ainsn.if_modifier = 1;
++		break;
++	case 0x9c:	/* pushfl */
++		p->ainsn.is_pushf = 1;
++		break;
++	case 0xcf:	/* iret */
++		p->ainsn.if_modifier = 1;
++		fallthrough;
++	case 0xc2:	/* ret/lret */
++	case 0xc3:
++	case 0xca:
++	case 0xcb:
++	case 0xea:	/* jmp absolute -- ip is correct */
++		/* ip is already adjusted, no more changes required */
++		p->ainsn.is_abs_ip = 1;
++		/* Without resume jump, this is boostable */
++		p->ainsn.boostable = 1;
++		break;
++	case 0xe8:	/* call relative - Fix return addr */
++		p->ainsn.is_call = 1;
++		break;
++#ifdef CONFIG_X86_32
++	case 0x9a:	/* call absolute -- same as call absolute, indirect */
++		p->ainsn.is_call = 1;
++		p->ainsn.is_abs_ip = 1;
++		break;
++#endif
++	case 0xff:
++		opcode = insn->opcode.bytes[1];
++		if ((opcode & 0x30) == 0x10) {
++			/*
++			 * call absolute, indirect
++			 * Fix return addr; ip is correct.
++			 * But this is not boostable
++			 */
++			p->ainsn.is_call = 1;
++			p->ainsn.is_abs_ip = 1;
++			break;
++		} else if (((opcode & 0x31) == 0x20) ||
++			   ((opcode & 0x31) == 0x21)) {
++			/*
++			 * jmp near and far, absolute indirect
++			 * ip is correct.
++			 */
++			p->ainsn.is_abs_ip = 1;
++			/* Without resume jump, this is boostable */
++			p->ainsn.boostable = 1;
++		}
++		break;
++	}
++}
++
+ static int arch_copy_kprobe(struct kprobe *p)
+ {
+ 	struct insn insn;
+@@ -483,8 +505,8 @@ static int arch_copy_kprobe(struct kprobe *p)
+ 	 */
+ 	len = prepare_boost(buf, p, &insn);
+ 
+-	/* Check whether the instruction modifies Interrupt Flag or not */
+-	p->ainsn.if_modifier = is_IF_modifier(buf);
++	/* Analyze the opcode and set resume flags */
++	set_resume_flags(p, &insn);
+ 
+ 	/* Also, displacement change doesn't affect the first byte */
+ 	p->opcode = buf[0];
+@@ -507,6 +529,9 @@ int arch_prepare_kprobe(struct kprobe *p)
+ 
+ 	if (!can_probe((unsigned long)p->addr))
+ 		return -EILSEQ;
++
++	memset(&p->ainsn, 0, sizeof(p->ainsn));
++
+ 	/* insn: must be on special executable page on x86. */
+ 	p->ainsn.insn = get_insn_slot();
+ 	if (!p->ainsn.insn)
+@@ -822,11 +847,6 @@ NOKPROBE_SYMBOL(trampoline_handler);
+  * 2) If the single-stepped instruction was a call, the return address
+  * that is atop the stack is the address following the copied instruction.
+  * We need to make it the address following the original instruction.
+- *
+- * If this is the first time we've single-stepped the instruction at
+- * this probepoint, and the instruction is boostable, boost it: add a
+- * jump instruction after the copied instruction, that jumps to the next
+- * instruction after the probepoint.
+  */
+ static void resume_execution(struct kprobe *p, struct pt_regs *regs,
+ 			     struct kprobe_ctlblk *kcb)
+@@ -834,60 +854,20 @@ static void resume_execution(struct kprobe *p, struct pt_regs *regs,
+ 	unsigned long *tos = stack_addr(regs);
+ 	unsigned long copy_ip = (unsigned long)p->ainsn.insn;
+ 	unsigned long orig_ip = (unsigned long)p->addr;
+-	kprobe_opcode_t *insn = p->ainsn.insn;
+-
+-	/* Skip prefixes */
+-	insn = skip_prefixes(insn);
+ 
+ 	regs->flags &= ~X86_EFLAGS_TF;
+-	switch (*insn) {
+-	case 0x9c:	/* pushfl */
++
++	/* Fixup the contents of top of stack */
++	if (p->ainsn.is_pushf) {
+ 		*tos &= ~(X86_EFLAGS_TF | X86_EFLAGS_IF);
+ 		*tos |= kcb->kprobe_old_flags;
+-		break;
+-	case 0xc2:	/* iret/ret/lret */
+-	case 0xc3:
+-	case 0xca:
+-	case 0xcb:
+-	case 0xcf:
+-	case 0xea:	/* jmp absolute -- ip is correct */
+-		/* ip is already adjusted, no more changes required */
+-		p->ainsn.boostable = true;
+-		goto no_change;
+-	case 0xe8:	/* call relative - Fix return addr */
++	} else if (p->ainsn.is_call) {
+ 		*tos = orig_ip + (*tos - copy_ip);
+-		break;
+-#ifdef CONFIG_X86_32
+-	case 0x9a:	/* call absolute -- same as call absolute, indirect */
+-		*tos = orig_ip + (*tos - copy_ip);
+-		goto no_change;
+-#endif
+-	case 0xff:
+-		if ((insn[1] & 0x30) == 0x10) {
+-			/*
+-			 * call absolute, indirect
+-			 * Fix return addr; ip is correct.
+-			 * But this is not boostable
+-			 */
+-			*tos = orig_ip + (*tos - copy_ip);
+-			goto no_change;
+-		} else if (((insn[1] & 0x31) == 0x20) ||
+-			   ((insn[1] & 0x31) == 0x21)) {
+-			/*
+-			 * jmp near and far, absolute indirect
+-			 * ip is correct. And this is boostable
+-			 */
+-			p->ainsn.boostable = true;
+-			goto no_change;
+-		}
+-		break;
+-	default:
+-		break;
+ 	}
+ 
+-	regs->ip += orig_ip - copy_ip;
++	if (!p->ainsn.is_abs_ip)
++		regs->ip += orig_ip - copy_ip;
+ 
+-no_change:
+ 	restore_btf();
+ }
+ NOKPROBE_SYMBOL(resume_execution);
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20230705064653.226811-2-lihuafei1%40huawei.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20230705064653.226811-3-lihuafei1%40huawei.com.
