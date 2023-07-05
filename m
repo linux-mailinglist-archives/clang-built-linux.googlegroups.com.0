@@ -1,108 +1,110 @@
-Return-Path: <clang-built-linux+bncBAABBE5ESSSQMGQE6BU5JYA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBFNESSSQMGQEHS2MMDY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3f.google.com (mail-oo1-xc3f.google.com [IPv6:2607:f8b0:4864:20::c3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 84168747D48
-	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Jul 2023 08:47:48 +0200 (CEST)
-Received: by mail-oo1-xc3f.google.com with SMTP id 006d021491bc7-565f0c7c243sf3062422eaf.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 04 Jul 2023 23:47:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1688539667; cv=pass;
+Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 64B8A747D4F
+	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Jul 2023 08:47:50 +0200 (CEST)
+Received: by mail-yb1-xb3e.google.com with SMTP id 3f1490d57ef6-c5a17bfb38bsf1875422276.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 04 Jul 2023 23:47:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1688539669; cv=pass;
         d=google.com; s=arc-20160816;
-        b=oLxlRpPE2kSDu61NHQmUCLi3ouKBUF1++w6b86MHu/jspbrT8WIW2ga74JWS2K9MfV
-         hrcbwETPXQCst3wRmVPz9rIKolZryhze1lYNsNwSBmaaMBh/EXzJ8+rPlQJ7PGOl06Hc
-         +tX/qLVEdAnf0fjJgXb8h8PvKqpbI2gYZqGgSUkokciYqYv9x7X+66HKnWwwz8k5WBnq
-         EUF2/avp1OW02JDlLhxOBmiK9/LJ9lLhqkdeUBGxy0BPgEJqI6Lt9bwoppk0bAnIv84k
-         YtUzRaIFJfCKgqbXetmctT3VbPZIr0h8n453Bsy97izYzOp/wQILTRqEork2DS6j7DLZ
-         cdCw==
+        b=C7yy+tAL9jUS6VMUr4Fi3HdwLDkoCQ0zCs2a2GTmEaJfo26o79qd0zwWVNXt2s9U1q
+         MtasdgnvX2tTCr6RUK7Xdgbg+lvfzAT6FYTNk/+lsYP9QJ4i7ZD2b0bbkYA4JNRYc9Bb
+         /bR8lzBaWJxSolDNmsBhA4IZCjqHC+k2L3qOb2R0iFHCG8Vc+DQbspIxvte4swMRgGP/
+         1MCSfkOLk4QnDlWPi6/vBfZpzxIqpUDxLaqiZmHwVKvHUFKPTPdnqhgJxG3FU6pJc1Ku
+         965ADkdspq95UpbD+X6VeEF6Kk3GnvIZJCiuLLkR7bOVIsKIKsULu8X9pY6NQSFPuWOD
+         8V7g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=b7UaGK+wGlOqwZiizXiA86od/oExJ70f7oSOFIR/QFM=;
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:dkim-signature;
+        bh=vbjJP9WBQGofF5sYuVK1GJ4xWah49DIBYWsLBY2S8EA=;
         fh=0aO6IHdmIGEeyblc5BGLyqLApWOzZ3sYXY88uRTc9UQ=;
-        b=V56gJuYklAOF0SiXI95xe2WJue400Nj/b+Qb/b7WBKvHYK2qGmvVsxtV2FeW8uWmNS
-         qPboQiqPwUQ/M6dADcwg6FXxljpmpcMUcpfaCfUc4g30qG9E9pxx6Tn7eWpSx0jAJNvM
-         Cq6fMeLDHIsCJX11sidT8bNgEmrpAzb474me5tH9K8jNUCs33R6lfqcD1mwL5S2+YQiI
-         cdagKmtPUtpLDkZGasjrPvF/OE9dqQLUcR02cirjuV9CngocRFyP+NkqihKH54TgBrb2
-         LDRn05qePrpmlXN1Pdn5Ezgaw1GRRb5kROpZnsxhzKphrr7M9YPXCX4fBIlXeghOyOLa
-         l1yQ==
+        b=0rdLc+xMmqX1LXHEbGXX4b3g8/ejgS1JSxcZznXMWJ5hPvoBsBiLS9HMC+0iM8/MnH
+         +3oFp2ewAhjMyEq7LZmM711HLfP7CmXyjOK3kmFjQvsncxNt/7j9el1EvvoiO9/rmJK+
+         sgQkbEu4hWRef947GAfpA4FouN3zolkFPch/c9EFTNwsK/gnykd/GTDcU2pbbcyLHfSk
+         4XoBPDEPEFlZdhHb3uwr0lpYSe2vXk0hntzCpn+AwJAUj2YOoMQZy3fcfIMpMSEyRwDu
+         VI9R6k0S7k5uLLdGZfa9+0Qk8O2XTOtZQQWqFJFCwBHKsFEDpYkdX/toy0PhpR+9Nflp
+         TlzA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.187 as permitted sender) smtp.mailfrom=lihuafei1@huawei.com;
+       spf=pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.255 as permitted sender) smtp.mailfrom=lihuafei1@huawei.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=huawei.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20221208; t=1688539667; x=1691131667;
+        d=googlegroups.com; s=20221208; t=1688539669; x=1691131669;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:mime-version
-         :references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=b7UaGK+wGlOqwZiizXiA86od/oExJ70f7oSOFIR/QFM=;
-        b=brbkp3yBs97gzgN7f4OtuohUwQqlzFqfYEwL4G2We+NXLTbP9g9dGEsktJ7ZErPR5M
-         MQk6vogDXId0mtN6mkqyfXJN9U+EMCoF9nSAcjSXyG9CzHmluKxQyEkXg+lXGpsLEICt
-         thM6oq9MnupvuWNZANcR/wO6ExbzqYXfjEYuGm6A+7v/aAziHlfBk7Ch47joS4RBOuZ8
-         6W+F2Zh6c7npAyF2ICnwf0gYe1WWj/v7dG4yuddtItbiGKD1+8q0a2VEix63S7QMFU7b
-         kw5yvpVD+gh7ge39ekIOLBMGaf+Ms7jXTHV2dpmh3Pg4cg+z4HmWY74eHRrDDw2Gyjzm
-         vu2A==
+         :x-original-authentication-results:x-original-sender
+         :content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vbjJP9WBQGofF5sYuVK1GJ4xWah49DIBYWsLBY2S8EA=;
+        b=q+EMaFouvcLR17B6xAZ1DDTaFWFakM93u4oCr88TNOVTbQ5CzAuy0L4BGrp+bQWxTl
+         uXghvapHFRw5Mg/JTi9IDwDL6y0DB81tCg9F8DXdIPQtHaMWt6wqCvAMFeTlPCLUQqyf
+         NaSj7SVWTBVWvCfbJII3FZmzQAkF9aN9zhtYz+EVS3bXs8HgXdApDlEfME6LzVksFc/T
+         pIJkk6QB6OGOqcpNBfH7XHvTteerOTpqfPN2NlZXhk0gTf394WnJ3biJUwNGMUxUInyv
+         TOHkGoIn42erO4c7bZQPQ5B3Vv+DsNlc8joKLsZt40prW5FXNIE9OEbtBLQZUqaQCHI2
+         ki8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1688539667; x=1691131667;
+        d=1e100.net; s=20221208; t=1688539669; x=1691131669;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:mime-version
-         :references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=b7UaGK+wGlOqwZiizXiA86od/oExJ70f7oSOFIR/QFM=;
-        b=e2F6WtSNX5SgIxUZbl9P+ef8N4f/Ds7ZVwqdxXkAUsqOlTEh456iHI8Cy0HkdnQZPH
-         pVkGA3vitxXJYS2cg6hz1UITt0l3r7FsuBG5RjUR/Dz6yKRKxVXlPGSWfnwuCK+g+zw+
-         0Vzo/7Uo4KR/UFc0zPErVFQtdQtqGRubQ9YTcfy07Q9phTkuRLQfvz7yrWEE3MdX3Hnu
-         +4qWWGTPrYKxJz4VW+HgFJ6ohQUNUAko6XmUx/Xhv+sKuwzcB+4pM8hCAiqIgmfrKMvL
-         Vw3AaSeMVLP4RmKZRpTnWlknDto/jTIZPlyBCb6csgE4Jy2/a9QMSE3/KwNulXmTTa5J
-         5RyA==
-X-Gm-Message-State: ABy/qLYXfoZt5itK66bN+1AgKtEr4S46VfiwS2TqlcCO95ftSUvl39Z8
-	HOUm6Z8aF6c8CsYfBGbw/HM=
-X-Google-Smtp-Source: APBJJlGWTONSxI21S3PFW+qdycs/UC/tN54N6QxPcvwqD5VmkxHLIXrScvKyieXKYBin3mbX01VydA==
-X-Received: by 2002:a4a:5583:0:b0:566:3723:a030 with SMTP id e125-20020a4a5583000000b005663723a030mr4077882oob.2.1688539667127;
-        Tue, 04 Jul 2023 23:47:47 -0700 (PDT)
+         :x-original-authentication-results:x-original-sender
+         :content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-beenthere:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vbjJP9WBQGofF5sYuVK1GJ4xWah49DIBYWsLBY2S8EA=;
+        b=MHe8NszKQsb7dySBtZ6GBeBS/JHzxVtG+yfLrFq/qF9yPl0KEel3sDuANi7wS8LiSK
+         hL8cOelGzGvHUADKYPC5jSDSbfqoCQd42LKq/hzcpGdgwk4oGp+wZxsrT0tkp+ZubkRQ
+         IZ/rK7Iehb3lYV4KYYF2chiI+I4hotvxvIiam3/FAUc+zCjT9O7Qfu+e2dMPU/+wuR6I
+         29XeSZzEcmIPzT0exoG9jAosb17YLeZRyQ9YkPgGTUJd19H2v9rDqo98Qq5/UtPXOrHQ
+         TrR/1cLikVyvnlyp8GzVMzpGGlzE2tU+E2OWMY6GaRTb8+nWmjGO+Ef34xpCJBHzyF5C
+         Ji0A==
+X-Gm-Message-State: ABy/qLYZxk6zg0KFezvtTPe5hE7B97Y2a01QbS7dNlVxZbAL3xfUF8GB
+	fF4h9iMLTl+AJ/XFtpUIbN8=
+X-Google-Smtp-Source: APBJJlEQNmEhxZ1o5q6/7A+vLMpvDLZ6LfO1MpdRiknsni+P4mwrfvp+Cdc/XL5OYPqw7ErqI1jTug==
+X-Received: by 2002:a25:f89:0:b0:c20:da9b:e6b3 with SMTP id 131-20020a250f89000000b00c20da9be6b3mr11439475ybp.63.1688539669128;
+        Tue, 04 Jul 2023 23:47:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:dd98:0:b0:565:a5af:7059 with SMTP id h24-20020a4add98000000b00565a5af7059ls5878623oov.0.-pod-prod-05-us;
- Tue, 04 Jul 2023 23:47:46 -0700 (PDT)
-X-Received: by 2002:a05:6808:2107:b0:3a3:6331:fd74 with SMTP id r7-20020a056808210700b003a36331fd74mr18006922oiw.43.1688539666606;
-        Tue, 04 Jul 2023 23:47:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1688539666; cv=none;
+Received: by 2002:a25:3087:0:b0:c59:399a:d1b3 with SMTP id w129-20020a253087000000b00c59399ad1b3ls1881507ybw.2.-pod-prod-08-us;
+ Tue, 04 Jul 2023 23:47:48 -0700 (PDT)
+X-Received: by 2002:a0d:db49:0:b0:573:9747:9a0d with SMTP id d70-20020a0ddb49000000b0057397479a0dmr13319961ywe.41.1688539668609;
+        Tue, 04 Jul 2023 23:47:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1688539668; cv=none;
         d=google.com; s=arc-20160816;
-        b=FlTW2z4mYp5Ox3AGm88eXlzrCR2ihwRZen9lqP/p711XmQTrDDrHVb+EdZsVQVwFny
-         Cn2XIrAosZ8Cwd2d+lgpW6D5BjbGIpCSiitrHKTfcc8lSB/8Rk4KIs/IG0WjkUoIY8D1
-         ptspW/F9YX7PAnf2AoXDo/FrsVH6tom9yx5wZ34D4fJYvi8ErNysLjHfrWtcme4qlTzX
-         2+d5PoMdtrql6ckHiC82IpiZfOHXAqywGrC/aQmk567n07OCFxfiPzxGDqLMehtscRP+
-         BND49ObU9sgVWQ4DUmMgFQTbIcg7ZrggSYAk5rtGbM1o6nlcKNoDF6N4p6+keE+d7Qx8
-         0mgA==
+        b=UyK0HPiJ+6+vHCkpPS/oGtud9bs7jUhvL/Y8Lrx3aEZOPKKAYJQwpuO5RrS21MiDg/
+         x5e3LfRDDhifm3MG4aFCSwTFKcjmzLNFMEqv682vkX+6jZrtlsickji4fzlbdqcZ93Mj
+         db7cTRKoesxADwGABkHGRXOcpOtChhCnOCuC1/8ihF/LlTsxax3+21CBMThkplc5f0pk
+         Ogn0zmvpCnnAzat+GmtOA9JnWQdfIPKqEQEgLg0/dnVV7JoXJ9hlLc3W43YagLhBtCDi
+         bbvyQ+DL+GshYTVWjgDY7VEXG5LYfMHHGeln/MZKaJBe7zluPcNOSzmsn3+7bij1Tcfj
+         ueeg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from;
-        bh=Q97cMH10b5E2XMJa4LfP6LWKt9typ0QrXVNBpW62Y8c=;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from;
+        bh=BVHcRzDXkxPhImnbJfgY99TzXuvj8o2jwFjvSwANT6Y=;
         fh=Gx/Xd3SuR7wfzTJCm4fH9mYLv4JUXxtCS0BsHUQzeiY=;
-        b=uFBfNlGVD06dVV4oFk/MVHV/Z6W+NwczL6+ayMYAn4dt8GfiDWgMRsmQKRTqupIhIg
-         jvPR5/LjJvktLAmRdI8/X1dhHxqwk03RrFEBM8IpbM7i7jaeXWe4HhtgxWaByRqJlmzi
-         PFbcXp1kosr6j0M14ajtDyxBPbfHmTdj6j46sqodTiWQDAW9czZP+JhDeEhLYukmhXa+
-         sFdmlGR60dNTYj2KqcYvNcn6Dzdn+DKDFmTAQ2qIXm0/rIMnIhnJ6WT4ZMyQcdF/pjSc
-         LUtw0JGYLKvpCygbcDgiR/+jsfbu6NDCzSdUuQGbLyqKD+dLNGvHGmNYtonv3lohg0+c
-         j/Hw==
+        b=a6efTY5JAn6e9UIaXgefN3PvV8kS7rGEzTqr4187S9Thl5VEfTwHTw7ZzuJ2rGqkRn
+         SQdQXRc9diUa+y/8+X8z5GmZASMOzXOjcy4iq8AeyxEvV7zIqAorukztZSf2R1KLq2La
+         uKuiFPjAXDe5AJIWr4pioHd4Ve03SK6HikSgzBIk4O5gy2HN6V3X7X4zm/FptH0g0jfj
+         oBQCkirix2HIdh4vLbrON2yPrdvlKAEUOL55g6nv7hanDu2jxJzMW0y69+A5X95PdJqQ
+         CtC9P65fXpuT4K0O2qBJVTea8kOFMrvuFFssIT9jXVlTehFyrMNcxYYXfE9tZ9teNxDE
+         zimA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.187 as permitted sender) smtp.mailfrom=lihuafei1@huawei.com;
+       spf=pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.255 as permitted sender) smtp.mailfrom=lihuafei1@huawei.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=huawei.com
-Received: from szxga01-in.huawei.com (szxga01-in.huawei.com. [45.249.212.187])
-        by gmr-mx.google.com with ESMTPS id eb14-20020a056a004c8e00b006819db556a2si1106161pfb.3.2023.07.04.23.47.46
+Received: from szxga08-in.huawei.com (szxga08-in.huawei.com. [45.249.212.255])
+        by gmr-mx.google.com with ESMTPS id eh27-20020a05690c299b00b005702be69945si1622546ywb.4.2023.07.04.23.47.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 04 Jul 2023 23:47:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.187 as permitted sender) client-ip=45.249.212.187;
+        Tue, 04 Jul 2023 23:47:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.255 as permitted sender) client-ip=45.249.212.255;
 Received: from kwepemi500019.china.huawei.com (unknown [172.30.72.53])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4QwqsJ5gHzztR5t;
-	Wed,  5 Jul 2023 14:44:52 +0800 (CST)
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Qwqw76LV0z1HCq8;
+	Wed,  5 Jul 2023 14:47:19 +0800 (CST)
 Received: from ubuntu1804.huawei.com (10.67.174.174) by
  kwepemi500019.china.huawei.com (7.221.188.117) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.27; Wed, 5 Jul 2023 14:47:43 +0800
+ 15.1.2507.27; Wed, 5 Jul 2023 14:47:44 +0800
 From: "'Li Huafei' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: <stable@vger.kernel.org>
 CC: <gregkh@linuxfoundation.org>, <mhiramat@kernel.org>, <tglx@linutronix.de>,
@@ -112,21 +114,22 @@ CC: <gregkh@linuxfoundation.org>, <mhiramat@kernel.org>, <tglx@linutronix.de>,
 	<rostedt@goodmis.org>, <weiyongjun1@huawei.com>, <gustavoars@kernel.org>,
 	<namit@vmware.com>, <laijs@linux.alibaba.com>,
 	<clang-built-linux@googlegroups.com>, <lihuafei1@huawei.com>
-Subject: [PATCH 5.10 7/9] x86/kprobes: Move 'inline' to the beginning of the kprobe_is_ss() declaration
-Date: Wed, 5 Jul 2023 14:46:51 +0800
-Message-ID: <20230705064653.226811-8-lihuafei1@huawei.com>
+Subject: [PATCH 5.10 8/9] x86/kprobes: Update kcb status flag after singlestepping
+Date: Wed, 5 Jul 2023 14:46:52 +0800
+Message-ID: <20230705064653.226811-9-lihuafei1@huawei.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20230705064653.226811-1-lihuafei1@huawei.com>
 References: <20230705064653.226811-1-lihuafei1@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-Originating-IP: [10.67.174.174]
 X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  kwepemi500019.china.huawei.com (7.221.188.117)
 X-CFilter-Loop: Reflected
 X-Original-Sender: lihuafei1@huawei.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lihuafei1@huawei.com designates 45.249.212.187 as
+ (google.com: domain of lihuafei1@huawei.com designates 45.249.212.255 as
  permitted sender) smtp.mailfrom=lihuafei1@huawei.com;       dmarc=pass
  (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=huawei.com
 X-Original-From: Li Huafei <lihuafei1@huawei.com>
@@ -143,47 +146,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Wei Yongjun <weiyongjun1@huawei.com>
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
 
-[ Upstream commit 2304d14db6595bea5292bece06c4c625b12d8f89 ]
+[ Upstream commit dec8784c9088b131a1523f582c2194cfc8107dc0 ]
 
-Address this GCC warning:
+Fix kprobes to update kcb (kprobes control block) status flag to
+KPROBE_HIT_SSDONE even if the kp->post_handler is not set.
 
-  arch/x86/kernel/kprobes/core.c:940:1:
-   warning: 'inline' is not at beginning of declaration [-Wold-style-declaration]
-    940 | static int nokprobe_inline kprobe_is_ss(struct kprobe_ctlblk *kcb)
-        | ^~~~~~
+This bug may cause a kernel panic if another INT3 user runs right
+after kprobes because kprobe_int3_handler() misunderstands the
+INT3 is kprobe's single stepping INT3.
 
-[ mingo: Tidied up the changelog. ]
-
-Fixes: 6256e668b7af: ("x86/kprobes: Use int3 instead of debug trap for single-step")
-Reported-by: Hulk Robot <hulkci@huawei.com>
-Signed-off-by: Wei Yongjun <weiyongjun1@huawei.com>
+Fixes: 6256e668b7af ("x86/kprobes: Use int3 instead of debug trap for singl=
+e-step")
+Reported-by: Daniel M=C3=BCller <deso@posteo.net>
+Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Acked-by: Masami Hiramatsu <mhiramat@kernel.org>
-Link: https://lore.kernel.org/r/20210324144502.1154883-1-weiyongjun1@huawei.com
+Tested-by: Daniel M=C3=BCller <deso@posteo.net>
+Cc: stable@vger.kernel.org
+Link: https://lore.kernel.org/all/20220727210136.jjgc3lpqeq42yr3m@muellerd-=
+fedora-PC2BDTX9
+Link: https://lore.kernel.org/r/165942025658.342061.12452378391879093249.st=
+git@devnote2
 Signed-off-by: Li Huafei <lihuafei1@huawei.com>
 ---
- arch/x86/kernel/kprobes/core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/x86/kernel/kprobes/core.c | 18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
 
-diff --git a/arch/x86/kernel/kprobes/core.c b/arch/x86/kernel/kprobes/core.c
-index 109221af5d49..07f222743811 100644
+diff --git a/arch/x86/kernel/kprobes/core.c b/arch/x86/kernel/kprobes/core.=
+c
+index 07f222743811..bde43592f54a 100644
 --- a/arch/x86/kernel/kprobes/core.c
 +++ b/arch/x86/kernel/kprobes/core.c
-@@ -944,7 +944,7 @@ static int reenter_kprobe(struct kprobe *p, struct pt_regs *regs,
- }
- NOKPROBE_SYMBOL(reenter_kprobe);
- 
--static int nokprobe_inline kprobe_is_ss(struct kprobe_ctlblk *kcb)
-+static nokprobe_inline int kprobe_is_ss(struct kprobe_ctlblk *kcb)
+@@ -826,16 +826,20 @@ NOKPROBE_SYMBOL(arch_prepare_kretprobe);
+ static void kprobe_post_process(struct kprobe *cur, struct pt_regs *regs,
+ 			       struct kprobe_ctlblk *kcb)
  {
- 	return (kcb->kprobe_status == KPROBE_HIT_SS ||
- 		kcb->kprobe_status == KPROBE_REENTER);
--- 
+-	if ((kcb->kprobe_status !=3D KPROBE_REENTER) && cur->post_handler) {
+-		kcb->kprobe_status =3D KPROBE_HIT_SSDONE;
+-		cur->post_handler(cur, regs, 0);
+-	}
+-
+ 	/* Restore back the original saved kprobes variables and continue. */
+-	if (kcb->kprobe_status =3D=3D KPROBE_REENTER)
++	if (kcb->kprobe_status =3D=3D KPROBE_REENTER) {
++		/* This will restore both kcb and current_kprobe */
+ 		restore_previous_kprobe(kcb);
+-	else
++	} else {
++		/*
++		 * Always update the kcb status because
++		 * reset_curent_kprobe() doesn't update kcb.
++		 */
++		kcb->kprobe_status =3D KPROBE_HIT_SSDONE;
++		if (cur->post_handler)
++			cur->post_handler(cur, regs, 0);
+ 		reset_current_kprobe();
++	}
+ }
+ NOKPROBE_SYMBOL(kprobe_post_process);
+=20
+--=20
 2.17.1
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20230705064653.226811-8-lihuafei1%40huawei.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20230705064653.226811-9-lihuafei1%40huawei.com.
