@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBAABBD5ESSSQMGQE6VV6VEY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBDVESSSQMGQELGH3KQQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oa1-x39.google.com (mail-oa1-x39.google.com [IPv6:2001:4860:4864:20::39])
-	by mail.lfdr.de (Postfix) with ESMTPS id ABA78747D43
+Received: from mail-oa1-x3b.google.com (mail-oa1-x3b.google.com [IPv6:2001:4860:4864:20::3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7E5F2747D42
 	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Jul 2023 08:47:44 +0200 (CEST)
-Received: by mail-oa1-x39.google.com with SMTP id 586e51a60fabf-1a67eee53e3sf6507293fac.0
+Received: by mail-oa1-x3b.google.com with SMTP id 586e51a60fabf-1b393e5fd7fsf286389fac.1
         for <lists+clang-built-linux@lfdr.de>; Tue, 04 Jul 2023 23:47:44 -0700 (PDT)
 ARC-Seal: i=2; a=rsa-sha256; t=1688539663; cv=pass;
         d=google.com; s=arc-20160816;
-        b=S5TrWVr+/viv9EWJTF3aDqiPX7eRrlNe2IfL3sHO6ofcslcJ5cGAh/79Mrr5J7EeQc
-         HWXrDd2iBw+AXI43SgiFwtrYTAV0uKPVW+m3Dr+/H0zvphl2YM1J7ImyU8KrxtfU0Xrx
-         S+ONGEg3XQ67vZt51ugjy1dIpwuNJaVGkRNF22sUxrrMbKgA1+BNJM/zx8KdqPOB0IEg
-         Qe7iDqK8+PPNFGGeoAawSy8vnBwNxprqpApGCAJHDOyU4YMYc3aO4WP9vMtTEgb00L7O
-         S7/KhGaDLKSBZiBeQISzUEdSNVRz5MtMaySHciH2jinzWZlUQQ5hzQJo7kW1nNsFzKcK
-         A6mQ==
+        b=bat8qHfGkVowIBNNk52Js93ErPVRJhQeI0wYDr/vYb9AUUfsuFX9BezUmAc+PD1fDl
+         ntw55dNfnMRydpE5FEn1Hqi77jrjGpkSzBXFGiqFnoTc93Wc4bMUgRnZJ69wi3sY+Rhj
+         nVnRy+qoYW2Xwq1/V605ggc/M4dorQT+GyuvpXW0acnEcEhCnyJdcXpvTYClLpcxDUGX
+         9QXkGEqjO2DMIInlq7CjNsgoTeE3I+bFCk12RzgzGamuCzWLR0o6IHe9ZYGTRGqEvVVz
+         Od11JSRqwfh9EvzyPTRN7wyaBWr+qgpOgp7g4b0XFrXAAeKJPYxj7uexQN0KW6v+tiA4
+         BKVQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:mime-version:message-id
-         :date:subject:cc:to:from:dkim-signature;
-        bh=FFxia11xjAJsjhsDXhrsALAwyrZZsNK+j4qK+wSPAO8=;
+         :list-id:mailing-list:precedence:reply-to:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
+        bh=Jqu3LVgqbovaL55dGAtkRLk50E3dV0zyEd6+ImaE0cU=;
         fh=0aO6IHdmIGEeyblc5BGLyqLApWOzZ3sYXY88uRTc9UQ=;
-        b=uL/vzG/b/KZroT+wqLxbQvZL7dWPr5p3T3wg1rLvJHeTkAnpI4p9sRUjiTwHnkrDHZ
-         Z8KyCSDFnbpMO3z7eweHmQPoyiZr1jLyYgY2106vUedqeoLoP7hsvOO6sLxWTLhcDet8
-         RawdkrQhyeuKHEW5pzMV6QV+CMqToOgyzPrvKUFRm8I1wva6dPKHPCeI5oP34UT7gG5X
-         abZDt3+kd/j5e6JePPazXcnn8vYndxXFBlAZgcO4feh/qLT+lWci4jnmkBzepl3+Ggc1
-         VEQkdEa2IKHyo47HrgLEoIMgqZwUCjUmXUF7P1PE2c643wI1hWju7ooMD4nZDcOHakbO
-         yoLA==
+        b=Vno2uaaC4Xf26bVSuGXapDRY1TS5OFZQ5WvE8LZ4H9FBmduuoilRnHO3h3bCfyLT6D
+         YwqRHgj3/ZCylCOJP5wloeaISZCgY6YdKLKPMbNOb2U4KmVrfVZVHarBvdeotVIYLhs7
+         jzZwVOPBuMCp4Rz8eGxQyz8JpoeWOrb/k1Im2ykR5T3TdOw4eeOq+27mGoWY9Gc7LKa3
+         ZKE77DCxTiKWpbq3fMwII330pqatY8ug0T7t6PO/4zZTpaMis8b2s2a0Was+tFb2DoGY
+         PjYWvz1XqUL//dmU2ru6UUzFNVT6xjk+usgWCxBrDGgrqs1lMQNkG4qKFxi7pUa0jDOZ
+         SPEA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.188 as permitted sender) smtp.mailfrom=lihuafei1@huawei.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=huawei.com
@@ -34,75 +34,76 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender:mime-version
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FFxia11xjAJsjhsDXhrsALAwyrZZsNK+j4qK+wSPAO8=;
-        b=s4gyIt5TGHGKhuodSPDew3r9Da1DFT68YVxYArBIko5fybla3aQbLCwO9dO27foE3D
-         olf5KFSTe0AqVaWkACJIsiTSNT4i6nBG0RQSYRfssxFzGtSrXAr30AkQR8Qs/b6KFWhX
-         8BwuFh0mkqWJbyVd2q9gtbKVMU65R8Y6svebDoFHL7l4pPtgfz891Yndh+WPgiiT9SQw
-         fnLjHIIMdWo4K+SQ0kgO70ss/9rCpTHAUK4ii4OLA436dCN/RjcEzW5BUsAGcuBZkW35
-         CR6bGjuV/BMdiRvnbWdu9leysaE0NJCEhLjYRFQ0xC+9hd0FGfNtB2RVCKmk1FI0of0Z
-         Y+Lw==
+         :references:in-reply-to:message-id:date:subject:cc:to:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Jqu3LVgqbovaL55dGAtkRLk50E3dV0zyEd6+ImaE0cU=;
+        b=CrkMFsAfU6WAYoY9YRudKQQQ7Glzvr6cYJ3e4V7CqnctNjb4qJOqhR1eIae4dBiwkD
+         Da9PUJzaQkTh9qjd8/bm6K4iHxmE1eVRAQkInvJK2l4jK1rvpWrw8jVu1vuPN50Rr7We
+         lcj4SZ8gXEc+A14R3v8C7kos0NK8QvX8IOJslV5j9FqM/dCkecmfs1e+kuYZT9wDRyWA
+         F+mNQ6LpyLYyyEI0vn4+yAnAscjiUu+3R3e6a3aDlIaAikvWfqZLGn6tAXcEUqgYex6j
+         636Hf3Dst+NmQGYxJzKdgZkP/Mrl8uIIcUrR3NtRp81+VjclbB6QUvlMqarQWJj2vC1B
+         xBSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20221208; t=1688539663; x=1691131663;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender:mime-version
-         :message-id:date:subject:cc:to:from:x-beenthere:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=FFxia11xjAJsjhsDXhrsALAwyrZZsNK+j4qK+wSPAO8=;
-        b=NpJKfNYP9cMCl6Lh15eFm+yn2PELveAMwgFZs1OB9SRG6VQj7HLcrM2wffakeiQSuo
-         9hurNGZi5ZZOf1tSBlDyBDek1DMxTsmKK3IzJeOZBc6t56l+3XZpI6JMYEy+rH0fBVX9
-         OEyLAqLdsEbbhkjUn/K2HLDirVIEV9DR9Vxn98SY4I/7gFo/vHk1k6Kuns2P5b49Rty/
-         5vw+3OS0lsnt/pH7TnZDQOXsI+elCm5+SWmcF0g5C3kNLaNc6iE31/+USL39S8X58HKb
-         uAE1heTzmn92FgfDcKMr8Z8gVfRZceaKgKVxHMZev61IUI1h7ujTRAr2JaK8NUQRO2JD
-         evGA==
-X-Gm-Message-State: AC+VfDzk6n8Lpt78LHitocTG0MnXWGBmvrIe3zL99c/Z3zUaeEJBHgFC
-	DhngTke7oir64i8oL8Dn/Dk=
-X-Google-Smtp-Source: APBJJlF8jqkgK66tbEUgBbArILR+ViVBvBx3DC+RKK4R+RTnd6Itr1O1vLz0UvunfmoBRKqZtA1qxQ==
-X-Received: by 2002:a05:6871:205:b0:1b0:451e:5392 with SMTP id t5-20020a056871020500b001b0451e5392mr16991420oad.20.1688539663382;
+         :references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-beenthere:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Jqu3LVgqbovaL55dGAtkRLk50E3dV0zyEd6+ImaE0cU=;
+        b=CU9cMBRtw1AJB02hGdvIU/D7866NOw3G32yOvD503G8Xu2zWnzPnfscw/lBxKsvzO/
+         kWtlA556TD+p18Jv2uA1SlO2yZP1AqtlsHwc31AgE7xSCLgBHgTZAQ9yHlnl4MkqZf7a
+         ie4IGNo/GZQ9xNYr0xWvNf/TWHmezdUNYTAUuP0LNFuUK4oyOMCIctEDYYY/9Kz3uPHy
+         5EKy9Nmzh6oIsqahpr/yKRC1wq6OhbJA4YUl8FF/D3YhFp6WyKvhp0Hoz0GWKhHlHtgN
+         x4ZWlZardsgBWQFBbRAN3QptDrwVGnM1tjbLOGhVrDdVKEjVFKMvdmgkWWeLBpm7pp51
+         TAew==
+X-Gm-Message-State: ABy/qLbzGQimhu5OO3G/tE8S4vMneW/YAeF0YVeduURm4ryhCOpe1q8l
+	3sgVA22+Q9QoNzI7t/3b81k=
+X-Google-Smtp-Source: APBJJlFZoFDI+p/RunwORjPzZ0HIT5XfNPbBVWLUzOUqvFxo0kREmbHGQTg/Nmn26X3JO/7vxP89SQ==
+X-Received: by 2002:a05:6870:414f:b0:1b0:738f:712d with SMTP id r15-20020a056870414f00b001b0738f712dmr13013693oad.5.1688539663060;
         Tue, 04 Jul 2023 23:47:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6871:d12:b0:1b0:67ac:3bbb with SMTP id
- vh18-20020a0568710d1200b001b067ac3bbbls2254054oab.0.-pod-prod-05-us; Tue, 04
- Jul 2023 23:47:43 -0700 (PDT)
-X-Received: by 2002:a05:6871:8a4:b0:1b3:dccc:401a with SMTP id r36-20020a05687108a400b001b3dccc401amr4305181oaq.2.1688539663047;
-        Tue, 04 Jul 2023 23:47:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1688539663; cv=none;
+Received: by 2002:a05:6870:d1c8:b0:1ad:11bf:6d1a with SMTP id
+ b8-20020a056870d1c800b001ad11bf6d1als64142oac.2.-pod-prod-04-us; Tue, 04 Jul
+ 2023 23:47:42 -0700 (PDT)
+X-Received: by 2002:a05:6808:11cc:b0:39c:767e:bfc6 with SMTP id p12-20020a05680811cc00b0039c767ebfc6mr18027676oiv.10.1688539662609;
+        Tue, 04 Jul 2023 23:47:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1688539662; cv=none;
         d=google.com; s=arc-20160816;
-        b=VEp27SPzqfbcB4J/bUwWK1ZGM6vScS1a1UWawYD0VNdO/CqrIUbogvDMo4ZL+BRSgH
-         3rHG6O9NEHydXE7XJ2XPPgiolPNUCiSQUa+tUz1BOmGH5QHWC00ZI0N+n3j7GFtXpf9u
-         QLyE5D3tug0PKqmUflgzIN1XZHED04rWHCiHMh44RUQ3ZyzrZKzREV+2eCHQQlJ/DV28
-         u7skIYCP5mGWVe0BooiJUY8PC+mqmsC7Givck+862g6V9nULG0tFTBQoDyUj6HpCT1GM
-         Vu3IE477EVvnOh5xEHFfGuts9oEsPUMn0/fieM/ANZnqokWpsdEQi7QvvJPXCrhxhBsR
-         7IwQ==
+        b=dkraQZi3mT5DijeGkXNkDs2P9sRUziBRQd82H0ztTTYlxMjrgtEcXPL50kHaYn5Nl5
+         Q99N691RxwOGpHPqg4CK80sYK5uY6xZQ0RkNCI1FztEYYcSUAM+rmQXMxIskGa7v8WfK
+         LTzQfxrm+q2V2FvUPeUXk2L5Shkt9OR4ye8NBI4tsSSAuy0BjeZJty7/wXbUcIz2YwlS
+         9UpJuiUQbBRD/n9SvJzXRmufl6Xgaxvj2eJpMpij2ka+VG7Nl/AV/HK6Vjw4jk+FHoG5
+         ev4wPT/9jQ5eL4OBtCCPItKy39mUBSMq4PevZkBdny6bOATSIKVo+i0weNz92W9P/k7Y
+         IWZQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from;
-        bh=rMQjGSxinTWlzatwEdgI7ZzIiQjAR1gq3hAgUjv+1Zg=;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from;
+        bh=/bytAk0q6Mve9yJnpwK1MGbE1CsIhEqiFUc6OmrHnFE=;
         fh=Gx/Xd3SuR7wfzTJCm4fH9mYLv4JUXxtCS0BsHUQzeiY=;
-        b=MElpusYJ+U+OKr02mEj3s35t3ppMFH+3MSwr1ZJIXco8sc7Fj0q5czFzVMKpNEWahN
-         dN1zgP4JBSgaSiM6OcHqYDQ00/AD7H4jfKMfwGeMRCchyv0Q+tk8n8OpkJsrfru2Q+bY
-         Kt09IWj913AY0ud5feoQjuIu7iyCk3l9XAIC98YACg/RBvW9HwJFzu8YmdE+gJ8jApaA
-         N9T2QRkxKMZc0jpzTM5HtbInEXuSmj3akYybA0A4BXp0pb/tN/asvkXgyd7QIRTF9vxl
-         8cttv0Q3VCR+Zco9fnwLZIIKbjjth2075EA54VR7BzHNTBYYYxa3x1VnarobHGRqGBuR
-         u0tw==
+        b=Us966Sq1uKIk1NlxuuFAJKJIfJtCtxRPQN3mlFb4pkG2dU5/gAwDV1Up15g7jcMRGe
+         IOtiS7H+E5WDHqqocn0tx7A+iAu1dIq1pI0P4u5qC4qIEnMN9dOOKWaI1shr0JcxXAnL
+         O5PCerUhyN+mSALrvG4o5wzXu/csewN+5q329oJlEejsj/oancNMB34E+c2kX6UysU1X
+         bOzLnuuNwsLPCVw6FxLuVEGlJ46lwd2AdtwU2we0qingj42iJbYFiDWnL3tOS20j8c60
+         5bN3zWNzNr5FvwmJ3C+fFyoaoZC6IAlBLhB3j4kyqJSodtT4Z9kiEUPDZoHNYX8s3NAB
+         9R7A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.188 as permitted sender) smtp.mailfrom=lihuafei1@huawei.com;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=huawei.com
 Received: from szxga02-in.huawei.com (szxga02-in.huawei.com. [45.249.212.188])
-        by gmr-mx.google.com with ESMTPS id ug13-20020a0568714d0d00b001b3caa6f8adsi212256oab.2.2023.07.04.23.47.42
+        by gmr-mx.google.com with ESMTPS id q24-20020a63f958000000b005289dd0b142si1649081pgk.3.2023.07.04.23.47.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 04 Jul 2023 23:47:43 -0700 (PDT)
+        Tue, 04 Jul 2023 23:47:42 -0700 (PDT)
 Received-SPF: pass (google.com: domain of lihuafei1@huawei.com designates 45.249.212.188 as permitted sender) client-ip=45.249.212.188;
-Received: from kwepemi500019.china.huawei.com (unknown [172.30.72.55])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Qwqrp1gTbzMq8h;
+Received: from kwepemi500019.china.huawei.com (unknown [172.30.72.57])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Qwqrp5zQdzMq8t;
 	Wed,  5 Jul 2023 14:44:26 +0800 (CST)
 Received: from ubuntu1804.huawei.com (10.67.174.174) by
  kwepemi500019.china.huawei.com (7.221.188.117) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.27; Wed, 5 Jul 2023 14:47:39 +0800
+ 15.1.2507.27; Wed, 5 Jul 2023 14:47:40 +0800
 From: "'Li Huafei' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: <stable@vger.kernel.org>
 CC: <gregkh@linuxfoundation.org>, <mhiramat@kernel.org>, <tglx@linutronix.de>,
@@ -112,10 +113,12 @@ CC: <gregkh@linuxfoundation.org>, <mhiramat@kernel.org>, <tglx@linutronix.de>,
 	<rostedt@goodmis.org>, <weiyongjun1@huawei.com>, <gustavoars@kernel.org>,
 	<namit@vmware.com>, <laijs@linux.alibaba.com>,
 	<clang-built-linux@googlegroups.com>, <lihuafei1@huawei.com>
-Subject: [PATCH 5.10 0/9] x86/kprobes: Fix kprobe debug exception handling logic
-Date: Wed, 5 Jul 2023 14:46:44 +0800
-Message-ID: <20230705064653.226811-1-lihuafei1@huawei.com>
+Subject: [PATCH 5.10 1/9] kprobes/x86: Fix fall-through warnings for Clang
+Date: Wed, 5 Jul 2023 14:46:45 +0800
+Message-ID: <20230705064653.226811-2-lihuafei1@huawei.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20230705064653.226811-1-lihuafei1@huawei.com>
+References: <20230705064653.226811-1-lihuafei1@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Originating-IP: [10.67.174.174]
@@ -141,55 +144,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-We found an issue with null pointer access due to kprobe debug exception
-error handling on 5.10, and I proposed a separate fix patch for 5.10,
-see [1]. But as Greg gave advice, we always choose to backport relevant
-patches from upstream to fix issues with stable kernels, so I made this
-patch set.
+From: "Gustavo A. R. Silva" <gustavoars@kernel.org>
 
-The main one we need to backport is patch 5, which uses int3 instead of
-debug trap for single-stepping, thus avoiding the problems we
-encountered with kprobe debug exception error handling. Patches 1-4 are
-pre-patches, and patches 6-9 are fixes for patch 5. The major
-modifications are patch 2 and patch 5. Patch 2 optimizes
-resume_execution() to avoid repeated instruction decoding, and patch 5
-uses int3 instead of debug trap, and as Masami said in the commit
-message this patch will change some behavior of kprobe, but it has
-almost no effect on the actual usage.
+[ Upstream commit e689b300c99ca2dd80d3f662e19499bba27cda09 ]
 
-Please let me know if there are any problems, thanks!
+In preparation to enable -Wimplicit-fallthrough for Clang, fix a warning
+by explicitly adding a break statement instead of just letting the code
+fall through to the next case.
 
-[1] https://lore.kernel.org/lkml/20230630020845.227939-1-lihuafei1@huawei.com/
+Signed-off-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Link: https://github.com/KSPP/linux/issues/115
+Signed-off-by: Li Huafei <lihuafei1@huawei.com>
+---
+ arch/x86/kernel/kprobes/core.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Gustavo A. R. Silva (1):
-  kprobes/x86: Fix fall-through warnings for Clang
-
-Masami Hiramatsu (5):
-  x86/kprobes: Do not decode opcode in resume_execution()
-  x86/kprobes: Retrieve correct opcode for group instruction
-  x86/kprobes: Identify far indirect JMP correctly
-  x86/kprobes: Use int3 instead of debug trap for single-step
-  x86/kprobes: Fix to identify indirect jmp and others using range case
-
-Masami Hiramatsu (Google) (1):
-  x86/kprobes: Update kcb status flag after singlestepping
-
-Nadav Amit (1):
-  x86/kprobes: Fix JNG/JNLE emulation
-
-Wei Yongjun (1):
-  x86/kprobes: Move 'inline' to the beginning of the kprobe_is_ss()
-    declaration
-
- arch/x86/include/asm/kprobes.h |  24 +-
- arch/x86/kernel/kprobes/core.c | 639 ++++++++++++++++++++-------------
- arch/x86/kernel/traps.c        |   3 -
- 3 files changed, 409 insertions(+), 257 deletions(-)
-
+diff --git a/arch/x86/kernel/kprobes/core.c b/arch/x86/kernel/kprobes/core.c
+index 5de757099186..ed9a4fb87168 100644
+--- a/arch/x86/kernel/kprobes/core.c
++++ b/arch/x86/kernel/kprobes/core.c
+@@ -880,6 +880,7 @@ static void resume_execution(struct kprobe *p, struct pt_regs *regs,
+ 			p->ainsn.boostable = true;
+ 			goto no_change;
+ 		}
++		break;
+ 	default:
+ 		break;
+ 	}
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20230705064653.226811-1-lihuafei1%40huawei.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20230705064653.226811-2-lihuafei1%40huawei.com.
