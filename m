@@ -1,203 +1,131 @@
-Return-Path: <clang-built-linux+bncBDDO3Z5P4YJRBPWMVWTAMGQE2NK2SJI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBWEWWOTAMGQEUAAG4IY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id A499276E32E
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Aug 2023 10:33:03 +0200 (CEST)
-Received: by mail-ot1-x33f.google.com with SMTP id 46e09a7af769-6b9ef9cd887sf977242a34.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Aug 2023 01:33:03 -0700 (PDT)
+Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
+	by mail.lfdr.de (Postfix) with ESMTPS id F0A8976FDDA
+	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Aug 2023 11:56:41 +0200 (CEST)
+Received: by mail-qk1-x73c.google.com with SMTP id af79cd13be357-76ce6d007ccsf131611585a.1
+        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Aug 2023 02:56:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1691143000; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=Y8EnPY+bfHQtT099I4/26wGBMqdOKMg60TANxMzpS9ORQ9pxUn7cMXUUz4dO1XhaDl
+         aGbJv+mOAfP36qLRRGJWWm02gnz2OitdWcR0YRy1LBXanh/3542F1uys0Ew3SUKnsRhF
+         brl+1V+H3A6Yd5HU6vn4LOwUKU+9PVSNae8qVP23Cz85vWiDaYiCEvVKacmFjDSbVvSF
+         PN3/PgZQ6x3Bl8omEg+BZN8MngP6tI/U1uamTV1IGdevjr2zcAU0LMoPf6DG4d2CL9RU
+         D6sZxCjvIG37NzWbIqD89TuXH+5j00gOcJISIQCZsuvEqPbvw69iSBCPj0Y6uh8Ar0xg
+         vhvg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:message-id:in-reply-to:date:from:cc:to:subject:sender
+         :dkim-signature;
+        bh=yQ8sFpsNwmwxKkgJni0YPqAvyGX02PejhDcUmSKk9AI=;
+        fh=M+RCfsu39+TOU/tatfWuYpVYu9gEJhXsVZVrt5KCSJ0=;
+        b=f00LUyaj60PN60fmFCdvPUKFABAHGOFRdzjJk1AiQMoN4+hVFb/7+khfD3HBtLePjS
+         tg6MH3tA4N/UVbrwTOlVCefCChaKI3n7a07skCZqagM4WXnyK1E2+j9GAuJ3C4nc4WNp
+         SS9grD545rGy27SoXmQxavZ0EM4ZiCzjMn8ssAjeF4xG/dt1d3u9cM3tLF3Q59YS3ZUs
+         BEd95bxpl1Z08WfiDymYJy+c1EgTZItwzbpWZ/XCO4FWMq4obQPrw4COJBHAuXSpYlY0
+         1qrwO5+bmlIx58fNNLWvgt5Yw3Jockmfl4VVfKNJRY0MKMCWeyiPZhozo8eJCzgwYIH2
+         n28A==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=LM62HwGo;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 139.178.84.217 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20221208; t=1691051582; x=1691656382;
+        d=googlegroups.com; s=20221208; t=1691143000; x=1691747800;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:mime-version
-         :content-transfer-encoding:content-id:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=syHvI7V+iSPzH4+yEYN4nJkSSElZMHaPpI3Ft9/QbgE=;
-        b=Ek6dyCzoxzMwKsl/iHkwtAn7vKaBAUV4S900jqfLEdGXJqXzAdNCJ8lrQFMrSddNUa
-         sg+PaWi/VlsxowLXw+4w2dagSjEFs7YJy43rNzBhgrTaaz+RqdjaRY3csM2C5kBZ27yJ
-         IqyBwm7nN/uuyIa1obeWS54rj4LLD6W9RKee9AwkJW8brsGBGtO7kEpm5uVwnLxjpo3f
-         ThD+SbcpF2v224K6+IsIjlEMQcMYGzScaspmlDkCdN2Xy/zWMXUPqOp6H8RB39xnmGQo
-         1clPZYBVGGvIobUPm0oqK7VWKY5ra68HW3EQ2D1vCLNcjHtklbVugfLeT0SfNSsGSsce
-         G/QA==
+         :list-id:mailing-list:precedence:x-original-authentication-results
+         :x-original-sender:content-transfer-encoding:mime-version:message-id
+         :in-reply-to:date:from:cc:to:subject:sender:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yQ8sFpsNwmwxKkgJni0YPqAvyGX02PejhDcUmSKk9AI=;
+        b=hltQvcA2E8wk//VaJgxPqi/kjp7J4glxIQAVHm9Y1xIGGzD++ZlO107OJYO58I0ug4
+         ZxoUyzTEVG5wUGkx7jlHrirRq+grosqqzcKx/oVwSDWOcoTjDXLYjAbfguh/QuQ+gp3h
+         u4/+ZqbnPWCtara5mtd0h8FWhDq0YLWlIrJK3ILas5arY4x9qMCPnKOs9Q0nD2Icj5UG
+         xQmH6vBPj8DpdyvIUrrPZlljJNWbYqIg/Dl7663ofITmyF4hzLUb+4WPBL0hVl0uvA5B
+         D9ITawbnycN6u8CkG2oW0UmnSVP4scORZvb2tT9Twj/r+A9RrorNNiGOjQW+Hz2lGr+o
+         iiVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691051582; x=1691656382;
+        d=1e100.net; s=20221208; t=1691143000; x=1691747800;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
-         :x-original-authentication-results:x-original-sender:mime-version
-         :content-transfer-encoding:content-id:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:x-beenthere:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=syHvI7V+iSPzH4+yEYN4nJkSSElZMHaPpI3Ft9/QbgE=;
-        b=IVOVHOhaGnv6Xy9FpPS0+1+xDba3ZLTQ5nMgAupECu64IP04pShK8w8MSLBPaP9lFY
-         0TuNftTnv2u/FCbMrZYtJfg8ea6Di6ur8IWtb++D8RM+eT7q+KupeUKf0qBBsCNgaATA
-         8bbbXhcxwvKwkIZugtainJAIvav1HsQET3/SnFgN0RM9Iq7dmPNmqL5l2QpjF6R7z+C1
-         Ne3qlHHDOMROCETUA7+yYwZJMV/NAfz3nfucBhBeweaGsz+JdIxv7dM7x47nM/YOlKLZ
-         36HVU7s0fSAtsixgs79HgQe5HHhdWKUGAFzfhnwmOkIHCiF88nXjQZVsm8IcWMbjCmsn
-         Hi1Q==
-X-Gm-Message-State: ABy/qLaDs8IRS1C8tfIW56nvB78xTvpvtjfeoIJzd/RdJey/H2LywduK
-	gRb/HeoJyg4bRDiNINjjJVE=
-X-Google-Smtp-Source: APBJJlG5nDu4TM3j0bo8JUinV8RqkUriSMDZr4GGTRPz3tdYt4CIsffcwpAJkbCYdYmjyLSsMQv+OA==
-X-Received: by 2002:a05:6830:411e:b0:6b9:ea1e:a04a with SMTP id w30-20020a056830411e00b006b9ea1ea04amr18079154ott.3.1691051582219;
-        Thu, 03 Aug 2023 01:33:02 -0700 (PDT)
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender
+         :content-transfer-encoding:mime-version:message-id:in-reply-to:date
+         :from:cc:to:subject:x-beenthere:x-gm-message-state:sender:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yQ8sFpsNwmwxKkgJni0YPqAvyGX02PejhDcUmSKk9AI=;
+        b=lLv1H9XL3bGTwdj8m9CFjDfAKMx/t9huPAqoUiLBdHJM8Ic2Os854hWxMBxA4oSygl
+         7PNDoadCM/IACNsyrEsXYA8XDUt/c4+fRMAC86F+ZUnME7bgyqLAFtE4gTsyeKcECyaC
+         Hd0ep3stEuNa5eJZh6P6LrYocmt+3toa03JCxnbYpv3/92eex/dCZyIuh31nFQJWjzra
+         kY+tX7Dabo2ZxWgGiyXLD/WFl2awmU+7l6L02odW63dC0ZSjXe6Q6zT155wp1Rwe3m9H
+         R//q9JDuz6EwIceNnvrRvKHC303McNSMjQUD/HyUtOX46fe02USVeeSKhCRoxfLD9UGu
+         H4ag==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: AOJu0YzK+N6i54Ppa16c4I+SObzwWJXDmZWCCgNjgWC4pNu97asAxTAI
+	/JYLCc2AQ7X+A6EZDJO2a9A=
+X-Google-Smtp-Source: AGHT+IFbh2Qje8kVFa3Frprj5QeJTUk3uepGnYIf/VKQISCvFLu3Bo7RFwI7JBGAwVbzFj8PYzOdiQ==
+X-Received: by 2002:a05:6214:451a:b0:63c:d495:47cb with SMTP id oo26-20020a056214451a00b0063cd49547cbmr1159778qvb.22.1691143000513;
+        Fri, 04 Aug 2023 02:56:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a4a:4fd8:0:b0:56d:28f8:bff6 with SMTP id c207-20020a4a4fd8000000b0056d28f8bff6ls487526oob.0.-pod-prod-00-us;
- Thu, 03 Aug 2023 01:33:01 -0700 (PDT)
-X-Received: by 2002:a9d:6851:0:b0:6b7:5235:e9ab with SMTP id c17-20020a9d6851000000b006b75235e9abmr13387971oto.3.1691051581565;
-        Thu, 03 Aug 2023 01:33:01 -0700 (PDT)
-Received: from mailgw02.mediatek.com ([210.61.82.184])
-        by gmr-mx.google.com with ESMTPS id v6-20020a9d7d06000000b006b5d4556760si1219822otn.5.2023.08.03.01.32.59
+Received: by 2002:a0c:e2d3:0:b0:63d:1f5c:79f5 with SMTP id t19-20020a0ce2d3000000b0063d1f5c79f5ls8685192qvl.2.-pod-prod-03-us;
+ Fri, 04 Aug 2023 02:56:39 -0700 (PDT)
+X-Received: by 2002:a1f:c18e:0:b0:487:192c:ebbe with SMTP id r136-20020a1fc18e000000b00487192cebbemr323610vkf.10.1691142999522;
+        Fri, 04 Aug 2023 02:56:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1691142999; cv=none;
+        d=google.com; s=arc-20160816;
+        b=NYHyig7j8E5G1ogz4FRJc7yXWjT+vTt5PtaDrEHQS+X6BOtuBGfeEjJWSzkqopeM2v
+         T3xJUvPralQOCjEAMmQvdgmyaIidp9uBqznB0bpNeIp/FSZAQDdKLtqybsMyh4/6MhTq
+         nkccbvw80VBrWC/TJncBU6s/MSNLLBcrQVDxPSPhNaAOk4UQy1mK7nGqPanxYLqSUbUd
+         HEMGUDc5BfrOB091wKYqRzARWzvw7cZfTuYQtKRhrk/jOyPSK0XUZogD21FWEuWHKdIq
+         Z3Zuf71DKYfRcFAakGOBnxwW3K6aXctYVcs4t4PxHfsZwQ9vAFAy8fX7eS6OrWoWtD58
+         KAdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
+         :from:cc:to:subject:dkim-signature;
+        bh=1+muAAO4xervR4lFl9f5uQs+L8gdqUCIsZqtYUs1TbM=;
+        fh=M+RCfsu39+TOU/tatfWuYpVYu9gEJhXsVZVrt5KCSJ0=;
+        b=hJWikyLPKu6mGtW4UZy+lBDpC9nfv7nkc0BD7WtYEmX0JFMXO0OgOStKSx6CjV9f6P
+         B7vMoltX0Knae+LMs78FBTLj9OLafG2YZpNKNcVWepHm++S+Q0xuso8vYQp5C4wVSCCM
+         ODdVOnA0PSzk2YpLbsCfBzYALJ96oHSJoKe3f4IHQNz01sZvTsW2WXS/3/IPk14DFplf
+         3i/QvG0xRfxRP0e/i1PeTdyWPAjdL0M+S78Xcm2c1nvnqegCaXzOdGfB34hKqFuJnLQs
+         g/zbO8+3R1kgB2SDq7CGxshz+D/k5DgqC5IWaB+uKCeZacFq74JgvwEJivsdU8bO1KdQ
+         EPeg==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=LM62HwGo;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 139.178.84.217 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
+Received: from dfw.source.kernel.org (dfw.source.kernel.org. [139.178.84.217])
+        by gmr-mx.google.com with ESMTPS id n10-20020a1fbd0a000000b00485e5a835adsi318669vkf.4.2023.08.04.02.56.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Aug 2023 01:33:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender) client-ip=210.61.82.184;
-X-UUID: 586610b431d811eeb20a276fd37b9834-20230803
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.30,REQID:70cb4ce3-be62-44fc-be6f-a9dc42595542,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:1fcc6f8,CLOUDID:71991ab4-a467-4aa9-9e04-f584452e3794,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0,EDM:-3,IP:nil,U
-	RL:11|1,File:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:
-	NO,DKR:0,DKP:0,BRR:0,BRE:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 586610b431d811eeb20a276fd37b9834-20230803
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
-	(envelope-from <nancy.lin@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 88224360; Thu, 03 Aug 2023 16:32:56 +0800
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.26; Thu, 3 Aug 2023 16:32:55 +0800
-Received: from APC01-SG2-obe.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1118.26 via Frontend Transport; Thu, 3 Aug 2023 16:32:54 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=XpLWST64F1QNsNAk5Mln1IsBkV+rTlm/FvsB3pVMJ2I2CK7sxAY95TNOPpsTN3W68/eyHlJ8DCRnBHZbTDXtnEROao3GIfCJyf6E4SsOSCFgSGNf93/7I5qaoBlYry9o/qawo+ngjtiIFo3NUVJAT6oQfk1J73KRitaLI+/bMkTNU2rEEVvNxFEhNsGMJm95Q+TaDuDKp3iagNEMiMY49qoKpoZOGH/zWwalsPlfLm4sEKbeXAb5awmkdId85E+ipI3ICvMnIWUW8PX0fUB59dFc53Ng85+qTXBq73cQYw7uOKMoWOfL0g7iB02qEMG7gadk8yLTOSs/z6CMjSd2gw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8UauAPglruVzPTeL1vqBzuPGZ4I2xYduAu/C+s80cd8=;
- b=dcCFsOuQBL1rmEIcplY7w0iDvaod8c6th96OeQX9TqY5ljPdFzfXFYcUMF5EZxO8FX3kfo1zOcaj8g/Tk8Sa690wDEDhuYGCUMBt1UabO+OgXyPSk9WR8jEDtG5r288h+9U9Ne+QeXgmkn4PQB4fuRimU53d4uR2NasKKwdYedYMeeOaA8ExrSSPg73Kc6hOm6LNR3DuzDft0szjG09JvgegxOcjYl5o0oCMPoEIv7YOGDjCUk+1wulMPRLgk1FVveDaddb+kt+8pWcKBkLVoY4buLaopXrTrz1Dwg4SUqViz06SquFV9QP5jQDbQcBA6Jcdkl//0h69PJVFHkWw2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-Received: from SEZPR03MB7616.apcprd03.prod.outlook.com (2603:1096:101:123::9)
- by SEZPR03MB7375.apcprd03.prod.outlook.com (2603:1096:101:10d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6631.47; Thu, 3 Aug
- 2023 08:32:52 +0000
-Received: from SEZPR03MB7616.apcprd03.prod.outlook.com
- ([fe80::2310:62b8:e345:dae4]) by SEZPR03MB7616.apcprd03.prod.outlook.com
- ([fe80::2310:62b8:e345:dae4%7]) with mapi id 15.20.6631.046; Thu, 3 Aug 2023
- 08:32:52 +0000
-From: =?UTF-8?B?J05hbmN5IExpbiAo5p6X5qyj6J6iKScgdmlhIENsYW5nIEJ1aWx0IExpbnV4?= <clang-built-linux@googlegroups.com>
-To: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
-	"fshao@chromium.org" <fshao@chromium.org>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	=?utf-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "clang-built-linux@googlegroups.com"
-	<clang-built-linux@googlegroups.com>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "angelogioacchino.delregno@collabora.com"
-	<angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v2] drm/mediatek: fix uninitialized symbol
-Thread-Topic: [PATCH v2] drm/mediatek: fix uninitialized symbol
-Thread-Index: AQHZc/dVWUY2pJ1cl0a+Yt4DL3ZbCa+5gtAAgARbdwCABPgaAIAWC96A
-Date: Thu, 3 Aug 2023 08:32:51 +0000
-Message-ID: <ecedbe0bd06a67654bc90421569ad6e6bd9ddfe7.camel@mediatek.com>
-References: <20230421021609.7730-1-nancy.lin@mediatek.com>
-	 <ae96299cffaacdbf51beae96e3a257c95a04ac95.camel@mediatek.com>
-	 <CAC=S1njEG2sV28XAWDw8FoQ0p5w=-sU4i+D-ESfapHMQC1ZW3Q@mail.gmail.com>
-	 <7e1124a15395dbb6906c17e240e5011a4274a9b5.camel@mediatek.com>
-In-Reply-To: <7e1124a15395dbb6906c17e240e5011a4274a9b5.camel@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEZPR03MB7616:EE_|SEZPR03MB7375:EE_
-x-ms-office365-filtering-correlation-id: 1035d5ca-b0ec-4523-74fb-08db93fc3a39
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: O32J/DTluzFoqNq/kx67DkFXIafJdFqFzP4LeRueMSniY9vDPOFy9jVQ9mbAqdEl/vUIEMsG6ChmieZjxCYsakPMDRExQIE0IFUP5LwXsqKAzJwP60TSvW82ygU8/Nf3yqFc8uokIz5dpoHjYRgFyAvtWP7k06Dxi6UtugaEpe9UnBB/c8Fqxj7oDgt8aUijLpm/u2oLtovDGQDL3+lnw8jf8AzryFFwYStICghs/oGDtlg6at9WO41+6OGoOUr/mrXlNk4b0xYbya8DXschyAX5lsz+gd0x4Rmajsz0JAzwHT6731fpcdER/asx3lOQREoxCIm1qlWGaHSAmRIQcfl2BElUwmP9qaGiun5a822m/ISM49V88aJ4UbgQJSbfRLs5UuyQJapn/dDIgJHIM1qVxVYy6evVDqly4Bcjnlbq5d5U4Kh3Fbissh+JadoF0rNgydKZ/jLtmE5aFtVlyednvjJSo6KCWv9V0q36oLZLQnVKz1Z0C4kuCH+YeK/+ihqNMWjLfwFA5pju0ptkBc6o1EAmRjP3d1DEOKaQHRQd9cFuWQmqT1Ww2dyIq5+iMBVjdLbkHjTlJpsigZmbD3mX2lqNvsEsPttkGwwJF3S5z9kkRF4Az3Py1yvD1O9xeZj6YhJlGHTVL2K1NKkUwrl+eQFM//7dM8Mr8VUGiyA=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR03MB7616.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230028)(376002)(396003)(136003)(346002)(366004)(39860400002)(451199021)(122000001)(53546011)(6506007)(26005)(38100700002)(186003)(38070700005)(2616005)(83380400001)(2906002)(85182001)(36756003)(5660300002)(7416002)(8676002)(478600001)(110136005)(86362001)(6512007)(54906003)(71200400001)(6486002)(41300700001)(316002)(91956017)(8936002)(64756008)(66446008)(66476007)(76116006)(66946007)(66556008)(4326008);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZXQvcTYxclJPTnZieVJxVm9aRmFSbWlxSzdlSjBYR2NBK2ozL3JuZlptcmRp?=
- =?utf-8?B?YTBwakJNaTFLMWhFMzVoYXFvckxaaGcvdGh2MEhqRmh6MlZYMFFqcjZEOVpJ?=
- =?utf-8?B?cFFud3k1ZkkzM2M1WGFRL3hLaDhab01ucTNTeHlWU1BFdGtFU01oTGxXSUpN?=
- =?utf-8?B?QVNkcHp3dEgyY3Zydi9MRnBoTC9qYmNRNlVDSHBTU1lJNk5ERTg3UER3UWc5?=
- =?utf-8?B?N2EwZHlvUktUSmNENGdPc0JTNmQwVGxQZm04SVlTVUNOZzVqZ1F6VHFQZFha?=
- =?utf-8?B?OVlOTjNrclV4bTAxQWc3RTFPbGo4UjBhbnRRUVRXQ3d4eG1sbHJ5WVAyVVZt?=
- =?utf-8?B?aHhlRVN0R1Yzc2tmQ1NPd2cxc0RrTGg5Q3JrVzZ1cnhaVW0ybi92Ym1OeFVE?=
- =?utf-8?B?bVZCOE9KWUZvSGVVWEpja3VYd2JzVTIwSXcxM0hmVUtLMzAxRXQ0N2dIK2Vn?=
- =?utf-8?B?cVJ3QTNBS0trdzhsUUpCUmFlaE55N3MvczUrN1NveTJxanRTMy85bHovL2NX?=
- =?utf-8?B?N3M5S2hzMVI0WDMxa3FGemtuelVjYWZmYktnNnN5L0hwVmpudVQvSnRRcnox?=
- =?utf-8?B?a2V6T3MrMWdVTHNEeDJJNFpXYnVpZHdTRlhZWlMrN29hMGhWTkZhM2o1VFN2?=
- =?utf-8?B?dXYwWWp1UDZmbWtxenlZczJGRGs0ODVDQ09jcHhEd3ovWnNmRVVjUGl1cktw?=
- =?utf-8?B?WXBVYUw3M2NqWWNXU0VFdE1DZVBOWDI5eGhSRHVrK1cxWkszZzJLaGN1N0hX?=
- =?utf-8?B?cVpsVTlpOENkMHY0YzVzNXM2d0MxcDlpSmFDYVZLb2d4NnZvSTI1VnJxaVE5?=
- =?utf-8?B?TCtXbnR0dHh5dFUvd3pOVEVtYlBEbFdncHNEQXBKS0svb0daZG9Ccy82WFRZ?=
- =?utf-8?B?OURSaVE2VmRhRi9qNG5ETHIzL050RWdET3NHY0FWdmovQkg1dUh2bXcyYzVn?=
- =?utf-8?B?WkIzaWZRSEJvSEVGUVJRanhxbEdDamtEQU5SQUJTR0hoTUFrak13dXY4L09j?=
- =?utf-8?B?WDdlMjYzNFVPODZXOXY0aU9iL0Uvclg4RDY0aC9oZ25qVUprRURyTWgxN3V5?=
- =?utf-8?B?T3lBNEtTVGVza3JsMG50TjBQS0QyUFgyZDFxNFJsWWVZZmp1SDhoMDhHWFFP?=
- =?utf-8?B?dDA1YWFRK2ZUblR1YVlCeEdTUUE1dC9hWnlIM2p0M2FlQXNzOVZWVW9MMUtp?=
- =?utf-8?B?QUFyNUlBajJUbWxvd1lpbGQ3eHBCMlNtZXZwdWU3YTRKNFNYOFNSVWdoaTFs?=
- =?utf-8?B?VFRmaFNkR3N2Mm5NSVJUM05GTmtSMG5uZXp1NDFRSVppR284eXA4VUhET1dQ?=
- =?utf-8?B?Qmt3MkxPUHpEUkl6enlCdmRVMDFmczR1VDR4YjkxeC8xejhZSHl4ZXJxUnRv?=
- =?utf-8?B?N0Rkd1liS2FKYnVFd2d1dyszcHYxWnJoM2hUanllQkR3ZWRrUmxzdjVHMWsx?=
- =?utf-8?B?eVA0MGJwR1RUM3ZMdUViRENKTHVEckpQaS9KRi9NZWNCOXZyYVM3Q2pmZDNV?=
- =?utf-8?B?MFVESzRPNHhIVzNiYXNXV3BqTU1oNDR3ZUdNZ3RSZFhSMXp6MHhBU2VjbWgw?=
- =?utf-8?B?WjBLL2hrM1RVV0l4dmJNWHZBZ0hPVDZFdTFVTk12b1JtLyt4MW1rci8rNml1?=
- =?utf-8?B?ekQ3M2JXSmI0Nkgyd1B6REpwZCtlMDNxOWRVQVhCVE4wa2g4bTgwL29SQnVV?=
- =?utf-8?B?OGVPdzBPaHFOcnZjMmxvc0t0UGxpVFhqVk9kYWRjK2pPUzcxTDFncm5UNzBK?=
- =?utf-8?B?WG11ZmxtKzdLZ0JqanpkTTROUFBKMWVRbkQ4OVZvNTN5N0cwOEhYN0w2RG1Z?=
- =?utf-8?B?SUMzek95cmhTKytDOCtDTUx0NFNoSGJoTzJOQ05QcHBGMzFJOTAweHRMQ0ds?=
- =?utf-8?B?Tk9jTEZaUWpwMVJnUDIyNVFPUWd3SitHVXljZW8vS3JLdmhiU09FZUlXWlgz?=
- =?utf-8?B?TS9yMU5HS1VFQWQ1TFhuRmp6R0FaUFJ4d2FOYzlOaTJ4bVcxS2VPcGUrQ0da?=
- =?utf-8?B?SWdVZEZyOWdKVEVtKzB3dG54ZGhHaERrZld6V3ZvT3Z1MGhhdkQvRkluZUhm?=
- =?utf-8?B?c3lhZUF1Z0lEMWxDYWRtakxxN3pCaFdlMHdIU0NhbEUzL1ZpRzRKdmwrMjZv?=
- =?utf-8?B?MERUUXZHT2lOdkgwOEF1V3R3VnUzV2xIOGVzOFliYjNXTTdCS0FNWUxKU1kz?=
- =?utf-8?B?eGc9PQ==?=
-Content-ID: <DFDBC3588F495C49B1B0E8ED31381835@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        Fri, 04 Aug 2023 02:56:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 139.178.84.217 as permitted sender) client-ip=139.178.84.217;
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D427E61F74;
+	Fri,  4 Aug 2023 09:56:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA77AC433CA;
+	Fri,  4 Aug 2023 09:56:37 +0000 (UTC)
+Subject: Patch "kprobes/x86: Fix fall-through warnings for Clang" has been added to the 5.10-stable tree
+To: bp@alien8.de,clang-built-linux@googlegroups.com,gregkh@linuxfoundation.org,gustavoars@kernel.org,hpa@zytor.com,laijs@linux.alibaba.com,lihuafei1@huawei.com,mhiramat@kernel.org,mingo@redhat.com,namit@vmware.com,natechancellor@gmail.com,ndesaulniers@google.com,peterz@infradead.org,rostedt@goodmis.org,sashal@kernel.org,tglx@linutronix.de,weiyongjun1@huawei.com,x86@kernel.org,xukuohai@huawei.com
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Fri, 04 Aug 2023 11:56:35 +0200
+In-Reply-To: <20230705064653.226811-2-lihuafei1@huawei.com>
+Message-ID: <2023080434-varying-occupant-8977@gregkh>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR03MB7616.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1035d5ca-b0ec-4523-74fb-08db93fc3a39
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Aug 2023 08:32:52.0918
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: h5yQjOouypQdiItFoZeDh/nbrPOPpYC+e51DVm2HgS0EsS0cHHi5cuMEFcTSehCbhzGhjDmIqPZQ+3j9WH+bdA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7375
-Content-Type: multipart/alternative;
-	boundary="__=_Part_Boundary_002_1801065578.374948272"
-X-Original-Sender: nancy.lin@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-stable: commit
+X-Patchwork-Hint: ignore
+X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mediatek.com header.s=dk header.b=NXPPT5V4;       dkim=neutral
- (body hash did not verify) header.i=@mediateko365.onmicrosoft.com
- header.s=selector2-mediateko365-onmicrosoft-com header.b=NkRGhW94;
-       arc=fail (body hash mismatch);       spf=pass (google.com: domain of
- nancy.lin@mediatek.com designates 210.61.82.184 as permitted sender)
- smtp.mailfrom=nancy.lin@mediatek.com;       dmarc=pass (p=QUARANTINE
- sp=QUARANTINE dis=NONE) header.from=mediatek.com
-X-Original-From: =?utf-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>
-Reply-To: =?utf-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>
+ header.i=@linuxfoundation.org header.s=korg header.b=LM62HwGo;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates 139.178.84.217
+ as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -210,236 +138,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---__=_Part_Boundary_002_1801065578.374948272
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-<pre>
-Hi&#32;CK&#32;and&#32;Fei,
+This is a note to let you know that I've just added the patch titled
 
-Thanks&#32;for&#32;the&#32;review.
+    kprobes/x86: Fix fall-through warnings for Clang
 
-On&#32;Thu,&#32;2023-07-20&#32;at&#32;07:52&#32;+0000,&#32;CK&#32;Hu&#32;(&=
-#32993;&#20426;&#20809;)&#32;wrote:
-&gt;&#32;Hi,&#32;Fei:
-&gt;&#32;
-&gt;&#32;On&#32;Mon,&#32;2023-07-17&#32;at&#32;11:59&#32;+0800,&#32;Fei&#32=
-;Shao&#32;wrote:
-&gt;&#32;&gt;&#32;&#32;&#32;
-&gt;&#32;&gt;&#32;External&#32;email&#32;:&#32;Please&#32;do&#32;not&#32;cl=
-ick&#32;links&#32;or&#32;open&#32;attachments
-&gt;&#32;&gt;&#32;until
-&gt;&#32;&gt;&#32;you&#32;have&#32;verified&#32;the&#32;sender&#32;or&#32;t=
-he&#32;content.
-&gt;&#32;&gt;&#32;&#32;Hi&#32;CK,
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;On&#32;Fri,&#32;Jul&#32;14,&#32;2023&#32;at&#32;5:27&#823=
-9;PM&#32;CK&#32;Hu&#32;(&#32993;&#20426;&#20809;)&#32;&lt;ck.hu@mediatek.co=
-m&gt;
-&gt;&#32;&gt;&#32;wrote:
-&gt;&#32;&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;&gt;&#32;Hi,&#32;Nancy:
-&gt;&#32;&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;&gt;&#32;On&#32;Fri,&#32;2023-04-21&#32;at&#32;10:16&#32;=
-+0800,&#32;Nancy.Lin&#32;wrote:
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;snip
-&gt;&#32;&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;&gt;&#32;In&#32;line&#32;566,&#32;the&#32;statement&#32;i=
-s
-&gt;&#32;&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;&gt;&#32;if&#32;(nodo)&#32;{
-&gt;&#32;&gt;&#32;&gt;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;comp_pde=
-v&#32;=3D&#32;...
-&gt;&#32;&gt;&#32;&gt;&#32;}
-&gt;&#32;&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;&gt;&#32;The&#32;comment&#32;says&#32;that&#32;only&#32;o=
-vl_adaptoer&#32;has&#32;no&#32;device&#32;node,&#32;so
-&gt;&#32;&gt;&#32;&gt;&#32;the
-&gt;&#32;&gt;&#32;&gt;&#32;checking&#32;should&#32;be
-&gt;&#32;&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;&gt;&#32;if&#32;(type&#32;!=3D&#32;MTK_DISP_OVL_ADAPTOR)&=
-#32;{
-&gt;&#32;&gt;&#32;&gt;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;comp_pde=
-v&#32;=3D&#32;...
-&gt;&#32;&gt;&#32;&gt;&#32;}
-&gt;&#32;&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;&gt;&#32;and&#32;later&#32;it&#32;would&#32;return&#32;wh=
-en&#32;type&#32;=3D&#32;MTK_DISP_OVL_ADAPTOR,
-&gt;&#32;&gt;&#32;&gt;&#32;so&#32;there&#32;would&#32;be&#32;no&#32;problem=
-&#32;of&#32;uninitialized&#32;symbol.
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;That&#32;sounds&#32;fair,&#32;but&#32;IIUC&#32;what&#32;N=
-ancy&#32;tries&#32;to&#32;resolve&#32;here&#32;is&#32;the
-&gt;&#32;&gt;&#32;false-positive&#32;Smatch&#32;warning.
-&gt;&#32;&gt;&#32;How&#32;about&#32;this:&#32;given&#32;the&#32;&#96;if&#32=
-;(node)&#96;&#32;block&#32;was&#32;exclusively&#32;added
-&gt;&#32;&gt;&#32;for
-&gt;&#32;&gt;&#32;ovl_adaptor&#32;in&#32;[1],&#32;plus&#32;the&#32;init&#32=
-;function&#32;will&#32;immediately&#32;return
-&gt;&#32;&gt;&#32;after&#32;that&#32;in&#32;this&#32;case,&#32;it&#32;shoul=
-d&#32;be&#32;safe&#32;to&#32;do&#32;the&#32;following
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;&#96;&#96;&#96;
-&gt;&#32;&gt;&#32;/*&#32;Not&#32;all&#32;drm&#32;components&#32;have&#32;a&=
-#32;DTS&#32;device&#32;node...&#32;*/
-&gt;&#32;&gt;&#32;if&#32;(node&#32;=3D=3D&#32;NULL)
-&gt;&#32;&gt;&#32;&#32;&#32;&#32;&#32;return&#32;0;
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;comp_pdev&#32;=3D&#32;of_find_device_by_node(node);
-&gt;&#32;&gt;&#32;...
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;if&#32;(type&#32;=3D=3D&#32;MTK_DISP_AAL&#32;||
-&gt;&#32;&gt;&#32;...
-&gt;&#32;&gt;&#32;&#96;&#96;&#96;
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;which&#32;is&#32;equivalent&#32;to&#32;adding&#32;a&#32;&=
-#96;node&#32;=3D=3D&#32;NULL&#96;&#32;check&#32;before&#32;[1].
-&gt;&#32;&gt;&#32;This&#32;should&#32;suppress&#32;the&#32;Smatch&#32;warni=
-ng&#32;because&#32;&#96;comp_pdev&#96;&#32;will&#32;be
-&gt;&#32;&gt;&#32;(again)&#32;unconditionally&#32;assigned&#32;to&#32;somet=
-hing,&#32;and&#32;the&#32;&#96;type&#32;=3D=3D
-&gt;&#32;&gt;&#32;MTK_DISP_OVL_ADAPTOR&#96;&#32;line&#32;can&#32;be&#32;dro=
-pped&#32;also&#32;(optional&#63;).
-&gt;&#32;
-&gt;&#32;This&#32;solution&#32;also&#32;looks&#32;good&#32;to&#32;me.
-&gt;&#32;
-&gt;&#32;Regards,
-&gt;&#32;CK
-&gt;&#32;
-I&#32;will&#32;send&#32;the&#32;next&#32;version&#32;of&#32;modifications&#=
-32;based&#32;on&#32;your
-suggestions.
+to the 5.10-stable tree which can be found at:
+    http://www.kernel.org/git/?p=3Dlinux/kernel/git/stable/stable-queue.git=
+;a=3Dsummary
 
-Thanks,
-Nancy
+The filename of the patch is:
+     kprobes-x86-fix-fall-through-warnings-for-clang.patch
+and it can be found in the queue-5.10 subdirectory.
 
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;[1]:&#32;commit&#32;0d9eee9118b7&#32;(&quot;drm/mediatek:=
-&#32;Add&#32;drm&#32;ovl_adaptor&#32;sub
-&gt;&#32;&gt;&#32;driver&#32;for&#32;MT8195&quot;)
-&gt;&#32;&gt;&#32;
-&gt;&#32;&gt;&#32;Regards,
-&gt;&#32;&gt;&#32;Fei
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
 
-</pre><!--type:text--><!--{--><pre>************* MEDIATEK Confidentiality N=
-otice ********************
-The information contained in this e-mail message (including any=20
-attachments) may be confidential, proprietary, privileged, or otherwise
-exempt from disclosure under applicable laws. It is intended to be=20
-conveyed only to the designated recipient(s). Any use, dissemination,=20
-distribution, printing, retaining or copying of this e-mail (including its=
-=20
-attachments) by unintended recipient(s) is strictly prohibited and may=20
-be unlawful. If you are not an intended recipient of this e-mail, or believ=
-e=20
-that you have received this e-mail in error, please notify the sender=20
-immediately (by replying to this e-mail), delete any and all copies of=20
-this e-mail (including any attachments) from your system, and do not
-disclose the content of this e-mail to any other person. Thank you!
-</pre><!--}-->
 
-<p></p>
+From stable-owner@vger.kernel.org Wed Jul  5 08:47:50 2023
+From: Li Huafei <lihuafei1@huawei.com>
+Date: Wed, 5 Jul 2023 14:46:45 +0800
+Subject: kprobes/x86: Fix fall-through warnings for Clang
+To: <stable@vger.kernel.org>
+Cc: <gregkh@linuxfoundation.org>, <mhiramat@kernel.org>, <tglx@linutronix.d=
+e>, <mingo@redhat.com>, <bp@alien8.de>, <x86@kernel.org>, <hpa@zytor.com>, =
+<sashal@kernel.org>, <peterz@infradead.org>, <linux-kernel@vger.kernel.org>=
+, <xukuohai@huawei.com>, <natechancellor@gmail.com>, <ndesaulniers@google.c=
+om>, <rostedt@goodmis.org>, <weiyongjun1@huawei.com>, <gustavoars@kernel.or=
+g>, <namit@vmware.com>, <laijs@linux.alibaba.com>, <clang-built-linux@googl=
+egroups.com>, <lihuafei1@huawei.com>
+Message-ID: <20230705064653.226811-2-lihuafei1@huawei.com>
 
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/ecedbe0bd06a67654bc90421569ad6e6bd9ddfe7.camel=
-%40mediatek.com?utm_medium=3Demail&utm_source=3Dfooter">https://groups.goog=
-le.com/d/msgid/clang-built-linux/ecedbe0bd06a67654bc90421569ad6e6bd9ddfe7.c=
-amel%40mediatek.com</a>.<br />
+From: "Gustavo A. R. Silva" <gustavoars@kernel.org>
 
---__=_Part_Boundary_002_1801065578.374948272
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+[ Upstream commit e689b300c99ca2dd80d3f662e19499bba27cda09 ]
 
-Hi CK and Fei,
+In preparation to enable -Wimplicit-fallthrough for Clang, fix a warning
+by explicitly adding a break statement instead of just letting the code
+fall through to the next case.
 
-Thanks for the review.
+Signed-off-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Link: https://github.com/KSPP/linux/issues/115
+Signed-off-by: Li Huafei <lihuafei1@huawei.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ arch/x86/kernel/kprobes/core.c |    1 +
+ 1 file changed, 1 insertion(+)
 
-On Thu, 2023-07-20 at 07:52 +0000, CK Hu (=E8=83=A1=E4=BF=8A=E5=85=89) wrot=
-e:
-> Hi, Fei:
->=20
-> On Mon, 2023-07-17 at 11:59 +0800, Fei Shao wrote:
-> >  	=20
-> > External email : Please do not click links or open attachments
-> > until
-> > you have verified the sender or the content.
-> >  Hi CK,
-> >=20
-> > On Fri, Jul 14, 2023 at 5:27=E2=80=AFPM CK Hu (=E8=83=A1=E4=BF=8A=E5=85=
-=89) <ck.hu@mediatek.com>
-> > wrote:
-> > >=20
-> > > Hi, Nancy:
-> > >=20
-> > > On Fri, 2023-04-21 at 10:16 +0800, Nancy.Lin wrote:
-> >=20
-> > snip
-> > >=20
-> > > In line 566, the statement is
-> > >=20
-> > > if (nodo) {
-> > >         comp_pdev =3D ...
-> > > }
-> > >=20
-> > > The comment says that only ovl_adaptoer has no device node, so
-> > > the
-> > > checking should be
-> > >=20
-> > > if (type !=3D MTK_DISP_OVL_ADAPTOR) {
-> > >         comp_pdev =3D ...
-> > > }
-> > >=20
-> > > and later it would return when type =3D MTK_DISP_OVL_ADAPTOR,
-> > > so there would be no problem of uninitialized symbol.
-> >=20
-> > That sounds fair, but IIUC what Nancy tries to resolve here is the
-> > false-positive Smatch warning.
-> > How about this: given the `if (node)` block was exclusively added
-> > for
-> > ovl_adaptor in [1], plus the init function will immediately return
-> > after that in this case, it should be safe to do the following
-> >=20
-> > ```
-> > /* Not all drm components have a DTS device node... */
-> > if (node =3D=3D NULL)
-> >     return 0;
-> >=20
-> > comp_pdev =3D of_find_device_by_node(node);
-> > ...
-> >=20
-> > if (type =3D=3D MTK_DISP_AAL ||
-> > ...
-> > ```
-> >=20
-> > which is equivalent to adding a `node =3D=3D NULL` check before [1].
-> > This should suppress the Smatch warning because `comp_pdev` will be
-> > (again) unconditionally assigned to something, and the `type =3D=3D
-> > MTK_DISP_OVL_ADAPTOR` line can be dropped also (optional?).
->=20
-> This solution also looks good to me.
->=20
-> Regards,
-> CK
->=20
-I will send the next version of modifications based on your
-suggestions.
+--- a/arch/x86/kernel/kprobes/core.c
++++ b/arch/x86/kernel/kprobes/core.c
+@@ -880,6 +880,7 @@ static void resume_execution(struct kpro
+ 			p->ainsn.boostable =3D true;
+ 			goto no_change;
+ 		}
++		break;
+ 	default:
+ 		break;
+ 	}
 
-Thanks,
-Nancy
 
-> >=20
-> > [1]: commit 0d9eee9118b7 ("drm/mediatek: Add drm ovl_adaptor sub
-> > driver for MT8195")
-> >=20
-> > Regards,
-> > Fei
+Patches currently in stable-queue which might be from stable-owner@vger.ker=
+nel.org are
+
+queue-5.10/x86-kprobes-update-kcb-status-flag-after-singlestepping.patch
+queue-5.10/x86-kprobes-fix-to-identify-indirect-jmp-and-others-using-range-=
+case.patch
+queue-5.10/x86-kprobes-fix-jng-jnle-emulation.patch
+queue-5.10/x86-kprobes-retrieve-correct-opcode-for-group-instruction.patch
+queue-5.10/x86-kprobes-use-int3-instead-of-debug-trap-for-single-step.patch
+queue-5.10/x86-kprobes-do-not-decode-opcode-in-resume_execution.patch
+queue-5.10/x86-kprobes-identify-far-indirect-jmp-correctly.patch
+queue-5.10/kprobes-x86-fix-fall-through-warnings-for-clang.patch
+queue-5.10/x86-kprobes-move-inline-to-the-beginning-of-the-kprobe_is_ss-dec=
+laration.patch
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -447,8 +219,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/ecedbe0bd06a67654bc90421569ad6e6bd9ddfe7.camel%40mediatek=
-.com.
-
---__=_Part_Boundary_002_1801065578.374948272--
-
+clang-built-linux/2023080434-varying-occupant-8977%40gregkh.
