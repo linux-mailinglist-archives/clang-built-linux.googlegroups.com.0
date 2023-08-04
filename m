@@ -1,120 +1,121 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBB24WWOTAMGQE3S2DLKA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBB3UWWOTAMGQEYFJKFYY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id CA73376FDE1
-	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Aug 2023 11:57:00 +0200 (CEST)
-Received: by mail-qv1-xf3e.google.com with SMTP id 6a1803df08f44-63d10c323c3sf20834266d6.0
-        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Aug 2023 02:57:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1691143020; cv=pass;
+Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
+	by mail.lfdr.de (Postfix) with ESMTPS id E6A7E76FDE2
+	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Aug 2023 11:57:03 +0200 (CEST)
+Received: by mail-qt1-x83e.google.com with SMTP id d75a77b69052e-40fe2ac4356sf999101cf.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Aug 2023 02:57:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1691143023; cv=pass;
         d=google.com; s=arc-20160816;
-        b=d8EMxeQioeHJoZDx3lFNeHvELXXM7JAv22WUzleNgK3ASL5cohXrwXcGlpd32BmMRQ
-         bI757VfR9wXIzV2FnpTpdTLAYHOOeAg+ak7ZmF0aWn+tYpN3UTwVKq+2fINSPCWrXq4H
-         xGi4/C8iYx/jhMcI2DyO8nf2OJA3nXZ/8H2YAuq9IuIGULqkUMnV0XHv2u7GcPmDKli8
-         hi9Ms9lbMdvv/2jFH67GIPXKiyG4QMSNY5eSXml7IUpyXq3WI60xvY5b5T3zcXVY8f+n
-         uM3Gt3V3JYcSRJNh9nYRSG9yTuIoSIgq1OhVNZDQlJ+yFFk33Fpv7HRBJm/hVehLJU8W
-         +Z3A==
+        b=umpiqVXa7zZMsQ0vXzP1FTLHeW5P8nzViJbfE4wAhhGSt8jtpg6CpXf2E4MfwKTu7c
+         LccSduKdqzrLViPPO+dqSOEUpHN5wy1oWyY+wTOMzezietFz96Qt7vIo4Ih4C751n3SZ
+         bhqg30jB3JQqdAQRtElLlJw53U6B3Vj3VWc8zSnpnn2/oeIHIQenuktRNBeOfvo3fi6H
+         +M6hzh+p8jgVoGAZM2tWH4ibBUnxADwf9ttLtfoJhKrnQ61FDZAnsDZx4dMbAal+sSUG
+         CPNG4jX3Amd1Bvx90K35CSJeWsiyWkiKkKup2ezVFHT1wrvxjMbPsk1SmyRG+h6amcJt
+         RP/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-transfer-encoding
          :mime-version:message-id:in-reply-to:date:from:cc:to:subject:sender
          :dkim-signature;
-        bh=3lI6G6rZK1DaBOo7yzYOg2MDaLgVsaFjo/ea5tG8dvw=;
-        fh=M+RCfsu39+TOU/tatfWuYpVYu9gEJhXsVZVrt5KCSJ0=;
-        b=V8M6baxWoTsDZIZjZZWNRQkPs9q39DYkH154eByMQxD3yK1UKWZn74NQqa1HvSIWmX
-         rdm8niZUUwaZ3oeBG6zuFVMEoinIKgGtvYbqN2ZDf3ilys0ePXduWGW1ZWzAZYLNDLQp
-         HIOcdKhfSFgTYC6bYQbWNBka0SAgoo/pp0x9SaBUJiW3F3nIXdc34HTrMm+7a+B+i7Gz
-         tz9YJhAsZU/NDia94EKtZiZl866lA7ryfuat2nrqvUTqbDS1mZuVGU9uvr/MUMAgdjDd
-         YIkNO7La2/qySfqrQrB7KCS2Ra3QmoSsK0tVPdCzbhFF0laevEAysrbQAAXcuIK7hPCm
-         c2GA==
+        bh=3BFhocTJZGpkk/eI5SO2pmKKA+1wqix4EZxmc8aTMVo=;
+        fh=CrTTH8lxvHdtSH/vJ4pGCgZaX2vh9cRgVaiZ1xqsSXg=;
+        b=NZZW+4sF/zMKpK8CZD4rtUrLNgW8pyrP+v5Sl4D+vfUVhj1SjoCUH2eNa9+7fC8LFI
+         6CvvM9GO5bF9ntzuU/SnmDSsF9I9Jd2QCULA48e6qG34+3r2ULfbYTO9OvMdOthTS4oA
+         Mio5ti2GS/5MNUFsUe+OaUB4vVfu61vLvRk39WAUMflN74Fi488x4jj+PIpYooc9Lkg7
+         a3Dh0s1vjU6HOwZ0RcRdwzBl9aheCAaCYwsAuSJgxTbX4mjyP4R8f+d65pl55ShVSnLV
+         KNpvE7h9VcWbMEzlUX/mPOsfvehnleGrSw300bUQ4ZEQpSMeU07UWw9dyul70khyHHo9
+         xVlg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=vNNvRhKA;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=iLxj3iHY;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20221208; t=1691143019; x=1691747819;
+        d=googlegroups.com; s=20221208; t=1691143023; x=1691747823;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:x-original-authentication-results
          :x-original-sender:content-transfer-encoding:mime-version:message-id
          :in-reply-to:date:from:cc:to:subject:sender:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3lI6G6rZK1DaBOo7yzYOg2MDaLgVsaFjo/ea5tG8dvw=;
-        b=fx/epDOsJvRu/xKxICOW7qk5hslmHQcVSDX6wY5lOdRq0dkHxO3zT4ayWdKtH+4tua
-         +8+xT1dF8lMTfhb37hjr32H8H5Z+1CLE4m6ZPx7zodGtLLR6gpd32FZGY3YSSTEATr5j
-         KlFNLo6kLiVDSrqUHywKo4afHfebSgJeg9zmJo0y5/u9xs9jGGXnA4y9h0k53n9FMzBX
-         7xK1Xo2yZh54q91crCsdOv2NfoI+97JRglkmfBEpvC0h5QRP5Hkzlbrt9EPDqF+3i5ZL
-         qWtKUy7VVR6igIUW661HwnlZRC0FPdJcbZBxQyqx93zknAmd3DBo9Zl2O4xAkmcVUlhY
-         3pPQ==
+        bh=3BFhocTJZGpkk/eI5SO2pmKKA+1wqix4EZxmc8aTMVo=;
+        b=mqDd5bq1fQHobEKT41UyXGD3oOzK/XZFzKwmDiphwId/TIEuE04MDDoxj/ZqtFHo3e
+         QAdth0vGGNIFH5WoMO57JAyL2kfkpUXrAaZEwRouuoBiErt/BCAhuFfiIbaKqVVX/Qdl
+         TkIR6SJyoiafcVrjZyob8mn5WW52ZwPn77VVPZ8BXeDt7EWk0XBqPQAqJVUgAK/qq6jH
+         Ed6NVM/O12PB8ooIr58KPDwjlambOkYRTyTLXQSjEQpEExOwrR/jDjETEcvPJNbA58nx
+         2S+4JHB6roIEErzwbfuPSFnDSRuK6zCwZcRf9bK0GliPoBYvz6IaoXzrfJSb7U1TCPof
+         D4Sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20221208; t=1691143019; x=1691747819;
+        d=1e100.net; s=20221208; t=1691143023; x=1691747823;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender
          :content-transfer-encoding:mime-version:message-id:in-reply-to:date
          :from:cc:to:subject:x-beenthere:x-gm-message-state:sender:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3lI6G6rZK1DaBOo7yzYOg2MDaLgVsaFjo/ea5tG8dvw=;
-        b=dhp7wvArrwsKgwaOrbL7WXBHuGRgmTTj7FNR4nxbdiAjdstBTRC7A+A3/NiTPGoA/K
-         TH0X3LEkGwVMPlt4g8Lbut/P6GN+pZx2Nr4cfAZR3QWuc6UDy4trIfKkPcm4DWXhYwT9
-         WgEKjeenp9Mqg8Qe5I6Q52m9NAzh5kksIBAMy5qDR7pybnuFnOv0tlLfJL1Kx3BG06al
-         mAapL2bQW12iPw85jOCegRpS64/uBjIXxkotoZWRpKSuwPAlrqHvRmG/5tGlnteJEtgD
-         qGEiDz0NnKdV+5FV3XeDV9mYD376btW0h3MQIf36UbwHcLbXZjgPdc/H3wOXQaVh81FI
-         XrsA==
+        bh=3BFhocTJZGpkk/eI5SO2pmKKA+1wqix4EZxmc8aTMVo=;
+        b=ALzmyvjnNws6SPJTMCgIY+lqn+1x6cojFPO2OU/b3pC0DmdTGl4mju3EqV3m4JzAdA
+         hbxESzeQwa20sTP6jfM68E5xiV+UYQFAqkOFDaJbOy4JoS3qGLoOG8ul8CppnrTk538h
+         h4cDyWxh9WQ+frRZMX/86iPCwPTMPTFn3HNCYkv/f2ctemOCTFFfgu7peXGknP+oXAxW
+         6mC1zMLMfb8nLbgN9XaT9Kt0ywe9I9TArV5k0Sl8/gwJ3wzDIqESwgUon0RgVd+ROiZT
+         8yCsghexqFr4+N0u4qenUPp+BK4imMrJrCIg5TAfMDbQdYCxIuc+wdVZ2L1bGq+lvBGb
+         oJBA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: AOJu0YyzSn2MEyXw/XuSTIhH3VrIFz6CSjZykBbW/a69vEH7QZosvxgW
-	pVHoYM6rdbNPNm8csritvew=
-X-Google-Smtp-Source: AGHT+IEQcGuqBHiJUv6ay+/FP741E4G5hCsfTIsCew0G7dveCmUq1jV1XDaReEXs+HV0cr/ezdz98A==
-X-Received: by 2002:a0c:b310:0:b0:63d:318c:7dfb with SMTP id s16-20020a0cb310000000b0063d318c7dfbmr1012196qve.13.1691143019719;
-        Fri, 04 Aug 2023 02:56:59 -0700 (PDT)
+X-Gm-Message-State: AOJu0YzoxhAdPyDwg7rpLJODsEMC/zNKDk4tom7qHFmjpzyQXTmHB0cG
+	tljR/Yb6Ak6BG7ZP0n3T4eI=
+X-Google-Smtp-Source: AGHT+IGon1jJXlm8KtmRYoPQ3ohlJazLCdnFvlMyFLlWE3PkqX/n4JOa9jlzU2VI9KLV8XLc1wjuhw==
+X-Received: by 2002:ac8:574b:0:b0:403:96e3:4745 with SMTP id 11-20020ac8574b000000b0040396e34745mr201630qtx.20.1691143022693;
+        Fri, 04 Aug 2023 02:57:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:e3ca:0:b0:634:7d98:d337 with SMTP id e10-20020a0ce3ca000000b006347d98d337ls440542qvl.0.-pod-prod-04-us;
- Fri, 04 Aug 2023 02:56:59 -0700 (PDT)
-X-Received: by 2002:a1f:4806:0:b0:487:1926:5aab with SMTP id v6-20020a1f4806000000b0048719265aabmr583322vka.15.1691143018951;
-        Fri, 04 Aug 2023 02:56:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1691143018; cv=none;
+Received: by 2002:a05:6902:102f:b0:c4e:39f4:a2a2 with SMTP id
+ x15-20020a056902102f00b00c4e39f4a2a2ls2012594ybt.1.-pod-prod-05-us; Fri, 04
+ Aug 2023 02:57:02 -0700 (PDT)
+X-Received: by 2002:a81:7383:0:b0:570:126:feaf with SMTP id o125-20020a817383000000b005700126feafmr1119855ywc.19.1691143021833;
+        Fri, 04 Aug 2023 02:57:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1691143021; cv=none;
         d=google.com; s=arc-20160816;
-        b=d22RGzCr2S9baND1dZ9nlLwzNZIXKrRJeQFvCeRx00DJ/dQhrt7wOkvwAc7a0zk+KQ
-         WHqIFx09a8FXD5GdsAuU9fxFD7kh00aigmFcrT82RQnA05JjTi6tIdMihCiJ6JBTaJn5
-         uY2G2aB52tAzrQz4HlpMQ+b8HGP7pb/2YsD4WMsmXgS672XZrytkfCNFt1z99Va9dFx1
-         fTXVPd4GYmip1/mXd2gLfSOJ57/APTxopoZW/WgYO+DD28Ty2/HQ8yrX39awyvBWYeHP
-         TAmVLDobPeqC10IB5NHbI36oxqQNrXH2gNq8NNBGmPRcG1sO8RowrUnaJTdgFKnGtvz+
-         zytw==
+        b=idoXKcMpcl2R23Y+MhBFPRMpyK/0R2F26L6XrSN/ud38/Fw8SfpdD0Pq/y6fXMyRd7
+         p5f3v2ILnIreHk1J3IUmOZrrkEJVnW9SDAtSvjIxU0qTQ1Diq1iY6cv0HM6a3vSHzsxt
+         qBETb4vTeEtDVOTKyPwVZ797amDhFLAaqOa3NXcr2LjokPGSJfqoJNMlCYHyFQn5dmgg
+         dMo1XvYvIEoD1L12Pr2rZr2iQzWDgb8Bspn0SpDVV0mkyPe3TG8As76GzbKeDFeinlji
+         G6UuG5nT6F7EeBSqWFfA5TC1bpogSh1CgMcDb3u1XRxkAmvF8SumDWDlYJztmboV/52x
+         13fQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
          :from:cc:to:subject:dkim-signature;
-        bh=xMmegpCgPXTjtK66Zdyyp3AV7/pyola93ivMdodDtoM=;
-        fh=M+RCfsu39+TOU/tatfWuYpVYu9gEJhXsVZVrt5KCSJ0=;
-        b=PE5HdX4u3iD8aOM1TNeSxsfu7XIu/AE3biMpqp0IoVbjYF1zvsGes/lsUCeELdAPck
-         z5Nby+bIKRFMpgvg97PLRwNj3E/H5NIbU4OWPfcQlV/9flno86G3lndEU6mdrglwqw4n
-         yCtwvgKCZCAOg9HAOjs84dbKUcxpEKT9hnuEWqlyq9XIr4gT1MXkvfFomsx+Zy5ZU0zx
-         KaL2t46qIt6qb7FCASDYMf1aUKEIcjTUjzNgH2GMUIv61/Cloi2ZesC436P9jpHf5nHy
-         MbPkP98UW1sg3l+RabBrNu/ehK42XpJYc+gReAA6JanUAeNV1fEeFTrovrdmpMXPjvFZ
-         Xg5w==
+        bh=pOS7/Q2kayrMwdDJpMNcZHn8wCiGEp7c7Elv09vsRok=;
+        fh=CrTTH8lxvHdtSH/vJ4pGCgZaX2vh9cRgVaiZ1xqsSXg=;
+        b=gaZ6gkKKPF5/4BuLQTC7s9n60Fl/Kiy4KQYzouUMjvz4JbisV5m0hkjnORlFphI6I5
+         6sebu5kftWV+HxCJ2tBLmRhjR6pQAtsN4q81Sda/1BOZTZD9w7tPk2XTaA+FflZcmHCX
+         JYsn1F8RuQXOHd71WHdGaZGXtvIY2vFaXrZBIodrBBztGiOwcx3gMt6A+Z9PhGyZ91+S
+         TwfF0gbZUTJ2S5ct32u5J6grbwHyEJGXCMUQxvK6h7Ag4oDMci9SD4XIIPj5QKzfOyl2
+         NMpKWeMEPbAgdShxbh7Yf5OX5zV8VnuquB9wcj/pyT13iIhZUrKFf5Ic43JbNWgR4c9T
+         xjFQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=vNNvRhKA;
+       dkim=pass header.i=@linuxfoundation.org header.s=korg header.b=iLxj3iHY;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
 Received: from dfw.source.kernel.org (dfw.source.kernel.org. [2604:1380:4641:c500::1])
-        by gmr-mx.google.com with ESMTPS id n10-20020a1fbd0a000000b00485e5a835adsi318724vkf.4.2023.08.04.02.56.58
+        by gmr-mx.google.com with ESMTPS id fl16-20020a05690c339000b00586a5c739fesi191996ywb.4.2023.08.04.02.57.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Aug 2023 02:56:58 -0700 (PDT)
+        Fri, 04 Aug 2023 02:57:01 -0700 (PDT)
 Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 2604:1380:4641:c500::1 as permitted sender) client-ip=2604:1380:4641:c500::1;
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 8A84961F81;
-	Fri,  4 Aug 2023 09:56:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9545BC433C7;
-	Fri,  4 Aug 2023 09:56:57 +0000 (UTC)
-Subject: Patch "x86/kprobes: Retrieve correct opcode for group instruction" has been added to the 5.10-stable tree
-To: bp@alien8.de,clang-built-linux@googlegroups.com,gregkh@linuxfoundation.org,gustavoars@kernel.org,hpa@zytor.com,laijs@linux.alibaba.com,lihuafei1@huawei.com,mhiramat@kernel.org,mingo@redhat.com,namit@vmware.com,natechancellor@gmail.com,ndesaulniers@google.com,peterz@infradead.org,rostedt@goodmis.org,sashal@kernel.org,tglx@linutronix.de,weiyongjun1@huawei.com,x86@kernel.org,xukuohai@huawei.com
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7352B61F85;
+	Fri,  4 Aug 2023 09:57:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 799F7C433C7;
+	Fri,  4 Aug 2023 09:57:00 +0000 (UTC)
+Subject: Patch "x86/kprobes: Update kcb status flag after singlestepping" has been added to the 5.10-stable tree
+To: bp@alien8.de,clang-built-linux@googlegroups.com,deso@posteo.net,gregkh@linuxfoundation.org,gustavoars@kernel.org,hpa@zytor.com,laijs@linux.alibaba.com,lihuafei1@huawei.com,mhiramat@kernel.org,mingo@kernel.org,mingo@redhat.com,namit@vmware.com,natechancellor@gmail.com,ndesaulniers@google.com,peterz@infradead.org,rostedt@goodmis.org,sashal@kernel.org,tglx@linutronix.de,weiyongjun1@huawei.com,x86@kernel.org,xukuohai@huawei.com
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
-Date: Fri, 04 Aug 2023 11:56:42 +0200
-In-Reply-To: <20230705064653.226811-4-lihuafei1@huawei.com>
-Message-ID: <2023080442-penny-exclusive-aeb6@gregkh>
+Date: Fri, 04 Aug 2023 11:56:44 +0200
+In-Reply-To: <20230705064653.226811-9-lihuafei1@huawei.com>
+Message-ID: <2023080443-limelight-evergreen-b12d@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
@@ -122,7 +123,7 @@ X-stable: commit
 X-Patchwork-Hint: ignore
 X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linuxfoundation.org header.s=korg header.b=vNNvRhKA;       spf=pass
+ header.i=@linuxfoundation.org header.s=korg header.b=iLxj3iHY;       spf=pass
  (google.com: domain of gregkh@linuxfoundation.org designates
  2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linuxfoundation.org
@@ -141,24 +142,24 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 This is a note to let you know that I've just added the patch titled
 
-    x86/kprobes: Retrieve correct opcode for group instruction
+    x86/kprobes: Update kcb status flag after singlestepping
 
 to the 5.10-stable tree which can be found at:
     http://www.kernel.org/git/?p=3Dlinux/kernel/git/stable/stable-queue.git=
 ;a=3Dsummary
 
 The filename of the patch is:
-     x86-kprobes-retrieve-correct-opcode-for-group-instruction.patch
+     x86-kprobes-update-kcb-status-flag-after-singlestepping.patch
 and it can be found in the queue-5.10 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
 
 
-From stable-owner@vger.kernel.org Wed Jul  5 08:48:03 2023
+From stable-owner@vger.kernel.org Wed Jul  5 08:48:04 2023
 From: Li Huafei <lihuafei1@huawei.com>
-Date: Wed, 5 Jul 2023 14:46:47 +0800
-Subject: x86/kprobes: Retrieve correct opcode for group instruction
+Date: Wed, 5 Jul 2023 14:46:52 +0800
+Subject: x86/kprobes: Update kcb status flag after singlestepping
 To: <stable@vger.kernel.org>
 Cc: <gregkh@linuxfoundation.org>, <mhiramat@kernel.org>, <tglx@linutronix.d=
 e>, <mingo@redhat.com>, <bp@alien8.de>, <x86@kernel.org>, <hpa@zytor.com>, =
@@ -167,47 +168,66 @@ e>, <mingo@redhat.com>, <bp@alien8.de>, <x86@kernel.org>, <hpa@zytor.com>, =
 om>, <rostedt@goodmis.org>, <weiyongjun1@huawei.com>, <gustavoars@kernel.or=
 g>, <namit@vmware.com>, <laijs@linux.alibaba.com>, <clang-built-linux@googl=
 egroups.com>, <lihuafei1@huawei.com>
-Message-ID: <20230705064653.226811-4-lihuafei1@huawei.com>
+Message-ID: <20230705064653.226811-9-lihuafei1@huawei.com>
 
-From: Masami Hiramatsu <mhiramat@kernel.org>
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
 
-[ Upstream commit d60ad3d46f1d04a282c56159f1deb675c12733fd ]
+[ Upstream commit dec8784c9088b131a1523f582c2194cfc8107dc0 ]
 
-Since the opcodes start from 0xff are group5 instruction group which is
-not 2 bytes opcode but the extended opcode determined by the MOD/RM byte.
+Fix kprobes to update kcb (kprobes control block) status flag to
+KPROBE_HIT_SSDONE even if the kp->post_handler is not set.
 
-The commit abd82e533d88 ("x86/kprobes: Do not decode opcode in resume_execu=
-tion()")
-used insn->opcode.bytes[1], but that is not correct. We have to refer
-the insn->modrm.bytes[1] instead.
+This bug may cause a kernel panic if another INT3 user runs right
+after kprobes because kprobe_int3_handler() misunderstands the
+INT3 is kprobe's single stepping INT3.
 
-Fixes: abd82e533d88 ("x86/kprobes: Do not decode opcode in resume_execution=
-()")
-Signed-off-by: Masami Hiramatsu <mhiramat@kernel.org>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Link: https://lkml.kernel.org/r/161469872400.49483.18214724458034233166.stg=
-it@devnote2
+Fixes: 6256e668b7af ("x86/kprobes: Use int3 instead of debug trap for singl=
+e-step")
+Reported-by: Daniel M=C3=BCller <deso@posteo.net>
+Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Signed-off-by: Ingo Molnar <mingo@kernel.org>
+Tested-by: Daniel M=C3=BCller <deso@posteo.net>
+Cc: stable@vger.kernel.org
+Link: https://lore.kernel.org/all/20220727210136.jjgc3lpqeq42yr3m@muellerd-=
+fedora-PC2BDTX9
+Link: https://lore.kernel.org/r/165942025658.342061.12452378391879093249.st=
+git@devnote2
 Signed-off-by: Li Huafei <lihuafei1@huawei.com>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- arch/x86/kernel/kprobes/core.c |    6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/x86/kernel/kprobes/core.c |   18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
 
 --- a/arch/x86/kernel/kprobes/core.c
 +++ b/arch/x86/kernel/kprobes/core.c
-@@ -464,7 +464,11 @@ static void set_resume_flags(struct kpro
- 		break;
- #endif
- 	case 0xff:
--		opcode =3D insn->opcode.bytes[1];
+@@ -826,16 +826,20 @@ NOKPROBE_SYMBOL(arch_prepare_kretprobe);
+ static void kprobe_post_process(struct kprobe *cur, struct pt_regs *regs,
+ 			       struct kprobe_ctlblk *kcb)
+ {
+-	if ((kcb->kprobe_status !=3D KPROBE_REENTER) && cur->post_handler) {
+-		kcb->kprobe_status =3D KPROBE_HIT_SSDONE;
+-		cur->post_handler(cur, regs, 0);
+-	}
+-
+ 	/* Restore back the original saved kprobes variables and continue. */
+-	if (kcb->kprobe_status =3D=3D KPROBE_REENTER)
++	if (kcb->kprobe_status =3D=3D KPROBE_REENTER) {
++		/* This will restore both kcb and current_kprobe */
+ 		restore_previous_kprobe(kcb);
+-	else
++	} else {
 +		/*
-+		 * Since the 0xff is an extended group opcode, the instruction
-+		 * is determined by the MOD/RM byte.
++		 * Always update the kcb status because
++		 * reset_curent_kprobe() doesn't update kcb.
 +		 */
-+		opcode =3D insn->modrm.bytes[0];
- 		if ((opcode & 0x30) =3D=3D 0x10) {
- 			/*
- 			 * call absolute, indirect
++		kcb->kprobe_status =3D KPROBE_HIT_SSDONE;
++		if (cur->post_handler)
++			cur->post_handler(cur, regs, 0);
+ 		reset_current_kprobe();
++	}
+ }
+ NOKPROBE_SYMBOL(kprobe_post_process);
+=20
 
 
 Patches currently in stable-queue which might be from stable-owner@vger.ker=
@@ -231,4 +251,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/2023080442-penny-exclusive-aeb6%40gregkh.
+clang-built-linux/2023080443-limelight-evergreen-b12d%40gregkh.
