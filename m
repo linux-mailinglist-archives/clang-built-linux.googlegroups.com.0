@@ -1,140 +1,135 @@
-Return-Path: <clang-built-linux+bncBD63HSEZTUIBBUEBTW2QMGQE3ZSKQ6A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBVFVVO2QMGQEHI4PHAY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4450293EE24
-	for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jul 2024 09:12:18 +0200 (CEST)
-Received: by mail-yb1-xb3d.google.com with SMTP id 3f1490d57ef6-e03623b24ddsf3743835276.1
-        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jul 2024 00:12:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1722237137; cv=pass;
+Received: from mail-oo1-xc3c.google.com (mail-oo1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2DB65943CEA
+	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Aug 2024 02:46:14 +0200 (CEST)
+Received: by mail-oo1-xc3c.google.com with SMTP id 006d021491bc7-5d5545ca462sf5497786eaf.1
+        for <lists+clang-built-linux@lfdr.de>; Wed, 31 Jul 2024 17:46:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1722473173; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UN7nGt5G/5y1NufmfFCwkykcq7Rp03jKmEivWhYyxoA1yRs3qd4UdknsMkcC1ynAM3
-         T9QYrky6cR9rgkbVK/X74WZXwx2DrTBTv1G7wXBEvwFG7gEFlmxvammSigWEb1F36MKt
-         cb/Ome7243O2oR/5HyAltfA6E3lVwdAD6T+TCDs3gxOTtAspMSy8cPE8BVkci4szQmw3
-         sUisxou0ZDYJYfu42SYM1WsiFUIoxlblmyauW9GV/5pjXRBpgFaRz2KIy8ebgj/Uk2jQ
-         homaXBH/x+eyTlc2qWDnixW238GfFUuEJ8BMzqrIxUYleH9k26/Qd3ZGXmsew7swGdl9
-         ehRw==
+        b=TZ9jHfxpiyPT/LDZQJvSCgZoEc24UI0N5zIxqRTZi5J7M92BxB3Xz+2PohENETMuL/
+         l69hvwv6tVsvthrGJKAHvXCrQ7MCgXMUPN/CrgZntgVG8XfbAm1Nqy5tsbCixs22fK6O
+         dC2OFv5cWWNvvvBLok9gWlyPId7xmebhkYyLXze4NXskvb5lsFXUHkOxiojGcGd53Ht2
+         9bFkrqMCWJyb7q4bMah8amNsNRl2FnnyWh3622voHRi1+/qE5SBeqb58p1YplA6LiVJu
+         ImKep1LiTFf/yZwUgDSR2YnOLUWPhaLT7vWqX4LsTBwI12wUxos3w2l4hbFArz3/LXQM
+         Ft7w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=duQ1mXsojM53qCozjSuKwO5AYDXL/jRt3K8NHfps69o=;
-        fh=SzdRxI/khRCLzogi5NwMFXYSxAqopJyzzikbGhfGBfQ=;
-        b=BkQu+aP0yZY0XQLFWFYo36fg21uZCOEgy+lzqD+92PnNWxfOS1FQATiHiT8OFS0TWN
-         urIuBRiB2oKyMDbcUzwOHz9rFI2UySf7IAEnqMo6pegsRIYY+SiYx7gqGQ+gi+RaHB2c
-         Cy9fHAiYjM2Qd4+OfXQMKTpA6sBEXhQcCQq5Mv8tEIO/t6zzE02iJJNzofDFR/eH6sfP
-         poFhQ3S5PDH0SkO1LvI9OdniNHIrjPw8qy0eaW22LpYZ/5lxrUtyM94wQ6xQ54ubgOlP
-         C+hgoTZvZrQsF5XvZrg6heplwId1hb5BOuj1nrIwJXf+TFenzWfzqedE/J+8C+Z/AIAS
-         pq0A==;
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=5C6yN07zbTy6c92IPmEyyhbnjS7q52lEmLuBhqipjVA=;
+        fh=atjadW2Uqw1fWqSocnPO1sA9XQ8IAlwCBbHNBQle02M=;
+        b=0ycYXJdPPpYSSEzf6hEsLHFEIYFXTCHf4TC1ESiTYUviqn/lkYOJG1QpyM9R52Hvrn
+         FO1/Q+DIQ7zZvTY5mK7QG9CjOmFPqZib2FyukH/guGx37EpH+D7JhuZSR/OWNlWauuO9
+         3SlDQ0NDmQaoXD9/0Vg6r6l0KBWrw227mOr754/5EzYxZypWAyn/3ifWkfxGX1ScHMqD
+         curLuiI70efSzWgg+9CFNj1APQJJevChTlMqdpj4JnlG4+zSuXE2cQoTE/R1FLGIi8/z
+         w26BiKpAuZY0j0aJG2FZHGw6qHyZ4ZZiysu69wROaRs46/39j4XG6EZvwQV7cUyuD3qy
+         q/uA==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=IWnlpVDZ;
-       spf=pass (google.com: domain of ardb@kernel.org designates 2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=WEg2+wf8;
+       spf=pass (google.com: domain of nathan@kernel.org designates 2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20230601; t=1722237137; x=1722841937; darn=lfdr.de;
+        d=googlegroups.com; s=20230601; t=1722473173; x=1723077973; darn=lfdr.de;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:x-original-authentication-results
-         :x-original-sender:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=duQ1mXsojM53qCozjSuKwO5AYDXL/jRt3K8NHfps69o=;
-        b=PCR1UTThJvwPUZBUWBtFf45rGfE1gSCi2c+50NUAEj0DByYh7sIQDVsG4hZKicX/eC
-         yj4a2vReKjqMEMufKRzh5rjBWwiY451ft94tQi8fKdI8bUGDbFkfVBve6BfG5q+yaAaS
-         fkSDt3F768Z0OWHdXwqJy8k54axiOPIwn4pFK0wA7nchEDIZa4zJdrva0DRjAYQaawdN
-         YckU3Lh4Ua0iXOCc/exHjzpZPI0f0zvGmiYya/xSEFQm5RJFx4+gfaCxGa0lLxhwxf97
-         7cqsnDvFjfqMvKB+NT/O4rPwIE9GUTQtXHCMnKWLdIqwSocO4ncP9p11dL9K1CCqMnVx
-         8ZHw==
+         :x-original-sender:in-reply-to:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5C6yN07zbTy6c92IPmEyyhbnjS7q52lEmLuBhqipjVA=;
+        b=uLdG+t1Mzb0ZT3fhzvAGYjEaVgwgjsww/1m9HPTfFF9OnHNDOXp3LXnBd6kfBAkrFy
+         LL6+HGVF6rhkpCAgZTqmeIAj4if7PvSXkM91DPBT7DLev9FdKU0C8aHFsbKrxFrhl/gj
+         TwjPA4VGxrZ2vrkdAMpRN3lTllMyGCLM0H9QgbCcmcNRKW5QL1cAalywBsWI4syBWYOf
+         YXssIwxZhfEOdMdmfUl+Gjx2M91e+tf4Kg1LUbG9yV1CtdrMCnv+9JftFQ/08m/N1Y3i
+         bE8/ZeuFNufJHDvcm89CYo0jzKW8dK6wtigUHyYOavekBucafKk5swix0z5kBJk6rhyH
+         L7Sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722237137; x=1722841937;
+        d=1e100.net; s=20230601; t=1722473173; x=1723077973;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
-         :x-original-authentication-results:x-original-sender:cc:to:subject
-         :message-id:date:from:in-reply-to:references:mime-version
-         :x-beenthere:x-gm-message-state:sender:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=duQ1mXsojM53qCozjSuKwO5AYDXL/jRt3K8NHfps69o=;
-        b=HYm3VMVONZAfRatKfG6+bgG7JEwBYadG+5IENlfG1PkICa4mvqLHF5qCykMA0yn8h1
-         iJ+8dJ+5nUwMSu9EPxOgDL20J/PZbm6phkpmUNzFy80n6kApp5m5aRJiWCUevoDTtFXq
-         OF/ornGWp7PWHrYnPiKLQyHA8Dvnx88MC1v0y/eTQXjgEafmC/eAiSJLcuX1iJUkuWjw
-         APZmw/kHFKjbt4RsVTFRbBUCuqcBbKN/dwq55bOavK0V8KIoAYSDSwI4Llgsu5gBXbiP
-         D8Jw00j1bsdpQs8onnanGaHkelpbOgk0vp/hlCCWOPXbRbZqjgrrOlzn57GBpBLvOEnc
-         +cmg==
+         :x-original-authentication-results:x-original-sender:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:x-beenthere:x-gm-message-state:sender:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5C6yN07zbTy6c92IPmEyyhbnjS7q52lEmLuBhqipjVA=;
+        b=qD1+6irqvvQ0gAXP/HfCmbWCdU+Xez32xSDkSvJP/hW4ykrKgLBjt31OAIneTe12Rm
+         o9C4bRVwAT1mixQGMlkzy+1dyckQpilcrmNgXUo0hJciQjF+bFr3Y/5LbRBcSABg4H7y
+         b5xNVH9BgcZkHhB0FGeG4gTOVzd5k6hPAHU63ScK65KzwIDC1pWPQwVPU2avUHN3sG5e
+         UHZAh+OdfDrY5sNf3RpkjsM3plZvSNRSnvGbgEd1VhwDu084ASpOVPXmT2PrxU9dlf0m
+         DjP51lqg+31lGZIgpmCpLssQEozqg8fGgCrzVBqnKHyQFJ7YxaIuJ/L2drl432bX77q+
+         5NgQ==
 Sender: clang-built-linux@googlegroups.com
-X-Forwarded-Encrypted: i=2; AJvYcCXcJcSjUzq4LFTfU7kLEOlwNXEWAxWS9kn7EbbcxSAknUCfxUP2R6qc+ipWYOg83IAZEf/X2dfMISkZAyLqVWD4OTWkR/uruabeUY8qNtag
-X-Gm-Message-State: AOJu0YycUFodA1uCCbLs3F5YhsiXCt/mhn0crIUm/kCbaxIUAni4cmkH
-	SYnh4XgRUUrrG33g9w9qdRVJ7n/Q3CGWMV6T/eUCozJ7Uo0pfyg9
-X-Google-Smtp-Source: AGHT+IF0z1fow+JCpqsJGE4BU/PXhjYnzzMkiKxw+Fr+NUoJ+E8HkGOVHwefoym4/hO2WFqdL/tD8A==
-X-Received: by 2002:a05:6902:1881:b0:e03:530d:3a1a with SMTP id 3f1490d57ef6-e0b545427c6mr9949186276.25.1722237136699;
-        Mon, 29 Jul 2024 00:12:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCWCufgpZe9YlyVzusFVAOglmhQLo/H/opCjTXmLIeZQYCM5ST6Y0zi6FzVQNZ+GjDJSUOmjghOu0kh7ltHUUKeIfm7px/HhXo0ejE/w2k6O
+X-Gm-Message-State: AOJu0Yw+Pze3Xe/saCJ5D3xmNp0RRWH6brK5+ErWgYEiYbv8kNu/0Fbe
+	kdimZ5E3YBvSnadhItru4GIR+Kulkr4xBNo74HdJJE8HIwP4K+9b
+X-Google-Smtp-Source: AGHT+IEwXugZ1Q71EAhXzjH40ykcQu9cZWJLcUhCj/FAA2RTFQq/InEzCAbVZQ5kMU+4hz21wa1pKw==
+X-Received: by 2002:a05:6820:1c97:b0:5ce:6671:de2f with SMTP id 006d021491bc7-5d61e73331fmr1736669eaf.2.1722473172751;
+        Wed, 31 Jul 2024 17:46:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6902:1005:b0:e0b:6951:c769 with SMTP id
- 3f1490d57ef6-e0b6951e0d5ls2515777276.2.-pod-prod-08-us; Mon, 29 Jul 2024
- 00:12:15 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCXTyNNJcn3zSPM1QhZP3GQ4Aycy/PtMHn55QTjxqcZ2uePMF9Jc4453iR6sZsSpWdhXHw7W6K6Q7631VL8zjMmZLTUTBocnr6jb8M0w+vTbpGzM
-X-Received: by 2002:a0d:e387:0:b0:66a:b6d2:c184 with SMTP id 00721157ae682-67b7bf994e9mr81377407b3.16.1722237135569;
-        Mon, 29 Jul 2024 00:12:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1722237135; cv=none;
+Received: by 2002:a05:6214:2e0b:b0:6b7:96a6:c5e9 with SMTP id
+ 6a1803df08f44-6bb3c0834c8ls111133786d6.0.-pod-prod-01-us; Wed, 31 Jul 2024
+ 17:46:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCXdj1w2yB49h/Wj8xVkqPZ6VPp1jV56fqvAKpBjT4hTudz8h0IxfEoWAhW4oNqwjKHIagxle59lb6EOsMXwcjkeY9dDpKP2IVSuP4VabrsQ997Z
+X-Received: by 2002:a05:6214:5d13:b0:6b2:ca03:e8f9 with SMTP id 6a1803df08f44-6bb8d56c2a0mr12293106d6.0.1722473171932;
+        Wed, 31 Jul 2024 17:46:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1722473171; cv=none;
         d=google.com; s=arc-20160816;
-        b=YdAMm7zTDTX/3ggmgZqOg81QNMf1pWX6NnG4cb+P9qHea/4nEvp9/QDWyxQE6qbR/E
-         GFPVrq7fmbuhZxcmkHuWqITIINkQuusvVB3OhuefQ4pmRQ0wqi8WOYgxWnS48pzq8WKr
-         07Ks1kyw2ND7PAZeZvi1zyWhVD4c784NuFh+hbACrc0uUQ34kSe5qi1nFv5JeG6XZECe
-         W00Wjs7EWuTrzD1IW7Bm/aE0yEqAVSsu5bNvaRuopoF4hwyW75qmgf87YPO6gyj4uqNX
-         NnIDGLfjys+wxZIHN5FBFKkvpBdtwMHGhoKOpsUCtkN+It44W04829Tyqso37f+iORQ6
-         IPWQ==
+        b=yt76Aefvzh3QhHZKANPwWZTYW46OQ2oOreLE2h+0s0tIG5MAHkw2Wk5u8kxisytpBG
+         b+IF3nINa4df11a5oV8pH9ARaFLu1nWGG5CBIFTvIWM7rfU9lixyHQcJ9Df6JaQzcWuc
+         S0zK8uNtyShF+Gqx+Ffj2szycrwvpUZJCAPjGHCe6Udo8IofyN2IR8HS3qh7Ao6baBTH
+         TwhoYLLo5BJOOm/2nCWo9Poxm0P5UO6zDg3gsP/n+wJfXWDrgE1JKPfXELycYNzI8XBY
+         3Z8kTjIo5Xc+mcPDpua0bJx7D9Euw/HRiAtqKTBea26Y7KKXDAm5VAIrF7g/Gi32GTpn
+         Ga3g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=zopiJEifWGmdf/TnyayGgP3VxoCLoURpmlGu49SjNU8=;
-        fh=VLlEFh7xyj0nwvE2zr72AXQPgwRFluDwRZPWaGGpYmY=;
-        b=xwY3Ch/9rxvl960ncvECvmfqEVcyXtAlzooYDmQgNXg3NlS/sTPjgjFXk7ieVJ2879
-         R2BEScTMxhoXhf45AmzfUO71P8eioP2kxjVJ0FgqvtgDyxfVDR32DGoAIBkO+ekuUFsg
-         W4ZlcGf8gGX088wl6ztH0QKVIfa372tBFLCU/YyySClSxwoT5WQo6+PNwtGrxbmNS+3g
-         Frc2TMR4kNpPlpkb/jtUUxGMpaY3pI3v6UCTb5kBY3wLqWvGs4bdCTRFR0Qy+xECyOcC
-         39k5PyhEZeqzf3eSebefswnrgpvR7bcmmvVfQAEsFuW0K1L7mEcGoFPAOvjzR3URsMbA
-         ZPpQ==;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=W+snayEaUL34Nu2UQTVwSNsH1mxxe+hPVuIhZnHlN8A=;
+        fh=tJeMhPyi02UBc2cdh17KFFCprGoyQg2tX4C90c/lPRs=;
+        b=HPEe2DfuzAfj3xzVCkhmd8N9n4AKzD/XNgIBDBgJBy6T4tVGSjHbZwXIsHskt+lxJj
+         Gz0WGWB/VepETRsLNe26Mwa/sDZ8NVo4KLYj3/GP5A8LYPgZZ2S9pENodGABb9ABPz/f
+         jOG+dxJ4+K8PLmqqbUnYZboOwHvmLU+oiS5TU8lYIjaVFTzCuLPBTi3u0S0mkyJoyb6o
+         rXYsTvtOyphD2T7alXw9t7tkLuvCQV2QlalOy8DBy2SrwJm2RPvBee7dklAmmEQCw5wq
+         yvHp2kgGHAQT18pIH1kJdctm436blRw3et6Bq3iOoIWfQvrwutP0Qb4+tqXoLBaia9AE
+         FVMA==;
         dara=google.com
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=IWnlpVDZ;
-       spf=pass (google.com: domain of ardb@kernel.org designates 2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=ardb@kernel.org;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=WEg2+wf8;
+       spf=pass (google.com: domain of nathan@kernel.org designates 2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from dfw.source.kernel.org (dfw.source.kernel.org. [2604:1380:4641:c500::1])
-        by gmr-mx.google.com with ESMTPS id 00721157ae682-6756c073931si5468837b3.2.2024.07.29.00.12.15
+        by gmr-mx.google.com with ESMTPS id 6a1803df08f44-6bb3fae8690si4807556d6.6.2024.07.31.17.46.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jul 2024 00:12:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ardb@kernel.org designates 2604:1380:4641:c500::1 as permitted sender) client-ip=2604:1380:4641:c500::1;
+        Wed, 31 Jul 2024 17:46:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 2604:1380:4641:c500::1 as permitted sender) client-ip=2604:1380:4641:c500::1;
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 38AC061368
-	for <clang-built-linux@googlegroups.com>; Mon, 29 Jul 2024 07:12:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0FB7C4AF0C
-	for <clang-built-linux@googlegroups.com>; Mon, 29 Jul 2024 07:12:14 +0000 (UTC)
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-52f04150796so5147334e87.3
-        for <clang-built-linux@googlegroups.com>; Mon, 29 Jul 2024 00:12:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWTKXHgdt2B5q9rnInzdALeBMVuwuwIFq/akhdBf1sDAdxiDomlUpIC5Ly/G7KF0XWpUs4euakgpgcFshuweaF196+zUoDE2/b089RGF8E1/qVL
-X-Received: by 2002:a05:6512:360b:b0:52c:c032:538d with SMTP id
- 2adb3069b0e04-5309b27b28emr3413033e87.27.1722237133228; Mon, 29 Jul 2024
- 00:12:13 -0700 (PDT)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 583A461741;
+	Thu,  1 Aug 2024 00:46:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86CDBC32786;
+	Thu,  1 Aug 2024 00:46:10 +0000 (UTC)
+Date: Wed, 31 Jul 2024 17:46:09 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
+	Calvin Owens <calvin@wbinvd.org>, Arnd Bergmann <arnd@arndb.de>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH] ARM: assembler: Drop obsolete VFP accessor fallback
+Message-ID: <20240801004609.GA1614495@thelio-3990X>
+References: <20240730094858.1070431-2-ardb+git@google.com>
 MIME-Version: 1.0
-References: <92a00580828a1bdf96e7e36545f6d229809af04f.1722154575.git.calvin@wbinvd.org>
- <CAMj1kXFT3RFW7oPg5pc=bXCqBrzx9amAyR1dZpiqaLKu-5GXpQ@mail.gmail.com> <Zqa4SAyPKPuaXdgg@mozart.vkv.me>
-In-Reply-To: <Zqa4SAyPKPuaXdgg@mozart.vkv.me>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 29 Jul 2024 09:12:01 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXGLXGqA4JvuWNLk_-cu5_soKpbyDaZxwjOo5LVTdZt71w@mail.gmail.com>
-Message-ID: <CAMj1kXGLXGqA4JvuWNLk_-cu5_soKpbyDaZxwjOo5LVTdZt71w@mail.gmail.com>
-Subject: Re: [PATCH] ARM: vfp: Use asm volatile in fmrx/fmxr macros
-To: Calvin Owens <calvin@wbinvd.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <nathan@kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, zhuqiuer <zhuqiuer1@huawei.com>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Russell King <linux@armlinux.org.uk>, Linus Walleij <linus.walleij@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ardb@kernel.org
+Content-Disposition: inline
+In-Reply-To: <20240730094858.1070431-2-ardb+git@google.com>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=IWnlpVDZ;       spf=pass
- (google.com: domain of ardb@kernel.org designates 2604:1380:4641:c500::1 as
- permitted sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE
+ header.i=@kernel.org header.s=k20201202 header.b=WEg2+wf8;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 2604:1380:4641:c500::1 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -148,141 +143,152 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, 28 Jul 2024 at 23:29, Calvin Owens <calvin@wbinvd.org> wrote:
->
-> On Sunday 07/28 at 19:09 +0200, Ard Biesheuvel wrote:
-> > (cc Arnd, Nathan, zhuqiuer)
-> >
-> > On Sun, 28 Jul 2024 at 10:21, Calvin Owens <calvin@wbinvd.org> wrote:
-> > > <snip>
-> > >
-> > > Crudely grepping for vmsr/vmrs instructions in the otherwise nearly
-> > > idential text for vfp_support_entry() makes the problem obvious:
-> > >
-> > >     vmlinux.llvm.good [0xc0101cb8] <+48>:  vmrs   r7, fpexc
-> > >     vmlinux.llvm.good [0xc0101cd8] <+80>:  vmsr   fpexc, r0
-> > >     vmlinux.llvm.good [0xc0101d20] <+152>: vmsr   fpexc, r7
-> > >     vmlinux.llvm.good [0xc0101d38] <+176>: vmrs   r4, fpexc
-> > >     vmlinux.llvm.good [0xc0101d6c] <+228>: vmrs   r0, fpscr
-> > >     vmlinux.llvm.good [0xc0101dc4] <+316>: vmsr   fpexc, r0
-> > >     vmlinux.llvm.good [0xc0101dc8] <+320>: vmrs   r0, fpsid
-> > >     vmlinux.llvm.good [0xc0101dcc] <+324>: vmrs   r6, fpscr
-> > >     vmlinux.llvm.good [0xc0101e10] <+392>: vmrs   r10, fpinst
-> > >     vmlinux.llvm.good [0xc0101eb8] <+560>: vmrs   r10, fpinst2
-> > >
-> > >     vmlinux.llvm.bad  [0xc0101cb8] <+48>:  vmrs   r7, fpexc
-> > >     vmlinux.llvm.bad  [0xc0101cd8] <+80>:  vmsr   fpexc, r0
-> > >     vmlinux.llvm.bad  [0xc0101d20] <+152>: vmsr   fpexc, r7
-> > >     vmlinux.llvm.bad  [0xc0101d30] <+168>: vmrs   r0, fpscr
-> > >     vmlinux.llvm.bad  [0xc0101d50] <+200>: vmrs   r6, fpscr  <== BOOM!
-> > >     vmlinux.llvm.bad  [0xc0101d6c] <+228>: vmsr   fpexc, r0
-> > >     vmlinux.llvm.bad  [0xc0101d70] <+232>: vmrs   r0, fpsid
-> > >     vmlinux.llvm.bad  [0xc0101da4] <+284>: vmrs   r10, fpinst
-> > >     vmlinux.llvm.bad  [0xc0101df8] <+368>: vmrs   r4, fpexc
-> > >     vmlinux.llvm.bad  [0xc0101e5c] <+468>: vmrs   r10, fpinst2
-> > >
-> > > I think LLVM's reordering is valid as the code is currently written: the
-> > > compiler doesn't know the instructions have side effects in hardware.
-> > >
-> > > Fix by using "asm volatile" in fmxr() and fmrx(), so they cannot be
-> > > reordered with respect to each other. The original compiler now produces
-> > > working kernels on my hardware with DYNAMIC_DEBUG=n.
-> > >
-> > > This is the relevant piece of the diff of the vfp_support_entry() text,
-> > > from the original oopsing kernel to a working kernel with this patch:
-> > >
-> > >          vmrs r0, fpscr
-> > >          tst r0, #4096
-> > >          bne 0xc0101d48
-> > >          tst r0, #458752
-> > >          beq 0xc0101ecc
-> > >          orr r7, r7, #536870912
-> > >          ldr r0, [r4, #0x3c]
-> > >          mov r9, #16
-> > >         -vmrs r6, fpscr
-> > >          orr r9, r9, #251658240
-> > >          add r0, r0, #4
-> > >          str r0, [r4, #0x3c]
-> > >          mvn r0, #159
-> > >          sub r0, r0, #-1207959552
-> > >          and r0, r7, r0
-> > >          vmsr fpexc, r0
-> > >          vmrs r0, fpsid
-> > >         +vmrs r6, fpscr
-> > >          and r0, r0, #983040
-> > >          cmp r0, #65536
-> > >          bne 0xc0101d88
-> > >
-> > > Fixes: 4708fb041346 ("ARM: vfp: Reimplement VFP exception entry in C code")
-> > > Signed-off-by: Calvin Owens <calvin@wbinvd.org>
-> > > ---
-> > >  arch/arm/vfp/vfpinstr.h | 48 ++++++++++++++++++++++-------------------
-> > >  1 file changed, 26 insertions(+), 22 deletions(-)
-> > >
-> >
-> > Thanks for the patch, and for the excellent analysis.
-> >
-> > Note that this fix has been proposed in the past, as well as another
-> > one addressing the same issue, but we've been incredibly sloppy
-> > getting it merged.
-> >
-> > https://lore.kernel.org/linux-arm-kernel/20240410024126.21589-2-zhuqiuer1@huawei.com/
-> > https://lore.kernel.org/linux-arm-kernel/20240318093004.117153-2-ardb+git@google.com/
->
-> Ah sorry for missing that, I searched for the symptom not the cure.
->
-> > What both of us appear to have missed is that there are two versions
-> > of these routines, which should either be dropped (as they are
-> > obsolete now that the minimum binutils version is 2.25) or fixed up as
-> > well, as you do below.
-> >
-> > Anyone have any thoughts on using a memory clobber as opposed to
-> > volatile? I think volatile means that the access cannot be elided, but
-> > it is unclear to me whether that implies any ordering. A 'memory'
-> > clobber implies that globally visible state is updated, which seems
-> > like a stronger guarantee to me.
->
-> My thinking was that if 'asm volatile' is sufficient, it will suppress
-> less optimization than the clobber, since the clobber might force the
-> compiler to assume unrelated memory could have been modified when it
-> really never is. But I'm not sure about that.
->
-> Out of curiousity, I tried it both ways with the same compiler just now,
-> the only tiny difference in the emitted vfp_support_entry() is here:
->
->         --- /volatile   2024-07-28 13:28:59.890505404 -0700
->         +++ /memclobber 2024-07-28 13:28:59.890505404 -0700
->          str r0, [r5, #0x4]
->          vmrs r7, fpexc
->          tst r7, #1073741824
->          bne 0xc0101d28
->          orr r7, r7, #1073741824
->          bic r0, r7, #-2147483648
->          vmsr fpexc, r0
->         +ldr r8, [pc, #0x26c]
->          ldr r0, [r5, #0x8]
->         -ldr r8, [pc, #0x268]
->          add r6, r5, #224
->          ldr r0, [r8, r0, lsl #2]
->          cmp r0, r6
->          beq 0xc0101d18
->
+On Tue, Jul 30, 2024 at 11:48:59AM +0200, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> Now that the minimum supported binutils version is 2.25, we no longer
+> need a workaround for binutils older than 2.24 for accessing VFP control
+> registers from assembler.
+> 
+> Cc: Calvin Owens <calvin@wbinvd.org>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Nathan Chancellor <nathan@kernel.org>
+> Cc: clang-built-linux <clang-built-linux@googlegroups.com>
+> Cc: Russell King <linux@armlinux.org.uk>
+> Cc: Linus Walleij <linus.walleij@linaro.org>
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 
-Right. So it doesn't matter in practice - good to know.
+Very nice :)
 
-So in the 'volatile' case, I guess we are relying on the compiler not
-reordering those with respect to each other, which should be
-sufficient to ensure that we do not access VFP status register before
-enabling the VFP unit via the control register, as all are accessed
-using inline asm.
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
-In any case, this should go into the patch system.
-https://www.armlinux.org.uk/developer/patches/section.php?section=0
-
-Note to self and other: follow-up with a patch that removes
-CONFIG_AS_VFP_VMRS_FPINST, which is no longer needed.
+> ---
+> Note: applies onto 9410/1
+> 
+>  arch/arm/Kconfig                 |  2 --
+>  arch/arm/Kconfig.assembler       |  6 ------
+>  arch/arm/include/asm/vfp.h       | 10 ---------
+>  arch/arm/include/asm/vfpmacros.h | 11 ----------
+>  arch/arm/vfp/vfpinstr.h          | 22 --------------------
+>  5 files changed, 51 deletions(-)
+> 
+> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> index 54b2bb817a7f..854a12d89471 100644
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -1747,5 +1747,3 @@ config ARCH_HIBERNATION_POSSIBLE
+>  	default y if ARCH_SUSPEND_POSSIBLE
+>  
+>  endmenu
+> -
+> -source "arch/arm/Kconfig.assembler"
+> diff --git a/arch/arm/Kconfig.assembler b/arch/arm/Kconfig.assembler
+> deleted file mode 100644
+> index 5cb31aae1188..000000000000
+> --- a/arch/arm/Kconfig.assembler
+> +++ /dev/null
+> @@ -1,6 +0,0 @@
+> -# SPDX-License-Identifier: GPL-2.0
+> -
+> -config AS_VFP_VMRS_FPINST
+> -	def_bool $(as-instr,.fpu vfpv2\nvmrs r0$(comma)FPINST)
+> -	help
+> -	  Supported by binutils >= 2.24 and LLVM integrated assembler.
+> diff --git a/arch/arm/include/asm/vfp.h b/arch/arm/include/asm/vfp.h
+> index 157ea3426158..85ccc422d4d0 100644
+> --- a/arch/arm/include/asm/vfp.h
+> +++ b/arch/arm/include/asm/vfp.h
+> @@ -9,16 +9,6 @@
+>  #ifndef __ASM_VFP_H
+>  #define __ASM_VFP_H
+>  
+> -#ifndef CONFIG_AS_VFP_VMRS_FPINST
+> -#define FPSID			cr0
+> -#define FPSCR			cr1
+> -#define MVFR1			cr6
+> -#define MVFR0			cr7
+> -#define FPEXC			cr8
+> -#define FPINST			cr9
+> -#define FPINST2			cr10
+> -#endif
+> -
+>  /* FPSID bits */
+>  #define FPSID_IMPLEMENTER_BIT	(24)
+>  #define FPSID_IMPLEMENTER_MASK	(0xff << FPSID_IMPLEMENTER_BIT)
+> diff --git a/arch/arm/include/asm/vfpmacros.h b/arch/arm/include/asm/vfpmacros.h
+> index ba0d4cb5377e..e2e1d5a3727a 100644
+> --- a/arch/arm/include/asm/vfpmacros.h
+> +++ b/arch/arm/include/asm/vfpmacros.h
+> @@ -8,7 +8,6 @@
+>  
+>  #include <asm/vfp.h>
+>  
+> -#ifdef CONFIG_AS_VFP_VMRS_FPINST
+>  	.macro	VFPFMRX, rd, sysreg, cond
+>  	vmrs\cond	\rd, \sysreg
+>  	.endm
+> @@ -16,16 +15,6 @@
+>  	.macro	VFPFMXR, sysreg, rd, cond
+>  	vmsr\cond	\sysreg, \rd
+>  	.endm
+> -#else
+> -	@ Macros to allow building with old toolkits (with no VFP support)
+> -	.macro	VFPFMRX, rd, sysreg, cond
+> -	MRC\cond	p10, 7, \rd, \sysreg, cr0, 0	@ FMRX	\rd, \sysreg
+> -	.endm
+> -
+> -	.macro	VFPFMXR, sysreg, rd, cond
+> -	MCR\cond	p10, 7, \rd, \sysreg, cr0, 0	@ FMXR	\sysreg, \rd
+> -	.endm
+> -#endif
+>  
+>  	@ read all the working registers back into the VFP
+>  	.macro	VFPFLDMIA, base, tmp
+> diff --git a/arch/arm/vfp/vfpinstr.h b/arch/arm/vfp/vfpinstr.h
+> index 32090b0fb250..a2f0c47e0ce7 100644
+> --- a/arch/arm/vfp/vfpinstr.h
+> +++ b/arch/arm/vfp/vfpinstr.h
+> @@ -62,8 +62,6 @@
+>  #define FPSCR_C (1 << 29)
+>  #define FPSCR_V	(1 << 28)
+>  
+> -#ifdef CONFIG_AS_VFP_VMRS_FPINST
+> -
+>  #define fmrx(_vfp_) ({				\
+>  	u32 __v;				\
+>  	asm volatile (".fpu	vfpv2\n"	\
+> @@ -78,26 +76,6 @@
+>  		     : : "r" (_var_) : "cc");	\
+>  })
+>  
+> -#else
+> -
+> -#define vfpreg(_vfp_) #_vfp_
+> -
+> -#define fmrx(_vfp_) ({						\
+> -	u32 __v;						\
+> -	asm volatile ("mrc p10, 7, %0, " vfpreg(_vfp_) ","	\
+> -		      "cr0, 0 @ fmrx	%0, " #_vfp_		\
+> -		     : "=r" (__v) : : "cc");			\
+> -	__v;							\
+> -})
+> -
+> -#define fmxr(_vfp_, _var_) ({					\
+> -	asm volatile ("mcr p10, 7, %0, " vfpreg(_vfp_) ","	\
+> -		      "cr0, 0 @ fmxr	" #_vfp_ ", %0"		\
+> -		     : : "r" (_var_) : "cc");			\
+> -})
+> -
+> -#endif
+> -
+>  u32 vfp_single_cpdo(u32 inst, u32 fpscr);
+>  u32 vfp_single_cprt(u32 inst, u32 fpscr, struct pt_regs *regs);
+>  
+> -- 
+> 2.46.0.rc1.232.g9752f9e123-goog
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMj1kXGLXGqA4JvuWNLk_-cu5_soKpbyDaZxwjOo5LVTdZt71w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20240801004609.GA1614495%40thelio-3990X.
