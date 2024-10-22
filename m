@@ -1,136 +1,192 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBVFVVO2QMGQEHI4PHAY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD5LDHXSYUMRBZ6U3W4AMGQE5TNIYLA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oo1-xc3c.google.com (mail-oo1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2DB65943CEA
-	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Aug 2024 02:46:14 +0200 (CEST)
-Received: by mail-oo1-xc3c.google.com with SMTP id 006d021491bc7-5d5545ca462sf5497786eaf.1
-        for <lists+clang-built-linux@lfdr.de>; Wed, 31 Jul 2024 17:46:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1722473173; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=TZ9jHfxpiyPT/LDZQJvSCgZoEc24UI0N5zIxqRTZi5J7M92BxB3Xz+2PohENETMuL/
-         l69hvwv6tVsvthrGJKAHvXCrQ7MCgXMUPN/CrgZntgVG8XfbAm1Nqy5tsbCixs22fK6O
-         dC2OFv5cWWNvvvBLok9gWlyPId7xmebhkYyLXze4NXskvb5lsFXUHkOxiojGcGd53Ht2
-         9bFkrqMCWJyb7q4bMah8amNsNRl2FnnyWh3622voHRi1+/qE5SBeqb58p1YplA6LiVJu
-         ImKep1LiTFf/yZwUgDSR2YnOLUWPhaLT7vWqX4LsTBwI12wUxos3w2l4hbFArz3/LXQM
-         Ft7w==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5246B9A9DCA
+	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2024 11:03:42 +0200 (CEST)
+Received: by mail-lj1-x237.google.com with SMTP id 38308e7fff4ca-2fb55e102b6sf39514961fa.1
+        for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2024 02:03:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1729587817; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=ab54sx6dUR0vuizUTQ+4GnaskqO8Y4RWy1V7PQySWXF7fRuH3lPeJ7HMtx8JIlQ1oA
+         547eb+AWlU8k6aR4OkqTezgFC5EMfREBsWkzBqRlOm2fo3KZBZpE5+x6NlhsuKVHFAQI
+         iNw5CcAf6JRgf/xHPRG0WtBujL8e6KGSlSsrddZUt68/gP2wYt3dGw6SN3mcdJBnZcPU
+         iLN3DtjLxmhU5PO9bxRt9MnnYGPTgtcrI9D1UU4GaG4ntanISTyUR5W0q1Oo8t7ig+vp
+         K2rXwAShxjxqOktTumjNPAAo6H20HogU0faUbXxJnnnkzfNhO4bCeWIV85LACnQzze4Y
+         PvwA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=5C6yN07zbTy6c92IPmEyyhbnjS7q52lEmLuBhqipjVA=;
-        fh=atjadW2Uqw1fWqSocnPO1sA9XQ8IAlwCBbHNBQle02M=;
-        b=0ycYXJdPPpYSSEzf6hEsLHFEIYFXTCHf4TC1ESiTYUviqn/lkYOJG1QpyM9R52Hvrn
-         FO1/Q+DIQ7zZvTY5mK7QG9CjOmFPqZib2FyukH/guGx37EpH+D7JhuZSR/OWNlWauuO9
-         3SlDQ0NDmQaoXD9/0Vg6r6l0KBWrw227mOr754/5EzYxZypWAyn/3ifWkfxGX1ScHMqD
-         curLuiI70efSzWgg+9CFNj1APQJJevChTlMqdpj4JnlG4+zSuXE2cQoTE/R1FLGIi8/z
-         w26BiKpAuZY0j0aJG2FZHGw6qHyZ4ZZiysu69wROaRs46/39j4XG6EZvwQV7cUyuD3qy
-         q/uA==;
+        bh=4PGRpj349dtZRcbwihqplwlxcbt8hvH5wYD/0h4T4QE=;
+        fh=ejMhGMj4jlRwj2b9YJI2gzEfzIcwjz/eATC2XVpqv4U=;
+        b=M9ryxOToK+XzzN3tKyFvAFMTKcut4F7HoOFBDPhSamSYusgcLC4FvbvfI902g3OMgN
+         pqOIcM5ueOQ8Gfi/mBVUxXOtqvhB7U60Ofrndlx4rhA9Ajp4Z9Wrl0G5i6BCFuRE07Wq
+         ACoGFgy2D1ZBJc7xj+uXVnUIvTklbpuXTE+FwJ4LQCJ8azaLJ0Yx/+koGP0+J0JWCWkM
+         TFmdwWPJGwi/t7kcVKRhCcq2tbriNtkWHuZzrY1GK9cg0wmznrOwQYXT1JKAF1nrBB8M
+         br/7IuVYSYN5FAUIeNKXUjOe/YoOSZefDnHAWSuK4k54QF1v9DKyJvf22BIRVNCu841M
+         g0PA==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=WEg2+wf8;
-       spf=pass (google.com: domain of nathan@kernel.org designates 2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=iUTyeyi3;
+       dkim=neutral (no key) header.i=@suse.cz header.s=susede2_ed25519;
+       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=kNwMrspN;
+       dkim=neutral (no key) header.i=@suse.cz header.s=susede2_ed25519;
+       spf=pass (google.com: domain of jack@suse.cz designates 195.135.223.130 as permitted sender) smtp.mailfrom=jack@suse.cz
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20230601; t=1722473173; x=1723077973; darn=lfdr.de;
+        d=googlegroups.com; s=20230601; t=1729587817; x=1730192617; darn=lfdr.de;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:x-original-authentication-results
          :x-original-sender:in-reply-to:content-disposition:mime-version
          :references:message-id:subject:cc:to:from:date:sender:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5C6yN07zbTy6c92IPmEyyhbnjS7q52lEmLuBhqipjVA=;
-        b=uLdG+t1Mzb0ZT3fhzvAGYjEaVgwgjsww/1m9HPTfFF9OnHNDOXp3LXnBd6kfBAkrFy
-         LL6+HGVF6rhkpCAgZTqmeIAj4if7PvSXkM91DPBT7DLev9FdKU0C8aHFsbKrxFrhl/gj
-         TwjPA4VGxrZ2vrkdAMpRN3lTllMyGCLM0H9QgbCcmcNRKW5QL1cAalywBsWI4syBWYOf
-         YXssIwxZhfEOdMdmfUl+Gjx2M91e+tf4Kg1LUbG9yV1CtdrMCnv+9JftFQ/08m/N1Y3i
-         bE8/ZeuFNufJHDvcm89CYo0jzKW8dK6wtigUHyYOavekBucafKk5swix0z5kBJk6rhyH
-         L7Sg==
+        bh=4PGRpj349dtZRcbwihqplwlxcbt8hvH5wYD/0h4T4QE=;
+        b=RMXQpniUYHveHpJgkuFl4QKqI0tk6MolmDXEDPB31fjvBO6+aErtdhZyHUTL84PU+x
+         XFbIVykAbODK9rEY/A4+Qx19WpIaiv81bsp1TlQismXmaiWm3wEMuvP3YOKX0NbaVG8r
+         LF76znnIUdH6xAX09JU1roCi7mFXk1Yts+HFZhrI0HP47xEVnylHJjLKC5I6oGyN7IoX
+         gsOZugNmi5W8tHcPyEnDt1AL1+vUQRSU7LyoiMUa3t1apwPyIdQpvI+IZVztd2pDxD94
+         l162jmsnBz1ZHgb/uguk7Xb03T/LNJUYC/Bijj8WUe64QwS5C2UJpA/jD4z4WaE00Ga/
+         n2Zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1722473173; x=1723077973;
+        d=1e100.net; s=20230601; t=1729587817; x=1730192617;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence
          :x-original-authentication-results:x-original-sender:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:x-beenthere:x-gm-message-state:sender:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5C6yN07zbTy6c92IPmEyyhbnjS7q52lEmLuBhqipjVA=;
-        b=qD1+6irqvvQ0gAXP/HfCmbWCdU+Xez32xSDkSvJP/hW4ykrKgLBjt31OAIneTe12Rm
-         o9C4bRVwAT1mixQGMlkzy+1dyckQpilcrmNgXUo0hJciQjF+bFr3Y/5LbRBcSABg4H7y
-         b5xNVH9BgcZkHhB0FGeG4gTOVzd5k6hPAHU63ScK65KzwIDC1pWPQwVPU2avUHN3sG5e
-         UHZAh+OdfDrY5sNf3RpkjsM3plZvSNRSnvGbgEd1VhwDu084ASpOVPXmT2PrxU9dlf0m
-         DjP51lqg+31lGZIgpmCpLssQEozqg8fGgCrzVBqnKHyQFJ7YxaIuJ/L2drl432bX77q+
-         5NgQ==
+        bh=4PGRpj349dtZRcbwihqplwlxcbt8hvH5wYD/0h4T4QE=;
+        b=I3qUPPYv6y0O0hwfQTbEVe/KWbHaqLv0AI5GkMl7tLQsHLF4bBsdZhdTYMm5ifpvui
+         MGsPTgnwClwQPhCnF4qPzd4pxLm39YRsEVo78hJMIoL7oL2Bvz+wQUpbRYD6PRRFIG6/
+         KZ1v1g2lCQwsuXJMkXt8pw1w3rHb0LglPeQZoyShM4/LlMqTl3XKKx9M6hc7XxZvomFX
+         cio4IsMa2VvhB5+WVv8JDR7t2sYV7NJ7CTi4zV+JLz+XE1QZ8zKAf2/ScVZR6wBZ3xML
+         P6wsi9XqvSE/Fxqhmn+DLhdOTe/bJba7ylbtVDUSxE2foWXgHH5eHk+fjv/kSuhpTbtO
+         js1g==
 Sender: clang-built-linux@googlegroups.com
-X-Forwarded-Encrypted: i=2; AJvYcCWCufgpZe9YlyVzusFVAOglmhQLo/H/opCjTXmLIeZQYCM5ST6Y0zi6FzVQNZ+GjDJSUOmjghOu0kh7ltHUUKeIfm7px/HhXo0ejE/w2k6O
-X-Gm-Message-State: AOJu0Yw+Pze3Xe/saCJ5D3xmNp0RRWH6brK5+ErWgYEiYbv8kNu/0Fbe
-	kdimZ5E3YBvSnadhItru4GIR+Kulkr4xBNo74HdJJE8HIwP4K+9b
-X-Google-Smtp-Source: AGHT+IEwXugZ1Q71EAhXzjH40ykcQu9cZWJLcUhCj/FAA2RTFQq/InEzCAbVZQ5kMU+4hz21wa1pKw==
-X-Received: by 2002:a05:6820:1c97:b0:5ce:6671:de2f with SMTP id 006d021491bc7-5d61e73331fmr1736669eaf.2.1722473172751;
-        Wed, 31 Jul 2024 17:46:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCXv3W7qDeWkhaC+d4kLwmtr2WNZaLNnsTKUOoRxF4NBCenx3AC9RYHPBt5lxzTYEGJ2XXgeFQ==@lfdr.de
+X-Gm-Message-State: AOJu0Yw1WKh9+Dl/7yVhFE9nba8KB/K9OREPBUmHU/OnDSjauzMlAiJh
+	RHqVjwzEsasPSUJjAjMb4JCc6nSNAcygUo86pvkJcW7j2Bb1V17p
+X-Google-Smtp-Source: AGHT+IHTsa1HITvyhFM+F7PTLZWKNe30+nJtZrfzrjJchN7DcGyh0arMrAhiw9ThsWEStN0L9NkS+w==
+X-Received: by 2002:a2e:920d:0:b0:2fb:3bef:6233 with SMTP id 38308e7fff4ca-2fb831e739fmr57343561fa.33.1729587816224;
+        Tue, 22 Oct 2024 02:03:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:2e0b:b0:6b7:96a6:c5e9 with SMTP id
- 6a1803df08f44-6bb3c0834c8ls111133786d6.0.-pod-prod-01-us; Wed, 31 Jul 2024
- 17:46:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCXdj1w2yB49h/Wj8xVkqPZ6VPp1jV56fqvAKpBjT4hTudz8h0IxfEoWAhW4oNqwjKHIagxle59lb6EOsMXwcjkeY9dDpKP2IVSuP4VabrsQ997Z
-X-Received: by 2002:a05:6214:5d13:b0:6b2:ca03:e8f9 with SMTP id 6a1803df08f44-6bb8d56c2a0mr12293106d6.0.1722473171932;
-        Wed, 31 Jul 2024 17:46:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1722473171; cv=none;
-        d=google.com; s=arc-20160816;
-        b=yt76Aefvzh3QhHZKANPwWZTYW46OQ2oOreLE2h+0s0tIG5MAHkw2Wk5u8kxisytpBG
-         b+IF3nINa4df11a5oV8pH9ARaFLu1nWGG5CBIFTvIWM7rfU9lixyHQcJ9Df6JaQzcWuc
-         S0zK8uNtyShF+Gqx+Ffj2szycrwvpUZJCAPjGHCe6Udo8IofyN2IR8HS3qh7Ao6baBTH
-         TwhoYLLo5BJOOm/2nCWo9Poxm0P5UO6zDg3gsP/n+wJfXWDrgE1JKPfXELycYNzI8XBY
-         3Z8kTjIo5Xc+mcPDpua0bJx7D9Euw/HRiAtqKTBea26Y7KKXDAm5VAIrF7g/Gi32GTpn
-         Ga3g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+Received: by 2002:a2e:1f11:0:b0:2fb:5214:5c92 with SMTP id 38308e7fff4ca-2fb6d6fb0b5ls12872281fa.1.-pod-prod-06-eu;
+ Tue, 22 Oct 2024 02:03:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUZPJg2UqkkEllu8HtaSZGaHNCKQxxoJAMxqr2wkSfYf2FQ6d6H1b0FfTha71T28wqvnF757WZKFh5LibAzNpshYw==@googlegroups.com
+X-Received: by 2002:a2e:be9f:0:b0:2ef:243b:6dce with SMTP id 38308e7fff4ca-2fb82e9f13emr58752651fa.10.1729587812789;
+        Tue, 22 Oct 2024 02:03:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1729587812; cv=none;
+        d=google.com; s=arc-20240605;
+        b=WQUYbQpunoU+toJ0062N+l+N5SDLHed8ltRfMUIeCNhF9hw9zRxzfOmg1xuyQD25Mw
+         9Z7intVlzL2A8KeumXPwqdJDLIecj+aNnCFyFl+e+y6YMXF+yatOliqcWku/dwHNksBA
+         3kbbrdggOQFa84d5ZNA8dfHl+dMh2GiQhf5X70ego+y/UgIXmCiMr6M52Jdqbvr0Gclj
+         0eoCBmEiVfLom/gfwA7gTTsxPtSjePgE9K0oKo4fYab2uZnCXuQBX9UcasRFt3njtZfc
+         z74vSxGl+/uuAL3pduLHxQbLu6kKFCSxb4sh8NhqfBNGeQQATMzMj3M/0LcYL0XKn7ic
+         /hTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=W+snayEaUL34Nu2UQTVwSNsH1mxxe+hPVuIhZnHlN8A=;
-        fh=tJeMhPyi02UBc2cdh17KFFCprGoyQg2tX4C90c/lPRs=;
-        b=HPEe2DfuzAfj3xzVCkhmd8N9n4AKzD/XNgIBDBgJBy6T4tVGSjHbZwXIsHskt+lxJj
-         Gz0WGWB/VepETRsLNe26Mwa/sDZ8NVo4KLYj3/GP5A8LYPgZZ2S9pENodGABb9ABPz/f
-         jOG+dxJ4+K8PLmqqbUnYZboOwHvmLU+oiS5TU8lYIjaVFTzCuLPBTi3u0S0mkyJoyb6o
-         rXYsTvtOyphD2T7alXw9t7tkLuvCQV2QlalOy8DBy2SrwJm2RPvBee7dklAmmEQCw5wq
-         yvHp2kgGHAQT18pIH1kJdctm436blRw3et6Bq3iOoIWfQvrwutP0Qb4+tqXoLBaia9AE
-         FVMA==;
+         :subject:cc:to:from:date:dkim-signature:dkim-signature
+         :dkim-signature:dkim-signature;
+        bh=Ge4czd1YagvBRBTmt8lWVR11qX/pmlisX8kozJtR0aI=;
+        fh=l8cWAGVYtRHkuxUFcz4bizKTy00TH+zrqO8O4yuDJfM=;
+        b=hwWEzmBx30qaovEz/C/FHKEAjfjfZDtaGitm0OuHma5kwyw+0Tdet7FHB1Kcg7nf29
+         nr1Wi8d+nDpIBkk+CXoX6w9I/7MpmcLGpXlxmn+dswB1LhzExg7pEGy8bY+e08PLWRXj
+         bgYWmoGTdnoFjsnfUj7Oi2nNyi5wjeYobNmOFnfn3bhzYwcHAcOt79uEX5+AT+oxwvJc
+         DqQVFfAP0g9d7QjlnNQmwvw18J6NRiPU1YwLRNRntb1lKTglGC0fvImNPn9QWyW12D+S
+         PV9JVmpN4is7xTaoPtKf0+t+jbDMplFuMRfsKE4QDH+UAi8Y07aPUtQAhIlzteNXezDB
+         b05A==;
         dara=google.com
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=WEg2+wf8;
-       spf=pass (google.com: domain of nathan@kernel.org designates 2604:1380:4641:c500::1 as permitted sender) smtp.mailfrom=nathan@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from dfw.source.kernel.org (dfw.source.kernel.org. [2604:1380:4641:c500::1])
-        by gmr-mx.google.com with ESMTPS id 6a1803df08f44-6bb3fae8690si4807556d6.6.2024.07.31.17.46.11
-        for <clang-built-linux@googlegroups.com>
+       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=iUTyeyi3;
+       dkim=neutral (no key) header.i=@suse.cz header.s=susede2_ed25519;
+       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=kNwMrspN;
+       dkim=neutral (no key) header.i=@suse.cz header.s=susede2_ed25519;
+       spf=pass (google.com: domain of jack@suse.cz designates 195.135.223.130 as permitted sender) smtp.mailfrom=jack@suse.cz
+Received: from smtp-out1.suse.de (smtp-out1.suse.de. [195.135.223.130])
+        by gmr-mx.google.com with ESMTPS id 38308e7fff4ca-2fb9ae3d7bbsi1086131fa.6.2024.10.22.02.03.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Jul 2024 17:46:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of nathan@kernel.org designates 2604:1380:4641:c500::1 as permitted sender) client-ip=2604:1380:4641:c500::1;
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 583A461741;
-	Thu,  1 Aug 2024 00:46:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86CDBC32786;
-	Thu,  1 Aug 2024 00:46:10 +0000 (UTC)
-Date: Wed, 31 Jul 2024 17:46:09 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
-	Calvin Owens <calvin@wbinvd.org>, Arnd Bergmann <arnd@arndb.de>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH] ARM: assembler: Drop obsolete VFP accessor fallback
-Message-ID: <20240801004609.GA1614495@thelio-3990X>
-References: <20240730094858.1070431-2-ardb+git@google.com>
+        Tue, 22 Oct 2024 02:03:32 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jack@suse.cz designates 195.135.223.130 as permitted sender) client-ip=195.135.223.130;
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id D2C7B21EA9;
+	Tue, 22 Oct 2024 09:03:31 +0000 (UTC)
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C5E6513AC9;
+	Tue, 22 Oct 2024 09:03:31 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 1lhLMGNqF2fDBwAAD6G6ig
+	(envelope-from <jack@suse.cz>); Tue, 22 Oct 2024 09:03:31 +0000
+Received: by quack3.suse.cz (Postfix, from userid 1000)
+	id 8C6D7A086F; Tue, 22 Oct 2024 11:03:27 +0200 (CEST)
+Date: Tue, 22 Oct 2024 11:03:27 +0200
+From: Jan Kara <jack@suse.cz>
+To: syzbot <syzbot+0dd5b81275fa083055d7@syzkaller.appspotmail.com>
+Cc: adilger.kernel@dilger.ca, brauner@kernel.org,
+	clang-built-linux@googlegroups.com, harshadshirwadkar@gmail.com,
+	jack@suse.cz, linux-ext4@vger.kernel.org,
+	linux-kernel@vger.kernel.org, nathan@kernel.org,
+	ndesaulniers@google.com, syzkaller-bugs@googlegroups.com,
+	tytso@mit.edu
+Subject: Re: [syzbot] [ext4?] INFO: task hung in ext4_stop_mmpd
+Message-ID: <20241022090327.qhemczcaheaympct@quack3>
+References: <000000000000690606061ce1fe7e@google.com>
+ <6716e5a0.050a0220.10f4f4.00d2.GAE@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20240730094858.1070431-2-ardb+git@google.com>
-X-Original-Sender: nathan@kernel.org
+In-Reply-To: <6716e5a0.050a0220.10f4f4.00d2.GAE@google.com>
+X-Rspamd-Queue-Id: D2C7B21EA9
+X-Spam-Level: 
+X-Spamd-Result: default: False [-1.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	URI_HIDDEN_PATH(1.00)[https://syzkaller.appspot.com/x/.config?x=dd14c10ec1b6af25];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RCVD_TLS_LAST(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	FREEMAIL_CC(0.00)[dilger.ca,kernel.org,googlegroups.com,gmail.com,suse.cz,vger.kernel.org,google.com,mit.edu];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.cz:dkim,suse.cz:email];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	TAGGED_RCPT(0.00)[0dd5b81275fa083055d7];
+	ASN(0.00)[asn:25478, ipnet:::/0, country:RU];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	MISSING_XM_UA(0.00)[];
+	SUBJECT_HAS_QUESTION(0.00)[]
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Score: -1.51
+X-Spam-Flag: NO
+X-Original-Sender: jack@suse.cz
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=WEg2+wf8;       spf=pass
- (google.com: domain of nathan@kernel.org designates 2604:1380:4641:c500::1 as
- permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@suse.cz header.s=susede2_rsa header.b=iUTyeyi3;       dkim=neutral
+ (no key) header.i=@suse.cz header.s=susede2_ed25519;       dkim=pass
+ header.i=@suse.cz header.s=susede2_rsa header.b=kNwMrspN;       dkim=neutral
+ (no key) header.i=@suse.cz header.s=susede2_ed25519;       spf=pass
+ (google.com: domain of jack@suse.cz designates 195.135.223.130 as permitted
+ sender) smtp.mailfrom=jack@suse.cz
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,152 +199,35 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 30, 2024 at 11:48:59AM +0200, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
+On Mon 21-10-24 16:37:04, syzbot wrote:
+> syzbot suspects this issue was fixed by commit:
 > 
-> Now that the minimum supported binutils version is 2.25, we no longer
-> need a workaround for binutils older than 2.24 for accessing VFP control
-> registers from assembler.
+> commit d3476f3dad4ad68ae5f6b008ea6591d1520da5d8
+> Author: Jan Kara <jack@suse.cz>
+> Date:   Mon Aug 5 20:12:41 2024 +0000
 > 
-> Cc: Calvin Owens <calvin@wbinvd.org>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Nathan Chancellor <nathan@kernel.org>
-> Cc: clang-built-linux <clang-built-linux@googlegroups.com>
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: Linus Walleij <linus.walleij@linaro.org>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+>     ext4: don't set SB_RDONLY after filesystem errors
+> 
+> bisection log:  https://syzkaller.appspot.com/x/bisect.txt?x=10d04640580000
+> start commit:   4a39ac5b7d62 Merge tag 'random-6.12-rc1-for-linus' of git:..
+> git tree:       upstream
+> kernel config:  https://syzkaller.appspot.com/x/.config?x=dd14c10ec1b6af25
+> dashboard link: https://syzkaller.appspot.com/bug?extid=0dd5b81275fa083055d7
+> syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=14fbd177980000
+> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=108ea607980000
+> 
+> If the result looks correct, please mark the issue as fixed by replying with:
 
-Very nice :)
+Looks plausible:
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+#syz fix: ext4: don't set SB_RDONLY after filesystem errors
 
-> ---
-> Note: applies onto 9410/1
-> 
->  arch/arm/Kconfig                 |  2 --
->  arch/arm/Kconfig.assembler       |  6 ------
->  arch/arm/include/asm/vfp.h       | 10 ---------
->  arch/arm/include/asm/vfpmacros.h | 11 ----------
->  arch/arm/vfp/vfpinstr.h          | 22 --------------------
->  5 files changed, 51 deletions(-)
-> 
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index 54b2bb817a7f..854a12d89471 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -1747,5 +1747,3 @@ config ARCH_HIBERNATION_POSSIBLE
->  	default y if ARCH_SUSPEND_POSSIBLE
->  
->  endmenu
-> -
-> -source "arch/arm/Kconfig.assembler"
-> diff --git a/arch/arm/Kconfig.assembler b/arch/arm/Kconfig.assembler
-> deleted file mode 100644
-> index 5cb31aae1188..000000000000
-> --- a/arch/arm/Kconfig.assembler
-> +++ /dev/null
-> @@ -1,6 +0,0 @@
-> -# SPDX-License-Identifier: GPL-2.0
-> -
-> -config AS_VFP_VMRS_FPINST
-> -	def_bool $(as-instr,.fpu vfpv2\nvmrs r0$(comma)FPINST)
-> -	help
-> -	  Supported by binutils >= 2.24 and LLVM integrated assembler.
-> diff --git a/arch/arm/include/asm/vfp.h b/arch/arm/include/asm/vfp.h
-> index 157ea3426158..85ccc422d4d0 100644
-> --- a/arch/arm/include/asm/vfp.h
-> +++ b/arch/arm/include/asm/vfp.h
-> @@ -9,16 +9,6 @@
->  #ifndef __ASM_VFP_H
->  #define __ASM_VFP_H
->  
-> -#ifndef CONFIG_AS_VFP_VMRS_FPINST
-> -#define FPSID			cr0
-> -#define FPSCR			cr1
-> -#define MVFR1			cr6
-> -#define MVFR0			cr7
-> -#define FPEXC			cr8
-> -#define FPINST			cr9
-> -#define FPINST2			cr10
-> -#endif
-> -
->  /* FPSID bits */
->  #define FPSID_IMPLEMENTER_BIT	(24)
->  #define FPSID_IMPLEMENTER_MASK	(0xff << FPSID_IMPLEMENTER_BIT)
-> diff --git a/arch/arm/include/asm/vfpmacros.h b/arch/arm/include/asm/vfpmacros.h
-> index ba0d4cb5377e..e2e1d5a3727a 100644
-> --- a/arch/arm/include/asm/vfpmacros.h
-> +++ b/arch/arm/include/asm/vfpmacros.h
-> @@ -8,7 +8,6 @@
->  
->  #include <asm/vfp.h>
->  
-> -#ifdef CONFIG_AS_VFP_VMRS_FPINST
->  	.macro	VFPFMRX, rd, sysreg, cond
->  	vmrs\cond	\rd, \sysreg
->  	.endm
-> @@ -16,16 +15,6 @@
->  	.macro	VFPFMXR, sysreg, rd, cond
->  	vmsr\cond	\sysreg, \rd
->  	.endm
-> -#else
-> -	@ Macros to allow building with old toolkits (with no VFP support)
-> -	.macro	VFPFMRX, rd, sysreg, cond
-> -	MRC\cond	p10, 7, \rd, \sysreg, cr0, 0	@ FMRX	\rd, \sysreg
-> -	.endm
-> -
-> -	.macro	VFPFMXR, sysreg, rd, cond
-> -	MCR\cond	p10, 7, \rd, \sysreg, cr0, 0	@ FMXR	\sysreg, \rd
-> -	.endm
-> -#endif
->  
->  	@ read all the working registers back into the VFP
->  	.macro	VFPFLDMIA, base, tmp
-> diff --git a/arch/arm/vfp/vfpinstr.h b/arch/arm/vfp/vfpinstr.h
-> index 32090b0fb250..a2f0c47e0ce7 100644
-> --- a/arch/arm/vfp/vfpinstr.h
-> +++ b/arch/arm/vfp/vfpinstr.h
-> @@ -62,8 +62,6 @@
->  #define FPSCR_C (1 << 29)
->  #define FPSCR_V	(1 << 28)
->  
-> -#ifdef CONFIG_AS_VFP_VMRS_FPINST
-> -
->  #define fmrx(_vfp_) ({				\
->  	u32 __v;				\
->  	asm volatile (".fpu	vfpv2\n"	\
-> @@ -78,26 +76,6 @@
->  		     : : "r" (_var_) : "cc");	\
->  })
->  
-> -#else
-> -
-> -#define vfpreg(_vfp_) #_vfp_
-> -
-> -#define fmrx(_vfp_) ({						\
-> -	u32 __v;						\
-> -	asm volatile ("mrc p10, 7, %0, " vfpreg(_vfp_) ","	\
-> -		      "cr0, 0 @ fmrx	%0, " #_vfp_		\
-> -		     : "=r" (__v) : : "cc");			\
-> -	__v;							\
-> -})
-> -
-> -#define fmxr(_vfp_, _var_) ({					\
-> -	asm volatile ("mcr p10, 7, %0, " vfpreg(_vfp_) ","	\
-> -		      "cr0, 0 @ fmxr	" #_vfp_ ", %0"		\
-> -		     : : "r" (_var_) : "cc");			\
-> -})
-> -
-> -#endif
-> -
->  u32 vfp_single_cpdo(u32 inst, u32 fpscr);
->  u32 vfp_single_cprt(u32 inst, u32 fpscr, struct pt_regs *regs);
->  
-> -- 
-> 2.46.0.rc1.232.g9752f9e123-goog
-> 
+								Honza
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20240801004609.GA1614495%40thelio-3990X.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20241022090327.qhemczcaheaympct%40quack3.
