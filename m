@@ -1,192 +1,142 @@
-Return-Path: <clang-built-linux+bncBD5LDHXSYUMRBZ6U3W4AMGQE5TNIYLA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBKGSXPDQMGQEFNLAHNQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5246B9A9DCA
-	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2024 11:03:42 +0200 (CEST)
-Received: by mail-lj1-x237.google.com with SMTP id 38308e7fff4ca-2fb55e102b6sf39514961fa.1
-        for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2024 02:03:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1729587817; cv=pass;
+Received: from mail-yx1-xb139.google.com (mail-yx1-xb139.google.com [IPv6:2607:f8b0:4864:20::b139])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0A239BDBE77
+	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Oct 2025 02:22:02 +0200 (CEST)
+Received: by mail-yx1-xb139.google.com with SMTP id 956f58d0204a3-63cf0dbca50sf8199882d50.1
+        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Oct 2025 17:22:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1760487720; cv=pass;
         d=google.com; s=arc-20240605;
-        b=ab54sx6dUR0vuizUTQ+4GnaskqO8Y4RWy1V7PQySWXF7fRuH3lPeJ7HMtx8JIlQ1oA
-         547eb+AWlU8k6aR4OkqTezgFC5EMfREBsWkzBqRlOm2fo3KZBZpE5+x6NlhsuKVHFAQI
-         iNw5CcAf6JRgf/xHPRG0WtBujL8e6KGSlSsrddZUt68/gP2wYt3dGw6SN3mcdJBnZcPU
-         iLN3DtjLxmhU5PO9bxRt9MnnYGPTgtcrI9D1UU4GaG4ntanISTyUR5W0q1Oo8t7ig+vp
-         K2rXwAShxjxqOktTumjNPAAo6H20HogU0faUbXxJnnnkzfNhO4bCeWIV85LACnQzze4Y
-         PvwA==
+        b=f50X9mKrRo9X5b5RVWs+BA5jGrT+X5cZAnjzwBloIL6G48xbUY3P6Se+PnLr+X9Xnl
+         YPk/BLzP0QM34N2aL1gwwVONeTjDJ0bja1DTDz11l5UaoTqtHqnw5ntisBv10oxPBOcL
+         /eq26c8sWj9D6R62h+nHwHODNnPPmA5OOexwf6eEUuJ2jy426hfJWeJ1hk+CNZudaGSD
+         fcxHrfJzZHnOLqHDPlFraH0HqRKC8EaBk6TAztCE//TmxNnH5waIOzLgNqsikT/kj9Pl
+         Xe8TPkB3GMJdt51BDnocHgk2CG74AZ+Y3WkfIzq02YLP5kIJERNcEP0KI2yE/NXU6eQh
+         e5gw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=4PGRpj349dtZRcbwihqplwlxcbt8hvH5wYD/0h4T4QE=;
-        fh=ejMhGMj4jlRwj2b9YJI2gzEfzIcwjz/eATC2XVpqv4U=;
-        b=M9ryxOToK+XzzN3tKyFvAFMTKcut4F7HoOFBDPhSamSYusgcLC4FvbvfI902g3OMgN
-         pqOIcM5ueOQ8Gfi/mBVUxXOtqvhB7U60Ofrndlx4rhA9Ajp4Z9Wrl0G5i6BCFuRE07Wq
-         ACoGFgy2D1ZBJc7xj+uXVnUIvTklbpuXTE+FwJ4LQCJ8azaLJ0Yx/+koGP0+J0JWCWkM
-         TFmdwWPJGwi/t7kcVKRhCcq2tbriNtkWHuZzrY1GK9cg0wmznrOwQYXT1JKAF1nrBB8M
-         br/7IuVYSYN5FAUIeNKXUjOe/YoOSZefDnHAWSuK4k54QF1v9DKyJvf22BIRVNCu841M
-         g0PA==;
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:dkim-signature;
+        bh=iifZUtvo/T7J4r2BR9jhFcmldTlJiyTjk2QZG5CtrIw=;
+        fh=WaJYvD9gccuFFYLotSav61cCq6Vk7IVOYGT2Eg4VLII=;
+        b=f2NMgtU8GiFXPNMrBAsxWP3VrZaWCz+koZJ/CFxuuo+4baWsqWJa8ve/GdaHgXOL/c
+         hkAC3C79WhSQgKPMdZehF6aeOiz3KW2kMkr8agB2Oqtse1qdAajHazXD6hs29WEJT49W
+         eJnerZJ2SPM3uBDsmXp64rXRk8t4uoMCMpeavnG2gW4Whu03CykRpBFe5s5WEgOPxVUi
+         yLWUmTZmb0XmJiBdP61WIf4CN6JiagTDz1miqaMZicWoR8tPI4b1qotE1mQX0DyKCnqA
+         fXkegS3z8dycIX+sT3G9GzdR+L3h83U+2GDwfVSuQGbhgwzBhoPpY06VdhmKqOi4XpZa
+         376Q==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=iUTyeyi3;
-       dkim=neutral (no key) header.i=@suse.cz header.s=susede2_ed25519;
-       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=kNwMrspN;
-       dkim=neutral (no key) header.i=@suse.cz header.s=susede2_ed25519;
-       spf=pass (google.com: domain of jack@suse.cz designates 195.135.223.130 as permitted sender) smtp.mailfrom=jack@suse.cz
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=uoEDLvVM;
+       spf=pass (google.com: domain of nathan@kernel.org designates 172.234.252.31 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20230601; t=1729587817; x=1730192617; darn=lfdr.de;
+        d=googlegroups.com; s=20230601; t=1760487720; x=1761092520; darn=lfdr.de;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:x-original-authentication-results
-         :x-original-sender:in-reply-to:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4PGRpj349dtZRcbwihqplwlxcbt8hvH5wYD/0h4T4QE=;
-        b=RMXQpniUYHveHpJgkuFl4QKqI0tk6MolmDXEDPB31fjvBO6+aErtdhZyHUTL84PU+x
-         XFbIVykAbODK9rEY/A4+Qx19WpIaiv81bsp1TlQismXmaiWm3wEMuvP3YOKX0NbaVG8r
-         LF76znnIUdH6xAX09JU1roCi7mFXk1Yts+HFZhrI0HP47xEVnylHJjLKC5I6oGyN7IoX
-         gsOZugNmi5W8tHcPyEnDt1AL1+vUQRSU7LyoiMUa3t1apwPyIdQpvI+IZVztd2pDxD94
-         l162jmsnBz1ZHgb/uguk7Xb03T/LNJUYC/Bijj8WUe64QwS5C2UJpA/jD4z4WaE00Ga/
-         n2Zw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1729587817; x=1730192617;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:x-beenthere:x-gm-message-state:sender:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4PGRpj349dtZRcbwihqplwlxcbt8hvH5wYD/0h4T4QE=;
-        b=I3qUPPYv6y0O0hwfQTbEVe/KWbHaqLv0AI5GkMl7tLQsHLF4bBsdZhdTYMm5ifpvui
-         MGsPTgnwClwQPhCnF4qPzd4pxLm39YRsEVo78hJMIoL7oL2Bvz+wQUpbRYD6PRRFIG6/
-         KZ1v1g2lCQwsuXJMkXt8pw1w3rHb0LglPeQZoyShM4/LlMqTl3XKKx9M6hc7XxZvomFX
-         cio4IsMa2VvhB5+WVv8JDR7t2sYV7NJ7CTi4zV+JLz+XE1QZ8zKAf2/ScVZR6wBZ3xML
-         P6wsi9XqvSE/Fxqhmn+DLhdOTe/bJba7ylbtVDUSxE2foWXgHH5eHk+fjv/kSuhpTbtO
-         js1g==
-Sender: clang-built-linux@googlegroups.com
-X-Forwarded-Encrypted: i=2; AJvYcCXv3W7qDeWkhaC+d4kLwmtr2WNZaLNnsTKUOoRxF4NBCenx3AC9RYHPBt5lxzTYEGJ2XXgeFQ==@lfdr.de
-X-Gm-Message-State: AOJu0Yw1WKh9+Dl/7yVhFE9nba8KB/K9OREPBUmHU/OnDSjauzMlAiJh
-	RHqVjwzEsasPSUJjAjMb4JCc6nSNAcygUo86pvkJcW7j2Bb1V17p
-X-Google-Smtp-Source: AGHT+IHTsa1HITvyhFM+F7PTLZWKNe30+nJtZrfzrjJchN7DcGyh0arMrAhiw9ThsWEStN0L9NkS+w==
-X-Received: by 2002:a2e:920d:0:b0:2fb:3bef:6233 with SMTP id 38308e7fff4ca-2fb831e739fmr57343561fa.33.1729587816224;
-        Tue, 22 Oct 2024 02:03:36 -0700 (PDT)
-X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:1f11:0:b0:2fb:5214:5c92 with SMTP id 38308e7fff4ca-2fb6d6fb0b5ls12872281fa.1.-pod-prod-06-eu;
- Tue, 22 Oct 2024 02:03:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCUZPJg2UqkkEllu8HtaSZGaHNCKQxxoJAMxqr2wkSfYf2FQ6d6H1b0FfTha71T28wqvnF757WZKFh5LibAzNpshYw==@googlegroups.com
-X-Received: by 2002:a2e:be9f:0:b0:2ef:243b:6dce with SMTP id 38308e7fff4ca-2fb82e9f13emr58752651fa.10.1729587812789;
-        Tue, 22 Oct 2024 02:03:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1729587812; cv=none;
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=iifZUtvo/T7J4r2BR9jhFcmldTlJiyTjk2QZG5CtrIw=;
+        b=w5qTUB0FfdkpRjsOK1hbnJB3tqC37LnjxdRgB7naB20RmBavoIjGNNmJdCXBiazuN7
+         5bS7TQCB/6LPYHwxT30KBRmeSleTyVn5Px1Sd1RUsErmmXGV69e7Xj7CFi84uR13Ufk2
+         KY9XZB4vS4vxIDWtXmQqpyaL7pKdkUPNIPoZe1y7E9qunQQk3VVZKbVPgO2WKQKPxk3N
+         Guzkl+w+mtb+ljUdBdSZ/NbIBtRfMK6DFDx5IatF9kWBEKVEiGFhMiih7mxMjyW+XaqM
+         D8Oe+PKqvQDFdaFYXW/drjsWMwo2x+EyE0Cs6QVxkZcFZRXQXbXjvby+03spqdpk64h6
+         Xpqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760487720; x=1761092520;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
+         :x-original-authentication-results:x-original-sender:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:x-beenthere
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iifZUtvo/T7J4r2BR9jhFcmldTlJiyTjk2QZG5CtrIw=;
+        b=ElqkQt0ratqMPj51Vn+l/hHHUmMeRSYf8m1tbIbUA+NpdR3Nzek+/5VFTNnK1xLPLL
+         EGedKzxNIwf7AOjoHA1el6lWQ9XPVu/AmoYfpm7oUpxvQxf57gkd2XFCF5PJRyxiFbpY
+         1flM3LsAy3d7qOsd5zV9fAtnr9okXD+25BhoEEWMoqvYJ1TS+W3PprPa0jBcASVczPIL
+         oUo8DHiNjItNxqVTMLcjQ8g5SaFcYlBmGBHoIVH9UFS3GLSRbfWwZR483BtkztqX4Ms7
+         ilI677N6Bv3+2wXR+EuwNt4VBmuBeR22nodmLO6o4ApksQTVCPD/kjkfe9JdFjnMuk82
+         mEIA==
+X-Forwarded-Encrypted: i=2; AJvYcCXxmJ3diZYYlmBD8wSjI7mQkQTOJvcPVJqH8s25bABrbD1yd5eqp9evhoxTPmdy2MY89w5xxQ==@lfdr.de
+X-Gm-Message-State: AOJu0YxKEWwfp/ijP54u3Lw8k7VQFsxXA5oP7XYDePAvFyscKtPaSDRx
+	mNZmtM5Uz/T09RG5X2FPe3niUwxChOS5CejVldwd9oRmbdz25jt+j6jg
+X-Google-Smtp-Source: AGHT+IGHzOnukn/3Uc2eKGBIQBlmFjSvDaCQU5b0bWJe7BvS3joaYPuIeij32HXXpf2hsapXs9LU/Q==
+X-Received: by 2002:a53:eac7:0:b0:63c:ec55:3221 with SMTP id 956f58d0204a3-63cec5535f0mr11046767d50.21.1760487720554;
+        Tue, 14 Oct 2025 17:22:00 -0700 (PDT)
+X-BeenThere: clang-built-linux@googlegroups.com; h="ARHlJd78Bw5UF+uVo3qTGSJwInhcRsWfrakuGVi/dl8QrVSYuw=="
+Received: by 2002:a05:690e:4298:10b0:63c:e8ef:5666 with SMTP id
+ 956f58d0204a3-63ce8ef5810ls5629089d50.1.-pod-prod-04-us; Tue, 14 Oct 2025
+ 17:21:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUF160AzYg5ZkKL5JkylaI5MjcQeUJMJpcRYyHSSlgLPLZvzhTPMFkssoJLLSDpOvJHI4y4gJJb7Q08UmaREDbI5w==@googlegroups.com
+X-Received: by 2002:a53:c74f:0:b0:636:1a27:6aba with SMTP id 956f58d0204a3-63ccb84e889mr20740325d50.12.1760487719396;
+        Tue, 14 Oct 2025 17:21:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1760487719; cv=none;
         d=google.com; s=arc-20240605;
-        b=WQUYbQpunoU+toJ0062N+l+N5SDLHed8ltRfMUIeCNhF9hw9zRxzfOmg1xuyQD25Mw
-         9Z7intVlzL2A8KeumXPwqdJDLIecj+aNnCFyFl+e+y6YMXF+yatOliqcWku/dwHNksBA
-         3kbbrdggOQFa84d5ZNA8dfHl+dMh2GiQhf5X70ego+y/UgIXmCiMr6M52Jdqbvr0Gclj
-         0eoCBmEiVfLom/gfwA7gTTsxPtSjePgE9K0oKo4fYab2uZnCXuQBX9UcasRFt3njtZfc
-         z74vSxGl+/uuAL3pduLHxQbLu6kKFCSxb4sh8NhqfBNGeQQATMzMj3M/0LcYL0XKn7ic
-         /hTA==
+        b=LOAKh8Nw4k8NYtPOJe6RlelRb0ZFfTAtxLVaHjZRRmohpUWbAnCdpokMYmMAHlqvHw
+         uTahIScug7bcPUaIJ0kELQeg0LcZ4zx8C304FiGT2qwgWfqJ3A1z2x9ifOvNT58mLVK/
+         mG8NZyFg509/XB5dDo5tm/CKFB0C10cPqet1pFiXBAfmgtiCMMICBrxrYhurNUkQuSJl
+         AMqWqTGdpaoUdUeuKdAj3Qcm/btny/FMorBxpcMXchHmZWcAhiXm4ujWXmo7Z4K1GapN
+         O9na+XJXazPSeSxDVi5AfECK1RDVvn9nn3wCzi2Ia4KQAXJLJzCThFdU+bWx0QSeDjcS
+         I+nw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature:dkim-signature
-         :dkim-signature:dkim-signature;
-        bh=Ge4czd1YagvBRBTmt8lWVR11qX/pmlisX8kozJtR0aI=;
-        fh=l8cWAGVYtRHkuxUFcz4bizKTy00TH+zrqO8O4yuDJfM=;
-        b=hwWEzmBx30qaovEz/C/FHKEAjfjfZDtaGitm0OuHma5kwyw+0Tdet7FHB1Kcg7nf29
-         nr1Wi8d+nDpIBkk+CXoX6w9I/7MpmcLGpXlxmn+dswB1LhzExg7pEGy8bY+e08PLWRXj
-         bgYWmoGTdnoFjsnfUj7Oi2nNyi5wjeYobNmOFnfn3bhzYwcHAcOt79uEX5+AT+oxwvJc
-         DqQVFfAP0g9d7QjlnNQmwvw18J6NRiPU1YwLRNRntb1lKTglGC0fvImNPn9QWyW12D+S
-         PV9JVmpN4is7xTaoPtKf0+t+jbDMplFuMRfsKE4QDH+UAi8Y07aPUtQAhIlzteNXezDB
-         b05A==;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :dkim-signature;
+        bh=2Ya1iHobdldggBQlQvx6CQfKC8LhONqqlkvfoWoP9+w=;
+        fh=qGNAJk9gU4JqHBED14UEZPwtwYd0njAydNXfJ56fAcU=;
+        b=Oo3cus/e5HS5HOHsbOC4jYnLvpCPMMxF5mQd9La7wqW0CZpN4eaWJoaIaYC+jK6Rjw
+         nOPoX8iRSRLZ2k+9h7PH1l2c1915422WKxxi/BB6qRc7auwzzmUg/hAjBCSgZOuaYRxy
+         bSyq/sAJm9DNUjnoG5CR1SEg356JC9D3MPZARhKFnAoZyjDLDoylx4b6+Y7zZy2lIFdp
+         cK+3XHJIYvjuQ4oa0suLEXwC7QZUnNuEmfPl7MpV3bHJXEz9zoi8vZzhnKDvxDQNRxDp
+         HrUriC4ZvTStAvZ1lsVhmECba/2nw3vc5iIZHosik4JIcN2/fZiABfNYc6QKzW5JmMe4
+         KJlw==;
         dara=google.com
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=iUTyeyi3;
-       dkim=neutral (no key) header.i=@suse.cz header.s=susede2_ed25519;
-       dkim=pass header.i=@suse.cz header.s=susede2_rsa header.b=kNwMrspN;
-       dkim=neutral (no key) header.i=@suse.cz header.s=susede2_ed25519;
-       spf=pass (google.com: domain of jack@suse.cz designates 195.135.223.130 as permitted sender) smtp.mailfrom=jack@suse.cz
-Received: from smtp-out1.suse.de (smtp-out1.suse.de. [195.135.223.130])
-        by gmr-mx.google.com with ESMTPS id 38308e7fff4ca-2fb9ae3d7bbsi1086131fa.6.2024.10.22.02.03.32
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=uoEDLvVM;
+       spf=pass (google.com: domain of nathan@kernel.org designates 172.234.252.31 as permitted sender) smtp.mailfrom=nathan@kernel.org;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kernel.org
+Received: from sea.source.kernel.org (sea.source.kernel.org. [172.234.252.31])
+        by gmr-mx.google.com with ESMTPS id 956f58d0204a3-63d01a51f10si651219d50.2.2025.10.14.17.21.59
+        for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Oct 2024 02:03:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jack@suse.cz designates 195.135.223.130 as permitted sender) client-ip=195.135.223.130;
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id D2C7B21EA9;
-	Tue, 22 Oct 2024 09:03:31 +0000 (UTC)
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C5E6513AC9;
-	Tue, 22 Oct 2024 09:03:31 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 1lhLMGNqF2fDBwAAD6G6ig
-	(envelope-from <jack@suse.cz>); Tue, 22 Oct 2024 09:03:31 +0000
-Received: by quack3.suse.cz (Postfix, from userid 1000)
-	id 8C6D7A086F; Tue, 22 Oct 2024 11:03:27 +0200 (CEST)
-Date: Tue, 22 Oct 2024 11:03:27 +0200
-From: Jan Kara <jack@suse.cz>
-To: syzbot <syzbot+0dd5b81275fa083055d7@syzkaller.appspotmail.com>
-Cc: adilger.kernel@dilger.ca, brauner@kernel.org,
-	clang-built-linux@googlegroups.com, harshadshirwadkar@gmail.com,
-	jack@suse.cz, linux-ext4@vger.kernel.org,
-	linux-kernel@vger.kernel.org, nathan@kernel.org,
-	ndesaulniers@google.com, syzkaller-bugs@googlegroups.com,
-	tytso@mit.edu
-Subject: Re: [syzbot] [ext4?] INFO: task hung in ext4_stop_mmpd
-Message-ID: <20241022090327.qhemczcaheaympct@quack3>
-References: <000000000000690606061ce1fe7e@google.com>
- <6716e5a0.050a0220.10f4f4.00d2.GAE@google.com>
+        Tue, 14 Oct 2025 17:21:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nathan@kernel.org designates 172.234.252.31 as permitted sender) client-ip=172.234.252.31;
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5BDE344078;
+	Wed, 15 Oct 2025 00:21:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A30DC4CEE7;
+	Wed, 15 Oct 2025 00:21:56 +0000 (UTC)
+Date: Tue, 14 Oct 2025 17:21:54 -0700
+From: "'Nathan Chancellor' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Vishal Chourasia <vishalc@linux.ibm.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, maddy@linux.ibm.com,
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>
+Subject: Re: [PATCH] arch/powerpc: Remove .interp section in vmlinux
+Message-ID: <20251015002154.GA2300901@ax162>
+References: <eeaf8fd6628a75d19872ab31cf7e7179e2baef5e.1751366959.git.christophe.leroy@csgroup.eu>
+ <20251013040148.560439-1-vishalc@linux.ibm.com>
+ <2b4a3215-1620-40c9-a00c-ca833ebbb7b6@csgroup.eu>
+ <aOypxKMzsLR5tAtv@linux.ibm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <6716e5a0.050a0220.10f4f4.00d2.GAE@google.com>
-X-Rspamd-Queue-Id: D2C7B21EA9
-X-Spam-Level: 
-X-Spamd-Result: default: False [-1.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	URI_HIDDEN_PATH(1.00)[https://syzkaller.appspot.com/x/.config?x=dd14c10ec1b6af25];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCVD_TLS_LAST(0.00)[];
-	RCVD_COUNT_THREE(0.00)[3];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	RCPT_COUNT_TWELVE(0.00)[12];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[dilger.ca,kernel.org,googlegroups.com,gmail.com,suse.cz,vger.kernel.org,google.com,mit.edu];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.cz:dkim,suse.cz:email];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	TAGGED_RCPT(0.00)[0dd5b81275fa083055d7];
-	ASN(0.00)[asn:25478, ipnet:::/0, country:RU];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	MISSING_XM_UA(0.00)[];
-	SUBJECT_HAS_QUESTION(0.00)[]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Score: -1.51
-X-Spam-Flag: NO
-X-Original-Sender: jack@suse.cz
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <aOypxKMzsLR5tAtv@linux.ibm.com>
+X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@suse.cz header.s=susede2_rsa header.b=iUTyeyi3;       dkim=neutral
- (no key) header.i=@suse.cz header.s=susede2_ed25519;       dkim=pass
- header.i=@suse.cz header.s=susede2_rsa header.b=kNwMrspN;       dkim=neutral
- (no key) header.i=@suse.cz header.s=susede2_ed25519;       spf=pass
- (google.com: domain of jack@suse.cz designates 195.135.223.130 as permitted
- sender) smtp.mailfrom=jack@suse.cz
+ header.i=@kernel.org header.s=k20201202 header.b=uoEDLvVM;       spf=pass
+ (google.com: domain of nathan@kernel.org designates 172.234.252.31 as
+ permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass
+ (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kernel.org
+X-Original-From: Nathan Chancellor <nathan@kernel.org>
+Reply-To: Nathan Chancellor <nathan@kernel.org>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -199,35 +149,63 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon 21-10-24 16:37:04, syzbot wrote:
-> syzbot suspects this issue was fixed by commit:
-> 
-> commit d3476f3dad4ad68ae5f6b008ea6591d1520da5d8
-> Author: Jan Kara <jack@suse.cz>
-> Date:   Mon Aug 5 20:12:41 2024 +0000
-> 
->     ext4: don't set SB_RDONLY after filesystem errors
-> 
-> bisection log:  https://syzkaller.appspot.com/x/bisect.txt?x=10d04640580000
-> start commit:   4a39ac5b7d62 Merge tag 'random-6.12-rc1-for-linus' of git:..
-> git tree:       upstream
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=dd14c10ec1b6af25
-> dashboard link: https://syzkaller.appspot.com/bug?extid=0dd5b81275fa083055d7
-> syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=14fbd177980000
-> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=108ea607980000
-> 
-> If the result looks correct, please mark the issue as fixed by replying with:
+Hi Vishal,
 
-Looks plausible:
+On Mon, Oct 13, 2025 at 12:57:00PM +0530, Vishal Chourasia wrote:
+> On Mon, Oct 13, 2025 at 08:46:48AM +0200, Christophe Leroy wrote:
+> > +CLANG ppl
+> >=20
+> > Hi,
+> >=20
+> > Le 13/10/2025 =C3=A0 06:01, Vishal Chourasia a =C3=A9crit=C2=A0:
+> > > While debugging a ppc64le QEMU guest on an x86_64 host, I observed GD=
+B crashes
+> > > when attempting to attach to the remote target:
+> > >=20
+> > > (gdb) target remote :1234
+> > >=20
+> > > Investigation revealed that cross-compiling the Linux kernel for ppc6=
+4le on an
+> > > x86_64 host using Clang produces a vmlinux binary containing an empty=
+ .interp
+> > > section. This empty .interp section is responsible for the GDB crashe=
+s.
+> >=20
+> > Which version of CLANG is it ?
+> (i) =E2=9D=AF clang --version
+> clang version 21.0.0git (https://github.com/llvm/llvm-project.git a80bccc=
+6847be104948f46d313f03ac6b9ccb292)
+>=20
+> >=20
+> > >=20
+> > > This issue does not occur when:
+> > > - Building for ppc64le target using GCC on x86_64 host
+> > > - Building for ppc64le target using Clang on ppc64le host
+> >=20
+> > Is it the same CLANG version ?
+> # clang --version
+> clang version 22.0.0git (https://github.com/llvm/llvm-project.git 2f755c5=
+43ab357bd83235592fcee37fa391cdd9d)
+>=20
+> >=20
+> > > - Building for ppc64le target using GCC on ppc64le host
+> > >=20
+> > > For details refer [1]
+> > >=20
+> > > [1] https://sourceware.org/bugzilla/show_bug.cgi?id=3D33481
 
-#syz fix: ext4: don't set SB_RDONLY after filesystem errors
+In this bug report, you mention using LLVM=3D1. Does the issue happen if
+you use GNU ld (ld.bfd) via LD (i.e., LD=3Dpowerpc64le-linux-gnu-ld or
+equivalent) over ld.lld from LLVM=3D1? This sounds more likely to be a
+linker difference rather than a compiler difference.
 
-								Honza
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+Cheers,
+Nathan
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20241022090327.qhemczcaheaympct%40quack3.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion visit https://groups.google.com/d/msgid/clang-built=
+-linux/20251015002154.GA2300901%40ax162.
