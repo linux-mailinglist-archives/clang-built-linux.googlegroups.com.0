@@ -1,117 +1,114 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBKGSXPDQMGQEFNLAHNQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBMGPX7DQMGQEFUKZWUA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yx1-xb139.google.com (mail-yx1-xb139.google.com [IPv6:2607:f8b0:4864:20::b139])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0A239BDBE77
-	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Oct 2025 02:22:02 +0200 (CEST)
-Received: by mail-yx1-xb139.google.com with SMTP id 956f58d0204a3-63cf0dbca50sf8199882d50.1
-        for <lists+clang-built-linux@lfdr.de>; Tue, 14 Oct 2025 17:22:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1760487720; cv=pass;
+Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 698DEBE02C1
+	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Oct 2025 20:28:02 +0200 (CEST)
+Received: by mail-il1-x13c.google.com with SMTP id e9e14a558f8ab-42f9bf61913sf142783015ab.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Oct 2025 11:28:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1760552881; cv=pass;
         d=google.com; s=arc-20240605;
-        b=f50X9mKrRo9X5b5RVWs+BA5jGrT+X5cZAnjzwBloIL6G48xbUY3P6Se+PnLr+X9Xnl
-         YPk/BLzP0QM34N2aL1gwwVONeTjDJ0bja1DTDz11l5UaoTqtHqnw5ntisBv10oxPBOcL
-         /eq26c8sWj9D6R62h+nHwHODNnPPmA5OOexwf6eEUuJ2jy426hfJWeJ1hk+CNZudaGSD
-         fcxHrfJzZHnOLqHDPlFraH0HqRKC8EaBk6TAztCE//TmxNnH5waIOzLgNqsikT/kj9Pl
-         Xe8TPkB3GMJdt51BDnocHgk2CG74AZ+Y3WkfIzq02YLP5kIJERNcEP0KI2yE/NXU6eQh
-         e5gw==
+        b=Bk8/O0zqNq0LjsioXbNK8fSmujnk4eDwGiYbN4fLT0bnh59tFAA6lHXDlyRhZGyS+G
+         d22oVRxWx0AilbKVg1sEAwZdqpgf8++qIRx4EtBP/3msfdE8iluf1dn4x7FpL4OI+wYV
+         oThqqBfZTdA00MToLlrABBn26olg68Wg9bLlMUB6MD8RE7cfShaUTMbKsQ8sVLaeKNkd
+         7vzZXCpnZKfDiiApMH7feHQ5f+XsyAv9foCraS/aAwlPZfgwySEYRrCNMf8K5+21591t
+         ZE5RgjZG9SRVJPSOdixZoIAzd2JBu3pwSPOxRgJUsWk2VHz8V4YuBlVTadfTrvykUFQg
+         GOMA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:dkim-signature;
-        bh=iifZUtvo/T7J4r2BR9jhFcmldTlJiyTjk2QZG5CtrIw=;
-        fh=WaJYvD9gccuFFYLotSav61cCq6Vk7IVOYGT2Eg4VLII=;
-        b=f2NMgtU8GiFXPNMrBAsxWP3VrZaWCz+koZJ/CFxuuo+4baWsqWJa8ve/GdaHgXOL/c
-         hkAC3C79WhSQgKPMdZehF6aeOiz3KW2kMkr8agB2Oqtse1qdAajHazXD6hs29WEJT49W
-         eJnerZJ2SPM3uBDsmXp64rXRk8t4uoMCMpeavnG2gW4Whu03CykRpBFe5s5WEgOPxVUi
-         yLWUmTZmb0XmJiBdP61WIf4CN6JiagTDz1miqaMZicWoR8tPI4b1qotE1mQX0DyKCnqA
-         fXkegS3z8dycIX+sT3G9GzdR+L3h83U+2GDwfVSuQGbhgwzBhoPpY06VdhmKqOi4XpZa
-         376Q==;
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=mFSrSDrEIrlDJ/xOQRcKAKwEu4YmIgjY8V/r+As+RaQ=;
+        fh=fsTmBk3gq4lE0DdSl02NI/PKtCSlfEGf7jQUH7rqhI4=;
+        b=LtRRfuDrwFU2boueqeb2XlOKV+3uuUuPf51iGROIJdgXhuCXjBa1U6yodoQH0w/WXB
+         4rsvKgmMwVyXaVDHBwWfAobwrFmcIlGZzjSlLHCiKo3e327ZBMKS900JdOLRzR00+aP+
+         rY6FFJ8QW7y9mSSOuZ7hT7yiqKY5rrd7Q6Vx2YXutpi5eIoglH+9/bPKYdb3GLgPIZ1z
+         EMDp+6aHACE1wVDo3agPgO34id1CEgjFZLeEL9GGWhLuE8tvSMXqiNtndaN+wwkL7iJw
+         xJHI7PERcCGP0U2vgYBTHxO1r3PoMO5Mz2ZHle+ZDLAQgKiwEAyXak8xsqCBOi7DDbG9
+         Yk5A==;
         darn=lfdr.de
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=uoEDLvVM;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=tvsXYo3t;
        spf=pass (google.com: domain of nathan@kernel.org designates 172.234.252.31 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20230601; t=1760487720; x=1761092520; darn=lfdr.de;
+        d=googlegroups.com; s=20230601; t=1760552881; x=1761157681; darn=lfdr.de;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=iifZUtvo/T7J4r2BR9jhFcmldTlJiyTjk2QZG5CtrIw=;
-        b=w5qTUB0FfdkpRjsOK1hbnJB3tqC37LnjxdRgB7naB20RmBavoIjGNNmJdCXBiazuN7
-         5bS7TQCB/6LPYHwxT30KBRmeSleTyVn5Px1Sd1RUsErmmXGV69e7Xj7CFi84uR13Ufk2
-         KY9XZB4vS4vxIDWtXmQqpyaL7pKdkUPNIPoZe1y7E9qunQQk3VVZKbVPgO2WKQKPxk3N
-         Guzkl+w+mtb+ljUdBdSZ/NbIBtRfMK6DFDx5IatF9kWBEKVEiGFhMiih7mxMjyW+XaqM
-         D8Oe+PKqvQDFdaFYXW/drjsWMwo2x+EyE0Cs6QVxkZcFZRXQXbXjvby+03spqdpk64h6
-         Xpqw==
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mFSrSDrEIrlDJ/xOQRcKAKwEu4YmIgjY8V/r+As+RaQ=;
+        b=pMRrjBqygkfhiBm2Qxyb6reYvHohadvVBaoTDRz5dnkl3BJ4sGrX4XvUropxrZlpUI
+         Ffohj4zlrKarTqQOrqsYNSeLSSOoFj0wW6gE9Oe2bbOUGj8EDbQ/0YsaSX3Mi2Seycjk
+         9IIT+zCRkbuGCgmV2e3sD0NMqimccQxXyQXj86yuYqH05JczN+cLUGpOxsJzftFOBPLo
+         X9YSVcyt9bQ4dWLqzqRFRJQh20+bgb78f3zgqt+MDMhVqjAhcPf23YWsKteagZTQXu1a
+         zyvMSFLh/sRBl1arQS4ZQkjwuI4BwdS57FJdS2JCm2uDGmjX/S39MeA/Dd+KqHpcfY8Z
+         NO5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760487720; x=1761092520;
+        d=1e100.net; s=20230601; t=1760552881; x=1761157681;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :x-spam-checked-in-group:list-id:mailing-list:precedence:reply-to
          :x-original-authentication-results:x-original-sender:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:x-beenthere
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iifZUtvo/T7J4r2BR9jhFcmldTlJiyTjk2QZG5CtrIw=;
-        b=ElqkQt0ratqMPj51Vn+l/hHHUmMeRSYf8m1tbIbUA+NpdR3Nzek+/5VFTNnK1xLPLL
-         EGedKzxNIwf7AOjoHA1el6lWQ9XPVu/AmoYfpm7oUpxvQxf57gkd2XFCF5PJRyxiFbpY
-         1flM3LsAy3d7qOsd5zV9fAtnr9okXD+25BhoEEWMoqvYJ1TS+W3PprPa0jBcASVczPIL
-         oUo8DHiNjItNxqVTMLcjQ8g5SaFcYlBmGBHoIVH9UFS3GLSRbfWwZR483BtkztqX4Ms7
-         ilI677N6Bv3+2wXR+EuwNt4VBmuBeR22nodmLO6o4ApksQTVCPD/kjkfe9JdFjnMuk82
-         mEIA==
-X-Forwarded-Encrypted: i=2; AJvYcCXxmJ3diZYYlmBD8wSjI7mQkQTOJvcPVJqH8s25bABrbD1yd5eqp9evhoxTPmdy2MY89w5xxQ==@lfdr.de
-X-Gm-Message-State: AOJu0YxKEWwfp/ijP54u3Lw8k7VQFsxXA5oP7XYDePAvFyscKtPaSDRx
-	mNZmtM5Uz/T09RG5X2FPe3niUwxChOS5CejVldwd9oRmbdz25jt+j6jg
-X-Google-Smtp-Source: AGHT+IGHzOnukn/3Uc2eKGBIQBlmFjSvDaCQU5b0bWJe7BvS3joaYPuIeij32HXXpf2hsapXs9LU/Q==
-X-Received: by 2002:a53:eac7:0:b0:63c:ec55:3221 with SMTP id 956f58d0204a3-63cec5535f0mr11046767d50.21.1760487720554;
-        Tue, 14 Oct 2025 17:22:00 -0700 (PDT)
-X-BeenThere: clang-built-linux@googlegroups.com; h="ARHlJd78Bw5UF+uVo3qTGSJwInhcRsWfrakuGVi/dl8QrVSYuw=="
-Received: by 2002:a05:690e:4298:10b0:63c:e8ef:5666 with SMTP id
- 956f58d0204a3-63ce8ef5810ls5629089d50.1.-pod-prod-04-us; Tue, 14 Oct 2025
- 17:21:59 -0700 (PDT)
-X-Forwarded-Encrypted: i=2; AJvYcCUF160AzYg5ZkKL5JkylaI5MjcQeUJMJpcRYyHSSlgLPLZvzhTPMFkssoJLLSDpOvJHI4y4gJJb7Q08UmaREDbI5w==@googlegroups.com
-X-Received: by 2002:a53:c74f:0:b0:636:1a27:6aba with SMTP id 956f58d0204a3-63ccb84e889mr20740325d50.12.1760487719396;
-        Tue, 14 Oct 2025 17:21:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1760487719; cv=none;
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:x-beenthere:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mFSrSDrEIrlDJ/xOQRcKAKwEu4YmIgjY8V/r+As+RaQ=;
+        b=TpdmtmUhsB9yO29Z60szNUJctqc247rcVFjV3uJg8KDi7cemy7KblnNz35QPjJb9sM
+         dPxxaLx2RhHKB+v33C/Mher8xF8iz8TXV3nPggfZmKg+X6tl6NqBS8GUfiOhFQ8K1Lgj
+         G7q7uOYZs2dRN/NIvHJpUD39iLotfMik/lwwWEY4CwIMAoKuz9WJaUTP/pAEVwlSk+kh
+         YcIyxSq6QlJpoeD7jGKeuKY9/ev1HKTasAiwEwCSNf6PnpStuP/MinQB9yXte3w0mOeC
+         Pxla/Bl3kxu3PuEIeK3IDFD+zDUEaMy8pp0eSbmDyaVp1aTi150yk6q5KfyN+f/EnZdO
+         6Cqg==
+X-Forwarded-Encrypted: i=2; AJvYcCUpTc+3cjEg1aYvWq4d8wh03cbcdBUS/C/Iw4GNZx5Hv6/an008+A19xKnkWmTqX9xnLcIb7A==@lfdr.de
+X-Gm-Message-State: AOJu0YwVG/8Vxax0OUCtDHEkprv0Wa1gifezcrG4P1gxbLCRg8y4mQDQ
+	VmcGZEVeEt6VNuMW1xZmBhXlbXBlFXAhmFLI7G2/rGo4VAa7ycjaKwG7
+X-Google-Smtp-Source: AGHT+IGe28MGJrS4Q9GT2Rt3mXcIAK1WUEgAkfHO03xOTa8I/jaZcoj7cCAzW5/J/EkPl7iHFiyhAQ==
+X-Received: by 2002:a05:6e02:450a:10b0:430:9104:3894 with SMTP id e9e14a558f8ab-430910439f9mr125565205ab.30.1760552880566;
+        Wed, 15 Oct 2025 11:28:00 -0700 (PDT)
+X-BeenThere: clang-built-linux@googlegroups.com; h="ARHlJd6cvLO4AEjCryrDg7D5ALgbPEyHeQE2sS9P1lzp92VrgQ=="
+Received: by 2002:a92:d841:0:b0:42f:8b27:82bd with SMTP id e9e14a558f8ab-42f90b3610cls45832585ab.2.-pod-prod-04-us;
+ Wed, 15 Oct 2025 11:27:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCVpSxGGOxqhy52nFyA9WRF2ExyWFyJoY7S+sor5R/4SE7v9EJG6ieHDXRxSN+D4OGFcWTo/Pxy/txnEwqRjGfOXVQ==@googlegroups.com
+X-Received: by 2002:a05:6e02:2142:b0:430:aec5:9bee with SMTP id e9e14a558f8ab-430aec59e9cmr30172575ab.7.1760552879554;
+        Wed, 15 Oct 2025 11:27:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1760552879; cv=none;
         d=google.com; s=arc-20240605;
-        b=LOAKh8Nw4k8NYtPOJe6RlelRb0ZFfTAtxLVaHjZRRmohpUWbAnCdpokMYmMAHlqvHw
-         uTahIScug7bcPUaIJ0kELQeg0LcZ4zx8C304FiGT2qwgWfqJ3A1z2x9ifOvNT58mLVK/
-         mG8NZyFg509/XB5dDo5tm/CKFB0C10cPqet1pFiXBAfmgtiCMMICBrxrYhurNUkQuSJl
-         AMqWqTGdpaoUdUeuKdAj3Qcm/btny/FMorBxpcMXchHmZWcAhiXm4ujWXmo7Z4K1GapN
-         O9na+XJXazPSeSxDVi5AfECK1RDVvn9nn3wCzi2Ia4KQAXJLJzCThFdU+bWx0QSeDjcS
-         I+nw==
+        b=YDFZGr8EX2AjFbzSauqFS5p7TsNW8hTjHXeJxr2S18KvElvXYXjbzAkLPO5PYJAPqZ
+         1B9GX3UrSo7fF+ZZiVXThWzSWBhIS/olqJE+nUyC/mclQsMI/E78dvkWdBN9LFaLuqbA
+         tUOBqnDL04NNXgYjVB/TGy6TtULXfmxzq80fhyqpSfXVUWlB7szFu3kzKZIBM7RWulnk
+         IL60Bk8D8VO6dNcZr8lID/LufX7edaJno8TKR53wvweHUB26YggFynAoHpZ0OElD1/y7
+         04xnEJfHDTcw1eHlB2lEVLLbz0k+sy0kRELYy8H0etjXwE0Ro1LQpSxR8OjzMqBixAWD
+         Kwqw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :dkim-signature;
-        bh=2Ya1iHobdldggBQlQvx6CQfKC8LhONqqlkvfoWoP9+w=;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=UT1DXpH6stHZzpuLlVt523N6/w2vc+6EjpAG1UNrdqY=;
         fh=qGNAJk9gU4JqHBED14UEZPwtwYd0njAydNXfJ56fAcU=;
-        b=Oo3cus/e5HS5HOHsbOC4jYnLvpCPMMxF5mQd9La7wqW0CZpN4eaWJoaIaYC+jK6Rjw
-         nOPoX8iRSRLZ2k+9h7PH1l2c1915422WKxxi/BB6qRc7auwzzmUg/hAjBCSgZOuaYRxy
-         bSyq/sAJm9DNUjnoG5CR1SEg356JC9D3MPZARhKFnAoZyjDLDoylx4b6+Y7zZy2lIFdp
-         cK+3XHJIYvjuQ4oa0suLEXwC7QZUnNuEmfPl7MpV3bHJXEz9zoi8vZzhnKDvxDQNRxDp
-         HrUriC4ZvTStAvZ1lsVhmECba/2nw3vc5iIZHosik4JIcN2/fZiABfNYc6QKzW5JmMe4
-         KJlw==;
+        b=GXDO9mjOGmZ844W7ew6X+Y079JO26Usr+aC+zY7EBUI+I+FbPGKjgFsWV8TaZlKyJe
+         ZOXu3RKoS2BM2S36yBJy2gVwBkTWgug+KLPhmkQg1/byO+Zzw8yk+y6w9TY8ghhU20K0
+         uT9efOkvhwr50Uop4kXzWnqPwUfCJz8jLSCQE9lYzVDZIqjw68ZN2Vl59SbxxbCviEpt
+         c/HeeVqshEK79FykwzGA1WcMhq0eaaLwCpIqHdNnUuVqXVTbh3vFKjSc+Be1jO4i8bKd
+         IDph+tGL9jFjrniRNM73gr5Il7/OerbCd+LFqZEyzUbqDwIhNbNbfz2wl4TWAnupFKgP
+         pF9g==;
         dara=google.com
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=uoEDLvVM;
+       dkim=pass header.i=@kernel.org header.s=k20201202 header.b=tvsXYo3t;
        spf=pass (google.com: domain of nathan@kernel.org designates 172.234.252.31 as permitted sender) smtp.mailfrom=nathan@kernel.org;
        dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kernel.org
 Received: from sea.source.kernel.org (sea.source.kernel.org. [172.234.252.31])
-        by gmr-mx.google.com with ESMTPS id 956f58d0204a3-63d01a51f10si651219d50.2.2025.10.14.17.21.59
+        by gmr-mx.google.com with ESMTPS id e9e14a558f8ab-430b518660asi243925ab.5.2025.10.15.11.27.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Oct 2025 17:21:59 -0700 (PDT)
+        Wed, 15 Oct 2025 11:27:59 -0700 (PDT)
 Received-SPF: pass (google.com: domain of nathan@kernel.org designates 172.234.252.31 as permitted sender) client-ip=172.234.252.31;
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5BDE344078;
-	Wed, 15 Oct 2025 00:21:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A30DC4CEE7;
-	Wed, 15 Oct 2025 00:21:56 +0000 (UTC)
-Date: Tue, 14 Oct 2025 17:21:54 -0700
+	by sea.source.kernel.org (Postfix) with ESMTP id C495F405B2;
+	Wed, 15 Oct 2025 18:27:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D958C4CEF8;
+	Wed, 15 Oct 2025 18:27:56 +0000 (UTC)
+Date: Wed, 15 Oct 2025 11:27:54 -0700
 From: "'Nathan Chancellor' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Vishal Chourasia <vishalc@linux.ibm.com>
 Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, maddy@linux.ibm.com,
@@ -119,19 +116,20 @@ Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, maddy@linux.ibm.com,
 	clang-built-linux@googlegroups.com,
 	"llvm@lists.linux.dev" <llvm@lists.linux.dev>
 Subject: Re: [PATCH] arch/powerpc: Remove .interp section in vmlinux
-Message-ID: <20251015002154.GA2300901@ax162>
+Message-ID: <20251015182754.GA1055324@ax162>
 References: <eeaf8fd6628a75d19872ab31cf7e7179e2baef5e.1751366959.git.christophe.leroy@csgroup.eu>
  <20251013040148.560439-1-vishalc@linux.ibm.com>
  <2b4a3215-1620-40c9-a00c-ca833ebbb7b6@csgroup.eu>
  <aOypxKMzsLR5tAtv@linux.ibm.com>
+ <20251015002154.GA2300901@ax162>
+ <aO8XEhMdT19UOPlp@linux.ibm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <aOypxKMzsLR5tAtv@linux.ibm.com>
+In-Reply-To: <aO8XEhMdT19UOPlp@linux.ibm.com>
 X-Original-Sender: nathan@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=k20201202 header.b=uoEDLvVM;       spf=pass
+ header.i=@kernel.org header.s=k20201202 header.b=tvsXYo3t;       spf=pass
  (google.com: domain of nathan@kernel.org designates 172.234.252.31 as
  permitted sender) smtp.mailfrom=nathan@kernel.org;       dmarc=pass
  (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=kernel.org
@@ -149,63 +147,50 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Vishal,
+On Wed, Oct 15, 2025 at 09:07:54AM +0530, Vishal Chourasia wrote:
+> Hello Nathan,
+> 
+> On Tue, Oct 14, 2025 at 05:21:54PM -0700, Nathan Chancellor wrote:
+> > In this bug report, you mention using LLVM=1. Does the issue happen if
+> > you use GNU ld (ld.bfd) via LD (i.e., LD=powerpc64le-linux-gnu-ld or
+> > equivalent) over ld.lld from LLVM=1? This sounds more likely to be a
+> > linker difference rather than a compiler difference.
+> 
+> Thank you for the insight.
+> 
+> Yes, when using powerpc64le-linux-gnu-ld linker .interp section is not
+> emitted.
+> 
+> Command:
+> $ make LLVM=1 ARCH=powerpc LD=powerpc64le-linux-gnu-ld -j 8 zImage
+> $ llvm-readelf -p .comment vmlinux
+> 
+> String dump of section '.comment':
+> [     0] clang version 22.0.0git (https://github.com/llvm/llvm-project.git 7314565281ec28b745502c3f429fd431e16673eb)
+> 
+> $ llvm-readelf -p .interp vmlinux                                                                                    
+> llvm-readelf: warning: 'vmlinux': could not find section '.interp'
 
-On Mon, Oct 13, 2025 at 12:57:00PM +0530, Vishal Chourasia wrote:
-> On Mon, Oct 13, 2025 at 08:46:48AM +0200, Christophe Leroy wrote:
-> > +CLANG ppl
-> >=20
-> > Hi,
-> >=20
-> > Le 13/10/2025 =C3=A0 06:01, Vishal Chourasia a =C3=A9crit=C2=A0:
-> > > While debugging a ppc64le QEMU guest on an x86_64 host, I observed GD=
-B crashes
-> > > when attempting to attach to the remote target:
-> > >=20
-> > > (gdb) target remote :1234
-> > >=20
-> > > Investigation revealed that cross-compiling the Linux kernel for ppc6=
-4le on an
-> > > x86_64 host using Clang produces a vmlinux binary containing an empty=
- .interp
-> > > section. This empty .interp section is responsible for the GDB crashe=
-s.
-> >=20
-> > Which version of CLANG is it ?
-> (i) =E2=9D=AF clang --version
-> clang version 21.0.0git (https://github.com/llvm/llvm-project.git a80bccc=
-6847be104948f46d313f03ac6b9ccb292)
->=20
-> >=20
-> > >=20
-> > > This issue does not occur when:
-> > > - Building for ppc64le target using GCC on x86_64 host
-> > > - Building for ppc64le target using Clang on ppc64le host
-> >=20
-> > Is it the same CLANG version ?
-> # clang --version
-> clang version 22.0.0git (https://github.com/llvm/llvm-project.git 2f755c5=
-43ab357bd83235592fcee37fa391cdd9d)
->=20
-> >=20
-> > > - Building for ppc64le target using GCC on ppc64le host
-> > >=20
-> > > For details refer [1]
-> > >=20
-> > > [1] https://sourceware.org/bugzilla/show_bug.cgi?id=3D33481
-
-In this bug report, you mention using LLVM=3D1. Does the issue happen if
-you use GNU ld (ld.bfd) via LD (i.e., LD=3Dpowerpc64le-linux-gnu-ld or
-equivalent) over ld.lld from LLVM=3D1? This sounds more likely to be a
-linker difference rather than a compiler difference.
+Thanks for confirming. Does this fix the issue for you? It appears to
+work for me.
 
 Cheers,
 Nathan
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion visit https://groups.google.com/d/msgid/clang-built=
--linux/20251015002154.GA2300901%40ax162.
+diff --git a/arch/powerpc/kernel/vmlinux.lds.S b/arch/powerpc/kernel/vmlinux.lds.S
+index de6ee7d35cff..15850296c0a9 100644
+--- a/arch/powerpc/kernel/vmlinux.lds.S
++++ b/arch/powerpc/kernel/vmlinux.lds.S
+@@ -330,7 +330,6 @@ SECTIONS
+ 	}
+ 	.hash : AT(ADDR(.hash) - LOAD_OFFSET) { *(.hash) }
+ 	.gnu.hash : AT(ADDR(.gnu.hash) - LOAD_OFFSET) { *(.gnu.hash) }
+-	.interp : AT(ADDR(.interp) - LOAD_OFFSET) { *(.interp) }
+ 	.rela.dyn : AT(ADDR(.rela.dyn) - LOAD_OFFSET)
+ 	{
+ 		__rela_dyn_start = .;
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion visit https://groups.google.com/d/msgid/clang-built-linux/20251015182754.GA1055324%40ax162.
